@@ -125,6 +125,9 @@ namespace Pulumi.AzureNative.OffAzure
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:HypervClusterControllerCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:HypervClusterControllerCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:HypervClusterControllerCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20230606:offazure:HypervClusterControllerCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20231001preview:offazure:HypervClusterControllerCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20240501preview:offazure:HypervClusterControllerCluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

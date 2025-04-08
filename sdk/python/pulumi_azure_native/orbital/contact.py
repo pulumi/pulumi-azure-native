@@ -237,7 +237,7 @@ class Contact(pulumi.CustomResource):
             __props__.__dict__["tx_end_time"] = None
             __props__.__dict__["tx_start_time"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:orbital/v20220301:Contact"), pulumi.Alias(type_="azure-native:orbital/v20221101:Contact")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:orbital/v20220301:Contact"), pulumi.Alias(type_="azure-native:orbital/v20221101:Contact"), pulumi.Alias(type_="azure-native_orbital_v20220301:orbital:Contact"), pulumi.Alias(type_="azure-native_orbital_v20221101:orbital:Contact")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Contact, __self__).__init__(
             'azure-native:orbital:Contact',

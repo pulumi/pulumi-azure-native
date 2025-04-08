@@ -235,7 +235,7 @@ class Module(pulumi.CustomResource):
             __props__.__dict__["size_in_bytes"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20151031:Module"), pulumi.Alias(type_="azure-native:automation/v20190601:Module"), pulumi.Alias(type_="azure-native:automation/v20200113preview:Module"), pulumi.Alias(type_="azure-native:automation/v20220808:Module"), pulumi.Alias(type_="azure-native:automation/v20230515preview:Module"), pulumi.Alias(type_="azure-native:automation/v20231101:Module"), pulumi.Alias(type_="azure-native:automation/v20241023:Module")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20220808:Module"), pulumi.Alias(type_="azure-native:automation/v20230515preview:Module"), pulumi.Alias(type_="azure-native:automation/v20231101:Module"), pulumi.Alias(type_="azure-native:automation/v20241023:Module"), pulumi.Alias(type_="azure-native_automation_v20151031:automation:Module"), pulumi.Alias(type_="azure-native_automation_v20190601:automation:Module"), pulumi.Alias(type_="azure-native_automation_v20200113preview:automation:Module"), pulumi.Alias(type_="azure-native_automation_v20220808:automation:Module"), pulumi.Alias(type_="azure-native_automation_v20230515preview:automation:Module"), pulumi.Alias(type_="azure-native_automation_v20231101:automation:Module"), pulumi.Alias(type_="azure-native_automation_v20241023:automation:Module")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Module, __self__).__init__(
             'azure-native:automation:Module',

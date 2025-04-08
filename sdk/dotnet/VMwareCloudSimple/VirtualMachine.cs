@@ -205,6 +205,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:vmwarecloudsimple/v20190401:VirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native_vmwarecloudsimple_v20190401:vmwarecloudsimple:VirtualMachine" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

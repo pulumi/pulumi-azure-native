@@ -129,7 +129,7 @@ export class Share extends pulumi.CustomResource {
             resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datashare/v20181101preview:Share" }, { type: "azure-native:datashare/v20191101:Share" }, { type: "azure-native:datashare/v20200901:Share" }, { type: "azure-native:datashare/v20201001preview:Share" }, { type: "azure-native:datashare/v20210801:Share" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare/v20210801:Share" }, { type: "azure-native_datashare_v20181101preview:datashare:Share" }, { type: "azure-native_datashare_v20191101:datashare:Share" }, { type: "azure-native_datashare_v20200901:datashare:Share" }, { type: "azure-native_datashare_v20201001preview:datashare:Share" }, { type: "azure-native_datashare_v20210801:datashare:Share" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Share.__pulumiType, name, resourceInputs, opts);
     }

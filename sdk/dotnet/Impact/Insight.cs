@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.Impact
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:impact/v20240501preview:Insight" },
+                    new global::Pulumi.Alias { Type = "azure-native_impact_v20240501preview:impact:Insight" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

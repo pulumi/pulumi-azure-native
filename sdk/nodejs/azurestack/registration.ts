@@ -119,7 +119,7 @@ export class Registration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestack/v20160101:Registration" }, { type: "azure-native:azurestack/v20170601:Registration" }, { type: "azure-native:azurestack/v20200601preview:Registration" }, { type: "azure-native:azurestack/v20220601:Registration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestack/v20200601preview:Registration" }, { type: "azure-native:azurestack/v20220601:Registration" }, { type: "azure-native_azurestack_v20160101:azurestack:Registration" }, { type: "azure-native_azurestack_v20170601:azurestack:Registration" }, { type: "azure-native_azurestack_v20200601preview:azurestack:Registration" }, { type: "azure-native_azurestack_v20220601:azurestack:Registration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Registration.__pulumiType, name, resourceInputs, opts);
     }

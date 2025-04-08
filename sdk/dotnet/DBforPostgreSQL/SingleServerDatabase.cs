@@ -73,8 +73,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:Database" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:SingleServerDatabase" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:SingleServerDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20171201:dbforpostgresql:SingleServerDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20171201preview:dbforpostgresql:SingleServerDatabase" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

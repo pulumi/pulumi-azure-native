@@ -98,7 +98,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:engagementfabric/v20180901preview:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:engagementfabric/v20180901preview:Account" }, { type: "azure-native_engagementfabric_v20180901preview:engagementfabric:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }

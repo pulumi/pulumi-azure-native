@@ -102,9 +102,10 @@ namespace Pulumi.AzureNative.HybridNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:Device" },
-                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20210501:Device" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20220101preview:Device" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridnetwork_v20200101preview:hybridnetwork:Device" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridnetwork_v20210501:hybridnetwork:Device" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridnetwork_v20220101preview:hybridnetwork:Device" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

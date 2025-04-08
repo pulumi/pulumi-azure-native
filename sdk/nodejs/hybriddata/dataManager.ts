@@ -104,7 +104,7 @@ export class DataManager extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybriddata/v20160601:DataManager" }, { type: "azure-native:hybriddata/v20190601:DataManager" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybriddata/v20190601:DataManager" }, { type: "azure-native_hybriddata_v20160601:hybriddata:DataManager" }, { type: "azure-native_hybriddata_v20190601:hybriddata:DataManager" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataManager.__pulumiType, name, resourceInputs, opts);
     }

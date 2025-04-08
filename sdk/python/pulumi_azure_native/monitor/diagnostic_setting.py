@@ -299,7 +299,7 @@ class DiagnosticSetting(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20210501preview:DiagnosticSetting"), pulumi.Alias(type_="azure-native:insights:DiagnosticSetting"), pulumi.Alias(type_="azure-native:monitor/v20170501preview:DiagnosticSetting"), pulumi.Alias(type_="azure-native:monitor/v20210501preview:DiagnosticSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20210501preview:DiagnosticSetting"), pulumi.Alias(type_="azure-native:insights:DiagnosticSetting"), pulumi.Alias(type_="azure-native_monitor_v20170501preview:monitor:DiagnosticSetting"), pulumi.Alias(type_="azure-native_monitor_v20210501preview:monitor:DiagnosticSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DiagnosticSetting, __self__).__init__(
             'azure-native:monitor:DiagnosticSetting',

@@ -103,7 +103,7 @@ export class PrivateLinkHub extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20190601preview:PrivateLinkHub" }, { type: "azure-native:synapse/v20201201:PrivateLinkHub" }, { type: "azure-native:synapse/v20210301:PrivateLinkHub" }, { type: "azure-native:synapse/v20210401preview:PrivateLinkHub" }, { type: "azure-native:synapse/v20210501:PrivateLinkHub" }, { type: "azure-native:synapse/v20210601:PrivateLinkHub" }, { type: "azure-native:synapse/v20210601preview:PrivateLinkHub" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210601:PrivateLinkHub" }, { type: "azure-native:synapse/v20210601preview:PrivateLinkHub" }, { type: "azure-native_synapse_v20190601preview:synapse:PrivateLinkHub" }, { type: "azure-native_synapse_v20201201:synapse:PrivateLinkHub" }, { type: "azure-native_synapse_v20210301:synapse:PrivateLinkHub" }, { type: "azure-native_synapse_v20210401preview:synapse:PrivateLinkHub" }, { type: "azure-native_synapse_v20210501:synapse:PrivateLinkHub" }, { type: "azure-native_synapse_v20210601:synapse:PrivateLinkHub" }, { type: "azure-native_synapse_v20210601preview:synapse:PrivateLinkHub" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkHub.__pulumiType, name, resourceInputs, opts);
     }

@@ -92,17 +92,17 @@ namespace Pulumi.AzureNative.CosmosDB
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20231115preview:ThroughputPoolAccount" },
-                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20240215preview:ThroughputPoolAccount" },
-                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20240515preview:ThroughputPoolAccount" },
-                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20240901preview:ThroughputPoolAccount" },
-                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20241201preview:ThroughputPoolAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20231115preview:ThroughputPoolAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240215preview:ThroughputPoolAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240515preview:ThroughputPoolAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240901preview:ThroughputPoolAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20241201preview:ThroughputPoolAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb:ThroughputPoolAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native_cosmosdb_v20231115preview:cosmosdb:ThroughputPoolAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native_cosmosdb_v20240215preview:cosmosdb:ThroughputPoolAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native_cosmosdb_v20240515preview:cosmosdb:ThroughputPoolAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native_cosmosdb_v20240901preview:cosmosdb:ThroughputPoolAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native_cosmosdb_v20241201preview:cosmosdb:ThroughputPoolAccount" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

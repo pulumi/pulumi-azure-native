@@ -92,6 +92,12 @@ namespace Pulumi.AzureNative.ApiManagement
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:WorkspaceApiSchema" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:WorkspaceApiSchema" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240601preview:WorkspaceApiSchema" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20220901preview:apimanagement:WorkspaceApiSchema" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20230301preview:apimanagement:WorkspaceApiSchema" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20230501preview:apimanagement:WorkspaceApiSchema" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20230901preview:apimanagement:WorkspaceApiSchema" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20240501:apimanagement:WorkspaceApiSchema" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20240601preview:apimanagement:WorkspaceApiSchema" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

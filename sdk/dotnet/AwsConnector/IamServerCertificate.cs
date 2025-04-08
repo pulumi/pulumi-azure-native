@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.AwsConnector
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:awsconnector/v20241201:IamServerCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_awsconnector_v20241201:awsconnector:IamServerCertificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

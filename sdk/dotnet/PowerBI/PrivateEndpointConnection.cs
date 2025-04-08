@@ -83,6 +83,7 @@ namespace Pulumi.AzureNative.PowerBI
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:powerbi/v20200601:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_powerbi_v20200601:powerbi:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

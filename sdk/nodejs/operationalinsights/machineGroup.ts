@@ -124,7 +124,7 @@ export class MachineGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20151101preview:MachineGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20151101preview:MachineGroup" }, { type: "azure-native_operationalinsights_v20151101preview:operationalinsights:MachineGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MachineGroup.__pulumiType, name, resourceInputs, opts);
     }

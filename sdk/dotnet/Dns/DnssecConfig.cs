@@ -84,9 +84,9 @@ namespace Pulumi.AzureNative.Dns
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dns/v20230701preview:DnssecConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:DnssecConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:network:DnssecConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native_dns_v20230701preview:dns:DnssecConfig" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

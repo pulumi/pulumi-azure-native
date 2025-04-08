@@ -121,7 +121,7 @@ export class Bot extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:botservice/v20171201:Bot" }, { type: "azure-native:botservice/v20180712:Bot" }, { type: "azure-native:botservice/v20200602:Bot" }, { type: "azure-native:botservice/v20210301:Bot" }, { type: "azure-native:botservice/v20210501preview:Bot" }, { type: "azure-native:botservice/v20220615preview:Bot" }, { type: "azure-native:botservice/v20220915:Bot" }, { type: "azure-native:botservice/v20230915preview:Bot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:botservice/v20220915:Bot" }, { type: "azure-native:botservice/v20230915preview:Bot" }, { type: "azure-native_botservice_v20171201:botservice:Bot" }, { type: "azure-native_botservice_v20180712:botservice:Bot" }, { type: "azure-native_botservice_v20200602:botservice:Bot" }, { type: "azure-native_botservice_v20210301:botservice:Bot" }, { type: "azure-native_botservice_v20210501preview:botservice:Bot" }, { type: "azure-native_botservice_v20220615preview:botservice:Bot" }, { type: "azure-native_botservice_v20220915:botservice:Bot" }, { type: "azure-native_botservice_v20230915preview:botservice:Bot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Bot.__pulumiType, name, resourceInputs, opts);
     }

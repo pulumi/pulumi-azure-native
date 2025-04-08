@@ -167,7 +167,7 @@ class FailoverGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20230115preview:FailoverGroup"), pulumi.Alias(type_="azure-native:azurearcdata/v20240101:FailoverGroup"), pulumi.Alias(type_="azure-native:azurearcdata/v20240501preview:FailoverGroup"), pulumi.Alias(type_="azure-native:azurearcdata/v20250301preview:FailoverGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20230115preview:FailoverGroup"), pulumi.Alias(type_="azure-native:azurearcdata/v20240101:FailoverGroup"), pulumi.Alias(type_="azure-native:azurearcdata/v20240501preview:FailoverGroup"), pulumi.Alias(type_="azure-native_azurearcdata_v20230115preview:azurearcdata:FailoverGroup"), pulumi.Alias(type_="azure-native_azurearcdata_v20240101:azurearcdata:FailoverGroup"), pulumi.Alias(type_="azure-native_azurearcdata_v20240501preview:azurearcdata:FailoverGroup"), pulumi.Alias(type_="azure-native_azurearcdata_v20250301preview:azurearcdata:FailoverGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FailoverGroup, __self__).__init__(
             'azure-native:azurearcdata:FailoverGroup',

@@ -171,7 +171,7 @@ class ServerInstance(pulumi.CustomResource):
             __props__.__dict__["server_name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads/v20231001preview:ServerInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads/v20231001preview:ServerInstance"), pulumi.Alias(type_="azure-native_workloads_v20231001preview:workloads:ServerInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerInstance, __self__).__init__(
             'azure-native:workloads:ServerInstance',

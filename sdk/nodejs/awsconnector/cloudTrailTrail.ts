@@ -100,7 +100,7 @@ export class CloudTrailTrail extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:CloudTrailTrail" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:CloudTrailTrail" }, { type: "azure-native_awsconnector_v20241201:awsconnector:CloudTrailTrail" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CloudTrailTrail.__pulumiType, name, resourceInputs, opts);
     }

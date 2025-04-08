@@ -93,7 +93,7 @@ export class WorkspaceCollection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:powerbi/v20160129:WorkspaceCollection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:powerbi/v20160129:WorkspaceCollection" }, { type: "azure-native_powerbi_v20160129:powerbi:WorkspaceCollection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceCollection.__pulumiType, name, resourceInputs, opts);
     }

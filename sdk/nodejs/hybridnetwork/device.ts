@@ -122,7 +122,7 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20200101preview:Device" }, { type: "azure-native:hybridnetwork/v20210501:Device" }, { type: "azure-native:hybridnetwork/v20220101preview:Device" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20220101preview:Device" }, { type: "azure-native_hybridnetwork_v20200101preview:hybridnetwork:Device" }, { type: "azure-native_hybridnetwork_v20210501:hybridnetwork:Device" }, { type: "azure-native_hybridnetwork_v20220101preview:hybridnetwork:Device" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Device.__pulumiType, name, resourceInputs, opts);
     }

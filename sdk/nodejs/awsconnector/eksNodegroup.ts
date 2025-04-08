@@ -100,7 +100,7 @@ export class EksNodegroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:EksNodegroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:EksNodegroup" }, { type: "azure-native_awsconnector_v20241201:awsconnector:EksNodegroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EksNodegroup.__pulumiType, name, resourceInputs, opts);
     }

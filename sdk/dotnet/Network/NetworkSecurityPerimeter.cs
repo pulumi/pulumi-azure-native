@@ -90,7 +90,11 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210301preview:NetworkSecurityPerimeter" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NetworkSecurityPerimeter" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230801preview:NetworkSecurityPerimeter" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20240601preview:NetworkSecurityPerimeter" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20210201preview:network:NetworkSecurityPerimeter" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20210301preview:network:NetworkSecurityPerimeter" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20230701preview:network:NetworkSecurityPerimeter" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20230801preview:network:NetworkSecurityPerimeter" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20240601preview:network:NetworkSecurityPerimeter" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

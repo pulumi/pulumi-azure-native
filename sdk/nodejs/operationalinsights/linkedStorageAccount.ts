@@ -91,7 +91,7 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20190801preview:LinkedStorageAccount" }, { type: "azure-native:operationalinsights/v20200301preview:LinkedStorageAccount" }, { type: "azure-native:operationalinsights/v20200801:LinkedStorageAccount" }, { type: "azure-native:operationalinsights/v20230901:LinkedStorageAccount" }, { type: "azure-native:operationalinsights/v20250201:LinkedStorageAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20200801:LinkedStorageAccount" }, { type: "azure-native:operationalinsights/v20230901:LinkedStorageAccount" }, { type: "azure-native_operationalinsights_v20190801preview:operationalinsights:LinkedStorageAccount" }, { type: "azure-native_operationalinsights_v20200301preview:operationalinsights:LinkedStorageAccount" }, { type: "azure-native_operationalinsights_v20200801:operationalinsights:LinkedStorageAccount" }, { type: "azure-native_operationalinsights_v20230901:operationalinsights:LinkedStorageAccount" }, { type: "azure-native_operationalinsights_v20250201:operationalinsights:LinkedStorageAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LinkedStorageAccount.__pulumiType, name, resourceInputs, opts);
     }

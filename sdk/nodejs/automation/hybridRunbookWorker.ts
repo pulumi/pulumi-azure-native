@@ -129,7 +129,7 @@ export class HybridRunbookWorker extends pulumi.CustomResource {
             resourceInputs["workerType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20210622:HybridRunbookWorker" }, { type: "azure-native:automation/v20220808:HybridRunbookWorker" }, { type: "azure-native:automation/v20230515preview:HybridRunbookWorker" }, { type: "azure-native:automation/v20231101:HybridRunbookWorker" }, { type: "azure-native:automation/v20241023:HybridRunbookWorker" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20220808:HybridRunbookWorker" }, { type: "azure-native:automation/v20230515preview:HybridRunbookWorker" }, { type: "azure-native:automation/v20231101:HybridRunbookWorker" }, { type: "azure-native:automation/v20241023:HybridRunbookWorker" }, { type: "azure-native_automation_v20210622:automation:HybridRunbookWorker" }, { type: "azure-native_automation_v20220808:automation:HybridRunbookWorker" }, { type: "azure-native_automation_v20230515preview:automation:HybridRunbookWorker" }, { type: "azure-native_automation_v20231101:automation:HybridRunbookWorker" }, { type: "azure-native_automation_v20241023:automation:HybridRunbookWorker" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HybridRunbookWorker.__pulumiType, name, resourceInputs, opts);
     }

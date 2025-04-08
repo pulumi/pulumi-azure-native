@@ -100,7 +100,7 @@ export class IamPolicyVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:IamPolicyVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:IamPolicyVersion" }, { type: "azure-native_awsconnector_v20241201:awsconnector:IamPolicyVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IamPolicyVersion.__pulumiType, name, resourceInputs, opts);
     }

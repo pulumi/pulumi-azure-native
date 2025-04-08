@@ -234,7 +234,7 @@ class AutoUpgradeProfile(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice/v20240502preview:AutoUpgradeProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice/v20240502preview:AutoUpgradeProfile"), pulumi.Alias(type_="azure-native_containerservice_v20240502preview:containerservice:AutoUpgradeProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AutoUpgradeProfile, __self__).__init__(
             'azure-native:containerservice:AutoUpgradeProfile',

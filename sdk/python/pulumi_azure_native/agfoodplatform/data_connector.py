@@ -163,7 +163,7 @@ class DataConnector(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:agfoodplatform/v20230601preview:DataConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:agfoodplatform/v20230601preview:DataConnector"), pulumi.Alias(type_="azure-native_agfoodplatform_v20230601preview:agfoodplatform:DataConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataConnector, __self__).__init__(
             'azure-native:agfoodplatform:DataConnector',

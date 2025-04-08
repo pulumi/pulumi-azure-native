@@ -105,7 +105,7 @@ export class File extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20180715preview:File" }, { type: "azure-native:datamigration/v20210630:File" }, { type: "azure-native:datamigration/v20211030preview:File" }, { type: "azure-native:datamigration/v20220130preview:File" }, { type: "azure-native:datamigration/v20220330preview:File" }, { type: "azure-native:datamigration/v20230715preview:File" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20210630:File" }, { type: "azure-native:datamigration/v20220330preview:File" }, { type: "azure-native:datamigration/v20230715preview:File" }, { type: "azure-native_datamigration_v20180715preview:datamigration:File" }, { type: "azure-native_datamigration_v20210630:datamigration:File" }, { type: "azure-native_datamigration_v20211030preview:datamigration:File" }, { type: "azure-native_datamigration_v20220130preview:datamigration:File" }, { type: "azure-native_datamigration_v20220330preview:datamigration:File" }, { type: "azure-native_datamigration_v20230715preview:datamigration:File" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(File.__pulumiType, name, resourceInputs, opts);
     }

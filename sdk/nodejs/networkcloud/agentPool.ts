@@ -204,7 +204,7 @@ export class AgentPool extends pulumi.CustomResource {
             resourceInputs["vmSkuName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:AgentPool" }, { type: "azure-native:networkcloud/v20231001preview:AgentPool" }, { type: "azure-native:networkcloud/v20240601preview:AgentPool" }, { type: "azure-native:networkcloud/v20240701:AgentPool" }, { type: "azure-native:networkcloud/v20241001preview:AgentPool" }, { type: "azure-native:networkcloud/v20250201:AgentPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:AgentPool" }, { type: "azure-native:networkcloud/v20231001preview:AgentPool" }, { type: "azure-native:networkcloud/v20240601preview:AgentPool" }, { type: "azure-native:networkcloud/v20240701:AgentPool" }, { type: "azure-native:networkcloud/v20241001preview:AgentPool" }, { type: "azure-native_networkcloud_v20230701:networkcloud:AgentPool" }, { type: "azure-native_networkcloud_v20231001preview:networkcloud:AgentPool" }, { type: "azure-native_networkcloud_v20240601preview:networkcloud:AgentPool" }, { type: "azure-native_networkcloud_v20240701:networkcloud:AgentPool" }, { type: "azure-native_networkcloud_v20241001preview:networkcloud:AgentPool" }, { type: "azure-native_networkcloud_v20250201:networkcloud:AgentPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AgentPool.__pulumiType, name, resourceInputs, opts);
     }

@@ -127,6 +127,7 @@ namespace Pulumi.AzureNative.Workloads
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:ServerInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20231001preview:workloads:ServerInstance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

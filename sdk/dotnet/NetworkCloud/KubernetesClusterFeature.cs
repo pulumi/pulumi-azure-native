@@ -129,7 +129,10 @@ namespace Pulumi.AzureNative.NetworkCloud
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240601preview:KubernetesClusterFeature" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240701:KubernetesClusterFeature" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20241001preview:KubernetesClusterFeature" },
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20250201:KubernetesClusterFeature" },
+                    new global::Pulumi.Alias { Type = "azure-native_networkcloud_v20240601preview:networkcloud:KubernetesClusterFeature" },
+                    new global::Pulumi.Alias { Type = "azure-native_networkcloud_v20240701:networkcloud:KubernetesClusterFeature" },
+                    new global::Pulumi.Alias { Type = "azure-native_networkcloud_v20241001preview:networkcloud:KubernetesClusterFeature" },
+                    new global::Pulumi.Alias { Type = "azure-native_networkcloud_v20250201:networkcloud:KubernetesClusterFeature" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -112,7 +112,15 @@ namespace Pulumi.AzureNative.HybridCompute
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240731preview:License" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240910preview:License" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20241110preview:License" },
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20250113:License" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20230620preview:hybridcompute:License" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20231003preview:hybridcompute:License" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20240331preview:hybridcompute:License" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20240520preview:hybridcompute:License" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20240710:hybridcompute:License" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20240731preview:hybridcompute:License" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20240910preview:hybridcompute:License" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20241110preview:hybridcompute:License" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20250113:hybridcompute:License" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

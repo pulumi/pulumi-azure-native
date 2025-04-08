@@ -125,7 +125,7 @@ class GroupQuotaSubscription(pulumi.CustomResource):
             __props__.__dict__["properties"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:quota/v20230601preview:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native:quota/v20241015preview:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native:quota/v20241218preview:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native:quota/v20250301:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native:quota/v20250315preview:GroupQuotaSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:quota/v20230601preview:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native:quota/v20241015preview:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native:quota/v20241218preview:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native:quota/v20250301:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native_quota_v20230601preview:quota:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native_quota_v20241015preview:quota:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native_quota_v20241218preview:quota:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native_quota_v20250301:quota:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native_quota_v20250315preview:quota:GroupQuotaSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GroupQuotaSubscription, __self__).__init__(
             'azure-native:quota:GroupQuotaSubscription',

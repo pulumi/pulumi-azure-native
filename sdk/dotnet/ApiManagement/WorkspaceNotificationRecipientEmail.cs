@@ -74,6 +74,12 @@ namespace Pulumi.AzureNative.ApiManagement
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:WorkspaceNotificationRecipientEmail" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:WorkspaceNotificationRecipientEmail" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240601preview:WorkspaceNotificationRecipientEmail" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20220901preview:apimanagement:WorkspaceNotificationRecipientEmail" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20230301preview:apimanagement:WorkspaceNotificationRecipientEmail" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20230501preview:apimanagement:WorkspaceNotificationRecipientEmail" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20230901preview:apimanagement:WorkspaceNotificationRecipientEmail" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20240501:apimanagement:WorkspaceNotificationRecipientEmail" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20240601preview:apimanagement:WorkspaceNotificationRecipientEmail" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -85,10 +85,10 @@ namespace Pulumi.AzureNative.DBforMySQL
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:ServerAdministrator" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:SingleServerServerAdministrator" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201preview:SingleServerServerAdministrator" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20180601privatepreview:ServerAdministrator" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20180601privatepreview:SingleServerServerAdministrator" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbformysql_v20171201:dbformysql:SingleServerServerAdministrator" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbformysql_v20171201preview:dbformysql:SingleServerServerAdministrator" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbformysql_v20180601privatepreview:dbformysql:SingleServerServerAdministrator" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

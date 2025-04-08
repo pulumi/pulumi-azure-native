@@ -100,7 +100,9 @@ namespace Pulumi.AzureNative.ServiceNetworking
                 {
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20240501preview:SecurityPoliciesInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20250101:SecurityPoliciesInterface" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20250301preview:SecurityPoliciesInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicenetworking_v20240501preview:servicenetworking:SecurityPoliciesInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicenetworking_v20250101:servicenetworking:SecurityPoliciesInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicenetworking_v20250301preview:servicenetworking:SecurityPoliciesInterface" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

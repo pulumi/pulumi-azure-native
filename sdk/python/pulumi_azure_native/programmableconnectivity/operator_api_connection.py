@@ -308,7 +308,7 @@ class OperatorApiConnection(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:programmableconnectivity/v20240115preview:OperatorApiConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:programmableconnectivity/v20240115preview:OperatorApiConnection"), pulumi.Alias(type_="azure-native_programmableconnectivity_v20240115preview:programmableconnectivity:OperatorApiConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OperatorApiConnection, __self__).__init__(
             'azure-native:programmableconnectivity:OperatorApiConnection',

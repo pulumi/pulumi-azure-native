@@ -175,14 +175,15 @@ namespace Pulumi.AzureNative.Workloads
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SAPApplicationServerInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SapApplicationServerInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:SapApplicationServerInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:SAPApplicationServerInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:SapApplicationServerInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:SAPApplicationServerInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:SapApplicationServerInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20240901:SapApplicationServerInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads:SAPApplicationServerInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20211201preview:workloads:SapApplicationServerInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20221101preview:workloads:SapApplicationServerInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20230401:workloads:SapApplicationServerInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20231001preview:workloads:SapApplicationServerInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20240901:workloads:SapApplicationServerInstance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

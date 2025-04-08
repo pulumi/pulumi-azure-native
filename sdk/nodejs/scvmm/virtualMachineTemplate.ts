@@ -214,7 +214,7 @@ export class VirtualMachineTemplate extends pulumi.CustomResource {
             resourceInputs["vmmServerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:VirtualMachineTemplate" }, { type: "azure-native:scvmm/v20220521preview:VirtualMachineTemplate" }, { type: "azure-native:scvmm/v20230401preview:VirtualMachineTemplate" }, { type: "azure-native:scvmm/v20231007:VirtualMachineTemplate" }, { type: "azure-native:scvmm/v20240601:VirtualMachineTemplate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20220521preview:VirtualMachineTemplate" }, { type: "azure-native:scvmm/v20230401preview:VirtualMachineTemplate" }, { type: "azure-native:scvmm/v20231007:VirtualMachineTemplate" }, { type: "azure-native:scvmm/v20240601:VirtualMachineTemplate" }, { type: "azure-native_scvmm_v20200605preview:scvmm:VirtualMachineTemplate" }, { type: "azure-native_scvmm_v20220521preview:scvmm:VirtualMachineTemplate" }, { type: "azure-native_scvmm_v20230401preview:scvmm:VirtualMachineTemplate" }, { type: "azure-native_scvmm_v20231007:scvmm:VirtualMachineTemplate" }, { type: "azure-native_scvmm_v20240601:scvmm:VirtualMachineTemplate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineTemplate.__pulumiType, name, resourceInputs, opts);
     }

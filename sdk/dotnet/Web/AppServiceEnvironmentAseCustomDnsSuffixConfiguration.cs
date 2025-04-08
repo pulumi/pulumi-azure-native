@@ -92,11 +92,15 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:AppServiceEnvironmentAseCustomDnsSuffixConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:AppServiceEnvironmentAseCustomDnsSuffixConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:AppServiceEnvironmentAseCustomDnsSuffixConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:AppServiceEnvironmentAseCustomDnsSuffixConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20240401:AppServiceEnvironmentAseCustomDnsSuffixConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20220301:web:AppServiceEnvironmentAseCustomDnsSuffixConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20220901:web:AppServiceEnvironmentAseCustomDnsSuffixConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20230101:web:AppServiceEnvironmentAseCustomDnsSuffixConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20231201:web:AppServiceEnvironmentAseCustomDnsSuffixConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20240401:web:AppServiceEnvironmentAseCustomDnsSuffixConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -306,6 +306,11 @@ namespace Pulumi.AzureNative.Migrate
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:SqlAssessmentV2Operation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:SqlAssessmentV2Operation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:SqlAssessmentV2Operation" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230315:migrate:SqlAssessmentV2Operation" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230401preview:migrate:SqlAssessmentV2Operation" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230501preview:migrate:SqlAssessmentV2Operation" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230909preview:migrate:SqlAssessmentV2Operation" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20240101preview:migrate:SqlAssessmentV2Operation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

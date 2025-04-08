@@ -16,7 +16,7 @@ func TestEnumExtensionCaseCollapsing(t *testing.T) {
 			Name:  "azure-native",
 			Types: map[string]schema.ComplexTypeSpec{},
 		},
-		module: "MyModule",
+		moduleName: "MyModule",
 	}
 	// Doesn't return the enum - it's added to the Types map
 	schema := &spec.Schema{
@@ -31,10 +31,10 @@ func TestEnumExtensionCaseCollapsing(t *testing.T) {
 	require.NoError(t, err)
 
 	assert.Len(t, generator.pkg.Types, 1)
-	require.Contains(t, generator.pkg.Types, "azure-native:MyModule:MyProp")
-	require.Len(t, generator.pkg.Types["azure-native:MyModule:MyProp"].Enum, 2)
-	assert.Equal(t, generator.pkg.Types["azure-native:MyModule:MyProp"].Enum[0].Value, "foo")
-	assert.Equal(t, generator.pkg.Types["azure-native:MyModule:MyProp"].Enum[1].Value, "bar")
+	require.Contains(t, generator.pkg.Types, "azure-native:mymodule:MyProp")
+	require.Len(t, generator.pkg.Types["azure-native:mymodule:MyProp"].Enum, 2)
+	assert.Equal(t, generator.pkg.Types["azure-native:mymodule:MyProp"].Enum[0].Value, "foo")
+	assert.Equal(t, generator.pkg.Types["azure-native:mymodule:MyProp"].Enum[1].Value, "bar")
 }
 
 func TestEnumNonExtensionCaseCollapsing(t *testing.T) {
@@ -43,7 +43,7 @@ func TestEnumNonExtensionCaseCollapsing(t *testing.T) {
 			Name:  "azure-native",
 			Types: map[string]schema.ComplexTypeSpec{},
 		},
-		module: "MyModule",
+		moduleName: "MyModule",
 	}
 	// Doesn't return the enum - it's added to the Types map
 	_, err := generator.genEnumType(&spec.Schema{
@@ -58,10 +58,10 @@ func TestEnumNonExtensionCaseCollapsing(t *testing.T) {
 	require.NoError(t, err)
 
 	assert.Len(t, generator.pkg.Types, 1)
-	require.Contains(t, generator.pkg.Types, "azure-native:MyModule:MyProp")
-	require.Len(t, generator.pkg.Types["azure-native:MyModule:MyProp"].Enum, 2)
-	assert.Equal(t, generator.pkg.Types["azure-native:MyModule:MyProp"].Enum[0].Value, "foo")
-	assert.Equal(t, generator.pkg.Types["azure-native:MyModule:MyProp"].Enum[1].Value, "bar")
+	require.Contains(t, generator.pkg.Types, "azure-native:mymodule:MyProp")
+	require.Len(t, generator.pkg.Types["azure-native:mymodule:MyProp"].Enum, 2)
+	assert.Equal(t, generator.pkg.Types["azure-native:mymodule:MyProp"].Enum[0].Value, "foo")
+	assert.Equal(t, generator.pkg.Types["azure-native:mymodule:MyProp"].Enum[1].Value, "bar")
 }
 
 func TestEnumNameFallbackToPropertyNames(t *testing.T) {
@@ -70,7 +70,7 @@ func TestEnumNameFallbackToPropertyNames(t *testing.T) {
 			Name:  "azure-native",
 			Types: map[string]schema.ComplexTypeSpec{},
 		},
-		module: "MyModule",
+		moduleName: "MyModule",
 	}
 	schema := &spec.Schema{
 		SchemaProps: spec.SchemaProps{},
@@ -84,7 +84,7 @@ func TestEnumNameFallbackToPropertyNames(t *testing.T) {
 	_, err := generator.genEnumType(schema, &openapi.ReferenceContext{}, enumExtensions, propertyName)
 	require.NoError(t, err)
 	assert.Len(t, generator.pkg.Types, 1)
-	require.Contains(t, generator.pkg.Types, "azure-native:MyModule:MyProp")
-	require.Len(t, generator.pkg.Types["azure-native:MyModule:MyProp"].Enum, 1)
-	assert.Equal(t, generator.pkg.Types["azure-native:MyModule:MyProp"].Enum[0].Value, "foo")
+	require.Contains(t, generator.pkg.Types, "azure-native:mymodule:MyProp")
+	require.Len(t, generator.pkg.Types["azure-native:mymodule:MyProp"].Enum, 1)
+	assert.Equal(t, generator.pkg.Types["azure-native:mymodule:MyProp"].Enum[0].Value, "foo")
 }

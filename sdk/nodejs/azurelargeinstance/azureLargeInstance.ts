@@ -150,7 +150,7 @@ export class AzureLargeInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurelargeinstance/v20240801preview:AzureLargeInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurelargeinstance/v20240801preview:AzureLargeInstance" }, { type: "azure-native_azurelargeinstance_v20240801preview:azurelargeinstance:AzureLargeInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AzureLargeInstance.__pulumiType, name, resourceInputs, opts);
     }

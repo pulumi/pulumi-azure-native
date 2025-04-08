@@ -144,7 +144,7 @@ class ClusterInstanceHybridIdentityMetadatum(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcontainerservice/v20231115preview:ClusterInstanceHybridIdentityMetadatum"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20231115preview:HybridIdentityMetadatum"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20240101:ClusterInstanceHybridIdentityMetadatum"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20240101:HybridIdentityMetadatum")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcontainerservice/v20231115preview:HybridIdentityMetadatum"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20240101:HybridIdentityMetadatum"), pulumi.Alias(type_="azure-native_hybridcontainerservice_v20231115preview:hybridcontainerservice:ClusterInstanceHybridIdentityMetadatum"), pulumi.Alias(type_="azure-native_hybridcontainerservice_v20240101:hybridcontainerservice:ClusterInstanceHybridIdentityMetadatum")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ClusterInstanceHybridIdentityMetadatum, __self__).__init__(
             'azure-native:hybridcontainerservice:ClusterInstanceHybridIdentityMetadatum',

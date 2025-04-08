@@ -96,8 +96,9 @@ namespace Pulumi.AzureNative.AzureData
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azuredata/v20170301preview:SqlServerRegistration" },
                     new global::Pulumi.Alias { Type = "azure-native:azuredata/v20190724preview:SqlServerRegistration" },
+                    new global::Pulumi.Alias { Type = "azure-native_azuredata_v20170301preview:azuredata:SqlServerRegistration" },
+                    new global::Pulumi.Alias { Type = "azure-native_azuredata_v20190724preview:azuredata:SqlServerRegistration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

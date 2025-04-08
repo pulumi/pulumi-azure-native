@@ -120,7 +120,7 @@ export class SenderUsername extends pulumi.CustomResource {
             resourceInputs["username"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:communication/v20230301preview:SenderUsername" }, { type: "azure-native:communication/v20230331:SenderUsername" }, { type: "azure-native:communication/v20230401:SenderUsername" }, { type: "azure-native:communication/v20230401preview:SenderUsername" }, { type: "azure-native:communication/v20230601preview:SenderUsername" }, { type: "azure-native:communication/v20240901preview:SenderUsername" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:communication/v20230331:SenderUsername" }, { type: "azure-native:communication/v20230401:SenderUsername" }, { type: "azure-native:communication/v20230401preview:SenderUsername" }, { type: "azure-native:communication/v20230601preview:SenderUsername" }, { type: "azure-native_communication_v20230301preview:communication:SenderUsername" }, { type: "azure-native_communication_v20230331:communication:SenderUsername" }, { type: "azure-native_communication_v20230401:communication:SenderUsername" }, { type: "azure-native_communication_v20230401preview:communication:SenderUsername" }, { type: "azure-native_communication_v20230601preview:communication:SenderUsername" }, { type: "azure-native_communication_v20240901preview:communication:SenderUsername" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SenderUsername.__pulumiType, name, resourceInputs, opts);
     }

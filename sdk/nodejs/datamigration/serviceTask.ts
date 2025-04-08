@@ -101,7 +101,7 @@ export class ServiceTask extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20180715preview:ServiceTask" }, { type: "azure-native:datamigration/v20210630:ServiceTask" }, { type: "azure-native:datamigration/v20211030preview:ServiceTask" }, { type: "azure-native:datamigration/v20220130preview:ServiceTask" }, { type: "azure-native:datamigration/v20220330preview:ServiceTask" }, { type: "azure-native:datamigration/v20230715preview:ServiceTask" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20210630:ServiceTask" }, { type: "azure-native:datamigration/v20220330preview:ServiceTask" }, { type: "azure-native:datamigration/v20230715preview:ServiceTask" }, { type: "azure-native_datamigration_v20180715preview:datamigration:ServiceTask" }, { type: "azure-native_datamigration_v20210630:datamigration:ServiceTask" }, { type: "azure-native_datamigration_v20211030preview:datamigration:ServiceTask" }, { type: "azure-native_datamigration_v20220130preview:datamigration:ServiceTask" }, { type: "azure-native_datamigration_v20220330preview:datamigration:ServiceTask" }, { type: "azure-native_datamigration_v20230715preview:datamigration:ServiceTask" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServiceTask.__pulumiType, name, resourceInputs, opts);
     }

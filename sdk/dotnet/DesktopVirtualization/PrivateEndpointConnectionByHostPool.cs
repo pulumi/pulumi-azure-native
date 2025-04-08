@@ -92,10 +92,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByHostPool" },
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByHostPool" },
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByHostPool" },
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByHostPool" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230707preview:PrivateEndpointConnectionByHostPool" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230905:PrivateEndpointConnectionByHostPool" },
@@ -106,7 +102,20 @@ namespace Pulumi.AzureNative.DesktopVirtualization
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240403:PrivateEndpointConnectionByHostPool" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240408preview:PrivateEndpointConnectionByHostPool" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240808preview:PrivateEndpointConnectionByHostPool" },
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20241101preview:PrivateEndpointConnectionByHostPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20210401preview:desktopvirtualization:PrivateEndpointConnectionByHostPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20210903preview:desktopvirtualization:PrivateEndpointConnectionByHostPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20220210preview:desktopvirtualization:PrivateEndpointConnectionByHostPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20220401preview:desktopvirtualization:PrivateEndpointConnectionByHostPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20221014preview:desktopvirtualization:PrivateEndpointConnectionByHostPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20230905:desktopvirtualization:PrivateEndpointConnectionByHostPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20231004preview:desktopvirtualization:PrivateEndpointConnectionByHostPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20231101preview:desktopvirtualization:PrivateEndpointConnectionByHostPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20240116preview:desktopvirtualization:PrivateEndpointConnectionByHostPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20240306preview:desktopvirtualization:PrivateEndpointConnectionByHostPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20240403:desktopvirtualization:PrivateEndpointConnectionByHostPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20240408preview:desktopvirtualization:PrivateEndpointConnectionByHostPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20240808preview:desktopvirtualization:PrivateEndpointConnectionByHostPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20241101preview:desktopvirtualization:PrivateEndpointConnectionByHostPool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -98,13 +98,18 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:StartStopManagedInstanceSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:StartStopManagedInstanceSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:StartStopManagedInstanceSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:StartStopManagedInstanceSchedule" },
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230801:StartStopManagedInstanceSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:StartStopManagedInstanceSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:StartStopManagedInstanceSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20220801preview:sql:StartStopManagedInstanceSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20221101preview:sql:StartStopManagedInstanceSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20230201preview:sql:StartStopManagedInstanceSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20230501preview:sql:StartStopManagedInstanceSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20230801:sql:StartStopManagedInstanceSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20230801preview:sql:StartStopManagedInstanceSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20240501preview:sql:StartStopManagedInstanceSchedule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

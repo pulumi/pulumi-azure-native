@@ -139,7 +139,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20180101preview:Cluster" }, { type: "azure-native:eventhub/v20210601preview:Cluster" }, { type: "azure-native:eventhub/v20211101:Cluster" }, { type: "azure-native:eventhub/v20220101preview:Cluster" }, { type: "azure-native:eventhub/v20221001preview:Cluster" }, { type: "azure-native:eventhub/v20230101preview:Cluster" }, { type: "azure-native:eventhub/v20240101:Cluster" }, { type: "azure-native:eventhub/v20240501preview:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20221001preview:Cluster" }, { type: "azure-native:eventhub/v20230101preview:Cluster" }, { type: "azure-native:eventhub/v20240101:Cluster" }, { type: "azure-native:eventhub/v20240501preview:Cluster" }, { type: "azure-native_eventhub_v20180101preview:eventhub:Cluster" }, { type: "azure-native_eventhub_v20210601preview:eventhub:Cluster" }, { type: "azure-native_eventhub_v20211101:eventhub:Cluster" }, { type: "azure-native_eventhub_v20220101preview:eventhub:Cluster" }, { type: "azure-native_eventhub_v20221001preview:eventhub:Cluster" }, { type: "azure-native_eventhub_v20230101preview:eventhub:Cluster" }, { type: "azure-native_eventhub_v20240101:eventhub:Cluster" }, { type: "azure-native_eventhub_v20240501preview:eventhub:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }

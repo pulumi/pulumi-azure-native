@@ -94,6 +94,8 @@ namespace Pulumi.AzureNative.HealthDataAIServices
                 {
                     new global::Pulumi.Alias { Type = "azure-native:healthdataaiservices/v20240228preview:DeidService" },
                     new global::Pulumi.Alias { Type = "azure-native:healthdataaiservices/v20240920:DeidService" },
+                    new global::Pulumi.Alias { Type = "azure-native_healthdataaiservices_v20240228preview:healthdataaiservices:DeidService" },
+                    new global::Pulumi.Alias { Type = "azure-native_healthdataaiservices_v20240920:healthdataaiservices:DeidService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -99,7 +99,7 @@ export class Solution extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:agfoodplatform/v20210901preview:Solution" }, { type: "azure-native:agfoodplatform/v20230601preview:Solution" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:agfoodplatform/v20210901preview:Solution" }, { type: "azure-native:agfoodplatform/v20230601preview:Solution" }, { type: "azure-native_agfoodplatform_v20210901preview:agfoodplatform:Solution" }, { type: "azure-native_agfoodplatform_v20230601preview:agfoodplatform:Solution" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Solution.__pulumiType, name, resourceInputs, opts);
     }

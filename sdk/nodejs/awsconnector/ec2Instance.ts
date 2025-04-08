@@ -88,7 +88,7 @@ export class Ec2Instance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2Instance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2Instance" }, { type: "azure-native_awsconnector_v20241201:awsconnector:Ec2Instance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Ec2Instance.__pulumiType, name, resourceInputs, opts);
     }

@@ -107,7 +107,7 @@ export class AccountFilter extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:media/v20180701:AccountFilter" }, { type: "azure-native:media/v20200501:AccountFilter" }, { type: "azure-native:media/v20210601:AccountFilter" }, { type: "azure-native:media/v20211101:AccountFilter" }, { type: "azure-native:media/v20220801:AccountFilter" }, { type: "azure-native:media/v20230101:AccountFilter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:media/v20230101:AccountFilter" }, { type: "azure-native_media_v20180701:media:AccountFilter" }, { type: "azure-native_media_v20200501:media:AccountFilter" }, { type: "azure-native_media_v20210601:media:AccountFilter" }, { type: "azure-native_media_v20211101:media:AccountFilter" }, { type: "azure-native_media_v20220801:media:AccountFilter" }, { type: "azure-native_media_v20230101:media:AccountFilter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AccountFilter.__pulumiType, name, resourceInputs, opts);
     }

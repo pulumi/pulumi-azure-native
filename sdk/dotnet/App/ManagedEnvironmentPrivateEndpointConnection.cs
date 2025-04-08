@@ -95,6 +95,9 @@ namespace Pulumi.AzureNative.App
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240202preview:ManagedEnvironmentPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:ManagedEnvironmentPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20241002preview:ManagedEnvironmentPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20240202preview:app:ManagedEnvironmentPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20240802preview:app:ManagedEnvironmentPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20241002preview:app:ManagedEnvironmentPrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

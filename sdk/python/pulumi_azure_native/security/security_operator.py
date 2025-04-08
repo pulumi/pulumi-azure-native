@@ -119,7 +119,7 @@ class SecurityOperator(pulumi.CustomResource):
             __props__.__dict__["identity"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20230101preview:SecurityOperator")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20230101preview:SecurityOperator"), pulumi.Alias(type_="azure-native_security_v20230101preview:security:SecurityOperator")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecurityOperator, __self__).__init__(
             'azure-native:security:SecurityOperator',

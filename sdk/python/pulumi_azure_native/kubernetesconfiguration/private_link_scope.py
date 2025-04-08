@@ -185,7 +185,7 @@ class PrivateLinkScope(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20220402preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20241101preview:PrivateLinkScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20220402preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native_kubernetesconfiguration_v20220402preview:kubernetesconfiguration:PrivateLinkScope"), pulumi.Alias(type_="azure-native_kubernetesconfiguration_v20241101preview:kubernetesconfiguration:PrivateLinkScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLinkScope, __self__).__init__(
             'azure-native:kubernetesconfiguration:PrivateLinkScope',

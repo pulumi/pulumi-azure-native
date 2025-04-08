@@ -84,6 +84,16 @@ namespace Pulumi.AzureNative.Web
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppFtpAllowedSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebAppFtpAllowedSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20240401:WebAppFtpAllowedSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20201201:web:WebAppFtpAllowedSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210101:web:WebAppFtpAllowedSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210115:web:WebAppFtpAllowedSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210201:web:WebAppFtpAllowedSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210301:web:WebAppFtpAllowedSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20220301:web:WebAppFtpAllowedSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20220901:web:WebAppFtpAllowedSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20230101:web:WebAppFtpAllowedSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20231201:web:WebAppFtpAllowedSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20240401:web:WebAppFtpAllowedSlot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

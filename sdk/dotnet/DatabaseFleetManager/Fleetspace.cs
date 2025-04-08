@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.DatabaseFleetManager
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databasefleetmanager/v20250201preview:Fleetspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_databasefleetmanager_v20250201preview:databasefleetmanager:Fleetspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

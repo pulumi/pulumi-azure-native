@@ -88,6 +88,8 @@ namespace Pulumi.AzureNative.DevCenter
                 {
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240801preview:CurationProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20241001preview:CurationProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_devcenter_v20240801preview:devcenter:CurationProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_devcenter_v20241001preview:devcenter:CurationProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

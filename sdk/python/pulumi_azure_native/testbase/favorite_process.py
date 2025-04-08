@@ -186,7 +186,7 @@ class FavoriteProcess(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase/v20201216preview:FavoriteProcess"), pulumi.Alias(type_="azure-native:testbase/v20220401preview:FavoriteProcess"), pulumi.Alias(type_="azure-native:testbase/v20231101preview:FavoriteProcess")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase/v20220401preview:FavoriteProcess"), pulumi.Alias(type_="azure-native:testbase/v20231101preview:FavoriteProcess"), pulumi.Alias(type_="azure-native_testbase_v20201216preview:testbase:FavoriteProcess"), pulumi.Alias(type_="azure-native_testbase_v20220401preview:testbase:FavoriteProcess"), pulumi.Alias(type_="azure-native_testbase_v20231101preview:testbase:FavoriteProcess")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FavoriteProcess, __self__).__init__(
             'azure-native:testbase:FavoriteProcess',

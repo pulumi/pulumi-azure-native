@@ -98,6 +98,7 @@ namespace Pulumi.AzureNative.AzureLargeInstance
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurelargeinstance/v20240801preview:AzureLargeStorageInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurelargeinstance_v20240801preview:azurelargeinstance:AzureLargeStorageInstance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

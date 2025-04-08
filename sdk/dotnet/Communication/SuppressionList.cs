@@ -93,7 +93,8 @@ namespace Pulumi.AzureNative.Communication
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230601preview:SuppressionList" },
-                    new global::Pulumi.Alias { Type = "azure-native:communication/v20240901preview:SuppressionList" },
+                    new global::Pulumi.Alias { Type = "azure-native_communication_v20230601preview:communication:SuppressionList" },
+                    new global::Pulumi.Alias { Type = "azure-native_communication_v20240901preview:communication:SuppressionList" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -250,7 +250,7 @@ class RemediationAtSubscription(pulumi.CustomResource):
             __props__.__dict__["status_message"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:policyinsights/v20180701preview:RemediationAtSubscription"), pulumi.Alias(type_="azure-native:policyinsights/v20190701:RemediationAtSubscription"), pulumi.Alias(type_="azure-native:policyinsights/v20211001:RemediationAtSubscription"), pulumi.Alias(type_="azure-native:policyinsights/v20241001:RemediationAtSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:policyinsights/v20211001:RemediationAtSubscription"), pulumi.Alias(type_="azure-native:policyinsights/v20241001:RemediationAtSubscription"), pulumi.Alias(type_="azure-native_policyinsights_v20180701preview:policyinsights:RemediationAtSubscription"), pulumi.Alias(type_="azure-native_policyinsights_v20190701:policyinsights:RemediationAtSubscription"), pulumi.Alias(type_="azure-native_policyinsights_v20211001:policyinsights:RemediationAtSubscription"), pulumi.Alias(type_="azure-native_policyinsights_v20241001:policyinsights:RemediationAtSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RemediationAtSubscription, __self__).__init__(
             'azure-native:policyinsights:RemediationAtSubscription',

@@ -208,7 +208,7 @@ class BrokerAuthentication(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotoperations/v20240701preview:BrokerAuthentication"), pulumi.Alias(type_="azure-native:iotoperations/v20240815preview:BrokerAuthentication"), pulumi.Alias(type_="azure-native:iotoperations/v20240915preview:BrokerAuthentication"), pulumi.Alias(type_="azure-native:iotoperations/v20241101:BrokerAuthentication"), pulumi.Alias(type_="azure-native:iotoperations/v20250401:BrokerAuthentication")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotoperations/v20240701preview:BrokerAuthentication"), pulumi.Alias(type_="azure-native:iotoperations/v20240815preview:BrokerAuthentication"), pulumi.Alias(type_="azure-native:iotoperations/v20240915preview:BrokerAuthentication"), pulumi.Alias(type_="azure-native:iotoperations/v20241101:BrokerAuthentication"), pulumi.Alias(type_="azure-native_iotoperations_v20240701preview:iotoperations:BrokerAuthentication"), pulumi.Alias(type_="azure-native_iotoperations_v20240815preview:iotoperations:BrokerAuthentication"), pulumi.Alias(type_="azure-native_iotoperations_v20240915preview:iotoperations:BrokerAuthentication"), pulumi.Alias(type_="azure-native_iotoperations_v20241101:iotoperations:BrokerAuthentication"), pulumi.Alias(type_="azure-native_iotoperations_v20250401:iotoperations:BrokerAuthentication")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BrokerAuthentication, __self__).__init__(
             'azure-native:iotoperations:BrokerAuthentication',

@@ -81,12 +81,15 @@ namespace Pulumi.AzureNative.IoTOperations
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240701preview:DataFlowProfile" },
-                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240701preview:DataflowProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240815preview:DataflowProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240915preview:DataflowProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20241101:DataflowProfile" },
-                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20250401:DataflowProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations:DataFlowProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_iotoperations_v20240701preview:iotoperations:DataflowProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_iotoperations_v20240815preview:iotoperations:DataflowProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_iotoperations_v20240915preview:iotoperations:DataflowProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_iotoperations_v20241101:iotoperations:DataflowProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_iotoperations_v20250401:iotoperations:DataflowProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -129,7 +129,7 @@ export class AutoUpgradeProfile extends pulumi.CustomResource {
             resourceInputs["updateStrategyId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20240502preview:AutoUpgradeProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20240502preview:AutoUpgradeProfile" }, { type: "azure-native_containerservice_v20240502preview:containerservice:AutoUpgradeProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AutoUpgradeProfile.__pulumiType, name, resourceInputs, opts);
     }

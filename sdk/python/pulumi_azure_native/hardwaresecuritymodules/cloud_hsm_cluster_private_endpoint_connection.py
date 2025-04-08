@@ -171,7 +171,7 @@ class CloudHsmClusterPrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hardwaresecuritymodules/v20220831preview:CloudHsmClusterPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hardwaresecuritymodules/v20231210preview:CloudHsmClusterPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hardwaresecuritymodules/v20240630preview:CloudHsmClusterPrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hardwaresecuritymodules/v20220831preview:CloudHsmClusterPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hardwaresecuritymodules/v20231210preview:CloudHsmClusterPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hardwaresecuritymodules/v20240630preview:CloudHsmClusterPrivateEndpointConnection"), pulumi.Alias(type_="azure-native_hardwaresecuritymodules_v20220831preview:hardwaresecuritymodules:CloudHsmClusterPrivateEndpointConnection"), pulumi.Alias(type_="azure-native_hardwaresecuritymodules_v20231210preview:hardwaresecuritymodules:CloudHsmClusterPrivateEndpointConnection"), pulumi.Alias(type_="azure-native_hardwaresecuritymodules_v20240630preview:hardwaresecuritymodules:CloudHsmClusterPrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CloudHsmClusterPrivateEndpointConnection, __self__).__init__(
             'azure-native:hardwaresecuritymodules:CloudHsmClusterPrivateEndpointConnection',

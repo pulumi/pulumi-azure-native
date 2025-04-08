@@ -79,13 +79,14 @@ namespace Pulumi.AzureNative.OffAzure
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20200707:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:PrivateEndpointConnectionController" },
-                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:PrivateEndpointConnectionController" },
-                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:PrivateEndpointConnectionController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure:PrivateEndpointConnectionController" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20200707:offazure:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20230606:offazure:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20231001preview:offazure:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20240501preview:offazure:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.Billing
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:billing/v20240401:BillingProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_billing_v20240401:billing:BillingProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

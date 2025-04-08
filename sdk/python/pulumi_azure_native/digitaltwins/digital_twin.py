@@ -228,7 +228,7 @@ class DigitalTwin(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:digitaltwins/v20200301preview:DigitalTwin"), pulumi.Alias(type_="azure-native:digitaltwins/v20201031:DigitalTwin"), pulumi.Alias(type_="azure-native:digitaltwins/v20201201:DigitalTwin"), pulumi.Alias(type_="azure-native:digitaltwins/v20210630preview:DigitalTwin"), pulumi.Alias(type_="azure-native:digitaltwins/v20220531:DigitalTwin"), pulumi.Alias(type_="azure-native:digitaltwins/v20221031:DigitalTwin"), pulumi.Alias(type_="azure-native:digitaltwins/v20230131:DigitalTwin")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:digitaltwins/v20230131:DigitalTwin"), pulumi.Alias(type_="azure-native_digitaltwins_v20200301preview:digitaltwins:DigitalTwin"), pulumi.Alias(type_="azure-native_digitaltwins_v20201031:digitaltwins:DigitalTwin"), pulumi.Alias(type_="azure-native_digitaltwins_v20201201:digitaltwins:DigitalTwin"), pulumi.Alias(type_="azure-native_digitaltwins_v20210630preview:digitaltwins:DigitalTwin"), pulumi.Alias(type_="azure-native_digitaltwins_v20220531:digitaltwins:DigitalTwin"), pulumi.Alias(type_="azure-native_digitaltwins_v20221031:digitaltwins:DigitalTwin"), pulumi.Alias(type_="azure-native_digitaltwins_v20230131:digitaltwins:DigitalTwin")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DigitalTwin, __self__).__init__(
             'azure-native:digitaltwins:DigitalTwin',

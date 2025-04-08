@@ -89,6 +89,9 @@ namespace Pulumi.AzureNative.VirtualMachineImages
                     new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20220701:Trigger" },
                     new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20230701:Trigger" },
                     new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20240201:Trigger" },
+                    new global::Pulumi.Alias { Type = "azure-native_virtualmachineimages_v20220701:virtualmachineimages:Trigger" },
+                    new global::Pulumi.Alias { Type = "azure-native_virtualmachineimages_v20230701:virtualmachineimages:Trigger" },
+                    new global::Pulumi.Alias { Type = "azure-native_virtualmachineimages_v20240201:virtualmachineimages:Trigger" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

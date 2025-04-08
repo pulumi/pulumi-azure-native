@@ -86,7 +86,6 @@ namespace Pulumi.AzureNative.App
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:ManagedCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:ManagedCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230501:ManagedCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230502preview:ManagedCertificate" },
@@ -96,7 +95,17 @@ namespace Pulumi.AzureNative.App
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240301:ManagedCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:ManagedCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20241002preview:ManagedCertificate" },
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20250101:ManagedCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20221101preview:app:ManagedCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20230401preview:app:ManagedCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20230501:app:ManagedCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20230502preview:app:ManagedCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20230801preview:app:ManagedCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20231102preview:app:ManagedCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20240202preview:app:ManagedCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20240301:app:ManagedCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20240802preview:app:ManagedCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20241002preview:app:ManagedCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20250101:app:ManagedCertificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

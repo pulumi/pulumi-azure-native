@@ -122,13 +122,19 @@ namespace Pulumi.AzureNative.MobileNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:SimPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:SimPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20221101:SimPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230601:SimPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230901:SimPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20240201:SimPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20240401:SimPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20220301preview:mobilenetwork:SimPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20220401preview:mobilenetwork:SimPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20221101:mobilenetwork:SimPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20230601:mobilenetwork:SimPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20230901:mobilenetwork:SimPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20240201:mobilenetwork:SimPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20240401:mobilenetwork:SimPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

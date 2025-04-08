@@ -213,7 +213,7 @@ class NamespaceTopic(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:NamespaceTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20231215preview:NamespaceTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20240601preview:NamespaceTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20241215preview:NamespaceTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20250215:NamespaceTopic")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:NamespaceTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20231215preview:NamespaceTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20240601preview:NamespaceTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20241215preview:NamespaceTopic"), pulumi.Alias(type_="azure-native_eventgrid_v20230601preview:eventgrid:NamespaceTopic"), pulumi.Alias(type_="azure-native_eventgrid_v20231215preview:eventgrid:NamespaceTopic"), pulumi.Alias(type_="azure-native_eventgrid_v20240601preview:eventgrid:NamespaceTopic"), pulumi.Alias(type_="azure-native_eventgrid_v20241215preview:eventgrid:NamespaceTopic"), pulumi.Alias(type_="azure-native_eventgrid_v20250215:eventgrid:NamespaceTopic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamespaceTopic, __self__).__init__(
             'azure-native:eventgrid:NamespaceTopic',

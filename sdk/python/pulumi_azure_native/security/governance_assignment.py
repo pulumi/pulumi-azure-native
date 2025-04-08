@@ -261,7 +261,7 @@ class GovernanceAssignment(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20220101preview:GovernanceAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20220101preview:GovernanceAssignment"), pulumi.Alias(type_="azure-native_security_v20220101preview:security:GovernanceAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GovernanceAssignment, __self__).__init__(
             'azure-native:security:GovernanceAssignment',

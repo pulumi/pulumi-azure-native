@@ -176,7 +176,7 @@ export class NotificationHub extends pulumi.CustomResource {
             resourceInputs["xiaomiCredential"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs/v20140901:NotificationHub" }, { type: "azure-native:notificationhubs/v20160301:NotificationHub" }, { type: "azure-native:notificationhubs/v20170401:NotificationHub" }, { type: "azure-native:notificationhubs/v20230101preview:NotificationHub" }, { type: "azure-native:notificationhubs/v20230901:NotificationHub" }, { type: "azure-native:notificationhubs/v20231001preview:NotificationHub" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs/v20170401:NotificationHub" }, { type: "azure-native:notificationhubs/v20230101preview:NotificationHub" }, { type: "azure-native:notificationhubs/v20230901:NotificationHub" }, { type: "azure-native:notificationhubs/v20231001preview:NotificationHub" }, { type: "azure-native_notificationhubs_v20140901:notificationhubs:NotificationHub" }, { type: "azure-native_notificationhubs_v20160301:notificationhubs:NotificationHub" }, { type: "azure-native_notificationhubs_v20170401:notificationhubs:NotificationHub" }, { type: "azure-native_notificationhubs_v20230101preview:notificationhubs:NotificationHub" }, { type: "azure-native_notificationhubs_v20230901:notificationhubs:NotificationHub" }, { type: "azure-native_notificationhubs_v20231001preview:notificationhubs:NotificationHub" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NotificationHub.__pulumiType, name, resourceInputs, opts);
     }

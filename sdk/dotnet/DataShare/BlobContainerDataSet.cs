@@ -110,11 +110,7 @@ namespace Pulumi.AzureNative.DataShare
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:BlobContainerDataSet" },
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:BlobContainerDataSet" },
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:BlobContainerDataSet" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ADLSGen2StorageAccountDataSet" },
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:BlobContainerDataSet" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:BlobStorageAccountDataSet" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:ADLSGen1FileDataSet" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:ADLSGen1FolderDataSet" },
@@ -143,6 +139,11 @@ namespace Pulumi.AzureNative.DataShare
                     new global::Pulumi.Alias { Type = "azure-native:datashare:SqlDBTableDataSet" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare:SqlDWTableDataSet" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_datashare_v20181101preview:datashare:BlobContainerDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_datashare_v20191101:datashare:BlobContainerDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_datashare_v20200901:datashare:BlobContainerDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_datashare_v20201001preview:datashare:BlobContainerDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_datashare_v20210801:datashare:BlobContainerDataSet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

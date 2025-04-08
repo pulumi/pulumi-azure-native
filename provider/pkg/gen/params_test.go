@@ -36,7 +36,7 @@ func TestFlattenParams(t *testing.T) {
 	}{
 		{
 			name:         "ContainersInBody",
-			resourceName: "azure-native:compute/v20230301:VirtualMachine",
+			resourceName: "azure-native:compute:VirtualMachine",
 			input: map[string]interface{}{
 				"parameters": map[string]interface{}{
 					"resourceGroupName": "myResourceGroup",
@@ -155,7 +155,7 @@ func TestFlattenParams(t *testing.T) {
 					},
 				},
 			},
-			resourceName: "azure-native:botservice/v20220915:BotConnection",
+			resourceName: "azure-native:botservice:BotConnection",
 			expected: map[string]interface{}{
 				"resourceGroupName": "OneResourceGroupName",
 				"resourceName":      "samplebotname",
@@ -361,7 +361,7 @@ func TestFlattenParams(t *testing.T) {
 					},
 				},
 			},
-			resourceName: "azure-native:network/v20230201:NetworkSecurityGroup",
+			resourceName: "azure-native:network:NetworkSecurityGroup",
 			expected: map[string]interface{}{
 				"networkSecurityGroupName": "rancher-security-group",
 				"securityRules": []interface{}{
@@ -387,7 +387,7 @@ func TestFlattenParams(t *testing.T) {
 		{
 			name:         "NestedObject",
 			inputFunc:    serialize(npe),
-			resourceName: "azure-native:automation/v20170515preview:SoftwareUpdateConfigurationByName",
+			resourceName: "azure-native:automation:SoftwareUpdateConfigurationByName",
 			expected: map[string]interface{}{
 				"automationAccountName": "myaccount",
 				"resourceGroupName":     "mygroup",
@@ -665,7 +665,7 @@ func TestFlattenParams(t *testing.T) {
     }
   }
 }`),
-			resourceName: "azure-native:web/v20220901:WebApp",
+			resourceName: "azure-native:web:WebApp",
 			expected: map[string]interface{}{
 				"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]",
 				"siteConfig":   "[variables('configReference')[parameters('language')]]",
@@ -750,7 +750,7 @@ func TestFlattenParams(t *testing.T) {
     }
   }
 }`),
-			resourceName: "azure-native:compute/v20230301:VirtualMachineExtension",
+			resourceName: "azure-native:compute:VirtualMachineExtension",
 			expected: map[string]interface{}{
 				"autoUpgradeMinorVersion": true,
 				"publisher":               "Microsoft.OSTCExtensions",
@@ -788,7 +788,7 @@ func TestFlattenParams(t *testing.T) {
 					},
 				},
 			},
-			resourceName: "azure-native:botservice/v20220915:Channel",
+			resourceName: "azure-native:botservice:Channel",
 			expected: map[string]interface{}{
 				"channelName": "AlexaChannel",
 				"location":    "global",

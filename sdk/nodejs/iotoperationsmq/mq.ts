@@ -110,7 +110,7 @@ export class Mq extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperationsmq/v20231004preview:Mq" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperationsmq/v20231004preview:Mq" }, { type: "azure-native_iotoperationsmq_v20231004preview:iotoperationsmq:Mq" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Mq.__pulumiType, name, resourceInputs, opts);
     }

@@ -126,7 +126,7 @@ export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:DisasterRecoveryConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:DisasterRecoveryConfiguration" }, { type: "azure-native_sql_v20140401:sql:DisasterRecoveryConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DisasterRecoveryConfiguration.__pulumiType, name, resourceInputs, opts);
     }

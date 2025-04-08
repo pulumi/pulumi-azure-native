@@ -108,7 +108,7 @@ export class PrivateEndpointConnectionsAdtAPI extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:m365securityandcompliance/v20210325preview:PrivateEndpointConnectionsAdtAPI" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:m365securityandcompliance/v20210325preview:PrivateEndpointConnectionsAdtAPI" }, { type: "azure-native_m365securityandcompliance_v20210325preview:m365securityandcompliance:PrivateEndpointConnectionsAdtAPI" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnectionsAdtAPI.__pulumiType, name, resourceInputs, opts);
     }

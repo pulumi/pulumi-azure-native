@@ -111,7 +111,7 @@ export class InfrastructureResource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:integrationspaces/v20231114preview:InfrastructureResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:integrationspaces/v20231114preview:InfrastructureResource" }, { type: "azure-native_integrationspaces_v20231114preview:integrationspaces:InfrastructureResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InfrastructureResource.__pulumiType, name, resourceInputs, opts);
     }

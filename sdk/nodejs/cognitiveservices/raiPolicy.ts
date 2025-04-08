@@ -107,7 +107,7 @@ export class RaiPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20231001preview:RaiPolicy" }, { type: "azure-native:cognitiveservices/v20240401preview:RaiPolicy" }, { type: "azure-native:cognitiveservices/v20240601preview:RaiPolicy" }, { type: "azure-native:cognitiveservices/v20241001:RaiPolicy" }, { type: "azure-native:cognitiveservices/v20250401preview:RaiPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20231001preview:RaiPolicy" }, { type: "azure-native:cognitiveservices/v20240401preview:RaiPolicy" }, { type: "azure-native:cognitiveservices/v20240601preview:RaiPolicy" }, { type: "azure-native:cognitiveservices/v20241001:RaiPolicy" }, { type: "azure-native_cognitiveservices_v20231001preview:cognitiveservices:RaiPolicy" }, { type: "azure-native_cognitiveservices_v20240401preview:cognitiveservices:RaiPolicy" }, { type: "azure-native_cognitiveservices_v20240601preview:cognitiveservices:RaiPolicy" }, { type: "azure-native_cognitiveservices_v20241001:cognitiveservices:RaiPolicy" }, { type: "azure-native_cognitiveservices_v20250401preview:cognitiveservices:RaiPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RaiPolicy.__pulumiType, name, resourceInputs, opts);
     }

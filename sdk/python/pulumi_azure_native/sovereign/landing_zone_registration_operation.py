@@ -162,7 +162,7 @@ class LandingZoneRegistrationOperation(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sovereign/v20250227preview:LandingZoneRegistrationOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native_sovereign_v20250227preview:sovereign:LandingZoneRegistrationOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LandingZoneRegistrationOperation, __self__).__init__(
             'azure-native:sovereign:LandingZoneRegistrationOperation',

@@ -104,16 +104,17 @@ namespace Pulumi.AzureNative.HDInsight
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20150301preview:Cluster" },
-                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20180601preview:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20210601:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20230415preview:Cluster" },
-                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20230601preview:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20230815preview:Cluster" },
-                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20231101preview:Cluster" },
-                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20240501preview:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20240801preview:Cluster" },
-                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20250115preview:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_hdinsight_v20150301preview:hdinsight:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_hdinsight_v20180601preview:hdinsight:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_hdinsight_v20210601:hdinsight:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_hdinsight_v20230415preview:hdinsight:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_hdinsight_v20230815preview:hdinsight:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_hdinsight_v20240801preview:hdinsight:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_hdinsight_v20250115preview:hdinsight:Cluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

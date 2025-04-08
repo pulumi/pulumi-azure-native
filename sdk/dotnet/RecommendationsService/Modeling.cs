@@ -88,6 +88,8 @@ namespace Pulumi.AzureNative.RecommendationsService
                 {
                     new global::Pulumi.Alias { Type = "azure-native:recommendationsservice/v20220201:Modeling" },
                     new global::Pulumi.Alias { Type = "azure-native:recommendationsservice/v20220301preview:Modeling" },
+                    new global::Pulumi.Alias { Type = "azure-native_recommendationsservice_v20220201:recommendationsservice:Modeling" },
+                    new global::Pulumi.Alias { Type = "azure-native_recommendationsservice_v20220301preview:recommendationsservice:Modeling" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

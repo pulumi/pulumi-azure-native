@@ -98,17 +98,22 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:ExportPipeline" },
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:ExportPipeline" },
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:ExportPipeline" },
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:ExportPipeline" },
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:ExportPipeline" },
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:ExportPipeline" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230101preview:ExportPipeline" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230601preview:ExportPipeline" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230801preview:ExportPipeline" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20231101preview:ExportPipeline" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20241101preview:ExportPipeline" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20191201preview:containerregistry:ExportPipeline" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20201101preview:containerregistry:ExportPipeline" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20210601preview:containerregistry:ExportPipeline" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20210801preview:containerregistry:ExportPipeline" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20211201preview:containerregistry:ExportPipeline" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20220201preview:containerregistry:ExportPipeline" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20230101preview:containerregistry:ExportPipeline" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20230601preview:containerregistry:ExportPipeline" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20230801preview:containerregistry:ExportPipeline" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20231101preview:containerregistry:ExportPipeline" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20241101preview:containerregistry:ExportPipeline" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

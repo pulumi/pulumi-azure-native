@@ -153,7 +153,7 @@ export class MetricsConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:MetricsConfiguration" }, { type: "azure-native:networkcloud/v20231001preview:MetricsConfiguration" }, { type: "azure-native:networkcloud/v20240601preview:MetricsConfiguration" }, { type: "azure-native:networkcloud/v20240701:MetricsConfiguration" }, { type: "azure-native:networkcloud/v20241001preview:MetricsConfiguration" }, { type: "azure-native:networkcloud/v20250201:MetricsConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:MetricsConfiguration" }, { type: "azure-native:networkcloud/v20231001preview:MetricsConfiguration" }, { type: "azure-native:networkcloud/v20240601preview:MetricsConfiguration" }, { type: "azure-native:networkcloud/v20240701:MetricsConfiguration" }, { type: "azure-native:networkcloud/v20241001preview:MetricsConfiguration" }, { type: "azure-native_networkcloud_v20230701:networkcloud:MetricsConfiguration" }, { type: "azure-native_networkcloud_v20231001preview:networkcloud:MetricsConfiguration" }, { type: "azure-native_networkcloud_v20240601preview:networkcloud:MetricsConfiguration" }, { type: "azure-native_networkcloud_v20240701:networkcloud:MetricsConfiguration" }, { type: "azure-native_networkcloud_v20241001preview:networkcloud:MetricsConfiguration" }, { type: "azure-native_networkcloud_v20250201:networkcloud:MetricsConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MetricsConfiguration.__pulumiType, name, resourceInputs, opts);
     }

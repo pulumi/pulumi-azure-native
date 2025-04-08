@@ -100,7 +100,7 @@ export class IamAccessKeyMetadataInfo extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:IamAccessKeyMetadataInfo" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:IamAccessKeyMetadataInfo" }, { type: "azure-native_awsconnector_v20241201:awsconnector:IamAccessKeyMetadataInfo" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IamAccessKeyMetadataInfo.__pulumiType, name, resourceInputs, opts);
     }

@@ -161,7 +161,10 @@ namespace Pulumi.AzureNative.App
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240202preview:ContainerAppsSessionPool" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:ContainerAppsSessionPool" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20241002preview:ContainerAppsSessionPool" },
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20250101:ContainerAppsSessionPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20240202preview:app:ContainerAppsSessionPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20240802preview:app:ContainerAppsSessionPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20241002preview:app:ContainerAppsSessionPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20250101:app:ContainerAppsSessionPool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

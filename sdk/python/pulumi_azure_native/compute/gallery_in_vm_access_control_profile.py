@@ -201,7 +201,7 @@ class GalleryInVMAccessControlProfile(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20240303:GalleryInVMAccessControlProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20240303:GalleryInVMAccessControlProfile"), pulumi.Alias(type_="azure-native_compute_v20240303:compute:GalleryInVMAccessControlProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GalleryInVMAccessControlProfile, __self__).__init__(
             'azure-native:compute:GalleryInVMAccessControlProfile',

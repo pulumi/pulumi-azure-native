@@ -74,9 +74,6 @@ namespace Pulumi.AzureNative.AppPlatform
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:ApplicationLiveView" },
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:ApplicationLiveView" },
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:ApplicationLiveView" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:ApplicationLiveView" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230701preview:ApplicationLiveView" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230901preview:ApplicationLiveView" },
@@ -84,6 +81,16 @@ namespace Pulumi.AzureNative.AppPlatform
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20231201:ApplicationLiveView" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240101preview:ApplicationLiveView" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240501preview:ApplicationLiveView" },
+                    new global::Pulumi.Alias { Type = "azure-native_appplatform_v20221101preview:appplatform:ApplicationLiveView" },
+                    new global::Pulumi.Alias { Type = "azure-native_appplatform_v20230101preview:appplatform:ApplicationLiveView" },
+                    new global::Pulumi.Alias { Type = "azure-native_appplatform_v20230301preview:appplatform:ApplicationLiveView" },
+                    new global::Pulumi.Alias { Type = "azure-native_appplatform_v20230501preview:appplatform:ApplicationLiveView" },
+                    new global::Pulumi.Alias { Type = "azure-native_appplatform_v20230701preview:appplatform:ApplicationLiveView" },
+                    new global::Pulumi.Alias { Type = "azure-native_appplatform_v20230901preview:appplatform:ApplicationLiveView" },
+                    new global::Pulumi.Alias { Type = "azure-native_appplatform_v20231101preview:appplatform:ApplicationLiveView" },
+                    new global::Pulumi.Alias { Type = "azure-native_appplatform_v20231201:appplatform:ApplicationLiveView" },
+                    new global::Pulumi.Alias { Type = "azure-native_appplatform_v20240101preview:appplatform:ApplicationLiveView" },
+                    new global::Pulumi.Alias { Type = "azure-native_appplatform_v20240501preview:appplatform:ApplicationLiveView" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

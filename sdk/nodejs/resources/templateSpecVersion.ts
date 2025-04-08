@@ -131,7 +131,7 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
             resourceInputs["uiFormDefinition"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:resources/v20190601preview:TemplateSpecVersion" }, { type: "azure-native:resources/v20210301preview:TemplateSpecVersion" }, { type: "azure-native:resources/v20210501:TemplateSpecVersion" }, { type: "azure-native:resources/v20220201:TemplateSpecVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:resources/v20190601preview:TemplateSpecVersion" }, { type: "azure-native:resources/v20220201:TemplateSpecVersion" }, { type: "azure-native_resources_v20190601preview:resources:TemplateSpecVersion" }, { type: "azure-native_resources_v20210301preview:resources:TemplateSpecVersion" }, { type: "azure-native_resources_v20210501:resources:TemplateSpecVersion" }, { type: "azure-native_resources_v20220201:resources:TemplateSpecVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TemplateSpecVersion.__pulumiType, name, resourceInputs, opts);
     }

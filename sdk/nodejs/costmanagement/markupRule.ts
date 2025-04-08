@@ -125,7 +125,7 @@ export class MarkupRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20221005preview:MarkupRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20221005preview:MarkupRule" }, { type: "azure-native_costmanagement_v20221005preview:costmanagement:MarkupRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MarkupRule.__pulumiType, name, resourceInputs, opts);
     }

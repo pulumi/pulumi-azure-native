@@ -120,8 +120,9 @@ namespace Pulumi.AzureNative.PowerBIDedicated
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:powerbidedicated/v20171001:CapacityDetails" },
                     new global::Pulumi.Alias { Type = "azure-native:powerbidedicated/v20210101:CapacityDetails" },
+                    new global::Pulumi.Alias { Type = "azure-native_powerbidedicated_v20171001:powerbidedicated:CapacityDetails" },
+                    new global::Pulumi.Alias { Type = "azure-native_powerbidedicated_v20210101:powerbidedicated:CapacityDetails" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

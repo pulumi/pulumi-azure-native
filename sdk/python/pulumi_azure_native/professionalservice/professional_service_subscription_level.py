@@ -218,7 +218,7 @@ class ProfessionalServiceSubscriptionLevel(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:professionalservice/v20230701preview:ProfessionalServiceSubscriptionLevel")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:professionalservice/v20230701preview:ProfessionalServiceSubscriptionLevel"), pulumi.Alias(type_="azure-native_professionalservice_v20230701preview:professionalservice:ProfessionalServiceSubscriptionLevel")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProfessionalServiceSubscriptionLevel, __self__).__init__(
             'azure-native:professionalservice:ProfessionalServiceSubscriptionLevel',

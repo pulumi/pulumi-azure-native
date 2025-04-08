@@ -128,14 +128,15 @@ namespace Pulumi.AzureNative.Media
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180330preview:Job" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180601preview:Job" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:Job" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20200501:Job" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:Job" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20211101:Job" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20220501preview:Job" },
                     new global::Pulumi.Alias { Type = "azure-native:media/v20220701:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20180330preview:media:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20180601preview:media:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20180701:media:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20200501:media:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20210601:media:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20211101:media:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20220501preview:media:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20220701:media:Job" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

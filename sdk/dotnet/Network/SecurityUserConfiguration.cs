@@ -92,12 +92,16 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:SecurityUserConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:SecurityUserConfiguration" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:SecurityUserConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:SecurityUserConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:SecurityUserConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:SecurityUserConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20210201preview:network:SecurityUserConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20210501preview:network:SecurityUserConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20220201preview:network:SecurityUserConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20220401preview:network:SecurityUserConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20240301:network:SecurityUserConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20240501:network:SecurityUserConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

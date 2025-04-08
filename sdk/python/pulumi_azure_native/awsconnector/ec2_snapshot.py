@@ -180,7 +180,7 @@ class Ec2Snapshot(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:awsconnector/v20241201:Ec2Snapshot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:awsconnector/v20241201:Ec2Snapshot"), pulumi.Alias(type_="azure-native_awsconnector_v20241201:awsconnector:Ec2Snapshot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Ec2Snapshot, __self__).__init__(
             'azure-native:awsconnector:Ec2Snapshot',

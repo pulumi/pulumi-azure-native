@@ -134,7 +134,7 @@ export class NetworkPacketBroker extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230615:NetworkPacketBroker" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230615:NetworkPacketBroker" }, { type: "azure-native_managednetworkfabric_v20230615:managednetworkfabric:NetworkPacketBroker" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkPacketBroker.__pulumiType, name, resourceInputs, opts);
     }

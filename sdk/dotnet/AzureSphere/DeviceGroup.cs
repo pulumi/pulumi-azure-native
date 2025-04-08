@@ -112,6 +112,8 @@ namespace Pulumi.AzureNative.AzureSphere
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azuresphere/v20220901preview:DeviceGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:azuresphere/v20240401:DeviceGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_azuresphere_v20220901preview:azuresphere:DeviceGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_azuresphere_v20240401:azuresphere:DeviceGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

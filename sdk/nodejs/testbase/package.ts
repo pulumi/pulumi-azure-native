@@ -209,7 +209,7 @@ export class Package extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:testbase/v20201216preview:Package" }, { type: "azure-native:testbase/v20220401preview:Package" }, { type: "azure-native:testbase/v20231101preview:Package" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:testbase/v20220401preview:Package" }, { type: "azure-native:testbase/v20231101preview:Package" }, { type: "azure-native_testbase_v20201216preview:testbase:Package" }, { type: "azure-native_testbase_v20220401preview:testbase:Package" }, { type: "azure-native_testbase_v20231101preview:testbase:Package" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Package.__pulumiType, name, resourceInputs, opts);
     }

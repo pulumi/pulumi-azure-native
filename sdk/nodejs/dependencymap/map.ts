@@ -101,7 +101,7 @@ export class Map extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dependencymap/v20250131preview:Map" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native_dependencymap_v20250131preview:dependencymap:Map" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Map.__pulumiType, name, resourceInputs, opts);
     }

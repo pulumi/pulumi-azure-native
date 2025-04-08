@@ -84,10 +84,10 @@ namespace Pulumi.AzureNative.MongoCluster
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20241001preview:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb:MongoClusterFirewallRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:mongocluster/v20240301preview:FirewallRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:mongocluster/v20240601preview:FirewallRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:mongocluster/v20240701:FirewallRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:mongocluster/v20241001preview:FirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_mongocluster_v20240301preview:mongocluster:FirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_mongocluster_v20240601preview:mongocluster:FirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_mongocluster_v20240701:mongocluster:FirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_mongocluster_v20241001preview:mongocluster:FirewallRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

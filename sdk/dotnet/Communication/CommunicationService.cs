@@ -128,16 +128,20 @@ namespace Pulumi.AzureNative.Communication
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:communication/v20200820:CommunicationService" },
-                    new global::Pulumi.Alias { Type = "azure-native:communication/v20200820preview:CommunicationService" },
-                    new global::Pulumi.Alias { Type = "azure-native:communication/v20211001preview:CommunicationService" },
-                    new global::Pulumi.Alias { Type = "azure-native:communication/v20220701preview:CommunicationService" },
-                    new global::Pulumi.Alias { Type = "azure-native:communication/v20230301preview:CommunicationService" },
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230331:CommunicationService" },
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230401:CommunicationService" },
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230401preview:CommunicationService" },
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230601preview:CommunicationService" },
-                    new global::Pulumi.Alias { Type = "azure-native:communication/v20240901preview:CommunicationService" },
+                    new global::Pulumi.Alias { Type = "azure-native_communication_v20200820:communication:CommunicationService" },
+                    new global::Pulumi.Alias { Type = "azure-native_communication_v20200820preview:communication:CommunicationService" },
+                    new global::Pulumi.Alias { Type = "azure-native_communication_v20211001preview:communication:CommunicationService" },
+                    new global::Pulumi.Alias { Type = "azure-native_communication_v20220701preview:communication:CommunicationService" },
+                    new global::Pulumi.Alias { Type = "azure-native_communication_v20230301preview:communication:CommunicationService" },
+                    new global::Pulumi.Alias { Type = "azure-native_communication_v20230331:communication:CommunicationService" },
+                    new global::Pulumi.Alias { Type = "azure-native_communication_v20230401:communication:CommunicationService" },
+                    new global::Pulumi.Alias { Type = "azure-native_communication_v20230401preview:communication:CommunicationService" },
+                    new global::Pulumi.Alias { Type = "azure-native_communication_v20230601preview:communication:CommunicationService" },
+                    new global::Pulumi.Alias { Type = "azure-native_communication_v20240901preview:communication:CommunicationService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

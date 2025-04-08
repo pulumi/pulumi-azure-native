@@ -90,9 +90,9 @@ namespace Pulumi.AzureNative.CosmosDB
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20241201preview:TableResourceTableRoleAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20241201preview:TableResourceTableRoleAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb:TableResourceTableRoleAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native_cosmosdb_v20241201preview:cosmosdb:TableResourceTableRoleAssignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -101,6 +101,9 @@ namespace Pulumi.AzureNative.Chaos
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20231027preview:PrivateAccess" },
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20240322preview:PrivateAccess" },
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20241101preview:PrivateAccess" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20231027preview:chaos:PrivateAccess" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20240322preview:chaos:PrivateAccess" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20241101preview:chaos:PrivateAccess" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

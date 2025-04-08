@@ -151,7 +151,7 @@ export class ServerInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20231001preview:ServerInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20231001preview:ServerInstance" }, { type: "azure-native_workloads_v20231001preview:workloads:ServerInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerInstance.__pulumiType, name, resourceInputs, opts);
     }

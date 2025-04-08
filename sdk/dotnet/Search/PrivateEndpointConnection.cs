@@ -68,16 +68,21 @@ namespace Pulumi.AzureNative.Search
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20191001preview:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20200313:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20200801:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20200801preview:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20210401preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20220901:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20231101:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20240301preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20240601preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20250201preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_search_v20191001preview:search:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_search_v20200313:search:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_search_v20200801:search:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_search_v20200801preview:search:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_search_v20210401preview:search:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_search_v20220901:search:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_search_v20231101:search:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_search_v20240301preview:search:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_search_v20240601preview:search:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_search_v20250201preview:search:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

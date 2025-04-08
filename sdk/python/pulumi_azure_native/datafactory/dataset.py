@@ -163,7 +163,7 @@ class Dataset(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datafactory/v20170901preview:Dataset"), pulumi.Alias(type_="azure-native:datafactory/v20180601:Dataset")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datafactory/v20180601:Dataset"), pulumi.Alias(type_="azure-native_datafactory_v20170901preview:datafactory:Dataset"), pulumi.Alias(type_="azure-native_datafactory_v20180601:datafactory:Dataset")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Dataset, __self__).__init__(
             'azure-native:datafactory:Dataset',

@@ -99,7 +99,7 @@ export class NamespaceIpFilterRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20180101preview:NamespaceIpFilterRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20180101preview:NamespaceIpFilterRule" }, { type: "azure-native_eventhub_v20180101preview:eventhub:NamespaceIpFilterRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NamespaceIpFilterRule.__pulumiType, name, resourceInputs, opts);
     }

@@ -100,6 +100,8 @@ namespace Pulumi.AzureNative.HybridNetwork
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20230901:SiteNetworkService" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20240415:SiteNetworkService" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridnetwork_v20230901:hybridnetwork:SiteNetworkService" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridnetwork_v20240415:hybridnetwork:SiteNetworkService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

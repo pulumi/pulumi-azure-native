@@ -107,7 +107,10 @@ namespace Pulumi.AzureNative.OperationalInsights
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20190901:QueryPack" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20190901preview:QueryPack" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20230901:QueryPack" },
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250201:QueryPack" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20190901:operationalinsights:QueryPack" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20190901preview:operationalinsights:QueryPack" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20230901:operationalinsights:QueryPack" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20250201:operationalinsights:QueryPack" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

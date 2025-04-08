@@ -242,7 +242,7 @@ class ResourceSyncRule(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:extendedlocation/v20210831preview:ResourceSyncRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:extendedlocation/v20210831preview:ResourceSyncRule"), pulumi.Alias(type_="azure-native_extendedlocation_v20210831preview:extendedlocation:ResourceSyncRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ResourceSyncRule, __self__).__init__(
             'azure-native:extendedlocation:ResourceSyncRule',

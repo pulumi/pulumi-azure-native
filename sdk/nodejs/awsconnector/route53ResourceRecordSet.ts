@@ -100,7 +100,7 @@ export class Route53ResourceRecordSet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Route53ResourceRecordSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Route53ResourceRecordSet" }, { type: "azure-native_awsconnector_v20241201:awsconnector:Route53ResourceRecordSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Route53ResourceRecordSet.__pulumiType, name, resourceInputs, opts);
     }

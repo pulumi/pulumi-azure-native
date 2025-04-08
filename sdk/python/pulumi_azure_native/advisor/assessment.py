@@ -164,7 +164,7 @@ class Assessment(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["type_version"] = None
             __props__.__dict__["workload_name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:advisor/v20230901preview:Assessment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native_advisor_v20230901preview:advisor:Assessment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Assessment, __self__).__init__(
             'azure-native:advisor:Assessment',

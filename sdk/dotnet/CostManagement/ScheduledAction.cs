@@ -128,9 +128,6 @@ namespace Pulumi.AzureNative.CostManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20220401preview:ScheduledAction" },
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20220601preview:ScheduledAction" },
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221001:ScheduledAction" },
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230301:ScheduledAction" },
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230401preview:ScheduledAction" },
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230701preview:ScheduledAction" },
@@ -138,7 +135,17 @@ namespace Pulumi.AzureNative.CostManagement
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230901:ScheduledAction" },
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20231101:ScheduledAction" },
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20240801:ScheduledAction" },
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20241001preview:ScheduledAction" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20220401preview:costmanagement:ScheduledAction" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20220601preview:costmanagement:ScheduledAction" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20221001:costmanagement:ScheduledAction" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20230301:costmanagement:ScheduledAction" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20230401preview:costmanagement:ScheduledAction" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20230701preview:costmanagement:ScheduledAction" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20230801:costmanagement:ScheduledAction" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20230901:costmanagement:ScheduledAction" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20231101:costmanagement:ScheduledAction" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20240801:costmanagement:ScheduledAction" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20241001preview:costmanagement:ScheduledAction" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

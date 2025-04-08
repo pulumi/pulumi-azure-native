@@ -101,7 +101,7 @@ export class ManagementAssociation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationsmanagement/v20151101preview:ManagementAssociation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationsmanagement/v20151101preview:ManagementAssociation" }, { type: "azure-native_operationsmanagement_v20151101preview:operationsmanagement:ManagementAssociation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementAssociation.__pulumiType, name, resourceInputs, opts);
     }

@@ -184,7 +184,15 @@ namespace Pulumi.AzureNative.HybridCompute
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240731preview:LicenseProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240910preview:LicenseProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20241110preview:LicenseProfile" },
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20250113:LicenseProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20230620preview:hybridcompute:LicenseProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20231003preview:hybridcompute:LicenseProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20240331preview:hybridcompute:LicenseProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20240520preview:hybridcompute:LicenseProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20240710:hybridcompute:LicenseProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20240731preview:hybridcompute:LicenseProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20240910preview:hybridcompute:LicenseProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20241110preview:hybridcompute:LicenseProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20250113:hybridcompute:LicenseProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

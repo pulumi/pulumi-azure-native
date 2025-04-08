@@ -252,7 +252,7 @@ class ClusterPoolCluster(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hdinsight/v20230601preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20230601preview:ClusterPoolCluster"), pulumi.Alias(type_="azure-native:hdinsight/v20231101preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20231101preview:ClusterPoolCluster"), pulumi.Alias(type_="azure-native:hdinsight/v20240501preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20240501preview:ClusterPoolCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hdinsight/v20230601preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20231101preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20240501preview:Cluster"), pulumi.Alias(type_="azure-native_hdinsight_v20230601preview:hdinsight:ClusterPoolCluster"), pulumi.Alias(type_="azure-native_hdinsight_v20231101preview:hdinsight:ClusterPoolCluster"), pulumi.Alias(type_="azure-native_hdinsight_v20240501preview:hdinsight:ClusterPoolCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ClusterPoolCluster, __self__).__init__(
             'azure-native:hdinsight:ClusterPoolCluster',

@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.AgriculturePlatform
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:agricultureplatform/v20240601preview:AgriService" },
+                    new global::Pulumi.Alias { Type = "azure-native_agricultureplatform_v20240601preview:agricultureplatform:AgriService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

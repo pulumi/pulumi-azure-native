@@ -156,7 +156,7 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20230301preview:VirtualMachineInstance" }, { type: "azure-native:connectedvmwarevsphere/v20231001:VirtualMachineInstance" }, { type: "azure-native:connectedvmwarevsphere/v20231201:VirtualMachineInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20230301preview:VirtualMachineInstance" }, { type: "azure-native:connectedvmwarevsphere/v20231001:VirtualMachineInstance" }, { type: "azure-native:connectedvmwarevsphere/v20231201:VirtualMachineInstance" }, { type: "azure-native_connectedvmwarevsphere_v20230301preview:connectedvmwarevsphere:VirtualMachineInstance" }, { type: "azure-native_connectedvmwarevsphere_v20231001:connectedvmwarevsphere:VirtualMachineInstance" }, { type: "azure-native_connectedvmwarevsphere_v20231201:connectedvmwarevsphere:VirtualMachineInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineInstance.__pulumiType, name, resourceInputs, opts);
     }

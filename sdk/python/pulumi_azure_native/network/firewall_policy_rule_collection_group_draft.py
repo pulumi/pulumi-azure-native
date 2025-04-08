@@ -226,7 +226,7 @@ class FirewallPolicyRuleCollectionGroupDraft(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["size"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20231101:FirewallPolicyRuleCollectionGroupDraft"), pulumi.Alias(type_="azure-native:network/v20240101:FirewallPolicyRuleCollectionGroupDraft"), pulumi.Alias(type_="azure-native:network/v20240301:FirewallPolicyRuleCollectionGroupDraft"), pulumi.Alias(type_="azure-native:network/v20240501:FirewallPolicyRuleCollectionGroupDraft")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20231101:FirewallPolicyRuleCollectionGroupDraft"), pulumi.Alias(type_="azure-native:network/v20240101:FirewallPolicyRuleCollectionGroupDraft"), pulumi.Alias(type_="azure-native:network/v20240301:FirewallPolicyRuleCollectionGroupDraft"), pulumi.Alias(type_="azure-native:network/v20240501:FirewallPolicyRuleCollectionGroupDraft"), pulumi.Alias(type_="azure-native_network_v20231101:network:FirewallPolicyRuleCollectionGroupDraft"), pulumi.Alias(type_="azure-native_network_v20240101:network:FirewallPolicyRuleCollectionGroupDraft"), pulumi.Alias(type_="azure-native_network_v20240301:network:FirewallPolicyRuleCollectionGroupDraft"), pulumi.Alias(type_="azure-native_network_v20240501:network:FirewallPolicyRuleCollectionGroupDraft")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallPolicyRuleCollectionGroupDraft, __self__).__init__(
             'azure-native:network:FirewallPolicyRuleCollectionGroupDraft',

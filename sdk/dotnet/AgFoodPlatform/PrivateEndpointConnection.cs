@@ -92,6 +92,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform
                 {
                     new global::Pulumi.Alias { Type = "azure-native:agfoodplatform/v20210901preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:agfoodplatform/v20230601preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_agfoodplatform_v20210901preview:agfoodplatform:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_agfoodplatform_v20230601preview:agfoodplatform:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

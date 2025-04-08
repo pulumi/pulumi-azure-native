@@ -264,7 +264,7 @@ class ImportJob(pulumi.CustomResource):
             __props__.__dict__["total_conflicts"] = None
             __props__.__dict__["total_errors"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagecache/v20240301:ImportJob"), pulumi.Alias(type_="azure-native:storagecache/v20240701:ImportJob")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagecache/v20240301:ImportJob"), pulumi.Alias(type_="azure-native_storagecache_v20240301:storagecache:ImportJob"), pulumi.Alias(type_="azure-native_storagecache_v20240701:storagecache:ImportJob")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ImportJob, __self__).__init__(
             'azure-native:storagecache:ImportJob',

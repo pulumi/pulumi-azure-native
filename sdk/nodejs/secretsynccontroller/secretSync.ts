@@ -155,7 +155,7 @@ export class SecretSync extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:secretsynccontroller/v20240821preview:SecretSync" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:secretsynccontroller/v20240821preview:SecretSync" }, { type: "azure-native_secretsynccontroller_v20240821preview:secretsynccontroller:SecretSync" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecretSync.__pulumiType, name, resourceInputs, opts);
     }

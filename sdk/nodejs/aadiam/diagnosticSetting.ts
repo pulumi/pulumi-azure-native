@@ -108,7 +108,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
             resourceInputs["workspaceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:aadiam/v20170401:DiagnosticSetting" }, { type: "azure-native:aadiam/v20170401preview:DiagnosticSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:aadiam/v20170401:DiagnosticSetting" }, { type: "azure-native:aadiam/v20170401preview:DiagnosticSetting" }, { type: "azure-native_aadiam_v20170401:aadiam:DiagnosticSetting" }, { type: "azure-native_aadiam_v20170401preview:aadiam:DiagnosticSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiagnosticSetting.__pulumiType, name, resourceInputs, opts);
     }

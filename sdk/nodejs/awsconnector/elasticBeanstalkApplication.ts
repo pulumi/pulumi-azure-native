@@ -100,7 +100,7 @@ export class ElasticBeanstalkApplication extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:ElasticBeanstalkApplication" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:ElasticBeanstalkApplication" }, { type: "azure-native_awsconnector_v20241201:awsconnector:ElasticBeanstalkApplication" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ElasticBeanstalkApplication.__pulumiType, name, resourceInputs, opts);
     }

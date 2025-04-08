@@ -91,7 +91,7 @@ export class Vendor extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20200101preview:Vendor" }, { type: "azure-native:hybridnetwork/v20210501:Vendor" }, { type: "azure-native:hybridnetwork/v20220101preview:Vendor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20220101preview:Vendor" }, { type: "azure-native_hybridnetwork_v20200101preview:hybridnetwork:Vendor" }, { type: "azure-native_hybridnetwork_v20210501:hybridnetwork:Vendor" }, { type: "azure-native_hybridnetwork_v20220101preview:hybridnetwork:Vendor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Vendor.__pulumiType, name, resourceInputs, opts);
     }

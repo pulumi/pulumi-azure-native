@@ -111,7 +111,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:ServerlessEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001:ServerlessEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:ServerlessEndpoint" },
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250101preview:ServerlessEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20230801preview:machinelearningservices:ServerlessEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20240101preview:machinelearningservices:ServerlessEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20240401:machinelearningservices:ServerlessEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20240401preview:machinelearningservices:ServerlessEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20240701preview:machinelearningservices:ServerlessEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20241001:machinelearningservices:ServerlessEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20241001preview:machinelearningservices:ServerlessEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20250101preview:machinelearningservices:ServerlessEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

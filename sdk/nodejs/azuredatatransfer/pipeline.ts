@@ -103,7 +103,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azuredatatransfer/v20231011preview:Pipeline" }, { type: "azure-native:azuredatatransfer/v20240125:Pipeline" }, { type: "azure-native:azuredatatransfer/v20240507:Pipeline" }, { type: "azure-native:azuredatatransfer/v20240911:Pipeline" }, { type: "azure-native:azuredatatransfer/v20240927:Pipeline" }, { type: "azure-native:azuredatatransfer/v20250301preview:Pipeline" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azuredatatransfer/v20231011preview:Pipeline" }, { type: "azure-native:azuredatatransfer/v20240125:Pipeline" }, { type: "azure-native:azuredatatransfer/v20240507:Pipeline" }, { type: "azure-native:azuredatatransfer/v20240911:Pipeline" }, { type: "azure-native:azuredatatransfer/v20240927:Pipeline" }, { type: "azure-native_azuredatatransfer_v20231011preview:azuredatatransfer:Pipeline" }, { type: "azure-native_azuredatatransfer_v20240125:azuredatatransfer:Pipeline" }, { type: "azure-native_azuredatatransfer_v20240507:azuredatatransfer:Pipeline" }, { type: "azure-native_azuredatatransfer_v20240911:azuredatatransfer:Pipeline" }, { type: "azure-native_azuredatatransfer_v20240927:azuredatatransfer:Pipeline" }, { type: "azure-native_azuredatatransfer_v20250301preview:azuredatatransfer:Pipeline" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Pipeline.__pulumiType, name, resourceInputs, opts);
     }

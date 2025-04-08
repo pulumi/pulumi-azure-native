@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.PowerPlatform
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:powerplatform/v20201030preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_powerplatform_v20201030preview:powerplatform:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

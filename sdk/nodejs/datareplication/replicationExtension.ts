@@ -95,7 +95,7 @@ export class ReplicationExtension extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datareplication/v20210216preview:ReplicationExtension" }, { type: "azure-native:datareplication/v20240901:ReplicationExtension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datareplication/v20210216preview:ReplicationExtension" }, { type: "azure-native_datareplication_v20210216preview:datareplication:ReplicationExtension" }, { type: "azure-native_datareplication_v20240901:datareplication:ReplicationExtension" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReplicationExtension.__pulumiType, name, resourceInputs, opts);
     }

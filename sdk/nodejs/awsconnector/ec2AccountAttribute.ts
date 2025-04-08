@@ -100,7 +100,7 @@ export class Ec2AccountAttribute extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2AccountAttribute" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2AccountAttribute" }, { type: "azure-native_awsconnector_v20241201:awsconnector:Ec2AccountAttribute" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Ec2AccountAttribute.__pulumiType, name, resourceInputs, opts);
     }

@@ -182,7 +182,7 @@ export class TrunkedNetwork extends pulumi.CustomResource {
             resourceInputs["vlans"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20231001preview:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20240601preview:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20240701:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20241001preview:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20250201:TrunkedNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20231001preview:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20240601preview:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20240701:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20241001preview:TrunkedNetwork" }, { type: "azure-native_networkcloud_v20230701:networkcloud:TrunkedNetwork" }, { type: "azure-native_networkcloud_v20231001preview:networkcloud:TrunkedNetwork" }, { type: "azure-native_networkcloud_v20240601preview:networkcloud:TrunkedNetwork" }, { type: "azure-native_networkcloud_v20240701:networkcloud:TrunkedNetwork" }, { type: "azure-native_networkcloud_v20241001preview:networkcloud:TrunkedNetwork" }, { type: "azure-native_networkcloud_v20250201:networkcloud:TrunkedNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TrunkedNetwork.__pulumiType, name, resourceInputs, opts);
     }

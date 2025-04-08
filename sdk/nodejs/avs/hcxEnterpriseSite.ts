@@ -107,7 +107,7 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200320:HcxEnterpriseSite" }, { type: "azure-native:avs/v20200717preview:HcxEnterpriseSite" }, { type: "azure-native:avs/v20210101preview:HcxEnterpriseSite" }, { type: "azure-native:avs/v20210601:HcxEnterpriseSite" }, { type: "azure-native:avs/v20211201:HcxEnterpriseSite" }, { type: "azure-native:avs/v20220501:HcxEnterpriseSite" }, { type: "azure-native:avs/v20230301:HcxEnterpriseSite" }, { type: "azure-native:avs/v20230901:HcxEnterpriseSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20220501:HcxEnterpriseSite" }, { type: "azure-native:avs/v20230301:HcxEnterpriseSite" }, { type: "azure-native:avs/v20230901:HcxEnterpriseSite" }, { type: "azure-native_avs_v20200320:avs:HcxEnterpriseSite" }, { type: "azure-native_avs_v20200717preview:avs:HcxEnterpriseSite" }, { type: "azure-native_avs_v20210101preview:avs:HcxEnterpriseSite" }, { type: "azure-native_avs_v20210601:avs:HcxEnterpriseSite" }, { type: "azure-native_avs_v20211201:avs:HcxEnterpriseSite" }, { type: "azure-native_avs_v20220501:avs:HcxEnterpriseSite" }, { type: "azure-native_avs_v20230301:avs:HcxEnterpriseSite" }, { type: "azure-native_avs_v20230901:avs:HcxEnterpriseSite" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HcxEnterpriseSite.__pulumiType, name, resourceInputs, opts);
     }

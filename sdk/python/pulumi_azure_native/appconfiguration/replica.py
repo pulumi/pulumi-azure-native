@@ -166,7 +166,7 @@ class Replica(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appconfiguration/v20220301preview:Replica"), pulumi.Alias(type_="azure-native:appconfiguration/v20230301:Replica"), pulumi.Alias(type_="azure-native:appconfiguration/v20230801preview:Replica"), pulumi.Alias(type_="azure-native:appconfiguration/v20230901preview:Replica"), pulumi.Alias(type_="azure-native:appconfiguration/v20240501:Replica")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appconfiguration/v20230301:Replica"), pulumi.Alias(type_="azure-native:appconfiguration/v20230801preview:Replica"), pulumi.Alias(type_="azure-native:appconfiguration/v20230901preview:Replica"), pulumi.Alias(type_="azure-native:appconfiguration/v20240501:Replica"), pulumi.Alias(type_="azure-native_appconfiguration_v20220301preview:appconfiguration:Replica"), pulumi.Alias(type_="azure-native_appconfiguration_v20230301:appconfiguration:Replica"), pulumi.Alias(type_="azure-native_appconfiguration_v20230801preview:appconfiguration:Replica"), pulumi.Alias(type_="azure-native_appconfiguration_v20230901preview:appconfiguration:Replica"), pulumi.Alias(type_="azure-native_appconfiguration_v20240501:appconfiguration:Replica")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Replica, __self__).__init__(
             'azure-native:appconfiguration:Replica',

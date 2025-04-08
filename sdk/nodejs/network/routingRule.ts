@@ -139,7 +139,7 @@ export class RoutingRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20240301:RoutingRule" }, { type: "azure-native:network/v20240501:RoutingRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20240301:RoutingRule" }, { type: "azure-native:network/v20240501:RoutingRule" }, { type: "azure-native_network_v20240301:network:RoutingRule" }, { type: "azure-native_network_v20240501:network:RoutingRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RoutingRule.__pulumiType, name, resourceInputs, opts);
     }

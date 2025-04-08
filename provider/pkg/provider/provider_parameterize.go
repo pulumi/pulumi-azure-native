@@ -3,7 +3,6 @@
 package provider
 
 import (
-	"bytes"
 	"context"
 	"encoding/base64"
 	"encoding/json"
@@ -27,8 +26,8 @@ import (
 // parameterizeArgs is the data that is embedded in the SDK when the provider is parameterized. It will be sent to the
 // provider on subsequent invocations of Parameterize to be deserialized.
 type parameterizeArgs struct {
-	Module  string `json:"module"`
-	Version string `json:"version"`
+	Module  string             `json:"module"`
+	Version openapi.SdkVersion `json:"version"`
 }
 
 func serializeParameterizeArgs(args *parameterizeArgs) ([]byte, error) {
@@ -54,7 +53,7 @@ func deserializeParameterizeArgs(in []byte) (*parameterizeArgs, error) {
 // parseApiVersion parses an Azure API version from the given string. Since the input comes from users (via `package
 // add`), it tries to be lenient and accept several formats. The returned result, if successful, is an "SDL version" of
 // the form v20200101.
-func parseApiVersion(version string) (string, error) {
+func parseApiVersion(version string) (openapi.SdkVersion, error) {
 	v := strings.TrimSpace(version)
 	v = strings.TrimLeft(v, "vV")
 
@@ -64,7 +63,7 @@ func parseApiVersion(version string) (string, error) {
 	}
 	if isApiVersion {
 		apiVersion := openapi.ApiVersion(v)
-		return string(apiVersion.ToSdkVersion()), nil
+		return apiVersion.ToSdkVersion(), nil
 	}
 
 	isDigits, err := regexp.MatchString(`^20\d{6}(preview|privatepreview)?$`, v)
@@ -72,7 +71,7 @@ func parseApiVersion(version string) (string, error) {
 		return "", status.Errorf(codes.InvalidArgument, "unexpected error parsing version %s: %v", version, err)
 	}
 	if isDigits {
-		return "v" + v, nil
+		return openapi.SdkVersion("v" + v), nil
 	}
 
 	return "", status.Errorf(codes.InvalidArgument, "invalid API version: %s", version)
@@ -149,12 +148,6 @@ func (p *azureNativeProvider) Parameterize(ctx context.Context, req *rpc.Paramet
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "failed to marshal schema: %v", err)
 	}
-	s = updateRefs(s, newPackageName, args.Module, args.Version)
-
-	newMetadata, err = updateMetadataRefs(newMetadata, newPackageName, args.Module, args.Version)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "failed to update metadata $refs: %v", err)
-	}
 
 	p.schemaBytes = s
 	p.resourceMap = newMetadata
@@ -179,32 +172,8 @@ func (p *azureNativeProvider) Parameterize(ctx context.Context, req *rpc.Paramet
 
 const parameterizedNameSeparator = "_"
 
-func generateNewPackageName(unparameterizedPackageName, targetModule, targetApiVersion string) string {
-	return strings.Join([]string{unparameterizedPackageName, targetModule, targetApiVersion}, parameterizedNameSeparator)
-}
-
-// updateRefs updates all `$ref` pointers in the serialized schema to use the new package name, e.g., from `"$ref":
-// "#/types/azure-native:..."` to `"$ref": "#/types/azure-native_resources_20240101:..."`.
-func updateRefs(serialized []byte, newPackageName, module, apiVersion string) []byte {
-	oldRefPrefix := fmt.Sprintf(`"$ref":"#/types/azure-native:%s/%s`, module, apiVersion)
-	newRefPrefix := fmt.Sprintf(`"$ref": "#/types/%s:%s`, newPackageName, module)
-	return bytes.ReplaceAll(serialized, []byte(oldRefPrefix), []byte(newRefPrefix))
-}
-
-// updateMetadataRefs updates all `$ref` pointers in the metadata to use the new package name.
-// This implementation uses a JSON round-trip to update the `$ref`'s via a global string-replacement. Not elegant, but effective.
-func updateMetadataRefs(metadata *resources.APIMetadata, newPackageName, module, apiVersion string) (*resources.APIMetadata, error) {
-	m, err := json.Marshal(metadata)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "failed to marshal metadata: %v", err)
-	}
-	updated := updateRefs(m, newPackageName, module, apiVersion)
-	newMetadata := &resources.APIMetadata{}
-	err = json.Unmarshal(updated, newMetadata)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "failed to unmarshal metadata: %v", err)
-	}
-	return newMetadata, nil
+func ParameterizedProviderName(unparameterizedPackageName, targetModule string, targetApiVersion openapi.SdkVersion) string {
+	return strings.Join([]string{unparameterizedPackageName, targetModule, string(targetApiVersion)}, parameterizedNameSeparator)
 }
 
 func getAvailableApiVersions(schema pschema.PackageSpec, targetModule string) []string {
@@ -233,8 +202,8 @@ func getAvailableApiVersions(schema pschema.PackageSpec, targetModule string) []
 //
 // To separate concerns, the `Parameterization` of the new schema is NOT populated yet, the caller is responsible for
 // doing that.
-func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModule, targetApiVersion string) (*pschema.PackageSpec, *resources.APIMetadata, error) {
-	newPackageName := generateNewPackageName(schema.Name, targetModule, targetApiVersion)
+func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModule string, targetApiVersion openapi.SdkVersion) (*pschema.PackageSpec, *resources.APIMetadata, error) {
+	newPackageName := ParameterizedProviderName(schema.Name, targetModule, targetApiVersion)
 
 	newSchema := pschema.PackageSpec{
 		Name:        newPackageName,
@@ -344,14 +313,14 @@ func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModu
 }
 
 // filterTokens returns a map of tokens that match the target module and API version.
-func filterTokens[T any](tokens map[string]T, targetModule, targetApiVersion string) (map[string]string, error) {
+func filterTokens[T any](tokens map[string]T, targetModule string, targetApiVersion openapi.SdkVersion) (map[string]string, error) {
 	typeNames := map[string]string{}
 	for token := range tokens {
 		moduleName, version, name, err := resources.ParseToken(token)
 		if err != nil {
 			return nil, err
 		}
-		if !strings.EqualFold(moduleName, targetModule) || version != targetApiVersion {
+		if !strings.EqualFold(moduleName, targetModule) || version != string(targetApiVersion) {
 			continue
 		}
 		typeNames[token] = name

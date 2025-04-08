@@ -214,7 +214,7 @@ class ShareSubscription(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["user_email"] = None
             __props__.__dict__["user_name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare/v20181101preview:ShareSubscription"), pulumi.Alias(type_="azure-native:datashare/v20191101:ShareSubscription"), pulumi.Alias(type_="azure-native:datashare/v20200901:ShareSubscription"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:ShareSubscription"), pulumi.Alias(type_="azure-native:datashare/v20210801:ShareSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare/v20210801:ShareSubscription"), pulumi.Alias(type_="azure-native_datashare_v20181101preview:datashare:ShareSubscription"), pulumi.Alias(type_="azure-native_datashare_v20191101:datashare:ShareSubscription"), pulumi.Alias(type_="azure-native_datashare_v20200901:datashare:ShareSubscription"), pulumi.Alias(type_="azure-native_datashare_v20201001preview:datashare:ShareSubscription"), pulumi.Alias(type_="azure-native_datashare_v20210801:datashare:ShareSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ShareSubscription, __self__).__init__(
             'azure-native:datashare:ShareSubscription',

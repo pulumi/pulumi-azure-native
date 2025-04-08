@@ -168,7 +168,7 @@ export class Console extends pulumi.CustomResource {
             resourceInputs["virtualMachineAccessId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:Console" }, { type: "azure-native:networkcloud/v20231001preview:Console" }, { type: "azure-native:networkcloud/v20240601preview:Console" }, { type: "azure-native:networkcloud/v20240701:Console" }, { type: "azure-native:networkcloud/v20241001preview:Console" }, { type: "azure-native:networkcloud/v20250201:Console" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:Console" }, { type: "azure-native:networkcloud/v20231001preview:Console" }, { type: "azure-native:networkcloud/v20240601preview:Console" }, { type: "azure-native:networkcloud/v20240701:Console" }, { type: "azure-native:networkcloud/v20241001preview:Console" }, { type: "azure-native_networkcloud_v20230701:networkcloud:Console" }, { type: "azure-native_networkcloud_v20231001preview:networkcloud:Console" }, { type: "azure-native_networkcloud_v20240601preview:networkcloud:Console" }, { type: "azure-native_networkcloud_v20240701:networkcloud:Console" }, { type: "azure-native_networkcloud_v20241001preview:networkcloud:Console" }, { type: "azure-native_networkcloud_v20250201:networkcloud:Console" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Console.__pulumiType, name, resourceInputs, opts);
     }

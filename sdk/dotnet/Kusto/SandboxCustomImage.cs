@@ -94,6 +94,8 @@ namespace Pulumi.AzureNative.Kusto
                 {
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:SandboxCustomImage" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:SandboxCustomImage" },
+                    new global::Pulumi.Alias { Type = "azure-native_kusto_v20230815:kusto:SandboxCustomImage" },
+                    new global::Pulumi.Alias { Type = "azure-native_kusto_v20240413:kusto:SandboxCustomImage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

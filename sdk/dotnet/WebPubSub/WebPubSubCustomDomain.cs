@@ -86,7 +86,6 @@ namespace Pulumi.AzureNative.WebPubSub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20220801preview:WebPubSubCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230201:WebPubSubCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230301preview:WebPubSubCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230601preview:WebPubSubCustomDomain" },
@@ -96,6 +95,16 @@ namespace Pulumi.AzureNative.WebPubSub
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20240401preview:WebPubSubCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20240801preview:WebPubSubCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20241001preview:WebPubSubCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20220801preview:webpubsub:WebPubSubCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20230201:webpubsub:WebPubSubCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20230301preview:webpubsub:WebPubSubCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20230601preview:webpubsub:WebPubSubCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20230801preview:webpubsub:WebPubSubCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20240101preview:webpubsub:WebPubSubCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20240301:webpubsub:WebPubSubCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20240401preview:webpubsub:WebPubSubCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20240801preview:webpubsub:WebPubSubCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20241001preview:webpubsub:WebPubSubCustomDomain" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

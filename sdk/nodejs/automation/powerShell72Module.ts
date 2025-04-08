@@ -163,7 +163,7 @@ export class PowerShell72Module extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20231101:PowerShell72Module" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20231101:PowerShell72Module" }, { type: "azure-native_automation_v20231101:automation:PowerShell72Module" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PowerShell72Module.__pulumiType, name, resourceInputs, opts);
     }

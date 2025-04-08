@@ -124,7 +124,7 @@ export class Evidence extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appcomplianceautomation/v20240627:Evidence" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appcomplianceautomation/v20240627:Evidence" }, { type: "azure-native_appcomplianceautomation_v20240627:appcomplianceautomation:Evidence" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Evidence.__pulumiType, name, resourceInputs, opts);
     }

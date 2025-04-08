@@ -165,7 +165,7 @@ export class DiagnosticService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperationsmq/v20231004preview:DiagnosticService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperationsmq/v20231004preview:DiagnosticService" }, { type: "azure-native_iotoperationsmq_v20231004preview:iotoperationsmq:DiagnosticService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiagnosticService.__pulumiType, name, resourceInputs, opts);
     }

@@ -71,10 +71,10 @@ namespace Pulumi.AzureNative.TrafficManager
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401:TrafficManagerUserMetricsKey" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:TrafficManagerUserMetricsKey" },
                     new global::Pulumi.Alias { Type = "azure-native:network:TrafficManagerUserMetricsKey" },
-                    new global::Pulumi.Alias { Type = "azure-native:trafficmanager/v20180401:TrafficManagerUserMetricsKey" },
-                    new global::Pulumi.Alias { Type = "azure-native:trafficmanager/v20180801:TrafficManagerUserMetricsKey" },
-                    new global::Pulumi.Alias { Type = "azure-native:trafficmanager/v20220401:TrafficManagerUserMetricsKey" },
-                    new global::Pulumi.Alias { Type = "azure-native:trafficmanager/v20220401preview:TrafficManagerUserMetricsKey" },
+                    new global::Pulumi.Alias { Type = "azure-native_trafficmanager_v20180401:trafficmanager:TrafficManagerUserMetricsKey" },
+                    new global::Pulumi.Alias { Type = "azure-native_trafficmanager_v20180801:trafficmanager:TrafficManagerUserMetricsKey" },
+                    new global::Pulumi.Alias { Type = "azure-native_trafficmanager_v20220401:trafficmanager:TrafficManagerUserMetricsKey" },
+                    new global::Pulumi.Alias { Type = "azure-native_trafficmanager_v20220401preview:trafficmanager:TrafficManagerUserMetricsKey" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -247,7 +247,7 @@ class EncryptionSet(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20240501preview:EncryptionSet"), pulumi.Alias(type_="azure-native:devcenter/v20240601preview:EncryptionSet"), pulumi.Alias(type_="azure-native:devcenter/v20240701preview:EncryptionSet"), pulumi.Alias(type_="azure-native:devcenter/v20240801preview:EncryptionSet"), pulumi.Alias(type_="azure-native:devcenter/v20241001preview:EncryptionSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20240501preview:EncryptionSet"), pulumi.Alias(type_="azure-native:devcenter/v20240601preview:EncryptionSet"), pulumi.Alias(type_="azure-native:devcenter/v20240701preview:EncryptionSet"), pulumi.Alias(type_="azure-native:devcenter/v20240801preview:EncryptionSet"), pulumi.Alias(type_="azure-native:devcenter/v20241001preview:EncryptionSet"), pulumi.Alias(type_="azure-native_devcenter_v20240501preview:devcenter:EncryptionSet"), pulumi.Alias(type_="azure-native_devcenter_v20240601preview:devcenter:EncryptionSet"), pulumi.Alias(type_="azure-native_devcenter_v20240701preview:devcenter:EncryptionSet"), pulumi.Alias(type_="azure-native_devcenter_v20240801preview:devcenter:EncryptionSet"), pulumi.Alias(type_="azure-native_devcenter_v20241001preview:devcenter:EncryptionSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EncryptionSet, __self__).__init__(
             'azure-native:devcenter:EncryptionSet',

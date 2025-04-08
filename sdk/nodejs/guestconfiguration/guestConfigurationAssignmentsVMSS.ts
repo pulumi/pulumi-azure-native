@@ -100,7 +100,7 @@ export class GuestConfigurationAssignmentsVMSS extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:guestconfiguration/v20220125:GuestConfigurationAssignmentsVMSS" }, { type: "azure-native:guestconfiguration/v20240405:GuestConfigurationAssignmentsVMSS" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:guestconfiguration/v20220125:GuestConfigurationAssignmentsVMSS" }, { type: "azure-native:guestconfiguration/v20240405:GuestConfigurationAssignmentsVMSS" }, { type: "azure-native_guestconfiguration_v20220125:guestconfiguration:GuestConfigurationAssignmentsVMSS" }, { type: "azure-native_guestconfiguration_v20240405:guestconfiguration:GuestConfigurationAssignmentsVMSS" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GuestConfigurationAssignmentsVMSS.__pulumiType, name, resourceInputs, opts);
     }

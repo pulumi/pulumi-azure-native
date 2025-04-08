@@ -117,7 +117,7 @@ export class ImageDefinition extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:testbase/v20231101preview:ImageDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:testbase/v20231101preview:ImageDefinition" }, { type: "azure-native_testbase_v20231101preview:testbase:ImageDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ImageDefinition.__pulumiType, name, resourceInputs, opts);
     }

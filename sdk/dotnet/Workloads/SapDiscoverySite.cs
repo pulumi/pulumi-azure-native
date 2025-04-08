@@ -109,6 +109,7 @@ namespace Pulumi.AzureNative.Workloads
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:SapDiscoverySite" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20231001preview:workloads:SapDiscoverySite" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

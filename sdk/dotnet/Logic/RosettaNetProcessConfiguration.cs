@@ -133,6 +133,7 @@ namespace Pulumi.AzureNative.Logic
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:RosettaNetProcessConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_logic_v20160601:logic:RosettaNetProcessConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

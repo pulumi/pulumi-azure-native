@@ -284,7 +284,7 @@ class BusinessProcess(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:integrationspaces/v20231114preview:BusinessProcess")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:integrationspaces/v20231114preview:BusinessProcess"), pulumi.Alias(type_="azure-native_integrationspaces_v20231114preview:integrationspaces:BusinessProcess")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BusinessProcess, __self__).__init__(
             'azure-native:integrationspaces:BusinessProcess',

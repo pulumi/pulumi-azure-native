@@ -116,7 +116,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20180601privatepreview:PrivateEndpointConnection" }, { type: "azure-native:dbformysql/v20220930preview:PrivateEndpointConnection" }, { type: "azure-native:dbformysql/v20230630:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20220930preview:PrivateEndpointConnection" }, { type: "azure-native:dbformysql/v20230630:PrivateEndpointConnection" }, { type: "azure-native_dbformysql_v20220930preview:dbformysql:PrivateEndpointConnection" }, { type: "azure-native_dbformysql_v20230630:dbformysql:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

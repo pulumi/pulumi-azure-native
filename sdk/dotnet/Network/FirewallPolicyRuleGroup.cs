@@ -86,14 +86,15 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:FirewallPolicyRuleGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:FirewallPolicyRuleGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:FirewallPolicyRuleGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:FirewallPolicyRuleGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:FirewallPolicyRuleGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:FirewallPolicyRuleGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:FirewallPolicyRuleGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200401:FirewallPolicyRuleGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20190601:network:FirewallPolicyRuleGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20190701:network:FirewallPolicyRuleGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20190801:network:FirewallPolicyRuleGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20190901:network:FirewallPolicyRuleGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20191101:network:FirewallPolicyRuleGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20191201:network:FirewallPolicyRuleGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20200301:network:FirewallPolicyRuleGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20200401:network:FirewallPolicyRuleGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

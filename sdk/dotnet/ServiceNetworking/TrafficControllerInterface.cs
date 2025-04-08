@@ -121,7 +121,12 @@ namespace Pulumi.AzureNative.ServiceNetworking
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20231101:TrafficControllerInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20240501preview:TrafficControllerInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20250101:TrafficControllerInterface" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20250301preview:TrafficControllerInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicenetworking_v20221001preview:servicenetworking:TrafficControllerInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicenetworking_v20230501preview:servicenetworking:TrafficControllerInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicenetworking_v20231101:servicenetworking:TrafficControllerInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicenetworking_v20240501preview:servicenetworking:TrafficControllerInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicenetworking_v20250101:servicenetworking:TrafficControllerInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicenetworking_v20250301preview:servicenetworking:TrafficControllerInterface" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

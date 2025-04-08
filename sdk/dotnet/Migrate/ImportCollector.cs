@@ -59,17 +59,18 @@ namespace Pulumi.AzureNative.Migrate
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:ImportCollector" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:ImportCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:ImportCollectorsOperation" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:ImportCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:ImportCollectorsOperation" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:ImportCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:ImportCollectorsOperation" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:ImportCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:ImportCollectorsOperation" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:ImportCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:ImportCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:ImportCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20191001:migrate:ImportCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230315:migrate:ImportCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230401preview:migrate:ImportCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230501preview:migrate:ImportCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230909preview:migrate:ImportCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20240101preview:migrate:ImportCollector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

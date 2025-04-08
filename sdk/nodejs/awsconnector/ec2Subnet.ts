@@ -100,7 +100,7 @@ export class Ec2Subnet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2Subnet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2Subnet" }, { type: "azure-native_awsconnector_v20241201:awsconnector:Ec2Subnet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Ec2Subnet.__pulumiType, name, resourceInputs, opts);
     }

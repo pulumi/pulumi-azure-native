@@ -365,7 +365,7 @@ class FirewallPolicyDraft(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20231101:FirewallPolicyDraft"), pulumi.Alias(type_="azure-native:network/v20240101:FirewallPolicyDraft"), pulumi.Alias(type_="azure-native:network/v20240301:FirewallPolicyDraft"), pulumi.Alias(type_="azure-native:network/v20240501:FirewallPolicyDraft")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20231101:FirewallPolicyDraft"), pulumi.Alias(type_="azure-native:network/v20240101:FirewallPolicyDraft"), pulumi.Alias(type_="azure-native:network/v20240301:FirewallPolicyDraft"), pulumi.Alias(type_="azure-native:network/v20240501:FirewallPolicyDraft"), pulumi.Alias(type_="azure-native_network_v20231101:network:FirewallPolicyDraft"), pulumi.Alias(type_="azure-native_network_v20240101:network:FirewallPolicyDraft"), pulumi.Alias(type_="azure-native_network_v20240301:network:FirewallPolicyDraft"), pulumi.Alias(type_="azure-native_network_v20240501:network:FirewallPolicyDraft")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallPolicyDraft, __self__).__init__(
             'azure-native:network:FirewallPolicyDraft',

@@ -85,7 +85,7 @@ export class WorkloadImpact extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:impact/v20240501preview:WorkloadImpact" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:impact/v20240501preview:WorkloadImpact" }, { type: "azure-native_impact_v20240501preview:impact:WorkloadImpact" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkloadImpact.__pulumiType, name, resourceInputs, opts);
     }

@@ -133,6 +133,7 @@ namespace Pulumi.AzureNative.Community
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:community/v20231101:CommunityTraining" },
+                    new global::Pulumi.Alias { Type = "azure-native_community_v20231101:community:CommunityTraining" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

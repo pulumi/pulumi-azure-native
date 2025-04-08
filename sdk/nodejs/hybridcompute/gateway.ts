@@ -127,7 +127,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute/v20240331preview:Gateway" }, { type: "azure-native:hybridcompute/v20240520preview:Gateway" }, { type: "azure-native:hybridcompute/v20240731preview:Gateway" }, { type: "azure-native:hybridcompute/v20240910preview:Gateway" }, { type: "azure-native:hybridcompute/v20241110preview:Gateway" }, { type: "azure-native:hybridcompute/v20250113:Gateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute/v20240331preview:Gateway" }, { type: "azure-native:hybridcompute/v20240520preview:Gateway" }, { type: "azure-native:hybridcompute/v20240731preview:Gateway" }, { type: "azure-native:hybridcompute/v20240910preview:Gateway" }, { type: "azure-native:hybridcompute/v20241110preview:Gateway" }, { type: "azure-native_hybridcompute_v20240331preview:hybridcompute:Gateway" }, { type: "azure-native_hybridcompute_v20240520preview:hybridcompute:Gateway" }, { type: "azure-native_hybridcompute_v20240731preview:hybridcompute:Gateway" }, { type: "azure-native_hybridcompute_v20240910preview:hybridcompute:Gateway" }, { type: "azure-native_hybridcompute_v20241110preview:hybridcompute:Gateway" }, { type: "azure-native_hybridcompute_v20250113:hybridcompute:Gateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Gateway.__pulumiType, name, resourceInputs, opts);
     }

@@ -116,7 +116,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hdinsight/v20210601:PrivateEndpointConnection" }, { type: "azure-native:hdinsight/v20230415preview:PrivateEndpointConnection" }, { type: "azure-native:hdinsight/v20230815preview:PrivateEndpointConnection" }, { type: "azure-native:hdinsight/v20240801preview:PrivateEndpointConnection" }, { type: "azure-native:hdinsight/v20250115preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hdinsight/v20210601:PrivateEndpointConnection" }, { type: "azure-native:hdinsight/v20230415preview:PrivateEndpointConnection" }, { type: "azure-native:hdinsight/v20230815preview:PrivateEndpointConnection" }, { type: "azure-native:hdinsight/v20240801preview:PrivateEndpointConnection" }, { type: "azure-native_hdinsight_v20210601:hdinsight:PrivateEndpointConnection" }, { type: "azure-native_hdinsight_v20230415preview:hdinsight:PrivateEndpointConnection" }, { type: "azure-native_hdinsight_v20230815preview:hdinsight:PrivateEndpointConnection" }, { type: "azure-native_hdinsight_v20240801preview:hdinsight:PrivateEndpointConnection" }, { type: "azure-native_hdinsight_v20250115preview:hdinsight:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

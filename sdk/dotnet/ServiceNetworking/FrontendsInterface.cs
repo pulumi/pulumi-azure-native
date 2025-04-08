@@ -97,7 +97,12 @@ namespace Pulumi.AzureNative.ServiceNetworking
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20231101:FrontendsInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20240501preview:FrontendsInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20250101:FrontendsInterface" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20250301preview:FrontendsInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicenetworking_v20221001preview:servicenetworking:FrontendsInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicenetworking_v20230501preview:servicenetworking:FrontendsInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicenetworking_v20231101:servicenetworking:FrontendsInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicenetworking_v20240501preview:servicenetworking:FrontendsInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicenetworking_v20250101:servicenetworking:FrontendsInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicenetworking_v20250301preview:servicenetworking:FrontendsInterface" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

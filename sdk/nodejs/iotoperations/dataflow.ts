@@ -108,7 +108,7 @@ export class Dataflow extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:DataFlow" }, { type: "azure-native:iotoperations/v20240701preview:Dataflow" }, { type: "azure-native:iotoperations/v20240815preview:Dataflow" }, { type: "azure-native:iotoperations/v20240915preview:Dataflow" }, { type: "azure-native:iotoperations/v20241101:Dataflow" }, { type: "azure-native:iotoperations/v20250401:Dataflow" }, { type: "azure-native:iotoperations:DataFlow" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:DataFlow" }, { type: "azure-native:iotoperations/v20240815preview:Dataflow" }, { type: "azure-native:iotoperations/v20240915preview:Dataflow" }, { type: "azure-native:iotoperations/v20241101:Dataflow" }, { type: "azure-native:iotoperations:DataFlow" }, { type: "azure-native_iotoperations_v20240701preview:iotoperations:Dataflow" }, { type: "azure-native_iotoperations_v20240815preview:iotoperations:Dataflow" }, { type: "azure-native_iotoperations_v20240915preview:iotoperations:Dataflow" }, { type: "azure-native_iotoperations_v20241101:iotoperations:Dataflow" }, { type: "azure-native_iotoperations_v20250401:iotoperations:Dataflow" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Dataflow.__pulumiType, name, resourceInputs, opts);
     }

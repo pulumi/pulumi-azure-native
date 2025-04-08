@@ -100,7 +100,7 @@ export class AcmCertificateSummary extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:AcmCertificateSummary" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:AcmCertificateSummary" }, { type: "azure-native_awsconnector_v20241201:awsconnector:AcmCertificateSummary" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AcmCertificateSummary.__pulumiType, name, resourceInputs, opts);
     }

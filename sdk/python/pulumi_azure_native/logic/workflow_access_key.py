@@ -194,7 +194,7 @@ class WorkflowAccessKey(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic/v20150201preview:WorkflowAccessKey")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic/v20150201preview:WorkflowAccessKey"), pulumi.Alias(type_="azure-native_logic_v20150201preview:logic:WorkflowAccessKey")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkflowAccessKey, __self__).__init__(
             'azure-native:logic:WorkflowAccessKey',

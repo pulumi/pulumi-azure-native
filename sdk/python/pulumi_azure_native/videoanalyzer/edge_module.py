@@ -141,7 +141,7 @@ class EdgeModule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:videoanalyzer/v20210501preview:EdgeModule"), pulumi.Alias(type_="azure-native:videoanalyzer/v20211101preview:EdgeModule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:videoanalyzer/v20211101preview:EdgeModule"), pulumi.Alias(type_="azure-native_videoanalyzer_v20210501preview:videoanalyzer:EdgeModule"), pulumi.Alias(type_="azure-native_videoanalyzer_v20211101preview:videoanalyzer:EdgeModule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EdgeModule, __self__).__init__(
             'azure-native:videoanalyzer:EdgeModule',

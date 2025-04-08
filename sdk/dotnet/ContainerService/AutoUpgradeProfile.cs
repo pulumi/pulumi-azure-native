@@ -106,6 +106,7 @@ namespace Pulumi.AzureNative.ContainerService
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240502preview:AutoUpgradeProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerservice_v20240502preview:containerservice:AutoUpgradeProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

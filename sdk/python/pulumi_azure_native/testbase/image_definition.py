@@ -205,7 +205,7 @@ class ImageDefinition(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase/v20231101preview:ImageDefinition")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase/v20231101preview:ImageDefinition"), pulumi.Alias(type_="azure-native_testbase_v20231101preview:testbase:ImageDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ImageDefinition, __self__).__init__(
             'azure-native:testbase:ImageDefinition',

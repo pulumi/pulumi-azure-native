@@ -109,7 +109,7 @@ export class AccessConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databricks/v20220401preview:AccessConnector" }, { type: "azure-native:databricks/v20221001preview:AccessConnector" }, { type: "azure-native:databricks/v20230501:AccessConnector" }, { type: "azure-native:databricks/v20240501:AccessConnector" }, { type: "azure-native:databricks/v20240901preview:AccessConnector" }, { type: "azure-native:databricks/v20250301preview:AccessConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databricks/v20220401preview:AccessConnector" }, { type: "azure-native:databricks/v20230501:AccessConnector" }, { type: "azure-native:databricks/v20240501:AccessConnector" }, { type: "azure-native:databricks/v20240901preview:AccessConnector" }, { type: "azure-native_databricks_v20220401preview:databricks:AccessConnector" }, { type: "azure-native_databricks_v20221001preview:databricks:AccessConnector" }, { type: "azure-native_databricks_v20230501:databricks:AccessConnector" }, { type: "azure-native_databricks_v20240501:databricks:AccessConnector" }, { type: "azure-native_databricks_v20240901preview:databricks:AccessConnector" }, { type: "azure-native_databricks_v20250301preview:databricks:AccessConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AccessConnector.__pulumiType, name, resourceInputs, opts);
     }

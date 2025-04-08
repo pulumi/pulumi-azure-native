@@ -115,6 +115,7 @@ namespace Pulumi.AzureNative.Confluent
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:confluent/v20240701:Topic" },
+                    new global::Pulumi.Alias { Type = "azure-native_confluent_v20240701:confluent:Topic" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

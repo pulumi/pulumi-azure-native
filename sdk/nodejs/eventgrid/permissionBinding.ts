@@ -121,7 +121,7 @@ export class PermissionBinding extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20230601preview:PermissionBinding" }, { type: "azure-native:eventgrid/v20231215preview:PermissionBinding" }, { type: "azure-native:eventgrid/v20240601preview:PermissionBinding" }, { type: "azure-native:eventgrid/v20241215preview:PermissionBinding" }, { type: "azure-native:eventgrid/v20250215:PermissionBinding" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20230601preview:PermissionBinding" }, { type: "azure-native:eventgrid/v20231215preview:PermissionBinding" }, { type: "azure-native:eventgrid/v20240601preview:PermissionBinding" }, { type: "azure-native:eventgrid/v20241215preview:PermissionBinding" }, { type: "azure-native_eventgrid_v20230601preview:eventgrid:PermissionBinding" }, { type: "azure-native_eventgrid_v20231215preview:eventgrid:PermissionBinding" }, { type: "azure-native_eventgrid_v20240601preview:eventgrid:PermissionBinding" }, { type: "azure-native_eventgrid_v20241215preview:eventgrid:PermissionBinding" }, { type: "azure-native_eventgrid_v20250215:eventgrid:PermissionBinding" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PermissionBinding.__pulumiType, name, resourceInputs, opts);
     }

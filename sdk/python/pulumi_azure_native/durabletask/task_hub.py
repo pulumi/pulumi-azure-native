@@ -141,7 +141,7 @@ class TaskHub(pulumi.CustomResource):
             __props__.__dict__["properties"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:durabletask/v20241001preview:TaskHub")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:durabletask/v20241001preview:TaskHub"), pulumi.Alias(type_="azure-native_durabletask_v20241001preview:durabletask:TaskHub")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TaskHub, __self__).__init__(
             'azure-native:durabletask:TaskHub',

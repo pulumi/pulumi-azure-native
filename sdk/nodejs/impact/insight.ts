@@ -89,7 +89,7 @@ export class Insight extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:impact/v20240501preview:Insight" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:impact/v20240501preview:Insight" }, { type: "azure-native_impact_v20240501preview:impact:Insight" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Insight.__pulumiType, name, resourceInputs, opts);
     }

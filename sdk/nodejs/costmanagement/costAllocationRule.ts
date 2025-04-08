@@ -85,7 +85,7 @@ export class CostAllocationRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20200301preview:CostAllocationRule" }, { type: "azure-native:costmanagement/v20230801:CostAllocationRule" }, { type: "azure-native:costmanagement/v20230901:CostAllocationRule" }, { type: "azure-native:costmanagement/v20231101:CostAllocationRule" }, { type: "azure-native:costmanagement/v20240801:CostAllocationRule" }, { type: "azure-native:costmanagement/v20241001preview:CostAllocationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20200301preview:CostAllocationRule" }, { type: "azure-native:costmanagement/v20230801:CostAllocationRule" }, { type: "azure-native:costmanagement/v20230901:CostAllocationRule" }, { type: "azure-native:costmanagement/v20231101:CostAllocationRule" }, { type: "azure-native:costmanagement/v20240801:CostAllocationRule" }, { type: "azure-native_costmanagement_v20200301preview:costmanagement:CostAllocationRule" }, { type: "azure-native_costmanagement_v20230801:costmanagement:CostAllocationRule" }, { type: "azure-native_costmanagement_v20230901:costmanagement:CostAllocationRule" }, { type: "azure-native_costmanagement_v20231101:costmanagement:CostAllocationRule" }, { type: "azure-native_costmanagement_v20240801:costmanagement:CostAllocationRule" }, { type: "azure-native_costmanagement_v20241001preview:costmanagement:CostAllocationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CostAllocationRule.__pulumiType, name, resourceInputs, opts);
     }

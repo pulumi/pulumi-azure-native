@@ -140,12 +140,16 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:DscConfiguration" },
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:DscConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:DscConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:DscConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20231101:DscConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20241023:DscConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20151031:automation:DscConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20190601:automation:DscConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20220808:automation:DscConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20230515preview:automation:DscConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20231101:automation:DscConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20241023:automation:DscConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

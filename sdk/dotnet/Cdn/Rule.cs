@@ -107,16 +107,22 @@ namespace Pulumi.AzureNative.Cdn
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:Rule" },
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:Rule" },
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:Rule" },
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:Rule" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20230501:Rule" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20230701preview:Rule" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240201:Rule" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240501preview:Rule" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240601preview:Rule" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240901:Rule" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20200901:cdn:Rule" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20210601:cdn:Rule" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20220501preview:cdn:Rule" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20221101preview:cdn:Rule" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20230501:cdn:Rule" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20230701preview:cdn:Rule" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240201:cdn:Rule" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240501preview:cdn:Rule" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240601preview:cdn:Rule" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240901:cdn:Rule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

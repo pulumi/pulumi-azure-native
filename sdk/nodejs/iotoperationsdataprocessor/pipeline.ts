@@ -147,7 +147,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperationsdataprocessor/v20231004preview:Pipeline" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperationsdataprocessor/v20231004preview:Pipeline" }, { type: "azure-native_iotoperationsdataprocessor_v20231004preview:iotoperationsdataprocessor:Pipeline" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Pipeline.__pulumiType, name, resourceInputs, opts);
     }

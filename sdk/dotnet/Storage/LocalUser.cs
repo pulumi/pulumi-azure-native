@@ -140,14 +140,18 @@ namespace Pulumi.AzureNative.Storage
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:LocalUser" },
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:LocalUser" },
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:LocalUser" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20220901:LocalUser" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230101:LocalUser" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230401:LocalUser" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230501:LocalUser" },
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20240101:LocalUser" },
+                    new global::Pulumi.Alias { Type = "azure-native_storage_v20210801:storage:LocalUser" },
+                    new global::Pulumi.Alias { Type = "azure-native_storage_v20210901:storage:LocalUser" },
+                    new global::Pulumi.Alias { Type = "azure-native_storage_v20220501:storage:LocalUser" },
+                    new global::Pulumi.Alias { Type = "azure-native_storage_v20220901:storage:LocalUser" },
+                    new global::Pulumi.Alias { Type = "azure-native_storage_v20230101:storage:LocalUser" },
+                    new global::Pulumi.Alias { Type = "azure-native_storage_v20230401:storage:LocalUser" },
+                    new global::Pulumi.Alias { Type = "azure-native_storage_v20230501:storage:LocalUser" },
+                    new global::Pulumi.Alias { Type = "azure-native_storage_v20240101:storage:LocalUser" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

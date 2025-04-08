@@ -243,7 +243,7 @@ class DataStore(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybriddata/v20160601:DataStore"), pulumi.Alias(type_="azure-native:hybriddata/v20190601:DataStore")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybriddata/v20190601:DataStore"), pulumi.Alias(type_="azure-native_hybriddata_v20160601:hybriddata:DataStore"), pulumi.Alias(type_="azure-native_hybriddata_v20190601:hybriddata:DataStore")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataStore, __self__).__init__(
             'azure-native:hybriddata:DataStore',

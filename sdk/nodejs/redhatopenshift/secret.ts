@@ -95,7 +95,7 @@ export class Secret extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift/v20220904:Secret" }, { type: "azure-native:redhatopenshift/v20230401:Secret" }, { type: "azure-native:redhatopenshift/v20230701preview:Secret" }, { type: "azure-native:redhatopenshift/v20230904:Secret" }, { type: "azure-native:redhatopenshift/v20231122:Secret" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift/v20220904:Secret" }, { type: "azure-native:redhatopenshift/v20230401:Secret" }, { type: "azure-native:redhatopenshift/v20230701preview:Secret" }, { type: "azure-native:redhatopenshift/v20230904:Secret" }, { type: "azure-native:redhatopenshift/v20231122:Secret" }, { type: "azure-native_redhatopenshift_v20220904:redhatopenshift:Secret" }, { type: "azure-native_redhatopenshift_v20230401:redhatopenshift:Secret" }, { type: "azure-native_redhatopenshift_v20230701preview:redhatopenshift:Secret" }, { type: "azure-native_redhatopenshift_v20230904:redhatopenshift:Secret" }, { type: "azure-native_redhatopenshift_v20231122:redhatopenshift:Secret" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Secret.__pulumiType, name, resourceInputs, opts);
     }

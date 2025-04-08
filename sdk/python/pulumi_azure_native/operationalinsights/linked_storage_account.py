@@ -162,7 +162,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20190801preview:LinkedStorageAccount"), pulumi.Alias(type_="azure-native:operationalinsights/v20200301preview:LinkedStorageAccount"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:LinkedStorageAccount"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:LinkedStorageAccount"), pulumi.Alias(type_="azure-native:operationalinsights/v20250201:LinkedStorageAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20200801:LinkedStorageAccount"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:LinkedStorageAccount"), pulumi.Alias(type_="azure-native_operationalinsights_v20190801preview:operationalinsights:LinkedStorageAccount"), pulumi.Alias(type_="azure-native_operationalinsights_v20200301preview:operationalinsights:LinkedStorageAccount"), pulumi.Alias(type_="azure-native_operationalinsights_v20200801:operationalinsights:LinkedStorageAccount"), pulumi.Alias(type_="azure-native_operationalinsights_v20230901:operationalinsights:LinkedStorageAccount"), pulumi.Alias(type_="azure-native_operationalinsights_v20250201:operationalinsights:LinkedStorageAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LinkedStorageAccount, __self__).__init__(
             'azure-native:operationalinsights:LinkedStorageAccount',

@@ -77,6 +77,9 @@ namespace Pulumi.AzureNative.NotificationHubs
                     new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20230101preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20230901:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20231001preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_notificationhubs_v20230101preview:notificationhubs:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_notificationhubs_v20230901:notificationhubs:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_notificationhubs_v20231001preview:notificationhubs:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

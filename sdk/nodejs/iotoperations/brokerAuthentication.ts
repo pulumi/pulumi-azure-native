@@ -108,7 +108,7 @@ export class BrokerAuthentication extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:BrokerAuthentication" }, { type: "azure-native:iotoperations/v20240815preview:BrokerAuthentication" }, { type: "azure-native:iotoperations/v20240915preview:BrokerAuthentication" }, { type: "azure-native:iotoperations/v20241101:BrokerAuthentication" }, { type: "azure-native:iotoperations/v20250401:BrokerAuthentication" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:BrokerAuthentication" }, { type: "azure-native:iotoperations/v20240815preview:BrokerAuthentication" }, { type: "azure-native:iotoperations/v20240915preview:BrokerAuthentication" }, { type: "azure-native:iotoperations/v20241101:BrokerAuthentication" }, { type: "azure-native_iotoperations_v20240701preview:iotoperations:BrokerAuthentication" }, { type: "azure-native_iotoperations_v20240815preview:iotoperations:BrokerAuthentication" }, { type: "azure-native_iotoperations_v20240915preview:iotoperations:BrokerAuthentication" }, { type: "azure-native_iotoperations_v20241101:iotoperations:BrokerAuthentication" }, { type: "azure-native_iotoperations_v20250401:iotoperations:BrokerAuthentication" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BrokerAuthentication.__pulumiType, name, resourceInputs, opts);
     }

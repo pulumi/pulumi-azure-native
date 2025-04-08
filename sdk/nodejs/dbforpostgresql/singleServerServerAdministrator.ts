@@ -116,7 +116,7 @@ export class SingleServerServerAdministrator extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20171201:ServerAdministrator" }, { type: "azure-native:dbforpostgresql/v20171201:SingleServerServerAdministrator" }, { type: "azure-native:dbforpostgresql/v20171201preview:ServerAdministrator" }, { type: "azure-native:dbforpostgresql/v20171201preview:SingleServerServerAdministrator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20171201:ServerAdministrator" }, { type: "azure-native:dbforpostgresql/v20171201preview:ServerAdministrator" }, { type: "azure-native_dbforpostgresql_v20171201:dbforpostgresql:SingleServerServerAdministrator" }, { type: "azure-native_dbforpostgresql_v20171201preview:dbforpostgresql:SingleServerServerAdministrator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SingleServerServerAdministrator.__pulumiType, name, resourceInputs, opts);
     }

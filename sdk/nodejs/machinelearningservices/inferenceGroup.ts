@@ -130,7 +130,7 @@ export class InferenceGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230801preview:InferenceGroup" }, { type: "azure-native:machinelearningservices/v20240101preview:InferenceGroup" }, { type: "azure-native:machinelearningservices/v20240401preview:InferenceGroup" }, { type: "azure-native:machinelearningservices/v20241001preview:InferenceGroup" }, { type: "azure-native:machinelearningservices/v20250101preview:InferenceGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230801preview:InferenceGroup" }, { type: "azure-native:machinelearningservices/v20240101preview:InferenceGroup" }, { type: "azure-native:machinelearningservices/v20240401preview:InferenceGroup" }, { type: "azure-native:machinelearningservices/v20241001preview:InferenceGroup" }, { type: "azure-native_machinelearningservices_v20230801preview:machinelearningservices:InferenceGroup" }, { type: "azure-native_machinelearningservices_v20240101preview:machinelearningservices:InferenceGroup" }, { type: "azure-native_machinelearningservices_v20240401preview:machinelearningservices:InferenceGroup" }, { type: "azure-native_machinelearningservices_v20241001preview:machinelearningservices:InferenceGroup" }, { type: "azure-native_machinelearningservices_v20250101preview:machinelearningservices:InferenceGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InferenceGroup.__pulumiType, name, resourceInputs, opts);
     }

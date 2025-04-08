@@ -108,13 +108,16 @@ namespace Pulumi.AzureNative.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:GlobalReachConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:GlobalReachConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:GlobalReachConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:GlobalReachConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:GlobalReachConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230301:GlobalReachConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230901:GlobalReachConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20200717preview:avs:GlobalReachConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20210101preview:avs:GlobalReachConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20210601:avs:GlobalReachConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20211201:avs:GlobalReachConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20220501:avs:GlobalReachConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20230301:avs:GlobalReachConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20230901:avs:GlobalReachConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

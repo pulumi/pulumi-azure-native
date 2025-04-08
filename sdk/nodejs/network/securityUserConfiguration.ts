@@ -113,7 +113,7 @@ export class SecurityUserConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:SecurityUserConfiguration" }, { type: "azure-native:network/v20210501preview:SecurityUserConfiguration" }, { type: "azure-native:network/v20220201preview:SecurityUserConfiguration" }, { type: "azure-native:network/v20220401preview:SecurityUserConfiguration" }, { type: "azure-native:network/v20240301:SecurityUserConfiguration" }, { type: "azure-native:network/v20240501:SecurityUserConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501preview:SecurityUserConfiguration" }, { type: "azure-native:network/v20220401preview:SecurityUserConfiguration" }, { type: "azure-native:network/v20240301:SecurityUserConfiguration" }, { type: "azure-native:network/v20240501:SecurityUserConfiguration" }, { type: "azure-native_network_v20210201preview:network:SecurityUserConfiguration" }, { type: "azure-native_network_v20210501preview:network:SecurityUserConfiguration" }, { type: "azure-native_network_v20220201preview:network:SecurityUserConfiguration" }, { type: "azure-native_network_v20220401preview:network:SecurityUserConfiguration" }, { type: "azure-native_network_v20240301:network:SecurityUserConfiguration" }, { type: "azure-native_network_v20240501:network:SecurityUserConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityUserConfiguration.__pulumiType, name, resourceInputs, opts);
     }

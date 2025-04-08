@@ -139,7 +139,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperationsorchestrator/v20231004preview:Instance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperationsorchestrator/v20231004preview:Instance" }, { type: "azure-native_iotoperationsorchestrator_v20231004preview:iotoperationsorchestrator:Instance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Instance.__pulumiType, name, resourceInputs, opts);
     }

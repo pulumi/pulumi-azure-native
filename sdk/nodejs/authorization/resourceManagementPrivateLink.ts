@@ -84,7 +84,7 @@ export class ResourceManagementPrivateLink extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20200501:ResourceManagementPrivateLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20200501:ResourceManagementPrivateLink" }, { type: "azure-native_authorization_v20200501:authorization:ResourceManagementPrivateLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ResourceManagementPrivateLink.__pulumiType, name, resourceInputs, opts);
     }

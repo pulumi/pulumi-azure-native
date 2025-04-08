@@ -160,7 +160,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs/v20160301:NamespaceAuthorizationRule" }, { type: "azure-native:notificationhubs/v20170401:NamespaceAuthorizationRule" }, { type: "azure-native:notificationhubs/v20230101preview:NamespaceAuthorizationRule" }, { type: "azure-native:notificationhubs/v20230901:NamespaceAuthorizationRule" }, { type: "azure-native:notificationhubs/v20231001preview:NamespaceAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs/v20170401:NamespaceAuthorizationRule" }, { type: "azure-native:notificationhubs/v20230101preview:NamespaceAuthorizationRule" }, { type: "azure-native:notificationhubs/v20230901:NamespaceAuthorizationRule" }, { type: "azure-native:notificationhubs/v20231001preview:NamespaceAuthorizationRule" }, { type: "azure-native_notificationhubs_v20160301:notificationhubs:NamespaceAuthorizationRule" }, { type: "azure-native_notificationhubs_v20170401:notificationhubs:NamespaceAuthorizationRule" }, { type: "azure-native_notificationhubs_v20230101preview:notificationhubs:NamespaceAuthorizationRule" }, { type: "azure-native_notificationhubs_v20230901:notificationhubs:NamespaceAuthorizationRule" }, { type: "azure-native_notificationhubs_v20231001preview:notificationhubs:NamespaceAuthorizationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NamespaceAuthorizationRule.__pulumiType, name, resourceInputs, opts);
     }

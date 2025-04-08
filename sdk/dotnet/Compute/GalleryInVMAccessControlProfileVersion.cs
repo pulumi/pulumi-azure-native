@@ -121,6 +121,7 @@ namespace Pulumi.AzureNative.Compute
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240303:GalleryInVMAccessControlProfileVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native_compute_v20240303:compute:GalleryInVMAccessControlProfileVersion" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

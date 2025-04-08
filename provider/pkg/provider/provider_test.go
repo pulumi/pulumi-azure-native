@@ -949,7 +949,7 @@ func TestProviderDiff(t *testing.T) {
 func TestIsParameterized(t *testing.T) {
 	t.Run("parameterized", func(t *testing.T) {
 		provider := &azureNativeProvider{
-			name: generateNewPackageName("azure-native", "aad", "v20221201"),
+			name: ParameterizedProviderName("azure-native", "aad", "v20221201"),
 		}
 		assert.True(t, provider.isParameterized())
 	})

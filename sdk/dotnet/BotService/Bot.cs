@@ -104,14 +104,16 @@ namespace Pulumi.AzureNative.BotService
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20171201:Bot" },
-                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20180712:Bot" },
-                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20200602:Bot" },
-                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20210301:Bot" },
-                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20210501preview:Bot" },
-                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20220615preview:Bot" },
                     new global::Pulumi.Alias { Type = "azure-native:botservice/v20220915:Bot" },
                     new global::Pulumi.Alias { Type = "azure-native:botservice/v20230915preview:Bot" },
+                    new global::Pulumi.Alias { Type = "azure-native_botservice_v20171201:botservice:Bot" },
+                    new global::Pulumi.Alias { Type = "azure-native_botservice_v20180712:botservice:Bot" },
+                    new global::Pulumi.Alias { Type = "azure-native_botservice_v20200602:botservice:Bot" },
+                    new global::Pulumi.Alias { Type = "azure-native_botservice_v20210301:botservice:Bot" },
+                    new global::Pulumi.Alias { Type = "azure-native_botservice_v20210501preview:botservice:Bot" },
+                    new global::Pulumi.Alias { Type = "azure-native_botservice_v20220615preview:botservice:Bot" },
+                    new global::Pulumi.Alias { Type = "azure-native_botservice_v20220915:botservice:Bot" },
+                    new global::Pulumi.Alias { Type = "azure-native_botservice_v20230915preview:botservice:Bot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

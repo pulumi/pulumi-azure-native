@@ -68,13 +68,17 @@ namespace Pulumi.AzureNative.Databricks
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20210401preview:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20220401preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20230201:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20230915preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20240501:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20240901preview:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20250301preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20210401preview:databricks:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20220401preview:databricks:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20230201:databricks:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20230915preview:databricks:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20240501:databricks:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20240901preview:databricks:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20250301preview:databricks:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.MySQLDiscovery
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:mysqldiscovery/v20240930preview:MySQLSite" },
+                    new global::Pulumi.Alias { Type = "azure-native_mysqldiscovery_v20240930preview:mysqldiscovery:MySQLSite" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

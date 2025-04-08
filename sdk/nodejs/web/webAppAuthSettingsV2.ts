@@ -117,7 +117,7 @@ export class WebAppAuthSettingsV2 extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20200601:WebAppAuthSettingsV2" }, { type: "azure-native:web/v20200901:WebAppAuthSettingsV2" }, { type: "azure-native:web/v20201001:WebAppAuthSettingsV2" }, { type: "azure-native:web/v20201201:WebAppAuthSettingsV2" }, { type: "azure-native:web/v20210101:WebAppAuthSettingsV2" }, { type: "azure-native:web/v20210115:WebAppAuthSettingsV2" }, { type: "azure-native:web/v20210201:WebAppAuthSettingsV2" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20201001:WebAppAuthSettingsV2" }, { type: "azure-native:web/v20210201:WebAppAuthSettingsV2" }, { type: "azure-native_web_v20200601:web:WebAppAuthSettingsV2" }, { type: "azure-native_web_v20200901:web:WebAppAuthSettingsV2" }, { type: "azure-native_web_v20201001:web:WebAppAuthSettingsV2" }, { type: "azure-native_web_v20201201:web:WebAppAuthSettingsV2" }, { type: "azure-native_web_v20210101:web:WebAppAuthSettingsV2" }, { type: "azure-native_web_v20210115:web:WebAppAuthSettingsV2" }, { type: "azure-native_web_v20210201:web:WebAppAuthSettingsV2" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppAuthSettingsV2.__pulumiType, name, resourceInputs, opts);
     }

@@ -92,8 +92,6 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:WorkspaceManagerGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:WorkspaceManagerGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:WorkspaceManagerGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230701preview:WorkspaceManagerGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:WorkspaceManagerGroup" },
@@ -103,7 +101,18 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240101preview:WorkspaceManagerGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:WorkspaceManagerGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:WorkspaceManagerGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:WorkspaceManagerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20230401preview:securityinsights:WorkspaceManagerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20230501preview:securityinsights:WorkspaceManagerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20230601preview:securityinsights:WorkspaceManagerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20230701preview:securityinsights:WorkspaceManagerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20230801preview:securityinsights:WorkspaceManagerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20230901preview:securityinsights:WorkspaceManagerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20231001preview:securityinsights:WorkspaceManagerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20231201preview:securityinsights:WorkspaceManagerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20240101preview:securityinsights:WorkspaceManagerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20240401preview:securityinsights:WorkspaceManagerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20241001preview:securityinsights:WorkspaceManagerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20250101preview:securityinsights:WorkspaceManagerGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

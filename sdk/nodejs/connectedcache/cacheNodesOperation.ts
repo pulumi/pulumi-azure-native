@@ -101,7 +101,7 @@ export class CacheNodesOperation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:connectedcache/v20230501preview:CacheNodesOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedcache/v20230501preview:CacheNodesOperation" }, { type: "azure-native_connectedcache_v20230501preview:connectedcache:CacheNodesOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CacheNodesOperation.__pulumiType, name, resourceInputs, opts);
     }

@@ -126,14 +126,14 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NetworkSecurityPerimeterAccessRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NspAccessRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NetworkSecurityPerimeterAccessRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NspAccessRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20230801preview:NetworkSecurityPerimeterAccessRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230801preview:NspAccessRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20240601preview:NetworkSecurityPerimeterAccessRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network:NspAccessRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20210201preview:network:NetworkSecurityPerimeterAccessRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20230701preview:network:NetworkSecurityPerimeterAccessRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20230801preview:network:NetworkSecurityPerimeterAccessRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20240601preview:network:NetworkSecurityPerimeterAccessRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

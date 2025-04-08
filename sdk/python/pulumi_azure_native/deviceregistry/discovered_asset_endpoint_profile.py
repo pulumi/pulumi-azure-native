@@ -307,7 +307,7 @@ class DiscoveredAssetEndpointProfile(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceregistry/v20240901preview:DiscoveredAssetEndpointProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceregistry/v20240901preview:DiscoveredAssetEndpointProfile"), pulumi.Alias(type_="azure-native_deviceregistry_v20240901preview:deviceregistry:DiscoveredAssetEndpointProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DiscoveredAssetEndpointProfile, __self__).__init__(
             'azure-native:deviceregistry:DiscoveredAssetEndpointProfile',

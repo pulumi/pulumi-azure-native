@@ -81,8 +81,8 @@ namespace Pulumi.AzureNative.RedisEnterprise
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20240901preview:AccessPolicyAssignment" },
-                    new global::Pulumi.Alias { Type = "azure-native:redisenterprise/v20240901preview:AccessPolicyAssignment" },
-                    new global::Pulumi.Alias { Type = "azure-native:redisenterprise/v20250401:AccessPolicyAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native_redisenterprise_v20240901preview:redisenterprise:AccessPolicyAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native_redisenterprise_v20250401:redisenterprise:AccessPolicyAssignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

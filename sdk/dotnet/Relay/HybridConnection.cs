@@ -104,10 +104,12 @@ namespace Pulumi.AzureNative.Relay
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:relay/v20160701:HybridConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:relay/v20170401:HybridConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20211101:HybridConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20240101:HybridConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_relay_v20160701:relay:HybridConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_relay_v20170401:relay:HybridConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_relay_v20211101:relay:HybridConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_relay_v20240101:relay:HybridConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

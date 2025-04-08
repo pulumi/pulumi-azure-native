@@ -131,7 +131,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220301preview:Service" }, { type: "azure-native:mobilenetwork/v20220401preview:Service" }, { type: "azure-native:mobilenetwork/v20221101:Service" }, { type: "azure-native:mobilenetwork/v20230601:Service" }, { type: "azure-native:mobilenetwork/v20230901:Service" }, { type: "azure-native:mobilenetwork/v20240201:Service" }, { type: "azure-native:mobilenetwork/v20240401:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220401preview:Service" }, { type: "azure-native:mobilenetwork/v20221101:Service" }, { type: "azure-native:mobilenetwork/v20230601:Service" }, { type: "azure-native:mobilenetwork/v20230901:Service" }, { type: "azure-native:mobilenetwork/v20240201:Service" }, { type: "azure-native:mobilenetwork/v20240401:Service" }, { type: "azure-native_mobilenetwork_v20220301preview:mobilenetwork:Service" }, { type: "azure-native_mobilenetwork_v20220401preview:mobilenetwork:Service" }, { type: "azure-native_mobilenetwork_v20221101:mobilenetwork:Service" }, { type: "azure-native_mobilenetwork_v20230601:mobilenetwork:Service" }, { type: "azure-native_mobilenetwork_v20230901:mobilenetwork:Service" }, { type: "azure-native_mobilenetwork_v20240201:mobilenetwork:Service" }, { type: "azure-native_mobilenetwork_v20240401:mobilenetwork:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }

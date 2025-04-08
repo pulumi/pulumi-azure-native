@@ -179,7 +179,7 @@ class Ec2SecurityGroup(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:awsconnector/v20241201:Ec2SecurityGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:awsconnector/v20241201:Ec2SecurityGroup"), pulumi.Alias(type_="azure-native_awsconnector_v20241201:awsconnector:Ec2SecurityGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Ec2SecurityGroup, __self__).__init__(
             'azure-native:awsconnector:Ec2SecurityGroup',

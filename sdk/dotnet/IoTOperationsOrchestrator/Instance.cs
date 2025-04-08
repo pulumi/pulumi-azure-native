@@ -121,6 +121,7 @@ namespace Pulumi.AzureNative.IoTOperationsOrchestrator
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:iotoperationsorchestrator/v20231004preview:Instance" },
+                    new global::Pulumi.Alias { Type = "azure-native_iotoperationsorchestrator_v20231004preview:iotoperationsorchestrator:Instance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

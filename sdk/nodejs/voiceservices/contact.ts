@@ -137,7 +137,7 @@ export class Contact extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:voiceservices/v20221201preview:Contact" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:voiceservices/v20221201preview:Contact" }, { type: "azure-native_voiceservices_v20221201preview:voiceservices:Contact" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Contact.__pulumiType, name, resourceInputs, opts);
     }

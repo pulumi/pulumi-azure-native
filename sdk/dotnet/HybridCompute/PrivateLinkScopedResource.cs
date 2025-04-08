@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.HybridCompute
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20200815preview:PrivateLinkScopedResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20200815preview:hybridcompute:PrivateLinkScopedResource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

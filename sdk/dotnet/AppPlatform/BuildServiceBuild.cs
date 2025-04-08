@@ -74,7 +74,6 @@ namespace Pulumi.AzureNative.AppPlatform
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:BuildServiceBuild" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:BuildServiceBuild" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230701preview:BuildServiceBuild" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230901preview:BuildServiceBuild" },
@@ -82,6 +81,14 @@ namespace Pulumi.AzureNative.AppPlatform
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20231201:BuildServiceBuild" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240101preview:BuildServiceBuild" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240501preview:BuildServiceBuild" },
+                    new global::Pulumi.Alias { Type = "azure-native_appplatform_v20230301preview:appplatform:BuildServiceBuild" },
+                    new global::Pulumi.Alias { Type = "azure-native_appplatform_v20230501preview:appplatform:BuildServiceBuild" },
+                    new global::Pulumi.Alias { Type = "azure-native_appplatform_v20230701preview:appplatform:BuildServiceBuild" },
+                    new global::Pulumi.Alias { Type = "azure-native_appplatform_v20230901preview:appplatform:BuildServiceBuild" },
+                    new global::Pulumi.Alias { Type = "azure-native_appplatform_v20231101preview:appplatform:BuildServiceBuild" },
+                    new global::Pulumi.Alias { Type = "azure-native_appplatform_v20231201:appplatform:BuildServiceBuild" },
+                    new global::Pulumi.Alias { Type = "azure-native_appplatform_v20240101preview:appplatform:BuildServiceBuild" },
+                    new global::Pulumi.Alias { Type = "azure-native_appplatform_v20240501preview:appplatform:BuildServiceBuild" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

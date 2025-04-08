@@ -144,7 +144,7 @@ export class DnsSecurityRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dnsresolver/v20230701preview:DnsSecurityRule" }, { type: "azure-native:network/v20230701preview:DnsSecurityRule" }, { type: "azure-native:network:DnsSecurityRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20230701preview:DnsSecurityRule" }, { type: "azure-native:network:DnsSecurityRule" }, { type: "azure-native_dnsresolver_v20230701preview:dnsresolver:DnsSecurityRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DnsSecurityRule.__pulumiType, name, resourceInputs, opts);
     }

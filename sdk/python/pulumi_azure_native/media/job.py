@@ -274,7 +274,7 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:media/v20180330preview:Job"), pulumi.Alias(type_="azure-native:media/v20180601preview:Job"), pulumi.Alias(type_="azure-native:media/v20180701:Job"), pulumi.Alias(type_="azure-native:media/v20200501:Job"), pulumi.Alias(type_="azure-native:media/v20210601:Job"), pulumi.Alias(type_="azure-native:media/v20211101:Job"), pulumi.Alias(type_="azure-native:media/v20220501preview:Job"), pulumi.Alias(type_="azure-native:media/v20220701:Job")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:media/v20220701:Job"), pulumi.Alias(type_="azure-native_media_v20180330preview:media:Job"), pulumi.Alias(type_="azure-native_media_v20180601preview:media:Job"), pulumi.Alias(type_="azure-native_media_v20180701:media:Job"), pulumi.Alias(type_="azure-native_media_v20200501:media:Job"), pulumi.Alias(type_="azure-native_media_v20210601:media:Job"), pulumi.Alias(type_="azure-native_media_v20211101:media:Job"), pulumi.Alias(type_="azure-native_media_v20220501preview:media:Job"), pulumi.Alias(type_="azure-native_media_v20220701:media:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Job, __self__).__init__(
             'azure-native:media:Job',

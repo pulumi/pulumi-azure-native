@@ -131,6 +131,9 @@ namespace Pulumi.AzureNative.ApiCenter
                     new global::Pulumi.Alias { Type = "azure-native:apicenter/v20240301:Api" },
                     new global::Pulumi.Alias { Type = "azure-native:apicenter/v20240315preview:Api" },
                     new global::Pulumi.Alias { Type = "azure-native:apicenter/v20240601preview:Api" },
+                    new global::Pulumi.Alias { Type = "azure-native_apicenter_v20240301:apicenter:Api" },
+                    new global::Pulumi.Alias { Type = "azure-native_apicenter_v20240315preview:apicenter:Api" },
+                    new global::Pulumi.Alias { Type = "azure-native_apicenter_v20240601preview:apicenter:Api" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

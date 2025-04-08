@@ -100,7 +100,7 @@ export class CodeBuildProject extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:CodeBuildProject" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:CodeBuildProject" }, { type: "azure-native_awsconnector_v20241201:awsconnector:CodeBuildProject" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CodeBuildProject.__pulumiType, name, resourceInputs, opts);
     }

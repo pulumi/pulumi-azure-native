@@ -248,7 +248,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_network_link_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200601:VirtualNetworkLink"), pulumi.Alias(type_="azure-native:network/v20240601:VirtualNetworkLink"), pulumi.Alias(type_="azure-native:network:VirtualNetworkLink"), pulumi.Alias(type_="azure-native:privatedns/v20180901:VirtualNetworkLink"), pulumi.Alias(type_="azure-native:privatedns/v20200101:VirtualNetworkLink"), pulumi.Alias(type_="azure-native:privatedns/v20200601:VirtualNetworkLink"), pulumi.Alias(type_="azure-native:privatedns/v20240601:VirtualNetworkLink")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200601:VirtualNetworkLink"), pulumi.Alias(type_="azure-native:network/v20240601:VirtualNetworkLink"), pulumi.Alias(type_="azure-native:network:VirtualNetworkLink"), pulumi.Alias(type_="azure-native_privatedns_v20180901:privatedns:VirtualNetworkLink"), pulumi.Alias(type_="azure-native_privatedns_v20200101:privatedns:VirtualNetworkLink"), pulumi.Alias(type_="azure-native_privatedns_v20200601:privatedns:VirtualNetworkLink"), pulumi.Alias(type_="azure-native_privatedns_v20240601:privatedns:VirtualNetworkLink")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkLink, __self__).__init__(
             'azure-native:privatedns:VirtualNetworkLink',

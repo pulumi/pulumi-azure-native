@@ -98,11 +98,6 @@ namespace Pulumi.AzureNative.WebPubSub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210401preview:WebPubSubSharedPrivateLinkResource" },
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource" },
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210901preview:WebPubSubSharedPrivateLinkResource" },
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSubSharedPrivateLinkResource" },
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20220801preview:WebPubSubSharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230301preview:WebPubSubSharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230601preview:WebPubSubSharedPrivateLinkResource" },
@@ -112,6 +107,20 @@ namespace Pulumi.AzureNative.WebPubSub
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20240401preview:WebPubSubSharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20240801preview:WebPubSubSharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20241001preview:WebPubSubSharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20210401preview:webpubsub:WebPubSubSharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20210601preview:webpubsub:WebPubSubSharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20210901preview:webpubsub:WebPubSubSharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20211001:webpubsub:WebPubSubSharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20220801preview:webpubsub:WebPubSubSharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20230201:webpubsub:WebPubSubSharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20230301preview:webpubsub:WebPubSubSharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20230601preview:webpubsub:WebPubSubSharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20230801preview:webpubsub:WebPubSubSharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20240101preview:webpubsub:WebPubSubSharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20240301:webpubsub:WebPubSubSharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20240401preview:webpubsub:WebPubSubSharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20240801preview:webpubsub:WebPubSubSharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20241001preview:webpubsub:WebPubSubSharedPrivateLinkResource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

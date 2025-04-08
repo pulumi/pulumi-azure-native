@@ -183,7 +183,7 @@ class LinkedWorkspace(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20200501preview:LinkedWorkspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200515preview:LinkedWorkspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20200515preview:LinkedWorkspace"), pulumi.Alias(type_="azure-native_machinelearningservices_v20200501preview:machinelearningservices:LinkedWorkspace"), pulumi.Alias(type_="azure-native_machinelearningservices_v20200515preview:machinelearningservices:LinkedWorkspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LinkedWorkspace, __self__).__init__(
             'azure-native:machinelearningservices:LinkedWorkspace',

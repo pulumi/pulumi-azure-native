@@ -143,7 +143,7 @@ export class SchemaRegistry extends pulumi.CustomResource {
             resourceInputs["uuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:deviceregistry/v20240901preview:SchemaRegistry" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deviceregistry/v20240901preview:SchemaRegistry" }, { type: "azure-native_deviceregistry_v20240901preview:deviceregistry:SchemaRegistry" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SchemaRegistry.__pulumiType, name, resourceInputs, opts);
     }

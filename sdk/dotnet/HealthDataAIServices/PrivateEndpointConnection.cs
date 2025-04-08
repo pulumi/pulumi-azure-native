@@ -76,6 +76,8 @@ namespace Pulumi.AzureNative.HealthDataAIServices
                 {
                     new global::Pulumi.Alias { Type = "azure-native:healthdataaiservices/v20240228preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:healthdataaiservices/v20240920:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_healthdataaiservices_v20240228preview:healthdataaiservices:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_healthdataaiservices_v20240920:healthdataaiservices:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

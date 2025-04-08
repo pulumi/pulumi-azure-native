@@ -236,8 +236,6 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:ContentTemplate" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:ContentTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:ContentTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230701preview:ContentTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:ContentTemplate" },
@@ -250,8 +248,22 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:ContentTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:ContentTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:ContentTemplate" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:ContentTemplate" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250301:ContentTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20230401preview:securityinsights:ContentTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20230501preview:securityinsights:ContentTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20230601preview:securityinsights:ContentTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20230701preview:securityinsights:ContentTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20230801preview:securityinsights:ContentTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20230901preview:securityinsights:ContentTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20231001preview:securityinsights:ContentTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20231101:securityinsights:ContentTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20231201preview:securityinsights:ContentTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20240101preview:securityinsights:ContentTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20240301:securityinsights:ContentTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20240401preview:securityinsights:ContentTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20240901:securityinsights:ContentTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20241001preview:securityinsights:ContentTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20250101preview:securityinsights:ContentTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20250301:securityinsights:ContentTemplate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

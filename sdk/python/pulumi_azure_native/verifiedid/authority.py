@@ -160,7 +160,7 @@ class Authority(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:verifiedid/v20240126preview:Authority")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:verifiedid/v20240126preview:Authority"), pulumi.Alias(type_="azure-native_verifiedid_v20240126preview:verifiedid:Authority")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Authority, __self__).__init__(
             'azure-native:verifiedid:Authority',

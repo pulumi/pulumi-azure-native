@@ -155,7 +155,7 @@ export class VcenterController extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200101:VcenterController" }, { type: "azure-native:offazure/v20200707:VcenterController" }, { type: "azure-native:offazure/v20230606:VcenterController" }, { type: "azure-native:offazure/v20231001preview:VcenterController" }, { type: "azure-native:offazure/v20240501preview:VcenterController" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20230606:VcenterController" }, { type: "azure-native:offazure/v20231001preview:VcenterController" }, { type: "azure-native:offazure/v20240501preview:VcenterController" }, { type: "azure-native_offazure_v20200101:offazure:VcenterController" }, { type: "azure-native_offazure_v20200707:offazure:VcenterController" }, { type: "azure-native_offazure_v20230606:offazure:VcenterController" }, { type: "azure-native_offazure_v20231001preview:offazure:VcenterController" }, { type: "azure-native_offazure_v20240501preview:offazure:VcenterController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VcenterController.__pulumiType, name, resourceInputs, opts);
     }

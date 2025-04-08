@@ -170,7 +170,7 @@ export class WebAppSiteContainerSlot extends pulumi.CustomResource {
             resourceInputs["volumeMounts"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20231201:WebAppSiteContainerSlot" }, { type: "azure-native:web/v20240401:WebAppSiteContainerSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20231201:WebAppSiteContainerSlot" }, { type: "azure-native:web/v20240401:WebAppSiteContainerSlot" }, { type: "azure-native_web_v20231201:web:WebAppSiteContainerSlot" }, { type: "azure-native_web_v20240401:web:WebAppSiteContainerSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppSiteContainerSlot.__pulumiType, name, resourceInputs, opts);
     }

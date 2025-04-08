@@ -107,7 +107,7 @@ export class Replica extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appconfiguration/v20220301preview:Replica" }, { type: "azure-native:appconfiguration/v20230301:Replica" }, { type: "azure-native:appconfiguration/v20230801preview:Replica" }, { type: "azure-native:appconfiguration/v20230901preview:Replica" }, { type: "azure-native:appconfiguration/v20240501:Replica" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appconfiguration/v20230301:Replica" }, { type: "azure-native:appconfiguration/v20230801preview:Replica" }, { type: "azure-native:appconfiguration/v20230901preview:Replica" }, { type: "azure-native:appconfiguration/v20240501:Replica" }, { type: "azure-native_appconfiguration_v20220301preview:appconfiguration:Replica" }, { type: "azure-native_appconfiguration_v20230301:appconfiguration:Replica" }, { type: "azure-native_appconfiguration_v20230801preview:appconfiguration:Replica" }, { type: "azure-native_appconfiguration_v20230901preview:appconfiguration:Replica" }, { type: "azure-native_appconfiguration_v20240501:appconfiguration:Replica" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Replica.__pulumiType, name, resourceInputs, opts);
     }

@@ -118,7 +118,7 @@ class UserSettings(pulumi.CustomResource):
             __props__.__dict__["properties"] = properties
             __props__.__dict__["user_settings_name"] = user_settings_name
             __props__.__dict__["azure_api_version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:portal/v20181001:UserSettings")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:portal/v20181001:UserSettings"), pulumi.Alias(type_="azure-native_portal_v20181001:portal:UserSettings")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(UserSettings, __self__).__init__(
             'azure-native:portal:UserSettings',

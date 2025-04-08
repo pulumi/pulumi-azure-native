@@ -34,6 +34,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/collections"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources/customresources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
@@ -885,6 +886,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		metadata:                   g.metadata,
 		module:                     module,
 		moduleName:                 g.moduleName,
+		sdkVersion:                 g.sdkVersion,
 		resourceName:               resource.typeName,
 		resourceToken:              resourceTok,
 		visitedTypes:               make(map[string]bool),
@@ -1151,6 +1153,7 @@ func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec
 		pkg:                        g.pkg,
 		metadata:                   g.metadata,
 		module:                     module,
+		sdkVersion:                 g.sdkVersion,
 		resourceToken:              fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName),
 		moduleName:                 g.moduleName,
 		resourceName:               typeName,
@@ -1215,7 +1218,7 @@ type TokenModule string
 
 // moduleWithVersion produces the token's module part from the module name and the version e.g. `compute/v20200701` or `network`.
 func (g *packageGenerator) moduleWithVersion() TokenModule {
-	return TokenModule(versionedModule(g.moduleName, g.sdkVersion))
+	return TokenModule(g.moduleName.Lowered())
 }
 
 // goModuleName produces the *Go* module name from the provider name and the version e.g. `compute/v20200701`.
@@ -1224,16 +1227,12 @@ func goModuleName(moduleName openapi.ModuleName, sdkVersion openapi.SdkVersion) 
 	return filepath.Join(goModuleRepoPath, moduleName.Lowered(), goModuleVersion, string(sdkVersion))
 }
 
-// versionedModule produces the module name from the module name, and the version if not empty, e.g. `compute/v20200701`.
-func versionedModule(moduleName openapi.ModuleName, sdkVersion openapi.SdkVersion) string {
-	if sdkVersion == "" {
-		return moduleName.Lowered()
+func generateTok(moduleName openapi.ModuleName, typeName string, sdkVersion openapi.SdkVersion) string {
+	providerName := pulumiProviderName
+	if sdkVersion != "" {
+		providerName = provider.ParameterizedProviderName(pulumiProviderName, moduleName.Lowered(), sdkVersion)
 	}
-	return fmt.Sprintf("%s/%s", moduleName.Lowered(), sdkVersion)
-}
-
-func generateTok(moduleName openapi.ModuleName, typeName string, apiVersion openapi.SdkVersion) string {
-	return fmt.Sprintf(`%s:%s:%s`, pulumiProviderName, versionedModule(moduleName, apiVersion), typeName)
+	return fmt.Sprintf(`%s:%s:%s`, providerName, moduleName.Lowered(), typeName)
 }
 
 func (g *packageGenerator) shouldInclude(typeName, tok string, version *openapi.ApiVersion) bool {
@@ -1430,6 +1429,7 @@ type moduleGenerator struct {
 	pkg                        *pschema.PackageSpec
 	metadata                   *resources.AzureAPIMetadata
 	module                     TokenModule
+	sdkVersion                 openapi.SdkVersion
 	moduleName                 openapi.ModuleName
 	resourceName               string
 	resourceToken              string

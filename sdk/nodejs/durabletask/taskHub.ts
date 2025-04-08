@@ -93,7 +93,7 @@ export class TaskHub extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:durabletask/v20241001preview:TaskHub" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:durabletask/v20241001preview:TaskHub" }, { type: "azure-native_durabletask_v20241001preview:durabletask:TaskHub" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TaskHub.__pulumiType, name, resourceInputs, opts);
     }

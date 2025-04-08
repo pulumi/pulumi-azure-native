@@ -98,17 +98,23 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20140401:DataMaskingPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:DataMaskingPolicy" },
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:DataMaskingPolicy" },
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:DataMaskingPolicy" },
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:DataMaskingPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:DataMaskingPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:DataMaskingPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:DataMaskingPolicy" },
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230801:DataMaskingPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:DataMaskingPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:DataMaskingPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20140401:sql:DataMaskingPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20211101:sql:DataMaskingPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20220201preview:sql:DataMaskingPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20220501preview:sql:DataMaskingPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20220801preview:sql:DataMaskingPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20221101preview:sql:DataMaskingPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20230201preview:sql:DataMaskingPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20230501preview:sql:DataMaskingPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20230801:sql:DataMaskingPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20230801preview:sql:DataMaskingPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20240501preview:sql:DataMaskingPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

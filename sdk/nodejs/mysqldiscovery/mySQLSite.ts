@@ -128,7 +128,7 @@ export class MySQLSite extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mysqldiscovery/v20240930preview:MySQLSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native_mysqldiscovery_v20240930preview:mysqldiscovery:MySQLSite" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MySQLSite.__pulumiType, name, resourceInputs, opts);
     }

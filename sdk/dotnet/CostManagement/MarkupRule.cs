@@ -97,6 +97,7 @@ namespace Pulumi.AzureNative.CostManagement
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221005preview:MarkupRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20221005preview:costmanagement:MarkupRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

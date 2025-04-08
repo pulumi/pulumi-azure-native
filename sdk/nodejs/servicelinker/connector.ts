@@ -144,7 +144,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["vNetSolution"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicelinker/v20221101preview:Connector" }, { type: "azure-native:servicelinker/v20230401preview:Connector" }, { type: "azure-native:servicelinker/v20240401:Connector" }, { type: "azure-native:servicelinker/v20240701preview:Connector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicelinker/v20221101preview:Connector" }, { type: "azure-native:servicelinker/v20230401preview:Connector" }, { type: "azure-native:servicelinker/v20240401:Connector" }, { type: "azure-native:servicelinker/v20240701preview:Connector" }, { type: "azure-native_servicelinker_v20221101preview:servicelinker:Connector" }, { type: "azure-native_servicelinker_v20230401preview:servicelinker:Connector" }, { type: "azure-native_servicelinker_v20240401:servicelinker:Connector" }, { type: "azure-native_servicelinker_v20240701preview:servicelinker:Connector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Connector.__pulumiType, name, resourceInputs, opts);
     }

@@ -25,11 +25,7 @@ func getLocation(t *testing.T) string {
 
 func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	azureLocation := getLocation(t)
-	binPath, err := filepath.Abs("../bin")
-	if err != nil {
-		t.Fatal(err)
-	}
-	fmt.Printf("Using binPath %s\n", binPath)
+	binPath := getProviderBinPath(t)
 	return integration.ProgramTestOptions{
 		ExpectRefreshChanges:            true,
 		RequireEmptyPreviewAfterRefresh: true,
@@ -43,6 +39,15 @@ func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
 			},
 		},
 	}
+}
+
+func getProviderBinPath(t *testing.T) string {
+	binPath, err := filepath.Abs("../bin")
+	if err != nil {
+		t.Fatal(err)
+	}
+	fmt.Printf("Using binPath %s\n", binPath)
+	return binPath
 }
 
 func getCwd(t *testing.T) string {

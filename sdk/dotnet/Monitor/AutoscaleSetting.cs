@@ -86,10 +86,10 @@ namespace Pulumi.AzureNative.Monitor
                 {
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20221001:AutoscaleSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:insights:AutoscaleSetting" },
-                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20140401:AutoscaleSetting" },
-                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20150401:AutoscaleSetting" },
-                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20210501preview:AutoscaleSetting" },
-                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20221001:AutoscaleSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_monitor_v20140401:monitor:AutoscaleSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_monitor_v20150401:monitor:AutoscaleSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_monitor_v20210501preview:monitor:AutoscaleSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_monitor_v20221001:monitor:AutoscaleSetting" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

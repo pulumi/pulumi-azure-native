@@ -125,7 +125,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:botservice/v20171201:Channel" }, { type: "azure-native:botservice/v20180712:Channel" }, { type: "azure-native:botservice/v20200602:Channel" }, { type: "azure-native:botservice/v20210301:Channel" }, { type: "azure-native:botservice/v20210501preview:Channel" }, { type: "azure-native:botservice/v20220615preview:Channel" }, { type: "azure-native:botservice/v20220915:Channel" }, { type: "azure-native:botservice/v20230915preview:Channel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:botservice/v20220915:Channel" }, { type: "azure-native:botservice/v20230915preview:Channel" }, { type: "azure-native_botservice_v20171201:botservice:Channel" }, { type: "azure-native_botservice_v20180712:botservice:Channel" }, { type: "azure-native_botservice_v20200602:botservice:Channel" }, { type: "azure-native_botservice_v20210301:botservice:Channel" }, { type: "azure-native_botservice_v20210501preview:botservice:Channel" }, { type: "azure-native_botservice_v20220615preview:botservice:Channel" }, { type: "azure-native_botservice_v20220915:botservice:Channel" }, { type: "azure-native_botservice_v20230915preview:botservice:Channel" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Channel.__pulumiType, name, resourceInputs, opts);
     }

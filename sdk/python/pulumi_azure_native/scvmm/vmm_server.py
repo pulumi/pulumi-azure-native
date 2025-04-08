@@ -251,7 +251,7 @@ class VmmServer(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["uuid"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scvmm/v20200605preview:VmmServer"), pulumi.Alias(type_="azure-native:scvmm/v20220521preview:VmmServer"), pulumi.Alias(type_="azure-native:scvmm/v20230401preview:VmmServer"), pulumi.Alias(type_="azure-native:scvmm/v20231007:VmmServer"), pulumi.Alias(type_="azure-native:scvmm/v20240601:VmmServer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scvmm/v20220521preview:VmmServer"), pulumi.Alias(type_="azure-native:scvmm/v20230401preview:VmmServer"), pulumi.Alias(type_="azure-native:scvmm/v20231007:VmmServer"), pulumi.Alias(type_="azure-native:scvmm/v20240601:VmmServer"), pulumi.Alias(type_="azure-native_scvmm_v20200605preview:scvmm:VmmServer"), pulumi.Alias(type_="azure-native_scvmm_v20220521preview:scvmm:VmmServer"), pulumi.Alias(type_="azure-native_scvmm_v20230401preview:scvmm:VmmServer"), pulumi.Alias(type_="azure-native_scvmm_v20231007:scvmm:VmmServer"), pulumi.Alias(type_="azure-native_scvmm_v20240601:scvmm:VmmServer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VmmServer, __self__).__init__(
             'azure-native:scvmm:VmmServer',

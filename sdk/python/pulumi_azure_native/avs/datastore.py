@@ -229,7 +229,7 @@ class Datastore(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20210101preview:Datastore"), pulumi.Alias(type_="azure-native:avs/v20210601:Datastore"), pulumi.Alias(type_="azure-native:avs/v20211201:Datastore"), pulumi.Alias(type_="azure-native:avs/v20220501:Datastore"), pulumi.Alias(type_="azure-native:avs/v20230301:Datastore"), pulumi.Alias(type_="azure-native:avs/v20230901:Datastore")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20220501:Datastore"), pulumi.Alias(type_="azure-native:avs/v20230301:Datastore"), pulumi.Alias(type_="azure-native:avs/v20230901:Datastore"), pulumi.Alias(type_="azure-native_avs_v20210101preview:avs:Datastore"), pulumi.Alias(type_="azure-native_avs_v20210601:avs:Datastore"), pulumi.Alias(type_="azure-native_avs_v20211201:avs:Datastore"), pulumi.Alias(type_="azure-native_avs_v20220501:avs:Datastore"), pulumi.Alias(type_="azure-native_avs_v20230301:avs:Datastore"), pulumi.Alias(type_="azure-native_avs_v20230901:avs:Datastore")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Datastore, __self__).__init__(
             'azure-native:avs:Datastore',

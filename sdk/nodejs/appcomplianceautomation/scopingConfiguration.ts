@@ -95,7 +95,7 @@ export class ScopingConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appcomplianceautomation/v20240627:ScopingConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appcomplianceautomation/v20240627:ScopingConfiguration" }, { type: "azure-native_appcomplianceautomation_v20240627:appcomplianceautomation:ScopingConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScopingConfiguration.__pulumiType, name, resourceInputs, opts);
     }

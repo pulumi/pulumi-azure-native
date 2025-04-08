@@ -95,7 +95,7 @@ export class Apm extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20230501preview:Apm" }, { type: "azure-native:appplatform/v20230701preview:Apm" }, { type: "azure-native:appplatform/v20230901preview:Apm" }, { type: "azure-native:appplatform/v20231101preview:Apm" }, { type: "azure-native:appplatform/v20231201:Apm" }, { type: "azure-native:appplatform/v20240101preview:Apm" }, { type: "azure-native:appplatform/v20240501preview:Apm" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20230501preview:Apm" }, { type: "azure-native:appplatform/v20230701preview:Apm" }, { type: "azure-native:appplatform/v20230901preview:Apm" }, { type: "azure-native:appplatform/v20231101preview:Apm" }, { type: "azure-native:appplatform/v20231201:Apm" }, { type: "azure-native:appplatform/v20240101preview:Apm" }, { type: "azure-native:appplatform/v20240501preview:Apm" }, { type: "azure-native_appplatform_v20230501preview:appplatform:Apm" }, { type: "azure-native_appplatform_v20230701preview:appplatform:Apm" }, { type: "azure-native_appplatform_v20230901preview:appplatform:Apm" }, { type: "azure-native_appplatform_v20231101preview:appplatform:Apm" }, { type: "azure-native_appplatform_v20231201:appplatform:Apm" }, { type: "azure-native_appplatform_v20240101preview:appplatform:Apm" }, { type: "azure-native_appplatform_v20240501preview:appplatform:Apm" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Apm.__pulumiType, name, resourceInputs, opts);
     }

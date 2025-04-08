@@ -140,14 +140,15 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:IoTHubEventSource" },
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:IoTHubEventSource" },
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:IoTHubEventSource" },
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:IoTHubEventSource" },
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:IoTHubEventSource" },
                     new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:EventHubEventSource" },
                     new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource" },
                     new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights:EventHubEventSource" },
+                    new global::Pulumi.Alias { Type = "azure-native_timeseriesinsights_v20170228preview:timeseriesinsights:IoTHubEventSource" },
+                    new global::Pulumi.Alias { Type = "azure-native_timeseriesinsights_v20171115:timeseriesinsights:IoTHubEventSource" },
+                    new global::Pulumi.Alias { Type = "azure-native_timeseriesinsights_v20180815preview:timeseriesinsights:IoTHubEventSource" },
+                    new global::Pulumi.Alias { Type = "azure-native_timeseriesinsights_v20200515:timeseriesinsights:IoTHubEventSource" },
+                    new global::Pulumi.Alias { Type = "azure-native_timeseriesinsights_v20210331preview:timeseriesinsights:IoTHubEventSource" },
+                    new global::Pulumi.Alias { Type = "azure-native_timeseriesinsights_v20210630preview:timeseriesinsights:IoTHubEventSource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

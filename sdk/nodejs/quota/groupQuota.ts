@@ -88,7 +88,7 @@ export class GroupQuota extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:quota/v20230601preview:GroupQuota" }, { type: "azure-native:quota/v20241015preview:GroupQuota" }, { type: "azure-native:quota/v20241218preview:GroupQuota" }, { type: "azure-native:quota/v20250301:GroupQuota" }, { type: "azure-native:quota/v20250315preview:GroupQuota" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:quota/v20230601preview:GroupQuota" }, { type: "azure-native:quota/v20241015preview:GroupQuota" }, { type: "azure-native:quota/v20241218preview:GroupQuota" }, { type: "azure-native:quota/v20250301:GroupQuota" }, { type: "azure-native_quota_v20230601preview:quota:GroupQuota" }, { type: "azure-native_quota_v20241015preview:quota:GroupQuota" }, { type: "azure-native_quota_v20241218preview:quota:GroupQuota" }, { type: "azure-native_quota_v20250301:quota:GroupQuota" }, { type: "azure-native_quota_v20250315preview:quota:GroupQuota" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GroupQuota.__pulumiType, name, resourceInputs, opts);
     }

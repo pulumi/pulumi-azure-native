@@ -106,6 +106,10 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
                     new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20210401:B2CTenant" },
                     new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20230118preview:B2CTenant" },
                     new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20230517preview:B2CTenant" },
+                    new global::Pulumi.Alias { Type = "azure-native_azureactivedirectory_v20190101preview:azureactivedirectory:B2CTenant" },
+                    new global::Pulumi.Alias { Type = "azure-native_azureactivedirectory_v20210401:azureactivedirectory:B2CTenant" },
+                    new global::Pulumi.Alias { Type = "azure-native_azureactivedirectory_v20230118preview:azureactivedirectory:B2CTenant" },
+                    new global::Pulumi.Alias { Type = "azure-native_azureactivedirectory_v20230517preview:azureactivedirectory:B2CTenant" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -284,7 +284,7 @@ class RoleAssignmentArtifact(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:blueprint/v20181101preview:PolicyAssignmentArtifact"), pulumi.Alias(type_="azure-native:blueprint/v20181101preview:RoleAssignmentArtifact"), pulumi.Alias(type_="azure-native:blueprint/v20181101preview:TemplateArtifact"), pulumi.Alias(type_="azure-native:blueprint:PolicyAssignmentArtifact"), pulumi.Alias(type_="azure-native:blueprint:TemplateArtifact")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:blueprint/v20181101preview:PolicyAssignmentArtifact"), pulumi.Alias(type_="azure-native:blueprint/v20181101preview:RoleAssignmentArtifact"), pulumi.Alias(type_="azure-native:blueprint/v20181101preview:TemplateArtifact"), pulumi.Alias(type_="azure-native:blueprint:PolicyAssignmentArtifact"), pulumi.Alias(type_="azure-native:blueprint:TemplateArtifact"), pulumi.Alias(type_="azure-native_blueprint_v20181101preview:blueprint:RoleAssignmentArtifact")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RoleAssignmentArtifact, __self__).__init__(
             'azure-native:blueprint:RoleAssignmentArtifact',

@@ -133,7 +133,7 @@ export class Assessment extends pulumi.CustomResource {
             resourceInputs["workloadName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:advisor/v20230901preview:Assessment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native_advisor_v20230901preview:advisor:Assessment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Assessment.__pulumiType, name, resourceInputs, opts);
     }

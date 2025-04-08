@@ -118,6 +118,7 @@ namespace Pulumi.AzureNative.MixedReality
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20210301preview:ObjectAnchorsAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native_mixedreality_v20210301preview:mixedreality:ObjectAnchorsAccount" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -158,7 +158,7 @@ export class DiscoveredAssetEndpointProfile extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:deviceregistry/v20240901preview:DiscoveredAssetEndpointProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deviceregistry/v20240901preview:DiscoveredAssetEndpointProfile" }, { type: "azure-native_deviceregistry_v20240901preview:deviceregistry:DiscoveredAssetEndpointProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiscoveredAssetEndpointProfile.__pulumiType, name, resourceInputs, opts);
     }

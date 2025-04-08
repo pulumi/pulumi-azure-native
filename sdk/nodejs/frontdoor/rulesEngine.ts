@@ -95,7 +95,7 @@ export class RulesEngine extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:frontdoor/v20200101:RulesEngine" }, { type: "azure-native:frontdoor/v20200401:RulesEngine" }, { type: "azure-native:frontdoor/v20200501:RulesEngine" }, { type: "azure-native:frontdoor/v20210601:RulesEngine" }, { type: "azure-native:network/v20210601:RulesEngine" }, { type: "azure-native:network:RulesEngine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210601:RulesEngine" }, { type: "azure-native:network:RulesEngine" }, { type: "azure-native_frontdoor_v20200101:frontdoor:RulesEngine" }, { type: "azure-native_frontdoor_v20200401:frontdoor:RulesEngine" }, { type: "azure-native_frontdoor_v20200501:frontdoor:RulesEngine" }, { type: "azure-native_frontdoor_v20210601:frontdoor:RulesEngine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RulesEngine.__pulumiType, name, resourceInputs, opts);
     }

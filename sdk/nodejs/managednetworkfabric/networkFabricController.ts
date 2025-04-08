@@ -181,7 +181,7 @@ export class NetworkFabricController extends pulumi.CustomResource {
             resourceInputs["workloadServices"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230201preview:NetworkFabricController" }, { type: "azure-native:managednetworkfabric/v20230615:NetworkFabricController" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230201preview:NetworkFabricController" }, { type: "azure-native:managednetworkfabric/v20230615:NetworkFabricController" }, { type: "azure-native_managednetworkfabric_v20230201preview:managednetworkfabric:NetworkFabricController" }, { type: "azure-native_managednetworkfabric_v20230615:managednetworkfabric:NetworkFabricController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkFabricController.__pulumiType, name, resourceInputs, opts);
     }

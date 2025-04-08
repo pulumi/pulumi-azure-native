@@ -267,7 +267,7 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mixedreality/v20190228preview:SpatialAnchorsAccount"), pulumi.Alias(type_="azure-native:mixedreality/v20191202preview:SpatialAnchorsAccount"), pulumi.Alias(type_="azure-native:mixedreality/v20200501:SpatialAnchorsAccount"), pulumi.Alias(type_="azure-native:mixedreality/v20210101:SpatialAnchorsAccount"), pulumi.Alias(type_="azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mixedreality/v20210101:SpatialAnchorsAccount"), pulumi.Alias(type_="azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount"), pulumi.Alias(type_="azure-native_mixedreality_v20190228preview:mixedreality:SpatialAnchorsAccount"), pulumi.Alias(type_="azure-native_mixedreality_v20191202preview:mixedreality:SpatialAnchorsAccount"), pulumi.Alias(type_="azure-native_mixedreality_v20200501:mixedreality:SpatialAnchorsAccount"), pulumi.Alias(type_="azure-native_mixedreality_v20210101:mixedreality:SpatialAnchorsAccount"), pulumi.Alias(type_="azure-native_mixedreality_v20210301preview:mixedreality:SpatialAnchorsAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SpatialAnchorsAccount, __self__).__init__(
             'azure-native:mixedreality:SpatialAnchorsAccount',

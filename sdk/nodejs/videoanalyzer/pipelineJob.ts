@@ -126,7 +126,7 @@ export class PipelineJob extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:videoanalyzer/v20211101preview:PipelineJob" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:videoanalyzer/v20211101preview:PipelineJob" }, { type: "azure-native_videoanalyzer_v20211101preview:videoanalyzer:PipelineJob" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PipelineJob.__pulumiType, name, resourceInputs, opts);
     }

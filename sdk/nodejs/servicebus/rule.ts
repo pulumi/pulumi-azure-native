@@ -127,7 +127,7 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20170401:Rule" }, { type: "azure-native:servicebus/v20180101preview:Rule" }, { type: "azure-native:servicebus/v20210101preview:Rule" }, { type: "azure-native:servicebus/v20210601preview:Rule" }, { type: "azure-native:servicebus/v20211101:Rule" }, { type: "azure-native:servicebus/v20220101preview:Rule" }, { type: "azure-native:servicebus/v20221001preview:Rule" }, { type: "azure-native:servicebus/v20230101preview:Rule" }, { type: "azure-native:servicebus/v20240101:Rule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20220101preview:Rule" }, { type: "azure-native:servicebus/v20221001preview:Rule" }, { type: "azure-native:servicebus/v20230101preview:Rule" }, { type: "azure-native:servicebus/v20240101:Rule" }, { type: "azure-native_servicebus_v20170401:servicebus:Rule" }, { type: "azure-native_servicebus_v20180101preview:servicebus:Rule" }, { type: "azure-native_servicebus_v20210101preview:servicebus:Rule" }, { type: "azure-native_servicebus_v20210601preview:servicebus:Rule" }, { type: "azure-native_servicebus_v20211101:servicebus:Rule" }, { type: "azure-native_servicebus_v20220101preview:servicebus:Rule" }, { type: "azure-native_servicebus_v20221001preview:servicebus:Rule" }, { type: "azure-native_servicebus_v20230101preview:servicebus:Rule" }, { type: "azure-native_servicebus_v20240101:servicebus:Rule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Rule.__pulumiType, name, resourceInputs, opts);
     }

@@ -249,7 +249,7 @@ export class DraftPackage extends pulumi.CustomResource {
             resourceInputs["workingPath"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:testbase/v20231101preview:DraftPackage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:testbase/v20231101preview:DraftPackage" }, { type: "azure-native_testbase_v20231101preview:testbase:DraftPackage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DraftPackage.__pulumiType, name, resourceInputs, opts);
     }

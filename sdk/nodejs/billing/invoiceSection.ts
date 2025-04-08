@@ -99,7 +99,7 @@ export class InvoiceSection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:billing/v20240401:InvoiceSection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:billing/v20240401:InvoiceSection" }, { type: "azure-native_billing_v20240401:billing:InvoiceSection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InvoiceSection.__pulumiType, name, resourceInputs, opts);
     }

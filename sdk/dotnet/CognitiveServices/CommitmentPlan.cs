@@ -104,16 +104,21 @@ namespace Pulumi.AzureNative.CognitiveServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20211001:CommitmentPlan" },
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20220301:CommitmentPlan" },
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20221001:CommitmentPlan" },
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20221201:CommitmentPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20230501:CommitmentPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20231001preview:CommitmentPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240401preview:CommitmentPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240601preview:CommitmentPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20241001:CommitmentPlan" },
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20250401preview:CommitmentPlan" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20211001:cognitiveservices:CommitmentPlan" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20220301:cognitiveservices:CommitmentPlan" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20221001:cognitiveservices:CommitmentPlan" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20221201:cognitiveservices:CommitmentPlan" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20230501:cognitiveservices:CommitmentPlan" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20231001preview:cognitiveservices:CommitmentPlan" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20240401preview:cognitiveservices:CommitmentPlan" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20240601preview:cognitiveservices:CommitmentPlan" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20241001:cognitiveservices:CommitmentPlan" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20250401preview:cognitiveservices:CommitmentPlan" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

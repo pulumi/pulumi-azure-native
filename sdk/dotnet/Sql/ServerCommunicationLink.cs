@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.Sql
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20140401:ServerCommunicationLink" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20140401:sql:ServerCommunicationLink" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

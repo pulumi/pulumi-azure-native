@@ -103,10 +103,10 @@ namespace Pulumi.AzureNative.Monitor
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20210901:PrivateLinkScope" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20230601preview:PrivateLinkScope" },
                     new global::Pulumi.Alias { Type = "azure-native:insights:PrivateLinkScope" },
-                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20191017preview:PrivateLinkScope" },
-                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20210701preview:PrivateLinkScope" },
-                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20210901:PrivateLinkScope" },
-                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20230601preview:PrivateLinkScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_monitor_v20191017preview:monitor:PrivateLinkScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_monitor_v20210701preview:monitor:PrivateLinkScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_monitor_v20210901:monitor:PrivateLinkScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_monitor_v20230601preview:monitor:PrivateLinkScope" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -103,7 +103,7 @@ export class ManagedCCF extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:confidentialledger/v20220908preview:ManagedCCF" }, { type: "azure-native:confidentialledger/v20230126preview:ManagedCCF" }, { type: "azure-native:confidentialledger/v20230628preview:ManagedCCF" }, { type: "azure-native:confidentialledger/v20240709preview:ManagedCCF" }, { type: "azure-native:confidentialledger/v20240919preview:ManagedCCF" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:confidentialledger/v20230126preview:ManagedCCF" }, { type: "azure-native:confidentialledger/v20230628preview:ManagedCCF" }, { type: "azure-native:confidentialledger/v20240709preview:ManagedCCF" }, { type: "azure-native:confidentialledger/v20240919preview:ManagedCCF" }, { type: "azure-native_confidentialledger_v20220908preview:confidentialledger:ManagedCCF" }, { type: "azure-native_confidentialledger_v20230126preview:confidentialledger:ManagedCCF" }, { type: "azure-native_confidentialledger_v20230628preview:confidentialledger:ManagedCCF" }, { type: "azure-native_confidentialledger_v20240709preview:confidentialledger:ManagedCCF" }, { type: "azure-native_confidentialledger_v20240919preview:confidentialledger:ManagedCCF" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedCCF.__pulumiType, name, resourceInputs, opts);
     }

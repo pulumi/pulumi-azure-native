@@ -124,7 +124,7 @@ export class DnsForwardingRuleset extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dnsresolver/v20200401preview:DnsForwardingRuleset" }, { type: "azure-native:dnsresolver/v20220701:DnsForwardingRuleset" }, { type: "azure-native:dnsresolver/v20230701preview:DnsForwardingRuleset" }, { type: "azure-native:network/v20200401preview:DnsForwardingRuleset" }, { type: "azure-native:network/v20220701:DnsForwardingRuleset" }, { type: "azure-native:network/v20230701preview:DnsForwardingRuleset" }, { type: "azure-native:network:DnsForwardingRuleset" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200401preview:DnsForwardingRuleset" }, { type: "azure-native:network/v20220701:DnsForwardingRuleset" }, { type: "azure-native:network/v20230701preview:DnsForwardingRuleset" }, { type: "azure-native:network:DnsForwardingRuleset" }, { type: "azure-native_dnsresolver_v20200401preview:dnsresolver:DnsForwardingRuleset" }, { type: "azure-native_dnsresolver_v20220701:dnsresolver:DnsForwardingRuleset" }, { type: "azure-native_dnsresolver_v20230701preview:dnsresolver:DnsForwardingRuleset" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DnsForwardingRuleset.__pulumiType, name, resourceInputs, opts);
     }

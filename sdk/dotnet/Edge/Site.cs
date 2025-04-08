@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.Edge
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:edge/v20240201preview:Site" },
+                    new global::Pulumi.Alias { Type = "azure-native_edge_v20240201preview:edge:Site" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

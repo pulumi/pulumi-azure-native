@@ -76,6 +76,8 @@ namespace Pulumi.AzureNative.Network
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101preview:ReachabilityAnalysisRun" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:ReachabilityAnalysisRun" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20240101preview:network:ReachabilityAnalysisRun" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20240501:network:ReachabilityAnalysisRun" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

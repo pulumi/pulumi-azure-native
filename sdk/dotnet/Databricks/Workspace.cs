@@ -218,14 +218,18 @@ namespace Pulumi.AzureNative.Databricks
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20180401:Workspace" },
-                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20210401preview:Workspace" },
-                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20220401preview:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20230201:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20230915preview:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20240501:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20240901preview:Workspace" },
-                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20250301preview:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20180401:databricks:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20210401preview:databricks:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20220401preview:databricks:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20230201:databricks:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20230915preview:databricks:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20240501:databricks:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20240901preview:databricks:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20250301preview:databricks:Workspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

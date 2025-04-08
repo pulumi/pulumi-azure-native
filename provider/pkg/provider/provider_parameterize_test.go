@@ -59,7 +59,7 @@ func TestGetParameterizeArgs(t *testing.T) {
 		got, err := getParameterizeArgs(req)
 		require.NoError(t, err)
 		require.Equal(t, "aad", got.Module)
-		require.Equal(t, "v20221201", got.Version)
+		require.EqualValues(t, "v20221201", got.Version)
 	})
 
 	t.Run("unexpected args", func(t *testing.T) {
@@ -107,7 +107,7 @@ func TestParameterizeCreatesSchemaAndMetadata(t *testing.T) {
 	provider, err := makeProviderInternal(nil, "azure-native", providerVersion, schemaBytes, &resources.APIMetadata{
 		Types: resources.GoMap[resources.AzureAPIType]{},
 		Resources: resources.GoMap[resources.AzureAPIResource]{
-			"azure-native:aad/v20221201:DomainService": {},
+			"azure-native_aad_v20221201:aad:DomainService": {},
 		},
 		Invokes: resources.GoMap[resources.AzureAPIInvoke]{},
 	})
@@ -161,7 +161,7 @@ func TestParameterizeCreatesSchemaAndMetadata(t *testing.T) {
 	args, err := deserializeParameterizeArgs(schema.Parameterization.Parameter)
 	require.NoError(t, err)
 	assert.Equal(t, "aad", args.Module)
-	assert.Equal(t, "v20221201", args.Version)
+	assert.EqualValues(t, "v20221201", args.Version)
 }
 
 func TestRoundtripParameterizeArgs(t *testing.T) {
@@ -184,15 +184,15 @@ func TestFilterTokens(t *testing.T) {
 	t.Parallel()
 
 	types := map[string]struct{}{
-		"azure-native:aad:Application":                  {},
-		"azure-native:aad/v20221201:Application":        {},
-		"azure-native:aad/v20331201:Application":        {},
-		"azure-native:storage/v20221201:StorageAccount": {},
+		"azure-native:aad:Application":                          {},
+		"azure-native_aad_v20221201:aad:Application":            {},
+		"azure-native_aad_v20331201:aad:Application":            {},
+		"azure-native_storage_v20221201:storage:StorageAccount": {},
 	}
 	names, err := filterTokens(types, "aad", "v20221201")
 	require.NoError(t, err)
 	require.Len(t, names, 1)
-	require.Equal(t, "Application", names["azure-native:aad/v20221201:Application"])
+	require.Equal(t, "Application", names["azure-native_aad_v20221201:aad:Application"])
 }
 
 func TestParseApiVersion(t *testing.T) {
@@ -218,7 +218,7 @@ func TestParseApiVersion(t *testing.T) {
 		} {
 			parsed, err := parseApiVersion(v[0])
 			require.NoError(t, err)
-			assert.Equal(t, v[1], parsed)
+			assert.EqualValues(t, v[1], parsed)
 		}
 	})
 
@@ -239,126 +239,6 @@ func TestParseApiVersion(t *testing.T) {
 			_, err := parseApiVersion(v)
 			assert.Error(t, err, v)
 		}
-	})
-}
-
-func TestUpdateMetadataRefs(t *testing.T) {
-	t.Parallel()
-
-	t.Run("Empty metadata", func(t *testing.T) {
-		t.Parallel()
-		metadata := &resources.APIMetadata{}
-		updated, err := updateMetadataRefs(metadata, "azure-native_storage_v20240101", "storage", "v20240101")
-		require.NoError(t, err)
-		require.Empty(t, updated.Resources)
-		require.Empty(t, updated.Types)
-		require.Empty(t, updated.Invokes)
-	})
-
-	t.Run("Updates refs in types", func(t *testing.T) {
-		t.Parallel()
-		metadata := &resources.APIMetadata{
-			Types: resources.GoMap[resources.AzureAPIType]{
-				"type1": {
-					Properties: map[string]resources.AzureAPIProperty{
-						"prop1": {
-							Ref: "#/types/azure-native:storage/v20240101:StorageAccount",
-						},
-					},
-				},
-			},
-		}
-
-		updated, err := updateMetadataRefs(metadata, "azure-native_storage_v20240101", "storage", "v20240101")
-		require.NoError(t, err)
-
-		prop, ok, err := updated.Types.Get("type1")
-		require.NoError(t, err)
-		require.True(t, ok)
-		assert.Equal(t, "#/types/azure-native_storage_v20240101:storage:StorageAccount", prop.Properties["prop1"].Ref)
-	})
-
-	t.Run("Updates refs in resources", func(t *testing.T) {
-		t.Parallel()
-		metadata := &resources.APIMetadata{
-			Resources: resources.GoMap[resources.AzureAPIResource]{
-				"resource1": {
-					PutParameters: []resources.AzureAPIParameter{
-						{
-							Body: &resources.AzureAPIType{
-								Properties: map[string]resources.AzureAPIProperty{
-									"prop1": {
-										Ref: "#/types/azure-native:storage/v20240101:StorageAccount",
-									},
-								},
-							},
-						},
-					},
-				},
-			},
-		}
-
-		updated, err := updateMetadataRefs(metadata, "azure-native_storage_v20240101", "storage", "v20240101")
-		require.NoError(t, err)
-
-		resource, ok, err := updated.Resources.Get("resource1")
-		require.NoError(t, err)
-		require.True(t, ok)
-		require.Len(t, resource.PutParameters, 1)
-		assert.Equal(t, "#/types/azure-native_storage_v20240101:storage:StorageAccount", resource.PutParameters[0].Body.Properties["prop1"].Ref)
-	})
-
-	t.Run("Updates refs in invokes", func(t *testing.T) {
-		t.Parallel()
-		metadata := &resources.APIMetadata{
-			Invokes: resources.GoMap[resources.AzureAPIInvoke]{
-				"invoke1": {
-					Response: map[string]resources.AzureAPIProperty{
-						"prop1": {
-							Ref: "#/types/azure-native:storage/v20240101:StorageAccount",
-						},
-					},
-				},
-			},
-		}
-
-		updated, err := updateMetadataRefs(metadata, "azure-native_storage_v20240101", "storage", "v20240101")
-		require.NoError(t, err)
-
-		invoke, ok, err := updated.Invokes.Get("invoke1")
-		require.NoError(t, err)
-		require.True(t, ok)
-		assert.Equal(t, "#/types/azure-native_storage_v20240101:storage:StorageAccount", invoke.Response["prop1"].Ref)
-	})
-
-	t.Run("Does not update refs pointing to a different module", func(t *testing.T) {
-		t.Parallel()
-		metadata := &resources.APIMetadata{
-			Resources: resources.GoMap[resources.AzureAPIResource]{
-				"resource1": {
-					PutParameters: []resources.AzureAPIParameter{
-						{
-							Body: &resources.AzureAPIType{
-								Properties: map[string]resources.AzureAPIProperty{
-									"prop1": {
-										Ref: "#/types/azure-native:common:ManagedIdentity",
-									},
-								},
-							},
-						},
-					},
-				},
-			},
-		}
-
-		updated, err := updateMetadataRefs(metadata, "azure-native_storage_v20240101", "storage", "v20240101")
-		require.NoError(t, err)
-
-		resource, ok, err := updated.Resources.Get("resource1")
-		require.NoError(t, err)
-		require.True(t, ok)
-		require.Len(t, resource.PutParameters, 1)
-		assert.Equal(t, "#/types/azure-native:common:ManagedIdentity", resource.PutParameters[0].Body.Properties["prop1"].Ref)
 	})
 }
 

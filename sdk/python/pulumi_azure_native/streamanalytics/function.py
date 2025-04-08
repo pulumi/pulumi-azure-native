@@ -183,7 +183,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:streamanalytics/v20160301:Function"), pulumi.Alias(type_="azure-native:streamanalytics/v20170401preview:Function"), pulumi.Alias(type_="azure-native:streamanalytics/v20200301:Function"), pulumi.Alias(type_="azure-native:streamanalytics/v20211001preview:Function")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:streamanalytics/v20160301:Function"), pulumi.Alias(type_="azure-native:streamanalytics/v20200301:Function"), pulumi.Alias(type_="azure-native:streamanalytics/v20211001preview:Function"), pulumi.Alias(type_="azure-native_streamanalytics_v20160301:streamanalytics:Function"), pulumi.Alias(type_="azure-native_streamanalytics_v20170401preview:streamanalytics:Function"), pulumi.Alias(type_="azure-native_streamanalytics_v20200301:streamanalytics:Function"), pulumi.Alias(type_="azure-native_streamanalytics_v20211001preview:streamanalytics:Function")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Function, __self__).__init__(
             'azure-native:streamanalytics:Function',

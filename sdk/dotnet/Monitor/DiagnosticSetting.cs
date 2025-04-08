@@ -122,8 +122,8 @@ namespace Pulumi.AzureNative.Monitor
                 {
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20210501preview:DiagnosticSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:insights:DiagnosticSetting" },
-                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20170501preview:DiagnosticSetting" },
-                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20210501preview:DiagnosticSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_monitor_v20170501preview:monitor:DiagnosticSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_monitor_v20210501preview:monitor:DiagnosticSetting" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

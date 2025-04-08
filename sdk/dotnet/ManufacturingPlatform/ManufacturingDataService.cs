@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.ManufacturingPlatform
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:manufacturingplatform/v20250301:ManufacturingDataService" },
+                    new global::Pulumi.Alias { Type = "azure-native_manufacturingplatform_v20250301:manufacturingplatform:ManufacturingDataService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

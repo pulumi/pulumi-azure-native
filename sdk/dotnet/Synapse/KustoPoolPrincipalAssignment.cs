@@ -116,8 +116,9 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:KustoPoolPrincipalAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:KustoPoolPrincipalAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210401preview:synapse:KustoPoolPrincipalAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210601preview:synapse:KustoPoolPrincipalAssignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

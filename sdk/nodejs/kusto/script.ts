@@ -131,7 +131,7 @@ export class Script extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20210101:Script" }, { type: "azure-native:kusto/v20210827:Script" }, { type: "azure-native:kusto/v20220201:Script" }, { type: "azure-native:kusto/v20220707:Script" }, { type: "azure-native:kusto/v20221111:Script" }, { type: "azure-native:kusto/v20221229:Script" }, { type: "azure-native:kusto/v20230502:Script" }, { type: "azure-native:kusto/v20230815:Script" }, { type: "azure-native:kusto/v20240413:Script" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20210827:Script" }, { type: "azure-native:kusto/v20221229:Script" }, { type: "azure-native:kusto/v20230502:Script" }, { type: "azure-native:kusto/v20230815:Script" }, { type: "azure-native:kusto/v20240413:Script" }, { type: "azure-native_kusto_v20210101:kusto:Script" }, { type: "azure-native_kusto_v20210827:kusto:Script" }, { type: "azure-native_kusto_v20220201:kusto:Script" }, { type: "azure-native_kusto_v20220707:kusto:Script" }, { type: "azure-native_kusto_v20221111:kusto:Script" }, { type: "azure-native_kusto_v20221229:kusto:Script" }, { type: "azure-native_kusto_v20230502:kusto:Script" }, { type: "azure-native_kusto_v20230815:kusto:Script" }, { type: "azure-native_kusto_v20240413:kusto:Script" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Script.__pulumiType, name, resourceInputs, opts);
     }

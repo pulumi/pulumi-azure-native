@@ -140,7 +140,7 @@ export class SavedSearch extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20150320:SavedSearch" }, { type: "azure-native:operationalinsights/v20200301preview:SavedSearch" }, { type: "azure-native:operationalinsights/v20200801:SavedSearch" }, { type: "azure-native:operationalinsights/v20230901:SavedSearch" }, { type: "azure-native:operationalinsights/v20250201:SavedSearch" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20200801:SavedSearch" }, { type: "azure-native:operationalinsights/v20230901:SavedSearch" }, { type: "azure-native_operationalinsights_v20150320:operationalinsights:SavedSearch" }, { type: "azure-native_operationalinsights_v20200301preview:operationalinsights:SavedSearch" }, { type: "azure-native_operationalinsights_v20200801:operationalinsights:SavedSearch" }, { type: "azure-native_operationalinsights_v20230901:operationalinsights:SavedSearch" }, { type: "azure-native_operationalinsights_v20250201:operationalinsights:SavedSearch" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SavedSearch.__pulumiType, name, resourceInputs, opts);
     }

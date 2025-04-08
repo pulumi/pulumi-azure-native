@@ -96,9 +96,9 @@ namespace Pulumi.AzureNative.ApplicationInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:applicationinsights/v20150501:AnalyticsItem" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20150501:AnalyticsItem" },
                     new global::Pulumi.Alias { Type = "azure-native:insights:AnalyticsItem" },
+                    new global::Pulumi.Alias { Type = "azure-native_applicationinsights_v20150501:applicationinsights:AnalyticsItem" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

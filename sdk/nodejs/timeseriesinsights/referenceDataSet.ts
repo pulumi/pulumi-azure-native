@@ -122,7 +122,7 @@ export class ReferenceDataSet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights/v20170228preview:ReferenceDataSet" }, { type: "azure-native:timeseriesinsights/v20171115:ReferenceDataSet" }, { type: "azure-native:timeseriesinsights/v20180815preview:ReferenceDataSet" }, { type: "azure-native:timeseriesinsights/v20200515:ReferenceDataSet" }, { type: "azure-native:timeseriesinsights/v20210331preview:ReferenceDataSet" }, { type: "azure-native:timeseriesinsights/v20210630preview:ReferenceDataSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights/v20200515:ReferenceDataSet" }, { type: "azure-native:timeseriesinsights/v20210630preview:ReferenceDataSet" }, { type: "azure-native_timeseriesinsights_v20170228preview:timeseriesinsights:ReferenceDataSet" }, { type: "azure-native_timeseriesinsights_v20171115:timeseriesinsights:ReferenceDataSet" }, { type: "azure-native_timeseriesinsights_v20180815preview:timeseriesinsights:ReferenceDataSet" }, { type: "azure-native_timeseriesinsights_v20200515:timeseriesinsights:ReferenceDataSet" }, { type: "azure-native_timeseriesinsights_v20210331preview:timeseriesinsights:ReferenceDataSet" }, { type: "azure-native_timeseriesinsights_v20210630preview:timeseriesinsights:ReferenceDataSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReferenceDataSet.__pulumiType, name, resourceInputs, opts);
     }

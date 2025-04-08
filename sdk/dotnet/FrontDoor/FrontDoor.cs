@@ -158,14 +158,14 @@ namespace Pulumi.AzureNative.FrontDoor
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20190401:FrontDoor" },
-                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20190501:FrontDoor" },
-                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20200101:FrontDoor" },
-                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20200401:FrontDoor" },
-                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20200501:FrontDoor" },
-                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20210601:FrontDoor" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210601:FrontDoor" },
                     new global::Pulumi.Alias { Type = "azure-native:network:FrontDoor" },
+                    new global::Pulumi.Alias { Type = "azure-native_frontdoor_v20190401:frontdoor:FrontDoor" },
+                    new global::Pulumi.Alias { Type = "azure-native_frontdoor_v20190501:frontdoor:FrontDoor" },
+                    new global::Pulumi.Alias { Type = "azure-native_frontdoor_v20200101:frontdoor:FrontDoor" },
+                    new global::Pulumi.Alias { Type = "azure-native_frontdoor_v20200401:frontdoor:FrontDoor" },
+                    new global::Pulumi.Alias { Type = "azure-native_frontdoor_v20200501:frontdoor:FrontDoor" },
+                    new global::Pulumi.Alias { Type = "azure-native_frontdoor_v20210601:frontdoor:FrontDoor" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

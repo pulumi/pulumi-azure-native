@@ -89,16 +89,20 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppPrivateEndpointConnectionSlot" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppPrivateEndpointConnectionSlot" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppPrivateEndpointConnectionSlot" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppPrivateEndpointConnectionSlot" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppPrivateEndpointConnectionSlot" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppPrivateEndpointConnectionSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppPrivateEndpointConnectionSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppPrivateEndpointConnectionSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebAppPrivateEndpointConnectionSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20240401:WebAppPrivateEndpointConnectionSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20201201:web:WebAppPrivateEndpointConnectionSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210101:web:WebAppPrivateEndpointConnectionSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210115:web:WebAppPrivateEndpointConnectionSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210201:web:WebAppPrivateEndpointConnectionSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210301:web:WebAppPrivateEndpointConnectionSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20220301:web:WebAppPrivateEndpointConnectionSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20220901:web:WebAppPrivateEndpointConnectionSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20230101:web:WebAppPrivateEndpointConnectionSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20231201:web:WebAppPrivateEndpointConnectionSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20240401:web:WebAppPrivateEndpointConnectionSlot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

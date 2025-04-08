@@ -125,7 +125,7 @@ export class RuntimeEnvironment extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20230515preview:RuntimeEnvironment" }, { type: "azure-native:automation/v20241023:RuntimeEnvironment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20230515preview:RuntimeEnvironment" }, { type: "azure-native:automation/v20241023:RuntimeEnvironment" }, { type: "azure-native_automation_v20230515preview:automation:RuntimeEnvironment" }, { type: "azure-native_automation_v20241023:automation:RuntimeEnvironment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RuntimeEnvironment.__pulumiType, name, resourceInputs, opts);
     }

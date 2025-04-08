@@ -139,8 +139,13 @@ namespace Pulumi.AzureNative.AzureStackHCI
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240715preview:SecurityRule" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240801preview:SecurityRule" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241001preview:SecurityRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250201preview:SecurityRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250401preview:SecurityRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240201preview:azurestackhci:SecurityRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240501preview:azurestackhci:SecurityRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240715preview:azurestackhci:SecurityRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240801preview:azurestackhci:SecurityRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20241001preview:azurestackhci:SecurityRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20250201preview:azurestackhci:SecurityRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20250401preview:azurestackhci:SecurityRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

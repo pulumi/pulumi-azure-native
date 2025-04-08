@@ -111,7 +111,14 @@ namespace Pulumi.AzureNative.Cloudngfw
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20231010preview:CertificateObjectGlobalRulestack" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20240119preview:CertificateObjectGlobalRulestack" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20240207preview:CertificateObjectGlobalRulestack" },
-                    new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20250206preview:CertificateObjectGlobalRulestack" },
+                    new global::Pulumi.Alias { Type = "azure-native_cloudngfw_v20220829:cloudngfw:CertificateObjectGlobalRulestack" },
+                    new global::Pulumi.Alias { Type = "azure-native_cloudngfw_v20220829preview:cloudngfw:CertificateObjectGlobalRulestack" },
+                    new global::Pulumi.Alias { Type = "azure-native_cloudngfw_v20230901:cloudngfw:CertificateObjectGlobalRulestack" },
+                    new global::Pulumi.Alias { Type = "azure-native_cloudngfw_v20230901preview:cloudngfw:CertificateObjectGlobalRulestack" },
+                    new global::Pulumi.Alias { Type = "azure-native_cloudngfw_v20231010preview:cloudngfw:CertificateObjectGlobalRulestack" },
+                    new global::Pulumi.Alias { Type = "azure-native_cloudngfw_v20240119preview:cloudngfw:CertificateObjectGlobalRulestack" },
+                    new global::Pulumi.Alias { Type = "azure-native_cloudngfw_v20240207preview:cloudngfw:CertificateObjectGlobalRulestack" },
+                    new global::Pulumi.Alias { Type = "azure-native_cloudngfw_v20250206preview:cloudngfw:CertificateObjectGlobalRulestack" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

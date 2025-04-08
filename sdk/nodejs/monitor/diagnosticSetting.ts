@@ -136,7 +136,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
             resourceInputs["workspaceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20210501preview:DiagnosticSetting" }, { type: "azure-native:insights:DiagnosticSetting" }, { type: "azure-native:monitor/v20170501preview:DiagnosticSetting" }, { type: "azure-native:monitor/v20210501preview:DiagnosticSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20210501preview:DiagnosticSetting" }, { type: "azure-native:insights:DiagnosticSetting" }, { type: "azure-native_monitor_v20170501preview:monitor:DiagnosticSetting" }, { type: "azure-native_monitor_v20210501preview:monitor:DiagnosticSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiagnosticSetting.__pulumiType, name, resourceInputs, opts);
     }

@@ -116,14 +116,19 @@ namespace Pulumi.AzureNative.Confluent
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:confluent/v20200301:Organization" },
                     new global::Pulumi.Alias { Type = "azure-native:confluent/v20200301preview:Organization" },
-                    new global::Pulumi.Alias { Type = "azure-native:confluent/v20210301preview:Organization" },
-                    new global::Pulumi.Alias { Type = "azure-native:confluent/v20210901preview:Organization" },
                     new global::Pulumi.Alias { Type = "azure-native:confluent/v20211201:Organization" },
                     new global::Pulumi.Alias { Type = "azure-native:confluent/v20230822:Organization" },
                     new global::Pulumi.Alias { Type = "azure-native:confluent/v20240213:Organization" },
                     new global::Pulumi.Alias { Type = "azure-native:confluent/v20240701:Organization" },
+                    new global::Pulumi.Alias { Type = "azure-native_confluent_v20200301:confluent:Organization" },
+                    new global::Pulumi.Alias { Type = "azure-native_confluent_v20200301preview:confluent:Organization" },
+                    new global::Pulumi.Alias { Type = "azure-native_confluent_v20210301preview:confluent:Organization" },
+                    new global::Pulumi.Alias { Type = "azure-native_confluent_v20210901preview:confluent:Organization" },
+                    new global::Pulumi.Alias { Type = "azure-native_confluent_v20211201:confluent:Organization" },
+                    new global::Pulumi.Alias { Type = "azure-native_confluent_v20230822:confluent:Organization" },
+                    new global::Pulumi.Alias { Type = "azure-native_confluent_v20240213:confluent:Organization" },
+                    new global::Pulumi.Alias { Type = "azure-native_confluent_v20240701:confluent:Organization" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

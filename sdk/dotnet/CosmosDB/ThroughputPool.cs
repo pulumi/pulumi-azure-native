@@ -92,17 +92,17 @@ namespace Pulumi.AzureNative.CosmosDB
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20231115preview:ThroughputPool" },
-                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20240215preview:ThroughputPool" },
-                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20240515preview:ThroughputPool" },
-                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20240901preview:ThroughputPool" },
-                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20241201preview:ThroughputPool" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20231115preview:ThroughputPool" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240215preview:ThroughputPool" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240515preview:ThroughputPool" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240901preview:ThroughputPool" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20241201preview:ThroughputPool" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb:ThroughputPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_cosmosdb_v20231115preview:cosmosdb:ThroughputPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_cosmosdb_v20240215preview:cosmosdb:ThroughputPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_cosmosdb_v20240515preview:cosmosdb:ThroughputPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_cosmosdb_v20240901preview:cosmosdb:ThroughputPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_cosmosdb_v20241201preview:cosmosdb:ThroughputPool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

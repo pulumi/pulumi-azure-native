@@ -74,11 +74,13 @@ namespace Pulumi.AzureNative.Migrate
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001preview:MoveResource" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20210101:MoveResource" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20210801:MoveResource" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20220801:MoveResource" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230801:MoveResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20191001preview:migrate:MoveResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20210101:migrate:MoveResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20210801:migrate:MoveResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20220801:migrate:MoveResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230801:migrate:MoveResource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

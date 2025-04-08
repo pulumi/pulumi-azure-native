@@ -114,7 +114,7 @@ export class AzureLargeStorageInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurelargeinstance/v20240801preview:AzureLargeStorageInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurelargeinstance/v20240801preview:AzureLargeStorageInstance" }, { type: "azure-native_azurelargeinstance_v20240801preview:azurelargeinstance:AzureLargeStorageInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AzureLargeStorageInstance.__pulumiType, name, resourceInputs, opts);
     }

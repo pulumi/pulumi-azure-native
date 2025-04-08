@@ -195,7 +195,7 @@ class SkusNestedResourceTypeSecond(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:providerhub/v20201120:SkusNestedResourceTypeSecond"), pulumi.Alias(type_="azure-native:providerhub/v20210501preview:SkusNestedResourceTypeSecond"), pulumi.Alias(type_="azure-native:providerhub/v20210601preview:SkusNestedResourceTypeSecond"), pulumi.Alias(type_="azure-native:providerhub/v20210901preview:SkusNestedResourceTypeSecond")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:providerhub/v20210901preview:SkusNestedResourceTypeSecond"), pulumi.Alias(type_="azure-native_providerhub_v20201120:providerhub:SkusNestedResourceTypeSecond"), pulumi.Alias(type_="azure-native_providerhub_v20210501preview:providerhub:SkusNestedResourceTypeSecond"), pulumi.Alias(type_="azure-native_providerhub_v20210601preview:providerhub:SkusNestedResourceTypeSecond"), pulumi.Alias(type_="azure-native_providerhub_v20210901preview:providerhub:SkusNestedResourceTypeSecond")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SkusNestedResourceTypeSecond, __self__).__init__(
             'azure-native:providerhub:SkusNestedResourceTypeSecond',

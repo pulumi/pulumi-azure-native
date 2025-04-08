@@ -106,7 +106,7 @@ export class Suppression extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:advisor/v20160712preview:Suppression" }, { type: "azure-native:advisor/v20170331:Suppression" }, { type: "azure-native:advisor/v20170419:Suppression" }, { type: "azure-native:advisor/v20200101:Suppression" }, { type: "azure-native:advisor/v20220901:Suppression" }, { type: "azure-native:advisor/v20221001:Suppression" }, { type: "azure-native:advisor/v20230101:Suppression" }, { type: "azure-native:advisor/v20230901preview:Suppression" }, { type: "azure-native:advisor/v20250101:Suppression" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:advisor/v20230101:Suppression" }, { type: "azure-native_advisor_v20160712preview:advisor:Suppression" }, { type: "azure-native_advisor_v20170331:advisor:Suppression" }, { type: "azure-native_advisor_v20170419:advisor:Suppression" }, { type: "azure-native_advisor_v20200101:advisor:Suppression" }, { type: "azure-native_advisor_v20220901:advisor:Suppression" }, { type: "azure-native_advisor_v20221001:advisor:Suppression" }, { type: "azure-native_advisor_v20230101:advisor:Suppression" }, { type: "azure-native_advisor_v20230901preview:advisor:Suppression" }, { type: "azure-native_advisor_v20250101:advisor:Suppression" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Suppression.__pulumiType, name, resourceInputs, opts);
     }

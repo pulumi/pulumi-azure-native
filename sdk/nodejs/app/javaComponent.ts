@@ -94,7 +94,7 @@ export class JavaComponent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20231102preview:JavaComponent" }, { type: "azure-native:app/v20240202preview:JavaComponent" }, { type: "azure-native:app/v20240802preview:JavaComponent" }, { type: "azure-native:app/v20241002preview:JavaComponent" }, { type: "azure-native:app/v20250101:JavaComponent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20231102preview:JavaComponent" }, { type: "azure-native:app/v20240202preview:JavaComponent" }, { type: "azure-native:app/v20240802preview:JavaComponent" }, { type: "azure-native:app/v20241002preview:JavaComponent" }, { type: "azure-native_app_v20231102preview:app:JavaComponent" }, { type: "azure-native_app_v20240202preview:app:JavaComponent" }, { type: "azure-native_app_v20240802preview:app:JavaComponent" }, { type: "azure-native_app_v20241002preview:app:JavaComponent" }, { type: "azure-native_app_v20250101:app:JavaComponent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(JavaComponent.__pulumiType, name, resourceInputs, opts);
     }

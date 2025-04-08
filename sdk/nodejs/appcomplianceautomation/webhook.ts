@@ -161,7 +161,7 @@ export class Webhook extends pulumi.CustomResource {
             resourceInputs["webhookKeyEnabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appcomplianceautomation/v20240627:Webhook" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appcomplianceautomation/v20240627:Webhook" }, { type: "azure-native_appcomplianceautomation_v20240627:appcomplianceautomation:Webhook" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Webhook.__pulumiType, name, resourceInputs, opts);
     }

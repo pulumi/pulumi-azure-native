@@ -103,6 +103,7 @@ namespace Pulumi.AzureNative.StorSimple
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storsimple/v20170601:BackupSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_storsimple_v20170601:storsimple:BackupSchedule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

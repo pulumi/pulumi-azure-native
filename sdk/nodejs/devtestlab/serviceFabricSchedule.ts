@@ -166,7 +166,7 @@ export class ServiceFabricSchedule extends pulumi.CustomResource {
             resourceInputs["weeklyRecurrence"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab/v20180915:ServiceFabricSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab/v20180915:ServiceFabricSchedule" }, { type: "azure-native_devtestlab_v20180915:devtestlab:ServiceFabricSchedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServiceFabricSchedule.__pulumiType, name, resourceInputs, opts);
     }

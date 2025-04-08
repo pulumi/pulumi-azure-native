@@ -108,7 +108,7 @@ export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20190601:FirewallPolicyRuleGroup" }, { type: "azure-native:network/v20190701:FirewallPolicyRuleGroup" }, { type: "azure-native:network/v20190801:FirewallPolicyRuleGroup" }, { type: "azure-native:network/v20190901:FirewallPolicyRuleGroup" }, { type: "azure-native:network/v20191101:FirewallPolicyRuleGroup" }, { type: "azure-native:network/v20191201:FirewallPolicyRuleGroup" }, { type: "azure-native:network/v20200301:FirewallPolicyRuleGroup" }, { type: "azure-native:network/v20200401:FirewallPolicyRuleGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200401:FirewallPolicyRuleGroup" }, { type: "azure-native_network_v20190601:network:FirewallPolicyRuleGroup" }, { type: "azure-native_network_v20190701:network:FirewallPolicyRuleGroup" }, { type: "azure-native_network_v20190801:network:FirewallPolicyRuleGroup" }, { type: "azure-native_network_v20190901:network:FirewallPolicyRuleGroup" }, { type: "azure-native_network_v20191101:network:FirewallPolicyRuleGroup" }, { type: "azure-native_network_v20191201:network:FirewallPolicyRuleGroup" }, { type: "azure-native_network_v20200301:network:FirewallPolicyRuleGroup" }, { type: "azure-native_network_v20200401:network:FirewallPolicyRuleGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallPolicyRuleGroup.__pulumiType, name, resourceInputs, opts);
     }

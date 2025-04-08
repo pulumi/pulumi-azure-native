@@ -98,15 +98,19 @@ namespace Pulumi.AzureNative.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Rule" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Rule" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Rule" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Rule" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Rule" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:Rule" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:Rule" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20230101preview:Rule" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20240101:Rule" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20170401:servicebus:Rule" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20180101preview:servicebus:Rule" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20210101preview:servicebus:Rule" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20210601preview:servicebus:Rule" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20211101:servicebus:Rule" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20220101preview:servicebus:Rule" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20221001preview:servicebus:Rule" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20230101preview:servicebus:Rule" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20240101:servicebus:Rule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

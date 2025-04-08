@@ -238,7 +238,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["workspaceUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databricks/v20180401:Workspace" }, { type: "azure-native:databricks/v20210401preview:Workspace" }, { type: "azure-native:databricks/v20220401preview:Workspace" }, { type: "azure-native:databricks/v20230201:Workspace" }, { type: "azure-native:databricks/v20230915preview:Workspace" }, { type: "azure-native:databricks/v20240501:Workspace" }, { type: "azure-native:databricks/v20240901preview:Workspace" }, { type: "azure-native:databricks/v20250301preview:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databricks/v20230201:Workspace" }, { type: "azure-native:databricks/v20230915preview:Workspace" }, { type: "azure-native:databricks/v20240501:Workspace" }, { type: "azure-native:databricks/v20240901preview:Workspace" }, { type: "azure-native_databricks_v20180401:databricks:Workspace" }, { type: "azure-native_databricks_v20210401preview:databricks:Workspace" }, { type: "azure-native_databricks_v20220401preview:databricks:Workspace" }, { type: "azure-native_databricks_v20230201:databricks:Workspace" }, { type: "azure-native_databricks_v20230915preview:databricks:Workspace" }, { type: "azure-native_databricks_v20240501:databricks:Workspace" }, { type: "azure-native_databricks_v20240901preview:databricks:Workspace" }, { type: "azure-native_databricks_v20250301preview:databricks:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
     }

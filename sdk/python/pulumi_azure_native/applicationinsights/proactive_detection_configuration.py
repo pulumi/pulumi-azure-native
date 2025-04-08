@@ -264,7 +264,7 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["properties"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:applicationinsights/v20150501:ProactiveDetectionConfiguration"), pulumi.Alias(type_="azure-native:applicationinsights/v20180501preview:ProactiveDetectionConfiguration"), pulumi.Alias(type_="azure-native:insights/v20150501:ProactiveDetectionConfiguration"), pulumi.Alias(type_="azure-native:insights/v20180501preview:ProactiveDetectionConfiguration"), pulumi.Alias(type_="azure-native:insights:ProactiveDetectionConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20150501:ProactiveDetectionConfiguration"), pulumi.Alias(type_="azure-native:insights/v20180501preview:ProactiveDetectionConfiguration"), pulumi.Alias(type_="azure-native:insights:ProactiveDetectionConfiguration"), pulumi.Alias(type_="azure-native_applicationinsights_v20150501:applicationinsights:ProactiveDetectionConfiguration"), pulumi.Alias(type_="azure-native_applicationinsights_v20180501preview:applicationinsights:ProactiveDetectionConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProactiveDetectionConfiguration, __self__).__init__(
             'azure-native:applicationinsights:ProactiveDetectionConfiguration',

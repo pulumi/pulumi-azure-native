@@ -92,13 +92,17 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:Connection" },
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:Connection" },
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Connection" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:Connection" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:Connection" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20231101:Connection" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20241023:Connection" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20151031:automation:Connection" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20190601:automation:Connection" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20200113preview:automation:Connection" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20220808:automation:Connection" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20230515preview:automation:Connection" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20231101:automation:Connection" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20241023:automation:Connection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

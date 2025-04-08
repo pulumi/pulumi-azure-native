@@ -75,9 +75,12 @@ namespace Pulumi.AzureNative.Sql
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:JobPrivateEndpoint" },
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230801:JobPrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:JobPrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:JobPrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20230501preview:sql:JobPrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20230801:sql:JobPrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20230801preview:sql:JobPrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20240501preview:sql:JobPrivateEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

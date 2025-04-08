@@ -92,13 +92,17 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:JobSchedule" },
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:JobSchedule" },
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:JobSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:JobSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:JobSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20231101:JobSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20241023:JobSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20151031:automation:JobSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20190601:automation:JobSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20200113preview:automation:JobSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20220808:automation:JobSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20230515preview:automation:JobSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20231101:automation:JobSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20241023:automation:JobSchedule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

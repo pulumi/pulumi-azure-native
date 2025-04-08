@@ -90,6 +90,10 @@ namespace Pulumi.AzureNative.MobileNetwork
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230901:DiagnosticsPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20240201:DiagnosticsPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20240401:DiagnosticsPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20230601:mobilenetwork:DiagnosticsPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20230901:mobilenetwork:DiagnosticsPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20240201:mobilenetwork:DiagnosticsPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20240401:mobilenetwork:DiagnosticsPackage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

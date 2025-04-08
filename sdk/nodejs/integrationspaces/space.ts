@@ -107,7 +107,7 @@ export class Space extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:integrationspaces/v20231114preview:Space" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:integrationspaces/v20231114preview:Space" }, { type: "azure-native_integrationspaces_v20231114preview:integrationspaces:Space" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Space.__pulumiType, name, resourceInputs, opts);
     }

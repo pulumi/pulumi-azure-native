@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.Security
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:security/v20200101preview:Connector" },
+                    new global::Pulumi.Alias { Type = "azure-native_security_v20200101preview:security:Connector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

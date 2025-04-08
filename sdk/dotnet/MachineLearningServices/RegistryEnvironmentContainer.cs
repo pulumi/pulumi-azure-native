@@ -74,9 +74,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:RegistryEnvironmentContainer" },
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:RegistryEnvironmentContainer" },
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:RegistryEnvironmentContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401:RegistryEnvironmentContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:RegistryEnvironmentContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230601preview:RegistryEnvironmentContainer" },
@@ -88,7 +85,21 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:RegistryEnvironmentContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001:RegistryEnvironmentContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:RegistryEnvironmentContainer" },
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250101preview:RegistryEnvironmentContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20221001preview:machinelearningservices:RegistryEnvironmentContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20221201preview:machinelearningservices:RegistryEnvironmentContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20230201preview:machinelearningservices:RegistryEnvironmentContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20230401:machinelearningservices:RegistryEnvironmentContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20230401preview:machinelearningservices:RegistryEnvironmentContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20230601preview:machinelearningservices:RegistryEnvironmentContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20230801preview:machinelearningservices:RegistryEnvironmentContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20231001:machinelearningservices:RegistryEnvironmentContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20240101preview:machinelearningservices:RegistryEnvironmentContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20240401:machinelearningservices:RegistryEnvironmentContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20240401preview:machinelearningservices:RegistryEnvironmentContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20240701preview:machinelearningservices:RegistryEnvironmentContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20241001:machinelearningservices:RegistryEnvironmentContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20241001preview:machinelearningservices:RegistryEnvironmentContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20250101preview:machinelearningservices:RegistryEnvironmentContainer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

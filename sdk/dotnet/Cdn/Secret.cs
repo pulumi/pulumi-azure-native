@@ -89,16 +89,22 @@ namespace Pulumi.AzureNative.Cdn
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:Secret" },
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:Secret" },
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:Secret" },
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:Secret" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20230501:Secret" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20230701preview:Secret" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240201:Secret" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240501preview:Secret" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240601preview:Secret" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240901:Secret" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20200901:cdn:Secret" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20210601:cdn:Secret" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20220501preview:cdn:Secret" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20221101preview:cdn:Secret" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20230501:cdn:Secret" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20230701preview:cdn:Secret" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240201:cdn:Secret" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240501preview:cdn:Secret" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240601preview:cdn:Secret" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240901:cdn:Secret" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

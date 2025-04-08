@@ -135,7 +135,7 @@ class SubscriptionFeatureRegistration(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:features/v20210701:SubscriptionFeatureRegistration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:features/v20210701:SubscriptionFeatureRegistration"), pulumi.Alias(type_="azure-native_features_v20210701:features:SubscriptionFeatureRegistration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SubscriptionFeatureRegistration, __self__).__init__(
             'azure-native:features:SubscriptionFeatureRegistration',

@@ -92,10 +92,6 @@ namespace Pulumi.AzureNative.Chaos
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:chaos/v20210915preview:Experiment" },
-                    new global::Pulumi.Alias { Type = "azure-native:chaos/v20220701preview:Experiment" },
-                    new global::Pulumi.Alias { Type = "azure-native:chaos/v20221001preview:Experiment" },
-                    new global::Pulumi.Alias { Type = "azure-native:chaos/v20230401preview:Experiment" },
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20230415preview:Experiment" },
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20230901preview:Experiment" },
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20231027preview:Experiment" },
@@ -103,7 +99,18 @@ namespace Pulumi.AzureNative.Chaos
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20240101:Experiment" },
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20240322preview:Experiment" },
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20241101preview:Experiment" },
-                    new global::Pulumi.Alias { Type = "azure-native:chaos/v20250101:Experiment" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20210915preview:chaos:Experiment" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20220701preview:chaos:Experiment" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20221001preview:chaos:Experiment" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20230401preview:chaos:Experiment" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20230415preview:chaos:Experiment" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20230901preview:chaos:Experiment" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20231027preview:chaos:Experiment" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20231101:chaos:Experiment" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20240101:chaos:Experiment" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20240322preview:chaos:Experiment" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20241101preview:chaos:Experiment" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20250101:chaos:Experiment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

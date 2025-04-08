@@ -143,7 +143,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:confluent/v20240701:Topic" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:confluent/v20240701:Topic" }, { type: "azure-native_confluent_v20240701:confluent:Topic" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Topic.__pulumiType, name, resourceInputs, opts);
     }

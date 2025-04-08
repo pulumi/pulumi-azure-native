@@ -123,14 +123,20 @@ namespace Pulumi.AzureNative.Security
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:security/v20210701preview:SecurityConnector" },
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20211201preview:SecurityConnector" },
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20220501preview:SecurityConnector" },
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20220801preview:SecurityConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20230301preview:SecurityConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20231001preview:SecurityConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20240301preview:SecurityConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20240701preview:SecurityConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20240801preview:SecurityConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native_security_v20210701preview:security:SecurityConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native_security_v20211201preview:security:SecurityConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native_security_v20220501preview:security:SecurityConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native_security_v20220801preview:security:SecurityConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native_security_v20230301preview:security:SecurityConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native_security_v20231001preview:security:SecurityConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native_security_v20240301preview:security:SecurityConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native_security_v20240701preview:security:SecurityConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native_security_v20240801preview:security:SecurityConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

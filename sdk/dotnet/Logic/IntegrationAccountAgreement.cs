@@ -130,9 +130,11 @@ namespace Pulumi.AzureNative.Logic
                 {
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccountAgreement" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:Agreement" },
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountAgreement" },
-                    new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountAgreement" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountAgreement" },
+                    new global::Pulumi.Alias { Type = "azure-native_logic_v20150801preview:logic:IntegrationAccountAgreement" },
+                    new global::Pulumi.Alias { Type = "azure-native_logic_v20160601:logic:IntegrationAccountAgreement" },
+                    new global::Pulumi.Alias { Type = "azure-native_logic_v20180701preview:logic:IntegrationAccountAgreement" },
+                    new global::Pulumi.Alias { Type = "azure-native_logic_v20190501:logic:IntegrationAccountAgreement" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

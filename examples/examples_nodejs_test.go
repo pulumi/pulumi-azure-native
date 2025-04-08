@@ -7,7 +7,6 @@ import (
 	"context"
 	"encoding/json"
 	"os"
-	"os/exec"
 	"path/filepath"
 	"strings"
 	"testing"
@@ -433,6 +432,7 @@ func TestParameterizeApiVersion(t *testing.T) {
 	pt := pulumitest.NewPulumiTest(t,
 		filepath.Join(cwd, "parameterize"),
 		opttest.YarnLink("@pulumi/azure-native"),
+		opttest.LocalProviderPath("azure-native", getProviderBinPath(t)),
 	)
 	pt.SetConfig(t, "azure-native:location", location)
 
@@ -469,10 +469,10 @@ func pulumiPackageAdd(t *testing.T, pt *pulumitest.PulumiTest, args ...string) {
 	if _, debugMode := os.LookupEnv("PULUMI_DEBUG_PROVIDERS"); debugMode {
 		provider = "azure-native"
 	} else {
-		providerBinaryPath, err := exec.LookPath("pulumi-resource-azure-native")
+		binPath := getProviderBinPath(t)
+		providerBinPath, err := filepath.Abs(filepath.Join(binPath, "pulumi-resource-azure-native"))
 		require.NoError(t, err)
-		provider, err = filepath.Abs(providerBinaryPath)
-		require.NoError(t, err)
+		provider = providerBinPath
 	}
 
 	runPulumiPackageAdd(t, pt, provider, args...)

@@ -134,7 +134,7 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databasewatcher/v20230901preview:SharedPrivateLinkResource" }, { type: "azure-native:databasewatcher/v20240719preview:SharedPrivateLinkResource" }, { type: "azure-native:databasewatcher/v20241001preview:SharedPrivateLinkResource" }, { type: "azure-native:databasewatcher/v20250102:SharedPrivateLinkResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databasewatcher/v20230901preview:SharedPrivateLinkResource" }, { type: "azure-native:databasewatcher/v20240719preview:SharedPrivateLinkResource" }, { type: "azure-native:databasewatcher/v20241001preview:SharedPrivateLinkResource" }, { type: "azure-native:databasewatcher/v20250102:SharedPrivateLinkResource" }, { type: "azure-native_databasewatcher_v20230901preview:databasewatcher:SharedPrivateLinkResource" }, { type: "azure-native_databasewatcher_v20240719preview:databasewatcher:SharedPrivateLinkResource" }, { type: "azure-native_databasewatcher_v20241001preview:databasewatcher:SharedPrivateLinkResource" }, { type: "azure-native_databasewatcher_v20250102:databasewatcher:SharedPrivateLinkResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SharedPrivateLinkResource.__pulumiType, name, resourceInputs, opts);
     }

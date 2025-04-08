@@ -107,7 +107,7 @@ export class CurationProfile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20240801preview:CurationProfile" }, { type: "azure-native:devcenter/v20241001preview:CurationProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20240801preview:CurationProfile" }, { type: "azure-native:devcenter/v20241001preview:CurationProfile" }, { type: "azure-native_devcenter_v20240801preview:devcenter:CurationProfile" }, { type: "azure-native_devcenter_v20241001preview:devcenter:CurationProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CurationProfile.__pulumiType, name, resourceInputs, opts);
     }

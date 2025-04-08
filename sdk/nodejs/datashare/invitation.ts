@@ -153,7 +153,7 @@ export class Invitation extends pulumi.CustomResource {
             resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datashare/v20181101preview:Invitation" }, { type: "azure-native:datashare/v20191101:Invitation" }, { type: "azure-native:datashare/v20200901:Invitation" }, { type: "azure-native:datashare/v20201001preview:Invitation" }, { type: "azure-native:datashare/v20210801:Invitation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare/v20210801:Invitation" }, { type: "azure-native_datashare_v20181101preview:datashare:Invitation" }, { type: "azure-native_datashare_v20191101:datashare:Invitation" }, { type: "azure-native_datashare_v20200901:datashare:Invitation" }, { type: "azure-native_datashare_v20201001preview:datashare:Invitation" }, { type: "azure-native_datashare_v20210801:datashare:Invitation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Invitation.__pulumiType, name, resourceInputs, opts);
     }

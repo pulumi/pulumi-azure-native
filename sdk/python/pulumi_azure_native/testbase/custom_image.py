@@ -237,7 +237,7 @@ class CustomImage(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["validation_results"] = None
             __props__.__dict__["vhd_file_name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase/v20231101preview:CustomImage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase/v20231101preview:CustomImage"), pulumi.Alias(type_="azure-native_testbase_v20231101preview:testbase:CustomImage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomImage, __self__).__init__(
             'azure-native:testbase:CustomImage',

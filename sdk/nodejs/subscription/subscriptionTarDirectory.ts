@@ -79,7 +79,7 @@ export class SubscriptionTarDirectory extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:subscription/v20240801preview:SubscriptionTarDirectory" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:subscription/v20240801preview:SubscriptionTarDirectory" }, { type: "azure-native_subscription_v20240801preview:subscription:SubscriptionTarDirectory" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SubscriptionTarDirectory.__pulumiType, name, resourceInputs, opts);
     }
