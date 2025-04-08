@@ -11,15 +11,21 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
 {
 
     /// <summary>
-    /// Authentication configuration of a cluster.
+    /// Authentication configuration properties of a server
     /// </summary>
     public sealed class AuthConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If Enabled, Azure Active Directory authentication is enabled.
+        /// </summary>
         [Input("activeDirectoryAuth")]
-        public object? ActiveDirectoryAuth { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.ActiveDirectoryAuthEnum>? ActiveDirectoryAuth { get; set; }
 
+        /// <summary>
+        /// If Enabled, Password authentication is enabled.
+        /// </summary>
         [Input("passwordAuth")]
-        public object? PasswordAuth { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.PasswordAuthEnum>? PasswordAuth { get; set; }
 
         /// <summary>
         /// Tenant id of the server.
@@ -29,6 +35,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
 
         public AuthConfigArgs()
         {
+            PasswordAuth = "Enabled";
             TenantId = "";
         }
         public static new AuthConfigArgs Empty => new AuthConfigArgs();

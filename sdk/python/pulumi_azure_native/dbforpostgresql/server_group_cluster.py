@@ -24,21 +24,21 @@ class ServerGroupClusterArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
-                 auth_config: Optional[pulumi.Input['AuthConfigArgs']] = None,
+                 auth_config: Optional[pulumi.Input['ServerGroupClusterAuthConfigArgs']] = None,
                  citus_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  coordinator_enable_public_ip_access: Optional[pulumi.Input[bool]] = None,
                  coordinator_server_edition: Optional[pulumi.Input[str]] = None,
                  coordinator_storage_quota_in_mb: Optional[pulumi.Input[int]] = None,
                  coordinator_v_cores: Optional[pulumi.Input[int]] = None,
-                 data_encryption: Optional[pulumi.Input['DataEncryptionArgs']] = None,
+                 data_encryption: Optional[pulumi.Input['ServerGroupClusterDataEncryptionArgs']] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_geo_backup: Optional[pulumi.Input[bool]] = None,
                  enable_ha: Optional[pulumi.Input[bool]] = None,
                  enable_shards_on_coordinator: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['IdentityPropertiesArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maintenance_window: Optional[pulumi.Input['MaintenanceWindowArgs']] = None,
+                 maintenance_window: Optional[pulumi.Input['ServerGroupClusterMaintenanceWindowArgs']] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_enable_public_ip_access: Optional[pulumi.Input[bool]] = None,
                  node_server_edition: Optional[pulumi.Input[str]] = None,
@@ -54,21 +54,21 @@ class ServerGroupClusterArgs:
         The set of arguments for constructing a ServerGroupCluster resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] administrator_login_password: The password of the administrator login. Required for creation.
-        :param pulumi.Input['AuthConfigArgs'] auth_config: Authentication configuration of a cluster.
+        :param pulumi.Input['ServerGroupClusterAuthConfigArgs'] auth_config: Authentication configuration of a cluster.
         :param pulumi.Input[str] citus_version: The Citus extension version on all cluster servers.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
         :param pulumi.Input[bool] coordinator_enable_public_ip_access: If public access is enabled on coordinator.
         :param pulumi.Input[str] coordinator_server_edition: The edition of a coordinator server (default: GeneralPurpose). Required for creation.
         :param pulumi.Input[int] coordinator_storage_quota_in_mb: The storage of a server in MB. Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         :param pulumi.Input[int] coordinator_v_cores: The vCores count of a server (max: 96). Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
-        :param pulumi.Input['DataEncryptionArgs'] data_encryption: The data encryption properties of a cluster.
+        :param pulumi.Input['ServerGroupClusterDataEncryptionArgs'] data_encryption: The data encryption properties of a cluster.
         :param pulumi.Input[str] database_name: The database name of the cluster. Only one database per cluster is supported.
         :param pulumi.Input[bool] enable_geo_backup: If cluster backup is stored in another Azure region in addition to the copy of the backup stored in the cluster's region. Enabled only at the time of cluster creation.
         :param pulumi.Input[bool] enable_ha: If high availability (HA) is enabled or not for the cluster.
         :param pulumi.Input[bool] enable_shards_on_coordinator: If distributed tables are placed on coordinator or not. Should be set to 'true' on single node clusters. Requires shard rebalancing after value is changed.
         :param pulumi.Input['IdentityPropertiesArgs'] identity: Describes the identity of the cluster.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input['MaintenanceWindowArgs'] maintenance_window: Maintenance window of a cluster.
+        :param pulumi.Input['ServerGroupClusterMaintenanceWindowArgs'] maintenance_window: Maintenance window of a cluster.
         :param pulumi.Input[int] node_count: Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1. Required for creation.
         :param pulumi.Input[bool] node_enable_public_ip_access: If public access is enabled on worker nodes.
         :param pulumi.Input[str] node_server_edition: The edition of a node server (default: MemoryOptimized).
@@ -163,14 +163,14 @@ class ServerGroupClusterArgs:
 
     @property
     @pulumi.getter(name="authConfig")
-    def auth_config(self) -> Optional[pulumi.Input['AuthConfigArgs']]:
+    def auth_config(self) -> Optional[pulumi.Input['ServerGroupClusterAuthConfigArgs']]:
         """
         Authentication configuration of a cluster.
         """
         return pulumi.get(self, "auth_config")
 
     @auth_config.setter
-    def auth_config(self, value: Optional[pulumi.Input['AuthConfigArgs']]):
+    def auth_config(self, value: Optional[pulumi.Input['ServerGroupClusterAuthConfigArgs']]):
         pulumi.set(self, "auth_config", value)
 
     @property
@@ -247,14 +247,14 @@ class ServerGroupClusterArgs:
 
     @property
     @pulumi.getter(name="dataEncryption")
-    def data_encryption(self) -> Optional[pulumi.Input['DataEncryptionArgs']]:
+    def data_encryption(self) -> Optional[pulumi.Input['ServerGroupClusterDataEncryptionArgs']]:
         """
         The data encryption properties of a cluster.
         """
         return pulumi.get(self, "data_encryption")
 
     @data_encryption.setter
-    def data_encryption(self, value: Optional[pulumi.Input['DataEncryptionArgs']]):
+    def data_encryption(self, value: Optional[pulumi.Input['ServerGroupClusterDataEncryptionArgs']]):
         pulumi.set(self, "data_encryption", value)
 
     @property
@@ -331,14 +331,14 @@ class ServerGroupClusterArgs:
 
     @property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> Optional[pulumi.Input['MaintenanceWindowArgs']]:
+    def maintenance_window(self) -> Optional[pulumi.Input['ServerGroupClusterMaintenanceWindowArgs']]:
         """
         Maintenance window of a cluster.
         """
         return pulumi.get(self, "maintenance_window")
 
     @maintenance_window.setter
-    def maintenance_window(self, value: Optional[pulumi.Input['MaintenanceWindowArgs']]):
+    def maintenance_window(self, value: Optional[pulumi.Input['ServerGroupClusterMaintenanceWindowArgs']]):
         pulumi.set(self, "maintenance_window", value)
 
     @property
@@ -480,21 +480,21 @@ class ServerGroupCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
-                 auth_config: Optional[pulumi.Input[Union['AuthConfigArgs', 'AuthConfigArgsDict']]] = None,
+                 auth_config: Optional[pulumi.Input[Union['ServerGroupClusterAuthConfigArgs', 'ServerGroupClusterAuthConfigArgsDict']]] = None,
                  citus_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  coordinator_enable_public_ip_access: Optional[pulumi.Input[bool]] = None,
                  coordinator_server_edition: Optional[pulumi.Input[str]] = None,
                  coordinator_storage_quota_in_mb: Optional[pulumi.Input[int]] = None,
                  coordinator_v_cores: Optional[pulumi.Input[int]] = None,
-                 data_encryption: Optional[pulumi.Input[Union['DataEncryptionArgs', 'DataEncryptionArgsDict']]] = None,
+                 data_encryption: Optional[pulumi.Input[Union['ServerGroupClusterDataEncryptionArgs', 'ServerGroupClusterDataEncryptionArgsDict']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_geo_backup: Optional[pulumi.Input[bool]] = None,
                  enable_ha: Optional[pulumi.Input[bool]] = None,
                  enable_shards_on_coordinator: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maintenance_window: Optional[pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
+                 maintenance_window: Optional[pulumi.Input[Union['ServerGroupClusterMaintenanceWindowArgs', 'ServerGroupClusterMaintenanceWindowArgsDict']]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_enable_public_ip_access: Optional[pulumi.Input[bool]] = None,
                  node_server_edition: Optional[pulumi.Input[str]] = None,
@@ -518,21 +518,21 @@ class ServerGroupCluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login_password: The password of the administrator login. Required for creation.
-        :param pulumi.Input[Union['AuthConfigArgs', 'AuthConfigArgsDict']] auth_config: Authentication configuration of a cluster.
+        :param pulumi.Input[Union['ServerGroupClusterAuthConfigArgs', 'ServerGroupClusterAuthConfigArgsDict']] auth_config: Authentication configuration of a cluster.
         :param pulumi.Input[str] citus_version: The Citus extension version on all cluster servers.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
         :param pulumi.Input[bool] coordinator_enable_public_ip_access: If public access is enabled on coordinator.
         :param pulumi.Input[str] coordinator_server_edition: The edition of a coordinator server (default: GeneralPurpose). Required for creation.
         :param pulumi.Input[int] coordinator_storage_quota_in_mb: The storage of a server in MB. Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         :param pulumi.Input[int] coordinator_v_cores: The vCores count of a server (max: 96). Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
-        :param pulumi.Input[Union['DataEncryptionArgs', 'DataEncryptionArgsDict']] data_encryption: The data encryption properties of a cluster.
+        :param pulumi.Input[Union['ServerGroupClusterDataEncryptionArgs', 'ServerGroupClusterDataEncryptionArgsDict']] data_encryption: The data encryption properties of a cluster.
         :param pulumi.Input[str] database_name: The database name of the cluster. Only one database per cluster is supported.
         :param pulumi.Input[bool] enable_geo_backup: If cluster backup is stored in another Azure region in addition to the copy of the backup stored in the cluster's region. Enabled only at the time of cluster creation.
         :param pulumi.Input[bool] enable_ha: If high availability (HA) is enabled or not for the cluster.
         :param pulumi.Input[bool] enable_shards_on_coordinator: If distributed tables are placed on coordinator or not. Should be set to 'true' on single node clusters. Requires shard rebalancing after value is changed.
         :param pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']] identity: Describes the identity of the cluster.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']] maintenance_window: Maintenance window of a cluster.
+        :param pulumi.Input[Union['ServerGroupClusterMaintenanceWindowArgs', 'ServerGroupClusterMaintenanceWindowArgsDict']] maintenance_window: Maintenance window of a cluster.
         :param pulumi.Input[int] node_count: Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1. Required for creation.
         :param pulumi.Input[bool] node_enable_public_ip_access: If public access is enabled on worker nodes.
         :param pulumi.Input[str] node_server_edition: The edition of a node server (default: MemoryOptimized).
@@ -575,21 +575,21 @@ class ServerGroupCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
-                 auth_config: Optional[pulumi.Input[Union['AuthConfigArgs', 'AuthConfigArgsDict']]] = None,
+                 auth_config: Optional[pulumi.Input[Union['ServerGroupClusterAuthConfigArgs', 'ServerGroupClusterAuthConfigArgsDict']]] = None,
                  citus_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  coordinator_enable_public_ip_access: Optional[pulumi.Input[bool]] = None,
                  coordinator_server_edition: Optional[pulumi.Input[str]] = None,
                  coordinator_storage_quota_in_mb: Optional[pulumi.Input[int]] = None,
                  coordinator_v_cores: Optional[pulumi.Input[int]] = None,
-                 data_encryption: Optional[pulumi.Input[Union['DataEncryptionArgs', 'DataEncryptionArgsDict']]] = None,
+                 data_encryption: Optional[pulumi.Input[Union['ServerGroupClusterDataEncryptionArgs', 'ServerGroupClusterDataEncryptionArgsDict']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_geo_backup: Optional[pulumi.Input[bool]] = None,
                  enable_ha: Optional[pulumi.Input[bool]] = None,
                  enable_shards_on_coordinator: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maintenance_window: Optional[pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
+                 maintenance_window: Optional[pulumi.Input[Union['ServerGroupClusterMaintenanceWindowArgs', 'ServerGroupClusterMaintenanceWindowArgsDict']]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_enable_public_ip_access: Optional[pulumi.Input[bool]] = None,
                  node_server_edition: Optional[pulumi.Input[str]] = None,
@@ -736,7 +736,7 @@ class ServerGroupCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authConfig")
-    def auth_config(self) -> pulumi.Output[Optional['outputs.AuthConfigResponse']]:
+    def auth_config(self) -> pulumi.Output[Optional['outputs.ServerGroupClusterAuthConfigResponse']]:
         """
         Authentication configuration of a cluster.
         """
@@ -792,7 +792,7 @@ class ServerGroupCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataEncryption")
-    def data_encryption(self) -> pulumi.Output[Optional['outputs.DataEncryptionResponse']]:
+    def data_encryption(self) -> pulumi.Output[Optional['outputs.ServerGroupClusterDataEncryptionResponse']]:
         """
         The data encryption properties of a cluster.
         """
@@ -856,7 +856,7 @@ class ServerGroupCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> pulumi.Output[Optional['outputs.MaintenanceWindowResponse']]:
+    def maintenance_window(self) -> pulumi.Output[Optional['outputs.ServerGroupClusterMaintenanceWindowResponse']]:
         """
         Maintenance window of a cluster.
         """

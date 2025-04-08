@@ -35,6 +35,9 @@ __all__ = [
     'PrivateLinkServiceConnectionStateResponse',
     'ReplicaResponse',
     'ResourceIdentityResponse',
+    'ServerGroupClusterAuthConfigResponse',
+    'ServerGroupClusterDataEncryptionResponse',
+    'ServerGroupClusterMaintenanceWindowResponse',
     'ServerNameItemResponse',
     'ServerPrivateEndpointConnectionPropertiesResponse',
     'ServerPrivateEndpointConnectionResponse',
@@ -56,7 +59,7 @@ __all__ = [
 @pulumi.output_type
 class AuthConfigResponse(dict):
     """
-    Authentication configuration of a cluster.
+    Authentication configuration properties of a server
     """
     @staticmethod
     def __key_warning(key: str):
@@ -84,11 +87,15 @@ class AuthConfigResponse(dict):
                  password_auth: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        Authentication configuration of a cluster.
+        Authentication configuration properties of a server
+        :param str active_directory_auth: If Enabled, Azure Active Directory authentication is enabled.
+        :param str password_auth: If Enabled, Password authentication is enabled.
         :param str tenant_id: Tenant id of the server.
         """
         if active_directory_auth is not None:
             pulumi.set(__self__, "active_directory_auth", active_directory_auth)
+        if password_auth is None:
+            password_auth = 'Enabled'
         if password_auth is not None:
             pulumi.set(__self__, "password_auth", password_auth)
         if tenant_id is None:
@@ -99,11 +106,17 @@ class AuthConfigResponse(dict):
     @property
     @pulumi.getter(name="activeDirectoryAuth")
     def active_directory_auth(self) -> Optional[str]:
+        """
+        If Enabled, Azure Active Directory authentication is enabled.
+        """
         return pulumi.get(self, "active_directory_auth")
 
     @property
     @pulumi.getter(name="passwordAuth")
     def password_auth(self) -> Optional[str]:
+        """
+        If Enabled, Password authentication is enabled.
+        """
         return pulumi.get(self, "password_auth")
 
     @property
@@ -189,7 +202,7 @@ class BackupResponse(dict):
 @pulumi.output_type
 class DataEncryptionResponse(dict):
     """
-    The data encryption properties of a cluster.
+    Data encryption properties of a server
     """
     @staticmethod
     def __key_warning(key: str):
@@ -203,8 +216,6 @@ class DataEncryptionResponse(dict):
         elif key == "primaryEncryptionKeyStatus":
             suggest = "primary_encryption_key_status"
         elif key == "primaryKeyURI":
-            suggest = "primary_key_uri"
-        elif key == "primaryKeyUri":
             suggest = "primary_key_uri"
         elif key == "primaryUserAssignedIdentityId":
             suggest = "primary_user_assigned_identity_id"
@@ -226,18 +237,17 @@ class DataEncryptionResponse(dict):
                  geo_backup_user_assigned_identity_id: Optional[str] = None,
                  primary_encryption_key_status: Optional[str] = None,
                  primary_key_uri: Optional[str] = None,
-                 primary_key_uri: Optional[str] = None,
                  primary_user_assigned_identity_id: Optional[str] = None,
                  type: Optional[str] = None):
         """
-        The data encryption properties of a cluster.
+        Data encryption properties of a server
         :param str geo_backup_encryption_key_status: Geo-backup encryption key status for Data encryption enabled server.
         :param str geo_backup_key_uri: URI for the key in keyvault for data encryption for geo-backup of server.
         :param str geo_backup_user_assigned_identity_id: Resource Id for the User assigned identity to be used for data encryption for geo-backup of server.
         :param str primary_encryption_key_status: Primary encryption key status for Data encryption enabled server.
         :param str primary_key_uri: URI for the key in keyvault for data encryption of the primary server.
-        :param str primary_key_uri: URI for the key in keyvault for data encryption of the primary server.
         :param str primary_user_assigned_identity_id: Resource Id for the User assigned identity to be used for data encryption of the primary server.
+        :param str type: Data encryption type to depict if it is System Managed vs Azure Key vault.
         """
         if geo_backup_encryption_key_status is not None:
             pulumi.set(__self__, "geo_backup_encryption_key_status", geo_backup_encryption_key_status)
@@ -247,8 +257,6 @@ class DataEncryptionResponse(dict):
             pulumi.set(__self__, "geo_backup_user_assigned_identity_id", geo_backup_user_assigned_identity_id)
         if primary_encryption_key_status is not None:
             pulumi.set(__self__, "primary_encryption_key_status", primary_encryption_key_status)
-        if primary_key_uri is not None:
-            pulumi.set(__self__, "primary_key_uri", primary_key_uri)
         if primary_key_uri is not None:
             pulumi.set(__self__, "primary_key_uri", primary_key_uri)
         if primary_user_assigned_identity_id is not None:
@@ -297,14 +305,6 @@ class DataEncryptionResponse(dict):
         return pulumi.get(self, "primary_key_uri")
 
     @property
-    @pulumi.getter(name="primaryKeyUri")
-    def primary_key_uri(self) -> Optional[str]:
-        """
-        URI for the key in keyvault for data encryption of the primary server.
-        """
-        return pulumi.get(self, "primary_key_uri")
-
-    @property
     @pulumi.getter(name="primaryUserAssignedIdentityId")
     def primary_user_assigned_identity_id(self) -> Optional[str]:
         """
@@ -315,6 +315,9 @@ class DataEncryptionResponse(dict):
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        Data encryption type to depict if it is System Managed vs Azure Key vault.
+        """
         return pulumi.get(self, "type")
 
 
@@ -837,7 +840,7 @@ class IdentityPropertiesResponse(dict):
 @pulumi.output_type
 class MaintenanceWindowResponse(dict):
     """
-    Schedule settings for regular cluster updates.
+    Maintenance window properties of a server.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -868,18 +871,26 @@ class MaintenanceWindowResponse(dict):
                  start_hour: Optional[int] = None,
                  start_minute: Optional[int] = None):
         """
-        Schedule settings for regular cluster updates.
-        :param str custom_window: Indicates whether custom maintenance window is enabled or not.
-        :param int day_of_week: Preferred day of the week for maintenance window.
-        :param int start_hour: Start hour within preferred day of the week for maintenance window.
-        :param int start_minute: Start minute within the start hour for maintenance window.
+        Maintenance window properties of a server.
+        :param str custom_window: indicates whether custom window is enabled or disabled
+        :param int day_of_week: day of week for maintenance window
+        :param int start_hour: start hour for maintenance window
+        :param int start_minute: start minute for maintenance window
         """
+        if custom_window is None:
+            custom_window = 'Disabled'
         if custom_window is not None:
             pulumi.set(__self__, "custom_window", custom_window)
+        if day_of_week is None:
+            day_of_week = 0
         if day_of_week is not None:
             pulumi.set(__self__, "day_of_week", day_of_week)
+        if start_hour is None:
+            start_hour = 0
         if start_hour is not None:
             pulumi.set(__self__, "start_hour", start_hour)
+        if start_minute is None:
+            start_minute = 0
         if start_minute is not None:
             pulumi.set(__self__, "start_minute", start_minute)
 
@@ -887,7 +898,7 @@ class MaintenanceWindowResponse(dict):
     @pulumi.getter(name="customWindow")
     def custom_window(self) -> Optional[str]:
         """
-        Indicates whether custom maintenance window is enabled or not.
+        indicates whether custom window is enabled or disabled
         """
         return pulumi.get(self, "custom_window")
 
@@ -895,7 +906,7 @@ class MaintenanceWindowResponse(dict):
     @pulumi.getter(name="dayOfWeek")
     def day_of_week(self) -> Optional[int]:
         """
-        Preferred day of the week for maintenance window.
+        day of week for maintenance window
         """
         return pulumi.get(self, "day_of_week")
 
@@ -903,7 +914,7 @@ class MaintenanceWindowResponse(dict):
     @pulumi.getter(name="startHour")
     def start_hour(self) -> Optional[int]:
         """
-        Start hour within preferred day of the week for maintenance window.
+        start hour for maintenance window
         """
         return pulumi.get(self, "start_hour")
 
@@ -911,7 +922,7 @@ class MaintenanceWindowResponse(dict):
     @pulumi.getter(name="startMinute")
     def start_minute(self) -> Optional[int]:
         """
-        Start minute within the start hour for maintenance window.
+        start minute for maintenance window
         """
         return pulumi.get(self, "start_minute")
 
@@ -1462,6 +1473,196 @@ class ResourceIdentityResponse(dict):
         The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ServerGroupClusterAuthConfigResponse(dict):
+    """
+    Authentication configuration of a cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeDirectoryAuth":
+            suggest = "active_directory_auth"
+        elif key == "passwordAuth":
+            suggest = "password_auth"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerGroupClusterAuthConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerGroupClusterAuthConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerGroupClusterAuthConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 active_directory_auth: Optional[str] = None,
+                 password_auth: Optional[str] = None):
+        """
+        Authentication configuration of a cluster.
+        """
+        if active_directory_auth is not None:
+            pulumi.set(__self__, "active_directory_auth", active_directory_auth)
+        if password_auth is not None:
+            pulumi.set(__self__, "password_auth", password_auth)
+
+    @property
+    @pulumi.getter(name="activeDirectoryAuth")
+    def active_directory_auth(self) -> Optional[str]:
+        return pulumi.get(self, "active_directory_auth")
+
+    @property
+    @pulumi.getter(name="passwordAuth")
+    def password_auth(self) -> Optional[str]:
+        return pulumi.get(self, "password_auth")
+
+
+@pulumi.output_type
+class ServerGroupClusterDataEncryptionResponse(dict):
+    """
+    The data encryption properties of a cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "primaryKeyUri":
+            suggest = "primary_key_uri"
+        elif key == "primaryUserAssignedIdentityId":
+            suggest = "primary_user_assigned_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerGroupClusterDataEncryptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerGroupClusterDataEncryptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerGroupClusterDataEncryptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 primary_key_uri: Optional[str] = None,
+                 primary_user_assigned_identity_id: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        The data encryption properties of a cluster.
+        :param str primary_key_uri: URI for the key in keyvault for data encryption of the primary server.
+        :param str primary_user_assigned_identity_id: Resource Id for the User assigned identity to be used for data encryption of the primary server.
+        """
+        if primary_key_uri is not None:
+            pulumi.set(__self__, "primary_key_uri", primary_key_uri)
+        if primary_user_assigned_identity_id is not None:
+            pulumi.set(__self__, "primary_user_assigned_identity_id", primary_user_assigned_identity_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="primaryKeyUri")
+    def primary_key_uri(self) -> Optional[str]:
+        """
+        URI for the key in keyvault for data encryption of the primary server.
+        """
+        return pulumi.get(self, "primary_key_uri")
+
+    @property
+    @pulumi.getter(name="primaryUserAssignedIdentityId")
+    def primary_user_assigned_identity_id(self) -> Optional[str]:
+        """
+        Resource Id for the User assigned identity to be used for data encryption of the primary server.
+        """
+        return pulumi.get(self, "primary_user_assigned_identity_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ServerGroupClusterMaintenanceWindowResponse(dict):
+    """
+    Schedule settings for regular cluster updates.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customWindow":
+            suggest = "custom_window"
+        elif key == "dayOfWeek":
+            suggest = "day_of_week"
+        elif key == "startHour":
+            suggest = "start_hour"
+        elif key == "startMinute":
+            suggest = "start_minute"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerGroupClusterMaintenanceWindowResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerGroupClusterMaintenanceWindowResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerGroupClusterMaintenanceWindowResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_window: Optional[str] = None,
+                 day_of_week: Optional[int] = None,
+                 start_hour: Optional[int] = None,
+                 start_minute: Optional[int] = None):
+        """
+        Schedule settings for regular cluster updates.
+        :param str custom_window: Indicates whether custom maintenance window is enabled or not.
+        :param int day_of_week: Preferred day of the week for maintenance window.
+        :param int start_hour: Start hour within preferred day of the week for maintenance window.
+        :param int start_minute: Start minute within the start hour for maintenance window.
+        """
+        if custom_window is not None:
+            pulumi.set(__self__, "custom_window", custom_window)
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+        if start_hour is not None:
+            pulumi.set(__self__, "start_hour", start_hour)
+        if start_minute is not None:
+            pulumi.set(__self__, "start_minute", start_minute)
+
+    @property
+    @pulumi.getter(name="customWindow")
+    def custom_window(self) -> Optional[str]:
+        """
+        Indicates whether custom maintenance window is enabled or not.
+        """
+        return pulumi.get(self, "custom_window")
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional[int]:
+        """
+        Preferred day of the week for maintenance window.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @property
+    @pulumi.getter(name="startHour")
+    def start_hour(self) -> Optional[int]:
+        """
+        Start hour within preferred day of the week for maintenance window.
+        """
+        return pulumi.get(self, "start_hour")
+
+    @property
+    @pulumi.getter(name="startMinute")
+    def start_minute(self) -> Optional[int]:
+        """
+        Start minute within the start hour for maintenance window.
+        """
+        return pulumi.get(self, "start_minute")
 
 
 @pulumi.output_type
