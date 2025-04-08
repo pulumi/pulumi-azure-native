@@ -14,8 +14,11 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	rpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 func TestGetParameterizeArgs(t *testing.T) {
@@ -399,4 +402,30 @@ func pulumiPackageAdd(
 		t.Fatalf("Failed to run pulumi package add\nExit code: %d\nError: %v\n%s\n%s",
 			exitCode, err, stdout, stderr)
 	}
+}
+
+func TestCreateSchemaErrorChecking(t *testing.T) {
+	t.Parallel()
+
+	schema := pschema.PackageSpec{
+		Resources: map[string]pschema.ResourceSpec{
+			"azure-native:storage:StorageAccount":           {},
+			"azure-native:storage/v20230303:StorageAccount": {},
+			"azure-native:storage/v20220202:StorageAccount": {},
+		},
+	}
+
+	t.Run("No such API version", func(t *testing.T) {
+		_, _, err := createSchema(nil, schema, "storage", "v20240101")
+		require.Error(t, err)
+		assert.Equal(t, codes.InvalidArgument, status.Code(err))
+		assert.Contains(t, err.Error(), "no resources found for module storage at API version v20240101. Available API versions: v20220202, v20230303")
+	})
+
+	t.Run("No such module", func(t *testing.T) {
+		_, _, err := createSchema(nil, schema, "compute", "v20240101")
+		require.Error(t, err)
+		assert.Equal(t, codes.InvalidArgument, status.Code(err))
+		assert.Contains(t, err.Error(), "module compute not found. Some modules were renamed in v3 of the provider")
+	})
 }
