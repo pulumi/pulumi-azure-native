@@ -21,7 +21,7 @@ env:
   SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
   ARM_LOCATION: westus2
   PULUMI_API: https://api.pulumi-staging.io
-  PROVIDER_VERSION: 2.0.0-alpha.0+dev
+  PROVIDER_VERSION: 3.0.0-alpha.0+dev
 jobs:
   generate-sdk:
     # Use a more powerful runner to fix pulumi/pulumi-azure-native#2767
