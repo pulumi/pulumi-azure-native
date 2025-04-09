@@ -327,6 +327,37 @@ namespace Pulumi.AzureNative.ContainerInstance
     }
 
     /// <summary>
+    /// The priority of the container group.
+    /// </summary>
+    [EnumType]
+    public readonly struct Priority : IEquatable<Priority>
+    {
+        private readonly string _value;
+
+        private Priority(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Priority Regular { get; } = new Priority("Regular");
+        public static Priority Spot { get; } = new Priority("Spot");
+
+        public static bool operator ==(Priority left, Priority right) => left.Equals(right);
+        public static bool operator !=(Priority left, Priority right) => !left.Equals(right);
+
+        public static explicit operator string(Priority value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Priority other && Equals(other);
+        public bool Equals(Priority other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
     /// </summary>
     [EnumType]

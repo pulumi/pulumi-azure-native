@@ -54,6 +54,8 @@ def list_private_store_new_plans_notifications(private_store_id: Optional[str] =
 
     Uses Azure REST API version 2023-01-01.
 
+    Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str private_store_id: The store ID - must use the tenant ID
     """
@@ -70,6 +72,8 @@ def list_private_store_new_plans_notifications_output(private_store_id: Optional
     List new plans notifications
 
     Uses Azure REST API version 2023-01-01.
+
+    Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str private_store_id: The store ID - must use the tenant ID

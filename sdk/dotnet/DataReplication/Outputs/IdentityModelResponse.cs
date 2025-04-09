@@ -17,24 +17,23 @@ namespace Pulumi.AzureNative.DataReplication.Outputs
     public sealed class IdentityModelResponse
     {
         /// <summary>
-        /// Gets or sets the authority of the SPN with which Dra communicates to service.
+        /// Gets or sets the authority of the SPN with which fabric agent communicates to service.
         /// </summary>
         public readonly string AadAuthority;
         /// <summary>
-        /// Gets or sets the client/application Id of the SPN with which Dra communicates to
-        /// service.
+        /// Gets or sets the client/application Id of the SPN with which fabric agent communicates to service.
         /// </summary>
         public readonly string ApplicationId;
         /// <summary>
-        /// Gets or sets the audience of the SPN with which Dra communicates to service.
+        /// Gets or sets the audience of the SPN with which fabric agent communicates to service.
         /// </summary>
         public readonly string Audience;
         /// <summary>
-        /// Gets or sets the object Id of the SPN with which Dra communicates to service.
+        /// Gets or sets the object Id of the SPN with which fabric agent communicates to service.
         /// </summary>
         public readonly string ObjectId;
         /// <summary>
-        /// Gets or sets the tenant Id of the SPN with which Dra communicates to service.
+        /// Gets or sets the tenant Id of the SPN with which fabric agent communicates to service.
         /// </summary>
         public readonly string TenantId;
 

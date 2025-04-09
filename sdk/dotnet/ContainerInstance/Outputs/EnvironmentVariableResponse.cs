@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
         /// </summary>
         public readonly string? SecureValue;
         /// <summary>
+        /// The reference of the secure environment variable.
+        /// </summary>
+        public readonly string? SecureValueReference;
+        /// <summary>
         /// The value of the environment variable.
         /// </summary>
         public readonly string? Value;
@@ -35,10 +39,13 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
 
             string? secureValue,
 
+            string? secureValueReference,
+
             string? value)
         {
             Name = name;
             SecureValue = secureValue;
+            SecureValueReference = secureValueReference;
             Value = value;
         }
     }

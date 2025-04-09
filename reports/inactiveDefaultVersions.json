@@ -20,12 +20,6 @@
   "DataCatalog": [
     "2016-03-30"
   ],
-  "DatabaseFleetManager": [
-    "2025-02-01-preview"
-  ],
-  "DependencyMap": [
-    "2025-01-31-preview"
-  ],
   "DevSpaces": [
     "2019-04-01"
   ],
@@ -49,6 +43,9 @@
   ],
   "Intune": [
     "2015-01-14-preview"
+  ],
+  "IoTOperationsMQ": [
+    "2023-10-04-preview"
   ],
   "M365SecurityAndCompliance": [
     "2021-03-25-preview"
@@ -94,9 +91,6 @@
   ],
   "VideoAnalyzer": [
     "2021-11-01-preview"
-  ],
-  "WeightsAndBiases": [
-    "2024-09-18-preview"
   ],
   "WindowsESU": [
     "2019-09-16-preview"

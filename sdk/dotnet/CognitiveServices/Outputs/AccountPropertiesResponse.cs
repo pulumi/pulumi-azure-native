@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         public readonly Outputs.AbusePenaltyResponse AbusePenalty;
         public readonly ImmutableArray<string> AllowedFqdnList;
         /// <summary>
-        /// The user owned AML workspace properties.
+        /// The user owned AML account properties.
         /// </summary>
         public readonly Outputs.UserOwnedAmlWorkspaceResponse? AmlWorkspace;
         /// <summary>

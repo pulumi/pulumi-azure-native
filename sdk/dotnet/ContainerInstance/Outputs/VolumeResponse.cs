@@ -36,6 +36,10 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
         /// The secret volume.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Secret;
+        /// <summary>
+        /// The secret reference volume.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? SecretReference;
 
         [OutputConstructor]
         private VolumeResponse(
@@ -47,13 +51,16 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
 
             string name,
 
-            ImmutableDictionary<string, string>? secret)
+            ImmutableDictionary<string, string>? secret,
+
+            ImmutableDictionary<string, string>? secretReference)
         {
             AzureFile = azureFile;
             EmptyDir = emptyDir;
             GitRepo = gitRepo;
             Name = name;
             Secret = secret;
+            SecretReference = secretReference;
         }
     }
 }

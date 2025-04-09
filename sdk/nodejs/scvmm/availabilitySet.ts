@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-21-preview.
  *
- * Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class AvailabilitySet extends pulumi.CustomResource {
     /**
@@ -120,7 +120,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
             resourceInputs["vmmServerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:AvailabilitySet" }, { type: "azure-native:scvmm/v20220521preview:AvailabilitySet" }, { type: "azure-native:scvmm/v20230401preview:AvailabilitySet" }, { type: "azure-native:scvmm/v20231007:AvailabilitySet" }, { type: "azure-native:scvmm/v20240601:AvailabilitySet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:AvailabilitySet" }, { type: "azure-native:scvmm/v20220521preview:AvailabilitySet" }, { type: "azure-native:scvmm/v20230401preview:AvailabilitySet" }, { type: "azure-native:scvmm/v20231007:AvailabilitySet" }, { type: "azure-native:scvmm/v20240601:AvailabilitySet" }, { type: "azure-native:scvmm/v20250313:AvailabilitySet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AvailabilitySet.__pulumiType, name, resourceInputs, opts);
     }

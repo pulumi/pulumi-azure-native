@@ -198,9 +198,17 @@ CodeSigning:
     tracking: 2024-09-30-preview
 CognitiveServices:
     tracking: "2024-10-01"
+    additions:
+        AccountCapabilityHost: 2025-04-01-preview
+        AccountConnection: 2025-04-01-preview
+        Project: 2025-04-01-preview
+        ProjectCapabilityHost: 2025-04-01-preview
+        ProjectConnection: 2025-04-01-preview
 Commerce: {}
 Communication:
     tracking: 2023-06-01-preview
+    additions:
+        SmtpUsername: 2024-09-01-preview
 Community:
     tracking: "2023-11-01"
 Compute:
@@ -256,6 +264,8 @@ Consumption:
     tracking: "2024-08-01"
 ContainerInstance:
     tracking: 2024-05-01-preview
+    additions:
+        CGProfile: 2024-11-01-preview
 ContainerRegistry:
     additions:
         AgentPool: 2019-06-01-preview
@@ -542,6 +552,10 @@ DataProtection:
     tracking: "2025-01-01"
 DataReplication:
     tracking: 2021-02-16-preview
+    additions:
+        FabricAgent: "2024-09-01"
+        PrivateEndpointConnection: "2024-09-01"
+        PrivateEndpointConnectionProxy: "2024-09-01"
 DataShare:
     tracking: "2021-08-01"
 DatabaseFleetManager:
@@ -569,12 +583,14 @@ DevCenter:
         getCatalogDevBoxDefinitionErrorDetails: 2023-10-01-preview
         getCustomizationTaskErrorDetails: 2024-10-01-preview
         getProjectCatalogImageDefinitionBuildDetails: 2024-10-01-preview
+        getProjectCatalogImageDefinitionErrorDetails: "2025-02-01"
         getProjectInheritedSettings: 2024-10-01-preview
         listSkusByProject: 2024-10-01-preview
 DevHub:
     tracking: "2023-08-01"
     additions:
         IacProfile: 2024-05-01-preview
+        getADOOAuthInfo: 2025-03-01-preview
 DevOps: {}
 DevOpsInfrastructure:
     tracking: "2025-01-21"
@@ -1381,6 +1397,18 @@ ServiceFabric:
         - modulename: ServiceFabric
           resourcename: Service
           detail: version 2024-11-01-preview is greater than 2023-11-01-preview
+        - modulename: ServiceFabric
+          resourcename: Application
+          detail: version 2025-03-01-preview is greater than 2023-11-01-preview
+        - modulename: ServiceFabric
+          resourcename: ApplicationType
+          detail: version 2025-03-01-preview is greater than 2023-11-01-preview
+        - modulename: ServiceFabric
+          resourcename: ApplicationTypeVersion
+          detail: version 2025-03-01-preview is greater than 2023-11-01-preview
+        - modulename: ServiceFabric
+          resourcename: Service
+          detail: version 2025-03-01-preview is greater than 2023-11-01-preview
 ServiceFabricMesh:
     tracking: 2018-09-01-preview
 ServiceLinker:
@@ -1414,6 +1442,8 @@ StorageActions:
     tracking: "2023-01-01"
 StorageCache:
     tracking: "2024-03-01"
+    additions:
+        AutoExportJob: "2024-07-01"
 StorageMover:
     tracking: "2024-07-01"
 StoragePool:
