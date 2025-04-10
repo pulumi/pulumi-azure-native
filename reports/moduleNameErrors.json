@@ -3215,6 +3215,21 @@
     "Error": "resolved module name mismatch: file: Resources, uri: "
   },
   {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2025-03-01/resources.json",
+    "Path": "/providers",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2025-03-01/resources.json",
+    "Path": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}/register",
+    "Error": "resolved module name mismatch: file: Resources, uri: Management"
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2025-03-01/resources.json",
+    "Path": "/{resourceId}",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
     "FilePath": "specification/resources/resource-manager/Microsoft.Solutions/preview/2016-09-01-preview/managedapplications.json",
     "Path": "/{applianceDefinitionId}",
     "Error": "resolved module name mismatch: file: Solutions, uri: "

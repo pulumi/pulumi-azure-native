@@ -84,6 +84,14 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "ModuleName": "CognitiveServices",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "ModuleName": "Communication",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "ModuleName": "ConfidentialLedger",
     "Detail": "expected tracking stable but found preview"
   },
@@ -108,6 +116,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "ModuleName": "ContainerInstance",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "ModuleName": "CosmosDB",
     "Detail": "expected no additions but found some"
   },
@@ -130,6 +142,10 @@
   {
     "ModuleName": "DataReplication",
     "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "ModuleName": "DataReplication",
+    "Detail": "expected no additions but found some"
   },
   {
     "ModuleName": "DatabaseFleetManager",
@@ -434,6 +450,10 @@
   {
     "ModuleName": "Sovereign",
     "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "ModuleName": "StorageCache",
+    "Detail": "expected no additions but found some"
   },
   {
     "ModuleName": "Subscription",
