@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
     /// 
     /// Uses Azure REST API version 2023-05-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
     /// 
-    /// Other available API versions: 2022-07-01, 2022-11-01, 2024-04-01-preview, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-07-01, 2022-11-01, 2024-04-01-preview, 2024-11-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetesconfiguration:FluxConfiguration")]
     public partial class FluxConfiguration : global::Pulumi.CustomResource
@@ -190,6 +190,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20230501:FluxConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20240401preview:FluxConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20241101:FluxConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20250401:FluxConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

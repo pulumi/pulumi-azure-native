@@ -70,6 +70,8 @@ def list_run_log_sas_url(registry_name: Optional[str] = None,
 
     Uses Azure REST API version 2019-06-01-preview.
 
+    Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
@@ -93,6 +95,8 @@ def list_run_log_sas_url_output(registry_name: Optional[pulumi.Input[str]] = Non
     Gets a link to download the run logs.
 
     Uses Azure REST API version 2019-06-01-preview.
+
+    Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str registry_name: The name of the container registry.

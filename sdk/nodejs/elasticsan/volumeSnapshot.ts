@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
  *
- * Other available API versions: 2023-01-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-01-01, 2024-06-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class VolumeSnapshot extends pulumi.CustomResource {
     /**
@@ -120,7 +120,7 @@ export class VolumeSnapshot extends pulumi.CustomResource {
             resourceInputs["volumeName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:elasticsan/v20230101:VolumeSnapshot" }, { type: "azure-native:elasticsan/v20240501:VolumeSnapshot" }, { type: "azure-native:elasticsan/v20240601preview:VolumeSnapshot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:elasticsan/v20230101:VolumeSnapshot" }, { type: "azure-native:elasticsan/v20240501:VolumeSnapshot" }, { type: "azure-native:elasticsan/v20240601preview:VolumeSnapshot" }, { type: "azure-native:elasticsan/v20240701preview:VolumeSnapshot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VolumeSnapshot.__pulumiType, name, resourceInputs, opts);
     }

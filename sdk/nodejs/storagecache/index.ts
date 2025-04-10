@@ -10,6 +10,11 @@ export type AmlFilesystem = import("./amlFilesystem").AmlFilesystem;
 export const AmlFilesystem: typeof import("./amlFilesystem").AmlFilesystem = null as any;
 utilities.lazyLoad(exports, ["AmlFilesystem"], () => require("./amlFilesystem"));
 
+export { AutoExportJobArgs } from "./autoExportJob";
+export type AutoExportJob = import("./autoExportJob").AutoExportJob;
+export const AutoExportJob: typeof import("./autoExportJob").AutoExportJob = null as any;
+utilities.lazyLoad(exports, ["AutoExportJob"], () => require("./autoExportJob"));
+
 export { CacheArgs } from "./cache";
 export type Cache = import("./cache").Cache;
 export const Cache: typeof import("./cache").Cache = null as any;
@@ -19,6 +24,11 @@ export { GetAmlFilesystemArgs, GetAmlFilesystemResult, GetAmlFilesystemOutputArg
 export const getAmlFilesystem: typeof import("./getAmlFilesystem").getAmlFilesystem = null as any;
 export const getAmlFilesystemOutput: typeof import("./getAmlFilesystem").getAmlFilesystemOutput = null as any;
 utilities.lazyLoad(exports, ["getAmlFilesystem","getAmlFilesystemOutput"], () => require("./getAmlFilesystem"));
+
+export { GetAutoExportJobArgs, GetAutoExportJobResult, GetAutoExportJobOutputArgs } from "./getAutoExportJob";
+export const getAutoExportJob: typeof import("./getAutoExportJob").getAutoExportJob = null as any;
+export const getAutoExportJobOutput: typeof import("./getAutoExportJob").getAutoExportJobOutput = null as any;
+utilities.lazyLoad(exports, ["getAutoExportJob","getAutoExportJobOutput"], () => require("./getAutoExportJob"));
 
 export { GetCacheArgs, GetCacheResult, GetCacheOutputArgs } from "./getCache";
 export const getCache: typeof import("./getCache").getCache = null as any;
@@ -60,6 +70,8 @@ const _module = {
         switch (type) {
             case "azure-native:storagecache:AmlFilesystem":
                 return new AmlFilesystem(name, <any>undefined, { urn })
+            case "azure-native:storagecache:AutoExportJob":
+                return new AutoExportJob(name, <any>undefined, { urn })
             case "azure-native:storagecache:Cache":
                 return new Cache(name, <any>undefined, { urn })
             case "azure-native:storagecache:ImportJob":

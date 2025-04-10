@@ -6,12 +6,17 @@ from enum import Enum
 
 __all__ = [
     'ByPassSelection',
+    'CapabilityHostKind',
+    'ConnectionAuthType',
+    'ConnectionCategory',
     'ContentLevel',
     'DeploymentModelVersionUpgradeOption',
     'DeploymentScaleType',
     'EncryptionScopeState',
     'HostingModel',
     'KeySource',
+    'ManagedPERequirement',
+    'ManagedPEStatus',
     'NetworkRuleAction',
     'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
@@ -29,6 +34,142 @@ class ByPassSelection(str, Enum):
     """
     NONE = "None"
     AZURE_SERVICES = "AzureServices"
+
+
+class CapabilityHostKind(str, Enum):
+    """
+    Kind of this capability host.
+    """
+    AGENTS = "Agents"
+
+
+class ConnectionAuthType(str, Enum):
+    """
+    Authentication type of the connection target
+    """
+    PAT = "PAT"
+    MANAGED_IDENTITY = "ManagedIdentity"
+    USERNAME_PASSWORD = "UsernamePassword"
+    NONE = "None"
+    SAS = "SAS"
+    ACCOUNT_KEY = "AccountKey"
+    SERVICE_PRINCIPAL = "ServicePrincipal"
+    ACCESS_KEY = "AccessKey"
+    API_KEY = "ApiKey"
+    CUSTOM_KEYS = "CustomKeys"
+    O_AUTH2 = "OAuth2"
+    AAD = "AAD"
+
+
+class ConnectionCategory(str, Enum):
+    """
+    Category of the connection
+    """
+    PYTHON_FEED = "PythonFeed"
+    CONTAINER_REGISTRY = "ContainerRegistry"
+    GIT = "Git"
+    S3 = "S3"
+    SNOWFLAKE = "Snowflake"
+    AZURE_SQL_DB = "AzureSqlDb"
+    AZURE_SYNAPSE_ANALYTICS = "AzureSynapseAnalytics"
+    AZURE_MY_SQL_DB = "AzureMySqlDb"
+    AZURE_POSTGRES_DB = "AzurePostgresDb"
+    ADLS_GEN2 = "ADLSGen2"
+    REDIS = "Redis"
+    API_KEY = "ApiKey"
+    AZURE_OPEN_AI = "AzureOpenAI"
+    AI_SERVICES = "AIServices"
+    COGNITIVE_SEARCH = "CognitiveSearch"
+    COGNITIVE_SERVICE = "CognitiveService"
+    CUSTOM_KEYS = "CustomKeys"
+    AZURE_BLOB = "AzureBlob"
+    AZURE_ONE_LAKE = "AzureOneLake"
+    COSMOS_DB = "CosmosDb"
+    COSMOS_DB_MONGO_DB_API = "CosmosDbMongoDbApi"
+    AZURE_DATA_EXPLORER = "AzureDataExplorer"
+    AZURE_MARIA_DB = "AzureMariaDb"
+    AZURE_DATABRICKS_DELTA_LAKE = "AzureDatabricksDeltaLake"
+    AZURE_SQL_MI = "AzureSqlMi"
+    AZURE_TABLE_STORAGE = "AzureTableStorage"
+    AMAZON_RDS_FOR_ORACLE = "AmazonRdsForOracle"
+    AMAZON_RDS_FOR_SQL_SERVER = "AmazonRdsForSqlServer"
+    AMAZON_REDSHIFT = "AmazonRedshift"
+    DB2 = "Db2"
+    DRILL = "Drill"
+    GOOGLE_BIG_QUERY = "GoogleBigQuery"
+    GREENPLUM = "Greenplum"
+    HBASE = "Hbase"
+    HIVE = "Hive"
+    IMPALA = "Impala"
+    INFORMIX = "Informix"
+    MARIA_DB = "MariaDb"
+    MICROSOFT_ACCESS = "MicrosoftAccess"
+    MY_SQL = "MySql"
+    NETEZZA = "Netezza"
+    ORACLE = "Oracle"
+    PHOENIX = "Phoenix"
+    POSTGRE_SQL = "PostgreSql"
+    PRESTO = "Presto"
+    SAP_OPEN_HUB = "SapOpenHub"
+    SAP_BW = "SapBw"
+    SAP_HANA = "SapHana"
+    SAP_TABLE = "SapTable"
+    SPARK = "Spark"
+    SQL_SERVER = "SqlServer"
+    SYBASE = "Sybase"
+    TERADATA = "Teradata"
+    VERTICA = "Vertica"
+    PINECONE = "Pinecone"
+    CASSANDRA = "Cassandra"
+    COUCHBASE = "Couchbase"
+    MONGO_DB_V2 = "MongoDbV2"
+    MONGO_DB_ATLAS = "MongoDbAtlas"
+    AMAZON_S3_COMPATIBLE = "AmazonS3Compatible"
+    FILE_SERVER = "FileServer"
+    FTP_SERVER = "FtpServer"
+    GOOGLE_CLOUD_STORAGE = "GoogleCloudStorage"
+    HDFS = "Hdfs"
+    ORACLE_CLOUD_STORAGE = "OracleCloudStorage"
+    SFTP = "Sftp"
+    GENERIC_HTTP = "GenericHttp"
+    O_DATA_REST = "ODataRest"
+    ODBC = "Odbc"
+    GENERIC_REST = "GenericRest"
+    AMAZON_MWS = "AmazonMws"
+    CONCUR = "Concur"
+    DYNAMICS = "Dynamics"
+    DYNAMICS_AX = "DynamicsAx"
+    DYNAMICS_CRM = "DynamicsCrm"
+    GOOGLE_AD_WORDS = "GoogleAdWords"
+    HUBSPOT = "Hubspot"
+    JIRA = "Jira"
+    MAGENTO = "Magento"
+    MARKETO = "Marketo"
+    OFFICE365 = "Office365"
+    ELOQUA = "Eloqua"
+    RESPONSYS = "Responsys"
+    ORACLE_SERVICE_CLOUD = "OracleServiceCloud"
+    PAY_PAL = "PayPal"
+    QUICK_BOOKS = "QuickBooks"
+    SALESFORCE = "Salesforce"
+    SALESFORCE_SERVICE_CLOUD = "SalesforceServiceCloud"
+    SALESFORCE_MARKETING_CLOUD = "SalesforceMarketingCloud"
+    SAP_CLOUD_FOR_CUSTOMER = "SapCloudForCustomer"
+    SAP_ECC = "SapEcc"
+    SERVICE_NOW = "ServiceNow"
+    SHARE_POINT_ONLINE_LIST = "SharePointOnlineList"
+    SHOPIFY = "Shopify"
+    SQUARE = "Square"
+    WEB_TABLE = "WebTable"
+    XERO = "Xero"
+    ZOHO = "Zoho"
+    GENERIC_CONTAINER_REGISTRY = "GenericContainerRegistry"
+    ELASTICSEARCH = "Elasticsearch"
+    OPEN_AI = "OpenAI"
+    SERP = "Serp"
+    BING_LLM_SEARCH = "BingLLMSearch"
+    SERVERLESS = "Serverless"
+    MANAGED_ONLINE_ENDPOINT = "ManagedOnlineEndpoint"
 
 
 class ContentLevel(str, Enum):
@@ -81,6 +222,18 @@ class KeySource(str, Enum):
     """
     MICROSOFT_COGNITIVE_SERVICES = "Microsoft.CognitiveServices"
     MICROSOFT_KEY_VAULT = "Microsoft.KeyVault"
+
+
+class ManagedPERequirement(str, Enum):
+    REQUIRED = "Required"
+    NOT_REQUIRED = "NotRequired"
+    NOT_APPLICABLE = "NotApplicable"
+
+
+class ManagedPEStatus(str, Enum):
+    INACTIVE = "Inactive"
+    ACTIVE = "Active"
+    NOT_APPLICABLE = "NotApplicable"
 
 
 class NetworkRuleAction(str, Enum):

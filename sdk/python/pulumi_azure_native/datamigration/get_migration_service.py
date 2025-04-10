@@ -154,6 +154,8 @@ def get_migration_service(migration_service_name: Optional[str] = None,
 
     Uses Azure REST API version 2023-07-15-preview.
 
+    Other available API versions: 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str migration_service_name: Name of the Migration Service.
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -181,6 +183,8 @@ def get_migration_service_output(migration_service_name: Optional[pulumi.Input[s
     Retrieve the Database Migration Service
 
     Uses Azure REST API version 2023-07-15-preview.
+
+    Other available API versions: 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str migration_service_name: Name of the Migration Service.

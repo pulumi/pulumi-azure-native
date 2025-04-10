@@ -3535,6 +3535,97 @@
     "DisambiguatedName": "CapacityPoolVolumeQuotaRule"
   },
   {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-01-01/netapp.json",
+    "OperationID": "Pools_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
+    "GeneratedName": "Pool",
+    "DisambiguatedName": "CapacityPool"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-01-01/netapp.json",
+    "OperationID": "Pools_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
+    "GeneratedName": "Pool",
+    "DisambiguatedName": "CapacityPool"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-01-01/netapp.json",
+    "OperationID": "Volumes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}",
+    "GeneratedName": "Volume",
+    "DisambiguatedName": "CapacityPoolVolume"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-01-01/netapp.json",
+    "OperationID": "Volumes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}",
+    "GeneratedName": "Volume",
+    "DisambiguatedName": "CapacityPoolVolume"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-01-01/netapp.json",
+    "OperationID": "Volumes_ListGetGroupIdListForLdapUser",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/getGroupIdListForLdapUser",
+    "GeneratedName": "VolumeGroupIdForLdapUser",
+    "DisambiguatedName": "CapacityPoolVolumeGroupIdForLdapUser"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-01-01/netapp.json",
+    "OperationID": "Volumes_ListReplications",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/listReplications",
+    "GeneratedName": "VolumeReplications",
+    "DisambiguatedName": "CapacityPoolVolumeReplications"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-01-01/netapp.json",
+    "OperationID": "Snapshots_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/snapshots/{snapshotName}",
+    "GeneratedName": "Snapshot",
+    "DisambiguatedName": "CapacityPoolSnapshot"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-01-01/netapp.json",
+    "OperationID": "Snapshots_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/snapshots/{snapshotName}",
+    "GeneratedName": "Snapshot",
+    "DisambiguatedName": "CapacityPoolSnapshot"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-01-01/netapp.json",
+    "OperationID": "Subvolumes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/subvolumes/{subvolumeName}",
+    "GeneratedName": "Subvolume",
+    "DisambiguatedName": "CapacityPoolSubvolume"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-01-01/netapp.json",
+    "OperationID": "Subvolumes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/subvolumes/{subvolumeName}",
+    "GeneratedName": "Subvolume",
+    "DisambiguatedName": "CapacityPoolSubvolume"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-01-01/netapp.json",
+    "OperationID": "Subvolumes_GetMetadata",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/subvolumes/{subvolumeName}/getMetadata",
+    "GeneratedName": "SubvolumeMetadata",
+    "DisambiguatedName": "CapacityPoolSubvolumeMetadata"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-01-01/netapp.json",
+    "OperationID": "VolumeQuotaRules_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/volumeQuotaRules/{volumeQuotaRuleName}",
+    "GeneratedName": "VolumeQuotaRule",
+    "DisambiguatedName": "CapacityPoolVolumeQuotaRule"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-01-01/netapp.json",
+    "OperationID": "VolumeQuotaRules_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/volumeQuotaRules/{volumeQuotaRuleName}",
+    "GeneratedName": "VolumeQuotaRule",
+    "DisambiguatedName": "CapacityPoolVolumeQuotaRule"
+  },
+  {
     "FileLocation": "specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/preview/2017-12-01-preview/postgresql.json",
     "OperationID": "Servers_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}",

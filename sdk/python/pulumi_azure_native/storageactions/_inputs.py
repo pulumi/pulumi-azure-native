@@ -238,11 +238,11 @@ if not MYPY:
         """
         The operation to be performed on the object.
         """
-        on_failure: NotRequired[pulumi.Input['OnFailure']]
+        on_failure: NotRequired[pulumi.Input[Union[str, 'OnFailure']]]
         """
         Action to be taken when the operation fails for a object.
         """
-        on_success: NotRequired[pulumi.Input['OnSuccess']]
+        on_success: NotRequired[pulumi.Input[Union[str, 'OnSuccess']]]
         """
         Action to be taken when the operation is successful for a object.
         """
@@ -257,14 +257,14 @@ elif False:
 class StorageTaskOperationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[Union[str, 'StorageTaskOperationName']],
-                 on_failure: Optional[pulumi.Input['OnFailure']] = None,
-                 on_success: Optional[pulumi.Input['OnSuccess']] = None,
+                 on_failure: Optional[pulumi.Input[Union[str, 'OnFailure']]] = None,
+                 on_success: Optional[pulumi.Input[Union[str, 'OnSuccess']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Represents an operation to be performed on the object
         :param pulumi.Input[Union[str, 'StorageTaskOperationName']] name: The operation to be performed on the object.
-        :param pulumi.Input['OnFailure'] on_failure: Action to be taken when the operation fails for a object.
-        :param pulumi.Input['OnSuccess'] on_success: Action to be taken when the operation is successful for a object.
+        :param pulumi.Input[Union[str, 'OnFailure']] on_failure: Action to be taken when the operation fails for a object.
+        :param pulumi.Input[Union[str, 'OnSuccess']] on_success: Action to be taken when the operation is successful for a object.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Key-value parameters for the operation.
         """
         pulumi.set(__self__, "name", name)
@@ -289,26 +289,26 @@ class StorageTaskOperationArgs:
 
     @property
     @pulumi.getter(name="onFailure")
-    def on_failure(self) -> Optional[pulumi.Input['OnFailure']]:
+    def on_failure(self) -> Optional[pulumi.Input[Union[str, 'OnFailure']]]:
         """
         Action to be taken when the operation fails for a object.
         """
         return pulumi.get(self, "on_failure")
 
     @on_failure.setter
-    def on_failure(self, value: Optional[pulumi.Input['OnFailure']]):
+    def on_failure(self, value: Optional[pulumi.Input[Union[str, 'OnFailure']]]):
         pulumi.set(self, "on_failure", value)
 
     @property
     @pulumi.getter(name="onSuccess")
-    def on_success(self) -> Optional[pulumi.Input['OnSuccess']]:
+    def on_success(self) -> Optional[pulumi.Input[Union[str, 'OnSuccess']]]:
         """
         Action to be taken when the operation is successful for a object.
         """
         return pulumi.get(self, "on_success")
 
     @on_success.setter
-    def on_success(self, value: Optional[pulumi.Input['OnSuccess']]):
+    def on_success(self, value: Optional[pulumi.Input[Union[str, 'OnSuccess']]]):
         pulumi.set(self, "on_success", value)
 
     @property

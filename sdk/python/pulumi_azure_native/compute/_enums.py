@@ -618,6 +618,7 @@ class NetworkApiVersion(str, Enum):
     specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations
     """
     NETWORK_API_VERSION_2020_11_01 = "2020-11-01"
+    NETWORK_API_VERSION_2022_11_01 = "2022-11-01"
 
 
 class NetworkInterfaceAuxiliaryMode(str, Enum):

@@ -23,6 +23,29 @@ export const AmlFilesystemSquashMode = {
  */
 export type AmlFilesystemSquashMode = (typeof AmlFilesystemSquashMode)[keyof typeof AmlFilesystemSquashMode];
 
+export const AutoExportJobAdminStatus = {
+    Enable: "Enable",
+    Disable: "Disable",
+} as const;
+
+/**
+ * The administrative status of the auto export job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will disable the current active auto export job. By default it is set to 'Enable'.
+ */
+export type AutoExportJobAdminStatus = (typeof AutoExportJobAdminStatus)[keyof typeof AutoExportJobAdminStatus];
+
+export const AutoExportStatusType = {
+    InProgress: "InProgress",
+    Disabling: "Disabling",
+    Disabled: "Disabled",
+    DisableFailed: "DisableFailed",
+    Failed: "Failed",
+} as const;
+
+/**
+ * The operational state of auto export. InProgress indicates the export is running.  Disabling indicates the user has requested to disable the export but the disabling is still in progress. Disabled indicates auto export has been disabled.  DisableFailed indicates the disabling has failed.  Failed means the export was unable to continue, due to a fatal error.
+ */
+export type AutoExportStatusType = (typeof AutoExportStatusType)[keyof typeof AutoExportStatusType];
+
 export const CacheIdentityType = {
     SystemAssigned: "SystemAssigned",
     UserAssigned: "UserAssigned",

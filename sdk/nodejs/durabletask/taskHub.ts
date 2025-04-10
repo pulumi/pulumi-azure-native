@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * A Task Hub resource belonging to the scheduler
  *
  * Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-10-01-preview.
+ *
+ * Other available API versions: 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class TaskHub extends pulumi.CustomResource {
     /**
@@ -93,7 +95,7 @@ export class TaskHub extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:durabletask/v20241001preview:TaskHub" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:durabletask/v20241001preview:TaskHub" }, { type: "azure-native:durabletask/v20250401preview:TaskHub" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TaskHub.__pulumiType, name, resourceInputs, opts);
     }
