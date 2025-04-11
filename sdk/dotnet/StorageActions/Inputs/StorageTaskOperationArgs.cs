@@ -25,13 +25,13 @@ namespace Pulumi.AzureNative.StorageActions.Inputs
         /// Action to be taken when the operation fails for a object.
         /// </summary>
         [Input("onFailure")]
-        public Input<Pulumi.AzureNative.StorageActions.OnFailure>? OnFailure { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.StorageActions.OnFailure>? OnFailure { get; set; }
 
         /// <summary>
         /// Action to be taken when the operation is successful for a object.
         /// </summary>
         [Input("onSuccess")]
-        public Input<Pulumi.AzureNative.StorageActions.OnSuccess>? OnSuccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.StorageActions.OnSuccess>? OnSuccess { get; set; }
 
         [Input("parameters")]
         private InputMap<string>? _parameters;

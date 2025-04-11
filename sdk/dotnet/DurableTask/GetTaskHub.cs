@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.DurableTask
         /// Get a Task Hub
         /// 
         /// Uses Azure REST API version 2024-10-01-preview.
+        /// 
+        /// Other available API versions: 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetTaskHubResult> InvokeAsync(GetTaskHubArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTaskHubResult>("azure-native:durabletask:getTaskHub", args ?? new GetTaskHubArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.DurableTask
         /// Get a Task Hub
         /// 
         /// Uses Azure REST API version 2024-10-01-preview.
+        /// 
+        /// Other available API versions: 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetTaskHubResult> Invoke(GetTaskHubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTaskHubResult>("azure-native:durabletask:getTaskHub", args ?? new GetTaskHubInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.DurableTask
         /// Get a Task Hub
         /// 
         /// Uses Azure REST API version 2024-10-01-preview.
+        /// 
+        /// Other available API versions: 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetTaskHubResult> Invoke(GetTaskHubInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTaskHubResult>("azure-native:durabletask:getTaskHub", args ?? new GetTaskHubInvokeArgs(), options.WithDefaults());

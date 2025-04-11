@@ -105,6 +105,10 @@ if not MYPY:
         """
         The storage account access key used to access the Azure File share.
         """
+        storage_account_key_reference: NotRequired[pulumi.Input[str]]
+        """
+        The reference to the storage account access key used to access the Azure File share.
+        """
 elif False:
     AzureFileVolumeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -114,13 +118,15 @@ class AzureFileVolumeArgs:
                  share_name: pulumi.Input[str],
                  storage_account_name: pulumi.Input[str],
                  read_only: Optional[pulumi.Input[bool]] = None,
-                 storage_account_key: Optional[pulumi.Input[str]] = None):
+                 storage_account_key: Optional[pulumi.Input[str]] = None,
+                 storage_account_key_reference: Optional[pulumi.Input[str]] = None):
         """
         The properties of the Azure File volume. Azure File shares are mounted as volumes.
         :param pulumi.Input[str] share_name: The name of the Azure File share to be mounted as a volume.
         :param pulumi.Input[str] storage_account_name: The name of the storage account that contains the Azure File share.
         :param pulumi.Input[bool] read_only: The flag indicating whether the Azure File shared mounted as a volume is read-only.
         :param pulumi.Input[str] storage_account_key: The storage account access key used to access the Azure File share.
+        :param pulumi.Input[str] storage_account_key_reference: The reference to the storage account access key used to access the Azure File share.
         """
         pulumi.set(__self__, "share_name", share_name)
         pulumi.set(__self__, "storage_account_name", storage_account_name)
@@ -128,6 +134,8 @@ class AzureFileVolumeArgs:
             pulumi.set(__self__, "read_only", read_only)
         if storage_account_key is not None:
             pulumi.set(__self__, "storage_account_key", storage_account_key)
+        if storage_account_key_reference is not None:
+            pulumi.set(__self__, "storage_account_key_reference", storage_account_key_reference)
 
     @property
     @pulumi.getter(name="shareName")
@@ -176,6 +184,18 @@ class AzureFileVolumeArgs:
     @storage_account_key.setter
     def storage_account_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account_key", value)
+
+    @property
+    @pulumi.getter(name="storageAccountKeyReference")
+    def storage_account_key_reference(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reference to the storage account access key used to access the Azure File share.
+        """
+        return pulumi.get(self, "storage_account_key_reference")
+
+    @storage_account_key_reference.setter
+    def storage_account_key_reference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_key_reference", value)
 
 
 if not MYPY:
@@ -1324,6 +1344,10 @@ if not MYPY:
         """
         The value of the secure environment variable.
         """
+        secure_value_reference: NotRequired[pulumi.Input[str]]
+        """
+        The reference of the secure environment variable.
+        """
         value: NotRequired[pulumi.Input[str]]
         """
         The value of the environment variable.
@@ -1336,16 +1360,20 @@ class EnvironmentVariableArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  secure_value: Optional[pulumi.Input[str]] = None,
+                 secure_value_reference: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
         The environment variable to set within the container instance.
         :param pulumi.Input[str] name: The name of the environment variable.
         :param pulumi.Input[str] secure_value: The value of the secure environment variable.
+        :param pulumi.Input[str] secure_value_reference: The reference of the secure environment variable.
         :param pulumi.Input[str] value: The value of the environment variable.
         """
         pulumi.set(__self__, "name", name)
         if secure_value is not None:
             pulumi.set(__self__, "secure_value", secure_value)
+        if secure_value_reference is not None:
+            pulumi.set(__self__, "secure_value_reference", secure_value_reference)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -1372,6 +1400,18 @@ class EnvironmentVariableArgs:
     @secure_value.setter
     def secure_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secure_value", value)
+
+    @property
+    @pulumi.getter(name="secureValueReference")
+    def secure_value_reference(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reference of the secure environment variable.
+        """
+        return pulumi.get(self, "secure_value_reference")
+
+    @secure_value_reference.setter
+    def secure_value_reference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secure_value_reference", value)
 
     @property
     @pulumi.getter
@@ -1592,6 +1632,10 @@ if not MYPY:
         """
         The password for the private registry.
         """
+        password_reference: NotRequired[pulumi.Input[str]]
+        """
+        The reference for the private registry password.
+        """
         username: NotRequired[pulumi.Input[str]]
         """
         The username for the private registry.
@@ -1606,6 +1650,7 @@ class ImageRegistryCredentialArgs:
                  identity: Optional[pulumi.Input[str]] = None,
                  identity_url: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 password_reference: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
         """
         Image registry credential.
@@ -1613,6 +1658,7 @@ class ImageRegistryCredentialArgs:
         :param pulumi.Input[str] identity: The identity for the private registry.
         :param pulumi.Input[str] identity_url: The identity URL for the private registry.
         :param pulumi.Input[str] password: The password for the private registry.
+        :param pulumi.Input[str] password_reference: The reference for the private registry password.
         :param pulumi.Input[str] username: The username for the private registry.
         """
         pulumi.set(__self__, "server", server)
@@ -1622,6 +1668,8 @@ class ImageRegistryCredentialArgs:
             pulumi.set(__self__, "identity_url", identity_url)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if password_reference is not None:
+            pulumi.set(__self__, "password_reference", password_reference)
         if username is not None:
             pulumi.set(__self__, "username", username)
 
@@ -1672,6 +1720,18 @@ class ImageRegistryCredentialArgs:
     @password.setter
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="passwordReference")
+    def password_reference(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reference for the private registry password.
+        """
+        return pulumi.get(self, "password_reference")
+
+    @password_reference.setter
+    def password_reference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_reference", value)
 
     @property
     @pulumi.getter
@@ -2658,6 +2718,10 @@ if not MYPY:
         """
         The secret volume.
         """
+        secret_reference: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The secret reference volume.
+        """
 elif False:
     VolumeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2668,7 +2732,8 @@ class VolumeArgs:
                  azure_file: Optional[pulumi.Input['AzureFileVolumeArgs']] = None,
                  empty_dir: Optional[Any] = None,
                  git_repo: Optional[pulumi.Input['GitRepoVolumeArgs']] = None,
-                 secret: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 secret: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 secret_reference: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The properties of the volume.
         :param pulumi.Input[str] name: The name of the volume.
@@ -2676,6 +2741,7 @@ class VolumeArgs:
         :param Any empty_dir: The empty directory volume.
         :param pulumi.Input['GitRepoVolumeArgs'] git_repo: The git repo volume.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secret: The secret volume.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secret_reference: The secret reference volume.
         """
         pulumi.set(__self__, "name", name)
         if azure_file is not None:
@@ -2686,6 +2752,8 @@ class VolumeArgs:
             pulumi.set(__self__, "git_repo", git_repo)
         if secret is not None:
             pulumi.set(__self__, "secret", secret)
+        if secret_reference is not None:
+            pulumi.set(__self__, "secret_reference", secret_reference)
 
     @property
     @pulumi.getter
@@ -2746,5 +2814,17 @@ class VolumeArgs:
     @secret.setter
     def secret(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "secret", value)
+
+    @property
+    @pulumi.getter(name="secretReference")
+    def secret_reference(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The secret reference volume.
+        """
+        return pulumi.get(self, "secret_reference")
+
+    @secret_reference.setter
+    def secret_reference(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "secret_reference", value)
 
 

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
     /// The task will have all information to schedule a run against it.
     /// 
     /// Uses Azure REST API version 2019-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01-preview.
+    /// 
+    /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:Task")]
     public partial class Task : global::Pulumi.CustomResource
@@ -160,6 +162,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20180901:Task" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190401:Task" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190601preview:Task" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20250301preview:Task" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -337,7 +337,7 @@ def get_flux_configuration(cluster_name: Optional[str] = None,
 
     Uses Azure REST API version 2023-05-01.
 
-    Other available API versions: 2022-07-01, 2022-11-01, 2024-04-01-preview, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-07-01, 2022-11-01, 2024-04-01-preview, 2024-11-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str cluster_name: The name of the kubernetes cluster.
@@ -391,7 +391,7 @@ def get_flux_configuration_output(cluster_name: Optional[pulumi.Input[str]] = No
 
     Uses Azure REST API version 2023-05-01.
 
-    Other available API versions: 2022-07-01, 2022-11-01, 2024-04-01-preview, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-07-01, 2022-11-01, 2024-04-01-preview, 2024-11-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str cluster_name: The name of the kubernetes cluster.

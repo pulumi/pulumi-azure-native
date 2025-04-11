@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// Gets the detailed information for a given task run that includes all secrets.
         /// 
         /// Uses Azure REST API version 2019-06-01-preview.
+        /// 
+        /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListTaskRunDetailsResult> InvokeAsync(ListTaskRunDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListTaskRunDetailsResult>("azure-native:containerregistry:listTaskRunDetails", args ?? new ListTaskRunDetailsArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// Gets the detailed information for a given task run that includes all secrets.
         /// 
         /// Uses Azure REST API version 2019-06-01-preview.
+        /// 
+        /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListTaskRunDetailsResult> Invoke(ListTaskRunDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListTaskRunDetailsResult>("azure-native:containerregistry:listTaskRunDetails", args ?? new ListTaskRunDetailsInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// Gets the detailed information for a given task run that includes all secrets.
         /// 
         /// Uses Azure REST API version 2019-06-01-preview.
+        /// 
+        /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListTaskRunDetailsResult> Invoke(ListTaskRunDetailsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListTaskRunDetailsResult>("azure-native:containerregistry:listTaskRunDetails", args ?? new ListTaskRunDetailsInvokeArgs(), options.WithDefaults());

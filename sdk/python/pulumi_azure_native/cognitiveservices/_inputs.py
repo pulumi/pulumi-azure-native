@@ -16,16 +16,48 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AADAuthTypeConnectionPropertiesArgs',
+    'AADAuthTypeConnectionPropertiesArgsDict',
+    'AccessKeyAuthTypeConnectionPropertiesArgs',
+    'AccessKeyAuthTypeConnectionPropertiesArgsDict',
+    'AccountKeyAuthTypeConnectionPropertiesArgs',
+    'AccountKeyAuthTypeConnectionPropertiesArgsDict',
     'AccountPropertiesArgs',
     'AccountPropertiesArgsDict',
+    'ApiKeyAuthConnectionPropertiesArgs',
+    'ApiKeyAuthConnectionPropertiesArgsDict',
     'ApiPropertiesArgs',
     'ApiPropertiesArgsDict',
+    'CapabilityHostArgs',
+    'CapabilityHostArgsDict',
     'CommitmentPeriodArgs',
     'CommitmentPeriodArgsDict',
     'CommitmentPlanPropertiesArgs',
     'CommitmentPlanPropertiesArgsDict',
+    'ConnectionAccessKeyArgs',
+    'ConnectionAccessKeyArgsDict',
+    'ConnectionAccountKeyArgs',
+    'ConnectionAccountKeyArgsDict',
+    'ConnectionApiKeyArgs',
+    'ConnectionApiKeyArgsDict',
+    'ConnectionManagedIdentityArgs',
+    'ConnectionManagedIdentityArgsDict',
+    'ConnectionOAuth2Args',
+    'ConnectionOAuth2ArgsDict',
+    'ConnectionPersonalAccessTokenArgs',
+    'ConnectionPersonalAccessTokenArgsDict',
+    'ConnectionServicePrincipalArgs',
+    'ConnectionServicePrincipalArgsDict',
+    'ConnectionSharedAccessSignatureArgs',
+    'ConnectionSharedAccessSignatureArgsDict',
+    'ConnectionUsernamePasswordArgs',
+    'ConnectionUsernamePasswordArgsDict',
     'CustomBlocklistConfigArgs',
     'CustomBlocklistConfigArgsDict',
+    'CustomKeysConnectionPropertiesArgs',
+    'CustomKeysConnectionPropertiesArgsDict',
+    'CustomKeysArgs',
+    'CustomKeysArgsDict',
     'DeploymentCapacitySettingsArgs',
     'DeploymentCapacitySettingsArgsDict',
     'DeploymentModelArgs',
@@ -44,14 +76,24 @@ __all__ = [
     'IpRuleArgsDict',
     'KeyVaultPropertiesArgs',
     'KeyVaultPropertiesArgsDict',
+    'ManagedIdentityAuthTypeConnectionPropertiesArgs',
+    'ManagedIdentityAuthTypeConnectionPropertiesArgsDict',
     'MultiRegionSettingsArgs',
     'MultiRegionSettingsArgsDict',
     'NetworkRuleSetArgs',
     'NetworkRuleSetArgsDict',
+    'NoneAuthTypeConnectionPropertiesArgs',
+    'NoneAuthTypeConnectionPropertiesArgsDict',
+    'OAuth2AuthTypeConnectionPropertiesArgs',
+    'OAuth2AuthTypeConnectionPropertiesArgsDict',
+    'PATAuthTypeConnectionPropertiesArgs',
+    'PATAuthTypeConnectionPropertiesArgsDict',
     'PrivateEndpointConnectionPropertiesArgs',
     'PrivateEndpointConnectionPropertiesArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
     'PrivateLinkServiceConnectionStateArgsDict',
+    'ProjectPropertiesArgs',
+    'ProjectPropertiesArgsDict',
     'RaiBlocklistItemPropertiesArgs',
     'RaiBlocklistItemPropertiesArgsDict',
     'RaiBlocklistPropertiesArgs',
@@ -64,17 +106,598 @@ __all__ = [
     'RaiPolicyPropertiesArgsDict',
     'RegionSettingArgs',
     'RegionSettingArgsDict',
+    'SASAuthTypeConnectionPropertiesArgs',
+    'SASAuthTypeConnectionPropertiesArgsDict',
+    'ServicePrincipalAuthTypeConnectionPropertiesArgs',
+    'ServicePrincipalAuthTypeConnectionPropertiesArgsDict',
     'SkuArgs',
     'SkuArgsDict',
     'UserOwnedAmlWorkspaceArgs',
     'UserOwnedAmlWorkspaceArgsDict',
     'UserOwnedStorageArgs',
     'UserOwnedStorageArgsDict',
+    'UsernamePasswordAuthTypeConnectionPropertiesArgs',
+    'UsernamePasswordAuthTypeConnectionPropertiesArgsDict',
     'VirtualNetworkRuleArgs',
     'VirtualNetworkRuleArgsDict',
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AADAuthTypeConnectionPropertiesArgsDict(TypedDict):
+        """
+        This connection type covers the AAD auth for any applicable Azure service
+        """
+        auth_type: pulumi.Input[str]
+        """
+        Authentication type of the connection target
+        Expected value is 'AAD'.
+        """
+        category: NotRequired[pulumi.Input[Union[str, 'ConnectionCategory']]]
+        """
+        Category of the connection
+        """
+        error: NotRequired[pulumi.Input[str]]
+        expiry_time: NotRequired[pulumi.Input[str]]
+        is_shared_to_all: NotRequired[pulumi.Input[bool]]
+        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Store user metadata for this connection
+        """
+        pe_requirement: NotRequired[pulumi.Input[Union[str, 'ManagedPERequirement']]]
+        pe_status: NotRequired[pulumi.Input[Union[str, 'ManagedPEStatus']]]
+        shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        target: NotRequired[pulumi.Input[str]]
+        use_workspace_managed_identity: NotRequired[pulumi.Input[bool]]
+elif False:
+    AADAuthTypeConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AADAuthTypeConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 auth_type: pulumi.Input[str],
+                 category: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]] = None,
+                 error: Optional[pulumi.Input[str]] = None,
+                 expiry_time: Optional[pulumi.Input[str]] = None,
+                 is_shared_to_all: Optional[pulumi.Input[bool]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 pe_requirement: Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]] = None,
+                 pe_status: Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]] = None,
+                 shared_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 use_workspace_managed_identity: Optional[pulumi.Input[bool]] = None):
+        """
+        This connection type covers the AAD auth for any applicable Azure service
+        :param pulumi.Input[str] auth_type: Authentication type of the connection target
+               Expected value is 'AAD'.
+        :param pulumi.Input[Union[str, 'ConnectionCategory']] category: Category of the connection
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Store user metadata for this connection
+        """
+        pulumi.set(__self__, "auth_type", 'AAD')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_shared_to_all is not None:
+            pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if pe_requirement is not None:
+            pulumi.set(__self__, "pe_requirement", pe_requirement)
+        if pe_status is not None:
+            pulumi.set(__self__, "pe_status", pe_status)
+        if shared_user_list is not None:
+            pulumi.set(__self__, "shared_user_list", shared_user_list)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if use_workspace_managed_identity is not None:
+            pulumi.set(__self__, "use_workspace_managed_identity", use_workspace_managed_identity)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input[str]:
+        """
+        Authentication type of the connection target
+        Expected value is 'AAD'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[Union[str, 'ConnectionCategory']]]:
+        """
+        Category of the connection
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error", value)
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "expiry_time")
+
+    @expiry_time.setter
+    def expiry_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiry_time", value)
+
+    @property
+    @pulumi.getter(name="isSharedToAll")
+    def is_shared_to_all(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_shared_to_all")
+
+    @is_shared_to_all.setter
+    def is_shared_to_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_shared_to_all", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Store user metadata for this connection
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="peRequirement")
+    def pe_requirement(self) -> Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]]:
+        return pulumi.get(self, "pe_requirement")
+
+    @pe_requirement.setter
+    def pe_requirement(self, value: Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]]):
+        pulumi.set(self, "pe_requirement", value)
+
+    @property
+    @pulumi.getter(name="peStatus")
+    def pe_status(self) -> Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]]:
+        return pulumi.get(self, "pe_status")
+
+    @pe_status.setter
+    def pe_status(self, value: Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]]):
+        pulumi.set(self, "pe_status", value)
+
+    @property
+    @pulumi.getter(name="sharedUserList")
+    def shared_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "shared_user_list")
+
+    @shared_user_list.setter
+    def shared_user_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "shared_user_list", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter(name="useWorkspaceManagedIdentity")
+    def use_workspace_managed_identity(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_workspace_managed_identity")
+
+    @use_workspace_managed_identity.setter
+    def use_workspace_managed_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_workspace_managed_identity", value)
+
+
+if not MYPY:
+    class AccessKeyAuthTypeConnectionPropertiesArgsDict(TypedDict):
+        auth_type: pulumi.Input[str]
+        """
+        Authentication type of the connection target
+        Expected value is 'AccessKey'.
+        """
+        category: NotRequired[pulumi.Input[Union[str, 'ConnectionCategory']]]
+        """
+        Category of the connection
+        """
+        credentials: NotRequired[pulumi.Input['ConnectionAccessKeyArgsDict']]
+        error: NotRequired[pulumi.Input[str]]
+        expiry_time: NotRequired[pulumi.Input[str]]
+        is_shared_to_all: NotRequired[pulumi.Input[bool]]
+        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Store user metadata for this connection
+        """
+        pe_requirement: NotRequired[pulumi.Input[Union[str, 'ManagedPERequirement']]]
+        pe_status: NotRequired[pulumi.Input[Union[str, 'ManagedPEStatus']]]
+        shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        target: NotRequired[pulumi.Input[str]]
+        use_workspace_managed_identity: NotRequired[pulumi.Input[bool]]
+elif False:
+    AccessKeyAuthTypeConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AccessKeyAuthTypeConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 auth_type: pulumi.Input[str],
+                 category: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]] = None,
+                 credentials: Optional[pulumi.Input['ConnectionAccessKeyArgs']] = None,
+                 error: Optional[pulumi.Input[str]] = None,
+                 expiry_time: Optional[pulumi.Input[str]] = None,
+                 is_shared_to_all: Optional[pulumi.Input[bool]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 pe_requirement: Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]] = None,
+                 pe_status: Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]] = None,
+                 shared_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 use_workspace_managed_identity: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] auth_type: Authentication type of the connection target
+               Expected value is 'AccessKey'.
+        :param pulumi.Input[Union[str, 'ConnectionCategory']] category: Category of the connection
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Store user metadata for this connection
+        """
+        pulumi.set(__self__, "auth_type", 'AccessKey')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_shared_to_all is not None:
+            pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if pe_requirement is not None:
+            pulumi.set(__self__, "pe_requirement", pe_requirement)
+        if pe_status is not None:
+            pulumi.set(__self__, "pe_status", pe_status)
+        if shared_user_list is not None:
+            pulumi.set(__self__, "shared_user_list", shared_user_list)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if use_workspace_managed_identity is not None:
+            pulumi.set(__self__, "use_workspace_managed_identity", use_workspace_managed_identity)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input[str]:
+        """
+        Authentication type of the connection target
+        Expected value is 'AccessKey'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[Union[str, 'ConnectionCategory']]]:
+        """
+        Category of the connection
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input['ConnectionAccessKeyArgs']]:
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input['ConnectionAccessKeyArgs']]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error", value)
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "expiry_time")
+
+    @expiry_time.setter
+    def expiry_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiry_time", value)
+
+    @property
+    @pulumi.getter(name="isSharedToAll")
+    def is_shared_to_all(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_shared_to_all")
+
+    @is_shared_to_all.setter
+    def is_shared_to_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_shared_to_all", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Store user metadata for this connection
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="peRequirement")
+    def pe_requirement(self) -> Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]]:
+        return pulumi.get(self, "pe_requirement")
+
+    @pe_requirement.setter
+    def pe_requirement(self, value: Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]]):
+        pulumi.set(self, "pe_requirement", value)
+
+    @property
+    @pulumi.getter(name="peStatus")
+    def pe_status(self) -> Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]]:
+        return pulumi.get(self, "pe_status")
+
+    @pe_status.setter
+    def pe_status(self, value: Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]]):
+        pulumi.set(self, "pe_status", value)
+
+    @property
+    @pulumi.getter(name="sharedUserList")
+    def shared_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "shared_user_list")
+
+    @shared_user_list.setter
+    def shared_user_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "shared_user_list", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter(name="useWorkspaceManagedIdentity")
+    def use_workspace_managed_identity(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_workspace_managed_identity")
+
+    @use_workspace_managed_identity.setter
+    def use_workspace_managed_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_workspace_managed_identity", value)
+
+
+if not MYPY:
+    class AccountKeyAuthTypeConnectionPropertiesArgsDict(TypedDict):
+        """
+        This connection type covers the account key connection for Azure storage
+        """
+        auth_type: pulumi.Input[str]
+        """
+        Authentication type of the connection target
+        Expected value is 'AccountKey'.
+        """
+        category: NotRequired[pulumi.Input[Union[str, 'ConnectionCategory']]]
+        """
+        Category of the connection
+        """
+        credentials: NotRequired[pulumi.Input['ConnectionAccountKeyArgsDict']]
+        """
+        Account key object for connection credential.
+        """
+        error: NotRequired[pulumi.Input[str]]
+        expiry_time: NotRequired[pulumi.Input[str]]
+        is_shared_to_all: NotRequired[pulumi.Input[bool]]
+        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Store user metadata for this connection
+        """
+        pe_requirement: NotRequired[pulumi.Input[Union[str, 'ManagedPERequirement']]]
+        pe_status: NotRequired[pulumi.Input[Union[str, 'ManagedPEStatus']]]
+        shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        target: NotRequired[pulumi.Input[str]]
+        use_workspace_managed_identity: NotRequired[pulumi.Input[bool]]
+elif False:
+    AccountKeyAuthTypeConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AccountKeyAuthTypeConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 auth_type: pulumi.Input[str],
+                 category: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]] = None,
+                 credentials: Optional[pulumi.Input['ConnectionAccountKeyArgs']] = None,
+                 error: Optional[pulumi.Input[str]] = None,
+                 expiry_time: Optional[pulumi.Input[str]] = None,
+                 is_shared_to_all: Optional[pulumi.Input[bool]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 pe_requirement: Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]] = None,
+                 pe_status: Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]] = None,
+                 shared_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 use_workspace_managed_identity: Optional[pulumi.Input[bool]] = None):
+        """
+        This connection type covers the account key connection for Azure storage
+        :param pulumi.Input[str] auth_type: Authentication type of the connection target
+               Expected value is 'AccountKey'.
+        :param pulumi.Input[Union[str, 'ConnectionCategory']] category: Category of the connection
+        :param pulumi.Input['ConnectionAccountKeyArgs'] credentials: Account key object for connection credential.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Store user metadata for this connection
+        """
+        pulumi.set(__self__, "auth_type", 'AccountKey')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_shared_to_all is not None:
+            pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if pe_requirement is not None:
+            pulumi.set(__self__, "pe_requirement", pe_requirement)
+        if pe_status is not None:
+            pulumi.set(__self__, "pe_status", pe_status)
+        if shared_user_list is not None:
+            pulumi.set(__self__, "shared_user_list", shared_user_list)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if use_workspace_managed_identity is not None:
+            pulumi.set(__self__, "use_workspace_managed_identity", use_workspace_managed_identity)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input[str]:
+        """
+        Authentication type of the connection target
+        Expected value is 'AccountKey'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[Union[str, 'ConnectionCategory']]]:
+        """
+        Category of the connection
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input['ConnectionAccountKeyArgs']]:
+        """
+        Account key object for connection credential.
+        """
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input['ConnectionAccountKeyArgs']]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error", value)
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "expiry_time")
+
+    @expiry_time.setter
+    def expiry_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiry_time", value)
+
+    @property
+    @pulumi.getter(name="isSharedToAll")
+    def is_shared_to_all(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_shared_to_all")
+
+    @is_shared_to_all.setter
+    def is_shared_to_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_shared_to_all", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Store user metadata for this connection
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="peRequirement")
+    def pe_requirement(self) -> Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]]:
+        return pulumi.get(self, "pe_requirement")
+
+    @pe_requirement.setter
+    def pe_requirement(self, value: Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]]):
+        pulumi.set(self, "pe_requirement", value)
+
+    @property
+    @pulumi.getter(name="peStatus")
+    def pe_status(self) -> Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]]:
+        return pulumi.get(self, "pe_status")
+
+    @pe_status.setter
+    def pe_status(self, value: Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]]):
+        pulumi.set(self, "pe_status", value)
+
+    @property
+    @pulumi.getter(name="sharedUserList")
+    def shared_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "shared_user_list")
+
+    @shared_user_list.setter
+    def shared_user_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "shared_user_list", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter(name="useWorkspaceManagedIdentity")
+    def use_workspace_managed_identity(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_workspace_managed_identity")
+
+    @use_workspace_managed_identity.setter
+    def use_workspace_managed_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_workspace_managed_identity", value)
+
 
 if not MYPY:
     class AccountPropertiesArgsDict(TypedDict):
@@ -365,6 +988,246 @@ class AccountPropertiesArgs:
 
 
 if not MYPY:
+    class ApiKeyAuthConnectionPropertiesArgsDict(TypedDict):
+        """
+        This connection type covers the generic ApiKey auth connection categories, for examples:
+        AzureOpenAI:
+            Category:= AzureOpenAI
+            AuthType:= ApiKey (as type discriminator)
+            Credentials:= {ApiKey} as .ApiKey
+            Target:= {ApiBase}
+                    
+        CognitiveService:
+            Category:= CognitiveService
+            AuthType:= ApiKey (as type discriminator)
+            Credentials:= {SubscriptionKey} as ApiKey
+            Target:= ServiceRegion={serviceRegion}
+                    
+        CognitiveSearch:
+            Category:= CognitiveSearch
+            AuthType:= ApiKey (as type discriminator)
+            Credentials:= {Key} as ApiKey
+            Target:= {Endpoint}
+                    
+        Use Metadata property bag for ApiType, ApiVersion, Kind and other metadata fields
+        """
+        auth_type: pulumi.Input[str]
+        """
+        Authentication type of the connection target
+        Expected value is 'ApiKey'.
+        """
+        category: NotRequired[pulumi.Input[Union[str, 'ConnectionCategory']]]
+        """
+        Category of the connection
+        """
+        credentials: NotRequired[pulumi.Input['ConnectionApiKeyArgsDict']]
+        """
+        Api key object for connection credential.
+        """
+        error: NotRequired[pulumi.Input[str]]
+        expiry_time: NotRequired[pulumi.Input[str]]
+        is_shared_to_all: NotRequired[pulumi.Input[bool]]
+        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Store user metadata for this connection
+        """
+        pe_requirement: NotRequired[pulumi.Input[Union[str, 'ManagedPERequirement']]]
+        pe_status: NotRequired[pulumi.Input[Union[str, 'ManagedPEStatus']]]
+        shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        target: NotRequired[pulumi.Input[str]]
+        use_workspace_managed_identity: NotRequired[pulumi.Input[bool]]
+elif False:
+    ApiKeyAuthConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApiKeyAuthConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 auth_type: pulumi.Input[str],
+                 category: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]] = None,
+                 credentials: Optional[pulumi.Input['ConnectionApiKeyArgs']] = None,
+                 error: Optional[pulumi.Input[str]] = None,
+                 expiry_time: Optional[pulumi.Input[str]] = None,
+                 is_shared_to_all: Optional[pulumi.Input[bool]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 pe_requirement: Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]] = None,
+                 pe_status: Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]] = None,
+                 shared_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 use_workspace_managed_identity: Optional[pulumi.Input[bool]] = None):
+        """
+        This connection type covers the generic ApiKey auth connection categories, for examples:
+        AzureOpenAI:
+            Category:= AzureOpenAI
+            AuthType:= ApiKey (as type discriminator)
+            Credentials:= {ApiKey} as .ApiKey
+            Target:= {ApiBase}
+                    
+        CognitiveService:
+            Category:= CognitiveService
+            AuthType:= ApiKey (as type discriminator)
+            Credentials:= {SubscriptionKey} as ApiKey
+            Target:= ServiceRegion={serviceRegion}
+                    
+        CognitiveSearch:
+            Category:= CognitiveSearch
+            AuthType:= ApiKey (as type discriminator)
+            Credentials:= {Key} as ApiKey
+            Target:= {Endpoint}
+                    
+        Use Metadata property bag for ApiType, ApiVersion, Kind and other metadata fields
+        :param pulumi.Input[str] auth_type: Authentication type of the connection target
+               Expected value is 'ApiKey'.
+        :param pulumi.Input[Union[str, 'ConnectionCategory']] category: Category of the connection
+        :param pulumi.Input['ConnectionApiKeyArgs'] credentials: Api key object for connection credential.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Store user metadata for this connection
+        """
+        pulumi.set(__self__, "auth_type", 'ApiKey')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_shared_to_all is not None:
+            pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if pe_requirement is not None:
+            pulumi.set(__self__, "pe_requirement", pe_requirement)
+        if pe_status is not None:
+            pulumi.set(__self__, "pe_status", pe_status)
+        if shared_user_list is not None:
+            pulumi.set(__self__, "shared_user_list", shared_user_list)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if use_workspace_managed_identity is not None:
+            pulumi.set(__self__, "use_workspace_managed_identity", use_workspace_managed_identity)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input[str]:
+        """
+        Authentication type of the connection target
+        Expected value is 'ApiKey'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[Union[str, 'ConnectionCategory']]]:
+        """
+        Category of the connection
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input['ConnectionApiKeyArgs']]:
+        """
+        Api key object for connection credential.
+        """
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input['ConnectionApiKeyArgs']]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error", value)
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "expiry_time")
+
+    @expiry_time.setter
+    def expiry_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiry_time", value)
+
+    @property
+    @pulumi.getter(name="isSharedToAll")
+    def is_shared_to_all(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_shared_to_all")
+
+    @is_shared_to_all.setter
+    def is_shared_to_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_shared_to_all", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Store user metadata for this connection
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="peRequirement")
+    def pe_requirement(self) -> Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]]:
+        return pulumi.get(self, "pe_requirement")
+
+    @pe_requirement.setter
+    def pe_requirement(self, value: Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]]):
+        pulumi.set(self, "pe_requirement", value)
+
+    @property
+    @pulumi.getter(name="peStatus")
+    def pe_status(self) -> Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]]:
+        return pulumi.get(self, "pe_status")
+
+    @pe_status.setter
+    def pe_status(self, value: Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]]):
+        pulumi.set(self, "pe_status", value)
+
+    @property
+    @pulumi.getter(name="sharedUserList")
+    def shared_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "shared_user_list")
+
+    @shared_user_list.setter
+    def shared_user_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "shared_user_list", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter(name="useWorkspaceManagedIdentity")
+    def use_workspace_managed_identity(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_workspace_managed_identity")
+
+    @use_workspace_managed_identity.setter
+    def use_workspace_managed_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_workspace_managed_identity", value)
+
+
+if not MYPY:
     class ApiPropertiesArgsDict(TypedDict):
         """
         The api properties for special APIs.
@@ -581,6 +1444,180 @@ class ApiPropertiesArgs:
 
 
 if not MYPY:
+    class CapabilityHostArgsDict(TypedDict):
+        ai_services_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of AI services connections.
+        """
+        capability_host_kind: NotRequired[pulumi.Input[Union[str, 'CapabilityHostKind']]]
+        """
+        Kind of this capability host.
+        """
+        customer_subnet: NotRequired[pulumi.Input[str]]
+        """
+        Customer subnet info to help set up this capability host.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        storage_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of Storage connections.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        thread_storage_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of Thread storage connections.
+        """
+        vector_store_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of VectorStore connections.
+        """
+elif False:
+    CapabilityHostArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapabilityHostArgs:
+    def __init__(__self__, *,
+                 ai_services_connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 capability_host_kind: Optional[pulumi.Input[Union[str, 'CapabilityHostKind']]] = None,
+                 customer_subnet: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 storage_connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 thread_storage_connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vector_store_connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ai_services_connections: List of AI services connections.
+        :param pulumi.Input[Union[str, 'CapabilityHostKind']] capability_host_kind: Kind of this capability host.
+        :param pulumi.Input[str] customer_subnet: Customer subnet info to help set up this capability host.
+        :param pulumi.Input[str] description: The asset description text.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_connections: List of Storage connections.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] thread_storage_connections: List of Thread storage connections.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vector_store_connections: List of VectorStore connections.
+        """
+        if ai_services_connections is not None:
+            pulumi.set(__self__, "ai_services_connections", ai_services_connections)
+        if capability_host_kind is None:
+            capability_host_kind = 'Agents'
+        if capability_host_kind is not None:
+            pulumi.set(__self__, "capability_host_kind", capability_host_kind)
+        if customer_subnet is not None:
+            pulumi.set(__self__, "customer_subnet", customer_subnet)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if storage_connections is not None:
+            pulumi.set(__self__, "storage_connections", storage_connections)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if thread_storage_connections is not None:
+            pulumi.set(__self__, "thread_storage_connections", thread_storage_connections)
+        if vector_store_connections is not None:
+            pulumi.set(__self__, "vector_store_connections", vector_store_connections)
+
+    @property
+    @pulumi.getter(name="aiServicesConnections")
+    def ai_services_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of AI services connections.
+        """
+        return pulumi.get(self, "ai_services_connections")
+
+    @ai_services_connections.setter
+    def ai_services_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ai_services_connections", value)
+
+    @property
+    @pulumi.getter(name="capabilityHostKind")
+    def capability_host_kind(self) -> Optional[pulumi.Input[Union[str, 'CapabilityHostKind']]]:
+        """
+        Kind of this capability host.
+        """
+        return pulumi.get(self, "capability_host_kind")
+
+    @capability_host_kind.setter
+    def capability_host_kind(self, value: Optional[pulumi.Input[Union[str, 'CapabilityHostKind']]]):
+        pulumi.set(self, "capability_host_kind", value)
+
+    @property
+    @pulumi.getter(name="customerSubnet")
+    def customer_subnet(self) -> Optional[pulumi.Input[str]]:
+        """
+        Customer subnet info to help set up this capability host.
+        """
+        return pulumi.get(self, "customer_subnet")
+
+    @customer_subnet.setter
+    def customer_subnet(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customer_subnet", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="storageConnections")
+    def storage_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Storage connections.
+        """
+        return pulumi.get(self, "storage_connections")
+
+    @storage_connections.setter
+    def storage_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "storage_connections", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="threadStorageConnections")
+    def thread_storage_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Thread storage connections.
+        """
+        return pulumi.get(self, "thread_storage_connections")
+
+    @thread_storage_connections.setter
+    def thread_storage_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "thread_storage_connections", value)
+
+    @property
+    @pulumi.getter(name="vectorStoreConnections")
+    def vector_store_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of VectorStore connections.
+        """
+        return pulumi.get(self, "vector_store_connections")
+
+    @vector_store_connections.setter
+    def vector_store_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "vector_store_connections", value)
+
+
+if not MYPY:
     class CommitmentPeriodArgsDict(TypedDict):
         """
         Cognitive Services account commitment period.
@@ -773,6 +1810,459 @@ class CommitmentPlanPropertiesArgs:
 
 
 if not MYPY:
+    class ConnectionAccessKeyArgsDict(TypedDict):
+        access_key_id: NotRequired[pulumi.Input[str]]
+        secret_access_key: NotRequired[pulumi.Input[str]]
+elif False:
+    ConnectionAccessKeyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectionAccessKeyArgs:
+    def __init__(__self__, *,
+                 access_key_id: Optional[pulumi.Input[str]] = None,
+                 secret_access_key: Optional[pulumi.Input[str]] = None):
+        if access_key_id is not None:
+            pulumi.set(__self__, "access_key_id", access_key_id)
+        if secret_access_key is not None:
+            pulumi.set(__self__, "secret_access_key", secret_access_key)
+
+    @property
+    @pulumi.getter(name="accessKeyId")
+    def access_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "access_key_id")
+
+    @access_key_id.setter
+    def access_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_key_id", value)
+
+    @property
+    @pulumi.getter(name="secretAccessKey")
+    def secret_access_key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "secret_access_key")
+
+    @secret_access_key.setter
+    def secret_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_access_key", value)
+
+
+if not MYPY:
+    class ConnectionAccountKeyArgsDict(TypedDict):
+        """
+        Account key object for connection credential.
+        """
+        key: NotRequired[pulumi.Input[str]]
+elif False:
+    ConnectionAccountKeyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectionAccountKeyArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None):
+        """
+        Account key object for connection credential.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+
+if not MYPY:
+    class ConnectionApiKeyArgsDict(TypedDict):
+        """
+        Api key object for connection credential.
+        """
+        key: NotRequired[pulumi.Input[str]]
+elif False:
+    ConnectionApiKeyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectionApiKeyArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None):
+        """
+        Api key object for connection credential.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+
+if not MYPY:
+    class ConnectionManagedIdentityArgsDict(TypedDict):
+        client_id: NotRequired[pulumi.Input[str]]
+        resource_id: NotRequired[pulumi.Input[str]]
+elif False:
+    ConnectionManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectionManagedIdentityArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+if not MYPY:
+    class ConnectionOAuth2ArgsDict(TypedDict):
+        """
+        ClientId and ClientSecret are required. Other properties are optional
+        depending on each OAuth2 provider's implementation.
+        """
+        auth_url: NotRequired[pulumi.Input[str]]
+        """
+        Required by Concur connection category
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        Client id in the format of UUID
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        developer_token: NotRequired[pulumi.Input[str]]
+        """
+        Required by GoogleAdWords connection category
+        """
+        password: NotRequired[pulumi.Input[str]]
+        refresh_token: NotRequired[pulumi.Input[str]]
+        """
+        Required by GoogleBigQuery, GoogleAdWords, Hubspot, QuickBooks, Square, Xero, Zoho
+        where user needs to get RefreshToken offline
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        Required by QuickBooks and Xero connection categories
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        Concur, ServiceNow auth server AccessToken grant type is 'Password'
+        which requires UsernamePassword
+        """
+elif False:
+    ConnectionOAuth2ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectionOAuth2Args:
+    def __init__(__self__, *,
+                 auth_url: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 developer_token: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 refresh_token: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        ClientId and ClientSecret are required. Other properties are optional
+        depending on each OAuth2 provider's implementation.
+        :param pulumi.Input[str] auth_url: Required by Concur connection category
+        :param pulumi.Input[str] client_id: Client id in the format of UUID
+        :param pulumi.Input[str] developer_token: Required by GoogleAdWords connection category
+        :param pulumi.Input[str] refresh_token: Required by GoogleBigQuery, GoogleAdWords, Hubspot, QuickBooks, Square, Xero, Zoho
+               where user needs to get RefreshToken offline
+        :param pulumi.Input[str] tenant_id: Required by QuickBooks and Xero connection categories
+        :param pulumi.Input[str] username: Concur, ServiceNow auth server AccessToken grant type is 'Password'
+               which requires UsernamePassword
+        """
+        if auth_url is not None:
+            pulumi.set(__self__, "auth_url", auth_url)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if developer_token is not None:
+            pulumi.set(__self__, "developer_token", developer_token)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if refresh_token is not None:
+            pulumi.set(__self__, "refresh_token", refresh_token)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="authUrl")
+    def auth_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required by Concur connection category
+        """
+        return pulumi.get(self, "auth_url")
+
+    @auth_url.setter
+    def auth_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auth_url", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Client id in the format of UUID
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="developerToken")
+    def developer_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required by GoogleAdWords connection category
+        """
+        return pulumi.get(self, "developer_token")
+
+    @developer_token.setter
+    def developer_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "developer_token", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="refreshToken")
+    def refresh_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required by GoogleBigQuery, GoogleAdWords, Hubspot, QuickBooks, Square, Xero, Zoho
+        where user needs to get RefreshToken offline
+        """
+        return pulumi.get(self, "refresh_token")
+
+    @refresh_token.setter
+    def refresh_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "refresh_token", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required by QuickBooks and Xero connection categories
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Concur, ServiceNow auth server AccessToken grant type is 'Password'
+        which requires UsernamePassword
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
+
+
+if not MYPY:
+    class ConnectionPersonalAccessTokenArgsDict(TypedDict):
+        pat: NotRequired[pulumi.Input[str]]
+elif False:
+    ConnectionPersonalAccessTokenArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectionPersonalAccessTokenArgs:
+    def __init__(__self__, *,
+                 pat: Optional[pulumi.Input[str]] = None):
+        if pat is not None:
+            pulumi.set(__self__, "pat", pat)
+
+    @property
+    @pulumi.getter
+    def pat(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "pat")
+
+    @pat.setter
+    def pat(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pat", value)
+
+
+if not MYPY:
+    class ConnectionServicePrincipalArgsDict(TypedDict):
+        client_id: NotRequired[pulumi.Input[str]]
+        client_secret: NotRequired[pulumi.Input[str]]
+        tenant_id: NotRequired[pulumi.Input[str]]
+elif False:
+    ConnectionServicePrincipalArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectionServicePrincipalArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+if not MYPY:
+    class ConnectionSharedAccessSignatureArgsDict(TypedDict):
+        sas: NotRequired[pulumi.Input[str]]
+elif False:
+    ConnectionSharedAccessSignatureArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectionSharedAccessSignatureArgs:
+    def __init__(__self__, *,
+                 sas: Optional[pulumi.Input[str]] = None):
+        if sas is not None:
+            pulumi.set(__self__, "sas", sas)
+
+    @property
+    @pulumi.getter
+    def sas(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sas")
+
+    @sas.setter
+    def sas(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sas", value)
+
+
+if not MYPY:
+    class ConnectionUsernamePasswordArgsDict(TypedDict):
+        password: NotRequired[pulumi.Input[str]]
+        security_token: NotRequired[pulumi.Input[str]]
+        """
+        Optional, required by connections like SalesForce for extra security in addition to UsernamePassword
+        """
+        username: NotRequired[pulumi.Input[str]]
+elif False:
+    ConnectionUsernamePasswordArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectionUsernamePasswordArgs:
+    def __init__(__self__, *,
+                 password: Optional[pulumi.Input[str]] = None,
+                 security_token: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] security_token: Optional, required by connections like SalesForce for extra security in addition to UsernamePassword
+        """
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if security_token is not None:
+            pulumi.set(__self__, "security_token", security_token)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="securityToken")
+    def security_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional, required by connections like SalesForce for extra security in addition to UsernamePassword
+        """
+        return pulumi.get(self, "security_token")
+
+    @security_token.setter
+    def security_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_token", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
+
+
+if not MYPY:
     class CustomBlocklistConfigArgsDict(TypedDict):
         """
         Gets or sets the source to which filter applies.
@@ -846,6 +2336,245 @@ class CustomBlocklistConfigArgs:
     @source.setter
     def source(self, value: Optional[pulumi.Input[Union[str, 'RaiPolicyContentSource']]]):
         pulumi.set(self, "source", value)
+
+
+if not MYPY:
+    class CustomKeysConnectionPropertiesArgsDict(TypedDict):
+        """
+        Category:= CustomKeys
+        AuthType:= CustomKeys (as type discriminator)
+        Credentials:= {CustomKeys} as CustomKeys
+        Target:= {any value}
+        Use Metadata property bag for ApiVersion and other metadata fields
+        """
+        auth_type: pulumi.Input[str]
+        """
+        Authentication type of the connection target
+        Expected value is 'CustomKeys'.
+        """
+        category: NotRequired[pulumi.Input[Union[str, 'ConnectionCategory']]]
+        """
+        Category of the connection
+        """
+        credentials: NotRequired[pulumi.Input['CustomKeysArgsDict']]
+        """
+        Custom Keys credential object
+        """
+        error: NotRequired[pulumi.Input[str]]
+        expiry_time: NotRequired[pulumi.Input[str]]
+        is_shared_to_all: NotRequired[pulumi.Input[bool]]
+        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Store user metadata for this connection
+        """
+        pe_requirement: NotRequired[pulumi.Input[Union[str, 'ManagedPERequirement']]]
+        pe_status: NotRequired[pulumi.Input[Union[str, 'ManagedPEStatus']]]
+        shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        target: NotRequired[pulumi.Input[str]]
+        use_workspace_managed_identity: NotRequired[pulumi.Input[bool]]
+elif False:
+    CustomKeysConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CustomKeysConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 auth_type: pulumi.Input[str],
+                 category: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]] = None,
+                 credentials: Optional[pulumi.Input['CustomKeysArgs']] = None,
+                 error: Optional[pulumi.Input[str]] = None,
+                 expiry_time: Optional[pulumi.Input[str]] = None,
+                 is_shared_to_all: Optional[pulumi.Input[bool]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 pe_requirement: Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]] = None,
+                 pe_status: Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]] = None,
+                 shared_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 use_workspace_managed_identity: Optional[pulumi.Input[bool]] = None):
+        """
+        Category:= CustomKeys
+        AuthType:= CustomKeys (as type discriminator)
+        Credentials:= {CustomKeys} as CustomKeys
+        Target:= {any value}
+        Use Metadata property bag for ApiVersion and other metadata fields
+        :param pulumi.Input[str] auth_type: Authentication type of the connection target
+               Expected value is 'CustomKeys'.
+        :param pulumi.Input[Union[str, 'ConnectionCategory']] category: Category of the connection
+        :param pulumi.Input['CustomKeysArgs'] credentials: Custom Keys credential object
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Store user metadata for this connection
+        """
+        pulumi.set(__self__, "auth_type", 'CustomKeys')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_shared_to_all is not None:
+            pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if pe_requirement is not None:
+            pulumi.set(__self__, "pe_requirement", pe_requirement)
+        if pe_status is not None:
+            pulumi.set(__self__, "pe_status", pe_status)
+        if shared_user_list is not None:
+            pulumi.set(__self__, "shared_user_list", shared_user_list)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if use_workspace_managed_identity is not None:
+            pulumi.set(__self__, "use_workspace_managed_identity", use_workspace_managed_identity)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input[str]:
+        """
+        Authentication type of the connection target
+        Expected value is 'CustomKeys'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[Union[str, 'ConnectionCategory']]]:
+        """
+        Category of the connection
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input['CustomKeysArgs']]:
+        """
+        Custom Keys credential object
+        """
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input['CustomKeysArgs']]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error", value)
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "expiry_time")
+
+    @expiry_time.setter
+    def expiry_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiry_time", value)
+
+    @property
+    @pulumi.getter(name="isSharedToAll")
+    def is_shared_to_all(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_shared_to_all")
+
+    @is_shared_to_all.setter
+    def is_shared_to_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_shared_to_all", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Store user metadata for this connection
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="peRequirement")
+    def pe_requirement(self) -> Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]]:
+        return pulumi.get(self, "pe_requirement")
+
+    @pe_requirement.setter
+    def pe_requirement(self, value: Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]]):
+        pulumi.set(self, "pe_requirement", value)
+
+    @property
+    @pulumi.getter(name="peStatus")
+    def pe_status(self) -> Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]]:
+        return pulumi.get(self, "pe_status")
+
+    @pe_status.setter
+    def pe_status(self, value: Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]]):
+        pulumi.set(self, "pe_status", value)
+
+    @property
+    @pulumi.getter(name="sharedUserList")
+    def shared_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "shared_user_list")
+
+    @shared_user_list.setter
+    def shared_user_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "shared_user_list", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter(name="useWorkspaceManagedIdentity")
+    def use_workspace_managed_identity(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_workspace_managed_identity")
+
+    @use_workspace_managed_identity.setter
+    def use_workspace_managed_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_workspace_managed_identity", value)
+
+
+if not MYPY:
+    class CustomKeysArgsDict(TypedDict):
+        """
+        Custom Keys credential object
+        """
+        keys: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+elif False:
+    CustomKeysArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CustomKeysArgs:
+    def __init__(__self__, *,
+                 keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Custom Keys credential object
+        """
+        if keys is not None:
+            pulumi.set(__self__, "keys", keys)
+
+    @property
+    @pulumi.getter
+    def keys(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "keys")
+
+    @keys.setter
+    def keys(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "keys", value)
 
 
 if not MYPY:
@@ -1569,6 +3298,197 @@ class KeyVaultPropertiesArgs:
 
 
 if not MYPY:
+    class ManagedIdentityAuthTypeConnectionPropertiesArgsDict(TypedDict):
+        auth_type: pulumi.Input[str]
+        """
+        Authentication type of the connection target
+        Expected value is 'ManagedIdentity'.
+        """
+        category: NotRequired[pulumi.Input[Union[str, 'ConnectionCategory']]]
+        """
+        Category of the connection
+        """
+        credentials: NotRequired[pulumi.Input['ConnectionManagedIdentityArgsDict']]
+        error: NotRequired[pulumi.Input[str]]
+        expiry_time: NotRequired[pulumi.Input[str]]
+        is_shared_to_all: NotRequired[pulumi.Input[bool]]
+        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Store user metadata for this connection
+        """
+        pe_requirement: NotRequired[pulumi.Input[Union[str, 'ManagedPERequirement']]]
+        pe_status: NotRequired[pulumi.Input[Union[str, 'ManagedPEStatus']]]
+        shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        target: NotRequired[pulumi.Input[str]]
+        use_workspace_managed_identity: NotRequired[pulumi.Input[bool]]
+elif False:
+    ManagedIdentityAuthTypeConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedIdentityAuthTypeConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 auth_type: pulumi.Input[str],
+                 category: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]] = None,
+                 credentials: Optional[pulumi.Input['ConnectionManagedIdentityArgs']] = None,
+                 error: Optional[pulumi.Input[str]] = None,
+                 expiry_time: Optional[pulumi.Input[str]] = None,
+                 is_shared_to_all: Optional[pulumi.Input[bool]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 pe_requirement: Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]] = None,
+                 pe_status: Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]] = None,
+                 shared_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 use_workspace_managed_identity: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] auth_type: Authentication type of the connection target
+               Expected value is 'ManagedIdentity'.
+        :param pulumi.Input[Union[str, 'ConnectionCategory']] category: Category of the connection
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Store user metadata for this connection
+        """
+        pulumi.set(__self__, "auth_type", 'ManagedIdentity')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_shared_to_all is not None:
+            pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if pe_requirement is not None:
+            pulumi.set(__self__, "pe_requirement", pe_requirement)
+        if pe_status is not None:
+            pulumi.set(__self__, "pe_status", pe_status)
+        if shared_user_list is not None:
+            pulumi.set(__self__, "shared_user_list", shared_user_list)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if use_workspace_managed_identity is not None:
+            pulumi.set(__self__, "use_workspace_managed_identity", use_workspace_managed_identity)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input[str]:
+        """
+        Authentication type of the connection target
+        Expected value is 'ManagedIdentity'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[Union[str, 'ConnectionCategory']]]:
+        """
+        Category of the connection
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input['ConnectionManagedIdentityArgs']]:
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input['ConnectionManagedIdentityArgs']]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error", value)
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "expiry_time")
+
+    @expiry_time.setter
+    def expiry_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiry_time", value)
+
+    @property
+    @pulumi.getter(name="isSharedToAll")
+    def is_shared_to_all(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_shared_to_all")
+
+    @is_shared_to_all.setter
+    def is_shared_to_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_shared_to_all", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Store user metadata for this connection
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="peRequirement")
+    def pe_requirement(self) -> Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]]:
+        return pulumi.get(self, "pe_requirement")
+
+    @pe_requirement.setter
+    def pe_requirement(self, value: Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]]):
+        pulumi.set(self, "pe_requirement", value)
+
+    @property
+    @pulumi.getter(name="peStatus")
+    def pe_status(self) -> Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]]:
+        return pulumi.get(self, "pe_status")
+
+    @pe_status.setter
+    def pe_status(self, value: Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]]):
+        pulumi.set(self, "pe_status", value)
+
+    @property
+    @pulumi.getter(name="sharedUserList")
+    def shared_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "shared_user_list")
+
+    @shared_user_list.setter
+    def shared_user_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "shared_user_list", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter(name="useWorkspaceManagedIdentity")
+    def use_workspace_managed_identity(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_workspace_managed_identity")
+
+    @use_workspace_managed_identity.setter
+    def use_workspace_managed_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_workspace_managed_identity", value)
+
+
+if not MYPY:
     class MultiRegionSettingsArgsDict(TypedDict):
         """
         The multiregion settings Cognitive Services account.
@@ -1714,6 +3634,576 @@ class NetworkRuleSetArgs:
 
 
 if not MYPY:
+    class NoneAuthTypeConnectionPropertiesArgsDict(TypedDict):
+        auth_type: pulumi.Input[str]
+        """
+        Authentication type of the connection target
+        Expected value is 'None'.
+        """
+        category: NotRequired[pulumi.Input[Union[str, 'ConnectionCategory']]]
+        """
+        Category of the connection
+        """
+        error: NotRequired[pulumi.Input[str]]
+        expiry_time: NotRequired[pulumi.Input[str]]
+        is_shared_to_all: NotRequired[pulumi.Input[bool]]
+        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Store user metadata for this connection
+        """
+        pe_requirement: NotRequired[pulumi.Input[Union[str, 'ManagedPERequirement']]]
+        pe_status: NotRequired[pulumi.Input[Union[str, 'ManagedPEStatus']]]
+        shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        target: NotRequired[pulumi.Input[str]]
+        use_workspace_managed_identity: NotRequired[pulumi.Input[bool]]
+elif False:
+    NoneAuthTypeConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NoneAuthTypeConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 auth_type: pulumi.Input[str],
+                 category: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]] = None,
+                 error: Optional[pulumi.Input[str]] = None,
+                 expiry_time: Optional[pulumi.Input[str]] = None,
+                 is_shared_to_all: Optional[pulumi.Input[bool]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 pe_requirement: Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]] = None,
+                 pe_status: Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]] = None,
+                 shared_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 use_workspace_managed_identity: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] auth_type: Authentication type of the connection target
+               Expected value is 'None'.
+        :param pulumi.Input[Union[str, 'ConnectionCategory']] category: Category of the connection
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Store user metadata for this connection
+        """
+        pulumi.set(__self__, "auth_type", 'None')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_shared_to_all is not None:
+            pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if pe_requirement is not None:
+            pulumi.set(__self__, "pe_requirement", pe_requirement)
+        if pe_status is not None:
+            pulumi.set(__self__, "pe_status", pe_status)
+        if shared_user_list is not None:
+            pulumi.set(__self__, "shared_user_list", shared_user_list)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if use_workspace_managed_identity is not None:
+            pulumi.set(__self__, "use_workspace_managed_identity", use_workspace_managed_identity)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input[str]:
+        """
+        Authentication type of the connection target
+        Expected value is 'None'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[Union[str, 'ConnectionCategory']]]:
+        """
+        Category of the connection
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error", value)
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "expiry_time")
+
+    @expiry_time.setter
+    def expiry_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiry_time", value)
+
+    @property
+    @pulumi.getter(name="isSharedToAll")
+    def is_shared_to_all(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_shared_to_all")
+
+    @is_shared_to_all.setter
+    def is_shared_to_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_shared_to_all", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Store user metadata for this connection
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="peRequirement")
+    def pe_requirement(self) -> Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]]:
+        return pulumi.get(self, "pe_requirement")
+
+    @pe_requirement.setter
+    def pe_requirement(self, value: Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]]):
+        pulumi.set(self, "pe_requirement", value)
+
+    @property
+    @pulumi.getter(name="peStatus")
+    def pe_status(self) -> Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]]:
+        return pulumi.get(self, "pe_status")
+
+    @pe_status.setter
+    def pe_status(self, value: Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]]):
+        pulumi.set(self, "pe_status", value)
+
+    @property
+    @pulumi.getter(name="sharedUserList")
+    def shared_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "shared_user_list")
+
+    @shared_user_list.setter
+    def shared_user_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "shared_user_list", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter(name="useWorkspaceManagedIdentity")
+    def use_workspace_managed_identity(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_workspace_managed_identity")
+
+    @use_workspace_managed_identity.setter
+    def use_workspace_managed_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_workspace_managed_identity", value)
+
+
+if not MYPY:
+    class OAuth2AuthTypeConnectionPropertiesArgsDict(TypedDict):
+        auth_type: pulumi.Input[str]
+        """
+        Authentication type of the connection target
+        Expected value is 'OAuth2'.
+        """
+        category: NotRequired[pulumi.Input[Union[str, 'ConnectionCategory']]]
+        """
+        Category of the connection
+        """
+        credentials: NotRequired[pulumi.Input['ConnectionOAuth2ArgsDict']]
+        """
+        ClientId and ClientSecret are required. Other properties are optional
+        depending on each OAuth2 provider's implementation.
+        """
+        error: NotRequired[pulumi.Input[str]]
+        expiry_time: NotRequired[pulumi.Input[str]]
+        is_shared_to_all: NotRequired[pulumi.Input[bool]]
+        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Store user metadata for this connection
+        """
+        pe_requirement: NotRequired[pulumi.Input[Union[str, 'ManagedPERequirement']]]
+        pe_status: NotRequired[pulumi.Input[Union[str, 'ManagedPEStatus']]]
+        shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        target: NotRequired[pulumi.Input[str]]
+        use_workspace_managed_identity: NotRequired[pulumi.Input[bool]]
+elif False:
+    OAuth2AuthTypeConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OAuth2AuthTypeConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 auth_type: pulumi.Input[str],
+                 category: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]] = None,
+                 credentials: Optional[pulumi.Input['ConnectionOAuth2Args']] = None,
+                 error: Optional[pulumi.Input[str]] = None,
+                 expiry_time: Optional[pulumi.Input[str]] = None,
+                 is_shared_to_all: Optional[pulumi.Input[bool]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 pe_requirement: Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]] = None,
+                 pe_status: Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]] = None,
+                 shared_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 use_workspace_managed_identity: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] auth_type: Authentication type of the connection target
+               Expected value is 'OAuth2'.
+        :param pulumi.Input[Union[str, 'ConnectionCategory']] category: Category of the connection
+        :param pulumi.Input['ConnectionOAuth2Args'] credentials: ClientId and ClientSecret are required. Other properties are optional
+               depending on each OAuth2 provider's implementation.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Store user metadata for this connection
+        """
+        pulumi.set(__self__, "auth_type", 'OAuth2')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_shared_to_all is not None:
+            pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if pe_requirement is not None:
+            pulumi.set(__self__, "pe_requirement", pe_requirement)
+        if pe_status is not None:
+            pulumi.set(__self__, "pe_status", pe_status)
+        if shared_user_list is not None:
+            pulumi.set(__self__, "shared_user_list", shared_user_list)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if use_workspace_managed_identity is not None:
+            pulumi.set(__self__, "use_workspace_managed_identity", use_workspace_managed_identity)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input[str]:
+        """
+        Authentication type of the connection target
+        Expected value is 'OAuth2'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[Union[str, 'ConnectionCategory']]]:
+        """
+        Category of the connection
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input['ConnectionOAuth2Args']]:
+        """
+        ClientId and ClientSecret are required. Other properties are optional
+        depending on each OAuth2 provider's implementation.
+        """
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input['ConnectionOAuth2Args']]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error", value)
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "expiry_time")
+
+    @expiry_time.setter
+    def expiry_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiry_time", value)
+
+    @property
+    @pulumi.getter(name="isSharedToAll")
+    def is_shared_to_all(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_shared_to_all")
+
+    @is_shared_to_all.setter
+    def is_shared_to_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_shared_to_all", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Store user metadata for this connection
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="peRequirement")
+    def pe_requirement(self) -> Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]]:
+        return pulumi.get(self, "pe_requirement")
+
+    @pe_requirement.setter
+    def pe_requirement(self, value: Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]]):
+        pulumi.set(self, "pe_requirement", value)
+
+    @property
+    @pulumi.getter(name="peStatus")
+    def pe_status(self) -> Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]]:
+        return pulumi.get(self, "pe_status")
+
+    @pe_status.setter
+    def pe_status(self, value: Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]]):
+        pulumi.set(self, "pe_status", value)
+
+    @property
+    @pulumi.getter(name="sharedUserList")
+    def shared_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "shared_user_list")
+
+    @shared_user_list.setter
+    def shared_user_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "shared_user_list", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter(name="useWorkspaceManagedIdentity")
+    def use_workspace_managed_identity(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_workspace_managed_identity")
+
+    @use_workspace_managed_identity.setter
+    def use_workspace_managed_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_workspace_managed_identity", value)
+
+
+if not MYPY:
+    class PATAuthTypeConnectionPropertiesArgsDict(TypedDict):
+        auth_type: pulumi.Input[str]
+        """
+        Authentication type of the connection target
+        Expected value is 'PAT'.
+        """
+        category: NotRequired[pulumi.Input[Union[str, 'ConnectionCategory']]]
+        """
+        Category of the connection
+        """
+        credentials: NotRequired[pulumi.Input['ConnectionPersonalAccessTokenArgsDict']]
+        error: NotRequired[pulumi.Input[str]]
+        expiry_time: NotRequired[pulumi.Input[str]]
+        is_shared_to_all: NotRequired[pulumi.Input[bool]]
+        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Store user metadata for this connection
+        """
+        pe_requirement: NotRequired[pulumi.Input[Union[str, 'ManagedPERequirement']]]
+        pe_status: NotRequired[pulumi.Input[Union[str, 'ManagedPEStatus']]]
+        shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        target: NotRequired[pulumi.Input[str]]
+        use_workspace_managed_identity: NotRequired[pulumi.Input[bool]]
+elif False:
+    PATAuthTypeConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PATAuthTypeConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 auth_type: pulumi.Input[str],
+                 category: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]] = None,
+                 credentials: Optional[pulumi.Input['ConnectionPersonalAccessTokenArgs']] = None,
+                 error: Optional[pulumi.Input[str]] = None,
+                 expiry_time: Optional[pulumi.Input[str]] = None,
+                 is_shared_to_all: Optional[pulumi.Input[bool]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 pe_requirement: Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]] = None,
+                 pe_status: Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]] = None,
+                 shared_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 use_workspace_managed_identity: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] auth_type: Authentication type of the connection target
+               Expected value is 'PAT'.
+        :param pulumi.Input[Union[str, 'ConnectionCategory']] category: Category of the connection
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Store user metadata for this connection
+        """
+        pulumi.set(__self__, "auth_type", 'PAT')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_shared_to_all is not None:
+            pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if pe_requirement is not None:
+            pulumi.set(__self__, "pe_requirement", pe_requirement)
+        if pe_status is not None:
+            pulumi.set(__self__, "pe_status", pe_status)
+        if shared_user_list is not None:
+            pulumi.set(__self__, "shared_user_list", shared_user_list)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if use_workspace_managed_identity is not None:
+            pulumi.set(__self__, "use_workspace_managed_identity", use_workspace_managed_identity)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input[str]:
+        """
+        Authentication type of the connection target
+        Expected value is 'PAT'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[Union[str, 'ConnectionCategory']]]:
+        """
+        Category of the connection
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input['ConnectionPersonalAccessTokenArgs']]:
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input['ConnectionPersonalAccessTokenArgs']]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error", value)
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "expiry_time")
+
+    @expiry_time.setter
+    def expiry_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiry_time", value)
+
+    @property
+    @pulumi.getter(name="isSharedToAll")
+    def is_shared_to_all(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_shared_to_all")
+
+    @is_shared_to_all.setter
+    def is_shared_to_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_shared_to_all", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Store user metadata for this connection
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="peRequirement")
+    def pe_requirement(self) -> Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]]:
+        return pulumi.get(self, "pe_requirement")
+
+    @pe_requirement.setter
+    def pe_requirement(self, value: Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]]):
+        pulumi.set(self, "pe_requirement", value)
+
+    @property
+    @pulumi.getter(name="peStatus")
+    def pe_status(self) -> Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]]:
+        return pulumi.get(self, "pe_status")
+
+    @pe_status.setter
+    def pe_status(self, value: Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]]):
+        pulumi.set(self, "pe_status", value)
+
+    @property
+    @pulumi.getter(name="sharedUserList")
+    def shared_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "shared_user_list")
+
+    @shared_user_list.setter
+    def shared_user_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "shared_user_list", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter(name="useWorkspaceManagedIdentity")
+    def use_workspace_managed_identity(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_workspace_managed_identity")
+
+    @use_workspace_managed_identity.setter
+    def use_workspace_managed_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_workspace_managed_identity", value)
+
+
+if not MYPY:
     class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
         """
         Properties of the PrivateEndpointConnectProperties.
@@ -1842,6 +4332,62 @@ class PrivateLinkServiceConnectionStateArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
+
+
+if not MYPY:
+    class ProjectPropertiesArgsDict(TypedDict):
+        """
+        Properties of Cognitive Services Project'.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the Cognitive Services Project.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        The display name of the Cognitive Services Project.
+        """
+elif False:
+    ProjectPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProjectPropertiesArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of Cognitive Services Project'.
+        :param pulumi.Input[str] description: The description of the Cognitive Services Project.
+        :param pulumi.Input[str] display_name: The display name of the Cognitive Services Project.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Cognitive Services Project.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the Cognitive Services Project.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
 
 
 if not MYPY:
@@ -2281,6 +4827,388 @@ class RegionSettingArgs:
 
 
 if not MYPY:
+    class SASAuthTypeConnectionPropertiesArgsDict(TypedDict):
+        auth_type: pulumi.Input[str]
+        """
+        Authentication type of the connection target
+        Expected value is 'SAS'.
+        """
+        category: NotRequired[pulumi.Input[Union[str, 'ConnectionCategory']]]
+        """
+        Category of the connection
+        """
+        credentials: NotRequired[pulumi.Input['ConnectionSharedAccessSignatureArgsDict']]
+        error: NotRequired[pulumi.Input[str]]
+        expiry_time: NotRequired[pulumi.Input[str]]
+        is_shared_to_all: NotRequired[pulumi.Input[bool]]
+        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Store user metadata for this connection
+        """
+        pe_requirement: NotRequired[pulumi.Input[Union[str, 'ManagedPERequirement']]]
+        pe_status: NotRequired[pulumi.Input[Union[str, 'ManagedPEStatus']]]
+        shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        target: NotRequired[pulumi.Input[str]]
+        use_workspace_managed_identity: NotRequired[pulumi.Input[bool]]
+elif False:
+    SASAuthTypeConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SASAuthTypeConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 auth_type: pulumi.Input[str],
+                 category: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]] = None,
+                 credentials: Optional[pulumi.Input['ConnectionSharedAccessSignatureArgs']] = None,
+                 error: Optional[pulumi.Input[str]] = None,
+                 expiry_time: Optional[pulumi.Input[str]] = None,
+                 is_shared_to_all: Optional[pulumi.Input[bool]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 pe_requirement: Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]] = None,
+                 pe_status: Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]] = None,
+                 shared_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 use_workspace_managed_identity: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] auth_type: Authentication type of the connection target
+               Expected value is 'SAS'.
+        :param pulumi.Input[Union[str, 'ConnectionCategory']] category: Category of the connection
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Store user metadata for this connection
+        """
+        pulumi.set(__self__, "auth_type", 'SAS')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_shared_to_all is not None:
+            pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if pe_requirement is not None:
+            pulumi.set(__self__, "pe_requirement", pe_requirement)
+        if pe_status is not None:
+            pulumi.set(__self__, "pe_status", pe_status)
+        if shared_user_list is not None:
+            pulumi.set(__self__, "shared_user_list", shared_user_list)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if use_workspace_managed_identity is not None:
+            pulumi.set(__self__, "use_workspace_managed_identity", use_workspace_managed_identity)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input[str]:
+        """
+        Authentication type of the connection target
+        Expected value is 'SAS'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[Union[str, 'ConnectionCategory']]]:
+        """
+        Category of the connection
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input['ConnectionSharedAccessSignatureArgs']]:
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input['ConnectionSharedAccessSignatureArgs']]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error", value)
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "expiry_time")
+
+    @expiry_time.setter
+    def expiry_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiry_time", value)
+
+    @property
+    @pulumi.getter(name="isSharedToAll")
+    def is_shared_to_all(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_shared_to_all")
+
+    @is_shared_to_all.setter
+    def is_shared_to_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_shared_to_all", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Store user metadata for this connection
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="peRequirement")
+    def pe_requirement(self) -> Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]]:
+        return pulumi.get(self, "pe_requirement")
+
+    @pe_requirement.setter
+    def pe_requirement(self, value: Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]]):
+        pulumi.set(self, "pe_requirement", value)
+
+    @property
+    @pulumi.getter(name="peStatus")
+    def pe_status(self) -> Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]]:
+        return pulumi.get(self, "pe_status")
+
+    @pe_status.setter
+    def pe_status(self, value: Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]]):
+        pulumi.set(self, "pe_status", value)
+
+    @property
+    @pulumi.getter(name="sharedUserList")
+    def shared_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "shared_user_list")
+
+    @shared_user_list.setter
+    def shared_user_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "shared_user_list", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter(name="useWorkspaceManagedIdentity")
+    def use_workspace_managed_identity(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_workspace_managed_identity")
+
+    @use_workspace_managed_identity.setter
+    def use_workspace_managed_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_workspace_managed_identity", value)
+
+
+if not MYPY:
+    class ServicePrincipalAuthTypeConnectionPropertiesArgsDict(TypedDict):
+        auth_type: pulumi.Input[str]
+        """
+        Authentication type of the connection target
+        Expected value is 'ServicePrincipal'.
+        """
+        category: NotRequired[pulumi.Input[Union[str, 'ConnectionCategory']]]
+        """
+        Category of the connection
+        """
+        credentials: NotRequired[pulumi.Input['ConnectionServicePrincipalArgsDict']]
+        error: NotRequired[pulumi.Input[str]]
+        expiry_time: NotRequired[pulumi.Input[str]]
+        is_shared_to_all: NotRequired[pulumi.Input[bool]]
+        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Store user metadata for this connection
+        """
+        pe_requirement: NotRequired[pulumi.Input[Union[str, 'ManagedPERequirement']]]
+        pe_status: NotRequired[pulumi.Input[Union[str, 'ManagedPEStatus']]]
+        shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        target: NotRequired[pulumi.Input[str]]
+        use_workspace_managed_identity: NotRequired[pulumi.Input[bool]]
+elif False:
+    ServicePrincipalAuthTypeConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServicePrincipalAuthTypeConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 auth_type: pulumi.Input[str],
+                 category: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]] = None,
+                 credentials: Optional[pulumi.Input['ConnectionServicePrincipalArgs']] = None,
+                 error: Optional[pulumi.Input[str]] = None,
+                 expiry_time: Optional[pulumi.Input[str]] = None,
+                 is_shared_to_all: Optional[pulumi.Input[bool]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 pe_requirement: Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]] = None,
+                 pe_status: Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]] = None,
+                 shared_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 use_workspace_managed_identity: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] auth_type: Authentication type of the connection target
+               Expected value is 'ServicePrincipal'.
+        :param pulumi.Input[Union[str, 'ConnectionCategory']] category: Category of the connection
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Store user metadata for this connection
+        """
+        pulumi.set(__self__, "auth_type", 'ServicePrincipal')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_shared_to_all is not None:
+            pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if pe_requirement is not None:
+            pulumi.set(__self__, "pe_requirement", pe_requirement)
+        if pe_status is not None:
+            pulumi.set(__self__, "pe_status", pe_status)
+        if shared_user_list is not None:
+            pulumi.set(__self__, "shared_user_list", shared_user_list)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if use_workspace_managed_identity is not None:
+            pulumi.set(__self__, "use_workspace_managed_identity", use_workspace_managed_identity)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input[str]:
+        """
+        Authentication type of the connection target
+        Expected value is 'ServicePrincipal'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[Union[str, 'ConnectionCategory']]]:
+        """
+        Category of the connection
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input['ConnectionServicePrincipalArgs']]:
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input['ConnectionServicePrincipalArgs']]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error", value)
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "expiry_time")
+
+    @expiry_time.setter
+    def expiry_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiry_time", value)
+
+    @property
+    @pulumi.getter(name="isSharedToAll")
+    def is_shared_to_all(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_shared_to_all")
+
+    @is_shared_to_all.setter
+    def is_shared_to_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_shared_to_all", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Store user metadata for this connection
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="peRequirement")
+    def pe_requirement(self) -> Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]]:
+        return pulumi.get(self, "pe_requirement")
+
+    @pe_requirement.setter
+    def pe_requirement(self, value: Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]]):
+        pulumi.set(self, "pe_requirement", value)
+
+    @property
+    @pulumi.getter(name="peStatus")
+    def pe_status(self) -> Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]]:
+        return pulumi.get(self, "pe_status")
+
+    @pe_status.setter
+    def pe_status(self, value: Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]]):
+        pulumi.set(self, "pe_status", value)
+
+    @property
+    @pulumi.getter(name="sharedUserList")
+    def shared_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "shared_user_list")
+
+    @shared_user_list.setter
+    def shared_user_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "shared_user_list", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter(name="useWorkspaceManagedIdentity")
+    def use_workspace_managed_identity(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_workspace_managed_identity")
+
+    @use_workspace_managed_identity.setter
+    def use_workspace_managed_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_workspace_managed_identity", value)
+
+
+if not MYPY:
     class SkuArgsDict(TypedDict):
         """
         The resource model definition representing SKU
@@ -2498,6 +5426,197 @@ class UserOwnedStorageArgs:
     @resource_id.setter
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
+
+
+if not MYPY:
+    class UsernamePasswordAuthTypeConnectionPropertiesArgsDict(TypedDict):
+        auth_type: pulumi.Input[str]
+        """
+        Authentication type of the connection target
+        Expected value is 'UsernamePassword'.
+        """
+        category: NotRequired[pulumi.Input[Union[str, 'ConnectionCategory']]]
+        """
+        Category of the connection
+        """
+        credentials: NotRequired[pulumi.Input['ConnectionUsernamePasswordArgsDict']]
+        error: NotRequired[pulumi.Input[str]]
+        expiry_time: NotRequired[pulumi.Input[str]]
+        is_shared_to_all: NotRequired[pulumi.Input[bool]]
+        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Store user metadata for this connection
+        """
+        pe_requirement: NotRequired[pulumi.Input[Union[str, 'ManagedPERequirement']]]
+        pe_status: NotRequired[pulumi.Input[Union[str, 'ManagedPEStatus']]]
+        shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        target: NotRequired[pulumi.Input[str]]
+        use_workspace_managed_identity: NotRequired[pulumi.Input[bool]]
+elif False:
+    UsernamePasswordAuthTypeConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UsernamePasswordAuthTypeConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 auth_type: pulumi.Input[str],
+                 category: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]] = None,
+                 credentials: Optional[pulumi.Input['ConnectionUsernamePasswordArgs']] = None,
+                 error: Optional[pulumi.Input[str]] = None,
+                 expiry_time: Optional[pulumi.Input[str]] = None,
+                 is_shared_to_all: Optional[pulumi.Input[bool]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 pe_requirement: Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]] = None,
+                 pe_status: Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]] = None,
+                 shared_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 use_workspace_managed_identity: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] auth_type: Authentication type of the connection target
+               Expected value is 'UsernamePassword'.
+        :param pulumi.Input[Union[str, 'ConnectionCategory']] category: Category of the connection
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Store user metadata for this connection
+        """
+        pulumi.set(__self__, "auth_type", 'UsernamePassword')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_shared_to_all is not None:
+            pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if pe_requirement is not None:
+            pulumi.set(__self__, "pe_requirement", pe_requirement)
+        if pe_status is not None:
+            pulumi.set(__self__, "pe_status", pe_status)
+        if shared_user_list is not None:
+            pulumi.set(__self__, "shared_user_list", shared_user_list)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if use_workspace_managed_identity is not None:
+            pulumi.set(__self__, "use_workspace_managed_identity", use_workspace_managed_identity)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input[str]:
+        """
+        Authentication type of the connection target
+        Expected value is 'UsernamePassword'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[Union[str, 'ConnectionCategory']]]:
+        """
+        Category of the connection
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input['ConnectionUsernamePasswordArgs']]:
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input['ConnectionUsernamePasswordArgs']]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error", value)
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "expiry_time")
+
+    @expiry_time.setter
+    def expiry_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiry_time", value)
+
+    @property
+    @pulumi.getter(name="isSharedToAll")
+    def is_shared_to_all(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_shared_to_all")
+
+    @is_shared_to_all.setter
+    def is_shared_to_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_shared_to_all", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Store user metadata for this connection
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="peRequirement")
+    def pe_requirement(self) -> Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]]:
+        return pulumi.get(self, "pe_requirement")
+
+    @pe_requirement.setter
+    def pe_requirement(self, value: Optional[pulumi.Input[Union[str, 'ManagedPERequirement']]]):
+        pulumi.set(self, "pe_requirement", value)
+
+    @property
+    @pulumi.getter(name="peStatus")
+    def pe_status(self) -> Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]]:
+        return pulumi.get(self, "pe_status")
+
+    @pe_status.setter
+    def pe_status(self, value: Optional[pulumi.Input[Union[str, 'ManagedPEStatus']]]):
+        pulumi.set(self, "pe_status", value)
+
+    @property
+    @pulumi.getter(name="sharedUserList")
+    def shared_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "shared_user_list")
+
+    @shared_user_list.setter
+    def shared_user_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "shared_user_list", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter(name="useWorkspaceManagedIdentity")
+    def use_workspace_managed_identity(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_workspace_managed_identity")
+
+    @use_workspace_managed_identity.setter
+    def use_workspace_managed_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_workspace_managed_identity", value)
 
 
 if not MYPY:

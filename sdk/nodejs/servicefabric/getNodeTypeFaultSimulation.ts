@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Gets a fault simulation by the simulationId.
  *
  * Uses Azure REST API version 2024-11-01-preview.
+ *
+ * Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNodeTypeFaultSimulation(args: GetNodeTypeFaultSimulationArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeTypeFaultSimulationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -70,6 +72,8 @@ export interface GetNodeTypeFaultSimulationResult {
  * Gets a fault simulation by the simulationId.
  *
  * Uses Azure REST API version 2024-11-01-preview.
+ *
+ * Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNodeTypeFaultSimulationOutput(args: GetNodeTypeFaultSimulationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNodeTypeFaultSimulationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

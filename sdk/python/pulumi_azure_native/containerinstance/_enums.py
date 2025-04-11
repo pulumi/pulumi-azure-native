@@ -15,6 +15,7 @@ __all__ = [
     'GpuSku',
     'LogAnalyticsLogType',
     'OperatingSystemTypes',
+    'Priority',
     'ResourceIdentityType',
     'Scheme',
 ]
@@ -107,6 +108,14 @@ class OperatingSystemTypes(str, Enum):
     """
     WINDOWS = "Windows"
     LINUX = "Linux"
+
+
+class Priority(str, Enum):
+    """
+    The priority of the container group.
+    """
+    REGULAR = "Regular"
+    SPOT = "Spot"
 
 
 class ResourceIdentityType(str, Enum):

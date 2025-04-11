@@ -156,6 +156,8 @@ class TaskRun(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01-preview.
 
+        Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] force_update_tag: How the run should be forced to rerun even if the run request configuration has not changed
@@ -177,6 +179,8 @@ class TaskRun(pulumi.CustomResource):
         The task run will have the information of request and result of a run.
 
         Uses Azure REST API version 2019-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01-preview.
+
+        Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param TaskRunArgs args: The arguments to use to populate this resource's properties.
@@ -226,7 +230,7 @@ class TaskRun(pulumi.CustomResource):
             __props__.__dict__["run_result"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry/v20190601preview:TaskRun")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry/v20190601preview:TaskRun"), pulumi.Alias(type_="azure-native:containerregistry/v20250301preview:TaskRun")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TaskRun, __self__).__init__(
             'azure-native:containerregistry:TaskRun',

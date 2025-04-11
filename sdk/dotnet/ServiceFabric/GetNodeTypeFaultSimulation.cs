@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// Gets a fault simulation by the simulationId.
         /// 
         /// Uses Azure REST API version 2024-11-01-preview.
+        /// 
+        /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetNodeTypeFaultSimulationResult> InvokeAsync(GetNodeTypeFaultSimulationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNodeTypeFaultSimulationResult>("azure-native:servicefabric:getNodeTypeFaultSimulation", args ?? new GetNodeTypeFaultSimulationArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// Gets a fault simulation by the simulationId.
         /// 
         /// Uses Azure REST API version 2024-11-01-preview.
+        /// 
+        /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNodeTypeFaultSimulationResult> Invoke(GetNodeTypeFaultSimulationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNodeTypeFaultSimulationResult>("azure-native:servicefabric:getNodeTypeFaultSimulation", args ?? new GetNodeTypeFaultSimulationInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// Gets a fault simulation by the simulationId.
         /// 
         /// Uses Azure REST API version 2024-11-01-preview.
+        /// 
+        /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNodeTypeFaultSimulationResult> Invoke(GetNodeTypeFaultSimulationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNodeTypeFaultSimulationResult>("azure-native:servicefabric:getNodeTypeFaultSimulation", args ?? new GetNodeTypeFaultSimulationInvokeArgs(), options.WithDefaults());

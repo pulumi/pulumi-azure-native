@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Marketplace
     /// The privateStore offer data structure.
     /// 
     /// Uses Azure REST API version 2023-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
+    /// 
+    /// Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:marketplace:PrivateStoreCollectionOffer")]
     public partial class PrivateStoreCollectionOffer : global::Pulumi.CustomResource
@@ -137,6 +139,7 @@ namespace Pulumi.AzureNative.Marketplace
                     new global::Pulumi.Alias { Type = "azure-native:marketplace/v20220301:PrivateStoreCollectionOffer" },
                     new global::Pulumi.Alias { Type = "azure-native:marketplace/v20220901:PrivateStoreCollectionOffer" },
                     new global::Pulumi.Alias { Type = "azure-native:marketplace/v20230101:PrivateStoreCollectionOffer" },
+                    new global::Pulumi.Alias { Type = "azure-native:marketplace/v20250101:PrivateStoreCollectionOffer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
