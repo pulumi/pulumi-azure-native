@@ -111,6 +111,16 @@ export const OperatingSystemTypes = {
  */
 export type OperatingSystemTypes = (typeof OperatingSystemTypes)[keyof typeof OperatingSystemTypes];
 
+export const Priority = {
+    Regular: "Regular",
+    Spot: "Spot",
+} as const;
+
+/**
+ * The priority of the container group.
+ */
+export type Priority = (typeof Priority)[keyof typeof Priority];
+
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
     UserAssigned: "UserAssigned",

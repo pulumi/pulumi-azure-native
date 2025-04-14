@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * The privateStore offer data structure.
  *
  * Uses Azure REST API version 2023-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
+ *
+ * Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class PrivateStoreCollectionOffer extends pulumi.CustomResource {
     /**
@@ -152,7 +154,7 @@ export class PrivateStoreCollectionOffer extends pulumi.CustomResource {
             resourceInputs["updateSuppressedDueIdempotence"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:marketplace/v20210601:PrivateStoreCollectionOffer" }, { type: "azure-native:marketplace/v20211201:PrivateStoreCollectionOffer" }, { type: "azure-native:marketplace/v20220301:PrivateStoreCollectionOffer" }, { type: "azure-native:marketplace/v20220901:PrivateStoreCollectionOffer" }, { type: "azure-native:marketplace/v20230101:PrivateStoreCollectionOffer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:marketplace/v20210601:PrivateStoreCollectionOffer" }, { type: "azure-native:marketplace/v20211201:PrivateStoreCollectionOffer" }, { type: "azure-native:marketplace/v20220301:PrivateStoreCollectionOffer" }, { type: "azure-native:marketplace/v20220901:PrivateStoreCollectionOffer" }, { type: "azure-native:marketplace/v20230101:PrivateStoreCollectionOffer" }, { type: "azure-native:marketplace/v20250101:PrivateStoreCollectionOffer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateStoreCollectionOffer.__pulumiType, name, resourceInputs, opts);
     }

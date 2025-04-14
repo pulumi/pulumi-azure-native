@@ -14,13 +14,122 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
+    'RetentionPolicyDetailsResponse',
+    'RetentionPolicyPropertiesResponse',
     'SchedulerPropertiesResponse',
     'SchedulerSkuResponse',
     'SystemDataResponse',
     'TaskHubPropertiesResponse',
 ]
+
+@pulumi.output_type
+class RetentionPolicyDetailsResponse(dict):
+    """
+    The properties of a retention policy
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionPeriodInDays":
+            suggest = "retention_period_in_days"
+        elif key == "orchestrationState":
+            suggest = "orchestration_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RetentionPolicyDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RetentionPolicyDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RetentionPolicyDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 retention_period_in_days: int,
+                 orchestration_state: Optional[str] = None):
+        """
+        The properties of a retention policy
+        :param int retention_period_in_days: The retention period in days after which the orchestration will be purged automatically
+        :param str orchestration_state: The orchestration state to which this policy applies. If omitted, the policy applies to all purgeable orchestration states.
+        """
+        pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
+        if orchestration_state is not None:
+            pulumi.set(__self__, "orchestration_state", orchestration_state)
+
+    @property
+    @pulumi.getter(name="retentionPeriodInDays")
+    def retention_period_in_days(self) -> int:
+        """
+        The retention period in days after which the orchestration will be purged automatically
+        """
+        return pulumi.get(self, "retention_period_in_days")
+
+    @property
+    @pulumi.getter(name="orchestrationState")
+    def orchestration_state(self) -> Optional[str]:
+        """
+        The orchestration state to which this policy applies. If omitted, the policy applies to all purgeable orchestration states.
+        """
+        return pulumi.get(self, "orchestration_state")
+
+
+@pulumi.output_type
+class RetentionPolicyPropertiesResponse(dict):
+    """
+    The retention policy settings for the resource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "retentionPolicies":
+            suggest = "retention_policies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RetentionPolicyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RetentionPolicyPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RetentionPolicyPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 retention_policies: Optional[Sequence['outputs.RetentionPolicyDetailsResponse']] = None):
+        """
+        The retention policy settings for the resource
+        :param str provisioning_state: The status of the last operation
+        :param Sequence['RetentionPolicyDetailsResponse'] retention_policies: The orchestration retention policies
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if retention_policies is not None:
+            pulumi.set(__self__, "retention_policies", retention_policies)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The status of the last operation
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="retentionPolicies")
+    def retention_policies(self) -> Optional[Sequence['outputs.RetentionPolicyDetailsResponse']]:
+        """
+        The orchestration retention policies
+        """
+        return pulumi.get(self, "retention_policies")
+
 
 @pulumi.output_type
 class SchedulerPropertiesResponse(dict):

@@ -20,12 +20,18 @@ __all__ = [
     'AccountEncryptionArgsDict',
     'ActiveDirectoryArgs',
     'ActiveDirectoryArgsDict',
+    'BucketServerPropertiesArgs',
+    'BucketServerPropertiesArgsDict',
+    'CifsUserArgs',
+    'CifsUserArgsDict',
     'DailyScheduleArgs',
     'DailyScheduleArgsDict',
     'EncryptionIdentityArgs',
     'EncryptionIdentityArgsDict',
     'ExportPolicyRuleArgs',
     'ExportPolicyRuleArgsDict',
+    'FileSystemUserArgs',
+    'FileSystemUserArgsDict',
     'HourlyScheduleArgs',
     'HourlyScheduleArgsDict',
     'KeyVaultPropertiesArgs',
@@ -36,6 +42,8 @@ __all__ = [
     'ManagedServiceIdentityArgsDict',
     'MonthlyScheduleArgs',
     'MonthlyScheduleArgsDict',
+    'NfsUserArgs',
+    'NfsUserArgsDict',
     'PlacementKeyValuePairsArgs',
     'PlacementKeyValuePairsArgsDict',
     'RemotePathArgs',
@@ -579,6 +587,98 @@ class ActiveDirectoryArgs:
 
 
 if not MYPY:
+    class BucketServerPropertiesArgsDict(TypedDict):
+        """
+        Properties of the server managing the lifecycle of volume buckets
+        """
+        certificate_object: NotRequired[pulumi.Input[str]]
+        """
+        A base64-encoded PEM file, which includes both the bucket server's certificate and private key. It is used to authenticate the user and allows access to volume data in a read-only manner.
+        """
+        fqdn: NotRequired[pulumi.Input[str]]
+        """
+        The host part of the bucket URL, resolving to the bucket IP address and allowed by the server certificate.
+        """
+elif False:
+    BucketServerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketServerPropertiesArgs:
+    def __init__(__self__, *,
+                 certificate_object: Optional[pulumi.Input[str]] = None,
+                 fqdn: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of the server managing the lifecycle of volume buckets
+        :param pulumi.Input[str] certificate_object: A base64-encoded PEM file, which includes both the bucket server's certificate and private key. It is used to authenticate the user and allows access to volume data in a read-only manner.
+        :param pulumi.Input[str] fqdn: The host part of the bucket URL, resolving to the bucket IP address and allowed by the server certificate.
+        """
+        if certificate_object is not None:
+            pulumi.set(__self__, "certificate_object", certificate_object)
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+
+    @property
+    @pulumi.getter(name="certificateObject")
+    def certificate_object(self) -> Optional[pulumi.Input[str]]:
+        """
+        A base64-encoded PEM file, which includes both the bucket server's certificate and private key. It is used to authenticate the user and allows access to volume data in a read-only manner.
+        """
+        return pulumi.get(self, "certificate_object")
+
+    @certificate_object.setter
+    def certificate_object(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_object", value)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The host part of the bucket URL, resolving to the bucket IP address and allowed by the server certificate.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @fqdn.setter
+    def fqdn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fqdn", value)
+
+
+if not MYPY:
+    class CifsUserArgsDict(TypedDict):
+        """
+        The effective CIFS username when accessing the volume data.
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        The CIFS user's username
+        """
+elif False:
+    CifsUserArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CifsUserArgs:
+    def __init__(__self__, *,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        The effective CIFS username when accessing the volume data.
+        :param pulumi.Input[str] username: The CIFS user's username
+        """
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIFS user's username
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
+
+
+if not MYPY:
     class DailyScheduleArgsDict(TypedDict):
         """
         Daily Schedule properties
@@ -1043,6 +1143,62 @@ class ExportPolicyRuleArgs:
 
 
 if not MYPY:
+    class FileSystemUserArgsDict(TypedDict):
+        """
+        File System user having access to volume data. For Unix, this is the user's uid and gid. For Windows, this is the user's username. Note that the Unix and Windows user details are mutually exclusive, meaning one or other must be supplied, but not both.
+        """
+        cifs_user: NotRequired[pulumi.Input['CifsUserArgsDict']]
+        """
+        The effective CIFS username when accessing the volume data.
+        """
+        nfs_user: NotRequired[pulumi.Input['NfsUserArgsDict']]
+        """
+        The effective NFS User ID and Group ID when accessing the volume data.
+        """
+elif False:
+    FileSystemUserArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FileSystemUserArgs:
+    def __init__(__self__, *,
+                 cifs_user: Optional[pulumi.Input['CifsUserArgs']] = None,
+                 nfs_user: Optional[pulumi.Input['NfsUserArgs']] = None):
+        """
+        File System user having access to volume data. For Unix, this is the user's uid and gid. For Windows, this is the user's username. Note that the Unix and Windows user details are mutually exclusive, meaning one or other must be supplied, but not both.
+        :param pulumi.Input['CifsUserArgs'] cifs_user: The effective CIFS username when accessing the volume data.
+        :param pulumi.Input['NfsUserArgs'] nfs_user: The effective NFS User ID and Group ID when accessing the volume data.
+        """
+        if cifs_user is not None:
+            pulumi.set(__self__, "cifs_user", cifs_user)
+        if nfs_user is not None:
+            pulumi.set(__self__, "nfs_user", nfs_user)
+
+    @property
+    @pulumi.getter(name="cifsUser")
+    def cifs_user(self) -> Optional[pulumi.Input['CifsUserArgs']]:
+        """
+        The effective CIFS username when accessing the volume data.
+        """
+        return pulumi.get(self, "cifs_user")
+
+    @cifs_user.setter
+    def cifs_user(self, value: Optional[pulumi.Input['CifsUserArgs']]):
+        pulumi.set(self, "cifs_user", value)
+
+    @property
+    @pulumi.getter(name="nfsUser")
+    def nfs_user(self) -> Optional[pulumi.Input['NfsUserArgs']]:
+        """
+        The effective NFS User ID and Group ID when accessing the volume data.
+        """
+        return pulumi.get(self, "nfs_user")
+
+    @nfs_user.setter
+    def nfs_user(self, value: Optional[pulumi.Input['NfsUserArgs']]):
+        pulumi.set(self, "nfs_user", value)
+
+
+if not MYPY:
     class HourlyScheduleArgsDict(TypedDict):
         """
         Hourly Schedule properties
@@ -1437,6 +1593,62 @@ class MonthlyScheduleArgs:
     @used_bytes.setter
     def used_bytes(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "used_bytes", value)
+
+
+if not MYPY:
+    class NfsUserArgsDict(TypedDict):
+        """
+        The effective NFS User ID and Group ID when accessing the volume data.
+        """
+        group_id: NotRequired[pulumi.Input[float]]
+        """
+        The NFS user's GID
+        """
+        user_id: NotRequired[pulumi.Input[float]]
+        """
+        The NFS user's UID
+        """
+elif False:
+    NfsUserArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NfsUserArgs:
+    def __init__(__self__, *,
+                 group_id: Optional[pulumi.Input[float]] = None,
+                 user_id: Optional[pulumi.Input[float]] = None):
+        """
+        The effective NFS User ID and Group ID when accessing the volume data.
+        :param pulumi.Input[float] group_id: The NFS user's GID
+        :param pulumi.Input[float] user_id: The NFS user's UID
+        """
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if user_id is not None:
+            pulumi.set(__self__, "user_id", user_id)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[pulumi.Input[float]]:
+        """
+        The NFS user's GID
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "group_id", value)
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> Optional[pulumi.Input[float]]:
+        """
+        The NFS user's UID
+        """
+        return pulumi.get(self, "user_id")
+
+    @user_id.setter
+    def user_id(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "user_id", value)
 
 
 if not MYPY:

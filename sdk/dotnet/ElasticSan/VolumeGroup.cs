@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ElasticSan
     /// 
     /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2021-11-20-preview.
     /// 
-    /// Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:elasticsan:VolumeGroup")]
     public partial class VolumeGroup : global::Pulumi.CustomResource
@@ -121,6 +121,7 @@ namespace Pulumi.AzureNative.ElasticSan
                     new global::Pulumi.Alias { Type = "azure-native:elasticsan/v20230101:VolumeGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:elasticsan/v20240501:VolumeGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:elasticsan/v20240601preview:VolumeGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:elasticsan/v20240701preview:VolumeGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

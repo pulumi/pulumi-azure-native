@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Gets the detailed information for a given task run that includes all secrets.
  *
  * Uses Azure REST API version 2019-06-01-preview.
+ *
+ * Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listTaskRunDetails(args: ListTaskRunDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListTaskRunDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -86,6 +88,8 @@ export interface ListTaskRunDetailsResult {
  * Gets the detailed information for a given task run that includes all secrets.
  *
  * Uses Azure REST API version 2019-06-01-preview.
+ *
+ * Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listTaskRunDetailsOutput(args: ListTaskRunDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListTaskRunDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

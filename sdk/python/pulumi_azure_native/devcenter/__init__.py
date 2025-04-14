@@ -34,6 +34,7 @@ from .get_project import *
 from .get_project_catalog import *
 from .get_project_catalog_environment_definition_error_details import *
 from .get_project_catalog_image_definition_build_details import *
+from .get_project_catalog_image_definition_error_details import *
 from .get_project_catalog_sync_error_details import *
 from .get_project_environment_type import *
 from .get_project_inherited_settings import *

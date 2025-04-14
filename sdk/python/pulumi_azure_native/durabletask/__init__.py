@@ -5,8 +5,11 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
+from .get_retention_policy import *
 from .get_scheduler import *
 from .get_task_hub import *
+from .retention_policy import *
 from .scheduler import *
 from .task_hub import *
 from ._inputs import *

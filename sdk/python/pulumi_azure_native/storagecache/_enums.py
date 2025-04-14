@@ -7,6 +7,8 @@ from enum import Enum
 __all__ = [
     'AmlFilesystemIdentityType',
     'AmlFilesystemSquashMode',
+    'AutoExportJobAdminStatus',
+    'AutoExportStatusType',
     'CacheIdentityType',
     'ConflictResolutionMode',
     'MaintenanceDayOfWeekType',
@@ -33,6 +35,25 @@ class AmlFilesystemSquashMode(str, Enum):
     NONE = "None"
     ROOT_ONLY = "RootOnly"
     ALL = "All"
+
+
+class AutoExportJobAdminStatus(str, Enum):
+    """
+    The administrative status of the auto export job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will disable the current active auto export job. By default it is set to 'Enable'.
+    """
+    ENABLE = "Enable"
+    DISABLE = "Disable"
+
+
+class AutoExportStatusType(str, Enum):
+    """
+    The operational state of auto export. InProgress indicates the export is running.  Disabling indicates the user has requested to disable the export but the disabling is still in progress. Disabled indicates auto export has been disabled.  DisableFailed indicates the disabling has failed.  Failed means the export was unable to continue, due to a fatal error.
+    """
+    IN_PROGRESS = "InProgress"
+    DISABLING = "Disabling"
+    DISABLED = "Disabled"
+    DISABLE_FAILED = "DisableFailed"
+    FAILED = "Failed"
 
 
 class CacheIdentityType(str, Enum):

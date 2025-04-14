@@ -71,6 +71,71 @@ namespace Pulumi.AzureNative.StorageCache
     }
 
     /// <summary>
+    /// The administrative status of the auto export job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will disable the current active auto export job. By default it is set to 'Enable'.
+    /// </summary>
+    [EnumType]
+    public readonly struct AutoExportJobAdminStatus : IEquatable<AutoExportJobAdminStatus>
+    {
+        private readonly string _value;
+
+        private AutoExportJobAdminStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AutoExportJobAdminStatus Enable { get; } = new AutoExportJobAdminStatus("Enable");
+        public static AutoExportJobAdminStatus Disable { get; } = new AutoExportJobAdminStatus("Disable");
+
+        public static bool operator ==(AutoExportJobAdminStatus left, AutoExportJobAdminStatus right) => left.Equals(right);
+        public static bool operator !=(AutoExportJobAdminStatus left, AutoExportJobAdminStatus right) => !left.Equals(right);
+
+        public static explicit operator string(AutoExportJobAdminStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutoExportJobAdminStatus other && Equals(other);
+        public bool Equals(AutoExportJobAdminStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The operational state of auto export. InProgress indicates the export is running.  Disabling indicates the user has requested to disable the export but the disabling is still in progress. Disabled indicates auto export has been disabled.  DisableFailed indicates the disabling has failed.  Failed means the export was unable to continue, due to a fatal error.
+    /// </summary>
+    [EnumType]
+    public readonly struct AutoExportStatusType : IEquatable<AutoExportStatusType>
+    {
+        private readonly string _value;
+
+        private AutoExportStatusType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AutoExportStatusType InProgress { get; } = new AutoExportStatusType("InProgress");
+        public static AutoExportStatusType Disabling { get; } = new AutoExportStatusType("Disabling");
+        public static AutoExportStatusType Disabled { get; } = new AutoExportStatusType("Disabled");
+        public static AutoExportStatusType DisableFailed { get; } = new AutoExportStatusType("DisableFailed");
+        public static AutoExportStatusType Failed { get; } = new AutoExportStatusType("Failed");
+
+        public static bool operator ==(AutoExportStatusType left, AutoExportStatusType right) => left.Equals(right);
+        public static bool operator !=(AutoExportStatusType left, AutoExportStatusType right) => !left.Equals(right);
+
+        public static explicit operator string(AutoExportStatusType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutoExportStatusType other && Equals(other);
+        public bool Equals(AutoExportStatusType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of identity used for the cache
     /// </summary>
     [EnumType]

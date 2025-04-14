@@ -20,10 +20,16 @@ __all__ = [
     'AzStackHCIClusterPropertiesArgsDict',
     'AzStackHCIFabricModelCustomPropertiesArgs',
     'AzStackHCIFabricModelCustomPropertiesArgsDict',
+    'ConnectionDetailsArgs',
+    'ConnectionDetailsArgsDict',
     'DraModelPropertiesArgs',
     'DraModelPropertiesArgsDict',
+    'FabricAgentModelPropertiesArgs',
+    'FabricAgentModelPropertiesArgsDict',
     'FabricModelPropertiesArgs',
     'FabricModelPropertiesArgsDict',
+    'GroupConnectivityInformationArgs',
+    'GroupConnectivityInformationArgsDict',
     'HyperVMigrateFabricModelCustomPropertiesArgs',
     'HyperVMigrateFabricModelCustomPropertiesArgsDict',
     'HyperVToAzStackHCIDiskInputArgs',
@@ -40,16 +46,34 @@ __all__ = [
     'IdentityModelArgsDict',
     'PolicyModelPropertiesArgs',
     'PolicyModelPropertiesArgsDict',
+    'PrivateEndpointConnectionProxyPropertiesArgs',
+    'PrivateEndpointConnectionProxyPropertiesArgsDict',
+    'PrivateEndpointConnectionResponsePropertiesArgs',
+    'PrivateEndpointConnectionResponsePropertiesArgsDict',
+    'PrivateEndpointArgs',
+    'PrivateEndpointArgsDict',
+    'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
+    'PrivateLinkServiceConnectionArgs',
+    'PrivateLinkServiceConnectionArgsDict',
+    'PrivateLinkServiceProxyArgs',
+    'PrivateLinkServiceProxyArgsDict',
     'ProtectedItemDynamicMemoryConfigArgs',
     'ProtectedItemDynamicMemoryConfigArgsDict',
     'ProtectedItemModelPropertiesArgs',
     'ProtectedItemModelPropertiesArgsDict',
+    'RemotePrivateEndpointConnectionArgs',
+    'RemotePrivateEndpointConnectionArgsDict',
+    'RemotePrivateEndpointArgs',
+    'RemotePrivateEndpointArgsDict',
     'ReplicationExtensionModelPropertiesArgs',
     'ReplicationExtensionModelPropertiesArgsDict',
     'StorageContainerPropertiesArgs',
     'StorageContainerPropertiesArgsDict',
     'VMwareDraModelCustomPropertiesArgs',
     'VMwareDraModelCustomPropertiesArgsDict',
+    'VMwareFabricAgentModelCustomPropertiesArgs',
+    'VMwareFabricAgentModelCustomPropertiesArgsDict',
     'VMwareMigrateFabricModelCustomPropertiesArgs',
     'VMwareMigrateFabricModelCustomPropertiesArgsDict',
     'VMwareToAzStackHCIDiskInputArgs',
@@ -256,6 +280,122 @@ class AzStackHCIFabricModelCustomPropertiesArgs:
 
 
 if not MYPY:
+    class ConnectionDetailsArgsDict(TypedDict):
+        """
+        Private endpoint connection details at member level.
+        """
+        group_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets group id.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets id.
+        """
+        link_identifier: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets link identifier.
+        """
+        member_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets member name.
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets private IP address.
+        """
+elif False:
+    ConnectionDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectionDetailsArgs:
+    def __init__(__self__, *,
+                 group_id: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 link_identifier: Optional[pulumi.Input[str]] = None,
+                 member_name: Optional[pulumi.Input[str]] = None,
+                 private_ip_address: Optional[pulumi.Input[str]] = None):
+        """
+        Private endpoint connection details at member level.
+        :param pulumi.Input[str] group_id: Gets or sets group id.
+        :param pulumi.Input[str] id: Gets or sets id.
+        :param pulumi.Input[str] link_identifier: Gets or sets link identifier.
+        :param pulumi.Input[str] member_name: Gets or sets member name.
+        :param pulumi.Input[str] private_ip_address: Gets or sets private IP address.
+        """
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if link_identifier is not None:
+            pulumi.set(__self__, "link_identifier", link_identifier)
+        if member_name is not None:
+            pulumi.set(__self__, "member_name", member_name)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets group id.
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_id", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets id.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="linkIdentifier")
+    def link_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets link identifier.
+        """
+        return pulumi.get(self, "link_identifier")
+
+    @link_identifier.setter
+    def link_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "link_identifier", value)
+
+    @property
+    @pulumi.getter(name="memberName")
+    def member_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets member name.
+        """
+        return pulumi.get(self, "member_name")
+
+    @member_name.setter
+    def member_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "member_name", value)
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets private IP address.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_ip_address", value)
+
+
+if not MYPY:
     class DraModelPropertiesArgsDict(TypedDict):
         """
         Dra model properties.
@@ -367,6 +507,117 @@ class DraModelPropertiesArgs:
 
 
 if not MYPY:
+    class FabricAgentModelPropertiesArgsDict(TypedDict):
+        """
+        Fabric agent model properties.
+        """
+        authentication_identity: pulumi.Input['IdentityModelArgsDict']
+        """
+        Identity model.
+        """
+        custom_properties: pulumi.Input['VMwareFabricAgentModelCustomPropertiesArgsDict']
+        """
+        Fabric agent model custom properties.
+        """
+        machine_id: pulumi.Input[str]
+        """
+        Gets or sets the machine Id where fabric agent is running.
+        """
+        machine_name: pulumi.Input[str]
+        """
+        Gets or sets the machine name where fabric agent is running.
+        """
+        resource_access_identity: pulumi.Input['IdentityModelArgsDict']
+        """
+        Identity model.
+        """
+elif False:
+    FabricAgentModelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FabricAgentModelPropertiesArgs:
+    def __init__(__self__, *,
+                 authentication_identity: pulumi.Input['IdentityModelArgs'],
+                 custom_properties: pulumi.Input['VMwareFabricAgentModelCustomPropertiesArgs'],
+                 machine_id: pulumi.Input[str],
+                 machine_name: pulumi.Input[str],
+                 resource_access_identity: pulumi.Input['IdentityModelArgs']):
+        """
+        Fabric agent model properties.
+        :param pulumi.Input['IdentityModelArgs'] authentication_identity: Identity model.
+        :param pulumi.Input['VMwareFabricAgentModelCustomPropertiesArgs'] custom_properties: Fabric agent model custom properties.
+        :param pulumi.Input[str] machine_id: Gets or sets the machine Id where fabric agent is running.
+        :param pulumi.Input[str] machine_name: Gets or sets the machine name where fabric agent is running.
+        :param pulumi.Input['IdentityModelArgs'] resource_access_identity: Identity model.
+        """
+        pulumi.set(__self__, "authentication_identity", authentication_identity)
+        pulumi.set(__self__, "custom_properties", custom_properties)
+        pulumi.set(__self__, "machine_id", machine_id)
+        pulumi.set(__self__, "machine_name", machine_name)
+        pulumi.set(__self__, "resource_access_identity", resource_access_identity)
+
+    @property
+    @pulumi.getter(name="authenticationIdentity")
+    def authentication_identity(self) -> pulumi.Input['IdentityModelArgs']:
+        """
+        Identity model.
+        """
+        return pulumi.get(self, "authentication_identity")
+
+    @authentication_identity.setter
+    def authentication_identity(self, value: pulumi.Input['IdentityModelArgs']):
+        pulumi.set(self, "authentication_identity", value)
+
+    @property
+    @pulumi.getter(name="customProperties")
+    def custom_properties(self) -> pulumi.Input['VMwareFabricAgentModelCustomPropertiesArgs']:
+        """
+        Fabric agent model custom properties.
+        """
+        return pulumi.get(self, "custom_properties")
+
+    @custom_properties.setter
+    def custom_properties(self, value: pulumi.Input['VMwareFabricAgentModelCustomPropertiesArgs']):
+        pulumi.set(self, "custom_properties", value)
+
+    @property
+    @pulumi.getter(name="machineId")
+    def machine_id(self) -> pulumi.Input[str]:
+        """
+        Gets or sets the machine Id where fabric agent is running.
+        """
+        return pulumi.get(self, "machine_id")
+
+    @machine_id.setter
+    def machine_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "machine_id", value)
+
+    @property
+    @pulumi.getter(name="machineName")
+    def machine_name(self) -> pulumi.Input[str]:
+        """
+        Gets or sets the machine name where fabric agent is running.
+        """
+        return pulumi.get(self, "machine_name")
+
+    @machine_name.setter
+    def machine_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "machine_name", value)
+
+    @property
+    @pulumi.getter(name="resourceAccessIdentity")
+    def resource_access_identity(self) -> pulumi.Input['IdentityModelArgs']:
+        """
+        Identity model.
+        """
+        return pulumi.get(self, "resource_access_identity")
+
+    @resource_access_identity.setter
+    def resource_access_identity(self, value: pulumi.Input['IdentityModelArgs']):
+        pulumi.set(self, "resource_access_identity", value)
+
+
+if not MYPY:
     class FabricModelPropertiesArgsDict(TypedDict):
         """
         Fabric model properties.
@@ -399,6 +650,142 @@ class FabricModelPropertiesArgs:
     @custom_properties.setter
     def custom_properties(self, value: pulumi.Input[Union['AzStackHCIFabricModelCustomPropertiesArgs', 'HyperVMigrateFabricModelCustomPropertiesArgs', 'VMwareMigrateFabricModelCustomPropertiesArgs']]):
         pulumi.set(self, "custom_properties", value)
+
+
+if not MYPY:
+    class GroupConnectivityInformationArgsDict(TypedDict):
+        """
+        Represents of a connection's group information.
+        """
+        customer_visible_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Gets or sets customer visible FQDNs.
+        """
+        group_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets group id.
+        """
+        internal_fqdn: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets Internal Fqdn.
+        """
+        member_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets member name.
+        """
+        private_link_service_arm_region: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the private link service arm region.
+        """
+        redirect_map_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the redirect map id.
+        """
+elif False:
+    GroupConnectivityInformationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GroupConnectivityInformationArgs:
+    def __init__(__self__, *,
+                 customer_visible_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 group_id: Optional[pulumi.Input[str]] = None,
+                 internal_fqdn: Optional[pulumi.Input[str]] = None,
+                 member_name: Optional[pulumi.Input[str]] = None,
+                 private_link_service_arm_region: Optional[pulumi.Input[str]] = None,
+                 redirect_map_id: Optional[pulumi.Input[str]] = None):
+        """
+        Represents of a connection's group information.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] customer_visible_fqdns: Gets or sets customer visible FQDNs.
+        :param pulumi.Input[str] group_id: Gets or sets group id.
+        :param pulumi.Input[str] internal_fqdn: Gets or sets Internal Fqdn.
+        :param pulumi.Input[str] member_name: Gets or sets member name.
+        :param pulumi.Input[str] private_link_service_arm_region: Gets or sets the private link service arm region.
+        :param pulumi.Input[str] redirect_map_id: Gets or sets the redirect map id.
+        """
+        if customer_visible_fqdns is not None:
+            pulumi.set(__self__, "customer_visible_fqdns", customer_visible_fqdns)
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if internal_fqdn is not None:
+            pulumi.set(__self__, "internal_fqdn", internal_fqdn)
+        if member_name is not None:
+            pulumi.set(__self__, "member_name", member_name)
+        if private_link_service_arm_region is not None:
+            pulumi.set(__self__, "private_link_service_arm_region", private_link_service_arm_region)
+        if redirect_map_id is not None:
+            pulumi.set(__self__, "redirect_map_id", redirect_map_id)
+
+    @property
+    @pulumi.getter(name="customerVisibleFqdns")
+    def customer_visible_fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Gets or sets customer visible FQDNs.
+        """
+        return pulumi.get(self, "customer_visible_fqdns")
+
+    @customer_visible_fqdns.setter
+    def customer_visible_fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "customer_visible_fqdns", value)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets group id.
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_id", value)
+
+    @property
+    @pulumi.getter(name="internalFqdn")
+    def internal_fqdn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets Internal Fqdn.
+        """
+        return pulumi.get(self, "internal_fqdn")
+
+    @internal_fqdn.setter
+    def internal_fqdn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "internal_fqdn", value)
+
+    @property
+    @pulumi.getter(name="memberName")
+    def member_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets member name.
+        """
+        return pulumi.get(self, "member_name")
+
+    @member_name.setter
+    def member_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "member_name", value)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceArmRegion")
+    def private_link_service_arm_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the private link service arm region.
+        """
+        return pulumi.get(self, "private_link_service_arm_region")
+
+    @private_link_service_arm_region.setter
+    def private_link_service_arm_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_link_service_arm_region", value)
+
+    @property
+    @pulumi.getter(name="redirectMapId")
+    def redirect_map_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the redirect map id.
+        """
+        return pulumi.get(self, "redirect_map_id")
+
+    @redirect_map_id.setter
+    def redirect_map_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "redirect_map_id", value)
 
 
 if not MYPY:
@@ -1331,24 +1718,23 @@ if not MYPY:
         """
         aad_authority: pulumi.Input[str]
         """
-        Gets or sets the authority of the SPN with which Dra communicates to service.
+        Gets or sets the authority of the SPN with which fabric agent communicates to service.
         """
         application_id: pulumi.Input[str]
         """
-        Gets or sets the client/application Id of the SPN with which Dra communicates to
-        service.
+        Gets or sets the client/application Id of the SPN with which fabric agent communicates to service.
         """
         audience: pulumi.Input[str]
         """
-        Gets or sets the audience of the SPN with which Dra communicates to service.
+        Gets or sets the audience of the SPN with which fabric agent communicates to service.
         """
         object_id: pulumi.Input[str]
         """
-        Gets or sets the object Id of the SPN with which Dra communicates to service.
+        Gets or sets the object Id of the SPN with which fabric agent communicates to service.
         """
         tenant_id: pulumi.Input[str]
         """
-        Gets or sets the tenant Id of the SPN with which Dra communicates to service.
+        Gets or sets the tenant Id of the SPN with which fabric agent communicates to service.
         """
 elif False:
     IdentityModelArgsDict: TypeAlias = Mapping[str, Any]
@@ -1363,12 +1749,11 @@ class IdentityModelArgs:
                  tenant_id: pulumi.Input[str]):
         """
         Identity model.
-        :param pulumi.Input[str] aad_authority: Gets or sets the authority of the SPN with which Dra communicates to service.
-        :param pulumi.Input[str] application_id: Gets or sets the client/application Id of the SPN with which Dra communicates to
-               service.
-        :param pulumi.Input[str] audience: Gets or sets the audience of the SPN with which Dra communicates to service.
-        :param pulumi.Input[str] object_id: Gets or sets the object Id of the SPN with which Dra communicates to service.
-        :param pulumi.Input[str] tenant_id: Gets or sets the tenant Id of the SPN with which Dra communicates to service.
+        :param pulumi.Input[str] aad_authority: Gets or sets the authority of the SPN with which fabric agent communicates to service.
+        :param pulumi.Input[str] application_id: Gets or sets the client/application Id of the SPN with which fabric agent communicates to service.
+        :param pulumi.Input[str] audience: Gets or sets the audience of the SPN with which fabric agent communicates to service.
+        :param pulumi.Input[str] object_id: Gets or sets the object Id of the SPN with which fabric agent communicates to service.
+        :param pulumi.Input[str] tenant_id: Gets or sets the tenant Id of the SPN with which fabric agent communicates to service.
         """
         pulumi.set(__self__, "aad_authority", aad_authority)
         pulumi.set(__self__, "application_id", application_id)
@@ -1380,7 +1765,7 @@ class IdentityModelArgs:
     @pulumi.getter(name="aadAuthority")
     def aad_authority(self) -> pulumi.Input[str]:
         """
-        Gets or sets the authority of the SPN with which Dra communicates to service.
+        Gets or sets the authority of the SPN with which fabric agent communicates to service.
         """
         return pulumi.get(self, "aad_authority")
 
@@ -1392,8 +1777,7 @@ class IdentityModelArgs:
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[str]:
         """
-        Gets or sets the client/application Id of the SPN with which Dra communicates to
-        service.
+        Gets or sets the client/application Id of the SPN with which fabric agent communicates to service.
         """
         return pulumi.get(self, "application_id")
 
@@ -1405,7 +1789,7 @@ class IdentityModelArgs:
     @pulumi.getter
     def audience(self) -> pulumi.Input[str]:
         """
-        Gets or sets the audience of the SPN with which Dra communicates to service.
+        Gets or sets the audience of the SPN with which fabric agent communicates to service.
         """
         return pulumi.get(self, "audience")
 
@@ -1417,7 +1801,7 @@ class IdentityModelArgs:
     @pulumi.getter(name="objectId")
     def object_id(self) -> pulumi.Input[str]:
         """
-        Gets or sets the object Id of the SPN with which Dra communicates to service.
+        Gets or sets the object Id of the SPN with which fabric agent communicates to service.
         """
         return pulumi.get(self, "object_id")
 
@@ -1429,7 +1813,7 @@ class IdentityModelArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Input[str]:
         """
-        Gets or sets the tenant Id of the SPN with which Dra communicates to service.
+        Gets or sets the tenant Id of the SPN with which fabric agent communicates to service.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -1471,6 +1855,382 @@ class PolicyModelPropertiesArgs:
     @custom_properties.setter
     def custom_properties(self, value: pulumi.Input[Union['HyperVToAzStackHCIPolicyModelCustomPropertiesArgs', 'VMwareToAzStackHCIPolicyModelCustomPropertiesArgs']]):
         pulumi.set(self, "custom_properties", value)
+
+
+if not MYPY:
+    class PrivateEndpointConnectionProxyPropertiesArgsDict(TypedDict):
+        """
+        Represents private endpoint connection proxy request.
+        """
+        remote_private_endpoint: NotRequired[pulumi.Input['RemotePrivateEndpointArgsDict']]
+        """
+        Represent remote private endpoint information for the private endpoint connection proxy.
+        """
+elif False:
+    PrivateEndpointConnectionProxyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PrivateEndpointConnectionProxyPropertiesArgs:
+    def __init__(__self__, *,
+                 remote_private_endpoint: Optional[pulumi.Input['RemotePrivateEndpointArgs']] = None):
+        """
+        Represents private endpoint connection proxy request.
+        :param pulumi.Input['RemotePrivateEndpointArgs'] remote_private_endpoint: Represent remote private endpoint information for the private endpoint connection proxy.
+        """
+        if remote_private_endpoint is not None:
+            pulumi.set(__self__, "remote_private_endpoint", remote_private_endpoint)
+
+    @property
+    @pulumi.getter(name="remotePrivateEndpoint")
+    def remote_private_endpoint(self) -> Optional[pulumi.Input['RemotePrivateEndpointArgs']]:
+        """
+        Represent remote private endpoint information for the private endpoint connection proxy.
+        """
+        return pulumi.get(self, "remote_private_endpoint")
+
+    @remote_private_endpoint.setter
+    def remote_private_endpoint(self, value: Optional[pulumi.Input['RemotePrivateEndpointArgs']]):
+        pulumi.set(self, "remote_private_endpoint", value)
+
+
+if not MYPY:
+    class PrivateEndpointConnectionResponsePropertiesArgsDict(TypedDict):
+        """
+        Represents Private endpoint connection response properties.
+        """
+        private_endpoint: NotRequired[pulumi.Input['PrivateEndpointArgsDict']]
+        """
+        Represent private Endpoint network resource that is linked to the Private Endpoint connection.
+        """
+        private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']]
+        """
+        Represents Private link service connection state.
+        """
+elif False:
+    PrivateEndpointConnectionResponsePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PrivateEndpointConnectionResponsePropertiesArgs:
+    def __init__(__self__, *,
+                 private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None):
+        """
+        Represents Private endpoint connection response properties.
+        :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: Represent private Endpoint network resource that is linked to the Private Endpoint connection.
+        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Represents Private link service connection state.
+        """
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional[pulumi.Input['PrivateEndpointArgs']]:
+        """
+        Represent private Endpoint network resource that is linked to the Private Endpoint connection.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @private_endpoint.setter
+    def private_endpoint(self, value: Optional[pulumi.Input['PrivateEndpointArgs']]):
+        pulumi.set(self, "private_endpoint", value)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]:
+        """
+        Represents Private link service connection state.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]):
+        pulumi.set(self, "private_link_service_connection_state", value)
+
+
+if not MYPY:
+    class PrivateEndpointArgsDict(TypedDict):
+        """
+        Represent private Endpoint network resource that is linked to the Private Endpoint connection.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the id.
+        """
+elif False:
+    PrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PrivateEndpointArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        Represent private Endpoint network resource that is linked to the Private Endpoint connection.
+        :param pulumi.Input[str] id: Gets or sets the id.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the id.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        Represents Private link service connection state.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets actions required.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets description.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointConnectionStatus']]]
+        """
+        Gets or sets the status.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PrivateLinkServiceConnectionStateArgs:
+    def __init__(__self__, *,
+                 actions_required: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'PrivateEndpointConnectionStatus']]] = None):
+        """
+        Represents Private link service connection state.
+        :param pulumi.Input[str] actions_required: Gets or sets actions required.
+        :param pulumi.Input[str] description: Gets or sets description.
+        :param pulumi.Input[Union[str, 'PrivateEndpointConnectionStatus']] status: Gets or sets the status.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets actions required.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @actions_required.setter
+    def actions_required(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "actions_required", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateEndpointConnectionStatus']]]:
+        """
+        Gets or sets the status.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointConnectionStatus']]]):
+        pulumi.set(self, "status", value)
+
+
+if not MYPY:
+    class PrivateLinkServiceConnectionArgsDict(TypedDict):
+        """
+        Represents of an NRP private link service connection.
+        """
+        group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Gets or sets group ids.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets private link service connection name.
+        """
+        request_message: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the request message for the private link service connection.
+        """
+elif False:
+    PrivateLinkServiceConnectionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PrivateLinkServiceConnectionArgs:
+    def __init__(__self__, *,
+                 group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 request_message: Optional[pulumi.Input[str]] = None):
+        """
+        Represents of an NRP private link service connection.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: Gets or sets group ids.
+        :param pulumi.Input[str] name: Gets or sets private link service connection name.
+        :param pulumi.Input[str] request_message: Gets or sets the request message for the private link service connection.
+        """
+        if group_ids is not None:
+            pulumi.set(__self__, "group_ids", group_ids)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if request_message is not None:
+            pulumi.set(__self__, "request_message", request_message)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Gets or sets group ids.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @group_ids.setter
+    def group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "group_ids", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets private link service connection name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="requestMessage")
+    def request_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the request message for the private link service connection.
+        """
+        return pulumi.get(self, "request_message")
+
+    @request_message.setter
+    def request_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "request_message", value)
+
+
+if not MYPY:
+    class PrivateLinkServiceProxyArgsDict(TypedDict):
+        """
+        Represents NRP private link service proxy.
+        """
+        group_connectivity_information: NotRequired[pulumi.Input[Sequence[pulumi.Input['GroupConnectivityInformationArgsDict']]]]
+        """
+        Gets or sets group connectivity information.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets private link service proxy id.
+        """
+        remote_private_endpoint_connection: NotRequired[pulumi.Input['RemotePrivateEndpointConnectionArgsDict']]
+        """
+        Represent remote private endpoint connection.
+        """
+        remote_private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']]
+        """
+        Represents Private link service connection state.
+        """
+elif False:
+    PrivateLinkServiceProxyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PrivateLinkServiceProxyArgs:
+    def __init__(__self__, *,
+                 group_connectivity_information: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConnectivityInformationArgs']]]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 remote_private_endpoint_connection: Optional[pulumi.Input['RemotePrivateEndpointConnectionArgs']] = None,
+                 remote_private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None):
+        """
+        Represents NRP private link service proxy.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupConnectivityInformationArgs']]] group_connectivity_information: Gets or sets group connectivity information.
+        :param pulumi.Input[str] id: Gets or sets private link service proxy id.
+        :param pulumi.Input['RemotePrivateEndpointConnectionArgs'] remote_private_endpoint_connection: Represent remote private endpoint connection.
+        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] remote_private_link_service_connection_state: Represents Private link service connection state.
+        """
+        if group_connectivity_information is not None:
+            pulumi.set(__self__, "group_connectivity_information", group_connectivity_information)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if remote_private_endpoint_connection is not None:
+            pulumi.set(__self__, "remote_private_endpoint_connection", remote_private_endpoint_connection)
+        if remote_private_link_service_connection_state is not None:
+            pulumi.set(__self__, "remote_private_link_service_connection_state", remote_private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="groupConnectivityInformation")
+    def group_connectivity_information(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupConnectivityInformationArgs']]]]:
+        """
+        Gets or sets group connectivity information.
+        """
+        return pulumi.get(self, "group_connectivity_information")
+
+    @group_connectivity_information.setter
+    def group_connectivity_information(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConnectivityInformationArgs']]]]):
+        pulumi.set(self, "group_connectivity_information", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets private link service proxy id.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="remotePrivateEndpointConnection")
+    def remote_private_endpoint_connection(self) -> Optional[pulumi.Input['RemotePrivateEndpointConnectionArgs']]:
+        """
+        Represent remote private endpoint connection.
+        """
+        return pulumi.get(self, "remote_private_endpoint_connection")
+
+    @remote_private_endpoint_connection.setter
+    def remote_private_endpoint_connection(self, value: Optional[pulumi.Input['RemotePrivateEndpointConnectionArgs']]):
+        pulumi.set(self, "remote_private_endpoint_connection", value)
+
+    @property
+    @pulumi.getter(name="remotePrivateLinkServiceConnectionState")
+    def remote_private_link_service_connection_state(self) -> Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]:
+        """
+        Represents Private link service connection state.
+        """
+        return pulumi.get(self, "remote_private_link_service_connection_state")
+
+    @remote_private_link_service_connection_state.setter
+    def remote_private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]):
+        pulumi.set(self, "remote_private_link_service_connection_state", value)
 
 
 if not MYPY:
@@ -1620,6 +2380,157 @@ class ProtectedItemModelPropertiesArgs:
 
 
 if not MYPY:
+    class RemotePrivateEndpointConnectionArgsDict(TypedDict):
+        """
+        Represent remote private endpoint connection.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the remote private endpoint connection id.
+        """
+elif False:
+    RemotePrivateEndpointConnectionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RemotePrivateEndpointConnectionArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        Represent remote private endpoint connection.
+        :param pulumi.Input[str] id: Gets or sets the remote private endpoint connection id.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the remote private endpoint connection id.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class RemotePrivateEndpointArgsDict(TypedDict):
+        """
+        Represent remote private endpoint information for the private endpoint connection proxy.
+        """
+        id: pulumi.Input[str]
+        """
+        Gets or sets private link service proxy id.
+        """
+        connection_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnectionDetailsArgsDict']]]]
+        """
+        Gets or sets the list of Connection Details. This is the connection details for private endpoint.
+        """
+        manual_private_link_service_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgsDict']]]]
+        """
+        Gets or sets the list of Manual Private Link Service Connections and gets populated for Manual approval flow.
+        """
+        private_link_service_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgsDict']]]]
+        """
+        Gets or sets the list of Private Link Service Connections and gets populated for Auto approval flow.
+        """
+        private_link_service_proxies: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceProxyArgsDict']]]]
+        """
+        Gets or sets the list of private link service proxies.
+        """
+elif False:
+    RemotePrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RemotePrivateEndpointArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 connection_details: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionDetailsArgs']]]] = None,
+                 manual_private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]] = None,
+                 private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]] = None,
+                 private_link_service_proxies: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceProxyArgs']]]] = None):
+        """
+        Represent remote private endpoint information for the private endpoint connection proxy.
+        :param pulumi.Input[str] id: Gets or sets private link service proxy id.
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectionDetailsArgs']]] connection_details: Gets or sets the list of Connection Details. This is the connection details for private endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]] manual_private_link_service_connections: Gets or sets the list of Manual Private Link Service Connections and gets populated for Manual approval flow.
+        :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]] private_link_service_connections: Gets or sets the list of Private Link Service Connections and gets populated for Auto approval flow.
+        :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceProxyArgs']]] private_link_service_proxies: Gets or sets the list of private link service proxies.
+        """
+        pulumi.set(__self__, "id", id)
+        if connection_details is not None:
+            pulumi.set(__self__, "connection_details", connection_details)
+        if manual_private_link_service_connections is not None:
+            pulumi.set(__self__, "manual_private_link_service_connections", manual_private_link_service_connections)
+        if private_link_service_connections is not None:
+            pulumi.set(__self__, "private_link_service_connections", private_link_service_connections)
+        if private_link_service_proxies is not None:
+            pulumi.set(__self__, "private_link_service_proxies", private_link_service_proxies)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        Gets or sets private link service proxy id.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="connectionDetails")
+    def connection_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionDetailsArgs']]]]:
+        """
+        Gets or sets the list of Connection Details. This is the connection details for private endpoint.
+        """
+        return pulumi.get(self, "connection_details")
+
+    @connection_details.setter
+    def connection_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionDetailsArgs']]]]):
+        pulumi.set(self, "connection_details", value)
+
+    @property
+    @pulumi.getter(name="manualPrivateLinkServiceConnections")
+    def manual_private_link_service_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]]:
+        """
+        Gets or sets the list of Manual Private Link Service Connections and gets populated for Manual approval flow.
+        """
+        return pulumi.get(self, "manual_private_link_service_connections")
+
+    @manual_private_link_service_connections.setter
+    def manual_private_link_service_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]]):
+        pulumi.set(self, "manual_private_link_service_connections", value)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnections")
+    def private_link_service_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]]:
+        """
+        Gets or sets the list of Private Link Service Connections and gets populated for Auto approval flow.
+        """
+        return pulumi.get(self, "private_link_service_connections")
+
+    @private_link_service_connections.setter
+    def private_link_service_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]]):
+        pulumi.set(self, "private_link_service_connections", value)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceProxies")
+    def private_link_service_proxies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceProxyArgs']]]]:
+        """
+        Gets or sets the list of private link service proxies.
+        """
+        return pulumi.get(self, "private_link_service_proxies")
+
+    @private_link_service_proxies.setter
+    def private_link_service_proxies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceProxyArgs']]]]):
+        pulumi.set(self, "private_link_service_proxies", value)
+
+
+if not MYPY:
     class ReplicationExtensionModelPropertiesArgsDict(TypedDict):
         """
         Replication extension model properties.
@@ -1763,6 +2674,82 @@ class VMwareDraModelCustomPropertiesArgs:
     def instance_type(self) -> pulumi.Input[str]:
         """
         Gets or sets the instance type.
+        Expected value is 'VMware'.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="marsAuthenticationIdentity")
+    def mars_authentication_identity(self) -> pulumi.Input['IdentityModelArgs']:
+        """
+        Identity model.
+        """
+        return pulumi.get(self, "mars_authentication_identity")
+
+    @mars_authentication_identity.setter
+    def mars_authentication_identity(self, value: pulumi.Input['IdentityModelArgs']):
+        pulumi.set(self, "mars_authentication_identity", value)
+
+
+if not MYPY:
+    class VMwareFabricAgentModelCustomPropertiesArgsDict(TypedDict):
+        """
+        VMware fabric agent model custom properties.
+        """
+        bios_id: pulumi.Input[str]
+        """
+        Gets or sets the BIOS Id of the fabric agent machine.
+        """
+        instance_type: pulumi.Input[str]
+        """
+        Discriminator property for FabricAgentModelCustomProperties.
+        Expected value is 'VMware'.
+        """
+        mars_authentication_identity: pulumi.Input['IdentityModelArgsDict']
+        """
+        Identity model.
+        """
+elif False:
+    VMwareFabricAgentModelCustomPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VMwareFabricAgentModelCustomPropertiesArgs:
+    def __init__(__self__, *,
+                 bios_id: pulumi.Input[str],
+                 instance_type: pulumi.Input[str],
+                 mars_authentication_identity: pulumi.Input['IdentityModelArgs']):
+        """
+        VMware fabric agent model custom properties.
+        :param pulumi.Input[str] bios_id: Gets or sets the BIOS Id of the fabric agent machine.
+        :param pulumi.Input[str] instance_type: Discriminator property for FabricAgentModelCustomProperties.
+               Expected value is 'VMware'.
+        :param pulumi.Input['IdentityModelArgs'] mars_authentication_identity: Identity model.
+        """
+        pulumi.set(__self__, "bios_id", bios_id)
+        pulumi.set(__self__, "instance_type", 'VMware')
+        pulumi.set(__self__, "mars_authentication_identity", mars_authentication_identity)
+
+    @property
+    @pulumi.getter(name="biosId")
+    def bios_id(self) -> pulumi.Input[str]:
+        """
+        Gets or sets the BIOS Id of the fabric agent machine.
+        """
+        return pulumi.get(self, "bios_id")
+
+    @bios_id.setter
+    def bios_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bios_id", value)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> pulumi.Input[str]:
+        """
+        Discriminator property for FabricAgentModelCustomProperties.
         Expected value is 'VMware'.
         """
         return pulumi.get(self, "instance_type")

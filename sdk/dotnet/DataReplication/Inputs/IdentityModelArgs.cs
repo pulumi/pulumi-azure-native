@@ -16,32 +16,31 @@ namespace Pulumi.AzureNative.DataReplication.Inputs
     public sealed class IdentityModelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Gets or sets the authority of the SPN with which Dra communicates to service.
+        /// Gets or sets the authority of the SPN with which fabric agent communicates to service.
         /// </summary>
         [Input("aadAuthority", required: true)]
         public Input<string> AadAuthority { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the client/application Id of the SPN with which Dra communicates to
-        /// service.
+        /// Gets or sets the client/application Id of the SPN with which fabric agent communicates to service.
         /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the audience of the SPN with which Dra communicates to service.
+        /// Gets or sets the audience of the SPN with which fabric agent communicates to service.
         /// </summary>
         [Input("audience", required: true)]
         public Input<string> Audience { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the object Id of the SPN with which Dra communicates to service.
+        /// Gets or sets the object Id of the SPN with which fabric agent communicates to service.
         /// </summary>
         [Input("objectId", required: true)]
         public Input<string> ObjectId { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the tenant Id of the SPN with which Dra communicates to service.
+        /// Gets or sets the tenant Id of the SPN with which fabric agent communicates to service.
         /// </summary>
         [Input("tenantId", required: true)]
         public Input<string> TenantId { get; set; } = null!;

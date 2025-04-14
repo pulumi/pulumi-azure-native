@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Gets information about a specific offer.
  *
  * Uses Azure REST API version 2023-01-01.
+ *
+ * Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPrivateStoreCollectionOffer(args: GetPrivateStoreCollectionOfferArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateStoreCollectionOfferResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -109,6 +111,8 @@ export interface GetPrivateStoreCollectionOfferResult {
  * Gets information about a specific offer.
  *
  * Uses Azure REST API version 2023-01-01.
+ *
+ * Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPrivateStoreCollectionOfferOutput(args: GetPrivateStoreCollectionOfferOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateStoreCollectionOfferResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

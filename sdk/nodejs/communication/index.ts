@@ -40,6 +40,11 @@ export const getSenderUsername: typeof import("./getSenderUsername").getSenderUs
 export const getSenderUsernameOutput: typeof import("./getSenderUsername").getSenderUsernameOutput = null as any;
 utilities.lazyLoad(exports, ["getSenderUsername","getSenderUsernameOutput"], () => require("./getSenderUsername"));
 
+export { GetSmtpUsernameArgs, GetSmtpUsernameResult, GetSmtpUsernameOutputArgs } from "./getSmtpUsername";
+export const getSmtpUsername: typeof import("./getSmtpUsername").getSmtpUsername = null as any;
+export const getSmtpUsernameOutput: typeof import("./getSmtpUsername").getSmtpUsernameOutput = null as any;
+utilities.lazyLoad(exports, ["getSmtpUsername","getSmtpUsernameOutput"], () => require("./getSmtpUsername"));
+
 export { GetSuppressionListArgs, GetSuppressionListResult, GetSuppressionListOutputArgs } from "./getSuppressionList";
 export const getSuppressionList: typeof import("./getSuppressionList").getSuppressionList = null as any;
 export const getSuppressionListOutput: typeof import("./getSuppressionList").getSuppressionListOutput = null as any;
@@ -59,6 +64,11 @@ export { SenderUsernameArgs } from "./senderUsername";
 export type SenderUsername = import("./senderUsername").SenderUsername;
 export const SenderUsername: typeof import("./senderUsername").SenderUsername = null as any;
 utilities.lazyLoad(exports, ["SenderUsername"], () => require("./senderUsername"));
+
+export { SmtpUsernameArgs } from "./smtpUsername";
+export type SmtpUsername = import("./smtpUsername").SmtpUsername;
+export const SmtpUsername: typeof import("./smtpUsername").SmtpUsername = null as any;
+utilities.lazyLoad(exports, ["SmtpUsername"], () => require("./smtpUsername"));
 
 export { SuppressionListArgs } from "./suppressionList";
 export type SuppressionList = import("./suppressionList").SuppressionList;
@@ -86,6 +96,8 @@ const _module = {
                 return new EmailService(name, <any>undefined, { urn })
             case "azure-native:communication:SenderUsername":
                 return new SenderUsername(name, <any>undefined, { urn })
+            case "azure-native:communication:SmtpUsername":
+                return new SmtpUsername(name, <any>undefined, { urn })
             case "azure-native:communication:SuppressionList":
                 return new SuppressionList(name, <any>undefined, { urn })
             case "azure-native:communication:SuppressionListAddress":

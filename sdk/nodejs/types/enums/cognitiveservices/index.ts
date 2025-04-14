@@ -12,6 +12,148 @@ export const ByPassSelection = {
  */
 export type ByPassSelection = (typeof ByPassSelection)[keyof typeof ByPassSelection];
 
+export const CapabilityHostKind = {
+    Agents: "Agents",
+} as const;
+
+/**
+ * Kind of this capability host.
+ */
+export type CapabilityHostKind = (typeof CapabilityHostKind)[keyof typeof CapabilityHostKind];
+
+export const ConnectionAuthType = {
+    PAT: "PAT",
+    ManagedIdentity: "ManagedIdentity",
+    UsernamePassword: "UsernamePassword",
+    None: "None",
+    SAS: "SAS",
+    AccountKey: "AccountKey",
+    ServicePrincipal: "ServicePrincipal",
+    AccessKey: "AccessKey",
+    ApiKey: "ApiKey",
+    CustomKeys: "CustomKeys",
+    OAuth2: "OAuth2",
+    AAD: "AAD",
+} as const;
+
+/**
+ * Authentication type of the connection target
+ */
+export type ConnectionAuthType = (typeof ConnectionAuthType)[keyof typeof ConnectionAuthType];
+
+export const ConnectionCategory = {
+    PythonFeed: "PythonFeed",
+    ContainerRegistry: "ContainerRegistry",
+    Git: "Git",
+    S3: "S3",
+    Snowflake: "Snowflake",
+    AzureSqlDb: "AzureSqlDb",
+    AzureSynapseAnalytics: "AzureSynapseAnalytics",
+    AzureMySqlDb: "AzureMySqlDb",
+    AzurePostgresDb: "AzurePostgresDb",
+    ADLSGen2: "ADLSGen2",
+    Redis: "Redis",
+    ApiKey: "ApiKey",
+    AzureOpenAI: "AzureOpenAI",
+    AIServices: "AIServices",
+    CognitiveSearch: "CognitiveSearch",
+    CognitiveService: "CognitiveService",
+    CustomKeys: "CustomKeys",
+    AzureBlob: "AzureBlob",
+    AzureOneLake: "AzureOneLake",
+    CosmosDb: "CosmosDb",
+    CosmosDbMongoDbApi: "CosmosDbMongoDbApi",
+    AzureDataExplorer: "AzureDataExplorer",
+    AzureMariaDb: "AzureMariaDb",
+    AzureDatabricksDeltaLake: "AzureDatabricksDeltaLake",
+    AzureSqlMi: "AzureSqlMi",
+    AzureTableStorage: "AzureTableStorage",
+    AmazonRdsForOracle: "AmazonRdsForOracle",
+    AmazonRdsForSqlServer: "AmazonRdsForSqlServer",
+    AmazonRedshift: "AmazonRedshift",
+    Db2: "Db2",
+    Drill: "Drill",
+    GoogleBigQuery: "GoogleBigQuery",
+    Greenplum: "Greenplum",
+    Hbase: "Hbase",
+    Hive: "Hive",
+    Impala: "Impala",
+    Informix: "Informix",
+    MariaDb: "MariaDb",
+    MicrosoftAccess: "MicrosoftAccess",
+    MySql: "MySql",
+    Netezza: "Netezza",
+    Oracle: "Oracle",
+    Phoenix: "Phoenix",
+    PostgreSql: "PostgreSql",
+    Presto: "Presto",
+    SapOpenHub: "SapOpenHub",
+    SapBw: "SapBw",
+    SapHana: "SapHana",
+    SapTable: "SapTable",
+    Spark: "Spark",
+    SqlServer: "SqlServer",
+    Sybase: "Sybase",
+    Teradata: "Teradata",
+    Vertica: "Vertica",
+    Pinecone: "Pinecone",
+    Cassandra: "Cassandra",
+    Couchbase: "Couchbase",
+    MongoDbV2: "MongoDbV2",
+    MongoDbAtlas: "MongoDbAtlas",
+    AmazonS3Compatible: "AmazonS3Compatible",
+    FileServer: "FileServer",
+    FtpServer: "FtpServer",
+    GoogleCloudStorage: "GoogleCloudStorage",
+    Hdfs: "Hdfs",
+    OracleCloudStorage: "OracleCloudStorage",
+    Sftp: "Sftp",
+    GenericHttp: "GenericHttp",
+    ODataRest: "ODataRest",
+    Odbc: "Odbc",
+    GenericRest: "GenericRest",
+    AmazonMws: "AmazonMws",
+    Concur: "Concur",
+    Dynamics: "Dynamics",
+    DynamicsAx: "DynamicsAx",
+    DynamicsCrm: "DynamicsCrm",
+    GoogleAdWords: "GoogleAdWords",
+    Hubspot: "Hubspot",
+    Jira: "Jira",
+    Magento: "Magento",
+    Marketo: "Marketo",
+    Office365: "Office365",
+    Eloqua: "Eloqua",
+    Responsys: "Responsys",
+    OracleServiceCloud: "OracleServiceCloud",
+    PayPal: "PayPal",
+    QuickBooks: "QuickBooks",
+    Salesforce: "Salesforce",
+    SalesforceServiceCloud: "SalesforceServiceCloud",
+    SalesforceMarketingCloud: "SalesforceMarketingCloud",
+    SapCloudForCustomer: "SapCloudForCustomer",
+    SapEcc: "SapEcc",
+    ServiceNow: "ServiceNow",
+    SharePointOnlineList: "SharePointOnlineList",
+    Shopify: "Shopify",
+    Square: "Square",
+    WebTable: "WebTable",
+    Xero: "Xero",
+    Zoho: "Zoho",
+    GenericContainerRegistry: "GenericContainerRegistry",
+    Elasticsearch: "Elasticsearch",
+    OpenAI: "OpenAI",
+    Serp: "Serp",
+    BingLLMSearch: "BingLLMSearch",
+    Serverless: "Serverless",
+    ManagedOnlineEndpoint: "ManagedOnlineEndpoint",
+} as const;
+
+/**
+ * Category of the connection
+ */
+export type ConnectionCategory = (typeof ConnectionCategory)[keyof typeof ConnectionCategory];
+
 export const ContentLevel = {
     Low: "Low",
     Medium: "Medium",
@@ -75,6 +217,22 @@ export const KeySource = {
  * Enumerates the possible value of keySource for Encryption
  */
 export type KeySource = (typeof KeySource)[keyof typeof KeySource];
+
+export const ManagedPERequirement = {
+    Required: "Required",
+    NotRequired: "NotRequired",
+    NotApplicable: "NotApplicable",
+} as const;
+
+export type ManagedPERequirement = (typeof ManagedPERequirement)[keyof typeof ManagedPERequirement];
+
+export const ManagedPEStatus = {
+    Inactive: "Inactive",
+    Active: "Active",
+    NotApplicable: "NotApplicable",
+} as const;
+
+export type ManagedPEStatus = (typeof ManagedPEStatus)[keyof typeof ManagedPEStatus];
 
 export const NetworkRuleAction = {
     Allow: "Allow",

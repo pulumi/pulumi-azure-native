@@ -15,11 +15,17 @@ namespace Pulumi.AzureNative.PowerPlatform.Inputs
     /// </summary>
     public sealed class PropertiesNetworkInjectionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("virtualNetworks")]
+        private InputList<Inputs.VirtualNetworkPropertiesArgs>? _virtualNetworks;
+
         /// <summary>
         /// Network injection configuration
         /// </summary>
-        [Input("virtualNetworks")]
-        public Input<Inputs.VirtualNetworkPropertiesListArgs>? VirtualNetworks { get; set; }
+        public InputList<Inputs.VirtualNetworkPropertiesArgs> VirtualNetworks
+        {
+            get => _virtualNetworks ?? (_virtualNetworks = new InputList<Inputs.VirtualNetworkPropertiesArgs>());
+            set => _virtualNetworks = value;
+        }
 
         public PropertiesNetworkInjectionArgs()
         {

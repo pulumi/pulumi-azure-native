@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// Get a AutoUpgradeProfile
         /// 
         /// Uses Azure REST API version 2024-05-02-preview.
+        /// 
+        /// Other available API versions: 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAutoUpgradeProfileResult> InvokeAsync(GetAutoUpgradeProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutoUpgradeProfileResult>("azure-native:containerservice:getAutoUpgradeProfile", args ?? new GetAutoUpgradeProfileArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// Get a AutoUpgradeProfile
         /// 
         /// Uses Azure REST API version 2024-05-02-preview.
+        /// 
+        /// Other available API versions: 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAutoUpgradeProfileResult> Invoke(GetAutoUpgradeProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutoUpgradeProfileResult>("azure-native:containerservice:getAutoUpgradeProfile", args ?? new GetAutoUpgradeProfileInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// Get a AutoUpgradeProfile
         /// 
         /// Uses Azure REST API version 2024-05-02-preview.
+        /// 
+        /// Other available API versions: 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAutoUpgradeProfileResult> Invoke(GetAutoUpgradeProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutoUpgradeProfileResult>("azure-native:containerservice:getAutoUpgradeProfile", args ?? new GetAutoUpgradeProfileInvokeArgs(), options.WithDefaults());

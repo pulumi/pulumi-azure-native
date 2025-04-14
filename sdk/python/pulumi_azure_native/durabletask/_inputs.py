@@ -13,8 +13,13 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
+    'RetentionPolicyDetailsArgs',
+    'RetentionPolicyDetailsArgsDict',
+    'RetentionPolicyPropertiesArgs',
+    'RetentionPolicyPropertiesArgsDict',
     'SchedulerPropertiesArgs',
     'SchedulerPropertiesArgsDict',
     'SchedulerSkuArgs',
@@ -22,6 +27,97 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class RetentionPolicyDetailsArgsDict(TypedDict):
+        """
+        The properties of a retention policy
+        """
+        retention_period_in_days: pulumi.Input[int]
+        """
+        The retention period in days after which the orchestration will be purged automatically
+        """
+        orchestration_state: NotRequired[pulumi.Input[Union[str, 'PurgeableOrchestrationState']]]
+        """
+        The orchestration state to which this policy applies. If omitted, the policy applies to all purgeable orchestration states.
+        """
+elif False:
+    RetentionPolicyDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RetentionPolicyDetailsArgs:
+    def __init__(__self__, *,
+                 retention_period_in_days: pulumi.Input[int],
+                 orchestration_state: Optional[pulumi.Input[Union[str, 'PurgeableOrchestrationState']]] = None):
+        """
+        The properties of a retention policy
+        :param pulumi.Input[int] retention_period_in_days: The retention period in days after which the orchestration will be purged automatically
+        :param pulumi.Input[Union[str, 'PurgeableOrchestrationState']] orchestration_state: The orchestration state to which this policy applies. If omitted, the policy applies to all purgeable orchestration states.
+        """
+        pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
+        if orchestration_state is not None:
+            pulumi.set(__self__, "orchestration_state", orchestration_state)
+
+    @property
+    @pulumi.getter(name="retentionPeriodInDays")
+    def retention_period_in_days(self) -> pulumi.Input[int]:
+        """
+        The retention period in days after which the orchestration will be purged automatically
+        """
+        return pulumi.get(self, "retention_period_in_days")
+
+    @retention_period_in_days.setter
+    def retention_period_in_days(self, value: pulumi.Input[int]):
+        pulumi.set(self, "retention_period_in_days", value)
+
+    @property
+    @pulumi.getter(name="orchestrationState")
+    def orchestration_state(self) -> Optional[pulumi.Input[Union[str, 'PurgeableOrchestrationState']]]:
+        """
+        The orchestration state to which this policy applies. If omitted, the policy applies to all purgeable orchestration states.
+        """
+        return pulumi.get(self, "orchestration_state")
+
+    @orchestration_state.setter
+    def orchestration_state(self, value: Optional[pulumi.Input[Union[str, 'PurgeableOrchestrationState']]]):
+        pulumi.set(self, "orchestration_state", value)
+
+
+if not MYPY:
+    class RetentionPolicyPropertiesArgsDict(TypedDict):
+        """
+        The retention policy settings for the resource
+        """
+        retention_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['RetentionPolicyDetailsArgsDict']]]]
+        """
+        The orchestration retention policies
+        """
+elif False:
+    RetentionPolicyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RetentionPolicyPropertiesArgs:
+    def __init__(__self__, *,
+                 retention_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RetentionPolicyDetailsArgs']]]] = None):
+        """
+        The retention policy settings for the resource
+        :param pulumi.Input[Sequence[pulumi.Input['RetentionPolicyDetailsArgs']]] retention_policies: The orchestration retention policies
+        """
+        if retention_policies is not None:
+            pulumi.set(__self__, "retention_policies", retention_policies)
+
+    @property
+    @pulumi.getter(name="retentionPolicies")
+    def retention_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RetentionPolicyDetailsArgs']]]]:
+        """
+        The orchestration retention policies
+        """
+        return pulumi.get(self, "retention_policies")
+
+    @retention_policies.setter
+    def retention_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RetentionPolicyDetailsArgs']]]]):
+        pulumi.set(self, "retention_policies", value)
+
 
 if not MYPY:
     class SchedulerPropertiesArgsDict(TypedDict):

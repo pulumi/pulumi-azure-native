@@ -91,6 +91,7 @@ import * as digitaltwins from "./digitaltwins";
 import * as dns from "./dns";
 import * as dnsresolver from "./dnsresolver";
 import * as domainregistration from "./domainregistration";
+import * as durabletask from "./durabletask";
 import * as edgeorder from "./edgeorder";
 import * as education from "./education";
 import * as elastic from "./elastic";
@@ -310,6 +311,7 @@ export {
     dns,
     dnsresolver,
     domainregistration,
+    durabletask,
     edgeorder,
     education,
     elastic,

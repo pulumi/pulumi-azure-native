@@ -13,10 +13,12 @@ from .get_communication_service import *
 from .get_domain import *
 from .get_email_service import *
 from .get_sender_username import *
+from .get_smtp_username import *
 from .get_suppression_list import *
 from .get_suppression_list_address import *
 from .list_communication_service_keys import *
 from .sender_username import *
+from .smtp_username import *
 from .suppression_list import *
 from .suppression_list_address import *
 from ._inputs import *

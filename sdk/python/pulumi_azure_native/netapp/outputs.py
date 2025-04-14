@@ -19,9 +19,12 @@ from ._enums import *
 __all__ = [
     'AccountEncryptionResponse',
     'ActiveDirectoryResponse',
+    'BucketServerPropertiesResponse',
+    'CifsUserResponse',
     'DailyScheduleResponse',
     'EncryptionIdentityResponse',
     'ExportPolicyRuleResponse',
+    'FileSystemUserResponse',
     'HourlyScheduleResponse',
     'KeyVaultPrivateEndpointResponse',
     'KeyVaultPropertiesResponse',
@@ -29,6 +32,7 @@ __all__ = [
     'ManagedServiceIdentityResponse',
     'MonthlyScheduleResponse',
     'MountTargetPropertiesResponse',
+    'NfsUserResponse',
     'PlacementKeyValuePairsResponse',
     'QuotaReportResponse',
     'RemotePathResponse',
@@ -450,6 +454,106 @@ class ActiveDirectoryResponse(dict):
 
 
 @pulumi.output_type
+class BucketServerPropertiesResponse(dict):
+    """
+    Properties of the server managing the lifecycle of volume buckets
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateCommonName":
+            suggest = "certificate_common_name"
+        elif key == "certificateExpiryDate":
+            suggest = "certificate_expiry_date"
+        elif key == "ipAddress":
+            suggest = "ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketServerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketServerPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketServerPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_common_name: str,
+                 certificate_expiry_date: str,
+                 ip_address: str,
+                 fqdn: Optional[str] = None):
+        """
+        Properties of the server managing the lifecycle of volume buckets
+        :param str certificate_common_name: Certificate Common Name taken from the certificate installed on the bucket server
+        :param str certificate_expiry_date: The bucket server's certificate expiry date.
+        :param str ip_address: The bucket server's IPv4 address
+        :param str fqdn: The host part of the bucket URL, resolving to the bucket IP address and allowed by the server certificate.
+        """
+        pulumi.set(__self__, "certificate_common_name", certificate_common_name)
+        pulumi.set(__self__, "certificate_expiry_date", certificate_expiry_date)
+        pulumi.set(__self__, "ip_address", ip_address)
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+
+    @property
+    @pulumi.getter(name="certificateCommonName")
+    def certificate_common_name(self) -> str:
+        """
+        Certificate Common Name taken from the certificate installed on the bucket server
+        """
+        return pulumi.get(self, "certificate_common_name")
+
+    @property
+    @pulumi.getter(name="certificateExpiryDate")
+    def certificate_expiry_date(self) -> str:
+        """
+        The bucket server's certificate expiry date.
+        """
+        return pulumi.get(self, "certificate_expiry_date")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> str:
+        """
+        The bucket server's IPv4 address
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[str]:
+        """
+        The host part of the bucket URL, resolving to the bucket IP address and allowed by the server certificate.
+        """
+        return pulumi.get(self, "fqdn")
+
+
+@pulumi.output_type
+class CifsUserResponse(dict):
+    """
+    The effective CIFS username when accessing the volume data.
+    """
+    def __init__(__self__, *,
+                 username: Optional[str] = None):
+        """
+        The effective CIFS username when accessing the volume data.
+        :param str username: The CIFS user's username
+        """
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        The CIFS user's username
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
 class DailyScheduleResponse(dict):
     """
     Daily Schedule properties
@@ -824,6 +928,60 @@ class ExportPolicyRuleResponse(dict):
         Read and write access
         """
         return pulumi.get(self, "unix_read_write")
+
+
+@pulumi.output_type
+class FileSystemUserResponse(dict):
+    """
+    File System user having access to volume data. For Unix, this is the user's uid and gid. For Windows, this is the user's username. Note that the Unix and Windows user details are mutually exclusive, meaning one or other must be supplied, but not both.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cifsUser":
+            suggest = "cifs_user"
+        elif key == "nfsUser":
+            suggest = "nfs_user"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileSystemUserResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileSystemUserResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileSystemUserResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cifs_user: Optional['outputs.CifsUserResponse'] = None,
+                 nfs_user: Optional['outputs.NfsUserResponse'] = None):
+        """
+        File System user having access to volume data. For Unix, this is the user's uid and gid. For Windows, this is the user's username. Note that the Unix and Windows user details are mutually exclusive, meaning one or other must be supplied, but not both.
+        :param 'CifsUserResponse' cifs_user: The effective CIFS username when accessing the volume data.
+        :param 'NfsUserResponse' nfs_user: The effective NFS User ID and Group ID when accessing the volume data.
+        """
+        if cifs_user is not None:
+            pulumi.set(__self__, "cifs_user", cifs_user)
+        if nfs_user is not None:
+            pulumi.set(__self__, "nfs_user", nfs_user)
+
+    @property
+    @pulumi.getter(name="cifsUser")
+    def cifs_user(self) -> Optional['outputs.CifsUserResponse']:
+        """
+        The effective CIFS username when accessing the volume data.
+        """
+        return pulumi.get(self, "cifs_user")
+
+    @property
+    @pulumi.getter(name="nfsUser")
+    def nfs_user(self) -> Optional['outputs.NfsUserResponse']:
+        """
+        The effective NFS User ID and Group ID when accessing the volume data.
+        """
+        return pulumi.get(self, "nfs_user")
 
 
 @pulumi.output_type
@@ -1331,6 +1489,60 @@ class MountTargetPropertiesResponse(dict):
         The SMB server's Fully Qualified Domain Name, FQDN
         """
         return pulumi.get(self, "smb_server_fqdn")
+
+
+@pulumi.output_type
+class NfsUserResponse(dict):
+    """
+    The effective NFS User ID and Group ID when accessing the volume data.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "userId":
+            suggest = "user_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NfsUserResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NfsUserResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NfsUserResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_id: Optional[float] = None,
+                 user_id: Optional[float] = None):
+        """
+        The effective NFS User ID and Group ID when accessing the volume data.
+        :param float group_id: The NFS user's GID
+        :param float user_id: The NFS user's UID
+        """
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if user_id is not None:
+            pulumi.set(__self__, "user_id", user_id)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[float]:
+        """
+        The NFS user's GID
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> Optional[float]:
+        """
+        The NFS user's UID
+        """
+        return pulumi.get(self, "user_id")
 
 
 @pulumi.output_type

@@ -27,7 +27,6 @@ __all__ = [
     'PropertiesResponseNetworkInjection',
     'SubnetPropertiesResponse',
     'SystemDataResponse',
-    'VirtualNetworkPropertiesListResponse',
     'VirtualNetworkPropertiesResponse',
 ]
 
@@ -349,17 +348,17 @@ class PropertiesResponseNetworkInjection(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 virtual_networks: Optional['outputs.VirtualNetworkPropertiesListResponse'] = None):
+                 virtual_networks: Optional[Sequence['outputs.VirtualNetworkPropertiesResponse']] = None):
         """
         Settings concerning network injection.
-        :param 'VirtualNetworkPropertiesListResponse' virtual_networks: Network injection configuration
+        :param Sequence['VirtualNetworkPropertiesResponse'] virtual_networks: Network injection configuration
         """
         if virtual_networks is not None:
             pulumi.set(__self__, "virtual_networks", virtual_networks)
 
     @property
     @pulumi.getter(name="virtualNetworks")
-    def virtual_networks(self) -> Optional['outputs.VirtualNetworkPropertiesListResponse']:
+    def virtual_networks(self) -> Optional[Sequence['outputs.VirtualNetworkPropertiesResponse']]:
         """
         Network injection configuration
         """
@@ -497,58 +496,6 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
-
-
-@pulumi.output_type
-class VirtualNetworkPropertiesListResponse(dict):
-    """
-    A list of private link resources
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "nextLink":
-            suggest = "next_link"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkPropertiesListResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VirtualNetworkPropertiesListResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VirtualNetworkPropertiesListResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 next_link: Optional[str] = None,
-                 value: Optional[Sequence['outputs.VirtualNetworkPropertiesResponse']] = None):
-        """
-        A list of private link resources
-        :param str next_link: Next page link if any.
-        :param Sequence['VirtualNetworkPropertiesResponse'] value: Array of virtual networks.
-        """
-        if next_link is not None:
-            pulumi.set(__self__, "next_link", next_link)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter(name="nextLink")
-    def next_link(self) -> Optional[str]:
-        """
-        Next page link if any.
-        """
-        return pulumi.get(self, "next_link")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.VirtualNetworkPropertiesResponse']]:
-        """
-        Array of virtual networks.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

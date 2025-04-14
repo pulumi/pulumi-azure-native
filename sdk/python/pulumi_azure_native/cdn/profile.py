@@ -172,7 +172,7 @@ class Profile(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,7 +196,7 @@ class Profile(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.
@@ -251,7 +251,7 @@ class Profile(pulumi.CustomResource):
             __props__.__dict__["resource_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn/v20150601:Profile"), pulumi.Alias(type_="azure-native:cdn/v20160402:Profile"), pulumi.Alias(type_="azure-native:cdn/v20161002:Profile"), pulumi.Alias(type_="azure-native:cdn/v20170402:Profile"), pulumi.Alias(type_="azure-native:cdn/v20171012:Profile"), pulumi.Alias(type_="azure-native:cdn/v20190415:Profile"), pulumi.Alias(type_="azure-native:cdn/v20190615:Profile"), pulumi.Alias(type_="azure-native:cdn/v20190615preview:Profile"), pulumi.Alias(type_="azure-native:cdn/v20191231:Profile"), pulumi.Alias(type_="azure-native:cdn/v20200331:Profile"), pulumi.Alias(type_="azure-native:cdn/v20200415:Profile"), pulumi.Alias(type_="azure-native:cdn/v20200901:Profile"), pulumi.Alias(type_="azure-native:cdn/v20210601:Profile"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:Profile"), pulumi.Alias(type_="azure-native:cdn/v20221101preview:Profile"), pulumi.Alias(type_="azure-native:cdn/v20230501:Profile"), pulumi.Alias(type_="azure-native:cdn/v20230701preview:Profile"), pulumi.Alias(type_="azure-native:cdn/v20240201:Profile"), pulumi.Alias(type_="azure-native:cdn/v20240501preview:Profile"), pulumi.Alias(type_="azure-native:cdn/v20240601preview:Profile"), pulumi.Alias(type_="azure-native:cdn/v20240901:Profile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn/v20150601:Profile"), pulumi.Alias(type_="azure-native:cdn/v20160402:Profile"), pulumi.Alias(type_="azure-native:cdn/v20161002:Profile"), pulumi.Alias(type_="azure-native:cdn/v20170402:Profile"), pulumi.Alias(type_="azure-native:cdn/v20171012:Profile"), pulumi.Alias(type_="azure-native:cdn/v20190415:Profile"), pulumi.Alias(type_="azure-native:cdn/v20190615:Profile"), pulumi.Alias(type_="azure-native:cdn/v20190615preview:Profile"), pulumi.Alias(type_="azure-native:cdn/v20191231:Profile"), pulumi.Alias(type_="azure-native:cdn/v20200331:Profile"), pulumi.Alias(type_="azure-native:cdn/v20200415:Profile"), pulumi.Alias(type_="azure-native:cdn/v20200901:Profile"), pulumi.Alias(type_="azure-native:cdn/v20210601:Profile"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:Profile"), pulumi.Alias(type_="azure-native:cdn/v20221101preview:Profile"), pulumi.Alias(type_="azure-native:cdn/v20230501:Profile"), pulumi.Alias(type_="azure-native:cdn/v20230701preview:Profile"), pulumi.Alias(type_="azure-native:cdn/v20240201:Profile"), pulumi.Alias(type_="azure-native:cdn/v20240501preview:Profile"), pulumi.Alias(type_="azure-native:cdn/v20240601preview:Profile"), pulumi.Alias(type_="azure-native:cdn/v20240901:Profile"), pulumi.Alias(type_="azure-native:cdn/v20250415:Profile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Profile, __self__).__init__(
             'azure-native:cdn:Profile',

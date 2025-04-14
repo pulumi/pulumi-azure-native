@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
  *
- * Other available API versions: 2023-10-07, 2024-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class VirtualMachineInstance extends pulumi.CustomResource {
     /**
@@ -141,7 +141,7 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20230401preview:VirtualMachineInstance" }, { type: "azure-native:scvmm/v20231007:VirtualMachineInstance" }, { type: "azure-native:scvmm/v20240601:VirtualMachineInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20230401preview:VirtualMachineInstance" }, { type: "azure-native:scvmm/v20231007:VirtualMachineInstance" }, { type: "azure-native:scvmm/v20240601:VirtualMachineInstance" }, { type: "azure-native:scvmm/v20250313:VirtualMachineInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineInstance.__pulumiType, name, resourceInputs, opts);
     }

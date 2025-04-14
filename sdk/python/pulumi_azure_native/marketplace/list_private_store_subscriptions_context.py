@@ -53,6 +53,8 @@ def list_private_store_subscriptions_context(private_store_id: Optional[str] = N
 
     Uses Azure REST API version 2023-01-01.
 
+    Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str private_store_id: The store ID - must use the tenant ID
     """
@@ -69,6 +71,8 @@ def list_private_store_subscriptions_context_output(private_store_id: Optional[p
     List all the subscriptions in the private store context
 
     Uses Azure REST API version 2023-01-01.
+
+    Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str private_store_id: The store ID - must use the tenant ID

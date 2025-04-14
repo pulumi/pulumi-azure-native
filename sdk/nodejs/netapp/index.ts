@@ -35,6 +35,11 @@ export type CapacityPoolBackup = import("./capacityPoolBackup").CapacityPoolBack
 export const CapacityPoolBackup: typeof import("./capacityPoolBackup").CapacityPoolBackup = null as any;
 utilities.lazyLoad(exports, ["CapacityPoolBackup"], () => require("./capacityPoolBackup"));
 
+export { CapacityPoolBucketArgs } from "./capacityPoolBucket";
+export type CapacityPoolBucket = import("./capacityPoolBucket").CapacityPoolBucket;
+export const CapacityPoolBucket: typeof import("./capacityPoolBucket").CapacityPoolBucket = null as any;
+utilities.lazyLoad(exports, ["CapacityPoolBucket"], () => require("./capacityPoolBucket"));
+
 export { CapacityPoolSnapshotArgs } from "./capacityPoolSnapshot";
 export type CapacityPoolSnapshot = import("./capacityPoolSnapshot").CapacityPoolSnapshot;
 export const CapacityPoolSnapshot: typeof import("./capacityPoolSnapshot").CapacityPoolSnapshot = null as any;
@@ -94,6 +99,11 @@ export { GetCapacityPoolBackupArgs, GetCapacityPoolBackupResult, GetCapacityPool
 export const getCapacityPoolBackup: typeof import("./getCapacityPoolBackup").getCapacityPoolBackup = null as any;
 export const getCapacityPoolBackupOutput: typeof import("./getCapacityPoolBackup").getCapacityPoolBackupOutput = null as any;
 utilities.lazyLoad(exports, ["getCapacityPoolBackup","getCapacityPoolBackupOutput"], () => require("./getCapacityPoolBackup"));
+
+export { GetCapacityPoolBucketArgs, GetCapacityPoolBucketResult, GetCapacityPoolBucketOutputArgs } from "./getCapacityPoolBucket";
+export const getCapacityPoolBucket: typeof import("./getCapacityPoolBucket").getCapacityPoolBucket = null as any;
+export const getCapacityPoolBucketOutput: typeof import("./getCapacityPoolBucket").getCapacityPoolBucketOutput = null as any;
+utilities.lazyLoad(exports, ["getCapacityPoolBucket","getCapacityPoolBucketOutput"], () => require("./getCapacityPoolBucket"));
 
 export { GetCapacityPoolSnapshotArgs, GetCapacityPoolSnapshotResult, GetCapacityPoolSnapshotOutputArgs } from "./getCapacityPoolSnapshot";
 export const getCapacityPoolSnapshot: typeof import("./getCapacityPoolSnapshot").getCapacityPoolSnapshot = null as any;
@@ -175,6 +185,8 @@ const _module = {
                 return new CapacityPool(name, <any>undefined, { urn })
             case "azure-native:netapp:CapacityPoolBackup":
                 return new CapacityPoolBackup(name, <any>undefined, { urn })
+            case "azure-native:netapp:CapacityPoolBucket":
+                return new CapacityPoolBucket(name, <any>undefined, { urn })
             case "azure-native:netapp:CapacityPoolSnapshot":
                 return new CapacityPoolSnapshot(name, <any>undefined, { urn })
             case "azure-native:netapp:CapacityPoolSubvolume":

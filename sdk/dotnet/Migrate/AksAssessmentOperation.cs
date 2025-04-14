@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Migrate
     /// 
     /// Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
     /// 
-    /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:AksAssessmentOperation")]
     public partial class AksAssessmentOperation : global::Pulumi.CustomResource
@@ -102,6 +102,7 @@ namespace Pulumi.AzureNative.Migrate
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:AksAssessmentOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:AksAssessmentOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:AksAssessmentOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240303preview:AksAssessmentOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

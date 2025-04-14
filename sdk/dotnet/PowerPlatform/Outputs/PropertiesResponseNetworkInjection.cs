@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.PowerPlatform.Outputs
         /// <summary>
         /// Network injection configuration
         /// </summary>
-        public readonly Outputs.VirtualNetworkPropertiesListResponse? VirtualNetworks;
+        public readonly ImmutableArray<Outputs.VirtualNetworkPropertiesResponse> VirtualNetworks;
 
         [OutputConstructor]
-        private PropertiesResponseNetworkInjection(Outputs.VirtualNetworkPropertiesListResponse? virtualNetworks)
+        private PropertiesResponseNetworkInjection(ImmutableArray<Outputs.VirtualNetworkPropertiesResponse> virtualNetworks)
         {
             VirtualNetworks = virtualNetworks;
         }

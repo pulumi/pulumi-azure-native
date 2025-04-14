@@ -1563,11 +1563,16 @@ _utilities.register(
   "fqn": "pulumi_azure_native.cognitiveservices",
   "classes": {
    "azure-native:cognitiveservices:Account": "Account",
+   "azure-native:cognitiveservices:AccountCapabilityHost": "AccountCapabilityHost",
+   "azure-native:cognitiveservices:AccountConnection": "AccountConnection",
    "azure-native:cognitiveservices:CommitmentPlan": "CommitmentPlan",
    "azure-native:cognitiveservices:CommitmentPlanAssociation": "CommitmentPlanAssociation",
    "azure-native:cognitiveservices:Deployment": "Deployment",
    "azure-native:cognitiveservices:EncryptionScope": "EncryptionScope",
    "azure-native:cognitiveservices:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:cognitiveservices:Project": "Project",
+   "azure-native:cognitiveservices:ProjectCapabilityHost": "ProjectCapabilityHost",
+   "azure-native:cognitiveservices:ProjectConnection": "ProjectConnection",
    "azure-native:cognitiveservices:RaiBlocklist": "RaiBlocklist",
    "azure-native:cognitiveservices:RaiBlocklistItem": "RaiBlocklistItem",
    "azure-native:cognitiveservices:RaiPolicy": "RaiPolicy",
@@ -1583,6 +1588,7 @@ _utilities.register(
    "azure-native:communication:Domain": "Domain",
    "azure-native:communication:EmailService": "EmailService",
    "azure-native:communication:SenderUsername": "SenderUsername",
+   "azure-native:communication:SmtpUsername": "SmtpUsername",
    "azure-native:communication:SuppressionList": "SuppressionList",
    "azure-native:communication:SuppressionListAddress": "SuppressionListAddress"
   }
@@ -1701,6 +1707,7 @@ _utilities.register(
   "mod": "containerinstance",
   "fqn": "pulumi_azure_native.containerinstance",
   "classes": {
+   "azure-native:containerinstance:CGProfile": "CGProfile",
    "azure-native:containerinstance:ContainerGroup": "ContainerGroup",
    "azure-native:containerinstance:ContainerGroupProfile": "ContainerGroupProfile"
   }
@@ -2033,7 +2040,10 @@ _utilities.register(
   "classes": {
    "azure-native:datareplication:Dra": "Dra",
    "azure-native:datareplication:Fabric": "Fabric",
+   "azure-native:datareplication:FabricAgent": "FabricAgent",
    "azure-native:datareplication:Policy": "Policy",
+   "azure-native:datareplication:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:datareplication:PrivateEndpointConnectionProxy": "PrivateEndpointConnectionProxy",
    "azure-native:datareplication:ProtectedItem": "ProtectedItem",
    "azure-native:datareplication:ReplicationExtension": "ReplicationExtension",
    "azure-native:datareplication:Vault": "Vault"
@@ -2335,6 +2345,7 @@ _utilities.register(
   "mod": "durabletask",
   "fqn": "pulumi_azure_native.durabletask",
   "classes": {
+   "azure-native:durabletask:RetentionPolicy": "RetentionPolicy",
    "azure-native:durabletask:Scheduler": "Scheduler",
    "azure-native:durabletask:TaskHub": "TaskHub"
   }
@@ -3143,13 +3154,18 @@ _utilities.register(
    "azure-native:migrate:AssessmentProjectsOperation": "AssessmentProjectsOperation",
    "azure-native:migrate:AssessmentsOperation": "AssessmentsOperation",
    "azure-native:migrate:AvsAssessmentsOperation": "AvsAssessmentsOperation",
+   "azure-native:migrate:AvsAssessmentsV2Operation": "AvsAssessmentsV2Operation",
    "azure-native:migrate:BusinessCaseOperation": "BusinessCaseOperation",
+   "azure-native:migrate:CompoundAssessmentOperation": "CompoundAssessmentOperation",
    "azure-native:migrate:Group": "Group",
    "azure-native:migrate:GroupsOperation": "GroupsOperation",
+   "azure-native:migrate:HeterogeneousAssessmentOperation": "HeterogeneousAssessmentOperation",
    "azure-native:migrate:HyperVCollector": "HyperVCollector",
    "azure-native:migrate:HypervCollectorsOperation": "HypervCollectorsOperation",
    "azure-native:migrate:ImportCollector": "ImportCollector",
    "azure-native:migrate:ImportCollectorsOperation": "ImportCollectorsOperation",
+   "azure-native:migrate:ImportSqlCollectorOperation": "ImportSqlCollectorOperation",
+   "azure-native:migrate:MachineAssessmentsV2Operation": "MachineAssessmentsV2Operation",
    "azure-native:migrate:MigrateAgent": "MigrateAgent",
    "azure-native:migrate:MigrateProject": "MigrateProject",
    "azure-native:migrate:MigrateProjectsControllerMigrateProject": "MigrateProjectsControllerMigrateProject",
@@ -3164,10 +3180,12 @@ _utilities.register(
    "azure-native:migrate:ServerCollectorsOperation": "ServerCollectorsOperation",
    "azure-native:migrate:Solution": "Solution",
    "azure-native:migrate:SqlAssessmentV2Operation": "SqlAssessmentV2Operation",
+   "azure-native:migrate:SqlAssessmentV3Operation": "SqlAssessmentV3Operation",
    "azure-native:migrate:SqlCollectorOperation": "SqlCollectorOperation",
    "azure-native:migrate:VMwareCollector": "VMwareCollector",
    "azure-native:migrate:VmwareCollectorsOperation": "VmwareCollectorsOperation",
    "azure-native:migrate:WebAppAssessmentV2Operation": "WebAppAssessmentV2Operation",
+   "azure-native:migrate:WebAppAssessmentV3Operation": "WebAppAssessmentV3Operation",
    "azure-native:migrate:WebAppCollectorOperation": "WebAppCollectorOperation",
    "azure-native:migrate:WorkloadDeployment": "WorkloadDeployment",
    "azure-native:migrate:WorkloadInstance": "WorkloadInstance"
@@ -3257,6 +3275,7 @@ _utilities.register(
    "azure-native:netapp:BackupVault": "BackupVault",
    "azure-native:netapp:CapacityPool": "CapacityPool",
    "azure-native:netapp:CapacityPoolBackup": "CapacityPoolBackup",
+   "azure-native:netapp:CapacityPoolBucket": "CapacityPoolBucket",
    "azure-native:netapp:CapacityPoolSnapshot": "CapacityPoolSnapshot",
    "azure-native:netapp:CapacityPoolSubvolume": "CapacityPoolSubvolume",
    "azure-native:netapp:CapacityPoolVolume": "CapacityPoolVolume",
@@ -4228,6 +4247,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.storagecache",
   "classes": {
    "azure-native:storagecache:AmlFilesystem": "AmlFilesystem",
+   "azure-native:storagecache:AutoExportJob": "AutoExportJob",
    "azure-native:storagecache:Cache": "Cache",
    "azure-native:storagecache:ImportJob": "ImportJob",
    "azure-native:storagecache:StorageTarget": "StorageTarget"

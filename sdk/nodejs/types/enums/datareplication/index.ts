@@ -2,6 +2,30 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const PrivateEndpointConnectionStatus = {
+    /**
+     * Approved Status.
+     */
+    Approved: "Approved",
+    /**
+     * Disconnected Status.
+     */
+    Disconnected: "Disconnected",
+    /**
+     * Pending Status.
+     */
+    Pending: "Pending",
+    /**
+     * Rejected Status.
+     */
+    Rejected: "Rejected",
+} as const;
+
+/**
+ * Gets or sets the status.
+ */
+export type PrivateEndpointConnectionStatus = (typeof PrivateEndpointConnectionStatus)[keyof typeof PrivateEndpointConnectionStatus];
+
 export const ReplicationVaultType = {
     DisasterRecovery: "DisasterRecovery",
     Migrate: "Migrate",

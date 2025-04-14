@@ -198,9 +198,17 @@ CodeSigning:
     tracking: 2024-09-30-preview
 CognitiveServices:
     tracking: "2024-10-01"
+    additions:
+        AccountCapabilityHost: 2025-04-01-preview
+        AccountConnection: 2025-04-01-preview
+        Project: 2025-04-01-preview
+        ProjectCapabilityHost: 2025-04-01-preview
+        ProjectConnection: 2025-04-01-preview
 Commerce: {}
 Communication:
     tracking: 2023-06-01-preview
+    additions:
+        SmtpUsername: 2024-09-01-preview
 Community:
     tracking: "2023-11-01"
 Compute:
@@ -256,6 +264,8 @@ Consumption:
     tracking: "2024-08-01"
 ContainerInstance:
     tracking: 2024-05-01-preview
+    additions:
+        CGProfile: 2024-11-01-preview
 ContainerRegistry:
     additions:
         AgentPool: 2019-06-01-preview
@@ -542,6 +552,10 @@ DataProtection:
     tracking: "2025-01-01"
 DataReplication:
     tracking: 2021-02-16-preview
+    additions:
+        FabricAgent: "2024-09-01"
+        PrivateEndpointConnection: "2024-09-01"
+        PrivateEndpointConnectionProxy: "2024-09-01"
 DataShare:
     tracking: "2021-08-01"
 DatabaseFleetManager:
@@ -569,12 +583,14 @@ DevCenter:
         getCatalogDevBoxDefinitionErrorDetails: 2023-10-01-preview
         getCustomizationTaskErrorDetails: 2024-10-01-preview
         getProjectCatalogImageDefinitionBuildDetails: 2024-10-01-preview
+        getProjectCatalogImageDefinitionErrorDetails: "2025-02-01"
         getProjectInheritedSettings: 2024-10-01-preview
         listSkusByProject: 2024-10-01-preview
 DevHub:
     tracking: "2023-08-01"
     additions:
         IacProfile: 2024-05-01-preview
+        getADOOAuthInfo: 2025-03-01-preview
 DevOps: {}
 DevOpsInfrastructure:
     tracking: "2025-01-21"
@@ -604,6 +620,8 @@ DomainRegistration:
     tracking: "2024-04-01"
 DurableTask:
     tracking: 2024-10-01-preview
+    additions:
+        RetentionPolicy: 2025-04-01-preview
 Dynamics365Fraudprotection:
     tracking: 2021-02-01-preview
 DynamicsTelemetry: {}
@@ -878,13 +896,18 @@ Migrate:
         AssessmentProjectsOperation: 2024-01-01-preview
         AssessmentsOperation: 2024-01-01-preview
         AvsAssessmentsOperation: 2024-01-01-preview
+        AvsAssessmentsV2Operation: 2024-03-03-preview
         BusinessCaseOperation: 2024-01-01-preview
+        CompoundAssessmentOperation: 2024-03-03-preview
         Group: "2019-10-01"
         GroupsOperation: 2024-01-01-preview
+        HeterogeneousAssessmentOperation: 2024-03-03-preview
         HyperVCollector: "2019-10-01"
         HypervCollectorsOperation: 2024-01-01-preview
         ImportCollector: "2019-10-01"
         ImportCollectorsOperation: 2024-01-01-preview
+        ImportSqlCollectorOperation: 2024-03-03-preview
+        MachineAssessmentsV2Operation: 2024-03-03-preview
         MigrateAgent: 2022-05-01-preview
         MigrateProject: 2018-09-01-preview
         MigrateProjectsControllerMigrateProject: "2020-05-01"
@@ -899,10 +922,12 @@ Migrate:
         ServerCollectorsOperation: 2024-01-01-preview
         Solution: 2018-09-01-preview
         SqlAssessmentV2Operation: 2024-01-01-preview
+        SqlAssessmentV3Operation: 2024-03-03-preview
         SqlCollectorOperation: 2024-01-01-preview
         VMwareCollector: "2019-10-01"
         VmwareCollectorsOperation: 2024-01-01-preview
         WebAppAssessmentV2Operation: 2024-01-01-preview
+        WebAppAssessmentV3Operation: 2024-03-03-preview
         WebAppCollectorOperation: 2024-01-01-preview
         WorkloadDeployment: 2022-05-01-preview
         WorkloadInstance: 2022-05-01-preview
@@ -955,6 +980,7 @@ NetApp:
     tracking: "2024-09-01"
     additions:
         CapacityPoolBackup: "2022-11-01"
+        CapacityPoolBucket: 2025-01-01-preview
         getAccountKeyVaultStatus: 2024-09-01-preview
         listCapacityPoolVolumeQuotaReport: 2024-09-01-preview
 Network:
@@ -1381,6 +1407,18 @@ ServiceFabric:
         - modulename: ServiceFabric
           resourcename: Service
           detail: version 2024-11-01-preview is greater than 2023-11-01-preview
+        - modulename: ServiceFabric
+          resourcename: Application
+          detail: version 2025-03-01-preview is greater than 2023-11-01-preview
+        - modulename: ServiceFabric
+          resourcename: ApplicationType
+          detail: version 2025-03-01-preview is greater than 2023-11-01-preview
+        - modulename: ServiceFabric
+          resourcename: ApplicationTypeVersion
+          detail: version 2025-03-01-preview is greater than 2023-11-01-preview
+        - modulename: ServiceFabric
+          resourcename: Service
+          detail: version 2025-03-01-preview is greater than 2023-11-01-preview
 ServiceFabricMesh:
     tracking: 2018-09-01-preview
 ServiceLinker:
@@ -1414,6 +1452,8 @@ StorageActions:
     tracking: "2023-01-01"
 StorageCache:
     tracking: "2024-03-01"
+    additions:
+        AutoExportJob: "2024-07-01"
 StorageMover:
     tracking: "2024-07-01"
 StoragePool:

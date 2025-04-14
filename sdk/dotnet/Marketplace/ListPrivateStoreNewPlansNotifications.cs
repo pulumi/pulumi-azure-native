@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Marketplace
         /// List new plans notifications
         /// 
         /// Uses Azure REST API version 2023-01-01.
+        /// 
+        /// Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListPrivateStoreNewPlansNotificationsResult> InvokeAsync(ListPrivateStoreNewPlansNotificationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListPrivateStoreNewPlansNotificationsResult>("azure-native:marketplace:listPrivateStoreNewPlansNotifications", args ?? new ListPrivateStoreNewPlansNotificationsArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Marketplace
         /// List new plans notifications
         /// 
         /// Uses Azure REST API version 2023-01-01.
+        /// 
+        /// Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListPrivateStoreNewPlansNotificationsResult> Invoke(ListPrivateStoreNewPlansNotificationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListPrivateStoreNewPlansNotificationsResult>("azure-native:marketplace:listPrivateStoreNewPlansNotifications", args ?? new ListPrivateStoreNewPlansNotificationsInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Marketplace
         /// List new plans notifications
         /// 
         /// Uses Azure REST API version 2023-01-01.
+        /// 
+        /// Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListPrivateStoreNewPlansNotificationsResult> Invoke(ListPrivateStoreNewPlansNotificationsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListPrivateStoreNewPlansNotificationsResult>("azure-native:marketplace:listPrivateStoreNewPlansNotifications", args ?? new ListPrivateStoreNewPlansNotificationsInvokeArgs(), options.WithDefaults());

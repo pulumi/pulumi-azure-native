@@ -52,6 +52,7 @@ __all__ = [
     'SecurityContextCapabilitiesDefinitionResponse',
     'SecurityContextDefinitionResponse',
     'StandbyPoolProfileDefinitionResponse',
+    'SystemDataResponse',
     'UserAssignedIdentitiesResponse',
     'VolumeMountResponse',
     'VolumeResponse',
@@ -73,6 +74,8 @@ class AzureFileVolumeResponse(dict):
             suggest = "read_only"
         elif key == "storageAccountKey":
             suggest = "storage_account_key"
+        elif key == "storageAccountKeyReference":
+            suggest = "storage_account_key_reference"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AzureFileVolumeResponse. Access the value via the '{suggest}' property getter instead.")
@@ -89,13 +92,15 @@ class AzureFileVolumeResponse(dict):
                  share_name: str,
                  storage_account_name: str,
                  read_only: Optional[bool] = None,
-                 storage_account_key: Optional[str] = None):
+                 storage_account_key: Optional[str] = None,
+                 storage_account_key_reference: Optional[str] = None):
         """
         The properties of the Azure File volume. Azure File shares are mounted as volumes.
         :param str share_name: The name of the Azure File share to be mounted as a volume.
         :param str storage_account_name: The name of the storage account that contains the Azure File share.
         :param bool read_only: The flag indicating whether the Azure File shared mounted as a volume is read-only.
         :param str storage_account_key: The storage account access key used to access the Azure File share.
+        :param str storage_account_key_reference: The reference to the storage account access key used to access the Azure File share.
         """
         pulumi.set(__self__, "share_name", share_name)
         pulumi.set(__self__, "storage_account_name", storage_account_name)
@@ -103,6 +108,8 @@ class AzureFileVolumeResponse(dict):
             pulumi.set(__self__, "read_only", read_only)
         if storage_account_key is not None:
             pulumi.set(__self__, "storage_account_key", storage_account_key)
+        if storage_account_key_reference is not None:
+            pulumi.set(__self__, "storage_account_key_reference", storage_account_key_reference)
 
     @property
     @pulumi.getter(name="shareName")
@@ -135,6 +142,14 @@ class AzureFileVolumeResponse(dict):
         The storage account access key used to access the Azure File share.
         """
         return pulumi.get(self, "storage_account_key")
+
+    @property
+    @pulumi.getter(name="storageAccountKeyReference")
+    def storage_account_key_reference(self) -> Optional[str]:
+        """
+        The reference to the storage account access key used to access the Azure File share.
+        """
+        return pulumi.get(self, "storage_account_key_reference")
 
 
 @pulumi.output_type
@@ -1279,6 +1294,8 @@ class EnvironmentVariableResponse(dict):
         suggest = None
         if key == "secureValue":
             suggest = "secure_value"
+        elif key == "secureValueReference":
+            suggest = "secure_value_reference"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EnvironmentVariableResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1294,16 +1311,20 @@ class EnvironmentVariableResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  secure_value: Optional[str] = None,
+                 secure_value_reference: Optional[str] = None,
                  value: Optional[str] = None):
         """
         The environment variable to set within the container instance.
         :param str name: The name of the environment variable.
         :param str secure_value: The value of the secure environment variable.
+        :param str secure_value_reference: The reference of the secure environment variable.
         :param str value: The value of the environment variable.
         """
         pulumi.set(__self__, "name", name)
         if secure_value is not None:
             pulumi.set(__self__, "secure_value", secure_value)
+        if secure_value_reference is not None:
+            pulumi.set(__self__, "secure_value_reference", secure_value_reference)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -1322,6 +1343,14 @@ class EnvironmentVariableResponse(dict):
         The value of the secure environment variable.
         """
         return pulumi.get(self, "secure_value")
+
+    @property
+    @pulumi.getter(name="secureValueReference")
+    def secure_value_reference(self) -> Optional[str]:
+        """
+        The reference of the secure environment variable.
+        """
+        return pulumi.get(self, "secure_value_reference")
 
     @property
     @pulumi.getter
@@ -1552,6 +1581,8 @@ class ImageRegistryCredentialResponse(dict):
         suggest = None
         if key == "identityUrl":
             suggest = "identity_url"
+        elif key == "passwordReference":
+            suggest = "password_reference"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ImageRegistryCredentialResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1569,6 +1600,7 @@ class ImageRegistryCredentialResponse(dict):
                  identity: Optional[str] = None,
                  identity_url: Optional[str] = None,
                  password: Optional[str] = None,
+                 password_reference: Optional[str] = None,
                  username: Optional[str] = None):
         """
         Image registry credential.
@@ -1576,6 +1608,7 @@ class ImageRegistryCredentialResponse(dict):
         :param str identity: The identity for the private registry.
         :param str identity_url: The identity URL for the private registry.
         :param str password: The password for the private registry.
+        :param str password_reference: The reference for the private registry password.
         :param str username: The username for the private registry.
         """
         pulumi.set(__self__, "server", server)
@@ -1585,6 +1618,8 @@ class ImageRegistryCredentialResponse(dict):
             pulumi.set(__self__, "identity_url", identity_url)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if password_reference is not None:
+            pulumi.set(__self__, "password_reference", password_reference)
         if username is not None:
             pulumi.set(__self__, "username", username)
 
@@ -1619,6 +1654,14 @@ class ImageRegistryCredentialResponse(dict):
         The password for the private registry.
         """
         return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="passwordReference")
+    def password_reference(self) -> Optional[str]:
+        """
+        The reference for the private registry password.
+        """
+        return pulumi.get(self, "password_reference")
 
     @property
     @pulumi.getter
@@ -2402,6 +2445,116 @@ class StandbyPoolProfileDefinitionResponse(dict):
 
 
 @pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
 class UserAssignedIdentitiesResponse(dict):
     """
     The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -2531,6 +2684,8 @@ class VolumeResponse(dict):
             suggest = "empty_dir"
         elif key == "gitRepo":
             suggest = "git_repo"
+        elif key == "secretReference":
+            suggest = "secret_reference"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VolumeResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2548,7 +2703,8 @@ class VolumeResponse(dict):
                  azure_file: Optional['outputs.AzureFileVolumeResponse'] = None,
                  empty_dir: Optional[Any] = None,
                  git_repo: Optional['outputs.GitRepoVolumeResponse'] = None,
-                 secret: Optional[Mapping[str, str]] = None):
+                 secret: Optional[Mapping[str, str]] = None,
+                 secret_reference: Optional[Mapping[str, str]] = None):
         """
         The properties of the volume.
         :param str name: The name of the volume.
@@ -2556,6 +2712,7 @@ class VolumeResponse(dict):
         :param Any empty_dir: The empty directory volume.
         :param 'GitRepoVolumeResponse' git_repo: The git repo volume.
         :param Mapping[str, str] secret: The secret volume.
+        :param Mapping[str, str] secret_reference: The secret reference volume.
         """
         pulumi.set(__self__, "name", name)
         if azure_file is not None:
@@ -2566,6 +2723,8 @@ class VolumeResponse(dict):
             pulumi.set(__self__, "git_repo", git_repo)
         if secret is not None:
             pulumi.set(__self__, "secret", secret)
+        if secret_reference is not None:
+            pulumi.set(__self__, "secret_reference", secret_reference)
 
     @property
     @pulumi.getter
@@ -2606,5 +2765,13 @@ class VolumeResponse(dict):
         The secret volume.
         """
         return pulumi.get(self, "secret")
+
+    @property
+    @pulumi.getter(name="secretReference")
+    def secret_reference(self) -> Optional[Mapping[str, str]]:
+        """
+        The secret reference volume.
+        """
+        return pulumi.get(self, "secret_reference")
 
 

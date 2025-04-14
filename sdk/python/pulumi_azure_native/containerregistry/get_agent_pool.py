@@ -192,6 +192,8 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
 
     Uses Azure REST API version 2019-06-01-preview.
 
+    Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str agent_pool_name: The name of the agent pool.
     :param str registry_name: The name of the container registry.
@@ -225,6 +227,8 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
     Gets the detailed information for a given agent pool.
 
     Uses Azure REST API version 2019-06-01-preview.
+
+    Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str agent_pool_name: The name of the agent pool.

@@ -112,7 +112,7 @@ def get_database_migrations_sql_db(expand: Optional[str] = None,
 
     Uses Azure REST API version 2023-07-15-preview.
 
-    Other available API versions: 2022-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-03-30-preview, 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: Complete migration details be included in the response.
@@ -147,7 +147,7 @@ def get_database_migrations_sql_db_output(expand: Optional[pulumi.Input[Optional
 
     Uses Azure REST API version 2023-07-15-preview.
 
-    Other available API versions: 2022-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-03-30-preview, 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: Complete migration details be included in the response.

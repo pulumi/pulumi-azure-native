@@ -231,7 +231,7 @@ class AssessmentProjectsOperation(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
 
-        Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -262,7 +262,7 @@ class AssessmentProjectsOperation(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
 
-        Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param AssessmentProjectsOperationArgs args: The arguments to use to populate this resource's properties.
@@ -320,7 +320,7 @@ class AssessmentProjectsOperation(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_timestamp"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:AssessmentProjectsOperation"), pulumi.Alias(type_="azure-native:migrate/v20191001:Project"), pulumi.Alias(type_="azure-native:migrate/v20230315:AssessmentProjectsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentProjectsOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:AssessmentProjectsOperation"), pulumi.Alias(type_="azure-native:migrate:Project")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:AssessmentProjectsOperation"), pulumi.Alias(type_="azure-native:migrate/v20191001:Project"), pulumi.Alias(type_="azure-native:migrate/v20230315:AssessmentProjectsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentProjectsOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:AssessmentProjectsOperation"), pulumi.Alias(type_="azure-native:migrate/v20240303preview:AssessmentProjectsOperation"), pulumi.Alias(type_="azure-native:migrate:Project")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssessmentProjectsOperation, __self__).__init__(
             'azure-native:migrate:AssessmentProjectsOperation',

@@ -12,6 +12,7 @@ from .backup_policy import *
 from .backup_vault import *
 from .capacity_pool import *
 from .capacity_pool_backup import *
+from .capacity_pool_bucket import *
 from .capacity_pool_snapshot import *
 from .capacity_pool_subvolume import *
 from .capacity_pool_volume import *
@@ -24,6 +25,7 @@ from .get_backup_policy import *
 from .get_backup_vault import *
 from .get_capacity_pool import *
 from .get_capacity_pool_backup import *
+from .get_capacity_pool_bucket import *
 from .get_capacity_pool_snapshot import *
 from .get_capacity_pool_subvolume import *
 from .get_capacity_pool_subvolume_metadata import *

@@ -171,7 +171,7 @@ class VirtualMachineTemplate(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-21-preview.
 
-        Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,7 +195,7 @@ class VirtualMachineTemplate(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-21-preview.
 
-        Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineTemplateArgs args: The arguments to use to populate this resource's properties.
@@ -260,7 +260,7 @@ class VirtualMachineTemplate(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scvmm/v20200605preview:VirtualMachineTemplate"), pulumi.Alias(type_="azure-native:scvmm/v20220521preview:VirtualMachineTemplate"), pulumi.Alias(type_="azure-native:scvmm/v20230401preview:VirtualMachineTemplate"), pulumi.Alias(type_="azure-native:scvmm/v20231007:VirtualMachineTemplate"), pulumi.Alias(type_="azure-native:scvmm/v20240601:VirtualMachineTemplate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scvmm/v20200605preview:VirtualMachineTemplate"), pulumi.Alias(type_="azure-native:scvmm/v20220521preview:VirtualMachineTemplate"), pulumi.Alias(type_="azure-native:scvmm/v20230401preview:VirtualMachineTemplate"), pulumi.Alias(type_="azure-native:scvmm/v20231007:VirtualMachineTemplate"), pulumi.Alias(type_="azure-native:scvmm/v20240601:VirtualMachineTemplate"), pulumi.Alias(type_="azure-native:scvmm/v20250313:VirtualMachineTemplate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineTemplate, __self__).__init__(
             'azure-native:scvmm:VirtualMachineTemplate',

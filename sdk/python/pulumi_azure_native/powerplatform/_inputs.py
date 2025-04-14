@@ -32,8 +32,6 @@ __all__ = [
     'PropertiesNetworkInjectionArgsDict',
     'SubnetPropertiesArgs',
     'SubnetPropertiesArgsDict',
-    'VirtualNetworkPropertiesListArgs',
-    'VirtualNetworkPropertiesListArgsDict',
     'VirtualNetworkPropertiesArgs',
     'VirtualNetworkPropertiesArgsDict',
 ]
@@ -361,7 +359,7 @@ if not MYPY:
         """
         Settings concerning network injection.
         """
-        virtual_networks: NotRequired[pulumi.Input['VirtualNetworkPropertiesListArgsDict']]
+        virtual_networks: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgsDict']]]]
         """
         Network injection configuration
         """
@@ -371,24 +369,24 @@ elif False:
 @pulumi.input_type
 class PropertiesNetworkInjectionArgs:
     def __init__(__self__, *,
-                 virtual_networks: Optional[pulumi.Input['VirtualNetworkPropertiesListArgs']] = None):
+                 virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]]] = None):
         """
         Settings concerning network injection.
-        :param pulumi.Input['VirtualNetworkPropertiesListArgs'] virtual_networks: Network injection configuration
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]] virtual_networks: Network injection configuration
         """
         if virtual_networks is not None:
             pulumi.set(__self__, "virtual_networks", virtual_networks)
 
     @property
     @pulumi.getter(name="virtualNetworks")
-    def virtual_networks(self) -> Optional[pulumi.Input['VirtualNetworkPropertiesListArgs']]:
+    def virtual_networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]]]:
         """
         Network injection configuration
         """
         return pulumi.get(self, "virtual_networks")
 
     @virtual_networks.setter
-    def virtual_networks(self, value: Optional[pulumi.Input['VirtualNetworkPropertiesListArgs']]):
+    def virtual_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]]]):
         pulumi.set(self, "virtual_networks", value)
 
 
@@ -426,62 +424,6 @@ class SubnetPropertiesArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-
-if not MYPY:
-    class VirtualNetworkPropertiesListArgsDict(TypedDict):
-        """
-        A list of private link resources
-        """
-        next_link: NotRequired[pulumi.Input[str]]
-        """
-        Next page link if any.
-        """
-        value: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgsDict']]]]
-        """
-        Array of virtual networks.
-        """
-elif False:
-    VirtualNetworkPropertiesListArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class VirtualNetworkPropertiesListArgs:
-    def __init__(__self__, *,
-                 next_link: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]]] = None):
-        """
-        A list of private link resources
-        :param pulumi.Input[str] next_link: Next page link if any.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]] value: Array of virtual networks.
-        """
-        if next_link is not None:
-            pulumi.set(__self__, "next_link", next_link)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter(name="nextLink")
-    def next_link(self) -> Optional[pulumi.Input[str]]:
-        """
-        Next page link if any.
-        """
-        return pulumi.get(self, "next_link")
-
-    @next_link.setter
-    def next_link(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "next_link", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]]]:
-        """
-        Array of virtual networks.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]]]):
-        pulumi.set(self, "value", value)
 
 
 if not MYPY:

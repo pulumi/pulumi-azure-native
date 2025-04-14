@@ -43,8 +43,17 @@ export const AssessmentType = {
 export type AssessmentType = (typeof AssessmentType)[keyof typeof AssessmentType];
 
 export const AsyncCommitModeIntent = {
+    /**
+     * None - Async Commit Mode Intent
+     */
     None: "None",
+    /**
+     * HighAvailability - Async Commit Mode Intent
+     */
     HighAvailability: "HighAvailability",
+    /**
+     * DisasterRecovery - Async Commit Mode Intent
+     */
     DisasterRecovery: "DisasterRecovery",
 } as const;
 
@@ -104,41 +113,137 @@ export const AzureArcState = {
 export type AzureArcState = (typeof AzureArcState)[keyof typeof AzureArcState];
 
 export const AzureAvsNodeType = {
+    /**
+     * Unknown Node type
+     */
     Unknown: "Unknown",
+    /**
+     * AVS36 Node type
+     */
     AV36: "AV36",
+    /**
+     * AV36P Node type
+     */
     AV36P: "AV36P",
+    /**
+     * AV52 Node type
+     */
     AV52: "AV52",
+    /**
+     * AV64 Node type
+     */
     AV64: "AV64",
 } as const;
 
+/**
+ * Azure AVS Node type
+ */
 export type AzureAvsNodeType = (typeof AzureAvsNodeType)[keyof typeof AzureAvsNodeType];
 
 export const AzureCurrency = {
+    /**
+     * Unknown Currency for Azure
+     */
     Unknown: "Unknown",
+    /**
+     * USD Currency for Azure
+     */
     USD: "USD",
+    /**
+     * DKK Currency for Azure
+     */
     DKK: "DKK",
+    /**
+     * CAD Currency for Azure
+     */
     CAD: "CAD",
+    /**
+     * IDR Currency for Azure
+     */
     IDR: "IDR",
+    /**
+     * JPY Currency for Azure
+     */
     JPY: "JPY",
+    /**
+     * KRW Currency for Azure
+     */
     KRW: "KRW",
+    /**
+     * NZD Currency for Azure
+     */
     NZD: "NZD",
+    /**
+     * NOK Currency for Azure
+     */
     NOK: "NOK",
+    /**
+     * RUB Currency for Azure
+     */
     RUB: "RUB",
+    /**
+     * SAR Currency for Azure
+     */
     SAR: "SAR",
+    /**
+     * ZAR Currency for Azure
+     */
     ZAR: "ZAR",
+    /**
+     * SEK Currency for Azure
+     */
     SEK: "SEK",
+    /**
+     * TRY Currency for Azure
+     */
     TRY: "TRY",
+    /**
+     * GBP Currency for Azure
+     */
     GBP: "GBP",
+    /**
+     * MXN Currency for Azure
+     */
     MXN: "MXN",
+    /**
+     * MYR Currency for Azure
+     */
     MYR: "MYR",
+    /**
+     * INR Currency for Azure
+     */
     INR: "INR",
+    /**
+     * HKD Currency for Azure
+     */
     HKD: "HKD",
+    /**
+     * BRL Currency for Azure
+     */
     BRL: "BRL",
+    /**
+     * TWD Currency for Azure
+     */
     TWD: "TWD",
+    /**
+     * EUR Currency for Azure
+     */
     EUR: "EUR",
+    /**
+     * CHF Currency for Azure
+     */
     CHF: "CHF",
+    /**
+     * ARS Currency for Azure
+     */
     ARS: "ARS",
+    /**
+     * AUD Currency for Azure
+     */
     AUD: "AUD",
+    /**
+     * CNY Currency for Azure
+     */
     CNY: "CNY",
 } as const;
 
@@ -148,15 +253,39 @@ export const AzureCurrency = {
 export type AzureCurrency = (typeof AzureCurrency)[keyof typeof AzureCurrency];
 
 export const AzureDiskType = {
+    /**
+     * Unknown Azure Disk Type
+     */
     Unknown: "Unknown",
+    /**
+     * Standard Azure Disk Type
+     */
     Standard: "Standard",
+    /**
+     * StandardSSD Azure Disk Type
+     */
     StandardSSD: "StandardSSD",
+    /**
+     * Premium Azure Disk Type
+     */
     Premium: "Premium",
+    /**
+     * StandardOrPremium Azure Disk Type
+     */
     StandardOrPremium: "StandardOrPremium",
+    /**
+     * Ultra Azure Disk Type
+     */
     Ultra: "Ultra",
+    /**
+     * PremiumV2 Azure Disk Type
+     */
     PremiumV2: "PremiumV2",
 } as const;
 
+/**
+ * Azure Disk Type
+ */
 export type AzureDiskType = (typeof AzureDiskType)[keyof typeof AzureDiskType];
 
 export const AzureEnvironmentType = {
@@ -180,8 +309,17 @@ export const AzureEnvironmentType = {
 export type AzureEnvironmentType = (typeof AzureEnvironmentType)[keyof typeof AzureEnvironmentType];
 
 export const AzureHybridUseBenefit = {
+    /**
+     * Unknown Azure Hybrid Use Benefit
+     */
     Unknown: "Unknown",
+    /**
+     * Yes Azure Hybrid Use Benefit
+     */
     Yes: "Yes",
+    /**
+     * No Azure Hybrid Use Benefit
+     */
     No: "No",
 } as const;
 
@@ -192,66 +330,274 @@ export const AzureHybridUseBenefit = {
 export type AzureHybridUseBenefit = (typeof AzureHybridUseBenefit)[keyof typeof AzureHybridUseBenefit];
 
 export const AzureLocation = {
+    /**
+     * Unknown Location for Azure
+     */
     Unknown: "Unknown",
+    /**
+     * EastAsia Location for Azure
+     */
     EastAsia: "EastAsia",
+    /**
+     * SoutheastAsia Location for Azure
+     */
     SoutheastAsia: "SoutheastAsia",
+    /**
+     * AustraliaEast Location for Azure
+     */
     AustraliaEast: "AustraliaEast",
+    /**
+     * AustraliaSoutheast Location for Azure
+     */
     AustraliaSoutheast: "AustraliaSoutheast",
+    /**
+     * BrazilSouth Location for Azure
+     */
     BrazilSouth: "BrazilSouth",
+    /**
+     * CanadaCentral Location for Azure
+     */
     CanadaCentral: "CanadaCentral",
+    /**
+     * CanadaEast Location for Azure
+     */
     CanadaEast: "CanadaEast",
+    /**
+     * WestEurope Location for Azure
+     */
     WestEurope: "WestEurope",
+    /**
+     * NorthEurope Location for Azure
+     */
     NorthEurope: "NorthEurope",
+    /**
+     * CentralIndia Location for Azure
+     */
     CentralIndia: "CentralIndia",
+    /**
+     * SouthIndia Location for Azure
+     */
     SouthIndia: "SouthIndia",
+    /**
+     * WestIndia Location for Azure
+     */
     WestIndia: "WestIndia",
+    /**
+     * JapanEast Location for Azure
+     */
     JapanEast: "JapanEast",
+    /**
+     * JapanWest Location for Azure
+     */
     JapanWest: "JapanWest",
+    /**
+     * KoreaCentral Location for Azure
+     */
     KoreaCentral: "KoreaCentral",
+    /**
+     * KoreaSouth Location for Azure
+     */
     KoreaSouth: "KoreaSouth",
+    /**
+     * UkWest Location for Azure
+     */
     UkWest: "UkWest",
+    /**
+     * UkSouth Location for Azure
+     */
     UkSouth: "UkSouth",
+    /**
+     * NorthCentralUs Location for Azure
+     */
     NorthCentralUs: "NorthCentralUs",
+    /**
+     * EastUs Location for Azure
+     */
     EastUs: "EastUs",
+    /**
+     * WestUs2 Location for Azure
+     */
     WestUs2: "WestUs2",
+    /**
+     * SouthCentralUs Location for Azure
+     */
     SouthCentralUs: "SouthCentralUs",
+    /**
+     * CentralUs Location for Azure
+     */
     CentralUs: "CentralUs",
+    /**
+     * EastUs2 Location for Azure
+     */
     EastUs2: "EastUs2",
+    /**
+     * WestUs Location for Azure
+     */
     WestUs: "WestUs",
+    /**
+     * WestCentralUs Location for Azure
+     */
     WestCentralUs: "WestCentralUs",
+    /**
+     * GermanyCentral Location for Azure
+     */
     GermanyCentral: "GermanyCentral",
+    /**
+     * GermanyNortheast Location for Azure
+     */
     GermanyNortheast: "GermanyNortheast",
+    /**
+     * ChinaNorth Location for Azure
+     */
     ChinaNorth: "ChinaNorth",
+    /**
+     * ChinaEast Location for Azure
+     */
     ChinaEast: "ChinaEast",
+    /**
+     * USGovArizona Location for Azure
+     */
     USGovArizona: "USGovArizona",
+    /**
+     * USGovTexas Location for Azure
+     */
     USGovTexas: "USGovTexas",
+    /**
+     * USGovIowa Location for Azure
+     */
     USGovIowa: "USGovIowa",
+    /**
+     * USGovVirginia Location for Azure
+     */
     USGovVirginia: "USGovVirginia",
+    /**
+     * USDoDCentral Location for Azure
+     */
     USDoDCentral: "USDoDCentral",
+    /**
+     * USDoDEast Location for Azure
+     */
     USDoDEast: "USDoDEast",
+    /**
+     * FranceCentral Location for Azure
+     */
     FranceCentral: "FranceCentral",
+    /**
+     * AustraliaCentral Location for Azure
+     */
     AustraliaCentral: "AustraliaCentral",
+    /**
+     * SouthAfricaNorth Location for Azure
+     */
     SouthAfricaNorth: "SouthAfricaNorth",
+    /**
+     * FranceSouth Location for Azure
+     */
     FranceSouth: "FranceSouth",
+    /**
+     * AustraliaCentral2 Location for Azure
+     */
     AustraliaCentral2: "AustraliaCentral2",
+    /**
+     * SouthAfricaWest Location for Azure
+     */
     SouthAfricaWest: "SouthAfricaWest",
+    /**
+     * GermanyNorth Location for Azure
+     */
     GermanyNorth: "GermanyNorth",
+    /**
+     * GermanyWestCentral Location for Azure
+     */
     GermanyWestCentral: "GermanyWestCentral",
+    /**
+     * NorwayEast Location for Azure
+     */
     NorwayEast: "NorwayEast",
+    /**
+     * NorwayWest Location for Azure
+     */
     NorwayWest: "NorwayWest",
+    /**
+     * ChinaEast2 Location for Azure
+     */
     ChinaEast2: "ChinaEast2",
+    /**
+     * ChinaNorth2 Location for Azure
+     */
     ChinaNorth2: "ChinaNorth2",
+    /**
+     * SwitzerlandNorth Location for Azure
+     */
     SwitzerlandNorth: "SwitzerlandNorth",
+    /**
+     * SwitzerlandWest Location for Azure
+     */
     SwitzerlandWest: "SwitzerlandWest",
+    /**
+     * UAENorth Location for Azure
+     */
     UAENorth: "UAENorth",
+    /**
+     * UAECentral Location for Azure
+     */
     UAECentral: "UAECentral",
+    /**
+     * UsNatEast Location for Azure
+     */
     UsNatEast: "UsNatEast",
+    /**
+     * UsNatWest Location for Azure
+     */
     UsNatWest: "UsNatWest",
+    /**
+     * UsSecEast Location for Azure
+     */
     UsSecEast: "UsSecEast",
+    /**
+     * UsSecCentral Location for Azure
+     */
     UsSecCentral: "UsSecCentral",
+    /**
+     * UsSecWest Location for Azure
+     */
     UsSecWest: "UsSecWest",
+    /**
+     * SwedenCentral Location for Azure
+     */
     SwedenCentral: "SwedenCentral",
+    /**
+     * QatarCentral Location for Azure
+     */
     QatarCentral: "QatarCentral",
+    /**
+     * JioIndiaWest Location for Azure
+     */
+    JioIndiaWest: "JioIndiaWest",
+    /**
+     * ItalyNorth Location for Azure
+     */
+    ItalyNorth: "ItalyNorth",
+    /**
+     * PolandCentral Location for Azure
+     */
+    PolandCentral: "PolandCentral",
+    /**
+     * IsraelCentral Location for Azure
+     */
+    IsraelCentral: "IsraelCentral",
+    /**
+     * MexicoCentral Location for Azure
+     */
+    MexicoCentral: "MexicoCentral",
+    /**
+     * NewZealandNorth Location for Azure
+     */
+    NewZealandNorth: "NewZealandNorth",
+    /**
+     * SpainCentral Location for Azure
+     */
+    SpainCentral: "SpainCentral",
 } as const;
 
 /**
@@ -259,6 +605,58 @@ export const AzureLocation = {
  * will be migrated.
  */
 export type AzureLocation = (typeof AzureLocation)[keyof typeof AzureLocation];
+
+export const AzureOffer = {
+    /**
+     * Unknown - Azure Offer
+     */
+    Unknown: "Unknown",
+    /**
+     * MSAZR0003P Azure Offer
+     */
+    Msazr0003P: "MSAZR0003P",
+    /**
+     * MSAZR0023P Azure Offer
+     */
+    Msazr0023P: "MSAZR0023P",
+    /**
+     * MSMCAZR0044P Azure Offer
+     */
+    Msmcazr0044P: "MSMCAZR0044P",
+    /**
+     * MSMCAZR0059P Azure Offer
+     */
+    Msmcazr0059P: "MSMCAZR0059P",
+    /**
+     * MSMCAZR0060P Azure Offer
+     */
+    Msmcazr0060P: "MSMCAZR0060P",
+    /**
+     * MSMCAZR0063P Azure Offer
+     */
+    Msmcazr0063P: "MSMCAZR0063P",
+    /**
+     * MSAZRUSGOV0003P Azure Offer
+     */
+    Msazrusgov0003P: "MSAZRUSGOV0003P",
+    /**
+     * EA Azure Offer
+     */
+    EA: "EA",
+    /**
+     * SavingsPlan1Year Azure Offer
+     */
+    SavingsPlan1Year: "SavingsPlan1Year",
+    /**
+     * SavingsPlan3Year Azure Offer
+     */
+    SavingsPlan3Year: "SavingsPlan3Year",
+} as const;
+
+/**
+ * Gets or sets the Azure offer code.
+ */
+export type AzureOffer = (typeof AzureOffer)[keyof typeof AzureOffer];
 
 export const AzureOfferCode = {
     Unknown: "Unknown",
@@ -312,7 +710,13 @@ export const AzureOfferCode = {
 export type AzureOfferCode = (typeof AzureOfferCode)[keyof typeof AzureOfferCode];
 
 export const AzurePricingTier = {
+    /**
+     * Standard Azure Pricing Tier
+     */
     Standard: "Standard",
+    /**
+     * Basic Azure Pricing Tier
+     */
     Basic: "Basic",
 } as const;
 
@@ -333,19 +737,37 @@ export const AzureReservedInstance = {
 export type AzureReservedInstance = (typeof AzureReservedInstance)[keyof typeof AzureReservedInstance];
 
 export const AzureSecurityOfferingType = {
+    /**
+     * NO - Azure Security Offering Type
+     */
     NO: "NO",
+    /**
+     * MDC - Azure Security Offering Type
+     */
     MDC: "MDC",
 } as const;
 
 /**
- * Gets or sets a value indicating azure security offering type.
+ * Azure security offering type.
  */
 export type AzureSecurityOfferingType = (typeof AzureSecurityOfferingType)[keyof typeof AzureSecurityOfferingType];
 
 export const AzureSqlDataBaseType = {
+    /**
+     * Unknown Data Base Type
+     */
     Unknown: "Unknown",
+    /**
+     * Automatic Data Base Type
+     */
     Automatic: "Automatic",
+    /**
+     * SingleDatabase Data Base Type
+     */
     SingleDatabase: "SingleDatabase",
+    /**
+     * ElasticPool Data Base Type
+     */
     ElasticPool: "ElasticPool",
 } as const;
 
@@ -355,9 +777,21 @@ export const AzureSqlDataBaseType = {
 export type AzureSqlDataBaseType = (typeof AzureSqlDataBaseType)[keyof typeof AzureSqlDataBaseType];
 
 export const AzureSqlInstanceType = {
+    /**
+     * Unknown Azure Sql Instance Type
+     */
     Unknown: "Unknown",
+    /**
+     * Automatic Azure Sql Instance Type
+     */
     Automatic: "Automatic",
+    /**
+     * SingleInstance Azure Sql Instance Type
+     */
     SingleInstance: "SingleInstance",
+    /**
+     * InstancePools Azure Sql Instance Type
+     */
     InstancePools: "InstancePools",
 } as const;
 
@@ -367,8 +801,17 @@ export const AzureSqlInstanceType = {
 export type AzureSqlInstanceType = (typeof AzureSqlInstanceType)[keyof typeof AzureSqlInstanceType];
 
 export const AzureSqlPurchaseModel = {
+    /**
+     * Unknown Purchase Model
+     */
     Unknown: "Unknown",
+    /**
+     * VCore Purchase Model
+     */
     VCore: "VCore",
+    /**
+     * DTU Purchase Model
+     */
     DTU: "DTU",
 } as const;
 
@@ -390,11 +833,54 @@ export const AzureSqlServiceTier = {
  */
 export type AzureSqlServiceTier = (typeof AzureSqlServiceTier)[keyof typeof AzureSqlServiceTier];
 
+export const AzureSqlServiceTierV3 = {
+    /**
+     * SqlService_Unknown Sql Service Tier V3
+     */
+    SqlService_Unknown: "SqlService_Unknown",
+    /**
+     * SqlService_Automatic Sql Service Tier V3
+     */
+    SqlService_Automatic: "SqlService_Automatic",
+    /**
+     * SqlService_GeneralPurpose Sql Service Tier V3
+     */
+    SqlService_GeneralPurpose: "SqlService_GeneralPurpose",
+    /**
+     * SqlService_BusinessCritical Sql Service Tier V3
+     */
+    SqlService_BusinessCritical: "SqlService_BusinessCritical",
+    /**
+     * SqlService_HyperScale Sql Service Tier V3
+     */
+    SqlService_HyperScale: "SqlService_HyperScale",
+} as const;
+
+/**
+ * Gets or sets the azure SQL service tier.
+ */
+export type AzureSqlServiceTierV3 = (typeof AzureSqlServiceTierV3)[keyof typeof AzureSqlServiceTierV3];
+
 export const AzureStorageRedundancy = {
+    /**
+     * Unknown Azure Storage Redundancy
+     */
     Unknown: "Unknown",
+    /**
+     * LocallyRedundant Azure Storage Redundancy
+     */
     LocallyRedundant: "LocallyRedundant",
+    /**
+     * ZoneRedundant Azure Storage Redundancy
+     */
     ZoneRedundant: "ZoneRedundant",
+    /**
+     * GeoRedundant Azure Storage Redundancy
+     */
     GeoRedundant: "GeoRedundant",
+    /**
+     * ReadAccessGeoRedundant Azure Storage Redundancy
+     */
     ReadAccessGeoRedundant: "ReadAccessGeoRedundant",
 } as const;
 
@@ -402,6 +888,70 @@ export const AzureStorageRedundancy = {
  * Gets or sets the Azure Storage Redundancy. Example: Locally Redundant Storage.
  */
 export type AzureStorageRedundancy = (typeof AzureStorageRedundancy)[keyof typeof AzureStorageRedundancy];
+
+export const AzureTarget = {
+    /**
+     * Unknown - Azure Target
+     */
+    Unknown: "Unknown",
+    /**
+     * SqlDatabase - Azure Target
+     */
+    SqlDatabase: "SqlDatabase",
+    /**
+     * SqlMI - Azure Target
+     */
+    SqlMI: "SqlMI",
+    /**
+     * FlexServerPG - Azure Target
+     */
+    FlexServerPG: "FlexServerPG",
+    /**
+     * OracleIaasVM - Azure Target
+     */
+    OracleIaasVM: "OracleIaasVM",
+    /**
+     * AzureSpringApps - Azure Target
+     */
+    AzureSpringApps: "AzureSpringApps",
+    /**
+     * SAPAzureInstance - Azure Target
+     */
+    SAPAzureInstance: "SAPAzureInstance",
+    /**
+     * AKS - Azure Target
+     */
+    AKS: "AKS",
+    /**
+     * MySQLAzureFlexServer - Azure Target
+     */
+    MySQLAzureFlexServer: "MySQLAzureFlexServer",
+    /**
+     * AzureSQLVM - Azure Target
+     */
+    AzureSQLVM: "AzureSQLVM",
+    /**
+     * AzureVM - Azure Target
+     */
+    AzureVM: "AzureVM",
+    /**
+     * AzureAppService - Azure Target
+     */
+    AzureAppService: "AzureAppService",
+    /**
+     * AzureAppServiceContainer - Azure Target
+     */
+    AzureAppServiceContainer: "AzureAppServiceContainer",
+    /**
+     * Avs - Azure Target
+     */
+    Avs: "Avs",
+} as const;
+
+/**
+ * Azure Target
+ */
+export type AzureTarget = (typeof AzureTarget)[keyof typeof AzureTarget];
 
 export const AzureVmCategory = {
     /**
@@ -444,60 +994,219 @@ export const AzureVmCategory = {
 export type AzureVmCategory = (typeof AzureVmCategory)[keyof typeof AzureVmCategory];
 
 export const AzureVmFamily = {
+    /**
+     * Unknown - Azure VM Family
+     */
     Unknown: "Unknown",
+    /**
+     * Basic_A0_A4
+     */
     BasicA0A4: "Basic_A0_A4",
+    /**
+     * Standard_A0_A7
+     */
     StandardA0A7: "Standard_A0_A7",
+    /**
+     * Standard_A8_A11
+     */
     StandardA8A11: "Standard_A8_A11",
+    /**
+     * Av2_series
+     */
     Av2Series: "Av2_series",
+    /**
+     * D_series
+     */
     DSeries: "D_series",
+    /**
+     * Dv2_series
+     */
     Dv2Series: "Dv2_series",
+    /**
+     * DS_series
+     */
     DSSeries: "DS_series",
+    /**
+     * DSv2_series
+     */
     DSv2Series: "DSv2_series",
+    /**
+     * F_series
+     */
     FSeries: "F_series",
+    /**
+     * Fs_series
+     */
     FsSeries: "Fs_series",
+    /**
+     * G_series
+     */
     GSeries: "G_series",
+    /**
+     * GS_series
+     */
     GSSeries: "GS_series",
+    /**
+     * H_series
+     */
     HSeries: "H_series",
+    /**
+     * Ls_series
+     */
     LsSeries: "Ls_series",
+    /**
+     * Dsv3_series
+     */
     Dsv3Series: "Dsv3_series",
+    /**
+     * Dv3_series
+     */
     Dv3Series: "Dv3_series",
+    /**
+     * Fsv2_series
+     */
     Fsv2Series: "Fsv2_series",
+    /**
+     * Ev3_series
+     */
     Ev3Series: "Ev3_series",
+    /**
+     * Esv3_series
+     */
     Esv3Series: "Esv3_series",
+    /**
+     * M_series
+     */
     MSeries: "M_series",
+    /**
+     * DC_Series
+     */
     DCSeries: "DC_Series",
+    /**
+     * Lsv2_series
+     */
     Lsv2Series: "Lsv2_series",
+    /**
+     * Ev4_series
+     */
     Ev4Series: "Ev4_series",
+    /**
+     * Esv4_series
+     */
     Esv4Series: "Esv4_series",
+    /**
+     * Edv4_series
+     */
     Edv4Series: "Edv4_series",
+    /**
+     * Edsv4_series
+     */
     Edsv4Series: "Edsv4_series",
+    /**
+     * Dv4_series
+     */
     Dv4Series: "Dv4_series",
+    /**
+     * Dsv4_series
+     */
     Dsv4Series: "Dsv4_series",
+    /**
+     * Ddv4_series
+     */
     Ddv4Series: "Ddv4_series",
+    /**
+     * Ddsv4_series
+     */
     Ddsv4Series: "Ddsv4_series",
+    /**
+     * Easv4_series
+     */
     Easv4Series: "Easv4_series",
+    /**
+     * Dasv4_series
+     */
     Dasv4Series: "Dasv4_series",
+    /**
+     * Mv2_series
+     */
     Mv2Series: "Mv2_series",
+    /**
+     * Eav4_series
+     */
     Eav4Series: "Eav4_series",
+    /**
+     * Dav4_series
+     */
     Dav4Series: "Dav4_series",
+    /**
+     * Msv2_series
+     */
     Msv2Series: "Msv2_series",
+    /**
+     * Mdsv2_series
+     */
     Mdsv2Series: "Mdsv2_series",
+    /**
+     * Dv5_series
+     */
     Dv5Series: "Dv5_series",
+    /**
+     * Dsv5_series
+     */
     Dsv5Series: "Dsv5_series",
+    /**
+     * Ddv5_series
+     */
     Ddv5Series: "Ddv5_series",
+    /**
+     * Ddsv5_series
+     */
     Ddsv5Series: "Ddsv5_series",
+    /**
+     * Dasv5_series
+     */
     Dasv5Series: "Dasv5_series",
+    /**
+     * Dadsv5_series
+     */
     Dadsv5Series: "Dadsv5_series",
+    /**
+     * Ev5_series
+     */
     Ev5Series: "Ev5_series",
+    /**
+     * Esv5_series
+     */
     Esv5Series: "Esv5_series",
+    /**
+     * Edv5_series
+     */
     Edv5Series: "Edv5_series",
+    /**
+     * Edsv5_series
+     */
     Edsv5Series: "Edsv5_series",
+    /**
+     * Easv5_series
+     */
     Easv5Series: "Easv5_series",
+    /**
+     * Eadsv5_series
+     */
     Eadsv5Series: "Eadsv5_series",
+    /**
+     * Ebsv5_series
+     */
     Ebsv5Series: "Ebsv5_series",
+    /**
+     * Ebdsv5_series
+     */
     Ebdsv5Series: "Ebdsv5_series",
 } as const;
 
+/**
+ * Azure VM Family
+ */
 export type AzureVmFamily = (typeof AzureVmFamily)[keyof typeof AzureVmFamily];
 
 export const BusinessCaseCurrency = {
@@ -613,9 +1322,21 @@ export const BusinessCaseCurrency = {
 export type BusinessCaseCurrency = (typeof BusinessCaseCurrency)[keyof typeof BusinessCaseCurrency];
 
 export const ComputeTier = {
+    /**
+     * Unknown - Compute Tier
+     */
     Unknown: "Unknown",
+    /**
+     * Automatic - Compute Tier
+     */
     Automatic: "Automatic",
+    /**
+     * Provisioned - Compute Tier
+     */
     Provisioned: "Provisioned",
+    /**
+     * Serverless - Compute Tier
+     */
     Serverless: "Serverless",
 } as const;
 
@@ -706,8 +1427,18 @@ export const DiscoverySource = {
 export type DiscoverySource = (typeof DiscoverySource)[keyof typeof DiscoverySource];
 
 export const EnvironmentType = {
+    /**
+     * Production - Environment Type
+     */
     Production: "Production",
-    Test: "Test",
+    /**
+     * Unknown - Environment Type
+     */
+    Unknown: "Unknown",
+    /**
+     * DevTest - Environment Type
+     */
+    DevTest: "DevTest",
 } as const;
 
 /**
@@ -807,17 +1538,25 @@ export type HyperVLicenseType = (typeof HyperVLicenseType)[keyof typeof HyperVLi
 
 export const LicensingProgram = {
     /**
-     * Default value. Indicates Pay As You Go.
+     * Retail/Pay as you go.
      */
-    Default: "Default",
+    Retail: "Retail",
     /**
-     * Enterprise Agreement.
+     * Not known
+     */
+    Unknown: "Unknown",
+    /**
+     * Enterprise agreement.
      */
     EA: "EA",
+    /**
+     * Microsoft customer agreement.
+     */
+    MCA: "MCA",
 } as const;
 
 /**
- * Gets or sets licensing program.
+ * Gets or sets the licensing program.
  */
 export type LicensingProgram = (typeof LicensingProgram)[keyof typeof LicensingProgram];
 
@@ -870,8 +1609,17 @@ export const MoveType = {
 export type MoveType = (typeof MoveType)[keyof typeof MoveType];
 
 export const MultiSubnetIntent = {
+    /**
+     * None - Multi Subnet Intent
+     */
     None: "None",
+    /**
+     * HighAvailability - Multi Subnet Intent
+     */
     HighAvailability: "HighAvailability",
+    /**
+     * DisasterRecovery - Multi Subnet Intent
+     */
     DisasterRecovery: "DisasterRecovery",
 } as const;
 
@@ -900,8 +1648,17 @@ export const OptimizationLogic = {
 export type OptimizationLogic = (typeof OptimizationLogic)[keyof typeof OptimizationLogic];
 
 export const OsLicense = {
+    /**
+     * Unknown Os License
+     */
     Unknown: "Unknown",
+    /**
+     * Yes Os License
+     */
     Yes: "Yes",
+    /**
+     * No Os License
+     */
     No: "No",
 } as const;
 
@@ -927,6 +1684,10 @@ export const Percentile = {
      * Percentile 99.
      */
     Percentile99: "Percentile99",
+    /**
+     * Percentile unknown.
+     */
+    PercentileUnknown: "PercentileUnknown",
 } as const;
 
 /**
@@ -1060,31 +1821,51 @@ export type SavingsOption = (typeof SavingsOption)[keyof typeof SavingsOption];
 
 export const SavingsOptions = {
     /**
-     * Savings Options is not applicable.
+     * No savings options.
      */
     None: "None",
     /**
-     * One Year Savings Plan.
+     * Reserved Instance for 1 year.
      */
-    OneYearSavings: "OneYearSavings",
+    RI1Year: "RI1Year",
     /**
-     * Three Years Savings Plan.
+     * Reserved Instance for 3 years.
      */
-    ThreeYearsSavings: "ThreeYearsSavings",
+    RI3Year: "RI3Year",
     /**
-     * One Year Reserved Instances.
+     * The savings plan for 1 year.
      */
-    OneYearReserved: "OneYearReserved",
+    SavingsPlan1Year: "SavingsPlan1Year",
     /**
-     * Three Years Reserved Instances.
+     * The savings plan for 3  years.
      */
-    ThreeYearsReserved: "ThreeYearsReserved",
+    SavingsPlan3Year: "SavingsPlan3Year",
+    /**
+     * Custom azure offer code.
+     */
+    CustomAzureOfferCode: "CustomAzureOfferCode",
 } as const;
 
 /**
- * Gets or sets savings options.
+ * Gets or sets the savings options.
  */
 export type SavingsOptions = (typeof SavingsOptions)[keyof typeof SavingsOptions];
+
+export const ScopeType = {
+    /**
+     * ServerGroupId - Scope type
+     */
+    ServerGroupId: "ServerGroupId",
+    /**
+     * AzureResourceGraphQuery - Scope type
+     */
+    AzureResourceGraphQuery: "AzureResourceGraphQuery",
+} as const;
+
+/**
+ * The scope type
+ */
+export type ScopeType = (typeof ScopeType)[keyof typeof ScopeType];
 
 export const SecretStoreType = {
     None: "None",
@@ -1096,8 +1877,17 @@ export const SecretStoreType = {
 export type SecretStoreType = (typeof SecretStoreType)[keyof typeof SecretStoreType];
 
 export const SqlServerLicense = {
+    /**
+     * Unknown - Sql Server License
+     */
     Unknown: "Unknown",
+    /**
+     * Has Sql Server License
+     */
     Yes: "Yes",
+    /**
+     * No Sql Server License
+     */
     No: "No",
 } as const;
 

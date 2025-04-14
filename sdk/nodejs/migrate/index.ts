@@ -30,10 +30,20 @@ export type AvsAssessmentsOperation = import("./avsAssessmentsOperation").AvsAss
 export const AvsAssessmentsOperation: typeof import("./avsAssessmentsOperation").AvsAssessmentsOperation = null as any;
 utilities.lazyLoad(exports, ["AvsAssessmentsOperation"], () => require("./avsAssessmentsOperation"));
 
+export { AvsAssessmentsV2OperationArgs } from "./avsAssessmentsV2Operation";
+export type AvsAssessmentsV2Operation = import("./avsAssessmentsV2Operation").AvsAssessmentsV2Operation;
+export const AvsAssessmentsV2Operation: typeof import("./avsAssessmentsV2Operation").AvsAssessmentsV2Operation = null as any;
+utilities.lazyLoad(exports, ["AvsAssessmentsV2Operation"], () => require("./avsAssessmentsV2Operation"));
+
 export { BusinessCaseOperationArgs } from "./businessCaseOperation";
 export type BusinessCaseOperation = import("./businessCaseOperation").BusinessCaseOperation;
 export const BusinessCaseOperation: typeof import("./businessCaseOperation").BusinessCaseOperation = null as any;
 utilities.lazyLoad(exports, ["BusinessCaseOperation"], () => require("./businessCaseOperation"));
+
+export { CompoundAssessmentOperationArgs } from "./compoundAssessmentOperation";
+export type CompoundAssessmentOperation = import("./compoundAssessmentOperation").CompoundAssessmentOperation;
+export const CompoundAssessmentOperation: typeof import("./compoundAssessmentOperation").CompoundAssessmentOperation = null as any;
+utilities.lazyLoad(exports, ["CompoundAssessmentOperation"], () => require("./compoundAssessmentOperation"));
 
 export { GetAksAssessmentOperationArgs, GetAksAssessmentOperationResult, GetAksAssessmentOperationOutputArgs } from "./getAksAssessmentOperation";
 export const getAksAssessmentOperation: typeof import("./getAksAssessmentOperation").getAksAssessmentOperation = null as any;
@@ -60,6 +70,11 @@ export const getAvsAssessmentsOperation: typeof import("./getAvsAssessmentsOpera
 export const getAvsAssessmentsOperationOutput: typeof import("./getAvsAssessmentsOperation").getAvsAssessmentsOperationOutput = null as any;
 utilities.lazyLoad(exports, ["getAvsAssessmentsOperation","getAvsAssessmentsOperationOutput"], () => require("./getAvsAssessmentsOperation"));
 
+export { GetAvsAssessmentsV2OperationArgs, GetAvsAssessmentsV2OperationResult, GetAvsAssessmentsV2OperationOutputArgs } from "./getAvsAssessmentsV2Operation";
+export const getAvsAssessmentsV2Operation: typeof import("./getAvsAssessmentsV2Operation").getAvsAssessmentsV2Operation = null as any;
+export const getAvsAssessmentsV2OperationOutput: typeof import("./getAvsAssessmentsV2Operation").getAvsAssessmentsV2OperationOutput = null as any;
+utilities.lazyLoad(exports, ["getAvsAssessmentsV2Operation","getAvsAssessmentsV2OperationOutput"], () => require("./getAvsAssessmentsV2Operation"));
+
 export { GetBusinessCaseOperationArgs, GetBusinessCaseOperationResult, GetBusinessCaseOperationOutputArgs } from "./getBusinessCaseOperation";
 export const getBusinessCaseOperation: typeof import("./getBusinessCaseOperation").getBusinessCaseOperation = null as any;
 export const getBusinessCaseOperationOutput: typeof import("./getBusinessCaseOperation").getBusinessCaseOperationOutput = null as any;
@@ -70,6 +85,11 @@ export const getBusinessCaseOperationReportDownloadUrl: typeof import("./getBusi
 export const getBusinessCaseOperationReportDownloadUrlOutput: typeof import("./getBusinessCaseOperationReportDownloadUrl").getBusinessCaseOperationReportDownloadUrlOutput = null as any;
 utilities.lazyLoad(exports, ["getBusinessCaseOperationReportDownloadUrl","getBusinessCaseOperationReportDownloadUrlOutput"], () => require("./getBusinessCaseOperationReportDownloadUrl"));
 
+export { GetCompoundAssessmentOperationArgs, GetCompoundAssessmentOperationResult, GetCompoundAssessmentOperationOutputArgs } from "./getCompoundAssessmentOperation";
+export const getCompoundAssessmentOperation: typeof import("./getCompoundAssessmentOperation").getCompoundAssessmentOperation = null as any;
+export const getCompoundAssessmentOperationOutput: typeof import("./getCompoundAssessmentOperation").getCompoundAssessmentOperationOutput = null as any;
+utilities.lazyLoad(exports, ["getCompoundAssessmentOperation","getCompoundAssessmentOperationOutput"], () => require("./getCompoundAssessmentOperation"));
+
 export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
 export const getGroup: typeof import("./getGroup").getGroup = null as any;
 export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
@@ -79,6 +99,11 @@ export { GetGroupsOperationArgs, GetGroupsOperationResult, GetGroupsOperationOut
 export const getGroupsOperation: typeof import("./getGroupsOperation").getGroupsOperation = null as any;
 export const getGroupsOperationOutput: typeof import("./getGroupsOperation").getGroupsOperationOutput = null as any;
 utilities.lazyLoad(exports, ["getGroupsOperation","getGroupsOperationOutput"], () => require("./getGroupsOperation"));
+
+export { GetHeterogeneousAssessmentOperationArgs, GetHeterogeneousAssessmentOperationResult, GetHeterogeneousAssessmentOperationOutputArgs } from "./getHeterogeneousAssessmentOperation";
+export const getHeterogeneousAssessmentOperation: typeof import("./getHeterogeneousAssessmentOperation").getHeterogeneousAssessmentOperation = null as any;
+export const getHeterogeneousAssessmentOperationOutput: typeof import("./getHeterogeneousAssessmentOperation").getHeterogeneousAssessmentOperationOutput = null as any;
+utilities.lazyLoad(exports, ["getHeterogeneousAssessmentOperation","getHeterogeneousAssessmentOperationOutput"], () => require("./getHeterogeneousAssessmentOperation"));
 
 export { GetHyperVCollectorArgs, GetHyperVCollectorResult, GetHyperVCollectorOutputArgs } from "./getHyperVCollector";
 export const getHyperVCollector: typeof import("./getHyperVCollector").getHyperVCollector = null as any;
@@ -99,6 +124,16 @@ export { GetImportCollectorsOperationArgs, GetImportCollectorsOperationResult, G
 export const getImportCollectorsOperation: typeof import("./getImportCollectorsOperation").getImportCollectorsOperation = null as any;
 export const getImportCollectorsOperationOutput: typeof import("./getImportCollectorsOperation").getImportCollectorsOperationOutput = null as any;
 utilities.lazyLoad(exports, ["getImportCollectorsOperation","getImportCollectorsOperationOutput"], () => require("./getImportCollectorsOperation"));
+
+export { GetImportSqlCollectorOperationArgs, GetImportSqlCollectorOperationResult, GetImportSqlCollectorOperationOutputArgs } from "./getImportSqlCollectorOperation";
+export const getImportSqlCollectorOperation: typeof import("./getImportSqlCollectorOperation").getImportSqlCollectorOperation = null as any;
+export const getImportSqlCollectorOperationOutput: typeof import("./getImportSqlCollectorOperation").getImportSqlCollectorOperationOutput = null as any;
+utilities.lazyLoad(exports, ["getImportSqlCollectorOperation","getImportSqlCollectorOperationOutput"], () => require("./getImportSqlCollectorOperation"));
+
+export { GetMachineAssessmentsV2OperationArgs, GetMachineAssessmentsV2OperationResult, GetMachineAssessmentsV2OperationOutputArgs } from "./getMachineAssessmentsV2Operation";
+export const getMachineAssessmentsV2Operation: typeof import("./getMachineAssessmentsV2Operation").getMachineAssessmentsV2Operation = null as any;
+export const getMachineAssessmentsV2OperationOutput: typeof import("./getMachineAssessmentsV2Operation").getMachineAssessmentsV2OperationOutput = null as any;
+utilities.lazyLoad(exports, ["getMachineAssessmentsV2Operation","getMachineAssessmentsV2OperationOutput"], () => require("./getMachineAssessmentsV2Operation"));
 
 export { GetMigrateAgentArgs, GetMigrateAgentResult, GetMigrateAgentOutputArgs } from "./getMigrateAgent";
 export const getMigrateAgent: typeof import("./getMigrateAgent").getMigrateAgent = null as any;
@@ -175,6 +210,11 @@ export const getSqlAssessmentV2Operation: typeof import("./getSqlAssessmentV2Ope
 export const getSqlAssessmentV2OperationOutput: typeof import("./getSqlAssessmentV2Operation").getSqlAssessmentV2OperationOutput = null as any;
 utilities.lazyLoad(exports, ["getSqlAssessmentV2Operation","getSqlAssessmentV2OperationOutput"], () => require("./getSqlAssessmentV2Operation"));
 
+export { GetSqlAssessmentV3OperationArgs, GetSqlAssessmentV3OperationResult, GetSqlAssessmentV3OperationOutputArgs } from "./getSqlAssessmentV3Operation";
+export const getSqlAssessmentV3Operation: typeof import("./getSqlAssessmentV3Operation").getSqlAssessmentV3Operation = null as any;
+export const getSqlAssessmentV3OperationOutput: typeof import("./getSqlAssessmentV3Operation").getSqlAssessmentV3OperationOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlAssessmentV3Operation","getSqlAssessmentV3OperationOutput"], () => require("./getSqlAssessmentV3Operation"));
+
 export { GetSqlCollectorOperationArgs, GetSqlCollectorOperationResult, GetSqlCollectorOperationOutputArgs } from "./getSqlCollectorOperation";
 export const getSqlCollectorOperation: typeof import("./getSqlCollectorOperation").getSqlCollectorOperation = null as any;
 export const getSqlCollectorOperationOutput: typeof import("./getSqlCollectorOperation").getSqlCollectorOperationOutput = null as any;
@@ -194,6 +234,11 @@ export { GetWebAppAssessmentV2OperationArgs, GetWebAppAssessmentV2OperationResul
 export const getWebAppAssessmentV2Operation: typeof import("./getWebAppAssessmentV2Operation").getWebAppAssessmentV2Operation = null as any;
 export const getWebAppAssessmentV2OperationOutput: typeof import("./getWebAppAssessmentV2Operation").getWebAppAssessmentV2OperationOutput = null as any;
 utilities.lazyLoad(exports, ["getWebAppAssessmentV2Operation","getWebAppAssessmentV2OperationOutput"], () => require("./getWebAppAssessmentV2Operation"));
+
+export { GetWebAppAssessmentV3OperationArgs, GetWebAppAssessmentV3OperationResult, GetWebAppAssessmentV3OperationOutputArgs } from "./getWebAppAssessmentV3Operation";
+export const getWebAppAssessmentV3Operation: typeof import("./getWebAppAssessmentV3Operation").getWebAppAssessmentV3Operation = null as any;
+export const getWebAppAssessmentV3OperationOutput: typeof import("./getWebAppAssessmentV3Operation").getWebAppAssessmentV3OperationOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppAssessmentV3Operation","getWebAppAssessmentV3OperationOutput"], () => require("./getWebAppAssessmentV3Operation"));
 
 export { GetWebAppCollectorOperationArgs, GetWebAppCollectorOperationResult, GetWebAppCollectorOperationOutputArgs } from "./getWebAppCollectorOperation";
 export const getWebAppCollectorOperation: typeof import("./getWebAppCollectorOperation").getWebAppCollectorOperation = null as any;
@@ -225,6 +270,11 @@ export type GroupsOperation = import("./groupsOperation").GroupsOperation;
 export const GroupsOperation: typeof import("./groupsOperation").GroupsOperation = null as any;
 utilities.lazyLoad(exports, ["GroupsOperation"], () => require("./groupsOperation"));
 
+export { HeterogeneousAssessmentOperationArgs } from "./heterogeneousAssessmentOperation";
+export type HeterogeneousAssessmentOperation = import("./heterogeneousAssessmentOperation").HeterogeneousAssessmentOperation;
+export const HeterogeneousAssessmentOperation: typeof import("./heterogeneousAssessmentOperation").HeterogeneousAssessmentOperation = null as any;
+utilities.lazyLoad(exports, ["HeterogeneousAssessmentOperation"], () => require("./heterogeneousAssessmentOperation"));
+
 export { HyperVCollectorArgs } from "./hyperVCollector";
 export type HyperVCollector = import("./hyperVCollector").HyperVCollector;
 export const HyperVCollector: typeof import("./hyperVCollector").HyperVCollector = null as any;
@@ -244,6 +294,16 @@ export { ImportCollectorsOperationArgs } from "./importCollectorsOperation";
 export type ImportCollectorsOperation = import("./importCollectorsOperation").ImportCollectorsOperation;
 export const ImportCollectorsOperation: typeof import("./importCollectorsOperation").ImportCollectorsOperation = null as any;
 utilities.lazyLoad(exports, ["ImportCollectorsOperation"], () => require("./importCollectorsOperation"));
+
+export { ImportSqlCollectorOperationArgs } from "./importSqlCollectorOperation";
+export type ImportSqlCollectorOperation = import("./importSqlCollectorOperation").ImportSqlCollectorOperation;
+export const ImportSqlCollectorOperation: typeof import("./importSqlCollectorOperation").ImportSqlCollectorOperation = null as any;
+utilities.lazyLoad(exports, ["ImportSqlCollectorOperation"], () => require("./importSqlCollectorOperation"));
+
+export { MachineAssessmentsV2OperationArgs } from "./machineAssessmentsV2Operation";
+export type MachineAssessmentsV2Operation = import("./machineAssessmentsV2Operation").MachineAssessmentsV2Operation;
+export const MachineAssessmentsV2Operation: typeof import("./machineAssessmentsV2Operation").MachineAssessmentsV2Operation = null as any;
+utilities.lazyLoad(exports, ["MachineAssessmentsV2Operation"], () => require("./machineAssessmentsV2Operation"));
 
 export { MigrateAgentArgs } from "./migrateAgent";
 export type MigrateAgent = import("./migrateAgent").MigrateAgent;
@@ -315,6 +375,11 @@ export type SqlAssessmentV2Operation = import("./sqlAssessmentV2Operation").SqlA
 export const SqlAssessmentV2Operation: typeof import("./sqlAssessmentV2Operation").SqlAssessmentV2Operation = null as any;
 utilities.lazyLoad(exports, ["SqlAssessmentV2Operation"], () => require("./sqlAssessmentV2Operation"));
 
+export { SqlAssessmentV3OperationArgs } from "./sqlAssessmentV3Operation";
+export type SqlAssessmentV3Operation = import("./sqlAssessmentV3Operation").SqlAssessmentV3Operation;
+export const SqlAssessmentV3Operation: typeof import("./sqlAssessmentV3Operation").SqlAssessmentV3Operation = null as any;
+utilities.lazyLoad(exports, ["SqlAssessmentV3Operation"], () => require("./sqlAssessmentV3Operation"));
+
 export { SqlCollectorOperationArgs } from "./sqlCollectorOperation";
 export type SqlCollectorOperation = import("./sqlCollectorOperation").SqlCollectorOperation;
 export const SqlCollectorOperation: typeof import("./sqlCollectorOperation").SqlCollectorOperation = null as any;
@@ -334,6 +399,11 @@ export { WebAppAssessmentV2OperationArgs } from "./webAppAssessmentV2Operation";
 export type WebAppAssessmentV2Operation = import("./webAppAssessmentV2Operation").WebAppAssessmentV2Operation;
 export const WebAppAssessmentV2Operation: typeof import("./webAppAssessmentV2Operation").WebAppAssessmentV2Operation = null as any;
 utilities.lazyLoad(exports, ["WebAppAssessmentV2Operation"], () => require("./webAppAssessmentV2Operation"));
+
+export { WebAppAssessmentV3OperationArgs } from "./webAppAssessmentV3Operation";
+export type WebAppAssessmentV3Operation = import("./webAppAssessmentV3Operation").WebAppAssessmentV3Operation;
+export const WebAppAssessmentV3Operation: typeof import("./webAppAssessmentV3Operation").WebAppAssessmentV3Operation = null as any;
+utilities.lazyLoad(exports, ["WebAppAssessmentV3Operation"], () => require("./webAppAssessmentV3Operation"));
 
 export { WebAppCollectorOperationArgs } from "./webAppCollectorOperation";
 export type WebAppCollectorOperation = import("./webAppCollectorOperation").WebAppCollectorOperation;
@@ -368,12 +438,18 @@ const _module = {
                 return new AssessmentsOperation(name, <any>undefined, { urn })
             case "azure-native:migrate:AvsAssessmentsOperation":
                 return new AvsAssessmentsOperation(name, <any>undefined, { urn })
+            case "azure-native:migrate:AvsAssessmentsV2Operation":
+                return new AvsAssessmentsV2Operation(name, <any>undefined, { urn })
             case "azure-native:migrate:BusinessCaseOperation":
                 return new BusinessCaseOperation(name, <any>undefined, { urn })
+            case "azure-native:migrate:CompoundAssessmentOperation":
+                return new CompoundAssessmentOperation(name, <any>undefined, { urn })
             case "azure-native:migrate:Group":
                 return new Group(name, <any>undefined, { urn })
             case "azure-native:migrate:GroupsOperation":
                 return new GroupsOperation(name, <any>undefined, { urn })
+            case "azure-native:migrate:HeterogeneousAssessmentOperation":
+                return new HeterogeneousAssessmentOperation(name, <any>undefined, { urn })
             case "azure-native:migrate:HyperVCollector":
                 return new HyperVCollector(name, <any>undefined, { urn })
             case "azure-native:migrate:HypervCollectorsOperation":
@@ -382,6 +458,10 @@ const _module = {
                 return new ImportCollector(name, <any>undefined, { urn })
             case "azure-native:migrate:ImportCollectorsOperation":
                 return new ImportCollectorsOperation(name, <any>undefined, { urn })
+            case "azure-native:migrate:ImportSqlCollectorOperation":
+                return new ImportSqlCollectorOperation(name, <any>undefined, { urn })
+            case "azure-native:migrate:MachineAssessmentsV2Operation":
+                return new MachineAssessmentsV2Operation(name, <any>undefined, { urn })
             case "azure-native:migrate:MigrateAgent":
                 return new MigrateAgent(name, <any>undefined, { urn })
             case "azure-native:migrate:MigrateProject":
@@ -410,6 +490,8 @@ const _module = {
                 return new Solution(name, <any>undefined, { urn })
             case "azure-native:migrate:SqlAssessmentV2Operation":
                 return new SqlAssessmentV2Operation(name, <any>undefined, { urn })
+            case "azure-native:migrate:SqlAssessmentV3Operation":
+                return new SqlAssessmentV3Operation(name, <any>undefined, { urn })
             case "azure-native:migrate:SqlCollectorOperation":
                 return new SqlCollectorOperation(name, <any>undefined, { urn })
             case "azure-native:migrate:VMwareCollector":
@@ -418,6 +500,8 @@ const _module = {
                 return new VmwareCollectorsOperation(name, <any>undefined, { urn })
             case "azure-native:migrate:WebAppAssessmentV2Operation":
                 return new WebAppAssessmentV2Operation(name, <any>undefined, { urn })
+            case "azure-native:migrate:WebAppAssessmentV3Operation":
+                return new WebAppAssessmentV3Operation(name, <any>undefined, { urn })
             case "azure-native:migrate:WebAppCollectorOperation":
                 return new WebAppCollectorOperation(name, <any>undefined, { urn })
             case "azure-native:migrate:WorkloadDeployment":

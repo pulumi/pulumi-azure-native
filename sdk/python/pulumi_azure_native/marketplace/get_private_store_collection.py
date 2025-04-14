@@ -226,6 +226,8 @@ def get_private_store_collection(collection_id: Optional[str] = None,
 
     Uses Azure REST API version 2023-01-01.
 
+    Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str collection_id: The collection ID
     :param str private_store_id: The store ID - must use the tenant ID
@@ -259,6 +261,8 @@ def get_private_store_collection_output(collection_id: Optional[pulumi.Input[str
     Gets private store collection
 
     Uses Azure REST API version 2023-01-01.
+
+    Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str collection_id: The collection ID

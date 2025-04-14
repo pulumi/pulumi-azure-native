@@ -15,6 +15,11 @@ export type Fabric = import("./fabric").Fabric;
 export const Fabric: typeof import("./fabric").Fabric = null as any;
 utilities.lazyLoad(exports, ["Fabric"], () => require("./fabric"));
 
+export { FabricAgentArgs } from "./fabricAgent";
+export type FabricAgent = import("./fabricAgent").FabricAgent;
+export const FabricAgent: typeof import("./fabricAgent").FabricAgent = null as any;
+utilities.lazyLoad(exports, ["FabricAgent"], () => require("./fabricAgent"));
+
 export { GetDraArgs, GetDraResult, GetDraOutputArgs } from "./getDra";
 export const getDra: typeof import("./getDra").getDra = null as any;
 export const getDraOutput: typeof import("./getDra").getDraOutput = null as any;
@@ -25,10 +30,25 @@ export const getFabric: typeof import("./getFabric").getFabric = null as any;
 export const getFabricOutput: typeof import("./getFabric").getFabricOutput = null as any;
 utilities.lazyLoad(exports, ["getFabric","getFabricOutput"], () => require("./getFabric"));
 
+export { GetFabricAgentArgs, GetFabricAgentResult, GetFabricAgentOutputArgs } from "./getFabricAgent";
+export const getFabricAgent: typeof import("./getFabricAgent").getFabricAgent = null as any;
+export const getFabricAgentOutput: typeof import("./getFabricAgent").getFabricAgentOutput = null as any;
+utilities.lazyLoad(exports, ["getFabricAgent","getFabricAgentOutput"], () => require("./getFabricAgent"));
+
 export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
 export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
 export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
+export { GetPrivateEndpointConnectionProxyArgs, GetPrivateEndpointConnectionProxyResult, GetPrivateEndpointConnectionProxyOutputArgs } from "./getPrivateEndpointConnectionProxy";
+export const getPrivateEndpointConnectionProxy: typeof import("./getPrivateEndpointConnectionProxy").getPrivateEndpointConnectionProxy = null as any;
+export const getPrivateEndpointConnectionProxyOutput: typeof import("./getPrivateEndpointConnectionProxy").getPrivateEndpointConnectionProxyOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnectionProxy","getPrivateEndpointConnectionProxyOutput"], () => require("./getPrivateEndpointConnectionProxy"));
 
 export { GetProtectedItemArgs, GetProtectedItemResult, GetProtectedItemOutputArgs } from "./getProtectedItem";
 export const getProtectedItem: typeof import("./getProtectedItem").getProtectedItem = null as any;
@@ -49,6 +69,16 @@ export { PolicyArgs } from "./policy";
 export type Policy = import("./policy").Policy;
 export const Policy: typeof import("./policy").Policy = null as any;
 utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+
+export { PrivateEndpointConnectionProxyArgs } from "./privateEndpointConnectionProxy";
+export type PrivateEndpointConnectionProxy = import("./privateEndpointConnectionProxy").PrivateEndpointConnectionProxy;
+export const PrivateEndpointConnectionProxy: typeof import("./privateEndpointConnectionProxy").PrivateEndpointConnectionProxy = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpointConnectionProxy"], () => require("./privateEndpointConnectionProxy"));
 
 export { ProtectedItemArgs } from "./protectedItem";
 export type ProtectedItem = import("./protectedItem").ProtectedItem;
@@ -77,8 +107,14 @@ const _module = {
                 return new Dra(name, <any>undefined, { urn })
             case "azure-native:datareplication:Fabric":
                 return new Fabric(name, <any>undefined, { urn })
+            case "azure-native:datareplication:FabricAgent":
+                return new FabricAgent(name, <any>undefined, { urn })
             case "azure-native:datareplication:Policy":
                 return new Policy(name, <any>undefined, { urn })
+            case "azure-native:datareplication:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:datareplication:PrivateEndpointConnectionProxy":
+                return new PrivateEndpointConnectionProxy(name, <any>undefined, { urn })
             case "azure-native:datareplication:ProtectedItem":
                 return new ProtectedItem(name, <any>undefined, { urn })
             case "azure-native:datareplication:ReplicationExtension":

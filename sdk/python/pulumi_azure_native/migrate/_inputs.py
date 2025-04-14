@@ -46,6 +46,10 @@ __all__ = [
     'AutomationArtifactArgsDict',
     'AvailabilitySetResourceSettingsArgs',
     'AvailabilitySetResourceSettingsArgsDict',
+    'AvsAssessmentPropertiesV2Args',
+    'AvsAssessmentPropertiesV2ArgsDict',
+    'AvsAssessmentSettingsArgs',
+    'AvsAssessmentSettingsArgsDict',
     'AzureArcManagementSettingsArgs',
     'AzureArcManagementSettingsArgsDict',
     'AzureArcMonitoringSettingsArgs',
@@ -56,6 +60,8 @@ __all__ = [
     'AzureFileShareHydrationProfileArgsDict',
     'AzureSettingsArgs',
     'AzureSettingsArgsDict',
+    'BillingSettingsArgs',
+    'BillingSettingsArgsDict',
     'BindingArgs',
     'BindingArgsDict',
     'CertArgs',
@@ -70,6 +76,8 @@ __all__ = [
     'CollectorBodyAgentSpnPropertiesArgsDict',
     'CollectorPropertiesArgs',
     'CollectorPropertiesArgsDict',
+    'CompoundAssessmentPropertiesArgs',
+    'CompoundAssessmentPropertiesArgsDict',
     'ComputeSettingsArgs',
     'ComputeSettingsArgsDict',
     'ConnectionStateRequestBodyPropertiesArgs',
@@ -90,6 +98,8 @@ __all__ = [
     'GmsaAuthenticationPropertiesArgsDict',
     'GroupPropertiesArgs',
     'GroupPropertiesArgsDict',
+    'HeterogeneousAssessmentPropertiesArgs',
+    'HeterogeneousAssessmentPropertiesArgsDict',
     'HypervLicenseArgs',
     'HypervLicenseArgsDict',
     'HypervVirtualizationManagementSettingsArgs',
@@ -114,6 +124,8 @@ __all__ = [
     'IdentityArgsDict',
     'ImportCollectorPropertiesArgs',
     'ImportCollectorPropertiesArgsDict',
+    'ImportSqlCollectorPropertiesArgs',
+    'ImportSqlCollectorPropertiesArgsDict',
     'KeyVaultResourceSettingsArgs',
     'KeyVaultResourceSettingsArgsDict',
     'KeyVaultSecretStorePropertiesArgs',
@@ -132,6 +144,10 @@ __all__ = [
     'LoadBalancerNatRuleReferenceArgsDict',
     'LoadBalancerResourceSettingsArgs',
     'LoadBalancerResourceSettingsArgsDict',
+    'MachineAssessmentSettingsArgs',
+    'MachineAssessmentSettingsArgsDict',
+    'MachineAssessmentV2PropertiesArgs',
+    'MachineAssessmentV2PropertiesArgsDict',
     'ManagedIdentityPropertiesArgs',
     'ManagedIdentityPropertiesArgsDict',
     'ManagementSettingsArgs',
@@ -172,6 +188,8 @@ __all__ = [
     'OtherManagementCostsSettingsArgsDict',
     'PerfDataSettingsArgs',
     'PerfDataSettingsArgsDict',
+    'PerformanceDataArgs',
+    'PerformanceDataArgsDict',
     'PortMappingArgs',
     'PortMappingArgsDict',
     'PrivateEndpointConnectionPropertiesArgs',
@@ -190,6 +208,10 @@ __all__ = [
     'ResourceIdentityArgsDict',
     'ResourceRequirementsArgs',
     'ResourceRequirementsArgsDict',
+    'SavingsSettingsArgs',
+    'SavingsSettingsArgsDict',
+    'ScopeArgs',
+    'ScopeArgsDict',
     'SecretStoreDetailsArgs',
     'SecretStoreDetailsArgsDict',
     'SecretStorePropertiesArgs',
@@ -202,12 +224,20 @@ __all__ = [
     'SolutionDetailsArgsDict',
     'SolutionPropertiesArgs',
     'SolutionPropertiesArgsDict',
+    'SqlAssessmentSettingsArgs',
+    'SqlAssessmentSettingsArgsDict',
+    'SqlAssessmentV3PropertiesArgs',
+    'SqlAssessmentV3PropertiesArgsDict',
     'SqlDatabaseResourceSettingsArgs',
     'SqlDatabaseResourceSettingsArgsDict',
+    'SqlDbSettingsV3Args',
+    'SqlDbSettingsV3ArgsDict',
     'SqlDbSettingsArgs',
     'SqlDbSettingsArgsDict',
     'SqlElasticPoolResourceSettingsArgs',
     'SqlElasticPoolResourceSettingsArgsDict',
+    'SqlMiSettingsV3Args',
+    'SqlMiSettingsV3ArgsDict',
     'SqlMiSettingsArgs',
     'SqlMiSettingsArgsDict',
     'SqlServerLicensingSettingsArgs',
@@ -222,6 +252,8 @@ __all__ = [
     'SubnetReferenceArgsDict',
     'SubnetResourceSettingsArgs',
     'SubnetResourceSettingsArgsDict',
+    'TargetAssessmentArmIdsArgs',
+    'TargetAssessmentArmIdsArgsDict',
     'TargetStorageProfileArgs',
     'TargetStorageProfileArgsDict',
     'ThirdPartyManagementSettingsArgs',
@@ -238,6 +270,10 @@ __all__ = [
     'VirtualizationSoftwareSettingsArgsDict',
     'VmUptimeArgs',
     'VmUptimeArgsDict',
+    'WebAppAssessmentSettingsArgs',
+    'WebAppAssessmentSettingsArgsDict',
+    'WebAppAssessmentV3PropertiesArgs',
+    'WebAppAssessmentV3PropertiesArgsDict',
     'WebApplicationConfigurationArgs',
     'WebApplicationConfigurationArgsDict',
     'WebApplicationDirectoryArgs',
@@ -2270,6 +2306,481 @@ class AvailabilitySetResourceSettingsArgs:
 
 
 if not MYPY:
+    class AvsAssessmentPropertiesV2ArgsDict(TypedDict):
+        """
+        Assessment properties class.
+        """
+        fallback_machine_assessment_arm_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the machine assessment ARM ID for VM fallback.
+        """
+        scope: NotRequired[pulumi.Input['ScopeArgsDict']]
+        """
+        Gets or sets the scope of assessment.
+        """
+        settings: NotRequired[pulumi.Input['AvsAssessmentSettingsArgsDict']]
+        """
+        Gets or sets the settings for the assessment.
+        """
+elif False:
+    AvsAssessmentPropertiesV2ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AvsAssessmentPropertiesV2Args:
+    def __init__(__self__, *,
+                 fallback_machine_assessment_arm_id: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input['ScopeArgs']] = None,
+                 settings: Optional[pulumi.Input['AvsAssessmentSettingsArgs']] = None):
+        """
+        Assessment properties class.
+        :param pulumi.Input[str] fallback_machine_assessment_arm_id: Gets or sets the machine assessment ARM ID for VM fallback.
+        :param pulumi.Input['ScopeArgs'] scope: Gets or sets the scope of assessment.
+        :param pulumi.Input['AvsAssessmentSettingsArgs'] settings: Gets or sets the settings for the assessment.
+        """
+        if fallback_machine_assessment_arm_id is not None:
+            pulumi.set(__self__, "fallback_machine_assessment_arm_id", fallback_machine_assessment_arm_id)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter(name="fallbackMachineAssessmentArmId")
+    def fallback_machine_assessment_arm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the machine assessment ARM ID for VM fallback.
+        """
+        return pulumi.get(self, "fallback_machine_assessment_arm_id")
+
+    @fallback_machine_assessment_arm_id.setter
+    def fallback_machine_assessment_arm_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fallback_machine_assessment_arm_id", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input['ScopeArgs']]:
+        """
+        Gets or sets the scope of assessment.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input['ScopeArgs']]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[pulumi.Input['AvsAssessmentSettingsArgs']]:
+        """
+        Gets or sets the settings for the assessment.
+        """
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: Optional[pulumi.Input['AvsAssessmentSettingsArgs']]):
+        pulumi.set(self, "settings", value)
+
+
+if not MYPY:
+    class AvsAssessmentSettingsArgsDict(TypedDict):
+        """
+        Properties of the AVS assessment.
+        """
+        avs_assessment_scenario: NotRequired[pulumi.Input[Union[str, 'AvsAssessmentScenario']]]
+        """
+        AVS Assessment Scenario.
+        """
+        azure_location: NotRequired[pulumi.Input[str]]
+        """
+        Azure Location or Azure region where to which the machines will be migrated.
+        """
+        billing_settings: NotRequired[pulumi.Input['BillingSettingsArgsDict']]
+        """
+        Gets or sets the billing settings.
+        """
+        cpu_headroom: NotRequired[pulumi.Input[float]]
+        """
+        Gets or sets the CPU headroom.
+        """
+        currency: NotRequired[pulumi.Input[Union[str, 'AzureCurrency']]]
+        """
+        Currency in which prices should be reported.
+        """
+        dedupe_compression: NotRequired[pulumi.Input[float]]
+        """
+        De-duplication compression.
+        """
+        discount_percentage: NotRequired[pulumi.Input[float]]
+        """
+        Custom discount percentage.
+        """
+        environment_type: NotRequired[pulumi.Input[Union[str, 'EnvironmentType']]]
+        """
+        Gets or sets user configurable setting to display the environment type.
+        """
+        external_storage_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExternalStorageType']]]]]
+        """
+        List of AVS external storage types.
+        """
+        failures_to_tolerate_and_raid_level_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FttAndRaidLevel']]]]]
+        """
+        List of Failures to tolerate and RAID levels in a common property.
+        """
+        is_stretch_cluster_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Stretch Cluster Enabled.
+        """
+        is_vcf_byol_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is VCF license applied
+        """
+        mem_overcommit: NotRequired[pulumi.Input[float]]
+        """
+        Memory overcommit.
+        """
+        node_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureAvsNodeType']]]]]
+        """
+        AVS node types.
+        """
+        performance_data: NotRequired[pulumi.Input['PerformanceDataArgsDict']]
+        """
+        Gets or sets the performance data.
+        """
+        savings_settings: NotRequired[pulumi.Input['SavingsSettingsArgsDict']]
+        """
+        Gets or sets the savings settings.
+        """
+        scaling_factor: NotRequired[pulumi.Input[float]]
+        """
+        Percentage of buffer that user wants on performance metrics when recommending
+        Azure sizes.
+        """
+        sizing_criterion: NotRequired[pulumi.Input[Union[str, 'AssessmentSizingCriterion']]]
+        """
+        Assessment sizing criterion.
+        """
+        vcpu_oversubscription: NotRequired[pulumi.Input[float]]
+        """
+        VCPU over subscription.
+        """
+elif False:
+    AvsAssessmentSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AvsAssessmentSettingsArgs:
+    def __init__(__self__, *,
+                 avs_assessment_scenario: Optional[pulumi.Input[Union[str, 'AvsAssessmentScenario']]] = None,
+                 azure_location: Optional[pulumi.Input[str]] = None,
+                 billing_settings: Optional[pulumi.Input['BillingSettingsArgs']] = None,
+                 cpu_headroom: Optional[pulumi.Input[float]] = None,
+                 currency: Optional[pulumi.Input[Union[str, 'AzureCurrency']]] = None,
+                 dedupe_compression: Optional[pulumi.Input[float]] = None,
+                 discount_percentage: Optional[pulumi.Input[float]] = None,
+                 environment_type: Optional[pulumi.Input[Union[str, 'EnvironmentType']]] = None,
+                 external_storage_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExternalStorageType']]]]] = None,
+                 failures_to_tolerate_and_raid_level_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FttAndRaidLevel']]]]] = None,
+                 is_stretch_cluster_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_vcf_byol_enabled: Optional[pulumi.Input[bool]] = None,
+                 mem_overcommit: Optional[pulumi.Input[float]] = None,
+                 node_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureAvsNodeType']]]]] = None,
+                 performance_data: Optional[pulumi.Input['PerformanceDataArgs']] = None,
+                 savings_settings: Optional[pulumi.Input['SavingsSettingsArgs']] = None,
+                 scaling_factor: Optional[pulumi.Input[float]] = None,
+                 sizing_criterion: Optional[pulumi.Input[Union[str, 'AssessmentSizingCriterion']]] = None,
+                 vcpu_oversubscription: Optional[pulumi.Input[float]] = None):
+        """
+        Properties of the AVS assessment.
+        :param pulumi.Input[Union[str, 'AvsAssessmentScenario']] avs_assessment_scenario: AVS Assessment Scenario.
+        :param pulumi.Input[str] azure_location: Azure Location or Azure region where to which the machines will be migrated.
+        :param pulumi.Input['BillingSettingsArgs'] billing_settings: Gets or sets the billing settings.
+        :param pulumi.Input[float] cpu_headroom: Gets or sets the CPU headroom.
+        :param pulumi.Input[Union[str, 'AzureCurrency']] currency: Currency in which prices should be reported.
+        :param pulumi.Input[float] dedupe_compression: De-duplication compression.
+        :param pulumi.Input[float] discount_percentage: Custom discount percentage.
+        :param pulumi.Input[Union[str, 'EnvironmentType']] environment_type: Gets or sets user configurable setting to display the environment type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExternalStorageType']]]] external_storage_types: List of AVS external storage types.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'FttAndRaidLevel']]]] failures_to_tolerate_and_raid_level_list: List of Failures to tolerate and RAID levels in a common property.
+        :param pulumi.Input[bool] is_stretch_cluster_enabled: Is Stretch Cluster Enabled.
+        :param pulumi.Input[bool] is_vcf_byol_enabled: Is VCF license applied
+        :param pulumi.Input[float] mem_overcommit: Memory overcommit.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureAvsNodeType']]]] node_types: AVS node types.
+        :param pulumi.Input['PerformanceDataArgs'] performance_data: Gets or sets the performance data.
+        :param pulumi.Input['SavingsSettingsArgs'] savings_settings: Gets or sets the savings settings.
+        :param pulumi.Input[float] scaling_factor: Percentage of buffer that user wants on performance metrics when recommending
+               Azure sizes.
+        :param pulumi.Input[Union[str, 'AssessmentSizingCriterion']] sizing_criterion: Assessment sizing criterion.
+        :param pulumi.Input[float] vcpu_oversubscription: VCPU over subscription.
+        """
+        if avs_assessment_scenario is not None:
+            pulumi.set(__self__, "avs_assessment_scenario", avs_assessment_scenario)
+        if azure_location is not None:
+            pulumi.set(__self__, "azure_location", azure_location)
+        if billing_settings is not None:
+            pulumi.set(__self__, "billing_settings", billing_settings)
+        if cpu_headroom is not None:
+            pulumi.set(__self__, "cpu_headroom", cpu_headroom)
+        if currency is not None:
+            pulumi.set(__self__, "currency", currency)
+        if dedupe_compression is not None:
+            pulumi.set(__self__, "dedupe_compression", dedupe_compression)
+        if discount_percentage is not None:
+            pulumi.set(__self__, "discount_percentage", discount_percentage)
+        if environment_type is not None:
+            pulumi.set(__self__, "environment_type", environment_type)
+        if external_storage_types is not None:
+            pulumi.set(__self__, "external_storage_types", external_storage_types)
+        if failures_to_tolerate_and_raid_level_list is not None:
+            pulumi.set(__self__, "failures_to_tolerate_and_raid_level_list", failures_to_tolerate_and_raid_level_list)
+        if is_stretch_cluster_enabled is not None:
+            pulumi.set(__self__, "is_stretch_cluster_enabled", is_stretch_cluster_enabled)
+        if is_vcf_byol_enabled is not None:
+            pulumi.set(__self__, "is_vcf_byol_enabled", is_vcf_byol_enabled)
+        if mem_overcommit is not None:
+            pulumi.set(__self__, "mem_overcommit", mem_overcommit)
+        if node_types is not None:
+            pulumi.set(__self__, "node_types", node_types)
+        if performance_data is not None:
+            pulumi.set(__self__, "performance_data", performance_data)
+        if savings_settings is not None:
+            pulumi.set(__self__, "savings_settings", savings_settings)
+        if scaling_factor is not None:
+            pulumi.set(__self__, "scaling_factor", scaling_factor)
+        if sizing_criterion is not None:
+            pulumi.set(__self__, "sizing_criterion", sizing_criterion)
+        if vcpu_oversubscription is not None:
+            pulumi.set(__self__, "vcpu_oversubscription", vcpu_oversubscription)
+
+    @property
+    @pulumi.getter(name="avsAssessmentScenario")
+    def avs_assessment_scenario(self) -> Optional[pulumi.Input[Union[str, 'AvsAssessmentScenario']]]:
+        """
+        AVS Assessment Scenario.
+        """
+        return pulumi.get(self, "avs_assessment_scenario")
+
+    @avs_assessment_scenario.setter
+    def avs_assessment_scenario(self, value: Optional[pulumi.Input[Union[str, 'AvsAssessmentScenario']]]):
+        pulumi.set(self, "avs_assessment_scenario", value)
+
+    @property
+    @pulumi.getter(name="azureLocation")
+    def azure_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure Location or Azure region where to which the machines will be migrated.
+        """
+        return pulumi.get(self, "azure_location")
+
+    @azure_location.setter
+    def azure_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "azure_location", value)
+
+    @property
+    @pulumi.getter(name="billingSettings")
+    def billing_settings(self) -> Optional[pulumi.Input['BillingSettingsArgs']]:
+        """
+        Gets or sets the billing settings.
+        """
+        return pulumi.get(self, "billing_settings")
+
+    @billing_settings.setter
+    def billing_settings(self, value: Optional[pulumi.Input['BillingSettingsArgs']]):
+        pulumi.set(self, "billing_settings", value)
+
+    @property
+    @pulumi.getter(name="cpuHeadroom")
+    def cpu_headroom(self) -> Optional[pulumi.Input[float]]:
+        """
+        Gets or sets the CPU headroom.
+        """
+        return pulumi.get(self, "cpu_headroom")
+
+    @cpu_headroom.setter
+    def cpu_headroom(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "cpu_headroom", value)
+
+    @property
+    @pulumi.getter
+    def currency(self) -> Optional[pulumi.Input[Union[str, 'AzureCurrency']]]:
+        """
+        Currency in which prices should be reported.
+        """
+        return pulumi.get(self, "currency")
+
+    @currency.setter
+    def currency(self, value: Optional[pulumi.Input[Union[str, 'AzureCurrency']]]):
+        pulumi.set(self, "currency", value)
+
+    @property
+    @pulumi.getter(name="dedupeCompression")
+    def dedupe_compression(self) -> Optional[pulumi.Input[float]]:
+        """
+        De-duplication compression.
+        """
+        return pulumi.get(self, "dedupe_compression")
+
+    @dedupe_compression.setter
+    def dedupe_compression(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "dedupe_compression", value)
+
+    @property
+    @pulumi.getter(name="discountPercentage")
+    def discount_percentage(self) -> Optional[pulumi.Input[float]]:
+        """
+        Custom discount percentage.
+        """
+        return pulumi.get(self, "discount_percentage")
+
+    @discount_percentage.setter
+    def discount_percentage(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "discount_percentage", value)
+
+    @property
+    @pulumi.getter(name="environmentType")
+    def environment_type(self) -> Optional[pulumi.Input[Union[str, 'EnvironmentType']]]:
+        """
+        Gets or sets user configurable setting to display the environment type.
+        """
+        return pulumi.get(self, "environment_type")
+
+    @environment_type.setter
+    def environment_type(self, value: Optional[pulumi.Input[Union[str, 'EnvironmentType']]]):
+        pulumi.set(self, "environment_type", value)
+
+    @property
+    @pulumi.getter(name="externalStorageTypes")
+    def external_storage_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExternalStorageType']]]]]:
+        """
+        List of AVS external storage types.
+        """
+        return pulumi.get(self, "external_storage_types")
+
+    @external_storage_types.setter
+    def external_storage_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExternalStorageType']]]]]):
+        pulumi.set(self, "external_storage_types", value)
+
+    @property
+    @pulumi.getter(name="failuresToTolerateAndRaidLevelList")
+    def failures_to_tolerate_and_raid_level_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FttAndRaidLevel']]]]]:
+        """
+        List of Failures to tolerate and RAID levels in a common property.
+        """
+        return pulumi.get(self, "failures_to_tolerate_and_raid_level_list")
+
+    @failures_to_tolerate_and_raid_level_list.setter
+    def failures_to_tolerate_and_raid_level_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FttAndRaidLevel']]]]]):
+        pulumi.set(self, "failures_to_tolerate_and_raid_level_list", value)
+
+    @property
+    @pulumi.getter(name="isStretchClusterEnabled")
+    def is_stretch_cluster_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Stretch Cluster Enabled.
+        """
+        return pulumi.get(self, "is_stretch_cluster_enabled")
+
+    @is_stretch_cluster_enabled.setter
+    def is_stretch_cluster_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_stretch_cluster_enabled", value)
+
+    @property
+    @pulumi.getter(name="isVcfByolEnabled")
+    def is_vcf_byol_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is VCF license applied
+        """
+        return pulumi.get(self, "is_vcf_byol_enabled")
+
+    @is_vcf_byol_enabled.setter
+    def is_vcf_byol_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_vcf_byol_enabled", value)
+
+    @property
+    @pulumi.getter(name="memOvercommit")
+    def mem_overcommit(self) -> Optional[pulumi.Input[float]]:
+        """
+        Memory overcommit.
+        """
+        return pulumi.get(self, "mem_overcommit")
+
+    @mem_overcommit.setter
+    def mem_overcommit(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "mem_overcommit", value)
+
+    @property
+    @pulumi.getter(name="nodeTypes")
+    def node_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureAvsNodeType']]]]]:
+        """
+        AVS node types.
+        """
+        return pulumi.get(self, "node_types")
+
+    @node_types.setter
+    def node_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureAvsNodeType']]]]]):
+        pulumi.set(self, "node_types", value)
+
+    @property
+    @pulumi.getter(name="performanceData")
+    def performance_data(self) -> Optional[pulumi.Input['PerformanceDataArgs']]:
+        """
+        Gets or sets the performance data.
+        """
+        return pulumi.get(self, "performance_data")
+
+    @performance_data.setter
+    def performance_data(self, value: Optional[pulumi.Input['PerformanceDataArgs']]):
+        pulumi.set(self, "performance_data", value)
+
+    @property
+    @pulumi.getter(name="savingsSettings")
+    def savings_settings(self) -> Optional[pulumi.Input['SavingsSettingsArgs']]:
+        """
+        Gets or sets the savings settings.
+        """
+        return pulumi.get(self, "savings_settings")
+
+    @savings_settings.setter
+    def savings_settings(self, value: Optional[pulumi.Input['SavingsSettingsArgs']]):
+        pulumi.set(self, "savings_settings", value)
+
+    @property
+    @pulumi.getter(name="scalingFactor")
+    def scaling_factor(self) -> Optional[pulumi.Input[float]]:
+        """
+        Percentage of buffer that user wants on performance metrics when recommending
+        Azure sizes.
+        """
+        return pulumi.get(self, "scaling_factor")
+
+    @scaling_factor.setter
+    def scaling_factor(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "scaling_factor", value)
+
+    @property
+    @pulumi.getter(name="sizingCriterion")
+    def sizing_criterion(self) -> Optional[pulumi.Input[Union[str, 'AssessmentSizingCriterion']]]:
+        """
+        Assessment sizing criterion.
+        """
+        return pulumi.get(self, "sizing_criterion")
+
+    @sizing_criterion.setter
+    def sizing_criterion(self, value: Optional[pulumi.Input[Union[str, 'AssessmentSizingCriterion']]]):
+        pulumi.set(self, "sizing_criterion", value)
+
+    @property
+    @pulumi.getter(name="vcpuOversubscription")
+    def vcpu_oversubscription(self) -> Optional[pulumi.Input[float]]:
+        """
+        VCPU over subscription.
+        """
+        return pulumi.get(self, "vcpu_oversubscription")
+
+    @vcpu_oversubscription.setter
+    def vcpu_oversubscription(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "vcpu_oversubscription", value)
+
+
+if not MYPY:
     class AzureArcManagementSettingsArgsDict(TypedDict):
         """
         Azure Arc Management settings.
@@ -2928,6 +3439,62 @@ class AzureSettingsArgs:
 
 
 if not MYPY:
+    class BillingSettingsArgsDict(TypedDict):
+        """
+        Billing settings class.
+        """
+        licensing_program: NotRequired[pulumi.Input[Union[str, 'LicensingProgram']]]
+        """
+        Gets or sets the licensing program.
+        """
+        subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the subscription ID for licensing program selected.
+        """
+elif False:
+    BillingSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BillingSettingsArgs:
+    def __init__(__self__, *,
+                 licensing_program: Optional[pulumi.Input[Union[str, 'LicensingProgram']]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None):
+        """
+        Billing settings class.
+        :param pulumi.Input[Union[str, 'LicensingProgram']] licensing_program: Gets or sets the licensing program.
+        :param pulumi.Input[str] subscription_id: Gets or sets the subscription ID for licensing program selected.
+        """
+        if licensing_program is not None:
+            pulumi.set(__self__, "licensing_program", licensing_program)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="licensingProgram")
+    def licensing_program(self) -> Optional[pulumi.Input[Union[str, 'LicensingProgram']]]:
+        """
+        Gets or sets the licensing program.
+        """
+        return pulumi.get(self, "licensing_program")
+
+    @licensing_program.setter
+    def licensing_program(self, value: Optional[pulumi.Input[Union[str, 'LicensingProgram']]]):
+        pulumi.set(self, "licensing_program", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the subscription ID for licensing program selected.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subscription_id", value)
+
+
+if not MYPY:
     class BindingArgsDict(TypedDict):
         """
         Binding for a web application.
@@ -3549,6 +4116,61 @@ class CollectorPropertiesArgs:
     @discovery_site_id.setter
     def discovery_site_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "discovery_site_id", value)
+
+
+if not MYPY:
+    class CompoundAssessmentPropertiesArgsDict(TypedDict):
+        """
+        Properties of a compound assessment.
+        """
+        target_assessment_arm_ids: pulumi.Input['TargetAssessmentArmIdsArgsDict']
+        """
+        ARM IDs of the target assessments.
+        """
+        fallback_machine_assessment_arm_id: NotRequired[pulumi.Input[str]]
+        """
+        Fallback machine assessment ARM ID.
+        """
+elif False:
+    CompoundAssessmentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CompoundAssessmentPropertiesArgs:
+    def __init__(__self__, *,
+                 target_assessment_arm_ids: pulumi.Input['TargetAssessmentArmIdsArgs'],
+                 fallback_machine_assessment_arm_id: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of a compound assessment.
+        :param pulumi.Input['TargetAssessmentArmIdsArgs'] target_assessment_arm_ids: ARM IDs of the target assessments.
+        :param pulumi.Input[str] fallback_machine_assessment_arm_id: Fallback machine assessment ARM ID.
+        """
+        pulumi.set(__self__, "target_assessment_arm_ids", target_assessment_arm_ids)
+        if fallback_machine_assessment_arm_id is not None:
+            pulumi.set(__self__, "fallback_machine_assessment_arm_id", fallback_machine_assessment_arm_id)
+
+    @property
+    @pulumi.getter(name="targetAssessmentArmIds")
+    def target_assessment_arm_ids(self) -> pulumi.Input['TargetAssessmentArmIdsArgs']:
+        """
+        ARM IDs of the target assessments.
+        """
+        return pulumi.get(self, "target_assessment_arm_ids")
+
+    @target_assessment_arm_ids.setter
+    def target_assessment_arm_ids(self, value: pulumi.Input['TargetAssessmentArmIdsArgs']):
+        pulumi.set(self, "target_assessment_arm_ids", value)
+
+    @property
+    @pulumi.getter(name="fallbackMachineAssessmentArmId")
+    def fallback_machine_assessment_arm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fallback machine assessment ARM ID.
+        """
+        return pulumi.get(self, "fallback_machine_assessment_arm_id")
+
+    @fallback_machine_assessment_arm_id.setter
+    def fallback_machine_assessment_arm_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fallback_machine_assessment_arm_id", value)
 
 
 if not MYPY:
@@ -4394,6 +5016,42 @@ class GroupPropertiesArgs:
     @group_type.setter
     def group_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "group_type", value)
+
+
+if not MYPY:
+    class HeterogeneousAssessmentPropertiesArgsDict(TypedDict):
+        """
+        Properties of an assessment.
+        """
+        assessment_arm_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Arm id of partner assessments.
+        """
+elif False:
+    HeterogeneousAssessmentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HeterogeneousAssessmentPropertiesArgs:
+    def __init__(__self__, *,
+                 assessment_arm_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Properties of an assessment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] assessment_arm_ids: Arm id of partner assessments.
+        """
+        if assessment_arm_ids is not None:
+            pulumi.set(__self__, "assessment_arm_ids", assessment_arm_ids)
+
+    @property
+    @pulumi.getter(name="assessmentArmIds")
+    def assessment_arm_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Arm id of partner assessments.
+        """
+        return pulumi.get(self, "assessment_arm_ids")
+
+    @assessment_arm_ids.setter
+    def assessment_arm_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "assessment_arm_ids", value)
 
 
 if not MYPY:
@@ -6011,6 +6669,42 @@ class ImportCollectorPropertiesArgs:
 
 
 if not MYPY:
+    class ImportSqlCollectorPropertiesArgsDict(TypedDict):
+        """
+        Import SQL Collector properties class.
+        """
+        discovery_site_id: NotRequired[pulumi.Input[str]]
+        """
+        The sql db extended details.
+        """
+elif False:
+    ImportSqlCollectorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ImportSqlCollectorPropertiesArgs:
+    def __init__(__self__, *,
+                 discovery_site_id: Optional[pulumi.Input[str]] = None):
+        """
+        Import SQL Collector properties class.
+        :param pulumi.Input[str] discovery_site_id: The sql db extended details.
+        """
+        if discovery_site_id is not None:
+            pulumi.set(__self__, "discovery_site_id", discovery_site_id)
+
+    @property
+    @pulumi.getter(name="discoverySiteId")
+    def discovery_site_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The sql db extended details.
+        """
+        return pulumi.get(self, "discovery_site_id")
+
+    @discovery_site_id.setter
+    def discovery_site_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "discovery_site_id", value)
+
+
+if not MYPY:
     class KeyVaultResourceSettingsArgsDict(TypedDict):
         """
         Defines the key vault resource settings.
@@ -6728,6 +7422,430 @@ class LoadBalancerResourceSettingsArgs:
     @zones.setter
     def zones(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "zones", value)
+
+
+if not MYPY:
+    class MachineAssessmentSettingsArgsDict(TypedDict):
+        """
+        Properties of an assessment.
+        """
+        azure_disk_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureDiskType']]]]]
+        """
+        The disk type for the assessment.
+        """
+        azure_hybrid_use_benefit: NotRequired[pulumi.Input[Union[str, 'AzureHybridUseBenefit']]]
+        """
+        Gets or sets the user configurable setting to display the azure hybrid use
+        benefit.
+        """
+        azure_location: NotRequired[pulumi.Input[str]]
+        """
+        Azure Location or Azure region where to which the machines will be migrated.
+        """
+        azure_pricing_tier: NotRequired[pulumi.Input[Union[str, 'AzurePricingTier']]]
+        """
+        Gets or sets Azure Pricing Tier - Free, Basic, etc.
+        """
+        azure_security_offering_type: NotRequired[pulumi.Input[Union[str, 'AzureSecurityOfferingType']]]
+        """
+        The azure security offering type.
+        """
+        azure_storage_redundancy: NotRequired[pulumi.Input[Union[str, 'AzureStorageRedundancy']]]
+        """
+        Gets or sets the Azure Storage Redundancy. Example: Locally Redundant Storage.
+        """
+        azure_vm_families: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmFamily']]]]]
+        """
+        Gets or sets the Azure VM families.
+        """
+        billing_settings: NotRequired[pulumi.Input['BillingSettingsArgsDict']]
+        """
+        Gets or sets the billing settings.
+        """
+        currency: NotRequired[pulumi.Input[Union[str, 'AzureCurrency']]]
+        """
+        Currency in which prices should be reported.
+        """
+        discount_percentage: NotRequired[pulumi.Input[float]]
+        """
+        Custom discount percentage.
+        """
+        environment_type: NotRequired[pulumi.Input[Union[str, 'EnvironmentType']]]
+        """
+        Gets or sets user configurable setting to display the environment type.
+        """
+        linux_azure_hybrid_use_benefit: NotRequired[pulumi.Input[Union[str, 'AzureHybridUseBenefit']]]
+        """
+        Gets or sets the user configurable setting to display the linux azure hybrid use
+        benefit.
+        """
+        performance_data: NotRequired[pulumi.Input['PerformanceDataArgsDict']]
+        """
+        Gets or sets the performance data.
+        """
+        savings_settings: NotRequired[pulumi.Input['SavingsSettingsArgsDict']]
+        """
+        Gets or sets the savings settings.
+        """
+        scaling_factor: NotRequired[pulumi.Input[float]]
+        """
+        Percentage of buffer that user wants on performance metrics when recommending
+        Azure sizes.
+        """
+        sizing_criterion: NotRequired[pulumi.Input[Union[str, 'AssessmentSizingCriterion']]]
+        """
+        Assessment sizing criterion.
+        """
+        vm_uptime: NotRequired[pulumi.Input['VmUptimeArgsDict']]
+        """
+        Gets or sets the duration for which the VMs are up in the on-premises
+        environment.
+        """
+elif False:
+    MachineAssessmentSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MachineAssessmentSettingsArgs:
+    def __init__(__self__, *,
+                 azure_disk_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureDiskType']]]]] = None,
+                 azure_hybrid_use_benefit: Optional[pulumi.Input[Union[str, 'AzureHybridUseBenefit']]] = None,
+                 azure_location: Optional[pulumi.Input[str]] = None,
+                 azure_pricing_tier: Optional[pulumi.Input[Union[str, 'AzurePricingTier']]] = None,
+                 azure_security_offering_type: Optional[pulumi.Input[Union[str, 'AzureSecurityOfferingType']]] = None,
+                 azure_storage_redundancy: Optional[pulumi.Input[Union[str, 'AzureStorageRedundancy']]] = None,
+                 azure_vm_families: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmFamily']]]]] = None,
+                 billing_settings: Optional[pulumi.Input['BillingSettingsArgs']] = None,
+                 currency: Optional[pulumi.Input[Union[str, 'AzureCurrency']]] = None,
+                 discount_percentage: Optional[pulumi.Input[float]] = None,
+                 environment_type: Optional[pulumi.Input[Union[str, 'EnvironmentType']]] = None,
+                 linux_azure_hybrid_use_benefit: Optional[pulumi.Input[Union[str, 'AzureHybridUseBenefit']]] = None,
+                 performance_data: Optional[pulumi.Input['PerformanceDataArgs']] = None,
+                 savings_settings: Optional[pulumi.Input['SavingsSettingsArgs']] = None,
+                 scaling_factor: Optional[pulumi.Input[float]] = None,
+                 sizing_criterion: Optional[pulumi.Input[Union[str, 'AssessmentSizingCriterion']]] = None,
+                 vm_uptime: Optional[pulumi.Input['VmUptimeArgs']] = None):
+        """
+        Properties of an assessment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureDiskType']]]] azure_disk_types: The disk type for the assessment.
+        :param pulumi.Input[Union[str, 'AzureHybridUseBenefit']] azure_hybrid_use_benefit: Gets or sets the user configurable setting to display the azure hybrid use
+               benefit.
+        :param pulumi.Input[str] azure_location: Azure Location or Azure region where to which the machines will be migrated.
+        :param pulumi.Input[Union[str, 'AzurePricingTier']] azure_pricing_tier: Gets or sets Azure Pricing Tier - Free, Basic, etc.
+        :param pulumi.Input[Union[str, 'AzureSecurityOfferingType']] azure_security_offering_type: The azure security offering type.
+        :param pulumi.Input[Union[str, 'AzureStorageRedundancy']] azure_storage_redundancy: Gets or sets the Azure Storage Redundancy. Example: Locally Redundant Storage.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmFamily']]]] azure_vm_families: Gets or sets the Azure VM families.
+        :param pulumi.Input['BillingSettingsArgs'] billing_settings: Gets or sets the billing settings.
+        :param pulumi.Input[Union[str, 'AzureCurrency']] currency: Currency in which prices should be reported.
+        :param pulumi.Input[float] discount_percentage: Custom discount percentage.
+        :param pulumi.Input[Union[str, 'EnvironmentType']] environment_type: Gets or sets user configurable setting to display the environment type.
+        :param pulumi.Input[Union[str, 'AzureHybridUseBenefit']] linux_azure_hybrid_use_benefit: Gets or sets the user configurable setting to display the linux azure hybrid use
+               benefit.
+        :param pulumi.Input['PerformanceDataArgs'] performance_data: Gets or sets the performance data.
+        :param pulumi.Input['SavingsSettingsArgs'] savings_settings: Gets or sets the savings settings.
+        :param pulumi.Input[float] scaling_factor: Percentage of buffer that user wants on performance metrics when recommending
+               Azure sizes.
+        :param pulumi.Input[Union[str, 'AssessmentSizingCriterion']] sizing_criterion: Assessment sizing criterion.
+        :param pulumi.Input['VmUptimeArgs'] vm_uptime: Gets or sets the duration for which the VMs are up in the on-premises
+               environment.
+        """
+        if azure_disk_types is not None:
+            pulumi.set(__self__, "azure_disk_types", azure_disk_types)
+        if azure_hybrid_use_benefit is not None:
+            pulumi.set(__self__, "azure_hybrid_use_benefit", azure_hybrid_use_benefit)
+        if azure_location is not None:
+            pulumi.set(__self__, "azure_location", azure_location)
+        if azure_pricing_tier is not None:
+            pulumi.set(__self__, "azure_pricing_tier", azure_pricing_tier)
+        if azure_security_offering_type is not None:
+            pulumi.set(__self__, "azure_security_offering_type", azure_security_offering_type)
+        if azure_storage_redundancy is not None:
+            pulumi.set(__self__, "azure_storage_redundancy", azure_storage_redundancy)
+        if azure_vm_families is not None:
+            pulumi.set(__self__, "azure_vm_families", azure_vm_families)
+        if billing_settings is not None:
+            pulumi.set(__self__, "billing_settings", billing_settings)
+        if currency is not None:
+            pulumi.set(__self__, "currency", currency)
+        if discount_percentage is not None:
+            pulumi.set(__self__, "discount_percentage", discount_percentage)
+        if environment_type is not None:
+            pulumi.set(__self__, "environment_type", environment_type)
+        if linux_azure_hybrid_use_benefit is not None:
+            pulumi.set(__self__, "linux_azure_hybrid_use_benefit", linux_azure_hybrid_use_benefit)
+        if performance_data is not None:
+            pulumi.set(__self__, "performance_data", performance_data)
+        if savings_settings is not None:
+            pulumi.set(__self__, "savings_settings", savings_settings)
+        if scaling_factor is not None:
+            pulumi.set(__self__, "scaling_factor", scaling_factor)
+        if sizing_criterion is not None:
+            pulumi.set(__self__, "sizing_criterion", sizing_criterion)
+        if vm_uptime is not None:
+            pulumi.set(__self__, "vm_uptime", vm_uptime)
+
+    @property
+    @pulumi.getter(name="azureDiskTypes")
+    def azure_disk_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureDiskType']]]]]:
+        """
+        The disk type for the assessment.
+        """
+        return pulumi.get(self, "azure_disk_types")
+
+    @azure_disk_types.setter
+    def azure_disk_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureDiskType']]]]]):
+        pulumi.set(self, "azure_disk_types", value)
+
+    @property
+    @pulumi.getter(name="azureHybridUseBenefit")
+    def azure_hybrid_use_benefit(self) -> Optional[pulumi.Input[Union[str, 'AzureHybridUseBenefit']]]:
+        """
+        Gets or sets the user configurable setting to display the azure hybrid use
+        benefit.
+        """
+        return pulumi.get(self, "azure_hybrid_use_benefit")
+
+    @azure_hybrid_use_benefit.setter
+    def azure_hybrid_use_benefit(self, value: Optional[pulumi.Input[Union[str, 'AzureHybridUseBenefit']]]):
+        pulumi.set(self, "azure_hybrid_use_benefit", value)
+
+    @property
+    @pulumi.getter(name="azureLocation")
+    def azure_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure Location or Azure region where to which the machines will be migrated.
+        """
+        return pulumi.get(self, "azure_location")
+
+    @azure_location.setter
+    def azure_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "azure_location", value)
+
+    @property
+    @pulumi.getter(name="azurePricingTier")
+    def azure_pricing_tier(self) -> Optional[pulumi.Input[Union[str, 'AzurePricingTier']]]:
+        """
+        Gets or sets Azure Pricing Tier - Free, Basic, etc.
+        """
+        return pulumi.get(self, "azure_pricing_tier")
+
+    @azure_pricing_tier.setter
+    def azure_pricing_tier(self, value: Optional[pulumi.Input[Union[str, 'AzurePricingTier']]]):
+        pulumi.set(self, "azure_pricing_tier", value)
+
+    @property
+    @pulumi.getter(name="azureSecurityOfferingType")
+    def azure_security_offering_type(self) -> Optional[pulumi.Input[Union[str, 'AzureSecurityOfferingType']]]:
+        """
+        The azure security offering type.
+        """
+        return pulumi.get(self, "azure_security_offering_type")
+
+    @azure_security_offering_type.setter
+    def azure_security_offering_type(self, value: Optional[pulumi.Input[Union[str, 'AzureSecurityOfferingType']]]):
+        pulumi.set(self, "azure_security_offering_type", value)
+
+    @property
+    @pulumi.getter(name="azureStorageRedundancy")
+    def azure_storage_redundancy(self) -> Optional[pulumi.Input[Union[str, 'AzureStorageRedundancy']]]:
+        """
+        Gets or sets the Azure Storage Redundancy. Example: Locally Redundant Storage.
+        """
+        return pulumi.get(self, "azure_storage_redundancy")
+
+    @azure_storage_redundancy.setter
+    def azure_storage_redundancy(self, value: Optional[pulumi.Input[Union[str, 'AzureStorageRedundancy']]]):
+        pulumi.set(self, "azure_storage_redundancy", value)
+
+    @property
+    @pulumi.getter(name="azureVmFamilies")
+    def azure_vm_families(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmFamily']]]]]:
+        """
+        Gets or sets the Azure VM families.
+        """
+        return pulumi.get(self, "azure_vm_families")
+
+    @azure_vm_families.setter
+    def azure_vm_families(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmFamily']]]]]):
+        pulumi.set(self, "azure_vm_families", value)
+
+    @property
+    @pulumi.getter(name="billingSettings")
+    def billing_settings(self) -> Optional[pulumi.Input['BillingSettingsArgs']]:
+        """
+        Gets or sets the billing settings.
+        """
+        return pulumi.get(self, "billing_settings")
+
+    @billing_settings.setter
+    def billing_settings(self, value: Optional[pulumi.Input['BillingSettingsArgs']]):
+        pulumi.set(self, "billing_settings", value)
+
+    @property
+    @pulumi.getter
+    def currency(self) -> Optional[pulumi.Input[Union[str, 'AzureCurrency']]]:
+        """
+        Currency in which prices should be reported.
+        """
+        return pulumi.get(self, "currency")
+
+    @currency.setter
+    def currency(self, value: Optional[pulumi.Input[Union[str, 'AzureCurrency']]]):
+        pulumi.set(self, "currency", value)
+
+    @property
+    @pulumi.getter(name="discountPercentage")
+    def discount_percentage(self) -> Optional[pulumi.Input[float]]:
+        """
+        Custom discount percentage.
+        """
+        return pulumi.get(self, "discount_percentage")
+
+    @discount_percentage.setter
+    def discount_percentage(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "discount_percentage", value)
+
+    @property
+    @pulumi.getter(name="environmentType")
+    def environment_type(self) -> Optional[pulumi.Input[Union[str, 'EnvironmentType']]]:
+        """
+        Gets or sets user configurable setting to display the environment type.
+        """
+        return pulumi.get(self, "environment_type")
+
+    @environment_type.setter
+    def environment_type(self, value: Optional[pulumi.Input[Union[str, 'EnvironmentType']]]):
+        pulumi.set(self, "environment_type", value)
+
+    @property
+    @pulumi.getter(name="linuxAzureHybridUseBenefit")
+    def linux_azure_hybrid_use_benefit(self) -> Optional[pulumi.Input[Union[str, 'AzureHybridUseBenefit']]]:
+        """
+        Gets or sets the user configurable setting to display the linux azure hybrid use
+        benefit.
+        """
+        return pulumi.get(self, "linux_azure_hybrid_use_benefit")
+
+    @linux_azure_hybrid_use_benefit.setter
+    def linux_azure_hybrid_use_benefit(self, value: Optional[pulumi.Input[Union[str, 'AzureHybridUseBenefit']]]):
+        pulumi.set(self, "linux_azure_hybrid_use_benefit", value)
+
+    @property
+    @pulumi.getter(name="performanceData")
+    def performance_data(self) -> Optional[pulumi.Input['PerformanceDataArgs']]:
+        """
+        Gets or sets the performance data.
+        """
+        return pulumi.get(self, "performance_data")
+
+    @performance_data.setter
+    def performance_data(self, value: Optional[pulumi.Input['PerformanceDataArgs']]):
+        pulumi.set(self, "performance_data", value)
+
+    @property
+    @pulumi.getter(name="savingsSettings")
+    def savings_settings(self) -> Optional[pulumi.Input['SavingsSettingsArgs']]:
+        """
+        Gets or sets the savings settings.
+        """
+        return pulumi.get(self, "savings_settings")
+
+    @savings_settings.setter
+    def savings_settings(self, value: Optional[pulumi.Input['SavingsSettingsArgs']]):
+        pulumi.set(self, "savings_settings", value)
+
+    @property
+    @pulumi.getter(name="scalingFactor")
+    def scaling_factor(self) -> Optional[pulumi.Input[float]]:
+        """
+        Percentage of buffer that user wants on performance metrics when recommending
+        Azure sizes.
+        """
+        return pulumi.get(self, "scaling_factor")
+
+    @scaling_factor.setter
+    def scaling_factor(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "scaling_factor", value)
+
+    @property
+    @pulumi.getter(name="sizingCriterion")
+    def sizing_criterion(self) -> Optional[pulumi.Input[Union[str, 'AssessmentSizingCriterion']]]:
+        """
+        Assessment sizing criterion.
+        """
+        return pulumi.get(self, "sizing_criterion")
+
+    @sizing_criterion.setter
+    def sizing_criterion(self, value: Optional[pulumi.Input[Union[str, 'AssessmentSizingCriterion']]]):
+        pulumi.set(self, "sizing_criterion", value)
+
+    @property
+    @pulumi.getter(name="vmUptime")
+    def vm_uptime(self) -> Optional[pulumi.Input['VmUptimeArgs']]:
+        """
+        Gets or sets the duration for which the VMs are up in the on-premises
+        environment.
+        """
+        return pulumi.get(self, "vm_uptime")
+
+    @vm_uptime.setter
+    def vm_uptime(self, value: Optional[pulumi.Input['VmUptimeArgs']]):
+        pulumi.set(self, "vm_uptime", value)
+
+
+if not MYPY:
+    class MachineAssessmentV2PropertiesArgsDict(TypedDict):
+        """
+        Assessment properties class.
+        """
+        scope: NotRequired[pulumi.Input['ScopeArgsDict']]
+        """
+        Gets or sets the scope of assessment.
+        """
+        settings: NotRequired[pulumi.Input['MachineAssessmentSettingsArgsDict']]
+        """
+        Gets or sets the settings for the assessment.
+        """
+elif False:
+    MachineAssessmentV2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MachineAssessmentV2PropertiesArgs:
+    def __init__(__self__, *,
+                 scope: Optional[pulumi.Input['ScopeArgs']] = None,
+                 settings: Optional[pulumi.Input['MachineAssessmentSettingsArgs']] = None):
+        """
+        Assessment properties class.
+        :param pulumi.Input['ScopeArgs'] scope: Gets or sets the scope of assessment.
+        :param pulumi.Input['MachineAssessmentSettingsArgs'] settings: Gets or sets the settings for the assessment.
+        """
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input['ScopeArgs']]:
+        """
+        Gets or sets the scope of assessment.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input['ScopeArgs']]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[pulumi.Input['MachineAssessmentSettingsArgs']]:
+        """
+        Gets or sets the settings for the assessment.
+        """
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: Optional[pulumi.Input['MachineAssessmentSettingsArgs']]):
+        pulumi.set(self, "settings", value)
 
 
 if not MYPY:
@@ -8664,6 +9782,108 @@ class PerfDataSettingsArgs:
 
 
 if not MYPY:
+    class PerformanceDataArgsDict(TypedDict):
+        """
+        Performance data class.
+        """
+        percentile: NotRequired[pulumi.Input[Union[str, 'Percentile']]]
+        """
+        Percentile of the utilization data values to be considered while assessing
+        machines.
+        """
+        perf_data_end_time: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the end time to consider performance data for assessment.
+        """
+        perf_data_start_time: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the start time to consider performance data for assessment.
+        """
+        time_range: NotRequired[pulumi.Input[Union[str, 'TimeRange']]]
+        """
+        Time Range for which the historic utilization data should be considered for
+        assessment.
+        """
+elif False:
+    PerformanceDataArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PerformanceDataArgs:
+    def __init__(__self__, *,
+                 percentile: Optional[pulumi.Input[Union[str, 'Percentile']]] = None,
+                 perf_data_end_time: Optional[pulumi.Input[str]] = None,
+                 perf_data_start_time: Optional[pulumi.Input[str]] = None,
+                 time_range: Optional[pulumi.Input[Union[str, 'TimeRange']]] = None):
+        """
+        Performance data class.
+        :param pulumi.Input[Union[str, 'Percentile']] percentile: Percentile of the utilization data values to be considered while assessing
+               machines.
+        :param pulumi.Input[str] perf_data_end_time: Gets or sets the end time to consider performance data for assessment.
+        :param pulumi.Input[str] perf_data_start_time: Gets or sets the start time to consider performance data for assessment.
+        :param pulumi.Input[Union[str, 'TimeRange']] time_range: Time Range for which the historic utilization data should be considered for
+               assessment.
+        """
+        if percentile is not None:
+            pulumi.set(__self__, "percentile", percentile)
+        if perf_data_end_time is not None:
+            pulumi.set(__self__, "perf_data_end_time", perf_data_end_time)
+        if perf_data_start_time is not None:
+            pulumi.set(__self__, "perf_data_start_time", perf_data_start_time)
+        if time_range is not None:
+            pulumi.set(__self__, "time_range", time_range)
+
+    @property
+    @pulumi.getter
+    def percentile(self) -> Optional[pulumi.Input[Union[str, 'Percentile']]]:
+        """
+        Percentile of the utilization data values to be considered while assessing
+        machines.
+        """
+        return pulumi.get(self, "percentile")
+
+    @percentile.setter
+    def percentile(self, value: Optional[pulumi.Input[Union[str, 'Percentile']]]):
+        pulumi.set(self, "percentile", value)
+
+    @property
+    @pulumi.getter(name="perfDataEndTime")
+    def perf_data_end_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the end time to consider performance data for assessment.
+        """
+        return pulumi.get(self, "perf_data_end_time")
+
+    @perf_data_end_time.setter
+    def perf_data_end_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "perf_data_end_time", value)
+
+    @property
+    @pulumi.getter(name="perfDataStartTime")
+    def perf_data_start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the start time to consider performance data for assessment.
+        """
+        return pulumi.get(self, "perf_data_start_time")
+
+    @perf_data_start_time.setter
+    def perf_data_start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "perf_data_start_time", value)
+
+    @property
+    @pulumi.getter(name="timeRange")
+    def time_range(self) -> Optional[pulumi.Input[Union[str, 'TimeRange']]]:
+        """
+        Time Range for which the historic utilization data should be considered for
+        assessment.
+        """
+        return pulumi.get(self, "time_range")
+
+    @time_range.setter
+    def time_range(self, value: Optional[pulumi.Input[Union[str, 'TimeRange']]]):
+        pulumi.set(self, "time_range", value)
+
+
+if not MYPY:
     class PortMappingArgsDict(TypedDict):
         """
         WebApplication port mapping.
@@ -9397,6 +10617,138 @@ class ResourceRequirementsArgs:
 
 
 if not MYPY:
+    class SavingsSettingsArgsDict(TypedDict):
+        """
+        Savings settings class.
+        """
+        azure_offer_code: NotRequired[pulumi.Input[Union[str, 'AzureOffer']]]
+        """
+        Gets or sets the Azure offer code.
+        """
+        savings_options: NotRequired[pulumi.Input[Union[str, 'SavingsOptions']]]
+        """
+        Gets or sets the savings options.
+        """
+elif False:
+    SavingsSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SavingsSettingsArgs:
+    def __init__(__self__, *,
+                 azure_offer_code: Optional[pulumi.Input[Union[str, 'AzureOffer']]] = None,
+                 savings_options: Optional[pulumi.Input[Union[str, 'SavingsOptions']]] = None):
+        """
+        Savings settings class.
+        :param pulumi.Input[Union[str, 'AzureOffer']] azure_offer_code: Gets or sets the Azure offer code.
+        :param pulumi.Input[Union[str, 'SavingsOptions']] savings_options: Gets or sets the savings options.
+        """
+        if azure_offer_code is not None:
+            pulumi.set(__self__, "azure_offer_code", azure_offer_code)
+        if savings_options is not None:
+            pulumi.set(__self__, "savings_options", savings_options)
+
+    @property
+    @pulumi.getter(name="azureOfferCode")
+    def azure_offer_code(self) -> Optional[pulumi.Input[Union[str, 'AzureOffer']]]:
+        """
+        Gets or sets the Azure offer code.
+        """
+        return pulumi.get(self, "azure_offer_code")
+
+    @azure_offer_code.setter
+    def azure_offer_code(self, value: Optional[pulumi.Input[Union[str, 'AzureOffer']]]):
+        pulumi.set(self, "azure_offer_code", value)
+
+    @property
+    @pulumi.getter(name="savingsOptions")
+    def savings_options(self) -> Optional[pulumi.Input[Union[str, 'SavingsOptions']]]:
+        """
+        Gets or sets the savings options.
+        """
+        return pulumi.get(self, "savings_options")
+
+    @savings_options.setter
+    def savings_options(self, value: Optional[pulumi.Input[Union[str, 'SavingsOptions']]]):
+        pulumi.set(self, "savings_options", value)
+
+
+if not MYPY:
+    class ScopeArgsDict(TypedDict):
+        """
+        Scope of the assessment.
+        """
+        azure_resource_graph_query: NotRequired[pulumi.Input[str]]
+        """
+        The ARG query.
+        """
+        scope_type: NotRequired[pulumi.Input[Union[str, 'ScopeType']]]
+        """
+        The scope type
+        """
+        server_group_id: NotRequired[pulumi.Input[str]]
+        """
+        The server group arm id.
+        """
+elif False:
+    ScopeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScopeArgs:
+    def __init__(__self__, *,
+                 azure_resource_graph_query: Optional[pulumi.Input[str]] = None,
+                 scope_type: Optional[pulumi.Input[Union[str, 'ScopeType']]] = None,
+                 server_group_id: Optional[pulumi.Input[str]] = None):
+        """
+        Scope of the assessment.
+        :param pulumi.Input[str] azure_resource_graph_query: The ARG query.
+        :param pulumi.Input[Union[str, 'ScopeType']] scope_type: The scope type
+        :param pulumi.Input[str] server_group_id: The server group arm id.
+        """
+        if azure_resource_graph_query is not None:
+            pulumi.set(__self__, "azure_resource_graph_query", azure_resource_graph_query)
+        if scope_type is not None:
+            pulumi.set(__self__, "scope_type", scope_type)
+        if server_group_id is not None:
+            pulumi.set(__self__, "server_group_id", server_group_id)
+
+    @property
+    @pulumi.getter(name="azureResourceGraphQuery")
+    def azure_resource_graph_query(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARG query.
+        """
+        return pulumi.get(self, "azure_resource_graph_query")
+
+    @azure_resource_graph_query.setter
+    def azure_resource_graph_query(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "azure_resource_graph_query", value)
+
+    @property
+    @pulumi.getter(name="scopeType")
+    def scope_type(self) -> Optional[pulumi.Input[Union[str, 'ScopeType']]]:
+        """
+        The scope type
+        """
+        return pulumi.get(self, "scope_type")
+
+    @scope_type.setter
+    def scope_type(self, value: Optional[pulumi.Input[Union[str, 'ScopeType']]]):
+        pulumi.set(self, "scope_type", value)
+
+    @property
+    @pulumi.getter(name="serverGroupId")
+    def server_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The server group arm id.
+        """
+        return pulumi.get(self, "server_group_id")
+
+    @server_group_id.setter
+    def server_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_group_id", value)
+
+
+if not MYPY:
     class SecretStoreDetailsArgsDict(TypedDict):
         secret_store: NotRequired[pulumi.Input[Union[str, 'SecretStoreType']]]
         secret_store_properties: NotRequired[pulumi.Input['SecretStorePropertiesArgsDict']]
@@ -9797,6 +11149,547 @@ class SolutionPropertiesArgs:
 
 
 if not MYPY:
+    class SqlAssessmentSettingsArgsDict(TypedDict):
+        """
+        SQL assessment settings class.
+        """
+        async_commit_mode_intent: NotRequired[pulumi.Input[Union[str, 'AsyncCommitModeIntent']]]
+        """
+        Gets or sets user preference indicating intent of async commit mode.
+        """
+        azure_location: NotRequired[pulumi.Input[str]]
+        """
+        Azure Location or Azure region where to which the machines will be migrated.
+        """
+        azure_security_offering_type: NotRequired[pulumi.Input[Union[str, 'AzureSecurityOfferingType']]]
+        """
+        Gets or sets a value indicating azure security offering type.
+        """
+        azure_sql_database_settings: NotRequired[pulumi.Input['SqlDbSettingsV3ArgsDict']]
+        """
+        Gets or sets user configurable SQL database settings.
+        """
+        azure_sql_managed_instance_settings: NotRequired[pulumi.Input['SqlMiSettingsV3ArgsDict']]
+        """
+        Gets or sets user configurable SQL managed instance settings.
+        """
+        azure_sql_vm_settings: NotRequired[pulumi.Input['SqlVmSettingsArgsDict']]
+        """
+        Gets or sets user configurable SQL VM settings.
+        """
+        billing_settings: NotRequired[pulumi.Input['BillingSettingsArgsDict']]
+        """
+        Gets or sets the billing settings.
+        """
+        currency: NotRequired[pulumi.Input[Union[str, 'AzureCurrency']]]
+        """
+        Currency in which prices should be reported.
+        """
+        disaster_recovery_location: NotRequired[pulumi.Input[Union[str, 'AzureLocation']]]
+        """
+        Gets or sets the Azure Location or Azure region where to which the machines
+        will be migrated.
+        """
+        discount_percentage: NotRequired[pulumi.Input[float]]
+        """
+        Custom discount percentage.
+        """
+        enable_hadr_assessment: NotRequired[pulumi.Input[bool]]
+        """
+        Gets or sets a value indicating whether HADR assessments needs to be created.
+        """
+        entity_uptime: NotRequired[pulumi.Input['EntityUptimeArgsDict']]
+        """
+        Gets or sets the duration for which the entity (SQL, VMs) are up in the
+        on-premises environment.
+        """
+        environment_type: NotRequired[pulumi.Input[Union[str, 'EnvironmentType']]]
+        """
+        Gets or sets user configurable setting to display the environment type.
+        """
+        is_internet_access_available: NotRequired[pulumi.Input[bool]]
+        """
+        Gets or sets a value indicating whether internet access is available.
+        """
+        multi_subnet_intent: NotRequired[pulumi.Input[Union[str, 'MultiSubnetIntent']]]
+        """
+        Gets or sets user preference indicating intent of multi-subnet configuration.
+        """
+        os_license: NotRequired[pulumi.Input[Union[str, 'OsLicense']]]
+        """
+        Gets or sets user configurable setting to display the azure hybrid use benefit.
+        """
+        performance_data: NotRequired[pulumi.Input['PerformanceDataArgsDict']]
+        """
+        Gets or sets the performance data.
+        """
+        preferred_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureTarget']]]]]
+        """
+        Gets or sets SQL the preferred azure targets.
+        """
+        savings_settings: NotRequired[pulumi.Input['SavingsSettingsArgsDict']]
+        """
+        Gets or sets the savings settings.
+        """
+        scaling_factor: NotRequired[pulumi.Input[float]]
+        """
+        Percentage of buffer that user wants on performance metrics when recommending
+        Azure sizes.
+        """
+        sizing_criterion: NotRequired[pulumi.Input[Union[str, 'AssessmentSizingCriterion']]]
+        """
+        Assessment sizing criterion.
+        """
+        sql_server_license: NotRequired[pulumi.Input[Union[str, 'SqlServerLicense']]]
+        """
+        SQL server license.
+        """
+elif False:
+    SqlAssessmentSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SqlAssessmentSettingsArgs:
+    def __init__(__self__, *,
+                 async_commit_mode_intent: Optional[pulumi.Input[Union[str, 'AsyncCommitModeIntent']]] = None,
+                 azure_location: Optional[pulumi.Input[str]] = None,
+                 azure_security_offering_type: Optional[pulumi.Input[Union[str, 'AzureSecurityOfferingType']]] = None,
+                 azure_sql_database_settings: Optional[pulumi.Input['SqlDbSettingsV3Args']] = None,
+                 azure_sql_managed_instance_settings: Optional[pulumi.Input['SqlMiSettingsV3Args']] = None,
+                 azure_sql_vm_settings: Optional[pulumi.Input['SqlVmSettingsArgs']] = None,
+                 billing_settings: Optional[pulumi.Input['BillingSettingsArgs']] = None,
+                 currency: Optional[pulumi.Input[Union[str, 'AzureCurrency']]] = None,
+                 disaster_recovery_location: Optional[pulumi.Input[Union[str, 'AzureLocation']]] = None,
+                 discount_percentage: Optional[pulumi.Input[float]] = None,
+                 enable_hadr_assessment: Optional[pulumi.Input[bool]] = None,
+                 entity_uptime: Optional[pulumi.Input['EntityUptimeArgs']] = None,
+                 environment_type: Optional[pulumi.Input[Union[str, 'EnvironmentType']]] = None,
+                 is_internet_access_available: Optional[pulumi.Input[bool]] = None,
+                 multi_subnet_intent: Optional[pulumi.Input[Union[str, 'MultiSubnetIntent']]] = None,
+                 os_license: Optional[pulumi.Input[Union[str, 'OsLicense']]] = None,
+                 performance_data: Optional[pulumi.Input['PerformanceDataArgs']] = None,
+                 preferred_targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureTarget']]]]] = None,
+                 savings_settings: Optional[pulumi.Input['SavingsSettingsArgs']] = None,
+                 scaling_factor: Optional[pulumi.Input[float]] = None,
+                 sizing_criterion: Optional[pulumi.Input[Union[str, 'AssessmentSizingCriterion']]] = None,
+                 sql_server_license: Optional[pulumi.Input[Union[str, 'SqlServerLicense']]] = None):
+        """
+        SQL assessment settings class.
+        :param pulumi.Input[Union[str, 'AsyncCommitModeIntent']] async_commit_mode_intent: Gets or sets user preference indicating intent of async commit mode.
+        :param pulumi.Input[str] azure_location: Azure Location or Azure region where to which the machines will be migrated.
+        :param pulumi.Input[Union[str, 'AzureSecurityOfferingType']] azure_security_offering_type: Gets or sets a value indicating azure security offering type.
+        :param pulumi.Input['SqlDbSettingsV3Args'] azure_sql_database_settings: Gets or sets user configurable SQL database settings.
+        :param pulumi.Input['SqlMiSettingsV3Args'] azure_sql_managed_instance_settings: Gets or sets user configurable SQL managed instance settings.
+        :param pulumi.Input['SqlVmSettingsArgs'] azure_sql_vm_settings: Gets or sets user configurable SQL VM settings.
+        :param pulumi.Input['BillingSettingsArgs'] billing_settings: Gets or sets the billing settings.
+        :param pulumi.Input[Union[str, 'AzureCurrency']] currency: Currency in which prices should be reported.
+        :param pulumi.Input[Union[str, 'AzureLocation']] disaster_recovery_location: Gets or sets the Azure Location or Azure region where to which the machines
+               will be migrated.
+        :param pulumi.Input[float] discount_percentage: Custom discount percentage.
+        :param pulumi.Input[bool] enable_hadr_assessment: Gets or sets a value indicating whether HADR assessments needs to be created.
+        :param pulumi.Input['EntityUptimeArgs'] entity_uptime: Gets or sets the duration for which the entity (SQL, VMs) are up in the
+               on-premises environment.
+        :param pulumi.Input[Union[str, 'EnvironmentType']] environment_type: Gets or sets user configurable setting to display the environment type.
+        :param pulumi.Input[bool] is_internet_access_available: Gets or sets a value indicating whether internet access is available.
+        :param pulumi.Input[Union[str, 'MultiSubnetIntent']] multi_subnet_intent: Gets or sets user preference indicating intent of multi-subnet configuration.
+        :param pulumi.Input[Union[str, 'OsLicense']] os_license: Gets or sets user configurable setting to display the azure hybrid use benefit.
+        :param pulumi.Input['PerformanceDataArgs'] performance_data: Gets or sets the performance data.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureTarget']]]] preferred_targets: Gets or sets SQL the preferred azure targets.
+        :param pulumi.Input['SavingsSettingsArgs'] savings_settings: Gets or sets the savings settings.
+        :param pulumi.Input[float] scaling_factor: Percentage of buffer that user wants on performance metrics when recommending
+               Azure sizes.
+        :param pulumi.Input[Union[str, 'AssessmentSizingCriterion']] sizing_criterion: Assessment sizing criterion.
+        :param pulumi.Input[Union[str, 'SqlServerLicense']] sql_server_license: SQL server license.
+        """
+        if async_commit_mode_intent is not None:
+            pulumi.set(__self__, "async_commit_mode_intent", async_commit_mode_intent)
+        if azure_location is not None:
+            pulumi.set(__self__, "azure_location", azure_location)
+        if azure_security_offering_type is not None:
+            pulumi.set(__self__, "azure_security_offering_type", azure_security_offering_type)
+        if azure_sql_database_settings is not None:
+            pulumi.set(__self__, "azure_sql_database_settings", azure_sql_database_settings)
+        if azure_sql_managed_instance_settings is not None:
+            pulumi.set(__self__, "azure_sql_managed_instance_settings", azure_sql_managed_instance_settings)
+        if azure_sql_vm_settings is not None:
+            pulumi.set(__self__, "azure_sql_vm_settings", azure_sql_vm_settings)
+        if billing_settings is not None:
+            pulumi.set(__self__, "billing_settings", billing_settings)
+        if currency is not None:
+            pulumi.set(__self__, "currency", currency)
+        if disaster_recovery_location is not None:
+            pulumi.set(__self__, "disaster_recovery_location", disaster_recovery_location)
+        if discount_percentage is not None:
+            pulumi.set(__self__, "discount_percentage", discount_percentage)
+        if enable_hadr_assessment is not None:
+            pulumi.set(__self__, "enable_hadr_assessment", enable_hadr_assessment)
+        if entity_uptime is not None:
+            pulumi.set(__self__, "entity_uptime", entity_uptime)
+        if environment_type is not None:
+            pulumi.set(__self__, "environment_type", environment_type)
+        if is_internet_access_available is not None:
+            pulumi.set(__self__, "is_internet_access_available", is_internet_access_available)
+        if multi_subnet_intent is not None:
+            pulumi.set(__self__, "multi_subnet_intent", multi_subnet_intent)
+        if os_license is not None:
+            pulumi.set(__self__, "os_license", os_license)
+        if performance_data is not None:
+            pulumi.set(__self__, "performance_data", performance_data)
+        if preferred_targets is not None:
+            pulumi.set(__self__, "preferred_targets", preferred_targets)
+        if savings_settings is not None:
+            pulumi.set(__self__, "savings_settings", savings_settings)
+        if scaling_factor is not None:
+            pulumi.set(__self__, "scaling_factor", scaling_factor)
+        if sizing_criterion is not None:
+            pulumi.set(__self__, "sizing_criterion", sizing_criterion)
+        if sql_server_license is not None:
+            pulumi.set(__self__, "sql_server_license", sql_server_license)
+
+    @property
+    @pulumi.getter(name="asyncCommitModeIntent")
+    def async_commit_mode_intent(self) -> Optional[pulumi.Input[Union[str, 'AsyncCommitModeIntent']]]:
+        """
+        Gets or sets user preference indicating intent of async commit mode.
+        """
+        return pulumi.get(self, "async_commit_mode_intent")
+
+    @async_commit_mode_intent.setter
+    def async_commit_mode_intent(self, value: Optional[pulumi.Input[Union[str, 'AsyncCommitModeIntent']]]):
+        pulumi.set(self, "async_commit_mode_intent", value)
+
+    @property
+    @pulumi.getter(name="azureLocation")
+    def azure_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure Location or Azure region where to which the machines will be migrated.
+        """
+        return pulumi.get(self, "azure_location")
+
+    @azure_location.setter
+    def azure_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "azure_location", value)
+
+    @property
+    @pulumi.getter(name="azureSecurityOfferingType")
+    def azure_security_offering_type(self) -> Optional[pulumi.Input[Union[str, 'AzureSecurityOfferingType']]]:
+        """
+        Gets or sets a value indicating azure security offering type.
+        """
+        return pulumi.get(self, "azure_security_offering_type")
+
+    @azure_security_offering_type.setter
+    def azure_security_offering_type(self, value: Optional[pulumi.Input[Union[str, 'AzureSecurityOfferingType']]]):
+        pulumi.set(self, "azure_security_offering_type", value)
+
+    @property
+    @pulumi.getter(name="azureSqlDatabaseSettings")
+    def azure_sql_database_settings(self) -> Optional[pulumi.Input['SqlDbSettingsV3Args']]:
+        """
+        Gets or sets user configurable SQL database settings.
+        """
+        return pulumi.get(self, "azure_sql_database_settings")
+
+    @azure_sql_database_settings.setter
+    def azure_sql_database_settings(self, value: Optional[pulumi.Input['SqlDbSettingsV3Args']]):
+        pulumi.set(self, "azure_sql_database_settings", value)
+
+    @property
+    @pulumi.getter(name="azureSqlManagedInstanceSettings")
+    def azure_sql_managed_instance_settings(self) -> Optional[pulumi.Input['SqlMiSettingsV3Args']]:
+        """
+        Gets or sets user configurable SQL managed instance settings.
+        """
+        return pulumi.get(self, "azure_sql_managed_instance_settings")
+
+    @azure_sql_managed_instance_settings.setter
+    def azure_sql_managed_instance_settings(self, value: Optional[pulumi.Input['SqlMiSettingsV3Args']]):
+        pulumi.set(self, "azure_sql_managed_instance_settings", value)
+
+    @property
+    @pulumi.getter(name="azureSqlVmSettings")
+    def azure_sql_vm_settings(self) -> Optional[pulumi.Input['SqlVmSettingsArgs']]:
+        """
+        Gets or sets user configurable SQL VM settings.
+        """
+        return pulumi.get(self, "azure_sql_vm_settings")
+
+    @azure_sql_vm_settings.setter
+    def azure_sql_vm_settings(self, value: Optional[pulumi.Input['SqlVmSettingsArgs']]):
+        pulumi.set(self, "azure_sql_vm_settings", value)
+
+    @property
+    @pulumi.getter(name="billingSettings")
+    def billing_settings(self) -> Optional[pulumi.Input['BillingSettingsArgs']]:
+        """
+        Gets or sets the billing settings.
+        """
+        return pulumi.get(self, "billing_settings")
+
+    @billing_settings.setter
+    def billing_settings(self, value: Optional[pulumi.Input['BillingSettingsArgs']]):
+        pulumi.set(self, "billing_settings", value)
+
+    @property
+    @pulumi.getter
+    def currency(self) -> Optional[pulumi.Input[Union[str, 'AzureCurrency']]]:
+        """
+        Currency in which prices should be reported.
+        """
+        return pulumi.get(self, "currency")
+
+    @currency.setter
+    def currency(self, value: Optional[pulumi.Input[Union[str, 'AzureCurrency']]]):
+        pulumi.set(self, "currency", value)
+
+    @property
+    @pulumi.getter(name="disasterRecoveryLocation")
+    def disaster_recovery_location(self) -> Optional[pulumi.Input[Union[str, 'AzureLocation']]]:
+        """
+        Gets or sets the Azure Location or Azure region where to which the machines
+        will be migrated.
+        """
+        return pulumi.get(self, "disaster_recovery_location")
+
+    @disaster_recovery_location.setter
+    def disaster_recovery_location(self, value: Optional[pulumi.Input[Union[str, 'AzureLocation']]]):
+        pulumi.set(self, "disaster_recovery_location", value)
+
+    @property
+    @pulumi.getter(name="discountPercentage")
+    def discount_percentage(self) -> Optional[pulumi.Input[float]]:
+        """
+        Custom discount percentage.
+        """
+        return pulumi.get(self, "discount_percentage")
+
+    @discount_percentage.setter
+    def discount_percentage(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "discount_percentage", value)
+
+    @property
+    @pulumi.getter(name="enableHadrAssessment")
+    def enable_hadr_assessment(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets a value indicating whether HADR assessments needs to be created.
+        """
+        return pulumi.get(self, "enable_hadr_assessment")
+
+    @enable_hadr_assessment.setter
+    def enable_hadr_assessment(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_hadr_assessment", value)
+
+    @property
+    @pulumi.getter(name="entityUptime")
+    def entity_uptime(self) -> Optional[pulumi.Input['EntityUptimeArgs']]:
+        """
+        Gets or sets the duration for which the entity (SQL, VMs) are up in the
+        on-premises environment.
+        """
+        return pulumi.get(self, "entity_uptime")
+
+    @entity_uptime.setter
+    def entity_uptime(self, value: Optional[pulumi.Input['EntityUptimeArgs']]):
+        pulumi.set(self, "entity_uptime", value)
+
+    @property
+    @pulumi.getter(name="environmentType")
+    def environment_type(self) -> Optional[pulumi.Input[Union[str, 'EnvironmentType']]]:
+        """
+        Gets or sets user configurable setting to display the environment type.
+        """
+        return pulumi.get(self, "environment_type")
+
+    @environment_type.setter
+    def environment_type(self, value: Optional[pulumi.Input[Union[str, 'EnvironmentType']]]):
+        pulumi.set(self, "environment_type", value)
+
+    @property
+    @pulumi.getter(name="isInternetAccessAvailable")
+    def is_internet_access_available(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets a value indicating whether internet access is available.
+        """
+        return pulumi.get(self, "is_internet_access_available")
+
+    @is_internet_access_available.setter
+    def is_internet_access_available(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_internet_access_available", value)
+
+    @property
+    @pulumi.getter(name="multiSubnetIntent")
+    def multi_subnet_intent(self) -> Optional[pulumi.Input[Union[str, 'MultiSubnetIntent']]]:
+        """
+        Gets or sets user preference indicating intent of multi-subnet configuration.
+        """
+        return pulumi.get(self, "multi_subnet_intent")
+
+    @multi_subnet_intent.setter
+    def multi_subnet_intent(self, value: Optional[pulumi.Input[Union[str, 'MultiSubnetIntent']]]):
+        pulumi.set(self, "multi_subnet_intent", value)
+
+    @property
+    @pulumi.getter(name="osLicense")
+    def os_license(self) -> Optional[pulumi.Input[Union[str, 'OsLicense']]]:
+        """
+        Gets or sets user configurable setting to display the azure hybrid use benefit.
+        """
+        return pulumi.get(self, "os_license")
+
+    @os_license.setter
+    def os_license(self, value: Optional[pulumi.Input[Union[str, 'OsLicense']]]):
+        pulumi.set(self, "os_license", value)
+
+    @property
+    @pulumi.getter(name="performanceData")
+    def performance_data(self) -> Optional[pulumi.Input['PerformanceDataArgs']]:
+        """
+        Gets or sets the performance data.
+        """
+        return pulumi.get(self, "performance_data")
+
+    @performance_data.setter
+    def performance_data(self, value: Optional[pulumi.Input['PerformanceDataArgs']]):
+        pulumi.set(self, "performance_data", value)
+
+    @property
+    @pulumi.getter(name="preferredTargets")
+    def preferred_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureTarget']]]]]:
+        """
+        Gets or sets SQL the preferred azure targets.
+        """
+        return pulumi.get(self, "preferred_targets")
+
+    @preferred_targets.setter
+    def preferred_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureTarget']]]]]):
+        pulumi.set(self, "preferred_targets", value)
+
+    @property
+    @pulumi.getter(name="savingsSettings")
+    def savings_settings(self) -> Optional[pulumi.Input['SavingsSettingsArgs']]:
+        """
+        Gets or sets the savings settings.
+        """
+        return pulumi.get(self, "savings_settings")
+
+    @savings_settings.setter
+    def savings_settings(self, value: Optional[pulumi.Input['SavingsSettingsArgs']]):
+        pulumi.set(self, "savings_settings", value)
+
+    @property
+    @pulumi.getter(name="scalingFactor")
+    def scaling_factor(self) -> Optional[pulumi.Input[float]]:
+        """
+        Percentage of buffer that user wants on performance metrics when recommending
+        Azure sizes.
+        """
+        return pulumi.get(self, "scaling_factor")
+
+    @scaling_factor.setter
+    def scaling_factor(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "scaling_factor", value)
+
+    @property
+    @pulumi.getter(name="sizingCriterion")
+    def sizing_criterion(self) -> Optional[pulumi.Input[Union[str, 'AssessmentSizingCriterion']]]:
+        """
+        Assessment sizing criterion.
+        """
+        return pulumi.get(self, "sizing_criterion")
+
+    @sizing_criterion.setter
+    def sizing_criterion(self, value: Optional[pulumi.Input[Union[str, 'AssessmentSizingCriterion']]]):
+        pulumi.set(self, "sizing_criterion", value)
+
+    @property
+    @pulumi.getter(name="sqlServerLicense")
+    def sql_server_license(self) -> Optional[pulumi.Input[Union[str, 'SqlServerLicense']]]:
+        """
+        SQL server license.
+        """
+        return pulumi.get(self, "sql_server_license")
+
+    @sql_server_license.setter
+    def sql_server_license(self, value: Optional[pulumi.Input[Union[str, 'SqlServerLicense']]]):
+        pulumi.set(self, "sql_server_license", value)
+
+
+if not MYPY:
+    class SqlAssessmentV3PropertiesArgsDict(TypedDict):
+        """
+        SQL assessment properties class.
+        """
+        fallback_machine_assessment_arm_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the machine assessment ARM ID for VM fallback.
+        """
+        scope: NotRequired[pulumi.Input['ScopeArgsDict']]
+        """
+        Gets or sets the scope of assessment.
+        """
+        settings: NotRequired[pulumi.Input['SqlAssessmentSettingsArgsDict']]
+        """
+        Gets or sets the settings for the assessment.
+        """
+elif False:
+    SqlAssessmentV3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SqlAssessmentV3PropertiesArgs:
+    def __init__(__self__, *,
+                 fallback_machine_assessment_arm_id: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input['ScopeArgs']] = None,
+                 settings: Optional[pulumi.Input['SqlAssessmentSettingsArgs']] = None):
+        """
+        SQL assessment properties class.
+        :param pulumi.Input[str] fallback_machine_assessment_arm_id: Gets or sets the machine assessment ARM ID for VM fallback.
+        :param pulumi.Input['ScopeArgs'] scope: Gets or sets the scope of assessment.
+        :param pulumi.Input['SqlAssessmentSettingsArgs'] settings: Gets or sets the settings for the assessment.
+        """
+        if fallback_machine_assessment_arm_id is not None:
+            pulumi.set(__self__, "fallback_machine_assessment_arm_id", fallback_machine_assessment_arm_id)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter(name="fallbackMachineAssessmentArmId")
+    def fallback_machine_assessment_arm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the machine assessment ARM ID for VM fallback.
+        """
+        return pulumi.get(self, "fallback_machine_assessment_arm_id")
+
+    @fallback_machine_assessment_arm_id.setter
+    def fallback_machine_assessment_arm_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fallback_machine_assessment_arm_id", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input['ScopeArgs']]:
+        """
+        Gets or sets the scope of assessment.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input['ScopeArgs']]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[pulumi.Input['SqlAssessmentSettingsArgs']]:
+        """
+        Gets or sets the settings for the assessment.
+        """
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: Optional[pulumi.Input['SqlAssessmentSettingsArgs']]):
+        pulumi.set(self, "settings", value)
+
+
+if not MYPY:
     class SqlDatabaseResourceSettingsArgsDict(TypedDict):
         """
         Defines the Sql Database resource settings.
@@ -9912,6 +11805,102 @@ class SqlDatabaseResourceSettingsArgs:
     @zone_redundant.setter
     def zone_redundant(self, value: Optional[pulumi.Input[Union[str, 'ZoneRedundant']]]):
         pulumi.set(self, "zone_redundant", value)
+
+
+if not MYPY:
+    class SqlDbSettingsV3ArgsDict(TypedDict):
+        """
+        SQL database assessment settings V3.
+        """
+        azure_sql_compute_tier: NotRequired[pulumi.Input[Union[str, 'ComputeTier']]]
+        """
+        Gets or sets the azure SQL compute tier.
+        """
+        azure_sql_data_base_type: NotRequired[pulumi.Input[Union[str, 'AzureSqlDataBaseType']]]
+        """
+        Gets or sets the azure PAAS SQL instance type.
+        """
+        azure_sql_purchase_model: NotRequired[pulumi.Input[Union[str, 'AzureSqlPurchaseModel']]]
+        """
+        Gets or sets the azure SQL purchase model.
+        """
+        azure_sql_service_tier: NotRequired[pulumi.Input[Union[str, 'AzureSqlServiceTierV3']]]
+        """
+        Gets or sets the azure SQL service tier.
+        """
+elif False:
+    SqlDbSettingsV3ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SqlDbSettingsV3Args:
+    def __init__(__self__, *,
+                 azure_sql_compute_tier: Optional[pulumi.Input[Union[str, 'ComputeTier']]] = None,
+                 azure_sql_data_base_type: Optional[pulumi.Input[Union[str, 'AzureSqlDataBaseType']]] = None,
+                 azure_sql_purchase_model: Optional[pulumi.Input[Union[str, 'AzureSqlPurchaseModel']]] = None,
+                 azure_sql_service_tier: Optional[pulumi.Input[Union[str, 'AzureSqlServiceTierV3']]] = None):
+        """
+        SQL database assessment settings V3.
+        :param pulumi.Input[Union[str, 'ComputeTier']] azure_sql_compute_tier: Gets or sets the azure SQL compute tier.
+        :param pulumi.Input[Union[str, 'AzureSqlDataBaseType']] azure_sql_data_base_type: Gets or sets the azure PAAS SQL instance type.
+        :param pulumi.Input[Union[str, 'AzureSqlPurchaseModel']] azure_sql_purchase_model: Gets or sets the azure SQL purchase model.
+        :param pulumi.Input[Union[str, 'AzureSqlServiceTierV3']] azure_sql_service_tier: Gets or sets the azure SQL service tier.
+        """
+        if azure_sql_compute_tier is not None:
+            pulumi.set(__self__, "azure_sql_compute_tier", azure_sql_compute_tier)
+        if azure_sql_data_base_type is not None:
+            pulumi.set(__self__, "azure_sql_data_base_type", azure_sql_data_base_type)
+        if azure_sql_purchase_model is not None:
+            pulumi.set(__self__, "azure_sql_purchase_model", azure_sql_purchase_model)
+        if azure_sql_service_tier is not None:
+            pulumi.set(__self__, "azure_sql_service_tier", azure_sql_service_tier)
+
+    @property
+    @pulumi.getter(name="azureSqlComputeTier")
+    def azure_sql_compute_tier(self) -> Optional[pulumi.Input[Union[str, 'ComputeTier']]]:
+        """
+        Gets or sets the azure SQL compute tier.
+        """
+        return pulumi.get(self, "azure_sql_compute_tier")
+
+    @azure_sql_compute_tier.setter
+    def azure_sql_compute_tier(self, value: Optional[pulumi.Input[Union[str, 'ComputeTier']]]):
+        pulumi.set(self, "azure_sql_compute_tier", value)
+
+    @property
+    @pulumi.getter(name="azureSqlDataBaseType")
+    def azure_sql_data_base_type(self) -> Optional[pulumi.Input[Union[str, 'AzureSqlDataBaseType']]]:
+        """
+        Gets or sets the azure PAAS SQL instance type.
+        """
+        return pulumi.get(self, "azure_sql_data_base_type")
+
+    @azure_sql_data_base_type.setter
+    def azure_sql_data_base_type(self, value: Optional[pulumi.Input[Union[str, 'AzureSqlDataBaseType']]]):
+        pulumi.set(self, "azure_sql_data_base_type", value)
+
+    @property
+    @pulumi.getter(name="azureSqlPurchaseModel")
+    def azure_sql_purchase_model(self) -> Optional[pulumi.Input[Union[str, 'AzureSqlPurchaseModel']]]:
+        """
+        Gets or sets the azure SQL purchase model.
+        """
+        return pulumi.get(self, "azure_sql_purchase_model")
+
+    @azure_sql_purchase_model.setter
+    def azure_sql_purchase_model(self, value: Optional[pulumi.Input[Union[str, 'AzureSqlPurchaseModel']]]):
+        pulumi.set(self, "azure_sql_purchase_model", value)
+
+    @property
+    @pulumi.getter(name="azureSqlServiceTier")
+    def azure_sql_service_tier(self) -> Optional[pulumi.Input[Union[str, 'AzureSqlServiceTierV3']]]:
+        """
+        Gets or sets the azure SQL service tier.
+        """
+        return pulumi.get(self, "azure_sql_service_tier")
+
+    @azure_sql_service_tier.setter
+    def azure_sql_service_tier(self, value: Optional[pulumi.Input[Union[str, 'AzureSqlServiceTierV3']]]):
+        pulumi.set(self, "azure_sql_service_tier", value)
 
 
 if not MYPY:
@@ -10126,6 +12115,62 @@ class SqlElasticPoolResourceSettingsArgs:
     @zone_redundant.setter
     def zone_redundant(self, value: Optional[pulumi.Input[Union[str, 'ZoneRedundant']]]):
         pulumi.set(self, "zone_redundant", value)
+
+
+if not MYPY:
+    class SqlMiSettingsV3ArgsDict(TypedDict):
+        """
+        SQL managed instance assessment settings V3.
+        """
+        azure_sql_instance_type: NotRequired[pulumi.Input[Union[str, 'AzureSqlInstanceType']]]
+        """
+        Gets or sets the azure PAAS SQL instance type.
+        """
+        azure_sql_service_tier: NotRequired[pulumi.Input[Union[str, 'AzureSqlServiceTierV3']]]
+        """
+        Gets or sets the azure SQL service tier.
+        """
+elif False:
+    SqlMiSettingsV3ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SqlMiSettingsV3Args:
+    def __init__(__self__, *,
+                 azure_sql_instance_type: Optional[pulumi.Input[Union[str, 'AzureSqlInstanceType']]] = None,
+                 azure_sql_service_tier: Optional[pulumi.Input[Union[str, 'AzureSqlServiceTierV3']]] = None):
+        """
+        SQL managed instance assessment settings V3.
+        :param pulumi.Input[Union[str, 'AzureSqlInstanceType']] azure_sql_instance_type: Gets or sets the azure PAAS SQL instance type.
+        :param pulumi.Input[Union[str, 'AzureSqlServiceTierV3']] azure_sql_service_tier: Gets or sets the azure SQL service tier.
+        """
+        if azure_sql_instance_type is not None:
+            pulumi.set(__self__, "azure_sql_instance_type", azure_sql_instance_type)
+        if azure_sql_service_tier is not None:
+            pulumi.set(__self__, "azure_sql_service_tier", azure_sql_service_tier)
+
+    @property
+    @pulumi.getter(name="azureSqlInstanceType")
+    def azure_sql_instance_type(self) -> Optional[pulumi.Input[Union[str, 'AzureSqlInstanceType']]]:
+        """
+        Gets or sets the azure PAAS SQL instance type.
+        """
+        return pulumi.get(self, "azure_sql_instance_type")
+
+    @azure_sql_instance_type.setter
+    def azure_sql_instance_type(self, value: Optional[pulumi.Input[Union[str, 'AzureSqlInstanceType']]]):
+        pulumi.set(self, "azure_sql_instance_type", value)
+
+    @property
+    @pulumi.getter(name="azureSqlServiceTier")
+    def azure_sql_service_tier(self) -> Optional[pulumi.Input[Union[str, 'AzureSqlServiceTierV3']]]:
+        """
+        Gets or sets the azure SQL service tier.
+        """
+        return pulumi.get(self, "azure_sql_service_tier")
+
+    @azure_sql_service_tier.setter
+    def azure_sql_service_tier(self, value: Optional[pulumi.Input[Union[str, 'AzureSqlServiceTierV3']]]):
+        pulumi.set(self, "azure_sql_service_tier", value)
 
 
 if not MYPY:
@@ -10557,6 +12602,82 @@ class SubnetResourceSettingsArgs:
     @network_security_group.setter
     def network_security_group(self, value: Optional[pulumi.Input['NsgReferenceArgs']]):
         pulumi.set(self, "network_security_group", value)
+
+
+if not MYPY:
+    class TargetAssessmentArmIdsArgsDict(TypedDict):
+        """
+        ARM IDs of the target assessments.
+        """
+        aks: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID for Azure Kubernetes Service assessment.
+        """
+        azure_app_service: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID for Azure App Service assessment.
+        """
+        azure_app_service_container: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID for Azure App Service Container assessment.
+        """
+elif False:
+    TargetAssessmentArmIdsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TargetAssessmentArmIdsArgs:
+    def __init__(__self__, *,
+                 aks: Optional[pulumi.Input[str]] = None,
+                 azure_app_service: Optional[pulumi.Input[str]] = None,
+                 azure_app_service_container: Optional[pulumi.Input[str]] = None):
+        """
+        ARM IDs of the target assessments.
+        :param pulumi.Input[str] aks: ARM ID for Azure Kubernetes Service assessment.
+        :param pulumi.Input[str] azure_app_service: ARM ID for Azure App Service assessment.
+        :param pulumi.Input[str] azure_app_service_container: ARM ID for Azure App Service Container assessment.
+        """
+        if aks is not None:
+            pulumi.set(__self__, "aks", aks)
+        if azure_app_service is not None:
+            pulumi.set(__self__, "azure_app_service", azure_app_service)
+        if azure_app_service_container is not None:
+            pulumi.set(__self__, "azure_app_service_container", azure_app_service_container)
+
+    @property
+    @pulumi.getter
+    def aks(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM ID for Azure Kubernetes Service assessment.
+        """
+        return pulumi.get(self, "aks")
+
+    @aks.setter
+    def aks(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aks", value)
+
+    @property
+    @pulumi.getter(name="azureAppService")
+    def azure_app_service(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM ID for Azure App Service assessment.
+        """
+        return pulumi.get(self, "azure_app_service")
+
+    @azure_app_service.setter
+    def azure_app_service(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "azure_app_service", value)
+
+    @property
+    @pulumi.getter(name="azureAppServiceContainer")
+    def azure_app_service_container(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM ID for Azure App Service Container assessment.
+        """
+        return pulumi.get(self, "azure_app_service_container")
+
+    @azure_app_service_container.setter
+    def azure_app_service_container(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "azure_app_service_container", value)
 
 
 if not MYPY:
@@ -11352,6 +13473,338 @@ class VmUptimeArgs:
     @hours_per_day.setter
     def hours_per_day(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "hours_per_day", value)
+
+
+if not MYPY:
+    class WebAppAssessmentSettingsArgsDict(TypedDict):
+        """
+        Web app assessment settings class.
+        """
+        app_svc_container_settings: pulumi.Input['AppSvcContainerSettingsArgsDict']
+        """
+        App Service container settings.
+        """
+        app_svc_native_settings: pulumi.Input['AppSvcNativeSettingsArgsDict']
+        """
+        App Service native settings.
+        """
+        azure_security_offering_type: pulumi.Input[Union[str, 'AzureSecurityOfferingType']]
+        """
+        Azure security offering type.
+        """
+        azure_location: NotRequired[pulumi.Input[str]]
+        """
+        Azure Location or Azure region where to which the machines will be migrated.
+        """
+        billing_settings: NotRequired[pulumi.Input['BillingSettingsArgsDict']]
+        """
+        Gets or sets the billing settings.
+        """
+        currency: NotRequired[pulumi.Input[Union[str, 'AzureCurrency']]]
+        """
+        Currency in which prices should be reported.
+        """
+        discount_percentage: NotRequired[pulumi.Input[float]]
+        """
+        Custom discount percentage.
+        """
+        environment_type: NotRequired[pulumi.Input[Union[str, 'EnvironmentType']]]
+        """
+        Gets or sets user configurable setting to display the environment type.
+        """
+        performance_data: NotRequired[pulumi.Input['PerformanceDataArgsDict']]
+        """
+        Gets or sets the performance data.
+        """
+        savings_settings: NotRequired[pulumi.Input['SavingsSettingsArgsDict']]
+        """
+        Gets or sets the savings settings.
+        """
+        scaling_factor: NotRequired[pulumi.Input[float]]
+        """
+        Percentage of buffer that user wants on performance metrics when recommending
+        Azure sizes.
+        """
+        sizing_criterion: NotRequired[pulumi.Input[Union[str, 'AssessmentSizingCriterion']]]
+        """
+        Assessment sizing criterion.
+        """
+elif False:
+    WebAppAssessmentSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAppAssessmentSettingsArgs:
+    def __init__(__self__, *,
+                 app_svc_container_settings: pulumi.Input['AppSvcContainerSettingsArgs'],
+                 app_svc_native_settings: pulumi.Input['AppSvcNativeSettingsArgs'],
+                 azure_security_offering_type: pulumi.Input[Union[str, 'AzureSecurityOfferingType']],
+                 azure_location: Optional[pulumi.Input[str]] = None,
+                 billing_settings: Optional[pulumi.Input['BillingSettingsArgs']] = None,
+                 currency: Optional[pulumi.Input[Union[str, 'AzureCurrency']]] = None,
+                 discount_percentage: Optional[pulumi.Input[float]] = None,
+                 environment_type: Optional[pulumi.Input[Union[str, 'EnvironmentType']]] = None,
+                 performance_data: Optional[pulumi.Input['PerformanceDataArgs']] = None,
+                 savings_settings: Optional[pulumi.Input['SavingsSettingsArgs']] = None,
+                 scaling_factor: Optional[pulumi.Input[float]] = None,
+                 sizing_criterion: Optional[pulumi.Input[Union[str, 'AssessmentSizingCriterion']]] = None):
+        """
+        Web app assessment settings class.
+        :param pulumi.Input['AppSvcContainerSettingsArgs'] app_svc_container_settings: App Service container settings.
+        :param pulumi.Input['AppSvcNativeSettingsArgs'] app_svc_native_settings: App Service native settings.
+        :param pulumi.Input[Union[str, 'AzureSecurityOfferingType']] azure_security_offering_type: Azure security offering type.
+        :param pulumi.Input[str] azure_location: Azure Location or Azure region where to which the machines will be migrated.
+        :param pulumi.Input['BillingSettingsArgs'] billing_settings: Gets or sets the billing settings.
+        :param pulumi.Input[Union[str, 'AzureCurrency']] currency: Currency in which prices should be reported.
+        :param pulumi.Input[float] discount_percentage: Custom discount percentage.
+        :param pulumi.Input[Union[str, 'EnvironmentType']] environment_type: Gets or sets user configurable setting to display the environment type.
+        :param pulumi.Input['PerformanceDataArgs'] performance_data: Gets or sets the performance data.
+        :param pulumi.Input['SavingsSettingsArgs'] savings_settings: Gets or sets the savings settings.
+        :param pulumi.Input[float] scaling_factor: Percentage of buffer that user wants on performance metrics when recommending
+               Azure sizes.
+        :param pulumi.Input[Union[str, 'AssessmentSizingCriterion']] sizing_criterion: Assessment sizing criterion.
+        """
+        pulumi.set(__self__, "app_svc_container_settings", app_svc_container_settings)
+        pulumi.set(__self__, "app_svc_native_settings", app_svc_native_settings)
+        pulumi.set(__self__, "azure_security_offering_type", azure_security_offering_type)
+        if azure_location is not None:
+            pulumi.set(__self__, "azure_location", azure_location)
+        if billing_settings is not None:
+            pulumi.set(__self__, "billing_settings", billing_settings)
+        if currency is not None:
+            pulumi.set(__self__, "currency", currency)
+        if discount_percentage is not None:
+            pulumi.set(__self__, "discount_percentage", discount_percentage)
+        if environment_type is not None:
+            pulumi.set(__self__, "environment_type", environment_type)
+        if performance_data is not None:
+            pulumi.set(__self__, "performance_data", performance_data)
+        if savings_settings is not None:
+            pulumi.set(__self__, "savings_settings", savings_settings)
+        if scaling_factor is not None:
+            pulumi.set(__self__, "scaling_factor", scaling_factor)
+        if sizing_criterion is not None:
+            pulumi.set(__self__, "sizing_criterion", sizing_criterion)
+
+    @property
+    @pulumi.getter(name="appSvcContainerSettings")
+    def app_svc_container_settings(self) -> pulumi.Input['AppSvcContainerSettingsArgs']:
+        """
+        App Service container settings.
+        """
+        return pulumi.get(self, "app_svc_container_settings")
+
+    @app_svc_container_settings.setter
+    def app_svc_container_settings(self, value: pulumi.Input['AppSvcContainerSettingsArgs']):
+        pulumi.set(self, "app_svc_container_settings", value)
+
+    @property
+    @pulumi.getter(name="appSvcNativeSettings")
+    def app_svc_native_settings(self) -> pulumi.Input['AppSvcNativeSettingsArgs']:
+        """
+        App Service native settings.
+        """
+        return pulumi.get(self, "app_svc_native_settings")
+
+    @app_svc_native_settings.setter
+    def app_svc_native_settings(self, value: pulumi.Input['AppSvcNativeSettingsArgs']):
+        pulumi.set(self, "app_svc_native_settings", value)
+
+    @property
+    @pulumi.getter(name="azureSecurityOfferingType")
+    def azure_security_offering_type(self) -> pulumi.Input[Union[str, 'AzureSecurityOfferingType']]:
+        """
+        Azure security offering type.
+        """
+        return pulumi.get(self, "azure_security_offering_type")
+
+    @azure_security_offering_type.setter
+    def azure_security_offering_type(self, value: pulumi.Input[Union[str, 'AzureSecurityOfferingType']]):
+        pulumi.set(self, "azure_security_offering_type", value)
+
+    @property
+    @pulumi.getter(name="azureLocation")
+    def azure_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure Location or Azure region where to which the machines will be migrated.
+        """
+        return pulumi.get(self, "azure_location")
+
+    @azure_location.setter
+    def azure_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "azure_location", value)
+
+    @property
+    @pulumi.getter(name="billingSettings")
+    def billing_settings(self) -> Optional[pulumi.Input['BillingSettingsArgs']]:
+        """
+        Gets or sets the billing settings.
+        """
+        return pulumi.get(self, "billing_settings")
+
+    @billing_settings.setter
+    def billing_settings(self, value: Optional[pulumi.Input['BillingSettingsArgs']]):
+        pulumi.set(self, "billing_settings", value)
+
+    @property
+    @pulumi.getter
+    def currency(self) -> Optional[pulumi.Input[Union[str, 'AzureCurrency']]]:
+        """
+        Currency in which prices should be reported.
+        """
+        return pulumi.get(self, "currency")
+
+    @currency.setter
+    def currency(self, value: Optional[pulumi.Input[Union[str, 'AzureCurrency']]]):
+        pulumi.set(self, "currency", value)
+
+    @property
+    @pulumi.getter(name="discountPercentage")
+    def discount_percentage(self) -> Optional[pulumi.Input[float]]:
+        """
+        Custom discount percentage.
+        """
+        return pulumi.get(self, "discount_percentage")
+
+    @discount_percentage.setter
+    def discount_percentage(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "discount_percentage", value)
+
+    @property
+    @pulumi.getter(name="environmentType")
+    def environment_type(self) -> Optional[pulumi.Input[Union[str, 'EnvironmentType']]]:
+        """
+        Gets or sets user configurable setting to display the environment type.
+        """
+        return pulumi.get(self, "environment_type")
+
+    @environment_type.setter
+    def environment_type(self, value: Optional[pulumi.Input[Union[str, 'EnvironmentType']]]):
+        pulumi.set(self, "environment_type", value)
+
+    @property
+    @pulumi.getter(name="performanceData")
+    def performance_data(self) -> Optional[pulumi.Input['PerformanceDataArgs']]:
+        """
+        Gets or sets the performance data.
+        """
+        return pulumi.get(self, "performance_data")
+
+    @performance_data.setter
+    def performance_data(self, value: Optional[pulumi.Input['PerformanceDataArgs']]):
+        pulumi.set(self, "performance_data", value)
+
+    @property
+    @pulumi.getter(name="savingsSettings")
+    def savings_settings(self) -> Optional[pulumi.Input['SavingsSettingsArgs']]:
+        """
+        Gets or sets the savings settings.
+        """
+        return pulumi.get(self, "savings_settings")
+
+    @savings_settings.setter
+    def savings_settings(self, value: Optional[pulumi.Input['SavingsSettingsArgs']]):
+        pulumi.set(self, "savings_settings", value)
+
+    @property
+    @pulumi.getter(name="scalingFactor")
+    def scaling_factor(self) -> Optional[pulumi.Input[float]]:
+        """
+        Percentage of buffer that user wants on performance metrics when recommending
+        Azure sizes.
+        """
+        return pulumi.get(self, "scaling_factor")
+
+    @scaling_factor.setter
+    def scaling_factor(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "scaling_factor", value)
+
+    @property
+    @pulumi.getter(name="sizingCriterion")
+    def sizing_criterion(self) -> Optional[pulumi.Input[Union[str, 'AssessmentSizingCriterion']]]:
+        """
+        Assessment sizing criterion.
+        """
+        return pulumi.get(self, "sizing_criterion")
+
+    @sizing_criterion.setter
+    def sizing_criterion(self, value: Optional[pulumi.Input[Union[str, 'AssessmentSizingCriterion']]]):
+        pulumi.set(self, "sizing_criterion", value)
+
+
+if not MYPY:
+    class WebAppAssessmentV3PropertiesArgsDict(TypedDict):
+        """
+        WebApp assessment resource properties.
+        """
+        fallback_machine_assessment_arm_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the machine assessment ARM ID for VM fallback.
+        """
+        scope: NotRequired[pulumi.Input['ScopeArgsDict']]
+        """
+        Gets or sets the scope of assessment.
+        """
+        settings: NotRequired[pulumi.Input['WebAppAssessmentSettingsArgsDict']]
+        """
+        Gets or sets the settings for the assessment.
+        """
+elif False:
+    WebAppAssessmentV3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAppAssessmentV3PropertiesArgs:
+    def __init__(__self__, *,
+                 fallback_machine_assessment_arm_id: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input['ScopeArgs']] = None,
+                 settings: Optional[pulumi.Input['WebAppAssessmentSettingsArgs']] = None):
+        """
+        WebApp assessment resource properties.
+        :param pulumi.Input[str] fallback_machine_assessment_arm_id: Gets or sets the machine assessment ARM ID for VM fallback.
+        :param pulumi.Input['ScopeArgs'] scope: Gets or sets the scope of assessment.
+        :param pulumi.Input['WebAppAssessmentSettingsArgs'] settings: Gets or sets the settings for the assessment.
+        """
+        if fallback_machine_assessment_arm_id is not None:
+            pulumi.set(__self__, "fallback_machine_assessment_arm_id", fallback_machine_assessment_arm_id)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter(name="fallbackMachineAssessmentArmId")
+    def fallback_machine_assessment_arm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the machine assessment ARM ID for VM fallback.
+        """
+        return pulumi.get(self, "fallback_machine_assessment_arm_id")
+
+    @fallback_machine_assessment_arm_id.setter
+    def fallback_machine_assessment_arm_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fallback_machine_assessment_arm_id", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input['ScopeArgs']]:
+        """
+        Gets or sets the scope of assessment.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input['ScopeArgs']]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[pulumi.Input['WebAppAssessmentSettingsArgs']]:
+        """
+        Gets or sets the settings for the assessment.
+        """
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: Optional[pulumi.Input['WebAppAssessmentSettingsArgs']]):
+        pulumi.set(self, "settings", value)
 
 
 if not MYPY:

@@ -19,10 +19,13 @@ from ._enums import *
 __all__ = [
     'AzStackHCIClusterPropertiesResponse',
     'AzStackHCIFabricModelCustomPropertiesResponse',
+    'ConnectionDetailsResponse',
     'DraModelPropertiesResponse',
     'DraModelResponseSystemData',
+    'FabricAgentModelPropertiesResponse',
     'FabricModelPropertiesResponse',
     'FabricModelResponseSystemData',
+    'GroupConnectivityInformationResponse',
     'HealthErrorModelResponse',
     'HyperVMigrateFabricModelCustomPropertiesResponse',
     'HyperVToAzStackHCIDiskInputResponse',
@@ -36,6 +39,12 @@ __all__ = [
     'InnerHealthErrorModelResponse',
     'PolicyModelPropertiesResponse',
     'PolicyModelResponseSystemData',
+    'PrivateEndpointConnectionProxyPropertiesResponse',
+    'PrivateEndpointConnectionResponsePropertiesResponse',
+    'PrivateEndpointResponse',
+    'PrivateLinkServiceConnectionResponse',
+    'PrivateLinkServiceConnectionStateResponse',
+    'PrivateLinkServiceProxyResponse',
     'ProtectedItemDynamicMemoryConfigResponse',
     'ProtectedItemModelPropertiesResponse',
     'ProtectedItemModelPropertiesResponseCurrentJob',
@@ -43,10 +52,14 @@ __all__ = [
     'ProtectedItemModelPropertiesResponseLastFailedPlannedFailoverJob',
     'ProtectedItemModelPropertiesResponseLastTestFailoverJob',
     'ProtectedItemModelResponseSystemData',
+    'RemotePrivateEndpointConnectionResponse',
+    'RemotePrivateEndpointResponse',
     'ReplicationExtensionModelPropertiesResponse',
     'ReplicationExtensionModelResponseSystemData',
     'StorageContainerPropertiesResponse',
+    'SystemDataResponse',
     'VMwareDraModelCustomPropertiesResponse',
+    'VMwareFabricAgentModelCustomPropertiesResponse',
     'VMwareMigrateFabricModelCustomPropertiesResponse',
     'VMwareToAzStackHCIDiskInputResponse',
     'VMwareToAzStackHCINicInputResponse',
@@ -265,6 +278,100 @@ class AzStackHCIFabricModelCustomPropertiesResponse(dict):
         Gets or sets the Migration solution ARM Id.
         """
         return pulumi.get(self, "migration_solution_id")
+
+
+@pulumi.output_type
+class ConnectionDetailsResponse(dict):
+    """
+    Private endpoint connection details at member level.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "linkIdentifier":
+            suggest = "link_identifier"
+        elif key == "memberName":
+            suggest = "member_name"
+        elif key == "privateIpAddress":
+            suggest = "private_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_id: Optional[str] = None,
+                 id: Optional[str] = None,
+                 link_identifier: Optional[str] = None,
+                 member_name: Optional[str] = None,
+                 private_ip_address: Optional[str] = None):
+        """
+        Private endpoint connection details at member level.
+        :param str group_id: Gets or sets group id.
+        :param str id: Gets or sets id.
+        :param str link_identifier: Gets or sets link identifier.
+        :param str member_name: Gets or sets member name.
+        :param str private_ip_address: Gets or sets private IP address.
+        """
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if link_identifier is not None:
+            pulumi.set(__self__, "link_identifier", link_identifier)
+        if member_name is not None:
+            pulumi.set(__self__, "member_name", member_name)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[str]:
+        """
+        Gets or sets group id.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Gets or sets id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="linkIdentifier")
+    def link_identifier(self) -> Optional[str]:
+        """
+        Gets or sets link identifier.
+        """
+        return pulumi.get(self, "link_identifier")
+
+    @property
+    @pulumi.getter(name="memberName")
+    def member_name(self) -> Optional[str]:
+        """
+        Gets or sets member name.
+        """
+        return pulumi.get(self, "member_name")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        Gets or sets private IP address.
+        """
+        return pulumi.get(self, "private_ip_address")
 
 
 @pulumi.output_type
@@ -547,6 +654,175 @@ class DraModelResponseSystemData(dict):
 
 
 @pulumi.output_type
+class FabricAgentModelPropertiesResponse(dict):
+    """
+    Fabric agent model properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationIdentity":
+            suggest = "authentication_identity"
+        elif key == "correlationId":
+            suggest = "correlation_id"
+        elif key == "customProperties":
+            suggest = "custom_properties"
+        elif key == "healthErrors":
+            suggest = "health_errors"
+        elif key == "isResponsive":
+            suggest = "is_responsive"
+        elif key == "lastHeartbeat":
+            suggest = "last_heartbeat"
+        elif key == "machineId":
+            suggest = "machine_id"
+        elif key == "machineName":
+            suggest = "machine_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceAccessIdentity":
+            suggest = "resource_access_identity"
+        elif key == "versionNumber":
+            suggest = "version_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FabricAgentModelPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FabricAgentModelPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FabricAgentModelPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_identity: 'outputs.IdentityModelResponse',
+                 correlation_id: str,
+                 custom_properties: 'outputs.VMwareFabricAgentModelCustomPropertiesResponse',
+                 health_errors: Sequence['outputs.HealthErrorModelResponse'],
+                 is_responsive: bool,
+                 last_heartbeat: str,
+                 machine_id: str,
+                 machine_name: str,
+                 provisioning_state: str,
+                 resource_access_identity: 'outputs.IdentityModelResponse',
+                 version_number: str):
+        """
+        Fabric agent model properties.
+        :param 'IdentityModelResponse' authentication_identity: Identity model.
+        :param str correlation_id: Gets or sets the fabric agent correlation Id.
+        :param 'VMwareFabricAgentModelCustomPropertiesResponse' custom_properties: Fabric agent model custom properties.
+        :param Sequence['HealthErrorModelResponse'] health_errors: Gets or sets the list of health errors.
+        :param bool is_responsive: Gets or sets a value indicating whether the fabric agent is responsive.
+        :param str last_heartbeat: Gets or sets the time when last heartbeat was sent by the fabric agent.
+        :param str machine_id: Gets or sets the machine Id where fabric agent is running.
+        :param str machine_name: Gets or sets the machine name where fabric agent is running.
+        :param str provisioning_state: Gets or sets the provisioning state of the fabric agent.
+        :param 'IdentityModelResponse' resource_access_identity: Identity model.
+        :param str version_number: Gets or sets the fabric agent version.
+        """
+        pulumi.set(__self__, "authentication_identity", authentication_identity)
+        pulumi.set(__self__, "correlation_id", correlation_id)
+        pulumi.set(__self__, "custom_properties", custom_properties)
+        pulumi.set(__self__, "health_errors", health_errors)
+        pulumi.set(__self__, "is_responsive", is_responsive)
+        pulumi.set(__self__, "last_heartbeat", last_heartbeat)
+        pulumi.set(__self__, "machine_id", machine_id)
+        pulumi.set(__self__, "machine_name", machine_name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_access_identity", resource_access_identity)
+        pulumi.set(__self__, "version_number", version_number)
+
+    @property
+    @pulumi.getter(name="authenticationIdentity")
+    def authentication_identity(self) -> 'outputs.IdentityModelResponse':
+        """
+        Identity model.
+        """
+        return pulumi.get(self, "authentication_identity")
+
+    @property
+    @pulumi.getter(name="correlationId")
+    def correlation_id(self) -> str:
+        """
+        Gets or sets the fabric agent correlation Id.
+        """
+        return pulumi.get(self, "correlation_id")
+
+    @property
+    @pulumi.getter(name="customProperties")
+    def custom_properties(self) -> 'outputs.VMwareFabricAgentModelCustomPropertiesResponse':
+        """
+        Fabric agent model custom properties.
+        """
+        return pulumi.get(self, "custom_properties")
+
+    @property
+    @pulumi.getter(name="healthErrors")
+    def health_errors(self) -> Sequence['outputs.HealthErrorModelResponse']:
+        """
+        Gets or sets the list of health errors.
+        """
+        return pulumi.get(self, "health_errors")
+
+    @property
+    @pulumi.getter(name="isResponsive")
+    def is_responsive(self) -> bool:
+        """
+        Gets or sets a value indicating whether the fabric agent is responsive.
+        """
+        return pulumi.get(self, "is_responsive")
+
+    @property
+    @pulumi.getter(name="lastHeartbeat")
+    def last_heartbeat(self) -> str:
+        """
+        Gets or sets the time when last heartbeat was sent by the fabric agent.
+        """
+        return pulumi.get(self, "last_heartbeat")
+
+    @property
+    @pulumi.getter(name="machineId")
+    def machine_id(self) -> str:
+        """
+        Gets or sets the machine Id where fabric agent is running.
+        """
+        return pulumi.get(self, "machine_id")
+
+    @property
+    @pulumi.getter(name="machineName")
+    def machine_name(self) -> str:
+        """
+        Gets or sets the machine name where fabric agent is running.
+        """
+        return pulumi.get(self, "machine_name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets or sets the provisioning state of the fabric agent.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceAccessIdentity")
+    def resource_access_identity(self) -> 'outputs.IdentityModelResponse':
+        """
+        Identity model.
+        """
+        return pulumi.get(self, "resource_access_identity")
+
+    @property
+    @pulumi.getter(name="versionNumber")
+    def version_number(self) -> str:
+        """
+        Gets or sets the fabric agent version.
+        """
+        return pulumi.get(self, "version_number")
+
+
+@pulumi.output_type
 class FabricModelPropertiesResponse(dict):
     """
     Fabric model properties.
@@ -756,6 +1032,116 @@ class FabricModelResponseSystemData(dict):
         managedIdentity.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class GroupConnectivityInformationResponse(dict):
+    """
+    Represents of a connection's group information.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customerVisibleFqdns":
+            suggest = "customer_visible_fqdns"
+        elif key == "groupId":
+            suggest = "group_id"
+        elif key == "internalFqdn":
+            suggest = "internal_fqdn"
+        elif key == "memberName":
+            suggest = "member_name"
+        elif key == "privateLinkServiceArmRegion":
+            suggest = "private_link_service_arm_region"
+        elif key == "redirectMapId":
+            suggest = "redirect_map_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupConnectivityInformationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupConnectivityInformationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupConnectivityInformationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 customer_visible_fqdns: Optional[Sequence[str]] = None,
+                 group_id: Optional[str] = None,
+                 internal_fqdn: Optional[str] = None,
+                 member_name: Optional[str] = None,
+                 private_link_service_arm_region: Optional[str] = None,
+                 redirect_map_id: Optional[str] = None):
+        """
+        Represents of a connection's group information.
+        :param Sequence[str] customer_visible_fqdns: Gets or sets customer visible FQDNs.
+        :param str group_id: Gets or sets group id.
+        :param str internal_fqdn: Gets or sets Internal Fqdn.
+        :param str member_name: Gets or sets member name.
+        :param str private_link_service_arm_region: Gets or sets the private link service arm region.
+        :param str redirect_map_id: Gets or sets the redirect map id.
+        """
+        if customer_visible_fqdns is not None:
+            pulumi.set(__self__, "customer_visible_fqdns", customer_visible_fqdns)
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if internal_fqdn is not None:
+            pulumi.set(__self__, "internal_fqdn", internal_fqdn)
+        if member_name is not None:
+            pulumi.set(__self__, "member_name", member_name)
+        if private_link_service_arm_region is not None:
+            pulumi.set(__self__, "private_link_service_arm_region", private_link_service_arm_region)
+        if redirect_map_id is not None:
+            pulumi.set(__self__, "redirect_map_id", redirect_map_id)
+
+    @property
+    @pulumi.getter(name="customerVisibleFqdns")
+    def customer_visible_fqdns(self) -> Optional[Sequence[str]]:
+        """
+        Gets or sets customer visible FQDNs.
+        """
+        return pulumi.get(self, "customer_visible_fqdns")
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[str]:
+        """
+        Gets or sets group id.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter(name="internalFqdn")
+    def internal_fqdn(self) -> Optional[str]:
+        """
+        Gets or sets Internal Fqdn.
+        """
+        return pulumi.get(self, "internal_fqdn")
+
+    @property
+    @pulumi.getter(name="memberName")
+    def member_name(self) -> Optional[str]:
+        """
+        Gets or sets member name.
+        """
+        return pulumi.get(self, "member_name")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceArmRegion")
+    def private_link_service_arm_region(self) -> Optional[str]:
+        """
+        Gets or sets the private link service arm region.
+        """
+        return pulumi.get(self, "private_link_service_arm_region")
+
+    @property
+    @pulumi.getter(name="redirectMapId")
+    def redirect_map_id(self) -> Optional[str]:
+        """
+        Gets or sets the redirect map id.
+        """
+        return pulumi.get(self, "redirect_map_id")
 
 
 @pulumi.output_type
@@ -2465,12 +2851,11 @@ class IdentityModelResponse(dict):
                  tenant_id: str):
         """
         Identity model.
-        :param str aad_authority: Gets or sets the authority of the SPN with which Dra communicates to service.
-        :param str application_id: Gets or sets the client/application Id of the SPN with which Dra communicates to
-               service.
-        :param str audience: Gets or sets the audience of the SPN with which Dra communicates to service.
-        :param str object_id: Gets or sets the object Id of the SPN with which Dra communicates to service.
-        :param str tenant_id: Gets or sets the tenant Id of the SPN with which Dra communicates to service.
+        :param str aad_authority: Gets or sets the authority of the SPN with which fabric agent communicates to service.
+        :param str application_id: Gets or sets the client/application Id of the SPN with which fabric agent communicates to service.
+        :param str audience: Gets or sets the audience of the SPN with which fabric agent communicates to service.
+        :param str object_id: Gets or sets the object Id of the SPN with which fabric agent communicates to service.
+        :param str tenant_id: Gets or sets the tenant Id of the SPN with which fabric agent communicates to service.
         """
         pulumi.set(__self__, "aad_authority", aad_authority)
         pulumi.set(__self__, "application_id", application_id)
@@ -2482,7 +2867,7 @@ class IdentityModelResponse(dict):
     @pulumi.getter(name="aadAuthority")
     def aad_authority(self) -> str:
         """
-        Gets or sets the authority of the SPN with which Dra communicates to service.
+        Gets or sets the authority of the SPN with which fabric agent communicates to service.
         """
         return pulumi.get(self, "aad_authority")
 
@@ -2490,8 +2875,7 @@ class IdentityModelResponse(dict):
     @pulumi.getter(name="applicationId")
     def application_id(self) -> str:
         """
-        Gets or sets the client/application Id of the SPN with which Dra communicates to
-        service.
+        Gets or sets the client/application Id of the SPN with which fabric agent communicates to service.
         """
         return pulumi.get(self, "application_id")
 
@@ -2499,7 +2883,7 @@ class IdentityModelResponse(dict):
     @pulumi.getter
     def audience(self) -> str:
         """
-        Gets or sets the audience of the SPN with which Dra communicates to service.
+        Gets or sets the audience of the SPN with which fabric agent communicates to service.
         """
         return pulumi.get(self, "audience")
 
@@ -2507,7 +2891,7 @@ class IdentityModelResponse(dict):
     @pulumi.getter(name="objectId")
     def object_id(self) -> str:
         """
-        Gets or sets the object Id of the SPN with which Dra communicates to service.
+        Gets or sets the object Id of the SPN with which fabric agent communicates to service.
         """
         return pulumi.get(self, "object_id")
 
@@ -2515,7 +2899,7 @@ class IdentityModelResponse(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        Gets or sets the tenant Id of the SPN with which Dra communicates to service.
+        Gets or sets the tenant Id of the SPN with which fabric agent communicates to service.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -2833,6 +3217,359 @@ class PolicyModelResponseSystemData(dict):
         managedIdentity.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionProxyPropertiesResponse(dict):
+    """
+    Represents private endpoint connection proxy request.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "remotePrivateEndpoint":
+            suggest = "remote_private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionProxyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionProxyPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionProxyPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 remote_private_endpoint: Optional['outputs.RemotePrivateEndpointResponse'] = None):
+        """
+        Represents private endpoint connection proxy request.
+        :param str provisioning_state: Gets or sets the provisioning state of the private endpoint connection proxy.
+        :param 'RemotePrivateEndpointResponse' remote_private_endpoint: Represent remote private endpoint information for the private endpoint connection proxy.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if remote_private_endpoint is not None:
+            pulumi.set(__self__, "remote_private_endpoint", remote_private_endpoint)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets or sets the provisioning state of the private endpoint connection proxy.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="remotePrivateEndpoint")
+    def remote_private_endpoint(self) -> Optional['outputs.RemotePrivateEndpointResponse']:
+        """
+        Represent remote private endpoint information for the private endpoint connection proxy.
+        """
+        return pulumi.get(self, "remote_private_endpoint")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionResponsePropertiesResponse(dict):
+    """
+    Represents Private endpoint connection response properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponsePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponsePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponsePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
+        """
+        Represents Private endpoint connection response properties.
+        :param str provisioning_state: Gets or sets provisioning state of the private endpoint connection.
+        :param 'PrivateEndpointResponse' private_endpoint: Represent private Endpoint network resource that is linked to the Private Endpoint connection.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Represents Private link service connection state.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets or sets provisioning state of the private endpoint connection.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        Represent private Endpoint network resource that is linked to the Private Endpoint connection.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
+        """
+        Represents Private link service connection state.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+
+@pulumi.output_type
+class PrivateEndpointResponse(dict):
+    """
+    Represent private Endpoint network resource that is linked to the Private Endpoint connection.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Represent private Endpoint network resource that is linked to the Private Endpoint connection.
+        :param str id: Gets or sets the id.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Gets or sets the id.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class PrivateLinkServiceConnectionResponse(dict):
+    """
+    Represents of an NRP private link service connection.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "requestMessage":
+            suggest = "request_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_ids: Optional[Sequence[str]] = None,
+                 name: Optional[str] = None,
+                 request_message: Optional[str] = None):
+        """
+        Represents of an NRP private link service connection.
+        :param Sequence[str] group_ids: Gets or sets group ids.
+        :param str name: Gets or sets private link service connection name.
+        :param str request_message: Gets or sets the request message for the private link service connection.
+        """
+        if group_ids is not None:
+            pulumi.set(__self__, "group_ids", group_ids)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if request_message is not None:
+            pulumi.set(__self__, "request_message", request_message)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Optional[Sequence[str]]:
+        """
+        Gets or sets group ids.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets or sets private link service connection name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="requestMessage")
+    def request_message(self) -> Optional[str]:
+        """
+        Gets or sets the request message for the private link service connection.
+        """
+        return pulumi.get(self, "request_message")
+
+
+@pulumi.output_type
+class PrivateLinkServiceConnectionStateResponse(dict):
+    """
+    Represents Private link service connection state.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actions_required: Optional[str] = None,
+                 description: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        Represents Private link service connection state.
+        :param str actions_required: Gets or sets actions required.
+        :param str description: Gets or sets description.
+        :param str status: Gets or sets the status.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[str]:
+        """
+        Gets or sets actions required.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Gets or sets description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Gets or sets the status.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class PrivateLinkServiceProxyResponse(dict):
+    """
+    Represents NRP private link service proxy.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupConnectivityInformation":
+            suggest = "group_connectivity_information"
+        elif key == "remotePrivateEndpointConnection":
+            suggest = "remote_private_endpoint_connection"
+        elif key == "remotePrivateLinkServiceConnectionState":
+            suggest = "remote_private_link_service_connection_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceProxyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceProxyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceProxyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_connectivity_information: Optional[Sequence['outputs.GroupConnectivityInformationResponse']] = None,
+                 id: Optional[str] = None,
+                 remote_private_endpoint_connection: Optional['outputs.RemotePrivateEndpointConnectionResponse'] = None,
+                 remote_private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
+        """
+        Represents NRP private link service proxy.
+        :param Sequence['GroupConnectivityInformationResponse'] group_connectivity_information: Gets or sets group connectivity information.
+        :param str id: Gets or sets private link service proxy id.
+        :param 'RemotePrivateEndpointConnectionResponse' remote_private_endpoint_connection: Represent remote private endpoint connection.
+        :param 'PrivateLinkServiceConnectionStateResponse' remote_private_link_service_connection_state: Represents Private link service connection state.
+        """
+        if group_connectivity_information is not None:
+            pulumi.set(__self__, "group_connectivity_information", group_connectivity_information)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if remote_private_endpoint_connection is not None:
+            pulumi.set(__self__, "remote_private_endpoint_connection", remote_private_endpoint_connection)
+        if remote_private_link_service_connection_state is not None:
+            pulumi.set(__self__, "remote_private_link_service_connection_state", remote_private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="groupConnectivityInformation")
+    def group_connectivity_information(self) -> Optional[Sequence['outputs.GroupConnectivityInformationResponse']]:
+        """
+        Gets or sets group connectivity information.
+        """
+        return pulumi.get(self, "group_connectivity_information")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Gets or sets private link service proxy id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="remotePrivateEndpointConnection")
+    def remote_private_endpoint_connection(self) -> Optional['outputs.RemotePrivateEndpointConnectionResponse']:
+        """
+        Represent remote private endpoint connection.
+        """
+        return pulumi.get(self, "remote_private_endpoint_connection")
+
+    @property
+    @pulumi.getter(name="remotePrivateLinkServiceConnectionState")
+    def remote_private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
+        """
+        Represents Private link service connection state.
+        """
+        return pulumi.get(self, "remote_private_link_service_connection_state")
 
 
 @pulumi.output_type
@@ -3826,6 +4563,122 @@ class ProtectedItemModelResponseSystemData(dict):
 
 
 @pulumi.output_type
+class RemotePrivateEndpointConnectionResponse(dict):
+    """
+    Represent remote private endpoint connection.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Represent remote private endpoint connection.
+        :param str id: Gets or sets the remote private endpoint connection id.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Gets or sets the remote private endpoint connection id.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class RemotePrivateEndpointResponse(dict):
+    """
+    Represent remote private endpoint information for the private endpoint connection proxy.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionDetails":
+            suggest = "connection_details"
+        elif key == "manualPrivateLinkServiceConnections":
+            suggest = "manual_private_link_service_connections"
+        elif key == "privateLinkServiceConnections":
+            suggest = "private_link_service_connections"
+        elif key == "privateLinkServiceProxies":
+            suggest = "private_link_service_proxies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemotePrivateEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemotePrivateEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemotePrivateEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 connection_details: Optional[Sequence['outputs.ConnectionDetailsResponse']] = None,
+                 manual_private_link_service_connections: Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']] = None,
+                 private_link_service_connections: Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']] = None,
+                 private_link_service_proxies: Optional[Sequence['outputs.PrivateLinkServiceProxyResponse']] = None):
+        """
+        Represent remote private endpoint information for the private endpoint connection proxy.
+        :param str id: Gets or sets private link service proxy id.
+        :param Sequence['ConnectionDetailsResponse'] connection_details: Gets or sets the list of Connection Details. This is the connection details for private endpoint.
+        :param Sequence['PrivateLinkServiceConnectionResponse'] manual_private_link_service_connections: Gets or sets the list of Manual Private Link Service Connections and gets populated for Manual approval flow.
+        :param Sequence['PrivateLinkServiceConnectionResponse'] private_link_service_connections: Gets or sets the list of Private Link Service Connections and gets populated for Auto approval flow.
+        :param Sequence['PrivateLinkServiceProxyResponse'] private_link_service_proxies: Gets or sets the list of private link service proxies.
+        """
+        pulumi.set(__self__, "id", id)
+        if connection_details is not None:
+            pulumi.set(__self__, "connection_details", connection_details)
+        if manual_private_link_service_connections is not None:
+            pulumi.set(__self__, "manual_private_link_service_connections", manual_private_link_service_connections)
+        if private_link_service_connections is not None:
+            pulumi.set(__self__, "private_link_service_connections", private_link_service_connections)
+        if private_link_service_proxies is not None:
+            pulumi.set(__self__, "private_link_service_proxies", private_link_service_proxies)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Gets or sets private link service proxy id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="connectionDetails")
+    def connection_details(self) -> Optional[Sequence['outputs.ConnectionDetailsResponse']]:
+        """
+        Gets or sets the list of Connection Details. This is the connection details for private endpoint.
+        """
+        return pulumi.get(self, "connection_details")
+
+    @property
+    @pulumi.getter(name="manualPrivateLinkServiceConnections")
+    def manual_private_link_service_connections(self) -> Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']]:
+        """
+        Gets or sets the list of Manual Private Link Service Connections and gets populated for Manual approval flow.
+        """
+        return pulumi.get(self, "manual_private_link_service_connections")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnections")
+    def private_link_service_connections(self) -> Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']]:
+        """
+        Gets or sets the list of Private Link Service Connections and gets populated for Auto approval flow.
+        """
+        return pulumi.get(self, "private_link_service_connections")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceProxies")
+    def private_link_service_proxies(self) -> Optional[Sequence['outputs.PrivateLinkServiceProxyResponse']]:
+        """
+        Gets or sets the list of private link service proxies.
+        """
+        return pulumi.get(self, "private_link_service_proxies")
+
+
+@pulumi.output_type
 class ReplicationExtensionModelPropertiesResponse(dict):
     """
     Replication extension model properties.
@@ -4038,6 +4891,116 @@ class StorageContainerPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
 class VMwareDraModelCustomPropertiesResponse(dict):
     """
     VMware DRA model custom properties.
@@ -4091,6 +5054,73 @@ class VMwareDraModelCustomPropertiesResponse(dict):
     def instance_type(self) -> str:
         """
         Gets or sets the instance type.
+        Expected value is 'VMware'.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="marsAuthenticationIdentity")
+    def mars_authentication_identity(self) -> 'outputs.IdentityModelResponse':
+        """
+        Identity model.
+        """
+        return pulumi.get(self, "mars_authentication_identity")
+
+
+@pulumi.output_type
+class VMwareFabricAgentModelCustomPropertiesResponse(dict):
+    """
+    VMware fabric agent model custom properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "biosId":
+            suggest = "bios_id"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "marsAuthenticationIdentity":
+            suggest = "mars_authentication_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VMwareFabricAgentModelCustomPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VMwareFabricAgentModelCustomPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VMwareFabricAgentModelCustomPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bios_id: str,
+                 instance_type: str,
+                 mars_authentication_identity: 'outputs.IdentityModelResponse'):
+        """
+        VMware fabric agent model custom properties.
+        :param str bios_id: Gets or sets the BIOS Id of the fabric agent machine.
+        :param str instance_type: Discriminator property for FabricAgentModelCustomProperties.
+               Expected value is 'VMware'.
+        :param 'IdentityModelResponse' mars_authentication_identity: Identity model.
+        """
+        pulumi.set(__self__, "bios_id", bios_id)
+        pulumi.set(__self__, "instance_type", 'VMware')
+        pulumi.set(__self__, "mars_authentication_identity", mars_authentication_identity)
+
+    @property
+    @pulumi.getter(name="biosId")
+    def bios_id(self) -> str:
+        """
+        Gets or sets the BIOS Id of the fabric agent machine.
+        """
+        return pulumi.get(self, "bios_id")
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        """
+        Discriminator property for FabricAgentModelCustomProperties.
         Expected value is 'VMware'.
         """
         return pulumi.get(self, "instance_type")

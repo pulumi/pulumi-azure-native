@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
     /// The agentpool will have all information to create an agent pool.
     /// 
     /// Uses Azure REST API version 2019-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01-preview.
+    /// 
+    /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:AgentPool")]
     public partial class AgentPool : global::Pulumi.CustomResource
@@ -110,6 +112,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190601preview:AgentPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20250301preview:AgentPool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

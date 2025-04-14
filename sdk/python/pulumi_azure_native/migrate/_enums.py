@@ -18,6 +18,7 @@ __all__ = [
     'AzureEnvironmentType',
     'AzureHybridUseBenefit',
     'AzureLocation',
+    'AzureOffer',
     'AzureOfferCode',
     'AzurePricingTier',
     'AzureReservedInstance',
@@ -26,7 +27,9 @@ __all__ = [
     'AzureSqlInstanceType',
     'AzureSqlPurchaseModel',
     'AzureSqlServiceTier',
+    'AzureSqlServiceTierV3',
     'AzureStorageRedundancy',
+    'AzureTarget',
     'AzureVmCategory',
     'AzureVmFamily',
     'BusinessCaseCurrency',
@@ -58,6 +61,7 @@ __all__ = [
     'ResourceIdentityTypes',
     'SavingsOption',
     'SavingsOptions',
+    'ScopeType',
     'SecretStoreType',
     'SqlServerLicense',
     'SqlServerLicenseType',
@@ -113,8 +117,17 @@ class AsyncCommitModeIntent(str, Enum):
     Gets or sets user preference indicating intent of async commit mode.
     """
     NONE = "None"
+    """
+    None - Async Commit Mode Intent
+    """
     HIGH_AVAILABILITY = "HighAvailability"
+    """
+    HighAvailability - Async Commit Mode Intent
+    """
     DISASTER_RECOVERY = "DisasterRecovery"
+    """
+    DisasterRecovery - Async Commit Mode Intent
+    """
 
 
 class AutomationArtifactStatus(str, Enum):
@@ -162,11 +175,29 @@ class AzureArcState(str, Enum):
 
 
 class AzureAvsNodeType(str, Enum):
+    """
+    Azure AVS Node type
+    """
     UNKNOWN = "Unknown"
+    """
+    Unknown Node type
+    """
     AV36 = "AV36"
+    """
+    AVS36 Node type
+    """
     AV36_P = "AV36P"
+    """
+    AV36P Node type
+    """
     AV52 = "AV52"
+    """
+    AV52 Node type
+    """
     AV64 = "AV64"
+    """
+    AV64 Node type
+    """
 
 
 class AzureCurrency(str, Enum):
@@ -174,41 +205,143 @@ class AzureCurrency(str, Enum):
     Currency in which prices should be reported.
     """
     UNKNOWN = "Unknown"
+    """
+    Unknown Currency for Azure
+    """
     USD = "USD"
+    """
+    USD Currency for Azure
+    """
     DKK = "DKK"
+    """
+    DKK Currency for Azure
+    """
     CAD = "CAD"
+    """
+    CAD Currency for Azure
+    """
     IDR = "IDR"
+    """
+    IDR Currency for Azure
+    """
     JPY = "JPY"
+    """
+    JPY Currency for Azure
+    """
     KRW = "KRW"
+    """
+    KRW Currency for Azure
+    """
     NZD = "NZD"
+    """
+    NZD Currency for Azure
+    """
     NOK = "NOK"
+    """
+    NOK Currency for Azure
+    """
     RUB = "RUB"
+    """
+    RUB Currency for Azure
+    """
     SAR = "SAR"
+    """
+    SAR Currency for Azure
+    """
     ZAR = "ZAR"
+    """
+    ZAR Currency for Azure
+    """
     SEK = "SEK"
+    """
+    SEK Currency for Azure
+    """
     TRY_ = "TRY"
+    """
+    TRY Currency for Azure
+    """
     GBP = "GBP"
+    """
+    GBP Currency for Azure
+    """
     MXN = "MXN"
+    """
+    MXN Currency for Azure
+    """
     MYR = "MYR"
+    """
+    MYR Currency for Azure
+    """
     INR = "INR"
+    """
+    INR Currency for Azure
+    """
     HKD = "HKD"
+    """
+    HKD Currency for Azure
+    """
     BRL = "BRL"
+    """
+    BRL Currency for Azure
+    """
     TWD = "TWD"
+    """
+    TWD Currency for Azure
+    """
     EUR = "EUR"
+    """
+    EUR Currency for Azure
+    """
     CHF = "CHF"
+    """
+    CHF Currency for Azure
+    """
     ARS = "ARS"
+    """
+    ARS Currency for Azure
+    """
     AUD = "AUD"
+    """
+    AUD Currency for Azure
+    """
     CNY = "CNY"
+    """
+    CNY Currency for Azure
+    """
 
 
 class AzureDiskType(str, Enum):
+    """
+    Azure Disk Type
+    """
     UNKNOWN = "Unknown"
+    """
+    Unknown Azure Disk Type
+    """
     STANDARD = "Standard"
+    """
+    Standard Azure Disk Type
+    """
     STANDARD_SSD = "StandardSSD"
+    """
+    StandardSSD Azure Disk Type
+    """
     PREMIUM = "Premium"
+    """
+    Premium Azure Disk Type
+    """
     STANDARD_OR_PREMIUM = "StandardOrPremium"
+    """
+    StandardOrPremium Azure Disk Type
+    """
     ULTRA = "Ultra"
+    """
+    Ultra Azure Disk Type
+    """
     PREMIUM_V2 = "PremiumV2"
+    """
+    PremiumV2 Azure Disk Type
+    """
 
 
 class AzureEnvironmentType(str, Enum):
@@ -235,8 +368,17 @@ class AzureHybridUseBenefit(str, Enum):
     benefit.
     """
     UNKNOWN = "Unknown"
+    """
+    Unknown Azure Hybrid Use Benefit
+    """
     YES = "Yes"
+    """
+    Yes Azure Hybrid Use Benefit
+    """
     NO = "No"
+    """
+    No Azure Hybrid Use Benefit
+    """
 
 
 class AzureLocation(str, Enum):
@@ -245,65 +387,323 @@ class AzureLocation(str, Enum):
     will be migrated.
     """
     UNKNOWN = "Unknown"
+    """
+    Unknown Location for Azure
+    """
     EAST_ASIA = "EastAsia"
+    """
+    EastAsia Location for Azure
+    """
     SOUTHEAST_ASIA = "SoutheastAsia"
+    """
+    SoutheastAsia Location for Azure
+    """
     AUSTRALIA_EAST = "AustraliaEast"
+    """
+    AustraliaEast Location for Azure
+    """
     AUSTRALIA_SOUTHEAST = "AustraliaSoutheast"
+    """
+    AustraliaSoutheast Location for Azure
+    """
     BRAZIL_SOUTH = "BrazilSouth"
+    """
+    BrazilSouth Location for Azure
+    """
     CANADA_CENTRAL = "CanadaCentral"
+    """
+    CanadaCentral Location for Azure
+    """
     CANADA_EAST = "CanadaEast"
+    """
+    CanadaEast Location for Azure
+    """
     WEST_EUROPE = "WestEurope"
+    """
+    WestEurope Location for Azure
+    """
     NORTH_EUROPE = "NorthEurope"
+    """
+    NorthEurope Location for Azure
+    """
     CENTRAL_INDIA = "CentralIndia"
+    """
+    CentralIndia Location for Azure
+    """
     SOUTH_INDIA = "SouthIndia"
+    """
+    SouthIndia Location for Azure
+    """
     WEST_INDIA = "WestIndia"
+    """
+    WestIndia Location for Azure
+    """
     JAPAN_EAST = "JapanEast"
+    """
+    JapanEast Location for Azure
+    """
     JAPAN_WEST = "JapanWest"
+    """
+    JapanWest Location for Azure
+    """
     KOREA_CENTRAL = "KoreaCentral"
+    """
+    KoreaCentral Location for Azure
+    """
     KOREA_SOUTH = "KoreaSouth"
+    """
+    KoreaSouth Location for Azure
+    """
     UK_WEST = "UkWest"
+    """
+    UkWest Location for Azure
+    """
     UK_SOUTH = "UkSouth"
+    """
+    UkSouth Location for Azure
+    """
     NORTH_CENTRAL_US = "NorthCentralUs"
+    """
+    NorthCentralUs Location for Azure
+    """
     EAST_US = "EastUs"
+    """
+    EastUs Location for Azure
+    """
     WEST_US2 = "WestUs2"
+    """
+    WestUs2 Location for Azure
+    """
     SOUTH_CENTRAL_US = "SouthCentralUs"
+    """
+    SouthCentralUs Location for Azure
+    """
     CENTRAL_US = "CentralUs"
+    """
+    CentralUs Location for Azure
+    """
     EAST_US2 = "EastUs2"
+    """
+    EastUs2 Location for Azure
+    """
     WEST_US = "WestUs"
+    """
+    WestUs Location for Azure
+    """
     WEST_CENTRAL_US = "WestCentralUs"
+    """
+    WestCentralUs Location for Azure
+    """
     GERMANY_CENTRAL = "GermanyCentral"
+    """
+    GermanyCentral Location for Azure
+    """
     GERMANY_NORTHEAST = "GermanyNortheast"
+    """
+    GermanyNortheast Location for Azure
+    """
     CHINA_NORTH = "ChinaNorth"
+    """
+    ChinaNorth Location for Azure
+    """
     CHINA_EAST = "ChinaEast"
+    """
+    ChinaEast Location for Azure
+    """
     US_GOV_ARIZONA = "USGovArizona"
+    """
+    USGovArizona Location for Azure
+    """
     US_GOV_TEXAS = "USGovTexas"
+    """
+    USGovTexas Location for Azure
+    """
     US_GOV_IOWA = "USGovIowa"
+    """
+    USGovIowa Location for Azure
+    """
     US_GOV_VIRGINIA = "USGovVirginia"
+    """
+    USGovVirginia Location for Azure
+    """
     US_DO_D_CENTRAL = "USDoDCentral"
+    """
+    USDoDCentral Location for Azure
+    """
     US_DO_D_EAST = "USDoDEast"
+    """
+    USDoDEast Location for Azure
+    """
     FRANCE_CENTRAL = "FranceCentral"
+    """
+    FranceCentral Location for Azure
+    """
     AUSTRALIA_CENTRAL = "AustraliaCentral"
+    """
+    AustraliaCentral Location for Azure
+    """
     SOUTH_AFRICA_NORTH = "SouthAfricaNorth"
+    """
+    SouthAfricaNorth Location for Azure
+    """
     FRANCE_SOUTH = "FranceSouth"
+    """
+    FranceSouth Location for Azure
+    """
     AUSTRALIA_CENTRAL2 = "AustraliaCentral2"
+    """
+    AustraliaCentral2 Location for Azure
+    """
     SOUTH_AFRICA_WEST = "SouthAfricaWest"
+    """
+    SouthAfricaWest Location for Azure
+    """
     GERMANY_NORTH = "GermanyNorth"
+    """
+    GermanyNorth Location for Azure
+    """
     GERMANY_WEST_CENTRAL = "GermanyWestCentral"
+    """
+    GermanyWestCentral Location for Azure
+    """
     NORWAY_EAST = "NorwayEast"
+    """
+    NorwayEast Location for Azure
+    """
     NORWAY_WEST = "NorwayWest"
+    """
+    NorwayWest Location for Azure
+    """
     CHINA_EAST2 = "ChinaEast2"
+    """
+    ChinaEast2 Location for Azure
+    """
     CHINA_NORTH2 = "ChinaNorth2"
+    """
+    ChinaNorth2 Location for Azure
+    """
     SWITZERLAND_NORTH = "SwitzerlandNorth"
+    """
+    SwitzerlandNorth Location for Azure
+    """
     SWITZERLAND_WEST = "SwitzerlandWest"
+    """
+    SwitzerlandWest Location for Azure
+    """
     UAE_NORTH = "UAENorth"
+    """
+    UAENorth Location for Azure
+    """
     UAE_CENTRAL = "UAECentral"
+    """
+    UAECentral Location for Azure
+    """
     US_NAT_EAST = "UsNatEast"
+    """
+    UsNatEast Location for Azure
+    """
     US_NAT_WEST = "UsNatWest"
+    """
+    UsNatWest Location for Azure
+    """
     US_SEC_EAST = "UsSecEast"
+    """
+    UsSecEast Location for Azure
+    """
     US_SEC_CENTRAL = "UsSecCentral"
+    """
+    UsSecCentral Location for Azure
+    """
     US_SEC_WEST = "UsSecWest"
+    """
+    UsSecWest Location for Azure
+    """
     SWEDEN_CENTRAL = "SwedenCentral"
+    """
+    SwedenCentral Location for Azure
+    """
     QATAR_CENTRAL = "QatarCentral"
+    """
+    QatarCentral Location for Azure
+    """
+    JIO_INDIA_WEST = "JioIndiaWest"
+    """
+    JioIndiaWest Location for Azure
+    """
+    ITALY_NORTH = "ItalyNorth"
+    """
+    ItalyNorth Location for Azure
+    """
+    POLAND_CENTRAL = "PolandCentral"
+    """
+    PolandCentral Location for Azure
+    """
+    ISRAEL_CENTRAL = "IsraelCentral"
+    """
+    IsraelCentral Location for Azure
+    """
+    MEXICO_CENTRAL = "MexicoCentral"
+    """
+    MexicoCentral Location for Azure
+    """
+    NEW_ZEALAND_NORTH = "NewZealandNorth"
+    """
+    NewZealandNorth Location for Azure
+    """
+    SPAIN_CENTRAL = "SpainCentral"
+    """
+    SpainCentral Location for Azure
+    """
+
+
+class AzureOffer(str, Enum):
+    """
+    Gets or sets the Azure offer code.
+    """
+    UNKNOWN = "Unknown"
+    """
+    Unknown - Azure Offer
+    """
+    MSAZR0003_P = "MSAZR0003P"
+    """
+    MSAZR0003P Azure Offer
+    """
+    MSAZR0023_P = "MSAZR0023P"
+    """
+    MSAZR0023P Azure Offer
+    """
+    MSMCAZR0044_P = "MSMCAZR0044P"
+    """
+    MSMCAZR0044P Azure Offer
+    """
+    MSMCAZR0059_P = "MSMCAZR0059P"
+    """
+    MSMCAZR0059P Azure Offer
+    """
+    MSMCAZR0060_P = "MSMCAZR0060P"
+    """
+    MSMCAZR0060P Azure Offer
+    """
+    MSMCAZR0063_P = "MSMCAZR0063P"
+    """
+    MSMCAZR0063P Azure Offer
+    """
+    MSAZRUSGOV0003_P = "MSAZRUSGOV0003P"
+    """
+    MSAZRUSGOV0003P Azure Offer
+    """
+    EA = "EA"
+    """
+    EA Azure Offer
+    """
+    SAVINGS_PLAN1_YEAR = "SavingsPlan1Year"
+    """
+    SavingsPlan1Year Azure Offer
+    """
+    SAVINGS_PLAN3_YEAR = "SavingsPlan3Year"
+    """
+    SavingsPlan3Year Azure Offer
+    """
 
 
 class AzureOfferCode(str, Enum):
@@ -360,7 +760,13 @@ class AzurePricingTier(str, Enum):
     Gets or sets Azure Pricing Tier - Free, Basic, etc.
     """
     STANDARD = "Standard"
+    """
+    Standard Azure Pricing Tier
+    """
     BASIC = "Basic"
+    """
+    Basic Azure Pricing Tier
+    """
 
 
 class AzureReservedInstance(str, Enum):
@@ -374,10 +780,16 @@ class AzureReservedInstance(str, Enum):
 
 class AzureSecurityOfferingType(str, Enum):
     """
-    Gets or sets a value indicating azure security offering type.
+    Azure security offering type.
     """
     NO = "NO"
+    """
+    NO - Azure Security Offering Type
+    """
     MDC = "MDC"
+    """
+    MDC - Azure Security Offering Type
+    """
 
 
 class AzureSqlDataBaseType(str, Enum):
@@ -385,9 +797,21 @@ class AzureSqlDataBaseType(str, Enum):
     Gets or sets the azure PAAS SQL instance type.
     """
     UNKNOWN = "Unknown"
+    """
+    Unknown Data Base Type
+    """
     AUTOMATIC = "Automatic"
+    """
+    Automatic Data Base Type
+    """
     SINGLE_DATABASE = "SingleDatabase"
+    """
+    SingleDatabase Data Base Type
+    """
     ELASTIC_POOL = "ElasticPool"
+    """
+    ElasticPool Data Base Type
+    """
 
 
 class AzureSqlInstanceType(str, Enum):
@@ -395,9 +819,21 @@ class AzureSqlInstanceType(str, Enum):
     Gets or sets the azure PAAS SQL instance type.
     """
     UNKNOWN = "Unknown"
+    """
+    Unknown Azure Sql Instance Type
+    """
     AUTOMATIC = "Automatic"
+    """
+    Automatic Azure Sql Instance Type
+    """
     SINGLE_INSTANCE = "SingleInstance"
+    """
+    SingleInstance Azure Sql Instance Type
+    """
     INSTANCE_POOLS = "InstancePools"
+    """
+    InstancePools Azure Sql Instance Type
+    """
 
 
 class AzureSqlPurchaseModel(str, Enum):
@@ -405,8 +841,17 @@ class AzureSqlPurchaseModel(str, Enum):
     Gets or sets the azure SQL purchase model.
     """
     UNKNOWN = "Unknown"
+    """
+    Unknown Purchase Model
+    """
     V_CORE = "VCore"
+    """
+    VCore Purchase Model
+    """
     DTU = "DTU"
+    """
+    DTU Purchase Model
+    """
 
 
 class AzureSqlServiceTier(str, Enum):
@@ -420,15 +865,118 @@ class AzureSqlServiceTier(str, Enum):
     HYPER_SCALE = "HyperScale"
 
 
+class AzureSqlServiceTierV3(str, Enum):
+    """
+    Gets or sets the azure SQL service tier.
+    """
+    SQL_SERVICE_UNKNOWN = "SqlService_Unknown"
+    """
+    SqlService_Unknown Sql Service Tier V3
+    """
+    SQL_SERVICE_AUTOMATIC = "SqlService_Automatic"
+    """
+    SqlService_Automatic Sql Service Tier V3
+    """
+    SQL_SERVICE_GENERAL_PURPOSE = "SqlService_GeneralPurpose"
+    """
+    SqlService_GeneralPurpose Sql Service Tier V3
+    """
+    SQL_SERVICE_BUSINESS_CRITICAL = "SqlService_BusinessCritical"
+    """
+    SqlService_BusinessCritical Sql Service Tier V3
+    """
+    SQL_SERVICE_HYPER_SCALE = "SqlService_HyperScale"
+    """
+    SqlService_HyperScale Sql Service Tier V3
+    """
+
+
 class AzureStorageRedundancy(str, Enum):
     """
     Gets or sets the Azure Storage Redundancy. Example: Locally Redundant Storage.
     """
     UNKNOWN = "Unknown"
+    """
+    Unknown Azure Storage Redundancy
+    """
     LOCALLY_REDUNDANT = "LocallyRedundant"
+    """
+    LocallyRedundant Azure Storage Redundancy
+    """
     ZONE_REDUNDANT = "ZoneRedundant"
+    """
+    ZoneRedundant Azure Storage Redundancy
+    """
     GEO_REDUNDANT = "GeoRedundant"
+    """
+    GeoRedundant Azure Storage Redundancy
+    """
     READ_ACCESS_GEO_REDUNDANT = "ReadAccessGeoRedundant"
+    """
+    ReadAccessGeoRedundant Azure Storage Redundancy
+    """
+
+
+class AzureTarget(str, Enum):
+    """
+    Azure Target
+    """
+    UNKNOWN = "Unknown"
+    """
+    Unknown - Azure Target
+    """
+    SQL_DATABASE = "SqlDatabase"
+    """
+    SqlDatabase - Azure Target
+    """
+    SQL_MI = "SqlMI"
+    """
+    SqlMI - Azure Target
+    """
+    FLEX_SERVER_PG = "FlexServerPG"
+    """
+    FlexServerPG - Azure Target
+    """
+    ORACLE_IAAS_VM = "OracleIaasVM"
+    """
+    OracleIaasVM - Azure Target
+    """
+    AZURE_SPRING_APPS = "AzureSpringApps"
+    """
+    AzureSpringApps - Azure Target
+    """
+    SAP_AZURE_INSTANCE = "SAPAzureInstance"
+    """
+    SAPAzureInstance - Azure Target
+    """
+    AKS = "AKS"
+    """
+    AKS - Azure Target
+    """
+    MY_SQL_AZURE_FLEX_SERVER = "MySQLAzureFlexServer"
+    """
+    MySQLAzureFlexServer - Azure Target
+    """
+    AZURE_SQLVM = "AzureSQLVM"
+    """
+    AzureSQLVM - Azure Target
+    """
+    AZURE_VM = "AzureVM"
+    """
+    AzureVM - Azure Target
+    """
+    AZURE_APP_SERVICE = "AzureAppService"
+    """
+    AzureAppService - Azure Target
+    """
+    AZURE_APP_SERVICE_CONTAINER = "AzureAppServiceContainer"
+    """
+    AzureAppServiceContainer - Azure Target
+    """
+    AVS = "Avs"
+    """
+    Avs - Azure Target
+    """
 
 
 class AzureVmCategory(str, Enum):
@@ -470,58 +1018,217 @@ class AzureVmCategory(str, Enum):
 
 
 class AzureVmFamily(str, Enum):
+    """
+    Azure VM Family
+    """
     UNKNOWN = "Unknown"
+    """
+    Unknown - Azure VM Family
+    """
     BASIC_A0_A4 = "Basic_A0_A4"
+    """
+    Basic_A0_A4
+    """
     STANDARD_A0_A7 = "Standard_A0_A7"
+    """
+    Standard_A0_A7
+    """
     STANDARD_A8_A11 = "Standard_A8_A11"
+    """
+    Standard_A8_A11
+    """
     AV2_SERIES = "Av2_series"
+    """
+    Av2_series
+    """
     D_SERIES = "D_series"
+    """
+    D_series
+    """
     DV2_SERIES = "Dv2_series"
+    """
+    Dv2_series
+    """
     DS_SERIES = "DS_series"
+    """
+    DS_series
+    """
     D_SV2_SERIES = "DSv2_series"
+    """
+    DSv2_series
+    """
     F_SERIES = "F_series"
+    """
+    F_series
+    """
     FS_SERIES = "Fs_series"
+    """
+    Fs_series
+    """
     G_SERIES = "G_series"
+    """
+    G_series
+    """
     GS_SERIES = "GS_series"
+    """
+    GS_series
+    """
     H_SERIES = "H_series"
+    """
+    H_series
+    """
     LS_SERIES = "Ls_series"
+    """
+    Ls_series
+    """
     DSV3_SERIES = "Dsv3_series"
+    """
+    Dsv3_series
+    """
     DV3_SERIES = "Dv3_series"
+    """
+    Dv3_series
+    """
     FSV2_SERIES = "Fsv2_series"
+    """
+    Fsv2_series
+    """
     EV3_SERIES = "Ev3_series"
+    """
+    Ev3_series
+    """
     ESV3_SERIES = "Esv3_series"
+    """
+    Esv3_series
+    """
     M_SERIES = "M_series"
+    """
+    M_series
+    """
     DC_SERIES = "DC_Series"
+    """
+    DC_Series
+    """
     LSV2_SERIES = "Lsv2_series"
+    """
+    Lsv2_series
+    """
     EV4_SERIES = "Ev4_series"
+    """
+    Ev4_series
+    """
     ESV4_SERIES = "Esv4_series"
+    """
+    Esv4_series
+    """
     EDV4_SERIES = "Edv4_series"
+    """
+    Edv4_series
+    """
     EDSV4_SERIES = "Edsv4_series"
+    """
+    Edsv4_series
+    """
     DV4_SERIES = "Dv4_series"
+    """
+    Dv4_series
+    """
     DSV4_SERIES = "Dsv4_series"
+    """
+    Dsv4_series
+    """
     DDV4_SERIES = "Ddv4_series"
+    """
+    Ddv4_series
+    """
     DDSV4_SERIES = "Ddsv4_series"
+    """
+    Ddsv4_series
+    """
     EASV4_SERIES = "Easv4_series"
+    """
+    Easv4_series
+    """
     DASV4_SERIES = "Dasv4_series"
+    """
+    Dasv4_series
+    """
     MV2_SERIES = "Mv2_series"
+    """
+    Mv2_series
+    """
     EAV4_SERIES = "Eav4_series"
+    """
+    Eav4_series
+    """
     DAV4_SERIES = "Dav4_series"
+    """
+    Dav4_series
+    """
     MSV2_SERIES = "Msv2_series"
+    """
+    Msv2_series
+    """
     MDSV2_SERIES = "Mdsv2_series"
+    """
+    Mdsv2_series
+    """
     DV5_SERIES = "Dv5_series"
+    """
+    Dv5_series
+    """
     DSV5_SERIES = "Dsv5_series"
+    """
+    Dsv5_series
+    """
     DDV5_SERIES = "Ddv5_series"
+    """
+    Ddv5_series
+    """
     DDSV5_SERIES = "Ddsv5_series"
+    """
+    Ddsv5_series
+    """
     DASV5_SERIES = "Dasv5_series"
+    """
+    Dasv5_series
+    """
     DADSV5_SERIES = "Dadsv5_series"
+    """
+    Dadsv5_series
+    """
     EV5_SERIES = "Ev5_series"
+    """
+    Ev5_series
+    """
     ESV5_SERIES = "Esv5_series"
+    """
+    Esv5_series
+    """
     EDV5_SERIES = "Edv5_series"
+    """
+    Edv5_series
+    """
     EDSV5_SERIES = "Edsv5_series"
+    """
+    Edsv5_series
+    """
     EASV5_SERIES = "Easv5_series"
+    """
+    Easv5_series
+    """
     EADSV5_SERIES = "Eadsv5_series"
+    """
+    Eadsv5_series
+    """
     EBSV5_SERIES = "Ebsv5_series"
+    """
+    Ebsv5_series
+    """
     EBDSV5_SERIES = "Ebdsv5_series"
+    """
+    Ebdsv5_series
+    """
 
 
 class BusinessCaseCurrency(str, Enum):
@@ -639,9 +1346,21 @@ class ComputeTier(str, Enum):
     Gets or sets the azure SQL compute tier.
     """
     UNKNOWN = "Unknown"
+    """
+    Unknown - Compute Tier
+    """
     AUTOMATIC = "Automatic"
+    """
+    Automatic - Compute Tier
+    """
     PROVISIONED = "Provisioned"
+    """
+    Provisioned - Compute Tier
+    """
     SERVERLESS = "Serverless"
+    """
+    Serverless - Compute Tier
+    """
 
 
 class ConfigurationType(str, Enum):
@@ -722,7 +1441,17 @@ class EnvironmentType(str, Enum):
     Gets or sets user configurable setting to display the environment type.
     """
     PRODUCTION = "Production"
-    TEST = "Test"
+    """
+    Production - Environment Type
+    """
+    UNKNOWN = "Unknown"
+    """
+    Unknown - Environment Type
+    """
+    DEV_TEST = "DevTest"
+    """
+    DevTest - Environment Type
+    """
 
 
 class ExternalStorageType(str, Enum):
@@ -809,15 +1538,23 @@ class HyperVLicenseType(str, Enum):
 
 class LicensingProgram(str, Enum):
     """
-    Gets or sets licensing program.
+    Gets or sets the licensing program.
     """
-    DEFAULT = "Default"
+    RETAIL = "Retail"
     """
-    Default value. Indicates Pay As You Go.
+    Retail/Pay as you go.
+    """
+    UNKNOWN = "Unknown"
+    """
+    Not known
     """
     EA = "EA"
     """
-    Enterprise Agreement.
+    Enterprise agreement.
+    """
+    MCA = "MCA"
+    """
+    Microsoft customer agreement.
     """
 
 
@@ -868,8 +1605,17 @@ class MultiSubnetIntent(str, Enum):
     Gets or sets user preference indicating intent of multi-subnet configuration.
     """
     NONE = "None"
+    """
+    None - Multi Subnet Intent
+    """
     HIGH_AVAILABILITY = "HighAvailability"
+    """
+    HighAvailability - Multi Subnet Intent
+    """
     DISASTER_RECOVERY = "DisasterRecovery"
+    """
+    DisasterRecovery - Multi Subnet Intent
+    """
 
 
 class OperatingSystemType(str, Enum):
@@ -892,8 +1638,17 @@ class OsLicense(str, Enum):
     Gets or sets user configurable setting to display the azure hybrid use benefit.
     """
     UNKNOWN = "Unknown"
+    """
+    Unknown Os License
+    """
     YES = "Yes"
+    """
+    Yes Os License
+    """
     NO = "No"
+    """
+    No Os License
+    """
 
 
 class Percentile(str, Enum):
@@ -916,6 +1671,10 @@ class Percentile(str, Enum):
     PERCENTILE99 = "Percentile99"
     """
     Percentile 99.
+    """
+    PERCENTILE_UNKNOWN = "PercentileUnknown"
+    """
+    Percentile unknown.
     """
 
 
@@ -1028,27 +1787,45 @@ class SavingsOption(str, Enum):
 
 class SavingsOptions(str, Enum):
     """
-    Gets or sets savings options.
+    Gets or sets the savings options.
     """
     NONE = "None"
     """
-    Savings Options is not applicable.
+    No savings options.
     """
-    ONE_YEAR_SAVINGS = "OneYearSavings"
+    RI1_YEAR = "RI1Year"
     """
-    One Year Savings Plan.
+    Reserved Instance for 1 year.
     """
-    THREE_YEARS_SAVINGS = "ThreeYearsSavings"
+    RI3_YEAR = "RI3Year"
     """
-    Three Years Savings Plan.
+    Reserved Instance for 3 years.
     """
-    ONE_YEAR_RESERVED = "OneYearReserved"
+    SAVINGS_PLAN1_YEAR = "SavingsPlan1Year"
     """
-    One Year Reserved Instances.
+    The savings plan for 1 year.
     """
-    THREE_YEARS_RESERVED = "ThreeYearsReserved"
+    SAVINGS_PLAN3_YEAR = "SavingsPlan3Year"
     """
-    Three Years Reserved Instances.
+    The savings plan for 3  years.
+    """
+    CUSTOM_AZURE_OFFER_CODE = "CustomAzureOfferCode"
+    """
+    Custom azure offer code.
+    """
+
+
+class ScopeType(str, Enum):
+    """
+    The scope type
+    """
+    SERVER_GROUP_ID = "ServerGroupId"
+    """
+    ServerGroupId - Scope type
+    """
+    AZURE_RESOURCE_GRAPH_QUERY = "AzureResourceGraphQuery"
+    """
+    AzureResourceGraphQuery - Scope type
     """
 
 
@@ -1064,8 +1841,17 @@ class SqlServerLicense(str, Enum):
     SQL server license.
     """
     UNKNOWN = "Unknown"
+    """
+    Unknown - Sql Server License
+    """
     YES = "Yes"
+    """
+    Has Sql Server License
+    """
     NO = "No"
+    """
+    No Sql Server License
+    """
 
 
 class SqlServerLicenseType(str, Enum):

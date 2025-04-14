@@ -1597,6 +1597,7 @@ namespace Pulumi.AzureNative.Compute
         }
 
         public static NetworkApiVersion NetworkApiVersion_2020_11_01 { get; } = new NetworkApiVersion("2020-11-01");
+        public static NetworkApiVersion NetworkApiVersion_2022_11_01 { get; } = new NetworkApiVersion("2022-11-01");
 
         public static bool operator ==(NetworkApiVersion left, NetworkApiVersion right) => left.Equals(right);
         public static bool operator !=(NetworkApiVersion left, NetworkApiVersion right) => !left.Equals(right);

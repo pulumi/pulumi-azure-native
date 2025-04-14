@@ -123,8 +123,17 @@ namespace Pulumi.AzureNative.Migrate
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// None - Async Commit Mode Intent
+        /// </summary>
         public static AsyncCommitModeIntent None { get; } = new AsyncCommitModeIntent("None");
+        /// <summary>
+        /// HighAvailability - Async Commit Mode Intent
+        /// </summary>
         public static AsyncCommitModeIntent HighAvailability { get; } = new AsyncCommitModeIntent("HighAvailability");
+        /// <summary>
+        /// DisasterRecovery - Async Commit Mode Intent
+        /// </summary>
         public static AsyncCommitModeIntent DisasterRecovery { get; } = new AsyncCommitModeIntent("DisasterRecovery");
 
         public static bool operator ==(AsyncCommitModeIntent left, AsyncCommitModeIntent right) => left.Equals(right);
@@ -255,6 +264,9 @@ namespace Pulumi.AzureNative.Migrate
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Azure AVS Node type
+    /// </summary>
     [EnumType]
     public readonly struct AzureAvsNodeType : IEquatable<AzureAvsNodeType>
     {
@@ -265,10 +277,25 @@ namespace Pulumi.AzureNative.Migrate
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Unknown Node type
+        /// </summary>
         public static AzureAvsNodeType Unknown { get; } = new AzureAvsNodeType("Unknown");
+        /// <summary>
+        /// AVS36 Node type
+        /// </summary>
         public static AzureAvsNodeType AV36 { get; } = new AzureAvsNodeType("AV36");
+        /// <summary>
+        /// AV36P Node type
+        /// </summary>
         public static AzureAvsNodeType AV36P { get; } = new AzureAvsNodeType("AV36P");
+        /// <summary>
+        /// AV52 Node type
+        /// </summary>
         public static AzureAvsNodeType AV52 { get; } = new AzureAvsNodeType("AV52");
+        /// <summary>
+        /// AV64 Node type
+        /// </summary>
         public static AzureAvsNodeType AV64 { get; } = new AzureAvsNodeType("AV64");
 
         public static bool operator ==(AzureAvsNodeType left, AzureAvsNodeType right) => left.Equals(right);
@@ -299,31 +326,109 @@ namespace Pulumi.AzureNative.Migrate
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Unknown Currency for Azure
+        /// </summary>
         public static AzureCurrency Unknown { get; } = new AzureCurrency("Unknown");
+        /// <summary>
+        /// USD Currency for Azure
+        /// </summary>
         public static AzureCurrency USD { get; } = new AzureCurrency("USD");
+        /// <summary>
+        /// DKK Currency for Azure
+        /// </summary>
         public static AzureCurrency DKK { get; } = new AzureCurrency("DKK");
+        /// <summary>
+        /// CAD Currency for Azure
+        /// </summary>
         public static AzureCurrency CAD { get; } = new AzureCurrency("CAD");
+        /// <summary>
+        /// IDR Currency for Azure
+        /// </summary>
         public static AzureCurrency IDR { get; } = new AzureCurrency("IDR");
+        /// <summary>
+        /// JPY Currency for Azure
+        /// </summary>
         public static AzureCurrency JPY { get; } = new AzureCurrency("JPY");
+        /// <summary>
+        /// KRW Currency for Azure
+        /// </summary>
         public static AzureCurrency KRW { get; } = new AzureCurrency("KRW");
+        /// <summary>
+        /// NZD Currency for Azure
+        /// </summary>
         public static AzureCurrency NZD { get; } = new AzureCurrency("NZD");
+        /// <summary>
+        /// NOK Currency for Azure
+        /// </summary>
         public static AzureCurrency NOK { get; } = new AzureCurrency("NOK");
+        /// <summary>
+        /// RUB Currency for Azure
+        /// </summary>
         public static AzureCurrency RUB { get; } = new AzureCurrency("RUB");
+        /// <summary>
+        /// SAR Currency for Azure
+        /// </summary>
         public static AzureCurrency SAR { get; } = new AzureCurrency("SAR");
+        /// <summary>
+        /// ZAR Currency for Azure
+        /// </summary>
         public static AzureCurrency ZAR { get; } = new AzureCurrency("ZAR");
+        /// <summary>
+        /// SEK Currency for Azure
+        /// </summary>
         public static AzureCurrency SEK { get; } = new AzureCurrency("SEK");
+        /// <summary>
+        /// TRY Currency for Azure
+        /// </summary>
         public static AzureCurrency TRY { get; } = new AzureCurrency("TRY");
+        /// <summary>
+        /// GBP Currency for Azure
+        /// </summary>
         public static AzureCurrency GBP { get; } = new AzureCurrency("GBP");
+        /// <summary>
+        /// MXN Currency for Azure
+        /// </summary>
         public static AzureCurrency MXN { get; } = new AzureCurrency("MXN");
+        /// <summary>
+        /// MYR Currency for Azure
+        /// </summary>
         public static AzureCurrency MYR { get; } = new AzureCurrency("MYR");
+        /// <summary>
+        /// INR Currency for Azure
+        /// </summary>
         public static AzureCurrency INR { get; } = new AzureCurrency("INR");
+        /// <summary>
+        /// HKD Currency for Azure
+        /// </summary>
         public static AzureCurrency HKD { get; } = new AzureCurrency("HKD");
+        /// <summary>
+        /// BRL Currency for Azure
+        /// </summary>
         public static AzureCurrency BRL { get; } = new AzureCurrency("BRL");
+        /// <summary>
+        /// TWD Currency for Azure
+        /// </summary>
         public static AzureCurrency TWD { get; } = new AzureCurrency("TWD");
+        /// <summary>
+        /// EUR Currency for Azure
+        /// </summary>
         public static AzureCurrency EUR { get; } = new AzureCurrency("EUR");
+        /// <summary>
+        /// CHF Currency for Azure
+        /// </summary>
         public static AzureCurrency CHF { get; } = new AzureCurrency("CHF");
+        /// <summary>
+        /// ARS Currency for Azure
+        /// </summary>
         public static AzureCurrency ARS { get; } = new AzureCurrency("ARS");
+        /// <summary>
+        /// AUD Currency for Azure
+        /// </summary>
         public static AzureCurrency AUD { get; } = new AzureCurrency("AUD");
+        /// <summary>
+        /// CNY Currency for Azure
+        /// </summary>
         public static AzureCurrency CNY { get; } = new AzureCurrency("CNY");
 
         public static bool operator ==(AzureCurrency left, AzureCurrency right) => left.Equals(right);
@@ -341,6 +446,9 @@ namespace Pulumi.AzureNative.Migrate
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Azure Disk Type
+    /// </summary>
     [EnumType]
     public readonly struct AzureDiskType : IEquatable<AzureDiskType>
     {
@@ -351,12 +459,33 @@ namespace Pulumi.AzureNative.Migrate
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Unknown Azure Disk Type
+        /// </summary>
         public static AzureDiskType Unknown { get; } = new AzureDiskType("Unknown");
+        /// <summary>
+        /// Standard Azure Disk Type
+        /// </summary>
         public static AzureDiskType Standard { get; } = new AzureDiskType("Standard");
+        /// <summary>
+        /// StandardSSD Azure Disk Type
+        /// </summary>
         public static AzureDiskType StandardSSD { get; } = new AzureDiskType("StandardSSD");
+        /// <summary>
+        /// Premium Azure Disk Type
+        /// </summary>
         public static AzureDiskType Premium { get; } = new AzureDiskType("Premium");
+        /// <summary>
+        /// StandardOrPremium Azure Disk Type
+        /// </summary>
         public static AzureDiskType StandardOrPremium { get; } = new AzureDiskType("StandardOrPremium");
+        /// <summary>
+        /// Ultra Azure Disk Type
+        /// </summary>
         public static AzureDiskType Ultra { get; } = new AzureDiskType("Ultra");
+        /// <summary>
+        /// PremiumV2 Azure Disk Type
+        /// </summary>
         public static AzureDiskType PremiumV2 { get; } = new AzureDiskType("PremiumV2");
 
         public static bool operator ==(AzureDiskType left, AzureDiskType right) => left.Equals(right);
@@ -429,8 +558,17 @@ namespace Pulumi.AzureNative.Migrate
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Unknown Azure Hybrid Use Benefit
+        /// </summary>
         public static AzureHybridUseBenefit Unknown { get; } = new AzureHybridUseBenefit("Unknown");
+        /// <summary>
+        /// Yes Azure Hybrid Use Benefit
+        /// </summary>
         public static AzureHybridUseBenefit Yes { get; } = new AzureHybridUseBenefit("Yes");
+        /// <summary>
+        /// No Azure Hybrid Use Benefit
+        /// </summary>
         public static AzureHybridUseBenefit No { get; } = new AzureHybridUseBenefit("No");
 
         public static bool operator ==(AzureHybridUseBenefit left, AzureHybridUseBenefit right) => left.Equals(right);
@@ -462,66 +600,274 @@ namespace Pulumi.AzureNative.Migrate
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Unknown Location for Azure
+        /// </summary>
         public static AzureLocation Unknown { get; } = new AzureLocation("Unknown");
+        /// <summary>
+        /// EastAsia Location for Azure
+        /// </summary>
         public static AzureLocation EastAsia { get; } = new AzureLocation("EastAsia");
+        /// <summary>
+        /// SoutheastAsia Location for Azure
+        /// </summary>
         public static AzureLocation SoutheastAsia { get; } = new AzureLocation("SoutheastAsia");
+        /// <summary>
+        /// AustraliaEast Location for Azure
+        /// </summary>
         public static AzureLocation AustraliaEast { get; } = new AzureLocation("AustraliaEast");
+        /// <summary>
+        /// AustraliaSoutheast Location for Azure
+        /// </summary>
         public static AzureLocation AustraliaSoutheast { get; } = new AzureLocation("AustraliaSoutheast");
+        /// <summary>
+        /// BrazilSouth Location for Azure
+        /// </summary>
         public static AzureLocation BrazilSouth { get; } = new AzureLocation("BrazilSouth");
+        /// <summary>
+        /// CanadaCentral Location for Azure
+        /// </summary>
         public static AzureLocation CanadaCentral { get; } = new AzureLocation("CanadaCentral");
+        /// <summary>
+        /// CanadaEast Location for Azure
+        /// </summary>
         public static AzureLocation CanadaEast { get; } = new AzureLocation("CanadaEast");
+        /// <summary>
+        /// WestEurope Location for Azure
+        /// </summary>
         public static AzureLocation WestEurope { get; } = new AzureLocation("WestEurope");
+        /// <summary>
+        /// NorthEurope Location for Azure
+        /// </summary>
         public static AzureLocation NorthEurope { get; } = new AzureLocation("NorthEurope");
+        /// <summary>
+        /// CentralIndia Location for Azure
+        /// </summary>
         public static AzureLocation CentralIndia { get; } = new AzureLocation("CentralIndia");
+        /// <summary>
+        /// SouthIndia Location for Azure
+        /// </summary>
         public static AzureLocation SouthIndia { get; } = new AzureLocation("SouthIndia");
+        /// <summary>
+        /// WestIndia Location for Azure
+        /// </summary>
         public static AzureLocation WestIndia { get; } = new AzureLocation("WestIndia");
+        /// <summary>
+        /// JapanEast Location for Azure
+        /// </summary>
         public static AzureLocation JapanEast { get; } = new AzureLocation("JapanEast");
+        /// <summary>
+        /// JapanWest Location for Azure
+        /// </summary>
         public static AzureLocation JapanWest { get; } = new AzureLocation("JapanWest");
+        /// <summary>
+        /// KoreaCentral Location for Azure
+        /// </summary>
         public static AzureLocation KoreaCentral { get; } = new AzureLocation("KoreaCentral");
+        /// <summary>
+        /// KoreaSouth Location for Azure
+        /// </summary>
         public static AzureLocation KoreaSouth { get; } = new AzureLocation("KoreaSouth");
+        /// <summary>
+        /// UkWest Location for Azure
+        /// </summary>
         public static AzureLocation UkWest { get; } = new AzureLocation("UkWest");
+        /// <summary>
+        /// UkSouth Location for Azure
+        /// </summary>
         public static AzureLocation UkSouth { get; } = new AzureLocation("UkSouth");
+        /// <summary>
+        /// NorthCentralUs Location for Azure
+        /// </summary>
         public static AzureLocation NorthCentralUs { get; } = new AzureLocation("NorthCentralUs");
+        /// <summary>
+        /// EastUs Location for Azure
+        /// </summary>
         public static AzureLocation EastUs { get; } = new AzureLocation("EastUs");
+        /// <summary>
+        /// WestUs2 Location for Azure
+        /// </summary>
         public static AzureLocation WestUs2 { get; } = new AzureLocation("WestUs2");
+        /// <summary>
+        /// SouthCentralUs Location for Azure
+        /// </summary>
         public static AzureLocation SouthCentralUs { get; } = new AzureLocation("SouthCentralUs");
+        /// <summary>
+        /// CentralUs Location for Azure
+        /// </summary>
         public static AzureLocation CentralUs { get; } = new AzureLocation("CentralUs");
+        /// <summary>
+        /// EastUs2 Location for Azure
+        /// </summary>
         public static AzureLocation EastUs2 { get; } = new AzureLocation("EastUs2");
+        /// <summary>
+        /// WestUs Location for Azure
+        /// </summary>
         public static AzureLocation WestUs { get; } = new AzureLocation("WestUs");
+        /// <summary>
+        /// WestCentralUs Location for Azure
+        /// </summary>
         public static AzureLocation WestCentralUs { get; } = new AzureLocation("WestCentralUs");
+        /// <summary>
+        /// GermanyCentral Location for Azure
+        /// </summary>
         public static AzureLocation GermanyCentral { get; } = new AzureLocation("GermanyCentral");
+        /// <summary>
+        /// GermanyNortheast Location for Azure
+        /// </summary>
         public static AzureLocation GermanyNortheast { get; } = new AzureLocation("GermanyNortheast");
+        /// <summary>
+        /// ChinaNorth Location for Azure
+        /// </summary>
         public static AzureLocation ChinaNorth { get; } = new AzureLocation("ChinaNorth");
+        /// <summary>
+        /// ChinaEast Location for Azure
+        /// </summary>
         public static AzureLocation ChinaEast { get; } = new AzureLocation("ChinaEast");
+        /// <summary>
+        /// USGovArizona Location for Azure
+        /// </summary>
         public static AzureLocation USGovArizona { get; } = new AzureLocation("USGovArizona");
+        /// <summary>
+        /// USGovTexas Location for Azure
+        /// </summary>
         public static AzureLocation USGovTexas { get; } = new AzureLocation("USGovTexas");
+        /// <summary>
+        /// USGovIowa Location for Azure
+        /// </summary>
         public static AzureLocation USGovIowa { get; } = new AzureLocation("USGovIowa");
+        /// <summary>
+        /// USGovVirginia Location for Azure
+        /// </summary>
         public static AzureLocation USGovVirginia { get; } = new AzureLocation("USGovVirginia");
+        /// <summary>
+        /// USDoDCentral Location for Azure
+        /// </summary>
         public static AzureLocation USDoDCentral { get; } = new AzureLocation("USDoDCentral");
+        /// <summary>
+        /// USDoDEast Location for Azure
+        /// </summary>
         public static AzureLocation USDoDEast { get; } = new AzureLocation("USDoDEast");
+        /// <summary>
+        /// FranceCentral Location for Azure
+        /// </summary>
         public static AzureLocation FranceCentral { get; } = new AzureLocation("FranceCentral");
+        /// <summary>
+        /// AustraliaCentral Location for Azure
+        /// </summary>
         public static AzureLocation AustraliaCentral { get; } = new AzureLocation("AustraliaCentral");
+        /// <summary>
+        /// SouthAfricaNorth Location for Azure
+        /// </summary>
         public static AzureLocation SouthAfricaNorth { get; } = new AzureLocation("SouthAfricaNorth");
+        /// <summary>
+        /// FranceSouth Location for Azure
+        /// </summary>
         public static AzureLocation FranceSouth { get; } = new AzureLocation("FranceSouth");
+        /// <summary>
+        /// AustraliaCentral2 Location for Azure
+        /// </summary>
         public static AzureLocation AustraliaCentral2 { get; } = new AzureLocation("AustraliaCentral2");
+        /// <summary>
+        /// SouthAfricaWest Location for Azure
+        /// </summary>
         public static AzureLocation SouthAfricaWest { get; } = new AzureLocation("SouthAfricaWest");
+        /// <summary>
+        /// GermanyNorth Location for Azure
+        /// </summary>
         public static AzureLocation GermanyNorth { get; } = new AzureLocation("GermanyNorth");
+        /// <summary>
+        /// GermanyWestCentral Location for Azure
+        /// </summary>
         public static AzureLocation GermanyWestCentral { get; } = new AzureLocation("GermanyWestCentral");
+        /// <summary>
+        /// NorwayEast Location for Azure
+        /// </summary>
         public static AzureLocation NorwayEast { get; } = new AzureLocation("NorwayEast");
+        /// <summary>
+        /// NorwayWest Location for Azure
+        /// </summary>
         public static AzureLocation NorwayWest { get; } = new AzureLocation("NorwayWest");
+        /// <summary>
+        /// ChinaEast2 Location for Azure
+        /// </summary>
         public static AzureLocation ChinaEast2 { get; } = new AzureLocation("ChinaEast2");
+        /// <summary>
+        /// ChinaNorth2 Location for Azure
+        /// </summary>
         public static AzureLocation ChinaNorth2 { get; } = new AzureLocation("ChinaNorth2");
+        /// <summary>
+        /// SwitzerlandNorth Location for Azure
+        /// </summary>
         public static AzureLocation SwitzerlandNorth { get; } = new AzureLocation("SwitzerlandNorth");
+        /// <summary>
+        /// SwitzerlandWest Location for Azure
+        /// </summary>
         public static AzureLocation SwitzerlandWest { get; } = new AzureLocation("SwitzerlandWest");
+        /// <summary>
+        /// UAENorth Location for Azure
+        /// </summary>
         public static AzureLocation UAENorth { get; } = new AzureLocation("UAENorth");
+        /// <summary>
+        /// UAECentral Location for Azure
+        /// </summary>
         public static AzureLocation UAECentral { get; } = new AzureLocation("UAECentral");
+        /// <summary>
+        /// UsNatEast Location for Azure
+        /// </summary>
         public static AzureLocation UsNatEast { get; } = new AzureLocation("UsNatEast");
+        /// <summary>
+        /// UsNatWest Location for Azure
+        /// </summary>
         public static AzureLocation UsNatWest { get; } = new AzureLocation("UsNatWest");
+        /// <summary>
+        /// UsSecEast Location for Azure
+        /// </summary>
         public static AzureLocation UsSecEast { get; } = new AzureLocation("UsSecEast");
+        /// <summary>
+        /// UsSecCentral Location for Azure
+        /// </summary>
         public static AzureLocation UsSecCentral { get; } = new AzureLocation("UsSecCentral");
+        /// <summary>
+        /// UsSecWest Location for Azure
+        /// </summary>
         public static AzureLocation UsSecWest { get; } = new AzureLocation("UsSecWest");
+        /// <summary>
+        /// SwedenCentral Location for Azure
+        /// </summary>
         public static AzureLocation SwedenCentral { get; } = new AzureLocation("SwedenCentral");
+        /// <summary>
+        /// QatarCentral Location for Azure
+        /// </summary>
         public static AzureLocation QatarCentral { get; } = new AzureLocation("QatarCentral");
+        /// <summary>
+        /// JioIndiaWest Location for Azure
+        /// </summary>
+        public static AzureLocation JioIndiaWest { get; } = new AzureLocation("JioIndiaWest");
+        /// <summary>
+        /// ItalyNorth Location for Azure
+        /// </summary>
+        public static AzureLocation ItalyNorth { get; } = new AzureLocation("ItalyNorth");
+        /// <summary>
+        /// PolandCentral Location for Azure
+        /// </summary>
+        public static AzureLocation PolandCentral { get; } = new AzureLocation("PolandCentral");
+        /// <summary>
+        /// IsraelCentral Location for Azure
+        /// </summary>
+        public static AzureLocation IsraelCentral { get; } = new AzureLocation("IsraelCentral");
+        /// <summary>
+        /// MexicoCentral Location for Azure
+        /// </summary>
+        public static AzureLocation MexicoCentral { get; } = new AzureLocation("MexicoCentral");
+        /// <summary>
+        /// NewZealandNorth Location for Azure
+        /// </summary>
+        public static AzureLocation NewZealandNorth { get; } = new AzureLocation("NewZealandNorth");
+        /// <summary>
+        /// SpainCentral Location for Azure
+        /// </summary>
+        public static AzureLocation SpainCentral { get; } = new AzureLocation("SpainCentral");
 
         public static bool operator ==(AzureLocation left, AzureLocation right) => left.Equals(right);
         public static bool operator !=(AzureLocation left, AzureLocation right) => !left.Equals(right);
@@ -531,6 +877,79 @@ namespace Pulumi.AzureNative.Migrate
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AzureLocation other && Equals(other);
         public bool Equals(AzureLocation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets the Azure offer code.
+    /// </summary>
+    [EnumType]
+    public readonly struct AzureOffer : IEquatable<AzureOffer>
+    {
+        private readonly string _value;
+
+        private AzureOffer(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Unknown - Azure Offer
+        /// </summary>
+        public static AzureOffer Unknown { get; } = new AzureOffer("Unknown");
+        /// <summary>
+        /// MSAZR0003P Azure Offer
+        /// </summary>
+        public static AzureOffer Msazr0003P { get; } = new AzureOffer("MSAZR0003P");
+        /// <summary>
+        /// MSAZR0023P Azure Offer
+        /// </summary>
+        public static AzureOffer Msazr0023P { get; } = new AzureOffer("MSAZR0023P");
+        /// <summary>
+        /// MSMCAZR0044P Azure Offer
+        /// </summary>
+        public static AzureOffer Msmcazr0044P { get; } = new AzureOffer("MSMCAZR0044P");
+        /// <summary>
+        /// MSMCAZR0059P Azure Offer
+        /// </summary>
+        public static AzureOffer Msmcazr0059P { get; } = new AzureOffer("MSMCAZR0059P");
+        /// <summary>
+        /// MSMCAZR0060P Azure Offer
+        /// </summary>
+        public static AzureOffer Msmcazr0060P { get; } = new AzureOffer("MSMCAZR0060P");
+        /// <summary>
+        /// MSMCAZR0063P Azure Offer
+        /// </summary>
+        public static AzureOffer Msmcazr0063P { get; } = new AzureOffer("MSMCAZR0063P");
+        /// <summary>
+        /// MSAZRUSGOV0003P Azure Offer
+        /// </summary>
+        public static AzureOffer Msazrusgov0003P { get; } = new AzureOffer("MSAZRUSGOV0003P");
+        /// <summary>
+        /// EA Azure Offer
+        /// </summary>
+        public static AzureOffer EA { get; } = new AzureOffer("EA");
+        /// <summary>
+        /// SavingsPlan1Year Azure Offer
+        /// </summary>
+        public static AzureOffer SavingsPlan1Year { get; } = new AzureOffer("SavingsPlan1Year");
+        /// <summary>
+        /// SavingsPlan3Year Azure Offer
+        /// </summary>
+        public static AzureOffer SavingsPlan3Year { get; } = new AzureOffer("SavingsPlan3Year");
+
+        public static bool operator ==(AzureOffer left, AzureOffer right) => left.Equals(right);
+        public static bool operator !=(AzureOffer left, AzureOffer right) => !left.Equals(right);
+
+        public static explicit operator string(AzureOffer value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AzureOffer other && Equals(other);
+        public bool Equals(AzureOffer other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -623,7 +1042,13 @@ namespace Pulumi.AzureNative.Migrate
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Standard Azure Pricing Tier
+        /// </summary>
         public static AzurePricingTier Standard { get; } = new AzurePricingTier("Standard");
+        /// <summary>
+        /// Basic Azure Pricing Tier
+        /// </summary>
         public static AzurePricingTier Basic { get; } = new AzurePricingTier("Basic");
 
         public static bool operator ==(AzurePricingTier left, AzurePricingTier right) => left.Equals(right);
@@ -674,7 +1099,7 @@ namespace Pulumi.AzureNative.Migrate
     }
 
     /// <summary>
-    /// Gets or sets a value indicating azure security offering type.
+    /// Azure security offering type.
     /// </summary>
     [EnumType]
     public readonly struct AzureSecurityOfferingType : IEquatable<AzureSecurityOfferingType>
@@ -686,7 +1111,13 @@ namespace Pulumi.AzureNative.Migrate
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// NO - Azure Security Offering Type
+        /// </summary>
         public static AzureSecurityOfferingType NO { get; } = new AzureSecurityOfferingType("NO");
+        /// <summary>
+        /// MDC - Azure Security Offering Type
+        /// </summary>
         public static AzureSecurityOfferingType MDC { get; } = new AzureSecurityOfferingType("MDC");
 
         public static bool operator ==(AzureSecurityOfferingType left, AzureSecurityOfferingType right) => left.Equals(right);
@@ -717,9 +1148,21 @@ namespace Pulumi.AzureNative.Migrate
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Unknown Data Base Type
+        /// </summary>
         public static AzureSqlDataBaseType Unknown { get; } = new AzureSqlDataBaseType("Unknown");
+        /// <summary>
+        /// Automatic Data Base Type
+        /// </summary>
         public static AzureSqlDataBaseType Automatic { get; } = new AzureSqlDataBaseType("Automatic");
+        /// <summary>
+        /// SingleDatabase Data Base Type
+        /// </summary>
         public static AzureSqlDataBaseType SingleDatabase { get; } = new AzureSqlDataBaseType("SingleDatabase");
+        /// <summary>
+        /// ElasticPool Data Base Type
+        /// </summary>
         public static AzureSqlDataBaseType ElasticPool { get; } = new AzureSqlDataBaseType("ElasticPool");
 
         public static bool operator ==(AzureSqlDataBaseType left, AzureSqlDataBaseType right) => left.Equals(right);
@@ -750,9 +1193,21 @@ namespace Pulumi.AzureNative.Migrate
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Unknown Azure Sql Instance Type
+        /// </summary>
         public static AzureSqlInstanceType Unknown { get; } = new AzureSqlInstanceType("Unknown");
+        /// <summary>
+        /// Automatic Azure Sql Instance Type
+        /// </summary>
         public static AzureSqlInstanceType Automatic { get; } = new AzureSqlInstanceType("Automatic");
+        /// <summary>
+        /// SingleInstance Azure Sql Instance Type
+        /// </summary>
         public static AzureSqlInstanceType SingleInstance { get; } = new AzureSqlInstanceType("SingleInstance");
+        /// <summary>
+        /// InstancePools Azure Sql Instance Type
+        /// </summary>
         public static AzureSqlInstanceType InstancePools { get; } = new AzureSqlInstanceType("InstancePools");
 
         public static bool operator ==(AzureSqlInstanceType left, AzureSqlInstanceType right) => left.Equals(right);
@@ -783,8 +1238,17 @@ namespace Pulumi.AzureNative.Migrate
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Unknown Purchase Model
+        /// </summary>
         public static AzureSqlPurchaseModel Unknown { get; } = new AzureSqlPurchaseModel("Unknown");
+        /// <summary>
+        /// VCore Purchase Model
+        /// </summary>
         public static AzureSqlPurchaseModel VCore { get; } = new AzureSqlPurchaseModel("VCore");
+        /// <summary>
+        /// DTU Purchase Model
+        /// </summary>
         public static AzureSqlPurchaseModel DTU { get; } = new AzureSqlPurchaseModel("DTU");
 
         public static bool operator ==(AzureSqlPurchaseModel left, AzureSqlPurchaseModel right) => left.Equals(right);
@@ -837,6 +1301,55 @@ namespace Pulumi.AzureNative.Migrate
     }
 
     /// <summary>
+    /// Gets or sets the azure SQL service tier.
+    /// </summary>
+    [EnumType]
+    public readonly struct AzureSqlServiceTierV3 : IEquatable<AzureSqlServiceTierV3>
+    {
+        private readonly string _value;
+
+        private AzureSqlServiceTierV3(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// SqlService_Unknown Sql Service Tier V3
+        /// </summary>
+        public static AzureSqlServiceTierV3 SqlService_Unknown { get; } = new AzureSqlServiceTierV3("SqlService_Unknown");
+        /// <summary>
+        /// SqlService_Automatic Sql Service Tier V3
+        /// </summary>
+        public static AzureSqlServiceTierV3 SqlService_Automatic { get; } = new AzureSqlServiceTierV3("SqlService_Automatic");
+        /// <summary>
+        /// SqlService_GeneralPurpose Sql Service Tier V3
+        /// </summary>
+        public static AzureSqlServiceTierV3 SqlService_GeneralPurpose { get; } = new AzureSqlServiceTierV3("SqlService_GeneralPurpose");
+        /// <summary>
+        /// SqlService_BusinessCritical Sql Service Tier V3
+        /// </summary>
+        public static AzureSqlServiceTierV3 SqlService_BusinessCritical { get; } = new AzureSqlServiceTierV3("SqlService_BusinessCritical");
+        /// <summary>
+        /// SqlService_HyperScale Sql Service Tier V3
+        /// </summary>
+        public static AzureSqlServiceTierV3 SqlService_HyperScale { get; } = new AzureSqlServiceTierV3("SqlService_HyperScale");
+
+        public static bool operator ==(AzureSqlServiceTierV3 left, AzureSqlServiceTierV3 right) => left.Equals(right);
+        public static bool operator !=(AzureSqlServiceTierV3 left, AzureSqlServiceTierV3 right) => !left.Equals(right);
+
+        public static explicit operator string(AzureSqlServiceTierV3 value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AzureSqlServiceTierV3 other && Equals(other);
+        public bool Equals(AzureSqlServiceTierV3 other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Gets or sets the Azure Storage Redundancy. Example: Locally Redundant Storage.
     /// </summary>
     [EnumType]
@@ -849,10 +1362,25 @@ namespace Pulumi.AzureNative.Migrate
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Unknown Azure Storage Redundancy
+        /// </summary>
         public static AzureStorageRedundancy Unknown { get; } = new AzureStorageRedundancy("Unknown");
+        /// <summary>
+        /// LocallyRedundant Azure Storage Redundancy
+        /// </summary>
         public static AzureStorageRedundancy LocallyRedundant { get; } = new AzureStorageRedundancy("LocallyRedundant");
+        /// <summary>
+        /// ZoneRedundant Azure Storage Redundancy
+        /// </summary>
         public static AzureStorageRedundancy ZoneRedundant { get; } = new AzureStorageRedundancy("ZoneRedundant");
+        /// <summary>
+        /// GeoRedundant Azure Storage Redundancy
+        /// </summary>
         public static AzureStorageRedundancy GeoRedundant { get; } = new AzureStorageRedundancy("GeoRedundant");
+        /// <summary>
+        /// ReadAccessGeoRedundant Azure Storage Redundancy
+        /// </summary>
         public static AzureStorageRedundancy ReadAccessGeoRedundant { get; } = new AzureStorageRedundancy("ReadAccessGeoRedundant");
 
         public static bool operator ==(AzureStorageRedundancy left, AzureStorageRedundancy right) => left.Equals(right);
@@ -863,6 +1391,91 @@ namespace Pulumi.AzureNative.Migrate
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AzureStorageRedundancy other && Equals(other);
         public bool Equals(AzureStorageRedundancy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Azure Target
+    /// </summary>
+    [EnumType]
+    public readonly struct AzureTarget : IEquatable<AzureTarget>
+    {
+        private readonly string _value;
+
+        private AzureTarget(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Unknown - Azure Target
+        /// </summary>
+        public static AzureTarget Unknown { get; } = new AzureTarget("Unknown");
+        /// <summary>
+        /// SqlDatabase - Azure Target
+        /// </summary>
+        public static AzureTarget SqlDatabase { get; } = new AzureTarget("SqlDatabase");
+        /// <summary>
+        /// SqlMI - Azure Target
+        /// </summary>
+        public static AzureTarget SqlMI { get; } = new AzureTarget("SqlMI");
+        /// <summary>
+        /// FlexServerPG - Azure Target
+        /// </summary>
+        public static AzureTarget FlexServerPG { get; } = new AzureTarget("FlexServerPG");
+        /// <summary>
+        /// OracleIaasVM - Azure Target
+        /// </summary>
+        public static AzureTarget OracleIaasVM { get; } = new AzureTarget("OracleIaasVM");
+        /// <summary>
+        /// AzureSpringApps - Azure Target
+        /// </summary>
+        public static AzureTarget AzureSpringApps { get; } = new AzureTarget("AzureSpringApps");
+        /// <summary>
+        /// SAPAzureInstance - Azure Target
+        /// </summary>
+        public static AzureTarget SAPAzureInstance { get; } = new AzureTarget("SAPAzureInstance");
+        /// <summary>
+        /// AKS - Azure Target
+        /// </summary>
+        public static AzureTarget AKS { get; } = new AzureTarget("AKS");
+        /// <summary>
+        /// MySQLAzureFlexServer - Azure Target
+        /// </summary>
+        public static AzureTarget MySQLAzureFlexServer { get; } = new AzureTarget("MySQLAzureFlexServer");
+        /// <summary>
+        /// AzureSQLVM - Azure Target
+        /// </summary>
+        public static AzureTarget AzureSQLVM { get; } = new AzureTarget("AzureSQLVM");
+        /// <summary>
+        /// AzureVM - Azure Target
+        /// </summary>
+        public static AzureTarget AzureVM { get; } = new AzureTarget("AzureVM");
+        /// <summary>
+        /// AzureAppService - Azure Target
+        /// </summary>
+        public static AzureTarget AzureAppService { get; } = new AzureTarget("AzureAppService");
+        /// <summary>
+        /// AzureAppServiceContainer - Azure Target
+        /// </summary>
+        public static AzureTarget AzureAppServiceContainer { get; } = new AzureTarget("AzureAppServiceContainer");
+        /// <summary>
+        /// Avs - Azure Target
+        /// </summary>
+        public static AzureTarget Avs { get; } = new AzureTarget("Avs");
+
+        public static bool operator ==(AzureTarget left, AzureTarget right) => left.Equals(right);
+        public static bool operator !=(AzureTarget left, AzureTarget right) => !left.Equals(right);
+
+        public static explicit operator string(AzureTarget value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AzureTarget other && Equals(other);
+        public bool Equals(AzureTarget other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -931,6 +1544,9 @@ namespace Pulumi.AzureNative.Migrate
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Azure VM Family
+    /// </summary>
     [EnumType]
     public readonly struct AzureVmFamily : IEquatable<AzureVmFamily>
     {
@@ -941,57 +1557,213 @@ namespace Pulumi.AzureNative.Migrate
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Unknown - Azure VM Family
+        /// </summary>
         public static AzureVmFamily Unknown { get; } = new AzureVmFamily("Unknown");
+        /// <summary>
+        /// Basic_A0_A4
+        /// </summary>
         public static AzureVmFamily BasicA0A4 { get; } = new AzureVmFamily("Basic_A0_A4");
+        /// <summary>
+        /// Standard_A0_A7
+        /// </summary>
         public static AzureVmFamily StandardA0A7 { get; } = new AzureVmFamily("Standard_A0_A7");
+        /// <summary>
+        /// Standard_A8_A11
+        /// </summary>
         public static AzureVmFamily StandardA8A11 { get; } = new AzureVmFamily("Standard_A8_A11");
+        /// <summary>
+        /// Av2_series
+        /// </summary>
         public static AzureVmFamily Av2Series { get; } = new AzureVmFamily("Av2_series");
+        /// <summary>
+        /// D_series
+        /// </summary>
         public static AzureVmFamily DSeries { get; } = new AzureVmFamily("D_series");
+        /// <summary>
+        /// Dv2_series
+        /// </summary>
         public static AzureVmFamily Dv2Series { get; } = new AzureVmFamily("Dv2_series");
+        /// <summary>
+        /// DS_series
+        /// </summary>
         public static AzureVmFamily DSSeries { get; } = new AzureVmFamily("DS_series");
+        /// <summary>
+        /// DSv2_series
+        /// </summary>
         public static AzureVmFamily DSv2Series { get; } = new AzureVmFamily("DSv2_series");
+        /// <summary>
+        /// F_series
+        /// </summary>
         public static AzureVmFamily FSeries { get; } = new AzureVmFamily("F_series");
+        /// <summary>
+        /// Fs_series
+        /// </summary>
         public static AzureVmFamily FsSeries { get; } = new AzureVmFamily("Fs_series");
+        /// <summary>
+        /// G_series
+        /// </summary>
         public static AzureVmFamily GSeries { get; } = new AzureVmFamily("G_series");
+        /// <summary>
+        /// GS_series
+        /// </summary>
         public static AzureVmFamily GSSeries { get; } = new AzureVmFamily("GS_series");
+        /// <summary>
+        /// H_series
+        /// </summary>
         public static AzureVmFamily HSeries { get; } = new AzureVmFamily("H_series");
+        /// <summary>
+        /// Ls_series
+        /// </summary>
         public static AzureVmFamily LsSeries { get; } = new AzureVmFamily("Ls_series");
+        /// <summary>
+        /// Dsv3_series
+        /// </summary>
         public static AzureVmFamily Dsv3Series { get; } = new AzureVmFamily("Dsv3_series");
+        /// <summary>
+        /// Dv3_series
+        /// </summary>
         public static AzureVmFamily Dv3Series { get; } = new AzureVmFamily("Dv3_series");
+        /// <summary>
+        /// Fsv2_series
+        /// </summary>
         public static AzureVmFamily Fsv2Series { get; } = new AzureVmFamily("Fsv2_series");
+        /// <summary>
+        /// Ev3_series
+        /// </summary>
         public static AzureVmFamily Ev3Series { get; } = new AzureVmFamily("Ev3_series");
+        /// <summary>
+        /// Esv3_series
+        /// </summary>
         public static AzureVmFamily Esv3Series { get; } = new AzureVmFamily("Esv3_series");
+        /// <summary>
+        /// M_series
+        /// </summary>
         public static AzureVmFamily MSeries { get; } = new AzureVmFamily("M_series");
+        /// <summary>
+        /// DC_Series
+        /// </summary>
         public static AzureVmFamily DCSeries { get; } = new AzureVmFamily("DC_Series");
+        /// <summary>
+        /// Lsv2_series
+        /// </summary>
         public static AzureVmFamily Lsv2Series { get; } = new AzureVmFamily("Lsv2_series");
+        /// <summary>
+        /// Ev4_series
+        /// </summary>
         public static AzureVmFamily Ev4Series { get; } = new AzureVmFamily("Ev4_series");
+        /// <summary>
+        /// Esv4_series
+        /// </summary>
         public static AzureVmFamily Esv4Series { get; } = new AzureVmFamily("Esv4_series");
+        /// <summary>
+        /// Edv4_series
+        /// </summary>
         public static AzureVmFamily Edv4Series { get; } = new AzureVmFamily("Edv4_series");
+        /// <summary>
+        /// Edsv4_series
+        /// </summary>
         public static AzureVmFamily Edsv4Series { get; } = new AzureVmFamily("Edsv4_series");
+        /// <summary>
+        /// Dv4_series
+        /// </summary>
         public static AzureVmFamily Dv4Series { get; } = new AzureVmFamily("Dv4_series");
+        /// <summary>
+        /// Dsv4_series
+        /// </summary>
         public static AzureVmFamily Dsv4Series { get; } = new AzureVmFamily("Dsv4_series");
+        /// <summary>
+        /// Ddv4_series
+        /// </summary>
         public static AzureVmFamily Ddv4Series { get; } = new AzureVmFamily("Ddv4_series");
+        /// <summary>
+        /// Ddsv4_series
+        /// </summary>
         public static AzureVmFamily Ddsv4Series { get; } = new AzureVmFamily("Ddsv4_series");
+        /// <summary>
+        /// Easv4_series
+        /// </summary>
         public static AzureVmFamily Easv4Series { get; } = new AzureVmFamily("Easv4_series");
+        /// <summary>
+        /// Dasv4_series
+        /// </summary>
         public static AzureVmFamily Dasv4Series { get; } = new AzureVmFamily("Dasv4_series");
+        /// <summary>
+        /// Mv2_series
+        /// </summary>
         public static AzureVmFamily Mv2Series { get; } = new AzureVmFamily("Mv2_series");
+        /// <summary>
+        /// Eav4_series
+        /// </summary>
         public static AzureVmFamily Eav4Series { get; } = new AzureVmFamily("Eav4_series");
+        /// <summary>
+        /// Dav4_series
+        /// </summary>
         public static AzureVmFamily Dav4Series { get; } = new AzureVmFamily("Dav4_series");
+        /// <summary>
+        /// Msv2_series
+        /// </summary>
         public static AzureVmFamily Msv2Series { get; } = new AzureVmFamily("Msv2_series");
+        /// <summary>
+        /// Mdsv2_series
+        /// </summary>
         public static AzureVmFamily Mdsv2Series { get; } = new AzureVmFamily("Mdsv2_series");
+        /// <summary>
+        /// Dv5_series
+        /// </summary>
         public static AzureVmFamily Dv5Series { get; } = new AzureVmFamily("Dv5_series");
+        /// <summary>
+        /// Dsv5_series
+        /// </summary>
         public static AzureVmFamily Dsv5Series { get; } = new AzureVmFamily("Dsv5_series");
+        /// <summary>
+        /// Ddv5_series
+        /// </summary>
         public static AzureVmFamily Ddv5Series { get; } = new AzureVmFamily("Ddv5_series");
+        /// <summary>
+        /// Ddsv5_series
+        /// </summary>
         public static AzureVmFamily Ddsv5Series { get; } = new AzureVmFamily("Ddsv5_series");
+        /// <summary>
+        /// Dasv5_series
+        /// </summary>
         public static AzureVmFamily Dasv5Series { get; } = new AzureVmFamily("Dasv5_series");
+        /// <summary>
+        /// Dadsv5_series
+        /// </summary>
         public static AzureVmFamily Dadsv5Series { get; } = new AzureVmFamily("Dadsv5_series");
+        /// <summary>
+        /// Ev5_series
+        /// </summary>
         public static AzureVmFamily Ev5Series { get; } = new AzureVmFamily("Ev5_series");
+        /// <summary>
+        /// Esv5_series
+        /// </summary>
         public static AzureVmFamily Esv5Series { get; } = new AzureVmFamily("Esv5_series");
+        /// <summary>
+        /// Edv5_series
+        /// </summary>
         public static AzureVmFamily Edv5Series { get; } = new AzureVmFamily("Edv5_series");
+        /// <summary>
+        /// Edsv5_series
+        /// </summary>
         public static AzureVmFamily Edsv5Series { get; } = new AzureVmFamily("Edsv5_series");
+        /// <summary>
+        /// Easv5_series
+        /// </summary>
         public static AzureVmFamily Easv5Series { get; } = new AzureVmFamily("Easv5_series");
+        /// <summary>
+        /// Eadsv5_series
+        /// </summary>
         public static AzureVmFamily Eadsv5Series { get; } = new AzureVmFamily("Eadsv5_series");
+        /// <summary>
+        /// Ebsv5_series
+        /// </summary>
         public static AzureVmFamily Ebsv5Series { get; } = new AzureVmFamily("Ebsv5_series");
+        /// <summary>
+        /// Ebdsv5_series
+        /// </summary>
         public static AzureVmFamily Ebdsv5Series { get; } = new AzureVmFamily("Ebdsv5_series");
 
         public static bool operator ==(AzureVmFamily left, AzureVmFamily right) => left.Equals(right);
@@ -1155,9 +1927,21 @@ namespace Pulumi.AzureNative.Migrate
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Unknown - Compute Tier
+        /// </summary>
         public static ComputeTier Unknown { get; } = new ComputeTier("Unknown");
+        /// <summary>
+        /// Automatic - Compute Tier
+        /// </summary>
         public static ComputeTier Automatic { get; } = new ComputeTier("Automatic");
+        /// <summary>
+        /// Provisioned - Compute Tier
+        /// </summary>
         public static ComputeTier Provisioned { get; } = new ComputeTier("Provisioned");
+        /// <summary>
+        /// Serverless - Compute Tier
+        /// </summary>
         public static ComputeTier Serverless { get; } = new ComputeTier("Serverless");
 
         public static bool operator ==(ComputeTier left, ComputeTier right) => left.Equals(right);
@@ -1353,8 +2137,18 @@ namespace Pulumi.AzureNative.Migrate
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Production - Environment Type
+        /// </summary>
         public static EnvironmentType Production { get; } = new EnvironmentType("Production");
-        public static EnvironmentType Test { get; } = new EnvironmentType("Test");
+        /// <summary>
+        /// Unknown - Environment Type
+        /// </summary>
+        public static EnvironmentType Unknown { get; } = new EnvironmentType("Unknown");
+        /// <summary>
+        /// DevTest - Environment Type
+        /// </summary>
+        public static EnvironmentType DevTest { get; } = new EnvironmentType("DevTest");
 
         public static bool operator ==(EnvironmentType left, EnvironmentType right) => left.Equals(right);
         public static bool operator !=(EnvironmentType left, EnvironmentType right) => !left.Equals(right);
@@ -1546,7 +2340,7 @@ namespace Pulumi.AzureNative.Migrate
     }
 
     /// <summary>
-    /// Gets or sets licensing program.
+    /// Gets or sets the licensing program.
     /// </summary>
     [EnumType]
     public readonly struct LicensingProgram : IEquatable<LicensingProgram>
@@ -1559,13 +2353,21 @@ namespace Pulumi.AzureNative.Migrate
         }
 
         /// <summary>
-        /// Default value. Indicates Pay As You Go.
+        /// Retail/Pay as you go.
         /// </summary>
-        public static LicensingProgram Default { get; } = new LicensingProgram("Default");
+        public static LicensingProgram Retail { get; } = new LicensingProgram("Retail");
         /// <summary>
-        /// Enterprise Agreement.
+        /// Not known
+        /// </summary>
+        public static LicensingProgram Unknown { get; } = new LicensingProgram("Unknown");
+        /// <summary>
+        /// Enterprise agreement.
         /// </summary>
         public static LicensingProgram EA { get; } = new LicensingProgram("EA");
+        /// <summary>
+        /// Microsoft customer agreement.
+        /// </summary>
+        public static LicensingProgram MCA { get; } = new LicensingProgram("MCA");
 
         public static bool operator ==(LicensingProgram left, LicensingProgram right) => left.Equals(right);
         public static bool operator !=(LicensingProgram left, LicensingProgram right) => !left.Equals(right);
@@ -1706,8 +2508,17 @@ namespace Pulumi.AzureNative.Migrate
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// None - Multi Subnet Intent
+        /// </summary>
         public static MultiSubnetIntent None { get; } = new MultiSubnetIntent("None");
+        /// <summary>
+        /// HighAvailability - Multi Subnet Intent
+        /// </summary>
         public static MultiSubnetIntent HighAvailability { get; } = new MultiSubnetIntent("HighAvailability");
+        /// <summary>
+        /// DisasterRecovery - Multi Subnet Intent
+        /// </summary>
         public static MultiSubnetIntent DisasterRecovery { get; } = new MultiSubnetIntent("DisasterRecovery");
 
         public static bool operator ==(MultiSubnetIntent left, MultiSubnetIntent right) => left.Equals(right);
@@ -1799,8 +2610,17 @@ namespace Pulumi.AzureNative.Migrate
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Unknown Os License
+        /// </summary>
         public static OsLicense Unknown { get; } = new OsLicense("Unknown");
+        /// <summary>
+        /// Yes Os License
+        /// </summary>
         public static OsLicense Yes { get; } = new OsLicense("Yes");
+        /// <summary>
+        /// No Os License
+        /// </summary>
         public static OsLicense No { get; } = new OsLicense("No");
 
         public static bool operator ==(OsLicense left, OsLicense right) => left.Equals(right);
@@ -1848,6 +2668,10 @@ namespace Pulumi.AzureNative.Migrate
         /// Percentile 99.
         /// </summary>
         public static Percentile Percentile99 { get; } = new Percentile("Percentile99");
+        /// <summary>
+        /// Percentile unknown.
+        /// </summary>
+        public static Percentile PercentileUnknown { get; } = new Percentile("PercentileUnknown");
 
         public static bool operator ==(Percentile left, Percentile right) => left.Equals(right);
         public static bool operator !=(Percentile left, Percentile right) => !left.Equals(right);
@@ -2156,7 +2980,7 @@ namespace Pulumi.AzureNative.Migrate
     }
 
     /// <summary>
-    /// Gets or sets savings options.
+    /// Gets or sets the savings options.
     /// </summary>
     [EnumType]
     public readonly struct SavingsOptions : IEquatable<SavingsOptions>
@@ -2169,25 +2993,29 @@ namespace Pulumi.AzureNative.Migrate
         }
 
         /// <summary>
-        /// Savings Options is not applicable.
+        /// No savings options.
         /// </summary>
         public static SavingsOptions None { get; } = new SavingsOptions("None");
         /// <summary>
-        /// One Year Savings Plan.
+        /// Reserved Instance for 1 year.
         /// </summary>
-        public static SavingsOptions OneYearSavings { get; } = new SavingsOptions("OneYearSavings");
+        public static SavingsOptions RI1Year { get; } = new SavingsOptions("RI1Year");
         /// <summary>
-        /// Three Years Savings Plan.
+        /// Reserved Instance for 3 years.
         /// </summary>
-        public static SavingsOptions ThreeYearsSavings { get; } = new SavingsOptions("ThreeYearsSavings");
+        public static SavingsOptions RI3Year { get; } = new SavingsOptions("RI3Year");
         /// <summary>
-        /// One Year Reserved Instances.
+        /// The savings plan for 1 year.
         /// </summary>
-        public static SavingsOptions OneYearReserved { get; } = new SavingsOptions("OneYearReserved");
+        public static SavingsOptions SavingsPlan1Year { get; } = new SavingsOptions("SavingsPlan1Year");
         /// <summary>
-        /// Three Years Reserved Instances.
+        /// The savings plan for 3  years.
         /// </summary>
-        public static SavingsOptions ThreeYearsReserved { get; } = new SavingsOptions("ThreeYearsReserved");
+        public static SavingsOptions SavingsPlan3Year { get; } = new SavingsOptions("SavingsPlan3Year");
+        /// <summary>
+        /// Custom azure offer code.
+        /// </summary>
+        public static SavingsOptions CustomAzureOfferCode { get; } = new SavingsOptions("CustomAzureOfferCode");
 
         public static bool operator ==(SavingsOptions left, SavingsOptions right) => left.Equals(right);
         public static bool operator !=(SavingsOptions left, SavingsOptions right) => !left.Equals(right);
@@ -2197,6 +3025,43 @@ namespace Pulumi.AzureNative.Migrate
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SavingsOptions other && Equals(other);
         public bool Equals(SavingsOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The scope type
+    /// </summary>
+    [EnumType]
+    public readonly struct ScopeType : IEquatable<ScopeType>
+    {
+        private readonly string _value;
+
+        private ScopeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// ServerGroupId - Scope type
+        /// </summary>
+        public static ScopeType ServerGroupId { get; } = new ScopeType("ServerGroupId");
+        /// <summary>
+        /// AzureResourceGraphQuery - Scope type
+        /// </summary>
+        public static ScopeType AzureResourceGraphQuery { get; } = new ScopeType("AzureResourceGraphQuery");
+
+        public static bool operator ==(ScopeType left, ScopeType right) => left.Equals(right);
+        public static bool operator !=(ScopeType left, ScopeType right) => !left.Equals(right);
+
+        public static explicit operator string(ScopeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScopeType other && Equals(other);
+        public bool Equals(ScopeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2247,8 +3112,17 @@ namespace Pulumi.AzureNative.Migrate
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Unknown - Sql Server License
+        /// </summary>
         public static SqlServerLicense Unknown { get; } = new SqlServerLicense("Unknown");
+        /// <summary>
+        /// Has Sql Server License
+        /// </summary>
         public static SqlServerLicense Yes { get; } = new SqlServerLicense("Yes");
+        /// <summary>
+        /// No Sql Server License
+        /// </summary>
         public static SqlServerLicense No { get; } = new SqlServerLicense("No");
 
         public static bool operator ==(SqlServerLicense left, SqlServerLicense right) => left.Equals(right);

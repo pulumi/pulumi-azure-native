@@ -29,11 +29,14 @@ __all__ = [
     'AppInsightMonitoringPropertiesResponse',
     'AppSvcContainerSettingsResponse',
     'AppSvcNativeSettingsResponse',
+    'AssessmentDetailsResponse',
     'AssessmentPropertiesResponse',
     'AssessmentScopeParametersResponse',
     'AutomaticResolutionPropertiesResponse',
     'AutomationArtifactResponse',
     'AvailabilitySetResourceSettingsResponse',
+    'AvsAssessmentPropertiesV2Response',
+    'AvsAssessmentSettingsResponse',
     'AvsEstimatedExternalStorageResponse',
     'AvsEstimatedNetworkResponse',
     'AvsEstimatedNodeResponse',
@@ -42,6 +45,7 @@ __all__ = [
     'AzureArcSettingsResponse',
     'AzureFileShareHydrationProfileResponse',
     'AzureSettingsResponse',
+    'BillingSettingsResponse',
     'BindingResponse',
     'CertResponse',
     'CollectorAgentPropertiesBaseResponse',
@@ -49,6 +53,8 @@ __all__ = [
     'CollectorAgentSpnPropertiesBaseResponse',
     'CollectorBodyAgentSpnPropertiesResponse',
     'CollectorPropertiesResponse',
+    'CompoundAssessmentDetailsResponse',
+    'CompoundAssessmentPropertiesResponse',
     'ComputeSettingsResponse',
     'ContainerImagePropertiesResponse',
     'CostComponentResponse',
@@ -63,6 +69,7 @@ __all__ = [
     'GmsaAuthenticationPropertiesResponse',
     'GroupPropertiesResponse',
     'HealthErrorModelResponse',
+    'HeterogeneousAssessmentPropertiesResponse',
     'HypervLicenseResponse',
     'HypervVirtualizationManagementSettingsResponse',
     'IISAKSWorkloadDeploymentModelCustomPropertiesResponse',
@@ -75,6 +82,7 @@ __all__ = [
     'IdentityModelResponse',
     'IdentityResponse',
     'ImportCollectorPropertiesResponse',
+    'ImportSqlCollectorPropertiesResponse',
     'InnerHealthErrorModelResponse',
     'JobStatusResponse',
     'KeyVaultResourceSettingsResponse',
@@ -86,6 +94,8 @@ __all__ = [
     'LoadBalancerBackendAddressPoolReferenceResponse',
     'LoadBalancerNatRuleReferenceResponse',
     'LoadBalancerResourceSettingsResponse',
+    'MachineAssessmentSettingsResponse',
+    'MachineAssessmentV2PropertiesResponse',
     'ManagedIdentityPropertiesResponse',
     'ManagementSettingsResponse',
     'ManualResolutionPropertiesResponse',
@@ -115,6 +125,7 @@ __all__ = [
     'OperatingSystemDetailsResponse',
     'OtherManagementCostsSettingsResponse',
     'PerfDataSettingsResponse',
+    'PerformanceDataResponse',
     'PortMappingResponse',
     'PrivateEndpointConnectionPropertiesResponse',
     'PrivateEndpointConnectionResponse',
@@ -129,6 +140,8 @@ __all__ = [
     'ResourceIdResponse',
     'ResourceIdentityResponse',
     'ResourceRequirementsResponse',
+    'SavingsSettingsResponse',
+    'ScopeResponse',
     'SecretStoreDetailsResponse',
     'SecretStorePropertiesResponse',
     'SecuritySettingsResponse',
@@ -137,10 +150,14 @@ __all__ = [
     'SettingsResponse',
     'SolutionDetailsResponse',
     'SolutionPropertiesResponse',
+    'SqlAssessmentSettingsResponse',
+    'SqlAssessmentV3PropertiesResponse',
     'SqlDatabaseResourceSettingsResponse',
     'SqlDbSettingsResponse',
+    'SqlDbSettingsV3Response',
     'SqlElasticPoolResourceSettingsResponse',
     'SqlMiSettingsResponse',
+    'SqlMiSettingsV3Response',
     'SqlServerLicensingSettingsResponse',
     'SqlServerResourceSettingsResponse',
     'SqlVmSettingsResponse',
@@ -148,6 +165,7 @@ __all__ = [
     'SubnetReferenceResponse',
     'SubnetResourceSettingsResponse',
     'SystemDataResponse',
+    'TargetAssessmentArmIdsResponse',
     'TargetStorageProfileResponse',
     'ThirdPartyManagementSettingsResponse',
     'UserAssignedIdentityResponse',
@@ -156,6 +174,8 @@ __all__ = [
     'VirtualNetworkResourceSettingsResponse',
     'VirtualizationSoftwareSettingsResponse',
     'VmUptimeResponse',
+    'WebAppAssessmentSettingsResponse',
+    'WebAppAssessmentV3PropertiesResponse',
     'WebApplicationConfigurationResponse',
     'WebApplicationDirectoryResponse',
     'WebApplicationFrameworkResponse',
@@ -1462,6 +1482,95 @@ class AppSvcNativeSettingsResponse(dict):
 
 
 @pulumi.output_type
+class AssessmentDetailsResponse(dict):
+    """
+    Assessment details class.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "confidenceRatingInPercentage":
+            suggest = "confidence_rating_in_percentage"
+        elif key == "createdTimestamp":
+            suggest = "created_timestamp"
+        elif key == "pricesTimestamp":
+            suggest = "prices_timestamp"
+        elif key == "updatedTimestamp":
+            suggest = "updated_timestamp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssessmentDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssessmentDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssessmentDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 confidence_rating_in_percentage: float,
+                 created_timestamp: str,
+                 prices_timestamp: str,
+                 status: str,
+                 updated_timestamp: str):
+        """
+        Assessment details class.
+        :param float confidence_rating_in_percentage: Confidence Rating in Percentage.
+        :param str created_timestamp: Date and Time when assessment was created.
+        :param str prices_timestamp: Last time when rates were queried.
+        :param str status: Whether assessment is in valid state and all machines have been assessed.
+        :param str updated_timestamp: Date and Time when assessment was last updated.
+        """
+        pulumi.set(__self__, "confidence_rating_in_percentage", confidence_rating_in_percentage)
+        pulumi.set(__self__, "created_timestamp", created_timestamp)
+        pulumi.set(__self__, "prices_timestamp", prices_timestamp)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "updated_timestamp", updated_timestamp)
+
+    @property
+    @pulumi.getter(name="confidenceRatingInPercentage")
+    def confidence_rating_in_percentage(self) -> float:
+        """
+        Confidence Rating in Percentage.
+        """
+        return pulumi.get(self, "confidence_rating_in_percentage")
+
+    @property
+    @pulumi.getter(name="createdTimestamp")
+    def created_timestamp(self) -> str:
+        """
+        Date and Time when assessment was created.
+        """
+        return pulumi.get(self, "created_timestamp")
+
+    @property
+    @pulumi.getter(name="pricesTimestamp")
+    def prices_timestamp(self) -> str:
+        """
+        Last time when rates were queried.
+        """
+        return pulumi.get(self, "prices_timestamp")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Whether assessment is in valid state and all machines have been assessed.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="updatedTimestamp")
+    def updated_timestamp(self) -> str:
+        """
+        Date and Time when assessment was last updated.
+        """
+        return pulumi.get(self, "updated_timestamp")
+
+
+@pulumi.output_type
 class AssessmentPropertiesResponse(dict):
     """
     Properties of an assessment.
@@ -2124,6 +2233,387 @@ class AvailabilitySetResourceSettingsResponse(dict):
         Gets or sets the target update domain.
         """
         return pulumi.get(self, "update_domain")
+
+
+@pulumi.output_type
+class AvsAssessmentPropertiesV2Response(dict):
+    """
+    Assessment properties class.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "fallbackMachineAssessmentArmId":
+            suggest = "fallback_machine_assessment_arm_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AvsAssessmentPropertiesV2Response. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AvsAssessmentPropertiesV2Response.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AvsAssessmentPropertiesV2Response.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 details: Optional['outputs.AssessmentDetailsResponse'] = None,
+                 fallback_machine_assessment_arm_id: Optional[str] = None,
+                 scope: Optional['outputs.ScopeResponse'] = None,
+                 settings: Optional['outputs.AvsAssessmentSettingsResponse'] = None):
+        """
+        Assessment properties class.
+        :param str provisioning_state: The status of the last operation.
+        :param 'AssessmentDetailsResponse' details: Gets or sets the details of the assessment.
+        :param str fallback_machine_assessment_arm_id: Gets or sets the machine assessment ARM ID for VM fallback.
+        :param 'ScopeResponse' scope: Gets or sets the scope of assessment.
+        :param 'AvsAssessmentSettingsResponse' settings: Gets or sets the settings for the assessment.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if details is not None:
+            pulumi.set(__self__, "details", details)
+        if fallback_machine_assessment_arm_id is not None:
+            pulumi.set(__self__, "fallback_machine_assessment_arm_id", fallback_machine_assessment_arm_id)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional['outputs.AssessmentDetailsResponse']:
+        """
+        Gets or sets the details of the assessment.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter(name="fallbackMachineAssessmentArmId")
+    def fallback_machine_assessment_arm_id(self) -> Optional[str]:
+        """
+        Gets or sets the machine assessment ARM ID for VM fallback.
+        """
+        return pulumi.get(self, "fallback_machine_assessment_arm_id")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional['outputs.ScopeResponse']:
+        """
+        Gets or sets the scope of assessment.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional['outputs.AvsAssessmentSettingsResponse']:
+        """
+        Gets or sets the settings for the assessment.
+        """
+        return pulumi.get(self, "settings")
+
+
+@pulumi.output_type
+class AvsAssessmentSettingsResponse(dict):
+    """
+    Properties of the AVS assessment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "avsAssessmentScenario":
+            suggest = "avs_assessment_scenario"
+        elif key == "azureLocation":
+            suggest = "azure_location"
+        elif key == "billingSettings":
+            suggest = "billing_settings"
+        elif key == "cpuHeadroom":
+            suggest = "cpu_headroom"
+        elif key == "dedupeCompression":
+            suggest = "dedupe_compression"
+        elif key == "discountPercentage":
+            suggest = "discount_percentage"
+        elif key == "environmentType":
+            suggest = "environment_type"
+        elif key == "externalStorageTypes":
+            suggest = "external_storage_types"
+        elif key == "failuresToTolerateAndRaidLevelList":
+            suggest = "failures_to_tolerate_and_raid_level_list"
+        elif key == "isStretchClusterEnabled":
+            suggest = "is_stretch_cluster_enabled"
+        elif key == "isVcfByolEnabled":
+            suggest = "is_vcf_byol_enabled"
+        elif key == "memOvercommit":
+            suggest = "mem_overcommit"
+        elif key == "nodeTypes":
+            suggest = "node_types"
+        elif key == "performanceData":
+            suggest = "performance_data"
+        elif key == "savingsSettings":
+            suggest = "savings_settings"
+        elif key == "scalingFactor":
+            suggest = "scaling_factor"
+        elif key == "sizingCriterion":
+            suggest = "sizing_criterion"
+        elif key == "vcpuOversubscription":
+            suggest = "vcpu_oversubscription"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AvsAssessmentSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AvsAssessmentSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AvsAssessmentSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 avs_assessment_scenario: Optional[str] = None,
+                 azure_location: Optional[str] = None,
+                 billing_settings: Optional['outputs.BillingSettingsResponse'] = None,
+                 cpu_headroom: Optional[float] = None,
+                 currency: Optional[str] = None,
+                 dedupe_compression: Optional[float] = None,
+                 discount_percentage: Optional[float] = None,
+                 environment_type: Optional[str] = None,
+                 external_storage_types: Optional[Sequence[str]] = None,
+                 failures_to_tolerate_and_raid_level_list: Optional[Sequence[str]] = None,
+                 is_stretch_cluster_enabled: Optional[bool] = None,
+                 is_vcf_byol_enabled: Optional[bool] = None,
+                 mem_overcommit: Optional[float] = None,
+                 node_types: Optional[Sequence[str]] = None,
+                 performance_data: Optional['outputs.PerformanceDataResponse'] = None,
+                 savings_settings: Optional['outputs.SavingsSettingsResponse'] = None,
+                 scaling_factor: Optional[float] = None,
+                 sizing_criterion: Optional[str] = None,
+                 vcpu_oversubscription: Optional[float] = None):
+        """
+        Properties of the AVS assessment.
+        :param str avs_assessment_scenario: AVS Assessment Scenario.
+        :param str azure_location: Azure Location or Azure region where to which the machines will be migrated.
+        :param 'BillingSettingsResponse' billing_settings: Gets or sets the billing settings.
+        :param float cpu_headroom: Gets or sets the CPU headroom.
+        :param str currency: Currency in which prices should be reported.
+        :param float dedupe_compression: De-duplication compression.
+        :param float discount_percentage: Custom discount percentage.
+        :param str environment_type: Gets or sets user configurable setting to display the environment type.
+        :param Sequence[str] external_storage_types: List of AVS external storage types.
+        :param Sequence[str] failures_to_tolerate_and_raid_level_list: List of Failures to tolerate and RAID levels in a common property.
+        :param bool is_stretch_cluster_enabled: Is Stretch Cluster Enabled.
+        :param bool is_vcf_byol_enabled: Is VCF license applied
+        :param float mem_overcommit: Memory overcommit.
+        :param Sequence[str] node_types: AVS node types.
+        :param 'PerformanceDataResponse' performance_data: Gets or sets the performance data.
+        :param 'SavingsSettingsResponse' savings_settings: Gets or sets the savings settings.
+        :param float scaling_factor: Percentage of buffer that user wants on performance metrics when recommending
+               Azure sizes.
+        :param str sizing_criterion: Assessment sizing criterion.
+        :param float vcpu_oversubscription: VCPU over subscription.
+        """
+        if avs_assessment_scenario is not None:
+            pulumi.set(__self__, "avs_assessment_scenario", avs_assessment_scenario)
+        if azure_location is not None:
+            pulumi.set(__self__, "azure_location", azure_location)
+        if billing_settings is not None:
+            pulumi.set(__self__, "billing_settings", billing_settings)
+        if cpu_headroom is not None:
+            pulumi.set(__self__, "cpu_headroom", cpu_headroom)
+        if currency is not None:
+            pulumi.set(__self__, "currency", currency)
+        if dedupe_compression is not None:
+            pulumi.set(__self__, "dedupe_compression", dedupe_compression)
+        if discount_percentage is not None:
+            pulumi.set(__self__, "discount_percentage", discount_percentage)
+        if environment_type is not None:
+            pulumi.set(__self__, "environment_type", environment_type)
+        if external_storage_types is not None:
+            pulumi.set(__self__, "external_storage_types", external_storage_types)
+        if failures_to_tolerate_and_raid_level_list is not None:
+            pulumi.set(__self__, "failures_to_tolerate_and_raid_level_list", failures_to_tolerate_and_raid_level_list)
+        if is_stretch_cluster_enabled is not None:
+            pulumi.set(__self__, "is_stretch_cluster_enabled", is_stretch_cluster_enabled)
+        if is_vcf_byol_enabled is not None:
+            pulumi.set(__self__, "is_vcf_byol_enabled", is_vcf_byol_enabled)
+        if mem_overcommit is not None:
+            pulumi.set(__self__, "mem_overcommit", mem_overcommit)
+        if node_types is not None:
+            pulumi.set(__self__, "node_types", node_types)
+        if performance_data is not None:
+            pulumi.set(__self__, "performance_data", performance_data)
+        if savings_settings is not None:
+            pulumi.set(__self__, "savings_settings", savings_settings)
+        if scaling_factor is not None:
+            pulumi.set(__self__, "scaling_factor", scaling_factor)
+        if sizing_criterion is not None:
+            pulumi.set(__self__, "sizing_criterion", sizing_criterion)
+        if vcpu_oversubscription is not None:
+            pulumi.set(__self__, "vcpu_oversubscription", vcpu_oversubscription)
+
+    @property
+    @pulumi.getter(name="avsAssessmentScenario")
+    def avs_assessment_scenario(self) -> Optional[str]:
+        """
+        AVS Assessment Scenario.
+        """
+        return pulumi.get(self, "avs_assessment_scenario")
+
+    @property
+    @pulumi.getter(name="azureLocation")
+    def azure_location(self) -> Optional[str]:
+        """
+        Azure Location or Azure region where to which the machines will be migrated.
+        """
+        return pulumi.get(self, "azure_location")
+
+    @property
+    @pulumi.getter(name="billingSettings")
+    def billing_settings(self) -> Optional['outputs.BillingSettingsResponse']:
+        """
+        Gets or sets the billing settings.
+        """
+        return pulumi.get(self, "billing_settings")
+
+    @property
+    @pulumi.getter(name="cpuHeadroom")
+    def cpu_headroom(self) -> Optional[float]:
+        """
+        Gets or sets the CPU headroom.
+        """
+        return pulumi.get(self, "cpu_headroom")
+
+    @property
+    @pulumi.getter
+    def currency(self) -> Optional[str]:
+        """
+        Currency in which prices should be reported.
+        """
+        return pulumi.get(self, "currency")
+
+    @property
+    @pulumi.getter(name="dedupeCompression")
+    def dedupe_compression(self) -> Optional[float]:
+        """
+        De-duplication compression.
+        """
+        return pulumi.get(self, "dedupe_compression")
+
+    @property
+    @pulumi.getter(name="discountPercentage")
+    def discount_percentage(self) -> Optional[float]:
+        """
+        Custom discount percentage.
+        """
+        return pulumi.get(self, "discount_percentage")
+
+    @property
+    @pulumi.getter(name="environmentType")
+    def environment_type(self) -> Optional[str]:
+        """
+        Gets or sets user configurable setting to display the environment type.
+        """
+        return pulumi.get(self, "environment_type")
+
+    @property
+    @pulumi.getter(name="externalStorageTypes")
+    def external_storage_types(self) -> Optional[Sequence[str]]:
+        """
+        List of AVS external storage types.
+        """
+        return pulumi.get(self, "external_storage_types")
+
+    @property
+    @pulumi.getter(name="failuresToTolerateAndRaidLevelList")
+    def failures_to_tolerate_and_raid_level_list(self) -> Optional[Sequence[str]]:
+        """
+        List of Failures to tolerate and RAID levels in a common property.
+        """
+        return pulumi.get(self, "failures_to_tolerate_and_raid_level_list")
+
+    @property
+    @pulumi.getter(name="isStretchClusterEnabled")
+    def is_stretch_cluster_enabled(self) -> Optional[bool]:
+        """
+        Is Stretch Cluster Enabled.
+        """
+        return pulumi.get(self, "is_stretch_cluster_enabled")
+
+    @property
+    @pulumi.getter(name="isVcfByolEnabled")
+    def is_vcf_byol_enabled(self) -> Optional[bool]:
+        """
+        Is VCF license applied
+        """
+        return pulumi.get(self, "is_vcf_byol_enabled")
+
+    @property
+    @pulumi.getter(name="memOvercommit")
+    def mem_overcommit(self) -> Optional[float]:
+        """
+        Memory overcommit.
+        """
+        return pulumi.get(self, "mem_overcommit")
+
+    @property
+    @pulumi.getter(name="nodeTypes")
+    def node_types(self) -> Optional[Sequence[str]]:
+        """
+        AVS node types.
+        """
+        return pulumi.get(self, "node_types")
+
+    @property
+    @pulumi.getter(name="performanceData")
+    def performance_data(self) -> Optional['outputs.PerformanceDataResponse']:
+        """
+        Gets or sets the performance data.
+        """
+        return pulumi.get(self, "performance_data")
+
+    @property
+    @pulumi.getter(name="savingsSettings")
+    def savings_settings(self) -> Optional['outputs.SavingsSettingsResponse']:
+        """
+        Gets or sets the savings settings.
+        """
+        return pulumi.get(self, "savings_settings")
+
+    @property
+    @pulumi.getter(name="scalingFactor")
+    def scaling_factor(self) -> Optional[float]:
+        """
+        Percentage of buffer that user wants on performance metrics when recommending
+        Azure sizes.
+        """
+        return pulumi.get(self, "scaling_factor")
+
+    @property
+    @pulumi.getter(name="sizingCriterion")
+    def sizing_criterion(self) -> Optional[str]:
+        """
+        Assessment sizing criterion.
+        """
+        return pulumi.get(self, "sizing_criterion")
+
+    @property
+    @pulumi.getter(name="vcpuOversubscription")
+    def vcpu_oversubscription(self) -> Optional[float]:
+        """
+        VCPU over subscription.
+        """
+        return pulumi.get(self, "vcpu_oversubscription")
 
 
 @pulumi.output_type
@@ -2979,6 +3469,60 @@ class AzureSettingsResponse(dict):
 
 
 @pulumi.output_type
+class BillingSettingsResponse(dict):
+    """
+    Billing settings class.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "licensingProgram":
+            suggest = "licensing_program"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BillingSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BillingSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BillingSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 licensing_program: Optional[str] = None,
+                 subscription_id: Optional[str] = None):
+        """
+        Billing settings class.
+        :param str licensing_program: Gets or sets the licensing program.
+        :param str subscription_id: Gets or sets the subscription ID for licensing program selected.
+        """
+        if licensing_program is not None:
+            pulumi.set(__self__, "licensing_program", licensing_program)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="licensingProgram")
+    def licensing_program(self) -> Optional[str]:
+        """
+        Gets or sets the licensing program.
+        """
+        return pulumi.get(self, "licensing_program")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[str]:
+        """
+        Gets or sets the subscription ID for licensing program selected.
+        """
+        return pulumi.get(self, "subscription_id")
+
+
+@pulumi.output_type
 class BindingResponse(dict):
     """
     Binding for a web application.
@@ -3556,6 +4100,148 @@ class CollectorPropertiesResponse(dict):
         The ARM id of the discovery service site.
         """
         return pulumi.get(self, "discovery_site_id")
+
+
+@pulumi.output_type
+class CompoundAssessmentDetailsResponse(dict):
+    """
+    Details of the compound assessment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdTimestamp":
+            suggest = "created_timestamp"
+        elif key == "updatedTimestamp":
+            suggest = "updated_timestamp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CompoundAssessmentDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CompoundAssessmentDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CompoundAssessmentDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: str,
+                 created_timestamp: Optional[str] = None,
+                 updated_timestamp: Optional[str] = None):
+        """
+        Details of the compound assessment.
+        :param str status: Status of the assessment.
+        :param str created_timestamp: Timestamp when the assessment was created.
+        :param str updated_timestamp: Timestamp when the assessment was last updated.
+        """
+        pulumi.set(__self__, "status", status)
+        if created_timestamp is not None:
+            pulumi.set(__self__, "created_timestamp", created_timestamp)
+        if updated_timestamp is not None:
+            pulumi.set(__self__, "updated_timestamp", updated_timestamp)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the assessment.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="createdTimestamp")
+    def created_timestamp(self) -> Optional[str]:
+        """
+        Timestamp when the assessment was created.
+        """
+        return pulumi.get(self, "created_timestamp")
+
+    @property
+    @pulumi.getter(name="updatedTimestamp")
+    def updated_timestamp(self) -> Optional[str]:
+        """
+        Timestamp when the assessment was last updated.
+        """
+        return pulumi.get(self, "updated_timestamp")
+
+
+@pulumi.output_type
+class CompoundAssessmentPropertiesResponse(dict):
+    """
+    Properties of a compound assessment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "targetAssessmentArmIds":
+            suggest = "target_assessment_arm_ids"
+        elif key == "fallbackMachineAssessmentArmId":
+            suggest = "fallback_machine_assessment_arm_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CompoundAssessmentPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CompoundAssessmentPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CompoundAssessmentPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 details: 'outputs.CompoundAssessmentDetailsResponse',
+                 provisioning_state: str,
+                 target_assessment_arm_ids: 'outputs.TargetAssessmentArmIdsResponse',
+                 fallback_machine_assessment_arm_id: Optional[str] = None):
+        """
+        Properties of a compound assessment.
+        :param 'CompoundAssessmentDetailsResponse' details: Details of the compound assessment.
+        :param str provisioning_state: The status of the last operation.
+        :param 'TargetAssessmentArmIdsResponse' target_assessment_arm_ids: ARM IDs of the target assessments.
+        :param str fallback_machine_assessment_arm_id: Fallback machine assessment ARM ID.
+        """
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "target_assessment_arm_ids", target_assessment_arm_ids)
+        if fallback_machine_assessment_arm_id is not None:
+            pulumi.set(__self__, "fallback_machine_assessment_arm_id", fallback_machine_assessment_arm_id)
+
+    @property
+    @pulumi.getter
+    def details(self) -> 'outputs.CompoundAssessmentDetailsResponse':
+        """
+        Details of the compound assessment.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="targetAssessmentArmIds")
+    def target_assessment_arm_ids(self) -> 'outputs.TargetAssessmentArmIdsResponse':
+        """
+        ARM IDs of the target assessments.
+        """
+        return pulumi.get(self, "target_assessment_arm_ids")
+
+    @property
+    @pulumi.getter(name="fallbackMachineAssessmentArmId")
+    def fallback_machine_assessment_arm_id(self) -> Optional[str]:
+        """
+        Fallback machine assessment ARM ID.
+        """
+        return pulumi.get(self, "fallback_machine_assessment_arm_id")
 
 
 @pulumi.output_type
@@ -4927,6 +5613,135 @@ class HealthErrorModelResponse(dict):
 
 
 @pulumi.output_type
+class HeterogeneousAssessmentPropertiesResponse(dict):
+    """
+    Properties of an assessment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureLocation":
+            suggest = "azure_location"
+        elif key == "confidenceRatingInPercentage":
+            suggest = "confidence_rating_in_percentage"
+        elif key == "lastCalculatedOn":
+            suggest = "last_calculated_on"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "schemaVersion":
+            suggest = "schema_version"
+        elif key == "sizingCriterion":
+            suggest = "sizing_criterion"
+        elif key == "assessmentArmIds":
+            suggest = "assessment_arm_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HeterogeneousAssessmentPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HeterogeneousAssessmentPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HeterogeneousAssessmentPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_location: str,
+                 confidence_rating_in_percentage: float,
+                 last_calculated_on: str,
+                 provisioning_state: str,
+                 schema_version: str,
+                 sizing_criterion: str,
+                 status: str,
+                 assessment_arm_ids: Optional[Sequence[str]] = None):
+        """
+        Properties of an assessment.
+        :param str azure_location: Azure location for assessment.
+        :param float confidence_rating_in_percentage: Confidence rating in percentage.
+        :param str last_calculated_on: Timestamp for the last successfully calculated summary for the assessment.
+        :param str provisioning_state: The status of the last operation.
+        :param str schema_version: Schema version.
+        :param str sizing_criterion: Sizing criterion for assessment.
+        :param str status: Whether assessment is in valid state and all machines have been assessed.
+        :param Sequence[str] assessment_arm_ids: Arm id of partner assessments.
+        """
+        pulumi.set(__self__, "azure_location", azure_location)
+        pulumi.set(__self__, "confidence_rating_in_percentage", confidence_rating_in_percentage)
+        pulumi.set(__self__, "last_calculated_on", last_calculated_on)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "schema_version", schema_version)
+        pulumi.set(__self__, "sizing_criterion", sizing_criterion)
+        pulumi.set(__self__, "status", status)
+        if assessment_arm_ids is not None:
+            pulumi.set(__self__, "assessment_arm_ids", assessment_arm_ids)
+
+    @property
+    @pulumi.getter(name="azureLocation")
+    def azure_location(self) -> str:
+        """
+        Azure location for assessment.
+        """
+        return pulumi.get(self, "azure_location")
+
+    @property
+    @pulumi.getter(name="confidenceRatingInPercentage")
+    def confidence_rating_in_percentage(self) -> float:
+        """
+        Confidence rating in percentage.
+        """
+        return pulumi.get(self, "confidence_rating_in_percentage")
+
+    @property
+    @pulumi.getter(name="lastCalculatedOn")
+    def last_calculated_on(self) -> str:
+        """
+        Timestamp for the last successfully calculated summary for the assessment.
+        """
+        return pulumi.get(self, "last_calculated_on")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="schemaVersion")
+    def schema_version(self) -> str:
+        """
+        Schema version.
+        """
+        return pulumi.get(self, "schema_version")
+
+    @property
+    @pulumi.getter(name="sizingCriterion")
+    def sizing_criterion(self) -> str:
+        """
+        Sizing criterion for assessment.
+        """
+        return pulumi.get(self, "sizing_criterion")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Whether assessment is in valid state and all machines have been assessed.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="assessmentArmIds")
+    def assessment_arm_ids(self) -> Optional[Sequence[str]]:
+        """
+        Arm id of partner assessments.
+        """
+        return pulumi.get(self, "assessment_arm_ids")
+
+
+@pulumi.output_type
 class HypervLicenseResponse(dict):
     """
     Representation of a licence.
@@ -6258,6 +7073,85 @@ class ImportCollectorPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class ImportSqlCollectorPropertiesResponse(dict):
+    """
+    Import SQL Collector properties class.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdTimestamp":
+            suggest = "created_timestamp"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "updatedTimestamp":
+            suggest = "updated_timestamp"
+        elif key == "discoverySiteId":
+            suggest = "discovery_site_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImportSqlCollectorPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImportSqlCollectorPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImportSqlCollectorPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_timestamp: str,
+                 provisioning_state: str,
+                 updated_timestamp: str,
+                 discovery_site_id: Optional[str] = None):
+        """
+        Import SQL Collector properties class.
+        :param str created_timestamp: When was import SQL collector first created.
+        :param str provisioning_state: The status of the last operation.
+        :param str updated_timestamp: When was import SQL collector last updated.
+        :param str discovery_site_id: The sql db extended details.
+        """
+        pulumi.set(__self__, "created_timestamp", created_timestamp)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "updated_timestamp", updated_timestamp)
+        if discovery_site_id is not None:
+            pulumi.set(__self__, "discovery_site_id", discovery_site_id)
+
+    @property
+    @pulumi.getter(name="createdTimestamp")
+    def created_timestamp(self) -> str:
+        """
+        When was import SQL collector first created.
+        """
+        return pulumi.get(self, "created_timestamp")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="updatedTimestamp")
+    def updated_timestamp(self) -> str:
+        """
+        When was import SQL collector last updated.
+        """
+        return pulumi.get(self, "updated_timestamp")
+
+    @property
+    @pulumi.getter(name="discoverySiteId")
+    def discovery_site_id(self) -> Optional[str]:
+        """
+        The sql db extended details.
+        """
+        return pulumi.get(self, "discovery_site_id")
+
+
+@pulumi.output_type
 class InnerHealthErrorModelResponse(dict):
     """
     Inner health error model.
@@ -7085,6 +7979,351 @@ class LoadBalancerResourceSettingsResponse(dict):
          precedence only if frontend IP configurations settings are not present.
         """
         return pulumi.get(self, "zones")
+
+
+@pulumi.output_type
+class MachineAssessmentSettingsResponse(dict):
+    """
+    Properties of an assessment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureDiskTypes":
+            suggest = "azure_disk_types"
+        elif key == "azureHybridUseBenefit":
+            suggest = "azure_hybrid_use_benefit"
+        elif key == "azureLocation":
+            suggest = "azure_location"
+        elif key == "azurePricingTier":
+            suggest = "azure_pricing_tier"
+        elif key == "azureSecurityOfferingType":
+            suggest = "azure_security_offering_type"
+        elif key == "azureStorageRedundancy":
+            suggest = "azure_storage_redundancy"
+        elif key == "azureVmFamilies":
+            suggest = "azure_vm_families"
+        elif key == "billingSettings":
+            suggest = "billing_settings"
+        elif key == "discountPercentage":
+            suggest = "discount_percentage"
+        elif key == "environmentType":
+            suggest = "environment_type"
+        elif key == "linuxAzureHybridUseBenefit":
+            suggest = "linux_azure_hybrid_use_benefit"
+        elif key == "performanceData":
+            suggest = "performance_data"
+        elif key == "savingsSettings":
+            suggest = "savings_settings"
+        elif key == "scalingFactor":
+            suggest = "scaling_factor"
+        elif key == "sizingCriterion":
+            suggest = "sizing_criterion"
+        elif key == "vmUptime":
+            suggest = "vm_uptime"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MachineAssessmentSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MachineAssessmentSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MachineAssessmentSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_disk_types: Optional[Sequence[str]] = None,
+                 azure_hybrid_use_benefit: Optional[str] = None,
+                 azure_location: Optional[str] = None,
+                 azure_pricing_tier: Optional[str] = None,
+                 azure_security_offering_type: Optional[str] = None,
+                 azure_storage_redundancy: Optional[str] = None,
+                 azure_vm_families: Optional[Sequence[str]] = None,
+                 billing_settings: Optional['outputs.BillingSettingsResponse'] = None,
+                 currency: Optional[str] = None,
+                 discount_percentage: Optional[float] = None,
+                 environment_type: Optional[str] = None,
+                 linux_azure_hybrid_use_benefit: Optional[str] = None,
+                 performance_data: Optional['outputs.PerformanceDataResponse'] = None,
+                 savings_settings: Optional['outputs.SavingsSettingsResponse'] = None,
+                 scaling_factor: Optional[float] = None,
+                 sizing_criterion: Optional[str] = None,
+                 vm_uptime: Optional['outputs.VmUptimeResponse'] = None):
+        """
+        Properties of an assessment.
+        :param Sequence[str] azure_disk_types: The disk type for the assessment.
+        :param str azure_hybrid_use_benefit: Gets or sets the user configurable setting to display the azure hybrid use
+               benefit.
+        :param str azure_location: Azure Location or Azure region where to which the machines will be migrated.
+        :param str azure_pricing_tier: Gets or sets Azure Pricing Tier - Free, Basic, etc.
+        :param str azure_security_offering_type: The azure security offering type.
+        :param str azure_storage_redundancy: Gets or sets the Azure Storage Redundancy. Example: Locally Redundant Storage.
+        :param Sequence[str] azure_vm_families: Gets or sets the Azure VM families.
+        :param 'BillingSettingsResponse' billing_settings: Gets or sets the billing settings.
+        :param str currency: Currency in which prices should be reported.
+        :param float discount_percentage: Custom discount percentage.
+        :param str environment_type: Gets or sets user configurable setting to display the environment type.
+        :param str linux_azure_hybrid_use_benefit: Gets or sets the user configurable setting to display the linux azure hybrid use
+               benefit.
+        :param 'PerformanceDataResponse' performance_data: Gets or sets the performance data.
+        :param 'SavingsSettingsResponse' savings_settings: Gets or sets the savings settings.
+        :param float scaling_factor: Percentage of buffer that user wants on performance metrics when recommending
+               Azure sizes.
+        :param str sizing_criterion: Assessment sizing criterion.
+        :param 'VmUptimeResponse' vm_uptime: Gets or sets the duration for which the VMs are up in the on-premises
+               environment.
+        """
+        if azure_disk_types is not None:
+            pulumi.set(__self__, "azure_disk_types", azure_disk_types)
+        if azure_hybrid_use_benefit is not None:
+            pulumi.set(__self__, "azure_hybrid_use_benefit", azure_hybrid_use_benefit)
+        if azure_location is not None:
+            pulumi.set(__self__, "azure_location", azure_location)
+        if azure_pricing_tier is not None:
+            pulumi.set(__self__, "azure_pricing_tier", azure_pricing_tier)
+        if azure_security_offering_type is not None:
+            pulumi.set(__self__, "azure_security_offering_type", azure_security_offering_type)
+        if azure_storage_redundancy is not None:
+            pulumi.set(__self__, "azure_storage_redundancy", azure_storage_redundancy)
+        if azure_vm_families is not None:
+            pulumi.set(__self__, "azure_vm_families", azure_vm_families)
+        if billing_settings is not None:
+            pulumi.set(__self__, "billing_settings", billing_settings)
+        if currency is not None:
+            pulumi.set(__self__, "currency", currency)
+        if discount_percentage is not None:
+            pulumi.set(__self__, "discount_percentage", discount_percentage)
+        if environment_type is not None:
+            pulumi.set(__self__, "environment_type", environment_type)
+        if linux_azure_hybrid_use_benefit is not None:
+            pulumi.set(__self__, "linux_azure_hybrid_use_benefit", linux_azure_hybrid_use_benefit)
+        if performance_data is not None:
+            pulumi.set(__self__, "performance_data", performance_data)
+        if savings_settings is not None:
+            pulumi.set(__self__, "savings_settings", savings_settings)
+        if scaling_factor is not None:
+            pulumi.set(__self__, "scaling_factor", scaling_factor)
+        if sizing_criterion is not None:
+            pulumi.set(__self__, "sizing_criterion", sizing_criterion)
+        if vm_uptime is not None:
+            pulumi.set(__self__, "vm_uptime", vm_uptime)
+
+    @property
+    @pulumi.getter(name="azureDiskTypes")
+    def azure_disk_types(self) -> Optional[Sequence[str]]:
+        """
+        The disk type for the assessment.
+        """
+        return pulumi.get(self, "azure_disk_types")
+
+    @property
+    @pulumi.getter(name="azureHybridUseBenefit")
+    def azure_hybrid_use_benefit(self) -> Optional[str]:
+        """
+        Gets or sets the user configurable setting to display the azure hybrid use
+        benefit.
+        """
+        return pulumi.get(self, "azure_hybrid_use_benefit")
+
+    @property
+    @pulumi.getter(name="azureLocation")
+    def azure_location(self) -> Optional[str]:
+        """
+        Azure Location or Azure region where to which the machines will be migrated.
+        """
+        return pulumi.get(self, "azure_location")
+
+    @property
+    @pulumi.getter(name="azurePricingTier")
+    def azure_pricing_tier(self) -> Optional[str]:
+        """
+        Gets or sets Azure Pricing Tier - Free, Basic, etc.
+        """
+        return pulumi.get(self, "azure_pricing_tier")
+
+    @property
+    @pulumi.getter(name="azureSecurityOfferingType")
+    def azure_security_offering_type(self) -> Optional[str]:
+        """
+        The azure security offering type.
+        """
+        return pulumi.get(self, "azure_security_offering_type")
+
+    @property
+    @pulumi.getter(name="azureStorageRedundancy")
+    def azure_storage_redundancy(self) -> Optional[str]:
+        """
+        Gets or sets the Azure Storage Redundancy. Example: Locally Redundant Storage.
+        """
+        return pulumi.get(self, "azure_storage_redundancy")
+
+    @property
+    @pulumi.getter(name="azureVmFamilies")
+    def azure_vm_families(self) -> Optional[Sequence[str]]:
+        """
+        Gets or sets the Azure VM families.
+        """
+        return pulumi.get(self, "azure_vm_families")
+
+    @property
+    @pulumi.getter(name="billingSettings")
+    def billing_settings(self) -> Optional['outputs.BillingSettingsResponse']:
+        """
+        Gets or sets the billing settings.
+        """
+        return pulumi.get(self, "billing_settings")
+
+    @property
+    @pulumi.getter
+    def currency(self) -> Optional[str]:
+        """
+        Currency in which prices should be reported.
+        """
+        return pulumi.get(self, "currency")
+
+    @property
+    @pulumi.getter(name="discountPercentage")
+    def discount_percentage(self) -> Optional[float]:
+        """
+        Custom discount percentage.
+        """
+        return pulumi.get(self, "discount_percentage")
+
+    @property
+    @pulumi.getter(name="environmentType")
+    def environment_type(self) -> Optional[str]:
+        """
+        Gets or sets user configurable setting to display the environment type.
+        """
+        return pulumi.get(self, "environment_type")
+
+    @property
+    @pulumi.getter(name="linuxAzureHybridUseBenefit")
+    def linux_azure_hybrid_use_benefit(self) -> Optional[str]:
+        """
+        Gets or sets the user configurable setting to display the linux azure hybrid use
+        benefit.
+        """
+        return pulumi.get(self, "linux_azure_hybrid_use_benefit")
+
+    @property
+    @pulumi.getter(name="performanceData")
+    def performance_data(self) -> Optional['outputs.PerformanceDataResponse']:
+        """
+        Gets or sets the performance data.
+        """
+        return pulumi.get(self, "performance_data")
+
+    @property
+    @pulumi.getter(name="savingsSettings")
+    def savings_settings(self) -> Optional['outputs.SavingsSettingsResponse']:
+        """
+        Gets or sets the savings settings.
+        """
+        return pulumi.get(self, "savings_settings")
+
+    @property
+    @pulumi.getter(name="scalingFactor")
+    def scaling_factor(self) -> Optional[float]:
+        """
+        Percentage of buffer that user wants on performance metrics when recommending
+        Azure sizes.
+        """
+        return pulumi.get(self, "scaling_factor")
+
+    @property
+    @pulumi.getter(name="sizingCriterion")
+    def sizing_criterion(self) -> Optional[str]:
+        """
+        Assessment sizing criterion.
+        """
+        return pulumi.get(self, "sizing_criterion")
+
+    @property
+    @pulumi.getter(name="vmUptime")
+    def vm_uptime(self) -> Optional['outputs.VmUptimeResponse']:
+        """
+        Gets or sets the duration for which the VMs are up in the on-premises
+        environment.
+        """
+        return pulumi.get(self, "vm_uptime")
+
+
+@pulumi.output_type
+class MachineAssessmentV2PropertiesResponse(dict):
+    """
+    Assessment properties class.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MachineAssessmentV2PropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MachineAssessmentV2PropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MachineAssessmentV2PropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 details: Optional['outputs.AssessmentDetailsResponse'] = None,
+                 scope: Optional['outputs.ScopeResponse'] = None,
+                 settings: Optional['outputs.MachineAssessmentSettingsResponse'] = None):
+        """
+        Assessment properties class.
+        :param str provisioning_state: The status of the last operation.
+        :param 'AssessmentDetailsResponse' details: Gets or sets the details of the assessment.
+        :param 'ScopeResponse' scope: Gets or sets the scope of assessment.
+        :param 'MachineAssessmentSettingsResponse' settings: Gets or sets the settings for the assessment.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if details is not None:
+            pulumi.set(__self__, "details", details)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional['outputs.AssessmentDetailsResponse']:
+        """
+        Gets or sets the details of the assessment.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional['outputs.ScopeResponse']:
+        """
+        Gets or sets the scope of assessment.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional['outputs.MachineAssessmentSettingsResponse']:
+        """
+        Gets or sets the settings for the assessment.
+        """
+        return pulumi.get(self, "settings")
 
 
 @pulumi.output_type
@@ -9556,6 +10795,90 @@ class PerfDataSettingsResponse(dict):
 
 
 @pulumi.output_type
+class PerformanceDataResponse(dict):
+    """
+    Performance data class.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "perfDataEndTime":
+            suggest = "perf_data_end_time"
+        elif key == "perfDataStartTime":
+            suggest = "perf_data_start_time"
+        elif key == "timeRange":
+            suggest = "time_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PerformanceDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PerformanceDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PerformanceDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 percentile: Optional[str] = None,
+                 perf_data_end_time: Optional[str] = None,
+                 perf_data_start_time: Optional[str] = None,
+                 time_range: Optional[str] = None):
+        """
+        Performance data class.
+        :param str percentile: Percentile of the utilization data values to be considered while assessing
+               machines.
+        :param str perf_data_end_time: Gets or sets the end time to consider performance data for assessment.
+        :param str perf_data_start_time: Gets or sets the start time to consider performance data for assessment.
+        :param str time_range: Time Range for which the historic utilization data should be considered for
+               assessment.
+        """
+        if percentile is not None:
+            pulumi.set(__self__, "percentile", percentile)
+        if perf_data_end_time is not None:
+            pulumi.set(__self__, "perf_data_end_time", perf_data_end_time)
+        if perf_data_start_time is not None:
+            pulumi.set(__self__, "perf_data_start_time", perf_data_start_time)
+        if time_range is not None:
+            pulumi.set(__self__, "time_range", time_range)
+
+    @property
+    @pulumi.getter
+    def percentile(self) -> Optional[str]:
+        """
+        Percentile of the utilization data values to be considered while assessing
+        machines.
+        """
+        return pulumi.get(self, "percentile")
+
+    @property
+    @pulumi.getter(name="perfDataEndTime")
+    def perf_data_end_time(self) -> Optional[str]:
+        """
+        Gets or sets the end time to consider performance data for assessment.
+        """
+        return pulumi.get(self, "perf_data_end_time")
+
+    @property
+    @pulumi.getter(name="perfDataStartTime")
+    def perf_data_start_time(self) -> Optional[str]:
+        """
+        Gets or sets the start time to consider performance data for assessment.
+        """
+        return pulumi.get(self, "perf_data_start_time")
+
+    @property
+    @pulumi.getter(name="timeRange")
+    def time_range(self) -> Optional[str]:
+        """
+        Time Range for which the historic utilization data should be considered for
+        assessment.
+        """
+        return pulumi.get(self, "time_range")
+
+
+@pulumi.output_type
 class PortMappingResponse(dict):
     """
     WebApplication port mapping.
@@ -10640,6 +11963,128 @@ class ResourceRequirementsResponse(dict):
 
 
 @pulumi.output_type
+class SavingsSettingsResponse(dict):
+    """
+    Savings settings class.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureOfferCode":
+            suggest = "azure_offer_code"
+        elif key == "savingsOptions":
+            suggest = "savings_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SavingsSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SavingsSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SavingsSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_offer_code: Optional[str] = None,
+                 savings_options: Optional[str] = None):
+        """
+        Savings settings class.
+        :param str azure_offer_code: Gets or sets the Azure offer code.
+        :param str savings_options: Gets or sets the savings options.
+        """
+        if azure_offer_code is not None:
+            pulumi.set(__self__, "azure_offer_code", azure_offer_code)
+        if savings_options is not None:
+            pulumi.set(__self__, "savings_options", savings_options)
+
+    @property
+    @pulumi.getter(name="azureOfferCode")
+    def azure_offer_code(self) -> Optional[str]:
+        """
+        Gets or sets the Azure offer code.
+        """
+        return pulumi.get(self, "azure_offer_code")
+
+    @property
+    @pulumi.getter(name="savingsOptions")
+    def savings_options(self) -> Optional[str]:
+        """
+        Gets or sets the savings options.
+        """
+        return pulumi.get(self, "savings_options")
+
+
+@pulumi.output_type
+class ScopeResponse(dict):
+    """
+    Scope of the assessment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureResourceGraphQuery":
+            suggest = "azure_resource_graph_query"
+        elif key == "scopeType":
+            suggest = "scope_type"
+        elif key == "serverGroupId":
+            suggest = "server_group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScopeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScopeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScopeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_resource_graph_query: Optional[str] = None,
+                 scope_type: Optional[str] = None,
+                 server_group_id: Optional[str] = None):
+        """
+        Scope of the assessment.
+        :param str azure_resource_graph_query: The ARG query.
+        :param str scope_type: The scope type
+        :param str server_group_id: The server group arm id.
+        """
+        if azure_resource_graph_query is not None:
+            pulumi.set(__self__, "azure_resource_graph_query", azure_resource_graph_query)
+        if scope_type is not None:
+            pulumi.set(__self__, "scope_type", scope_type)
+        if server_group_id is not None:
+            pulumi.set(__self__, "server_group_id", server_group_id)
+
+    @property
+    @pulumi.getter(name="azureResourceGraphQuery")
+    def azure_resource_graph_query(self) -> Optional[str]:
+        """
+        The ARG query.
+        """
+        return pulumi.get(self, "azure_resource_graph_query")
+
+    @property
+    @pulumi.getter(name="scopeType")
+    def scope_type(self) -> Optional[str]:
+        """
+        The scope type
+        """
+        return pulumi.get(self, "scope_type")
+
+    @property
+    @pulumi.getter(name="serverGroupId")
+    def server_group_id(self) -> Optional[str]:
+        """
+        The server group arm id.
+        """
+        return pulumi.get(self, "server_group_id")
+
+
+@pulumi.output_type
 class SecretStoreDetailsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -11282,6 +12727,433 @@ class SolutionPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class SqlAssessmentSettingsResponse(dict):
+    """
+    SQL assessment settings class.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "asyncCommitModeIntent":
+            suggest = "async_commit_mode_intent"
+        elif key == "azureLocation":
+            suggest = "azure_location"
+        elif key == "azureSecurityOfferingType":
+            suggest = "azure_security_offering_type"
+        elif key == "azureSqlDatabaseSettings":
+            suggest = "azure_sql_database_settings"
+        elif key == "azureSqlManagedInstanceSettings":
+            suggest = "azure_sql_managed_instance_settings"
+        elif key == "azureSqlVmSettings":
+            suggest = "azure_sql_vm_settings"
+        elif key == "billingSettings":
+            suggest = "billing_settings"
+        elif key == "disasterRecoveryLocation":
+            suggest = "disaster_recovery_location"
+        elif key == "discountPercentage":
+            suggest = "discount_percentage"
+        elif key == "enableHadrAssessment":
+            suggest = "enable_hadr_assessment"
+        elif key == "entityUptime":
+            suggest = "entity_uptime"
+        elif key == "environmentType":
+            suggest = "environment_type"
+        elif key == "isInternetAccessAvailable":
+            suggest = "is_internet_access_available"
+        elif key == "multiSubnetIntent":
+            suggest = "multi_subnet_intent"
+        elif key == "osLicense":
+            suggest = "os_license"
+        elif key == "performanceData":
+            suggest = "performance_data"
+        elif key == "preferredTargets":
+            suggest = "preferred_targets"
+        elif key == "savingsSettings":
+            suggest = "savings_settings"
+        elif key == "scalingFactor":
+            suggest = "scaling_factor"
+        elif key == "sizingCriterion":
+            suggest = "sizing_criterion"
+        elif key == "sqlServerLicense":
+            suggest = "sql_server_license"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlAssessmentSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlAssessmentSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlAssessmentSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 async_commit_mode_intent: Optional[str] = None,
+                 azure_location: Optional[str] = None,
+                 azure_security_offering_type: Optional[str] = None,
+                 azure_sql_database_settings: Optional['outputs.SqlDbSettingsV3Response'] = None,
+                 azure_sql_managed_instance_settings: Optional['outputs.SqlMiSettingsV3Response'] = None,
+                 azure_sql_vm_settings: Optional['outputs.SqlVmSettingsResponse'] = None,
+                 billing_settings: Optional['outputs.BillingSettingsResponse'] = None,
+                 currency: Optional[str] = None,
+                 disaster_recovery_location: Optional[str] = None,
+                 discount_percentage: Optional[float] = None,
+                 enable_hadr_assessment: Optional[bool] = None,
+                 entity_uptime: Optional['outputs.EntityUptimeResponse'] = None,
+                 environment_type: Optional[str] = None,
+                 is_internet_access_available: Optional[bool] = None,
+                 multi_subnet_intent: Optional[str] = None,
+                 os_license: Optional[str] = None,
+                 performance_data: Optional['outputs.PerformanceDataResponse'] = None,
+                 preferred_targets: Optional[Sequence[str]] = None,
+                 savings_settings: Optional['outputs.SavingsSettingsResponse'] = None,
+                 scaling_factor: Optional[float] = None,
+                 sizing_criterion: Optional[str] = None,
+                 sql_server_license: Optional[str] = None):
+        """
+        SQL assessment settings class.
+        :param str async_commit_mode_intent: Gets or sets user preference indicating intent of async commit mode.
+        :param str azure_location: Azure Location or Azure region where to which the machines will be migrated.
+        :param str azure_security_offering_type: Gets or sets a value indicating azure security offering type.
+        :param 'SqlDbSettingsV3Response' azure_sql_database_settings: Gets or sets user configurable SQL database settings.
+        :param 'SqlMiSettingsV3Response' azure_sql_managed_instance_settings: Gets or sets user configurable SQL managed instance settings.
+        :param 'SqlVmSettingsResponse' azure_sql_vm_settings: Gets or sets user configurable SQL VM settings.
+        :param 'BillingSettingsResponse' billing_settings: Gets or sets the billing settings.
+        :param str currency: Currency in which prices should be reported.
+        :param str disaster_recovery_location: Gets or sets the Azure Location or Azure region where to which the machines
+               will be migrated.
+        :param float discount_percentage: Custom discount percentage.
+        :param bool enable_hadr_assessment: Gets or sets a value indicating whether HADR assessments needs to be created.
+        :param 'EntityUptimeResponse' entity_uptime: Gets or sets the duration for which the entity (SQL, VMs) are up in the
+               on-premises environment.
+        :param str environment_type: Gets or sets user configurable setting to display the environment type.
+        :param bool is_internet_access_available: Gets or sets a value indicating whether internet access is available.
+        :param str multi_subnet_intent: Gets or sets user preference indicating intent of multi-subnet configuration.
+        :param str os_license: Gets or sets user configurable setting to display the azure hybrid use benefit.
+        :param 'PerformanceDataResponse' performance_data: Gets or sets the performance data.
+        :param Sequence[str] preferred_targets: Gets or sets SQL the preferred azure targets.
+        :param 'SavingsSettingsResponse' savings_settings: Gets or sets the savings settings.
+        :param float scaling_factor: Percentage of buffer that user wants on performance metrics when recommending
+               Azure sizes.
+        :param str sizing_criterion: Assessment sizing criterion.
+        :param str sql_server_license: SQL server license.
+        """
+        if async_commit_mode_intent is not None:
+            pulumi.set(__self__, "async_commit_mode_intent", async_commit_mode_intent)
+        if azure_location is not None:
+            pulumi.set(__self__, "azure_location", azure_location)
+        if azure_security_offering_type is not None:
+            pulumi.set(__self__, "azure_security_offering_type", azure_security_offering_type)
+        if azure_sql_database_settings is not None:
+            pulumi.set(__self__, "azure_sql_database_settings", azure_sql_database_settings)
+        if azure_sql_managed_instance_settings is not None:
+            pulumi.set(__self__, "azure_sql_managed_instance_settings", azure_sql_managed_instance_settings)
+        if azure_sql_vm_settings is not None:
+            pulumi.set(__self__, "azure_sql_vm_settings", azure_sql_vm_settings)
+        if billing_settings is not None:
+            pulumi.set(__self__, "billing_settings", billing_settings)
+        if currency is not None:
+            pulumi.set(__self__, "currency", currency)
+        if disaster_recovery_location is not None:
+            pulumi.set(__self__, "disaster_recovery_location", disaster_recovery_location)
+        if discount_percentage is not None:
+            pulumi.set(__self__, "discount_percentage", discount_percentage)
+        if enable_hadr_assessment is not None:
+            pulumi.set(__self__, "enable_hadr_assessment", enable_hadr_assessment)
+        if entity_uptime is not None:
+            pulumi.set(__self__, "entity_uptime", entity_uptime)
+        if environment_type is not None:
+            pulumi.set(__self__, "environment_type", environment_type)
+        if is_internet_access_available is not None:
+            pulumi.set(__self__, "is_internet_access_available", is_internet_access_available)
+        if multi_subnet_intent is not None:
+            pulumi.set(__self__, "multi_subnet_intent", multi_subnet_intent)
+        if os_license is not None:
+            pulumi.set(__self__, "os_license", os_license)
+        if performance_data is not None:
+            pulumi.set(__self__, "performance_data", performance_data)
+        if preferred_targets is not None:
+            pulumi.set(__self__, "preferred_targets", preferred_targets)
+        if savings_settings is not None:
+            pulumi.set(__self__, "savings_settings", savings_settings)
+        if scaling_factor is not None:
+            pulumi.set(__self__, "scaling_factor", scaling_factor)
+        if sizing_criterion is not None:
+            pulumi.set(__self__, "sizing_criterion", sizing_criterion)
+        if sql_server_license is not None:
+            pulumi.set(__self__, "sql_server_license", sql_server_license)
+
+    @property
+    @pulumi.getter(name="asyncCommitModeIntent")
+    def async_commit_mode_intent(self) -> Optional[str]:
+        """
+        Gets or sets user preference indicating intent of async commit mode.
+        """
+        return pulumi.get(self, "async_commit_mode_intent")
+
+    @property
+    @pulumi.getter(name="azureLocation")
+    def azure_location(self) -> Optional[str]:
+        """
+        Azure Location or Azure region where to which the machines will be migrated.
+        """
+        return pulumi.get(self, "azure_location")
+
+    @property
+    @pulumi.getter(name="azureSecurityOfferingType")
+    def azure_security_offering_type(self) -> Optional[str]:
+        """
+        Gets or sets a value indicating azure security offering type.
+        """
+        return pulumi.get(self, "azure_security_offering_type")
+
+    @property
+    @pulumi.getter(name="azureSqlDatabaseSettings")
+    def azure_sql_database_settings(self) -> Optional['outputs.SqlDbSettingsV3Response']:
+        """
+        Gets or sets user configurable SQL database settings.
+        """
+        return pulumi.get(self, "azure_sql_database_settings")
+
+    @property
+    @pulumi.getter(name="azureSqlManagedInstanceSettings")
+    def azure_sql_managed_instance_settings(self) -> Optional['outputs.SqlMiSettingsV3Response']:
+        """
+        Gets or sets user configurable SQL managed instance settings.
+        """
+        return pulumi.get(self, "azure_sql_managed_instance_settings")
+
+    @property
+    @pulumi.getter(name="azureSqlVmSettings")
+    def azure_sql_vm_settings(self) -> Optional['outputs.SqlVmSettingsResponse']:
+        """
+        Gets or sets user configurable SQL VM settings.
+        """
+        return pulumi.get(self, "azure_sql_vm_settings")
+
+    @property
+    @pulumi.getter(name="billingSettings")
+    def billing_settings(self) -> Optional['outputs.BillingSettingsResponse']:
+        """
+        Gets or sets the billing settings.
+        """
+        return pulumi.get(self, "billing_settings")
+
+    @property
+    @pulumi.getter
+    def currency(self) -> Optional[str]:
+        """
+        Currency in which prices should be reported.
+        """
+        return pulumi.get(self, "currency")
+
+    @property
+    @pulumi.getter(name="disasterRecoveryLocation")
+    def disaster_recovery_location(self) -> Optional[str]:
+        """
+        Gets or sets the Azure Location or Azure region where to which the machines
+        will be migrated.
+        """
+        return pulumi.get(self, "disaster_recovery_location")
+
+    @property
+    @pulumi.getter(name="discountPercentage")
+    def discount_percentage(self) -> Optional[float]:
+        """
+        Custom discount percentage.
+        """
+        return pulumi.get(self, "discount_percentage")
+
+    @property
+    @pulumi.getter(name="enableHadrAssessment")
+    def enable_hadr_assessment(self) -> Optional[bool]:
+        """
+        Gets or sets a value indicating whether HADR assessments needs to be created.
+        """
+        return pulumi.get(self, "enable_hadr_assessment")
+
+    @property
+    @pulumi.getter(name="entityUptime")
+    def entity_uptime(self) -> Optional['outputs.EntityUptimeResponse']:
+        """
+        Gets or sets the duration for which the entity (SQL, VMs) are up in the
+        on-premises environment.
+        """
+        return pulumi.get(self, "entity_uptime")
+
+    @property
+    @pulumi.getter(name="environmentType")
+    def environment_type(self) -> Optional[str]:
+        """
+        Gets or sets user configurable setting to display the environment type.
+        """
+        return pulumi.get(self, "environment_type")
+
+    @property
+    @pulumi.getter(name="isInternetAccessAvailable")
+    def is_internet_access_available(self) -> Optional[bool]:
+        """
+        Gets or sets a value indicating whether internet access is available.
+        """
+        return pulumi.get(self, "is_internet_access_available")
+
+    @property
+    @pulumi.getter(name="multiSubnetIntent")
+    def multi_subnet_intent(self) -> Optional[str]:
+        """
+        Gets or sets user preference indicating intent of multi-subnet configuration.
+        """
+        return pulumi.get(self, "multi_subnet_intent")
+
+    @property
+    @pulumi.getter(name="osLicense")
+    def os_license(self) -> Optional[str]:
+        """
+        Gets or sets user configurable setting to display the azure hybrid use benefit.
+        """
+        return pulumi.get(self, "os_license")
+
+    @property
+    @pulumi.getter(name="performanceData")
+    def performance_data(self) -> Optional['outputs.PerformanceDataResponse']:
+        """
+        Gets or sets the performance data.
+        """
+        return pulumi.get(self, "performance_data")
+
+    @property
+    @pulumi.getter(name="preferredTargets")
+    def preferred_targets(self) -> Optional[Sequence[str]]:
+        """
+        Gets or sets SQL the preferred azure targets.
+        """
+        return pulumi.get(self, "preferred_targets")
+
+    @property
+    @pulumi.getter(name="savingsSettings")
+    def savings_settings(self) -> Optional['outputs.SavingsSettingsResponse']:
+        """
+        Gets or sets the savings settings.
+        """
+        return pulumi.get(self, "savings_settings")
+
+    @property
+    @pulumi.getter(name="scalingFactor")
+    def scaling_factor(self) -> Optional[float]:
+        """
+        Percentage of buffer that user wants on performance metrics when recommending
+        Azure sizes.
+        """
+        return pulumi.get(self, "scaling_factor")
+
+    @property
+    @pulumi.getter(name="sizingCriterion")
+    def sizing_criterion(self) -> Optional[str]:
+        """
+        Assessment sizing criterion.
+        """
+        return pulumi.get(self, "sizing_criterion")
+
+    @property
+    @pulumi.getter(name="sqlServerLicense")
+    def sql_server_license(self) -> Optional[str]:
+        """
+        SQL server license.
+        """
+        return pulumi.get(self, "sql_server_license")
+
+
+@pulumi.output_type
+class SqlAssessmentV3PropertiesResponse(dict):
+    """
+    SQL assessment properties class.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "fallbackMachineAssessmentArmId":
+            suggest = "fallback_machine_assessment_arm_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlAssessmentV3PropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlAssessmentV3PropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlAssessmentV3PropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 details: Optional['outputs.AssessmentDetailsResponse'] = None,
+                 fallback_machine_assessment_arm_id: Optional[str] = None,
+                 scope: Optional['outputs.ScopeResponse'] = None,
+                 settings: Optional['outputs.SqlAssessmentSettingsResponse'] = None):
+        """
+        SQL assessment properties class.
+        :param str provisioning_state: The status of the last operation.
+        :param 'AssessmentDetailsResponse' details: Gets or sets the details of the assessment.
+        :param str fallback_machine_assessment_arm_id: Gets or sets the machine assessment ARM ID for VM fallback.
+        :param 'ScopeResponse' scope: Gets or sets the scope of assessment.
+        :param 'SqlAssessmentSettingsResponse' settings: Gets or sets the settings for the assessment.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if details is not None:
+            pulumi.set(__self__, "details", details)
+        if fallback_machine_assessment_arm_id is not None:
+            pulumi.set(__self__, "fallback_machine_assessment_arm_id", fallback_machine_assessment_arm_id)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional['outputs.AssessmentDetailsResponse']:
+        """
+        Gets or sets the details of the assessment.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter(name="fallbackMachineAssessmentArmId")
+    def fallback_machine_assessment_arm_id(self) -> Optional[str]:
+        """
+        Gets or sets the machine assessment ARM ID for VM fallback.
+        """
+        return pulumi.get(self, "fallback_machine_assessment_arm_id")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional['outputs.ScopeResponse']:
+        """
+        Gets or sets the scope of assessment.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional['outputs.SqlAssessmentSettingsResponse']:
+        """
+        Gets or sets the settings for the assessment.
+        """
+        return pulumi.get(self, "settings")
+
+
+@pulumi.output_type
 class SqlDatabaseResourceSettingsResponse(dict):
     """
     Defines the Sql Database resource settings.
@@ -11459,6 +13331,88 @@ class SqlDbSettingsResponse(dict):
 
 
 @pulumi.output_type
+class SqlDbSettingsV3Response(dict):
+    """
+    SQL database assessment settings V3.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureSqlComputeTier":
+            suggest = "azure_sql_compute_tier"
+        elif key == "azureSqlDataBaseType":
+            suggest = "azure_sql_data_base_type"
+        elif key == "azureSqlPurchaseModel":
+            suggest = "azure_sql_purchase_model"
+        elif key == "azureSqlServiceTier":
+            suggest = "azure_sql_service_tier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlDbSettingsV3Response. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlDbSettingsV3Response.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlDbSettingsV3Response.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_sql_compute_tier: Optional[str] = None,
+                 azure_sql_data_base_type: Optional[str] = None,
+                 azure_sql_purchase_model: Optional[str] = None,
+                 azure_sql_service_tier: Optional[str] = None):
+        """
+        SQL database assessment settings V3.
+        :param str azure_sql_compute_tier: Gets or sets the azure SQL compute tier.
+        :param str azure_sql_data_base_type: Gets or sets the azure PAAS SQL instance type.
+        :param str azure_sql_purchase_model: Gets or sets the azure SQL purchase model.
+        :param str azure_sql_service_tier: Gets or sets the azure SQL service tier.
+        """
+        if azure_sql_compute_tier is not None:
+            pulumi.set(__self__, "azure_sql_compute_tier", azure_sql_compute_tier)
+        if azure_sql_data_base_type is not None:
+            pulumi.set(__self__, "azure_sql_data_base_type", azure_sql_data_base_type)
+        if azure_sql_purchase_model is not None:
+            pulumi.set(__self__, "azure_sql_purchase_model", azure_sql_purchase_model)
+        if azure_sql_service_tier is not None:
+            pulumi.set(__self__, "azure_sql_service_tier", azure_sql_service_tier)
+
+    @property
+    @pulumi.getter(name="azureSqlComputeTier")
+    def azure_sql_compute_tier(self) -> Optional[str]:
+        """
+        Gets or sets the azure SQL compute tier.
+        """
+        return pulumi.get(self, "azure_sql_compute_tier")
+
+    @property
+    @pulumi.getter(name="azureSqlDataBaseType")
+    def azure_sql_data_base_type(self) -> Optional[str]:
+        """
+        Gets or sets the azure PAAS SQL instance type.
+        """
+        return pulumi.get(self, "azure_sql_data_base_type")
+
+    @property
+    @pulumi.getter(name="azureSqlPurchaseModel")
+    def azure_sql_purchase_model(self) -> Optional[str]:
+        """
+        Gets or sets the azure SQL purchase model.
+        """
+        return pulumi.get(self, "azure_sql_purchase_model")
+
+    @property
+    @pulumi.getter(name="azureSqlServiceTier")
+    def azure_sql_service_tier(self) -> Optional[str]:
+        """
+        Gets or sets the azure SQL service tier.
+        """
+        return pulumi.get(self, "azure_sql_service_tier")
+
+
+@pulumi.output_type
 class SqlElasticPoolResourceSettingsResponse(dict):
     """
     Defines the Sql ElasticPool resource settings.
@@ -11582,6 +13536,60 @@ class SqlMiSettingsResponse(dict):
                  azure_sql_service_tier: Optional[str] = None):
         """
         SQL managed instance assessment settings.
+        :param str azure_sql_instance_type: Gets or sets the azure PAAS SQL instance type.
+        :param str azure_sql_service_tier: Gets or sets the azure SQL service tier.
+        """
+        if azure_sql_instance_type is not None:
+            pulumi.set(__self__, "azure_sql_instance_type", azure_sql_instance_type)
+        if azure_sql_service_tier is not None:
+            pulumi.set(__self__, "azure_sql_service_tier", azure_sql_service_tier)
+
+    @property
+    @pulumi.getter(name="azureSqlInstanceType")
+    def azure_sql_instance_type(self) -> Optional[str]:
+        """
+        Gets or sets the azure PAAS SQL instance type.
+        """
+        return pulumi.get(self, "azure_sql_instance_type")
+
+    @property
+    @pulumi.getter(name="azureSqlServiceTier")
+    def azure_sql_service_tier(self) -> Optional[str]:
+        """
+        Gets or sets the azure SQL service tier.
+        """
+        return pulumi.get(self, "azure_sql_service_tier")
+
+
+@pulumi.output_type
+class SqlMiSettingsV3Response(dict):
+    """
+    SQL managed instance assessment settings V3.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureSqlInstanceType":
+            suggest = "azure_sql_instance_type"
+        elif key == "azureSqlServiceTier":
+            suggest = "azure_sql_service_tier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlMiSettingsV3Response. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlMiSettingsV3Response.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlMiSettingsV3Response.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_sql_instance_type: Optional[str] = None,
+                 azure_sql_service_tier: Optional[str] = None):
+        """
+        SQL managed instance assessment settings V3.
         :param str azure_sql_instance_type: Gets or sets the azure PAAS SQL instance type.
         :param str azure_sql_service_tier: Gets or sets the azure SQL service tier.
         """
@@ -12058,6 +14066,72 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TargetAssessmentArmIdsResponse(dict):
+    """
+    ARM IDs of the target assessments.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureAppService":
+            suggest = "azure_app_service"
+        elif key == "azureAppServiceContainer":
+            suggest = "azure_app_service_container"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetAssessmentArmIdsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetAssessmentArmIdsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetAssessmentArmIdsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aks: Optional[str] = None,
+                 azure_app_service: Optional[str] = None,
+                 azure_app_service_container: Optional[str] = None):
+        """
+        ARM IDs of the target assessments.
+        :param str aks: ARM ID for Azure Kubernetes Service assessment.
+        :param str azure_app_service: ARM ID for Azure App Service assessment.
+        :param str azure_app_service_container: ARM ID for Azure App Service Container assessment.
+        """
+        if aks is not None:
+            pulumi.set(__self__, "aks", aks)
+        if azure_app_service is not None:
+            pulumi.set(__self__, "azure_app_service", azure_app_service)
+        if azure_app_service_container is not None:
+            pulumi.set(__self__, "azure_app_service_container", azure_app_service_container)
+
+    @property
+    @pulumi.getter
+    def aks(self) -> Optional[str]:
+        """
+        ARM ID for Azure Kubernetes Service assessment.
+        """
+        return pulumi.get(self, "aks")
+
+    @property
+    @pulumi.getter(name="azureAppService")
+    def azure_app_service(self) -> Optional[str]:
+        """
+        ARM ID for Azure App Service assessment.
+        """
+        return pulumi.get(self, "azure_app_service")
+
+    @property
+    @pulumi.getter(name="azureAppServiceContainer")
+    def azure_app_service_container(self) -> Optional[str]:
+        """
+        ARM ID for Azure App Service Container assessment.
+        """
+        return pulumi.get(self, "azure_app_service_container")
 
 
 @pulumi.output_type
@@ -12724,6 +14798,286 @@ class VmUptimeResponse(dict):
         Number of hours per day for VM uptime.
         """
         return pulumi.get(self, "hours_per_day")
+
+
+@pulumi.output_type
+class WebAppAssessmentSettingsResponse(dict):
+    """
+    Web app assessment settings class.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appSvcContainerSettings":
+            suggest = "app_svc_container_settings"
+        elif key == "appSvcNativeSettings":
+            suggest = "app_svc_native_settings"
+        elif key == "azureSecurityOfferingType":
+            suggest = "azure_security_offering_type"
+        elif key == "azureLocation":
+            suggest = "azure_location"
+        elif key == "billingSettings":
+            suggest = "billing_settings"
+        elif key == "discountPercentage":
+            suggest = "discount_percentage"
+        elif key == "environmentType":
+            suggest = "environment_type"
+        elif key == "performanceData":
+            suggest = "performance_data"
+        elif key == "savingsSettings":
+            suggest = "savings_settings"
+        elif key == "scalingFactor":
+            suggest = "scaling_factor"
+        elif key == "sizingCriterion":
+            suggest = "sizing_criterion"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAppAssessmentSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAppAssessmentSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAppAssessmentSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_svc_container_settings: 'outputs.AppSvcContainerSettingsResponse',
+                 app_svc_native_settings: 'outputs.AppSvcNativeSettingsResponse',
+                 azure_security_offering_type: str,
+                 azure_location: Optional[str] = None,
+                 billing_settings: Optional['outputs.BillingSettingsResponse'] = None,
+                 currency: Optional[str] = None,
+                 discount_percentage: Optional[float] = None,
+                 environment_type: Optional[str] = None,
+                 performance_data: Optional['outputs.PerformanceDataResponse'] = None,
+                 savings_settings: Optional['outputs.SavingsSettingsResponse'] = None,
+                 scaling_factor: Optional[float] = None,
+                 sizing_criterion: Optional[str] = None):
+        """
+        Web app assessment settings class.
+        :param 'AppSvcContainerSettingsResponse' app_svc_container_settings: App Service container settings.
+        :param 'AppSvcNativeSettingsResponse' app_svc_native_settings: App Service native settings.
+        :param str azure_security_offering_type: Azure security offering type.
+        :param str azure_location: Azure Location or Azure region where to which the machines will be migrated.
+        :param 'BillingSettingsResponse' billing_settings: Gets or sets the billing settings.
+        :param str currency: Currency in which prices should be reported.
+        :param float discount_percentage: Custom discount percentage.
+        :param str environment_type: Gets or sets user configurable setting to display the environment type.
+        :param 'PerformanceDataResponse' performance_data: Gets or sets the performance data.
+        :param 'SavingsSettingsResponse' savings_settings: Gets or sets the savings settings.
+        :param float scaling_factor: Percentage of buffer that user wants on performance metrics when recommending
+               Azure sizes.
+        :param str sizing_criterion: Assessment sizing criterion.
+        """
+        pulumi.set(__self__, "app_svc_container_settings", app_svc_container_settings)
+        pulumi.set(__self__, "app_svc_native_settings", app_svc_native_settings)
+        pulumi.set(__self__, "azure_security_offering_type", azure_security_offering_type)
+        if azure_location is not None:
+            pulumi.set(__self__, "azure_location", azure_location)
+        if billing_settings is not None:
+            pulumi.set(__self__, "billing_settings", billing_settings)
+        if currency is not None:
+            pulumi.set(__self__, "currency", currency)
+        if discount_percentage is not None:
+            pulumi.set(__self__, "discount_percentage", discount_percentage)
+        if environment_type is not None:
+            pulumi.set(__self__, "environment_type", environment_type)
+        if performance_data is not None:
+            pulumi.set(__self__, "performance_data", performance_data)
+        if savings_settings is not None:
+            pulumi.set(__self__, "savings_settings", savings_settings)
+        if scaling_factor is not None:
+            pulumi.set(__self__, "scaling_factor", scaling_factor)
+        if sizing_criterion is not None:
+            pulumi.set(__self__, "sizing_criterion", sizing_criterion)
+
+    @property
+    @pulumi.getter(name="appSvcContainerSettings")
+    def app_svc_container_settings(self) -> 'outputs.AppSvcContainerSettingsResponse':
+        """
+        App Service container settings.
+        """
+        return pulumi.get(self, "app_svc_container_settings")
+
+    @property
+    @pulumi.getter(name="appSvcNativeSettings")
+    def app_svc_native_settings(self) -> 'outputs.AppSvcNativeSettingsResponse':
+        """
+        App Service native settings.
+        """
+        return pulumi.get(self, "app_svc_native_settings")
+
+    @property
+    @pulumi.getter(name="azureSecurityOfferingType")
+    def azure_security_offering_type(self) -> str:
+        """
+        Azure security offering type.
+        """
+        return pulumi.get(self, "azure_security_offering_type")
+
+    @property
+    @pulumi.getter(name="azureLocation")
+    def azure_location(self) -> Optional[str]:
+        """
+        Azure Location or Azure region where to which the machines will be migrated.
+        """
+        return pulumi.get(self, "azure_location")
+
+    @property
+    @pulumi.getter(name="billingSettings")
+    def billing_settings(self) -> Optional['outputs.BillingSettingsResponse']:
+        """
+        Gets or sets the billing settings.
+        """
+        return pulumi.get(self, "billing_settings")
+
+    @property
+    @pulumi.getter
+    def currency(self) -> Optional[str]:
+        """
+        Currency in which prices should be reported.
+        """
+        return pulumi.get(self, "currency")
+
+    @property
+    @pulumi.getter(name="discountPercentage")
+    def discount_percentage(self) -> Optional[float]:
+        """
+        Custom discount percentage.
+        """
+        return pulumi.get(self, "discount_percentage")
+
+    @property
+    @pulumi.getter(name="environmentType")
+    def environment_type(self) -> Optional[str]:
+        """
+        Gets or sets user configurable setting to display the environment type.
+        """
+        return pulumi.get(self, "environment_type")
+
+    @property
+    @pulumi.getter(name="performanceData")
+    def performance_data(self) -> Optional['outputs.PerformanceDataResponse']:
+        """
+        Gets or sets the performance data.
+        """
+        return pulumi.get(self, "performance_data")
+
+    @property
+    @pulumi.getter(name="savingsSettings")
+    def savings_settings(self) -> Optional['outputs.SavingsSettingsResponse']:
+        """
+        Gets or sets the savings settings.
+        """
+        return pulumi.get(self, "savings_settings")
+
+    @property
+    @pulumi.getter(name="scalingFactor")
+    def scaling_factor(self) -> Optional[float]:
+        """
+        Percentage of buffer that user wants on performance metrics when recommending
+        Azure sizes.
+        """
+        return pulumi.get(self, "scaling_factor")
+
+    @property
+    @pulumi.getter(name="sizingCriterion")
+    def sizing_criterion(self) -> Optional[str]:
+        """
+        Assessment sizing criterion.
+        """
+        return pulumi.get(self, "sizing_criterion")
+
+
+@pulumi.output_type
+class WebAppAssessmentV3PropertiesResponse(dict):
+    """
+    WebApp assessment resource properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "fallbackMachineAssessmentArmId":
+            suggest = "fallback_machine_assessment_arm_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAppAssessmentV3PropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAppAssessmentV3PropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAppAssessmentV3PropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 details: Optional['outputs.AssessmentDetailsResponse'] = None,
+                 fallback_machine_assessment_arm_id: Optional[str] = None,
+                 scope: Optional['outputs.ScopeResponse'] = None,
+                 settings: Optional['outputs.WebAppAssessmentSettingsResponse'] = None):
+        """
+        WebApp assessment resource properties.
+        :param str provisioning_state: The status of the last operation.
+        :param 'AssessmentDetailsResponse' details: Gets or sets the details of the assessment.
+        :param str fallback_machine_assessment_arm_id: Gets or sets the machine assessment ARM ID for VM fallback.
+        :param 'ScopeResponse' scope: Gets or sets the scope of assessment.
+        :param 'WebAppAssessmentSettingsResponse' settings: Gets or sets the settings for the assessment.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if details is not None:
+            pulumi.set(__self__, "details", details)
+        if fallback_machine_assessment_arm_id is not None:
+            pulumi.set(__self__, "fallback_machine_assessment_arm_id", fallback_machine_assessment_arm_id)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional['outputs.AssessmentDetailsResponse']:
+        """
+        Gets or sets the details of the assessment.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter(name="fallbackMachineAssessmentArmId")
+    def fallback_machine_assessment_arm_id(self) -> Optional[str]:
+        """
+        Gets or sets the machine assessment ARM ID for VM fallback.
+        """
+        return pulumi.get(self, "fallback_machine_assessment_arm_id")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional['outputs.ScopeResponse']:
+        """
+        Gets or sets the scope of assessment.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional['outputs.WebAppAssessmentSettingsResponse']:
+        """
+        Gets or sets the settings for the assessment.
+        """
+        return pulumi.get(self, "settings")
 
 
 @pulumi.output_type

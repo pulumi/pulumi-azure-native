@@ -122,7 +122,7 @@ class ScopeMap(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
 
-        Other available API versions: 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2022-12-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2022-12-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,7 +145,7 @@ class ScopeMap(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
 
-        Other available API versions: 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2022-12-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2022-12-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ScopeMapArgs args: The arguments to use to populate this resource's properties.
@@ -193,7 +193,7 @@ class ScopeMap(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry/v20190501preview:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20201101preview:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20210601preview:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20210801preview:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20211201preview:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20220201preview:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20221201:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20230101preview:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20230601preview:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20230701:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20230801preview:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20231101preview:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20241101preview:ScopeMap")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry/v20190501preview:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20201101preview:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20210601preview:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20210801preview:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20211201preview:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20220201preview:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20221201:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20230101preview:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20230601preview:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20230701:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20230801preview:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20231101preview:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20241101preview:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20250301preview:ScopeMap")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ScopeMap, __self__).__init__(
             'azure-native:containerregistry:ScopeMap',
