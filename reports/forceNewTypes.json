@@ -2277,6 +2277,20 @@
   {
     "VersionedModule": "azurestackhci/v20250201preview",
     "Module": "AzureStackHCI",
+    "ResourceName": "HciEdgeDeviceJob",
+    "ReferenceName": "HciEdgeDeviceJobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20250201preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "HciEdgeDeviceJob",
+    "ReferenceName": "HciEdgeDeviceJobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20250201preview",
+    "Module": "AzureStackHCI",
     "ResourceName": "NetworkInterface",
     "ReferenceName": "IPConfiguration",
     "Property": "name"
@@ -3354,6 +3368,83 @@
   },
   {
     "VersionedModule": "containerservice/v20240502preview",
+    "Module": "ContainerService",
+    "ResourceName": "UpdateRun",
+    "ReferenceName": "NodeImageSelection",
+    "Property": "nodeImageSelection"
+  },
+  {
+    "VersionedModule": "containerservice/v20250301",
+    "Module": "ContainerService",
+    "ResourceName": "AutoUpgradeProfile",
+    "ReferenceName": "AutoUpgradeNodeImageSelectionType",
+    "Property": "type"
+  },
+  {
+    "VersionedModule": "containerservice/v20250301",
+    "Module": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "SubnetResourceId",
+    "Property": "subnetId"
+  },
+  {
+    "VersionedModule": "containerservice/v20250301",
+    "Module": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "AgentProfile",
+    "Property": "vmSize"
+  },
+  {
+    "VersionedModule": "containerservice/v20250301",
+    "Module": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "AgentProfile",
+    "Property": "agentProfile"
+  },
+  {
+    "VersionedModule": "containerservice/v20250301",
+    "Module": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "APIServerAccessProfile",
+    "Property": "enablePrivateCluster"
+  },
+  {
+    "VersionedModule": "containerservice/v20250301",
+    "Module": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "APIServerAccessProfile",
+    "Property": "enableVnetIntegration"
+  },
+  {
+    "VersionedModule": "containerservice/v20250301",
+    "Module": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "SubnetResourceId",
+    "Property": "subnetId"
+  },
+  {
+    "VersionedModule": "containerservice/v20250301",
+    "Module": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "APIServerAccessProfile",
+    "Property": "apiServerAccessProfile"
+  },
+  {
+    "VersionedModule": "containerservice/v20250301",
+    "Module": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "FleetHubProfile",
+    "Property": "dnsPrefix"
+  },
+  {
+    "VersionedModule": "containerservice/v20250301",
+    "Module": "ContainerService",
+    "ResourceName": "UpdateRun",
+    "ReferenceName": "NodeImageSelectionType",
+    "Property": "type"
+  },
+  {
+    "VersionedModule": "containerservice/v20250301",
     "Module": "ContainerService",
     "ResourceName": "UpdateRun",
     "ReferenceName": "NodeImageSelection",
@@ -5874,6 +5965,13 @@
   },
   {
     "VersionedModule": "datamigration/v20230715preview",
+    "Module": "DataMigration",
+    "ResourceName": "DatabaseMigrationsSqlDb",
+    "ReferenceName": "DatabaseMigrationBaseProperties",
+    "Property": "scope"
+  },
+  {
+    "VersionedModule": "datamigration/v20250315preview",
     "Module": "DataMigration",
     "ResourceName": "DatabaseMigrationsSqlDb",
     "ReferenceName": "DatabaseMigrationBaseProperties",
@@ -77910,6 +78008,216 @@
     "Property": "zones"
   },
   {
+    "VersionedModule": "netapp/v20250101",
+    "Module": "NetApp",
+    "ResourceName": "CapacityPoolVolume",
+    "ReferenceName": "remotePath",
+    "Property": "remotePath"
+  },
+  {
+    "VersionedModule": "netapp/v20250101",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "avsDataStore"
+  },
+  {
+    "VersionedModule": "netapp/v20250101",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "backupId"
+  },
+  {
+    "VersionedModule": "netapp/v20250101",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "creationToken"
+  },
+  {
+    "VersionedModule": "netapp/v20250101",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "remotePath",
+    "Property": "remotePath"
+  },
+  {
+    "VersionedModule": "netapp/v20250101",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "isLargeVolume"
+  },
+  {
+    "VersionedModule": "netapp/v20250101",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "kerberosEnabled"
+  },
+  {
+    "VersionedModule": "netapp/v20250101",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "ldapEnabled"
+  },
+  {
+    "VersionedModule": "netapp/v20250101",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "networkFeatures",
+    "Property": "networkFeatures"
+  },
+  {
+    "VersionedModule": "netapp/v20250101",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "securityStyle"
+  },
+  {
+    "VersionedModule": "netapp/v20250101",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "snapshotId"
+  },
+  {
+    "VersionedModule": "netapp/v20250101",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "volumeType"
+  },
+  {
+    "VersionedModule": "netapp/v20250101",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeGroupVolumeProperties",
+    "Property": "zones"
+  },
+  {
+    "VersionedModule": "netapp/v20250101preview",
+    "Module": "NetApp",
+    "ResourceName": "CapacityPoolVolume",
+    "ReferenceName": "remotePath",
+    "Property": "remotePath"
+  },
+  {
+    "VersionedModule": "netapp/v20250101preview",
+    "Module": "NetApp",
+    "ResourceName": "CapacityPoolVolume",
+    "ReferenceName": "replicationObject",
+    "Property": "remoteVolumeResourceId"
+  },
+  {
+    "VersionedModule": "netapp/v20250101preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "acceptGrowCapacityPoolForShortTermCloneSplit"
+  },
+  {
+    "VersionedModule": "netapp/v20250101preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "avsDataStore"
+  },
+  {
+    "VersionedModule": "netapp/v20250101preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "backupId"
+  },
+  {
+    "VersionedModule": "netapp/v20250101preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "creationToken"
+  },
+  {
+    "VersionedModule": "netapp/v20250101preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "remotePath",
+    "Property": "remotePath"
+  },
+  {
+    "VersionedModule": "netapp/v20250101preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "replicationObject",
+    "Property": "remoteVolumeResourceId"
+  },
+  {
+    "VersionedModule": "netapp/v20250101preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "isLargeVolume"
+  },
+  {
+    "VersionedModule": "netapp/v20250101preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "kerberosEnabled"
+  },
+  {
+    "VersionedModule": "netapp/v20250101preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "ldapEnabled"
+  },
+  {
+    "VersionedModule": "netapp/v20250101preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "ldapServerType",
+    "Property": "ldapServerType"
+  },
+  {
+    "VersionedModule": "netapp/v20250101preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "networkFeatures",
+    "Property": "networkFeatures"
+  },
+  {
+    "VersionedModule": "netapp/v20250101preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "securityStyle"
+  },
+  {
+    "VersionedModule": "netapp/v20250101preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "snapshotId"
+  },
+  {
+    "VersionedModule": "netapp/v20250101preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "volumeType"
+  },
+  {
+    "VersionedModule": "netapp/v20250101preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeGroupVolumeProperties",
+    "Property": "zones"
+  },
+  {
     "VersionedModule": "networkcloud",
     "Module": "NetworkCloud",
     "ResourceName": "AgentPool",
@@ -83699,6 +84007,34 @@
     "Property": "name"
   },
   {
+    "VersionedModule": "redisenterprise/v20250501preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "DatabaseProperties",
+    "Property": "groupNickname"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20250501preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "LinkedDatabase",
+    "Property": "id"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20250501preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "args"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20250501preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "name"
+  },
+  {
     "VersionedModule": "scvmm/v20231007",
     "Module": "ScVmm",
     "ResourceName": "VirtualMachineInstance",
@@ -83840,6 +84176,83 @@
   },
   {
     "VersionedModule": "scvmm/v20240601",
+    "Module": "ScVmm",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "VirtualDisk",
+    "Property": "templateDiskId"
+  },
+  {
+    "VersionedModule": "scvmm/v20250313",
+    "Module": "ScVmm",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "InfrastructureProfile",
+    "Property": "biosGuid"
+  },
+  {
+    "VersionedModule": "scvmm/v20250313",
+    "Module": "ScVmm",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "InfrastructureProfile",
+    "Property": "cloudId"
+  },
+  {
+    "VersionedModule": "scvmm/v20250313",
+    "Module": "ScVmm",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "InfrastructureProfile",
+    "Property": "generation"
+  },
+  {
+    "VersionedModule": "scvmm/v20250313",
+    "Module": "ScVmm",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "InfrastructureProfile",
+    "Property": "inventoryItemId"
+  },
+  {
+    "VersionedModule": "scvmm/v20250313",
+    "Module": "ScVmm",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "InfrastructureProfile",
+    "Property": "templateId"
+  },
+  {
+    "VersionedModule": "scvmm/v20250313",
+    "Module": "ScVmm",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "InfrastructureProfile",
+    "Property": "uuid"
+  },
+  {
+    "VersionedModule": "scvmm/v20250313",
+    "Module": "ScVmm",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "InfrastructureProfile",
+    "Property": "vmName"
+  },
+  {
+    "VersionedModule": "scvmm/v20250313",
+    "Module": "ScVmm",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "InfrastructureProfile",
+    "Property": "vmmServerId"
+  },
+  {
+    "VersionedModule": "scvmm/v20250313",
+    "Module": "ScVmm",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "OsProfileForVmInstance",
+    "Property": "productKey"
+  },
+  {
+    "VersionedModule": "scvmm/v20250313",
+    "Module": "ScVmm",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "CreateDiffDisk",
+    "Property": "createDiffDisk"
+  },
+  {
+    "VersionedModule": "scvmm/v20250313",
     "Module": "ScVmm",
     "ResourceName": "VirtualMachineInstance",
     "ReferenceName": "VirtualDisk",
