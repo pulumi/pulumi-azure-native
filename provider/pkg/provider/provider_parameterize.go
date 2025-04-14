@@ -52,7 +52,7 @@ func deserializeParameterizeArgs(in []byte) (*parameterizeArgs, error) {
 }
 
 // parseApiVersion parses an Azure API version from the given string. Since the input comes from users (via `package
-// add`), it tries to be lenient and accept several formats. The returned result, if successful, is an "SDL version" of
+// add`), it tries to be lenient and accept several formats. The returned result, if successful, is an "SDK version" of
 // the form v20200101.
 func parseApiVersion(version string) (string, error) {
 	v := strings.TrimSpace(version)
@@ -121,7 +121,11 @@ func (p *azureNativeProvider) Parameterize(ctx context.Context, req *rpc.Paramet
 	logging.V(9).Infof("Creating parameterized Azure Native for %s %s", args.Module, args.Version)
 
 	var schema pschema.PackageSpec
-	err = json.Unmarshal(p.schemaBytes, &schema)
+	fullSchemaUnzipped, err := util.GunzipBytes(p.fullSchemaZipped)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "failed to unzip full schema: %v", err)
+	}
+	err = json.Unmarshal([]byte(fullSchemaUnzipped), &schema)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "failed to unmarshal schema: %v", err)
 	}
@@ -150,13 +154,17 @@ func (p *azureNativeProvider) Parameterize(ctx context.Context, req *rpc.Paramet
 		return nil, status.Errorf(codes.Internal, "failed to marshal schema: %v", err)
 	}
 	s = updateRefs(s, newPackageName, args.Module, args.Version)
+	newSchemaZipped, err := util.GzipBytes(s)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "failed to gzip new schema: %v", err)
+	}
 
 	newMetadata, err = updateMetadataRefs(newMetadata, newPackageName, args.Module, args.Version)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "failed to update metadata $refs: %v", err)
 	}
 
-	p.schemaBytes = s
+	p.defaultSchemaZipped = newSchemaZipped
 	p.resourceMap = newMetadata
 	p.name = newPackageName
 
