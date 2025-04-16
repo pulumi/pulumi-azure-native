@@ -6289,6 +6289,7 @@
           "Spain Central",
           "UAE Central",
           "New Zealand North",
+          "Indonesia Central",
           "East US 2 EUAP"
         ],
         "resourceType": "checkNameAvailability"
@@ -6360,6 +6361,7 @@
           "Spain Central",
           "New Zealand North",
           "UAE Central",
+          "Indonesia Central",
           "East US 2 EUAP"
         ],
         "resourceType": "configurationStores"
@@ -6431,6 +6433,7 @@
           "Spain Central",
           "New Zealand North",
           "UAE Central",
+          "Indonesia Central",
           "East US 2 EUAP"
         ],
         "resourceType": "configurationStores/eventGridFilters"
@@ -6498,6 +6501,7 @@
           "Spain Central",
           "New Zealand North",
           "UAE Central",
+          "Indonesia Central",
           "East US 2 EUAP"
         ],
         "resourceType": "configurationStores/keyValues"
@@ -6561,6 +6565,7 @@
           "Spain Central",
           "New Zealand North",
           "UAE Central",
+          "Indonesia Central",
           "East US 2 EUAP"
         ],
         "resourceType": "configurationStores/replicas"
@@ -6622,6 +6627,7 @@
           "Spain Central",
           "New Zealand North",
           "UAE Central",
+          "Indonesia Central",
           "East US 2 EUAP"
         ],
         "resourceType": "configurationStores/snapshots"
@@ -6687,6 +6693,7 @@
           "Spain Central",
           "New Zealand North",
           "UAE Central",
+          "Indonesia Central",
           "East US 2 EUAP"
         ],
         "resourceType": "deletedConfigurationStores"
@@ -6758,6 +6765,7 @@
           "Spain Central",
           "UAE Central",
           "New Zealand North",
+          "Indonesia Central",
           "East US 2 EUAP"
         ],
         "resourceType": "locations"
@@ -6823,6 +6831,7 @@
           "Spain Central",
           "New Zealand North",
           "UAE Central",
+          "Indonesia Central",
           "East US 2 EUAP"
         ],
         "resourceType": "locations/checkNameAvailability"
@@ -6888,6 +6897,7 @@
           "Spain Central",
           "New Zealand North",
           "UAE Central",
+          "Indonesia Central",
           "East US 2 EUAP"
         ],
         "resourceType": "locations/deletedConfigurationStores"
@@ -6970,6 +6980,7 @@
           "Spain Central",
           "New Zealand North",
           "UAE Central",
+          "Indonesia Central",
           "East US 2 EUAP"
         ],
         "resourceType": "locations/operationsStatus"
@@ -23458,37 +23469,6 @@
         "defaultApiVersion": null,
         "locations": [],
         "resourceType": "resourceChanges"
-      }
-    ]
-  },
-  {
-    "namespace": "Microsoft.ChangeSafety",
-    "resourceTypes": [
-      {
-        "apiVersions": [
-          "2024-10-01-preview"
-        ],
-        "defaultApiVersion": "2024-10-01-preview",
-        "locations": [],
-        "resourceType": "locations"
-      },
-      {
-        "apiVersions": [
-          "2024-10-01-preview"
-        ],
-        "defaultApiVersion": "2024-10-01-preview",
-        "locations": [
-          "East US 2"
-        ],
-        "resourceType": "locations/operationstatuses"
-      },
-      {
-        "apiVersions": [
-          "2024-10-01-preview"
-        ],
-        "defaultApiVersion": "2024-10-01-preview",
-        "locations": [],
-        "resourceType": "operations"
       }
     ]
   },
@@ -59172,7 +59152,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2024-10-01-preview",
           "2024-07-01",
           "2024-06-01-preview",
@@ -59315,7 +59294,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2024-10-01-preview",
           "2024-07-01",
           "2024-06-01-preview",
@@ -59360,7 +59338,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2024-10-01-preview",
           "2024-07-01",
           "2024-06-01-preview",
@@ -59820,7 +59797,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2024-10-01-preview",
           "2024-07-01",
           "2024-06-01-preview",
@@ -59918,7 +59894,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2024-12-01-preview",
           "2024-11-15",
           "2024-10-01-preview",
@@ -90725,6 +90700,7 @@
           "UAE Central",
           "New Zealand North",
           "Qatar Central",
+          "Indonesia Central",
           "Poland Central",
           "Central US EUAP",
           "East US 2 EUAP"
@@ -90782,6 +90758,7 @@
           "UAE Central",
           "New Zealand North",
           "Qatar Central",
+          "Indonesia Central",
           "Poland Central",
           "Central US EUAP",
           "East US 2 EUAP"
@@ -90839,6 +90816,7 @@
           "UAE Central",
           "New Zealand North",
           "Qatar Central",
+          "Indonesia Central",
           "Poland Central",
           "Central US EUAP",
           "East US 2 EUAP"
@@ -90925,6 +90903,7 @@
           "UAE Central",
           "New Zealand North",
           "Qatar Central",
+          "Indonesia Central",
           "Poland Central",
           "Central US EUAP",
           "East US 2 EUAP"
@@ -90979,6 +90958,62 @@
           "UAE Central",
           "New Zealand North",
           "Qatar Central",
+          "Indonesia Central",
+          "Poland Central",
+          "Central US EUAP",
+          "East US 2 EUAP"
+        ],
+        "resourceType": "dnsResolverDomainLists/bulk"
+      },
+      {
+        "apiVersions": [
+          "2025-05-01",
+          "2023-07-01-preview"
+        ],
+        "defaultApiVersion": "2023-07-01-preview",
+        "locations": [
+          "West Central US",
+          "East US",
+          "UK South",
+          "East US 2",
+          "West Europe",
+          "North Europe",
+          "Australia East",
+          "South Central US",
+          "North Central US",
+          "West US 2",
+          "West US 3",
+          "Southeast Asia",
+          "Central India",
+          "Canada Central",
+          "Central US",
+          "France Central",
+          "Japan East",
+          "Germany West Central",
+          "South Africa North",
+          "Korea Central",
+          "Sweden Central",
+          "East Asia",
+          "Switzerland North",
+          "Brazil South",
+          "West US",
+          "Norway East",
+          "UAE North",
+          "Australia Southeast",
+          "Canada East",
+          "Japan West",
+          "Italy North",
+          "Israel Central",
+          "Uk West",
+          "South India",
+          "Spain Central",
+          "Mexico Central",
+          "Germany North",
+          "Australia Central",
+          "UAE Central",
+          "New Zealand North",
+          "Qatar Central",
+          "Indonesia Central",
           "Poland Central",
           "Central US EUAP",
           "East US 2 EUAP"
@@ -91033,6 +91068,7 @@
           "UAE Central",
           "New Zealand North",
           "Qatar Central",
+          "Indonesia Central",
           "Poland Central",
           "Central US EUAP",
           "East US 2 EUAP"
@@ -91087,6 +91123,7 @@
           "UAE Central",
           "New Zealand North",
           "Qatar Central",
+          "Indonesia Central",
           "Poland Central",
           "Central US EUAP",
           "East US 2 EUAP"
@@ -91144,6 +91181,7 @@
           "UAE Central",
           "New Zealand North",
           "Qatar Central",
+          "Indonesia Central",
           "Poland Central",
           "Central US EUAP",
           "East US 2 EUAP"
@@ -91201,6 +91239,7 @@
           "UAE Central",
           "New Zealand North",
           "Qatar Central",
+          "Indonesia Central",
           "Poland Central",
           "Central US EUAP",
           "East US 2 EUAP"
@@ -91258,6 +91297,7 @@
           "UAE Central",
           "New Zealand North",
           "Qatar Central",
+          "Indonesia Central",
           "Poland Central",
           "Central US EUAP",
           "East US 2 EUAP"
@@ -100232,6 +100272,7 @@
           "UAE Central",
           "New Zealand North",
           "Qatar Central",
+          "Indonesia Central",
           "Poland Central",
           "Central US EUAP",
           "East US 2 EUAP"
@@ -100286,6 +100327,7 @@
           "UAE Central",
           "New Zealand North",
           "Qatar Central",
+          "Indonesia Central",
           "Poland Central",
           "Central US EUAP",
           "East US 2 EUAP"
@@ -100343,6 +100385,7 @@
           "UAE Central",
           "New Zealand North",
           "Qatar Central",
+          "Indonesia Central",
           "Poland Central",
           "Central US EUAP",
           "East US 2 EUAP"
@@ -143335,60 +143378,6 @@
           "Central US EUAP"
         ],
         "resourceType": "storageTasks"
-      },
-      {
-        "apiVersions": [
-          "2023-01-01"
-        ],
-        "defaultApiVersion": "2023-01-01",
-        "locations": [
-          "West US",
-          "West Europe",
-          "Southeast Asia",
-          "North Central US",
-          "South Central US",
-          "Central US",
-          "North Europe",
-          "Brazil South",
-          "Australia East",
-          "Australia Southeast",
-          "Central India",
-          "Canada Central",
-          "West US 2",
-          "France Central",
-          "Switzerland North",
-          "Germany West Central",
-          "East US 2 EUAP",
-          "Central US EUAP"
-        ],
-        "resourceType": "storageTasks/reports"
-      },
-      {
-        "apiVersions": [
-          "2023-01-01"
-        ],
-        "defaultApiVersion": "2023-01-01",
-        "locations": [
-          "West US",
-          "West Europe",
-          "Southeast Asia",
-          "North Central US",
-          "South Central US",
-          "Central US",
-          "North Europe",
-          "Brazil South",
-          "Australia East",
-          "Australia Southeast",
-          "Central India",
-          "Canada Central",
-          "West US 2",
-          "France Central",
-          "Switzerland North",
-          "Germany West Central",
-          "East US 2 EUAP",
-          "Central US EUAP"
-        ],
-        "resourceType": "storageTasks/storageTaskAssignments"
       }
     ]
   },

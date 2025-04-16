@@ -2765,6 +2765,7 @@ BotService:
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.BotService/listQnAMakerEndpointKeys
         RpNamespace: Microsoft.BotService
 Capacity: {}
+Carbon: {}
 Cdn:
     AFDCustomDomain:
         ApiVersion: "2024-09-01"
