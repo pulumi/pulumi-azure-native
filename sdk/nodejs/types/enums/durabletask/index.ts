@@ -16,7 +16,7 @@ export const PurgeableOrchestrationState = {
      */
     Terminated: "Terminated",
     /**
-     * The orchestration is terminated
+     * The orchestration is canceled
      */
     Canceled: "Canceled",
 } as const;

@@ -46,6 +46,10 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AzureVmFamilies;
         /// <summary>
+        /// Gets or sets the Azure VM security options.
+        /// </summary>
+        public readonly ImmutableArray<string> AzureVmSecurityOptions;
+        /// <summary>
         /// Gets or sets the billing settings.
         /// </summary>
         public readonly Outputs.BillingSettingsResponse? BillingSettings;
@@ -105,6 +109,8 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 
             ImmutableArray<string> azureVmFamilies,
 
+            ImmutableArray<string> azureVmSecurityOptions,
+
             Outputs.BillingSettingsResponse? billingSettings,
 
             string? currency,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.Migrate.Outputs
             AzureSecurityOfferingType = azureSecurityOfferingType;
             AzureStorageRedundancy = azureStorageRedundancy;
             AzureVmFamilies = azureVmFamilies;
+            AzureVmSecurityOptions = azureVmSecurityOptions;
             BillingSettings = billingSettings;
             Currency = currency;
             DiscountPercentage = discountPercentage;

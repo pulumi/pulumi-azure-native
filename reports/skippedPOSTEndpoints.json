@@ -411,6 +411,10 @@
     "Reservation_Unarchive": "/providers/Microsoft.Capacity/reservationOrders/{reservationOrderId}/reservations/{reservationId}/unarchive",
     "Return_Post": "/providers/Microsoft.Capacity/reservationOrders/{reservationOrderId}/return"
   },
+  "Carbon": {
+    "CarbonService_QueryCarbonEmissionDataAvailableDateRange": "/providers/Microsoft.Carbon/queryCarbonEmissionDataAvailableDateRange",
+    "CarbonService_QueryCarbonEmissionReports": "/providers/Microsoft.Carbon/carbonEmissionReports"
+  },
   "Cdn": {
     "AFDCustomDomains_RefreshValidationToken": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/customDomains/{customDomainName}/refreshValidationToken",
     "AFDEndpoints_ListResourceUsage": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/afdEndpoints/{endpointName}/usages",
@@ -1925,6 +1929,8 @@
     "WorkspacePurge_Purge": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/purge",
     "Workspaces_DisableIntelligencePack": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/intelligencePacks/{intelligencePackName}/Disable",
     "Workspaces_EnableIntelligencePack": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/intelligencePacks/{intelligencePackName}/Enable",
+    "Workspaces_Failback": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/failback",
+    "Workspaces_Failover": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/locations/{location}/workspaces/{workspaceName}/failover",
     "Workspaces_GetSchema": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/schema",
     "Workspaces_Purge": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/purge",
     "Workspaces_RegenerateSharedKeys": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/regenerateSharedKey"

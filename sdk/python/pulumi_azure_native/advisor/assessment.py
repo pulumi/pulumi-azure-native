@@ -104,6 +104,8 @@ class Assessment(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
 
+        Other available API versions: 2024-11-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assessment_name: Advisor assessment name.
@@ -121,6 +123,8 @@ class Assessment(pulumi.CustomResource):
         The Advisor assessment result data structure.
 
         Uses Azure REST API version 2023-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
+
+        Other available API versions: 2024-11-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param AssessmentArgs args: The arguments to use to populate this resource's properties.
@@ -164,7 +168,7 @@ class Assessment(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["type_version"] = None
             __props__.__dict__["workload_name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:advisor/v20230901preview:Assessment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:advisor/v20230901preview:Assessment"), pulumi.Alias(type_="azure-native:advisor/v20241118preview:Assessment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Assessment, __self__).__init__(
             'azure-native:advisor:Assessment',

@@ -1782,6 +1782,51 @@ namespace Pulumi.AzureNative.Migrate
     }
 
     /// <summary>
+    /// Azure Vm Security Type
+    /// </summary>
+    [EnumType]
+    public readonly struct AzureVmSecurityType : IEquatable<AzureVmSecurityType>
+    {
+        private readonly string _value;
+
+        private AzureVmSecurityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Unknown - Azure Vm Security Type
+        /// </summary>
+        public static AzureVmSecurityType Unknown { get; } = new AzureVmSecurityType("Unknown");
+        /// <summary>
+        /// Standard Azure Vm Security Type
+        /// </summary>
+        public static AzureVmSecurityType Standard { get; } = new AzureVmSecurityType("Standard");
+        /// <summary>
+        /// TVM Azure Vm Security Type
+        /// </summary>
+        public static AzureVmSecurityType TVM { get; } = new AzureVmSecurityType("TVM");
+        /// <summary>
+        /// CVM Azure Vm Security Type
+        /// </summary>
+        public static AzureVmSecurityType CVM { get; } = new AzureVmSecurityType("CVM");
+
+        public static bool operator ==(AzureVmSecurityType left, AzureVmSecurityType right) => left.Equals(right);
+        public static bool operator !=(AzureVmSecurityType left, AzureVmSecurityType right) => !left.Equals(right);
+
+        public static explicit operator string(AzureVmSecurityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AzureVmSecurityType other && Equals(other);
+        public bool Equals(AzureVmSecurityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Business case Currency.
     /// </summary>
     [EnumType]

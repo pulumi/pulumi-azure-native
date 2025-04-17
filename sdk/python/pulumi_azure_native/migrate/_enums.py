@@ -32,6 +32,7 @@ __all__ = [
     'AzureTarget',
     'AzureVmCategory',
     'AzureVmFamily',
+    'AzureVmSecurityType',
     'BusinessCaseCurrency',
     'ComputeTier',
     'ConfigurationType',
@@ -1228,6 +1229,28 @@ class AzureVmFamily(str, Enum):
     EBDSV5_SERIES = "Ebdsv5_series"
     """
     Ebdsv5_series
+    """
+
+
+class AzureVmSecurityType(str, Enum):
+    """
+    Azure Vm Security Type
+    """
+    UNKNOWN = "Unknown"
+    """
+    Unknown - Azure Vm Security Type
+    """
+    STANDARD = "Standard"
+    """
+    Standard Azure Vm Security Type
+    """
+    TVM = "TVM"
+    """
+    TVM Azure Vm Security Type
+    """
+    CVM = "CVM"
+    """
+    CVM Azure Vm Security Type
     """
 
 

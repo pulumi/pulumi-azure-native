@@ -180,6 +180,7 @@ Blueprint:
 BotService:
     tracking: 2023-09-15-preview
 Capacity: {}
+Carbon: {}
 Cdn:
     tracking: "2024-09-01"
     additions:

@@ -27,5 +27,5 @@ class PurgeableOrchestrationState(str, Enum):
     """
     CANCELED = "Canceled"
     """
-    The orchestration is terminated
+    The orchestration is canceled
     """

@@ -7458,6 +7458,10 @@ if not MYPY:
         """
         Gets or sets the Azure VM families.
         """
+        azure_vm_security_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmSecurityType']]]]]
+        """
+        Gets or sets the Azure VM security options.
+        """
         billing_settings: NotRequired[pulumi.Input['BillingSettingsArgsDict']]
         """
         Gets or sets the billing settings.
@@ -7514,6 +7518,7 @@ class MachineAssessmentSettingsArgs:
                  azure_security_offering_type: Optional[pulumi.Input[Union[str, 'AzureSecurityOfferingType']]] = None,
                  azure_storage_redundancy: Optional[pulumi.Input[Union[str, 'AzureStorageRedundancy']]] = None,
                  azure_vm_families: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmFamily']]]]] = None,
+                 azure_vm_security_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmSecurityType']]]]] = None,
                  billing_settings: Optional[pulumi.Input['BillingSettingsArgs']] = None,
                  currency: Optional[pulumi.Input[Union[str, 'AzureCurrency']]] = None,
                  discount_percentage: Optional[pulumi.Input[float]] = None,
@@ -7534,6 +7539,7 @@ class MachineAssessmentSettingsArgs:
         :param pulumi.Input[Union[str, 'AzureSecurityOfferingType']] azure_security_offering_type: The azure security offering type.
         :param pulumi.Input[Union[str, 'AzureStorageRedundancy']] azure_storage_redundancy: Gets or sets the Azure Storage Redundancy. Example: Locally Redundant Storage.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmFamily']]]] azure_vm_families: Gets or sets the Azure VM families.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmSecurityType']]]] azure_vm_security_options: Gets or sets the Azure VM security options.
         :param pulumi.Input['BillingSettingsArgs'] billing_settings: Gets or sets the billing settings.
         :param pulumi.Input[Union[str, 'AzureCurrency']] currency: Currency in which prices should be reported.
         :param pulumi.Input[float] discount_percentage: Custom discount percentage.
@@ -7562,6 +7568,8 @@ class MachineAssessmentSettingsArgs:
             pulumi.set(__self__, "azure_storage_redundancy", azure_storage_redundancy)
         if azure_vm_families is not None:
             pulumi.set(__self__, "azure_vm_families", azure_vm_families)
+        if azure_vm_security_options is not None:
+            pulumi.set(__self__, "azure_vm_security_options", azure_vm_security_options)
         if billing_settings is not None:
             pulumi.set(__self__, "billing_settings", billing_settings)
         if currency is not None:
@@ -7667,6 +7675,18 @@ class MachineAssessmentSettingsArgs:
     @azure_vm_families.setter
     def azure_vm_families(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmFamily']]]]]):
         pulumi.set(self, "azure_vm_families", value)
+
+    @property
+    @pulumi.getter(name="azureVmSecurityOptions")
+    def azure_vm_security_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmSecurityType']]]]]:
+        """
+        Gets or sets the Azure VM security options.
+        """
+        return pulumi.get(self, "azure_vm_security_options")
+
+    @azure_vm_security_options.setter
+    def azure_vm_security_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmSecurityType']]]]]):
+        pulumi.set(self, "azure_vm_security_options", value)
 
     @property
     @pulumi.getter(name="billingSettings")

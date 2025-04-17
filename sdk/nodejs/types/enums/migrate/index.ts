@@ -1209,6 +1209,30 @@ export const AzureVmFamily = {
  */
 export type AzureVmFamily = (typeof AzureVmFamily)[keyof typeof AzureVmFamily];
 
+export const AzureVmSecurityType = {
+    /**
+     * Unknown - Azure Vm Security Type
+     */
+    Unknown: "Unknown",
+    /**
+     * Standard Azure Vm Security Type
+     */
+    Standard: "Standard",
+    /**
+     * TVM Azure Vm Security Type
+     */
+    TVM: "TVM",
+    /**
+     * CVM Azure Vm Security Type
+     */
+    CVM: "CVM",
+} as const;
+
+/**
+ * Azure Vm Security Type
+ */
+export type AzureVmSecurityType = (typeof AzureVmSecurityType)[keyof typeof AzureVmSecurityType];
+
 export const BusinessCaseCurrency = {
     /**
      * Currency Unknown.

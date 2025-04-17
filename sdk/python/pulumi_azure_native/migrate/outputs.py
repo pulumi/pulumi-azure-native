@@ -8003,6 +8003,8 @@ class MachineAssessmentSettingsResponse(dict):
             suggest = "azure_storage_redundancy"
         elif key == "azureVmFamilies":
             suggest = "azure_vm_families"
+        elif key == "azureVmSecurityOptions":
+            suggest = "azure_vm_security_options"
         elif key == "billingSettings":
             suggest = "billing_settings"
         elif key == "discountPercentage":
@@ -8041,6 +8043,7 @@ class MachineAssessmentSettingsResponse(dict):
                  azure_security_offering_type: Optional[str] = None,
                  azure_storage_redundancy: Optional[str] = None,
                  azure_vm_families: Optional[Sequence[str]] = None,
+                 azure_vm_security_options: Optional[Sequence[str]] = None,
                  billing_settings: Optional['outputs.BillingSettingsResponse'] = None,
                  currency: Optional[str] = None,
                  discount_percentage: Optional[float] = None,
@@ -8061,6 +8064,7 @@ class MachineAssessmentSettingsResponse(dict):
         :param str azure_security_offering_type: The azure security offering type.
         :param str azure_storage_redundancy: Gets or sets the Azure Storage Redundancy. Example: Locally Redundant Storage.
         :param Sequence[str] azure_vm_families: Gets or sets the Azure VM families.
+        :param Sequence[str] azure_vm_security_options: Gets or sets the Azure VM security options.
         :param 'BillingSettingsResponse' billing_settings: Gets or sets the billing settings.
         :param str currency: Currency in which prices should be reported.
         :param float discount_percentage: Custom discount percentage.
@@ -8089,6 +8093,8 @@ class MachineAssessmentSettingsResponse(dict):
             pulumi.set(__self__, "azure_storage_redundancy", azure_storage_redundancy)
         if azure_vm_families is not None:
             pulumi.set(__self__, "azure_vm_families", azure_vm_families)
+        if azure_vm_security_options is not None:
+            pulumi.set(__self__, "azure_vm_security_options", azure_vm_security_options)
         if billing_settings is not None:
             pulumi.set(__self__, "billing_settings", billing_settings)
         if currency is not None:
@@ -8166,6 +8172,14 @@ class MachineAssessmentSettingsResponse(dict):
         Gets or sets the Azure VM families.
         """
         return pulumi.get(self, "azure_vm_families")
+
+    @property
+    @pulumi.getter(name="azureVmSecurityOptions")
+    def azure_vm_security_options(self) -> Optional[Sequence[str]]:
+        """
+        Gets or sets the Azure VM security options.
+        """
+        return pulumi.get(self, "azure_vm_security_options")
 
     @property
     @pulumi.getter(name="billingSettings")

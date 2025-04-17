@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Advisor
     /// 
     /// Uses Azure REST API version 2023-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
     /// 
-    /// Other available API versions: 2023-01-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-01-01, 2024-11-18-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:advisor:Suppression")]
     public partial class Suppression : global::Pulumi.CustomResource
@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.Advisor
                     new global::Pulumi.Alias { Type = "azure-native:advisor/v20221001:Suppression" },
                     new global::Pulumi.Alias { Type = "azure-native:advisor/v20230101:Suppression" },
                     new global::Pulumi.Alias { Type = "azure-native:advisor/v20230901preview:Suppression" },
+                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20241118preview:Suppression" },
                     new global::Pulumi.Alias { Type = "azure-native:advisor/v20250101:Suppression" },
                 },
             };

@@ -70,6 +70,18 @@ namespace Pulumi.AzureNative.Migrate.Inputs
             set => _azureVmFamilies = value;
         }
 
+        [Input("azureVmSecurityOptions")]
+        private InputList<Union<string, Pulumi.AzureNative.Migrate.AzureVmSecurityType>>? _azureVmSecurityOptions;
+
+        /// <summary>
+        /// Gets or sets the Azure VM security options.
+        /// </summary>
+        public InputList<Union<string, Pulumi.AzureNative.Migrate.AzureVmSecurityType>> AzureVmSecurityOptions
+        {
+            get => _azureVmSecurityOptions ?? (_azureVmSecurityOptions = new InputList<Union<string, Pulumi.AzureNative.Migrate.AzureVmSecurityType>>());
+            set => _azureVmSecurityOptions = value;
+        }
+
         /// <summary>
         /// Gets or sets the billing settings.
         /// </summary>

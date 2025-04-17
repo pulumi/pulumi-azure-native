@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.DurableTask
         /// </summary>
         public static PurgeableOrchestrationState Terminated { get; } = new PurgeableOrchestrationState("Terminated");
         /// <summary>
-        /// The orchestration is terminated
+        /// The orchestration is canceled
         /// </summary>
         public static PurgeableOrchestrationState Canceled { get; } = new PurgeableOrchestrationState("Canceled");
 

@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
  *
- * Other available API versions: 2023-01-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-01-01, 2024-11-18-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Suppression extends pulumi.CustomResource {
     /**
@@ -106,7 +106,7 @@ export class Suppression extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:advisor/v20160712preview:Suppression" }, { type: "azure-native:advisor/v20170331:Suppression" }, { type: "azure-native:advisor/v20170419:Suppression" }, { type: "azure-native:advisor/v20200101:Suppression" }, { type: "azure-native:advisor/v20220901:Suppression" }, { type: "azure-native:advisor/v20221001:Suppression" }, { type: "azure-native:advisor/v20230101:Suppression" }, { type: "azure-native:advisor/v20230901preview:Suppression" }, { type: "azure-native:advisor/v20250101:Suppression" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:advisor/v20160712preview:Suppression" }, { type: "azure-native:advisor/v20170331:Suppression" }, { type: "azure-native:advisor/v20170419:Suppression" }, { type: "azure-native:advisor/v20200101:Suppression" }, { type: "azure-native:advisor/v20220901:Suppression" }, { type: "azure-native:advisor/v20221001:Suppression" }, { type: "azure-native:advisor/v20230101:Suppression" }, { type: "azure-native:advisor/v20230901preview:Suppression" }, { type: "azure-native:advisor/v20241118preview:Suppression" }, { type: "azure-native:advisor/v20250101:Suppression" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Suppression.__pulumiType, name, resourceInputs, opts);
     }

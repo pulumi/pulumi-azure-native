@@ -220,7 +220,8 @@
   },
   "Advisor": {
     "Assessment": [
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-11-18-preview"
     ],
     "Suppression": [
       "2016-07-12-preview",
@@ -231,6 +232,7 @@
       "2022-10-01",
       "2023-01-01",
       "2023-09-01-preview",
+      "2024-11-18-preview",
       "2025-01-01"
     ]
   },
@@ -4882,6 +4884,7 @@
     ]
   },
   "Capacity": {},
+  "Carbon": {},
   "Cdn": {
     "AFDCustomDomain": [
       "2020-09-01",
@@ -6744,7 +6747,8 @@
       "2023-08-01-preview",
       "2023-11-01-preview",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-04-01"
     ],
     "ConnectedRegistry": [
       "2020-11-01-preview",
@@ -6757,7 +6761,8 @@
       "2023-08-01-preview",
       "2023-11-01-preview",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-04-01"
     ],
     "CredentialSet": [
       "2023-01-01-preview",
@@ -6766,7 +6771,8 @@
       "2023-08-01-preview",
       "2023-11-01-preview",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-04-01"
     ],
     "ExportPipeline": [
       "2019-12-01-preview",
@@ -6825,7 +6831,8 @@
       "2023-08-01-preview",
       "2023-11-01-preview",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-04-01"
     ],
     "Registry": [
       "2017-03-01",
@@ -6845,7 +6852,8 @@
       "2023-08-01-preview",
       "2023-11-01-preview",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-04-01"
     ],
     "Replication": [
       "2017-10-01",
@@ -6864,7 +6872,8 @@
       "2023-08-01-preview",
       "2023-11-01-preview",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-04-01"
     ],
     "ScopeMap": [
       "2019-05-01-preview",
@@ -6880,7 +6889,8 @@
       "2023-08-01-preview",
       "2023-11-01-preview",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-04-01"
     ],
     "Task": [
       "2018-09-01",
@@ -6906,7 +6916,8 @@
       "2023-08-01-preview",
       "2023-11-01-preview",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-04-01"
     ],
     "Webhook": [
       "2017-10-01",
@@ -6925,7 +6936,8 @@
       "2023-08-01-preview",
       "2023-11-01-preview",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-04-01"
     ],
     "getWebhookCallbackConfig": [
       "2017-10-01",
@@ -6944,7 +6956,8 @@
       "2023-08-01-preview",
       "2023-11-01-preview",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-04-01"
     ],
     "listAgentPoolQueueStatus": [
       "2019-06-01-preview",
@@ -6974,7 +6987,8 @@
       "2023-08-01-preview",
       "2023-11-01-preview",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-04-01"
     ],
     "listRunLogSasUrl": [
       "2018-09-01",
@@ -7009,7 +7023,8 @@
       "2023-08-01-preview",
       "2023-11-01-preview",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-04-01"
     ]
   },
   "ContainerService": {
