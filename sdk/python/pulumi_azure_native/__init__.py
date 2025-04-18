@@ -353,6 +353,8 @@ if typing.TYPE_CHECKING:
     offazure = __offazure
     import pulumi_azure_native.offazurespringboot as __offazurespringboot
     offazurespringboot = __offazurespringboot
+    import pulumi_azure_native.onlineexperimentation as __onlineexperimentation
+    onlineexperimentation = __onlineexperimentation
     import pulumi_azure_native.openenergyplatform as __openenergyplatform
     openenergyplatform = __openenergyplatform
     import pulumi_azure_native.operationalinsights as __operationalinsights
@@ -678,6 +680,7 @@ else:
     notificationhubs = _utilities.lazy_import('pulumi_azure_native.notificationhubs')
     offazure = _utilities.lazy_import('pulumi_azure_native.offazure')
     offazurespringboot = _utilities.lazy_import('pulumi_azure_native.offazurespringboot')
+    onlineexperimentation = _utilities.lazy_import('pulumi_azure_native.onlineexperimentation')
     openenergyplatform = _utilities.lazy_import('pulumi_azure_native.openenergyplatform')
     operationalinsights = _utilities.lazy_import('pulumi_azure_native.operationalinsights')
     operationsmanagement = _utilities.lazy_import('pulumi_azure_native.operationsmanagement')
@@ -3486,6 +3489,14 @@ _utilities.register(
    "azure-native:offazurespringboot:Springbootapp": "Springbootapp",
    "azure-native:offazurespringboot:Springbootserver": "Springbootserver",
    "azure-native:offazurespringboot:Springbootsite": "Springbootsite"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "onlineexperimentation",
+  "fqn": "pulumi_azure_native.onlineexperimentation",
+  "classes": {
+   "azure-native:onlineexperimentation:OnlineExperimentWorkspace": "OnlineExperimentWorkspace"
   }
  },
  {

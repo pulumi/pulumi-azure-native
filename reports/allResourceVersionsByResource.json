@@ -21649,6 +21649,11 @@
       "2024-04-01-preview"
     ]
   },
+  "OnlineExperimentation": {
+    "OnlineExperimentWorkspace": [
+      "2025-05-31-preview"
+    ]
+  },
   "OpenEnergyPlatform": {
     "EnergyService": [
       "2021-06-01-preview",
