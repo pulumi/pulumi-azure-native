@@ -9726,6 +9726,12 @@ OffAzureSpringBoot:
         SpecFilePath: specification/offazurespringboot/resource-manager/Microsoft.OffAzureSpringBoot/preview/2024-04-01-preview/springbootdiscovery.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{springbootsitesName}
         RpNamespace: Microsoft.OffAzureSpringBoot
+OnlineExperimentation:
+    OnlineExperimentWorkspace:
+        ApiVersion: 2025-05-31-preview
+        SpecFilePath: specification/onlineexperimentation/resource-manager/Microsoft.OnlineExperimentation/preview/2025-05-31-preview/OnlineExperimentWorkspace.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OnlineExperimentation/workspaces/{workspaceName}
+        RpNamespace: Microsoft.OnlineExperimentation
 OpenEnergyPlatform:
     EnergyService:
         ApiVersion: 2022-04-04-preview

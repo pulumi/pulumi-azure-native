@@ -1217,7 +1217,6 @@
     "resourceTypes": [
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -1231,7 +1230,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -1278,7 +1276,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -1325,7 +1322,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -1371,7 +1367,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -1385,7 +1380,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -1434,7 +1428,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -1481,7 +1474,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -1528,7 +1520,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -1574,7 +1565,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -1622,7 +1612,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -1669,7 +1658,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -1714,7 +1702,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -1759,7 +1746,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01"
         ],
         "defaultApiVersion": "2023-09-01",
@@ -1801,7 +1787,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -1848,7 +1833,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -1895,7 +1879,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01"
         ],
         "defaultApiVersion": null,
@@ -1937,7 +1920,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -1983,7 +1965,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -2029,7 +2010,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -2075,7 +2055,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -2122,7 +2101,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -2169,7 +2147,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -2216,7 +2193,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -2263,7 +2239,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -2310,7 +2285,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -2357,7 +2331,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -2403,7 +2376,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -2450,7 +2422,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -2497,7 +2468,6 @@
       },
       {
         "apiVersions": [
-          "2024-09-01",
           "2023-09-01",
           "2023-03-01",
           "2022-05-01",
@@ -23503,37 +23473,6 @@
     ]
   },
   {
-    "namespace": "Microsoft.ChangeSafety",
-    "resourceTypes": [
-      {
-        "apiVersions": [
-          "2024-10-01-preview"
-        ],
-        "defaultApiVersion": "2024-10-01-preview",
-        "locations": [],
-        "resourceType": "locations"
-      },
-      {
-        "apiVersions": [
-          "2024-10-01-preview"
-        ],
-        "defaultApiVersion": "2024-10-01-preview",
-        "locations": [
-          "East US 2"
-        ],
-        "resourceType": "locations/operationstatuses"
-      },
-      {
-        "apiVersions": [
-          "2024-10-01-preview"
-        ],
-        "defaultApiVersion": "2024-10-01-preview",
-        "locations": [],
-        "resourceType": "operations"
-      }
-    ]
-  },
-  {
     "namespace": "Microsoft.Chaos",
     "resourceTypes": [
       {
@@ -42609,7 +42548,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2023-04-01-preview",
           "2021-11-15-preview",
           "2020-01-01-preview"
@@ -49013,7 +48951,6 @@
     "resourceTypes": [
       {
         "apiVersions": [
-          "2025-02-01-preview",
           "2024-11-01-preview",
           "2024-10-01",
           "2023-10-01-preview",
@@ -49029,7 +48966,6 @@
       },
       {
         "apiVersions": [
-          "2025-02-01-preview",
           "2024-11-01-preview",
           "2024-10-01",
           "2023-10-01-preview",
@@ -49074,7 +49010,6 @@
       },
       {
         "apiVersions": [
-          "2025-02-01-preview",
           "2024-11-01-preview",
           "2024-10-01",
           "2023-10-01-preview"
@@ -49114,7 +49049,6 @@
       },
       {
         "apiVersions": [
-          "2025-02-01-preview",
           "2024-11-01-preview",
           "2024-10-01",
           "2023-10-01-preview",
@@ -49156,7 +49090,6 @@
       },
       {
         "apiVersions": [
-          "2025-02-01-preview",
           "2024-11-01-preview",
           "2024-10-01",
           "2023-10-01-preview",
@@ -49200,7 +49133,6 @@
       },
       {
         "apiVersions": [
-          "2025-02-01-preview",
           "2024-11-01-preview",
           "2024-10-01",
           "2023-10-01-preview",
@@ -49244,7 +49176,6 @@
       },
       {
         "apiVersions": [
-          "2025-02-01-preview",
           "2024-11-01-preview",
           "2024-10-01",
           "2023-10-01-preview",
@@ -49260,7 +49191,6 @@
       },
       {
         "apiVersions": [
-          "2025-02-01-preview",
           "2024-11-01-preview",
           "2024-10-01",
           "2023-10-01-preview",
@@ -49276,7 +49206,6 @@
       },
       {
         "apiVersions": [
-          "2025-02-01-preview",
           "2024-11-01-preview",
           "2024-10-01",
           "2023-10-01-preview",
@@ -49322,7 +49251,6 @@
       },
       {
         "apiVersions": [
-          "2025-02-01-preview",
           "2024-11-01-preview",
           "2024-10-01",
           "2023-10-01-preview",
@@ -53409,8 +53337,6 @@
     "resourceTypes": [
       {
         "apiVersions": [
-          "2025-01-07",
-          "2024-03-01",
           "2023-10-20",
           "2023-07-07",
           "2023-01-01",
@@ -53419,14 +53345,12 @@
           "2021-03-01",
           "2020-02-01-preview"
         ],
-        "defaultApiVersion": "2025-01-07",
+        "defaultApiVersion": "2023-10-20",
         "locations": [],
         "resourceType": "agreements"
       },
       {
         "apiVersions": [
-          "2025-01-07",
-          "2024-03-01",
           "2023-10-20",
           "2023-07-07",
           "2023-01-01",
@@ -53435,14 +53359,12 @@
           "2021-03-01",
           "2020-02-01-preview"
         ],
-        "defaultApiVersion": "2025-01-07",
+        "defaultApiVersion": "2023-10-20",
         "locations": [],
         "resourceType": "locations"
       },
       {
         "apiVersions": [
-          "2025-01-07",
-          "2024-03-01",
           "2023-10-20",
           "2023-07-07",
           "2023-01-01",
@@ -53451,7 +53373,7 @@
           "2021-03-01",
           "2020-02-01-preview"
         ],
-        "defaultApiVersion": "2025-01-07",
+        "defaultApiVersion": "2023-10-20",
         "locations": [
           "West US 2",
           "UK South",
@@ -53474,8 +53396,6 @@
       },
       {
         "apiVersions": [
-          "2025-01-07",
-          "2024-03-01",
           "2023-10-20",
           "2023-07-07",
           "2023-01-01",
@@ -53484,7 +53404,7 @@
           "2021-03-01",
           "2020-02-01-preview"
         ],
-        "defaultApiVersion": "2025-01-07",
+        "defaultApiVersion": "2023-10-20",
         "locations": [
           "West US 2",
           "Central US EUAP",
@@ -53495,8 +53415,6 @@
       },
       {
         "apiVersions": [
-          "2025-01-07",
-          "2024-03-01",
           "2023-10-20",
           "2023-07-07",
           "2023-01-01",
@@ -53505,7 +53423,7 @@
           "2021-03-01",
           "2020-02-01-preview"
         ],
-        "defaultApiVersion": "2025-01-07",
+        "defaultApiVersion": "2023-10-20",
         "locations": [
           "UK South",
           "West US 2",
@@ -53516,8 +53434,6 @@
       },
       {
         "apiVersions": [
-          "2025-01-07",
-          "2024-03-01",
           "2023-10-20",
           "2023-07-07",
           "2023-01-01",
@@ -53526,7 +53442,7 @@
           "2021-03-01",
           "2020-02-01-preview"
         ],
-        "defaultApiVersion": "2025-01-07",
+        "defaultApiVersion": "2023-10-20",
         "locations": [
           "UK South",
           "West US 2",
@@ -53537,8 +53453,6 @@
       },
       {
         "apiVersions": [
-          "2025-01-07",
-          "2024-03-01",
           "2023-10-20",
           "2023-07-07",
           "2023-01-01",
@@ -53547,7 +53461,7 @@
           "2021-03-01",
           "2020-02-01-preview"
         ],
-        "defaultApiVersion": "2025-01-07",
+        "defaultApiVersion": "2023-10-20",
         "locations": [
           "UK South",
           "West US 2",
@@ -53558,8 +53472,6 @@
       },
       {
         "apiVersions": [
-          "2025-01-07",
-          "2024-03-01",
           "2023-10-20",
           "2023-07-07",
           "2023-01-01",
@@ -53568,7 +53480,7 @@
           "2021-03-01",
           "2020-02-01-preview"
         ],
-        "defaultApiVersion": "2025-01-07",
+        "defaultApiVersion": "2023-10-20",
         "locations": [
           "UK South",
           "West US 2",
@@ -53579,8 +53491,6 @@
       },
       {
         "apiVersions": [
-          "2025-01-07",
-          "2024-03-01",
           "2023-10-20",
           "2023-07-07",
           "2023-01-01",
@@ -53589,7 +53499,7 @@
           "2021-03-01",
           "2020-02-01-preview"
         ],
-        "defaultApiVersion": "2025-01-07",
+        "defaultApiVersion": "2023-10-20",
         "locations": [
           "UK South",
           "West US 2",
@@ -53600,13 +53510,11 @@
       },
       {
         "apiVersions": [
-          "2025-01-07",
-          "2024-03-01",
           "2023-10-20",
           "2023-07-07",
           "2023-01-01"
         ],
-        "defaultApiVersion": "2025-01-07",
+        "defaultApiVersion": "2023-10-20",
         "locations": [
           "West US 2",
           "Central US EUAP",
@@ -53617,8 +53525,6 @@
       },
       {
         "apiVersions": [
-          "2025-01-07",
-          "2024-03-01",
           "2023-10-20",
           "2023-07-07",
           "2023-01-01",
@@ -53627,7 +53533,7 @@
           "2021-03-01",
           "2020-02-01-preview"
         ],
-        "defaultApiVersion": "2025-01-07",
+        "defaultApiVersion": "2023-10-20",
         "locations": [
           "UK South",
           "West US 2",
@@ -53638,8 +53544,6 @@
       },
       {
         "apiVersions": [
-          "2025-01-07",
-          "2024-03-01",
           "2023-10-20",
           "2023-07-07",
           "2023-01-01",
@@ -53648,7 +53552,7 @@
           "2021-03-01",
           "2020-02-01-preview"
         ],
-        "defaultApiVersion": "2025-01-07",
+        "defaultApiVersion": "2023-10-20",
         "locations": [
           "UK South",
           "West US 2",
@@ -53659,8 +53563,6 @@
       },
       {
         "apiVersions": [
-          "2025-01-07",
-          "2024-03-01",
           "2023-10-20",
           "2023-07-07",
           "2023-01-01",
@@ -53669,7 +53571,7 @@
           "2021-03-01",
           "2020-02-01-preview"
         ],
-        "defaultApiVersion": "2025-01-07",
+        "defaultApiVersion": "2023-10-20",
         "locations": [
           "West US 2",
           "Central US EUAP",
@@ -53680,8 +53582,6 @@
       },
       {
         "apiVersions": [
-          "2025-01-07",
-          "2024-03-01",
           "2023-10-20",
           "2023-07-07",
           "2023-01-01",
@@ -53690,7 +53590,7 @@
           "2021-03-01",
           "2020-02-01-preview"
         ],
-        "defaultApiVersion": "2025-01-07",
+        "defaultApiVersion": "2023-10-20",
         "locations": [
           "West US 2",
           "Central US EUAP",
@@ -53701,8 +53601,6 @@
       },
       {
         "apiVersions": [
-          "2025-01-07",
-          "2024-03-01",
           "2023-10-20",
           "2023-07-07",
           "2023-01-01",
@@ -53711,14 +53609,12 @@
           "2021-03-01",
           "2020-02-01-preview"
         ],
-        "defaultApiVersion": "2025-01-07",
+        "defaultApiVersion": "2023-10-20",
         "locations": [],
         "resourceType": "operations"
       },
       {
         "apiVersions": [
-          "2025-01-07",
-          "2024-03-01",
           "2023-10-20",
           "2023-07-07",
           "2023-01-01",
@@ -53727,19 +53623,17 @@
           "2021-03-01",
           "2020-02-01-preview"
         ],
-        "defaultApiVersion": "2025-01-07",
+        "defaultApiVersion": "2023-10-20",
         "locations": [],
         "resourceType": "registeredSubscriptions"
       },
       {
         "apiVersions": [
-          "2025-01-07",
-          "2024-03-01",
           "2023-10-20",
           "2023-07-07",
           "2023-01-01"
         ],
-        "defaultApiVersion": "2025-01-07",
+        "defaultApiVersion": "2023-10-20",
         "locations": [],
         "resourceType": "subscriptionStatuses"
       }
@@ -67852,21 +67746,6 @@
     ]
   },
   {
-    "namespace": "Microsoft.HealthPlatform",
-    "resourceTypes": [
-      {
-        "apiVersions": [
-          "2025-02-13-preview"
-        ],
-        "defaultApiVersion": "2025-02-13-preview",
-        "locations": [
-          "East US 2 EUAP"
-        ],
-        "resourceType": "accounts"
-      }
-    ]
-  },
-  {
     "namespace": "Microsoft.HealthcareApis",
     "resourceTypes": [
       {
@@ -70861,7 +70740,6 @@
     "resourceTypes": [
       {
         "apiVersions": [
-          "2025-02-01-preview",
           "2024-09-01-preview",
           "2024-01-01",
           "2023-11-15-preview",
@@ -70878,7 +70756,6 @@
       },
       {
         "apiVersions": [
-          "2025-02-01-preview",
           "2024-09-01-preview",
           "2024-01-01",
           "2023-11-15-preview",
@@ -70906,7 +70783,6 @@
       },
       {
         "apiVersions": [
-          "2025-02-01-preview",
           "2024-09-01-preview",
           "2024-01-01",
           "2023-11-15-preview",
@@ -86226,12 +86102,9 @@
           "Korea Central",
           "Korea South",
           "Mexico Central",
-          "New Zealand North",
           "North Europe",
           "Norway East",
           "Norway West",
-          "Poland Central",
-          "Qatar Central",
           "South Africa North",
           "South Central US",
           "Southeast Asia",
@@ -86291,12 +86164,9 @@
           "Korea Central",
           "Korea South",
           "Mexico Central",
-          "New Zealand North",
           "North Europe",
           "Norway East",
           "Norway West",
-          "Poland Central",
-          "Qatar Central",
           "South Africa North",
           "South Central US",
           "Southeast Asia",
@@ -86363,7 +86233,6 @@
           "East Asia",
           "East US 2",
           "France Central",
-          "France South",
           "Germany West Central",
           "Israel Central",
           "Italy North",
@@ -86372,12 +86241,9 @@
           "Korea Central",
           "Korea South",
           "Mexico Central",
-          "New Zealand North",
           "North Europe",
           "Norway East",
           "Norway West",
-          "Poland Central",
-          "Qatar Central",
           "South Africa North",
           "South Central US",
           "Southeast Asia",
@@ -109592,7 +109458,6 @@
           "UK West",
           "Australia Southeast",
           "North Central US",
-          "Italy North",
           "East US 2 EUAP"
         ],
         "resourceType": "appliances"
@@ -109635,7 +109500,6 @@
           "UK West",
           "Australia Southeast",
           "North Central US",
-          "Italy North",
           "East US 2 EUAP"
         ],
         "resourceType": "locations/operationresults"
@@ -109667,7 +109531,6 @@
           "UK West",
           "Australia Southeast",
           "North Central US",
-          "Italy North",
           "East US 2 EUAP"
         ],
         "resourceType": "locations/operationsstatus"
@@ -110316,7 +110179,6 @@
           "France Central",
           "UK South",
           "UK West",
-          "Indonesia Central",
           "Israel Central",
           "Central India",
           "West India",
@@ -110702,7 +110564,6 @@
           "France Central",
           "UK South",
           "UK West",
-          "Indonesia Central",
           "Israel Central",
           "Central India",
           "West India",
@@ -110758,7 +110619,6 @@
           "France Central",
           "UK South",
           "UK West",
-          "Indonesia Central",
           "Israel Central",
           "Central India",
           "West India",
@@ -111677,7 +111537,6 @@
           "France Central",
           "UK South",
           "UK West",
-          "Indonesia Central",
           "Israel Central",
           "Central India",
           "West India",
@@ -111735,7 +111594,6 @@
           "France Central",
           "UK South",
           "UK West",
-          "Indonesia Central",
           "Israel Central",
           "Central India",
           "West India",

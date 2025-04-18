@@ -1183,6 +1183,8 @@ OffAzure:
         VCenter: "2020-07-07"
 OffAzureSpringBoot:
     tracking: 2024-04-01-preview
+OnlineExperimentation:
+    tracking: 2025-05-31-preview
 OpenEnergyPlatform:
     tracking: 2022-04-04-preview
 OperationalInsights:

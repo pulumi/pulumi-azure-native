@@ -83356,6 +83356,20 @@
     "Property": "name"
   },
   {
+    "VersionedModule": "onlineexperimentation",
+    "Module": "OnlineExperimentation",
+    "ResourceName": "OnlineExperimentWorkspace",
+    "ReferenceName": "OnlineExperimentWorkspaceProperties",
+    "Property": "appConfigurationResourceId"
+  },
+  {
+    "VersionedModule": "onlineexperimentation/v20250531preview",
+    "Module": "OnlineExperimentation",
+    "ResourceName": "OnlineExperimentWorkspace",
+    "ReferenceName": "OnlineExperimentWorkspaceProperties",
+    "Property": "appConfigurationResourceId"
+  },
+  {
     "VersionedModule": "operationalinsights/v20250201",
     "Module": "OperationalInsights",
     "ResourceName": "Cluster",
