@@ -8524,8 +8524,8 @@ Monitor:
         ResourceUri: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/autoscalesettings/{autoscaleSettingName}
         RpNamespace: Microsoft.Insights
     AzureMonitorWorkspace:
-        ApiVersion: 2023-10-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/preview/2023-10-01-preview/azuremonitor.json
+        ApiVersion: "2023-04-03"
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/stable/2023-04-03/monitoringAccounts_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}
         RpNamespace: Microsoft.Monitor
     DataCollectionEndpoint:

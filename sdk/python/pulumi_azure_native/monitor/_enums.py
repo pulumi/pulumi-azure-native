@@ -43,6 +43,7 @@ __all__ = [
     'PredictiveAutoscalePolicyScaleMode',
     'PrivateEndpointServiceConnectionStatus',
     'ProcessorType',
+    'PublicNetworkAccess',
     'ReceiverType',
     'RecurrenceFrequency',
     'ScaleDirection',
@@ -430,6 +431,14 @@ class ProcessorType(str, Enum):
     """
     Batch processor.
     """
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    Gets or sets allow or disallow public network access to Azure Monitor Workspace
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class ReceiverType(str, Enum):

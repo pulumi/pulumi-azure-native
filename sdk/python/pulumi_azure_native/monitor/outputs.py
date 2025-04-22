@@ -34,6 +34,8 @@ __all__ = [
     'AzureFunctionReceiverResponse',
     'AzureMonitorWorkspaceLogsApiConfigResponse',
     'AzureMonitorWorkspaceLogsExporterResponse',
+    'AzureMonitorWorkspaceResponseDefaultIngestionSettings',
+    'AzureMonitorWorkspaceResponseMetrics',
     'AzureResourceManagerCommonTypesExtendedLocationResponse',
     'BatchProcessorResponse',
     'CacheConfigurationResponse',
@@ -75,7 +77,6 @@ __all__ = [
     'IisLogsDataSourceResponse',
     'IncidentReceiverResponse',
     'IncidentServiceConnectionResponse',
-    'IngestionSettingsResponse',
     'ItsmReceiverResponse',
     'JsonArrayMapperResponse',
     'JsonMapperDestinationFieldResponse',
@@ -96,7 +97,6 @@ __all__ = [
     'MetricDimensionResponse',
     'MetricSettingsResponse',
     'MetricTriggerResponse',
-    'MetricsResponse',
     'MonitoringAccountDestinationResponse',
     'NetworkingConfigurationResponse',
     'NetworkingRouteResponse',
@@ -1364,6 +1364,110 @@ class AzureMonitorWorkspaceLogsExporterResponse(dict):
         Concurrency configuration for the exporter.
         """
         return pulumi.get(self, "concurrency")
+
+
+@pulumi.output_type
+class AzureMonitorWorkspaceResponseDefaultIngestionSettings(dict):
+    """
+    The Data Collection Rule and Endpoint used for ingestion by default.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataCollectionEndpointResourceId":
+            suggest = "data_collection_endpoint_resource_id"
+        elif key == "dataCollectionRuleResourceId":
+            suggest = "data_collection_rule_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureMonitorWorkspaceResponseDefaultIngestionSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureMonitorWorkspaceResponseDefaultIngestionSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureMonitorWorkspaceResponseDefaultIngestionSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_collection_endpoint_resource_id: str,
+                 data_collection_rule_resource_id: str):
+        """
+        The Data Collection Rule and Endpoint used for ingestion by default.
+        :param str data_collection_endpoint_resource_id: The Azure resource Id of the default data collection endpoint for this Azure Monitor Workspace.
+        :param str data_collection_rule_resource_id: The Azure resource Id of the default data collection rule for this Azure Monitor Workspace.
+        """
+        pulumi.set(__self__, "data_collection_endpoint_resource_id", data_collection_endpoint_resource_id)
+        pulumi.set(__self__, "data_collection_rule_resource_id", data_collection_rule_resource_id)
+
+    @property
+    @pulumi.getter(name="dataCollectionEndpointResourceId")
+    def data_collection_endpoint_resource_id(self) -> str:
+        """
+        The Azure resource Id of the default data collection endpoint for this Azure Monitor Workspace.
+        """
+        return pulumi.get(self, "data_collection_endpoint_resource_id")
+
+    @property
+    @pulumi.getter(name="dataCollectionRuleResourceId")
+    def data_collection_rule_resource_id(self) -> str:
+        """
+        The Azure resource Id of the default data collection rule for this Azure Monitor Workspace.
+        """
+        return pulumi.get(self, "data_collection_rule_resource_id")
+
+
+@pulumi.output_type
+class AzureMonitorWorkspaceResponseMetrics(dict):
+    """
+    Properties related to the metrics container in the Azure Monitor Workspace
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "internalId":
+            suggest = "internal_id"
+        elif key == "prometheusQueryEndpoint":
+            suggest = "prometheus_query_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureMonitorWorkspaceResponseMetrics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureMonitorWorkspaceResponseMetrics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureMonitorWorkspaceResponseMetrics.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 internal_id: str,
+                 prometheus_query_endpoint: str):
+        """
+        Properties related to the metrics container in the Azure Monitor Workspace
+        :param str internal_id: An internal identifier for the metrics container. Only to be used by the system
+        :param str prometheus_query_endpoint: The Prometheus query endpoint for the Azure Monitor Workspace
+        """
+        pulumi.set(__self__, "internal_id", internal_id)
+        pulumi.set(__self__, "prometheus_query_endpoint", prometheus_query_endpoint)
+
+    @property
+    @pulumi.getter(name="internalId")
+    def internal_id(self) -> str:
+        """
+        An internal identifier for the metrics container. Only to be used by the system
+        """
+        return pulumi.get(self, "internal_id")
+
+    @property
+    @pulumi.getter(name="prometheusQueryEndpoint")
+    def prometheus_query_endpoint(self) -> str:
+        """
+        The Prometheus query endpoint for the Azure Monitor Workspace
+        """
+        return pulumi.get(self, "prometheus_query_endpoint")
 
 
 @pulumi.output_type
@@ -4301,58 +4405,6 @@ class IncidentServiceConnectionResponse(dict):
 
 
 @pulumi.output_type
-class IngestionSettingsResponse(dict):
-    """
-    Settings for data ingestion
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "dataCollectionEndpointResourceId":
-            suggest = "data_collection_endpoint_resource_id"
-        elif key == "dataCollectionRuleResourceId":
-            suggest = "data_collection_rule_resource_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IngestionSettingsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IngestionSettingsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IngestionSettingsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 data_collection_endpoint_resource_id: str,
-                 data_collection_rule_resource_id: str):
-        """
-        Settings for data ingestion
-        :param str data_collection_endpoint_resource_id: The Azure resource Id of the default data collection endpoint for this workspace.
-        :param str data_collection_rule_resource_id: The Azure resource Id of the default data collection rule for this workspace.
-        """
-        pulumi.set(__self__, "data_collection_endpoint_resource_id", data_collection_endpoint_resource_id)
-        pulumi.set(__self__, "data_collection_rule_resource_id", data_collection_rule_resource_id)
-
-    @property
-    @pulumi.getter(name="dataCollectionEndpointResourceId")
-    def data_collection_endpoint_resource_id(self) -> str:
-        """
-        The Azure resource Id of the default data collection endpoint for this workspace.
-        """
-        return pulumi.get(self, "data_collection_endpoint_resource_id")
-
-    @property
-    @pulumi.getter(name="dataCollectionRuleResourceId")
-    def data_collection_rule_resource_id(self) -> str:
-        """
-        The Azure resource Id of the default data collection rule for this workspace.
-        """
-        return pulumi.get(self, "data_collection_rule_resource_id")
-
-
-@pulumi.output_type
 class ItsmReceiverResponse(dict):
     """
     An Itsm receiver.
@@ -5775,58 +5827,6 @@ class MetricTriggerResponse(dict):
         the location of the resource the rule monitors.
         """
         return pulumi.get(self, "metric_resource_location")
-
-
-@pulumi.output_type
-class MetricsResponse(dict):
-    """
-    Information about metrics for the workspace
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "internalId":
-            suggest = "internal_id"
-        elif key == "prometheusQueryEndpoint":
-            suggest = "prometheus_query_endpoint"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MetricsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MetricsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MetricsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 internal_id: str,
-                 prometheus_query_endpoint: str):
-        """
-        Information about metrics for the workspace
-        :param str internal_id: An internal identifier for the metrics container. Only to be used by the system
-        :param str prometheus_query_endpoint: The Prometheus query endpoint for the workspace
-        """
-        pulumi.set(__self__, "internal_id", internal_id)
-        pulumi.set(__self__, "prometheus_query_endpoint", prometheus_query_endpoint)
-
-    @property
-    @pulumi.getter(name="internalId")
-    def internal_id(self) -> str:
-        """
-        An internal identifier for the metrics container. Only to be used by the system
-        """
-        return pulumi.get(self, "internal_id")
-
-    @property
-    @pulumi.getter(name="prometheusQueryEndpoint")
-    def prometheus_query_endpoint(self) -> str:
-        """
-        The Prometheus query endpoint for the workspace
-        """
-        return pulumi.get(self, "prometheus_query_endpoint")
 
 
 @pulumi.output_type

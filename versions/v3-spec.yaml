@@ -961,7 +961,7 @@ Monitor:
     additions:
         ActivityLogAlert: "2020-10-01"
         AutoscaleSetting: 2021-05-01-preview
-        AzureMonitorWorkspace: 2023-10-01-preview
+        AzureMonitorWorkspace: "2023-04-03"
         DataCollectionEndpoint: "2022-06-01"
         DataCollectionRule: "2022-06-01"
         DataCollectionRuleAssociation: "2022-06-01"
