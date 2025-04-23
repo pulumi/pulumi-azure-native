@@ -3786,6 +3786,11 @@ ContainerService:
         SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/preview/2024-10-02-preview/managedClusters.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedclustersnapshots/{resourceName}
         RpNamespace: Microsoft.ContainerService
+    Namespace:
+        ApiVersion: 2025-02-02-preview
+        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/preview/2025-02-02-preview/managedClusters.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/namespaces/{namespaceName}
+        RpNamespace: Microsoft.ContainerService
     PrivateEndpointConnection:
         ApiVersion: "2024-10-01"
         SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2024-10-01/managedClusters.json
@@ -3830,6 +3835,11 @@ ContainerService:
         ApiVersion: "2024-10-01"
         SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2024-10-01/managedClusters.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/listClusterUserCredential
+        RpNamespace: Microsoft.ContainerService
+    listNamespaceCredential:
+        ApiVersion: 2025-02-02-preview
+        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/preview/2025-02-02-preview/managedClusters.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/namespaces/{namespaceName}/listCredential
         RpNamespace: Microsoft.ContainerService
 ContainerStorage:
     Pool:
