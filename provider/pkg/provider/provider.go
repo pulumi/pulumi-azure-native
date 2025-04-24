@@ -456,12 +456,6 @@ func (k *azureNativeProvider) invokeResponseToOutputs(response any, res resource
 	return outputs
 }
 
-// StreamInvoke dynamically executes a built-in function in the provider. The result is streamed
-// back as a series of messages.
-func (k *azureNativeProvider) StreamInvoke(_ *rpc.InvokeRequest, _ rpc.ResourceProvider_StreamInvokeServer) error {
-	return status.Error(codes.Unimplemented, "StreamInvoke is not yet implemented")
-}
-
 // Check validates that the given property bag is valid for a resource of the given type and returns
 // the inputs that should be passed to successive calls to Diff, Create, or Update for this
 // resource. As a rule, the provider inputs returned by a call to Check should preserve the original
