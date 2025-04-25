@@ -164,7 +164,7 @@ class GetServerGroupClusterResult:
 
     @property
     @pulumi.getter(name="authConfig")
-    def auth_config(self) -> Optional['outputs.AuthConfigResponse']:
+    def auth_config(self) -> Optional['outputs.ServerGroupClusterAuthConfigResponse']:
         """
         Authentication configuration of a cluster.
         """
@@ -220,7 +220,7 @@ class GetServerGroupClusterResult:
 
     @property
     @pulumi.getter(name="dataEncryption")
-    def data_encryption(self) -> Optional['outputs.DataEncryptionResponse']:
+    def data_encryption(self) -> Optional['outputs.ServerGroupClusterDataEncryptionResponse']:
         """
         The data encryption properties of a cluster.
         """
@@ -292,7 +292,7 @@ class GetServerGroupClusterResult:
 
     @property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> Optional['outputs.MaintenanceWindowResponse']:
+    def maintenance_window(self) -> Optional['outputs.ServerGroupClusterMaintenanceWindowResponse']:
         """
         Maintenance window of a cluster.
         """

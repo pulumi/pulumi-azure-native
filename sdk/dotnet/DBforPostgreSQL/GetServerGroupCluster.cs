@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Authentication configuration of a cluster.
         /// </summary>
-        public readonly Outputs.AuthConfigResponse? AuthConfig;
+        public readonly Outputs.ServerGroupClusterAuthConfigResponse? AuthConfig;
         /// <summary>
         /// The Azure API version of the resource.
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// The data encryption properties of a cluster.
         /// </summary>
-        public readonly Outputs.DataEncryptionResponse? DataEncryption;
+        public readonly Outputs.ServerGroupClusterDataEncryptionResponse? DataEncryption;
         /// <summary>
         /// The database name of the cluster. Only one database per cluster is supported.
         /// </summary>
@@ -162,7 +162,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Maintenance window of a cluster.
         /// </summary>
-        public readonly Outputs.MaintenanceWindowResponse? MaintenanceWindow;
+        public readonly Outputs.ServerGroupClusterMaintenanceWindowResponse? MaintenanceWindow;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -250,7 +250,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 
             string administratorLogin,
 
-            Outputs.AuthConfigResponse? authConfig,
+            Outputs.ServerGroupClusterAuthConfigResponse? authConfig,
 
             string azureApiVersion,
 
@@ -264,7 +264,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 
             int? coordinatorVCores,
 
-            Outputs.DataEncryptionResponse? dataEncryption,
+            Outputs.ServerGroupClusterDataEncryptionResponse? dataEncryption,
 
             string? databaseName,
 
@@ -282,7 +282,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 
             string location,
 
-            Outputs.MaintenanceWindowResponse? maintenanceWindow,
+            Outputs.ServerGroupClusterMaintenanceWindowResponse? maintenanceWindow,
 
             string name,
 

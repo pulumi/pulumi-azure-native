@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
 {
 
     /// <summary>
-    /// The data encryption properties of a cluster.
+    /// Data encryption properties of a server
     /// </summary>
     public sealed class DataEncryptionArgs : global::Pulumi.ResourceArgs
     {
@@ -46,19 +46,16 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
         public Input<string>? PrimaryKeyURI { get; set; }
 
         /// <summary>
-        /// URI for the key in keyvault for data encryption of the primary server.
-        /// </summary>
-        [Input("primaryKeyUri")]
-        public Input<string>? PrimaryKeyUri { get; set; }
-
-        /// <summary>
         /// Resource Id for the User assigned identity to be used for data encryption of the primary server.
         /// </summary>
         [Input("primaryUserAssignedIdentityId")]
         public Input<string>? PrimaryUserAssignedIdentityId { get; set; }
 
+        /// <summary>
+        /// Data encryption type to depict if it is System Managed vs Azure Key vault.
+        /// </summary>
         [Input("type")]
-        public object? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.ArmServerKeyType>? Type { get; set; }
 
         public DataEncryptionArgs()
         {
