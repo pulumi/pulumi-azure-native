@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An Azure Monitor Workspace definition.
+ * An Azure Monitor Workspace definition
  *
- * Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-03.
+ * Uses Azure REST API version 2023-04-03. In version 2.x of the Azure Native provider, it used API version 2023-04-03.
  *
- * Other available API versions: 2023-04-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class AzureMonitorWorkspace extends pulumi.CustomResource {
     /**
@@ -42,7 +42,7 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
     }
 
     /**
-     * The immutable ID of the Azure Monitor workspace. This property is read-only.
+     * The immutable Id of the Azure Monitor Workspace. This property is read-only.
      */
     public /*out*/ readonly accountId!: pulumi.Output<string>;
     /**
@@ -52,7 +52,7 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
     /**
      * The Data Collection Rule and Endpoint used for ingestion by default.
      */
-    public /*out*/ readonly defaultIngestionSettings!: pulumi.Output<outputs.monitor.IngestionSettingsResponse>;
+    public /*out*/ readonly defaultIngestionSettings!: pulumi.Output<outputs.monitor.AzureMonitorWorkspaceResponseDefaultIngestionSettings>;
     /**
      * Resource entity tag (ETag)
      */
@@ -62,25 +62,25 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Information about metrics for the Azure Monitor workspace
+     * Properties related to the metrics container in the Azure Monitor Workspace
      */
-    public /*out*/ readonly metrics!: pulumi.Output<outputs.monitor.MetricsResponse | undefined>;
+    public /*out*/ readonly metrics!: pulumi.Output<outputs.monitor.AzureMonitorWorkspaceResponseMetrics>;
     /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * List of private endpoint connections.
+     * List of private endpoint connections
      */
     public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.monitor.PrivateEndpointConnectionResponse[]>;
     /**
-     * The provisioning state of the Azure Monitor workspace. Set to Succeeded if everything is healthy.
+     * The provisioning state of the Azure Monitor Workspace. Set to Succeeded if everything is healthy.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Gets or sets allow or disallow public network access to workspace
+     * Gets or sets allow or disallow public network access to Azure Monitor Workspace
      */
-    public /*out*/ readonly publicNetworkAccess!: pulumi.Output<string>;
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -110,6 +110,7 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
             }
             resourceInputs["azureMonitorWorkspaceName"] = args ? args.azureMonitorWorkspaceName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["accountId"] = undefined /*out*/;
@@ -120,7 +121,6 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -150,13 +150,17 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
  */
 export interface AzureMonitorWorkspaceArgs {
     /**
-     * The name of the Azure Monitor workspace. The name is case insensitive.
+     * The name of the Azure Monitor Workspace. The name is case insensitive
      */
     azureMonitorWorkspaceName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * Gets or sets allow or disallow public network access to Azure Monitor Workspace
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.monitor.PublicNetworkAccess>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

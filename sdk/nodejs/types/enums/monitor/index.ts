@@ -454,6 +454,16 @@ export const ProcessorType = {
  */
 export type ProcessorType = (typeof ProcessorType)[keyof typeof ProcessorType];
 
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Gets or sets allow or disallow public network access to Azure Monitor Workspace
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
 export const ReceiverType = {
     /**
      * Linux syslog.
