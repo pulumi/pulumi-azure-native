@@ -48,7 +48,7 @@ export interface GetServerGroupClusterResult {
     /**
      * Authentication configuration of a cluster.
      */
-    readonly authConfig?: outputs.dbforpostgresql.AuthConfigResponse;
+    readonly authConfig?: outputs.dbforpostgresql.ServerGroupClusterAuthConfigResponse;
     /**
      * The Azure API version of the resource.
      */
@@ -76,7 +76,7 @@ export interface GetServerGroupClusterResult {
     /**
      * The data encryption properties of a cluster.
      */
-    readonly dataEncryption?: outputs.dbforpostgresql.DataEncryptionResponse;
+    readonly dataEncryption?: outputs.dbforpostgresql.ServerGroupClusterDataEncryptionResponse;
     /**
      * The database name of the cluster. Only one database per cluster is supported.
      */
@@ -112,7 +112,7 @@ export interface GetServerGroupClusterResult {
     /**
      * Maintenance window of a cluster.
      */
-    readonly maintenanceWindow?: outputs.dbforpostgresql.MaintenanceWindowResponse;
+    readonly maintenanceWindow?: outputs.dbforpostgresql.ServerGroupClusterMaintenanceWindowResponse;
     /**
      * The name of the resource
      */

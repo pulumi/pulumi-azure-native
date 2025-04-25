@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// Authentication configuration of a cluster.
         /// </summary>
         [Output("authConfig")]
-        public Output<Outputs.AuthConfigResponse?> AuthConfig { get; private set; } = null!;
+        public Output<Outputs.ServerGroupClusterAuthConfigResponse?> AuthConfig { get; private set; } = null!;
 
         /// <summary>
         /// The Azure API version of the resource.
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// The data encryption properties of a cluster.
         /// </summary>
         [Output("dataEncryption")]
-        public Output<Outputs.DataEncryptionResponse?> DataEncryption { get; private set; } = null!;
+        public Output<Outputs.ServerGroupClusterDataEncryptionResponse?> DataEncryption { get; private set; } = null!;
 
         /// <summary>
         /// The database name of the cluster. Only one database per cluster is supported.
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// Maintenance window of a cluster.
         /// </summary>
         [Output("maintenanceWindow")]
-        public Output<Outputs.MaintenanceWindowResponse?> MaintenanceWindow { get; private set; } = null!;
+        public Output<Outputs.ServerGroupClusterMaintenanceWindowResponse?> MaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -312,7 +312,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// Authentication configuration of a cluster.
         /// </summary>
         [Input("authConfig")]
-        public Input<Inputs.AuthConfigArgs>? AuthConfig { get; set; }
+        public Input<Inputs.ServerGroupClusterAuthConfigArgs>? AuthConfig { get; set; }
 
         /// <summary>
         /// The Citus extension version on all cluster servers.
@@ -354,7 +354,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// The data encryption properties of a cluster.
         /// </summary>
         [Input("dataEncryption")]
-        public Input<Inputs.DataEncryptionArgs>? DataEncryption { get; set; }
+        public Input<Inputs.ServerGroupClusterDataEncryptionArgs>? DataEncryption { get; set; }
 
         /// <summary>
         /// The database name of the cluster. Only one database per cluster is supported.
@@ -396,7 +396,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// Maintenance window of a cluster.
         /// </summary>
         [Input("maintenanceWindow")]
-        public Input<Inputs.MaintenanceWindowArgs>? MaintenanceWindow { get; set; }
+        public Input<Inputs.ServerGroupClusterMaintenanceWindowArgs>? MaintenanceWindow { get; set; }
 
         /// <summary>
         /// Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1. Required for creation.
