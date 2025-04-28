@@ -28,6 +28,114 @@
       "ResourceName": "Backup",
       "Version": "2022-11-01",
       "IsPrevious": true
+    },
+    {
+      "ModuleName": "NetworkCloud",
+      "ResourceName": "AgentPool",
+      "Version": "2023-10-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "NetworkCloud",
+      "ResourceName": "BareMetalMachine",
+      "Version": "2023-10-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "NetworkCloud",
+      "ResourceName": "BareMetalMachineKeySet",
+      "Version": "2023-10-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "NetworkCloud",
+      "ResourceName": "BmcKeySet",
+      "Version": "2023-10-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "NetworkCloud",
+      "ResourceName": "CloudServicesNetwork",
+      "Version": "2023-10-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "NetworkCloud",
+      "ResourceName": "Cluster",
+      "Version": "2023-10-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "NetworkCloud",
+      "ResourceName": "ClusterManager",
+      "Version": "2023-10-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "NetworkCloud",
+      "ResourceName": "Console",
+      "Version": "2023-10-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "NetworkCloud",
+      "ResourceName": "KubernetesCluster",
+      "Version": "2023-10-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "NetworkCloud",
+      "ResourceName": "KubernetesClusterFeature",
+      "Version": "2024-06-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "NetworkCloud",
+      "ResourceName": "L2Network",
+      "Version": "2023-10-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "NetworkCloud",
+      "ResourceName": "L3Network",
+      "Version": "2023-10-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "NetworkCloud",
+      "ResourceName": "MetricsConfiguration",
+      "Version": "2023-10-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "NetworkCloud",
+      "ResourceName": "Rack",
+      "Version": "2023-10-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "NetworkCloud",
+      "ResourceName": "StorageAppliance",
+      "Version": "2023-10-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "NetworkCloud",
+      "ResourceName": "TrunkedNetwork",
+      "Version": "2023-10-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "NetworkCloud",
+      "ResourceName": "VirtualMachine",
+      "Version": "2023-10-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "NetworkCloud",
+      "ResourceName": "Volume",
+      "Version": "2023-10-01-preview",
+      "IsPrevious": true
     }
   ]
 }

@@ -47,6 +47,9 @@
   "IoTOperationsMQ": [
     "2023-10-04-preview"
   ],
+  "IoTOperationsOrchestrator": [
+    "2023-10-04-preview"
+  ],
   "M365SecurityAndCompliance": [
     "2021-03-25-preview"
   ],
@@ -61,6 +64,12 @@
   ],
   "ManufacturingPlatform": [
     "2025-03-01"
+  ],
+  "Media": [
+    "2015-10-01",
+    "2022-07-01",
+    "2022-11-01",
+    "2023-01-01"
   ],
   "PortalServices": [
     "2024-04-01"
