@@ -71,6 +71,36 @@ namespace Pulumi.AzureNative.DataFactory
     }
 
     /// <summary>
+    /// Authentication type for connecting to the AmazonRdsForOracle database. Only used for Version 2.0.
+    /// </summary>
+    [EnumType]
+    public readonly struct AmazonRdsForOracleAuthenticationType : IEquatable<AmazonRdsForOracleAuthenticationType>
+    {
+        private readonly string _value;
+
+        private AmazonRdsForOracleAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AmazonRdsForOracleAuthenticationType Basic { get; } = new AmazonRdsForOracleAuthenticationType("Basic");
+
+        public static bool operator ==(AmazonRdsForOracleAuthenticationType left, AmazonRdsForOracleAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(AmazonRdsForOracleAuthenticationType left, AmazonRdsForOracleAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(AmazonRdsForOracleAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AmazonRdsForOracleAuthenticationType other && Equals(other);
+        public bool Equals(AmazonRdsForOracleAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type used for authentication. Type: string.
     /// </summary>
     [EnumType]

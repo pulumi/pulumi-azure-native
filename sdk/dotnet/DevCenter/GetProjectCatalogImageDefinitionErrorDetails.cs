@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// Gets Image Definition error details
         /// 
         /// Uses Azure REST API version 2025-02-01.
+        /// 
+        /// Other available API versions: 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetProjectCatalogImageDefinitionErrorDetailsResult> InvokeAsync(GetProjectCatalogImageDefinitionErrorDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectCatalogImageDefinitionErrorDetailsResult>("azure-native:devcenter:getProjectCatalogImageDefinitionErrorDetails", args ?? new GetProjectCatalogImageDefinitionErrorDetailsArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// Gets Image Definition error details
         /// 
         /// Uses Azure REST API version 2025-02-01.
+        /// 
+        /// Other available API versions: 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetProjectCatalogImageDefinitionErrorDetailsResult> Invoke(GetProjectCatalogImageDefinitionErrorDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectCatalogImageDefinitionErrorDetailsResult>("azure-native:devcenter:getProjectCatalogImageDefinitionErrorDetails", args ?? new GetProjectCatalogImageDefinitionErrorDetailsInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// Gets Image Definition error details
         /// 
         /// Uses Azure REST API version 2025-02-01.
+        /// 
+        /// Other available API versions: 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetProjectCatalogImageDefinitionErrorDetailsResult> Invoke(GetProjectCatalogImageDefinitionErrorDetailsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectCatalogImageDefinitionErrorDetailsResult>("azure-native:devcenter:getProjectCatalogImageDefinitionErrorDetails", args ?? new GetProjectCatalogImageDefinitionErrorDetailsInvokeArgs(), options.WithDefaults());

@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
- * Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01, 2025-03-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class TagAtScope extends pulumi.CustomResource {
     /**
@@ -87,7 +87,7 @@ export class TagAtScope extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:resources/v20191001:TagAtScope" }, { type: "azure-native:resources/v20200601:TagAtScope" }, { type: "azure-native:resources/v20200801:TagAtScope" }, { type: "azure-native:resources/v20201001:TagAtScope" }, { type: "azure-native:resources/v20210101:TagAtScope" }, { type: "azure-native:resources/v20210401:TagAtScope" }, { type: "azure-native:resources/v20220901:TagAtScope" }, { type: "azure-native:resources/v20230701:TagAtScope" }, { type: "azure-native:resources/v20240301:TagAtScope" }, { type: "azure-native:resources/v20240701:TagAtScope" }, { type: "azure-native:resources/v20241101:TagAtScope" }, { type: "azure-native:resources/v20250301:TagAtScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:resources/v20191001:TagAtScope" }, { type: "azure-native:resources/v20200601:TagAtScope" }, { type: "azure-native:resources/v20200801:TagAtScope" }, { type: "azure-native:resources/v20201001:TagAtScope" }, { type: "azure-native:resources/v20210101:TagAtScope" }, { type: "azure-native:resources/v20210401:TagAtScope" }, { type: "azure-native:resources/v20220901:TagAtScope" }, { type: "azure-native:resources/v20230701:TagAtScope" }, { type: "azure-native:resources/v20240301:TagAtScope" }, { type: "azure-native:resources/v20240701:TagAtScope" }, { type: "azure-native:resources/v20241101:TagAtScope" }, { type: "azure-native:resources/v20250301:TagAtScope" }, { type: "azure-native:resources/v20250401:TagAtScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TagAtScope.__pulumiType, name, resourceInputs, opts);
     }

@@ -1314,17 +1314,41 @@ class AmazonMWSSourceResponse(dict):
 @pulumi.output_type
 class AmazonRdsForOracleLinkedServiceResponse(dict):
     """
-    AmazonRdsForOracle database.
+    AmazonRdsForOracle database. This linked service has supported version property. The Version 1.0 is scheduled for deprecation while your pipeline will continue to run after EOL but without any bug fix or new features.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "connectionString":
-            suggest = "connection_string"
+        if key == "authenticationType":
+            suggest = "authentication_type"
         elif key == "connectVia":
             suggest = "connect_via"
+        elif key == "connectionString":
+            suggest = "connection_string"
+        elif key == "cryptoChecksumClient":
+            suggest = "crypto_checksum_client"
+        elif key == "cryptoChecksumTypesClient":
+            suggest = "crypto_checksum_types_client"
+        elif key == "enableBulkLoad":
+            suggest = "enable_bulk_load"
         elif key == "encryptedCredential":
             suggest = "encrypted_credential"
+        elif key == "encryptionClient":
+            suggest = "encryption_client"
+        elif key == "encryptionTypesClient":
+            suggest = "encryption_types_client"
+        elif key == "fetchSize":
+            suggest = "fetch_size"
+        elif key == "fetchTswtzAsTimestamp":
+            suggest = "fetch_tswtz_as_timestamp"
+        elif key == "initialLobFetchSize":
+            suggest = "initial_lob_fetch_size"
+        elif key == "initializationString":
+            suggest = "initialization_string"
+        elif key == "statementCacheSize":
+            suggest = "statement_cache_size"
+        elif key == "supportV1DataTypes":
+            suggest = "support_v1_data_types"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AmazonRdsForOracleLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1338,52 +1362,101 @@ class AmazonRdsForOracleLinkedServiceResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 connection_string: Any,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
+                 authentication_type: Optional[str] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 connection_string: Optional[Any] = None,
+                 crypto_checksum_client: Optional[Any] = None,
+                 crypto_checksum_types_client: Optional[Any] = None,
                  description: Optional[str] = None,
+                 enable_bulk_load: Optional[Any] = None,
                  encrypted_credential: Optional[str] = None,
+                 encryption_client: Optional[Any] = None,
+                 encryption_types_client: Optional[Any] = None,
+                 fetch_size: Optional[Any] = None,
+                 fetch_tswtz_as_timestamp: Optional[Any] = None,
+                 initial_lob_fetch_size: Optional[Any] = None,
+                 initialization_string: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
+                 server: Optional[Any] = None,
+                 statement_cache_size: Optional[Any] = None,
+                 support_v1_data_types: Optional[Any] = None,
+                 username: Optional[Any] = None,
                  version: Optional[str] = None):
         """
-        AmazonRdsForOracle database.
-        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        AmazonRdsForOracle database. This linked service has supported version property. The Version 1.0 is scheduled for deprecation while your pipeline will continue to run after EOL but without any bug fix or new features.
         :param str type: Type of linked service.
                Expected value is 'AmazonRdsForOracle'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param str authentication_type: Authentication type for connecting to the AmazonRdsForOracle database. Only used for Version 2.0.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Only used for Version 1.0.
+        :param Any crypto_checksum_client: Specifies the desired data integrity behavior when this client connects to a server. Supported values are accepted, rejected, requested or required, default value is required. Type: string. Only used for Version 2.0.
+        :param Any crypto_checksum_types_client: Specifies the crypto-checksum algorithms that client can use. Supported values are SHA1, SHA256, SHA384, SHA512, default value is (SHA512). Type: string. Only used for Version 2.0.
         :param str description: Linked service description.
+        :param Any enable_bulk_load: Specifies whether to use bulk copy or batch insert when loading data into the database, default value is true. Type: boolean. Only used for Version 2.0.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        :param Any encryption_client: Specifies the encryption client behavior. Supported values are accepted, rejected, requested or required, default value is required. Type: string. Only used for Version 2.0.
+        :param Any encryption_types_client: Specifies the encryption algorithms that client can use. Supported values are AES128, AES192, AES256, 3DES112, 3DES168, default value is (AES256). Type: string. Only used for Version 2.0.
+        :param Any fetch_size: Specifies the number of bytes that the driver allocates to fetch the data in one database round-trip, default value is 10485760. Type: integer. Only used for Version 2.0.
+        :param Any fetch_tswtz_as_timestamp: Specifies whether the driver returns column value with the TIMESTAMP WITH TIME ZONE data type as DateTime or string. This setting is ignored if supportV1DataTypes is not true, default value is true. Type: boolean. Only used for Version 2.0.
+        :param Any initial_lob_fetch_size: Specifies the amount that the source initially fetches for LOB columns, default value is 0. Type: integer. Only used for Version 2.0.
+        :param Any initialization_string: Specifies a command that is issued immediately after connecting to the database to manage session settings. Type: string. Only used for Version 2.0.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The Azure key vault secret reference of password in connection string.
+        :param Any server: The location of AmazonRdsForOracle database you want to connect to, the supported forms include connector descriptor, Easy Connect (Plus) Naming and Oracle Net Services Name (Only self-hosted IR). Type: string. Only used for Version 2.0.
+        :param Any statement_cache_size: Specifies the number of cursors or statements to be cached for each database connection, default value is 0. Type: integer. Only used for Version 2.0.
+        :param Any support_v1_data_types: Specifies whether to use the Version 1.0 data type mappings. Do not set this to true unless you want to keep backward compatibility with Version 1.0's data type mappings, default value is false. Type: boolean. Only used for Version 2.0.
+        :param Any username: The AmazonRdsForOracle database username. Type: string. Only used for Version 2.0.
         :param str version: Version of the linked service.
         """
-        pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'AmazonRdsForOracle')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+        if crypto_checksum_client is not None:
+            pulumi.set(__self__, "crypto_checksum_client", crypto_checksum_client)
+        if crypto_checksum_types_client is not None:
+            pulumi.set(__self__, "crypto_checksum_types_client", crypto_checksum_types_client)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if enable_bulk_load is not None:
+            pulumi.set(__self__, "enable_bulk_load", enable_bulk_load)
         if encrypted_credential is not None:
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if encryption_client is not None:
+            pulumi.set(__self__, "encryption_client", encryption_client)
+        if encryption_types_client is not None:
+            pulumi.set(__self__, "encryption_types_client", encryption_types_client)
+        if fetch_size is not None:
+            pulumi.set(__self__, "fetch_size", fetch_size)
+        if fetch_tswtz_as_timestamp is not None:
+            pulumi.set(__self__, "fetch_tswtz_as_timestamp", fetch_tswtz_as_timestamp)
+        if initial_lob_fetch_size is not None:
+            pulumi.set(__self__, "initial_lob_fetch_size", initial_lob_fetch_size)
+        if initialization_string is not None:
+            pulumi.set(__self__, "initialization_string", initialization_string)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+        if statement_cache_size is not None:
+            pulumi.set(__self__, "statement_cache_size", statement_cache_size)
+        if support_v1_data_types is not None:
+            pulumi.set(__self__, "support_v1_data_types", support_v1_data_types)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
         if version is not None:
             pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Any:
-        """
-        The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-        """
-        return pulumi.get(self, "connection_string")
 
     @property
     @pulumi.getter
@@ -1403,12 +1476,44 @@ class AmazonRdsForOracleLinkedServiceResponse(dict):
         return pulumi.get(self, "annotations")
 
     @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[str]:
+        """
+        Authentication type for connecting to the AmazonRdsForOracle database. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @property
     @pulumi.getter(name="connectVia")
     def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
         """
         The integration runtime reference.
         """
         return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[Any]:
+        """
+        The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Only used for Version 1.0.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @property
+    @pulumi.getter(name="cryptoChecksumClient")
+    def crypto_checksum_client(self) -> Optional[Any]:
+        """
+        Specifies the desired data integrity behavior when this client connects to a server. Supported values are accepted, rejected, requested or required, default value is required. Type: string. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "crypto_checksum_client")
+
+    @property
+    @pulumi.getter(name="cryptoChecksumTypesClient")
+    def crypto_checksum_types_client(self) -> Optional[Any]:
+        """
+        Specifies the crypto-checksum algorithms that client can use. Supported values are SHA1, SHA256, SHA384, SHA512, default value is (SHA512). Type: string. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "crypto_checksum_types_client")
 
     @property
     @pulumi.getter
@@ -1419,12 +1524,68 @@ class AmazonRdsForOracleLinkedServiceResponse(dict):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="enableBulkLoad")
+    def enable_bulk_load(self) -> Optional[Any]:
+        """
+        Specifies whether to use bulk copy or batch insert when loading data into the database, default value is true. Type: boolean. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "enable_bulk_load")
+
+    @property
     @pulumi.getter(name="encryptedCredential")
     def encrypted_credential(self) -> Optional[str]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
+
+    @property
+    @pulumi.getter(name="encryptionClient")
+    def encryption_client(self) -> Optional[Any]:
+        """
+        Specifies the encryption client behavior. Supported values are accepted, rejected, requested or required, default value is required. Type: string. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "encryption_client")
+
+    @property
+    @pulumi.getter(name="encryptionTypesClient")
+    def encryption_types_client(self) -> Optional[Any]:
+        """
+        Specifies the encryption algorithms that client can use. Supported values are AES128, AES192, AES256, 3DES112, 3DES168, default value is (AES256). Type: string. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "encryption_types_client")
+
+    @property
+    @pulumi.getter(name="fetchSize")
+    def fetch_size(self) -> Optional[Any]:
+        """
+        Specifies the number of bytes that the driver allocates to fetch the data in one database round-trip, default value is 10485760. Type: integer. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "fetch_size")
+
+    @property
+    @pulumi.getter(name="fetchTswtzAsTimestamp")
+    def fetch_tswtz_as_timestamp(self) -> Optional[Any]:
+        """
+        Specifies whether the driver returns column value with the TIMESTAMP WITH TIME ZONE data type as DateTime or string. This setting is ignored if supportV1DataTypes is not true, default value is true. Type: boolean. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "fetch_tswtz_as_timestamp")
+
+    @property
+    @pulumi.getter(name="initialLobFetchSize")
+    def initial_lob_fetch_size(self) -> Optional[Any]:
+        """
+        Specifies the amount that the source initially fetches for LOB columns, default value is 0. Type: integer. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "initial_lob_fetch_size")
+
+    @property
+    @pulumi.getter(name="initializationString")
+    def initialization_string(self) -> Optional[Any]:
+        """
+        Specifies a command that is issued immediately after connecting to the database to manage session settings. Type: string. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "initialization_string")
 
     @property
     @pulumi.getter
@@ -1441,6 +1602,38 @@ class AmazonRdsForOracleLinkedServiceResponse(dict):
         The Azure key vault secret reference of password in connection string.
         """
         return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[Any]:
+        """
+        The location of AmazonRdsForOracle database you want to connect to, the supported forms include connector descriptor, Easy Connect (Plus) Naming and Oracle Net Services Name (Only self-hosted IR). Type: string. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "server")
+
+    @property
+    @pulumi.getter(name="statementCacheSize")
+    def statement_cache_size(self) -> Optional[Any]:
+        """
+        Specifies the number of cursors or statements to be cached for each database connection, default value is 0. Type: integer. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "statement_cache_size")
+
+    @property
+    @pulumi.getter(name="supportV1DataTypes")
+    def support_v1_data_types(self) -> Optional[Any]:
+        """
+        Specifies whether to use the Version 1.0 data type mappings. Do not set this to true unless you want to keep backward compatibility with Version 1.0's data type mappings, default value is false. Type: boolean. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "support_v1_data_types")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[Any]:
+        """
+        The AmazonRdsForOracle database username. Type: string. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "username")
 
     @property
     @pulumi.getter
@@ -10318,6 +10511,8 @@ class AzureDatabricksLinkedServiceResponse(dict):
             suggest = "access_token"
         elif key == "connectVia":
             suggest = "connect_via"
+        elif key == "dataSecurityMode":
+            suggest = "data_security_mode"
         elif key == "encryptedCredential":
             suggest = "encrypted_credential"
         elif key == "existingClusterId":
@@ -10368,6 +10563,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
                  authentication: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  credential: Optional['outputs.CredentialReferenceResponse'] = None,
+                 data_security_mode: Optional[Any] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
                  existing_cluster_id: Optional[Any] = None,
@@ -10396,6 +10592,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
         :param Any authentication: Required to specify MSI, if using Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
+        :param Any data_security_mode: The data security mode for the Databricks Cluster. Type: string (or Expression with resultType string).
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any existing_cluster_id: The id of an existing interactive cluster that will be used for all runs of this activity. Type: string (or Expression with resultType string).
@@ -10427,6 +10624,8 @@ class AzureDatabricksLinkedServiceResponse(dict):
             pulumi.set(__self__, "connect_via", connect_via)
         if credential is not None:
             pulumi.set(__self__, "credential", credential)
+        if data_security_mode is not None:
+            pulumi.set(__self__, "data_security_mode", data_security_mode)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
@@ -10520,6 +10719,14 @@ class AzureDatabricksLinkedServiceResponse(dict):
         The credential reference containing authentication information.
         """
         return pulumi.get(self, "credential")
+
+    @property
+    @pulumi.getter(name="dataSecurityMode")
+    def data_security_mode(self) -> Optional[Any]:
+        """
+        The data security mode for the Databricks Cluster. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "data_security_mode")
 
     @property
     @pulumi.getter

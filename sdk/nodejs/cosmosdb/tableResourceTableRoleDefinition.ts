@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Parameters to create and update an Azure Cosmos DB Table Role Definition.
  *
  * Uses Azure REST API version 2024-12-01-preview.
+ *
+ * Other available API versions: 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class TableResourceTableRoleDefinition extends pulumi.CustomResource {
     /**
@@ -106,7 +108,7 @@ export class TableResourceTableRoleDefinition extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cosmosdb/v20241201preview:TableResourceTableRoleDefinition" }, { type: "azure-native:documentdb/v20241201preview:TableResourceTableRoleDefinition" }, { type: "azure-native:documentdb:TableResourceTableRoleDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cosmosdb/v20241201preview:TableResourceTableRoleDefinition" }, { type: "azure-native:cosmosdb/v20250501preview:TableResourceTableRoleDefinition" }, { type: "azure-native:documentdb/v20241201preview:TableResourceTableRoleDefinition" }, { type: "azure-native:documentdb:TableResourceTableRoleDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TableResourceTableRoleDefinition.__pulumiType, name, resourceInputs, opts);
     }

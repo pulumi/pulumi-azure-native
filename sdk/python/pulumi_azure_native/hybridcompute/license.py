@@ -156,7 +156,7 @@ class License(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-07-10. In version 2.x of the Azure Native provider, it used API version 2023-06-20-preview.
 
-        Other available API versions: 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13, 2025-02-19-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,7 +179,7 @@ class License(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-07-10. In version 2.x of the Azure Native provider, it used API version 2023-06-20-preview.
 
-        Other available API versions: 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13, 2025-02-19-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param LicenseInitArgs args: The arguments to use to populate this resource's properties.
@@ -226,7 +226,7 @@ class License(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20230620preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20231003preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20240331preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20240520preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20240710:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20240731preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20240910preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20241110preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20250113:License")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20230620preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20231003preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20240331preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20240520preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20240710:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20240731preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20240910preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20241110preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20250113:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20250219preview:License")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(License, __self__).__init__(
             'azure-native:hybridcompute:License',

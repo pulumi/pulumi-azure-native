@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.WeightsAndBiases
         /// Get a InstanceResource
         /// 
         /// Uses Azure REST API version 2024-09-18-preview.
+        /// 
+        /// Other available API versions: 2024-09-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native weightsandbiases [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("azure-native:weightsandbiases:getInstance", args ?? new GetInstanceArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.WeightsAndBiases
         /// Get a InstanceResource
         /// 
         /// Uses Azure REST API version 2024-09-18-preview.
+        /// 
+        /// Other available API versions: 2024-09-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native weightsandbiases [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure-native:weightsandbiases:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.WeightsAndBiases
         /// Get a InstanceResource
         /// 
         /// Uses Azure REST API version 2024-09-18-preview.
+        /// 
+        /// Other available API versions: 2024-09-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native weightsandbiases [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure-native:weightsandbiases:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());

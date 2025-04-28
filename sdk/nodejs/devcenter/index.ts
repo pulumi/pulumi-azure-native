@@ -85,6 +85,16 @@ export const getDevCenter: typeof import("./getDevCenter").getDevCenter = null a
 export const getDevCenterOutput: typeof import("./getDevCenter").getDevCenterOutput = null as any;
 utilities.lazyLoad(exports, ["getDevCenter","getDevCenterOutput"], () => require("./getDevCenter"));
 
+export { GetDevCenterCatalogImageDefinitionBuildDetailsArgs, GetDevCenterCatalogImageDefinitionBuildDetailsResult, GetDevCenterCatalogImageDefinitionBuildDetailsOutputArgs } from "./getDevCenterCatalogImageDefinitionBuildDetails";
+export const getDevCenterCatalogImageDefinitionBuildDetails: typeof import("./getDevCenterCatalogImageDefinitionBuildDetails").getDevCenterCatalogImageDefinitionBuildDetails = null as any;
+export const getDevCenterCatalogImageDefinitionBuildDetailsOutput: typeof import("./getDevCenterCatalogImageDefinitionBuildDetails").getDevCenterCatalogImageDefinitionBuildDetailsOutput = null as any;
+utilities.lazyLoad(exports, ["getDevCenterCatalogImageDefinitionBuildDetails","getDevCenterCatalogImageDefinitionBuildDetailsOutput"], () => require("./getDevCenterCatalogImageDefinitionBuildDetails"));
+
+export { GetDevCenterCatalogImageDefinitionErrorDetailsArgs, GetDevCenterCatalogImageDefinitionErrorDetailsResult, GetDevCenterCatalogImageDefinitionErrorDetailsOutputArgs } from "./getDevCenterCatalogImageDefinitionErrorDetails";
+export const getDevCenterCatalogImageDefinitionErrorDetails: typeof import("./getDevCenterCatalogImageDefinitionErrorDetails").getDevCenterCatalogImageDefinitionErrorDetails = null as any;
+export const getDevCenterCatalogImageDefinitionErrorDetailsOutput: typeof import("./getDevCenterCatalogImageDefinitionErrorDetails").getDevCenterCatalogImageDefinitionErrorDetailsOutput = null as any;
+utilities.lazyLoad(exports, ["getDevCenterCatalogImageDefinitionErrorDetails","getDevCenterCatalogImageDefinitionErrorDetailsOutput"], () => require("./getDevCenterCatalogImageDefinitionErrorDetails"));
+
 export { GetEncryptionSetArgs, GetEncryptionSetResult, GetEncryptionSetOutputArgs } from "./getEncryptionSet";
 export const getEncryptionSet: typeof import("./getEncryptionSet").getEncryptionSet = null as any;
 export const getEncryptionSetOutput: typeof import("./getEncryptionSet").getEncryptionSetOutput = null as any;

@@ -75,6 +75,11 @@ export const getManagedClusterSnapshot: typeof import("./getManagedClusterSnapsh
 export const getManagedClusterSnapshotOutput: typeof import("./getManagedClusterSnapshot").getManagedClusterSnapshotOutput = null as any;
 utilities.lazyLoad(exports, ["getManagedClusterSnapshot","getManagedClusterSnapshotOutput"], () => require("./getManagedClusterSnapshot"));
 
+export { GetNamespaceArgs, GetNamespaceResult, GetNamespaceOutputArgs } from "./getNamespace";
+export const getNamespace: typeof import("./getNamespace").getNamespace = null as any;
+export const getNamespaceOutput: typeof import("./getNamespace").getNamespaceOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
+
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
@@ -120,6 +125,11 @@ export const listManagedClusterUserCredentials: typeof import("./listManagedClus
 export const listManagedClusterUserCredentialsOutput: typeof import("./listManagedClusterUserCredentials").listManagedClusterUserCredentialsOutput = null as any;
 utilities.lazyLoad(exports, ["listManagedClusterUserCredentials","listManagedClusterUserCredentialsOutput"], () => require("./listManagedClusterUserCredentials"));
 
+export { ListNamespaceCredentialArgs, ListNamespaceCredentialResult, ListNamespaceCredentialOutputArgs } from "./listNamespaceCredential";
+export const listNamespaceCredential: typeof import("./listNamespaceCredential").listNamespaceCredential = null as any;
+export const listNamespaceCredentialOutput: typeof import("./listNamespaceCredential").listNamespaceCredentialOutput = null as any;
+utilities.lazyLoad(exports, ["listNamespaceCredential","listNamespaceCredentialOutput"], () => require("./listNamespaceCredential"));
+
 export { LoadBalancerArgs } from "./loadBalancer";
 export type LoadBalancer = import("./loadBalancer").LoadBalancer;
 export const LoadBalancer: typeof import("./loadBalancer").LoadBalancer = null as any;
@@ -139,6 +149,11 @@ export { ManagedClusterSnapshotArgs } from "./managedClusterSnapshot";
 export type ManagedClusterSnapshot = import("./managedClusterSnapshot").ManagedClusterSnapshot;
 export const ManagedClusterSnapshot: typeof import("./managedClusterSnapshot").ManagedClusterSnapshot = null as any;
 utilities.lazyLoad(exports, ["ManagedClusterSnapshot"], () => require("./managedClusterSnapshot"));
+
+export { NamespaceArgs } from "./namespace";
+export type Namespace = import("./namespace").Namespace;
+export const Namespace: typeof import("./namespace").Namespace = null as any;
+utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
 
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
@@ -186,6 +201,8 @@ const _module = {
                 return new ManagedCluster(name, <any>undefined, { urn })
             case "azure-native:containerservice:ManagedClusterSnapshot":
                 return new ManagedClusterSnapshot(name, <any>undefined, { urn })
+            case "azure-native:containerservice:Namespace":
+                return new Namespace(name, <any>undefined, { urn })
             case "azure-native:containerservice:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:containerservice:Snapshot":

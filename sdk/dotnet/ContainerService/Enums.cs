@@ -8,6 +8,47 @@ using Pulumi;
 namespace Pulumi.AzureNative.ContainerService
 {
     /// <summary>
+    /// Action if Kubernetes namespace with same name already exists.
+    /// </summary>
+    [EnumType]
+    public readonly struct AdoptionPolicy : IEquatable<AdoptionPolicy>
+    {
+        private readonly string _value;
+
+        private AdoptionPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// If the namespace already exists in Kubernetes, attempts to create that same namespace in ARM will fail.
+        /// </summary>
+        public static AdoptionPolicy Never { get; } = new AdoptionPolicy("Never");
+        /// <summary>
+        /// Take over the existing namespace to be managed by ARM, if there is no difference.
+        /// </summary>
+        public static AdoptionPolicy IfIdentical { get; } = new AdoptionPolicy("IfIdentical");
+        /// <summary>
+        /// Always take over the existing namespace to be managed by ARM, some fields might be overwritten.
+        /// </summary>
+        public static AdoptionPolicy Always { get; } = new AdoptionPolicy("Always");
+
+        public static bool operator ==(AdoptionPolicy left, AdoptionPolicy right) => left.Equals(right);
+        public static bool operator !=(AdoptionPolicy left, AdoptionPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(AdoptionPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AdoptionPolicy other && Equals(other);
+        public bool Equals(AdoptionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
     /// </summary>
     [EnumType]
@@ -218,6 +259,43 @@ namespace Pulumi.AzureNative.ContainerService
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ConnectionStatus other && Equals(other);
         public bool Equals(ConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Delete options of a namespace.
+    /// </summary>
+    [EnumType]
+    public readonly struct DeletePolicy : IEquatable<DeletePolicy>
+    {
+        private readonly string _value;
+
+        private DeletePolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Only delete the ARM resource, keep the Kubernetes namespace. Also delete the ManagedByARM label.
+        /// </summary>
+        public static DeletePolicy Keep { get; } = new DeletePolicy("Keep");
+        /// <summary>
+        /// Delete both the ARM resource and the Kubernetes namespace together.
+        /// </summary>
+        public static DeletePolicy Delete { get; } = new DeletePolicy("Delete");
+
+        public static bool operator ==(DeletePolicy left, DeletePolicy right) => left.Equals(right);
+        public static bool operator !=(DeletePolicy left, DeletePolicy right) => !left.Equals(right);
+
+        public static explicit operator string(DeletePolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeletePolicy other && Equals(other);
+        public bool Equals(DeletePolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1214,6 +1292,47 @@ namespace Pulumi.AzureNative.ContainerService
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OutboundType other && Equals(other);
         public bool Equals(OutboundType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Ingress policy for the network.
+    /// </summary>
+    [EnumType]
+    public readonly struct PolicyRule : IEquatable<PolicyRule>
+    {
+        private readonly string _value;
+
+        private PolicyRule(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Deny all network traffic.
+        /// </summary>
+        public static PolicyRule DenyAll { get; } = new PolicyRule("DenyAll");
+        /// <summary>
+        /// Allow all network traffic.
+        /// </summary>
+        public static PolicyRule AllowAll { get; } = new PolicyRule("AllowAll");
+        /// <summary>
+        /// Allow traffic within the same namespace.
+        /// </summary>
+        public static PolicyRule AllowSameNamespace { get; } = new PolicyRule("AllowSameNamespace");
+
+        public static bool operator ==(PolicyRule left, PolicyRule right) => left.Equals(right);
+        public static bool operator !=(PolicyRule left, PolicyRule right) => !left.Equals(right);
+
+        public static explicit operator string(PolicyRule value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicyRule other && Equals(other);
+        public bool Equals(PolicyRule other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -172,6 +172,8 @@ class TableResourceTableRoleDefinition(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01-preview.
 
+        Other available API versions: 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -193,6 +195,8 @@ class TableResourceTableRoleDefinition(pulumi.CustomResource):
         Parameters to create and update an Azure Cosmos DB Table Role Definition.
 
         Uses Azure REST API version 2024-12-01-preview.
+
+        Other available API versions: 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param TableResourceTableRoleDefinitionArgs args: The arguments to use to populate this resource's properties.
@@ -241,7 +245,7 @@ class TableResourceTableRoleDefinition(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cosmosdb/v20241201preview:TableResourceTableRoleDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20241201preview:TableResourceTableRoleDefinition"), pulumi.Alias(type_="azure-native:documentdb:TableResourceTableRoleDefinition")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cosmosdb/v20241201preview:TableResourceTableRoleDefinition"), pulumi.Alias(type_="azure-native:cosmosdb/v20250501preview:TableResourceTableRoleDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20241201preview:TableResourceTableRoleDefinition"), pulumi.Alias(type_="azure-native:documentdb:TableResourceTableRoleDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TableResourceTableRoleDefinition, __self__).__init__(
             'azure-native:cosmosdb:TableResourceTableRoleDefinition',

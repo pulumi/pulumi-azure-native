@@ -57,6 +57,7 @@ __all__ = [
     'DatabaseRestoreResourceResponse',
     'ExcludedPathResponse',
     'FailoverPolicyResponse',
+    'FleetspacePropertiesResponseThroughputPoolConfiguration',
     'GraphAPIComputeRegionalServiceResourceResponse',
     'GraphAPIComputeServiceResourcePropertiesResponse',
     'GraphResourceGetPropertiesResponseOptions',
@@ -2737,6 +2738,88 @@ class FailoverPolicyResponse(dict):
         The name of the region in which the database account exists.
         """
         return pulumi.get(self, "location_name")
+
+
+@pulumi.output_type
+class FleetspacePropertiesResponseThroughputPoolConfiguration(dict):
+    """
+    Configuration for throughput pool in the fleetspace.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataRegions":
+            suggest = "data_regions"
+        elif key == "maxThroughput":
+            suggest = "max_throughput"
+        elif key == "minThroughput":
+            suggest = "min_throughput"
+        elif key == "serviceTier":
+            suggest = "service_tier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetspacePropertiesResponseThroughputPoolConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetspacePropertiesResponseThroughputPoolConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetspacePropertiesResponseThroughputPoolConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_regions: Optional[Sequence[str]] = None,
+                 max_throughput: Optional[int] = None,
+                 min_throughput: Optional[int] = None,
+                 service_tier: Optional[str] = None):
+        """
+        Configuration for throughput pool in the fleetspace.
+        :param Sequence[str] data_regions: List of data regions assigned to the fleetspace. Eg [westus2]
+        :param int max_throughput: Maximum throughput for the pool.
+        :param int min_throughput: Minimum throughput for the pool.
+        :param str service_tier: Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
+        """
+        if data_regions is not None:
+            pulumi.set(__self__, "data_regions", data_regions)
+        if max_throughput is not None:
+            pulumi.set(__self__, "max_throughput", max_throughput)
+        if min_throughput is not None:
+            pulumi.set(__self__, "min_throughput", min_throughput)
+        if service_tier is not None:
+            pulumi.set(__self__, "service_tier", service_tier)
+
+    @property
+    @pulumi.getter(name="dataRegions")
+    def data_regions(self) -> Optional[Sequence[str]]:
+        """
+        List of data regions assigned to the fleetspace. Eg [westus2]
+        """
+        return pulumi.get(self, "data_regions")
+
+    @property
+    @pulumi.getter(name="maxThroughput")
+    def max_throughput(self) -> Optional[int]:
+        """
+        Maximum throughput for the pool.
+        """
+        return pulumi.get(self, "max_throughput")
+
+    @property
+    @pulumi.getter(name="minThroughput")
+    def min_throughput(self) -> Optional[int]:
+        """
+        Minimum throughput for the pool.
+        """
+        return pulumi.get(self, "min_throughput")
+
+    @property
+    @pulumi.getter(name="serviceTier")
+    def service_tier(self) -> Optional[str]:
+        """
+        Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
+        """
+        return pulumi.get(self, "service_tier")
 
 
 @pulumi.output_type

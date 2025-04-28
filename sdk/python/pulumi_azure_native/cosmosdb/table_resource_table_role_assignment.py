@@ -136,6 +136,8 @@ class TableResourceTableRoleAssignment(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01-preview.
 
+        Other available API versions: 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -155,6 +157,8 @@ class TableResourceTableRoleAssignment(pulumi.CustomResource):
         Parameters to create and update an Azure Cosmos DB Table Role Assignment.
 
         Uses Azure REST API version 2024-12-01-preview.
+
+        Other available API versions: 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param TableResourceTableRoleAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -201,7 +205,7 @@ class TableResourceTableRoleAssignment(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cosmosdb/v20241201preview:TableResourceTableRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20241201preview:TableResourceTableRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb:TableResourceTableRoleAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cosmosdb/v20241201preview:TableResourceTableRoleAssignment"), pulumi.Alias(type_="azure-native:cosmosdb/v20250501preview:TableResourceTableRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20241201preview:TableResourceTableRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb:TableResourceTableRoleAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TableResourceTableRoleAssignment, __self__).__init__(
             'azure-native:cosmosdb:TableResourceTableRoleAssignment',

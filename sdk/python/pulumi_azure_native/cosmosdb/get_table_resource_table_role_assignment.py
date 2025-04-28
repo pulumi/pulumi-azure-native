@@ -155,6 +155,8 @@ def get_table_resource_table_role_assignment(account_name: Optional[str] = None,
 
     Uses Azure REST API version 2024-12-01-preview.
 
+    Other available API versions: 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -185,6 +187,8 @@ def get_table_resource_table_role_assignment_output(account_name: Optional[pulum
     Retrieves the properties of an existing Azure Cosmos DB Table Role Assignment with the given Id.
 
     Uses Azure REST API version 2024-12-01-preview.
+
+    Other available API versions: 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: Cosmos DB database account name.

@@ -119,7 +119,7 @@ class ThroughputPoolAccount(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01-preview.
 
-        Other available API versions: 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,7 +140,7 @@ class ThroughputPoolAccount(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01-preview.
 
-        Other available API versions: 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ThroughputPoolAccountArgs args: The arguments to use to populate this resource's properties.
@@ -186,7 +186,7 @@ class ThroughputPoolAccount(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cosmosdb/v20231115preview:ThroughputPoolAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20240215preview:ThroughputPoolAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20240515preview:ThroughputPoolAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20240901preview:ThroughputPoolAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20241201preview:ThroughputPoolAccount"), pulumi.Alias(type_="azure-native:documentdb/v20231115preview:ThroughputPoolAccount"), pulumi.Alias(type_="azure-native:documentdb/v20240215preview:ThroughputPoolAccount"), pulumi.Alias(type_="azure-native:documentdb/v20240515preview:ThroughputPoolAccount"), pulumi.Alias(type_="azure-native:documentdb/v20240901preview:ThroughputPoolAccount"), pulumi.Alias(type_="azure-native:documentdb/v20241201preview:ThroughputPoolAccount"), pulumi.Alias(type_="azure-native:documentdb:ThroughputPoolAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cosmosdb/v20231115preview:ThroughputPoolAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20240215preview:ThroughputPoolAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20240515preview:ThroughputPoolAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20240901preview:ThroughputPoolAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20241201preview:ThroughputPoolAccount"), pulumi.Alias(type_="azure-native:cosmosdb/v20250501preview:ThroughputPoolAccount"), pulumi.Alias(type_="azure-native:documentdb/v20231115preview:ThroughputPoolAccount"), pulumi.Alias(type_="azure-native:documentdb/v20240215preview:ThroughputPoolAccount"), pulumi.Alias(type_="azure-native:documentdb/v20240515preview:ThroughputPoolAccount"), pulumi.Alias(type_="azure-native:documentdb/v20240901preview:ThroughputPoolAccount"), pulumi.Alias(type_="azure-native:documentdb/v20241201preview:ThroughputPoolAccount"), pulumi.Alias(type_="azure-native:documentdb:ThroughputPoolAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ThroughputPoolAccount, __self__).__init__(
             'azure-native:cosmosdb:ThroughputPoolAccount',

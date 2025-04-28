@@ -183,6 +183,15 @@ export const DistanceFunction = {
  */
 export type DistanceFunction = (typeof DistanceFunction)[keyof typeof DistanceFunction];
 
+export const FleetspaceApiKind = {
+    NoSQL: "NoSQL",
+} as const;
+
+/**
+ * The kind of API this fleetspace belongs to. Acceptable values: 'NoSQL'
+ */
+export type FleetspaceApiKind = (typeof FleetspaceApiKind)[keyof typeof FleetspaceApiKind];
+
 export const IndexKind = {
     Hash: "Hash",
     Range: "Range",
@@ -358,6 +367,16 @@ export const ServiceSize = {
  */
 export type ServiceSize = (typeof ServiceSize)[keyof typeof ServiceSize];
 
+export const ServiceTier = {
+    GeneralPurpose: "GeneralPurpose",
+    BusinessCritical: "BusinessCritical",
+} as const;
+
+/**
+ * Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
+ */
+export type ServiceTier = (typeof ServiceTier)[keyof typeof ServiceTier];
+
 export const ServiceType = {
     SqlDedicatedGateway: "SqlDedicatedGateway",
     DataTransfer: "DataTransfer",
@@ -381,6 +400,16 @@ export const SpatialType = {
  * Indicates the spatial type of index.
  */
 export type SpatialType = (typeof SpatialType)[keyof typeof SpatialType];
+
+export const StorageLocationType = {
+    StorageAccount: "StorageAccount",
+    FabricLakehouse: "FabricLakehouse",
+} as const;
+
+/**
+ * The type of the fleet analytics resource.
+ */
+export type StorageLocationType = (typeof StorageLocationType)[keyof typeof StorageLocationType];
 
 export const TriggerOperation = {
     All: "All",

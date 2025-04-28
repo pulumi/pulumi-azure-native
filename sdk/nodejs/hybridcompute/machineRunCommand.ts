@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-07-31-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-03-preview.
  *
- * Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13, 2025-02-19-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class MachineRunCommand extends pulumi.CustomResource {
     /**
@@ -179,7 +179,7 @@ export class MachineRunCommand extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute/v20231003preview:MachineRunCommand" }, { type: "azure-native:hybridcompute/v20240331preview:MachineRunCommand" }, { type: "azure-native:hybridcompute/v20240520preview:MachineRunCommand" }, { type: "azure-native:hybridcompute/v20240731preview:MachineRunCommand" }, { type: "azure-native:hybridcompute/v20240910preview:MachineRunCommand" }, { type: "azure-native:hybridcompute/v20241110preview:MachineRunCommand" }, { type: "azure-native:hybridcompute/v20250113:MachineRunCommand" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute/v20231003preview:MachineRunCommand" }, { type: "azure-native:hybridcompute/v20240331preview:MachineRunCommand" }, { type: "azure-native:hybridcompute/v20240520preview:MachineRunCommand" }, { type: "azure-native:hybridcompute/v20240731preview:MachineRunCommand" }, { type: "azure-native:hybridcompute/v20240910preview:MachineRunCommand" }, { type: "azure-native:hybridcompute/v20241110preview:MachineRunCommand" }, { type: "azure-native:hybridcompute/v20250113:MachineRunCommand" }, { type: "azure-native:hybridcompute/v20250219preview:MachineRunCommand" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MachineRunCommand.__pulumiType, name, resourceInputs, opts);
     }

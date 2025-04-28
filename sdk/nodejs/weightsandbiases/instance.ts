@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Concrete tracked resource types can be created by aliasing this type using a specific property type.
  *
  * Uses Azure REST API version 2024-09-18-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-18-preview.
+ *
+ * Other available API versions: 2024-09-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native weightsandbiases [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Instance extends pulumi.CustomResource {
     /**
@@ -107,7 +109,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:weightsandbiases/v20240918preview:Instance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:weightsandbiases/v20240918:Instance" }, { type: "azure-native:weightsandbiases/v20240918preview:Instance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Instance.__pulumiType, name, resourceInputs, opts);
     }

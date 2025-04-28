@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// Retrieves the properties of an existing Azure Cosmos DB Table Role Definition with the given Id.
         /// 
         /// Uses Azure REST API version 2024-12-01-preview.
+        /// 
+        /// Other available API versions: 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetTableResourceTableRoleDefinitionResult> InvokeAsync(GetTableResourceTableRoleDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableResourceTableRoleDefinitionResult>("azure-native:cosmosdb:getTableResourceTableRoleDefinition", args ?? new GetTableResourceTableRoleDefinitionArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// Retrieves the properties of an existing Azure Cosmos DB Table Role Definition with the given Id.
         /// 
         /// Uses Azure REST API version 2024-12-01-preview.
+        /// 
+        /// Other available API versions: 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetTableResourceTableRoleDefinitionResult> Invoke(GetTableResourceTableRoleDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResourceTableRoleDefinitionResult>("azure-native:cosmosdb:getTableResourceTableRoleDefinition", args ?? new GetTableResourceTableRoleDefinitionInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// Retrieves the properties of an existing Azure Cosmos DB Table Role Definition with the given Id.
         /// 
         /// Uses Azure REST API version 2024-12-01-preview.
+        /// 
+        /// Other available API versions: 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetTableResourceTableRoleDefinitionResult> Invoke(GetTableResourceTableRoleDefinitionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResourceTableRoleDefinitionResult>("azure-native:cosmosdb:getTableResourceTableRoleDefinition", args ?? new GetTableResourceTableRoleDefinitionInvokeArgs(), options.WithDefaults());

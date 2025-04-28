@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// Retrieves the properties of an existing Azure Cosmos DB Table Role Assignment with the given Id.
         /// 
         /// Uses Azure REST API version 2024-12-01-preview.
+        /// 
+        /// Other available API versions: 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetTableResourceTableRoleAssignmentResult> InvokeAsync(GetTableResourceTableRoleAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableResourceTableRoleAssignmentResult>("azure-native:cosmosdb:getTableResourceTableRoleAssignment", args ?? new GetTableResourceTableRoleAssignmentArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// Retrieves the properties of an existing Azure Cosmos DB Table Role Assignment with the given Id.
         /// 
         /// Uses Azure REST API version 2024-12-01-preview.
+        /// 
+        /// Other available API versions: 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetTableResourceTableRoleAssignmentResult> Invoke(GetTableResourceTableRoleAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResourceTableRoleAssignmentResult>("azure-native:cosmosdb:getTableResourceTableRoleAssignment", args ?? new GetTableResourceTableRoleAssignmentInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// Retrieves the properties of an existing Azure Cosmos DB Table Role Assignment with the given Id.
         /// 
         /// Uses Azure REST API version 2024-12-01-preview.
+        /// 
+        /// Other available API versions: 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetTableResourceTableRoleAssignmentResult> Invoke(GetTableResourceTableRoleAssignmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResourceTableRoleAssignmentResult>("azure-native:cosmosdb:getTableResourceTableRoleAssignment", args ?? new GetTableResourceTableRoleAssignmentInvokeArgs(), options.WithDefaults());

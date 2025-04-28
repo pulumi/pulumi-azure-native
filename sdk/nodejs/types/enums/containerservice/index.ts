@@ -2,6 +2,26 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AdoptionPolicy = {
+    /**
+     * If the namespace already exists in Kubernetes, attempts to create that same namespace in ARM will fail.
+     */
+    Never: "Never",
+    /**
+     * Take over the existing namespace to be managed by ARM, if there is no difference.
+     */
+    IfIdentical: "IfIdentical",
+    /**
+     * Always take over the existing namespace to be managed by ARM, some fields might be overwritten.
+     */
+    Always: "Always",
+} as const;
+
+/**
+ * Action if Kubernetes namespace with same name already exists.
+ */
+export type AdoptionPolicy = (typeof AdoptionPolicy)[keyof typeof AdoptionPolicy];
+
 export const AgentPoolMode = {
     /**
      * System agent pools are primarily for hosting critical system pods such as CoreDNS and metrics-server. System agent pools osType must be Linux. System agent pools VM SKU must have at least 2vCPUs and 4GB of memory.
@@ -93,6 +113,22 @@ export const ConnectionStatus = {
  * The private link service connection status.
  */
 export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
+
+export const DeletePolicy = {
+    /**
+     * Only delete the ARM resource, keep the Kubernetes namespace. Also delete the ManagedByARM label.
+     */
+    Keep: "Keep",
+    /**
+     * Delete both the ARM resource and the Kubernetes namespace together.
+     */
+    Delete: "Delete",
+} as const;
+
+/**
+ * Delete options of a namespace.
+ */
+export type DeletePolicy = (typeof DeletePolicy)[keyof typeof DeletePolicy];
 
 export const Expander = {
     /**
@@ -543,6 +579,26 @@ export const OutboundType = {
  * This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
  */
 export type OutboundType = (typeof OutboundType)[keyof typeof OutboundType];
+
+export const PolicyRule = {
+    /**
+     * Deny all network traffic.
+     */
+    DenyAll: "DenyAll",
+    /**
+     * Allow all network traffic.
+     */
+    AllowAll: "AllowAll",
+    /**
+     * Allow traffic within the same namespace.
+     */
+    AllowSameNamespace: "AllowSameNamespace",
+} as const;
+
+/**
+ * Ingress policy for the network.
+ */
+export type PolicyRule = (typeof PolicyRule)[keyof typeof PolicyRule];
 
 export const Protocol = {
     /**

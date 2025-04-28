@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'ActivityOnInactiveMarkAs',
     'ActivityState',
+    'AmazonRdsForOracleAuthenticationType',
     'AmazonRdsForSqlAuthenticationType',
     'AzureFunctionActivityMethod',
     'AzurePostgreSqlWriteMethodEnum',
@@ -115,6 +116,13 @@ class ActivityState(str, Enum):
     """
     ACTIVE = "Active"
     INACTIVE = "Inactive"
+
+
+class AmazonRdsForOracleAuthenticationType(str, Enum):
+    """
+    Authentication type for connecting to the AmazonRdsForOracle database. Only used for Version 2.0.
+    """
+    BASIC = "Basic"
 
 
 class AmazonRdsForSqlAuthenticationType(str, Enum):

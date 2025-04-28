@@ -23,6 +23,15 @@ export const ActivityState = {
  */
 export type ActivityState = (typeof ActivityState)[keyof typeof ActivityState];
 
+export const AmazonRdsForOracleAuthenticationType = {
+    Basic: "Basic",
+} as const;
+
+/**
+ * Authentication type for connecting to the AmazonRdsForOracle database. Only used for Version 2.0.
+ */
+export type AmazonRdsForOracleAuthenticationType = (typeof AmazonRdsForOracleAuthenticationType)[keyof typeof AmazonRdsForOracleAuthenticationType];
+
 export const AmazonRdsForSqlAuthenticationType = {
     SQL: "SQL",
     Windows: "Windows",

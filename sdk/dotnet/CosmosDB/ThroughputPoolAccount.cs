@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.CosmosDB
     /// 
     /// Uses Azure REST API version 2024-12-01-preview.
     /// 
-    /// Other available API versions: 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:cosmosdb:ThroughputPoolAccount")]
     public partial class ThroughputPoolAccount : global::Pulumi.CustomResource
@@ -97,6 +97,7 @@ namespace Pulumi.AzureNative.CosmosDB
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20240515preview:ThroughputPoolAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20240901preview:ThroughputPoolAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20241201preview:ThroughputPoolAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20250501preview:ThroughputPoolAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20231115preview:ThroughputPoolAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240215preview:ThroughputPoolAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240515preview:ThroughputPoolAccount" },

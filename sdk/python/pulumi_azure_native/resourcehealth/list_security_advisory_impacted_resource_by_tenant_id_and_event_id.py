@@ -70,7 +70,7 @@ def list_security_advisory_impacted_resource_by_tenant_id_and_event_id(event_tra
 
     Uses Azure REST API version 2024-02-01.
 
-    Other available API versions: 2022-10-01, 2023-07-01-preview, 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcehealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-10-01, 2023-07-01-preview, 2023-10-01-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcehealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str event_tracking_id: Event Id which uniquely identifies ServiceHealth event.
@@ -93,7 +93,7 @@ def list_security_advisory_impacted_resource_by_tenant_id_and_event_id_output(ev
 
     Uses Azure REST API version 2024-02-01.
 
-    Other available API versions: 2022-10-01, 2023-07-01-preview, 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcehealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-10-01, 2023-07-01-preview, 2023-10-01-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcehealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str event_tracking_id: Event Id which uniquely identifies ServiceHealth event.

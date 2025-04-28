@@ -108,6 +108,8 @@ __all__ = [
     'ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerResponse',
     'ManagedServiceIdentityResponse',
     'MemberUpdateStatusResponse',
+    'NamespacePropertiesResponse',
+    'NetworkPoliciesResponse',
     'NetworkProfileForSnapshotResponse',
     'NodeImageSelectionResponse',
     'NodeImageSelectionStatusResponse',
@@ -118,6 +120,7 @@ __all__ = [
     'PrivateLinkResourceResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'RelativeMonthlyScheduleResponse',
+    'ResourceQuotaResponse',
     'ResourceReferenceResponse',
     'ScheduleResponse',
     'ServiceMeshProfileResponse',
@@ -6212,6 +6215,164 @@ class MemberUpdateStatusResponse(dict):
 
 
 @pulumi.output_type
+class NamespacePropertiesResponse(dict):
+    """
+    Properties of a namespace managed by ARM
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "adoptionPolicy":
+            suggest = "adoption_policy"
+        elif key == "defaultNetworkPolicy":
+            suggest = "default_network_policy"
+        elif key == "defaultResourceQuota":
+            suggest = "default_resource_quota"
+        elif key == "deletePolicy":
+            suggest = "delete_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NamespacePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NamespacePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NamespacePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 adoption_policy: Optional[str] = None,
+                 annotations: Optional[Mapping[str, str]] = None,
+                 default_network_policy: Optional['outputs.NetworkPoliciesResponse'] = None,
+                 default_resource_quota: Optional['outputs.ResourceQuotaResponse'] = None,
+                 delete_policy: Optional[str] = None,
+                 labels: Optional[Mapping[str, str]] = None):
+        """
+        Properties of a namespace managed by ARM
+        :param str provisioning_state: The current provisioning state of the namespace.
+        :param str adoption_policy: Action if Kubernetes namespace with same name already exists.
+        :param Mapping[str, str] annotations: The annotations of managed namespace.
+        :param 'NetworkPoliciesResponse' default_network_policy: The default network policy enforced upon the namespace. Customers can have other Kubernetes network policy objects under the namespace. All the network policies will be enforced.
+        :param 'ResourceQuotaResponse' default_resource_quota: The default resource quota enforced upon the namespace. Customers can have other Kubernetes resource quota objects under the namespace. All the resource quotas will be enforced.
+        :param str delete_policy: Delete options of a namespace.
+        :param Mapping[str, str] labels: The labels of managed namespace.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if adoption_policy is not None:
+            pulumi.set(__self__, "adoption_policy", adoption_policy)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if default_network_policy is not None:
+            pulumi.set(__self__, "default_network_policy", default_network_policy)
+        if default_resource_quota is not None:
+            pulumi.set(__self__, "default_resource_quota", default_resource_quota)
+        if delete_policy is not None:
+            pulumi.set(__self__, "delete_policy", delete_policy)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The current provisioning state of the namespace.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="adoptionPolicy")
+    def adoption_policy(self) -> Optional[str]:
+        """
+        Action if Kubernetes namespace with same name already exists.
+        """
+        return pulumi.get(self, "adoption_policy")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Mapping[str, str]]:
+        """
+        The annotations of managed namespace.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="defaultNetworkPolicy")
+    def default_network_policy(self) -> Optional['outputs.NetworkPoliciesResponse']:
+        """
+        The default network policy enforced upon the namespace. Customers can have other Kubernetes network policy objects under the namespace. All the network policies will be enforced.
+        """
+        return pulumi.get(self, "default_network_policy")
+
+    @property
+    @pulumi.getter(name="defaultResourceQuota")
+    def default_resource_quota(self) -> Optional['outputs.ResourceQuotaResponse']:
+        """
+        The default resource quota enforced upon the namespace. Customers can have other Kubernetes resource quota objects under the namespace. All the resource quotas will be enforced.
+        """
+        return pulumi.get(self, "default_resource_quota")
+
+    @property
+    @pulumi.getter(name="deletePolicy")
+    def delete_policy(self) -> Optional[str]:
+        """
+        Delete options of a namespace.
+        """
+        return pulumi.get(self, "delete_policy")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, str]]:
+        """
+        The labels of managed namespace.
+        """
+        return pulumi.get(self, "labels")
+
+
+@pulumi.output_type
+class NetworkPoliciesResponse(dict):
+    """
+    Default network policy of the namespace, specifying ingress and egress rules.
+    """
+    def __init__(__self__, *,
+                 egress: Optional[str] = None,
+                 ingress: Optional[str] = None):
+        """
+        Default network policy of the namespace, specifying ingress and egress rules.
+        :param str egress: Egress policy for the network.
+        :param str ingress: Ingress policy for the network.
+        """
+        if egress is None:
+            egress = 'AllowAll'
+        if egress is not None:
+            pulumi.set(__self__, "egress", egress)
+        if ingress is None:
+            ingress = 'AllowSameNamespace'
+        if ingress is not None:
+            pulumi.set(__self__, "ingress", ingress)
+
+    @property
+    @pulumi.getter
+    def egress(self) -> Optional[str]:
+        """
+        Egress policy for the network.
+        """
+        return pulumi.get(self, "egress")
+
+    @property
+    @pulumi.getter
+    def ingress(self) -> Optional[str]:
+        """
+        Ingress policy for the network.
+        """
+        return pulumi.get(self, "ingress")
+
+
+@pulumi.output_type
 class NetworkProfileForSnapshotResponse(dict):
     """
     network profile for managed cluster snapshot, these properties are read only.
@@ -6732,6 +6893,88 @@ class RelativeMonthlyScheduleResponse(dict):
         Specifies on which week of the month the dayOfWeek applies.
         """
         return pulumi.get(self, "week_index")
+
+
+@pulumi.output_type
+class ResourceQuotaResponse(dict):
+    """
+    Resource quota for the namespace.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuLimit":
+            suggest = "cpu_limit"
+        elif key == "cpuRequest":
+            suggest = "cpu_request"
+        elif key == "memoryLimit":
+            suggest = "memory_limit"
+        elif key == "memoryRequest":
+            suggest = "memory_request"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceQuotaResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceQuotaResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceQuotaResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cpu_limit: Optional[str] = None,
+                 cpu_request: Optional[str] = None,
+                 memory_limit: Optional[str] = None,
+                 memory_request: Optional[str] = None):
+        """
+        Resource quota for the namespace.
+        :param str cpu_limit: CPU limit of the namespace in one-thousandth CPU form. See [CPU resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu) for more details.
+        :param str cpu_request: CPU request of the namespace in one-thousandth CPU form. See [CPU resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu) for more details.
+        :param str memory_limit: Memory limit of the namespace in the power-of-two equivalents form: Ei, Pi, Ti, Gi, Mi, Ki. See [Memory resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory) for more details.
+        :param str memory_request: Memory request of the namespace in the power-of-two equivalents form: Ei, Pi, Ti, Gi, Mi, Ki. See [Memory resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory) for more details.
+        """
+        if cpu_limit is not None:
+            pulumi.set(__self__, "cpu_limit", cpu_limit)
+        if cpu_request is not None:
+            pulumi.set(__self__, "cpu_request", cpu_request)
+        if memory_limit is not None:
+            pulumi.set(__self__, "memory_limit", memory_limit)
+        if memory_request is not None:
+            pulumi.set(__self__, "memory_request", memory_request)
+
+    @property
+    @pulumi.getter(name="cpuLimit")
+    def cpu_limit(self) -> Optional[str]:
+        """
+        CPU limit of the namespace in one-thousandth CPU form. See [CPU resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu) for more details.
+        """
+        return pulumi.get(self, "cpu_limit")
+
+    @property
+    @pulumi.getter(name="cpuRequest")
+    def cpu_request(self) -> Optional[str]:
+        """
+        CPU request of the namespace in one-thousandth CPU form. See [CPU resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu) for more details.
+        """
+        return pulumi.get(self, "cpu_request")
+
+    @property
+    @pulumi.getter(name="memoryLimit")
+    def memory_limit(self) -> Optional[str]:
+        """
+        Memory limit of the namespace in the power-of-two equivalents form: Ei, Pi, Ti, Gi, Mi, Ki. See [Memory resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory) for more details.
+        """
+        return pulumi.get(self, "memory_limit")
+
+    @property
+    @pulumi.getter(name="memoryRequest")
+    def memory_request(self) -> Optional[str]:
+        """
+        Memory request of the namespace in the power-of-two equivalents form: Ei, Pi, Ti, Gi, Mi, Ki. See [Memory resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory) for more details.
+        """
+        return pulumi.get(self, "memory_request")
 
 
 @pulumi.output_type

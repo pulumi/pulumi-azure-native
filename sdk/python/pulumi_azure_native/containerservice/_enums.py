@@ -5,12 +5,14 @@
 from enum import Enum
 
 __all__ = [
+    'AdoptionPolicy',
     'AgentPoolMode',
     'AgentPoolType',
     'AutoUpgradeNodeImageSelectionType',
     'BackendPoolType',
     'Code',
     'ConnectionStatus',
+    'DeletePolicy',
     'Expander',
     'ExtendedLocationTypes',
     'GPUInstanceProfile',
@@ -37,6 +39,7 @@ __all__ = [
     'OSType',
     'Operator',
     'OutboundType',
+    'PolicyRule',
     'Protocol',
     'PublicNetworkAccess',
     'ResourceIdentityType',
@@ -51,6 +54,24 @@ __all__ = [
     'WeekDay',
     'WorkloadRuntime',
 ]
+
+
+class AdoptionPolicy(str, Enum):
+    """
+    Action if Kubernetes namespace with same name already exists.
+    """
+    NEVER = "Never"
+    """
+    If the namespace already exists in Kubernetes, attempts to create that same namespace in ARM will fail.
+    """
+    IF_IDENTICAL = "IfIdentical"
+    """
+    Take over the existing namespace to be managed by ARM, if there is no difference.
+    """
+    ALWAYS = "Always"
+    """
+    Always take over the existing namespace to be managed by ARM, some fields might be overwritten.
+    """
 
 
 class AgentPoolMode(str, Enum):
@@ -131,6 +152,20 @@ class ConnectionStatus(str, Enum):
     APPROVED = "Approved"
     REJECTED = "Rejected"
     DISCONNECTED = "Disconnected"
+
+
+class DeletePolicy(str, Enum):
+    """
+    Delete options of a namespace.
+    """
+    KEEP = "Keep"
+    """
+    Only delete the ARM resource, keep the Kubernetes namespace. Also delete the ManagedByARM label.
+    """
+    DELETE = "Delete"
+    """
+    Delete both the ARM resource and the Kubernetes namespace together.
+    """
 
 
 class Expander(str, Enum):
@@ -528,6 +563,24 @@ class OutboundType(str, Enum):
     USER_ASSIGNED_NAT_GATEWAY = "userAssignedNATGateway"
     """
     The user-assigned NAT gateway associated to the cluster subnet is used for egress. This is an advanced scenario and requires proper network configuration.
+    """
+
+
+class PolicyRule(str, Enum):
+    """
+    Ingress policy for the network.
+    """
+    DENY_ALL = "DenyAll"
+    """
+    Deny all network traffic.
+    """
+    ALLOW_ALL = "AllowAll"
+    """
+    Allow all network traffic.
+    """
+    ALLOW_SAME_NAMESPACE = "AllowSameNamespace"
+    """
+    Allow traffic within the same namespace.
     """
 
 

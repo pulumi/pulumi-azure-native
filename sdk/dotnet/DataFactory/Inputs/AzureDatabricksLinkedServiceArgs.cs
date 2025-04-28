@@ -52,6 +52,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<Inputs.CredentialReferenceArgs>? Credential { get; set; }
 
         /// <summary>
+        /// The data security mode for the Databricks Cluster. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("dataSecurityMode")]
+        public Input<object>? DataSecurityMode { get; set; }
+
+        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]

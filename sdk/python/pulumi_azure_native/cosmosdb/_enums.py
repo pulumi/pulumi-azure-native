@@ -22,6 +22,7 @@ __all__ = [
     'DedicatedGatewayType',
     'DefaultConsistencyLevel',
     'DistanceFunction',
+    'FleetspaceApiKind',
     'IndexKind',
     'IndexingMode',
     'ManagedCassandraProvisioningState',
@@ -38,8 +39,10 @@ __all__ = [
     'RoleDefinitionType',
     'ServerVersion',
     'ServiceSize',
+    'ServiceTier',
     'ServiceType',
     'SpatialType',
+    'StorageLocationType',
     'TriggerOperation',
     'TriggerType',
     'VectorDataType',
@@ -194,6 +197,13 @@ class DistanceFunction(str, Enum):
     DOTPRODUCT = "dotproduct"
 
 
+class FleetspaceApiKind(str, Enum):
+    """
+    The kind of API this fleetspace belongs to. Acceptable values: 'NoSQL'
+    """
+    NO_SQL = "NoSQL"
+
+
 class IndexKind(str, Enum):
     """
     Indicates the type of index.
@@ -337,6 +347,14 @@ class ServiceSize(str, Enum):
     COSMOS_D16S = "Cosmos.D16s"
 
 
+class ServiceTier(str, Enum):
+    """
+    Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
+    """
+    GENERAL_PURPOSE = "GeneralPurpose"
+    BUSINESS_CRITICAL = "BusinessCritical"
+
+
 class ServiceType(str, Enum):
     """
     ServiceType for the service.
@@ -355,6 +373,14 @@ class SpatialType(str, Enum):
     LINE_STRING = "LineString"
     POLYGON = "Polygon"
     MULTI_POLYGON = "MultiPolygon"
+
+
+class StorageLocationType(str, Enum):
+    """
+    The type of the fleet analytics resource.
+    """
+    STORAGE_ACCOUNT = "StorageAccount"
+    FABRIC_LAKEHOUSE = "FabricLakehouse"
 
 
 class TriggerOperation(str, Enum):

@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Outputs.CredentialReferenceResponse? Credential;
         /// <summary>
+        /// The data security mode for the Databricks Cluster. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? DataSecurityMode;
+        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             Outputs.CredentialReferenceResponse? credential,
 
+            object? dataSecurityMode,
+
             string? description,
 
             object domain,
@@ -175,6 +181,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Authentication = authentication;
             ConnectVia = connectVia;
             Credential = credential;
+            DataSecurityMode = dataSecurityMode;
             Description = description;
             Domain = domain;
             EncryptedCredential = encryptedCredential;

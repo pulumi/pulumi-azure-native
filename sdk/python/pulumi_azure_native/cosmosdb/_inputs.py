@@ -80,6 +80,8 @@ __all__ = [
     'DatabaseRestoreResourceArgsDict',
     'ExcludedPathArgs',
     'ExcludedPathArgsDict',
+    'FleetspacePropertiesThroughputPoolConfigurationArgs',
+    'FleetspacePropertiesThroughputPoolConfigurationArgsDict',
     'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs',
     'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgsDict',
     'GraphResourceArgs',
@@ -2729,6 +2731,102 @@ class ExcludedPathArgs:
     @path.setter
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
+
+
+if not MYPY:
+    class FleetspacePropertiesThroughputPoolConfigurationArgsDict(TypedDict):
+        """
+        Configuration for throughput pool in the fleetspace.
+        """
+        data_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of data regions assigned to the fleetspace. Eg [westus2]
+        """
+        max_throughput: NotRequired[pulumi.Input[int]]
+        """
+        Maximum throughput for the pool.
+        """
+        min_throughput: NotRequired[pulumi.Input[int]]
+        """
+        Minimum throughput for the pool.
+        """
+        service_tier: NotRequired[pulumi.Input[Union[str, 'ServiceTier']]]
+        """
+        Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
+        """
+elif False:
+    FleetspacePropertiesThroughputPoolConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FleetspacePropertiesThroughputPoolConfigurationArgs:
+    def __init__(__self__, *,
+                 data_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 max_throughput: Optional[pulumi.Input[int]] = None,
+                 min_throughput: Optional[pulumi.Input[int]] = None,
+                 service_tier: Optional[pulumi.Input[Union[str, 'ServiceTier']]] = None):
+        """
+        Configuration for throughput pool in the fleetspace.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] data_regions: List of data regions assigned to the fleetspace. Eg [westus2]
+        :param pulumi.Input[int] max_throughput: Maximum throughput for the pool.
+        :param pulumi.Input[int] min_throughput: Minimum throughput for the pool.
+        :param pulumi.Input[Union[str, 'ServiceTier']] service_tier: Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
+        """
+        if data_regions is not None:
+            pulumi.set(__self__, "data_regions", data_regions)
+        if max_throughput is not None:
+            pulumi.set(__self__, "max_throughput", max_throughput)
+        if min_throughput is not None:
+            pulumi.set(__self__, "min_throughput", min_throughput)
+        if service_tier is not None:
+            pulumi.set(__self__, "service_tier", service_tier)
+
+    @property
+    @pulumi.getter(name="dataRegions")
+    def data_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of data regions assigned to the fleetspace. Eg [westus2]
+        """
+        return pulumi.get(self, "data_regions")
+
+    @data_regions.setter
+    def data_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "data_regions", value)
+
+    @property
+    @pulumi.getter(name="maxThroughput")
+    def max_throughput(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum throughput for the pool.
+        """
+        return pulumi.get(self, "max_throughput")
+
+    @max_throughput.setter
+    def max_throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_throughput", value)
+
+    @property
+    @pulumi.getter(name="minThroughput")
+    def min_throughput(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum throughput for the pool.
+        """
+        return pulumi.get(self, "min_throughput")
+
+    @min_throughput.setter
+    def min_throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_throughput", value)
+
+    @property
+    @pulumi.getter(name="serviceTier")
+    def service_tier(self) -> Optional[pulumi.Input[Union[str, 'ServiceTier']]]:
+        """
+        Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
+        """
+        return pulumi.get(self, "service_tier")
+
+    @service_tier.setter
+    def service_tier(self, value: Optional[pulumi.Input[Union[str, 'ServiceTier']]]):
+        pulumi.set(self, "service_tier", value)
 
 
 if not MYPY:

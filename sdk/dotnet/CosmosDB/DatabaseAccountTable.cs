@@ -118,6 +118,8 @@ namespace Pulumi.AzureNative.CosmosDB
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20240901preview:DatabaseAccountTable" },
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20241115:DatabaseAccountTable" },
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20241201preview:DatabaseAccountTable" },
+                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20250415:DatabaseAccountTable" },
+                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20250501preview:DatabaseAccountTable" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:TableResourceTable" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:TableResourceTable" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230915:TableResourceTable" },

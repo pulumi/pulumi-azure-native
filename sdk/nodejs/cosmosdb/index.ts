@@ -20,6 +20,16 @@ export type CassandraResourceCassandraKeyspace = import("./cassandraResourceCass
 export const CassandraResourceCassandraKeyspace: typeof import("./cassandraResourceCassandraKeyspace").CassandraResourceCassandraKeyspace = null as any;
 utilities.lazyLoad(exports, ["CassandraResourceCassandraKeyspace"], () => require("./cassandraResourceCassandraKeyspace"));
 
+export { CassandraResourceCassandraRoleAssignmentArgs } from "./cassandraResourceCassandraRoleAssignment";
+export type CassandraResourceCassandraRoleAssignment = import("./cassandraResourceCassandraRoleAssignment").CassandraResourceCassandraRoleAssignment;
+export const CassandraResourceCassandraRoleAssignment: typeof import("./cassandraResourceCassandraRoleAssignment").CassandraResourceCassandraRoleAssignment = null as any;
+utilities.lazyLoad(exports, ["CassandraResourceCassandraRoleAssignment"], () => require("./cassandraResourceCassandraRoleAssignment"));
+
+export { CassandraResourceCassandraRoleDefinitionArgs } from "./cassandraResourceCassandraRoleDefinition";
+export type CassandraResourceCassandraRoleDefinition = import("./cassandraResourceCassandraRoleDefinition").CassandraResourceCassandraRoleDefinition;
+export const CassandraResourceCassandraRoleDefinition: typeof import("./cassandraResourceCassandraRoleDefinition").CassandraResourceCassandraRoleDefinition = null as any;
+utilities.lazyLoad(exports, ["CassandraResourceCassandraRoleDefinition"], () => require("./cassandraResourceCassandraRoleDefinition"));
+
 export { CassandraResourceCassandraTableArgs } from "./cassandraResourceCassandraTable";
 export type CassandraResourceCassandraTable = import("./cassandraResourceCassandraTable").CassandraResourceCassandraTable;
 export const CassandraResourceCassandraTable: typeof import("./cassandraResourceCassandraTable").CassandraResourceCassandraTable = null as any;
@@ -80,6 +90,26 @@ export type DatabaseAccountTable = import("./databaseAccountTable").DatabaseAcco
 export const DatabaseAccountTable: typeof import("./databaseAccountTable").DatabaseAccountTable = null as any;
 utilities.lazyLoad(exports, ["DatabaseAccountTable"], () => require("./databaseAccountTable"));
 
+export { FleetArgs } from "./fleet";
+export type Fleet = import("./fleet").Fleet;
+export const Fleet: typeof import("./fleet").Fleet = null as any;
+utilities.lazyLoad(exports, ["Fleet"], () => require("./fleet"));
+
+export { FleetAnalyticArgs } from "./fleetAnalytic";
+export type FleetAnalytic = import("./fleetAnalytic").FleetAnalytic;
+export const FleetAnalytic: typeof import("./fleetAnalytic").FleetAnalytic = null as any;
+utilities.lazyLoad(exports, ["FleetAnalytic"], () => require("./fleetAnalytic"));
+
+export { FleetspaceArgs } from "./fleetspace";
+export type Fleetspace = import("./fleetspace").Fleetspace;
+export const Fleetspace: typeof import("./fleetspace").Fleetspace = null as any;
+utilities.lazyLoad(exports, ["Fleetspace"], () => require("./fleetspace"));
+
+export { FleetspaceAccountArgs } from "./fleetspaceAccount";
+export type FleetspaceAccount = import("./fleetspaceAccount").FleetspaceAccount;
+export const FleetspaceAccount: typeof import("./fleetspaceAccount").FleetspaceAccount = null as any;
+utilities.lazyLoad(exports, ["FleetspaceAccount"], () => require("./fleetspaceAccount"));
+
 export { GetCassandraClusterArgs, GetCassandraClusterResult, GetCassandraClusterOutputArgs } from "./getCassandraCluster";
 export const getCassandraCluster: typeof import("./getCassandraCluster").getCassandraCluster = null as any;
 export const getCassandraClusterOutput: typeof import("./getCassandraCluster").getCassandraClusterOutput = null as any;
@@ -94,6 +124,16 @@ export { GetCassandraResourceCassandraKeyspaceArgs, GetCassandraResourceCassandr
 export const getCassandraResourceCassandraKeyspace: typeof import("./getCassandraResourceCassandraKeyspace").getCassandraResourceCassandraKeyspace = null as any;
 export const getCassandraResourceCassandraKeyspaceOutput: typeof import("./getCassandraResourceCassandraKeyspace").getCassandraResourceCassandraKeyspaceOutput = null as any;
 utilities.lazyLoad(exports, ["getCassandraResourceCassandraKeyspace","getCassandraResourceCassandraKeyspaceOutput"], () => require("./getCassandraResourceCassandraKeyspace"));
+
+export { GetCassandraResourceCassandraRoleAssignmentArgs, GetCassandraResourceCassandraRoleAssignmentResult, GetCassandraResourceCassandraRoleAssignmentOutputArgs } from "./getCassandraResourceCassandraRoleAssignment";
+export const getCassandraResourceCassandraRoleAssignment: typeof import("./getCassandraResourceCassandraRoleAssignment").getCassandraResourceCassandraRoleAssignment = null as any;
+export const getCassandraResourceCassandraRoleAssignmentOutput: typeof import("./getCassandraResourceCassandraRoleAssignment").getCassandraResourceCassandraRoleAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getCassandraResourceCassandraRoleAssignment","getCassandraResourceCassandraRoleAssignmentOutput"], () => require("./getCassandraResourceCassandraRoleAssignment"));
+
+export { GetCassandraResourceCassandraRoleDefinitionArgs, GetCassandraResourceCassandraRoleDefinitionResult, GetCassandraResourceCassandraRoleDefinitionOutputArgs } from "./getCassandraResourceCassandraRoleDefinition";
+export const getCassandraResourceCassandraRoleDefinition: typeof import("./getCassandraResourceCassandraRoleDefinition").getCassandraResourceCassandraRoleDefinition = null as any;
+export const getCassandraResourceCassandraRoleDefinitionOutput: typeof import("./getCassandraResourceCassandraRoleDefinition").getCassandraResourceCassandraRoleDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getCassandraResourceCassandraRoleDefinition","getCassandraResourceCassandraRoleDefinitionOutput"], () => require("./getCassandraResourceCassandraRoleDefinition"));
 
 export { GetCassandraResourceCassandraTableArgs, GetCassandraResourceCassandraTableResult, GetCassandraResourceCassandraTableOutputArgs } from "./getCassandraResourceCassandraTable";
 export const getCassandraResourceCassandraTable: typeof import("./getCassandraResourceCassandraTable").getCassandraResourceCassandraTable = null as any;
@@ -155,6 +195,26 @@ export const getDatabaseAccountTable: typeof import("./getDatabaseAccountTable")
 export const getDatabaseAccountTableOutput: typeof import("./getDatabaseAccountTable").getDatabaseAccountTableOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabaseAccountTable","getDatabaseAccountTableOutput"], () => require("./getDatabaseAccountTable"));
 
+export { GetFleetArgs, GetFleetResult, GetFleetOutputArgs } from "./getFleet";
+export const getFleet: typeof import("./getFleet").getFleet = null as any;
+export const getFleetOutput: typeof import("./getFleet").getFleetOutput = null as any;
+utilities.lazyLoad(exports, ["getFleet","getFleetOutput"], () => require("./getFleet"));
+
+export { GetFleetAnalyticArgs, GetFleetAnalyticResult, GetFleetAnalyticOutputArgs } from "./getFleetAnalytic";
+export const getFleetAnalytic: typeof import("./getFleetAnalytic").getFleetAnalytic = null as any;
+export const getFleetAnalyticOutput: typeof import("./getFleetAnalytic").getFleetAnalyticOutput = null as any;
+utilities.lazyLoad(exports, ["getFleetAnalytic","getFleetAnalyticOutput"], () => require("./getFleetAnalytic"));
+
+export { GetFleetspaceArgs, GetFleetspaceResult, GetFleetspaceOutputArgs } from "./getFleetspace";
+export const getFleetspace: typeof import("./getFleetspace").getFleetspace = null as any;
+export const getFleetspaceOutput: typeof import("./getFleetspace").getFleetspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getFleetspace","getFleetspaceOutput"], () => require("./getFleetspace"));
+
+export { GetFleetspaceAccountArgs, GetFleetspaceAccountResult, GetFleetspaceAccountOutputArgs } from "./getFleetspaceAccount";
+export const getFleetspaceAccount: typeof import("./getFleetspaceAccount").getFleetspaceAccount = null as any;
+export const getFleetspaceAccountOutput: typeof import("./getFleetspaceAccount").getFleetspaceAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getFleetspaceAccount","getFleetspaceAccountOutput"], () => require("./getFleetspaceAccount"));
+
 export { GetGraphResourceGraphArgs, GetGraphResourceGraphResult, GetGraphResourceGraphOutputArgs } from "./getGraphResourceGraph";
 export const getGraphResourceGraph: typeof import("./getGraphResourceGraph").getGraphResourceGraph = null as any;
 export const getGraphResourceGraphOutput: typeof import("./getGraphResourceGraph").getGraphResourceGraphOutput = null as any;
@@ -169,6 +229,16 @@ export { GetGremlinResourceGremlinGraphArgs, GetGremlinResourceGremlinGraphResul
 export const getGremlinResourceGremlinGraph: typeof import("./getGremlinResourceGremlinGraph").getGremlinResourceGremlinGraph = null as any;
 export const getGremlinResourceGremlinGraphOutput: typeof import("./getGremlinResourceGremlinGraph").getGremlinResourceGremlinGraphOutput = null as any;
 utilities.lazyLoad(exports, ["getGremlinResourceGremlinGraph","getGremlinResourceGremlinGraphOutput"], () => require("./getGremlinResourceGremlinGraph"));
+
+export { GetGremlinResourceGremlinRoleAssignmentArgs, GetGremlinResourceGremlinRoleAssignmentResult, GetGremlinResourceGremlinRoleAssignmentOutputArgs } from "./getGremlinResourceGremlinRoleAssignment";
+export const getGremlinResourceGremlinRoleAssignment: typeof import("./getGremlinResourceGremlinRoleAssignment").getGremlinResourceGremlinRoleAssignment = null as any;
+export const getGremlinResourceGremlinRoleAssignmentOutput: typeof import("./getGremlinResourceGremlinRoleAssignment").getGremlinResourceGremlinRoleAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getGremlinResourceGremlinRoleAssignment","getGremlinResourceGremlinRoleAssignmentOutput"], () => require("./getGremlinResourceGremlinRoleAssignment"));
+
+export { GetGremlinResourceGremlinRoleDefinitionArgs, GetGremlinResourceGremlinRoleDefinitionResult, GetGremlinResourceGremlinRoleDefinitionOutputArgs } from "./getGremlinResourceGremlinRoleDefinition";
+export const getGremlinResourceGremlinRoleDefinition: typeof import("./getGremlinResourceGremlinRoleDefinition").getGremlinResourceGremlinRoleDefinition = null as any;
+export const getGremlinResourceGremlinRoleDefinitionOutput: typeof import("./getGremlinResourceGremlinRoleDefinition").getGremlinResourceGremlinRoleDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getGremlinResourceGremlinRoleDefinition","getGremlinResourceGremlinRoleDefinitionOutput"], () => require("./getGremlinResourceGremlinRoleDefinition"));
 
 export { GetMongoClusterArgs, GetMongoClusterResult, GetMongoClusterOutputArgs } from "./getMongoCluster";
 export const getMongoCluster: typeof import("./getMongoCluster").getMongoCluster = null as any;
@@ -199,6 +269,16 @@ export { GetMongoDBResourceMongoUserDefinitionArgs, GetMongoDBResourceMongoUserD
 export const getMongoDBResourceMongoUserDefinition: typeof import("./getMongoDBResourceMongoUserDefinition").getMongoDBResourceMongoUserDefinition = null as any;
 export const getMongoDBResourceMongoUserDefinitionOutput: typeof import("./getMongoDBResourceMongoUserDefinition").getMongoDBResourceMongoUserDefinitionOutput = null as any;
 utilities.lazyLoad(exports, ["getMongoDBResourceMongoUserDefinition","getMongoDBResourceMongoUserDefinitionOutput"], () => require("./getMongoDBResourceMongoUserDefinition"));
+
+export { GetMongoMIResourceMongoMIRoleAssignmentArgs, GetMongoMIResourceMongoMIRoleAssignmentResult, GetMongoMIResourceMongoMIRoleAssignmentOutputArgs } from "./getMongoMIResourceMongoMIRoleAssignment";
+export const getMongoMIResourceMongoMIRoleAssignment: typeof import("./getMongoMIResourceMongoMIRoleAssignment").getMongoMIResourceMongoMIRoleAssignment = null as any;
+export const getMongoMIResourceMongoMIRoleAssignmentOutput: typeof import("./getMongoMIResourceMongoMIRoleAssignment").getMongoMIResourceMongoMIRoleAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getMongoMIResourceMongoMIRoleAssignment","getMongoMIResourceMongoMIRoleAssignmentOutput"], () => require("./getMongoMIResourceMongoMIRoleAssignment"));
+
+export { GetMongoMIResourceMongoMIRoleDefinitionArgs, GetMongoMIResourceMongoMIRoleDefinitionResult, GetMongoMIResourceMongoMIRoleDefinitionOutputArgs } from "./getMongoMIResourceMongoMIRoleDefinition";
+export const getMongoMIResourceMongoMIRoleDefinition: typeof import("./getMongoMIResourceMongoMIRoleDefinition").getMongoMIResourceMongoMIRoleDefinition = null as any;
+export const getMongoMIResourceMongoMIRoleDefinitionOutput: typeof import("./getMongoMIResourceMongoMIRoleDefinition").getMongoMIResourceMongoMIRoleDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getMongoMIResourceMongoMIRoleDefinition","getMongoMIResourceMongoMIRoleDefinitionOutput"], () => require("./getMongoMIResourceMongoMIRoleDefinition"));
 
 export { GetNotebookWorkspaceArgs, GetNotebookWorkspaceResult, GetNotebookWorkspaceOutputArgs } from "./getNotebookWorkspace";
 export const getNotebookWorkspace: typeof import("./getNotebookWorkspace").getNotebookWorkspace = null as any;
@@ -290,6 +370,16 @@ export type GremlinResourceGremlinGraph = import("./gremlinResourceGremlinGraph"
 export const GremlinResourceGremlinGraph: typeof import("./gremlinResourceGremlinGraph").GremlinResourceGremlinGraph = null as any;
 utilities.lazyLoad(exports, ["GremlinResourceGremlinGraph"], () => require("./gremlinResourceGremlinGraph"));
 
+export { GremlinResourceGremlinRoleAssignmentArgs } from "./gremlinResourceGremlinRoleAssignment";
+export type GremlinResourceGremlinRoleAssignment = import("./gremlinResourceGremlinRoleAssignment").GremlinResourceGremlinRoleAssignment;
+export const GremlinResourceGremlinRoleAssignment: typeof import("./gremlinResourceGremlinRoleAssignment").GremlinResourceGremlinRoleAssignment = null as any;
+utilities.lazyLoad(exports, ["GremlinResourceGremlinRoleAssignment"], () => require("./gremlinResourceGremlinRoleAssignment"));
+
+export { GremlinResourceGremlinRoleDefinitionArgs } from "./gremlinResourceGremlinRoleDefinition";
+export type GremlinResourceGremlinRoleDefinition = import("./gremlinResourceGremlinRoleDefinition").GremlinResourceGremlinRoleDefinition;
+export const GremlinResourceGremlinRoleDefinition: typeof import("./gremlinResourceGremlinRoleDefinition").GremlinResourceGremlinRoleDefinition = null as any;
+utilities.lazyLoad(exports, ["GremlinResourceGremlinRoleDefinition"], () => require("./gremlinResourceGremlinRoleDefinition"));
+
 export { ListDatabaseAccountConnectionStringsArgs, ListDatabaseAccountConnectionStringsResult, ListDatabaseAccountConnectionStringsOutputArgs } from "./listDatabaseAccountConnectionStrings";
 export const listDatabaseAccountConnectionStrings: typeof import("./listDatabaseAccountConnectionStrings").listDatabaseAccountConnectionStrings = null as any;
 export const listDatabaseAccountConnectionStringsOutput: typeof import("./listDatabaseAccountConnectionStrings").listDatabaseAccountConnectionStringsOutput = null as any;
@@ -339,6 +429,16 @@ export { MongoDBResourceMongoUserDefinitionArgs } from "./mongoDBResourceMongoUs
 export type MongoDBResourceMongoUserDefinition = import("./mongoDBResourceMongoUserDefinition").MongoDBResourceMongoUserDefinition;
 export const MongoDBResourceMongoUserDefinition: typeof import("./mongoDBResourceMongoUserDefinition").MongoDBResourceMongoUserDefinition = null as any;
 utilities.lazyLoad(exports, ["MongoDBResourceMongoUserDefinition"], () => require("./mongoDBResourceMongoUserDefinition"));
+
+export { MongoMIResourceMongoMIRoleAssignmentArgs } from "./mongoMIResourceMongoMIRoleAssignment";
+export type MongoMIResourceMongoMIRoleAssignment = import("./mongoMIResourceMongoMIRoleAssignment").MongoMIResourceMongoMIRoleAssignment;
+export const MongoMIResourceMongoMIRoleAssignment: typeof import("./mongoMIResourceMongoMIRoleAssignment").MongoMIResourceMongoMIRoleAssignment = null as any;
+utilities.lazyLoad(exports, ["MongoMIResourceMongoMIRoleAssignment"], () => require("./mongoMIResourceMongoMIRoleAssignment"));
+
+export { MongoMIResourceMongoMIRoleDefinitionArgs } from "./mongoMIResourceMongoMIRoleDefinition";
+export type MongoMIResourceMongoMIRoleDefinition = import("./mongoMIResourceMongoMIRoleDefinition").MongoMIResourceMongoMIRoleDefinition;
+export const MongoMIResourceMongoMIRoleDefinition: typeof import("./mongoMIResourceMongoMIRoleDefinition").MongoMIResourceMongoMIRoleDefinition = null as any;
+utilities.lazyLoad(exports, ["MongoMIResourceMongoMIRoleDefinition"], () => require("./mongoMIResourceMongoMIRoleDefinition"));
 
 export { NotebookWorkspaceArgs } from "./notebookWorkspace";
 export type NotebookWorkspace = import("./notebookWorkspace").NotebookWorkspace;
@@ -429,6 +529,10 @@ const _module = {
                 return new CassandraDataCenter(name, <any>undefined, { urn })
             case "azure-native:cosmosdb:CassandraResourceCassandraKeyspace":
                 return new CassandraResourceCassandraKeyspace(name, <any>undefined, { urn })
+            case "azure-native:cosmosdb:CassandraResourceCassandraRoleAssignment":
+                return new CassandraResourceCassandraRoleAssignment(name, <any>undefined, { urn })
+            case "azure-native:cosmosdb:CassandraResourceCassandraRoleDefinition":
+                return new CassandraResourceCassandraRoleDefinition(name, <any>undefined, { urn })
             case "azure-native:cosmosdb:CassandraResourceCassandraTable":
                 return new CassandraResourceCassandraTable(name, <any>undefined, { urn })
             case "azure-native:cosmosdb:CassandraResourceCassandraView":
@@ -453,12 +557,24 @@ const _module = {
                 return new DatabaseAccountSqlDatabase(name, <any>undefined, { urn })
             case "azure-native:cosmosdb:DatabaseAccountTable":
                 return new DatabaseAccountTable(name, <any>undefined, { urn })
+            case "azure-native:cosmosdb:Fleet":
+                return new Fleet(name, <any>undefined, { urn })
+            case "azure-native:cosmosdb:FleetAnalytic":
+                return new FleetAnalytic(name, <any>undefined, { urn })
+            case "azure-native:cosmosdb:Fleetspace":
+                return new Fleetspace(name, <any>undefined, { urn })
+            case "azure-native:cosmosdb:FleetspaceAccount":
+                return new FleetspaceAccount(name, <any>undefined, { urn })
             case "azure-native:cosmosdb:GraphResourceGraph":
                 return new GraphResourceGraph(name, <any>undefined, { urn })
             case "azure-native:cosmosdb:GremlinResourceGremlinDatabase":
                 return new GremlinResourceGremlinDatabase(name, <any>undefined, { urn })
             case "azure-native:cosmosdb:GremlinResourceGremlinGraph":
                 return new GremlinResourceGremlinGraph(name, <any>undefined, { urn })
+            case "azure-native:cosmosdb:GremlinResourceGremlinRoleAssignment":
+                return new GremlinResourceGremlinRoleAssignment(name, <any>undefined, { urn })
+            case "azure-native:cosmosdb:GremlinResourceGremlinRoleDefinition":
+                return new GremlinResourceGremlinRoleDefinition(name, <any>undefined, { urn })
             case "azure-native:cosmosdb:MongoCluster":
                 return new MongoCluster(name, <any>undefined, { urn })
             case "azure-native:cosmosdb:MongoClusterFirewallRule":
@@ -471,6 +587,10 @@ const _module = {
                 return new MongoDBResourceMongoRoleDefinition(name, <any>undefined, { urn })
             case "azure-native:cosmosdb:MongoDBResourceMongoUserDefinition":
                 return new MongoDBResourceMongoUserDefinition(name, <any>undefined, { urn })
+            case "azure-native:cosmosdb:MongoMIResourceMongoMIRoleAssignment":
+                return new MongoMIResourceMongoMIRoleAssignment(name, <any>undefined, { urn })
+            case "azure-native:cosmosdb:MongoMIResourceMongoMIRoleDefinition":
+                return new MongoMIResourceMongoMIRoleDefinition(name, <any>undefined, { urn })
             case "azure-native:cosmosdb:NotebookWorkspace":
                 return new NotebookWorkspace(name, <any>undefined, { urn })
             case "azure-native:cosmosdb:PrivateEndpointConnection":

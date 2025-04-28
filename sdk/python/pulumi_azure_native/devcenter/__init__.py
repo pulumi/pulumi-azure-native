@@ -22,6 +22,8 @@ from .get_curation_profile import *
 from .get_customization_task_error_details import *
 from .get_dev_box_definition import *
 from .get_dev_center import *
+from .get_dev_center_catalog_image_definition_build_details import *
+from .get_dev_center_catalog_image_definition_error_details import *
 from .get_encryption_set import *
 from .get_environment_definition_error_details import *
 from .get_environment_type import *

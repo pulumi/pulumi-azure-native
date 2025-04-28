@@ -546,6 +546,36 @@ namespace Pulumi.AzureNative.CosmosDB
     }
 
     /// <summary>
+    /// The kind of API this fleetspace belongs to. Acceptable values: 'NoSQL'
+    /// </summary>
+    [EnumType]
+    public readonly struct FleetspaceApiKind : IEquatable<FleetspaceApiKind>
+    {
+        private readonly string _value;
+
+        private FleetspaceApiKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetspaceApiKind NoSQL { get; } = new FleetspaceApiKind("NoSQL");
+
+        public static bool operator ==(FleetspaceApiKind left, FleetspaceApiKind right) => left.Equals(right);
+        public static bool operator !=(FleetspaceApiKind left, FleetspaceApiKind right) => !left.Equals(right);
+
+        public static explicit operator string(FleetspaceApiKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetspaceApiKind other && Equals(other);
+        public bool Equals(FleetspaceApiKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates the type of index.
     /// </summary>
     [EnumType]
@@ -1057,6 +1087,37 @@ namespace Pulumi.AzureNative.CosmosDB
     }
 
     /// <summary>
+    /// Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceTier : IEquatable<ServiceTier>
+    {
+        private readonly string _value;
+
+        private ServiceTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceTier GeneralPurpose { get; } = new ServiceTier("GeneralPurpose");
+        public static ServiceTier BusinessCritical { get; } = new ServiceTier("BusinessCritical");
+
+        public static bool operator ==(ServiceTier left, ServiceTier right) => left.Equals(right);
+        public static bool operator !=(ServiceTier left, ServiceTier right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceTier other && Equals(other);
+        public bool Equals(ServiceTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// ServiceType for the service.
     /// </summary>
     [EnumType]
@@ -1115,6 +1176,37 @@ namespace Pulumi.AzureNative.CosmosDB
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SpatialType other && Equals(other);
         public bool Equals(SpatialType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the fleet analytics resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct StorageLocationType : IEquatable<StorageLocationType>
+    {
+        private readonly string _value;
+
+        private StorageLocationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StorageLocationType StorageAccount { get; } = new StorageLocationType("StorageAccount");
+        public static StorageLocationType FabricLakehouse { get; } = new StorageLocationType("FabricLakehouse");
+
+        public static bool operator ==(StorageLocationType left, StorageLocationType right) => left.Equals(right);
+        public static bool operator !=(StorageLocationType left, StorageLocationType right) => !left.Equals(right);
+
+        public static explicit operator string(StorageLocationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageLocationType other && Equals(other);
+        public bool Equals(StorageLocationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
