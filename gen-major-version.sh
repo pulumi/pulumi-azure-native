@@ -22,3 +22,8 @@ git add sdk/dotnet
 make generate_dotnet
 git add sdk/dotnet
 git commit -m "Generate .NET SDK"
+rm -rf sdk/java
+git add sdk/java
+make generate_java
+git add sdk/java
+git commit -m "Generate Java SDK"
