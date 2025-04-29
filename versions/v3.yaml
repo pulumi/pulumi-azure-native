@@ -194,6 +194,11 @@ AlertsManagement:
         SpecFilePath: specification/alertsmanagement/resource-manager/Microsoft.AlertsManagement/stable/2021-08-08/AlertProcessingRules.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AlertsManagement/actionRules/{alertProcessingRuleName}
         RpNamespace: Microsoft.AlertsManagement
+    Issue:
+        ApiVersion: 2025-03-01-preview
+        SpecFilePath: specification/alertsmanagement/resource-manager/Microsoft.AlertsManagement/preview/2025-03-01-preview/Issues.json
+        ResourceUri: /{resourceUri}/providers/Microsoft.AlertsManagement/issues/{issueName}
+        RpNamespace: Microsoft.AlertsManagement
     PrometheusRuleGroup:
         ApiVersion: "2023-03-01"
         SpecFilePath: specification/alertsmanagement/resource-manager/Microsoft.AlertsManagement/stable/2023-03-01/PrometheusRuleGroups.json
@@ -203,6 +208,16 @@ AlertsManagement:
         ApiVersion: "2021-04-01"
         SpecFilePath: specification/alertsmanagement/resource-manager/Microsoft.AlertsManagement/stable/2021-04-01/SmartDetectorAlertRulesApi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.alertsManagement/smartDetectorAlertRules/{alertRuleName}
+        RpNamespace: Microsoft.AlertsManagement
+    listIssueAlerts:
+        ApiVersion: 2025-03-01-preview
+        SpecFilePath: specification/alertsmanagement/resource-manager/Microsoft.AlertsManagement/preview/2025-03-01-preview/Issues.json
+        ResourceUri: /{resourceUri}/providers/Microsoft.AlertsManagement/issues/{issueName}/listAlerts
+        RpNamespace: Microsoft.AlertsManagement
+    listIssueResources:
+        ApiVersion: 2025-03-01-preview
+        SpecFilePath: specification/alertsmanagement/resource-manager/Microsoft.AlertsManagement/preview/2025-03-01-preview/Issues.json
+        ResourceUri: /{resourceUri}/providers/Microsoft.AlertsManagement/issues/{issueName}/listResources
         RpNamespace: Microsoft.AlertsManagement
 AnalysisServices:
     ServerDetails:

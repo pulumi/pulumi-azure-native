@@ -278,6 +278,9 @@
       "2021-08-08",
       "2021-08-08-preview"
     ],
+    "Issue": [
+      "2025-03-01-preview"
+    ],
     "PrometheusRuleGroup": [
       "2021-07-22-preview",
       "2023-03-01"
@@ -289,6 +292,12 @@
     ],
     "TenantActivityLogAlert": [
       "2023-04-01-preview"
+    ],
+    "listIssueAlerts": [
+      "2025-03-01-preview"
+    ],
+    "listIssueResources": [
+      "2025-03-01-preview"
     ]
   },
   "AnalysisServices": {
@@ -23720,7 +23729,8 @@
     "DefenderForStorage": [
       "2022-12-01-preview",
       "2024-08-01-preview",
-      "2024-10-01-preview"
+      "2024-10-01-preview",
+      "2025-01-01"
     ],
     "DevOpsConfiguration": [
       "2023-09-01-preview",

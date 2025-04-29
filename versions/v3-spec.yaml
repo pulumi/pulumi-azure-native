@@ -20,7 +20,10 @@ AlertsManagement:
     additions:
         ActionRuleByName: 2019-05-05-preview
         AlertProcessingRuleByName: "2021-08-08"
+        Issue: 2025-03-01-preview
         SmartDetectorAlertRule: "2021-04-01"
+        listIssueAlerts: 2025-03-01-preview
+        listIssueResources: 2025-03-01-preview
 AnalysisServices:
     tracking: "2017-08-01"
 ApiCenter:

@@ -29,6 +29,10 @@
   },
   "AlertsManagement": {
     "Alerts_ChangeState": "/{scope}/providers/Microsoft.AlertsManagement/alerts/{alertId}/changestate",
+    "Issue_AddOrUpdateAlerts": "/{resourceUri}/providers/Microsoft.AlertsManagement/issues/{issueName}/addOrUpdateAlerts",
+    "Issue_AddOrUpdateResources": "/{resourceUri}/providers/Microsoft.AlertsManagement/issues/{issueName}/addOrUpdateResources",
+    "Issue_FetchInvestigationResult": "/{resourceUri}/providers/Microsoft.AlertsManagement/issues/{issueName}/fetchInvestigationResult",
+    "Issue_StartInvestigation": "/{resourceUri}/providers/Microsoft.AlertsManagement/issues/{issueName}/startInvestigation",
     "MigrateFromSmartDetection_StartMigration": "/subscriptions/{subscriptionId}/providers/Microsoft.AlertsManagement/migrateFromSmartDetection",
     "SmartGroups_ChangeState": "/subscriptions/{subscriptionId}/providers/Microsoft.AlertsManagement/smartGroups/{smartGroupId}/changeState"
   },

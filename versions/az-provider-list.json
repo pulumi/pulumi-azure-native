@@ -55255,7 +55255,6 @@
     "resourceTypes": [
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -55281,7 +55280,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -55308,7 +55306,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -55332,7 +55329,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -55355,7 +55351,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -55380,7 +55375,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -55398,7 +55392,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -55425,7 +55418,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -55449,7 +55441,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -55476,7 +55467,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -55500,7 +55490,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -55527,7 +55516,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -55564,7 +55552,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -55588,7 +55575,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -55608,7 +55594,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -55632,7 +55617,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -55651,7 +55635,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -55685,7 +55668,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -55709,7 +55691,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -55736,7 +55717,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -55760,7 +55740,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -55787,7 +55766,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -55811,7 +55789,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -55838,7 +55815,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -55862,7 +55838,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -55889,7 +55864,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -55913,7 +55887,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -55940,7 +55913,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -55964,7 +55936,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -55991,7 +55962,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -56015,7 +55985,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview"
         ],
@@ -56026,7 +55995,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -56050,7 +56018,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -56077,7 +56044,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -56101,7 +56067,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -56128,7 +56093,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -56152,7 +56116,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -56175,7 +56138,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -56199,7 +56161,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -56225,7 +56186,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -56252,7 +56212,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -56276,7 +56235,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -56302,7 +56260,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -56326,7 +56283,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -56353,7 +56309,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -56377,7 +56332,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -56394,7 +56348,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -56418,7 +56371,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -56435,7 +56387,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -56459,7 +56410,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -56473,7 +56423,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -56497,7 +56446,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -56510,7 +56458,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -56534,7 +56481,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -56561,7 +56507,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -56585,7 +56530,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -56612,7 +56556,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -56636,7 +56579,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -56650,7 +56592,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -56674,7 +56615,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -56688,7 +56628,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -56712,7 +56651,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -56726,7 +56664,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -56750,7 +56687,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -56777,7 +56713,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -56801,7 +56736,6 @@
       },
       {
         "apiVersions": [
-          "2025-04-01-preview",
           "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
@@ -56828,7 +56762,6 @@
           "Canada Central",
           "Central US",
           "Spain Central",
-          "UAE North",
           "West Europe",
           "Germany West Central",
           "Italy North",
@@ -66445,21 +66378,6 @@
           "East US 2 EUAP"
         ],
         "resourceType": "locations/operationStatuses"
-      }
-    ]
-  },
-  {
-    "namespace": "Microsoft.Falcon",
-    "resourceTypes": [
-      {
-        "apiVersions": [
-          "2020-01-20-preview"
-        ],
-        "defaultApiVersion": null,
-        "locations": [
-          "West US"
-        ],
-        "resourceType": "namespaces"
       }
     ]
   },
@@ -89103,7 +89021,6 @@
       },
       {
         "apiVersions": [
-          "2024-10-01",
           "2024-07-01",
           "2024-05-01",
           "2024-03-01",
@@ -91191,7 +91108,6 @@
       },
       {
         "apiVersions": [
-          "2024-10-01",
           "2024-07-01",
           "2024-05-01",
           "2024-03-01",
@@ -91396,7 +91312,6 @@
       },
       {
         "apiVersions": [
-          "2024-10-01",
           "2024-07-01",
           "2024-05-01",
           "2024-03-01",
@@ -91867,7 +91782,6 @@
       },
       {
         "apiVersions": [
-          "2024-10-01",
           "2024-07-01",
           "2024-05-01",
           "2024-03-01",
@@ -93808,7 +93722,6 @@
       },
       {
         "apiVersions": [
-          "2024-10-01",
           "2024-07-01",
           "2024-05-01",
           "2024-03-01",
@@ -94074,7 +93987,6 @@
       },
       {
         "apiVersions": [
-          "2024-10-01",
           "2024-07-01",
           "2024-05-01",
           "2024-03-01",
@@ -94136,7 +94048,6 @@
       },
       {
         "apiVersions": [
-          "2024-10-01",
           "2024-07-01",
           "2024-05-01",
           "2024-03-01",
@@ -96694,7 +96605,6 @@
       },
       {
         "apiVersions": [
-          "2024-10-01",
           "2024-07-01",
           "2024-05-01",
           "2024-03-01",
@@ -96733,7 +96643,6 @@
       },
       {
         "apiVersions": [
-          "2024-10-01",
           "2024-07-01",
           "2024-05-01",
           "2024-03-01",
@@ -99859,7 +99768,6 @@
       },
       {
         "apiVersions": [
-          "2024-10-01",
           "2024-07-01",
           "2024-05-01",
           "2024-03-01",
@@ -100782,7 +100690,6 @@
           "West US 2",
           "UK West",
           "UK South",
-          "Korea Central",
           "Korea South",
           "France Central",
           "France South",
@@ -100839,7 +100746,6 @@
           "West US 2",
           "UK West",
           "UK South",
-          "Korea Central",
           "Korea South",
           "France Central",
           "France South",
@@ -101016,7 +100922,6 @@
           "West US 2",
           "UK West",
           "UK South",
-          "Korea Central",
           "Korea South",
           "France Central",
           "France South",
@@ -120506,7 +120411,6 @@
           "South Africa North",
           "South Central US",
           "Southeast Asia",
-          "South India",
           "Spain Central",
           "Sweden Central",
           "Switzerland North",
@@ -120570,7 +120474,6 @@
           "South Africa North",
           "South Central US",
           "Southeast Asia",
-          "South India",
           "Spain Central",
           "Sweden Central",
           "Switzerland North",
@@ -120636,7 +120539,6 @@
           "South Africa North",
           "South Central US",
           "Southeast Asia",
-          "South India",
           "Spain Central",
           "Sweden Central",
           "Switzerland North",
@@ -120691,7 +120593,6 @@
           "South Africa North",
           "South Central US",
           "Southeast Asia",
-          "South India",
           "Spain Central",
           "Sweden Central",
           "Switzerland North",
@@ -120753,7 +120654,6 @@
           "South Africa North",
           "South Central US",
           "Southeast Asia",
-          "South India",
           "Spain Central",
           "Sweden Central",
           "Switzerland North",
@@ -120815,7 +120715,6 @@
           "South Africa North",
           "South Central US",
           "Southeast Asia",
-          "South India",
           "Spain Central",
           "Sweden Central",
           "Switzerland North",
@@ -120870,7 +120769,6 @@
           "South Africa North",
           "South Central US",
           "Southeast Asia",
-          "South India",
           "Spain Central",
           "Sweden Central",
           "Switzerland North",
@@ -120962,7 +120860,6 @@
           "South Africa North",
           "South Central US",
           "Southeast Asia",
-          "South India",
           "Spain Central",
           "Sweden Central",
           "Switzerland North",
@@ -121028,7 +120925,6 @@
           "South Africa North",
           "South Central US",
           "Southeast Asia",
-          "South India",
           "Spain Central",
           "Sweden Central",
           "Switzerland North",
@@ -121094,7 +120990,6 @@
           "South Africa North",
           "South Central US",
           "Southeast Asia",
-          "South India",
           "Spain Central",
           "Sweden Central",
           "Switzerland North",
@@ -121160,7 +121055,6 @@
           "South Africa North",
           "South Central US",
           "Southeast Asia",
-          "South India",
           "Spain Central",
           "Sweden Central",
           "Switzerland North",
