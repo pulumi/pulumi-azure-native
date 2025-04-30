@@ -2995,6 +2995,13 @@
         ],
         "defaultApiVersion": "2025-03-01-preview",
         "locations": [
+          "Australia East",
+          "Central India",
+          "Central US",
+          "East Asia",
+          "East US",
+          "UK South",
+          "West Europe",
           "East US 2 EUAP"
         ],
         "resourceType": "issues"
@@ -6003,6 +6010,17 @@
           "West Central US",
           "East US 2",
           "West US",
+          "Brazil South",
+          "Canada East",
+          "France Central",
+          "Korea Central",
+          "South Africa North",
+          "South Central US",
+          "South India",
+          "UAE North",
+          "UK South",
+          "West Europe",
+          "West US 3",
           "Central US EUAP",
           "East US 2 EUAP"
         ],
@@ -18506,6 +18524,14 @@
       },
       {
         "apiVersions": [
+          "2022-10-01-privatepreview"
+        ],
+        "defaultApiVersion": null,
+        "locations": [],
+        "resourceType": "billingAccounts/partnerOrganizations"
+      },
+      {
+        "apiVersions": [
           "2018-11-01-preview"
         ],
         "defaultApiVersion": null,
@@ -18527,6 +18553,14 @@
         "defaultApiVersion": null,
         "locations": [],
         "resourceType": "billingAccounts/payableOverage"
+      },
+      {
+        "apiVersions": [
+          "2024-08-01-preview"
+        ],
+        "defaultApiVersion": null,
+        "locations": [],
+        "resourceType": "billingAccounts/paymentMethodLinks"
       },
       {
         "apiVersions": [
@@ -82519,6 +82553,7 @@
     "resourceTypes": [
       {
         "apiVersions": [
+          "2025-01-31-PREVIEW",
           "2024-11-30",
           "2023-07-31-PREVIEW",
           "2023-01-31",
@@ -82606,6 +82641,7 @@
       },
       {
         "apiVersions": [
+          "2025-01-31-PREVIEW",
           "2024-11-30",
           "2023-07-31-PREVIEW",
           "2023-01-31",
@@ -82673,6 +82709,7 @@
       },
       {
         "apiVersions": [
+          "2025-01-31-PREVIEW",
           "2024-11-30",
           "2023-07-31-PREVIEW",
           "2023-01-31",
@@ -82735,6 +82772,7 @@
       },
       {
         "apiVersions": [
+          "2025-01-31-PREVIEW",
           "2024-11-30",
           "2023-07-31-PREVIEW",
           "2023-01-31",
@@ -114076,6 +114114,7 @@
     "resourceTypes": [
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-01-01-preview",
           "2024-10-01-preview",
           "2024-04-01-preview",
@@ -114146,6 +114185,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-03-01",
           "2025-01-01-preview",
           "2024-10-01-preview",
@@ -114206,6 +114246,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-03-01",
           "2025-01-01-preview",
           "2024-10-01-preview",
@@ -114266,6 +114307,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-03-01",
           "2025-01-01-preview",
           "2024-10-01-preview",
@@ -114324,6 +114366,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-01-01-preview",
           "2024-10-01-preview",
           "2024-04-01-preview",
@@ -114358,6 +114401,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-03-01",
           "2025-01-01-preview",
           "2024-10-01-preview",
@@ -114417,6 +114461,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-01-01-preview",
           "2024-10-01-preview",
           "2024-04-01-preview"
@@ -114465,6 +114510,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-01-01-preview",
           "2024-10-01-preview",
           "2024-04-01-preview",
@@ -114509,6 +114555,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-03-01",
           "2025-01-01-preview",
           "2024-10-01-preview",
@@ -114552,6 +114599,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-03-01",
           "2025-01-01-preview",
           "2024-10-01-preview",
@@ -114591,6 +114639,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-03-01",
           "2025-01-01-preview",
           "2024-10-01-preview",
@@ -114630,6 +114679,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-03-01",
           "2025-01-01-preview",
           "2024-10-01-preview",
@@ -114673,6 +114723,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-01-01-preview",
           "2024-10-01-preview",
           "2024-04-01-preview",
@@ -114699,6 +114750,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-03-01",
           "2025-01-01-preview",
           "2024-10-01-preview",
@@ -114743,6 +114795,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-03-01",
           "2025-01-01-preview",
           "2024-10-01-preview",
@@ -114804,6 +114857,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-01-01-preview",
           "2024-10-01-preview",
           "2024-04-01-preview",
@@ -114854,6 +114908,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-01-01-preview",
           "2024-10-01-preview",
           "2024-04-01-preview",
@@ -114905,6 +114960,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-01-01-preview",
           "2024-10-01-preview",
           "2024-06-01-preview"
@@ -114930,6 +114986,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-03-01",
           "2025-01-01-preview",
           "2024-10-01-preview",
@@ -114984,6 +115041,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-01-01-preview",
           "2024-10-01-preview",
           "2024-04-01-preview",
@@ -115035,6 +115093,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-01-01-preview",
           "2024-10-01-preview",
           "2024-04-01-preview",
@@ -115086,6 +115145,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-01-01-preview",
           "2024-10-01-preview",
           "2024-04-01-preview",
@@ -115122,6 +115182,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-01-01-preview",
           "2024-10-01-preview",
           "2024-04-01-preview",
@@ -115164,6 +115225,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-01-01-preview",
           "2024-10-01-preview",
           "2024-04-01-preview",
@@ -115199,6 +115261,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-01-01-preview",
           "2024-10-01-preview",
           "2024-04-01-preview",
@@ -115240,6 +115303,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-03-01",
           "2025-01-01-preview",
           "2024-10-01-preview",
@@ -115301,6 +115365,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-03-01",
           "2025-01-01-preview",
           "2024-10-01-preview",
@@ -115355,6 +115420,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-03-01",
           "2025-01-01-preview",
           "2024-10-01-preview",
@@ -115410,6 +115476,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-01-01-preview",
           "2024-10-01-preview",
           "2024-04-01-preview",
@@ -115460,6 +115527,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-03-01",
           "2025-01-01-preview",
           "2024-10-01-preview",
@@ -115518,6 +115586,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-03-01",
           "2025-01-01-preview",
           "2024-10-01-preview",
@@ -115564,6 +115633,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-01-01-preview",
           "2024-10-01-preview",
           "2024-04-01-preview",
@@ -115605,6 +115675,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-01-01-preview",
           "2024-10-01-preview",
           "2024-04-01-preview",
@@ -115644,6 +115715,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-03-01",
           "2025-01-01-preview",
           "2024-10-01-preview",
@@ -115695,6 +115767,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-01-01-preview",
           "2024-10-01-preview",
           "2024-04-01-preview",
@@ -115746,6 +115819,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-03-01",
           "2025-01-01-preview",
           "2024-10-01-preview",
@@ -115800,6 +115874,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-03-01",
           "2025-01-01-preview",
           "2024-10-01-preview",
@@ -115859,6 +115934,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-01-01-preview",
           "2024-10-01-preview",
           "2024-04-01-preview",
@@ -115896,6 +115972,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-03-01",
           "2025-01-01-preview",
           "2024-10-01-preview",
@@ -115956,6 +116033,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-01-01-preview",
           "2024-10-01-preview",
           "2024-04-01-preview",
@@ -115992,6 +116070,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-01-01-preview",
           "2024-10-01-preview",
           "2024-04-01-preview",
@@ -116028,6 +116107,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-01-01-preview",
           "2024-10-01-preview",
           "2024-04-01-preview",
@@ -116064,6 +116144,7 @@
       },
       {
         "apiVersions": [
+          "2025-04-01-preview",
           "2025-01-01-preview",
           "2024-10-01-preview",
           "2024-04-01-preview",
@@ -141239,6 +141320,39 @@
           "2023-01-01",
           "2022-09-01",
           "2022-05-01",
+          "2021-09-01"
+        ],
+        "defaultApiVersion": "2024-01-01",
+        "locations": [
+          "East US 2",
+          "Japan East",
+          "Japan West",
+          "South India",
+          "West Central US",
+          "UK South",
+          "UK West",
+          "Korea Central",
+          "Korea South",
+          "Australia Central",
+          "South Africa North",
+          "UAE North",
+          "Norway East",
+          "West US 3",
+          "Sweden Central",
+          "Italy North",
+          "Israel Central",
+          "Spain Central"
+        ],
+        "resourceType": "locations/ActionsRPOperationStatuses"
+      },
+      {
+        "apiVersions": [
+          "2024-01-01",
+          "2023-05-01",
+          "2023-04-01",
+          "2023-01-01",
+          "2022-09-01",
+          "2022-05-01",
           "2021-09-01",
           "2021-08-01",
           "2021-06-01",
@@ -142319,12 +142433,23 @@
           "Qatar Central",
           "Mexico Central",
           "East US",
+          "West India",
+          "Canada East",
+          "Poland Central",
+          "Australia Central 2",
+          "South Africa West",
+          "UAE Central",
+          "Switzerland West",
+          "Germany North",
+          "Norway West",
+          "Brazil Southeast",
+          "New Zealand North",
+          "Indonesia Central",
+          "France South",
           "East US 2",
           "Japan East",
           "Japan West",
           "South India",
-          "West India",
-          "Canada East",
           "West Central US",
           "UK South",
           "UK West",
@@ -142336,20 +142461,9 @@
           "Norway East",
           "West US 3",
           "Sweden Central",
-          "Poland Central",
           "Italy North",
           "Israel Central",
           "Spain Central",
-          "Australia Central 2",
-          "South Africa West",
-          "UAE Central",
-          "Switzerland West",
-          "Germany North",
-          "Norway West",
-          "Brazil Southeast",
-          "New Zealand North",
-          "Indonesia Central",
-          "France South",
           "East US 2 EUAP",
           "Central US EUAP"
         ],
@@ -142493,12 +142607,23 @@
           "Qatar Central",
           "Mexico Central",
           "East US",
+          "West India",
+          "Canada East",
+          "Poland Central",
+          "Australia Central 2",
+          "South Africa West",
+          "UAE Central",
+          "Switzerland West",
+          "Germany North",
+          "Norway West",
+          "Brazil Southeast",
+          "New Zealand North",
+          "Indonesia Central",
+          "France South",
           "East US 2",
           "Japan East",
           "Japan West",
           "South India",
-          "West India",
-          "Canada East",
           "West Central US",
           "UK South",
           "UK West",
@@ -142510,20 +142635,9 @@
           "Norway East",
           "West US 3",
           "Sweden Central",
-          "Poland Central",
           "Italy North",
           "Israel Central",
           "Spain Central",
-          "Australia Central 2",
-          "South Africa West",
-          "UAE Central",
-          "Switzerland West",
-          "Germany North",
-          "Norway West",
-          "Brazil Southeast",
-          "New Zealand North",
-          "Indonesia Central",
-          "France South",
           "East US 2 EUAP",
           "Central US EUAP"
         ],
@@ -142561,12 +142675,23 @@
           "Qatar Central",
           "Mexico Central",
           "East US",
+          "West India",
+          "Canada East",
+          "Poland Central",
+          "Australia Central 2",
+          "South Africa West",
+          "UAE Central",
+          "Switzerland West",
+          "Germany North",
+          "Norway West",
+          "Brazil Southeast",
+          "New Zealand North",
+          "Indonesia Central",
+          "France South",
           "East US 2",
           "Japan East",
           "Japan West",
           "South India",
-          "West India",
-          "Canada East",
           "West Central US",
           "UK South",
           "UK West",
@@ -142578,20 +142703,9 @@
           "Norway East",
           "West US 3",
           "Sweden Central",
-          "Poland Central",
           "Italy North",
           "Israel Central",
           "Spain Central",
-          "Australia Central 2",
-          "South Africa West",
-          "UAE Central",
-          "Switzerland West",
-          "Germany North",
-          "Norway West",
-          "Brazil Southeast",
-          "New Zealand North",
-          "Indonesia Central",
-          "France South",
           "East US 2 EUAP",
           "Central US EUAP"
         ],
@@ -142813,6 +142927,33 @@
           "2023-01-01"
         ],
         "defaultApiVersion": "2023-01-01",
+        "locations": [
+          "East US 2",
+          "Japan East",
+          "Japan West",
+          "South India",
+          "West Central US",
+          "UK South",
+          "UK West",
+          "Korea Central",
+          "Korea South",
+          "Australia Central",
+          "South Africa North",
+          "UAE North",
+          "Norway East",
+          "West US 3",
+          "Sweden Central",
+          "Italy North",
+          "Israel Central",
+          "Spain Central"
+        ],
+        "resourceType": "locations/operationStatuses"
+      },
+      {
+        "apiVersions": [
+          "2023-01-01"
+        ],
+        "defaultApiVersion": "2023-01-01",
         "locations": [],
         "resourceType": "operations"
       },
@@ -142838,6 +142979,24 @@
           "France Central",
           "Switzerland North",
           "Germany West Central",
+          "East US 2",
+          "Japan East",
+          "Japan West",
+          "South India",
+          "West Central US",
+          "UK South",
+          "UK West",
+          "Korea Central",
+          "Korea South",
+          "Australia Central",
+          "South Africa North",
+          "UAE North",
+          "Norway East",
+          "West US 3",
+          "Sweden Central",
+          "Italy North",
+          "Israel Central",
+          "Spain Central",
           "East US 2 EUAP",
           "Central US EUAP"
         ],
@@ -142865,6 +143024,24 @@
           "France Central",
           "Switzerland North",
           "Germany West Central",
+          "East US 2",
+          "Japan East",
+          "Japan West",
+          "South India",
+          "West Central US",
+          "UK South",
+          "UK West",
+          "Korea Central",
+          "Korea South",
+          "Australia Central",
+          "South Africa North",
+          "UAE North",
+          "Norway East",
+          "West US 3",
+          "Sweden Central",
+          "Italy North",
+          "Israel Central",
+          "Spain Central",
           "East US 2 EUAP",
           "Central US EUAP"
         ],
@@ -142892,6 +143069,24 @@
           "France Central",
           "Switzerland North",
           "Germany West Central",
+          "East US 2",
+          "Japan East",
+          "Japan West",
+          "South India",
+          "West Central US",
+          "UK South",
+          "UK West",
+          "Korea Central",
+          "Korea South",
+          "Australia Central",
+          "South Africa North",
+          "UAE North",
+          "Norway East",
+          "West US 3",
+          "Sweden Central",
+          "Italy North",
+          "Israel Central",
+          "Spain Central",
           "East US 2 EUAP",
           "Central US EUAP"
         ],

@@ -3,6 +3,8 @@
 ADHybridHealthService: {}
 AVS:
     tracking: "2023-09-01"
+    additions:
+        PureStoragePolicy: "2024-09-01"
 Aad:
     tracking: "2022-12-01"
 AadIam:
@@ -20,7 +22,10 @@ AlertsManagement:
     additions:
         ActionRuleByName: 2019-05-05-preview
         AlertProcessingRuleByName: "2021-08-08"
+        Issue: 2025-03-01-preview
         SmartDetectorAlertRule: "2021-04-01"
+        listIssueAlerts: 2025-03-01-preview
+        listIssueResources: 2025-03-01-preview
 AnalysisServices:
     tracking: "2017-08-01"
 ApiCenter:
@@ -545,6 +550,21 @@ DBforPostgreSQL:
         - modulename: DBforPostgreSQL
           resourcename: Server
           detail: version 2024-11-01-preview is greater than 2017-12-01
+        - modulename: DBforPostgreSQL
+          resourcename: Configuration
+          detail: version 2025-01-01-preview is greater than 2017-12-01
+        - modulename: DBforPostgreSQL
+          resourcename: Database
+          detail: version 2025-01-01-preview is greater than 2017-12-01
+        - modulename: DBforPostgreSQL
+          resourcename: FirewallRule
+          detail: version 2025-01-01-preview is greater than 2017-12-01
+        - modulename: DBforPostgreSQL
+          resourcename: PrivateEndpointConnection
+          detail: version 2025-01-01-preview is greater than 2018-06-01
+        - modulename: DBforPostgreSQL
+          resourcename: Server
+          detail: version 2025-01-01-preview is greater than 2017-12-01
 Dashboard:
     tracking: "2024-10-01"
 DataBox:

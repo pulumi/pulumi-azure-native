@@ -1,5 +1,9 @@
 [
   {
+    "ModuleName": "AVS",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "ModuleName": "AadIam",
     "Detail": "expected additions but found none"
   },

@@ -1,6 +1,8 @@
 {
   "ADHybridHealthService": [],
-  "AVS": [],
+  "AVS": [
+    "2024-09-01"
+  ],
   "Aad": [],
   "AadIam": [
     "2017-04-01-preview",
@@ -22,7 +24,8 @@
     "2021-08-08",
     "2021-08-08-preview",
     "2023-03-01",
-    "2023-04-01-preview"
+    "2023-04-01-preview",
+    "2025-03-01-preview"
   ],
   "AnalysisServices": [
     "2017-08-01-beta"
@@ -441,7 +444,8 @@
     "2023-12-01-preview",
     "2024-03-01-preview",
     "2024-08-01",
-    "2024-11-01-preview"
+    "2024-11-01-preview",
+    "2025-01-01-preview"
   ],
   "Dashboard": [],
   "DataBox": [
@@ -1073,6 +1077,7 @@
     "2024-08-01",
     "2024-08-01-preview",
     "2024-10-01-preview",
+    "2025-01-01",
     "2025-03-01"
   ],
   "SecurityAndCompliance": [],
