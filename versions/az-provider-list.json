@@ -23779,37 +23779,6 @@
     ]
   },
   {
-    "namespace": "Microsoft.ChangeSafety",
-    "resourceTypes": [
-      {
-        "apiVersions": [
-          "2024-10-01-preview"
-        ],
-        "defaultApiVersion": "2024-10-01-preview",
-        "locations": [],
-        "resourceType": "locations"
-      },
-      {
-        "apiVersions": [
-          "2024-10-01-preview"
-        ],
-        "defaultApiVersion": "2024-10-01-preview",
-        "locations": [
-          "East US 2"
-        ],
-        "resourceType": "locations/operationstatuses"
-      },
-      {
-        "apiVersions": [
-          "2024-10-01-preview"
-        ],
-        "defaultApiVersion": "2024-10-01-preview",
-        "locations": [],
-        "resourceType": "operations"
-      }
-    ]
-  },
-  {
     "namespace": "Microsoft.Chaos",
     "resourceTypes": [
       {
@@ -89103,7 +89072,6 @@
       },
       {
         "apiVersions": [
-          "2024-10-01",
           "2024-07-01",
           "2024-05-01",
           "2024-03-01",
@@ -91191,7 +91159,6 @@
       },
       {
         "apiVersions": [
-          "2024-10-01",
           "2024-07-01",
           "2024-05-01",
           "2024-03-01",
@@ -91396,7 +91363,6 @@
       },
       {
         "apiVersions": [
-          "2024-10-01",
           "2024-07-01",
           "2024-05-01",
           "2024-03-01",
@@ -91867,7 +91833,6 @@
       },
       {
         "apiVersions": [
-          "2024-10-01",
           "2024-07-01",
           "2024-05-01",
           "2024-03-01",
@@ -93808,7 +93773,6 @@
       },
       {
         "apiVersions": [
-          "2024-10-01",
           "2024-07-01",
           "2024-05-01",
           "2024-03-01",
@@ -94074,7 +94038,6 @@
       },
       {
         "apiVersions": [
-          "2024-10-01",
           "2024-07-01",
           "2024-05-01",
           "2024-03-01",
@@ -94136,7 +94099,6 @@
       },
       {
         "apiVersions": [
-          "2024-10-01",
           "2024-07-01",
           "2024-05-01",
           "2024-03-01",
@@ -96694,7 +96656,6 @@
       },
       {
         "apiVersions": [
-          "2024-10-01",
           "2024-07-01",
           "2024-05-01",
           "2024-03-01",
@@ -96733,7 +96694,6 @@
       },
       {
         "apiVersions": [
-          "2024-10-01",
           "2024-07-01",
           "2024-05-01",
           "2024-03-01",
@@ -99859,7 +99819,6 @@
       },
       {
         "apiVersions": [
-          "2024-10-01",
           "2024-07-01",
           "2024-05-01",
           "2024-03-01",
@@ -100782,7 +100741,6 @@
           "West US 2",
           "UK West",
           "UK South",
-          "Korea Central",
           "Korea South",
           "France Central",
           "France South",
@@ -100839,7 +100797,6 @@
           "West US 2",
           "UK West",
           "UK South",
-          "Korea Central",
           "Korea South",
           "France Central",
           "France South",
@@ -101016,7 +100973,6 @@
           "West US 2",
           "UK West",
           "UK South",
-          "Korea Central",
           "Korea South",
           "France Central",
           "France South",

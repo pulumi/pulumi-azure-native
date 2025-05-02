@@ -1,5 +1,9 @@
 [
   {
+    "ModuleName": "AVS",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "ModuleName": "AadIam",
     "Detail": "expected additions but found none"
   },
@@ -337,6 +341,10 @@
   },
   {
     "ModuleName": "ManagedNetworkFabric",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "ModuleName": "Management",
     "Detail": "expected no additions but found some"
   },
   {
