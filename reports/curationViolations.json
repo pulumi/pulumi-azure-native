@@ -1,5 +1,9 @@
 [
   {
+    "ModuleName": "AVS",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "ModuleName": "AadIam",
     "Detail": "expected additions but found none"
   },
@@ -216,6 +220,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "ModuleName": "Edge",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "ModuleName": "ElasticSan",
     "Detail": "expected tracking preview but found stable"
   },
@@ -340,6 +348,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "ModuleName": "Management",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "ModuleName": "Maps",
     "Detail": "expected tracking stable but found preview"
   },
@@ -418,6 +430,10 @@
   {
     "ModuleName": "RedisEnterprise",
     "Detail": "expected no additions but found some"
+  },
+  {
+    "ModuleName": "Relationships",
+    "Detail": "expected tracking stable but found preview"
   },
   {
     "ModuleName": "ResourceGraph",
