@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.AVS.Inputs
         public Input<string>? BaseUserDN { get; set; }
 
         /// <summary>
-        /// The domain's dns name
+        /// The domain's DNS name
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }

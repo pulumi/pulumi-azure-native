@@ -402,6 +402,8 @@ if typing.TYPE_CHECKING:
     redis = __redis
     import pulumi_azure_native.redisenterprise as __redisenterprise
     redisenterprise = __redisenterprise
+    import pulumi_azure_native.relationships as __relationships
+    relationships = __relationships
     import pulumi_azure_native.relay as __relay
     relay = __relay
     import pulumi_azure_native.resourceconnector as __resourceconnector
@@ -705,6 +707,7 @@ else:
     redhatopenshift = _utilities.lazy_import('pulumi_azure_native.redhatopenshift')
     redis = _utilities.lazy_import('pulumi_azure_native.redis')
     redisenterprise = _utilities.lazy_import('pulumi_azure_native.redisenterprise')
+    relationships = _utilities.lazy_import('pulumi_azure_native.relationships')
     relay = _utilities.lazy_import('pulumi_azure_native.relay')
     resourceconnector = _utilities.lazy_import('pulumi_azure_native.resourceconnector')
     resourcegraph = _utilities.lazy_import('pulumi_azure_native.resourcegraph')
@@ -823,6 +826,7 @@ _utilities.register(
   "classes": {
    "azure-native:alertsmanagement:ActionRuleByName": "ActionRuleByName",
    "azure-native:alertsmanagement:AlertProcessingRuleByName": "AlertProcessingRuleByName",
+   "azure-native:alertsmanagement:Issue": "Issue",
    "azure-native:alertsmanagement:PrometheusRuleGroup": "PrometheusRuleGroup",
    "azure-native:alertsmanagement:SmartDetectorAlertRule": "SmartDetectorAlertRule"
   }
@@ -1161,6 +1165,7 @@ _utilities.register(
    "azure-native:avs:IscsiPath": "IscsiPath",
    "azure-native:avs:PlacementPolicy": "PlacementPolicy",
    "azure-native:avs:PrivateCloud": "PrivateCloud",
+   "azure-native:avs:PureStoragePolicy": "PureStoragePolicy",
    "azure-native:avs:ScriptExecution": "ScriptExecution",
    "azure-native:avs:WorkloadNetworkDhcp": "WorkloadNetworkDhcp",
    "azure-native:avs:WorkloadNetworkDnsService": "WorkloadNetworkDnsService",
@@ -2388,6 +2393,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.edge",
   "classes": {
    "azure-native:edge:Site": "Site",
+   "azure-native:edge:SitesByServiceGroup": "SitesByServiceGroup",
    "azure-native:edge:SitesBySubscription": "SitesBySubscription"
   }
  },
@@ -3099,7 +3105,8 @@ _utilities.register(
   "classes": {
    "azure-native:management:HierarchySetting": "HierarchySetting",
    "azure-native:management:ManagementGroup": "ManagementGroup",
-   "azure-native:management:ManagementGroupSubscription": "ManagementGroupSubscription"
+   "azure-native:management:ManagementGroupSubscription": "ManagementGroupSubscription",
+   "azure-native:management:ServiceGroup": "ServiceGroup"
   }
  },
  {
@@ -3781,6 +3788,15 @@ _utilities.register(
    "azure-native:redisenterprise:Database": "Database",
    "azure-native:redisenterprise:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:redisenterprise:RedisEnterprise": "RedisEnterprise"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "relationships",
+  "fqn": "pulumi_azure_native.relationships",
+  "classes": {
+   "azure-native:relationships:DependencyOfRelationship": "DependencyOfRelationship",
+   "azure-native:relationships:ServiceGroupMemberRelationship": "ServiceGroupMemberRelationship"
   }
  },
  {

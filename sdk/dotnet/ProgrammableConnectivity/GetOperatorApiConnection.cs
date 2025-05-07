@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
         /// Get an Operator API Connection.
         /// 
         /// Uses Azure REST API version 2024-01-15-preview.
+        /// 
+        /// Other available API versions: 2025-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native programmableconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetOperatorApiConnectionResult> InvokeAsync(GetOperatorApiConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOperatorApiConnectionResult>("azure-native:programmableconnectivity:getOperatorApiConnection", args ?? new GetOperatorApiConnectionArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
         /// Get an Operator API Connection.
         /// 
         /// Uses Azure REST API version 2024-01-15-preview.
+        /// 
+        /// Other available API versions: 2025-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native programmableconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetOperatorApiConnectionResult> Invoke(GetOperatorApiConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOperatorApiConnectionResult>("azure-native:programmableconnectivity:getOperatorApiConnection", args ?? new GetOperatorApiConnectionInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
         /// Get an Operator API Connection.
         /// 
         /// Uses Azure REST API version 2024-01-15-preview.
+        /// 
+        /// Other available API versions: 2025-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native programmableconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetOperatorApiConnectionResult> Invoke(GetOperatorApiConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOperatorApiConnectionResult>("azure-native:programmableconnectivity:getOperatorApiConnection", args ?? new GetOperatorApiConnectionInvokeArgs(), options.WithDefaults());

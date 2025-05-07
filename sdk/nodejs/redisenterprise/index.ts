@@ -40,6 +40,11 @@ export const listDatabaseKeys: typeof import("./listDatabaseKeys").listDatabaseK
 export const listDatabaseKeysOutput: typeof import("./listDatabaseKeys").listDatabaseKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listDatabaseKeys","listDatabaseKeysOutput"], () => require("./listDatabaseKeys"));
 
+export { ListRedisEnterpriseSkusForScalingArgs, ListRedisEnterpriseSkusForScalingResult, ListRedisEnterpriseSkusForScalingOutputArgs } from "./listRedisEnterpriseSkusForScaling";
+export const listRedisEnterpriseSkusForScaling: typeof import("./listRedisEnterpriseSkusForScaling").listRedisEnterpriseSkusForScaling = null as any;
+export const listRedisEnterpriseSkusForScalingOutput: typeof import("./listRedisEnterpriseSkusForScaling").listRedisEnterpriseSkusForScalingOutput = null as any;
+utilities.lazyLoad(exports, ["listRedisEnterpriseSkusForScaling","listRedisEnterpriseSkusForScalingOutput"], () => require("./listRedisEnterpriseSkusForScaling"));
+
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;

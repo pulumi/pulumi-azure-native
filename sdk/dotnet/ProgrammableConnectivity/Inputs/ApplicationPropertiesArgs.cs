@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity.Inputs
         public Input<string>? LegalName { get; set; }
 
         /// <summary>
-        /// Name of the application. Example: Contoso App.
+        /// Name of the application.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

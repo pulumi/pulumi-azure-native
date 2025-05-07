@@ -24,6 +24,10 @@ __all__ = [
     'ManagementGroupDetailsResponse',
     'ManagementGroupPathElementResponse',
     'ParentGroupInfoResponse',
+    'ParentServiceGroupPropertiesResponse',
+    'ServiceGroupPropertiesResponse',
+    'ServiceGroupResponse',
+    'SystemDataResponse',
 ]
 
 @pulumi.output_type
@@ -552,5 +556,311 @@ class ParentGroupInfoResponse(dict):
         The name of the parent management group
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ParentServiceGroupPropertiesResponse(dict):
+    """
+    The details of the parent serviceGroup.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ParentServiceGroupPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ParentServiceGroupPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ParentServiceGroupPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: Optional[builtins.str] = None):
+        """
+        The details of the parent serviceGroup.
+        :param builtins.str resource_id: The fully qualified ID of the parent serviceGroup.  For example, '/providers/Microsoft.Management/serviceGroups/TestServiceGroup'
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[builtins.str]:
+        """
+        The fully qualified ID of the parent serviceGroup.  For example, '/providers/Microsoft.Management/serviceGroups/TestServiceGroup'
+        """
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class ServiceGroupPropertiesResponse(dict):
+    """
+    ServiceGroup creation request body parameters.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceGroupPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceGroupPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceGroupPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: builtins.str,
+                 display_name: Optional[builtins.str] = None,
+                 parent: Optional['outputs.ParentServiceGroupPropertiesResponse'] = None):
+        """
+        ServiceGroup creation request body parameters.
+        :param builtins.str provisioning_state: The provisioning state of the serviceGroup. For example, Running
+        :param builtins.str display_name: The display name of the serviceGroup. For example, ServiceGroupTest1
+        :param 'ParentServiceGroupPropertiesResponse' parent: The details of the parent serviceGroup.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if parent is not None:
+            pulumi.set(__self__, "parent", parent)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        The provisioning state of the serviceGroup. For example, Running
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[builtins.str]:
+        """
+        The display name of the serviceGroup. For example, ServiceGroupTest1
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def parent(self) -> Optional['outputs.ParentServiceGroupPropertiesResponse']:
+        """
+        The details of the parent serviceGroup.
+        """
+        return pulumi.get(self, "parent")
+
+
+@pulumi.output_type
+class ServiceGroupResponse(dict):
+    """
+    The serviceGroup details.
+    """
+    def __init__(__self__, *,
+                 id: builtins.str,
+                 name: builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: builtins.str,
+                 kind: Optional[builtins.str] = None,
+                 properties: Optional['outputs.ServiceGroupPropertiesResponse'] = None,
+                 tags: Optional[Mapping[str, builtins.str]] = None):
+        """
+        The serviceGroup details.
+        :param builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        :param builtins.str name: The name of the resource
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param builtins.str kind: The kind of the serviceGroup.
+        :param 'ServiceGroupPropertiesResponse' properties: ServiceGroup creation request body parameters.
+        :param Mapping[str, builtins.str] tags: The serviceGroup tags.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[builtins.str]:
+        """
+        The kind of the serviceGroup.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.ServiceGroupPropertiesResponse']:
+        """
+        ServiceGroup creation request body parameters.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        The serviceGroup tags.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[builtins.str] = None,
+                 created_by: Optional[builtins.str] = None,
+                 created_by_type: Optional[builtins.str] = None,
+                 last_modified_at: Optional[builtins.str] = None,
+                 last_modified_by: Optional[builtins.str] = None,
+                 last_modified_by_type: Optional[builtins.str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param builtins.str created_at: The timestamp of resource creation (UTC).
+        :param builtins.str created_by: The identity that created the resource.
+        :param builtins.str created_by_type: The type of identity that created the resource.
+        :param builtins.str last_modified_at: The timestamp of resource last modification (UTC)
+        :param builtins.str last_modified_by: The identity that last modified the resource.
+        :param builtins.str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[builtins.str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[builtins.str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[builtins.str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[builtins.str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[builtins.str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[builtins.str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 

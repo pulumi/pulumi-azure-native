@@ -152,6 +152,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:EyesOn" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:Ueba" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:Anomalies" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250401preview:Anomalies" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:EntityAnalytics" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:EyesOn" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:Ueba" },

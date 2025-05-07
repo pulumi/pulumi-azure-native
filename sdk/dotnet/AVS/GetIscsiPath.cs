@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.AVS
         /// Get a IscsiPath
         /// 
         /// Uses Azure REST API version 2023-09-01.
+        /// 
+        /// Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetIscsiPathResult> InvokeAsync(GetIscsiPathArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIscsiPathResult>("azure-native:avs:getIscsiPath", args ?? new GetIscsiPathArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.AVS
         /// Get a IscsiPath
         /// 
         /// Uses Azure REST API version 2023-09-01.
+        /// 
+        /// Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetIscsiPathResult> Invoke(GetIscsiPathInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIscsiPathResult>("azure-native:avs:getIscsiPath", args ?? new GetIscsiPathInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.AVS
         /// Get a IscsiPath
         /// 
         /// Uses Azure REST API version 2023-09-01.
+        /// 
+        /// Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetIscsiPathResult> Invoke(GetIscsiPathInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIscsiPathResult>("azure-native:avs:getIscsiPath", args ?? new GetIscsiPathInvokeArgs(), options.WithDefaults());

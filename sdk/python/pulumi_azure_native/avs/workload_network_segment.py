@@ -158,7 +158,7 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
-        Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,7 +181,7 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
-        Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param WorkloadNetworkSegmentArgs args: The arguments to use to populate this resource's properties.
@@ -232,7 +232,7 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20200717preview:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-native:avs/v20210101preview:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-native:avs/v20210601:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-native:avs/v20211201:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-native:avs/v20220501:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-native:avs/v20230301:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-native:avs/v20230901:WorkloadNetworkSegment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20200717preview:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-native:avs/v20210101preview:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-native:avs/v20210601:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-native:avs/v20211201:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-native:avs/v20220501:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-native:avs/v20230301:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-native:avs/v20230901:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-native:avs/v20240901:WorkloadNetworkSegment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkloadNetworkSegment, __self__).__init__(
             'azure-native:avs:WorkloadNetworkSegment',

@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Management
         /// 
         /// Uses Azure REST API version 2023-04-01.
         /// 
-        /// Other available API versions: 2021-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetEntityResult> InvokeAsync(GetEntityArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEntityResult>("azure-native:management:getEntity", args ?? new GetEntityArgs(), options.WithDefaults());
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Management
         /// 
         /// Uses Azure REST API version 2023-04-01.
         /// 
-        /// Other available API versions: 2021-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetEntityResult> Invoke(GetEntityInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEntityResult>("azure-native:management:getEntity", args ?? new GetEntityInvokeArgs(), options.WithDefaults());
@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.Management
         /// 
         /// Uses Azure REST API version 2023-04-01.
         /// 
-        /// Other available API versions: 2021-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetEntityResult> Invoke(GetEntityInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEntityResult>("azure-native:management:getEntity", args ?? new GetEntityInvokeArgs(), options.WithDefaults());

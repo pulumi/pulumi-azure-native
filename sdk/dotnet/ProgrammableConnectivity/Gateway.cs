@@ -10,9 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProgrammableConnectivity
 {
     /// <summary>
-    /// A Programmable Connectivity Gateway resource
+    /// A Programmable Connectivity Gateway resource.
     /// 
     /// Uses Azure REST API version 2024-01-15-preview. In version 2.x of the Azure Native provider, it used API version 2024-01-15-preview.
+    /// 
+    /// Other available API versions: 2025-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native programmableconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:programmableconnectivity:Gateway")]
     public partial class Gateway : global::Pulumi.CustomResource
@@ -24,7 +26,7 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Base URL of the Gateway resource. This is the URL that the users would use to make Open API Gateway requests to the Operators via Azure.
+        /// Base URL of the Gateway resource. This is the URL that the users would use to make Network API requests to the Operators via Azure.
         /// </summary>
         [Output("gatewayBaseUrl")]
         public Output<string> GatewayBaseUrl { get; private set; } = null!;
@@ -42,7 +44,7 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of Operator API Connections selected by the user
+        /// List of Operator API Connections selected by the user.
         /// </summary>
         [Output("operatorApiConnections")]
         public Output<ImmutableArray<string>> OperatorApiConnections { get; private set; } = null!;
@@ -97,6 +99,7 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:programmableconnectivity/v20240115preview:Gateway" },
+                    new global::Pulumi.Alias { Type = "azure-native:programmableconnectivity/v20250330preview:Gateway" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,7 +124,7 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
     public sealed class GatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Azure Programmable Connectivity Gateway Name
+        /// Azure Programmable Connectivity Gateway Name.
         /// </summary>
         [Input("gatewayName")]
         public Input<string>? GatewayName { get; set; }

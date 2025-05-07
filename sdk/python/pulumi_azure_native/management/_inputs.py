@@ -20,6 +20,10 @@ __all__ = [
     'CreateManagementGroupDetailsArgsDict',
     'CreateParentGroupInfoArgs',
     'CreateParentGroupInfoArgsDict',
+    'ParentServiceGroupPropertiesArgs',
+    'ParentServiceGroupPropertiesArgsDict',
+    'ServiceGroupPropertiesArgs',
+    'ServiceGroupPropertiesArgsDict',
 ]
 
 MYPY = False
@@ -94,5 +98,97 @@ class CreateParentGroupInfoArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class ParentServiceGroupPropertiesArgsDict(TypedDict):
+        """
+        The details of the parent serviceGroup.
+        """
+        resource_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The fully qualified ID of the parent serviceGroup.  For example, '/providers/Microsoft.Management/serviceGroups/TestServiceGroup'
+        """
+elif False:
+    ParentServiceGroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ParentServiceGroupPropertiesArgs:
+    def __init__(__self__, *,
+                 resource_id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        The details of the parent serviceGroup.
+        :param pulumi.Input[builtins.str] resource_id: The fully qualified ID of the parent serviceGroup.  For example, '/providers/Microsoft.Management/serviceGroups/TestServiceGroup'
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The fully qualified ID of the parent serviceGroup.  For example, '/providers/Microsoft.Management/serviceGroups/TestServiceGroup'
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+if not MYPY:
+    class ServiceGroupPropertiesArgsDict(TypedDict):
+        """
+        ServiceGroup creation request body parameters.
+        """
+        display_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The display name of the serviceGroup. For example, ServiceGroupTest1
+        """
+        parent: NotRequired[pulumi.Input['ParentServiceGroupPropertiesArgsDict']]
+        """
+        The details of the parent serviceGroup.
+        """
+elif False:
+    ServiceGroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceGroupPropertiesArgs:
+    def __init__(__self__, *,
+                 display_name: Optional[pulumi.Input[builtins.str]] = None,
+                 parent: Optional[pulumi.Input['ParentServiceGroupPropertiesArgs']] = None):
+        """
+        ServiceGroup creation request body parameters.
+        :param pulumi.Input[builtins.str] display_name: The display name of the serviceGroup. For example, ServiceGroupTest1
+        :param pulumi.Input['ParentServiceGroupPropertiesArgs'] parent: The details of the parent serviceGroup.
+        """
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if parent is not None:
+            pulumi.set(__self__, "parent", parent)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The display name of the serviceGroup. For example, ServiceGroupTest1
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def parent(self) -> Optional[pulumi.Input['ParentServiceGroupPropertiesArgs']]:
+        """
+        The details of the parent serviceGroup.
+        """
+        return pulumi.get(self, "parent")
+
+    @parent.setter
+    def parent(self, value: Optional[pulumi.Input['ParentServiceGroupPropertiesArgs']]):
+        pulumi.set(self, "parent", value)
 
 

@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-04-01-preview.
  *
- * Other available API versions: 2024-04-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-04-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class System extends pulumi.CustomResource {
     /**
@@ -123,7 +123,7 @@ export class System extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20240401preview:System" }, { type: "azure-native:securityinsights/v20241001preview:System" }, { type: "azure-native:securityinsights/v20250101preview:System" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20240401preview:System" }, { type: "azure-native:securityinsights/v20241001preview:System" }, { type: "azure-native:securityinsights/v20250101preview:System" }, { type: "azure-native:securityinsights/v20250401preview:System" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(System.__pulumiType, name, resourceInputs, opts);
     }

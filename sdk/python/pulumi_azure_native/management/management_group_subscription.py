@@ -73,7 +73,7 @@ class ManagementGroupSubscription(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-04-01. In version 2.x of the Azure Native provider, it used API version 2021-04-01.
 
-        Other available API versions: 2021-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -91,7 +91,7 @@ class ManagementGroupSubscription(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-04-01. In version 2.x of the Azure Native provider, it used API version 2021-04-01.
 
-        Other available API versions: 2021-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ManagementGroupSubscriptionArgs args: The arguments to use to populate this resource's properties.
@@ -130,7 +130,7 @@ class ManagementGroupSubscription(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["tenant"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:management/v20200501:ManagementGroupSubscription"), pulumi.Alias(type_="azure-native:management/v20201001:ManagementGroupSubscription"), pulumi.Alias(type_="azure-native:management/v20210401:ManagementGroupSubscription"), pulumi.Alias(type_="azure-native:management/v20230401:ManagementGroupSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:management/v20200501:ManagementGroupSubscription"), pulumi.Alias(type_="azure-native:management/v20201001:ManagementGroupSubscription"), pulumi.Alias(type_="azure-native:management/v20210401:ManagementGroupSubscription"), pulumi.Alias(type_="azure-native:management/v20230401:ManagementGroupSubscription"), pulumi.Alias(type_="azure-native:management/v20240201preview:ManagementGroupSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementGroupSubscription, __self__).__init__(
             'azure-native:management:ManagementGroupSubscription',

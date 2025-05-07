@@ -371,6 +371,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:TiTaxiiDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:MDATPDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250301:MDATPDataConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250401preview:MDATPDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:AADDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:AATPDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:ASCDataConnector" },

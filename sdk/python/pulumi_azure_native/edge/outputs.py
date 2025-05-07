@@ -14,11 +14,119 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
+    'SiteAddressPropertiesResponse',
     'SitePropertiesResponse',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class SiteAddressPropertiesResponse(dict):
+    """
+    Site address properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "postalCode":
+            suggest = "postal_code"
+        elif key == "stateOrProvince":
+            suggest = "state_or_province"
+        elif key == "streetAddress1":
+            suggest = "street_address1"
+        elif key == "streetAddress2":
+            suggest = "street_address2"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SiteAddressPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SiteAddressPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SiteAddressPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 city: Optional[builtins.str] = None,
+                 country: Optional[builtins.str] = None,
+                 postal_code: Optional[builtins.str] = None,
+                 state_or_province: Optional[builtins.str] = None,
+                 street_address1: Optional[builtins.str] = None,
+                 street_address2: Optional[builtins.str] = None):
+        """
+        Site address properties
+        :param builtins.str city: City of the address
+        :param builtins.str country: Country of the address
+        :param builtins.str postal_code: Postal or ZIP code of the address
+        :param builtins.str state_or_province: State or province of the address
+        :param builtins.str street_address1: First line of the street address
+        :param builtins.str street_address2: Second line of the street address
+        """
+        if city is not None:
+            pulumi.set(__self__, "city", city)
+        if country is not None:
+            pulumi.set(__self__, "country", country)
+        if postal_code is not None:
+            pulumi.set(__self__, "postal_code", postal_code)
+        if state_or_province is not None:
+            pulumi.set(__self__, "state_or_province", state_or_province)
+        if street_address1 is not None:
+            pulumi.set(__self__, "street_address1", street_address1)
+        if street_address2 is not None:
+            pulumi.set(__self__, "street_address2", street_address2)
+
+    @property
+    @pulumi.getter
+    def city(self) -> Optional[builtins.str]:
+        """
+        City of the address
+        """
+        return pulumi.get(self, "city")
+
+    @property
+    @pulumi.getter
+    def country(self) -> Optional[builtins.str]:
+        """
+        Country of the address
+        """
+        return pulumi.get(self, "country")
+
+    @property
+    @pulumi.getter(name="postalCode")
+    def postal_code(self) -> Optional[builtins.str]:
+        """
+        Postal or ZIP code of the address
+        """
+        return pulumi.get(self, "postal_code")
+
+    @property
+    @pulumi.getter(name="stateOrProvince")
+    def state_or_province(self) -> Optional[builtins.str]:
+        """
+        State or province of the address
+        """
+        return pulumi.get(self, "state_or_province")
+
+    @property
+    @pulumi.getter(name="streetAddress1")
+    def street_address1(self) -> Optional[builtins.str]:
+        """
+        First line of the street address
+        """
+        return pulumi.get(self, "street_address1")
+
+    @property
+    @pulumi.getter(name="streetAddress2")
+    def street_address2(self) -> Optional[builtins.str]:
+        """
+        Second line of the street address
+        """
+        return pulumi.get(self, "street_address2")
+
 
 @pulumi.output_type
 class SitePropertiesResponse(dict):
@@ -34,6 +142,8 @@ class SitePropertiesResponse(dict):
             suggest = "address_resource_id"
         elif key == "displayName":
             suggest = "display_name"
+        elif key == "siteAddress":
+            suggest = "site_address"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SitePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -50,13 +160,17 @@ class SitePropertiesResponse(dict):
                  provisioning_state: builtins.str,
                  address_resource_id: Optional[builtins.str] = None,
                  description: Optional[builtins.str] = None,
-                 display_name: Optional[builtins.str] = None):
+                 display_name: Optional[builtins.str] = None,
+                 labels: Optional[Mapping[str, builtins.str]] = None,
+                 site_address: Optional['outputs.SiteAddressPropertiesResponse'] = None):
         """
         Site properties
         :param builtins.str provisioning_state: Provisioning state of last operation
         :param builtins.str address_resource_id: AddressResource ArmId of Site resource
         :param builtins.str description: Description of Site resource
         :param builtins.str display_name: displayName of Site resource
+        :param Mapping[str, builtins.str] labels: Key-value pairs for labeling the site resource.
+        :param 'SiteAddressPropertiesResponse' site_address: Physical address of the site
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if address_resource_id is not None:
@@ -65,6 +179,10 @@ class SitePropertiesResponse(dict):
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if site_address is not None:
+            pulumi.set(__self__, "site_address", site_address)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -97,6 +215,22 @@ class SitePropertiesResponse(dict):
         displayName of Site resource
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Key-value pairs for labeling the site resource.
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter(name="siteAddress")
+    def site_address(self) -> Optional['outputs.SiteAddressPropertiesResponse']:
+        """
+        Physical address of the site
+        """
+        return pulumi.get(self, "site_address")
 
 
 @pulumi.output_type

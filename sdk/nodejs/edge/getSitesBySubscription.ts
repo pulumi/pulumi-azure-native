@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get a Site
  *
  * Uses Azure REST API version 2024-02-01-preview.
+ *
+ * Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSitesBySubscription(args: GetSitesBySubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSitesBySubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -59,6 +61,8 @@ export interface GetSitesBySubscriptionResult {
  * Get a Site
  *
  * Uses Azure REST API version 2024-02-01-preview.
+ *
+ * Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSitesBySubscriptionOutput(args: GetSitesBySubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSitesBySubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Specify whether to enable server SSL certificate validation when you connect.Always use System Trust Store (for V2 only). The default value is true.
+        /// </summary>
+        public readonly object? EnableServerCertificateValidation;
+        /// <summary>
         /// Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         /// </summary>
         public readonly object? EnableSsl;
@@ -64,6 +68,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// The TCP port that the Impala server uses to listen for client connections. The default value is 21050.
         /// </summary>
         public readonly object? Port;
+        /// <summary>
+        /// The transport protocol to use in the Thrift layer (for V2 only). Default value is Binary.
+        /// </summary>
+        public readonly string? ThriftTransportProtocol;
         /// <summary>
         /// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         /// </summary>
@@ -100,6 +108,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? description,
 
+            object? enableServerCertificateValidation,
+
             object? enableSsl,
 
             string? encryptedCredential,
@@ -111,6 +121,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
 
             object? port,
+
+            string? thriftTransportProtocol,
 
             object? trustedCertPath,
 
@@ -128,12 +140,14 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             AuthenticationType = authenticationType;
             ConnectVia = connectVia;
             Description = description;
+            EnableServerCertificateValidation = enableServerCertificateValidation;
             EnableSsl = enableSsl;
             EncryptedCredential = encryptedCredential;
             Host = host;
             Parameters = parameters;
             Password = password;
             Port = port;
+            ThriftTransportProtocol = thriftTransportProtocol;
             TrustedCertPath = trustedCertPath;
             Type = type;
             UseSystemTrustStore = useSystemTrustStore;

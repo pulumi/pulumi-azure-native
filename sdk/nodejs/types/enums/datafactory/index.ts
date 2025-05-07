@@ -451,6 +451,16 @@ export const ImpalaAuthenticationType = {
  */
 export type ImpalaAuthenticationType = (typeof ImpalaAuthenticationType)[keyof typeof ImpalaAuthenticationType];
 
+export const ImpalaThriftTransportProtocol = {
+    Binary: "Binary",
+    HTTP: "HTTP",
+} as const;
+
+/**
+ * The transport protocol to use in the Thrift layer (for V2 only). Default value is Binary.
+ */
+export type ImpalaThriftTransportProtocol = (typeof ImpalaThriftTransportProtocol)[keyof typeof ImpalaThriftTransportProtocol];
+
 export const IntegrationRuntimeEdition = {
     Standard: "Standard",
     Enterprise: "Enterprise",

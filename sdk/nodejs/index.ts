@@ -208,6 +208,7 @@ import * as recoveryservices from "./recoveryservices";
 import * as redhatopenshift from "./redhatopenshift";
 import * as redis from "./redis";
 import * as redisenterprise from "./redisenterprise";
+import * as relationships from "./relationships";
 import * as relay from "./relay";
 import * as resourceconnector from "./resourceconnector";
 import * as resourcegraph from "./resourcegraph";
@@ -460,6 +461,7 @@ export {
     redhatopenshift,
     redis,
     redisenterprise,
+    relationships,
     relay,
     resourceconnector,
     resourcegraph,

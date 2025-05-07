@@ -390,7 +390,7 @@ if not MYPY:
         """
         domain: NotRequired[pulumi.Input[builtins.str]]
         """
-        The domain's dns name
+        The domain's DNS name
         """
         name: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -439,7 +439,7 @@ class IdentitySourceArgs:
         :param pulumi.Input[builtins.str] alias: The domain's NetBIOS name
         :param pulumi.Input[builtins.str] base_group_dn: The base distinguished name for groups
         :param pulumi.Input[builtins.str] base_user_dn: The base distinguished name for users
-        :param pulumi.Input[builtins.str] domain: The domain's dns name
+        :param pulumi.Input[builtins.str] domain: The domain's DNS name
         :param pulumi.Input[builtins.str] name: The name of the identity source
         :param pulumi.Input[builtins.str] password: The password of the Active Directory user with a minimum of read-only access to
                Base DN for users and groups.
@@ -510,7 +510,7 @@ class IdentitySourceArgs:
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The domain's dns name
+        The domain's DNS name
         """
         return pulumi.get(self, "domain")
 

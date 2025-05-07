@@ -30,6 +30,7 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'SkuDetailsResponse',
     'SkuResponse',
     'UserAssignedIdentityResponse',
 ]
@@ -697,6 +698,39 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class SkuDetailsResponse(dict):
+    """
+    Details of a Redis Enterprise cluster SKU.
+    """
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 size_in_gb: builtins.float):
+        """
+        Details of a Redis Enterprise cluster SKU.
+        :param builtins.str name: The name of the SKU.
+        :param builtins.float size_in_gb: The cache size in GB.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "size_in_gb", size_in_gb)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the SKU.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sizeInGB")
+    def size_in_gb(self) -> builtins.float:
+        """
+        The cache size in GB.
+        """
+        return pulumi.get(self, "size_in_gb")
 
 
 @pulumi.output_type

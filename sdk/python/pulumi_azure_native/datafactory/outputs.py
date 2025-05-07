@@ -44340,10 +44340,14 @@ class ImpalaLinkedServiceResponse(dict):
             suggest = "allow_self_signed_server_cert"
         elif key == "connectVia":
             suggest = "connect_via"
+        elif key == "enableServerCertificateValidation":
+            suggest = "enable_server_certificate_validation"
         elif key == "enableSsl":
             suggest = "enable_ssl"
         elif key == "encryptedCredential":
             suggest = "encrypted_credential"
+        elif key == "thriftTransportProtocol":
+            suggest = "thrift_transport_protocol"
         elif key == "trustedCertPath":
             suggest = "trusted_cert_path"
         elif key == "useSystemTrustStore":
@@ -44369,11 +44373,13 @@ class ImpalaLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[builtins.str] = None,
+                 enable_server_certificate_validation: Optional[Any] = None,
                  enable_ssl: Optional[Any] = None,
                  encrypted_credential: Optional[builtins.str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  port: Optional[Any] = None,
+                 thrift_transport_protocol: Optional[builtins.str] = None,
                  trusted_cert_path: Optional[Any] = None,
                  use_system_trust_store: Optional[Any] = None,
                  username: Optional[Any] = None,
@@ -44389,11 +44395,13 @@ class ImpalaLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param builtins.str description: Linked service description.
+        :param Any enable_server_certificate_validation: Specify whether to enable server SSL certificate validation when you connect.Always use System Trust Store (for V2 only). The default value is true.
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         :param builtins.str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name when using UsernameAndPassword.
         :param Any port: The TCP port that the Impala server uses to listen for client connections. The default value is 21050.
+        :param builtins.str thrift_transport_protocol: The transport protocol to use in the Thrift layer (for V2 only). Default value is Binary.
         :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         :param Any username: The user name used to access the Impala server. The default value is anonymous when using SASLUsername.
@@ -44412,6 +44420,8 @@ class ImpalaLinkedServiceResponse(dict):
             pulumi.set(__self__, "connect_via", connect_via)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if enable_server_certificate_validation is not None:
+            pulumi.set(__self__, "enable_server_certificate_validation", enable_server_certificate_validation)
         if enable_ssl is not None:
             pulumi.set(__self__, "enable_ssl", enable_ssl)
         if encrypted_credential is not None:
@@ -44422,6 +44432,8 @@ class ImpalaLinkedServiceResponse(dict):
             pulumi.set(__self__, "password", password)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if thrift_transport_protocol is not None:
+            pulumi.set(__self__, "thrift_transport_protocol", thrift_transport_protocol)
         if trusted_cert_path is not None:
             pulumi.set(__self__, "trusted_cert_path", trusted_cert_path)
         if use_system_trust_store is not None:
@@ -44497,6 +44509,14 @@ class ImpalaLinkedServiceResponse(dict):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="enableServerCertificateValidation")
+    def enable_server_certificate_validation(self) -> Optional[Any]:
+        """
+        Specify whether to enable server SSL certificate validation when you connect.Always use System Trust Store (for V2 only). The default value is true.
+        """
+        return pulumi.get(self, "enable_server_certificate_validation")
+
+    @property
     @pulumi.getter(name="enableSsl")
     def enable_ssl(self) -> Optional[Any]:
         """
@@ -44535,6 +44555,14 @@ class ImpalaLinkedServiceResponse(dict):
         The TCP port that the Impala server uses to listen for client connections. The default value is 21050.
         """
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="thriftTransportProtocol")
+    def thrift_transport_protocol(self) -> Optional[builtins.str]:
+        """
+        The transport protocol to use in the Thrift layer (for V2 only). Default value is Binary.
+        """
+        return pulumi.get(self, "thrift_transport_protocol")
 
     @property
     @pulumi.getter(name="trustedCertPath")

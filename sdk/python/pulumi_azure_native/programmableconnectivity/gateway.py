@@ -28,7 +28,7 @@ class GatewayArgs:
         """
         The set of arguments for constructing a Gateway resource.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[builtins.str] gateway_name: Azure Programmable Connectivity Gateway Name
+        :param pulumi.Input[builtins.str] gateway_name: Azure Programmable Connectivity Gateway Name.
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
@@ -56,7 +56,7 @@ class GatewayArgs:
     @pulumi.getter(name="gatewayName")
     def gateway_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Azure Programmable Connectivity Gateway Name
+        Azure Programmable Connectivity Gateway Name.
         """
         return pulumi.get(self, "gateway_name")
 
@@ -103,13 +103,15 @@ class Gateway(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
-        A Programmable Connectivity Gateway resource
+        A Programmable Connectivity Gateway resource.
 
         Uses Azure REST API version 2024-01-15-preview. In version 2.x of the Azure Native provider, it used API version 2024-01-15-preview.
 
+        Other available API versions: 2025-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native programmableconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] gateway_name: Azure Programmable Connectivity Gateway Name
+        :param pulumi.Input[builtins.str] gateway_name: Azure Programmable Connectivity Gateway Name.
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
@@ -121,9 +123,11 @@ class Gateway(pulumi.CustomResource):
                  args: GatewayArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A Programmable Connectivity Gateway resource
+        A Programmable Connectivity Gateway resource.
 
         Uses Azure REST API version 2024-01-15-preview. In version 2.x of the Azure Native provider, it used API version 2024-01-15-preview.
+
+        Other available API versions: 2025-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native programmableconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param GatewayArgs args: The arguments to use to populate this resource's properties.
@@ -166,7 +170,7 @@ class Gateway(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:programmableconnectivity/v20240115preview:Gateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:programmableconnectivity/v20240115preview:Gateway"), pulumi.Alias(type_="azure-native:programmableconnectivity/v20250330preview:Gateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Gateway, __self__).__init__(
             'azure-native:programmableconnectivity:Gateway',
@@ -213,7 +217,7 @@ class Gateway(pulumi.CustomResource):
     @pulumi.getter(name="gatewayBaseUrl")
     def gateway_base_url(self) -> pulumi.Output[builtins.str]:
         """
-        Base URL of the Gateway resource. This is the URL that the users would use to make Open API Gateway requests to the Operators via Azure.
+        Base URL of the Gateway resource. This is the URL that the users would use to make Network API requests to the Operators via Azure.
         """
         return pulumi.get(self, "gateway_base_url")
 
@@ -237,7 +241,7 @@ class Gateway(pulumi.CustomResource):
     @pulumi.getter(name="operatorApiConnections")
     def operator_api_connections(self) -> pulumi.Output[Sequence[builtins.str]]:
         """
-        List of Operator API Connections selected by the user
+        List of Operator API Connections selected by the user.
         """
         return pulumi.get(self, "operator_api_connections")
 

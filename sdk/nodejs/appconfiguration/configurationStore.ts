@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
  *
- * Other available API versions: 2023-03-01, 2023-08-01-preview, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-03-01, 2023-08-01-preview, 2023-09-01-preview, 2024-06-01, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ConfigurationStore extends pulumi.CustomResource {
     /**
@@ -173,7 +173,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appconfiguration/v20190201preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20191001:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20191101preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20200601:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20200701preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20210301preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20211001preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20220301preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20220501:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20230301:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20230801preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20230901preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20240501:ConfigurationStore" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appconfiguration/v20190201preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20191001:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20191101preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20200601:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20200701preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20210301preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20211001preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20220301preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20220501:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20230301:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20230801preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20230901preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20240501:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20240601:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20240615preview:ConfigurationStore" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigurationStore.__pulumiType, name, resourceInputs, opts);
     }

@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
  *
- * Other available API versions: 2023-03-01, 2023-08-01-preview, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-03-01, 2023-08-01-preview, 2023-09-01-preview, 2024-06-01, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Replica extends pulumi.CustomResource {
     /**
@@ -107,7 +107,7 @@ export class Replica extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appconfiguration/v20220301preview:Replica" }, { type: "azure-native:appconfiguration/v20230301:Replica" }, { type: "azure-native:appconfiguration/v20230801preview:Replica" }, { type: "azure-native:appconfiguration/v20230901preview:Replica" }, { type: "azure-native:appconfiguration/v20240501:Replica" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appconfiguration/v20220301preview:Replica" }, { type: "azure-native:appconfiguration/v20230301:Replica" }, { type: "azure-native:appconfiguration/v20230801preview:Replica" }, { type: "azure-native:appconfiguration/v20230901preview:Replica" }, { type: "azure-native:appconfiguration/v20240501:Replica" }, { type: "azure-native:appconfiguration/v20240601:Replica" }, { type: "azure-native:appconfiguration/v20240615preview:Replica" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Replica.__pulumiType, name, resourceInputs, opts);
     }

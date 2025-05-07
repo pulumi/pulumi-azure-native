@@ -340,6 +340,55 @@ namespace Pulumi.AzureNative.AlertsManagement
     }
 
     /// <summary>
+    /// The issue status
+    /// </summary>
+    [EnumType]
+    public readonly struct Status : IEquatable<Status>
+    {
+        private readonly string _value;
+
+        private Status(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The issue is new
+        /// </summary>
+        public static Status New { get; } = new Status("New");
+        /// <summary>
+        /// The issue is in progress
+        /// </summary>
+        public static Status InProgress { get; } = new Status("InProgress");
+        /// <summary>
+        /// The issue is mitigated
+        /// </summary>
+        public static Status Mitigated { get; } = new Status("Mitigated");
+        /// <summary>
+        /// The issue is closed
+        /// </summary>
+        public static Status Closed { get; } = new Status("Closed");
+        /// <summary>
+        /// The issue is canceled
+        /// </summary>
+        public static Status Canceled { get; } = new Status("Canceled");
+
+        public static bool operator ==(Status left, Status right) => left.Equals(right);
+        public static bool operator !=(Status left, Status right) => !left.Equals(right);
+
+        public static explicit operator string(Status value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Status other && Equals(other);
+        public bool Equals(Status other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies when the suppression should be applied
     /// </summary>
     [EnumType]

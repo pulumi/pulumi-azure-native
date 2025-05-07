@@ -52,6 +52,11 @@ AVS:
         SpecFilePath: specification/vmware/resource-manager/Microsoft.AVS/stable/2023-09-01/vmware.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}
         RpNamespace: Microsoft.AVS
+    PureStoragePolicy:
+        ApiVersion: "2024-09-01"
+        SpecFilePath: specification/vmware/resource-manager/Microsoft.AVS/stable/2024-09-01/vmware.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/pureStoragePolicies/{storagePolicyName}
+        RpNamespace: Microsoft.AVS
     ScriptExecution:
         ApiVersion: "2023-09-01"
         SpecFilePath: specification/vmware/resource-manager/Microsoft.AVS/stable/2023-09-01/vmware.json
@@ -194,6 +199,11 @@ AlertsManagement:
         SpecFilePath: specification/alertsmanagement/resource-manager/Microsoft.AlertsManagement/stable/2021-08-08/AlertProcessingRules.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AlertsManagement/actionRules/{alertProcessingRuleName}
         RpNamespace: Microsoft.AlertsManagement
+    Issue:
+        ApiVersion: 2025-03-01-preview
+        SpecFilePath: specification/alertsmanagement/resource-manager/Microsoft.AlertsManagement/preview/2025-03-01-preview/Issues.json
+        ResourceUri: /{resourceUri}/providers/Microsoft.AlertsManagement/issues/{issueName}
+        RpNamespace: Microsoft.AlertsManagement
     PrometheusRuleGroup:
         ApiVersion: "2023-03-01"
         SpecFilePath: specification/alertsmanagement/resource-manager/Microsoft.AlertsManagement/stable/2023-03-01/PrometheusRuleGroups.json
@@ -203,6 +213,16 @@ AlertsManagement:
         ApiVersion: "2021-04-01"
         SpecFilePath: specification/alertsmanagement/resource-manager/Microsoft.AlertsManagement/stable/2021-04-01/SmartDetectorAlertRulesApi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.alertsManagement/smartDetectorAlertRules/{alertRuleName}
+        RpNamespace: Microsoft.AlertsManagement
+    listIssueAlerts:
+        ApiVersion: 2025-03-01-preview
+        SpecFilePath: specification/alertsmanagement/resource-manager/Microsoft.AlertsManagement/preview/2025-03-01-preview/Issues.json
+        ResourceUri: /{resourceUri}/providers/Microsoft.AlertsManagement/issues/{issueName}/listAlerts
+        RpNamespace: Microsoft.AlertsManagement
+    listIssueResources:
+        ApiVersion: 2025-03-01-preview
+        SpecFilePath: specification/alertsmanagement/resource-manager/Microsoft.AlertsManagement/preview/2025-03-01-preview/Issues.json
+        ResourceUri: /{resourceUri}/providers/Microsoft.AlertsManagement/issues/{issueName}/listResources
         RpNamespace: Microsoft.AlertsManagement
 AnalysisServices:
     ServerDetails:
@@ -5742,6 +5762,11 @@ Edge:
         SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/sites/preview/2024-02-01-preview/sites.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/sites/{siteName}
         RpNamespace: Microsoft.Edge
+    SitesByServiceGroup:
+        ApiVersion: 2025-03-01-preview
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/sites/preview/2025-03-01-preview/sites.json
+        ResourceUri: /providers/Microsoft.Management/serviceGroups/{servicegroupName}/providers/Microsoft.Edge/sites/{siteName}
+        RpNamespace: Microsoft.Edge
     SitesBySubscription:
         ApiVersion: 2024-02-01-preview
         SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/sites/preview/2024-02-01-preview/sites.json
@@ -8021,10 +8046,20 @@ Management:
         SpecFilePath: specification/managementgroups/resource-manager/Microsoft.Management/stable/2023-04-01/management.json
         ResourceUri: /providers/Microsoft.Management/managementGroups/{groupId}/subscriptions/{subscriptionId}
         RpNamespace: Microsoft.Management
+    ServiceGroup:
+        ApiVersion: 2024-02-01-preview
+        SpecFilePath: specification/managementgroups/resource-manager/Microsoft.Management/preview/2024-02-01-preview/serviceGroups.json
+        ResourceUri: /providers/Microsoft.Management/serviceGroups/{serviceGroupName}
+        RpNamespace: Microsoft.Management
     getEntity:
         ApiVersion: "2023-04-01"
         SpecFilePath: specification/managementgroups/resource-manager/Microsoft.Management/stable/2023-04-01/management.json
         ResourceUri: /providers/Microsoft.Management/getEntities
+        RpNamespace: Microsoft.Management
+    listServiceGroupAncestors:
+        ApiVersion: 2024-02-01-preview
+        SpecFilePath: specification/managementgroups/resource-manager/Microsoft.Management/preview/2024-02-01-preview/serviceGroups.json
+        ResourceUri: /providers/Microsoft.Management/serviceGroups/{serviceGroupName}/listAncestors
         RpNamespace: Microsoft.Management
 ManagementPartner:
     Partner:
@@ -10485,6 +10520,22 @@ RedisEnterprise:
         SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/preview/2024-03-01-preview/redisenterprise.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName}/listKeys
         RpNamespace: Microsoft.Cache
+    listRedisEnterpriseSkusForScaling:
+        ApiVersion: 2025-05-01-preview
+        SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/preview/2025-05-01-preview/redisenterprise.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/listSkusForScaling
+        RpNamespace: Microsoft.Cache
+Relationships:
+    DependencyOfRelationship:
+        ApiVersion: 2023-09-01-preview
+        SpecFilePath: specification/relationships/resource-manager/Microsoft.Relationships/preview/2023-09-01-preview/relationships.json
+        ResourceUri: /{resourceUri}/providers/Microsoft.Relationships/dependencyOf/{name}
+        RpNamespace: Microsoft.Relationships
+    ServiceGroupMemberRelationship:
+        ApiVersion: 2023-09-01-preview
+        SpecFilePath: specification/relationships/resource-manager/Microsoft.Relationships/preview/2023-09-01-preview/relationships.json
+        ResourceUri: /{resourceUri}/providers/Microsoft.Relationships/serviceGroupMember/{name}
+        RpNamespace: Microsoft.Relationships
 Relay:
     HybridConnection:
         ApiVersion: "2024-01-01"

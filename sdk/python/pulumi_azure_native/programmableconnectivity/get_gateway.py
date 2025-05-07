@@ -26,7 +26,7 @@ __all__ = [
 @pulumi.output_type
 class GetGatewayResult:
     """
-    A Programmable Connectivity Gateway resource
+    A Programmable Connectivity Gateway resource.
     """
     def __init__(__self__, azure_api_version=None, gateway_base_url=None, id=None, location=None, name=None, operator_api_connections=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
@@ -72,7 +72,7 @@ class GetGatewayResult:
     @pulumi.getter(name="gatewayBaseUrl")
     def gateway_base_url(self) -> builtins.str:
         """
-        Base URL of the Gateway resource. This is the URL that the users would use to make Open API Gateway requests to the Operators via Azure.
+        Base URL of the Gateway resource. This is the URL that the users would use to make Network API requests to the Operators via Azure.
         """
         return pulumi.get(self, "gateway_base_url")
 
@@ -104,7 +104,7 @@ class GetGatewayResult:
     @pulumi.getter(name="operatorApiConnections")
     def operator_api_connections(self) -> Sequence[builtins.str]:
         """
-        List of Operator API Connections selected by the user
+        List of Operator API Connections selected by the user.
         """
         return pulumi.get(self, "operator_api_connections")
 
@@ -167,8 +167,10 @@ def get_gateway(gateway_name: Optional[builtins.str] = None,
 
     Uses Azure REST API version 2024-01-15-preview.
 
+    Other available API versions: 2025-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native programmableconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-    :param builtins.str gateway_name: Azure Programmable Connectivity Gateway Name
+
+    :param builtins.str gateway_name: Azure Programmable Connectivity Gateway Name.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -196,8 +198,10 @@ def get_gateway_output(gateway_name: Optional[pulumi.Input[builtins.str]] = None
 
     Uses Azure REST API version 2024-01-15-preview.
 
+    Other available API versions: 2025-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native programmableconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-    :param builtins.str gateway_name: Azure Programmable Connectivity Gateway Name
+
+    :param builtins.str gateway_name: Azure Programmable Connectivity Gateway Name.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()

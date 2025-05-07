@@ -1318,6 +1318,37 @@ namespace Pulumi.AzureNative.DataFactory
     }
 
     /// <summary>
+    /// The transport protocol to use in the Thrift layer (for V2 only). Default value is Binary.
+    /// </summary>
+    [EnumType]
+    public readonly struct ImpalaThriftTransportProtocol : IEquatable<ImpalaThriftTransportProtocol>
+    {
+        private readonly string _value;
+
+        private ImpalaThriftTransportProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ImpalaThriftTransportProtocol Binary { get; } = new ImpalaThriftTransportProtocol("Binary");
+        public static ImpalaThriftTransportProtocol HTTP { get; } = new ImpalaThriftTransportProtocol("HTTP");
+
+        public static bool operator ==(ImpalaThriftTransportProtocol left, ImpalaThriftTransportProtocol right) => left.Equals(right);
+        public static bool operator !=(ImpalaThriftTransportProtocol left, ImpalaThriftTransportProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(ImpalaThriftTransportProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ImpalaThriftTransportProtocol other && Equals(other);
+        public bool Equals(ImpalaThriftTransportProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The edition for the SSIS Integration Runtime
     /// </summary>
     [EnumType]

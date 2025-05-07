@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// 
     /// Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-04-01-preview.
     /// 
-    /// Other available API versions: 2024-04-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2024-04-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:System")]
     public partial class System : global::Pulumi.CustomResource
@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:System" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:System" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:System" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250401preview:System" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

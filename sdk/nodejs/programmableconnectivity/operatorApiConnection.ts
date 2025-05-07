@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * A Programmable Connectivity Operator API Connection resource
  *
  * Uses Azure REST API version 2024-01-15-preview. In version 2.x of the Azure Native provider, it used API version 2024-01-15-preview.
+ *
+ * Other available API versions: 2025-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native programmableconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class OperatorApiConnection extends pulumi.CustomResource {
     /**
@@ -165,7 +167,7 @@ export class OperatorApiConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:programmableconnectivity/v20240115preview:OperatorApiConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:programmableconnectivity/v20240115preview:OperatorApiConnection" }, { type: "azure-native:programmableconnectivity/v20250330preview:OperatorApiConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OperatorApiConnection.__pulumiType, name, resourceInputs, opts);
     }

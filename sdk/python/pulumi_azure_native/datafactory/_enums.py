@@ -48,6 +48,7 @@ __all__ = [
     'HiveThriftTransportProtocol',
     'HttpAuthenticationType',
     'ImpalaAuthenticationType',
+    'ImpalaThriftTransportProtocol',
     'IntegrationRuntimeEdition',
     'IntegrationRuntimeEntityReferenceType',
     'IntegrationRuntimeLicenseType',
@@ -468,6 +469,14 @@ class ImpalaAuthenticationType(builtins.str, Enum):
     ANONYMOUS = "Anonymous"
     SASLUSERNAME = "SASLUsername"
     USERNAME_AND_PASSWORD = "UsernameAndPassword"
+
+
+class ImpalaThriftTransportProtocol(builtins.str, Enum):
+    """
+    The transport protocol to use in the Thrift layer (for V2 only). Default value is Binary.
+    """
+    BINARY = "Binary"
+    HTTP = "HTTP"
 
 
 class IntegrationRuntimeEdition(builtins.str, Enum):

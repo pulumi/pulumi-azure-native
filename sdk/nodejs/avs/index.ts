@@ -80,6 +80,11 @@ export const getPrivateCloud: typeof import("./getPrivateCloud").getPrivateCloud
 export const getPrivateCloudOutput: typeof import("./getPrivateCloud").getPrivateCloudOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateCloud","getPrivateCloudOutput"], () => require("./getPrivateCloud"));
 
+export { GetPureStoragePolicyArgs, GetPureStoragePolicyResult, GetPureStoragePolicyOutputArgs } from "./getPureStoragePolicy";
+export const getPureStoragePolicy: typeof import("./getPureStoragePolicy").getPureStoragePolicy = null as any;
+export const getPureStoragePolicyOutput: typeof import("./getPureStoragePolicy").getPureStoragePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getPureStoragePolicy","getPureStoragePolicyOutput"], () => require("./getPureStoragePolicy"));
+
 export { GetScriptExecutionArgs, GetScriptExecutionResult, GetScriptExecutionOutputArgs } from "./getScriptExecution";
 export const getScriptExecution: typeof import("./getScriptExecution").getScriptExecution = null as any;
 export const getScriptExecutionOutput: typeof import("./getScriptExecution").getScriptExecutionOutput = null as any;
@@ -160,6 +165,11 @@ export type PrivateCloud = import("./privateCloud").PrivateCloud;
 export const PrivateCloud: typeof import("./privateCloud").PrivateCloud = null as any;
 utilities.lazyLoad(exports, ["PrivateCloud"], () => require("./privateCloud"));
 
+export { PureStoragePolicyArgs } from "./pureStoragePolicy";
+export type PureStoragePolicy = import("./pureStoragePolicy").PureStoragePolicy;
+export const PureStoragePolicy: typeof import("./pureStoragePolicy").PureStoragePolicy = null as any;
+utilities.lazyLoad(exports, ["PureStoragePolicy"], () => require("./pureStoragePolicy"));
+
 export { ScriptExecutionArgs } from "./scriptExecution";
 export type ScriptExecution = import("./scriptExecution").ScriptExecution;
 export const ScriptExecution: typeof import("./scriptExecution").ScriptExecution = null as any;
@@ -228,6 +238,8 @@ const _module = {
                 return new PlacementPolicy(name, <any>undefined, { urn })
             case "azure-native:avs:PrivateCloud":
                 return new PrivateCloud(name, <any>undefined, { urn })
+            case "azure-native:avs:PureStoragePolicy":
+                return new PureStoragePolicy(name, <any>undefined, { urn })
             case "azure-native:avs:ScriptExecution":
                 return new ScriptExecution(name, <any>undefined, { urn })
             case "azure-native:avs:WorkloadNetworkDhcp":

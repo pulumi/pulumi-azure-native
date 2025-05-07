@@ -28,11 +28,19 @@ __all__ = [
     'DetectorParameterDefinitionResponse',
     'DetectorResponse',
     'DiagnosticsResponse',
+    'InvestigationExecutionResponse',
+    'InvestigationMetadataResponse',
+    'InvestigationScopeResponse',
+    'IssuePropertiesResponse',
     'MonthlyRecurrenceResponse',
+    'OriginResponse',
     'PrometheusRuleGroupActionResponse',
     'PrometheusRuleResolveConfigurationResponse',
     'PrometheusRuleResponse',
+    'RelatedAlertResponse',
+    'RelatedResourceResponse',
     'RemoveAllActionGroupsResponse',
+    'RunParametersResponse',
     'ScheduleResponse',
     'ScopeResponse',
     'SuppressionConfigResponse',
@@ -1000,6 +1008,286 @@ class DiagnosticsResponse(dict):
 
 
 @pulumi.output_type
+class InvestigationExecutionResponse(dict):
+    """
+    Details about the execution of the investigation
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "completedAt":
+            suggest = "completed_at"
+        elif key == "runState":
+            suggest = "run_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InvestigationExecutionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InvestigationExecutionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InvestigationExecutionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 completed_at: builtins.str,
+                 run_state: builtins.str):
+        """
+        Details about the execution of the investigation
+        :param builtins.str completed_at: The time at which the investigation execution completed (in UTC)
+        :param builtins.str run_state: The state of the investigation execution
+        """
+        pulumi.set(__self__, "completed_at", completed_at)
+        pulumi.set(__self__, "run_state", run_state)
+
+    @property
+    @pulumi.getter(name="completedAt")
+    def completed_at(self) -> builtins.str:
+        """
+        The time at which the investigation execution completed (in UTC)
+        """
+        return pulumi.get(self, "completed_at")
+
+    @property
+    @pulumi.getter(name="runState")
+    def run_state(self) -> builtins.str:
+        """
+        The state of the investigation execution
+        """
+        return pulumi.get(self, "run_state")
+
+
+@pulumi.output_type
+class InvestigationMetadataResponse(dict):
+    """
+    Properties of the current investigation
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "runParameters":
+            suggest = "run_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InvestigationMetadataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InvestigationMetadataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InvestigationMetadataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: builtins.str,
+                 execution: 'outputs.InvestigationExecutionResponse',
+                 id: builtins.str,
+                 run_parameters: 'outputs.RunParametersResponse'):
+        """
+        Properties of the current investigation
+        :param builtins.str created_at: The creation time of the investigation (in UTC)
+        :param 'InvestigationExecutionResponse' execution: The execution details of the investigation
+        :param builtins.str id: The unique identifier of the investigation
+        :param 'RunParametersResponse' run_parameters: The parameters that were used to start the investigation
+        """
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "execution", execution)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "run_parameters", run_parameters)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> builtins.str:
+        """
+        The creation time of the investigation (in UTC)
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def execution(self) -> 'outputs.InvestigationExecutionResponse':
+        """
+        The execution details of the investigation
+        """
+        return pulumi.get(self, "execution")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The unique identifier of the investigation
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="runParameters")
+    def run_parameters(self) -> 'outputs.RunParametersResponse':
+        """
+        The parameters that were used to start the investigation
+        """
+        return pulumi.get(self, "run_parameters")
+
+
+@pulumi.output_type
+class InvestigationScopeResponse(dict):
+    """
+    A single scope of the investigation
+    """
+    def __init__(__self__, *,
+                 id: builtins.str,
+                 origin: 'outputs.OriginResponse',
+                 relevance: Optional[builtins.str] = None):
+        """
+        A single scope of the investigation
+        :param builtins.str id: The ID of the scope of the investigation - either an Azure alert ID or an Azure resource ID
+        :param 'OriginResponse' origin: The origin of the scope
+        :param builtins.str relevance: The relevance of the scope
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "origin", origin)
+        if relevance is not None:
+            pulumi.set(__self__, "relevance", relevance)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The ID of the scope of the investigation - either an Azure alert ID or an Azure resource ID
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def origin(self) -> 'outputs.OriginResponse':
+        """
+        The origin of the scope
+        """
+        return pulumi.get(self, "origin")
+
+    @property
+    @pulumi.getter
+    def relevance(self) -> Optional[builtins.str]:
+        """
+        The relevance of the scope
+        """
+        return pulumi.get(self, "relevance")
+
+
+@pulumi.output_type
+class IssuePropertiesResponse(dict):
+    """
+    The issue properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "impactTime":
+            suggest = "impact_time"
+        elif key == "investigationsCount":
+            suggest = "investigations_count"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IssuePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IssuePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IssuePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 impact_time: builtins.str,
+                 investigations: Sequence['outputs.InvestigationMetadataResponse'],
+                 investigations_count: builtins.int,
+                 provisioning_state: builtins.str,
+                 severity: builtins.str,
+                 status: builtins.str,
+                 title: builtins.str):
+        """
+        The issue properties
+        :param builtins.str impact_time: The issue impact time (in UTC)
+        :param Sequence['InvestigationMetadataResponse'] investigations: The list of investigations in the issue
+        :param builtins.int investigations_count: The number of investigations in the issue
+        :param builtins.str provisioning_state: The provisioning state of the resource.
+        :param builtins.str severity: The issue severity
+        :param builtins.str status: The issue status
+        :param builtins.str title: The issue title
+        """
+        pulumi.set(__self__, "impact_time", impact_time)
+        pulumi.set(__self__, "investigations", investigations)
+        pulumi.set(__self__, "investigations_count", investigations_count)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "severity", severity)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter(name="impactTime")
+    def impact_time(self) -> builtins.str:
+        """
+        The issue impact time (in UTC)
+        """
+        return pulumi.get(self, "impact_time")
+
+    @property
+    @pulumi.getter
+    def investigations(self) -> Sequence['outputs.InvestigationMetadataResponse']:
+        """
+        The list of investigations in the issue
+        """
+        return pulumi.get(self, "investigations")
+
+    @property
+    @pulumi.getter(name="investigationsCount")
+    def investigations_count(self) -> builtins.int:
+        """
+        The number of investigations in the issue
+        """
+        return pulumi.get(self, "investigations_count")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> builtins.str:
+        """
+        The issue severity
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter
+    def status(self) -> builtins.str:
+        """
+        The issue status
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def title(self) -> builtins.str:
+        """
+        The issue title
+        """
+        return pulumi.get(self, "title")
+
+
+@pulumi.output_type
 class MonthlyRecurrenceResponse(dict):
     """
     Monthly recurrence object.
@@ -1079,6 +1367,58 @@ class MonthlyRecurrenceResponse(dict):
         Start time for recurrence.
         """
         return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class OriginResponse(dict):
+    """
+    Details about the origin of the entity - the source that added it to the issue
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addedBy":
+            suggest = "added_by"
+        elif key == "addedByType":
+            suggest = "added_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 added_by: builtins.str,
+                 added_by_type: builtins.str):
+        """
+        Details about the origin of the entity - the source that added it to the issue
+        :param builtins.str added_by: The ID of the origin - for example, in case of 'Manual', the object ID of the identity, and in case of 'Automatic', the name of the automatic system
+        :param builtins.str added_by_type: The source of the origin - Manual or Automatic
+        """
+        pulumi.set(__self__, "added_by", added_by)
+        pulumi.set(__self__, "added_by_type", added_by_type)
+
+    @property
+    @pulumi.getter(name="addedBy")
+    def added_by(self) -> builtins.str:
+        """
+        The ID of the origin - for example, in case of 'Manual', the object ID of the identity, and in case of 'Automatic', the name of the automatic system
+        """
+        return pulumi.get(self, "added_by")
+
+    @property
+    @pulumi.getter(name="addedByType")
+    def added_by_type(self) -> builtins.str:
+        """
+        The source of the origin - Manual or Automatic
+        """
+        return pulumi.get(self, "added_by_type")
 
 
 @pulumi.output_type
@@ -1339,6 +1679,138 @@ class PrometheusRuleResponse(dict):
 
 
 @pulumi.output_type
+class RelatedAlertResponse(dict):
+    """
+    Properties of an alert which is related to the issue
+    """
+    def __init__(__self__, *,
+                 added_at: builtins.str,
+                 id: builtins.str,
+                 last_modified_at: builtins.str,
+                 origin: 'outputs.OriginResponse',
+                 relevance: builtins.str):
+        """
+        Properties of an alert which is related to the issue
+        :param builtins.str added_at: The time this relation was added to the issue (in UTC)
+        :param builtins.str id: The alert ID
+        :param builtins.str last_modified_at: The last update time of this relation (in UTC)
+        :param 'OriginResponse' origin: The source that related the alert to the issue
+        :param builtins.str relevance: The alerts's relevance status
+        """
+        pulumi.set(__self__, "added_at", added_at)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "last_modified_at", last_modified_at)
+        pulumi.set(__self__, "origin", origin)
+        pulumi.set(__self__, "relevance", relevance)
+
+    @property
+    @pulumi.getter(name="addedAt")
+    def added_at(self) -> builtins.str:
+        """
+        The time this relation was added to the issue (in UTC)
+        """
+        return pulumi.get(self, "added_at")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The alert ID
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> builtins.str:
+        """
+        The last update time of this relation (in UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter
+    def origin(self) -> 'outputs.OriginResponse':
+        """
+        The source that related the alert to the issue
+        """
+        return pulumi.get(self, "origin")
+
+    @property
+    @pulumi.getter
+    def relevance(self) -> builtins.str:
+        """
+        The alerts's relevance status
+        """
+        return pulumi.get(self, "relevance")
+
+
+@pulumi.output_type
+class RelatedResourceResponse(dict):
+    """
+    Properties of a resource which is related to the issue
+    """
+    def __init__(__self__, *,
+                 added_at: builtins.str,
+                 id: builtins.str,
+                 last_modified_at: builtins.str,
+                 origin: 'outputs.OriginResponse',
+                 relevance: builtins.str):
+        """
+        Properties of a resource which is related to the issue
+        :param builtins.str added_at: The time this relation was added to the issue (in UTC)
+        :param builtins.str id: The resource ID
+        :param builtins.str last_modified_at: The last update time of this relation (in UTC)
+        :param 'OriginResponse' origin: The source that related the resource to the issue
+        :param builtins.str relevance: The resource's relevance status
+        """
+        pulumi.set(__self__, "added_at", added_at)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "last_modified_at", last_modified_at)
+        pulumi.set(__self__, "origin", origin)
+        pulumi.set(__self__, "relevance", relevance)
+
+    @property
+    @pulumi.getter(name="addedAt")
+    def added_at(self) -> builtins.str:
+        """
+        The time this relation was added to the issue (in UTC)
+        """
+        return pulumi.get(self, "added_at")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The resource ID
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> builtins.str:
+        """
+        The last update time of this relation (in UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter
+    def origin(self) -> 'outputs.OriginResponse':
+        """
+        The source that related the resource to the issue
+        """
+        return pulumi.get(self, "origin")
+
+    @property
+    @pulumi.getter
+    def relevance(self) -> builtins.str:
+        """
+        The resource's relevance status
+        """
+        return pulumi.get(self, "relevance")
+
+
+@pulumi.output_type
 class RemoveAllActionGroupsResponse(dict):
     """
     Indicates if all action groups should be removed.
@@ -1377,6 +1849,67 @@ class RemoveAllActionGroupsResponse(dict):
         Expected value is 'RemoveAllActionGroups'.
         """
         return pulumi.get(self, "action_type")
+
+
+@pulumi.output_type
+class RunParametersResponse(dict):
+    """
+    The parameters used to run the investigation
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "impactTime":
+            suggest = "impact_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RunParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RunParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RunParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alerts: Sequence['outputs.InvestigationScopeResponse'],
+                 impact_time: builtins.str,
+                 resources: Sequence['outputs.InvestigationScopeResponse']):
+        """
+        The parameters used to run the investigation
+        :param Sequence['InvestigationScopeResponse'] alerts: The alerts used to run the investigation
+        :param builtins.str impact_time: The impact time to investigate (in UTC)
+        :param Sequence['InvestigationScopeResponse'] resources: The resources used to run the investigation
+        """
+        pulumi.set(__self__, "alerts", alerts)
+        pulumi.set(__self__, "impact_time", impact_time)
+        pulumi.set(__self__, "resources", resources)
+
+    @property
+    @pulumi.getter
+    def alerts(self) -> Sequence['outputs.InvestigationScopeResponse']:
+        """
+        The alerts used to run the investigation
+        """
+        return pulumi.get(self, "alerts")
+
+    @property
+    @pulumi.getter(name="impactTime")
+    def impact_time(self) -> builtins.str:
+        """
+        The impact time to investigate (in UTC)
+        """
+        return pulumi.get(self, "impact_time")
+
+    @property
+    @pulumi.getter
+    def resources(self) -> Sequence['outputs.InvestigationScopeResponse']:
+        """
+        The resources used to run the investigation
+        """
+        return pulumi.get(self, "resources")
 
 
 @pulumi.output_type

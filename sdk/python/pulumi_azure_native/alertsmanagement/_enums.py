@@ -17,6 +17,7 @@ __all__ = [
     'RecurrenceType',
     'ScopeType',
     'Severity',
+    'Status',
     'SuppressionType',
 ]
 
@@ -121,6 +122,32 @@ class Severity(builtins.str, Enum):
     SEV2 = "Sev2"
     SEV3 = "Sev3"
     SEV4 = "Sev4"
+
+
+class Status(builtins.str, Enum):
+    """
+    The issue status
+    """
+    NEW = "New"
+    """
+    The issue is new
+    """
+    IN_PROGRESS = "InProgress"
+    """
+    The issue is in progress
+    """
+    MITIGATED = "Mitigated"
+    """
+    The issue is mitigated
+    """
+    CLOSED = "Closed"
+    """
+    The issue is closed
+    """
+    CANCELED = "Canceled"
+    """
+    The issue is canceled
+    """
 
 
 class SuppressionType(builtins.str, Enum):

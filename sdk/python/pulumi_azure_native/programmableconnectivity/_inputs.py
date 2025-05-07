@@ -44,7 +44,7 @@ if not MYPY:
         """
         name: NotRequired[pulumi.Input[builtins.str]]
         """
-        Name of the application. Example: Contoso App.
+        Name of the application.
         """
         organization_description: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -76,7 +76,7 @@ class ApplicationPropertiesArgs:
         :param pulumi.Input[builtins.str] application_description: Description of the application.
         :param pulumi.Input[builtins.str] application_type: The category that describes the application.
         :param pulumi.Input[builtins.str] legal_name: Legal name of the organization owning the application.
-        :param pulumi.Input[builtins.str] name: Name of the application. Example: Contoso App.
+        :param pulumi.Input[builtins.str] name: Name of the application.
         :param pulumi.Input[builtins.str] organization_description: A description of the organization owning the application.
         :param pulumi.Input[builtins.str] privacy_contact_email_address: Email address of the Privacy contact or Data Protection officer of the organization.
         :param pulumi.Input[builtins.str] tax_number: Unique Tax Number for the user's organization in the country/region the APC Gateway is being purchased.
@@ -136,7 +136,7 @@ class ApplicationPropertiesArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Name of the application. Example: Contoso App.
+        Name of the application.
         """
         return pulumi.get(self, "name")
 

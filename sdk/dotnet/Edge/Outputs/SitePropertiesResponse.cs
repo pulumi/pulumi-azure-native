@@ -29,9 +29,17 @@ namespace Pulumi.AzureNative.Edge.Outputs
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// Key-value pairs for labeling the site resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Labels;
+        /// <summary>
         /// Provisioning state of last operation
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Physical address of the site
+        /// </summary>
+        public readonly Outputs.SiteAddressPropertiesResponse? SiteAddress;
 
         [OutputConstructor]
         private SitePropertiesResponse(
@@ -41,12 +49,18 @@ namespace Pulumi.AzureNative.Edge.Outputs
 
             string? displayName,
 
-            string provisioningState)
+            ImmutableDictionary<string, string>? labels,
+
+            string provisioningState,
+
+            Outputs.SiteAddressPropertiesResponse? siteAddress)
         {
             AddressResourceId = addressResourceId;
             Description = description;
             DisplayName = displayName;
+            Labels = labels;
             ProvisioningState = provisioningState;
+            SiteAddress = siteAddress;
         }
     }
 }

@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Edge
     /// Site as ARM Resource
     /// 
     /// Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-01-preview.
+    /// 
+    /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:edge:Site")]
     public partial class Site : global::Pulumi.CustomResource
@@ -73,6 +75,7 @@ namespace Pulumi.AzureNative.Edge
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:edge/v20240201preview:Site" },
+                    new global::Pulumi.Alias { Type = "azure-native:edge/v20250301preview:Site" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

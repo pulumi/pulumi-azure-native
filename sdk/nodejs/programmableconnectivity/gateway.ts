@@ -8,9 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A Programmable Connectivity Gateway resource
+ * A Programmable Connectivity Gateway resource.
  *
  * Uses Azure REST API version 2024-01-15-preview. In version 2.x of the Azure Native provider, it used API version 2024-01-15-preview.
+ *
+ * Other available API versions: 2025-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native programmableconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Gateway extends pulumi.CustomResource {
     /**
@@ -44,7 +46,7 @@ export class Gateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
-     * Base URL of the Gateway resource. This is the URL that the users would use to make Open API Gateway requests to the Operators via Azure.
+     * Base URL of the Gateway resource. This is the URL that the users would use to make Network API requests to the Operators via Azure.
      */
     public /*out*/ readonly gatewayBaseUrl!: pulumi.Output<string>;
     /**
@@ -56,7 +58,7 @@ export class Gateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * List of Operator API Connections selected by the user
+     * List of Operator API Connections selected by the user.
      */
     public /*out*/ readonly operatorApiConnections!: pulumi.Output<string[]>;
     /**
@@ -113,7 +115,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:programmableconnectivity/v20240115preview:Gateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:programmableconnectivity/v20240115preview:Gateway" }, { type: "azure-native:programmableconnectivity/v20250330preview:Gateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Gateway.__pulumiType, name, resourceInputs, opts);
     }
@@ -124,7 +126,7 @@ export class Gateway extends pulumi.CustomResource {
  */
 export interface GatewayArgs {
     /**
-     * Azure Programmable Connectivity Gateway Name
+     * Azure Programmable Connectivity Gateway Name.
      */
     gatewayName?: pulumi.Input<string>;
     /**

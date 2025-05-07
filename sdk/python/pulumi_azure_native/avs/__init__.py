@@ -22,6 +22,7 @@ from .get_hcx_enterprise_site import *
 from .get_iscsi_path import *
 from .get_placement_policy import *
 from .get_private_cloud import *
+from .get_pure_storage_policy import *
 from .get_script_execution import *
 from .get_script_execution_logs import *
 from .get_workload_network_dhcp import *
@@ -38,6 +39,7 @@ from .list_cluster_zones import *
 from .list_private_cloud_admin_credentials import *
 from .placement_policy import *
 from .private_cloud import *
+from .pure_storage_policy import *
 from .script_execution import *
 from .workload_network_dhcp import *
 from .workload_network_dns_service import *

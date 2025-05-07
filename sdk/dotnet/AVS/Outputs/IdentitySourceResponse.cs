@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.AVS.Outputs
         /// </summary>
         public readonly string? BaseUserDN;
         /// <summary>
-        /// The domain's dns name
+        /// The domain's DNS name
         /// </summary>
         public readonly string? Domain;
         /// <summary>

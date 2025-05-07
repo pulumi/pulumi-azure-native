@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-04-01. In version 2.x of the Azure Native provider, it used API version 2021-04-01.
  *
- * Other available API versions: 2021-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ManagementGroup extends pulumi.CustomResource {
     /**
@@ -99,7 +99,7 @@ export class ManagementGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:management/v20171101preview:ManagementGroup" }, { type: "azure-native:management/v20180101preview:ManagementGroup" }, { type: "azure-native:management/v20180301preview:ManagementGroup" }, { type: "azure-native:management/v20191101:ManagementGroup" }, { type: "azure-native:management/v20200201:ManagementGroup" }, { type: "azure-native:management/v20200501:ManagementGroup" }, { type: "azure-native:management/v20201001:ManagementGroup" }, { type: "azure-native:management/v20210401:ManagementGroup" }, { type: "azure-native:management/v20230401:ManagementGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:management/v20171101preview:ManagementGroup" }, { type: "azure-native:management/v20180101preview:ManagementGroup" }, { type: "azure-native:management/v20180301preview:ManagementGroup" }, { type: "azure-native:management/v20191101:ManagementGroup" }, { type: "azure-native:management/v20200201:ManagementGroup" }, { type: "azure-native:management/v20200501:ManagementGroup" }, { type: "azure-native:management/v20201001:ManagementGroup" }, { type: "azure-native:management/v20210401:ManagementGroup" }, { type: "azure-native:management/v20230401:ManagementGroup" }, { type: "azure-native:management/v20240201preview:ManagementGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementGroup.__pulumiType, name, resourceInputs, opts);
     }

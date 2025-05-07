@@ -33,6 +33,24 @@ namespace Pulumi.AzureNative.Edge.Inputs
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
+        [Input("labels")]
+        private InputMap<string>? _labels;
+
+        /// <summary>
+        /// Key-value pairs for labeling the site resource.
+        /// </summary>
+        public InputMap<string> Labels
+        {
+            get => _labels ?? (_labels = new InputMap<string>());
+            set => _labels = value;
+        }
+
+        /// <summary>
+        /// Physical address of the site
+        /// </summary>
+        [Input("siteAddress")]
+        public Input<Inputs.SiteAddressPropertiesArgs>? SiteAddress { get; set; }
+
         public SitePropertiesArgs()
         {
         }

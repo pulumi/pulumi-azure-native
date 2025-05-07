@@ -639,7 +639,7 @@ class IdentitySourceResponse(dict):
         :param builtins.str alias: The domain's NetBIOS name
         :param builtins.str base_group_dn: The base distinguished name for groups
         :param builtins.str base_user_dn: The base distinguished name for users
-        :param builtins.str domain: The domain's dns name
+        :param builtins.str domain: The domain's DNS name
         :param builtins.str name: The name of the identity source
         :param builtins.str password: The password of the Active Directory user with a minimum of read-only access to
                Base DN for users and groups.
@@ -698,7 +698,7 @@ class IdentitySourceResponse(dict):
     @pulumi.getter
     def domain(self) -> Optional[builtins.str]:
         """
-        The domain's dns name
+        The domain's DNS name
         """
         return pulumi.get(self, "domain")
 

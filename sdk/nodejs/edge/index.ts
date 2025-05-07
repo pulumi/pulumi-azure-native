@@ -10,6 +10,11 @@ export const getSite: typeof import("./getSite").getSite = null as any;
 export const getSiteOutput: typeof import("./getSite").getSiteOutput = null as any;
 utilities.lazyLoad(exports, ["getSite","getSiteOutput"], () => require("./getSite"));
 
+export { GetSitesByServiceGroupArgs, GetSitesByServiceGroupResult, GetSitesByServiceGroupOutputArgs } from "./getSitesByServiceGroup";
+export const getSitesByServiceGroup: typeof import("./getSitesByServiceGroup").getSitesByServiceGroup = null as any;
+export const getSitesByServiceGroupOutput: typeof import("./getSitesByServiceGroup").getSitesByServiceGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getSitesByServiceGroup","getSitesByServiceGroupOutput"], () => require("./getSitesByServiceGroup"));
+
 export { GetSitesBySubscriptionArgs, GetSitesBySubscriptionResult, GetSitesBySubscriptionOutputArgs } from "./getSitesBySubscription";
 export const getSitesBySubscription: typeof import("./getSitesBySubscription").getSitesBySubscription = null as any;
 export const getSitesBySubscriptionOutput: typeof import("./getSitesBySubscription").getSitesBySubscriptionOutput = null as any;
@@ -19,6 +24,11 @@ export { SiteArgs } from "./site";
 export type Site = import("./site").Site;
 export const Site: typeof import("./site").Site = null as any;
 utilities.lazyLoad(exports, ["Site"], () => require("./site"));
+
+export { SitesByServiceGroupArgs } from "./sitesByServiceGroup";
+export type SitesByServiceGroup = import("./sitesByServiceGroup").SitesByServiceGroup;
+export const SitesByServiceGroup: typeof import("./sitesByServiceGroup").SitesByServiceGroup = null as any;
+utilities.lazyLoad(exports, ["SitesByServiceGroup"], () => require("./sitesByServiceGroup"));
 
 export { SitesBySubscriptionArgs } from "./sitesBySubscription";
 export type SitesBySubscription = import("./sitesBySubscription").SitesBySubscription;
@@ -32,6 +42,8 @@ const _module = {
         switch (type) {
             case "azure-native:edge:Site":
                 return new Site(name, <any>undefined, { urn })
+            case "azure-native:edge:SitesByServiceGroup":
+                return new SitesByServiceGroup(name, <any>undefined, { urn })
             case "azure-native:edge:SitesBySubscription":
                 return new SitesBySubscription(name, <any>undefined, { urn })
             default:

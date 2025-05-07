@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
  *
- * Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class WorkloadNetworkDhcp extends pulumi.CustomResource {
     /**
@@ -122,7 +122,7 @@ export class WorkloadNetworkDhcp extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200717preview:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20210101preview:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20210601:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20211201:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20220501:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20230301:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20230901:WorkloadNetworkDhcp" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200717preview:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20210101preview:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20210601:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20211201:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20220501:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20230301:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20230901:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20240901:WorkloadNetworkDhcp" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkloadNetworkDhcp.__pulumiType, name, resourceInputs, opts);
     }

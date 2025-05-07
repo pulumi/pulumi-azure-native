@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
  *
- * Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class PrivateCloud extends pulumi.CustomResource {
     /**
@@ -257,7 +257,7 @@ export class PrivateCloud extends pulumi.CustomResource {
             resourceInputs["vmotionNetwork"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200320:PrivateCloud" }, { type: "azure-native:avs/v20200717preview:PrivateCloud" }, { type: "azure-native:avs/v20210101preview:PrivateCloud" }, { type: "azure-native:avs/v20210601:PrivateCloud" }, { type: "azure-native:avs/v20211201:PrivateCloud" }, { type: "azure-native:avs/v20220501:PrivateCloud" }, { type: "azure-native:avs/v20230301:PrivateCloud" }, { type: "azure-native:avs/v20230901:PrivateCloud" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200320:PrivateCloud" }, { type: "azure-native:avs/v20200717preview:PrivateCloud" }, { type: "azure-native:avs/v20210101preview:PrivateCloud" }, { type: "azure-native:avs/v20210601:PrivateCloud" }, { type: "azure-native:avs/v20211201:PrivateCloud" }, { type: "azure-native:avs/v20220501:PrivateCloud" }, { type: "azure-native:avs/v20230301:PrivateCloud" }, { type: "azure-native:avs/v20230901:PrivateCloud" }, { type: "azure-native:avs/v20240901:PrivateCloud" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateCloud.__pulumiType, name, resourceInputs, opts);
     }

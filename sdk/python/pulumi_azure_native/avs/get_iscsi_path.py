@@ -131,6 +131,8 @@ def get_iscsi_path(private_cloud_name: Optional[builtins.str] = None,
 
     Uses Azure REST API version 2023-09-01.
 
+    Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str private_cloud_name: Name of the private cloud
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -156,6 +158,8 @@ def get_iscsi_path_output(private_cloud_name: Optional[pulumi.Input[builtins.str
     Get a IscsiPath
 
     Uses Azure REST API version 2023-09-01.
+
+    Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str private_cloud_name: Name of the private cloud

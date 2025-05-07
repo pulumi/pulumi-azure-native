@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
  *
- * Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class GlobalReachConnection extends pulumi.CustomResource {
     /**
@@ -129,7 +129,7 @@ export class GlobalReachConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200717preview:GlobalReachConnection" }, { type: "azure-native:avs/v20210101preview:GlobalReachConnection" }, { type: "azure-native:avs/v20210601:GlobalReachConnection" }, { type: "azure-native:avs/v20211201:GlobalReachConnection" }, { type: "azure-native:avs/v20220501:GlobalReachConnection" }, { type: "azure-native:avs/v20230301:GlobalReachConnection" }, { type: "azure-native:avs/v20230901:GlobalReachConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200717preview:GlobalReachConnection" }, { type: "azure-native:avs/v20210101preview:GlobalReachConnection" }, { type: "azure-native:avs/v20210601:GlobalReachConnection" }, { type: "azure-native:avs/v20211201:GlobalReachConnection" }, { type: "azure-native:avs/v20220501:GlobalReachConnection" }, { type: "azure-native:avs/v20230301:GlobalReachConnection" }, { type: "azure-native:avs/v20230901:GlobalReachConnection" }, { type: "azure-native:avs/v20240901:GlobalReachConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GlobalReachConnection.__pulumiType, name, resourceInputs, opts);
     }

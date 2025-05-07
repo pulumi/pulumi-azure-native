@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity.Outputs
         /// </summary>
         public readonly string? LegalName;
         /// <summary>
-        /// Name of the application. Example: Contoso App.
+        /// Name of the application.
         /// </summary>
         public readonly string? Name;
         /// <summary>

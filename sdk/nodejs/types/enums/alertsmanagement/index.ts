@@ -124,6 +124,34 @@ export const Severity = {
  */
 export type Severity = (typeof Severity)[keyof typeof Severity];
 
+export const Status = {
+    /**
+     * The issue is new
+     */
+    New: "New",
+    /**
+     * The issue is in progress
+     */
+    InProgress: "InProgress",
+    /**
+     * The issue is mitigated
+     */
+    Mitigated: "Mitigated",
+    /**
+     * The issue is closed
+     */
+    Closed: "Closed",
+    /**
+     * The issue is canceled
+     */
+    Canceled: "Canceled",
+} as const;
+
+/**
+ * The issue status
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
 export const SuppressionType = {
     Always: "Always",
     Once: "Once",

@@ -58,6 +58,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Specify whether to enable server SSL certificate validation when you connect.Always use System Trust Store (for V2 only). The default value is true.
+        /// </summary>
+        [Input("enableServerCertificateValidation")]
+        public Input<object>? EnableServerCertificateValidation { get; set; }
+
+        /// <summary>
         /// Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         /// </summary>
         [Input("enableSsl")]
@@ -98,6 +104,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("port")]
         public Input<object>? Port { get; set; }
+
+        /// <summary>
+        /// The transport protocol to use in the Thrift layer (for V2 only). Default value is Binary.
+        /// </summary>
+        [Input("thriftTransportProtocol")]
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.ImpalaThriftTransportProtocol>? ThriftTransportProtocol { get; set; }
 
         /// <summary>
         /// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.

@@ -25,6 +25,11 @@ export const getAlertProcessingRuleByName: typeof import("./getAlertProcessingRu
 export const getAlertProcessingRuleByNameOutput: typeof import("./getAlertProcessingRuleByName").getAlertProcessingRuleByNameOutput = null as any;
 utilities.lazyLoad(exports, ["getAlertProcessingRuleByName","getAlertProcessingRuleByNameOutput"], () => require("./getAlertProcessingRuleByName"));
 
+export { GetIssueArgs, GetIssueResult, GetIssueOutputArgs } from "./getIssue";
+export const getIssue: typeof import("./getIssue").getIssue = null as any;
+export const getIssueOutput: typeof import("./getIssue").getIssueOutput = null as any;
+utilities.lazyLoad(exports, ["getIssue","getIssueOutput"], () => require("./getIssue"));
+
 export { GetPrometheusRuleGroupArgs, GetPrometheusRuleGroupResult, GetPrometheusRuleGroupOutputArgs } from "./getPrometheusRuleGroup";
 export const getPrometheusRuleGroup: typeof import("./getPrometheusRuleGroup").getPrometheusRuleGroup = null as any;
 export const getPrometheusRuleGroupOutput: typeof import("./getPrometheusRuleGroup").getPrometheusRuleGroupOutput = null as any;
@@ -34,6 +39,21 @@ export { GetSmartDetectorAlertRuleArgs, GetSmartDetectorAlertRuleResult, GetSmar
 export const getSmartDetectorAlertRule: typeof import("./getSmartDetectorAlertRule").getSmartDetectorAlertRule = null as any;
 export const getSmartDetectorAlertRuleOutput: typeof import("./getSmartDetectorAlertRule").getSmartDetectorAlertRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getSmartDetectorAlertRule","getSmartDetectorAlertRuleOutput"], () => require("./getSmartDetectorAlertRule"));
+
+export { IssueArgs } from "./issue";
+export type Issue = import("./issue").Issue;
+export const Issue: typeof import("./issue").Issue = null as any;
+utilities.lazyLoad(exports, ["Issue"], () => require("./issue"));
+
+export { ListIssueAlertsArgs, ListIssueAlertsResult, ListIssueAlertsOutputArgs } from "./listIssueAlerts";
+export const listIssueAlerts: typeof import("./listIssueAlerts").listIssueAlerts = null as any;
+export const listIssueAlertsOutput: typeof import("./listIssueAlerts").listIssueAlertsOutput = null as any;
+utilities.lazyLoad(exports, ["listIssueAlerts","listIssueAlertsOutput"], () => require("./listIssueAlerts"));
+
+export { ListIssueResourcesArgs, ListIssueResourcesResult, ListIssueResourcesOutputArgs } from "./listIssueResources";
+export const listIssueResources: typeof import("./listIssueResources").listIssueResources = null as any;
+export const listIssueResourcesOutput: typeof import("./listIssueResources").listIssueResourcesOutput = null as any;
+utilities.lazyLoad(exports, ["listIssueResources","listIssueResourcesOutput"], () => require("./listIssueResources"));
 
 export { PrometheusRuleGroupArgs } from "./prometheusRuleGroup";
 export type PrometheusRuleGroup = import("./prometheusRuleGroup").PrometheusRuleGroup;
@@ -57,6 +77,8 @@ const _module = {
                 return new ActionRuleByName(name, <any>undefined, { urn })
             case "azure-native:alertsmanagement:AlertProcessingRuleByName":
                 return new AlertProcessingRuleByName(name, <any>undefined, { urn })
+            case "azure-native:alertsmanagement:Issue":
+                return new Issue(name, <any>undefined, { urn })
             case "azure-native:alertsmanagement:PrometheusRuleGroup":
                 return new PrometheusRuleGroup(name, <any>undefined, { urn })
             case "azure-native:alertsmanagement:SmartDetectorAlertRule":
