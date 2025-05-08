@@ -23,13 +23,13 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         /// <summary>
         /// The identities assigned to this resource by the user.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.SAPVirtualInstanceIdentityResponseUserAssignedIdentities>? UserAssignedIdentities;
+        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private SAPVirtualInstanceIdentityResponse(
             string type,
 
-            ImmutableDictionary<string, Outputs.SAPVirtualInstanceIdentityResponseUserAssignedIdentities>? userAssignedIdentities)
+            ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
         {
             Type = type;
             UserAssignedIdentities = userAssignedIdentities;
