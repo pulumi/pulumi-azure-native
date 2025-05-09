@@ -33,7 +33,7 @@ require (
 	github.com/manicminer/hamilton-autorest v0.3.0
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/providertest v0.1.5
-	github.com/pulumi/pulumi-java/pkg v1.8.0
+	github.com/pulumi/pulumi-java/pkg v1.11.0
 	github.com/pulumi/pulumi-yaml v1.15.1
 	github.com/pulumi/pulumi/pkg/v3 v3.168.0
 	github.com/pulumi/pulumi/sdk/v3 v3.169.0
@@ -230,14 +230,14 @@ require (
 	github.com/uber/jaeger-lib v2.4.1+incompatible // indirect
 	github.com/xanzy/ssh-agent v0.3.3 // indirect
 	go.uber.org/atomic v1.11.0 // indirect
-	golang.org/x/crypto v0.37.0 // indirect
+	golang.org/x/crypto v0.38.0 // indirect
 	golang.org/x/mod v0.24.0 // indirect
-	golang.org/x/net v0.39.0 // indirect
+	golang.org/x/net v0.40.0 // indirect
 	golang.org/x/oauth2 v0.25.0 // indirect
-	golang.org/x/sync v0.13.0 // indirect
-	golang.org/x/sys v0.32.0 // indirect
-	golang.org/x/term v0.31.0 // indirect
-	golang.org/x/text v0.24.0 // indirect
+	golang.org/x/sync v0.14.0 // indirect
+	golang.org/x/sys v0.33.0 // indirect
+	golang.org/x/term v0.32.0 // indirect
+	golang.org/x/text v0.25.0 // indirect
 	golang.org/x/tools v0.31.0 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 	gopkg.in/yaml.v2 v2.4.0
