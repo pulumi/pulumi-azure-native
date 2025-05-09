@@ -22336,10 +22336,12 @@
     "Workspace": [
       "2019-11-04-preview",
       "2022-01-10-preview",
-      "2023-11-13-preview"
+      "2023-11-13-preview",
+      "2025-01-01-preview"
     ],
     "listWorkspaceKeys": [
-      "2023-11-13-preview"
+      "2023-11-13-preview",
+      "2025-01-01-preview"
     ]
   },
   "Quota": {

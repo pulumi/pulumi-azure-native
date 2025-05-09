@@ -970,7 +970,9 @@
   ],
   "ProviderHub": [],
   "Purview": [],
-  "Quantum": [],
+  "Quantum": [
+    "2025-01-01-preview"
+  ],
   "Quota": [
     "2025-03-15-preview"
   ],
