@@ -1058,6 +1058,7 @@
         "cdn/afdoriginGroup.ts",
         "cdn/afdtargetGroup.ts",
         "cdn/customDomain.ts",
+        "cdn/customDomainHttps.ts",
         "cdn/endpoint.ts",
         "cdn/getAFDCustomDomain.ts",
         "cdn/getAFDEndpoint.ts",

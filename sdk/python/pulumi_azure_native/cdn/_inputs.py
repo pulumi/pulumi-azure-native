@@ -31,6 +31,8 @@ __all__ = [
     'CacheExpirationActionParametersArgsDict',
     'CacheKeyQueryStringActionParametersArgs',
     'CacheKeyQueryStringActionParametersArgsDict',
+    'CdnCertificateSourceParametersArgs',
+    'CdnCertificateSourceParametersArgsDict',
     'ClientPortMatchConditionParametersArgs',
     'ClientPortMatchConditionParametersArgsDict',
     'CompressionSettingsArgs',
@@ -113,8 +115,12 @@ __all__ = [
     'HttpErrorRangeParametersArgsDict',
     'HttpVersionMatchConditionParametersArgs',
     'HttpVersionMatchConditionParametersArgsDict',
+    'HttpsConfigurationArgs',
+    'HttpsConfigurationArgsDict',
     'IsDeviceMatchConditionParametersArgs',
     'IsDeviceMatchConditionParametersArgsDict',
+    'KeyVaultCertificateSourceParametersArgs',
+    'KeyVaultCertificateSourceParametersArgsDict',
     'KeyVaultSigningKeyParametersArgs',
     'KeyVaultSigningKeyParametersArgsDict',
     'LoadBalancingSettingsParametersArgs',
@@ -747,6 +753,42 @@ class CacheKeyQueryStringActionParametersArgs:
     @query_parameters.setter
     def query_parameters(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "query_parameters", value)
+
+
+if not MYPY:
+    class CdnCertificateSourceParametersArgsDict(TypedDict):
+        """
+        CDN certificate parameters for custom domain HTTPS configuration.
+        """
+        certificate_type: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Certificate type for CDN managed certificates. One of: 'Shared', 'Dedicated'.
+        """
+elif False:
+    CdnCertificateSourceParametersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CdnCertificateSourceParametersArgs:
+    def __init__(__self__, *,
+                 certificate_type: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        CDN certificate parameters for custom domain HTTPS configuration.
+        :param pulumi.Input[builtins.str] certificate_type: Certificate type for CDN managed certificates. One of: 'Shared', 'Dedicated'.
+        """
+        if certificate_type is not None:
+            pulumi.set(__self__, "certificate_type", certificate_type)
+
+    @property
+    @pulumi.getter(name="certificateType")
+    def certificate_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Certificate type for CDN managed certificates. One of: 'Shared', 'Dedicated'.
+        """
+        return pulumi.get(self, "certificate_type")
+
+    @certificate_type.setter
+    def certificate_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "certificate_type", value)
 
 
 if not MYPY:
@@ -3809,6 +3851,120 @@ class HttpVersionMatchConditionParametersArgs:
 
 
 if not MYPY:
+    class HttpsConfigurationArgsDict(TypedDict):
+        """
+        HTTPS configuration for CDN custom domain.
+        """
+        certificate_source: pulumi.Input[builtins.str]
+        """
+        Certificate source for the custom domain. One of: 'Cdn', 'AzureKeyVault'.
+        """
+        protocol_type: pulumi.Input[builtins.str]
+        """
+        TLS extension protocol. One of: 'ServerNameIndication', 'IPBased'.
+        """
+        cdn_certificate_source_parameters: NotRequired[pulumi.Input['CdnCertificateSourceParametersArgsDict']]
+        """
+        Parameters required for using CDN managed certificates.
+        """
+        key_vault_certificate_source_parameters: NotRequired[pulumi.Input['KeyVaultCertificateSourceParametersArgsDict']]
+        """
+        Parameters required for using certificates stored in Azure KeyVault.
+        """
+        minimum_tls_version: NotRequired[pulumi.Input[builtins.str]]
+        """
+        TLS protocol version that will be used for HTTPS. One of: 'None', 'TLS10', 'TLS12'.
+        """
+elif False:
+    HttpsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HttpsConfigurationArgs:
+    def __init__(__self__, *,
+                 certificate_source: pulumi.Input[builtins.str],
+                 protocol_type: pulumi.Input[builtins.str],
+                 cdn_certificate_source_parameters: Optional[pulumi.Input['CdnCertificateSourceParametersArgs']] = None,
+                 key_vault_certificate_source_parameters: Optional[pulumi.Input['KeyVaultCertificateSourceParametersArgs']] = None,
+                 minimum_tls_version: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        HTTPS configuration for CDN custom domain.
+        :param pulumi.Input[builtins.str] certificate_source: Certificate source for the custom domain. One of: 'Cdn', 'AzureKeyVault'.
+        :param pulumi.Input[builtins.str] protocol_type: TLS extension protocol. One of: 'ServerNameIndication', 'IPBased'.
+        :param pulumi.Input['CdnCertificateSourceParametersArgs'] cdn_certificate_source_parameters: Parameters required for using CDN managed certificates.
+        :param pulumi.Input['KeyVaultCertificateSourceParametersArgs'] key_vault_certificate_source_parameters: Parameters required for using certificates stored in Azure KeyVault.
+        :param pulumi.Input[builtins.str] minimum_tls_version: TLS protocol version that will be used for HTTPS. One of: 'None', 'TLS10', 'TLS12'.
+        """
+        pulumi.set(__self__, "certificate_source", certificate_source)
+        pulumi.set(__self__, "protocol_type", protocol_type)
+        if cdn_certificate_source_parameters is not None:
+            pulumi.set(__self__, "cdn_certificate_source_parameters", cdn_certificate_source_parameters)
+        if key_vault_certificate_source_parameters is not None:
+            pulumi.set(__self__, "key_vault_certificate_source_parameters", key_vault_certificate_source_parameters)
+        if minimum_tls_version is not None:
+            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+
+    @property
+    @pulumi.getter(name="certificateSource")
+    def certificate_source(self) -> pulumi.Input[builtins.str]:
+        """
+        Certificate source for the custom domain. One of: 'Cdn', 'AzureKeyVault'.
+        """
+        return pulumi.get(self, "certificate_source")
+
+    @certificate_source.setter
+    def certificate_source(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "certificate_source", value)
+
+    @property
+    @pulumi.getter(name="protocolType")
+    def protocol_type(self) -> pulumi.Input[builtins.str]:
+        """
+        TLS extension protocol. One of: 'ServerNameIndication', 'IPBased'.
+        """
+        return pulumi.get(self, "protocol_type")
+
+    @protocol_type.setter
+    def protocol_type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "protocol_type", value)
+
+    @property
+    @pulumi.getter(name="cdnCertificateSourceParameters")
+    def cdn_certificate_source_parameters(self) -> Optional[pulumi.Input['CdnCertificateSourceParametersArgs']]:
+        """
+        Parameters required for using CDN managed certificates.
+        """
+        return pulumi.get(self, "cdn_certificate_source_parameters")
+
+    @cdn_certificate_source_parameters.setter
+    def cdn_certificate_source_parameters(self, value: Optional[pulumi.Input['CdnCertificateSourceParametersArgs']]):
+        pulumi.set(self, "cdn_certificate_source_parameters", value)
+
+    @property
+    @pulumi.getter(name="keyVaultCertificateSourceParameters")
+    def key_vault_certificate_source_parameters(self) -> Optional[pulumi.Input['KeyVaultCertificateSourceParametersArgs']]:
+        """
+        Parameters required for using certificates stored in Azure KeyVault.
+        """
+        return pulumi.get(self, "key_vault_certificate_source_parameters")
+
+    @key_vault_certificate_source_parameters.setter
+    def key_vault_certificate_source_parameters(self, value: Optional[pulumi.Input['KeyVaultCertificateSourceParametersArgs']]):
+        pulumi.set(self, "key_vault_certificate_source_parameters", value)
+
+    @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        TLS protocol version that will be used for HTTPS. One of: 'None', 'TLS10', 'TLS12'.
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @minimum_tls_version.setter
+    def minimum_tls_version(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "minimum_tls_version", value)
+
+
+if not MYPY:
     class IsDeviceMatchConditionParametersArgsDict(TypedDict):
         """
         Defines the parameters for IsDevice match conditions
@@ -3925,6 +4081,118 @@ class IsDeviceMatchConditionParametersArgs:
     @transforms.setter
     def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'Transform']]]]]):
         pulumi.set(self, "transforms", value)
+
+
+if not MYPY:
+    class KeyVaultCertificateSourceParametersArgsDict(TypedDict):
+        """
+        Key Vault certificate parameters for custom domain HTTPS configuration.
+        """
+        resource_group_name: pulumi.Input[builtins.str]
+        """
+        Resource group containing the Key Vault.
+        """
+        secret_name: pulumi.Input[builtins.str]
+        """
+        Name of the secret in Key Vault.
+        """
+        subscription_id: pulumi.Input[builtins.str]
+        """
+        Azure subscription ID containing the Key Vault.
+        """
+        vault_name: pulumi.Input[builtins.str]
+        """
+        Name of the Key Vault.
+        """
+        secret_version: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Version of the secret in Key Vault.
+        """
+elif False:
+    KeyVaultCertificateSourceParametersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KeyVaultCertificateSourceParametersArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[builtins.str],
+                 secret_name: pulumi.Input[builtins.str],
+                 subscription_id: pulumi.Input[builtins.str],
+                 vault_name: pulumi.Input[builtins.str],
+                 secret_version: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Key Vault certificate parameters for custom domain HTTPS configuration.
+        :param pulumi.Input[builtins.str] resource_group_name: Resource group containing the Key Vault.
+        :param pulumi.Input[builtins.str] secret_name: Name of the secret in Key Vault.
+        :param pulumi.Input[builtins.str] subscription_id: Azure subscription ID containing the Key Vault.
+        :param pulumi.Input[builtins.str] vault_name: Name of the Key Vault.
+        :param pulumi.Input[builtins.str] secret_version: Version of the secret in Key Vault.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+        pulumi.set(__self__, "vault_name", vault_name)
+        if secret_version is not None:
+            pulumi.set(__self__, "secret_version", secret_version)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[builtins.str]:
+        """
+        Resource group containing the Key Vault.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> pulumi.Input[builtins.str]:
+        """
+        Name of the secret in Key Vault.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @secret_name.setter
+    def secret_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "secret_name", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Input[builtins.str]:
+        """
+        Azure subscription ID containing the Key Vault.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "subscription_id", value)
+
+    @property
+    @pulumi.getter(name="vaultName")
+    def vault_name(self) -> pulumi.Input[builtins.str]:
+        """
+        Name of the Key Vault.
+        """
+        return pulumi.get(self, "vault_name")
+
+    @vault_name.setter
+    def vault_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "vault_name", value)
+
+    @property
+    @pulumi.getter(name="secretVersion")
+    def secret_version(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Version of the secret in Key Vault.
+        """
+        return pulumi.get(self, "secret_version")
+
+    @secret_version.setter
+    def secret_version(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "secret_version", value)
 
 
 if not MYPY:

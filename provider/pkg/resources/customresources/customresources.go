@@ -257,6 +257,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 		protectedItem,
 		pimRoleManagementPolicy,
 		pimRoleEligibilitySchedule,
+		cdnCustomDomainHttps(azureClient),
 	}
 
 	// For Key Vault, we need to use separate token sources for azidentity and for the legacy auth. The

@@ -13,6 +13,7 @@ from .afd_origin import *
 from .afd_origin_group import *
 from .afd_target_group import *
 from .custom_domain import *
+from .custom_domain_https import *
 from .endpoint import *
 from .get_afd_custom_domain import *
 from .get_afd_endpoint import *
