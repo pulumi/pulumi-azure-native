@@ -134,10 +134,8 @@ class ServerAzureADAdministratorArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure-native:sql:ServerAzureADAdministrator")
 class ServerAzureADAdministrator(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:ServerAzureADAdministrator"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

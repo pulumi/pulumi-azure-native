@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -20,6 +20,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:notificationhubs:AccessRights")
 class AccessRights(builtins.str, Enum):
     """
     Defines values for AccessRights.
@@ -29,6 +30,7 @@ class AccessRights(builtins.str, Enum):
     LISTEN = "Listen"
 
 
+@pulumi.type_token("azure-native:notificationhubs:NamespaceStatus")
 class NamespaceStatus(builtins.str, Enum):
     """
     Namespace status.
@@ -39,6 +41,7 @@ class NamespaceStatus(builtins.str, Enum):
     DELETING = "Deleting"
 
 
+@pulumi.type_token("azure-native:notificationhubs:NamespaceType")
 class NamespaceType(builtins.str, Enum):
     """
     Defines values for NamespaceType.
@@ -47,6 +50,7 @@ class NamespaceType(builtins.str, Enum):
     NOTIFICATION_HUB = "NotificationHub"
 
 
+@pulumi.type_token("azure-native:notificationhubs:OperationProvisioningState")
 class OperationProvisioningState(builtins.str, Enum):
     """
     Defines values for OperationProvisioningState.
@@ -60,6 +64,7 @@ class OperationProvisioningState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:notificationhubs:PrivateEndpointConnectionProvisioningState")
 class PrivateEndpointConnectionProvisioningState(builtins.str, Enum):
     """
     State of Private Endpoint Connection.
@@ -74,6 +79,7 @@ class PrivateEndpointConnectionProvisioningState(builtins.str, Enum):
     DELETED = "Deleted"
 
 
+@pulumi.type_token("azure-native:notificationhubs:PrivateLinkConnectionStatus")
 class PrivateLinkConnectionStatus(builtins.str, Enum):
     """
     State of Private Link Connection.
@@ -84,6 +90,7 @@ class PrivateLinkConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:notificationhubs:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Type of public network access.
@@ -92,6 +99,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:notificationhubs:ReplicationRegion")
 class ReplicationRegion(builtins.str, Enum):
     """
     Allowed replication region
@@ -106,6 +114,7 @@ class ReplicationRegion(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:notificationhubs:SkuName")
 class SkuName(builtins.str, Enum):
     """
     Namespace SKU name.
@@ -115,6 +124,7 @@ class SkuName(builtins.str, Enum):
     STANDARD = "Standard"
 
 
+@pulumi.type_token("azure-native:notificationhubs:ZoneRedundancyPreference")
 class ZoneRedundancyPreference(builtins.str, Enum):
     """
     Namespace SKU name.

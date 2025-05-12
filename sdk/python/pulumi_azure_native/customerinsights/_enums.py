@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -23,6 +23,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:customerinsights:CalculationWindowTypes")
 class CalculationWindowTypes(builtins.str, Enum):
     """
     The calculation window.
@@ -34,6 +35,7 @@ class CalculationWindowTypes(builtins.str, Enum):
     MONTH = "Month"
 
 
+@pulumi.type_token("azure-native:customerinsights:CardinalityTypes")
 class CardinalityTypes(builtins.str, Enum):
     """
     The Relationship Cardinality.
@@ -43,6 +45,7 @@ class CardinalityTypes(builtins.str, Enum):
     MANY_TO_MANY = "ManyToMany"
 
 
+@pulumi.type_token("azure-native:customerinsights:CompletionOperationTypes")
 class CompletionOperationTypes(builtins.str, Enum):
     """
     The type of completion operation.
@@ -52,6 +55,7 @@ class CompletionOperationTypes(builtins.str, Enum):
     MOVE_FILE = "MoveFile"
 
 
+@pulumi.type_token("azure-native:customerinsights:ConnectorTypes")
 class ConnectorTypes(builtins.str, Enum):
     """
     Type of connector.
@@ -64,6 +68,7 @@ class ConnectorTypes(builtins.str, Enum):
     OUTBOUND = "Outbound"
 
 
+@pulumi.type_token("azure-native:customerinsights:EntityType")
 class EntityType(builtins.str, Enum):
     """
     Type of target entity.
@@ -74,6 +79,7 @@ class EntityType(builtins.str, Enum):
     RELATIONSHIP = "Relationship"
 
 
+@pulumi.type_token("azure-native:customerinsights:EntityTypes")
 class EntityTypes(builtins.str, Enum):
     """
     Type of entity.
@@ -84,6 +90,7 @@ class EntityTypes(builtins.str, Enum):
     RELATIONSHIP = "Relationship"
 
 
+@pulumi.type_token("azure-native:customerinsights:ErrorManagementTypes")
 class ErrorManagementTypes(builtins.str, Enum):
     """
     The type of error management to use for the mapping.
@@ -93,6 +100,7 @@ class ErrorManagementTypes(builtins.str, Enum):
     REJECT_UNTIL_LIMIT = "RejectUntilLimit"
 
 
+@pulumi.type_token("azure-native:customerinsights:FormatTypes")
 class FormatTypes(builtins.str, Enum):
     """
     The type mapping format.
@@ -100,6 +108,7 @@ class FormatTypes(builtins.str, Enum):
     TEXT_FORMAT = "TextFormat"
 
 
+@pulumi.type_token("azure-native:customerinsights:FrequencyTypes")
 class FrequencyTypes(builtins.str, Enum):
     """
     The frequency to update.
@@ -111,6 +120,7 @@ class FrequencyTypes(builtins.str, Enum):
     MONTH = "Month"
 
 
+@pulumi.type_token("azure-native:customerinsights:InstanceOperationType")
 class InstanceOperationType(builtins.str, Enum):
     """
     Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
@@ -119,6 +129,7 @@ class InstanceOperationType(builtins.str, Enum):
     DELETE = "Delete"
 
 
+@pulumi.type_token("azure-native:customerinsights:KpiFunctions")
 class KpiFunctions(builtins.str, Enum):
     """
     The computation function for the KPI.
@@ -133,6 +144,7 @@ class KpiFunctions(builtins.str, Enum):
     COUNT_DISTINCT = "CountDistinct"
 
 
+@pulumi.type_token("azure-native:customerinsights:LinkTypes")
 class LinkTypes(builtins.str, Enum):
     """
     Link type.
@@ -141,6 +153,7 @@ class LinkTypes(builtins.str, Enum):
     COPY_IF_NULL = "CopyIfNull"
 
 
+@pulumi.type_token("azure-native:customerinsights:RoleTypes")
 class RoleTypes(builtins.str, Enum):
     """
     Type of roles.

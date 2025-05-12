@@ -202,10 +202,8 @@ class ScriptArgs:
         pulumi.set(self, "script_url_sas_token", value)
 
 
+@pulumi.type_token("azure-native:kusto:Script")
 class Script(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:kusto:Script"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

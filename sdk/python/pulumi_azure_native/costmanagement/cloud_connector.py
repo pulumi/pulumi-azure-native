@@ -171,10 +171,8 @@ class CloudConnectorArgs:
         pulumi.set(self, "subscription_id", value)
 
 
+@pulumi.type_token("azure-native:costmanagement:CloudConnector")
 class CloudConnector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:costmanagement:CloudConnector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -104,10 +104,8 @@ class FirewallRuleArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:databasefleetmanager:FirewallRule")
 class FirewallRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databasefleetmanager:FirewallRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -20,6 +20,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:purview:AccountSkuName")
 class AccountSkuName(builtins.str, Enum):
     """
     Gets or sets the sku name.
@@ -28,6 +29,7 @@ class AccountSkuName(builtins.str, Enum):
     FREE = "Free"
 
 
+@pulumi.type_token("azure-native:purview:EventHubType")
 class EventHubType(builtins.str, Enum):
     """
     The event hub type.
@@ -36,6 +38,7 @@ class EventHubType(builtins.str, Enum):
     HOOK = "Hook"
 
 
+@pulumi.type_token("azure-native:purview:EventStreamingState")
 class EventStreamingState(builtins.str, Enum):
     """
     The state of the event streaming service
@@ -44,6 +47,7 @@ class EventStreamingState(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:purview:EventStreamingType")
 class EventStreamingType(builtins.str, Enum):
     """
     The event streaming service type
@@ -53,6 +57,7 @@ class EventStreamingType(builtins.str, Enum):
     AZURE = "Azure"
 
 
+@pulumi.type_token("azure-native:purview:KafkaConfigurationIdentityType")
 class KafkaConfigurationIdentityType(builtins.str, Enum):
     """
     Identity Type.
@@ -62,6 +67,7 @@ class KafkaConfigurationIdentityType(builtins.str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+@pulumi.type_token("azure-native:purview:ManagedEventHubState")
 class ManagedEventHubState(builtins.str, Enum):
     """
     Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
@@ -71,6 +77,7 @@ class ManagedEventHubState(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:purview:ManagedIdentityType")
 class ManagedIdentityType(builtins.str, Enum):
     """
     Identity Type
@@ -80,6 +87,7 @@ class ManagedIdentityType(builtins.str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+@pulumi.type_token("azure-native:purview:PrivateEndpointConnectionStatus")
 class PrivateEndpointConnectionStatus(builtins.str, Enum):
     """
     The status.
@@ -91,6 +99,7 @@ class PrivateEndpointConnectionStatus(builtins.str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+@pulumi.type_token("azure-native:purview:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Gets or sets the public network access.
@@ -100,6 +109,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:purview:TenantEndpointState")
 class TenantEndpointState(builtins.str, Enum):
     """
     Gets or sets the state of tenant endpoint.

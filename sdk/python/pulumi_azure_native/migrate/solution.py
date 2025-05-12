@@ -89,10 +89,8 @@ class SolutionArgs:
         pulumi.set(self, "solution_name", value)
 
 
+@pulumi.type_token("azure-native:migrate:Solution")
 class Solution(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:migrate:Solution"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

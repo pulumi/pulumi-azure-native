@@ -117,10 +117,8 @@ class WorkspaceApiReleaseArgs:
         pulumi.set(self, "release_id", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:WorkspaceApiRelease")
 class WorkspaceApiRelease(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:WorkspaceApiRelease"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

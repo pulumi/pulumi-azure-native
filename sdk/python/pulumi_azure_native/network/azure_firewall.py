@@ -315,10 +315,8 @@ class AzureFirewallArgs:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure-native:network:AzureFirewall")
 class AzureFirewall(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:AzureFirewall"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

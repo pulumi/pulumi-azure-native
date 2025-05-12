@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -21,6 +21,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:scheduler:DayOfWeek")
 class DayOfWeek(builtins.str, Enum):
     SUNDAY = "Sunday"
     MONDAY = "Monday"
@@ -31,6 +32,7 @@ class DayOfWeek(builtins.str, Enum):
     SATURDAY = "Saturday"
 
 
+@pulumi.type_token("azure-native:scheduler:HttpAuthenticationType")
 class HttpAuthenticationType(builtins.str, Enum):
     """
     Gets or sets the HTTP authentication type.
@@ -41,6 +43,7 @@ class HttpAuthenticationType(builtins.str, Enum):
     BASIC = "Basic"
 
 
+@pulumi.type_token("azure-native:scheduler:JobActionType")
 class JobActionType(builtins.str, Enum):
     """
     Gets or sets the job action type.
@@ -52,6 +55,7 @@ class JobActionType(builtins.str, Enum):
     SERVICE_BUS_TOPIC = "ServiceBusTopic"
 
 
+@pulumi.type_token("azure-native:scheduler:JobCollectionState")
 class JobCollectionState(builtins.str, Enum):
     """
     Gets or sets the state.
@@ -62,6 +66,7 @@ class JobCollectionState(builtins.str, Enum):
     DELETED = "Deleted"
 
 
+@pulumi.type_token("azure-native:scheduler:JobScheduleDay")
 class JobScheduleDay(builtins.str, Enum):
     """
     Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
@@ -75,6 +80,7 @@ class JobScheduleDay(builtins.str, Enum):
     SUNDAY = "Sunday"
 
 
+@pulumi.type_token("azure-native:scheduler:JobState")
 class JobState(builtins.str, Enum):
     """
     Gets or set the job state.
@@ -85,6 +91,7 @@ class JobState(builtins.str, Enum):
     COMPLETED = "Completed"
 
 
+@pulumi.type_token("azure-native:scheduler:RecurrenceFrequency")
 class RecurrenceFrequency(builtins.str, Enum):
     """
     Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
@@ -96,6 +103,7 @@ class RecurrenceFrequency(builtins.str, Enum):
     MONTH = "Month"
 
 
+@pulumi.type_token("azure-native:scheduler:RetryType")
 class RetryType(builtins.str, Enum):
     """
     Gets or sets the retry strategy to be used.
@@ -104,6 +112,7 @@ class RetryType(builtins.str, Enum):
     FIXED = "Fixed"
 
 
+@pulumi.type_token("azure-native:scheduler:ServiceBusAuthenticationType")
 class ServiceBusAuthenticationType(builtins.str, Enum):
     """
     Gets or sets the authentication type.
@@ -112,6 +121,7 @@ class ServiceBusAuthenticationType(builtins.str, Enum):
     SHARED_ACCESS_KEY = "SharedAccessKey"
 
 
+@pulumi.type_token("azure-native:scheduler:ServiceBusTransportType")
 class ServiceBusTransportType(builtins.str, Enum):
     """
     Gets or sets the transport type.
@@ -121,6 +131,7 @@ class ServiceBusTransportType(builtins.str, Enum):
     AMQP = "AMQP"
 
 
+@pulumi.type_token("azure-native:scheduler:SkuDefinition")
 class SkuDefinition(builtins.str, Enum):
     """
     Gets or set the SKU.

@@ -224,10 +224,8 @@ class AppServiceCertificateOrderArgs:
         pulumi.set(self, "validity_in_years", value)
 
 
+@pulumi.type_token("azure-native:certificateregistration:AppServiceCertificateOrder")
 class AppServiceCertificateOrder(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:certificateregistration:AppServiceCertificateOrder"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

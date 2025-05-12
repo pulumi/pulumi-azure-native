@@ -89,10 +89,8 @@ class AnomaliesArgs:
         pulumi.set(self, "settings_name", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:Anomalies")
 class Anomalies(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:Anomalies"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

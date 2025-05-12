@@ -101,10 +101,8 @@ class SingleServerFirewallRuleArgs:
         pulumi.set(self, "firewall_rule_name", value)
 
 
+@pulumi.type_token("azure-native:dbforpostgresql:SingleServerFirewallRule")
 class SingleServerFirewallRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dbforpostgresql:SingleServerFirewallRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

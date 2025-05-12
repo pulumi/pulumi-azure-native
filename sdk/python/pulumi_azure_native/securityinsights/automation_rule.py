@@ -134,10 +134,8 @@ class AutomationRuleArgs:
         pulumi.set(self, "automation_rule_id", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:AutomationRule")
 class AutomationRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:AutomationRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

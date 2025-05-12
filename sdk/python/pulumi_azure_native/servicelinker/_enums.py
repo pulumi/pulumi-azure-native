@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -23,6 +23,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:servicelinker:AccessKeyPermissions")
 class AccessKeyPermissions(builtins.str, Enum):
     READ = "Read"
     WRITE = "Write"
@@ -31,6 +32,7 @@ class AccessKeyPermissions(builtins.str, Enum):
     MANAGE = "Manage"
 
 
+@pulumi.type_token("azure-native:servicelinker:ActionType")
 class ActionType(builtins.str, Enum):
     """
     Optional. Indicates public network solution. If enable, enable public network access of target service with best try. Default is enable. If optOut, opt out public network access configuration.
@@ -39,6 +41,7 @@ class ActionType(builtins.str, Enum):
     OPT_OUT = "optOut"
 
 
+@pulumi.type_token("azure-native:servicelinker:AllowType")
 class AllowType(builtins.str, Enum):
     """
     Allow caller client IP to access the target service if true. the property is used when connecting local application to target service.
@@ -47,6 +50,7 @@ class AllowType(builtins.str, Enum):
     FALSE = "false"
 
 
+@pulumi.type_token("azure-native:servicelinker:AuthMode")
 class AuthMode(builtins.str, Enum):
     """
     Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
@@ -61,6 +65,7 @@ class AuthMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicelinker:AuthType")
 class AuthType(builtins.str, Enum):
     """
     The authentication type.
@@ -75,6 +80,7 @@ class AuthType(builtins.str, Enum):
     EASY_AUTH_MICROSOFT_ENTRA_ID = "easyAuthMicrosoftEntraID"
 
 
+@pulumi.type_token("azure-native:servicelinker:AzureResourceType")
 class AzureResourceType(builtins.str, Enum):
     """
     The azure resource type.
@@ -82,6 +88,7 @@ class AzureResourceType(builtins.str, Enum):
     KEY_VAULT = "KeyVault"
 
 
+@pulumi.type_token("azure-native:servicelinker:ClientType")
 class ClientType(builtins.str, Enum):
     """
     The application client type
@@ -101,6 +108,7 @@ class ClientType(builtins.str, Enum):
     DAPR = "dapr"
 
 
+@pulumi.type_token("azure-native:servicelinker:DaprMetadataRequired")
 class DaprMetadataRequired(builtins.str, Enum):
     """
     The value indicating whether the metadata is required or not
@@ -109,6 +117,7 @@ class DaprMetadataRequired(builtins.str, Enum):
     FALSE = "false"
 
 
+@pulumi.type_token("azure-native:servicelinker:DeleteOrUpdateBehavior")
 class DeleteOrUpdateBehavior(builtins.str, Enum):
     """
     Indicates whether to clean up previous operation when Linker is updating or deleting
@@ -117,6 +126,7 @@ class DeleteOrUpdateBehavior(builtins.str, Enum):
     FORCED_CLEANUP = "ForcedCleanup"
 
 
+@pulumi.type_token("azure-native:servicelinker:DryrunActionName")
 class DryrunActionName(builtins.str, Enum):
     """
     The name of action for you dryrun job.
@@ -124,6 +134,7 @@ class DryrunActionName(builtins.str, Enum):
     CREATE_OR_UPDATE = "createOrUpdate"
 
 
+@pulumi.type_token("azure-native:servicelinker:SecretType")
 class SecretType(builtins.str, Enum):
     """
     The secret type.
@@ -133,6 +144,7 @@ class SecretType(builtins.str, Enum):
     KEY_VAULT_SECRET_REFERENCE = "keyVaultSecretReference"
 
 
+@pulumi.type_token("azure-native:servicelinker:TargetServiceType")
 class TargetServiceType(builtins.str, Enum):
     """
     The target service type.
@@ -143,6 +155,7 @@ class TargetServiceType(builtins.str, Enum):
     SELF_HOSTED_SERVER = "SelfHostedServer"
 
 
+@pulumi.type_token("azure-native:servicelinker:VNetSolutionType")
 class VNetSolutionType(builtins.str, Enum):
     """
     Type of VNet solution.

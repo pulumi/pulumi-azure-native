@@ -117,10 +117,8 @@ class IntegrationFabricArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:dashboard:IntegrationFabric")
 class IntegrationFabric(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dashboard:IntegrationFabric"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

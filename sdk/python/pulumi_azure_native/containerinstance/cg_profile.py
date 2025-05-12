@@ -417,10 +417,8 @@ class CGProfileArgs:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure-native:containerinstance:CGProfile")
 class CGProfile(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerinstance:CGProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

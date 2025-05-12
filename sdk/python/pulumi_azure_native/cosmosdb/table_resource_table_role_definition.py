@@ -154,10 +154,8 @@ class TableResourceTableRoleDefinitionArgs:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:TableResourceTableRoleDefinition")
 class TableResourceTableRoleDefinition(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:TableResourceTableRoleDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

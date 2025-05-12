@@ -166,10 +166,8 @@ class KustoPoolAttachedDatabaseConfigurationArgs:
         pulumi.set(self, "table_level_sharing_properties", value)
 
 
+@pulumi.type_token("azure-native:synapse:KustoPoolAttachedDatabaseConfiguration")
 class KustoPoolAttachedDatabaseConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:synapse:KustoPoolAttachedDatabaseConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -203,10 +203,8 @@ class P2sVpnGatewayArgs:
         pulumi.set(self, "vpn_server_configuration", value)
 
 
+@pulumi.type_token("azure-native:network:P2sVpnGateway")
 class P2sVpnGateway(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:P2sVpnGateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

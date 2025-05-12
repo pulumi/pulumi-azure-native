@@ -137,10 +137,8 @@ class FirewallPolicyRuleCollectionGroupDraftArgs:
         pulumi.set(self, "rule_collections", value)
 
 
+@pulumi.type_token("azure-native:network:FirewallPolicyRuleCollectionGroupDraft")
 class FirewallPolicyRuleCollectionGroupDraft(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:FirewallPolicyRuleCollectionGroupDraft"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

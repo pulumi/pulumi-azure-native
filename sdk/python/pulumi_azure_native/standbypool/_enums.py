@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:standbypool:RefillPolicy")
 class RefillPolicy(builtins.str, Enum):
     """
     Specifies refill policy of the pool.
@@ -22,6 +23,7 @@ class RefillPolicy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:standbypool:VirtualMachineState")
 class VirtualMachineState(builtins.str, Enum):
     """
     Specifies the desired state of virtual machines in the pool.

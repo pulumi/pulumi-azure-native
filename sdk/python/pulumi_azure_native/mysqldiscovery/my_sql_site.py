@@ -152,10 +152,8 @@ class MySQLSiteArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:mysqldiscovery:MySQLSite")
 class MySQLSite(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:mysqldiscovery:MySQLSite"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

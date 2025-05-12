@@ -89,10 +89,8 @@ class ActiveDirectoryConnectorArgs:
         pulumi.set(self, "active_directory_connector_name", value)
 
 
+@pulumi.type_token("azure-native:azurearcdata:ActiveDirectoryConnector")
 class ActiveDirectoryConnector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurearcdata:ActiveDirectoryConnector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

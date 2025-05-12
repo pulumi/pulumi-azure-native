@@ -141,10 +141,8 @@ class ZoneArgs:
         pulumi.set(self, "zone_type", value)
 
 
+@pulumi.type_token("azure-native:dns:Zone")
 class Zone(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dns:Zone"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -120,10 +120,8 @@ class WorkloadNetworkVMGroupArgs:
         pulumi.set(self, "vm_group_id", value)
 
 
+@pulumi.type_token("azure-native:avs:WorkloadNetworkVMGroup")
 class WorkloadNetworkVMGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:avs:WorkloadNetworkVMGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

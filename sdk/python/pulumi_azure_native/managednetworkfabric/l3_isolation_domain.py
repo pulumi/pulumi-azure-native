@@ -190,10 +190,8 @@ class L3IsolationDomainArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:L3IsolationDomain")
 class L3IsolationDomain(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:managednetworkfabric:L3IsolationDomain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -121,10 +121,8 @@ class SecurityAdminConfigurationArgs:
         pulumi.set(self, "network_group_address_space_aggregation_option", value)
 
 
+@pulumi.type_token("azure-native:network:SecurityAdminConfiguration")
 class SecurityAdminConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:SecurityAdminConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

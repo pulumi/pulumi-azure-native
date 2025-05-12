@@ -238,10 +238,8 @@ class PacketCaptureArgs:
         pulumi.set(self, "total_bytes_per_session", value)
 
 
+@pulumi.type_token("azure-native:network:PacketCapture")
 class PacketCapture(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:PacketCapture"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

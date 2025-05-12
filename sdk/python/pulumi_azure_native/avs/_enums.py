@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -25,6 +25,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:avs:AddonType")
 class AddonType(builtins.str, Enum):
     """
     Addon type
@@ -35,6 +36,7 @@ class AddonType(builtins.str, Enum):
     ARC = "Arc"
 
 
+@pulumi.type_token("azure-native:avs:AvailabilityStrategy")
 class AvailabilityStrategy(builtins.str, Enum):
     """
     The availability strategy for the private cloud
@@ -49,6 +51,7 @@ class AvailabilityStrategy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:avs:DhcpTypeEnum")
 class DhcpTypeEnum(builtins.str, Enum):
     """
     Type of DHCP: SERVER or RELAY.
@@ -57,6 +60,7 @@ class DhcpTypeEnum(builtins.str, Enum):
     RELAY = "RELAY"
 
 
+@pulumi.type_token("azure-native:avs:DnsServiceLogLevelEnum")
 class DnsServiceLogLevelEnum(builtins.str, Enum):
     """
     DNS Service log level.
@@ -83,6 +87,7 @@ class DnsServiceLogLevelEnum(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:avs:DnsZoneType")
 class DnsZoneType(builtins.str, Enum):
     """
     The type of DNS zone to use.
@@ -97,6 +102,7 @@ class DnsZoneType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:avs:EncryptionState")
 class EncryptionState(builtins.str, Enum):
     """
     Status of customer managed encryption key
@@ -111,6 +117,7 @@ class EncryptionState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:avs:InternetEnum")
 class InternetEnum(builtins.str, Enum):
     """
     Connectivity to internet is enabled or disabled
@@ -125,6 +132,7 @@ class InternetEnum(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:avs:MountOptionEnum")
 class MountOptionEnum(builtins.str, Enum):
     """
     Mode that describes whether the LUN has to be mounted as a datastore or
@@ -140,6 +148,7 @@ class MountOptionEnum(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:avs:PlacementPolicyState")
 class PlacementPolicyState(builtins.str, Enum):
     """
     Whether the placement policy is enabled or disabled
@@ -154,6 +163,7 @@ class PlacementPolicyState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:avs:PlacementPolicyType")
 class PlacementPolicyType(builtins.str, Enum):
     """
     Placement Policy type
@@ -162,6 +172,7 @@ class PlacementPolicyType(builtins.str, Enum):
     VM_HOST = "VmHost"
 
 
+@pulumi.type_token("azure-native:avs:PortMirroringDirectionEnum")
 class PortMirroringDirectionEnum(builtins.str, Enum):
     """
     Direction of port mirroring profile.
@@ -180,6 +191,7 @@ class PortMirroringDirectionEnum(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:avs:ScriptExecutionParameterType")
 class ScriptExecutionParameterType(builtins.str, Enum):
     """
     script execution parameter type
@@ -189,6 +201,7 @@ class ScriptExecutionParameterType(builtins.str, Enum):
     CREDENTIAL = "Credential"
 
 
+@pulumi.type_token("azure-native:avs:SkuTier")
 class SkuTier(builtins.str, Enum):
     """
     This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
@@ -199,6 +212,7 @@ class SkuTier(builtins.str, Enum):
     PREMIUM = "Premium"
 
 
+@pulumi.type_token("azure-native:avs:SslEnum")
 class SslEnum(builtins.str, Enum):
     """
     Protect LDAP communication using SSL certificate (LDAPS)
@@ -213,6 +227,7 @@ class SslEnum(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:avs:SystemAssignedServiceIdentityType")
 class SystemAssignedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (either system assigned, or none).

@@ -121,10 +121,8 @@ class StandbyContainerGroupPoolArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:standbypool:StandbyContainerGroupPool")
 class StandbyContainerGroupPool(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:standbypool:StandbyContainerGroupPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

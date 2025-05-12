@@ -203,10 +203,8 @@ class ConnectedEnvironmentsDaprComponentArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure-native:app:ConnectedEnvironmentsDaprComponent")
 class ConnectedEnvironmentsDaprComponent(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:app:ConnectedEnvironmentsDaprComponent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

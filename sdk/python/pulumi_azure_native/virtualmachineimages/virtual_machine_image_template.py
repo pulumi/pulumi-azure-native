@@ -282,10 +282,8 @@ class VirtualMachineImageTemplateArgs:
         pulumi.set(self, "vm_profile", value)
 
 
+@pulumi.type_token("azure-native:virtualmachineimages:VirtualMachineImageTemplate")
 class VirtualMachineImageTemplate(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:virtualmachineimages:VirtualMachineImageTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

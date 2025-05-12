@@ -105,10 +105,8 @@ class LoadTestProfileMappingArgs:
         pulumi.set(self, "test_profile_id", value)
 
 
+@pulumi.type_token("azure-native:loadtestservice:LoadTestProfileMapping")
 class LoadTestProfileMapping(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:loadtestservice:LoadTestProfileMapping"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

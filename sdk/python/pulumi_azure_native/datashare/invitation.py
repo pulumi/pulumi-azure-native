@@ -155,10 +155,8 @@ class InvitationArgs:
         pulumi.set(self, "target_object_id", value)
 
 
+@pulumi.type_token("azure-native:datashare:Invitation")
 class Invitation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datashare:Invitation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -279,10 +279,8 @@ class WorkspaceApiDiagnosticArgs:
         pulumi.set(self, "verbosity", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:WorkspaceApiDiagnostic")
 class WorkspaceApiDiagnostic(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:WorkspaceApiDiagnostic"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

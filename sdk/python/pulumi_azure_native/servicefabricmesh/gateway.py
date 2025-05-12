@@ -169,10 +169,8 @@ class GatewayArgs:
         pulumi.set(self, "tcp", value)
 
 
+@pulumi.type_token("azure-native:servicefabricmesh:Gateway")
 class Gateway(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:servicefabricmesh:Gateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

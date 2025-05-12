@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -38,6 +38,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:kusto:AzureSkuName")
 class AzureSkuName(builtins.str, Enum):
     """
     SKU name.
@@ -108,6 +109,7 @@ class AzureSkuName(builtins.str, Enum):
     STANDARD_E16D_V5 = "Standard_E16d_v5"
 
 
+@pulumi.type_token("azure-native:kusto:AzureSkuTier")
 class AzureSkuTier(builtins.str, Enum):
     """
     SKU tier.
@@ -116,6 +118,7 @@ class AzureSkuTier(builtins.str, Enum):
     STANDARD = "Standard"
 
 
+@pulumi.type_token("azure-native:kusto:BlobStorageEventType")
 class BlobStorageEventType(builtins.str, Enum):
     """
     The name of blob storage event type to process.
@@ -124,6 +127,7 @@ class BlobStorageEventType(builtins.str, Enum):
     MICROSOFT_STORAGE_BLOB_RENAMED = "Microsoft.Storage.BlobRenamed"
 
 
+@pulumi.type_token("azure-native:kusto:CalloutType")
 class CalloutType(builtins.str, Enum):
     """
     Type of the callout service, specifying the kind of external resource or service being accessed.
@@ -141,6 +145,7 @@ class CalloutType(builtins.str, Enum):
     AZURE_OPENAI = "azure_openai"
 
 
+@pulumi.type_token("azure-native:kusto:ClusterNetworkAccessFlag")
 class ClusterNetworkAccessFlag(builtins.str, Enum):
     """
     Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
@@ -149,6 +154,7 @@ class ClusterNetworkAccessFlag(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:kusto:ClusterPrincipalRole")
 class ClusterPrincipalRole(builtins.str, Enum):
     """
     Cluster principal role.
@@ -158,6 +164,7 @@ class ClusterPrincipalRole(builtins.str, Enum):
     ALL_DATABASES_MONITOR = "AllDatabasesMonitor"
 
 
+@pulumi.type_token("azure-native:kusto:Compression")
 class Compression(builtins.str, Enum):
     """
     The event hub messages compression type
@@ -166,6 +173,7 @@ class Compression(builtins.str, Enum):
     G_ZIP = "GZip"
 
 
+@pulumi.type_token("azure-native:kusto:DataConnectionKind")
 class DataConnectionKind(builtins.str, Enum):
     """
     Kind of the endpoint for the data connection
@@ -176,6 +184,7 @@ class DataConnectionKind(builtins.str, Enum):
     COSMOS_DB = "CosmosDb"
 
 
+@pulumi.type_token("azure-native:kusto:DataFormat")
 class DataFormat(builtins.str, Enum):
     """
     The data format of the message. Optionally the data format can be added to each message.
@@ -185,6 +194,7 @@ class DataFormat(builtins.str, Enum):
     CSV = "CSV"
 
 
+@pulumi.type_token("azure-native:kusto:DatabasePrincipalRole")
 class DatabasePrincipalRole(builtins.str, Enum):
     """
     Database principal role.
@@ -197,6 +207,7 @@ class DatabasePrincipalRole(builtins.str, Enum):
     VIEWER = "Viewer"
 
 
+@pulumi.type_token("azure-native:kusto:DatabaseRouting")
 class DatabaseRouting(builtins.str, Enum):
     """
     Indication for database routing information from the data connection, by default only database routing information is allowed
@@ -205,6 +216,7 @@ class DatabaseRouting(builtins.str, Enum):
     MULTI = "Multi"
 
 
+@pulumi.type_token("azure-native:kusto:DefaultPrincipalsModificationKind")
 class DefaultPrincipalsModificationKind(builtins.str, Enum):
     """
     The default principals modification kind
@@ -214,6 +226,7 @@ class DefaultPrincipalsModificationKind(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:kusto:EngineType")
 class EngineType(builtins.str, Enum):
     """
     The engine type
@@ -222,6 +235,7 @@ class EngineType(builtins.str, Enum):
     V3 = "V3"
 
 
+@pulumi.type_token("azure-native:kusto:EventGridDataFormat")
 class EventGridDataFormat(builtins.str, Enum):
     """
     The data format of the message. Optionally the data format can be added to each message.
@@ -244,6 +258,7 @@ class EventGridDataFormat(builtins.str, Enum):
     W3_CLOGFILE = "W3CLOGFILE"
 
 
+@pulumi.type_token("azure-native:kusto:EventHubDataFormat")
 class EventHubDataFormat(builtins.str, Enum):
     """
     The data format of the message. Optionally the data format can be added to each message.
@@ -266,6 +281,7 @@ class EventHubDataFormat(builtins.str, Enum):
     W3_CLOGFILE = "W3CLOGFILE"
 
 
+@pulumi.type_token("azure-native:kusto:IdentityType")
 class IdentityType(builtins.str, Enum):
     """
     The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
@@ -276,6 +292,7 @@ class IdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
 
 
+@pulumi.type_token("azure-native:kusto:IotHubDataFormat")
 class IotHubDataFormat(builtins.str, Enum):
     """
     The data format of the message. Optionally the data format can be added to each message.
@@ -298,6 +315,7 @@ class IotHubDataFormat(builtins.str, Enum):
     W3_CLOGFILE = "W3CLOGFILE"
 
 
+@pulumi.type_token("azure-native:kusto:Kind")
 class Kind(builtins.str, Enum):
     """
     Kind of the database
@@ -306,6 +324,7 @@ class Kind(builtins.str, Enum):
     READ_ONLY_FOLLOWING = "ReadOnlyFollowing"
 
 
+@pulumi.type_token("azure-native:kusto:Language")
 class Language(builtins.str, Enum):
     """
     The language name, for example Python.
@@ -313,6 +332,7 @@ class Language(builtins.str, Enum):
     PYTHON = "Python"
 
 
+@pulumi.type_token("azure-native:kusto:LanguageExtensionImageName")
 class LanguageExtensionImageName(builtins.str, Enum):
     """
     The language extension image name.
@@ -326,6 +346,7 @@ class LanguageExtensionImageName(builtins.str, Enum):
     PYTHON3_11_7_DL = "Python3_11_7_DL"
 
 
+@pulumi.type_token("azure-native:kusto:LanguageExtensionName")
 class LanguageExtensionName(builtins.str, Enum):
     """
     The language extension name.
@@ -334,6 +355,7 @@ class LanguageExtensionName(builtins.str, Enum):
     R = "R"
 
 
+@pulumi.type_token("azure-native:kusto:OutboundAccess")
 class OutboundAccess(builtins.str, Enum):
     """
     Indicates whether outbound access is permitted for the specified URI pattern.
@@ -342,6 +364,7 @@ class OutboundAccess(builtins.str, Enum):
     DENY = "Deny"
 
 
+@pulumi.type_token("azure-native:kusto:PrincipalPermissionsAction")
 class PrincipalPermissionsAction(builtins.str, Enum):
     """
     Indicates if the permissions for the script caller are kept following completion of the script.
@@ -350,6 +373,7 @@ class PrincipalPermissionsAction(builtins.str, Enum):
     REMOVE_PERMISSION_ON_SCRIPT_COMPLETION = "RemovePermissionOnScriptCompletion"
 
 
+@pulumi.type_token("azure-native:kusto:PrincipalType")
 class PrincipalType(builtins.str, Enum):
     """
     Principal type.
@@ -359,6 +383,7 @@ class PrincipalType(builtins.str, Enum):
     USER = "User"
 
 
+@pulumi.type_token("azure-native:kusto:PublicIPType")
 class PublicIPType(builtins.str, Enum):
     """
     Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
@@ -367,6 +392,7 @@ class PublicIPType(builtins.str, Enum):
     DUAL_STACK = "DualStack"
 
 
+@pulumi.type_token("azure-native:kusto:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
@@ -375,6 +401,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:kusto:ScriptLevel")
 class ScriptLevel(builtins.str, Enum):
     """
     Differentiates between the type of script commands included - Database or Cluster. The default is Database.
@@ -383,6 +410,7 @@ class ScriptLevel(builtins.str, Enum):
     CLUSTER = "Cluster"
 
 
+@pulumi.type_token("azure-native:kusto:VnetState")
 class VnetState(builtins.str, Enum):
     """
     When enabled, the cluster is deployed into the configured subnet, when disabled it will be removed from the subnet.

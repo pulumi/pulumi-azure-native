@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -18,6 +18,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:signalrservice:ACLAction")
 class ACLAction(builtins.str, Enum):
     """
     Azure Networking ACL Action.
@@ -26,6 +27,7 @@ class ACLAction(builtins.str, Enum):
     DENY = "Deny"
 
 
+@pulumi.type_token("azure-native:signalrservice:FeatureFlags")
 class FeatureFlags(builtins.str, Enum):
     """
     FeatureFlags is the supported features of Azure SignalR service.
@@ -40,6 +42,7 @@ class FeatureFlags(builtins.str, Enum):
     ENABLE_LIVE_TRACE = "EnableLiveTrace"
 
 
+@pulumi.type_token("azure-native:signalrservice:ManagedIdentityType")
 class ManagedIdentityType(builtins.str, Enum):
     """
     Represents the identity type: systemAssigned, userAssigned, None
@@ -49,6 +52,7 @@ class ManagedIdentityType(builtins.str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+@pulumi.type_token("azure-native:signalrservice:PrivateLinkServiceConnectionStatus")
 class PrivateLinkServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -59,6 +63,7 @@ class PrivateLinkServiceConnectionStatus(builtins.str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+@pulumi.type_token("azure-native:signalrservice:ServiceKind")
 class ServiceKind(builtins.str, Enum):
     """
     The kind of the service
@@ -67,6 +72,7 @@ class ServiceKind(builtins.str, Enum):
     RAW_WEB_SOCKETS = "RawWebSockets"
 
 
+@pulumi.type_token("azure-native:signalrservice:SignalRRequestType")
 class SignalRRequestType(builtins.str, Enum):
     """
     The incoming request type to the service
@@ -77,6 +83,7 @@ class SignalRRequestType(builtins.str, Enum):
     TRACE = "Trace"
 
 
+@pulumi.type_token("azure-native:signalrservice:SignalRSkuTier")
 class SignalRSkuTier(builtins.str, Enum):
     """
     Optional tier of this particular SKU. 'Standard' or 'Free'. 
@@ -89,6 +96,7 @@ class SignalRSkuTier(builtins.str, Enum):
     PREMIUM = "Premium"
 
 
+@pulumi.type_token("azure-native:signalrservice:UpstreamAuthType")
 class UpstreamAuthType(builtins.str, Enum):
     """
     Upstream auth type enum.

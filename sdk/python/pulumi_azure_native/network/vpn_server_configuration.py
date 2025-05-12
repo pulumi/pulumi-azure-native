@@ -139,10 +139,8 @@ class VpnServerConfigurationArgs:
         pulumi.set(self, "vpn_server_configuration_name", value)
 
 
+@pulumi.type_token("azure-native:network:VpnServerConfiguration")
 class VpnServerConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:VpnServerConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

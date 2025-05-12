@@ -134,10 +134,8 @@ class SecretArgs:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("azure-native:devtestlab:Secret")
 class Secret(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devtestlab:Secret"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

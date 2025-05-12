@@ -212,10 +212,8 @@ class ScheduleArgs:
         pulumi.set(self, "top", value)
 
 
+@pulumi.type_token("azure-native:devcenter:Schedule")
 class Schedule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devcenter:Schedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

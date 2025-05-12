@@ -72,10 +72,8 @@ class ManagedGatewayArgs:
         pulumi.set(self, "managed_gateway_name", value)
 
 
+@pulumi.type_token("azure-native:scom:ManagedGateway")
 class ManagedGateway(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:scom:ManagedGateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -205,10 +205,8 @@ class VirtualMachineInstanceArgs:
         pulumi.set(self, "storage_profile", value)
 
 
+@pulumi.type_token("azure-native:azurestackhci:VirtualMachineInstance")
 class VirtualMachineInstance(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurestackhci:VirtualMachineInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

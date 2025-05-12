@@ -103,10 +103,8 @@ class DatabaseAdvisorArgs:
         pulumi.set(self, "advisor_name", value)
 
 
+@pulumi.type_token("azure-native:sql:DatabaseAdvisor")
 class DatabaseAdvisor(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:DatabaseAdvisor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

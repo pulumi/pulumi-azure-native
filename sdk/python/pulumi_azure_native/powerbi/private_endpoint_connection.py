@@ -122,10 +122,8 @@ class PrivateEndpointConnectionInitArgs:
         pulumi.set(self, "provisioning_state", value)
 
 
+@pulumi.type_token("azure-native:powerbi:PrivateEndpointConnection")
 class PrivateEndpointConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:powerbi:PrivateEndpointConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

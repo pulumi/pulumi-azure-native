@@ -90,10 +90,8 @@ class MonitoredSubscriptionInitArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:datadog:MonitoredSubscription")
 class MonitoredSubscription(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datadog:MonitoredSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

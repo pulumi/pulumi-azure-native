@@ -270,10 +270,8 @@ class BrokerListenerArgs:
         pulumi.set(self, "tls", value)
 
 
+@pulumi.type_token("azure-native:iotoperationsmq:BrokerListener")
 class BrokerListener(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:iotoperationsmq:BrokerListener"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -117,10 +117,8 @@ class ActionArgs:
         pulumi.set(self, "action_id", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:Action")
 class Action(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:Action"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

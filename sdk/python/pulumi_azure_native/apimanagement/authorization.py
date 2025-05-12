@@ -169,10 +169,8 @@ class AuthorizationArgs:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:Authorization")
 class Authorization(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:Authorization"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

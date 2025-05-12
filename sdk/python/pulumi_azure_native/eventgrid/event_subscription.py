@@ -213,10 +213,8 @@ class EventSubscriptionArgs:
         pulumi.set(self, "retry_policy", value)
 
 
+@pulumi.type_token("azure-native:eventgrid:EventSubscription")
 class EventSubscription(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:eventgrid:EventSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

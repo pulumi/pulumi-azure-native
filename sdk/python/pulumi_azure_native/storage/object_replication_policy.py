@@ -135,10 +135,8 @@ class ObjectReplicationPolicyArgs:
         pulumi.set(self, "rules", value)
 
 
+@pulumi.type_token("azure-native:storage:ObjectReplicationPolicy")
 class ObjectReplicationPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storage:ObjectReplicationPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -74,10 +74,8 @@ class SitesByServiceGroupArgs:
         pulumi.set(self, "site_name", value)
 
 
+@pulumi.type_token("azure-native:edge:SitesByServiceGroup")
 class SitesByServiceGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:edge:SitesByServiceGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

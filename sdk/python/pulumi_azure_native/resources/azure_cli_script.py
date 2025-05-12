@@ -318,10 +318,8 @@ class AzureCliScriptArgs:
         pulumi.set(self, "timeout", value)
 
 
+@pulumi.type_token("azure-native:resources:AzureCliScript")
 class AzureCliScript(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:resources:AzureCliScript"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

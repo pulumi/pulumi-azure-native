@@ -211,10 +211,8 @@ class ADLSGen2FileDataSetMappingArgs:
         pulumi.set(self, "output_type", value)
 
 
+@pulumi.type_token("azure-native:datashare:ADLSGen2FileDataSetMapping")
 class ADLSGen2FileDataSetMapping(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datashare:ADLSGen2FileDataSetMapping"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -123,10 +123,8 @@ class LandingZoneAccountOperationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:sovereign:LandingZoneAccountOperation")
 class LandingZoneAccountOperation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sovereign:LandingZoneAccountOperation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

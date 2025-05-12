@@ -88,10 +88,8 @@ class AddonArgs:
         pulumi.set(self, "addon_name", value)
 
 
+@pulumi.type_token("azure-native:avs:Addon")
 class Addon(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:avs:Addon"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

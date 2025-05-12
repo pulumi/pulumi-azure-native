@@ -152,10 +152,8 @@ class NamedValueArgs:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:NamedValue")
 class NamedValue(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:NamedValue"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

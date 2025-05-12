@@ -137,10 +137,8 @@ class VirtualHubRouteTableV2InitArgs:
         pulumi.set(self, "routes", value)
 
 
+@pulumi.type_token("azure-native:network:VirtualHubRouteTableV2")
 class VirtualHubRouteTableV2(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:VirtualHubRouteTableV2"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

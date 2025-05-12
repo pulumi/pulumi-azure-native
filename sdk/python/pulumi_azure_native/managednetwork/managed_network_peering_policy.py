@@ -106,10 +106,8 @@ class ManagedNetworkPeeringPolicyArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:managednetwork:ManagedNetworkPeeringPolicy")
 class ManagedNetworkPeeringPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:managednetwork:ManagedNetworkPeeringPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

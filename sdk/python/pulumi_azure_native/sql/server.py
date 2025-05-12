@@ -283,10 +283,8 @@ class ServerArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure-native:sql:Server")
 class Server(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:Server"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

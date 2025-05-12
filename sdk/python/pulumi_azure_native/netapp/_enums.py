@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -29,6 +29,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:netapp:ApplicationType")
 class ApplicationType(builtins.str, Enum):
     """
     Application Type
@@ -37,6 +38,7 @@ class ApplicationType(builtins.str, Enum):
     ORACLE = "ORACLE"
 
 
+@pulumi.type_token("azure-native:netapp:AvsDataStore")
 class AvsDataStore(builtins.str, Enum):
     """
     Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
@@ -51,6 +53,7 @@ class AvsDataStore(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:netapp:ChownMode")
 class ChownMode(builtins.str, Enum):
     """
     This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
@@ -59,6 +62,7 @@ class ChownMode(builtins.str, Enum):
     UNRESTRICTED = "Unrestricted"
 
 
+@pulumi.type_token("azure-native:netapp:CoolAccessRetrievalPolicy")
 class CoolAccessRetrievalPolicy(builtins.str, Enum):
     """
     coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are: 
@@ -71,6 +75,7 @@ class CoolAccessRetrievalPolicy(builtins.str, Enum):
     NEVER = "Never"
 
 
+@pulumi.type_token("azure-native:netapp:CoolAccessTieringPolicy")
 class CoolAccessTieringPolicy(builtins.str, Enum):
     """
     coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
@@ -79,6 +84,7 @@ class CoolAccessTieringPolicy(builtins.str, Enum):
     SNAPSHOT_ONLY = "SnapshotOnly"
 
 
+@pulumi.type_token("azure-native:netapp:EnableSubvolumes")
 class EnableSubvolumes(builtins.str, Enum):
     """
     Flag indicating whether subvolume operations are enabled on the volume
@@ -93,6 +99,7 @@ class EnableSubvolumes(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:netapp:EncryptionKeySource")
 class EncryptionKeySource(builtins.str, Enum):
     """
     Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
@@ -107,6 +114,7 @@ class EncryptionKeySource(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:netapp:EncryptionType")
 class EncryptionType(builtins.str, Enum):
     """
     Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
@@ -121,6 +129,7 @@ class EncryptionType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:netapp:EndpointType")
 class EndpointType(builtins.str, Enum):
     """
     Indicates whether the local volume is the source or destination for the Volume Replication
@@ -129,6 +138,7 @@ class EndpointType(builtins.str, Enum):
     DST = "dst"
 
 
+@pulumi.type_token("azure-native:netapp:KeySource")
 class KeySource(builtins.str, Enum):
     """
     The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.NetApp, Microsoft.KeyVault
@@ -143,6 +153,7 @@ class KeySource(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:netapp:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -153,6 +164,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:netapp:NetworkFeatures")
 class NetworkFeatures(builtins.str, Enum):
     """
     The original value of the network features type available to the volume at the time it was created.
@@ -175,6 +187,7 @@ class NetworkFeatures(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:netapp:QosType")
 class QosType(builtins.str, Enum):
     """
     The qos type of the pool
@@ -189,6 +202,7 @@ class QosType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:netapp:ReplicationSchedule")
 class ReplicationSchedule(builtins.str, Enum):
     """
     Schedule
@@ -198,6 +212,7 @@ class ReplicationSchedule(builtins.str, Enum):
     DAILY = "daily"
 
 
+@pulumi.type_token("azure-native:netapp:SecurityStyle")
 class SecurityStyle(builtins.str, Enum):
     """
     The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
@@ -206,6 +221,7 @@ class SecurityStyle(builtins.str, Enum):
     UNIX = "unix"
 
 
+@pulumi.type_token("azure-native:netapp:ServiceLevel")
 class ServiceLevel(builtins.str, Enum):
     """
     The service level of the file system
@@ -228,6 +244,7 @@ class ServiceLevel(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:netapp:SmbAccessBasedEnumeration")
 class SmbAccessBasedEnumeration(builtins.str, Enum):
     """
     Enables access-based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
@@ -242,6 +259,7 @@ class SmbAccessBasedEnumeration(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:netapp:SmbNonBrowsable")
 class SmbNonBrowsable(builtins.str, Enum):
     """
     Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
@@ -256,6 +274,7 @@ class SmbNonBrowsable(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:netapp:Type")
 class Type(builtins.str, Enum):
     """
     Type of quota

@@ -106,10 +106,8 @@ class InvoiceSectionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:billing:InvoiceSection")
 class InvoiceSection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:billing:InvoiceSection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

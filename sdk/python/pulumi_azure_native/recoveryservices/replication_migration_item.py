@@ -119,10 +119,8 @@ class ReplicationMigrationItemArgs:
         pulumi.set(self, "migration_item_name", value)
 
 
+@pulumi.type_token("azure-native:recoveryservices:ReplicationMigrationItem")
 class ReplicationMigrationItem(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:recoveryservices:ReplicationMigrationItem"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

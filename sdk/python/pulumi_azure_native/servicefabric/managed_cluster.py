@@ -622,10 +622,8 @@ class ManagedClusterArgs:
         pulumi.set(self, "zonal_update_mode", value)
 
 
+@pulumi.type_token("azure-native:servicefabric:ManagedCluster")
 class ManagedCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:servicefabric:ManagedCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

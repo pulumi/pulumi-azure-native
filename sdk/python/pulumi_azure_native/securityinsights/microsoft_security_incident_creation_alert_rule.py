@@ -215,10 +215,8 @@ class MicrosoftSecurityIncidentCreationAlertRuleArgs:
         pulumi.set(self, "severities_filter", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:MicrosoftSecurityIncidentCreationAlertRule")
 class MicrosoftSecurityIncidentCreationAlertRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:MicrosoftSecurityIncidentCreationAlertRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

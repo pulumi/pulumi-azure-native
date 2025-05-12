@@ -123,10 +123,8 @@ class OfficeDataConnectorArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:OfficeDataConnector")
 class OfficeDataConnector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:OfficeDataConnector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

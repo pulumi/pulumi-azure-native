@@ -102,10 +102,8 @@ class MongoClusterFirewallRuleArgs:
         pulumi.set(self, "firewall_rule_name", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:MongoClusterFirewallRule")
 class MongoClusterFirewallRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:MongoClusterFirewallRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

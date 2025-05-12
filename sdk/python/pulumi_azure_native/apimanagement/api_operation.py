@@ -213,10 +213,8 @@ class ApiOperationArgs:
         pulumi.set(self, "template_parameters", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:ApiOperation")
 class ApiOperation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:ApiOperation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

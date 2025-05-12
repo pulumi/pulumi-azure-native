@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -16,6 +16,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:portal:DashboardPartMetadataType")
 class DashboardPartMetadataType(builtins.str, Enum):
     """
     The dashboard part metadata type.
@@ -26,6 +27,7 @@ class DashboardPartMetadataType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:portal:FontSize")
 class FontSize(builtins.str, Enum):
     """
     Size of terminal font.
@@ -36,6 +38,7 @@ class FontSize(builtins.str, Enum):
     LARGE = "Large"
 
 
+@pulumi.type_token("azure-native:portal:FontStyle")
 class FontStyle(builtins.str, Enum):
     """
     Style of terminal font.
@@ -45,6 +48,7 @@ class FontStyle(builtins.str, Enum):
     COURIER = "Courier"
 
 
+@pulumi.type_token("azure-native:portal:OsType")
 class OsType(builtins.str, Enum):
     """
     The operating system type of the cloud shell. Deprecated, use preferredShellType.
@@ -53,6 +57,7 @@ class OsType(builtins.str, Enum):
     LINUX = "Linux"
 
 
+@pulumi.type_token("azure-native:portal:ProvisioningState")
 class ProvisioningState(builtins.str, Enum):
     """
     Provisioning state of the console.
@@ -68,6 +73,7 @@ class ProvisioningState(builtins.str, Enum):
     SUCCEEDED = "Succeeded"
 
 
+@pulumi.type_token("azure-native:portal:ShellType")
 class ShellType(builtins.str, Enum):
     """
     The shell type of the cloud shell.

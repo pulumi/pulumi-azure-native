@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -45,6 +45,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:networkcloud:AdvertiseToFabric")
 class AdvertiseToFabric(builtins.str, Enum):
     """
     The indicator of if this advertisement is also made to the network fabric associated with the Network Cloud Cluster. This field is ignored if fabricPeeringEnabled is set to False.
@@ -53,6 +54,7 @@ class AdvertiseToFabric(builtins.str, Enum):
     FALSE = "False"
 
 
+@pulumi.type_token("azure-native:networkcloud:AgentPoolMode")
 class AgentPoolMode(builtins.str, Enum):
     """
     The selection of how this agent pool is utilized, either as a system pool or a user pool. System pools run the features and critical services for the Kubernetes Cluster, while user pools are dedicated to user workloads. Every Kubernetes cluster must contain at least one system node pool with at least one node.
@@ -62,6 +64,7 @@ class AgentPoolMode(builtins.str, Enum):
     NOT_APPLICABLE = "NotApplicable"
 
 
+@pulumi.type_token("azure-native:networkcloud:BareMetalMachineKeySetPrivilegeLevel")
 class BareMetalMachineKeySetPrivilegeLevel(builtins.str, Enum):
     """
     The access level allowed for the users in this key set.
@@ -70,6 +73,7 @@ class BareMetalMachineKeySetPrivilegeLevel(builtins.str, Enum):
     SUPERUSER = "Superuser"
 
 
+@pulumi.type_token("azure-native:networkcloud:BfdEnabled")
 class BfdEnabled(builtins.str, Enum):
     """
     The indicator to prevent the use of IP addresses ending with .0 and .255 for this pool. Enabling this option will only use IP addresses between .1 and .254 inclusive.
@@ -78,6 +82,7 @@ class BfdEnabled(builtins.str, Enum):
     FALSE = "False"
 
 
+@pulumi.type_token("azure-native:networkcloud:BgpMultiHop")
 class BgpMultiHop(builtins.str, Enum):
     """
     The indicator to enable multi-hop peering support.
@@ -86,6 +91,7 @@ class BgpMultiHop(builtins.str, Enum):
     FALSE = "False"
 
 
+@pulumi.type_token("azure-native:networkcloud:BmcKeySetPrivilegeLevel")
 class BmcKeySetPrivilegeLevel(builtins.str, Enum):
     """
     The access level allowed for the users in this key set.
@@ -94,6 +100,7 @@ class BmcKeySetPrivilegeLevel(builtins.str, Enum):
     ADMINISTRATOR = "Administrator"
 
 
+@pulumi.type_token("azure-native:networkcloud:CloudServicesNetworkEnableDefaultEgressEndpoints")
 class CloudServicesNetworkEnableDefaultEgressEndpoints(builtins.str, Enum):
     """
     The indicator of whether the platform default endpoints are allowed for the egress traffic.
@@ -102,6 +109,7 @@ class CloudServicesNetworkEnableDefaultEgressEndpoints(builtins.str, Enum):
     FALSE = "False"
 
 
+@pulumi.type_token("azure-native:networkcloud:ClusterSecretArchiveEnabled")
 class ClusterSecretArchiveEnabled(builtins.str, Enum):
     """
     The indicator if the specified key vault should be used to archive the secrets of the cluster.
@@ -110,6 +118,7 @@ class ClusterSecretArchiveEnabled(builtins.str, Enum):
     FALSE = "False"
 
 
+@pulumi.type_token("azure-native:networkcloud:ClusterType")
 class ClusterType(builtins.str, Enum):
     """
     The type of rack configuration for the cluster.
@@ -118,6 +127,7 @@ class ClusterType(builtins.str, Enum):
     MULTI_RACK = "MultiRack"
 
 
+@pulumi.type_token("azure-native:networkcloud:ClusterUpdateStrategyType")
 class ClusterUpdateStrategyType(builtins.str, Enum):
     """
     The mode of operation for runtime protection.
@@ -126,6 +136,7 @@ class ClusterUpdateStrategyType(builtins.str, Enum):
     PAUSE_AFTER_RACK = "PauseAfterRack"
 
 
+@pulumi.type_token("azure-native:networkcloud:ConsoleEnabled")
 class ConsoleEnabled(builtins.str, Enum):
     """
     The indicator of whether the console access is enabled.
@@ -134,6 +145,7 @@ class ConsoleEnabled(builtins.str, Enum):
     FALSE = "False"
 
 
+@pulumi.type_token("azure-native:networkcloud:DefaultGateway")
 class DefaultGateway(builtins.str, Enum):
     """
     The indicator of whether this is the default gateway.
@@ -143,6 +155,7 @@ class DefaultGateway(builtins.str, Enum):
     FALSE = "False"
 
 
+@pulumi.type_token("azure-native:networkcloud:FabricPeeringEnabled")
 class FabricPeeringEnabled(builtins.str, Enum):
     """
     The indicator to specify if the load balancer peers with the network fabric.
@@ -151,6 +164,7 @@ class FabricPeeringEnabled(builtins.str, Enum):
     FALSE = "False"
 
 
+@pulumi.type_token("azure-native:networkcloud:HugepagesSize")
 class HugepagesSize(builtins.str, Enum):
     """
     The size of the hugepages to allocate.
@@ -159,6 +173,7 @@ class HugepagesSize(builtins.str, Enum):
     HUGEPAGES_SIZE_1_G = "1G"
 
 
+@pulumi.type_token("azure-native:networkcloud:HybridAksIpamEnabled")
 class HybridAksIpamEnabled(builtins.str, Enum):
     """
     Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
@@ -167,6 +182,7 @@ class HybridAksIpamEnabled(builtins.str, Enum):
     FALSE = "False"
 
 
+@pulumi.type_token("azure-native:networkcloud:HybridAksPluginType")
 class HybridAksPluginType(builtins.str, Enum):
     """
     Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
@@ -176,6 +192,7 @@ class HybridAksPluginType(builtins.str, Enum):
     OS_DEVICE = "OSDevice"
 
 
+@pulumi.type_token("azure-native:networkcloud:IpAllocationType")
 class IpAllocationType(builtins.str, Enum):
     """
     The type of the IP address allocation, defaulted to "DualStack".
@@ -185,6 +202,7 @@ class IpAllocationType(builtins.str, Enum):
     DUAL_STACK = "DualStack"
 
 
+@pulumi.type_token("azure-native:networkcloud:KubernetesPluginType")
 class KubernetesPluginType(builtins.str, Enum):
     """
     The indicator of how this network will be utilized by the Kubernetes cluster.
@@ -196,6 +214,7 @@ class KubernetesPluginType(builtins.str, Enum):
     IPVLAN = "IPVLAN"
 
 
+@pulumi.type_token("azure-native:networkcloud:L3NetworkConfigurationIpamEnabled")
 class L3NetworkConfigurationIpamEnabled(builtins.str, Enum):
     """
     The indication of whether this network will or will not perform IP address management and allocate IP addresses when attached.
@@ -204,6 +223,7 @@ class L3NetworkConfigurationIpamEnabled(builtins.str, Enum):
     FALSE = "False"
 
 
+@pulumi.type_token("azure-native:networkcloud:ManagedServiceIdentitySelectorType")
 class ManagedServiceIdentitySelectorType(builtins.str, Enum):
     """
     The type of managed identity that is being selected.
@@ -212,6 +232,7 @@ class ManagedServiceIdentitySelectorType(builtins.str, Enum):
     USER_ASSIGNED_IDENTITY = "UserAssignedIdentity"
 
 
+@pulumi.type_token("azure-native:networkcloud:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -222,6 +243,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:networkcloud:OsDiskCreateOption")
 class OsDiskCreateOption(builtins.str, Enum):
     """
     The strategy for creating the OS disk.
@@ -236,6 +258,7 @@ class OsDiskCreateOption(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:networkcloud:OsDiskDeleteOption")
 class OsDiskDeleteOption(builtins.str, Enum):
     """
     The strategy for deleting the OS disk.
@@ -243,6 +266,7 @@ class OsDiskDeleteOption(builtins.str, Enum):
     DELETE = "Delete"
 
 
+@pulumi.type_token("azure-native:networkcloud:RuntimeProtectionEnforcementLevel")
 class RuntimeProtectionEnforcementLevel(builtins.str, Enum):
     """
     The mode of operation for runtime protection.
@@ -254,6 +278,7 @@ class RuntimeProtectionEnforcementLevel(builtins.str, Enum):
     REAL_TIME = "RealTime"
 
 
+@pulumi.type_token("azure-native:networkcloud:ValidationThresholdGrouping")
 class ValidationThresholdGrouping(builtins.str, Enum):
     """
     Selection of how the type evaluation is applied to the cluster calculation.
@@ -262,6 +287,7 @@ class ValidationThresholdGrouping(builtins.str, Enum):
     PER_RACK = "PerRack"
 
 
+@pulumi.type_token("azure-native:networkcloud:ValidationThresholdType")
 class ValidationThresholdType(builtins.str, Enum):
     """
     Selection of how the threshold should be evaluated.
@@ -270,6 +296,7 @@ class ValidationThresholdType(builtins.str, Enum):
     PERCENT_SUCCESS = "PercentSuccess"
 
 
+@pulumi.type_token("azure-native:networkcloud:VirtualMachineBootMethod")
 class VirtualMachineBootMethod(builtins.str, Enum):
     """
     Selects the boot method for the virtual machine.
@@ -278,6 +305,7 @@ class VirtualMachineBootMethod(builtins.str, Enum):
     BIOS = "BIOS"
 
 
+@pulumi.type_token("azure-native:networkcloud:VirtualMachineDeviceModelType")
 class VirtualMachineDeviceModelType(builtins.str, Enum):
     """
     The type of the device model to use.
@@ -296,6 +324,7 @@ class VirtualMachineDeviceModelType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:networkcloud:VirtualMachineIPAllocationMethod")
 class VirtualMachineIPAllocationMethod(builtins.str, Enum):
     """
     The IP allocation mechanism for the virtual machine.
@@ -307,6 +336,7 @@ class VirtualMachineIPAllocationMethod(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:networkcloud:VirtualMachineIsolateEmulatorThread")
 class VirtualMachineIsolateEmulatorThread(builtins.str, Enum):
     """
     Field Deprecated, the value will be ignored if provided. The indicator of whether one of the specified CPU cores is isolated to run the emulator thread for this virtual machine.
@@ -315,6 +345,7 @@ class VirtualMachineIsolateEmulatorThread(builtins.str, Enum):
     FALSE = "False"
 
 
+@pulumi.type_token("azure-native:networkcloud:VirtualMachinePlacementHintPodAffinityScope")
 class VirtualMachinePlacementHintPodAffinityScope(builtins.str, Enum):
     """
     The scope for the virtual machine affinity or anti-affinity placement hint. It should always be "Machine" in the case of node affinity.
@@ -323,6 +354,7 @@ class VirtualMachinePlacementHintPodAffinityScope(builtins.str, Enum):
     MACHINE = "Machine"
 
 
+@pulumi.type_token("azure-native:networkcloud:VirtualMachinePlacementHintType")
 class VirtualMachinePlacementHintType(builtins.str, Enum):
     """
     The specification of whether this hint supports affinity or anti-affinity with the referenced resources.
@@ -331,6 +363,7 @@ class VirtualMachinePlacementHintType(builtins.str, Enum):
     ANTI_AFFINITY = "AntiAffinity"
 
 
+@pulumi.type_token("azure-native:networkcloud:VirtualMachineSchedulingExecution")
 class VirtualMachineSchedulingExecution(builtins.str, Enum):
     """
     The indicator of whether the hint is a hard or soft requirement during scheduling.
@@ -339,6 +372,7 @@ class VirtualMachineSchedulingExecution(builtins.str, Enum):
     SOFT = "Soft"
 
 
+@pulumi.type_token("azure-native:networkcloud:VirtualMachineVirtioInterfaceType")
 class VirtualMachineVirtioInterfaceType(builtins.str, Enum):
     """
     Field Deprecated, use virtualizationModel instead. The type of the virtio interface.
@@ -347,6 +381,7 @@ class VirtualMachineVirtioInterfaceType(builtins.str, Enum):
     TRANSITIONAL = "Transitional"
 
 
+@pulumi.type_token("azure-native:networkcloud:VulnerabilityScanningSettingsContainerScan")
 class VulnerabilityScanningSettingsContainerScan(builtins.str, Enum):
     """
     The mode selection for container vulnerability scanning.

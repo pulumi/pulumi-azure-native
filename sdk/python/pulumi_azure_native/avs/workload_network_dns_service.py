@@ -169,10 +169,8 @@ class WorkloadNetworkDnsServiceArgs:
         pulumi.set(self, "revision", value)
 
 
+@pulumi.type_token("azure-native:avs:WorkloadNetworkDnsService")
 class WorkloadNetworkDnsService(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:avs:WorkloadNetworkDnsService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

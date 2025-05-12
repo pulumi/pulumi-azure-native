@@ -169,10 +169,8 @@ class Gen2EnvironmentArgs:
         pulumi.set(self, "warm_store_configuration", value)
 
 
+@pulumi.type_token("azure-native:timeseriesinsights:Gen2Environment")
 class Gen2Environment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:timeseriesinsights:Gen2Environment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -88,10 +88,8 @@ class ProjectArgs:
         pulumi.set(self, "project_name", value)
 
 
+@pulumi.type_token("azure-native:storagemover:Project")
 class Project(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storagemover:Project"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

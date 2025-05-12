@@ -122,10 +122,8 @@ class HypervCollectorsOperationArgs:
         pulumi.set(self, "provisioning_state", value)
 
 
+@pulumi.type_token("azure-native:migrate:HypervCollectorsOperation")
 class HypervCollectorsOperation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:migrate:HypervCollectorsOperation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

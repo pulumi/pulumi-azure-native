@@ -122,10 +122,8 @@ class GalleryInVMAccessControlProfileArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:compute:GalleryInVMAccessControlProfile")
 class GalleryInVMAccessControlProfile(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:compute:GalleryInVMAccessControlProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

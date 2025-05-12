@@ -184,10 +184,8 @@ class ManagedPrivateEndpointArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:dashboard:ManagedPrivateEndpoint")
 class ManagedPrivateEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dashboard:ManagedPrivateEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -17,6 +17,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:scvmm:AllocationMethod")
 class AllocationMethod(builtins.str, Enum):
     """
     Gets or sets the mac address type.
@@ -25,6 +26,7 @@ class AllocationMethod(builtins.str, Enum):
     STATIC = "Static"
 
 
+@pulumi.type_token("azure-native:scvmm:CreateDiffDisk")
 class CreateDiffDisk(builtins.str, Enum):
     """
     Gets or sets a value indicating diff disk.
@@ -33,6 +35,7 @@ class CreateDiffDisk(builtins.str, Enum):
     TRUE = "true"
 
 
+@pulumi.type_token("azure-native:scvmm:DynamicMemoryEnabled")
 class DynamicMemoryEnabled(builtins.str, Enum):
     """
     Gets or sets a value indicating whether to enable dynamic memory or not.
@@ -41,6 +44,7 @@ class DynamicMemoryEnabled(builtins.str, Enum):
     TRUE = "true"
 
 
+@pulumi.type_token("azure-native:scvmm:IdentityType")
 class IdentityType(builtins.str, Enum):
     """
     The type of managed service identity.
@@ -49,6 +53,7 @@ class IdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
 
 
+@pulumi.type_token("azure-native:scvmm:InventoryType")
 class InventoryType(builtins.str, Enum):
     """
     They inventory type.
@@ -59,6 +64,7 @@ class InventoryType(builtins.str, Enum):
     VIRTUAL_MACHINE = "VirtualMachine"
 
 
+@pulumi.type_token("azure-native:scvmm:LimitCpuForMigration")
 class LimitCpuForMigration(builtins.str, Enum):
     """
     Gets or sets a value indicating whether to enable processor compatibility mode for live migration of VMs.
@@ -67,6 +73,7 @@ class LimitCpuForMigration(builtins.str, Enum):
     TRUE = "true"
 
 
+@pulumi.type_token("azure-native:scvmm:ProvisioningAction")
 class ProvisioningAction(builtins.str, Enum):
     """
     Gets or sets the guest agent provisioning action.

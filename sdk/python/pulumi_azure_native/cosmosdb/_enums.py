@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -52,6 +52,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:cosmosdb:AnalyticalStorageSchemaType")
 class AnalyticalStorageSchemaType(builtins.str, Enum):
     """
     Describes the types of schema for analytical storage.
@@ -60,6 +61,7 @@ class AnalyticalStorageSchemaType(builtins.str, Enum):
     FULL_FIDELITY = "FullFidelity"
 
 
+@pulumi.type_token("azure-native:cosmosdb:AuthenticationMethod")
 class AuthenticationMethod(builtins.str, Enum):
     """
     Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
@@ -69,6 +71,7 @@ class AuthenticationMethod(builtins.str, Enum):
     LDAP = "Ldap"
 
 
+@pulumi.type_token("azure-native:cosmosdb:AzureConnectionType")
 class AzureConnectionType(builtins.str, Enum):
     """
     How to connect to the azure services needed for running the cluster
@@ -77,6 +80,7 @@ class AzureConnectionType(builtins.str, Enum):
     VPN = "VPN"
 
 
+@pulumi.type_token("azure-native:cosmosdb:BackupPolicyMigrationStatus")
 class BackupPolicyMigrationStatus(builtins.str, Enum):
     """
     Describes the status of migration between backup policy types.
@@ -87,6 +91,7 @@ class BackupPolicyMigrationStatus(builtins.str, Enum):
     FAILED = "Failed"
 
 
+@pulumi.type_token("azure-native:cosmosdb:BackupPolicyType")
 class BackupPolicyType(builtins.str, Enum):
     """
     Describes the mode of backups.
@@ -95,6 +100,7 @@ class BackupPolicyType(builtins.str, Enum):
     CONTINUOUS = "Continuous"
 
 
+@pulumi.type_token("azure-native:cosmosdb:BackupStorageRedundancy")
 class BackupStorageRedundancy(builtins.str, Enum):
     """
     Enum to indicate type of backup residency
@@ -104,6 +110,7 @@ class BackupStorageRedundancy(builtins.str, Enum):
     ZONE = "Zone"
 
 
+@pulumi.type_token("azure-native:cosmosdb:CompositePathSortOrder")
 class CompositePathSortOrder(builtins.str, Enum):
     """
     Sort order for composite paths.
@@ -112,6 +119,7 @@ class CompositePathSortOrder(builtins.str, Enum):
     DESCENDING = "descending"
 
 
+@pulumi.type_token("azure-native:cosmosdb:ConflictResolutionMode")
 class ConflictResolutionMode(builtins.str, Enum):
     """
     Indicates the conflict resolution mode.
@@ -120,6 +128,7 @@ class ConflictResolutionMode(builtins.str, Enum):
     CUSTOM = "Custom"
 
 
+@pulumi.type_token("azure-native:cosmosdb:ConnectorOffer")
 class ConnectorOffer(builtins.str, Enum):
     """
     The cassandra connector offer type for the Cosmos DB database C* account.
@@ -127,6 +136,7 @@ class ConnectorOffer(builtins.str, Enum):
     SMALL = "Small"
 
 
+@pulumi.type_token("azure-native:cosmosdb:ContinuousTier")
 class ContinuousTier(builtins.str, Enum):
     """
     Enum to indicate type of Continuous backup mode
@@ -135,6 +145,7 @@ class ContinuousTier(builtins.str, Enum):
     CONTINUOUS30_DAYS = "Continuous30Days"
 
 
+@pulumi.type_token("azure-native:cosmosdb:CreateMode")
 class CreateMode(builtins.str, Enum):
     """
     Enum to indicate the mode of resource creation.
@@ -143,6 +154,7 @@ class CreateMode(builtins.str, Enum):
     RESTORE = "Restore"
 
 
+@pulumi.type_token("azure-native:cosmosdb:DataType")
 class DataType(builtins.str, Enum):
     """
     The datatype for which the indexing behavior is applied to.
@@ -155,6 +167,7 @@ class DataType(builtins.str, Enum):
     MULTI_POLYGON = "MultiPolygon"
 
 
+@pulumi.type_token("azure-native:cosmosdb:DatabaseAccountKind")
 class DatabaseAccountKind(builtins.str, Enum):
     """
     Indicates the type of database account. This can only be set at database account creation.
@@ -164,6 +177,7 @@ class DatabaseAccountKind(builtins.str, Enum):
     PARSE = "Parse"
 
 
+@pulumi.type_token("azure-native:cosmosdb:DatabaseAccountOfferType")
 class DatabaseAccountOfferType(builtins.str, Enum):
     """
     The offer type for the database
@@ -171,6 +185,7 @@ class DatabaseAccountOfferType(builtins.str, Enum):
     STANDARD = "Standard"
 
 
+@pulumi.type_token("azure-native:cosmosdb:DedicatedGatewayType")
 class DedicatedGatewayType(builtins.str, Enum):
     """
     DedicatedGatewayType for the service.
@@ -179,6 +194,7 @@ class DedicatedGatewayType(builtins.str, Enum):
     DISTRIBUTED_QUERY = "DistributedQuery"
 
 
+@pulumi.type_token("azure-native:cosmosdb:DefaultConsistencyLevel")
 class DefaultConsistencyLevel(builtins.str, Enum):
     """
     The default consistency level and configuration settings of the Cosmos DB account.
@@ -190,6 +206,7 @@ class DefaultConsistencyLevel(builtins.str, Enum):
     CONSISTENT_PREFIX = "ConsistentPrefix"
 
 
+@pulumi.type_token("azure-native:cosmosdb:DistanceFunction")
 class DistanceFunction(builtins.str, Enum):
     """
     The distance function to use for distance calculation in between vectors.
@@ -199,6 +216,7 @@ class DistanceFunction(builtins.str, Enum):
     DOTPRODUCT = "dotproduct"
 
 
+@pulumi.type_token("azure-native:cosmosdb:FleetspaceApiKind")
 class FleetspaceApiKind(builtins.str, Enum):
     """
     The kind of API this fleetspace belongs to. Acceptable values: 'NoSQL'
@@ -206,6 +224,7 @@ class FleetspaceApiKind(builtins.str, Enum):
     NO_SQL = "NoSQL"
 
 
+@pulumi.type_token("azure-native:cosmosdb:IndexKind")
 class IndexKind(builtins.str, Enum):
     """
     Indicates the type of index.
@@ -215,6 +234,7 @@ class IndexKind(builtins.str, Enum):
     SPATIAL = "Spatial"
 
 
+@pulumi.type_token("azure-native:cosmosdb:IndexingMode")
 class IndexingMode(builtins.str, Enum):
     """
     Indicates the indexing mode.
@@ -224,6 +244,7 @@ class IndexingMode(builtins.str, Enum):
     NONE = "none"
 
 
+@pulumi.type_token("azure-native:cosmosdb:ManagedCassandraProvisioningState")
 class ManagedCassandraProvisioningState(builtins.str, Enum):
     """
     The status of the resource at the time the operation was called.
@@ -236,6 +257,7 @@ class ManagedCassandraProvisioningState(builtins.str, Enum):
     CANCELED = "Canceled"
 
 
+@pulumi.type_token("azure-native:cosmosdb:ManagedCassandraResourceIdentityType")
 class ManagedCassandraResourceIdentityType(builtins.str, Enum):
     """
     The type of the resource.
@@ -244,6 +266,7 @@ class ManagedCassandraResourceIdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:cosmosdb:MinimalTlsVersion")
 class MinimalTlsVersion(builtins.str, Enum):
     """
     Indicates the minimum allowed Tls version. The default value is Tls 1.2. Cassandra and Mongo APIs only work with Tls 1.2.
@@ -253,6 +276,7 @@ class MinimalTlsVersion(builtins.str, Enum):
     TLS12 = "Tls12"
 
 
+@pulumi.type_token("azure-native:cosmosdb:MongoClusterCreateMode")
 class MongoClusterCreateMode(builtins.str, Enum):
     """
     The mode to create a mongo cluster.
@@ -261,6 +285,7 @@ class MongoClusterCreateMode(builtins.str, Enum):
     POINT_IN_TIME_RESTORE = "PointInTimeRestore"
 
 
+@pulumi.type_token("azure-native:cosmosdb:MongoRoleDefinitionType")
 class MongoRoleDefinitionType(builtins.str, Enum):
     """
     Indicates whether the Role Definition was built-in or user created.
@@ -269,6 +294,7 @@ class MongoRoleDefinitionType(builtins.str, Enum):
     CUSTOM_ROLE = "CustomRole"
 
 
+@pulumi.type_token("azure-native:cosmosdb:NetworkAclBypass")
 class NetworkAclBypass(builtins.str, Enum):
     """
     Indicates what services are allowed to bypass firewall checks.
@@ -277,6 +303,7 @@ class NetworkAclBypass(builtins.str, Enum):
     AZURE_SERVICES = "AzureServices"
 
 
+@pulumi.type_token("azure-native:cosmosdb:NodeKind")
 class NodeKind(builtins.str, Enum):
     """
     The node type deployed in the node group.
@@ -284,6 +311,7 @@ class NodeKind(builtins.str, Enum):
     SHARD = "Shard"
 
 
+@pulumi.type_token("azure-native:cosmosdb:PartitionKind")
 class PartitionKind(builtins.str, Enum):
     """
     Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
@@ -293,6 +321,7 @@ class PartitionKind(builtins.str, Enum):
     MULTI_HASH = "MultiHash"
 
 
+@pulumi.type_token("azure-native:cosmosdb:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Whether requests from Public Network are allowed
@@ -302,6 +331,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     SECURED_BY_PERIMETER = "SecuredByPerimeter"
 
 
+@pulumi.type_token("azure-native:cosmosdb:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
@@ -312,6 +342,7 @@ class ResourceIdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:cosmosdb:RestoreMode")
 class RestoreMode(builtins.str, Enum):
     """
     Describes the mode of the restore.
@@ -319,6 +350,7 @@ class RestoreMode(builtins.str, Enum):
     POINT_IN_TIME = "PointInTime"
 
 
+@pulumi.type_token("azure-native:cosmosdb:RoleDefinitionType")
 class RoleDefinitionType(builtins.str, Enum):
     """
     Indicates whether the Role Definition was built-in or user created.
@@ -327,6 +359,7 @@ class RoleDefinitionType(builtins.str, Enum):
     CUSTOM_ROLE = "CustomRole"
 
 
+@pulumi.type_token("azure-native:cosmosdb:ServerVersion")
 class ServerVersion(builtins.str, Enum):
     """
     Describes the version of the MongoDB account.
@@ -340,6 +373,7 @@ class ServerVersion(builtins.str, Enum):
     SERVER_VERSION_7_0 = "7.0"
 
 
+@pulumi.type_token("azure-native:cosmosdb:ServiceSize")
 class ServiceSize(builtins.str, Enum):
     """
     Instance type for the service.
@@ -349,6 +383,7 @@ class ServiceSize(builtins.str, Enum):
     COSMOS_D16S = "Cosmos.D16s"
 
 
+@pulumi.type_token("azure-native:cosmosdb:ServiceTier")
 class ServiceTier(builtins.str, Enum):
     """
     Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
@@ -357,6 +392,7 @@ class ServiceTier(builtins.str, Enum):
     BUSINESS_CRITICAL = "BusinessCritical"
 
 
+@pulumi.type_token("azure-native:cosmosdb:ServiceType")
 class ServiceType(builtins.str, Enum):
     """
     ServiceType for the service.
@@ -367,6 +403,7 @@ class ServiceType(builtins.str, Enum):
     MATERIALIZED_VIEWS_BUILDER = "MaterializedViewsBuilder"
 
 
+@pulumi.type_token("azure-native:cosmosdb:SpatialType")
 class SpatialType(builtins.str, Enum):
     """
     Indicates the spatial type of index.
@@ -377,6 +414,7 @@ class SpatialType(builtins.str, Enum):
     MULTI_POLYGON = "MultiPolygon"
 
 
+@pulumi.type_token("azure-native:cosmosdb:StorageLocationType")
 class StorageLocationType(builtins.str, Enum):
     """
     The type of the fleet analytics resource.
@@ -385,6 +423,7 @@ class StorageLocationType(builtins.str, Enum):
     FABRIC_LAKEHOUSE = "FabricLakehouse"
 
 
+@pulumi.type_token("azure-native:cosmosdb:TriggerOperation")
 class TriggerOperation(builtins.str, Enum):
     """
     The operation the trigger is associated with
@@ -396,6 +435,7 @@ class TriggerOperation(builtins.str, Enum):
     REPLACE = "Replace"
 
 
+@pulumi.type_token("azure-native:cosmosdb:TriggerType")
 class TriggerType(builtins.str, Enum):
     """
     Type of the Trigger
@@ -404,6 +444,7 @@ class TriggerType(builtins.str, Enum):
     POST = "Post"
 
 
+@pulumi.type_token("azure-native:cosmosdb:VectorDataType")
 class VectorDataType(builtins.str, Enum):
     """
     Indicates the data type of vector.
@@ -413,6 +454,7 @@ class VectorDataType(builtins.str, Enum):
     INT8 = "int8"
 
 
+@pulumi.type_token("azure-native:cosmosdb:VectorIndexType")
 class VectorIndexType(builtins.str, Enum):
     """
     The index type of the vector. Currently, flat, diskANN, and quantizedFlat are supported.

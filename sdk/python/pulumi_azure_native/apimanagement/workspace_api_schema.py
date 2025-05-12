@@ -164,10 +164,8 @@ class WorkspaceApiSchemaArgs:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:WorkspaceApiSchema")
 class WorkspaceApiSchema(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:WorkspaceApiSchema"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

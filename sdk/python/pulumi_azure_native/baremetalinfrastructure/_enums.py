@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:baremetalinfrastructure:AzureBareMetalHardwareTypeNamesEnum")
 class AzureBareMetalHardwareTypeNamesEnum(builtins.str, Enum):
     """
     Name of the hardware type (vendor and/or their product name)
@@ -24,6 +25,7 @@ class AzureBareMetalHardwareTypeNamesEnum(builtins.str, Enum):
     SDFLEX = "SDFLEX"
 
 
+@pulumi.type_token("azure-native:baremetalinfrastructure:AzureBareMetalInstancePowerStateEnum")
 class AzureBareMetalInstancePowerStateEnum(builtins.str, Enum):
     """
     Resource power state
@@ -36,6 +38,7 @@ class AzureBareMetalInstancePowerStateEnum(builtins.str, Enum):
     UNKNOWN = "unknown"
 
 
+@pulumi.type_token("azure-native:baremetalinfrastructure:AzureBareMetalInstanceSizeNamesEnum")
 class AzureBareMetalInstanceSizeNamesEnum(builtins.str, Enum):
     """
     Specifies the Azure Bare Metal Instance SKU.
@@ -86,6 +89,7 @@ class AzureBareMetalInstanceSizeNamesEnum(builtins.str, Enum):
     S960M = "S960m"
 
 
+@pulumi.type_token("azure-native:baremetalinfrastructure:ProvisioningState")
 class ProvisioningState(builtins.str, Enum):
     """
     State of provisioning of the AzureBareMetalStorageInstance
@@ -100,6 +104,7 @@ class ProvisioningState(builtins.str, Enum):
     MIGRATING = "Migrating"
 
 
+@pulumi.type_token("azure-native:baremetalinfrastructure:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The type of identity used for the Azure Bare Metal Storage Instance. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Azure Bare Metal Storage Instance.

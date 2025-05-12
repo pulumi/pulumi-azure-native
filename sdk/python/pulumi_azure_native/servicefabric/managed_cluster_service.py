@@ -137,10 +137,8 @@ class ManagedClusterServiceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:servicefabric:ManagedClusterService")
 class ManagedClusterService(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:servicefabric:ManagedClusterService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

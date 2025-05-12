@@ -301,10 +301,8 @@ class VirtualMachineRunCommandByVirtualMachineArgs:
         pulumi.set(self, "treat_failure_as_deployment_failure", value)
 
 
+@pulumi.type_token("azure-native:compute:VirtualMachineRunCommandByVirtualMachine")
 class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:compute:VirtualMachineRunCommandByVirtualMachine"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

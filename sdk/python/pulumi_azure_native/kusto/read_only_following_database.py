@@ -137,10 +137,8 @@ class ReadOnlyFollowingDatabaseArgs:
         pulumi.set(self, "location", value)
 
 
+@pulumi.type_token("azure-native:kusto:ReadOnlyFollowingDatabase")
 class ReadOnlyFollowingDatabase(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:kusto:ReadOnlyFollowingDatabase"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

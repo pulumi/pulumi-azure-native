@@ -107,10 +107,8 @@ class MacieAllowListArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:MacieAllowList")
 class MacieAllowList(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:MacieAllowList"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

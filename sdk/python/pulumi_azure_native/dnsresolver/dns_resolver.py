@@ -105,10 +105,8 @@ class DnsResolverArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:dnsresolver:DnsResolver")
 class DnsResolver(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dnsresolver:DnsResolver"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

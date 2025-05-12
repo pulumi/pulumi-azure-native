@@ -89,10 +89,8 @@ class SapLandscapeMonitorArgs:
         pulumi.set(self, "top_metrics_thresholds", value)
 
 
+@pulumi.type_token("azure-native:workloads:SapLandscapeMonitor")
 class SapLandscapeMonitor(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:workloads:SapLandscapeMonitor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

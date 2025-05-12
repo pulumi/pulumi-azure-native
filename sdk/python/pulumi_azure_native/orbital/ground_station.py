@@ -201,10 +201,8 @@ class GroundStationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:orbital:GroundStation")
 class GroundStation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:orbital:GroundStation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

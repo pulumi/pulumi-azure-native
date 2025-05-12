@@ -89,10 +89,8 @@ class DiskAccessAPrivateEndpointConnectionArgs:
         pulumi.set(self, "private_endpoint_connection_name", value)
 
 
+@pulumi.type_token("azure-native:compute:DiskAccessAPrivateEndpointConnection")
 class DiskAccessAPrivateEndpointConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:compute:DiskAccessAPrivateEndpointConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

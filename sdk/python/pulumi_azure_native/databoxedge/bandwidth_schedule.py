@@ -133,10 +133,8 @@ class BandwidthScheduleArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure-native:databoxedge:BandwidthSchedule")
 class BandwidthSchedule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databoxedge:BandwidthSchedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

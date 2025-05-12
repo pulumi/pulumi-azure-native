@@ -286,10 +286,8 @@ class FluxConfigurationArgs:
         pulumi.set(self, "wait_for_reconciliation", value)
 
 
+@pulumi.type_token("azure-native:kubernetesconfiguration:FluxConfiguration")
 class FluxConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:kubernetesconfiguration:FluxConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

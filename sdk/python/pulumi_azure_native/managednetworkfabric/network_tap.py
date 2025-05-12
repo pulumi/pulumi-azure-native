@@ -155,10 +155,8 @@ class NetworkTapArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:NetworkTap")
 class NetworkTap(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:managednetworkfabric:NetworkTap"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

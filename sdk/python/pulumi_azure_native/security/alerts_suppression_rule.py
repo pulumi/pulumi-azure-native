@@ -137,10 +137,8 @@ class AlertsSuppressionRuleArgs:
         pulumi.set(self, "suppression_alerts_scope", value)
 
 
+@pulumi.type_token("azure-native:security:AlertsSuppressionRule")
 class AlertsSuppressionRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:AlertsSuppressionRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -106,10 +106,8 @@ class AccessPolicyArgs:
         pulumi.set(self, "role", value)
 
 
+@pulumi.type_token("azure-native:videoanalyzer:AccessPolicy")
 class AccessPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:videoanalyzer:AccessPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

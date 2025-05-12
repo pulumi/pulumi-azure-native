@@ -107,10 +107,8 @@ class CloudFrontDistributionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:CloudFrontDistribution")
 class CloudFrontDistribution(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:CloudFrontDistribution"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

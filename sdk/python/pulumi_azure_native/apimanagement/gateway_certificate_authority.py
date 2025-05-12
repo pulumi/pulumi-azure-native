@@ -102,10 +102,8 @@ class GatewayCertificateAuthorityArgs:
         pulumi.set(self, "is_trusted", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:GatewayCertificateAuthority")
 class GatewayCertificateAuthority(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:GatewayCertificateAuthority"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -154,10 +154,8 @@ class GremlinResourceGremlinRoleDefinitionArgs:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:GremlinResourceGremlinRoleDefinition")
 class GremlinResourceGremlinRoleDefinition(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:GremlinResourceGremlinRoleDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

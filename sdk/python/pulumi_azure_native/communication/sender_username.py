@@ -118,10 +118,8 @@ class SenderUsernameArgs:
         pulumi.set(self, "sender_username", value)
 
 
+@pulumi.type_token("azure-native:communication:SenderUsername")
 class SenderUsername(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:communication:SenderUsername"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -219,10 +219,8 @@ class LabPlanArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:labservices:LabPlan")
 class LabPlan(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:labservices:LabPlan"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

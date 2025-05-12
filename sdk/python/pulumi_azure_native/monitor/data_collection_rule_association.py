@@ -105,10 +105,8 @@ class DataCollectionRuleAssociationArgs:
         pulumi.set(self, "description", value)
 
 
+@pulumi.type_token("azure-native:monitor:DataCollectionRuleAssociation")
 class DataCollectionRuleAssociation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:monitor:DataCollectionRuleAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -123,10 +123,8 @@ class ClusterArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:eventhub:Cluster")
 class Cluster(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:eventhub:Cluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

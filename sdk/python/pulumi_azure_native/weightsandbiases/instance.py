@@ -123,10 +123,8 @@ class InstanceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:weightsandbiases:Instance")
 class Instance(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:weightsandbiases:Instance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

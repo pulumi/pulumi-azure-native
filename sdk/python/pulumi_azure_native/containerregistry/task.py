@@ -286,10 +286,8 @@ class TaskArgs:
         pulumi.set(self, "trigger", value)
 
 
+@pulumi.type_token("azure-native:containerregistry:Task")
 class Task(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerregistry:Task"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

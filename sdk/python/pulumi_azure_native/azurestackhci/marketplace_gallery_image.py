@@ -202,10 +202,8 @@ class MarketplaceGalleryImageArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure-native:azurestackhci:MarketplaceGalleryImage")
 class MarketplaceGalleryImage(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurestackhci:MarketplaceGalleryImage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

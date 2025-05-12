@@ -171,10 +171,8 @@ class JobArgs:
         pulumi.set(self, "workload_profile_name", value)
 
 
+@pulumi.type_token("azure-native:app:Job")
 class Job(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:app:Job"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -121,10 +121,8 @@ class NetworkExperimentProfileArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:frontdoor:NetworkExperimentProfile")
 class NetworkExperimentProfile(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:frontdoor:NetworkExperimentProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

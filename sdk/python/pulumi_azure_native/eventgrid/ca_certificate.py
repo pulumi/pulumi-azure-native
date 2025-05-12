@@ -104,10 +104,8 @@ class CaCertificateArgs:
         pulumi.set(self, "encoded_certificate", value)
 
 
+@pulumi.type_token("azure-native:eventgrid:CaCertificate")
 class CaCertificate(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:eventgrid:CaCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

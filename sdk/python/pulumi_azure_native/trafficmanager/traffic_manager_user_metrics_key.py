@@ -26,10 +26,8 @@ class TrafficManagerUserMetricsKeyArgs:
         pass
 
 
+@pulumi.type_token("azure-native:trafficmanager:TrafficManagerUserMetricsKey")
 class TrafficManagerUserMetricsKey(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:trafficmanager:TrafficManagerUserMetricsKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

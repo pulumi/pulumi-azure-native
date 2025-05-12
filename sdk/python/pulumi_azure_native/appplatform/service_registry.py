@@ -72,10 +72,8 @@ class ServiceRegistryArgs:
         pulumi.set(self, "service_registry_name", value)
 
 
+@pulumi.type_token("azure-native:appplatform:ServiceRegistry")
 class ServiceRegistry(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:appplatform:ServiceRegistry"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

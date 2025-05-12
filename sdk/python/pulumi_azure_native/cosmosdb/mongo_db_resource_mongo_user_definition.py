@@ -169,10 +169,8 @@ class MongoDBResourceMongoUserDefinitionArgs:
         pulumi.set(self, "user_name", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:MongoDBResourceMongoUserDefinition")
 class MongoDBResourceMongoUserDefinition(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:MongoDBResourceMongoUserDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

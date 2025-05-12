@@ -89,10 +89,8 @@ class AzureTrafficCollectorArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:networkfunction:AzureTrafficCollector")
 class AzureTrafficCollector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:networkfunction:AzureTrafficCollector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

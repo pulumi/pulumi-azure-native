@@ -139,10 +139,8 @@ class DataManagerForAgricultureResourceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:agfoodplatform:DataManagerForAgricultureResource")
 class DataManagerForAgricultureResource(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:agfoodplatform:DataManagerForAgricultureResource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -106,10 +106,8 @@ class PrivateAccessArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:chaos:PrivateAccess")
 class PrivateAccess(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:chaos:PrivateAccess"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

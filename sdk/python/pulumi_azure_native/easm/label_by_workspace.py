@@ -104,10 +104,8 @@ class LabelByWorkspaceArgs:
         pulumi.set(self, "label_name", value)
 
 
+@pulumi.type_token("azure-native:easm:LabelByWorkspace")
 class LabelByWorkspace(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:easm:LabelByWorkspace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

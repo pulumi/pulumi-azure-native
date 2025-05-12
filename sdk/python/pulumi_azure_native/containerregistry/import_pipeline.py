@@ -153,10 +153,8 @@ class ImportPipelineArgs:
         pulumi.set(self, "trigger", value)
 
 
+@pulumi.type_token("azure-native:containerregistry:ImportPipeline")
 class ImportPipeline(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerregistry:ImportPipeline"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

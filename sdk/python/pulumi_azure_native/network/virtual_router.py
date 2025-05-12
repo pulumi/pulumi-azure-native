@@ -170,10 +170,8 @@ class VirtualRouterArgs:
         pulumi.set(self, "virtual_router_name", value)
 
 
+@pulumi.type_token("azure-native:network:VirtualRouter")
 class VirtualRouter(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:VirtualRouter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

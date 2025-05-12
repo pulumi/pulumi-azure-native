@@ -170,10 +170,8 @@ class PeeringServiceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:peering:PeeringService")
 class PeeringService(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:peering:PeeringService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -104,10 +104,8 @@ class PrefixArgs:
         pulumi.set(self, "prefix_name", value)
 
 
+@pulumi.type_token("azure-native:peering:Prefix")
 class Prefix(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:peering:Prefix"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

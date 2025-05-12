@@ -106,10 +106,8 @@ class PrivateEndpointConnectionProxyArgs:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("azure-native:deviceupdate:PrivateEndpointConnectionProxy")
 class PrivateEndpointConnectionProxy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:deviceupdate:PrivateEndpointConnectionProxy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

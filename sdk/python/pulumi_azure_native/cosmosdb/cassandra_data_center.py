@@ -90,10 +90,8 @@ class CassandraDataCenterArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:CassandraDataCenter")
 class CassandraDataCenter(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:CassandraDataCenter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

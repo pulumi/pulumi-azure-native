@@ -89,10 +89,8 @@ class FirewallRuleArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:mongocluster:FirewallRule")
 class FirewallRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:mongocluster:FirewallRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

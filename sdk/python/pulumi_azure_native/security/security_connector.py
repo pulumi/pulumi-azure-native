@@ -171,10 +171,8 @@ class SecurityConnectorArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:security:SecurityConnector")
 class SecurityConnector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:SecurityConnector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

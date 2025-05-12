@@ -141,10 +141,8 @@ class RouteTableInitArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:network:RouteTable")
 class RouteTable(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:RouteTable"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -221,10 +221,8 @@ class DataCollectionRuleArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:monitor:DataCollectionRule")
 class DataCollectionRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:monitor:DataCollectionRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

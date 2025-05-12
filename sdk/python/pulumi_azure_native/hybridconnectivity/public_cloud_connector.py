@@ -121,10 +121,8 @@ class PublicCloudConnectorArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:hybridconnectivity:PublicCloudConnector")
 class PublicCloudConnector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybridconnectivity:PublicCloudConnector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -104,10 +104,8 @@ class LinkedSubscriptionArgs:
         pulumi.set(self, "location", value)
 
 
+@pulumi.type_token("azure-native:azurestack:LinkedSubscription")
 class LinkedSubscription(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurestack:LinkedSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

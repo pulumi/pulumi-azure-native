@@ -106,10 +106,8 @@ class WafWebAclSummaryArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:WafWebAclSummary")
 class WafWebAclSummary(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:WafWebAclSummary"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

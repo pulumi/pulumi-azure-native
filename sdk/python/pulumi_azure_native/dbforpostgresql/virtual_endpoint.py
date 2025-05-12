@@ -105,10 +105,8 @@ class VirtualEndpointArgs:
         pulumi.set(self, "virtual_endpoint_name", value)
 
 
+@pulumi.type_token("azure-native:dbforpostgresql:VirtualEndpoint")
 class VirtualEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dbforpostgresql:VirtualEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

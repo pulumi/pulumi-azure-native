@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -32,6 +32,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:dbformysql:AdministratorType")
 class AdministratorType(builtins.str, Enum):
     """
     The type of administrator.
@@ -39,6 +40,7 @@ class AdministratorType(builtins.str, Enum):
     ACTIVE_DIRECTORY = "ActiveDirectory"
 
 
+@pulumi.type_token("azure-native:dbformysql:ConfigurationSource")
 class ConfigurationSource(builtins.str, Enum):
     """
     Source of the configuration.
@@ -47,6 +49,7 @@ class ConfigurationSource(builtins.str, Enum):
     USER_OVERRIDE = "user-override"
 
 
+@pulumi.type_token("azure-native:dbformysql:CreateMode")
 class CreateMode(builtins.str, Enum):
     """
     The mode to create a new server.
@@ -57,6 +60,7 @@ class CreateMode(builtins.str, Enum):
     REPLICA = "Replica"
 
 
+@pulumi.type_token("azure-native:dbformysql:DataEncryptionType")
 class DataEncryptionType(builtins.str, Enum):
     """
     The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
@@ -65,6 +69,7 @@ class DataEncryptionType(builtins.str, Enum):
     SYSTEM_MANAGED = "SystemManaged"
 
 
+@pulumi.type_token("azure-native:dbformysql:EnableStatusEnum")
 class EnableStatusEnum(builtins.str, Enum):
     """
     Enable Log On Disk or not.
@@ -73,6 +78,7 @@ class EnableStatusEnum(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:dbformysql:GeoRedundantBackup")
 class GeoRedundantBackup(builtins.str, Enum):
     """
     Enable Geo-redundant or not for server backup.
@@ -81,6 +87,7 @@ class GeoRedundantBackup(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:dbformysql:HighAvailabilityMode")
 class HighAvailabilityMode(builtins.str, Enum):
     """
     High availability mode for a server.
@@ -90,6 +97,7 @@ class HighAvailabilityMode(builtins.str, Enum):
     SAME_ZONE = "SameZone"
 
 
+@pulumi.type_token("azure-native:dbformysql:IdentityType")
 class IdentityType(builtins.str, Enum):
     """
     The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
@@ -97,6 +105,7 @@ class IdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
 
 
+@pulumi.type_token("azure-native:dbformysql:ImportSourceStorageType")
 class ImportSourceStorageType(builtins.str, Enum):
     """
     Storage type of import source.
@@ -104,6 +113,7 @@ class ImportSourceStorageType(builtins.str, Enum):
     AZURE_BLOB = "AzureBlob"
 
 
+@pulumi.type_token("azure-native:dbformysql:InfrastructureEncryption")
 class InfrastructureEncryption(builtins.str, Enum):
     """
     Status showing whether the server enabled infrastructure encryption.
@@ -118,6 +128,7 @@ class InfrastructureEncryption(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:dbformysql:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity.
@@ -125,6 +136,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+@pulumi.type_token("azure-native:dbformysql:MinimalTlsVersionEnum")
 class MinimalTlsVersionEnum(builtins.str, Enum):
     """
     Enforce a minimal Tls version for the server.
@@ -135,6 +147,7 @@ class MinimalTlsVersionEnum(builtins.str, Enum):
     TLS_ENFORCEMENT_DISABLED = "TLSEnforcementDisabled"
 
 
+@pulumi.type_token("azure-native:dbformysql:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -144,6 +157,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:dbformysql:PublicNetworkAccessEnum")
 class PublicNetworkAccessEnum(builtins.str, Enum):
     """
     Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
@@ -152,6 +166,7 @@ class PublicNetworkAccessEnum(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:dbformysql:ReplicationRole")
 class ReplicationRole(builtins.str, Enum):
     """
     The replication role.
@@ -161,6 +176,7 @@ class ReplicationRole(builtins.str, Enum):
     REPLICA = "Replica"
 
 
+@pulumi.type_token("azure-native:dbformysql:ServerSkuTier")
 class ServerSkuTier(builtins.str, Enum):
     """
     The tier of the particular SKU, e.g. GeneralPurpose.
@@ -170,6 +186,7 @@ class ServerSkuTier(builtins.str, Enum):
     MEMORY_OPTIMIZED = "MemoryOptimized"
 
 
+@pulumi.type_token("azure-native:dbformysql:ServerVersion")
 class ServerVersion(builtins.str, Enum):
     """
     Server version.
@@ -178,6 +195,7 @@ class ServerVersion(builtins.str, Enum):
     SERVER_VERSION_8_0_21 = "8.0.21"
 
 
+@pulumi.type_token("azure-native:dbformysql:SingleServerSkuTier")
 class SingleServerSkuTier(builtins.str, Enum):
     """
     The tier of the particular SKU, e.g. Basic.
@@ -187,6 +205,7 @@ class SingleServerSkuTier(builtins.str, Enum):
     MEMORY_OPTIMIZED = "MemoryOptimized"
 
 
+@pulumi.type_token("azure-native:dbformysql:SingleServerVersion")
 class SingleServerVersion(builtins.str, Enum):
     """
     Server version.
@@ -196,6 +215,7 @@ class SingleServerVersion(builtins.str, Enum):
     SINGLE_SERVER_VERSION_8_0 = "8.0"
 
 
+@pulumi.type_token("azure-native:dbformysql:SslEnforcementEnum")
 class SslEnforcementEnum(builtins.str, Enum):
     """
     Enable ssl enforcement or not when connect to server.
@@ -204,6 +224,7 @@ class SslEnforcementEnum(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:dbformysql:StorageAutogrow")
 class StorageAutogrow(builtins.str, Enum):
     """
     Enable Storage Auto Grow.
@@ -212,6 +233,7 @@ class StorageAutogrow(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:dbformysql:StorageRedundancyEnum")
 class StorageRedundancyEnum(builtins.str, Enum):
     """
     The redundant type of the server storage. The parameter is used for server creation.

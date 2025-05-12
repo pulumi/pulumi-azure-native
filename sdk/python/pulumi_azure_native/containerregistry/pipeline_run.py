@@ -106,10 +106,8 @@ class PipelineRunArgs:
         pulumi.set(self, "request", value)
 
 
+@pulumi.type_token("azure-native:containerregistry:PipelineRun")
 class PipelineRun(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerregistry:PipelineRun"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

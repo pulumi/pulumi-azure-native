@@ -105,10 +105,8 @@ class FabricArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:datareplication:Fabric")
 class Fabric(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datareplication:Fabric"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

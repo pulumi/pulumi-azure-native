@@ -139,10 +139,8 @@ class TIDataConnectorArgs:
         pulumi.set(self, "tip_lookback_period", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:TIDataConnector")
 class TIDataConnector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:TIDataConnector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

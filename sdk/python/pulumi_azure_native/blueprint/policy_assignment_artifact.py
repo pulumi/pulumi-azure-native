@@ -184,10 +184,8 @@ class PolicyAssignmentArtifactArgs:
         pulumi.set(self, "resource_group", value)
 
 
+@pulumi.type_token("azure-native:blueprint:PolicyAssignmentArtifact")
 class PolicyAssignmentArtifact(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:blueprint:PolicyAssignmentArtifact"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

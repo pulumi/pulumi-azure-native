@@ -153,10 +153,8 @@ class PrivateEndpointConnectionInitArgs:
         pulumi.set(self, "provisioning_state", value)
 
 
+@pulumi.type_token("azure-native:eventgrid:PrivateEndpointConnection")
 class PrivateEndpointConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:eventgrid:PrivateEndpointConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

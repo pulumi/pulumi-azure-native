@@ -89,10 +89,8 @@ class CertificateArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:iothub:Certificate")
 class Certificate(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:iothub:Certificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

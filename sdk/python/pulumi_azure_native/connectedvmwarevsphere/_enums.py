@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -20,6 +20,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:connectedvmwarevsphere:DiskMode")
 class DiskMode(builtins.str, Enum):
     """
     Gets or sets the disk mode.
@@ -29,6 +30,7 @@ class DiskMode(builtins.str, Enum):
     INDEPENDENT_NONPERSISTENT = "independent_nonpersistent"
 
 
+@pulumi.type_token("azure-native:connectedvmwarevsphere:DiskType")
 class DiskType(builtins.str, Enum):
     """
     Gets or sets the disk backing type.
@@ -42,6 +44,7 @@ class DiskType(builtins.str, Enum):
     UNKNOWN = "unknown"
 
 
+@pulumi.type_token("azure-native:connectedvmwarevsphere:FirmwareType")
 class FirmwareType(builtins.str, Enum):
     """
     Firmware type
@@ -50,6 +53,7 @@ class FirmwareType(builtins.str, Enum):
     EFI = "efi"
 
 
+@pulumi.type_token("azure-native:connectedvmwarevsphere:IPAddressAllocationMethod")
 class IPAddressAllocationMethod(builtins.str, Enum):
     """
     Gets or sets the nic allocation method.
@@ -62,6 +66,7 @@ class IPAddressAllocationMethod(builtins.str, Enum):
     OTHER = "other"
 
 
+@pulumi.type_token("azure-native:connectedvmwarevsphere:IdentityType")
 class IdentityType(builtins.str, Enum):
     """
     The type of managed service identity.
@@ -70,6 +75,7 @@ class IdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
 
 
+@pulumi.type_token("azure-native:connectedvmwarevsphere:InventoryType")
 class InventoryType(builtins.str, Enum):
     """
     They inventory type.
@@ -83,6 +89,7 @@ class InventoryType(builtins.str, Enum):
     HOST = "Host"
 
 
+@pulumi.type_token("azure-native:connectedvmwarevsphere:NICType")
 class NICType(builtins.str, Enum):
     """
     NIC type
@@ -95,6 +102,7 @@ class NICType(builtins.str, Enum):
     PCNET32 = "pcnet32"
 
 
+@pulumi.type_token("azure-native:connectedvmwarevsphere:OsType")
 class OsType(builtins.str, Enum):
     """
     Gets or sets the type of the os.
@@ -104,6 +112,7 @@ class OsType(builtins.str, Enum):
     OTHER = "Other"
 
 
+@pulumi.type_token("azure-native:connectedvmwarevsphere:PowerOnBootOption")
 class PowerOnBootOption(builtins.str, Enum):
     """
     Gets or sets the power on boot.
@@ -112,6 +121,7 @@ class PowerOnBootOption(builtins.str, Enum):
     DISABLED = "disabled"
 
 
+@pulumi.type_token("azure-native:connectedvmwarevsphere:ProvisioningAction")
 class ProvisioningAction(builtins.str, Enum):
     """
     Gets or sets the guest agent provisioning action.

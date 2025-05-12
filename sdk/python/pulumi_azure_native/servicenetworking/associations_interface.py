@@ -137,10 +137,8 @@ class AssociationsInterfaceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:servicenetworking:AssociationsInterface")
 class AssociationsInterface(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:servicenetworking:AssociationsInterface"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

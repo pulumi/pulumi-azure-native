@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:azurelargeinstance:AzureLargeInstanceHardwareTypeNamesEnum")
 class AzureLargeInstanceHardwareTypeNamesEnum(builtins.str, Enum):
     """
     the hardware type of the storage instance
@@ -32,6 +33,7 @@ class AzureLargeInstanceHardwareTypeNamesEnum(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurelargeinstance:AzureLargeInstancePowerStateEnum")
 class AzureLargeInstancePowerStateEnum(builtins.str, Enum):
     """
     Resource power state
@@ -62,6 +64,7 @@ class AzureLargeInstancePowerStateEnum(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurelargeinstance:AzureLargeInstanceSizeNamesEnum")
 class AzureLargeInstanceSizeNamesEnum(builtins.str, Enum):
     """
     Specifies the Azure Large Instance SKU.
@@ -248,6 +251,7 @@ class AzureLargeInstanceSizeNamesEnum(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurelargeinstance:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).

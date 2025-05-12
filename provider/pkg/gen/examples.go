@@ -63,7 +63,9 @@ func Examples(rootDir string, pkgSpec *schema.PackageSpec, metadata *resources.A
 
 	// cache to speed up code generation
 	hcl2Cache := hcl2.Cache(hcl2.NewPackageCache())
-	pkg, err := schema.ImportSpec(*pkgSpec, nil)
+	pkg, err := schema.ImportSpec(*pkgSpec, nil, schema.ValidationOptions{ 
+		AllowDanglingReferences: true,
+	})
 	if err != nil {
 		return err
 	}

@@ -106,10 +106,8 @@ class LogsLogStreamArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:LogsLogStream")
 class LogsLogStream(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:LogsLogStream"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

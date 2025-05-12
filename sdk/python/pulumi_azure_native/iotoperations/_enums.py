@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -42,6 +42,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:iotoperations:BrokerAuthenticationMethod")
 class BrokerAuthenticationMethod(builtins.str, Enum):
     """
     Custom authentication configuration.
@@ -60,6 +61,7 @@ class BrokerAuthenticationMethod(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:BrokerMemoryProfile")
 class BrokerMemoryProfile(builtins.str, Enum):
     """
     Memory profile of Broker.
@@ -82,6 +84,7 @@ class BrokerMemoryProfile(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:BrokerProtocolType")
 class BrokerProtocolType(builtins.str, Enum):
     """
     Enable or disable websockets.
@@ -96,6 +99,7 @@ class BrokerProtocolType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:BrokerResourceDefinitionMethods")
 class BrokerResourceDefinitionMethods(builtins.str, Enum):
     """
     Give access for a Broker method (i.e., Connect, Subscribe, or Publish).
@@ -114,6 +118,7 @@ class BrokerResourceDefinitionMethods(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:CertManagerIssuerKind")
 class CertManagerIssuerKind(builtins.str, Enum):
     """
     kind of issuer (Issuer or ClusterIssuer).
@@ -128,6 +133,7 @@ class CertManagerIssuerKind(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:CloudEventAttributeType")
 class CloudEventAttributeType(builtins.str, Enum):
     """
     Cloud event mapping config.
@@ -142,6 +148,7 @@ class CloudEventAttributeType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:DataLakeStorageAuthMethod")
 class DataLakeStorageAuthMethod(builtins.str, Enum):
     """
     Mode of Authentication.
@@ -160,6 +167,7 @@ class DataLakeStorageAuthMethod(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:DataflowEndpointAuthenticationSaslType")
 class DataflowEndpointAuthenticationSaslType(builtins.str, Enum):
     """
     Type of SASL authentication. Can be PLAIN, SCRAM-SHA-256, or SCRAM-SHA-512.
@@ -178,6 +186,7 @@ class DataflowEndpointAuthenticationSaslType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:DataflowEndpointFabricPathType")
 class DataflowEndpointFabricPathType(builtins.str, Enum):
     """
     Type of location of the data in the workspace. Can be either tables or files.
@@ -192,6 +201,7 @@ class DataflowEndpointFabricPathType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:DataflowEndpointKafkaAcks")
 class DataflowEndpointKafkaAcks(builtins.str, Enum):
     """
     Kafka acks. Can be all, one, or zero. No effect if the endpoint is used as a source.
@@ -210,6 +220,7 @@ class DataflowEndpointKafkaAcks(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:DataflowEndpointKafkaCompression")
 class DataflowEndpointKafkaCompression(builtins.str, Enum):
     """
     Compression. Can be none, gzip, lz4, or snappy. No effect if the endpoint is used as a source.
@@ -232,6 +243,7 @@ class DataflowEndpointKafkaCompression(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:DataflowEndpointKafkaPartitionStrategy")
 class DataflowEndpointKafkaPartitionStrategy(builtins.str, Enum):
     """
     Partition handling strategy. Can be default or static. No effect if the endpoint is used as a source.
@@ -254,6 +266,7 @@ class DataflowEndpointKafkaPartitionStrategy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:DataflowMappingType")
 class DataflowMappingType(builtins.str, Enum):
     """
     Type of transformation.
@@ -280,6 +293,7 @@ class DataflowMappingType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:EndpointType")
 class EndpointType(builtins.str, Enum):
     """
     Endpoint Type.
@@ -310,6 +324,7 @@ class EndpointType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:ExtendedLocationType")
 class ExtendedLocationType(builtins.str, Enum):
     """
     Type of ExtendedLocation.
@@ -320,6 +335,7 @@ class ExtendedLocationType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:FilterType")
 class FilterType(builtins.str, Enum):
     """
     The type of dataflow operation.
@@ -330,6 +346,7 @@ class FilterType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:KafkaAuthMethod")
 class KafkaAuthMethod(builtins.str, Enum):
     """
     Mode of Authentication.
@@ -356,6 +373,7 @@ class KafkaAuthMethod(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -366,6 +384,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:iotoperations:MqttAuthMethod")
 class MqttAuthMethod(builtins.str, Enum):
     """
     Mode of Authentication.
@@ -392,6 +411,7 @@ class MqttAuthMethod(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:MqttRetainType")
 class MqttRetainType(builtins.str, Enum):
     """
     Whether or not to keep the retain setting.
@@ -406,6 +426,7 @@ class MqttRetainType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:OperationType")
 class OperationType(builtins.str, Enum):
     """
     Type of operation.
@@ -424,6 +445,7 @@ class OperationType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:OperationalMode")
 class OperationalMode(builtins.str, Enum):
     """
     Mode for TLS.
@@ -438,6 +460,7 @@ class OperationalMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:OperatorValues")
 class OperatorValues(builtins.str, Enum):
     """
     operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
@@ -460,6 +483,7 @@ class OperatorValues(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:PrivateKeyAlgorithm")
 class PrivateKeyAlgorithm(builtins.str, Enum):
     """
     algorithm for private key.
@@ -494,6 +518,7 @@ class PrivateKeyAlgorithm(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:PrivateKeyRotationPolicy")
 class PrivateKeyRotationPolicy(builtins.str, Enum):
     """
     cert-manager private key rotationPolicy.
@@ -508,6 +533,7 @@ class PrivateKeyRotationPolicy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:ServiceType")
 class ServiceType(builtins.str, Enum):
     """
     Kubernetes Service type of this listener.
@@ -526,6 +552,7 @@ class ServiceType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:SourceSerializationFormat")
 class SourceSerializationFormat(builtins.str, Enum):
     """
     Content is a JSON Schema. Allowed: JSON Schema/draft-7.
@@ -536,6 +563,7 @@ class SourceSerializationFormat(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:StateStoreResourceDefinitionMethods")
 class StateStoreResourceDefinitionMethods(builtins.str, Enum):
     """
     Give access for `Read`, `Write` and `ReadWrite` access level.
@@ -554,6 +582,7 @@ class StateStoreResourceDefinitionMethods(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:StateStoreResourceKeyTypes")
 class StateStoreResourceKeyTypes(builtins.str, Enum):
     """
     Allowed keyTypes pattern, string, binary. The key type used for matching, for example pattern tries to match the key to a glob-style pattern and string checks key is equal to value provided in keys.
@@ -572,6 +601,7 @@ class StateStoreResourceKeyTypes(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:SubscriberMessageDropStrategy")
 class SubscriberMessageDropStrategy(builtins.str, Enum):
     """
     The strategy to use for dropping messages from the queue.
@@ -586,6 +616,7 @@ class SubscriberMessageDropStrategy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:TlsCertMethodMode")
 class TlsCertMethodMode(builtins.str, Enum):
     """
     Mode of TLS server certificate management.
@@ -600,6 +631,7 @@ class TlsCertMethodMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:TransformationSerializationFormat")
 class TransformationSerializationFormat(builtins.str, Enum):
     """
     Serialization format. Optional; defaults to JSON. Allowed value JSON Schema/draft-7, Parquet. Default: Json

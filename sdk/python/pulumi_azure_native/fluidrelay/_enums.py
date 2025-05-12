@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:fluidrelay:CmkIdentityType")
 class CmkIdentityType(builtins.str, Enum):
     """
     Values can be SystemAssigned or UserAssigned
@@ -22,6 +23,7 @@ class CmkIdentityType(builtins.str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+@pulumi.type_token("azure-native:fluidrelay:ProvisioningState")
 class ProvisioningState(builtins.str, Enum):
     """
     Provision states for FluidRelay RP
@@ -31,6 +33,7 @@ class ProvisioningState(builtins.str, Enum):
     CANCELED = "Canceled"
 
 
+@pulumi.type_token("azure-native:fluidrelay:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The identity type.
@@ -41,6 +44,7 @@ class ResourceIdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:fluidrelay:StorageSKU")
 class StorageSKU(builtins.str, Enum):
     """
     Sku of the storage associated with the resource

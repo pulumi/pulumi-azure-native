@@ -139,10 +139,8 @@ class AddressArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:edgeorder:Address")
 class Address(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:edgeorder:Address"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -23,6 +23,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:servicefabricmesh:ApplicationScopedVolumeKind")
 class ApplicationScopedVolumeKind(builtins.str, Enum):
     """
     Specifies the application-scoped volume kind.
@@ -33,6 +34,7 @@ class ApplicationScopedVolumeKind(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabricmesh:AutoScalingMechanismKind")
 class AutoScalingMechanismKind(builtins.str, Enum):
     """
     The type of auto scaling mechanism.
@@ -43,6 +45,7 @@ class AutoScalingMechanismKind(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabricmesh:AutoScalingMetricKind")
 class AutoScalingMetricKind(builtins.str, Enum):
     """
     The type of auto scaling metric
@@ -53,6 +56,7 @@ class AutoScalingMetricKind(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabricmesh:AutoScalingResourceMetricName")
 class AutoScalingResourceMetricName(builtins.str, Enum):
     """
     Name of the resource.
@@ -67,6 +71,7 @@ class AutoScalingResourceMetricName(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabricmesh:AutoScalingTriggerKind")
 class AutoScalingTriggerKind(builtins.str, Enum):
     """
     The type of auto scaling trigger
@@ -77,6 +82,7 @@ class AutoScalingTriggerKind(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabricmesh:DiagnosticsSinkKind")
 class DiagnosticsSinkKind(builtins.str, Enum):
     """
     The kind of DiagnosticsSink.
@@ -91,6 +97,7 @@ class DiagnosticsSinkKind(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabricmesh:HeaderMatchType")
 class HeaderMatchType(builtins.str, Enum):
     """
     how to match header value
@@ -98,6 +105,7 @@ class HeaderMatchType(builtins.str, Enum):
     EXACT = "exact"
 
 
+@pulumi.type_token("azure-native:servicefabricmesh:NetworkKind")
 class NetworkKind(builtins.str, Enum):
     """
     The type of a Service Fabric container network.
@@ -108,6 +116,7 @@ class NetworkKind(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabricmesh:OperatingSystemType")
 class OperatingSystemType(builtins.str, Enum):
     """
     The operation system required by the code in service.
@@ -122,6 +131,7 @@ class OperatingSystemType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabricmesh:PathMatchType")
 class PathMatchType(builtins.str, Enum):
     """
     how to match value in the Uri
@@ -129,6 +139,7 @@ class PathMatchType(builtins.str, Enum):
     PREFIX = "prefix"
 
 
+@pulumi.type_token("azure-native:servicefabricmesh:SecretKind")
 class SecretKind(builtins.str, Enum):
     """
     Describes the kind of secret.
@@ -139,6 +150,7 @@ class SecretKind(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabricmesh:SizeTypes")
 class SizeTypes(builtins.str, Enum):
     """
     Volume size
@@ -148,6 +160,7 @@ class SizeTypes(builtins.str, Enum):
     LARGE = "Large"
 
 
+@pulumi.type_token("azure-native:servicefabricmesh:VolumeProvider")
 class VolumeProvider(builtins.str, Enum):
     """
     Provider of the volume.

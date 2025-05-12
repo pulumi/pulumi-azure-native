@@ -154,10 +154,8 @@ class RegistryInitArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:Registry")
 class Registry(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:Registry"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

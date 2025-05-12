@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -11,6 +11,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:azureplaywrightservice:EnablementStatus")
 class EnablementStatus(builtins.str, Enum):
     """
     When enabled, Playwright client workers can connect to cloud-hosted browsers. This can increase the number of parallel workers for a test run, significantly minimizing test completion durations.

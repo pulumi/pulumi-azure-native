@@ -189,10 +189,8 @@ class PolicyDefinitionVersionArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure-native:authorization:PolicyDefinitionVersion")
 class PolicyDefinitionVersion(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:authorization:PolicyDefinitionVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

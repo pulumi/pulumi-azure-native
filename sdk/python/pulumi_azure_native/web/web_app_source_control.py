@@ -185,10 +185,8 @@ class WebAppSourceControlArgs:
         pulumi.set(self, "repo_url", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppSourceControl")
 class WebAppSourceControl(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppSourceControl"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

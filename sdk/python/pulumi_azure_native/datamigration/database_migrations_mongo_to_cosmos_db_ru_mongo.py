@@ -202,10 +202,8 @@ class DatabaseMigrationsMongoToCosmosDbRUMongoArgs:
         pulumi.set(self, "target_mongo_connection", value)
 
 
+@pulumi.type_token("azure-native:datamigration:DatabaseMigrationsMongoToCosmosDbRUMongo")
 class DatabaseMigrationsMongoToCosmosDbRUMongo(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datamigration:DatabaseMigrationsMongoToCosmosDbRUMongo"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

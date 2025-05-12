@@ -138,10 +138,8 @@ class PrivateLinkServicesForM365SecurityCenterArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:securityandcompliance:PrivateLinkServicesForM365SecurityCenter")
 class PrivateLinkServicesForM365SecurityCenter(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityandcompliance:PrivateLinkServicesForM365SecurityCenter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

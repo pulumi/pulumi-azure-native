@@ -89,10 +89,8 @@ class CatalogArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:azuresphere:Catalog")
 class Catalog(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azuresphere:Catalog"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

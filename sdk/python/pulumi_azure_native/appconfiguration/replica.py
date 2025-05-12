@@ -88,10 +88,8 @@ class ReplicaArgs:
         pulumi.set(self, "replica_name", value)
 
 
+@pulumi.type_token("azure-native:appconfiguration:Replica")
 class Replica(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:appconfiguration:Replica"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

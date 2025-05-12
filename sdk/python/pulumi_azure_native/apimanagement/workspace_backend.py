@@ -275,10 +275,8 @@ class WorkspaceBackendArgs:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:WorkspaceBackend")
 class WorkspaceBackend(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:WorkspaceBackend"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

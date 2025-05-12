@@ -151,10 +151,8 @@ class KubernetesRoleArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure-native:databoxedge:KubernetesRole")
 class KubernetesRole(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databoxedge:KubernetesRole"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

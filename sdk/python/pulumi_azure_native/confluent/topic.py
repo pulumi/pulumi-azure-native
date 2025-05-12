@@ -247,10 +247,8 @@ class TopicArgs:
         pulumi.set(self, "topic_name", value)
 
 
+@pulumi.type_token("azure-native:confluent:Topic")
 class Topic(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:confluent:Topic"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

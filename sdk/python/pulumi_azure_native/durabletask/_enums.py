@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -11,6 +11,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:durabletask:PurgeableOrchestrationState")
 class PurgeableOrchestrationState(builtins.str, Enum):
     """
     The orchestration state to which this policy applies. If omitted, the policy applies to all purgeable orchestration states.

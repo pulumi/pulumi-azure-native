@@ -270,10 +270,8 @@ class RouteArgs:
         pulumi.set(self, "supported_protocols", value)
 
 
+@pulumi.type_token("azure-native:cdn:Route")
 class Route(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cdn:Route"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

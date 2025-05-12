@@ -246,10 +246,8 @@ class IdentityProviderArgs:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:IdentityProvider")
 class IdentityProvider(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:IdentityProvider"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

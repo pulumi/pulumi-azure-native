@@ -261,10 +261,8 @@ class EventGridDataConnectionArgs:
         pulumi.set(self, "table_name", value)
 
 
+@pulumi.type_token("azure-native:synapse:EventGridDataConnection")
 class EventGridDataConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:synapse:EventGridDataConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

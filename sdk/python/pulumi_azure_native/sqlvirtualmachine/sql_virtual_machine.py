@@ -383,10 +383,8 @@ class SqlVirtualMachineArgs:
         pulumi.set(self, "wsfc_static_ip", value)
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:SqlVirtualMachine")
 class SqlVirtualMachine(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sqlvirtualmachine:SqlVirtualMachine"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

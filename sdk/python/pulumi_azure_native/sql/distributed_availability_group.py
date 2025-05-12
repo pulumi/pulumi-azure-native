@@ -202,10 +202,8 @@ class DistributedAvailabilityGroupArgs:
         pulumi.set(self, "seeding_mode", value)
 
 
+@pulumi.type_token("azure-native:sql:DistributedAvailabilityGroup")
 class DistributedAvailabilityGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:DistributedAvailabilityGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

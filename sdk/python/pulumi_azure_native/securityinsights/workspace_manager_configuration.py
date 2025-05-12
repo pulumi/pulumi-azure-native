@@ -88,10 +88,8 @@ class WorkspaceManagerConfigurationArgs:
         pulumi.set(self, "workspace_manager_configuration_name", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:WorkspaceManagerConfiguration")
 class WorkspaceManagerConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:WorkspaceManagerConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

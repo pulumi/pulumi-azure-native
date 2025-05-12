@@ -182,10 +182,8 @@ class RoleAssignmentArtifactArgs:
         pulumi.set(self, "resource_group", value)
 
 
+@pulumi.type_token("azure-native:blueprint:RoleAssignmentArtifact")
 class RoleAssignmentArtifact(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:blueprint:RoleAssignmentArtifact"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

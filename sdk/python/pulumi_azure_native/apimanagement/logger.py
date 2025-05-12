@@ -153,10 +153,8 @@ class LoggerArgs:
         pulumi.set(self, "resource_id", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:Logger")
 class Logger(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:Logger"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

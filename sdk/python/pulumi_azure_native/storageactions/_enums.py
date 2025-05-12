@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:storageactions:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -24,6 +25,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:storageactions:OnFailure")
 class OnFailure(builtins.str, Enum):
     """
     Action to be taken when the operation fails for a object.
@@ -31,6 +33,7 @@ class OnFailure(builtins.str, Enum):
     BREAK_ = "break"
 
 
+@pulumi.type_token("azure-native:storageactions:OnSuccess")
 class OnSuccess(builtins.str, Enum):
     """
     Action to be taken when the operation is successful for a object.
@@ -38,6 +41,7 @@ class OnSuccess(builtins.str, Enum):
     CONTINUE_ = "continue"
 
 
+@pulumi.type_token("azure-native:storageactions:StorageTaskOperationName")
 class StorageTaskOperationName(builtins.str, Enum):
     """
     The operation to be performed on the object.

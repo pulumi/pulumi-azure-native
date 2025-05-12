@@ -151,10 +151,8 @@ class MetricsConfigurationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:networkcloud:MetricsConfiguration")
 class MetricsConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:networkcloud:MetricsConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

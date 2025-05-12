@@ -153,10 +153,8 @@ class WebAppBackupConfigurationArgs:
         pulumi.set(self, "kind", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppBackupConfiguration")
 class WebAppBackupConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppBackupConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

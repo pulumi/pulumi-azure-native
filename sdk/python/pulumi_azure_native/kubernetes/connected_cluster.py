@@ -285,10 +285,8 @@ class ConnectedClusterArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:kubernetes:ConnectedCluster")
 class ConnectedCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:kubernetes:ConnectedCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

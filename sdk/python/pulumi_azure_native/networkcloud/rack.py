@@ -165,10 +165,8 @@ class RackArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:networkcloud:Rack")
 class Rack(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:networkcloud:Rack"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

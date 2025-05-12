@@ -235,10 +235,8 @@ class PrivateLinkServiceInitArgs:
         pulumi.set(self, "visibility", value)
 
 
+@pulumi.type_token("azure-native:network:PrivateLinkService")
 class PrivateLinkService(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:PrivateLinkService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

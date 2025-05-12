@@ -102,10 +102,8 @@ class DatabaseAccountCassandraKeyspaceArgs:
         pulumi.set(self, "keyspace_name", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:DatabaseAccountCassandraKeyspace")
 class DatabaseAccountCassandraKeyspace(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:DatabaseAccountCassandraKeyspace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

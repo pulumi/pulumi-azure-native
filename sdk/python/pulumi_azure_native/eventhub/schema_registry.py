@@ -113,10 +113,8 @@ class SchemaRegistryArgs:
         pulumi.set(self, "schema_type", value)
 
 
+@pulumi.type_token("azure-native:eventhub:SchemaRegistry")
 class SchemaRegistry(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:eventhub:SchemaRegistry"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

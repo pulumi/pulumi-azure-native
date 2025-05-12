@@ -214,10 +214,8 @@ class KubernetesClusterArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:networkcloud:KubernetesCluster")
 class KubernetesCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:networkcloud:KubernetesCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

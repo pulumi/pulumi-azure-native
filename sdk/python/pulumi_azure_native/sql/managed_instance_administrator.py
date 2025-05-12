@@ -129,10 +129,8 @@ class ManagedInstanceAdministratorArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure-native:sql:ManagedInstanceAdministrator")
 class ManagedInstanceAdministrator(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:ManagedInstanceAdministrator"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

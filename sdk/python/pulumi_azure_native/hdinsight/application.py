@@ -106,10 +106,8 @@ class ApplicationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:hdinsight:Application")
 class Application(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hdinsight:Application"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

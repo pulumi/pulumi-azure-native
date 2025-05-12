@@ -266,10 +266,8 @@ class FhirServiceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:healthcareapis:FhirService")
 class FhirService(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:healthcareapis:FhirService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

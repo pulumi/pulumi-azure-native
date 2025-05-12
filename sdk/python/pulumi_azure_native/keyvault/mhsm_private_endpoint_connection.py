@@ -154,10 +154,8 @@ class MHSMPrivateEndpointConnectionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:keyvault:MHSMPrivateEndpointConnection")
 class MHSMPrivateEndpointConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:keyvault:MHSMPrivateEndpointConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

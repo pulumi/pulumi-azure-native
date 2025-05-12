@@ -107,10 +107,8 @@ class CodeSigningAccountArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:codesigning:CodeSigningAccount")
 class CodeSigningAccount(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:codesigning:CodeSigningAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -138,10 +138,8 @@ class GuestAgentArgs:
         pulumi.set(self, "provisioning_action", value)
 
 
+@pulumi.type_token("azure-native:connectedvmwarevsphere:GuestAgent")
 class GuestAgent(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:connectedvmwarevsphere:GuestAgent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

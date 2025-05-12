@@ -257,10 +257,8 @@ class AssessmentMetadataInSubscriptionArgs:
         pulumi.set(self, "user_impact", value)
 
 
+@pulumi.type_token("azure-native:security:AssessmentMetadataInSubscription")
 class AssessmentMetadataInSubscription(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:AssessmentMetadataInSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

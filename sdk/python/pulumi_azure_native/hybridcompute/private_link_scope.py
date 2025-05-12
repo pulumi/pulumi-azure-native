@@ -107,10 +107,8 @@ class PrivateLinkScopeArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:hybridcompute:PrivateLinkScope")
 class PrivateLinkScope(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybridcompute:PrivateLinkScope"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

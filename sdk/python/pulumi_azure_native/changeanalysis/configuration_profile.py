@@ -92,10 +92,8 @@ class ConfigurationProfileArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:changeanalysis:ConfigurationProfile")
 class ConfigurationProfile(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:changeanalysis:ConfigurationProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

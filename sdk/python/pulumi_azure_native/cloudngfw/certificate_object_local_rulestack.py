@@ -136,10 +136,8 @@ class CertificateObjectLocalRulestackArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure-native:cloudngfw:CertificateObjectLocalRulestack")
 class CertificateObjectLocalRulestack(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cloudngfw:CertificateObjectLocalRulestack"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

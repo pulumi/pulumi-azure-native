@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -23,6 +23,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:automation:ContentSourceType")
 class ContentSourceType(builtins.str, Enum):
     """
     Gets or sets the content source type.
@@ -31,6 +32,7 @@ class ContentSourceType(builtins.str, Enum):
     URI = "uri"
 
 
+@pulumi.type_token("azure-native:automation:EncryptionKeySourceType")
 class EncryptionKeySourceType(builtins.str, Enum):
     """
     Encryption Key Source
@@ -39,6 +41,7 @@ class EncryptionKeySourceType(builtins.str, Enum):
     MICROSOFT_KEYVAULT = "Microsoft.Keyvault"
 
 
+@pulumi.type_token("azure-native:automation:LinuxUpdateClasses")
 class LinuxUpdateClasses(builtins.str, Enum):
     """
     Update classifications included in the software update configuration.
@@ -49,6 +52,7 @@ class LinuxUpdateClasses(builtins.str, Enum):
     OTHER = "Other"
 
 
+@pulumi.type_token("azure-native:automation:OperatingSystemType")
 class OperatingSystemType(builtins.str, Enum):
     """
     operating system of target machines
@@ -57,6 +61,7 @@ class OperatingSystemType(builtins.str, Enum):
     LINUX = "Linux"
 
 
+@pulumi.type_token("azure-native:automation:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The identity type.
@@ -67,6 +72,7 @@ class ResourceIdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:automation:RunbookTypeEnum")
 class RunbookTypeEnum(builtins.str, Enum):
     """
     Gets or sets the type of the runbook.
@@ -82,6 +88,7 @@ class RunbookTypeEnum(builtins.str, Enum):
     POWER_SHELL72 = "PowerShell72"
 
 
+@pulumi.type_token("azure-native:automation:ScheduleDay")
 class ScheduleDay(builtins.str, Enum):
     """
     Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
@@ -95,6 +102,7 @@ class ScheduleDay(builtins.str, Enum):
     SUNDAY = "Sunday"
 
 
+@pulumi.type_token("azure-native:automation:ScheduleFrequency")
 class ScheduleFrequency(builtins.str, Enum):
     """
     Gets or sets the frequency of the schedule.
@@ -110,6 +118,7 @@ class ScheduleFrequency(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:automation:SkuNameEnum")
 class SkuNameEnum(builtins.str, Enum):
     """
     Gets or sets the SKU name of the account.
@@ -118,6 +127,7 @@ class SkuNameEnum(builtins.str, Enum):
     BASIC = "Basic"
 
 
+@pulumi.type_token("azure-native:automation:SourceType")
 class SourceType(builtins.str, Enum):
     """
     The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
@@ -127,6 +137,7 @@ class SourceType(builtins.str, Enum):
     GIT_HUB = "GitHub"
 
 
+@pulumi.type_token("azure-native:automation:TagOperators")
 class TagOperators(builtins.str, Enum):
     """
     Filter VMs by Any or All specified tags.
@@ -135,6 +146,7 @@ class TagOperators(builtins.str, Enum):
     ANY = "Any"
 
 
+@pulumi.type_token("azure-native:automation:TokenType")
 class TokenType(builtins.str, Enum):
     """
     The token type. Must be either PersonalAccessToken or Oauth.
@@ -143,6 +155,7 @@ class TokenType(builtins.str, Enum):
     OAUTH = "Oauth"
 
 
+@pulumi.type_token("azure-native:automation:WindowsUpdateClasses")
 class WindowsUpdateClasses(builtins.str, Enum):
     """
     Update classification included in the software update configuration. A comma separated string with required values

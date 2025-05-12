@@ -106,10 +106,8 @@ class CloudWatchAlarmArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:CloudWatchAlarm")
 class CloudWatchAlarm(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:CloudWatchAlarm"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

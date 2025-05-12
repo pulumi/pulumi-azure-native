@@ -91,10 +91,8 @@ class ManagementGroupArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure-native:management:ManagementGroup")
 class ManagementGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:management:ManagementGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

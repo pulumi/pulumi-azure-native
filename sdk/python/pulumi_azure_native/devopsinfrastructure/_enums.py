@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -21,6 +21,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:devopsinfrastructure:AzureDevOpsPermissionType")
 class AzureDevOpsPermissionType(builtins.str, Enum):
     """
     Determines who has admin permissions to the Azure DevOps pool.
@@ -39,6 +40,7 @@ class AzureDevOpsPermissionType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:devopsinfrastructure:CachingType")
 class CachingType(builtins.str, Enum):
     """
     The type of caching to be enabled for the data disks. The default value for caching is readwrite. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
@@ -57,6 +59,7 @@ class CachingType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:devopsinfrastructure:CertificateStoreNameOption")
 class CertificateStoreNameOption(builtins.str, Enum):
     """
     Name of the certificate store to use on the machine, currently 'My' and 'Root' are supported.
@@ -71,6 +74,7 @@ class CertificateStoreNameOption(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:devopsinfrastructure:EphemeralType")
 class EphemeralType(builtins.str, Enum):
     """
     The ephemeral type of the image.
@@ -89,6 +93,7 @@ class EphemeralType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:devopsinfrastructure:LogonType")
 class LogonType(builtins.str, Enum):
     """
     Determines how the service should be run. By default, this will be set to Service.
@@ -103,6 +108,7 @@ class LogonType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:devopsinfrastructure:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -113,6 +119,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:devopsinfrastructure:OsDiskStorageAccountType")
 class OsDiskStorageAccountType(builtins.str, Enum):
     """
     The Azure SKU name of the machines in the pool.
@@ -131,6 +138,7 @@ class OsDiskStorageAccountType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:devopsinfrastructure:PredictionPreference")
 class PredictionPreference(builtins.str, Enum):
     """
     Determines the balance between cost and performance.
@@ -157,6 +165,7 @@ class PredictionPreference(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:devopsinfrastructure:ProvisioningState")
 class ProvisioningState(builtins.str, Enum):
     """
     The status of the current operation.
@@ -191,6 +200,7 @@ class ProvisioningState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:devopsinfrastructure:ResourcePredictionsProfileType")
 class ResourcePredictionsProfileType(builtins.str, Enum):
     """
     Determines how the stand-by scheme should be provided.
@@ -205,6 +215,7 @@ class ResourcePredictionsProfileType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:devopsinfrastructure:StorageAccountType")
 class StorageAccountType(builtins.str, Enum):
     """
     The storage Account type to be used for the data disk. If omitted, the default is "standard_lrs".

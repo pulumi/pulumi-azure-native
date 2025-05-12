@@ -88,10 +88,8 @@ class NetworkInterfaceArgs:
         pulumi.set(self, "network_interface_name", value)
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:NetworkInterface")
 class NetworkInterface(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:managednetworkfabric:NetworkInterface"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

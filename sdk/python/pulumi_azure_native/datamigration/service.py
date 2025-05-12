@@ -194,10 +194,8 @@ class ServiceArgs:
         pulumi.set(self, "virtual_subnet_id", value)
 
 
+@pulumi.type_token("azure-native:datamigration:Service")
 class Service(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datamigration:Service"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

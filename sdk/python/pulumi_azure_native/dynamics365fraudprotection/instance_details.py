@@ -106,10 +106,8 @@ class InstanceDetailsArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:dynamics365fraudprotection:InstanceDetails")
 class InstanceDetails(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dynamics365fraudprotection:InstanceDetails"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

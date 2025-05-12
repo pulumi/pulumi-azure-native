@@ -138,10 +138,8 @@ class ServiceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:healthcareapis:Service")
 class Service(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:healthcareapis:Service"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

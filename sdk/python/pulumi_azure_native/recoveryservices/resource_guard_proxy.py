@@ -133,10 +133,8 @@ class ResourceGuardProxyArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:recoveryservices:ResourceGuardProxy")
 class ResourceGuardProxy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:recoveryservices:ResourceGuardProxy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

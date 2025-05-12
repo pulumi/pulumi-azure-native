@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:weightsandbiases:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -24,6 +25,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:weightsandbiases:Region")
 class Region(builtins.str, Enum):
     """
     The region of the instance
@@ -54,6 +56,7 @@ class Region(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:weightsandbiases:SingleSignOnStates")
 class SingleSignOnStates(builtins.str, Enum):
     """
     State of the Single Sign On for the resource
@@ -72,6 +75,7 @@ class SingleSignOnStates(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:weightsandbiases:SingleSignOnType")
 class SingleSignOnType(builtins.str, Enum):
     """
     Type of Single Sign-On mechanism being used

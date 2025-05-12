@@ -107,10 +107,8 @@ class Ec2KeyPairArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:Ec2KeyPair")
 class Ec2KeyPair(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:Ec2KeyPair"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

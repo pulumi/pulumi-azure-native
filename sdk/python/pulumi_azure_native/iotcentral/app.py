@@ -202,10 +202,8 @@ class AppArgs:
         pulumi.set(self, "template", value)
 
 
+@pulumi.type_token("azure-native:iotcentral:App")
 class App(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:iotcentral:App"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

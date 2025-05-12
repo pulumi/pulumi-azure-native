@@ -106,10 +106,8 @@ class DocumentProcessorArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:syntex:DocumentProcessor")
 class DocumentProcessor(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:syntex:DocumentProcessor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

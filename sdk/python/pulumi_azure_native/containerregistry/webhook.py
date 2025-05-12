@@ -183,10 +183,8 @@ class WebhookArgs:
         pulumi.set(self, "webhook_name", value)
 
 
+@pulumi.type_token("azure-native:containerregistry:Webhook")
 class Webhook(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerregistry:Webhook"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

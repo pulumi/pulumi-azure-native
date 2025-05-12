@@ -149,10 +149,8 @@ class ContactArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:voiceservices:Contact")
 class Contact(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:voiceservices:Contact"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

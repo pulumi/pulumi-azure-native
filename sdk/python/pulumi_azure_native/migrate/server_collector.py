@@ -97,10 +97,8 @@ class ServerCollectorArgs:
         pulumi.set(self, "server_collector_name", value)
 
 
+@pulumi.type_token("azure-native:migrate:ServerCollector")
 class ServerCollector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:migrate:ServerCollector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

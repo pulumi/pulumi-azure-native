@@ -102,10 +102,8 @@ class ArchiveVersionArgs:
         pulumi.set(self, "archive_version_name", value)
 
 
+@pulumi.type_token("azure-native:containerregistry:ArchiveVersion")
 class ArchiveVersion(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerregistry:ArchiveVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

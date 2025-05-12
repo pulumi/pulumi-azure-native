@@ -118,10 +118,8 @@ class WebPubSubCustomCertificateArgs:
         pulumi.set(self, "key_vault_secret_version", value)
 
 
+@pulumi.type_token("azure-native:webpubsub:WebPubSubCustomCertificate")
 class WebPubSubCustomCertificate(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:webpubsub:WebPubSubCustomCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

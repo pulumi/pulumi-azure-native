@@ -71,10 +71,8 @@ class ResourceTypeRegistrationInitArgs:
         pulumi.set(self, "resource_type", value)
 
 
+@pulumi.type_token("azure-native:providerhub:ResourceTypeRegistration")
 class ResourceTypeRegistration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:providerhub:ResourceTypeRegistration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

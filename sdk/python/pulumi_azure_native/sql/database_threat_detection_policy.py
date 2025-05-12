@@ -230,10 +230,8 @@ class DatabaseThreatDetectionPolicyArgs:
         pulumi.set(self, "use_server_default", value)
 
 
+@pulumi.type_token("azure-native:sql:DatabaseThreatDetectionPolicy")
 class DatabaseThreatDetectionPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:DatabaseThreatDetectionPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

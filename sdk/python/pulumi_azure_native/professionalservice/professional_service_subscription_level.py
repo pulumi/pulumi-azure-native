@@ -138,10 +138,8 @@ class ProfessionalServiceSubscriptionLevelArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:professionalservice:ProfessionalServiceSubscriptionLevel")
 class ProfessionalServiceSubscriptionLevel(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:professionalservice:ProfessionalServiceSubscriptionLevel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -201,10 +201,8 @@ class MediaServiceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:media:MediaService")
 class MediaService(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:media:MediaService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -437,10 +437,8 @@ class ContentPackageArgs:
         pulumi.set(self, "threat_analysis_techniques", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:ContentPackage")
 class ContentPackage(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:ContentPackage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -17,6 +17,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:deviceregistry:AuthenticationMethod")
 class AuthenticationMethod(builtins.str, Enum):
     """
     The method to authenticate the user of the client at the server.
@@ -35,6 +36,7 @@ class AuthenticationMethod(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:deviceregistry:DataPointObservabilityMode")
 class DataPointObservabilityMode(builtins.str, Enum):
     """
     An indication of how the data point should be mapped to OpenTelemetry.
@@ -61,6 +63,7 @@ class DataPointObservabilityMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:deviceregistry:EventObservabilityMode")
 class EventObservabilityMode(builtins.str, Enum):
     """
     An indication of how the event should be mapped to OpenTelemetry.
@@ -75,6 +78,7 @@ class EventObservabilityMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:deviceregistry:Format")
 class Format(builtins.str, Enum):
     """
     Format of the schema.
@@ -89,6 +93,7 @@ class Format(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:deviceregistry:SchemaType")
 class SchemaType(builtins.str, Enum):
     """
     Type of the schema.
@@ -99,6 +104,7 @@ class SchemaType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:deviceregistry:SystemAssignedServiceIdentityType")
 class SystemAssignedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (either system assigned, or none).
@@ -107,6 +113,7 @@ class SystemAssignedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
 
 
+@pulumi.type_token("azure-native:deviceregistry:TopicRetainType")
 class TopicRetainType(builtins.str, Enum):
     """
     When set to 'Keep', messages published to an MQTT broker will have the retain flag set. Default: 'Never'.

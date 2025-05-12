@@ -86,10 +86,8 @@ class WebAppFtpAllowedArgs:
         pulumi.set(self, "kind", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppFtpAllowed")
 class WebAppFtpAllowed(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppFtpAllowed"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

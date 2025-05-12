@@ -121,10 +121,8 @@ class NetworkServiceDesignGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:hybridnetwork:NetworkServiceDesignGroup")
 class NetworkServiceDesignGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybridnetwork:NetworkServiceDesignGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

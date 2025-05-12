@@ -186,10 +186,8 @@ class ConnectorArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:costmanagement:Connector")
 class Connector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:costmanagement:Connector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

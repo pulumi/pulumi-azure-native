@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -20,6 +20,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:redis:DayOfWeek")
 class DayOfWeek(builtins.str, Enum):
     """
     Day of the week when a cache can be patched.
@@ -35,6 +36,7 @@ class DayOfWeek(builtins.str, Enum):
     WEEKEND = "Weekend"
 
 
+@pulumi.type_token("azure-native:redis:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -45,6 +47,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
 
 
+@pulumi.type_token("azure-native:redis:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -54,6 +57,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:redis:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
@@ -62,6 +66,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:redis:ReplicationRole")
 class ReplicationRole(builtins.str, Enum):
     """
     Role of the linked server.
@@ -70,6 +75,7 @@ class ReplicationRole(builtins.str, Enum):
     SECONDARY = "Secondary"
 
 
+@pulumi.type_token("azure-native:redis:SkuFamily")
 class SkuFamily(builtins.str, Enum):
     """
     The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
@@ -78,6 +84,7 @@ class SkuFamily(builtins.str, Enum):
     P = "P"
 
 
+@pulumi.type_token("azure-native:redis:SkuName")
 class SkuName(builtins.str, Enum):
     """
     The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
@@ -87,6 +94,7 @@ class SkuName(builtins.str, Enum):
     PREMIUM = "Premium"
 
 
+@pulumi.type_token("azure-native:redis:TlsVersion")
 class TlsVersion(builtins.str, Enum):
     """
     Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
@@ -96,6 +104,7 @@ class TlsVersion(builtins.str, Enum):
     TLS_VERSION_1_2 = "1.2"
 
 
+@pulumi.type_token("azure-native:redis:UpdateChannel")
 class UpdateChannel(builtins.str, Enum):
     """
     Optional: Specifies the update channel for the monthly Redis updates your Redis Cache will receive. Caches using 'Preview' update channel get latest Redis updates at least 4 weeks ahead of 'Stable' channel caches. Default value is 'Stable'.
@@ -104,6 +113,7 @@ class UpdateChannel(builtins.str, Enum):
     PREVIEW = "Preview"
 
 
+@pulumi.type_token("azure-native:redis:ZonalAllocationPolicy")
 class ZonalAllocationPolicy(builtins.str, Enum):
     """
     Optional: Specifies how availability zones are allocated to the Redis cache. 'Automatic' enables zone redundancy and Azure will automatically select zones based on regional availability and capacity. 'UserDefined' will select availability zones passed in by you using the 'zones' parameter. 'NoZones' will produce a non-zonal cache. If 'zonalAllocationPolicy' is not passed, it will be set to 'UserDefined' when zones are passed in, otherwise, it will be set to 'Automatic' in regions where zones are supported and 'NoZones' in regions where zones are not supported.

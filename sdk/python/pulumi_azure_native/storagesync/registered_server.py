@@ -232,10 +232,8 @@ class RegisteredServerArgs:
         pulumi.set(self, "server_role", value)
 
 
+@pulumi.type_token("azure-native:storagesync:RegisteredServer")
 class RegisteredServer(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storagesync:RegisteredServer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

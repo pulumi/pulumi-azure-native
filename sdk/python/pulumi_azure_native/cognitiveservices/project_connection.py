@@ -104,10 +104,8 @@ class ProjectConnectionArgs:
         pulumi.set(self, "connection_name", value)
 
 
+@pulumi.type_token("azure-native:cognitiveservices:ProjectConnection")
 class ProjectConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cognitiveservices:ProjectConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

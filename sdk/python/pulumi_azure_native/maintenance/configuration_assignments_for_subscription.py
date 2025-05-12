@@ -108,10 +108,8 @@ class ConfigurationAssignmentsForSubscriptionArgs:
         pulumi.set(self, "resource_id", value)
 
 
+@pulumi.type_token("azure-native:maintenance:ConfigurationAssignmentsForSubscription")
 class ConfigurationAssignmentsForSubscription(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:maintenance:ConfigurationAssignmentsForSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

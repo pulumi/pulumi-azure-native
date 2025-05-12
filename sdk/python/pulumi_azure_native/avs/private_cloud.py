@@ -308,10 +308,8 @@ class PrivateCloudArgs:
         pulumi.set(self, "virtual_network_id", value)
 
 
+@pulumi.type_token("azure-native:avs:PrivateCloud")
 class PrivateCloud(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:avs:PrivateCloud"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

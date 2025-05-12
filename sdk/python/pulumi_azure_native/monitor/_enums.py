@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -59,6 +59,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:monitor:AccessMode")
 class AccessMode(builtins.str, Enum):
     """
     Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
@@ -67,6 +68,7 @@ class AccessMode(builtins.str, Enum):
     PRIVATE_ONLY = "PrivateOnly"
 
 
+@pulumi.type_token("azure-native:monitor:AggregationTypeEnum")
 class AggregationTypeEnum(builtins.str, Enum):
     """
     the criteria time aggregation types.
@@ -78,6 +80,7 @@ class AggregationTypeEnum(builtins.str, Enum):
     TOTAL = "Total"
 
 
+@pulumi.type_token("azure-native:monitor:ComparisonOperationType")
 class ComparisonOperationType(builtins.str, Enum):
     """
     the operator that is used to compare the metric data and the threshold.
@@ -90,6 +93,7 @@ class ComparisonOperationType(builtins.str, Enum):
     LESS_THAN_OR_EQUAL = "LessThanOrEqual"
 
 
+@pulumi.type_token("azure-native:monitor:ConditionOperator")
 class ConditionOperator(builtins.str, Enum):
     """
     The criteria operator. Relevant and required only for rules of the kind LogAlert.
@@ -102,6 +106,7 @@ class ConditionOperator(builtins.str, Enum):
     GREATER_OR_LESS_THAN = "GreaterOrLessThan"
 
 
+@pulumi.type_token("azure-native:monitor:CriterionType")
 class CriterionType(builtins.str, Enum):
     """
     Specifies the type of threshold criteria
@@ -110,6 +115,7 @@ class CriterionType(builtins.str, Enum):
     DYNAMIC_THRESHOLD_CRITERION = "DynamicThresholdCriterion"
 
 
+@pulumi.type_token("azure-native:monitor:DimensionOperator")
 class DimensionOperator(builtins.str, Enum):
     """
     Operator for dimension values
@@ -118,6 +124,7 @@ class DimensionOperator(builtins.str, Enum):
     EXCLUDE = "Exclude"
 
 
+@pulumi.type_token("azure-native:monitor:DynamicThresholdOperator")
 class DynamicThresholdOperator(builtins.str, Enum):
     """
     The operator used to compare the metric value against the threshold.
@@ -127,6 +134,7 @@ class DynamicThresholdOperator(builtins.str, Enum):
     GREATER_OR_LESS_THAN = "GreaterOrLessThan"
 
 
+@pulumi.type_token("azure-native:monitor:DynamicThresholdSensitivity")
 class DynamicThresholdSensitivity(builtins.str, Enum):
     """
     The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
@@ -136,6 +144,7 @@ class DynamicThresholdSensitivity(builtins.str, Enum):
     HIGH = "High"
 
 
+@pulumi.type_token("azure-native:monitor:ExporterType")
 class ExporterType(builtins.str, Enum):
     """
     The type of exporter.
@@ -150,6 +159,7 @@ class ExporterType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:monitor:ExtendedLocationType")
 class ExtendedLocationType(builtins.str, Enum):
     """
     The type of the extended location.
@@ -164,6 +174,7 @@ class ExtendedLocationType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:monitor:ExternalNetworkingMode")
 class ExternalNetworkingMode(builtins.str, Enum):
     """
     External networking mode.
@@ -174,6 +185,7 @@ class ExternalNetworkingMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:monitor:IdentityType")
 class IdentityType(builtins.str, Enum):
     """
     Type of managed service identity.
@@ -183,6 +195,7 @@ class IdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:monitor:IncidentManagementService")
 class IncidentManagementService(builtins.str, Enum):
     """
     The incident management service type
@@ -190,6 +203,7 @@ class IncidentManagementService(builtins.str, Enum):
     ICM = "Icm"
 
 
+@pulumi.type_token("azure-native:monitor:JsonMapperElement")
 class JsonMapperElement(builtins.str, Enum):
     """
     Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
@@ -204,6 +218,7 @@ class JsonMapperElement(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:monitor:Kind")
 class Kind(builtins.str, Enum):
     """
     Indicates the type of scheduled query rule. The default is LogAlert.
@@ -213,6 +228,7 @@ class Kind(builtins.str, Enum):
     LOG_TO_METRIC = "LogToMetric"
 
 
+@pulumi.type_token("azure-native:monitor:KnownColumnDefinitionType")
 class KnownColumnDefinitionType(builtins.str, Enum):
     """
     The type of the column data.
@@ -226,6 +242,7 @@ class KnownColumnDefinitionType(builtins.str, Enum):
     DYNAMIC = "dynamic"
 
 
+@pulumi.type_token("azure-native:monitor:KnownDataCollectionEndpointResourceKind")
 class KnownDataCollectionEndpointResourceKind(builtins.str, Enum):
     """
     The kind of the resource.
@@ -234,6 +251,7 @@ class KnownDataCollectionEndpointResourceKind(builtins.str, Enum):
     WINDOWS = "Windows"
 
 
+@pulumi.type_token("azure-native:monitor:KnownDataCollectionRuleResourceKind")
 class KnownDataCollectionRuleResourceKind(builtins.str, Enum):
     """
     The kind of the resource.
@@ -242,6 +260,7 @@ class KnownDataCollectionRuleResourceKind(builtins.str, Enum):
     WINDOWS = "Windows"
 
 
+@pulumi.type_token("azure-native:monitor:KnownDataFlowStreams")
 class KnownDataFlowStreams(builtins.str, Enum):
     MICROSOFT_EVENT = "Microsoft-Event"
     MICROSOFT_INSIGHTS_METRICS = "Microsoft-InsightsMetrics"
@@ -250,6 +269,7 @@ class KnownDataFlowStreams(builtins.str, Enum):
     MICROSOFT_WINDOWS_EVENT = "Microsoft-WindowsEvent"
 
 
+@pulumi.type_token("azure-native:monitor:KnownExtensionDataSourceStreams")
 class KnownExtensionDataSourceStreams(builtins.str, Enum):
     MICROSOFT_EVENT = "Microsoft-Event"
     MICROSOFT_INSIGHTS_METRICS = "Microsoft-InsightsMetrics"
@@ -258,6 +278,7 @@ class KnownExtensionDataSourceStreams(builtins.str, Enum):
     MICROSOFT_WINDOWS_EVENT = "Microsoft-WindowsEvent"
 
 
+@pulumi.type_token("azure-native:monitor:KnownLogFileTextSettingsRecordStartTimestampFormat")
 class KnownLogFileTextSettingsRecordStartTimestampFormat(builtins.str, Enum):
     """
     One of the supported timestamp formats
@@ -273,6 +294,7 @@ class KnownLogFileTextSettingsRecordStartTimestampFormat(builtins.str, Enum):
     YYYY_M_M_DD_TH_H_MM_SS_K = "yyyy-MM-ddTHH:mm:ssK"
 
 
+@pulumi.type_token("azure-native:monitor:KnownLogFilesDataSourceFormat")
 class KnownLogFilesDataSourceFormat(builtins.str, Enum):
     """
     The data format of the log files
@@ -280,15 +302,18 @@ class KnownLogFilesDataSourceFormat(builtins.str, Enum):
     TEXT = "text"
 
 
+@pulumi.type_token("azure-native:monitor:KnownPerfCounterDataSourceStreams")
 class KnownPerfCounterDataSourceStreams(builtins.str, Enum):
     MICROSOFT_PERF = "Microsoft-Perf"
     MICROSOFT_INSIGHTS_METRICS = "Microsoft-InsightsMetrics"
 
 
+@pulumi.type_token("azure-native:monitor:KnownPrometheusForwarderDataSourceStreams")
 class KnownPrometheusForwarderDataSourceStreams(builtins.str, Enum):
     MICROSOFT_PROMETHEUS_METRICS = "Microsoft-PrometheusMetrics"
 
 
+@pulumi.type_token("azure-native:monitor:KnownPublicNetworkAccessOptions")
 class KnownPublicNetworkAccessOptions(builtins.str, Enum):
     """
     The configuration to set whether network access from public internet to the endpoints are allowed.
@@ -298,6 +323,7 @@ class KnownPublicNetworkAccessOptions(builtins.str, Enum):
     SECURED_BY_PERIMETER = "SecuredByPerimeter"
 
 
+@pulumi.type_token("azure-native:monitor:KnownSyslogDataSourceFacilityNames")
 class KnownSyslogDataSourceFacilityNames(builtins.str, Enum):
     ALERT = "alert"
     AUDIT = "audit"
@@ -328,6 +354,7 @@ class KnownSyslogDataSourceFacilityNames(builtins.str, Enum):
     ASTERISK = "*"
 
 
+@pulumi.type_token("azure-native:monitor:KnownSyslogDataSourceLogLevels")
 class KnownSyslogDataSourceLogLevels(builtins.str, Enum):
     DEBUG = "Debug"
     INFO = "Info"
@@ -340,15 +367,18 @@ class KnownSyslogDataSourceLogLevels(builtins.str, Enum):
     ASTERISK = "*"
 
 
+@pulumi.type_token("azure-native:monitor:KnownSyslogDataSourceStreams")
 class KnownSyslogDataSourceStreams(builtins.str, Enum):
     MICROSOFT_SYSLOG = "Microsoft-Syslog"
 
 
+@pulumi.type_token("azure-native:monitor:KnownWindowsEventLogDataSourceStreams")
 class KnownWindowsEventLogDataSourceStreams(builtins.str, Enum):
     MICROSOFT_WINDOWS_EVENT = "Microsoft-WindowsEvent"
     MICROSOFT_EVENT = "Microsoft-Event"
 
 
+@pulumi.type_token("azure-native:monitor:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -359,6 +389,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:monitor:MetricStatisticType")
 class MetricStatisticType(builtins.str, Enum):
     """
     the metric statistic type. How the metrics from multiple instances are combined.
@@ -370,6 +401,7 @@ class MetricStatisticType(builtins.str, Enum):
     COUNT = "Count"
 
 
+@pulumi.type_token("azure-native:monitor:Odatatype")
 class Odatatype(builtins.str, Enum):
     """
     specifies the type of the alert criteria.
@@ -379,6 +411,7 @@ class Odatatype(builtins.str, Enum):
     MICROSOFT_AZURE_MONITOR_WEBTEST_LOCATION_AVAILABILITY_CRITERIA = "Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria"
 
 
+@pulumi.type_token("azure-native:monitor:OperationType")
 class OperationType(builtins.str, Enum):
     """
     the operation associated with the notification and its value must be "scale"
@@ -386,6 +419,7 @@ class OperationType(builtins.str, Enum):
     SCALE = "Scale"
 
 
+@pulumi.type_token("azure-native:monitor:Operator")
 class Operator(builtins.str, Enum):
     """
     the criteria operator.
@@ -397,6 +431,7 @@ class Operator(builtins.str, Enum):
     LESS_THAN_OR_EQUAL = "LessThanOrEqual"
 
 
+@pulumi.type_token("azure-native:monitor:PipelineType")
 class PipelineType(builtins.str, Enum):
     """
     The type of pipeline
@@ -407,6 +442,7 @@ class PipelineType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:monitor:PredictiveAutoscalePolicyScaleMode")
 class PredictiveAutoscalePolicyScaleMode(builtins.str, Enum):
     """
     the predictive autoscale mode
@@ -416,6 +452,7 @@ class PredictiveAutoscalePolicyScaleMode(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:monitor:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -425,6 +462,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:monitor:ProcessorType")
 class ProcessorType(builtins.str, Enum):
     """
     The type of processor.
@@ -435,6 +473,7 @@ class ProcessorType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:monitor:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Gets or sets allow or disallow public network access to Azure Monitor Workspace
@@ -443,6 +482,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:monitor:ReceiverType")
 class ReceiverType(builtins.str, Enum):
     """
     The type of receiver.
@@ -469,6 +509,7 @@ class ReceiverType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:monitor:RecurrenceFrequency")
 class RecurrenceFrequency(builtins.str, Enum):
     """
     the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
@@ -483,6 +524,7 @@ class RecurrenceFrequency(builtins.str, Enum):
     YEAR = "Year"
 
 
+@pulumi.type_token("azure-native:monitor:ScaleDirection")
 class ScaleDirection(builtins.str, Enum):
     """
     the scale direction. Whether the scaling action increases or decreases the number of instances.
@@ -492,6 +534,7 @@ class ScaleDirection(builtins.str, Enum):
     DECREASE = "Decrease"
 
 
+@pulumi.type_token("azure-native:monitor:ScaleRuleMetricDimensionOperationType")
 class ScaleRuleMetricDimensionOperationType(builtins.str, Enum):
     """
     the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
@@ -500,6 +543,7 @@ class ScaleRuleMetricDimensionOperationType(builtins.str, Enum):
     NOT_EQUALS = "NotEquals"
 
 
+@pulumi.type_token("azure-native:monitor:ScaleType")
 class ScaleType(builtins.str, Enum):
     """
     the type of action that should occur when the scale rule fires.
@@ -510,6 +554,7 @@ class ScaleType(builtins.str, Enum):
     SERVICE_ALLOWED_NEXT_VALUE = "ServiceAllowedNextValue"
 
 
+@pulumi.type_token("azure-native:monitor:ScopedResourceKind")
 class ScopedResourceKind(builtins.str, Enum):
     """
     The kind of scoped Azure monitor resource.
@@ -518,6 +563,7 @@ class ScopedResourceKind(builtins.str, Enum):
     METRICS = "Metrics"
 
 
+@pulumi.type_token("azure-native:monitor:StreamEncodingType")
 class StreamEncodingType(builtins.str, Enum):
     """
     The encoding of the stream being received.
@@ -548,6 +594,7 @@ class StreamEncodingType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:monitor:SyslogProtocol")
 class SyslogProtocol(builtins.str, Enum):
     """
     Protocol to parse syslog messages. Default rfc3164
@@ -562,6 +609,7 @@ class SyslogProtocol(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:monitor:TimeAggregation")
 class TimeAggregation(builtins.str, Enum):
     """
     Aggregation type. Relevant and required only for rules of the kind LogAlert.
@@ -573,6 +621,7 @@ class TimeAggregation(builtins.str, Enum):
     TOTAL = "Total"
 
 
+@pulumi.type_token("azure-native:monitor:TimeAggregationType")
 class TimeAggregationType(builtins.str, Enum):
     """
     time aggregation type. How the data that is collected should be combined over time. The default value is Average.

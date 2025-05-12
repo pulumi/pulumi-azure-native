@@ -165,10 +165,8 @@ class WorkspaceApiVersionSetArgs:
         pulumi.set(self, "version_set_id", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:WorkspaceApiVersionSet")
 class WorkspaceApiVersionSet(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:WorkspaceApiVersionSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

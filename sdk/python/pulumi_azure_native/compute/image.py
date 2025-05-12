@@ -155,10 +155,8 @@ class ImageArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:compute:Image")
 class Image(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:compute:Image"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

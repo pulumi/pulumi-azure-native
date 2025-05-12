@@ -119,10 +119,8 @@ class FusionAlertRuleArgs:
         pulumi.set(self, "rule_id", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:FusionAlertRule")
 class FusionAlertRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:FusionAlertRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

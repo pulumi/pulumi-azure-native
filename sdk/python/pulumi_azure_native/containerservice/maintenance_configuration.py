@@ -122,10 +122,8 @@ class MaintenanceConfigurationArgs:
         pulumi.set(self, "time_in_week", value)
 
 
+@pulumi.type_token("azure-native:containerservice:MaintenanceConfiguration")
 class MaintenanceConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerservice:MaintenanceConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

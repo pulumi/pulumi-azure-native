@@ -284,10 +284,8 @@ class ExtensionArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure-native:kubernetesconfiguration:Extension")
 class Extension(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:kubernetesconfiguration:Extension"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

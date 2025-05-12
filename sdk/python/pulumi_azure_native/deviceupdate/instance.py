@@ -154,10 +154,8 @@ class InstanceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:deviceupdate:Instance")
 class Instance(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:deviceupdate:Instance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

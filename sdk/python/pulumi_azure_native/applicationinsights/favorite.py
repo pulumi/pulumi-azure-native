@@ -200,10 +200,8 @@ class FavoriteArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure-native:applicationinsights:Favorite")
 class Favorite(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:applicationinsights:Favorite"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -152,10 +152,8 @@ class BackupArgs:
         pulumi.set(self, "use_existing_snapshot", value)
 
 
+@pulumi.type_token("azure-native:netapp:Backup")
 class Backup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:netapp:Backup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -154,10 +154,8 @@ class OutputInitArgs:
         pulumi.set(self, "time_window", value)
 
 
+@pulumi.type_token("azure-native:streamanalytics:Output")
 class Output(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:streamanalytics:Output"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -316,10 +316,8 @@ class VirtualMachineScaleSetVMRunCommandArgs:
         pulumi.set(self, "treat_failure_as_deployment_failure", value)
 
 
+@pulumi.type_token("azure-native:compute:VirtualMachineScaleSetVMRunCommand")
 class VirtualMachineScaleSetVMRunCommand(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:compute:VirtualMachineScaleSetVMRunCommand"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

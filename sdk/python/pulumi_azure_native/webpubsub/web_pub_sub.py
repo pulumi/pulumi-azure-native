@@ -329,10 +329,8 @@ class WebPubSubArgs:
         pulumi.set(self, "tls", value)
 
 
+@pulumi.type_token("azure-native:webpubsub:WebPubSub")
 class WebPubSub(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:webpubsub:WebPubSub"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

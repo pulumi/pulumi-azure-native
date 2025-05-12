@@ -293,10 +293,8 @@ class AnomalySecurityMLAnalyticsSettingsArgs:
         pulumi.set(self, "techniques", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:AnomalySecurityMLAnalyticsSettings")
 class AnomalySecurityMLAnalyticsSettings(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:AnomalySecurityMLAnalyticsSettings"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

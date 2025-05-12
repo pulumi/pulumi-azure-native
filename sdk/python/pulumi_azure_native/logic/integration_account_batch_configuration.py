@@ -121,10 +121,8 @@ class IntegrationAccountBatchConfigurationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:logic:IntegrationAccountBatchConfiguration")
 class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:logic:IntegrationAccountBatchConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

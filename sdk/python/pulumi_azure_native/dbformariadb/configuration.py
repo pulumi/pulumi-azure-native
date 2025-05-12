@@ -103,10 +103,8 @@ class ConfigurationArgs:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("azure-native:dbformariadb:Configuration")
 class Configuration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dbformariadb:Configuration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

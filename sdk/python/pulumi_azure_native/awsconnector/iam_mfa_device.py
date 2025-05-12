@@ -106,10 +106,8 @@ class IamMfaDeviceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:IamMfaDevice")
 class IamMfaDevice(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:IamMfaDevice"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

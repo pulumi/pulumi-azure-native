@@ -71,10 +71,8 @@ class SubscriptionFeatureRegistrationArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:features:SubscriptionFeatureRegistration")
 class SubscriptionFeatureRegistration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:features:SubscriptionFeatureRegistration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

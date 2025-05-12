@@ -106,10 +106,8 @@ class ClientGroupArgs:
         pulumi.set(self, "query", value)
 
 
+@pulumi.type_token("azure-native:eventgrid:ClientGroup")
 class ClientGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:eventgrid:ClientGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -37,6 +37,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:authorization:AccessReviewRecurrencePatternType")
 class AccessReviewRecurrencePatternType(builtins.str, Enum):
     """
     The recurrence type : weekly, monthly, etc.
@@ -45,6 +46,7 @@ class AccessReviewRecurrencePatternType(builtins.str, Enum):
     ABSOLUTE_MONTHLY = "absoluteMonthly"
 
 
+@pulumi.type_token("azure-native:authorization:AccessReviewRecurrenceRangeType")
 class AccessReviewRecurrenceRangeType(builtins.str, Enum):
     """
     The recurrence range type. The possible values are: endDate, noEnd, numbered.
@@ -54,6 +56,7 @@ class AccessReviewRecurrenceRangeType(builtins.str, Enum):
     NUMBERED = "numbered"
 
 
+@pulumi.type_token("azure-native:authorization:AccessReviewResult")
 class AccessReviewResult(builtins.str, Enum):
     """
     Represents a reviewer's decision for a given review
@@ -65,6 +68,7 @@ class AccessReviewResult(builtins.str, Enum):
     NOT_NOTIFIED = "NotNotified"
 
 
+@pulumi.type_token("azure-native:authorization:ApprovalMode")
 class ApprovalMode(builtins.str, Enum):
     """
     The type of rule
@@ -75,6 +79,7 @@ class ApprovalMode(builtins.str, Enum):
     NO_APPROVAL = "NoApproval"
 
 
+@pulumi.type_token("azure-native:authorization:AssignmentScopeValidation")
 class AssignmentScopeValidation(builtins.str, Enum):
     """
     The option whether validate the exemption is at or under the assignment scope.
@@ -89,6 +94,7 @@ class AssignmentScopeValidation(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:authorization:AssignmentType")
 class AssignmentType(builtins.str, Enum):
     """
     The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
@@ -99,6 +105,7 @@ class AssignmentType(builtins.str, Enum):
     CUSTOM = "Custom"
 
 
+@pulumi.type_token("azure-native:authorization:DefaultDecisionType")
 class DefaultDecisionType(builtins.str, Enum):
     """
     This specifies the behavior for the autoReview feature when an access review completes.
@@ -108,6 +115,7 @@ class DefaultDecisionType(builtins.str, Enum):
     RECOMMENDATION = "Recommendation"
 
 
+@pulumi.type_token("azure-native:authorization:EnablementRules")
 class EnablementRules(builtins.str, Enum):
     """
     The type of enablement rule
@@ -117,6 +125,7 @@ class EnablementRules(builtins.str, Enum):
     TICKETING = "Ticketing"
 
 
+@pulumi.type_token("azure-native:authorization:EnforcementMode")
 class EnforcementMode(builtins.str, Enum):
     """
     The policy assignment enforcement mode. Possible values are Default, DoNotEnforce, and Enroll
@@ -135,11 +144,13 @@ class EnforcementMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:authorization:ExcludedPrincipalTypes")
 class ExcludedPrincipalTypes(builtins.str, Enum):
     SERVICE_PRINCIPALS_AS_TARGET = "ServicePrincipalsAsTarget"
     SERVICE_PRINCIPALS_AS_REQUESTOR = "ServicePrincipalsAsRequestor"
 
 
+@pulumi.type_token("azure-native:authorization:ExemptionCategory")
 class ExemptionCategory(builtins.str, Enum):
     """
     The policy exemption category. Possible values are Waiver and Mitigated.
@@ -154,6 +165,7 @@ class ExemptionCategory(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:authorization:LockLevel")
 class LockLevel(builtins.str, Enum):
     """
     The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
@@ -163,6 +175,7 @@ class LockLevel(builtins.str, Enum):
     READ_ONLY = "ReadOnly"
 
 
+@pulumi.type_token("azure-native:authorization:NotificationDeliveryMechanism")
 class NotificationDeliveryMechanism(builtins.str, Enum):
     """
     The type of notification.
@@ -170,6 +183,7 @@ class NotificationDeliveryMechanism(builtins.str, Enum):
     EMAIL = "Email"
 
 
+@pulumi.type_token("azure-native:authorization:NotificationLevel")
 class NotificationLevel(builtins.str, Enum):
     """
     The notification level.
@@ -179,6 +193,7 @@ class NotificationLevel(builtins.str, Enum):
     ALL = "All"
 
 
+@pulumi.type_token("azure-native:authorization:OverrideKind")
 class OverrideKind(builtins.str, Enum):
     """
     The override kind.
@@ -193,6 +208,7 @@ class OverrideKind(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:authorization:PIMOnlyMode")
 class PIMOnlyMode(builtins.str, Enum):
     """
     Determines whether the setting is enabled, disabled or report only.
@@ -202,6 +218,7 @@ class PIMOnlyMode(builtins.str, Enum):
     REPORT_ONLY = "ReportOnly"
 
 
+@pulumi.type_token("azure-native:authorization:ParameterType")
 class ParameterType(builtins.str, Enum):
     """
     The data type of the parameter.
@@ -215,6 +232,7 @@ class ParameterType(builtins.str, Enum):
     DATE_TIME = "DateTime"
 
 
+@pulumi.type_token("azure-native:authorization:PolicyType")
 class PolicyType(builtins.str, Enum):
     """
     The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
@@ -225,6 +243,7 @@ class PolicyType(builtins.str, Enum):
     STATIC = "Static"
 
 
+@pulumi.type_token("azure-native:authorization:PrincipalType")
 class PrincipalType(builtins.str, Enum):
     """
     The principal type of the assigned principal ID.
@@ -236,11 +255,13 @@ class PrincipalType(builtins.str, Enum):
     DEVICE = "Device"
 
 
+@pulumi.type_token("azure-native:authorization:PublicNetworkAccessOptions")
 class PublicNetworkAccessOptions(builtins.str, Enum):
     ENABLED = "Enabled"
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:authorization:RecipientType")
 class RecipientType(builtins.str, Enum):
     """
     The recipient type.
@@ -250,6 +271,7 @@ class RecipientType(builtins.str, Enum):
     ADMIN = "Admin"
 
 
+@pulumi.type_token("azure-native:authorization:RequestType")
 class RequestType(builtins.str, Enum):
     """
     The type of the role assignment schedule request. Eg: SelfActivate, AdminAssign etc
@@ -265,6 +287,7 @@ class RequestType(builtins.str, Enum):
     SELF_RENEW = "SelfRenew"
 
 
+@pulumi.type_token("azure-native:authorization:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The identity type. This is the only required field when adding a system or user assigned identity to a resource.
@@ -283,6 +306,7 @@ class ResourceIdentityType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:authorization:RoleManagementPolicyRuleType")
 class RoleManagementPolicyRuleType(builtins.str, Enum):
     """
     The type of rule
@@ -295,6 +319,7 @@ class RoleManagementPolicyRuleType(builtins.str, Enum):
     ROLE_MANAGEMENT_POLICY_PIM_ONLY_MODE_RULE = "RoleManagementPolicyPimOnlyModeRule"
 
 
+@pulumi.type_token("azure-native:authorization:SelectorKind")
 class SelectorKind(builtins.str, Enum):
     """
     The selector kind.
@@ -317,6 +342,7 @@ class SelectorKind(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:authorization:Type")
 class Type(builtins.str, Enum):
     """
     Type of the role eligibility schedule expiration
@@ -326,6 +352,7 @@ class Type(builtins.str, Enum):
     NO_EXPIRATION = "NoExpiration"
 
 
+@pulumi.type_token("azure-native:authorization:UserType")
 class UserType(builtins.str, Enum):
     """
     The type of user.

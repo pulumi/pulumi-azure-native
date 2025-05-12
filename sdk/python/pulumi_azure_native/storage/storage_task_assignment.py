@@ -89,10 +89,8 @@ class StorageTaskAssignmentArgs:
         pulumi.set(self, "storage_task_assignment_name", value)
 
 
+@pulumi.type_token("azure-native:storage:StorageTaskAssignment")
 class StorageTaskAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storage:StorageTaskAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

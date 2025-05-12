@@ -152,10 +152,8 @@ class InventoryItemArgs:
         pulumi.set(self, "mo_ref_id", value)
 
 
+@pulumi.type_token("azure-native:connectedvmwarevsphere:InventoryItem")
 class InventoryItem(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:connectedvmwarevsphere:InventoryItem"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

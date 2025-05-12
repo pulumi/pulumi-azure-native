@@ -219,10 +219,8 @@ class AzureLargeInstanceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:azurelargeinstance:AzureLargeInstance")
 class AzureLargeInstance(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurelargeinstance:AzureLargeInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

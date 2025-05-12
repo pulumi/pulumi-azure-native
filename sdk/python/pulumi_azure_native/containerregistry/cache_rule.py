@@ -122,10 +122,8 @@ class CacheRuleArgs:
         pulumi.set(self, "target_repository", value)
 
 
+@pulumi.type_token("azure-native:containerregistry:CacheRule")
 class CacheRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerregistry:CacheRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

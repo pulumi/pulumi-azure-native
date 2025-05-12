@@ -265,10 +265,8 @@ class NspAccessRuleArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:network:NspAccessRule")
 class NspAccessRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:NspAccessRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

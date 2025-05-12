@@ -225,10 +225,8 @@ class AccountArgs:
         pulumi.set(self, "tenant_endpoint_state", value)
 
 
+@pulumi.type_token("azure-native:purview:Account")
 class Account(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:purview:Account"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

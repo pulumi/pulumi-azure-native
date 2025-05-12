@@ -106,10 +106,8 @@ class IamPasswordPolicyArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:IamPasswordPolicy")
 class IamPasswordPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:IamPasswordPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

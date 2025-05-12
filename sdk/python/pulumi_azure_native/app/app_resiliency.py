@@ -169,10 +169,8 @@ class AppResiliencyArgs:
         pulumi.set(self, "timeout_policy", value)
 
 
+@pulumi.type_token("azure-native:app:AppResiliency")
 class AppResiliency(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:app:AppResiliency"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

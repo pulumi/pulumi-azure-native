@@ -192,10 +192,8 @@ class ProjectArgs:
         pulumi.set(self, "target_connection_info", value)
 
 
+@pulumi.type_token("azure-native:datamigration:Project")
 class Project(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datamigration:Project"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

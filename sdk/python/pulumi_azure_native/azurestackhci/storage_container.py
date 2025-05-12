@@ -122,10 +122,8 @@ class StorageContainerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:azurestackhci:StorageContainer")
 class StorageContainer(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurestackhci:StorageContainer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

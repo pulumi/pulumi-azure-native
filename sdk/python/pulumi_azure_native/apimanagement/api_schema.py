@@ -149,10 +149,8 @@ class ApiSchemaArgs:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:ApiSchema")
 class ApiSchema(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:ApiSchema"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

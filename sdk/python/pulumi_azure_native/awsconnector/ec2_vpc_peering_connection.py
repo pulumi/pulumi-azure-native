@@ -106,10 +106,8 @@ class Ec2VpcPeeringConnectionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:Ec2VpcPeeringConnection")
 class Ec2VpcPeeringConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:Ec2VpcPeeringConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

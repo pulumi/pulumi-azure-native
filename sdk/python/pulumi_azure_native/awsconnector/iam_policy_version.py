@@ -106,10 +106,8 @@ class IamPolicyVersionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:IamPolicyVersion")
 class IamPolicyVersion(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:IamPolicyVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

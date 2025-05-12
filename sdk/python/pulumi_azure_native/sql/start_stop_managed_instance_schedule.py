@@ -125,10 +125,8 @@ class StartStopManagedInstanceScheduleArgs:
         pulumi.set(self, "time_zone_id", value)
 
 
+@pulumi.type_token("azure-native:sql:StartStopManagedInstanceSchedule")
 class StartStopManagedInstanceSchedule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:StartStopManagedInstanceSchedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

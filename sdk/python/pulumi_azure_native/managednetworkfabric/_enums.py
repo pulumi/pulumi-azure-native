@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -42,6 +42,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:AclActionType")
 class AclActionType(builtins.str, Enum):
     """
     Type of actions that can be performed.
@@ -51,6 +52,7 @@ class AclActionType(builtins.str, Enum):
     LOG = "Log"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:Action")
 class Action(builtins.str, Enum):
     """
     Specify action.
@@ -59,6 +61,7 @@ class Action(builtins.str, Enum):
     DENY = "Deny"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:AddressFamilyType")
 class AddressFamilyType(builtins.str, Enum):
     """
     AddressFamilyType. This parameter decides whether the given ipv4 or ipv6 route policy.
@@ -67,6 +70,7 @@ class AddressFamilyType(builtins.str, Enum):
     I_PV6 = "IPv6"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:AllowASOverride")
 class AllowASOverride(builtins.str, Enum):
     """
     Enable Or Disable state.
@@ -75,6 +79,7 @@ class AllowASOverride(builtins.str, Enum):
     DISABLE = "Disable"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:BooleanEnumProperty")
 class BooleanEnumProperty(builtins.str, Enum):
     """
     Based on this option layer3 parameters are mandatory. Example: True/False
@@ -83,6 +88,7 @@ class BooleanEnumProperty(builtins.str, Enum):
     FALSE = "False"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:CommunityActionTypes")
 class CommunityActionTypes(builtins.str, Enum):
     """
     Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
@@ -91,6 +97,7 @@ class CommunityActionTypes(builtins.str, Enum):
     DENY = "Deny"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:Condition")
 class Condition(builtins.str, Enum):
     """
     Specify prefix-list bounds.
@@ -101,6 +108,7 @@ class Condition(builtins.str, Enum):
     RANGE = "Range"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:ConfigurationType")
 class ConfigurationType(builtins.str, Enum):
     """
     Input method to configure Network Tap Rule.
@@ -109,6 +117,7 @@ class ConfigurationType(builtins.str, Enum):
     INLINE = "Inline"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:DestinationType")
 class DestinationType(builtins.str, Enum):
     """
     Type of destination. Input can be IsolationDomain or Direct.
@@ -117,6 +126,7 @@ class DestinationType(builtins.str, Enum):
     DIRECT = "Direct"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:Encapsulation")
 class Encapsulation(builtins.str, Enum):
     """
     Type of encapsulation.
@@ -125,6 +135,7 @@ class Encapsulation(builtins.str, Enum):
     GRE = "GRE"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:EncapsulationType")
 class EncapsulationType(builtins.str, Enum):
     """
     Encapsulation Type that needs to be matched.
@@ -133,6 +144,7 @@ class EncapsulationType(builtins.str, Enum):
     GT_PV1 = "GTPv1"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:Extension")
 class Extension(builtins.str, Enum):
     """
     Extension. Example: NoExtension | NPB.
@@ -141,6 +153,7 @@ class Extension(builtins.str, Enum):
     NPB = "NPB"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:GatewayType")
 class GatewayType(builtins.str, Enum):
     """
     Gateway Type of the resource.
@@ -149,6 +162,7 @@ class GatewayType(builtins.str, Enum):
     WORKLOAD = "Workload"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:IPAddressType")
 class IPAddressType(builtins.str, Enum):
     """
     Type of IP Address. IPv4 or IPv6
@@ -157,6 +171,7 @@ class IPAddressType(builtins.str, Enum):
     I_PV6 = "IPv6"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:IsManagementType")
 class IsManagementType(builtins.str, Enum):
     """
     Configuration to use NNI for Infrastructure Management. Example: True/False.
@@ -165,6 +180,7 @@ class IsManagementType(builtins.str, Enum):
     FALSE = "False"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:IsMonitoringEnabled")
 class IsMonitoringEnabled(builtins.str, Enum):
     """
     To check whether monitoring of internal network is enabled or not.
@@ -173,6 +189,7 @@ class IsMonitoringEnabled(builtins.str, Enum):
     FALSE = "False"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:IsWorkloadManagementNetworkEnabled")
 class IsWorkloadManagementNetworkEnabled(builtins.str, Enum):
     """
     A workload management network is required for all the tenant (workload) traffic. This traffic is only dedicated for Tenant workloads which are required to access internet or any other MSFT/Public endpoints.
@@ -181,6 +198,7 @@ class IsWorkloadManagementNetworkEnabled(builtins.str, Enum):
     FALSE = "False"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:Layer4Protocol")
 class Layer4Protocol(builtins.str, Enum):
     """
     Layer4 protocol type that needs to be matched.
@@ -189,6 +207,7 @@ class Layer4Protocol(builtins.str, Enum):
     UDP = "UDP"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:NetworkRackType")
 class NetworkRackType(builtins.str, Enum):
     """
     Network Rack SKU name.
@@ -198,6 +217,7 @@ class NetworkRackType(builtins.str, Enum):
     COMBINED = "Combined"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:NfcSku")
 class NfcSku(builtins.str, Enum):
     """
     Network Fabric Controller SKU.
@@ -207,6 +227,7 @@ class NfcSku(builtins.str, Enum):
     HIGH_PERFORMANCE = "HighPerformance"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:NniType")
 class NniType(builtins.str, Enum):
     """
     Type of NNI used. Example: CE | NPB
@@ -215,6 +236,7 @@ class NniType(builtins.str, Enum):
     NPB = "NPB"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:PeeringOption")
 class PeeringOption(builtins.str, Enum):
     """
     Peering option list.
@@ -223,6 +245,7 @@ class PeeringOption(builtins.str, Enum):
     OPTION_B = "OptionB"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:PollingType")
 class PollingType(builtins.str, Enum):
     """
     Polling type.
@@ -231,6 +254,7 @@ class PollingType(builtins.str, Enum):
     PUSH = "Push"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:PortType")
 class PortType(builtins.str, Enum):
     """
     Port type that needs to be matched.
@@ -239,6 +263,7 @@ class PortType(builtins.str, Enum):
     DESTINATION_PORT = "DestinationPort"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:PrefixType")
 class PrefixType(builtins.str, Enum):
     """
     IP Prefix Type that needs to be matched.
@@ -247,6 +272,7 @@ class PrefixType(builtins.str, Enum):
     LONGEST_PREFIX = "LongestPrefix"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:RedistributeConnectedSubnets")
 class RedistributeConnectedSubnets(builtins.str, Enum):
     """
     Advertise Connected Subnets. Ex: "True" | "False".
@@ -255,6 +281,7 @@ class RedistributeConnectedSubnets(builtins.str, Enum):
     FALSE = "False"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:RedistributeStaticRoutes")
 class RedistributeStaticRoutes(builtins.str, Enum):
     """
     Advertise Static Routes. Ex: "True" | "False".
@@ -263,6 +290,7 @@ class RedistributeStaticRoutes(builtins.str, Enum):
     FALSE = "False"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:RoutePolicyActionType")
 class RoutePolicyActionType(builtins.str, Enum):
     """
     Action type. Example: Permit | Deny | Continue.
@@ -272,6 +300,7 @@ class RoutePolicyActionType(builtins.str, Enum):
     CONTINUE_ = "Continue"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:RoutePolicyConditionType")
 class RoutePolicyConditionType(builtins.str, Enum):
     """
     Type of the condition used.
@@ -280,6 +309,7 @@ class RoutePolicyConditionType(builtins.str, Enum):
     AND_ = "And"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:SourceDestinationType")
 class SourceDestinationType(builtins.str, Enum):
     """
     IP Address type that needs to be matched.
@@ -288,6 +318,7 @@ class SourceDestinationType(builtins.str, Enum):
     DESTINATION_IP = "DestinationIP"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:TapRuleActionType")
 class TapRuleActionType(builtins.str, Enum):
     """
     Type of actions that can be performed.
@@ -301,6 +332,7 @@ class TapRuleActionType(builtins.str, Enum):
     MIRROR = "Mirror"
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:WellKnownCommunities")
 class WellKnownCommunities(builtins.str, Enum):
     """
 

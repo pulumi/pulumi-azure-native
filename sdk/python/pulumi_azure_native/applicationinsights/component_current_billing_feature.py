@@ -89,10 +89,8 @@ class ComponentCurrentBillingFeatureArgs:
         pulumi.set(self, "data_volume_cap", value)
 
 
+@pulumi.type_token("azure-native:applicationinsights:ComponentCurrentBillingFeature")
 class ComponentCurrentBillingFeature(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:applicationinsights:ComponentCurrentBillingFeature"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

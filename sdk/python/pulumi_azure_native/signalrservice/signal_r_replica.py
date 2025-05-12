@@ -164,10 +164,8 @@ class SignalRReplicaArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:signalrservice:SignalRReplica")
 class SignalRReplica(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:signalrservice:SignalRReplica"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

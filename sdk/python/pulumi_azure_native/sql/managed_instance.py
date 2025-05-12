@@ -621,10 +621,8 @@ class ManagedInstanceArgs:
         pulumi.set(self, "zone_redundant", value)
 
 
+@pulumi.type_token("azure-native:sql:ManagedInstance")
 class ManagedInstance(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:ManagedInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

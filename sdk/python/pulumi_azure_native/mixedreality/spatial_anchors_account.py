@@ -171,10 +171,8 @@ class SpatialAnchorsAccountArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:mixedreality:SpatialAnchorsAccount")
 class SpatialAnchorsAccount(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:mixedreality:SpatialAnchorsAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

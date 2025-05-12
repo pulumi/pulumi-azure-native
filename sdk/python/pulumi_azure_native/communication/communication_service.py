@@ -138,10 +138,8 @@ class CommunicationServiceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:communication:CommunicationService")
 class CommunicationService(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:communication:CommunicationService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

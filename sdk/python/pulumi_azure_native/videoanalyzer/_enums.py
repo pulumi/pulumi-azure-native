@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -22,6 +22,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:videoanalyzer:AccessPolicyEccAlgo")
 class AccessPolicyEccAlgo(builtins.str, Enum):
     """
     Elliptical curve algorithm to be used: ES256, ES384 or ES512.
@@ -40,6 +41,7 @@ class AccessPolicyEccAlgo(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:videoanalyzer:AccessPolicyRole")
 class AccessPolicyRole(builtins.str, Enum):
     """
     Defines the access level granted by this policy.
@@ -50,6 +52,7 @@ class AccessPolicyRole(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:videoanalyzer:AccessPolicyRsaAlgo")
 class AccessPolicyRsaAlgo(builtins.str, Enum):
     """
     RSA algorithm to be used: RS256, RS384 or RS512.
@@ -68,6 +71,7 @@ class AccessPolicyRsaAlgo(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:videoanalyzer:AccountEncryptionKeyType")
 class AccountEncryptionKeyType(builtins.str, Enum):
     """
     The type of key used to encrypt the Account Key.
@@ -82,6 +86,7 @@ class AccountEncryptionKeyType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:videoanalyzer:EncoderSystemPresetType")
 class EncoderSystemPresetType(builtins.str, Enum):
     """
     Name of the built-in encoding preset.
@@ -104,6 +109,7 @@ class EncoderSystemPresetType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:videoanalyzer:Kind")
 class Kind(builtins.str, Enum):
     """
     Topology kind.
@@ -118,6 +124,7 @@ class Kind(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:videoanalyzer:ParameterType")
 class ParameterType(builtins.str, Enum):
     """
     Type of the parameter.
@@ -144,6 +151,7 @@ class ParameterType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:videoanalyzer:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -153,6 +161,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:videoanalyzer:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Whether or not public network access is allowed for resources under the Video Analyzer account.
@@ -167,6 +176,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:videoanalyzer:RtspTransport")
 class RtspTransport(builtins.str, Enum):
     """
     Network transport utilized by the RTSP and RTP exchange: TCP or HTTP. When using TCP, the RTP packets are interleaved on the TCP RTSP connection. When using HTTP, the RTSP messages are exchanged through long lived HTTP connections, and the RTP packages are interleaved in the HTTP connections alongside the RTSP messages.
@@ -181,6 +191,7 @@ class RtspTransport(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:videoanalyzer:SkuName")
 class SkuName(builtins.str, Enum):
     """
     The SKU name.
@@ -195,6 +206,7 @@ class SkuName(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:videoanalyzer:VideoScaleMode")
 class VideoScaleMode(builtins.str, Enum):
     """
     Describes the video scaling mode to be applied. Default mode is 'Pad'. If the mode is 'Pad' or 'Stretch' then both width and height must be specified. Else if the mode is 'PreserveAspectRatio' then only one of width or height need be provided.

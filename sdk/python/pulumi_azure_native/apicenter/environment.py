@@ -183,10 +183,8 @@ class EnvironmentArgs:
         pulumi.set(self, "server", value)
 
 
+@pulumi.type_token("azure-native:apicenter:Environment")
 class Environment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apicenter:Environment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

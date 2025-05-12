@@ -59,10 +59,8 @@ class SitesBySubscriptionArgs:
         pulumi.set(self, "site_name", value)
 
 
+@pulumi.type_token("azure-native:edge:SitesBySubscription")
 class SitesBySubscription(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:edge:SitesBySubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

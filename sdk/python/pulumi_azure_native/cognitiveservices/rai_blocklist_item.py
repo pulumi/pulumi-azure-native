@@ -120,10 +120,8 @@ class RaiBlocklistItemArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:cognitiveservices:RaiBlocklistItem")
 class RaiBlocklistItem(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cognitiveservices:RaiBlocklistItem"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

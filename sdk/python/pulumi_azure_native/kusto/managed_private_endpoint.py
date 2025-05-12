@@ -134,10 +134,8 @@ class ManagedPrivateEndpointArgs:
         pulumi.set(self, "request_message", value)
 
 
+@pulumi.type_token("azure-native:kusto:ManagedPrivateEndpoint")
 class ManagedPrivateEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:kusto:ManagedPrivateEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

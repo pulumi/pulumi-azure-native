@@ -199,10 +199,8 @@ class StorageAccountCredentialArgs:
         pulumi.set(self, "user_name", value)
 
 
+@pulumi.type_token("azure-native:databoxedge:StorageAccountCredential")
 class StorageAccountCredential(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databoxedge:StorageAccountCredential"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

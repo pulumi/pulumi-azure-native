@@ -121,10 +121,8 @@ class PrivateDnsZoneGroupArgs:
         pulumi.set(self, "private_dns_zone_group_name", value)
 
 
+@pulumi.type_token("azure-native:network:PrivateDnsZoneGroup")
 class PrivateDnsZoneGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:PrivateDnsZoneGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

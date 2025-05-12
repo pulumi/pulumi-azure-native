@@ -122,10 +122,8 @@ class ServerCollectorsOperationArgs:
         pulumi.set(self, "server_collector_name", value)
 
 
+@pulumi.type_token("azure-native:migrate:ServerCollectorsOperation")
 class ServerCollectorsOperation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:migrate:ServerCollectorsOperation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

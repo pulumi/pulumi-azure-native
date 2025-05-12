@@ -153,10 +153,8 @@ class AFDCustomDomainArgs:
         pulumi.set(self, "tls_settings", value)
 
 
+@pulumi.type_token("azure-native:cdn:AFDCustomDomain")
 class AFDCustomDomain(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cdn:AFDCustomDomain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

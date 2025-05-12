@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -33,6 +33,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:databoxedge:AccountType")
 class AccountType(builtins.str, Enum):
     """
     Type of storage accessed on the storage account.
@@ -41,6 +42,7 @@ class AccountType(builtins.str, Enum):
     BLOB_STORAGE = "BlobStorage"
 
 
+@pulumi.type_token("azure-native:databoxedge:AddonType")
 class AddonType(builtins.str, Enum):
     """
     Addon type.
@@ -49,6 +51,7 @@ class AddonType(builtins.str, Enum):
     ARC_FOR_KUBERNETES = "ArcForKubernetes"
 
 
+@pulumi.type_token("azure-native:databoxedge:AzureContainerDataFormat")
 class AzureContainerDataFormat(builtins.str, Enum):
     """
     Storage format used for the file represented by the share.
@@ -58,6 +61,7 @@ class AzureContainerDataFormat(builtins.str, Enum):
     AZURE_FILE = "AzureFile"
 
 
+@pulumi.type_token("azure-native:databoxedge:ClientPermissionType")
 class ClientPermissionType(builtins.str, Enum):
     """
     Type of access to be allowed for the client.
@@ -67,6 +71,7 @@ class ClientPermissionType(builtins.str, Enum):
     READ_WRITE = "ReadWrite"
 
 
+@pulumi.type_token("azure-native:databoxedge:DataPolicy")
 class DataPolicy(builtins.str, Enum):
     """
     Data policy of the storage Account.
@@ -75,6 +80,7 @@ class DataPolicy(builtins.str, Enum):
     LOCAL = "Local"
 
 
+@pulumi.type_token("azure-native:databoxedge:DataResidencyType")
 class DataResidencyType(builtins.str, Enum):
     """
     DataResidencyType enum
@@ -83,6 +89,7 @@ class DataResidencyType(builtins.str, Enum):
     ZONE_REPLICATION = "ZoneReplication"
 
 
+@pulumi.type_token("azure-native:databoxedge:DayOfWeek")
 class DayOfWeek(builtins.str, Enum):
     SUNDAY = "Sunday"
     MONDAY = "Monday"
@@ -93,6 +100,7 @@ class DayOfWeek(builtins.str, Enum):
     SATURDAY = "Saturday"
 
 
+@pulumi.type_token("azure-native:databoxedge:EncryptionAlgorithm")
 class EncryptionAlgorithm(builtins.str, Enum):
     """
     The algorithm used to encrypt "Value".
@@ -102,6 +110,7 @@ class EncryptionAlgorithm(builtins.str, Enum):
     RSAE_S_PKCS1_V_1_5 = "RSAES_PKCS1_v_1_5"
 
 
+@pulumi.type_token("azure-native:databoxedge:MonitoringStatus")
 class MonitoringStatus(builtins.str, Enum):
     """
     Current monitoring status of the share.
@@ -110,6 +119,7 @@ class MonitoringStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:databoxedge:MsiIdentityType")
 class MsiIdentityType(builtins.str, Enum):
     """
     Identity type
@@ -119,6 +129,7 @@ class MsiIdentityType(builtins.str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+@pulumi.type_token("azure-native:databoxedge:PlatformType")
 class PlatformType(builtins.str, Enum):
     """
     Host OS supported by the Kubernetes role.
@@ -127,6 +138,7 @@ class PlatformType(builtins.str, Enum):
     LINUX = "Linux"
 
 
+@pulumi.type_token("azure-native:databoxedge:RoleStatus")
 class RoleStatus(builtins.str, Enum):
     """
     Role status.
@@ -135,6 +147,7 @@ class RoleStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:databoxedge:RoleTypes")
 class RoleTypes(builtins.str, Enum):
     """
     Role type.
@@ -148,6 +161,7 @@ class RoleTypes(builtins.str, Enum):
     KUBERNETES = "Kubernetes"
 
 
+@pulumi.type_token("azure-native:databoxedge:SSLStatus")
 class SSLStatus(builtins.str, Enum):
     """
     Signifies whether SSL needs to be enabled or not.
@@ -156,6 +170,7 @@ class SSLStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:databoxedge:ShareAccessProtocol")
 class ShareAccessProtocol(builtins.str, Enum):
     """
     Access protocol to be used by the share.
@@ -164,6 +179,7 @@ class ShareAccessProtocol(builtins.str, Enum):
     NFS = "NFS"
 
 
+@pulumi.type_token("azure-native:databoxedge:ShareAccessType")
 class ShareAccessType(builtins.str, Enum):
     """
     Type of access to be allowed for the user.
@@ -173,6 +189,7 @@ class ShareAccessType(builtins.str, Enum):
     CUSTOM = "Custom"
 
 
+@pulumi.type_token("azure-native:databoxedge:ShareStatus")
 class ShareStatus(builtins.str, Enum):
     """
     Current status of the share.
@@ -184,6 +201,7 @@ class ShareStatus(builtins.str, Enum):
     NEEDS_ATTENTION = "NeedsAttention"
 
 
+@pulumi.type_token("azure-native:databoxedge:ShipmentType")
 class ShipmentType(builtins.str, Enum):
     """
     ShipmentType of the order
@@ -193,6 +211,7 @@ class ShipmentType(builtins.str, Enum):
     SELF_PICKUP = "SelfPickup"
 
 
+@pulumi.type_token("azure-native:databoxedge:SkuName")
 class SkuName(builtins.str, Enum):
     """
     SKU name.
@@ -228,6 +247,7 @@ class SkuName(builtins.str, Enum):
     EDGE_M_R_TCP = "EdgeMR_TCP"
 
 
+@pulumi.type_token("azure-native:databoxedge:SkuTier")
 class SkuTier(builtins.str, Enum):
     """
     The SKU tier. This is based on the SKU name.
@@ -235,6 +255,7 @@ class SkuTier(builtins.str, Enum):
     STANDARD = "Standard"
 
 
+@pulumi.type_token("azure-native:databoxedge:StorageAccountStatus")
 class StorageAccountStatus(builtins.str, Enum):
     """
     Current status of the storage account
@@ -246,6 +267,7 @@ class StorageAccountStatus(builtins.str, Enum):
     NEEDS_ATTENTION = "NeedsAttention"
 
 
+@pulumi.type_token("azure-native:databoxedge:TriggerEventType")
 class TriggerEventType(builtins.str, Enum):
     """
     Trigger Kind.
@@ -254,6 +276,7 @@ class TriggerEventType(builtins.str, Enum):
     PERIODIC_TIMER_EVENT = "PeriodicTimerEvent"
 
 
+@pulumi.type_token("azure-native:databoxedge:UserType")
 class UserType(builtins.str, Enum):
     """
     Type of the user.

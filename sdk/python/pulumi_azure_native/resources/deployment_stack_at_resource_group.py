@@ -249,10 +249,8 @@ class DeploymentStackAtResourceGroupArgs:
         pulumi.set(self, "template_link", value)
 
 
+@pulumi.type_token("azure-native:resources:DeploymentStackAtResourceGroup")
 class DeploymentStackAtResourceGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:resources:DeploymentStackAtResourceGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

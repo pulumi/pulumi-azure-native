@@ -59,10 +59,8 @@ class UserSettingsArgs:
         pulumi.set(self, "user_settings_name", value)
 
 
+@pulumi.type_token("azure-native:portal:UserSettings")
 class UserSettings(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:portal:UserSettings"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

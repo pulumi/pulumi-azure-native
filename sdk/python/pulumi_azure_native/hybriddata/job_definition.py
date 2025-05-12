@@ -232,10 +232,8 @@ class JobDefinitionArgs:
         pulumi.set(self, "user_confirmation", value)
 
 
+@pulumi.type_token("azure-native:hybriddata:JobDefinition")
 class JobDefinition(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybriddata:JobDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -310,10 +310,8 @@ class WebAppInstanceFunctionSlotArgs:
         pulumi.set(self, "test_data_href", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppInstanceFunctionSlot")
 class WebAppInstanceFunctionSlot(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppInstanceFunctionSlot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

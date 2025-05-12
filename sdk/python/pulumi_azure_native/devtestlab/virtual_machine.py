@@ -482,10 +482,8 @@ class VirtualMachineArgs:
         pulumi.set(self, "user_name", value)
 
 
+@pulumi.type_token("azure-native:devtestlab:VirtualMachine")
 class VirtualMachine(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devtestlab:VirtualMachine"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

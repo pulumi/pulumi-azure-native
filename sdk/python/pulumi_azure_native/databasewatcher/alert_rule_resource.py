@@ -148,10 +148,8 @@ class AlertRuleResourceArgs:
         pulumi.set(self, "alert_rule_resource_name", value)
 
 
+@pulumi.type_token("azure-native:databasewatcher:AlertRuleResource")
 class AlertRuleResource(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databasewatcher:AlertRuleResource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -89,10 +89,8 @@ class ManagementGroupNetworkManagerConnectionArgs:
         pulumi.set(self, "network_manager_id", value)
 
 
+@pulumi.type_token("azure-native:network:ManagementGroupNetworkManagerConnection")
 class ManagementGroupNetworkManagerConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:ManagementGroupNetworkManagerConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

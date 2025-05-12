@@ -105,10 +105,8 @@ class CurationProfileArgs:
         pulumi.set(self, "scopes", value)
 
 
+@pulumi.type_token("azure-native:devcenter:CurationProfile")
 class CurationProfile(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devcenter:CurationProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

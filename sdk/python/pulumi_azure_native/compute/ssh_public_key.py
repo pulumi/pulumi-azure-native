@@ -104,10 +104,8 @@ class SshPublicKeyInitArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:compute:SshPublicKey")
 class SshPublicKey(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:compute:SshPublicKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

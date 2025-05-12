@@ -148,10 +148,8 @@ class ApiDefinitionArgs:
         pulumi.set(self, "description", value)
 
 
+@pulumi.type_token("azure-native:apicenter:ApiDefinition")
 class ApiDefinition(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apicenter:ApiDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

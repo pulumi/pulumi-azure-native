@@ -89,10 +89,8 @@ class ManagementPolicyArgs:
         pulumi.set(self, "management_policy_name", value)
 
 
+@pulumi.type_token("azure-native:storage:ManagementPolicy")
 class ManagementPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storage:ManagementPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

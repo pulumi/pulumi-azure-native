@@ -89,10 +89,8 @@ class KeyGroupArgs:
         pulumi.set(self, "key_references", value)
 
 
+@pulumi.type_token("azure-native:cdn:KeyGroup")
 class KeyGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cdn:KeyGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

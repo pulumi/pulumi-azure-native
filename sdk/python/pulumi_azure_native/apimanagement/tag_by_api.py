@@ -86,10 +86,8 @@ class TagByApiArgs:
         pulumi.set(self, "tag_id", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:TagByApi")
 class TagByApi(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:TagByApi"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

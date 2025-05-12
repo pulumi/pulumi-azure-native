@@ -168,10 +168,8 @@ class RuntimeEnvironmentArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure-native:automation:RuntimeEnvironment")
 class RuntimeEnvironment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:automation:RuntimeEnvironment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

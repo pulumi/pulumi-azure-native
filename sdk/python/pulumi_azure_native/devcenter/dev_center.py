@@ -155,10 +155,8 @@ class DevCenterArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:devcenter:DevCenter")
 class DevCenter(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devcenter:DevCenter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

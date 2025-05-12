@@ -195,10 +195,8 @@ class BackupScheduleArgs:
         pulumi.set(self, "kind", value)
 
 
+@pulumi.type_token("azure-native:storsimple:BackupSchedule")
 class BackupSchedule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storsimple:BackupSchedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

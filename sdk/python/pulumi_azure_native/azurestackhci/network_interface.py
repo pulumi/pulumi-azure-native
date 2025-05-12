@@ -189,10 +189,8 @@ class NetworkInterfaceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:azurestackhci:NetworkInterface")
 class NetworkInterface(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurestackhci:NetworkInterface"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

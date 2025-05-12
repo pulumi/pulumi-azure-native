@@ -104,10 +104,8 @@ class BuildServiceBuildArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:appplatform:BuildServiceBuild")
 class BuildServiceBuild(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:appplatform:BuildServiceBuild"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

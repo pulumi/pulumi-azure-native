@@ -123,10 +123,8 @@ class MigrateProjectArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:migrate:MigrateProject")
 class MigrateProject(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:migrate:MigrateProject"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

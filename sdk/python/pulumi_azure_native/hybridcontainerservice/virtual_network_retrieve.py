@@ -118,10 +118,8 @@ class VirtualNetworkRetrieveArgs:
         pulumi.set(self, "virtual_networks_name", value)
 
 
+@pulumi.type_token("azure-native:hybridcontainerservice:VirtualNetworkRetrieve")
 class VirtualNetworkRetrieve(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybridcontainerservice:VirtualNetworkRetrieve"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

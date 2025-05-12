@@ -88,10 +88,8 @@ class SyncSetArgs:
         pulumi.set(self, "resources", value)
 
 
+@pulumi.type_token("azure-native:redhatopenshift:SyncSet")
 class SyncSet(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:redhatopenshift:SyncSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -105,10 +105,8 @@ class AccountArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:engagementfabric:Account")
 class Account(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:engagementfabric:Account"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

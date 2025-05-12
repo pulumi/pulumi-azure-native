@@ -168,10 +168,8 @@ class InstancePoolArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:sql:InstancePool")
 class InstancePool(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:InstancePool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

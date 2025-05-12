@@ -220,10 +220,8 @@ class ManagedDatabaseSensitivityLabelArgs:
         pulumi.set(self, "sensitivity_label_source", value)
 
 
+@pulumi.type_token("azure-native:sql:ManagedDatabaseSensitivityLabel")
 class ManagedDatabaseSensitivityLabel(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:ManagedDatabaseSensitivityLabel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -26,6 +26,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:aad:ChannelBinding")
 class ChannelBinding(builtins.str, Enum):
     """
     A flag to determine whether or not ChannelBinding is enabled or disabled.
@@ -34,6 +35,7 @@ class ChannelBinding(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:aad:ExternalAccess")
 class ExternalAccess(builtins.str, Enum):
     """
     A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
@@ -42,6 +44,7 @@ class ExternalAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:aad:FilteredSync")
 class FilteredSync(builtins.str, Enum):
     """
     Enabled or Disabled flag to turn on Group-based filtered sync
@@ -50,6 +53,7 @@ class FilteredSync(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:aad:KerberosArmoring")
 class KerberosArmoring(builtins.str, Enum):
     """
     A flag to determine whether or not KerberosArmoring is enabled or disabled.
@@ -58,6 +62,7 @@ class KerberosArmoring(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:aad:KerberosRc4Encryption")
 class KerberosRc4Encryption(builtins.str, Enum):
     """
     A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
@@ -66,6 +71,7 @@ class KerberosRc4Encryption(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:aad:LdapSigning")
 class LdapSigning(builtins.str, Enum):
     """
     A flag to determine whether or not LdapSigning is enabled or disabled.
@@ -74,6 +80,7 @@ class LdapSigning(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:aad:Ldaps")
 class Ldaps(builtins.str, Enum):
     """
     A flag to determine whether or not Secure LDAP is enabled or disabled.
@@ -82,6 +89,7 @@ class Ldaps(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:aad:NotifyDcAdmins")
 class NotifyDcAdmins(builtins.str, Enum):
     """
     Should domain controller admins be notified
@@ -90,6 +98,7 @@ class NotifyDcAdmins(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:aad:NotifyGlobalAdmins")
 class NotifyGlobalAdmins(builtins.str, Enum):
     """
     Should global admins be notified
@@ -98,6 +107,7 @@ class NotifyGlobalAdmins(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:aad:NtlmV1")
 class NtlmV1(builtins.str, Enum):
     """
     A flag to determine whether or not NtlmV1 is enabled or disabled.
@@ -106,6 +116,7 @@ class NtlmV1(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:aad:Status")
 class Status(builtins.str, Enum):
     """
     Status for individual validator after running diagnostics.
@@ -118,6 +129,7 @@ class Status(builtins.str, Enum):
     SKIPPED = "Skipped"
 
 
+@pulumi.type_token("azure-native:aad:SyncKerberosPasswords")
 class SyncKerberosPasswords(builtins.str, Enum):
     """
     A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
@@ -126,6 +138,7 @@ class SyncKerberosPasswords(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:aad:SyncNtlmPasswords")
 class SyncNtlmPasswords(builtins.str, Enum):
     """
     A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
@@ -134,6 +147,7 @@ class SyncNtlmPasswords(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:aad:SyncOnPremPasswords")
 class SyncOnPremPasswords(builtins.str, Enum):
     """
     A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
@@ -142,6 +156,7 @@ class SyncOnPremPasswords(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:aad:SyncScope")
 class SyncScope(builtins.str, Enum):
     """
     All or CloudOnly, All users in AAD are synced to AAD DS domain or only users actively syncing in the cloud
@@ -150,6 +165,7 @@ class SyncScope(builtins.str, Enum):
     CLOUD_ONLY = "CloudOnly"
 
 
+@pulumi.type_token("azure-native:aad:TlsV1")
 class TlsV1(builtins.str, Enum):
     """
     A flag to determine whether or not TlsV1 is enabled or disabled.

@@ -101,10 +101,8 @@ class FirewallRuleArgs:
         pulumi.set(self, "firewall_rule_name", value)
 
 
+@pulumi.type_token("azure-native:datalakeanalytics:FirewallRule")
 class FirewallRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datalakeanalytics:FirewallRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

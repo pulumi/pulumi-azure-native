@@ -103,10 +103,8 @@ class ServerKeyArgs:
         pulumi.set(self, "uri", value)
 
 
+@pulumi.type_token("azure-native:sql:ServerKey")
 class ServerKey(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:ServerKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

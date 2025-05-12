@@ -106,10 +106,8 @@ class NetworkFirewallFirewallArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:NetworkFirewallFirewall")
 class NetworkFirewallFirewall(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:NetworkFirewallFirewall"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

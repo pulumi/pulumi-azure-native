@@ -101,10 +101,8 @@ class RedisFirewallRuleArgs:
         pulumi.set(self, "rule_name", value)
 
 
+@pulumi.type_token("azure-native:redis:RedisFirewallRule")
 class RedisFirewallRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:redis:RedisFirewallRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

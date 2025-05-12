@@ -182,10 +182,8 @@ class RelationshipLinkArgs:
         pulumi.set(self, "relationship_link_name", value)
 
 
+@pulumi.type_token("azure-native:customerinsights:RelationshipLink")
 class RelationshipLink(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:customerinsights:RelationshipLink"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

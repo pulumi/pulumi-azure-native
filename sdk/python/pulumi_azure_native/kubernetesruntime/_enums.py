@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -19,6 +19,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:kubernetesruntime:AccessMode")
 class AccessMode(builtins.str, Enum):
     """
     Storage Class Access Mode
@@ -33,6 +34,7 @@ class AccessMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:kubernetesruntime:AdvertiseMode")
 class AdvertiseMode(builtins.str, Enum):
     """
     Advertise Mode
@@ -51,6 +53,7 @@ class AdvertiseMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:kubernetesruntime:DataResilienceTier")
 class DataResilienceTier(builtins.str, Enum):
     """
     Allow single data node failure
@@ -65,6 +68,7 @@ class DataResilienceTier(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:kubernetesruntime:FailoverTier")
 class FailoverTier(builtins.str, Enum):
     """
     Failover speed: NA, Slow, Fast
@@ -87,6 +91,7 @@ class FailoverTier(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:kubernetesruntime:NfsDirectoryActionOnVolumeDeletion")
 class NfsDirectoryActionOnVolumeDeletion(builtins.str, Enum):
     """
     The action to take when a NFS volume is deleted. Default is Delete
@@ -101,6 +106,7 @@ class NfsDirectoryActionOnVolumeDeletion(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:kubernetesruntime:PerformanceTier")
 class PerformanceTier(builtins.str, Enum):
     """
     Performance tier
@@ -127,6 +133,7 @@ class PerformanceTier(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:kubernetesruntime:SCType")
 class SCType(builtins.str, Enum):
     """
     Type of the storage class.
@@ -153,6 +160,7 @@ class SCType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:kubernetesruntime:VolumeBindingMode")
 class VolumeBindingMode(builtins.str, Enum):
     """
     Binding mode of volumes: Immediate, WaitForFirstConsumer
@@ -167,6 +175,7 @@ class VolumeBindingMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:kubernetesruntime:VolumeExpansion")
 class VolumeExpansion(builtins.str, Enum):
     """
     Volume can be expanded or not

@@ -86,10 +86,8 @@ class NotificationRecipientEmailArgs:
         pulumi.set(self, "email", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:NotificationRecipientEmail")
 class NotificationRecipientEmail(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:NotificationRecipientEmail"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

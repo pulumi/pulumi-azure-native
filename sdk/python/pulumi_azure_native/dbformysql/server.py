@@ -363,10 +363,8 @@ class ServerArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure-native:dbformysql:Server")
 class Server(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dbformysql:Server"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

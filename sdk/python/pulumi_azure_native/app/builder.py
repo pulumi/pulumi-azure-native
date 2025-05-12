@@ -138,10 +138,8 @@ class BuilderArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:app:Builder")
 class Builder(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:app:Builder"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

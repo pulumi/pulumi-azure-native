@@ -183,10 +183,8 @@ class SingleServerServerSecurityAlertPolicyArgs:
         pulumi.set(self, "storage_endpoint", value)
 
 
+@pulumi.type_token("azure-native:dbforpostgresql:SingleServerServerSecurityAlertPolicy")
 class SingleServerServerSecurityAlertPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dbforpostgresql:SingleServerServerSecurityAlertPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

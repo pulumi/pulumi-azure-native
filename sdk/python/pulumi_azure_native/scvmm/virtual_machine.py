@@ -362,10 +362,8 @@ class VirtualMachineArgs:
         pulumi.set(self, "vmm_server_id", value)
 
 
+@pulumi.type_token("azure-native:scvmm:VirtualMachine")
 class VirtualMachine(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:scvmm:VirtualMachine"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

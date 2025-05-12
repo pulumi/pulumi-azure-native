@@ -122,10 +122,8 @@ class FileServicePropertiesArgs:
         pulumi.set(self, "share_delete_retention_policy", value)
 
 
+@pulumi.type_token("azure-native:storage:FileServiceProperties")
 class FileServiceProperties(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storage:FileServiceProperties"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

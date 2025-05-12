@@ -105,10 +105,8 @@ class TransformArgs:
         pulumi.set(self, "transform_name", value)
 
 
+@pulumi.type_token("azure-native:media:Transform")
 class Transform(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:media:Transform"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

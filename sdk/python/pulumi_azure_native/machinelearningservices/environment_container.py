@@ -88,10 +88,8 @@ class EnvironmentContainerInitArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:EnvironmentContainer")
 class EnvironmentContainer(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:EnvironmentContainer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -101,10 +101,8 @@ class SkusNestedResourceTypeFirstArgs:
         pulumi.set(self, "sku", value)
 
 
+@pulumi.type_token("azure-native:providerhub:SkusNestedResourceTypeFirst")
 class SkusNestedResourceTypeFirst(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:providerhub:SkusNestedResourceTypeFirst"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

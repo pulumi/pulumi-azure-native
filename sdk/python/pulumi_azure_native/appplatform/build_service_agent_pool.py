@@ -104,10 +104,8 @@ class BuildServiceAgentPoolArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:appplatform:BuildServiceAgentPool")
 class BuildServiceAgentPool(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:appplatform:BuildServiceAgentPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

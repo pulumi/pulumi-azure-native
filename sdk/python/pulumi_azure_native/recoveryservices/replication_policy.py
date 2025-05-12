@@ -90,10 +90,8 @@ class ReplicationPolicyArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:recoveryservices:ReplicationPolicy")
 class ReplicationPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:recoveryservices:ReplicationPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

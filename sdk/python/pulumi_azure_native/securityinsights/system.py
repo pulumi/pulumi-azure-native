@@ -131,10 +131,8 @@ class SystemArgs:
         pulumi.set(self, "system_resource_name", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:System")
 class System(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:System"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

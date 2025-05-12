@@ -200,10 +200,8 @@ class ExpressRouteCircuitConnectionInitArgs:
         pulumi.set(self, "peer_express_route_circuit_peering", value)
 
 
+@pulumi.type_token("azure-native:network:ExpressRouteCircuitConnection")
 class ExpressRouteCircuitConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:ExpressRouteCircuitConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

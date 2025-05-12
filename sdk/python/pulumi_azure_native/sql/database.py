@@ -790,10 +790,8 @@ class DatabaseArgs:
         pulumi.set(self, "zone_redundant", value)
 
 
+@pulumi.type_token("azure-native:sql:Database")
 class Database(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:Database"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

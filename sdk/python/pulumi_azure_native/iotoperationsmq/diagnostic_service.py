@@ -260,10 +260,8 @@ class DiagnosticServiceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:iotoperationsmq:DiagnosticService")
 class DiagnosticService(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:iotoperationsmq:DiagnosticService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

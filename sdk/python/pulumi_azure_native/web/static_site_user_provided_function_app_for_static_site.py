@@ -135,10 +135,8 @@ class StaticSiteUserProvidedFunctionAppForStaticSiteArgs:
         pulumi.set(self, "kind", value)
 
 
+@pulumi.type_token("azure-native:web:StaticSiteUserProvidedFunctionAppForStaticSite")
 class StaticSiteUserProvidedFunctionAppForStaticSite(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:StaticSiteUserProvidedFunctionAppForStaticSite"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

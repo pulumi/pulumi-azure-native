@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -22,6 +22,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:storsimple:BackupType")
 class BackupType(builtins.str, Enum):
     """
     The type of backup which needs to be taken.
@@ -30,6 +31,7 @@ class BackupType(builtins.str, Enum):
     CLOUD_SNAPSHOT = "CloudSnapshot"
 
 
+@pulumi.type_token("azure-native:storsimple:DayOfWeek")
 class DayOfWeek(builtins.str, Enum):
     SUNDAY = "Sunday"
     MONDAY = "Monday"
@@ -40,6 +42,7 @@ class DayOfWeek(builtins.str, Enum):
     SATURDAY = "Saturday"
 
 
+@pulumi.type_token("azure-native:storsimple:EncryptionAlgorithm")
 class EncryptionAlgorithm(builtins.str, Enum):
     """
     The algorithm used to encrypt "Value".
@@ -49,6 +52,7 @@ class EncryptionAlgorithm(builtins.str, Enum):
     RSAE_S_PKCS1_V_1_5 = "RSAES_PKCS1_v_1_5"
 
 
+@pulumi.type_token("azure-native:storsimple:Kind")
 class Kind(builtins.str, Enum):
     """
     The Kind of the object. Currently only Series8000 is supported
@@ -56,6 +60,7 @@ class Kind(builtins.str, Enum):
     SERIES8000 = "Series8000"
 
 
+@pulumi.type_token("azure-native:storsimple:ManagerSkuType")
 class ManagerSkuType(builtins.str, Enum):
     """
     Refers to the sku name which should be "Standard"
@@ -63,6 +68,7 @@ class ManagerSkuType(builtins.str, Enum):
     STANDARD = "Standard"
 
 
+@pulumi.type_token("azure-native:storsimple:ManagerType")
 class ManagerType(builtins.str, Enum):
     """
     The type of StorSimple Manager.
@@ -71,6 +77,7 @@ class ManagerType(builtins.str, Enum):
     HELSINKI_V1 = "HelsinkiV1"
 
 
+@pulumi.type_token("azure-native:storsimple:MonitoringStatus")
 class MonitoringStatus(builtins.str, Enum):
     """
     The monitoring status of the volume.
@@ -79,6 +86,7 @@ class MonitoringStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:storsimple:RecurrenceType")
 class RecurrenceType(builtins.str, Enum):
     """
     The recurrence type.
@@ -89,6 +97,7 @@ class RecurrenceType(builtins.str, Enum):
     WEEKLY = "Weekly"
 
 
+@pulumi.type_token("azure-native:storsimple:ScheduleStatus")
 class ScheduleStatus(builtins.str, Enum):
     """
     The schedule status.
@@ -97,6 +106,7 @@ class ScheduleStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:storsimple:SslStatus")
 class SslStatus(builtins.str, Enum):
     """
     Signifies whether SSL needs to be enabled or not.
@@ -105,6 +115,7 @@ class SslStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:storsimple:VolumeStatus")
 class VolumeStatus(builtins.str, Enum):
     """
     The volume status.
@@ -113,6 +124,7 @@ class VolumeStatus(builtins.str, Enum):
     OFFLINE = "Offline"
 
 
+@pulumi.type_token("azure-native:storsimple:VolumeType")
 class VolumeType(builtins.str, Enum):
     """
     The type of the volume.

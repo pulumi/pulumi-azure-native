@@ -135,10 +135,8 @@ class ScheduledSynchronizationSettingArgs:
         pulumi.set(self, "synchronization_setting_name", value)
 
 
+@pulumi.type_token("azure-native:datashare:ScheduledSynchronizationSetting")
 class ScheduledSynchronizationSetting(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datashare:ScheduledSynchronizationSetting"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

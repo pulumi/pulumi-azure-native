@@ -215,10 +215,8 @@ class ShareArgs:
         pulumi.set(self, "user_access_rights", value)
 
 
+@pulumi.type_token("azure-native:databoxedge:Share")
 class Share(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databoxedge:Share"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

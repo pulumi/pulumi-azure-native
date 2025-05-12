@@ -188,10 +188,8 @@ class NetworkTapRuleArgs:
         pulumi.set(self, "tap_rules_url", value)
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:NetworkTapRule")
 class NetworkTapRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:managednetworkfabric:NetworkTapRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

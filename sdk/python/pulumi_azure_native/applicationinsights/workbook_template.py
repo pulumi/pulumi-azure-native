@@ -168,10 +168,8 @@ class WorkbookTemplateArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:applicationinsights:WorkbookTemplate")
 class WorkbookTemplate(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:applicationinsights:WorkbookTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

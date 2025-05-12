@@ -266,10 +266,8 @@ class SourceControlConfigurationArgs:
         pulumi.set(self, "ssh_known_hosts_contents", value)
 
 
+@pulumi.type_token("azure-native:kubernetesconfiguration:SourceControlConfiguration")
 class SourceControlConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:kubernetesconfiguration:SourceControlConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

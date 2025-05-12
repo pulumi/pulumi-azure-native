@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -21,6 +21,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:iothub:AccessRights")
 class AccessRights(builtins.str, Enum):
     """
     The permissions assigned to the shared access policy.
@@ -42,6 +43,7 @@ class AccessRights(builtins.str, Enum):
     REGISTRY_READ_REGISTRY_WRITE_SERVICE_CONNECT_DEVICE_CONNECT = "RegistryRead, RegistryWrite, ServiceConnect, DeviceConnect"
 
 
+@pulumi.type_token("azure-native:iothub:AuthenticationType")
 class AuthenticationType(builtins.str, Enum):
     """
     Specifies authentication type being used for connecting to the storage account.
@@ -50,6 +52,7 @@ class AuthenticationType(builtins.str, Enum):
     IDENTITY_BASED = "identityBased"
 
 
+@pulumi.type_token("azure-native:iothub:Capabilities")
 class Capabilities(builtins.str, Enum):
     """
     The capabilities and features enabled for the IoT hub.
@@ -58,6 +61,7 @@ class Capabilities(builtins.str, Enum):
     DEVICE_MANAGEMENT = "DeviceManagement"
 
 
+@pulumi.type_token("azure-native:iothub:DefaultAction")
 class DefaultAction(builtins.str, Enum):
     """
     Default Action for Network Rule Set
@@ -66,6 +70,7 @@ class DefaultAction(builtins.str, Enum):
     ALLOW = "Allow"
 
 
+@pulumi.type_token("azure-native:iothub:IotHubSku")
 class IotHubSku(builtins.str, Enum):
     """
     The name of the SKU.
@@ -79,6 +84,7 @@ class IotHubSku(builtins.str, Enum):
     B3 = "B3"
 
 
+@pulumi.type_token("azure-native:iothub:IpFilterActionType")
 class IpFilterActionType(builtins.str, Enum):
     """
     The desired action for requests captured by this rule.
@@ -87,6 +93,7 @@ class IpFilterActionType(builtins.str, Enum):
     REJECT = "Reject"
 
 
+@pulumi.type_token("azure-native:iothub:NetworkRuleIPAction")
 class NetworkRuleIPAction(builtins.str, Enum):
     """
     IP Filter Action
@@ -94,6 +101,7 @@ class NetworkRuleIPAction(builtins.str, Enum):
     ALLOW = "Allow"
 
 
+@pulumi.type_token("azure-native:iothub:PrivateLinkServiceConnectionStatus")
 class PrivateLinkServiceConnectionStatus(builtins.str, Enum):
     """
     The status of a private endpoint connection
@@ -104,6 +112,7 @@ class PrivateLinkServiceConnectionStatus(builtins.str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+@pulumi.type_token("azure-native:iothub:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Whether requests from Public Network are allowed
@@ -112,6 +121,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:iothub:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
@@ -122,6 +132,7 @@ class ResourceIdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:iothub:RoutingSource")
 class RoutingSource(builtins.str, Enum):
     """
     The source that the routing rule is to be applied to, such as DeviceMessages.

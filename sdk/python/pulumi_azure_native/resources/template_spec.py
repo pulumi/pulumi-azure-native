@@ -137,10 +137,8 @@ class TemplateSpecArgs:
         pulumi.set(self, "template_spec_name", value)
 
 
+@pulumi.type_token("azure-native:resources:TemplateSpec")
 class TemplateSpec(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:resources:TemplateSpec"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -118,10 +118,8 @@ class WebAppDomainOwnershipIdentifierSlotArgs:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppDomainOwnershipIdentifierSlot")
 class WebAppDomainOwnershipIdentifierSlot(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppDomainOwnershipIdentifierSlot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

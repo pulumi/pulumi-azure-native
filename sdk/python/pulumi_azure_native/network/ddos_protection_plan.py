@@ -89,10 +89,8 @@ class DdosProtectionPlanArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:network:DdosProtectionPlan")
 class DdosProtectionPlan(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:DdosProtectionPlan"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

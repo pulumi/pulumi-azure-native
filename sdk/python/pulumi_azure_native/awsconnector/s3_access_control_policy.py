@@ -107,10 +107,8 @@ class S3AccessControlPolicyArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:S3AccessControlPolicy")
 class S3AccessControlPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:S3AccessControlPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

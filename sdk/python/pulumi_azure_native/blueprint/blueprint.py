@@ -154,10 +154,8 @@ class BlueprintArgs:
         pulumi.set(self, "versions", value)
 
 
+@pulumi.type_token("azure-native:blueprint:Blueprint")
 class Blueprint(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:blueprint:Blueprint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

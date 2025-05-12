@@ -351,10 +351,8 @@ class ExpressRouteCircuitArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:network:ExpressRouteCircuit")
 class ExpressRouteCircuit(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:ExpressRouteCircuit"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

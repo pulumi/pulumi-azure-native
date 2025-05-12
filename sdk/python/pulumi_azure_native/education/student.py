@@ -211,10 +211,8 @@ class StudentArgs:
         pulumi.set(self, "subscription_invite_last_sent_date", value)
 
 
+@pulumi.type_token("azure-native:education:Student")
 class Student(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:education:Student"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

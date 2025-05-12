@@ -169,10 +169,8 @@ class ServerlessEndpointInitArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ServerlessEndpoint")
 class ServerlessEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:ServerlessEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

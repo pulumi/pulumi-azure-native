@@ -313,10 +313,8 @@ class UpdateRunArgs:
         pulumi.set(self, "update_run_name", value)
 
 
+@pulumi.type_token("azure-native:azurestackhci:UpdateRun")
 class UpdateRun(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurestackhci:UpdateRun"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

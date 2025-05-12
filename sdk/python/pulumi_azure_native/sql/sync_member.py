@@ -230,10 +230,8 @@ class SyncMemberArgs:
         pulumi.set(self, "user_name", value)
 
 
+@pulumi.type_token("azure-native:sql:SyncMember")
 class SyncMember(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:SyncMember"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

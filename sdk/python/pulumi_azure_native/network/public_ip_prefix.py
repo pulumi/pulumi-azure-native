@@ -235,10 +235,8 @@ class PublicIPPrefixArgs:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure-native:network:PublicIPPrefix")
 class PublicIPPrefix(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:PublicIPPrefix"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

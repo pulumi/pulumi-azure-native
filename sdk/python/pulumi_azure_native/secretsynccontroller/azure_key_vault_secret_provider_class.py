@@ -168,10 +168,8 @@ class AzureKeyVaultSecretProviderClassArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:secretsynccontroller:AzureKeyVaultSecretProviderClass")
 class AzureKeyVaultSecretProviderClass(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:secretsynccontroller:AzureKeyVaultSecretProviderClass"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

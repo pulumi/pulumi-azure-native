@@ -251,10 +251,8 @@ class CacheArgs:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure-native:storagecache:Cache")
 class Cache(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storagecache:Cache"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

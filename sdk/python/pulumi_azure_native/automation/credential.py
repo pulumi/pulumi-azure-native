@@ -132,10 +132,8 @@ class CredentialArgs:
         pulumi.set(self, "description", value)
 
 
+@pulumi.type_token("azure-native:automation:Credential")
 class Credential(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:automation:Credential"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

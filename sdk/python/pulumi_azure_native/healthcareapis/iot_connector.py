@@ -154,10 +154,8 @@ class IotConnectorArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:healthcareapis:IotConnector")
 class IotConnector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:healthcareapis:IotConnector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

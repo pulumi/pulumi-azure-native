@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -16,6 +16,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:consumption:BudgetOperatorType")
 class BudgetOperatorType(builtins.str, Enum):
     """
     The operator to use for comparison.
@@ -23,6 +24,7 @@ class BudgetOperatorType(builtins.str, Enum):
     IN_ = "In"
 
 
+@pulumi.type_token("azure-native:consumption:CategoryType")
 class CategoryType(builtins.str, Enum):
     """
     The category of the budget, whether the budget tracks cost or usage.
@@ -30,6 +32,7 @@ class CategoryType(builtins.str, Enum):
     COST = "Cost"
 
 
+@pulumi.type_token("azure-native:consumption:CultureCode")
 class CultureCode(builtins.str, Enum):
     """
     Language in which the recipient will receive the notification
@@ -57,6 +60,7 @@ class CultureCode(builtins.str, Enum):
     SV_SE = "sv-se"
 
 
+@pulumi.type_token("azure-native:consumption:OperatorType")
 class OperatorType(builtins.str, Enum):
     """
     The comparison operator.
@@ -75,6 +79,7 @@ class OperatorType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:consumption:ThresholdType")
 class ThresholdType(builtins.str, Enum):
     """
     The type of threshold
@@ -89,6 +94,7 @@ class ThresholdType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:consumption:TimeGrainType")
 class TimeGrainType(builtins.str, Enum):
     """
     The time covered by a budget. Tracking of the amount will be reset based on the time grain. BillingMonth, BillingQuarter, and BillingAnnual are only supported by WD customers

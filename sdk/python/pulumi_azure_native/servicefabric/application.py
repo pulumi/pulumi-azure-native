@@ -188,10 +188,8 @@ class ApplicationArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure-native:servicefabric:Application")
 class Application(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:servicefabric:Application"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

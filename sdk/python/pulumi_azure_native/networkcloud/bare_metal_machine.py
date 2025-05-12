@@ -271,10 +271,8 @@ class BareMetalMachineArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:networkcloud:BareMetalMachine")
 class BareMetalMachine(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:networkcloud:BareMetalMachine"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

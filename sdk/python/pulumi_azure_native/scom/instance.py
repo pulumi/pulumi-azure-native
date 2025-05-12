@@ -139,10 +139,8 @@ class InstanceArgs:
         pulumi.set(self, "validation_mode", value)
 
 
+@pulumi.type_token("azure-native:scom:Instance")
 class Instance(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:scom:Instance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

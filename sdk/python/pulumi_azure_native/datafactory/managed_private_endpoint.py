@@ -103,10 +103,8 @@ class ManagedPrivateEndpointInitArgs:
         pulumi.set(self, "managed_private_endpoint_name", value)
 
 
+@pulumi.type_token("azure-native:datafactory:ManagedPrivateEndpoint")
 class ManagedPrivateEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datafactory:ManagedPrivateEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

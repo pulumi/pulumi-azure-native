@@ -184,10 +184,8 @@ class PrometheusRuleGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:alertsmanagement:PrometheusRuleGroup")
 class PrometheusRuleGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:alertsmanagement:PrometheusRuleGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

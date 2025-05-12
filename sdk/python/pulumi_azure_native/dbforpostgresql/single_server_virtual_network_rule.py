@@ -102,10 +102,8 @@ class SingleServerVirtualNetworkRuleArgs:
         pulumi.set(self, "virtual_network_rule_name", value)
 
 
+@pulumi.type_token("azure-native:dbforpostgresql:SingleServerVirtualNetworkRule")
 class SingleServerVirtualNetworkRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dbforpostgresql:SingleServerVirtualNetworkRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -46,6 +46,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:azurestackhci:AvailabilityType")
 class AvailabilityType(builtins.str, Enum):
     """
     Indicates the way the update content can be downloaded.
@@ -55,6 +56,7 @@ class AvailabilityType(builtins.str, Enum):
     NOTIFY = "Notify"
 
 
+@pulumi.type_token("azure-native:azurestackhci:CloudInitDataSource")
 class CloudInitDataSource(builtins.str, Enum):
     """
     Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
@@ -69,6 +71,7 @@ class CloudInitDataSource(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:ComplianceAssignmentType")
 class ComplianceAssignmentType(builtins.str, Enum):
     """
     WDAC Compliance Assignment
@@ -83,6 +86,7 @@ class ComplianceAssignmentType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:DeploymentMode")
 class DeploymentMode(builtins.str, Enum):
     """
     Deployment mode to trigger job.
@@ -97,6 +101,7 @@ class DeploymentMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:DeviceKind")
 class DeviceKind(builtins.str, Enum):
     """
     Device kind to support polymorphic resource.
@@ -107,6 +112,7 @@ class DeviceKind(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:DiagnosticLevel")
 class DiagnosticLevel(builtins.str, Enum):
     """
     Desired level of diagnostic data emitted by the cluster.
@@ -116,6 +122,7 @@ class DiagnosticLevel(builtins.str, Enum):
     ENHANCED = "Enhanced"
 
 
+@pulumi.type_token("azure-native:azurestackhci:DiskFileFormat")
 class DiskFileFormat(builtins.str, Enum):
     """
     The format of the actual VHD file [vhd, vhdx]
@@ -130,6 +137,7 @@ class DiskFileFormat(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:EceSecrets")
 class EceSecrets(builtins.str, Enum):
     """
     Secret name expected for Enterprise Cloud Engine (ECE) deployment.
@@ -152,6 +160,7 @@ class EceSecrets(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:EdgeDeviceKind")
 class EdgeDeviceKind(builtins.str, Enum):
     """
     Edge Solution type to support polymorphic resource.
@@ -162,6 +171,7 @@ class EdgeDeviceKind(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:ExtendedLocationTypes")
 class ExtendedLocationTypes(builtins.str, Enum):
     """
     The type of the extended location.
@@ -169,6 +179,7 @@ class ExtendedLocationTypes(builtins.str, Enum):
     CUSTOM_LOCATION = "CustomLocation"
 
 
+@pulumi.type_token("azure-native:azurestackhci:GpuAssignmentTypeEnum")
 class GpuAssignmentTypeEnum(builtins.str, Enum):
     """
     GPU assignment type
@@ -183,6 +194,7 @@ class GpuAssignmentTypeEnum(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:HciEdgeDeviceJobType")
 class HciEdgeDeviceJobType(builtins.str, Enum):
     """
     Job Type to support polymorphic resource.
@@ -197,6 +209,7 @@ class HciEdgeDeviceJobType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:HyperVGeneration")
 class HyperVGeneration(builtins.str, Enum):
     """
     The hypervisor generation of the Virtual Machine [V1, V2]
@@ -211,6 +224,7 @@ class HyperVGeneration(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:IPPoolTypeEnum")
 class IPPoolTypeEnum(builtins.str, Enum):
     """
     Type of the IP Pool [vm, vippool]
@@ -225,6 +239,7 @@ class IPPoolTypeEnum(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:IpAllocationMethodEnum")
 class IpAllocationMethodEnum(builtins.str, Enum):
     """
     IPAllocationMethod - The IP address allocation method. Possible values include: 'Static', 'Dynamic'
@@ -233,6 +248,7 @@ class IpAllocationMethodEnum(builtins.str, Enum):
     STATIC = "Static"
 
 
+@pulumi.type_token("azure-native:azurestackhci:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -243,6 +259,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:azurestackhci:NetworkTypeEnum")
 class NetworkTypeEnum(builtins.str, Enum):
     """
     Type of the network
@@ -258,6 +275,7 @@ class NetworkTypeEnum(builtins.str, Enum):
     MIRRORED = "Mirrored"
 
 
+@pulumi.type_token("azure-native:azurestackhci:OperatingSystemTypes")
 class OperatingSystemTypes(builtins.str, Enum):
     """
     This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: Windows, Linux.
@@ -272,6 +290,7 @@ class OperatingSystemTypes(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:OperationType")
 class OperationType(builtins.str, Enum):
     """
     The intended operation for a cluster.
@@ -286,6 +305,7 @@ class OperationType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:OsTypeEnum")
 class OsTypeEnum(builtins.str, Enum):
     """
     OsType - string specifying whether the OS is Linux or Windows
@@ -294,6 +314,7 @@ class OsTypeEnum(builtins.str, Enum):
     WINDOWS = "Windows"
 
 
+@pulumi.type_token("azure-native:azurestackhci:ProvisioningAction")
 class ProvisioningAction(builtins.str, Enum):
     """
     The guest agent provisioning action.
@@ -312,6 +333,7 @@ class ProvisioningAction(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:RemoteSupportAccessLevel")
 class RemoteSupportAccessLevel(builtins.str, Enum):
     """
     Remote support access level.
@@ -330,6 +352,7 @@ class RemoteSupportAccessLevel(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:RemoteSupportType")
 class RemoteSupportType(builtins.str, Enum):
     """
     Remote support type.
@@ -344,6 +367,7 @@ class RemoteSupportType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The identity type.
@@ -351,6 +375,7 @@ class ResourceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
 
 
+@pulumi.type_token("azure-native:azurestackhci:SecurityEncryptionType")
 class SecurityEncryptionType(builtins.str, Enum):
     """
     Specifies the EncryptionType of the managed disk. It is set to NonPersistedTPM for not persisting firmware state in the VMGuestState blob. NOTE: It can be set for only Confidential VMs.
@@ -361,6 +386,7 @@ class SecurityEncryptionType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:SecurityRuleAccess")
 class SecurityRuleAccess(builtins.str, Enum):
     """
     The network traffic is allowed or denied.
@@ -375,6 +401,7 @@ class SecurityRuleAccess(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:SecurityRuleDirection")
 class SecurityRuleDirection(builtins.str, Enum):
     """
     The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
@@ -389,6 +416,7 @@ class SecurityRuleDirection(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:SecurityRuleProtocol")
 class SecurityRuleProtocol(builtins.str, Enum):
     """
     Network protocol this rule applies to.
@@ -411,6 +439,7 @@ class SecurityRuleProtocol(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:SecurityTypes")
 class SecurityTypes(builtins.str, Enum):
     """
     Specifies the SecurityType of the virtual machine. EnableTPM and SecureBootEnabled must be set to true for SecurityType to function.
@@ -425,6 +454,7 @@ class SecurityTypes(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:ServiceName")
 class ServiceName(builtins.str, Enum):
     """
     Name of the service.
@@ -432,6 +462,7 @@ class ServiceName(builtins.str, Enum):
     WAC = "WAC"
 
 
+@pulumi.type_token("azure-native:azurestackhci:SoftwareAssuranceIntent")
 class SoftwareAssuranceIntent(builtins.str, Enum):
     """
     Customer Intent for Software Assurance Benefit.
@@ -440,6 +471,7 @@ class SoftwareAssuranceIntent(builtins.str, Enum):
     DISABLE = "Disable"
 
 
+@pulumi.type_token("azure-native:azurestackhci:State")
 class State(builtins.str, Enum):
     """
     State of the update as it relates to this stamp.
@@ -465,6 +497,7 @@ class State(builtins.str, Enum):
     ADDITIONAL_CONTENT_REQUIRED = "AdditionalContentRequired"
 
 
+@pulumi.type_token("azure-native:azurestackhci:UpdateRunPropertiesState")
 class UpdateRunPropertiesState(builtins.str, Enum):
     """
     State of the update run.
@@ -475,6 +508,7 @@ class UpdateRunPropertiesState(builtins.str, Enum):
     FAILED = "Failed"
 
 
+@pulumi.type_token("azure-native:azurestackhci:UpdateSummariesPropertiesState")
 class UpdateSummariesPropertiesState(builtins.str, Enum):
     """
     Overall update state of the stamp.
@@ -489,6 +523,7 @@ class UpdateSummariesPropertiesState(builtins.str, Enum):
     PREPARATION_FAILED = "PreparationFailed"
 
 
+@pulumi.type_token("azure-native:azurestackhci:VmSizeEnum")
 class VmSizeEnum(builtins.str, Enum):
     """
     Enum of VM Sizes
@@ -587,6 +622,7 @@ class VmSizeEnum(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:WindowsServerSubscription")
 class WindowsServerSubscription(builtins.str, Enum):
     """
     Desired state of Windows Server Subscription.

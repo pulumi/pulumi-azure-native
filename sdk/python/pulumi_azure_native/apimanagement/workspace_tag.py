@@ -101,10 +101,8 @@ class WorkspaceTagArgs:
         pulumi.set(self, "tag_id", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:WorkspaceTag")
 class WorkspaceTag(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:WorkspaceTag"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:mixedreality:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The identity type.
@@ -19,6 +20,7 @@ class ResourceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
 
 
+@pulumi.type_token("azure-native:mixedreality:SkuTier")
 class SkuTier(builtins.str, Enum):
     """
     This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.

@@ -216,10 +216,8 @@ class DeploymentArgs:
         pulumi.set(self, "title", value)
 
 
+@pulumi.type_token("azure-native:apicenter:Deployment")
 class Deployment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apicenter:Deployment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

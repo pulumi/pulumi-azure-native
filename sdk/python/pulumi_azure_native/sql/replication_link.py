@@ -99,10 +99,8 @@ class ReplicationLinkArgs:
         pulumi.set(self, "link_type", value)
 
 
+@pulumi.type_token("azure-native:sql:ReplicationLink")
 class ReplicationLink(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:ReplicationLink"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

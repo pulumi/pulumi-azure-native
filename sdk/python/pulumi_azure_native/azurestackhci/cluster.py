@@ -234,10 +234,8 @@ class ClusterArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+@pulumi.type_token("azure-native:azurestackhci:Cluster")
 class Cluster(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurestackhci:Cluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -121,10 +121,8 @@ class ImageInitArgs:
         pulumi.set(self, "regional_data_boundary", value)
 
 
+@pulumi.type_token("azure-native:azuresphere:Image")
 class Image(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azuresphere:Image"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

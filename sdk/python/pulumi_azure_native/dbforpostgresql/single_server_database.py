@@ -103,10 +103,8 @@ class SingleServerDatabaseArgs:
         pulumi.set(self, "database_name", value)
 
 
+@pulumi.type_token("azure-native:dbforpostgresql:SingleServerDatabase")
 class SingleServerDatabase(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dbforpostgresql:SingleServerDatabase"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

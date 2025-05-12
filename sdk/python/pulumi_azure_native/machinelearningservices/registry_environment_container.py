@@ -88,10 +88,8 @@ class RegistryEnvironmentContainerArgs:
         pulumi.set(self, "environment_name", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:RegistryEnvironmentContainer")
 class RegistryEnvironmentContainer(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:RegistryEnvironmentContainer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

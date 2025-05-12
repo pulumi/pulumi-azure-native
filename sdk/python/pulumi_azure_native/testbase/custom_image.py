@@ -136,10 +136,8 @@ class CustomImageArgs:
         pulumi.set(self, "vhd_id", value)
 
 
+@pulumi.type_token("azure-native:testbase:CustomImage")
 class CustomImage(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:testbase:CustomImage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

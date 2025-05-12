@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -29,6 +29,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:devcenter:CatalogItemSyncEnableStatus")
 class CatalogItemSyncEnableStatus(builtins.str, Enum):
     """
     Whether project catalogs associated with projects in this dev center can be configured to sync catalog items.
@@ -37,6 +38,7 @@ class CatalogItemSyncEnableStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:devcenter:CatalogItemType")
 class CatalogItemType(builtins.str, Enum):
     """
     Indicates catalog item types.
@@ -44,6 +46,7 @@ class CatalogItemType(builtins.str, Enum):
     ENVIRONMENT_DEFINITION = "EnvironmentDefinition"
 
 
+@pulumi.type_token("azure-native:devcenter:CatalogSyncType")
 class CatalogSyncType(builtins.str, Enum):
     """
     Indicates the type of sync that is configured for the catalog.
@@ -52,6 +55,7 @@ class CatalogSyncType(builtins.str, Enum):
     SCHEDULED = "Scheduled"
 
 
+@pulumi.type_token("azure-native:devcenter:DevboxDisksEncryptionEnableStatus")
 class DevboxDisksEncryptionEnableStatus(builtins.str, Enum):
     """
     Devbox disk encryption enable or disable status. Indicates if Devbox disks encryption using DevCenter CMK is enabled or not.
@@ -60,6 +64,7 @@ class DevboxDisksEncryptionEnableStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:devcenter:DomainJoinType")
 class DomainJoinType(builtins.str, Enum):
     """
     AAD Join type.
@@ -68,6 +73,7 @@ class DomainJoinType(builtins.str, Enum):
     AZURE_AD_JOIN = "AzureADJoin"
 
 
+@pulumi.type_token("azure-native:devcenter:EnvironmentTypeEnableStatus")
 class EnvironmentTypeEnableStatus(builtins.str, Enum):
     """
     Defines whether this Environment Type can be used in this Project.
@@ -76,6 +82,7 @@ class EnvironmentTypeEnableStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:devcenter:HibernateSupport")
 class HibernateSupport(builtins.str, Enum):
     """
     Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
@@ -84,6 +91,7 @@ class HibernateSupport(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:devcenter:IdentityType")
 class IdentityType(builtins.str, Enum):
     """
     Values can be systemAssignedIdentity or userAssignedIdentity
@@ -93,6 +101,7 @@ class IdentityType(builtins.str, Enum):
     DELEGATED_RESOURCE_IDENTITY = "delegatedResourceIdentity"
 
 
+@pulumi.type_token("azure-native:devcenter:LicenseType")
 class LicenseType(builtins.str, Enum):
     """
     Specifies the license type indicating the caller has already acquired licenses for the Dev Boxes that will be created.
@@ -100,6 +109,7 @@ class LicenseType(builtins.str, Enum):
     WINDOWS_CLIENT = "Windows_Client"
 
 
+@pulumi.type_token("azure-native:devcenter:LocalAdminStatus")
 class LocalAdminStatus(builtins.str, Enum):
     """
     Indicates whether owners of Dev Boxes in this pool are added as local administrators on the Dev Box.
@@ -108,6 +118,7 @@ class LocalAdminStatus(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:devcenter:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -118,6 +129,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
 
 
+@pulumi.type_token("azure-native:devcenter:PlanMemberType")
 class PlanMemberType(builtins.str, Enum):
     """
     The type of the member (user, group)
@@ -126,6 +138,7 @@ class PlanMemberType(builtins.str, Enum):
     GROUP = "Group"
 
 
+@pulumi.type_token("azure-native:devcenter:ScheduleEnableStatus")
 class ScheduleEnableStatus(builtins.str, Enum):
     """
     Indicates whether or not this scheduled task is enabled.
@@ -134,6 +147,7 @@ class ScheduleEnableStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:devcenter:ScheduledFrequency")
 class ScheduledFrequency(builtins.str, Enum):
     """
     The frequency of this scheduled task.
@@ -141,6 +155,7 @@ class ScheduledFrequency(builtins.str, Enum):
     DAILY = "Daily"
 
 
+@pulumi.type_token("azure-native:devcenter:ScheduledType")
 class ScheduledType(builtins.str, Enum):
     """
     Supported type this scheduled task represents.
@@ -148,6 +163,7 @@ class ScheduledType(builtins.str, Enum):
     STOP_DEV_BOX = "StopDevBox"
 
 
+@pulumi.type_token("azure-native:devcenter:SingleSignOnStatus")
 class SingleSignOnStatus(builtins.str, Enum):
     """
     Indicates whether Dev Boxes in this pool are created with single sign on enabled. The also requires that single sign on be enabled on the tenant.
@@ -156,6 +172,7 @@ class SingleSignOnStatus(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:devcenter:SkuTier")
 class SkuTier(builtins.str, Enum):
     """
     This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
@@ -166,6 +183,7 @@ class SkuTier(builtins.str, Enum):
     PREMIUM = "Premium"
 
 
+@pulumi.type_token("azure-native:devcenter:StopOnDisconnectEnableStatus")
 class StopOnDisconnectEnableStatus(builtins.str, Enum):
     """
     Whether the feature to stop the Dev Box on disconnect once the grace period has lapsed is enabled.
@@ -174,6 +192,7 @@ class StopOnDisconnectEnableStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:devcenter:VirtualNetworkType")
 class VirtualNetworkType(builtins.str, Enum):
     """
     Indicates whether the pool uses a Virtual Network managed by Microsoft or a customer provided network.

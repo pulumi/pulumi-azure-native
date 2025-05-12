@@ -104,10 +104,8 @@ class WorkloadNetworkPublicIPArgs:
         pulumi.set(self, "public_ip_id", value)
 
 
+@pulumi.type_token("azure-native:avs:WorkloadNetworkPublicIP")
 class WorkloadNetworkPublicIP(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:avs:WorkloadNetworkPublicIP"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

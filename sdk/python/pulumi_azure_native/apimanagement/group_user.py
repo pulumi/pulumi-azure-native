@@ -87,10 +87,8 @@ class GroupUserArgs:
         pulumi.set(self, "user_id", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:GroupUser")
 class GroupUser(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:GroupUser"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

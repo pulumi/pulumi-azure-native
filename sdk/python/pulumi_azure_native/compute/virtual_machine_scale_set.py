@@ -491,10 +491,8 @@ class VirtualMachineScaleSetArgs:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure-native:compute:VirtualMachineScaleSet")
 class VirtualMachineScaleSet(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:compute:VirtualMachineScaleSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

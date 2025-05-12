@@ -89,10 +89,8 @@ class LinkedServiceArgs:
         pulumi.set(self, "linked_service_name", value)
 
 
+@pulumi.type_token("azure-native:datafactory:LinkedService")
 class LinkedService(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datafactory:LinkedService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

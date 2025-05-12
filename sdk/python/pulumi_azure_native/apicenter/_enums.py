@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -18,6 +18,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:apicenter:ApiKind")
 class ApiKind(builtins.str, Enum):
     """
     Kind of API. For example, REST or GraphQL.
@@ -48,6 +49,7 @@ class ApiKind(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apicenter:DeploymentState")
 class DeploymentState(builtins.str, Enum):
     """
     State of API deployment.
@@ -62,6 +64,7 @@ class DeploymentState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apicenter:EnvironmentKind")
 class EnvironmentKind(builtins.str, Enum):
     """
     Environment kind.
@@ -84,6 +87,7 @@ class EnvironmentKind(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apicenter:EnvironmentServerType")
 class EnvironmentServerType(builtins.str, Enum):
     """
     Type of the server that represents the environment.
@@ -118,6 +122,7 @@ class EnvironmentServerType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apicenter:ImportSpecificationOptions")
 class ImportSpecificationOptions(builtins.str, Enum):
     """
     Indicates if the specification should be imported along with metadata.
@@ -136,6 +141,7 @@ class ImportSpecificationOptions(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apicenter:LifecycleStage")
 class LifecycleStage(builtins.str, Enum):
     """
     Current lifecycle stage of the API.
@@ -170,6 +176,7 @@ class LifecycleStage(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apicenter:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -180,6 +187,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:apicenter:MetadataAssignmentEntity")
 class MetadataAssignmentEntity(builtins.str, Enum):
     """
     The entities this metadata schema component gets applied to.

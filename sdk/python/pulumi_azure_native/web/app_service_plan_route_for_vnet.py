@@ -161,10 +161,8 @@ class AppServicePlanRouteForVnetArgs:
         pulumi.set(self, "start_address", value)
 
 
+@pulumi.type_token("azure-native:web:AppServicePlanRouteForVnet")
 class AppServicePlanRouteForVnet(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:AppServicePlanRouteForVnet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

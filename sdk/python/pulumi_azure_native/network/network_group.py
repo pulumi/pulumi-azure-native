@@ -105,10 +105,8 @@ class NetworkGroupArgs:
         pulumi.set(self, "network_group_name", value)
 
 
+@pulumi.type_token("azure-native:network:NetworkGroup")
 class NetworkGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:NetworkGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

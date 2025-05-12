@@ -376,10 +376,8 @@ class ScheduledQueryRuleArgs:
         pulumi.set(self, "window_size", value)
 
 
+@pulumi.type_token("azure-native:monitor:ScheduledQueryRule")
 class ScheduledQueryRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:monitor:ScheduledQueryRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

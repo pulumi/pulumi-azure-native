@@ -122,10 +122,8 @@ class DeviceSecurityGroupArgs:
         pulumi.set(self, "time_window_rules", value)
 
 
+@pulumi.type_token("azure-native:security:DeviceSecurityGroup")
 class DeviceSecurityGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:DeviceSecurityGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

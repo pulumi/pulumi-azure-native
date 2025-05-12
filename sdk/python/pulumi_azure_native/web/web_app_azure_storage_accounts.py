@@ -90,10 +90,8 @@ class WebAppAzureStorageAccountsArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppAzureStorageAccounts")
 class WebAppAzureStorageAccounts(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppAzureStorageAccounts"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

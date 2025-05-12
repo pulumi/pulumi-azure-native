@@ -122,10 +122,8 @@ class ServerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:dbformariadb:Server")
 class Server(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dbformariadb:Server"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

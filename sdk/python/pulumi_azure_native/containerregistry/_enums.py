@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -51,6 +51,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:containerregistry:Action")
 class Action(builtins.str, Enum):
     """
     The action of IP ACL rule.
@@ -58,6 +59,7 @@ class Action(builtins.str, Enum):
     ALLOW = "Allow"
 
 
+@pulumi.type_token("azure-native:containerregistry:ActionsRequired")
 class ActionsRequired(builtins.str, Enum):
     """
     A message indicating if changes on the service provider require any updates on the consumer.
@@ -66,6 +68,7 @@ class ActionsRequired(builtins.str, Enum):
     RECREATE = "Recreate"
 
 
+@pulumi.type_token("azure-native:containerregistry:Architecture")
 class Architecture(builtins.str, Enum):
     """
     The OS architecture.
@@ -77,6 +80,7 @@ class Architecture(builtins.str, Enum):
     ARM64 = "arm64"
 
 
+@pulumi.type_token("azure-native:containerregistry:AuditLogStatus")
 class AuditLogStatus(builtins.str, Enum):
     """
     Indicates whether audit logs are enabled on the connected registry.
@@ -85,6 +89,7 @@ class AuditLogStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:containerregistry:AzureADAuthenticationAsArmPolicyStatus")
 class AzureADAuthenticationAsArmPolicyStatus(builtins.str, Enum):
     """
     The value that indicates whether the policy is enabled or not.
@@ -93,6 +98,7 @@ class AzureADAuthenticationAsArmPolicyStatus(builtins.str, Enum):
     DISABLED = "disabled"
 
 
+@pulumi.type_token("azure-native:containerregistry:BaseImageTriggerType")
 class BaseImageTriggerType(builtins.str, Enum):
     """
     The type of the auto trigger for base image dependency updates.
@@ -101,6 +107,7 @@ class BaseImageTriggerType(builtins.str, Enum):
     RUNTIME = "Runtime"
 
 
+@pulumi.type_token("azure-native:containerregistry:ConnectedRegistryMode")
 class ConnectedRegistryMode(builtins.str, Enum):
     """
     The mode of the connected registry resource that indicates the permissions of the registry.
@@ -111,6 +118,7 @@ class ConnectedRegistryMode(builtins.str, Enum):
     MIRROR = "Mirror"
 
 
+@pulumi.type_token("azure-native:containerregistry:ConnectionStatus")
 class ConnectionStatus(builtins.str, Enum):
     """
     The private link service connection status.
@@ -121,6 +129,7 @@ class ConnectionStatus(builtins.str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+@pulumi.type_token("azure-native:containerregistry:CredentialName")
 class CredentialName(builtins.str, Enum):
     """
     The name of the credential.
@@ -128,6 +137,7 @@ class CredentialName(builtins.str, Enum):
     CREDENTIAL1 = "Credential1"
 
 
+@pulumi.type_token("azure-native:containerregistry:DefaultAction")
 class DefaultAction(builtins.str, Enum):
     """
     The default action of allow or deny when no other rules match.
@@ -136,6 +146,7 @@ class DefaultAction(builtins.str, Enum):
     DENY = "Deny"
 
 
+@pulumi.type_token("azure-native:containerregistry:EncryptionStatus")
 class EncryptionStatus(builtins.str, Enum):
     """
     Indicates whether or not the encryption is enabled for container registry.
@@ -144,6 +155,7 @@ class EncryptionStatus(builtins.str, Enum):
     DISABLED = "disabled"
 
 
+@pulumi.type_token("azure-native:containerregistry:ExportPolicyStatus")
 class ExportPolicyStatus(builtins.str, Enum):
     """
     The value that indicates whether the policy is enabled or not.
@@ -152,6 +164,7 @@ class ExportPolicyStatus(builtins.str, Enum):
     DISABLED = "disabled"
 
 
+@pulumi.type_token("azure-native:containerregistry:LogLevel")
 class LogLevel(builtins.str, Enum):
     """
     The verbosity of logs persisted on the connected registry.
@@ -163,6 +176,7 @@ class LogLevel(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:containerregistry:NetworkRuleBypassOptions")
 class NetworkRuleBypassOptions(builtins.str, Enum):
     """
     Whether to allow trusted Azure services to access a network restricted registry.
@@ -171,6 +185,7 @@ class NetworkRuleBypassOptions(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:containerregistry:OS")
 class OS(builtins.str, Enum):
     """
     The operating system type required for the run.
@@ -179,6 +194,7 @@ class OS(builtins.str, Enum):
     LINUX = "Linux"
 
 
+@pulumi.type_token("azure-native:containerregistry:PackageSourceType")
 class PackageSourceType(builtins.str, Enum):
     """
     The type of package source for a archive.
@@ -186,6 +202,7 @@ class PackageSourceType(builtins.str, Enum):
     REMOTE = "remote"
 
 
+@pulumi.type_token("azure-native:containerregistry:PipelineOptions")
 class PipelineOptions(builtins.str, Enum):
     OVERWRITE_TAGS = "OverwriteTags"
     OVERWRITE_BLOBS = "OverwriteBlobs"
@@ -193,6 +210,7 @@ class PipelineOptions(builtins.str, Enum):
     CONTINUE_ON_ERRORS = "ContinueOnErrors"
 
 
+@pulumi.type_token("azure-native:containerregistry:PipelineRunSourceType")
 class PipelineRunSourceType(builtins.str, Enum):
     """
     The type of the source.
@@ -200,6 +218,7 @@ class PipelineRunSourceType(builtins.str, Enum):
     AZURE_STORAGE_BLOB = "AzureStorageBlob"
 
 
+@pulumi.type_token("azure-native:containerregistry:PipelineRunTargetType")
 class PipelineRunTargetType(builtins.str, Enum):
     """
     The type of the target.
@@ -207,6 +226,7 @@ class PipelineRunTargetType(builtins.str, Enum):
     AZURE_STORAGE_BLOB = "AzureStorageBlob"
 
 
+@pulumi.type_token("azure-native:containerregistry:PipelineSourceType")
 class PipelineSourceType(builtins.str, Enum):
     """
     The type of source for the import pipeline.
@@ -214,6 +234,7 @@ class PipelineSourceType(builtins.str, Enum):
     AZURE_STORAGE_BLOB_CONTAINER = "AzureStorageBlobContainer"
 
 
+@pulumi.type_token("azure-native:containerregistry:PolicyStatus")
 class PolicyStatus(builtins.str, Enum):
     """
     The value that indicates whether the policy is enabled or not.
@@ -222,6 +243,7 @@ class PolicyStatus(builtins.str, Enum):
     DISABLED = "disabled"
 
 
+@pulumi.type_token("azure-native:containerregistry:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Whether or not public network access is allowed for the container registry.
@@ -230,6 +252,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:containerregistry:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The identity type.
@@ -240,6 +263,7 @@ class ResourceIdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:containerregistry:SecretObjectType")
 class SecretObjectType(builtins.str, Enum):
     """
     The type of the secret object which determines how the value of the secret object has to be
@@ -249,6 +273,7 @@ class SecretObjectType(builtins.str, Enum):
     VAULTSECRET = "Vaultsecret"
 
 
+@pulumi.type_token("azure-native:containerregistry:SkuName")
 class SkuName(builtins.str, Enum):
     """
     The SKU name of the container registry. Required for registry creation.
@@ -259,6 +284,7 @@ class SkuName(builtins.str, Enum):
     PREMIUM = "Premium"
 
 
+@pulumi.type_token("azure-native:containerregistry:SourceControlType")
 class SourceControlType(builtins.str, Enum):
     """
     The type of source control service.
@@ -267,6 +293,7 @@ class SourceControlType(builtins.str, Enum):
     VISUAL_STUDIO_TEAM_SERVICE = "VisualStudioTeamService"
 
 
+@pulumi.type_token("azure-native:containerregistry:SourceRegistryLoginMode")
 class SourceRegistryLoginMode(builtins.str, Enum):
     """
     The authentication mode which determines the source registry login scope. The credentials for the source registry
@@ -277,11 +304,13 @@ class SourceRegistryLoginMode(builtins.str, Enum):
     DEFAULT = "Default"
 
 
+@pulumi.type_token("azure-native:containerregistry:SourceTriggerEvent")
 class SourceTriggerEvent(builtins.str, Enum):
     COMMIT = "commit"
     PULLREQUEST = "pullrequest"
 
 
+@pulumi.type_token("azure-native:containerregistry:StepType")
 class StepType(builtins.str, Enum):
     """
     The type of the step.
@@ -291,6 +320,7 @@ class StepType(builtins.str, Enum):
     ENCODED_TASK = "EncodedTask"
 
 
+@pulumi.type_token("azure-native:containerregistry:TaskStatus")
 class TaskStatus(builtins.str, Enum):
     """
     The current status of task.
@@ -299,11 +329,13 @@ class TaskStatus(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:containerregistry:TokenCertificateName")
 class TokenCertificateName(builtins.str, Enum):
     CERTIFICATE1 = "certificate1"
     CERTIFICATE2 = "certificate2"
 
 
+@pulumi.type_token("azure-native:containerregistry:TokenPasswordName")
 class TokenPasswordName(builtins.str, Enum):
     """
     The password name "password1" or "password2"
@@ -312,6 +344,7 @@ class TokenPasswordName(builtins.str, Enum):
     PASSWORD2 = "password2"
 
 
+@pulumi.type_token("azure-native:containerregistry:TokenStatus")
 class TokenStatus(builtins.str, Enum):
     """
     The status of the token example enabled or disabled.
@@ -320,6 +353,7 @@ class TokenStatus(builtins.str, Enum):
     DISABLED = "disabled"
 
 
+@pulumi.type_token("azure-native:containerregistry:TokenType")
 class TokenType(builtins.str, Enum):
     """
     The type of Auth token.
@@ -328,6 +362,7 @@ class TokenType(builtins.str, Enum):
     O_AUTH = "OAuth"
 
 
+@pulumi.type_token("azure-native:containerregistry:TriggerStatus")
 class TriggerStatus(builtins.str, Enum):
     """
     The current status of trigger.
@@ -336,6 +371,7 @@ class TriggerStatus(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:containerregistry:TrustPolicyType")
 class TrustPolicyType(builtins.str, Enum):
     """
     The type of trust policy.
@@ -343,6 +379,7 @@ class TrustPolicyType(builtins.str, Enum):
     NOTARY = "Notary"
 
 
+@pulumi.type_token("azure-native:containerregistry:UpdateTriggerPayloadType")
 class UpdateTriggerPayloadType(builtins.str, Enum):
     """
     Type of Payload body for Base image update triggers.
@@ -351,6 +388,7 @@ class UpdateTriggerPayloadType(builtins.str, Enum):
     TOKEN = "Token"
 
 
+@pulumi.type_token("azure-native:containerregistry:Variant")
 class Variant(builtins.str, Enum):
     """
     Variant of the CPU.
@@ -360,6 +398,7 @@ class Variant(builtins.str, Enum):
     V8 = "v8"
 
 
+@pulumi.type_token("azure-native:containerregistry:WebhookAction")
 class WebhookAction(builtins.str, Enum):
     PUSH = "push"
     DELETE = "delete"
@@ -368,6 +407,7 @@ class WebhookAction(builtins.str, Enum):
     CHART_DELETE = "chart_delete"
 
 
+@pulumi.type_token("azure-native:containerregistry:WebhookStatus")
 class WebhookStatus(builtins.str, Enum):
     """
     The status of the webhook at the time the operation was called.
@@ -376,6 +416,7 @@ class WebhookStatus(builtins.str, Enum):
     DISABLED = "disabled"
 
 
+@pulumi.type_token("azure-native:containerregistry:ZoneRedundancy")
 class ZoneRedundancy(builtins.str, Enum):
     """
     Whether or not zone redundancy is enabled for this container registry replication

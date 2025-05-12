@@ -102,10 +102,8 @@ class TrustedAccessRoleBindingArgs:
         pulumi.set(self, "trusted_access_role_binding_name", value)
 
 
+@pulumi.type_token("azure-native:containerservice:TrustedAccessRoleBinding")
 class TrustedAccessRoleBinding(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerservice:TrustedAccessRoleBinding"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

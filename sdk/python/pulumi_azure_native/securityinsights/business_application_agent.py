@@ -100,10 +100,8 @@ class BusinessApplicationAgentArgs:
         pulumi.set(self, "agent_resource_name", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:BusinessApplicationAgent")
 class BusinessApplicationAgent(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:BusinessApplicationAgent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

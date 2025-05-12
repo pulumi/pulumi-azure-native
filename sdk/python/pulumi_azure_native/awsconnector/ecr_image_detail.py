@@ -107,10 +107,8 @@ class EcrImageDetailArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:EcrImageDetail")
 class EcrImageDetail(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:EcrImageDetail"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

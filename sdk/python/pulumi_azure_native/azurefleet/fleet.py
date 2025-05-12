@@ -233,10 +233,8 @@ class FleetArgs:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure-native:azurefleet:Fleet")
 class Fleet(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurefleet:Fleet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

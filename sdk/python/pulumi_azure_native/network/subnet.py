@@ -366,10 +366,8 @@ class SubnetInitArgs:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("azure-native:network:Subnet")
 class Subnet(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:Subnet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

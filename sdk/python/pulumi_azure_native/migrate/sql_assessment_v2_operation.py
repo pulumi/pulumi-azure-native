@@ -611,10 +611,8 @@ class SqlAssessmentV2OperationArgs:
         pulumi.set(self, "time_range", value)
 
 
+@pulumi.type_token("azure-native:migrate:SqlAssessmentV2Operation")
 class SqlAssessmentV2Operation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:migrate:SqlAssessmentV2Operation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

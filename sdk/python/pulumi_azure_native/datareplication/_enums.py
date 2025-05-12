@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:datareplication:PrivateEndpointConnectionStatus")
 class PrivateEndpointConnectionStatus(builtins.str, Enum):
     """
     Gets or sets the status.
@@ -35,6 +36,7 @@ class PrivateEndpointConnectionStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:datareplication:ReplicationVaultType")
 class ReplicationVaultType(builtins.str, Enum):
     """
     Gets or sets the type of vault.
@@ -43,6 +45,7 @@ class ReplicationVaultType(builtins.str, Enum):
     MIGRATE = "Migrate"
 
 
+@pulumi.type_token("azure-native:datareplication:VMNicSelection")
 class VMNicSelection(builtins.str, Enum):
     """
     Gets or sets the selection type of the NIC.

@@ -122,10 +122,8 @@ class GuestConfigurationHCRPAssignmentArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:guestconfiguration:GuestConfigurationHCRPAssignment")
 class GuestConfigurationHCRPAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:guestconfiguration:GuestConfigurationHCRPAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

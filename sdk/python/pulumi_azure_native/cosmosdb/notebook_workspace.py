@@ -71,10 +71,8 @@ class NotebookWorkspaceArgs:
         pulumi.set(self, "notebook_workspace_name", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:NotebookWorkspace")
 class NotebookWorkspace(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:NotebookWorkspace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -88,10 +88,8 @@ class FeaturesetContainerEntityArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:FeaturesetContainerEntity")
 class FeaturesetContainerEntity(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:FeaturesetContainerEntity"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -186,10 +186,8 @@ class AvailabilitySetArgs:
         pulumi.set(self, "virtual_machines", value)
 
 
+@pulumi.type_token("azure-native:compute:AvailabilitySet")
 class AvailabilitySet(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:compute:AvailabilitySet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

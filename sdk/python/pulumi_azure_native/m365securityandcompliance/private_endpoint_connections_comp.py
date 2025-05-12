@@ -89,10 +89,8 @@ class PrivateEndpointConnectionsCompArgs:
         pulumi.set(self, "private_endpoint_connection_name", value)
 
 
+@pulumi.type_token("azure-native:m365securityandcompliance:PrivateEndpointConnectionsComp")
 class PrivateEndpointConnectionsComp(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:m365securityandcompliance:PrivateEndpointConnectionsComp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

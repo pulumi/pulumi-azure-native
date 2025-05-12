@@ -119,10 +119,8 @@ class FleetspaceAccountArgs:
         pulumi.set(self, "fleetspace_account_name", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:FleetspaceAccount")
 class FleetspaceAccount(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:FleetspaceAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

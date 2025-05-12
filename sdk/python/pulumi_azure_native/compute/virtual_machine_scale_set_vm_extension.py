@@ -297,10 +297,8 @@ class VirtualMachineScaleSetVMExtensionArgs:
         pulumi.set(self, "vm_extension_name", value)
 
 
+@pulumi.type_token("azure-native:compute:VirtualMachineScaleSetVMExtension")
 class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:compute:VirtualMachineScaleSetVMExtension"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

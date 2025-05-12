@@ -182,10 +182,8 @@ class SavedSearchArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure-native:operationalinsights:SavedSearch")
 class SavedSearch(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:operationalinsights:SavedSearch"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -73,10 +73,8 @@ class AccessPolicyArgs:
         pulumi.set(self, "vault_name", value)
 
 
+@pulumi.type_token("azure-native:keyvault:AccessPolicy")
 class AccessPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:keyvault:AccessPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

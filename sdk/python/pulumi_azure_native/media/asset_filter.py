@@ -137,10 +137,8 @@ class AssetFilterArgs:
         pulumi.set(self, "tracks", value)
 
 
+@pulumi.type_token("azure-native:media:AssetFilter")
 class AssetFilter(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:media:AssetFilter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

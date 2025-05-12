@@ -137,10 +137,8 @@ class ApplicationArgs:
         pulumi.set(self, "tracking_data_stores", value)
 
 
+@pulumi.type_token("azure-native:integrationspaces:Application")
 class Application(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:integrationspaces:Application"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

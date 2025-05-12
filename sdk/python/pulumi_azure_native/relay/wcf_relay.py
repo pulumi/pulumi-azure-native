@@ -137,10 +137,8 @@ class WCFRelayArgs:
         pulumi.set(self, "user_metadata", value)
 
 
+@pulumi.type_token("azure-native:relay:WCFRelay")
 class WCFRelay(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:relay:WCFRelay"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

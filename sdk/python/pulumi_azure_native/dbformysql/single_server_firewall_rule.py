@@ -101,10 +101,8 @@ class SingleServerFirewallRuleArgs:
         pulumi.set(self, "firewall_rule_name", value)
 
 
+@pulumi.type_token("azure-native:dbformysql:SingleServerFirewallRule")
 class SingleServerFirewallRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dbformysql:SingleServerFirewallRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

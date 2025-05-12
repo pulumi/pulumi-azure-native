@@ -107,10 +107,8 @@ class AlertProcessingRuleByNameArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:alertsmanagement:AlertProcessingRuleByName")
 class AlertProcessingRuleByName(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:alertsmanagement:AlertProcessingRuleByName"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

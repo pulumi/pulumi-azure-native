@@ -89,10 +89,8 @@ class HeterogeneousAssessmentOperationArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:migrate:HeterogeneousAssessmentOperation")
 class HeterogeneousAssessmentOperation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:migrate:HeterogeneousAssessmentOperation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

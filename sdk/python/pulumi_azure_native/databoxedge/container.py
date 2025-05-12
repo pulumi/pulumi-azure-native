@@ -103,10 +103,8 @@ class ContainerArgs:
         pulumi.set(self, "container_name", value)
 
 
+@pulumi.type_token("azure-native:databoxedge:Container")
 class Container(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databoxedge:Container"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

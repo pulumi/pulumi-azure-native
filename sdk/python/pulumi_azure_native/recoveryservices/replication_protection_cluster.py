@@ -120,10 +120,8 @@ class ReplicationProtectionClusterArgs:
         pulumi.set(self, "replication_protection_cluster_name", value)
 
 
+@pulumi.type_token("azure-native:recoveryservices:ReplicationProtectionCluster")
 class ReplicationProtectionCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:recoveryservices:ReplicationProtectionCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

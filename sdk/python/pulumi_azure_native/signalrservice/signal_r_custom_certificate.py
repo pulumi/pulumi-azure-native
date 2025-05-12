@@ -118,10 +118,8 @@ class SignalRCustomCertificateArgs:
         pulumi.set(self, "key_vault_secret_version", value)
 
 
+@pulumi.type_token("azure-native:signalrservice:SignalRCustomCertificate")
 class SignalRCustomCertificate(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:signalrservice:SignalRCustomCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

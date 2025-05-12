@@ -134,10 +134,8 @@ class BlobContainerImmutabilityPolicyArgs:
         pulumi.set(self, "immutability_policy_name", value)
 
 
+@pulumi.type_token("azure-native:storage:BlobContainerImmutabilityPolicy")
 class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storage:BlobContainerImmutabilityPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

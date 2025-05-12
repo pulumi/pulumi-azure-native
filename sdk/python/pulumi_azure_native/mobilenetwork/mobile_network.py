@@ -138,10 +138,8 @@ class MobileNetworkArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:mobilenetwork:MobileNetwork")
 class MobileNetwork(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:mobilenetwork:MobileNetwork"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

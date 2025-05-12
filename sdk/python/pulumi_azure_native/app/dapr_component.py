@@ -203,10 +203,8 @@ class DaprComponentArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure-native:app:DaprComponent")
 class DaprComponent(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:app:DaprComponent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

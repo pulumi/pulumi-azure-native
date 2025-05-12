@@ -153,10 +153,8 @@ class PremiumMicrosoftDefenderForThreatIntelligenceArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:PremiumMicrosoftDefenderForThreatIntelligence")
 class PremiumMicrosoftDefenderForThreatIntelligence(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:PremiumMicrosoftDefenderForThreatIntelligence"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

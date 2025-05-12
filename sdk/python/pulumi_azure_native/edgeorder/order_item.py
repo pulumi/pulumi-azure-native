@@ -153,10 +153,8 @@ class OrderItemArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:edgeorder:OrderItem")
 class OrderItem(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:edgeorder:OrderItem"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

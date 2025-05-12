@@ -248,10 +248,8 @@ class PrivateRecordSetArgs:
         pulumi.set(self, "txt_records", value)
 
 
+@pulumi.type_token("azure-native:privatedns:PrivateRecordSet")
 class PrivateRecordSet(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:privatedns:PrivateRecordSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

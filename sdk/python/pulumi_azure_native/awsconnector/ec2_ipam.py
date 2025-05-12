@@ -107,10 +107,8 @@ class Ec2IpamArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:Ec2Ipam")
 class Ec2Ipam(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:Ec2Ipam"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

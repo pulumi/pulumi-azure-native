@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -48,6 +48,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:eventgrid:AdvancedFilterOperatorType")
 class AdvancedFilterOperatorType(builtins.str, Enum):
     """
     The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
@@ -73,6 +74,7 @@ class AdvancedFilterOperatorType(builtins.str, Enum):
     IS_NOT_NULL = "IsNotNull"
 
 
+@pulumi.type_token("azure-native:eventgrid:ChannelProvisioningState")
 class ChannelProvisioningState(builtins.str, Enum):
     """
     Provisioning state of the channel.
@@ -86,6 +88,7 @@ class ChannelProvisioningState(builtins.str, Enum):
     IDLE_DUE_TO_MIRRORED_PARTNER_TOPIC_DELETION = "IdleDueToMirroredPartnerTopicDeletion"
 
 
+@pulumi.type_token("azure-native:eventgrid:ChannelType")
 class ChannelType(builtins.str, Enum):
     """
     The type of the event channel which represents the direction flow of events.
@@ -93,6 +96,7 @@ class ChannelType(builtins.str, Enum):
     PARTNER_TOPIC = "PartnerTopic"
 
 
+@pulumi.type_token("azure-native:eventgrid:ClientCertificateValidationScheme")
 class ClientCertificateValidationScheme(builtins.str, Enum):
     """
     The validation scheme used to authenticate the client. Default value is SubjectMatchesAuthenticationName.
@@ -105,6 +109,7 @@ class ClientCertificateValidationScheme(builtins.str, Enum):
     THUMBPRINT_MATCH = "ThumbprintMatch"
 
 
+@pulumi.type_token("azure-native:eventgrid:ClientState")
 class ClientState(builtins.str, Enum):
     """
     Indicates if the client is enabled or not. Default value is Enabled.
@@ -113,6 +118,7 @@ class ClientState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:eventgrid:CustomDomainIdentityType")
 class CustomDomainIdentityType(builtins.str, Enum):
     """
     The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
@@ -121,6 +127,7 @@ class CustomDomainIdentityType(builtins.str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+@pulumi.type_token("azure-native:eventgrid:CustomDomainValidationState")
 class CustomDomainValidationState(builtins.str, Enum):
     """
     Validation state for the custom domain. This is a read only property and is initially set to 'Pending' and will be updated to 'Approved' by Event Grid only after ownership of the domain name has been successfully validated.
@@ -130,6 +137,7 @@ class CustomDomainValidationState(builtins.str, Enum):
     ERROR_RETRIEVING_DNS_RECORD = "ErrorRetrievingDnsRecord"
 
 
+@pulumi.type_token("azure-native:eventgrid:DataResidencyBoundary")
 class DataResidencyBoundary(builtins.str, Enum):
     """
     Data Residency Boundary of the resource.
@@ -138,6 +146,7 @@ class DataResidencyBoundary(builtins.str, Enum):
     WITHIN_REGION = "WithinRegion"
 
 
+@pulumi.type_token("azure-native:eventgrid:DeadLetterEndPointType")
 class DeadLetterEndPointType(builtins.str, Enum):
     """
     Type of the endpoint for the dead letter destination
@@ -145,6 +154,7 @@ class DeadLetterEndPointType(builtins.str, Enum):
     STORAGE_BLOB = "StorageBlob"
 
 
+@pulumi.type_token("azure-native:eventgrid:DeliveryAttributeMappingType")
 class DeliveryAttributeMappingType(builtins.str, Enum):
     """
     Type of the delivery attribute or header name.
@@ -153,6 +163,7 @@ class DeliveryAttributeMappingType(builtins.str, Enum):
     DYNAMIC = "Dynamic"
 
 
+@pulumi.type_token("azure-native:eventgrid:DeliveryMode")
 class DeliveryMode(builtins.str, Enum):
     """
     Delivery mode of the event subscription.
@@ -161,6 +172,7 @@ class DeliveryMode(builtins.str, Enum):
     PUSH = "Push"
 
 
+@pulumi.type_token("azure-native:eventgrid:DeliverySchema")
 class DeliverySchema(builtins.str, Enum):
     """
     The event delivery schema for the event subscription.
@@ -168,6 +180,7 @@ class DeliverySchema(builtins.str, Enum):
     CLOUD_EVENT_SCHEMA_V1_0 = "CloudEventSchemaV1_0"
 
 
+@pulumi.type_token("azure-native:eventgrid:EndpointType")
 class EndpointType(builtins.str, Enum):
     """
     Type of the endpoint for the event subscription destination.
@@ -183,6 +196,7 @@ class EndpointType(builtins.str, Enum):
     NAMESPACE_TOPIC = "NamespaceTopic"
 
 
+@pulumi.type_token("azure-native:eventgrid:EventDefinitionKind")
 class EventDefinitionKind(builtins.str, Enum):
     """
     The kind of event type used.
@@ -190,6 +204,7 @@ class EventDefinitionKind(builtins.str, Enum):
     INLINE = "Inline"
 
 
+@pulumi.type_token("azure-native:eventgrid:EventDeliverySchema")
 class EventDeliverySchema(builtins.str, Enum):
     """
     The event delivery schema for the event subscription.
@@ -199,6 +214,7 @@ class EventDeliverySchema(builtins.str, Enum):
     CLOUD_EVENT_SCHEMA_V1_0 = "CloudEventSchemaV1_0"
 
 
+@pulumi.type_token("azure-native:eventgrid:EventInputSchema")
 class EventInputSchema(builtins.str, Enum):
     """
     This determines the format that is expected for incoming events published to the topic.
@@ -206,6 +222,7 @@ class EventInputSchema(builtins.str, Enum):
     CLOUD_EVENT_SCHEMA_V1_0 = "CloudEventSchemaV1_0"
 
 
+@pulumi.type_token("azure-native:eventgrid:EventSubscriptionIdentityType")
 class EventSubscriptionIdentityType(builtins.str, Enum):
     """
     The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
@@ -214,6 +231,7 @@ class EventSubscriptionIdentityType(builtins.str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+@pulumi.type_token("azure-native:eventgrid:FilterOperatorType")
 class FilterOperatorType(builtins.str, Enum):
     """
     The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
@@ -239,6 +257,7 @@ class FilterOperatorType(builtins.str, Enum):
     IS_NOT_NULL = "IsNotNull"
 
 
+@pulumi.type_token("azure-native:eventgrid:IdentityType")
 class IdentityType(builtins.str, Enum):
     """
     The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
@@ -249,6 +268,7 @@ class IdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
 
 
+@pulumi.type_token("azure-native:eventgrid:InputSchema")
 class InputSchema(builtins.str, Enum):
     """
     This determines the format that Event Grid should expect for incoming events published to the topic.
@@ -258,6 +278,7 @@ class InputSchema(builtins.str, Enum):
     CLOUD_EVENT_SCHEMA_V1_0 = "CloudEventSchemaV1_0"
 
 
+@pulumi.type_token("azure-native:eventgrid:InputSchemaMappingType")
 class InputSchemaMappingType(builtins.str, Enum):
     """
     Type of the custom mapping
@@ -265,6 +286,7 @@ class InputSchemaMappingType(builtins.str, Enum):
     JSON = "Json"
 
 
+@pulumi.type_token("azure-native:eventgrid:IpActionType")
 class IpActionType(builtins.str, Enum):
     """
     Action to perform based on the match or no match of the IpMask.
@@ -272,6 +294,7 @@ class IpActionType(builtins.str, Enum):
     ALLOW = "Allow"
 
 
+@pulumi.type_token("azure-native:eventgrid:MonitorAlertSeverity")
 class MonitorAlertSeverity(builtins.str, Enum):
     """
     The severity that will be attached to every Alert fired through this event subscription.
@@ -284,6 +307,7 @@ class MonitorAlertSeverity(builtins.str, Enum):
     SEV4 = "Sev4"
 
 
+@pulumi.type_token("azure-native:eventgrid:PartnerConfigurationProvisioningState")
 class PartnerConfigurationProvisioningState(builtins.str, Enum):
     """
     Provisioning state of the partner configuration.
@@ -296,6 +320,7 @@ class PartnerConfigurationProvisioningState(builtins.str, Enum):
     FAILED = "Failed"
 
 
+@pulumi.type_token("azure-native:eventgrid:PartnerDestinationActivationState")
 class PartnerDestinationActivationState(builtins.str, Enum):
     """
     Activation state of the partner destination.
@@ -304,6 +329,7 @@ class PartnerDestinationActivationState(builtins.str, Enum):
     ACTIVATED = "Activated"
 
 
+@pulumi.type_token("azure-native:eventgrid:PartnerTopicActivationState")
 class PartnerTopicActivationState(builtins.str, Enum):
     """
     Activation state of the partner topic.
@@ -313,6 +339,7 @@ class PartnerTopicActivationState(builtins.str, Enum):
     DEACTIVATED = "Deactivated"
 
 
+@pulumi.type_token("azure-native:eventgrid:PartnerTopicRoutingMode")
 class PartnerTopicRoutingMode(builtins.str, Enum):
     """
     This determines if events published to this partner namespace should use the source attribute in the event payload
@@ -322,6 +349,7 @@ class PartnerTopicRoutingMode(builtins.str, Enum):
     CHANNEL_NAME_HEADER = "ChannelNameHeader"
 
 
+@pulumi.type_token("azure-native:eventgrid:PermissionType")
 class PermissionType(builtins.str, Enum):
     """
     The allowed permission.
@@ -330,6 +358,7 @@ class PermissionType(builtins.str, Enum):
     SUBSCRIBER = "Subscriber"
 
 
+@pulumi.type_token("azure-native:eventgrid:PersistedConnectionStatus")
 class PersistedConnectionStatus(builtins.str, Enum):
     """
     Status of the connection.
@@ -340,6 +369,7 @@ class PersistedConnectionStatus(builtins.str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+@pulumi.type_token("azure-native:eventgrid:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     This determines if traffic is allowed over public network. By default it is enabled. 
@@ -349,6 +379,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:eventgrid:PublisherType")
 class PublisherType(builtins.str, Enum):
     """
     Publisher type of the namespace topic.
@@ -356,6 +387,7 @@ class PublisherType(builtins.str, Enum):
     CUSTOM = "Custom"
 
 
+@pulumi.type_token("azure-native:eventgrid:ReadinessState")
 class ReadinessState(builtins.str, Enum):
     """
     The readiness state of the corresponding partner topic.
@@ -364,6 +396,7 @@ class ReadinessState(builtins.str, Enum):
     ACTIVATED = "Activated"
 
 
+@pulumi.type_token("azure-native:eventgrid:ResourceProvisioningState")
 class ResourceProvisioningState(builtins.str, Enum):
     """
     Provisioning state of the Private Endpoint Connection.
@@ -376,6 +409,7 @@ class ResourceProvisioningState(builtins.str, Enum):
     FAILED = "Failed"
 
 
+@pulumi.type_token("azure-native:eventgrid:RoutingIdentityType")
 class RoutingIdentityType(builtins.str, Enum):
     """
     Routing identity type for topic spaces configuration.
@@ -385,6 +419,7 @@ class RoutingIdentityType(builtins.str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+@pulumi.type_token("azure-native:eventgrid:SkuName")
 class SkuName(builtins.str, Enum):
     """
     The name of the SKU.
@@ -392,6 +427,7 @@ class SkuName(builtins.str, Enum):
     STANDARD = "Standard"
 
 
+@pulumi.type_token("azure-native:eventgrid:StaticRoutingEnrichmentType")
 class StaticRoutingEnrichmentType(builtins.str, Enum):
     """
     Static routing enrichment value type. For e.g. this property value can be 'String'.
@@ -399,6 +435,7 @@ class StaticRoutingEnrichmentType(builtins.str, Enum):
     STRING = "String"
 
 
+@pulumi.type_token("azure-native:eventgrid:TlsVersion")
 class TlsVersion(builtins.str, Enum):
     """
     Minimum TLS version that should be supported by webhook endpoint
@@ -408,6 +445,7 @@ class TlsVersion(builtins.str, Enum):
     TLS_VERSION_1_2 = "1.2"
 
 
+@pulumi.type_token("azure-native:eventgrid:TopicSpacesConfigurationState")
 class TopicSpacesConfigurationState(builtins.str, Enum):
     """
     Indicate if Topic Spaces Configuration is enabled for the namespace. Default is Disabled.

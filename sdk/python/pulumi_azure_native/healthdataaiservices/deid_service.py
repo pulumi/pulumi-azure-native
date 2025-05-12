@@ -123,10 +123,8 @@ class DeidServiceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:healthdataaiservices:DeidService")
 class DeidService(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:healthdataaiservices:DeidService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

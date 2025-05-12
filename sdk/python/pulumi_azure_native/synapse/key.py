@@ -103,10 +103,8 @@ class KeyArgs:
         pulumi.set(self, "key_vault_url", value)
 
 
+@pulumi.type_token("azure-native:synapse:Key")
 class Key(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:synapse:Key"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -118,10 +118,8 @@ class ImageDefinitionArgs:
         pulumi.set(self, "image_definition_name", value)
 
 
+@pulumi.type_token("azure-native:testbase:ImageDefinition")
 class ImageDefinition(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:testbase:ImageDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

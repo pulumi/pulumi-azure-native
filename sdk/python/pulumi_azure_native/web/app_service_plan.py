@@ -392,10 +392,8 @@ class AppServicePlanArgs:
         pulumi.set(self, "zone_redundant", value)
 
 
+@pulumi.type_token("azure-native:web:AppServicePlan")
 class AppServicePlan(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:AppServicePlan"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

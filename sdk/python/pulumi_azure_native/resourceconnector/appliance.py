@@ -173,10 +173,8 @@ class ApplianceArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure-native:resourceconnector:Appliance")
 class Appliance(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:resourceconnector:Appliance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

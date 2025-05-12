@@ -154,10 +154,8 @@ class FlowArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:azuredatatransfer:Flow")
 class Flow(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azuredatatransfer:Flow"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

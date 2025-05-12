@@ -97,10 +97,8 @@ class ImportCollectorArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:migrate:ImportCollector")
 class ImportCollector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:migrate:ImportCollector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

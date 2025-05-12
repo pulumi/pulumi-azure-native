@@ -151,10 +151,8 @@ class StorageTaskArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:storageactions:StorageTask")
 class StorageTask(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storageactions:StorageTask"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

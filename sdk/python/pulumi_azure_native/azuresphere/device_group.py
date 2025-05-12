@@ -168,10 +168,8 @@ class DeviceGroupArgs:
         pulumi.set(self, "update_policy", value)
 
 
+@pulumi.type_token("azure-native:azuresphere:DeviceGroup")
 class DeviceGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azuresphere:DeviceGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

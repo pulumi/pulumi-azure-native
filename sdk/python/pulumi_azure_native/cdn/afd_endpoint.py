@@ -137,10 +137,8 @@ class AFDEndpointArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:cdn:AFDEndpoint")
 class AFDEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cdn:AFDEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

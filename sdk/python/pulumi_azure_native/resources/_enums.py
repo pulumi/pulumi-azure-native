@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -20,6 +20,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:resources:CleanupOptions")
 class CleanupOptions(builtins.str, Enum):
     """
     The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
@@ -29,6 +30,7 @@ class CleanupOptions(builtins.str, Enum):
     ON_EXPIRATION = "OnExpiration"
 
 
+@pulumi.type_token("azure-native:resources:DenySettingsMode")
 class DenySettingsMode(builtins.str, Enum):
     """
     denySettings Mode that defines denied actions.
@@ -47,6 +49,7 @@ class DenySettingsMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:resources:DeploymentMode")
 class DeploymentMode(builtins.str, Enum):
     """
     The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
@@ -55,6 +58,7 @@ class DeploymentMode(builtins.str, Enum):
     COMPLETE = "Complete"
 
 
+@pulumi.type_token("azure-native:resources:DeploymentStacksDeleteDetachEnum")
 class DeploymentStacksDeleteDetachEnum(builtins.str, Enum):
     """
     Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
@@ -63,6 +67,7 @@ class DeploymentStacksDeleteDetachEnum(builtins.str, Enum):
     DETACH = "detach"
 
 
+@pulumi.type_token("azure-native:resources:ExpressionEvaluationOptionsScopeType")
 class ExpressionEvaluationOptionsScopeType(builtins.str, Enum):
     """
     The scope to be used for evaluation of parameters, variables and functions in a nested template.
@@ -72,6 +77,7 @@ class ExpressionEvaluationOptionsScopeType(builtins.str, Enum):
     INNER = "Inner"
 
 
+@pulumi.type_token("azure-native:resources:ExtendedLocationType")
 class ExtendedLocationType(builtins.str, Enum):
     """
     The extended location type.
@@ -79,6 +85,7 @@ class ExtendedLocationType(builtins.str, Enum):
     EDGE_ZONE = "EdgeZone"
 
 
+@pulumi.type_token("azure-native:resources:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of the managed identity.
@@ -86,6 +93,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+@pulumi.type_token("azure-native:resources:OnErrorDeploymentType")
 class OnErrorDeploymentType(builtins.str, Enum):
     """
     The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
@@ -94,6 +102,7 @@ class OnErrorDeploymentType(builtins.str, Enum):
     SPECIFIC_DEPLOYMENT = "SpecificDeployment"
 
 
+@pulumi.type_token("azure-native:resources:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The identity type.
@@ -104,6 +113,7 @@ class ResourceIdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:resources:ScriptType")
 class ScriptType(builtins.str, Enum):
     """
     Type of the script.

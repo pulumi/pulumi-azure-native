@@ -119,10 +119,8 @@ class WorkflowAccessKeyArgs:
         pulumi.set(self, "not_before", value)
 
 
+@pulumi.type_token("azure-native:logic:WorkflowAccessKey")
 class WorkflowAccessKey(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:logic:WorkflowAccessKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

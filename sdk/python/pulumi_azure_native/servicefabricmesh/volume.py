@@ -138,10 +138,8 @@ class VolumeArgs:
         pulumi.set(self, "volume_resource_name", value)
 
 
+@pulumi.type_token("azure-native:servicefabricmesh:Volume")
 class Volume(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:servicefabricmesh:Volume"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

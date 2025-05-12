@@ -89,10 +89,8 @@ class ServerGroupPrivateEndpointConnectionArgs:
         pulumi.set(self, "private_endpoint_connection_name", value)
 
 
+@pulumi.type_token("azure-native:dbforpostgresql:ServerGroupPrivateEndpointConnection")
 class ServerGroupPrivateEndpointConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dbforpostgresql:ServerGroupPrivateEndpointConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

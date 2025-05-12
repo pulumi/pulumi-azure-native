@@ -112,10 +112,8 @@ class DataManagerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:hybriddata:DataManager")
 class DataManager(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybriddata:DataManager"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

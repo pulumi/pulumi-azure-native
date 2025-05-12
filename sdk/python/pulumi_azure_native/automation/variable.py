@@ -134,10 +134,8 @@ class VariableArgs:
         pulumi.set(self, "variable_name", value)
 
 
+@pulumi.type_token("azure-native:automation:Variable")
 class Variable(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:automation:Variable"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

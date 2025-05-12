@@ -170,10 +170,8 @@ class FormulaArgs:
         pulumi.set(self, "vm", value)
 
 
+@pulumi.type_token("azure-native:devtestlab:Formula")
 class Formula(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devtestlab:Formula"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

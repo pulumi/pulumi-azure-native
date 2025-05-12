@@ -106,10 +106,8 @@ class Ec2SubnetArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:Ec2Subnet")
 class Ec2Subnet(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:Ec2Subnet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

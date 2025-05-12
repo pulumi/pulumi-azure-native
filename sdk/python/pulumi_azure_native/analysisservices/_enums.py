@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:analysisservices:ConnectionMode")
 class ConnectionMode(builtins.str, Enum):
     """
     How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
@@ -20,6 +21,7 @@ class ConnectionMode(builtins.str, Enum):
     READ_ONLY = "ReadOnly"
 
 
+@pulumi.type_token("azure-native:analysisservices:SkuTier")
 class SkuTier(builtins.str, Enum):
     """
     The name of the Azure pricing tier to which the SKU applies.

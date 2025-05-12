@@ -106,10 +106,8 @@ class PrivateEndpointConnectionByNameArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:PrivateEndpointConnectionByName")
 class PrivateEndpointConnectionByName(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:PrivateEndpointConnectionByName"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

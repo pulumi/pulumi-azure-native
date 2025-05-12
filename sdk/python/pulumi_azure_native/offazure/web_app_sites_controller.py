@@ -110,10 +110,8 @@ class WebAppSitesControllerArgs:
         pulumi.set(self, "web_app_site_name", value)
 
 
+@pulumi.type_token("azure-native:offazure:WebAppSitesController")
 class WebAppSitesController(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:offazure:WebAppSitesController"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

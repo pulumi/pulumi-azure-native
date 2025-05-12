@@ -90,10 +90,8 @@ class ProviderInstanceArgs:
         pulumi.set(self, "provider_settings", value)
 
 
+@pulumi.type_token("azure-native:workloads:ProviderInstance")
 class ProviderInstance(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:workloads:ProviderInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

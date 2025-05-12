@@ -186,10 +186,8 @@ class NotificationChannelArgs:
         pulumi.set(self, "web_hook_url", value)
 
 
+@pulumi.type_token("azure-native:devtestlab:NotificationChannel")
 class NotificationChannel(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devtestlab:NotificationChannel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

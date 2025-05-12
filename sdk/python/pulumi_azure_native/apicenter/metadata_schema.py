@@ -105,10 +105,8 @@ class MetadataSchemaArgs:
         pulumi.set(self, "metadata_schema_name", value)
 
 
+@pulumi.type_token("azure-native:apicenter:MetadataSchema")
 class MetadataSchema(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apicenter:MetadataSchema"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

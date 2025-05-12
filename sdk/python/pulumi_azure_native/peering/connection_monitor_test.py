@@ -135,10 +135,8 @@ class ConnectionMonitorTestArgs:
         pulumi.set(self, "test_frequency_in_sec", value)
 
 
+@pulumi.type_token("azure-native:peering:ConnectionMonitorTest")
 class ConnectionMonitorTest(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:peering:ConnectionMonitorTest"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

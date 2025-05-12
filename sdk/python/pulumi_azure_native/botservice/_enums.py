@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:botservice:Kind")
 class Kind(builtins.str, Enum):
     """
     Required. Gets or sets the Kind of the resource.
@@ -26,6 +27,7 @@ class Kind(builtins.str, Enum):
     AZUREBOT = "azurebot"
 
 
+@pulumi.type_token("azure-native:botservice:MsaAppType")
 class MsaAppType(builtins.str, Enum):
     """
     Microsoft App Type for the bot
@@ -35,6 +37,7 @@ class MsaAppType(builtins.str, Enum):
     MULTI_TENANT = "MultiTenant"
 
 
+@pulumi.type_token("azure-native:botservice:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -44,6 +47,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:botservice:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Whether the bot is in an isolated network
@@ -53,6 +57,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     SECURED_BY_PERIMETER = "SecuredByPerimeter"
 
 
+@pulumi.type_token("azure-native:botservice:SkuName")
 class SkuName(builtins.str, Enum):
     """
     The sku name

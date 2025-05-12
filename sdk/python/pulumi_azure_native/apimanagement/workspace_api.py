@@ -496,10 +496,8 @@ class WorkspaceApiArgs:
         pulumi.set(self, "wsdl_selector", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:WorkspaceApi")
 class WorkspaceApi(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:WorkspaceApi"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

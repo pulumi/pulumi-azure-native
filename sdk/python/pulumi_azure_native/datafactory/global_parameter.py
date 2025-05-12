@@ -89,10 +89,8 @@ class GlobalParameterArgs:
         pulumi.set(self, "global_parameter_name", value)
 
 
+@pulumi.type_token("azure-native:datafactory:GlobalParameter")
 class GlobalParameter(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datafactory:GlobalParameter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

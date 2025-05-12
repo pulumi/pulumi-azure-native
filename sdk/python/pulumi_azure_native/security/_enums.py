@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -70,6 +70,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:security:ActionType")
 class ActionType(builtins.str, Enum):
     """
     The type of the action that will be triggered by the Automation
@@ -79,6 +80,7 @@ class ActionType(builtins.str, Enum):
     WORKSPACE = "Workspace"
 
 
+@pulumi.type_token("azure-native:security:AdditionalWorkspaceDataType")
 class AdditionalWorkspaceDataType(builtins.str, Enum):
     """
     Data types sent to workspace.
@@ -87,6 +89,7 @@ class AdditionalWorkspaceDataType(builtins.str, Enum):
     RAW_EVENTS = "RawEvents"
 
 
+@pulumi.type_token("azure-native:security:AdditionalWorkspaceType")
 class AdditionalWorkspaceType(builtins.str, Enum):
     """
     Workspace type.
@@ -94,6 +97,7 @@ class AdditionalWorkspaceType(builtins.str, Enum):
     SENTINEL = "Sentinel"
 
 
+@pulumi.type_token("azure-native:security:ApplicationSourceResourceType")
 class ApplicationSourceResourceType(builtins.str, Enum):
     """
     The application source, what it affects, e.g. Assessments
@@ -104,6 +108,7 @@ class ApplicationSourceResourceType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:security:AssessmentStatusCode")
 class AssessmentStatusCode(builtins.str, Enum):
     """
     Programmatic code for the status of the assessment
@@ -122,6 +127,7 @@ class AssessmentStatusCode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:security:AssessmentType")
 class AssessmentType(builtins.str, Enum):
     """
     BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
@@ -140,6 +146,7 @@ class AssessmentType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:security:AttestationComplianceState")
 class AttestationComplianceState(builtins.str, Enum):
     """
     Attest category of this assignment
@@ -149,6 +156,7 @@ class AttestationComplianceState(builtins.str, Enum):
     NON_COMPLIANT = "nonCompliant"
 
 
+@pulumi.type_token("azure-native:security:AuthenticationType")
 class AuthenticationType(builtins.str, Enum):
     """
     The authentication type
@@ -156,6 +164,7 @@ class AuthenticationType(builtins.str, Enum):
     ACCESS_TOKEN = "AccessToken"
 
 
+@pulumi.type_token("azure-native:security:AutoDiscovery")
 class AutoDiscovery(builtins.str, Enum):
     """
     AutoDiscovery states.
@@ -165,6 +174,7 @@ class AutoDiscovery(builtins.str, Enum):
     NOT_APPLICABLE = "NotApplicable"
 
 
+@pulumi.type_token("azure-native:security:AutoProvision")
 class AutoProvision(builtins.str, Enum):
     """
     Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
@@ -179,6 +189,7 @@ class AutoProvision(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:security:Categories")
 class Categories(builtins.str, Enum):
     """
     The categories of resource that is at risk when the assessment is unhealthy
@@ -190,6 +201,7 @@ class Categories(builtins.str, Enum):
     IO_T = "IoT"
 
 
+@pulumi.type_token("azure-native:security:CloudName")
 class CloudName(builtins.str, Enum):
     """
     The multi cloud resource's cloud name.
@@ -204,6 +216,7 @@ class CloudName(builtins.str, Enum):
     J_FROG = "JFrog"
 
 
+@pulumi.type_token("azure-native:security:DataSource")
 class DataSource(builtins.str, Enum):
     TWIN_DATA = "TwinData"
     """
@@ -211,6 +224,7 @@ class DataSource(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:security:DevOpsProvisioningState")
 class DevOpsProvisioningState(builtins.str, Enum):
     """
     The provisioning state of the resource.
@@ -232,6 +246,7 @@ class DevOpsProvisioningState(builtins.str, Enum):
     DELETION_FAILURE = "DeletionFailure"
 
 
+@pulumi.type_token("azure-native:security:Effect")
 class Effect(builtins.str, Enum):
     """
     Expected effect of this assignment (Audit/Exempt/Attest)
@@ -241,6 +256,7 @@ class Effect(builtins.str, Enum):
     ATTEST = "Attest"
 
 
+@pulumi.type_token("azure-native:security:Enforce")
 class Enforce(builtins.str, Enum):
     """
     If set to "False", it allows the descendants of this scope to override the pricing configuration set on this scope (allows setting inherited="False"). If set to "True", it prevents overrides and forces this pricing configuration on all the descendants of this scope. This field is only available for subscription-level pricing.
@@ -255,6 +271,7 @@ class Enforce(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:security:EnvironmentType")
 class EnvironmentType(builtins.str, Enum):
     """
     The type of the environment data.
@@ -268,6 +285,7 @@ class EnvironmentType(builtins.str, Enum):
     J_FROG_ARTIFACTORY = "JFrogArtifactory"
 
 
+@pulumi.type_token("azure-native:security:EventSource")
 class EventSource(builtins.str, Enum):
     """
     A valid event source type.
@@ -287,6 +305,7 @@ class EventSource(builtins.str, Enum):
     ATTACK_PATHS_SNAPSHOT = "AttackPathsSnapshot"
 
 
+@pulumi.type_token("azure-native:security:ExemptionCategory")
 class ExemptionCategory(builtins.str, Enum):
     """
     Exemption category of this assignment
@@ -295,6 +314,7 @@ class ExemptionCategory(builtins.str, Enum):
     MITIGATED = "mitigated"
 
 
+@pulumi.type_token("azure-native:security:ExportData")
 class ExportData(builtins.str, Enum):
     RAW_EVENTS = "RawEvents"
     """
@@ -302,6 +322,7 @@ class ExportData(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:security:GovernanceRuleOwnerSourceType")
 class GovernanceRuleOwnerSourceType(builtins.str, Enum):
     """
     The owner type for the governance rule owner source
@@ -316,6 +337,7 @@ class GovernanceRuleOwnerSourceType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:security:GovernanceRuleSourceResourceType")
 class GovernanceRuleSourceResourceType(builtins.str, Enum):
     """
     The governance rule source, what the rule affects, e.g. Assessments
@@ -326,6 +348,7 @@ class GovernanceRuleSourceResourceType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:security:GovernanceRuleType")
 class GovernanceRuleType(builtins.str, Enum):
     """
     The rule type of the governance rule, defines the source of the rule e.g. Integrated
@@ -340,6 +363,7 @@ class GovernanceRuleType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:security:ImplementationEffort")
 class ImplementationEffort(builtins.str, Enum):
     """
     The implementation effort required to remediate this assessment
@@ -349,6 +373,7 @@ class ImplementationEffort(builtins.str, Enum):
     HIGH = "High"
 
 
+@pulumi.type_token("azure-native:security:IsEnabled")
 class IsEnabled(builtins.str, Enum):
     """
     Indicates whether the extension is enabled.
@@ -363,6 +388,7 @@ class IsEnabled(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:security:MinimalRiskLevel")
 class MinimalRiskLevel(builtins.str, Enum):
     """
     Defines the minimal attach path risk level which will be sent as email notifications
@@ -385,6 +411,7 @@ class MinimalRiskLevel(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:security:MinimalSeverity")
 class MinimalSeverity(builtins.str, Enum):
     """
     Defines the minimal alert severity which will be sent as email notifications
@@ -403,6 +430,7 @@ class MinimalSeverity(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:security:OfferingType")
 class OfferingType(builtins.str, Enum):
     """
     The type of the security offering.
@@ -428,6 +456,7 @@ class OfferingType(builtins.str, Enum):
     DEFENDER_CSPM_J_FROG = "DefenderCspmJFrog"
 
 
+@pulumi.type_token("azure-native:security:Operator")
 class Operator(builtins.str, Enum):
     """
     A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
@@ -470,6 +499,7 @@ class Operator(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:security:OrganizationMembershipType")
 class OrganizationMembershipType(builtins.str, Enum):
     """
     The multi cloud account's membership type in the organization
@@ -478,6 +508,7 @@ class OrganizationMembershipType(builtins.str, Enum):
     ORGANIZATION = "Organization"
 
 
+@pulumi.type_token("azure-native:security:PricingTier")
 class PricingTier(builtins.str, Enum):
     """
     Indicates whether the Defender plan is enabled on the selected scope. Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
@@ -492,6 +523,7 @@ class PricingTier(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:security:PropertyType")
 class PropertyType(builtins.str, Enum):
     """
     The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
@@ -502,12 +534,14 @@ class PropertyType(builtins.str, Enum):
     BOOLEAN = "Boolean"
 
 
+@pulumi.type_token("azure-native:security:Protocol")
 class Protocol(builtins.str, Enum):
     TCP = "TCP"
     UDP = "UDP"
     ALL = "*"
 
 
+@pulumi.type_token("azure-native:security:RecommendationConfigStatus")
 class RecommendationConfigStatus(builtins.str, Enum):
     """
     Recommendation status. When the recommendation status is disabled recommendations are not generated.
@@ -516,6 +550,7 @@ class RecommendationConfigStatus(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:security:RecommendationSupportedClouds")
 class RecommendationSupportedClouds(builtins.str, Enum):
     """
     The cloud that the recommendation is supported on.
@@ -525,6 +560,7 @@ class RecommendationSupportedClouds(builtins.str, Enum):
     GCP = "GCP"
 
 
+@pulumi.type_token("azure-native:security:RecommendationType")
 class RecommendationType(builtins.str, Enum):
     """
     The type of IoT Security recommendation.
@@ -595,6 +631,7 @@ class RecommendationType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:security:RuleState")
 class RuleState(builtins.str, Enum):
     """
     Possible states of the rule
@@ -604,6 +641,7 @@ class RuleState(builtins.str, Enum):
     EXPIRED = "Expired"
 
 
+@pulumi.type_token("azure-native:security:ScanningMode")
 class ScanningMode(builtins.str, Enum):
     """
     The scanning mode for the VM scan.
@@ -611,6 +649,7 @@ class ScanningMode(builtins.str, Enum):
     DEFAULT = "Default"
 
 
+@pulumi.type_token("azure-native:security:SecurityContactRole")
 class SecurityContactRole(builtins.str, Enum):
     """
     A possible role to configure sending security notification alerts to
@@ -633,6 +672,7 @@ class SecurityContactRole(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:security:SecurityIssue")
 class SecurityIssue(builtins.str, Enum):
     """
     The severity to relate to the assessments generated by this Recommendation.
@@ -645,6 +685,7 @@ class SecurityIssue(builtins.str, Enum):
     BEST_PRACTICES = "BestPractices"
 
 
+@pulumi.type_token("azure-native:security:SecuritySolutionStatus")
 class SecuritySolutionStatus(builtins.str, Enum):
     """
     Status of the IoT Security solution.
@@ -653,6 +694,7 @@ class SecuritySolutionStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:security:ServerVulnerabilityAssessmentsAzureSettingSelectedProvider")
 class ServerVulnerabilityAssessmentsAzureSettingSelectedProvider(builtins.str, Enum):
     """
     The selected vulnerability assessments provider on Azure servers in the defined scope.
@@ -663,6 +705,7 @@ class ServerVulnerabilityAssessmentsAzureSettingSelectedProvider(builtins.str, E
     """
 
 
+@pulumi.type_token("azure-native:security:ServerVulnerabilityAssessmentsSettingKind")
 class ServerVulnerabilityAssessmentsSettingKind(builtins.str, Enum):
     """
     The kind of the server vulnerability assessments setting.
@@ -670,6 +713,7 @@ class ServerVulnerabilityAssessmentsSettingKind(builtins.str, Enum):
     AZURE_SERVERS_SETTING = "AzureServersSetting"
 
 
+@pulumi.type_token("azure-native:security:Severity")
 class Severity(builtins.str, Enum):
     """
     The severity level of the assessment
@@ -679,6 +723,7 @@ class Severity(builtins.str, Enum):
     HIGH = "High"
 
 
+@pulumi.type_token("azure-native:security:SeverityEnum")
 class SeverityEnum(builtins.str, Enum):
     """
     The severity to relate to the assessments generated by this Recommendation.
@@ -688,6 +733,7 @@ class SeverityEnum(builtins.str, Enum):
     LOW = "Low"
 
 
+@pulumi.type_token("azure-native:security:Source")
 class Source(builtins.str, Enum):
     """
     The platform where the assessed resource resides
@@ -706,6 +752,7 @@ class Source(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:security:SourceType")
 class SourceType(builtins.str, Enum):
     """
     The source type that will trigger the notification
@@ -714,6 +761,7 @@ class SourceType(builtins.str, Enum):
     ATTACK_PATH = "AttackPath"
 
 
+@pulumi.type_token("azure-native:security:StandardSupportedCloud")
 class StandardSupportedCloud(builtins.str, Enum):
     """
     The cloud that the standard is supported on.
@@ -723,6 +771,7 @@ class StandardSupportedCloud(builtins.str, Enum):
     GCP = "GCP"
 
 
+@pulumi.type_token("azure-native:security:StandardSupportedClouds")
 class StandardSupportedClouds(builtins.str, Enum):
     """
     The cloud that the standard is supported on.
@@ -731,6 +780,7 @@ class StandardSupportedClouds(builtins.str, Enum):
     GCP = "GCP"
 
 
+@pulumi.type_token("azure-native:security:State")
 class State(builtins.str, Enum):
     """
     Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
@@ -745,6 +795,7 @@ class State(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:security:Status")
 class Status(builtins.str, Enum):
     """
     The status of the port
@@ -753,6 +804,7 @@ class Status(builtins.str, Enum):
     INITIATED = "Initiated"
 
 
+@pulumi.type_token("azure-native:security:StatusReason")
 class StatusReason(builtins.str, Enum):
     """
     A description of why the `status` has its value
@@ -762,6 +814,7 @@ class StatusReason(builtins.str, Enum):
     NEWER_REQUEST_INITIATED = "NewerRequestInitiated"
 
 
+@pulumi.type_token("azure-native:security:SubPlan")
 class SubPlan(builtins.str, Enum):
     """
     The available sub plans
@@ -770,6 +823,7 @@ class SubPlan(builtins.str, Enum):
     P2 = "P2"
 
 
+@pulumi.type_token("azure-native:security:SupportedCloudEnum")
 class SupportedCloudEnum(builtins.str, Enum):
     """
     Relevant cloud for the custom assessment automation.
@@ -778,6 +832,7 @@ class SupportedCloudEnum(builtins.str, Enum):
     GCP = "GCP"
 
 
+@pulumi.type_token("azure-native:security:Tactics")
 class Tactics(builtins.str, Enum):
     """
     Tactic of the assessment
@@ -798,6 +853,7 @@ class Tactics(builtins.str, Enum):
     IMPACT = "Impact"
 
 
+@pulumi.type_token("azure-native:security:Techniques")
 class Techniques(builtins.str, Enum):
     """
     Techniques of the assessment
@@ -908,6 +964,7 @@ class Techniques(builtins.str, Enum):
     FILE_AND_DIRECTORY_PERMISSIONS_MODIFICATION = "File and Directory Permissions Modification"
 
 
+@pulumi.type_token("azure-native:security:Threats")
 class Threats(builtins.str, Enum):
     """
     Threats impact of the assessment
@@ -922,6 +979,7 @@ class Threats(builtins.str, Enum):
     DENIAL_OF_SERVICE = "denialOfService"
 
 
+@pulumi.type_token("azure-native:security:Type")
 class Type(builtins.str, Enum):
     """
     The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
@@ -930,6 +988,7 @@ class Type(builtins.str, Enum):
     TVM = "TVM"
 
 
+@pulumi.type_token("azure-native:security:UnmaskedIpLoggingStatus")
 class UnmaskedIpLoggingStatus(builtins.str, Enum):
     """
     Unmasked IP address logging status
@@ -944,6 +1003,7 @@ class UnmaskedIpLoggingStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:security:UserImpact")
 class UserImpact(builtins.str, Enum):
     """
     The user impact of the assessment

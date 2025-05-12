@@ -266,10 +266,8 @@ class NamespaceArgs:
         pulumi.set(self, "zone_redundancy", value)
 
 
+@pulumi.type_token("azure-native:notificationhubs:Namespace")
 class Namespace(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:notificationhubs:Namespace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

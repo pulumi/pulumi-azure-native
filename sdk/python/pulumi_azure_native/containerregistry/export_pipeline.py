@@ -137,10 +137,8 @@ class ExportPipelineArgs:
         pulumi.set(self, "options", value)
 
 
+@pulumi.type_token("azure-native:containerregistry:ExportPipeline")
 class ExportPipeline(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerregistry:ExportPipeline"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

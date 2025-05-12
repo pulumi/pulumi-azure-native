@@ -105,10 +105,8 @@ class GatewayRouteConfigArgs:
         pulumi.set(self, "route_config_name", value)
 
 
+@pulumi.type_token("azure-native:appplatform:GatewayRouteConfig")
 class GatewayRouteConfig(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:appplatform:GatewayRouteConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

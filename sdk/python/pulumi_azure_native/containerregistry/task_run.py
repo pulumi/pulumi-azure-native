@@ -138,10 +138,8 @@ class TaskRunArgs:
         pulumi.set(self, "task_run_name", value)
 
 
+@pulumi.type_token("azure-native:containerregistry:TaskRun")
 class TaskRun(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerregistry:TaskRun"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -121,10 +121,8 @@ class VerifierWorkspaceArgs:
         pulumi.set(self, "workspace_name", value)
 
 
+@pulumi.type_token("azure-native:network:VerifierWorkspace")
 class VerifierWorkspace(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:VerifierWorkspace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

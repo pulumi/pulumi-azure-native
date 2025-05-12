@@ -103,10 +103,8 @@ class FleetMemberArgs:
         pulumi.set(self, "group", value)
 
 
+@pulumi.type_token("azure-native:containerservice:FleetMember")
 class FleetMember(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerservice:FleetMember"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

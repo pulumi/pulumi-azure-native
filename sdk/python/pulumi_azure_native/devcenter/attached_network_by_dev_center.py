@@ -87,10 +87,8 @@ class AttachedNetworkByDevCenterArgs:
         pulumi.set(self, "attached_network_connection_name", value)
 
 
+@pulumi.type_token("azure-native:devcenter:AttachedNetworkByDevCenter")
 class AttachedNetworkByDevCenter(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devcenter:AttachedNetworkByDevCenter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

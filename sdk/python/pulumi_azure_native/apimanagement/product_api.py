@@ -87,10 +87,8 @@ class ProductApiArgs:
         pulumi.set(self, "api_id", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:ProductApi")
 class ProductApi(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:ProductApi"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

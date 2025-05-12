@@ -106,10 +106,8 @@ class RdsDbClusterArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:RdsDbCluster")
 class RdsDbCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:RdsDbCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

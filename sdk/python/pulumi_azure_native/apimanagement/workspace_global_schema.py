@@ -134,10 +134,8 @@ class WorkspaceGlobalSchemaArgs:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:WorkspaceGlobalSchema")
 class WorkspaceGlobalSchema(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:WorkspaceGlobalSchema"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

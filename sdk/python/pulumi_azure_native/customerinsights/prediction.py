@@ -274,10 +274,8 @@ class PredictionArgs:
         pulumi.set(self, "prediction_name", value)
 
 
+@pulumi.type_token("azure-native:customerinsights:Prediction")
 class Prediction(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:customerinsights:Prediction"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

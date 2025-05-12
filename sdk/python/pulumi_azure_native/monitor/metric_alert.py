@@ -261,10 +261,8 @@ class MetricAlertArgs:
         pulumi.set(self, "target_resource_type", value)
 
 
+@pulumi.type_token("azure-native:monitor:MetricAlert")
 class MetricAlert(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:monitor:MetricAlert"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

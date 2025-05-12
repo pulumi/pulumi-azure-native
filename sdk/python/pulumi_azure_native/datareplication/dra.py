@@ -88,10 +88,8 @@ class DraArgs:
         pulumi.set(self, "fabric_agent_name", value)
 
 
+@pulumi.type_token("azure-native:datareplication:Dra")
 class Dra(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datareplication:Dra"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

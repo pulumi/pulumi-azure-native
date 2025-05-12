@@ -121,10 +121,8 @@ class HypervHostControllerArgs:
         pulumi.set(self, "run_as_account_id", value)
 
 
+@pulumi.type_token("azure-native:offazure:HypervHostController")
 class HypervHostController(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:offazure:HypervHostController"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

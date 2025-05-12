@@ -123,10 +123,8 @@ class ManagedClusterSnapshotArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:containerservice:ManagedClusterSnapshot")
 class ManagedClusterSnapshot(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerservice:ManagedClusterSnapshot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

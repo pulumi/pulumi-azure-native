@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:onlineexperimentation:KeyEncryptionKeyIdentityType")
 class KeyEncryptionKeyIdentityType(builtins.str, Enum):
     """
     The type of identity to use. Values can be systemAssignedIdentity, userAssignedIdentity, or delegatedResourceIdentity.
@@ -27,6 +28,7 @@ class KeyEncryptionKeyIdentityType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:onlineexperimentation:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -37,6 +39,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:onlineexperimentation:OnlineExperimentationWorkspaceSkuName")
 class OnlineExperimentationWorkspaceSkuName(builtins.str, Enum):
     """
     The name of the SKU. Ex - F0, P0. It is typically a letter+number code

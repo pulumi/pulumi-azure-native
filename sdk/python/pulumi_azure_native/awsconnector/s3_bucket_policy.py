@@ -106,10 +106,8 @@ class S3BucketPolicyArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:S3BucketPolicy")
 class S3BucketPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:S3BucketPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

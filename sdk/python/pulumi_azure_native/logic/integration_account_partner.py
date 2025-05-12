@@ -152,10 +152,8 @@ class IntegrationAccountPartnerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:logic:IntegrationAccountPartner")
 class IntegrationAccountPartner(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:logic:IntegrationAccountPartner"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -74,10 +74,8 @@ class DefenderForStorageArgs:
         pulumi.set(self, "setting_name", value)
 
 
+@pulumi.type_token("azure-native:security:DefenderForStorage")
 class DefenderForStorage(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:DefenderForStorage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

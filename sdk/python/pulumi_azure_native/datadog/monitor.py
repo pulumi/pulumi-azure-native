@@ -123,10 +123,8 @@ class MonitorArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:datadog:Monitor")
 class Monitor(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datadog:Monitor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

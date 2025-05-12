@@ -122,10 +122,8 @@ class IpCommunityArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:IpCommunity")
 class IpCommunity(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:managednetworkfabric:IpCommunity"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

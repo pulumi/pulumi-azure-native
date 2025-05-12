@@ -168,10 +168,8 @@ class CassandraResourceCassandraViewArgs:
         pulumi.set(self, "view_name", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:CassandraResourceCassandraView")
 class CassandraResourceCassandraView(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:CassandraResourceCassandraView"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

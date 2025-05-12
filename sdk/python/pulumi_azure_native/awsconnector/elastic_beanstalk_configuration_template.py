@@ -106,10 +106,8 @@ class ElasticBeanstalkConfigurationTemplateArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:ElasticBeanstalkConfigurationTemplate")
 class ElasticBeanstalkConfigurationTemplate(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:ElasticBeanstalkConfigurationTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

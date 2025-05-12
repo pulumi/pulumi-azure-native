@@ -122,10 +122,8 @@ class WorkloadDeploymentArgs:
         pulumi.set(self, "workload_deployment_name", value)
 
 
+@pulumi.type_token("azure-native:migrate:WorkloadDeployment")
 class WorkloadDeployment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:migrate:WorkloadDeployment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

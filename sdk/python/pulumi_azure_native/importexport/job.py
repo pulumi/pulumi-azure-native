@@ -107,10 +107,8 @@ class JobArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:importexport:Job")
 class Job(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:importexport:Job"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -107,10 +107,8 @@ class ActionRuleByNameArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:alertsmanagement:ActionRuleByName")
 class ActionRuleByName(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:alertsmanagement:ActionRuleByName"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

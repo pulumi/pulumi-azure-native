@@ -119,10 +119,8 @@ class GlobalSchemaArgs:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:GlobalSchema")
 class GlobalSchema(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:GlobalSchema"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -119,10 +119,8 @@ class ConnectionTypeArgs:
         pulumi.set(self, "is_global", value)
 
 
+@pulumi.type_token("azure-native:automation:ConnectionType")
 class ConnectionType(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:automation:ConnectionType"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

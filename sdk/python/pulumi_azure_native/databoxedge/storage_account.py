@@ -136,10 +136,8 @@ class StorageAccountArgs:
         pulumi.set(self, "storage_account_status", value)
 
 
+@pulumi.type_token("azure-native:databoxedge:StorageAccount")
 class StorageAccount(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databoxedge:StorageAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

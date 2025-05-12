@@ -121,10 +121,8 @@ class FabricCapacityArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:fabric:FabricCapacity")
 class FabricCapacity(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:fabric:FabricCapacity"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -16,6 +16,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:impact:ConfidenceLevel")
 class ConfidenceLevel(builtins.str, Enum):
     """
     Degree of confidence on the impact being a platform issue
@@ -34,6 +35,7 @@ class ConfidenceLevel(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:impact:IncidentSource")
 class IncidentSource(builtins.str, Enum):
     """
     Client incident source. ex : source system name where the incident is created
@@ -60,6 +62,7 @@ class IncidentSource(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:impact:MetricUnit")
 class MetricUnit(builtins.str, Enum):
     """
     Unit of the metric ex: Bytes, Percentage, Count, Seconds, Milliseconds, Bytes/Second, Count/Second, etc.., Other
@@ -114,6 +117,7 @@ class MetricUnit(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:impact:Platform")
 class Platform(builtins.str, Enum):
     """
     connector type
@@ -124,6 +128,7 @@ class Platform(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:impact:Protocol")
 class Protocol(builtins.str, Enum):
     """
     Protocol used for the connection
@@ -162,6 +167,7 @@ class Protocol(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:impact:Toolset")
 class Toolset(builtins.str, Enum):
     """
     Tool used to interact with Azure. SDK, AzPortal, etc.., Other

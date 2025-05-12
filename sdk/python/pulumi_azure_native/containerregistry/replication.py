@@ -141,10 +141,8 @@ class ReplicationArgs:
         pulumi.set(self, "zone_redundancy", value)
 
 
+@pulumi.type_token("azure-native:containerregistry:Replication")
 class Replication(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerregistry:Replication"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -107,10 +107,8 @@ class LambdaFunctionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:LambdaFunction")
 class LambdaFunction(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:LambdaFunction"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

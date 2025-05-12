@@ -120,10 +120,8 @@ class ProductPolicyArgs:
         pulumi.set(self, "policy_id", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:ProductPolicy")
 class ProductPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:ProductPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

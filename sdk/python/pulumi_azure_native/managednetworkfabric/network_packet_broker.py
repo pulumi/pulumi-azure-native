@@ -104,10 +104,8 @@ class NetworkPacketBrokerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:NetworkPacketBroker")
 class NetworkPacketBroker(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:managednetworkfabric:NetworkPacketBroker"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

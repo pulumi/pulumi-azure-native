@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -26,6 +26,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:hybridcompute:ArcKindEnum")
 class ArcKindEnum(builtins.str, Enum):
     """
     Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
@@ -39,6 +40,7 @@ class ArcKindEnum(builtins.str, Enum):
     AWS = "AWS"
 
 
+@pulumi.type_token("azure-native:hybridcompute:AssessmentModeTypes")
 class AssessmentModeTypes(builtins.str, Enum):
     """
     Specifies the assessment mode.
@@ -47,6 +49,7 @@ class AssessmentModeTypes(builtins.str, Enum):
     AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
 
 
+@pulumi.type_token("azure-native:hybridcompute:GatewayType")
 class GatewayType(builtins.str, Enum):
     """
     The type of the Gateway resource.
@@ -54,6 +57,7 @@ class GatewayType(builtins.str, Enum):
     PUBLIC = "Public"
 
 
+@pulumi.type_token("azure-native:hybridcompute:LicenseAssignmentState")
 class LicenseAssignmentState(builtins.str, Enum):
     """
     Describes the license assignment state (Assigned or NotAssigned).
@@ -62,6 +66,7 @@ class LicenseAssignmentState(builtins.str, Enum):
     NOT_ASSIGNED = "NotAssigned"
 
 
+@pulumi.type_token("azure-native:hybridcompute:LicenseCoreType")
 class LicenseCoreType(builtins.str, Enum):
     """
     Describes the license core type (pCore or vCore).
@@ -70,6 +75,7 @@ class LicenseCoreType(builtins.str, Enum):
     V_CORE = "vCore"
 
 
+@pulumi.type_token("azure-native:hybridcompute:LicenseEdition")
 class LicenseEdition(builtins.str, Enum):
     """
     Describes the edition of the license. The values are either Standard or Datacenter.
@@ -78,6 +84,7 @@ class LicenseEdition(builtins.str, Enum):
     DATACENTER = "Datacenter"
 
 
+@pulumi.type_token("azure-native:hybridcompute:LicenseProfileProductType")
 class LicenseProfileProductType(builtins.str, Enum):
     """
     Indicates the product type of the license.
@@ -86,6 +93,7 @@ class LicenseProfileProductType(builtins.str, Enum):
     WINDOWS_IO_T_ENTERPRISE = "WindowsIoTEnterprise"
 
 
+@pulumi.type_token("azure-native:hybridcompute:LicenseProfileSubscriptionStatus")
 class LicenseProfileSubscriptionStatus(builtins.str, Enum):
     """
     Indicates the subscription status of the product.
@@ -98,6 +106,7 @@ class LicenseProfileSubscriptionStatus(builtins.str, Enum):
     FAILED = "Failed"
 
 
+@pulumi.type_token("azure-native:hybridcompute:LicenseState")
 class LicenseState(builtins.str, Enum):
     """
     Describes the state of the license.
@@ -106,6 +115,7 @@ class LicenseState(builtins.str, Enum):
     DEACTIVATED = "Deactivated"
 
 
+@pulumi.type_token("azure-native:hybridcompute:LicenseTarget")
 class LicenseTarget(builtins.str, Enum):
     """
     Describes the license target server.
@@ -114,6 +124,7 @@ class LicenseTarget(builtins.str, Enum):
     WINDOWS_SERVER_2012_R2 = "Windows Server 2012 R2"
 
 
+@pulumi.type_token("azure-native:hybridcompute:LicenseType")
 class LicenseType(builtins.str, Enum):
     """
     The type of the license resource.
@@ -121,6 +132,7 @@ class LicenseType(builtins.str, Enum):
     ESU = "ESU"
 
 
+@pulumi.type_token("azure-native:hybridcompute:PatchModeTypes")
 class PatchModeTypes(builtins.str, Enum):
     """
     Specifies the patch mode.
@@ -131,6 +143,7 @@ class PatchModeTypes(builtins.str, Enum):
     MANUAL = "Manual"
 
 
+@pulumi.type_token("azure-native:hybridcompute:ProgramYear")
 class ProgramYear(builtins.str, Enum):
     """
     Describes the program year the volume license is for.
@@ -140,6 +153,7 @@ class ProgramYear(builtins.str, Enum):
     YEAR_3 = "Year 3"
 
 
+@pulumi.type_token("azure-native:hybridcompute:PublicNetworkAccessType")
 class PublicNetworkAccessType(builtins.str, Enum):
     """
     Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
@@ -158,6 +172,7 @@ class PublicNetworkAccessType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:hybridcompute:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The identity type.
@@ -165,6 +180,7 @@ class ResourceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
 
 
+@pulumi.type_token("azure-native:hybridcompute:StatusLevelTypes")
 class StatusLevelTypes(builtins.str, Enum):
     """
     The level code.

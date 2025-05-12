@@ -97,10 +97,8 @@ class WebAppScmAllowedSlotArgs:
         pulumi.set(self, "kind", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppScmAllowedSlot")
 class WebAppScmAllowedSlot(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppScmAllowedSlot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

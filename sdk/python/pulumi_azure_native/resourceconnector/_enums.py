@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:resourceconnector:Distro")
 class Distro(builtins.str, Enum):
     """
     Represents a supported Fabric/Infra. (AKSEdge etc...).
@@ -20,6 +21,7 @@ class Distro(builtins.str, Enum):
     AKS_EDGE = "AKSEdge"
 
 
+@pulumi.type_token("azure-native:resourceconnector:Provider")
 class Provider(builtins.str, Enum):
     """
     Information about the connected appliance.
@@ -29,6 +31,7 @@ class Provider(builtins.str, Enum):
     SCVMM = "SCVMM"
 
 
+@pulumi.type_token("azure-native:resourceconnector:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The identity type.

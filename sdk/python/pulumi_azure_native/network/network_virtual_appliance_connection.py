@@ -122,10 +122,8 @@ class NetworkVirtualApplianceConnectionArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:network:NetworkVirtualApplianceConnection")
 class NetworkVirtualApplianceConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:NetworkVirtualApplianceConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

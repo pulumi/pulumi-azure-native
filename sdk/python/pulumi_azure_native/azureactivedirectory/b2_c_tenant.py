@@ -154,10 +154,8 @@ class B2CTenantArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:azureactivedirectory:B2CTenant")
 class B2CTenant(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azureactivedirectory:B2CTenant"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

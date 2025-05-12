@@ -90,10 +90,8 @@ class DevToolPortalArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:appplatform:DevToolPortal")
 class DevToolPortal(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:appplatform:DevToolPortal"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

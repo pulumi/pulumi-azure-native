@@ -168,10 +168,8 @@ class WebAppBackupConfigurationSlotArgs:
         pulumi.set(self, "kind", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppBackupConfigurationSlot")
 class WebAppBackupConfigurationSlot(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppBackupConfigurationSlot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

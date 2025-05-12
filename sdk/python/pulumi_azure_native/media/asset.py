@@ -152,10 +152,8 @@ class AssetArgs:
         pulumi.set(self, "storage_account_name", value)
 
 
+@pulumi.type_token("azure-native:media:Asset")
 class Asset(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:media:Asset"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

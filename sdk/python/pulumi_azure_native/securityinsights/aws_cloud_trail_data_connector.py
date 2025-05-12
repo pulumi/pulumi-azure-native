@@ -123,10 +123,8 @@ class AwsCloudTrailDataConnectorArgs:
         pulumi.set(self, "data_types", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:AwsCloudTrailDataConnector")
 class AwsCloudTrailDataConnector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:AwsCloudTrailDataConnector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

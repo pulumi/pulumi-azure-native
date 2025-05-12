@@ -122,10 +122,8 @@ class P2sVpnServerConfigurationArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:network:P2sVpnServerConfiguration")
 class P2sVpnServerConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:P2sVpnServerConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

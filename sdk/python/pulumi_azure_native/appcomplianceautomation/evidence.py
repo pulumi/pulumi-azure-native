@@ -169,10 +169,8 @@ class EvidenceArgs:
         pulumi.set(self, "responsibility_id", value)
 
 
+@pulumi.type_token("azure-native:appcomplianceautomation:Evidence")
 class Evidence(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:appcomplianceautomation:Evidence"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

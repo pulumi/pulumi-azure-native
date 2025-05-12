@@ -102,10 +102,8 @@ class IncidentRelationArgs:
         pulumi.set(self, "relation_name", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:IncidentRelation")
 class IncidentRelation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:IncidentRelation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

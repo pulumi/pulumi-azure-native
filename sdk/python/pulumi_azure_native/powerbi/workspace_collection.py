@@ -99,10 +99,8 @@ class WorkspaceCollectionArgs:
         pulumi.set(self, "workspace_collection_name", value)
 
 
+@pulumi.type_token("azure-native:powerbi:WorkspaceCollection")
 class WorkspaceCollection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:powerbi:WorkspaceCollection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

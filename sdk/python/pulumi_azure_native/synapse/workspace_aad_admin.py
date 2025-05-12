@@ -119,10 +119,8 @@ class WorkspaceAadAdminArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure-native:synapse:WorkspaceAadAdmin")
 class WorkspaceAadAdmin(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:synapse:WorkspaceAadAdmin"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

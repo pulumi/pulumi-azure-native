@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -19,6 +19,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:confluent:AuthType")
 class AuthType(builtins.str, Enum):
     """
     Kafka Auth Type
@@ -27,6 +28,7 @@ class AuthType(builtins.str, Enum):
     KAFK_A_AP_I_KEY = "KAFKA_API_KEY"
 
 
+@pulumi.type_token("azure-native:confluent:ConnectorClass")
 class ConnectorClass(builtins.str, Enum):
     """
     Connector Class
@@ -35,6 +37,7 @@ class ConnectorClass(builtins.str, Enum):
     AZUREBLOBSINK = "AZUREBLOBSINK"
 
 
+@pulumi.type_token("azure-native:confluent:ConnectorServiceType")
 class ConnectorServiceType(builtins.str, Enum):
     """
     The connector service type.
@@ -46,6 +49,7 @@ class ConnectorServiceType(builtins.str, Enum):
     AZURE_SYNAPSE_ANALYTICS_SINK_CONNECTOR = "AzureSynapseAnalyticsSinkConnector"
 
 
+@pulumi.type_token("azure-native:confluent:ConnectorStatus")
 class ConnectorStatus(builtins.str, Enum):
     """
     Connector Status
@@ -56,6 +60,7 @@ class ConnectorStatus(builtins.str, Enum):
     FAILED = "FAILED"
 
 
+@pulumi.type_token("azure-native:confluent:ConnectorType")
 class ConnectorType(builtins.str, Enum):
     """
     Connector Type
@@ -64,6 +69,7 @@ class ConnectorType(builtins.str, Enum):
     SOURCE = "SOURCE"
 
 
+@pulumi.type_token("azure-native:confluent:DataFormatType")
 class DataFormatType(builtins.str, Enum):
     """
     Kafka Output Data Format Type
@@ -75,6 +81,7 @@ class DataFormatType(builtins.str, Enum):
     PROTOBUF = "PROTOBUF"
 
 
+@pulumi.type_token("azure-native:confluent:Package")
 class Package(builtins.str, Enum):
     """
     Stream governance configuration
@@ -83,6 +90,7 @@ class Package(builtins.str, Enum):
     ADVANCED = "ADVANCED"
 
 
+@pulumi.type_token("azure-native:confluent:PartnerConnectorType")
 class PartnerConnectorType(builtins.str, Enum):
     """
     The partner connector type.
@@ -94,6 +102,7 @@ class PartnerConnectorType(builtins.str, Enum):
     KAFKA_AZURE_SYNAPSE_ANALYTICS_SINK = "KafkaAzureSynapseAnalyticsSink"
 
 
+@pulumi.type_token("azure-native:confluent:SaaSOfferStatus")
 class SaaSOfferStatus(builtins.str, Enum):
     """
     SaaS Offer Status

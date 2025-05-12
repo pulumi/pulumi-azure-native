@@ -232,10 +232,8 @@ class AmlFilesystemArgs:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure-native:storagecache:AmlFilesystem")
 class AmlFilesystem(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storagecache:AmlFilesystem"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

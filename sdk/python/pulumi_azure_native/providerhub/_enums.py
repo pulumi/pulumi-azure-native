@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -36,6 +36,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:providerhub:EndpointType")
 class EndpointType(builtins.str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     CANARY = "Canary"
@@ -43,6 +44,7 @@ class EndpointType(builtins.str, Enum):
     TEST_IN_PRODUCTION = "TestInProduction"
 
 
+@pulumi.type_token("azure-native:providerhub:ExtensionCategory")
 class ExtensionCategory(builtins.str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     RESOURCE_CREATION_VALIDATE = "ResourceCreationValidate"
@@ -62,17 +64,20 @@ class ExtensionCategory(builtins.str, Enum):
     RESOURCE_MOVE_COMPLETED = "ResourceMoveCompleted"
 
 
+@pulumi.type_token("azure-native:providerhub:ExtensionOptionType")
 class ExtensionOptionType(builtins.str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     DO_NOT_MERGE_EXISTING_READ_ONLY_AND_SECRET_PROPERTIES = "DoNotMergeExistingReadOnlyAndSecretProperties"
     INCLUDE_INTERNAL_METADATA = "IncludeInternalMetadata"
 
 
+@pulumi.type_token("azure-native:providerhub:FeaturesPolicy")
 class FeaturesPolicy(builtins.str, Enum):
     ANY = "Any"
     ALL = "All"
 
 
+@pulumi.type_token("azure-native:providerhub:IdentityManagementTypes")
 class IdentityManagementTypes(builtins.str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     SYSTEM_ASSIGNED = "SystemAssigned"
@@ -81,28 +86,33 @@ class IdentityManagementTypes(builtins.str, Enum):
     DELEGATED_RESOURCE_IDENTITY = "DelegatedResourceIdentity"
 
 
+@pulumi.type_token("azure-native:providerhub:LoggingDetails")
 class LoggingDetails(builtins.str, Enum):
     NONE = "None"
     BODY = "Body"
 
 
+@pulumi.type_token("azure-native:providerhub:LoggingDirections")
 class LoggingDirections(builtins.str, Enum):
     NONE = "None"
     REQUEST = "Request"
     RESPONSE = "Response"
 
 
+@pulumi.type_token("azure-native:providerhub:MessageScope")
 class MessageScope(builtins.str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     REGISTERED_SUBSCRIPTIONS = "RegisteredSubscriptions"
 
 
+@pulumi.type_token("azure-native:providerhub:NotificationMode")
 class NotificationMode(builtins.str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     EVENT_HUB = "EventHub"
     WEB_HOOK = "WebHook"
 
 
+@pulumi.type_token("azure-native:providerhub:OptInHeaderType")
 class OptInHeaderType(builtins.str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     SIGNED_USER_TOKEN = "SignedUserToken"
@@ -111,17 +121,20 @@ class OptInHeaderType(builtins.str, Enum):
     UNBOUNDED_CLIENT_GROUP_MEMBERSHIP = "UnboundedClientGroupMembership"
 
 
+@pulumi.type_token("azure-native:providerhub:Policy")
 class Policy(builtins.str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     SYNCHRONIZE_BEGIN_EXTENSION = "SynchronizeBeginExtension"
 
 
+@pulumi.type_token("azure-native:providerhub:PreflightOption")
 class PreflightOption(builtins.str, Enum):
     NONE = "None"
     CONTINUE_DEPLOYMENT_ON_FAILURE = "ContinueDeploymentOnFailure"
     DEFAULT_VALIDATION_ONLY = "DefaultValidationOnly"
 
 
+@pulumi.type_token("azure-native:providerhub:ProvisioningState")
 class ProvisioningState(builtins.str, Enum):
     """
     The provisioned state of the resource.
@@ -141,6 +154,7 @@ class ProvisioningState(builtins.str, Enum):
     ROLLOUT_IN_PROGRESS = "RolloutInProgress"
 
 
+@pulumi.type_token("azure-native:providerhub:Readiness")
 class Readiness(builtins.str, Enum):
     CLOSING_DOWN = "ClosingDown"
     DEPRECATED = "Deprecated"
@@ -153,24 +167,28 @@ class Readiness(builtins.str, Enum):
     RETIRED = "Retired"
 
 
+@pulumi.type_token("azure-native:providerhub:Regionality")
 class Regionality(builtins.str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     GLOBAL_ = "Global"
     REGIONAL = "Regional"
 
 
+@pulumi.type_token("azure-native:providerhub:ResourceDeletionPolicy")
 class ResourceDeletionPolicy(builtins.str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     CASCADE_DELETE_ALL = "CascadeDeleteAll"
     CASCADE_DELETE_PROXY_ONLY_CHILDREN = "CascadeDeleteProxyOnlyChildren"
 
 
+@pulumi.type_token("azure-native:providerhub:ResourceProviderCapabilitiesEffect")
 class ResourceProviderCapabilitiesEffect(builtins.str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     ALLOW = "Allow"
     DISALLOW = "Disallow"
 
 
+@pulumi.type_token("azure-native:providerhub:ResourceProviderType")
 class ResourceProviderType(builtins.str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     INTERNAL = "Internal"
@@ -182,6 +200,7 @@ class ResourceProviderType(builtins.str, Enum):
     AUTHORIZATION_FREE = "AuthorizationFree"
 
 
+@pulumi.type_token("azure-native:providerhub:RoutingType")
 class RoutingType(builtins.str, Enum):
     DEFAULT = "Default"
     PROXY_ONLY = "ProxyOnly"
@@ -194,12 +213,14 @@ class RoutingType(builtins.str, Enum):
     CASCADE_EXTENSION = "CascadeExtension"
 
 
+@pulumi.type_token("azure-native:providerhub:SkuScaleType")
 class SkuScaleType(builtins.str, Enum):
     NONE = "None"
     MANUAL = "Manual"
     AUTOMATIC = "Automatic"
 
 
+@pulumi.type_token("azure-native:providerhub:SubscriptionNotificationOperation")
 class SubscriptionNotificationOperation(builtins.str, Enum):
     NOT_DEFINED = "NotDefined"
     DELETE_ALL_RESOURCES = "DeleteAllResources"
@@ -209,6 +230,7 @@ class SubscriptionNotificationOperation(builtins.str, Enum):
     UNDO_SOFT_DELETE = "UndoSoftDelete"
 
 
+@pulumi.type_token("azure-native:providerhub:SubscriptionReregistrationResult")
 class SubscriptionReregistrationResult(builtins.str, Enum):
     NOT_APPLICABLE = "NotApplicable"
     CONDITIONAL_UPDATE = "ConditionalUpdate"
@@ -216,6 +238,7 @@ class SubscriptionReregistrationResult(builtins.str, Enum):
     FAILED = "Failed"
 
 
+@pulumi.type_token("azure-native:providerhub:SubscriptionState")
 class SubscriptionState(builtins.str, Enum):
     NOT_DEFINED = "NotDefined"
     ENABLED = "Enabled"
@@ -225,6 +248,7 @@ class SubscriptionState(builtins.str, Enum):
     DELETED = "Deleted"
 
 
+@pulumi.type_token("azure-native:providerhub:SubscriptionTransitioningState")
 class SubscriptionTransitioningState(builtins.str, Enum):
     REGISTERED = "Registered"
     UNREGISTERED = "Unregistered"
@@ -241,12 +265,14 @@ class SubscriptionTransitioningState(builtins.str, Enum):
     SUSPENDED_TO_UNREGISTERED = "SuspendedToUnregistered"
 
 
+@pulumi.type_token("azure-native:providerhub:ThrottlingMetricType")
 class ThrottlingMetricType(builtins.str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     NUMBER_OF_REQUESTS = "NumberOfRequests"
     NUMBER_OF_RESOURCES = "NumberOfResources"
 
 
+@pulumi.type_token("azure-native:providerhub:TrafficRegionCategory")
 class TrafficRegionCategory(builtins.str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     CANARY = "Canary"

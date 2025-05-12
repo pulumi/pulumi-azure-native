@@ -87,10 +87,8 @@ class QueueArgs:
         pulumi.set(self, "queue_name", value)
 
 
+@pulumi.type_token("azure-native:storage:Queue")
 class Queue(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storage:Queue"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

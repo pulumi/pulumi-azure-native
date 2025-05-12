@@ -107,10 +107,8 @@ class PipelineArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:azuredatatransfer:Pipeline")
 class Pipeline(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azuredatatransfer:Pipeline"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:iotcentral:AppSku")
 class AppSku(builtins.str, Enum):
     """
     The name of the SKU.
@@ -24,6 +25,7 @@ class AppSku(builtins.str, Enum):
     ST2 = "ST2"
 
 
+@pulumi.type_token("azure-native:iotcentral:NetworkAction")
 class NetworkAction(builtins.str, Enum):
     """
     The default network action to apply.
@@ -32,6 +34,7 @@ class NetworkAction(builtins.str, Enum):
     DENY = "Deny"
 
 
+@pulumi.type_token("azure-native:iotcentral:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -41,6 +44,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:iotcentral:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Whether requests from the public network are allowed.
@@ -49,6 +53,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:iotcentral:SystemAssignedServiceIdentityType")
 class SystemAssignedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (either system assigned, or none).

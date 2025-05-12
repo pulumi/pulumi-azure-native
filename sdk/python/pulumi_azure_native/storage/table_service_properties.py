@@ -90,10 +90,8 @@ class TableServicePropertiesArgs:
         pulumi.set(self, "table_service_name", value)
 
 
+@pulumi.type_token("azure-native:storage:TableServiceProperties")
 class TableServiceProperties(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storage:TableServiceProperties"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

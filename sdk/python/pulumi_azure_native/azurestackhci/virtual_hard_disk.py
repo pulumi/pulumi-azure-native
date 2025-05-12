@@ -269,10 +269,8 @@ class VirtualHardDiskArgs:
         pulumi.set(self, "virtual_hard_disk_name", value)
 
 
+@pulumi.type_token("azure-native:azurestackhci:VirtualHardDisk")
 class VirtualHardDisk(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurestackhci:VirtualHardDisk"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

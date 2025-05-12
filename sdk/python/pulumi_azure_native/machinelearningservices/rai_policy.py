@@ -120,10 +120,8 @@ class RaiPolicyArgs:
         pulumi.set(self, "rai_policy_name", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:RaiPolicy")
 class RaiPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:RaiPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

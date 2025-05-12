@@ -103,10 +103,8 @@ class SignalRCustomDomainArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure-native:signalrservice:SignalRCustomDomain")
 class SignalRCustomDomain(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:signalrservice:SignalRCustomDomain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

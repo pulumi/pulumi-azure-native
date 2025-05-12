@@ -168,10 +168,8 @@ class LoadBalancerArgs:
         pulumi.set(self, "service_namespace_selector", value)
 
 
+@pulumi.type_token("azure-native:containerservice:LoadBalancer")
 class LoadBalancer(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerservice:LoadBalancer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

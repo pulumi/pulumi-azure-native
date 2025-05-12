@@ -89,10 +89,8 @@ class SpringbootappArgs:
         pulumi.set(self, "springbootapps_name", value)
 
 
+@pulumi.type_token("azure-native:offazurespringboot:Springbootapp")
 class Springbootapp(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:offazurespringboot:Springbootapp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -170,10 +170,8 @@ class AvailabilityGroupListenerArgs:
         pulumi.set(self, "port", value)
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:AvailabilityGroupListener")
 class AvailabilityGroupListener(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sqlvirtualmachine:AvailabilityGroupListener"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

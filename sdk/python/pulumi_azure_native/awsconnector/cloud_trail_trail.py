@@ -107,10 +107,8 @@ class CloudTrailTrailArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:CloudTrailTrail")
 class CloudTrailTrail(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:CloudTrailTrail"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -44,6 +44,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:workloads:AlertAutoMitigate")
 class AlertAutoMitigate(builtins.str, Enum):
     """
     The value that indicates whether the alert should be automatically resolved or not. The default is Disable.
@@ -58,6 +59,7 @@ class AlertAutoMitigate(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:workloads:AlertRuleStatus")
 class AlertRuleStatus(builtins.str, Enum):
     """
     Indicates whether the alert is in an enabled state.
@@ -72,6 +74,7 @@ class AlertRuleStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:workloads:AppServicePlanTier")
 class AppServicePlanTier(builtins.str, Enum):
     """
     The App Service plan tier.
@@ -86,6 +89,7 @@ class AppServicePlanTier(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:workloads:BackupType")
 class BackupType(builtins.str, Enum):
     """
     The type of backup, VM, SQL or HANA.
@@ -95,6 +99,7 @@ class BackupType(builtins.str, Enum):
     HANA = "HANA"
 
 
+@pulumi.type_token("azure-native:workloads:ConditionalOperator")
 class ConditionalOperator(builtins.str, Enum):
     """
     The threshold operator of the alert.
@@ -121,6 +126,7 @@ class ConditionalOperator(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:workloads:DayOfWeek")
 class DayOfWeek(builtins.str, Enum):
     SUNDAY = "Sunday"
     MONDAY = "Monday"
@@ -131,6 +137,7 @@ class DayOfWeek(builtins.str, Enum):
     SATURDAY = "Saturday"
 
 
+@pulumi.type_token("azure-native:workloads:DiskSkuName")
 class DiskSkuName(builtins.str, Enum):
     """
     Defines the disk sku name.
@@ -165,6 +172,7 @@ class DiskSkuName(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:workloads:FileShareConfigurationType")
 class FileShareConfigurationType(builtins.str, Enum):
     """
     The type of file share config, eg: Mount/CreateAndMount/Skip.
@@ -183,6 +191,7 @@ class FileShareConfigurationType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:workloads:IAASVMPolicyType")
 class IAASVMPolicyType(builtins.str, Enum):
     """
     The policy type.
@@ -192,6 +201,7 @@ class IAASVMPolicyType(builtins.str, Enum):
     V2 = "V2"
 
 
+@pulumi.type_token("azure-native:workloads:ManagedResourcesNetworkAccessType")
 class ManagedResourcesNetworkAccessType(builtins.str, Enum):
     """
     Specifies the network access configuration for the resources that will be deployed in the Managed Resource Group. The options to choose from are Public and Private. If 'Private' is chosen, the Storage Account service tag should be enabled on the subnets in which the SAP VMs exist. This is required for establishing connectivity between VM extensions and the managed resource group storage account. This setting is currently applicable only to Storage Account. Learn more here https://go.microsoft.com/fwlink/?linkid=2247228
@@ -206,6 +216,7 @@ class ManagedResourcesNetworkAccessType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:workloads:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -216,6 +227,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:workloads:MonthOfYear")
 class MonthOfYear(builtins.str, Enum):
     INVALID = "Invalid"
     JANUARY = "January"
@@ -232,6 +244,7 @@ class MonthOfYear(builtins.str, Enum):
     DECEMBER = "December"
 
 
+@pulumi.type_token("azure-native:workloads:NamingPatternType")
 class NamingPatternType(builtins.str, Enum):
     """
     The pattern type to be used for resource naming.
@@ -242,6 +255,7 @@ class NamingPatternType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:workloads:OSType")
 class OSType(builtins.str, Enum):
     """
     The OS Type
@@ -256,6 +270,7 @@ class OSType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:workloads:PolicyType")
 class PolicyType(builtins.str, Enum):
     """
     Type of backup policy type
@@ -270,6 +285,7 @@ class PolicyType(builtins.str, Enum):
     SNAPSHOT_COPY_ONLY_FULL = "SnapshotCopyOnlyFull"
 
 
+@pulumi.type_token("azure-native:workloads:RetentionDurationType")
 class RetentionDurationType(builtins.str, Enum):
     """
     Retention duration type: days/weeks/months/years
@@ -282,6 +298,7 @@ class RetentionDurationType(builtins.str, Enum):
     YEARS = "Years"
 
 
+@pulumi.type_token("azure-native:workloads:RetentionScheduleFormat")
 class RetentionScheduleFormat(builtins.str, Enum):
     """
     Retention schedule format for yearly retention policy.
@@ -291,6 +308,7 @@ class RetentionScheduleFormat(builtins.str, Enum):
     WEEKLY = "Weekly"
 
 
+@pulumi.type_token("azure-native:workloads:RoutingPreference")
 class RoutingPreference(builtins.str, Enum):
     """
     Sets the routing preference of the SAP monitor. By default only RFC1918 traffic is routed to the customer VNET.
@@ -305,6 +323,7 @@ class RoutingPreference(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:workloads:SAPConfigurationType")
 class SAPConfigurationType(builtins.str, Enum):
     """
     The configuration type. Eg: Deployment/Discovery
@@ -323,6 +342,7 @@ class SAPConfigurationType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:workloads:SAPDatabaseScaleMethod")
 class SAPDatabaseScaleMethod(builtins.str, Enum):
     """
     The DB scale method.
@@ -333,6 +353,7 @@ class SAPDatabaseScaleMethod(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:workloads:SAPDatabaseType")
 class SAPDatabaseType(builtins.str, Enum):
     """
     The database type.
@@ -347,6 +368,7 @@ class SAPDatabaseType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:workloads:SAPDeploymentType")
 class SAPDeploymentType(builtins.str, Enum):
     """
     The deployment type. Eg: SingleServer/ThreeTier
@@ -361,6 +383,7 @@ class SAPDeploymentType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:workloads:SAPEnvironmentType")
 class SAPEnvironmentType(builtins.str, Enum):
     """
     Defines the environment type - Production/Non Production.
@@ -375,6 +398,7 @@ class SAPEnvironmentType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:workloads:SAPHighAvailabilityType")
 class SAPHighAvailabilityType(builtins.str, Enum):
     """
     The high availability type.
@@ -389,6 +413,7 @@ class SAPHighAvailabilityType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:workloads:SAPProductType")
 class SAPProductType(builtins.str, Enum):
     """
     Defines the SAP Product type.
@@ -407,6 +432,7 @@ class SAPProductType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:workloads:SAPSoftwareInstallationType")
 class SAPSoftwareInstallationType(builtins.str, Enum):
     """
     The SAP software installation type.
@@ -425,6 +451,7 @@ class SAPSoftwareInstallationType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:workloads:SAPVirtualInstanceIdentityType")
 class SAPVirtualInstanceIdentityType(builtins.str, Enum):
     """
     The type of managed identity assigned to this resource.
@@ -439,6 +466,7 @@ class SAPVirtualInstanceIdentityType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:workloads:ScheduleRunType")
 class ScheduleRunType(builtins.str, Enum):
     """
     Frequency of the schedule operation of this policy.
@@ -449,6 +477,7 @@ class ScheduleRunType(builtins.str, Enum):
     HOURLY = "Hourly"
 
 
+@pulumi.type_token("azure-native:workloads:SslCryptoProvider")
 class SslCryptoProvider(builtins.str, Enum):
     """
     Specify the crypto provider being used (commoncrypto/openssl). If this argument is not provided, it is automatically determined by searching in the configuration files.
@@ -457,6 +486,7 @@ class SslCryptoProvider(builtins.str, Enum):
     OPENSSL = "openssl"
 
 
+@pulumi.type_token("azure-native:workloads:SslPreference")
 class SslPreference(builtins.str, Enum):
     """
     Gets or sets certificate preference if secure communication is enabled.
@@ -475,6 +505,7 @@ class SslPreference(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:workloads:TieringMode")
 class TieringMode(builtins.str, Enum):
     """
     Tiering Mode to control automatic tiering of recovery points. Supported values are:
@@ -488,6 +519,7 @@ class TieringMode(builtins.str, Enum):
     DO_NOT_TIER = "DoNotTier"
 
 
+@pulumi.type_token("azure-native:workloads:VaultType")
 class VaultType(builtins.str, Enum):
     """
     The vault type, whether it is existing or has to be created.
@@ -496,6 +528,7 @@ class VaultType(builtins.str, Enum):
     NEW = "New"
 
 
+@pulumi.type_token("azure-native:workloads:WeekOfMonth")
 class WeekOfMonth(builtins.str, Enum):
     FIRST = "First"
     SECOND = "Second"
@@ -505,6 +538,7 @@ class WeekOfMonth(builtins.str, Enum):
     INVALID = "Invalid"
 
 
+@pulumi.type_token("azure-native:workloads:WorkloadType")
 class WorkloadType(builtins.str, Enum):
     """
     Type of workload for the backup management

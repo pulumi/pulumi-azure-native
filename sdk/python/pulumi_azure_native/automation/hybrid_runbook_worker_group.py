@@ -105,10 +105,8 @@ class HybridRunbookWorkerGroupArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure-native:automation:HybridRunbookWorkerGroup")
 class HybridRunbookWorkerGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:automation:HybridRunbookWorkerGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -88,10 +88,8 @@ class RegistryCodeContainerArgs:
         pulumi.set(self, "code_name", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:RegistryCodeContainer")
 class RegistryCodeContainer(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:RegistryCodeContainer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

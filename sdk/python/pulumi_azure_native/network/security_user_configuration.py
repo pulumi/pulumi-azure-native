@@ -88,10 +88,8 @@ class SecurityUserConfigurationArgs:
         pulumi.set(self, "description", value)
 
 
+@pulumi.type_token("azure-native:network:SecurityUserConfiguration")
 class SecurityUserConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:SecurityUserConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -179,10 +179,8 @@ class SqlPoolWorkloadGroupArgs:
         pulumi.set(self, "workload_group_name", value)
 
 
+@pulumi.type_token("azure-native:synapse:SqlPoolWorkloadGroup")
 class SqlPoolWorkloadGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:synapse:SqlPoolWorkloadGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

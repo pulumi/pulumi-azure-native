@@ -177,10 +177,8 @@ class AccountArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:deviceupdate:Account")
 class Account(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:deviceupdate:Account"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

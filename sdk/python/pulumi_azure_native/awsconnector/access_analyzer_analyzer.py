@@ -107,10 +107,8 @@ class AccessAnalyzerAnalyzerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:AccessAnalyzerAnalyzer")
 class AccessAnalyzerAnalyzer(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:AccessAnalyzerAnalyzer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

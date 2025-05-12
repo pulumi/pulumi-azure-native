@@ -296,10 +296,8 @@ class StreamingEndpointArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:media:StreamingEndpoint")
 class StreamingEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:media:StreamingEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

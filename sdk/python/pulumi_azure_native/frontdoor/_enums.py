@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -48,6 +48,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:frontdoor:ActionType")
 class ActionType(builtins.str, Enum):
     """
     Describes the override action to be applied when rule matches.
@@ -60,6 +61,7 @@ class ActionType(builtins.str, Enum):
     JS_CHALLENGE = "JSChallenge"
 
 
+@pulumi.type_token("azure-native:frontdoor:BackendEnabledState")
 class BackendEnabledState(builtins.str, Enum):
     """
     Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'
@@ -68,6 +70,7 @@ class BackendEnabledState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:frontdoor:CustomRuleEnabledState")
 class CustomRuleEnabledState(builtins.str, Enum):
     """
     Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
@@ -76,6 +79,7 @@ class CustomRuleEnabledState(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:frontdoor:DynamicCompressionEnabled")
 class DynamicCompressionEnabled(builtins.str, Enum):
     """
     Whether to use dynamic compression for cached content
@@ -84,6 +88,7 @@ class DynamicCompressionEnabled(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:frontdoor:EnforceCertificateNameCheckEnabledState")
 class EnforceCertificateNameCheckEnabledState(builtins.str, Enum):
     """
     Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
@@ -92,6 +97,7 @@ class EnforceCertificateNameCheckEnabledState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:frontdoor:FrontDoorEnabledState")
 class FrontDoorEnabledState(builtins.str, Enum):
     """
     Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
@@ -100,6 +106,7 @@ class FrontDoorEnabledState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:frontdoor:FrontDoorForwardingProtocol")
 class FrontDoorForwardingProtocol(builtins.str, Enum):
     """
     Protocol this rule will use when forwarding traffic to backends.
@@ -109,6 +116,7 @@ class FrontDoorForwardingProtocol(builtins.str, Enum):
     MATCH_REQUEST = "MatchRequest"
 
 
+@pulumi.type_token("azure-native:frontdoor:FrontDoorHealthProbeMethod")
 class FrontDoorHealthProbeMethod(builtins.str, Enum):
     """
     Configures which HTTP method to use to probe the backends defined under backendPools.
@@ -117,6 +125,7 @@ class FrontDoorHealthProbeMethod(builtins.str, Enum):
     HEAD = "HEAD"
 
 
+@pulumi.type_token("azure-native:frontdoor:FrontDoorProtocol")
 class FrontDoorProtocol(builtins.str, Enum):
     """
     Accepted protocol schemes.
@@ -125,6 +134,7 @@ class FrontDoorProtocol(builtins.str, Enum):
     HTTPS = "Https"
 
 
+@pulumi.type_token("azure-native:frontdoor:FrontDoorQuery")
 class FrontDoorQuery(builtins.str, Enum):
     """
     Treatment of URL query terms when forming the cache key.
@@ -135,6 +145,7 @@ class FrontDoorQuery(builtins.str, Enum):
     STRIP_ALL_EXCEPT = "StripAllExcept"
 
 
+@pulumi.type_token("azure-native:frontdoor:FrontDoorRedirectProtocol")
 class FrontDoorRedirectProtocol(builtins.str, Enum):
     """
     The protocol of the destination to where the traffic is redirected
@@ -144,6 +155,7 @@ class FrontDoorRedirectProtocol(builtins.str, Enum):
     MATCH_REQUEST = "MatchRequest"
 
 
+@pulumi.type_token("azure-native:frontdoor:FrontDoorRedirectType")
 class FrontDoorRedirectType(builtins.str, Enum):
     """
     The redirect type the rule will use when redirecting traffic.
@@ -154,6 +166,7 @@ class FrontDoorRedirectType(builtins.str, Enum):
     PERMANENT_REDIRECT = "PermanentRedirect"
 
 
+@pulumi.type_token("azure-native:frontdoor:HeaderActionType")
 class HeaderActionType(builtins.str, Enum):
     """
     Which type of manipulation to apply to the header.
@@ -163,6 +176,7 @@ class HeaderActionType(builtins.str, Enum):
     OVERWRITE = "Overwrite"
 
 
+@pulumi.type_token("azure-native:frontdoor:HealthProbeEnabled")
 class HealthProbeEnabled(builtins.str, Enum):
     """
     Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
@@ -171,6 +185,7 @@ class HealthProbeEnabled(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:frontdoor:ManagedRuleEnabledState")
 class ManagedRuleEnabledState(builtins.str, Enum):
     """
     Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
@@ -179,6 +194,7 @@ class ManagedRuleEnabledState(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:frontdoor:ManagedRuleExclusionMatchVariable")
 class ManagedRuleExclusionMatchVariable(builtins.str, Enum):
     """
     The variable type to be excluded.
@@ -190,6 +206,7 @@ class ManagedRuleExclusionMatchVariable(builtins.str, Enum):
     REQUEST_BODY_JSON_ARG_NAMES = "RequestBodyJsonArgNames"
 
 
+@pulumi.type_token("azure-native:frontdoor:ManagedRuleExclusionSelectorMatchOperator")
 class ManagedRuleExclusionSelectorMatchOperator(builtins.str, Enum):
     """
     Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to.
@@ -201,6 +218,7 @@ class ManagedRuleExclusionSelectorMatchOperator(builtins.str, Enum):
     EQUALS_ANY = "EqualsAny"
 
 
+@pulumi.type_token("azure-native:frontdoor:ManagedRuleSetActionType")
 class ManagedRuleSetActionType(builtins.str, Enum):
     """
     Defines the rule set action.
@@ -210,6 +228,7 @@ class ManagedRuleSetActionType(builtins.str, Enum):
     REDIRECT = "Redirect"
 
 
+@pulumi.type_token("azure-native:frontdoor:MatchProcessingBehavior")
 class MatchProcessingBehavior(builtins.str, Enum):
     """
     If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
@@ -218,6 +237,7 @@ class MatchProcessingBehavior(builtins.str, Enum):
     STOP = "Stop"
 
 
+@pulumi.type_token("azure-native:frontdoor:MatchVariable")
 class MatchVariable(builtins.str, Enum):
     """
     Request variable to compare with.
@@ -233,6 +253,7 @@ class MatchVariable(builtins.str, Enum):
     SOCKET_ADDR = "SocketAddr"
 
 
+@pulumi.type_token("azure-native:frontdoor:Operator")
 class Operator(builtins.str, Enum):
     """
     Comparison type to use for matching with the variable value.
@@ -251,6 +272,7 @@ class Operator(builtins.str, Enum):
     REG_EX = "RegEx"
 
 
+@pulumi.type_token("azure-native:frontdoor:PolicyEnabledState")
 class PolicyEnabledState(builtins.str, Enum):
     """
     Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
@@ -259,6 +281,7 @@ class PolicyEnabledState(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:frontdoor:PolicyMode")
 class PolicyMode(builtins.str, Enum):
     """
     Describes if it is in detection mode or prevention mode at policy level.
@@ -267,6 +290,7 @@ class PolicyMode(builtins.str, Enum):
     DETECTION = "Detection"
 
 
+@pulumi.type_token("azure-native:frontdoor:PolicyRequestBodyCheck")
 class PolicyRequestBodyCheck(builtins.str, Enum):
     """
     Describes if policy managed rules will inspect the request body content.
@@ -275,6 +299,7 @@ class PolicyRequestBodyCheck(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:frontdoor:RoutingRuleEnabledState")
 class RoutingRuleEnabledState(builtins.str, Enum):
     """
     Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
@@ -283,6 +308,7 @@ class RoutingRuleEnabledState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:frontdoor:RuleType")
 class RuleType(builtins.str, Enum):
     """
     Describes type of rule.
@@ -291,6 +317,7 @@ class RuleType(builtins.str, Enum):
     RATE_LIMIT_RULE = "RateLimitRule"
 
 
+@pulumi.type_token("azure-native:frontdoor:RulesEngineMatchVariable")
 class RulesEngineMatchVariable(builtins.str, Enum):
     """
     Match Variable
@@ -309,6 +336,7 @@ class RulesEngineMatchVariable(builtins.str, Enum):
     REQUEST_SCHEME = "RequestScheme"
 
 
+@pulumi.type_token("azure-native:frontdoor:RulesEngineOperator")
 class RulesEngineOperator(builtins.str, Enum):
     """
     Describes operator to apply to the match condition.
@@ -326,6 +354,7 @@ class RulesEngineOperator(builtins.str, Enum):
     ENDS_WITH = "EndsWith"
 
 
+@pulumi.type_token("azure-native:frontdoor:ScrubbingRuleEntryMatchOperator")
 class ScrubbingRuleEntryMatchOperator(builtins.str, Enum):
     """
     When matchVariable is a collection, operate on the selector to specify which elements in the collection this rule applies to.
@@ -334,6 +363,7 @@ class ScrubbingRuleEntryMatchOperator(builtins.str, Enum):
     EQUALS = "Equals"
 
 
+@pulumi.type_token("azure-native:frontdoor:ScrubbingRuleEntryMatchVariable")
 class ScrubbingRuleEntryMatchVariable(builtins.str, Enum):
     """
     The variable to be scrubbed from the logs.
@@ -347,6 +377,7 @@ class ScrubbingRuleEntryMatchVariable(builtins.str, Enum):
     REQUEST_BODY_JSON_ARG_NAMES = "RequestBodyJsonArgNames"
 
 
+@pulumi.type_token("azure-native:frontdoor:ScrubbingRuleEntryState")
 class ScrubbingRuleEntryState(builtins.str, Enum):
     """
     Defines the state of a log scrubbing rule. Default value is enabled.
@@ -355,6 +386,7 @@ class ScrubbingRuleEntryState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:frontdoor:SessionAffinityEnabledState")
 class SessionAffinityEnabledState(builtins.str, Enum):
     """
     Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
@@ -363,6 +395,7 @@ class SessionAffinityEnabledState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:frontdoor:SkuName")
 class SkuName(builtins.str, Enum):
     """
     Name of the pricing tier.
@@ -372,6 +405,7 @@ class SkuName(builtins.str, Enum):
     PREMIUM_AZURE_FRONT_DOOR = "Premium_AzureFrontDoor"
 
 
+@pulumi.type_token("azure-native:frontdoor:State")
 class State(builtins.str, Enum):
     """
     The state of the Experiment
@@ -380,6 +414,7 @@ class State(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:frontdoor:Transform")
 class Transform(builtins.str, Enum):
     """
     Describes what transforms are applied before matching
@@ -392,6 +427,7 @@ class Transform(builtins.str, Enum):
     REMOVE_NULLS = "RemoveNulls"
 
 
+@pulumi.type_token("azure-native:frontdoor:TransformType")
 class TransformType(builtins.str, Enum):
     """
     Describes what transforms applied before matching.
@@ -404,6 +440,7 @@ class TransformType(builtins.str, Enum):
     REMOVE_NULLS = "RemoveNulls"
 
 
+@pulumi.type_token("azure-native:frontdoor:VariableName")
 class VariableName(builtins.str, Enum):
     """
     Describes the supported variable for group by
@@ -413,6 +450,7 @@ class VariableName(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:frontdoor:WebApplicationFirewallScrubbingState")
 class WebApplicationFirewallScrubbingState(builtins.str, Enum):
     """
     State of the log scrubbing config. Default value is Enabled.

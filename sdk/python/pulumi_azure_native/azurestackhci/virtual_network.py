@@ -171,10 +171,8 @@ class VirtualNetworkArgs:
         pulumi.set(self, "vm_switch_name", value)
 
 
+@pulumi.type_token("azure-native:azurestackhci:VirtualNetwork")
 class VirtualNetwork(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurestackhci:VirtualNetwork"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

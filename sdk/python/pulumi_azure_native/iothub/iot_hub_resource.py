@@ -138,10 +138,8 @@ class IotHubResourceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:iothub:IotHubResource")
 class IotHubResource(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:iothub:IotHubResource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

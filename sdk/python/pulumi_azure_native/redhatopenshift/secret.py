@@ -88,10 +88,8 @@ class SecretArgs:
         pulumi.set(self, "secret_resources", value)
 
 
+@pulumi.type_token("azure-native:redhatopenshift:Secret")
 class Secret(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:redhatopenshift:Secret"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

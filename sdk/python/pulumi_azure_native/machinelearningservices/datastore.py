@@ -105,10 +105,8 @@ class DatastoreArgs:
         pulumi.set(self, "skip_validation", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:Datastore")
 class Datastore(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:Datastore"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

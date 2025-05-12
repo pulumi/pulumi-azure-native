@@ -122,10 +122,8 @@ class HubArgs:
         pulumi.set(self, "tenant_features", value)
 
 
+@pulumi.type_token("azure-native:customerinsights:Hub")
 class Hub(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:customerinsights:Hub"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -89,10 +89,8 @@ class DataFlowArgs:
         pulumi.set(self, "data_flow_name", value)
 
 
+@pulumi.type_token("azure-native:datafactory:DataFlow")
 class DataFlow(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datafactory:DataFlow"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

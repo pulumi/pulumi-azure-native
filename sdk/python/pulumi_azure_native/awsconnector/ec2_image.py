@@ -107,10 +107,8 @@ class Ec2ImageArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:Ec2Image")
 class Ec2Image(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:Ec2Image"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

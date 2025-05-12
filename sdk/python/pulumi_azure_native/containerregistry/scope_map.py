@@ -107,10 +107,8 @@ class ScopeMapArgs:
         pulumi.set(self, "scope_map_name", value)
 
 
+@pulumi.type_token("azure-native:containerregistry:ScopeMap")
 class ScopeMap(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerregistry:ScopeMap"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

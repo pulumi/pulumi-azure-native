@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -26,6 +26,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:devtestlab:CustomImageOsType")
 class CustomImageOsType(builtins.str, Enum):
     """
     The OS type of the custom image (i.e. Windows, Linux)
@@ -35,6 +36,7 @@ class CustomImageOsType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:devtestlab:EnableStatus")
 class EnableStatus(builtins.str, Enum):
     """
     The status of the schedule (i.e. Enabled, Disabled)
@@ -43,6 +45,7 @@ class EnableStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:devtestlab:EnvironmentPermission")
 class EnvironmentPermission(builtins.str, Enum):
     """
     The access rights to be granted to the user when provisioning an environment
@@ -51,6 +54,7 @@ class EnvironmentPermission(builtins.str, Enum):
     CONTRIBUTOR = "Contributor"
 
 
+@pulumi.type_token("azure-native:devtestlab:HostCachingOptions")
 class HostCachingOptions(builtins.str, Enum):
     """
     Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
@@ -60,6 +64,7 @@ class HostCachingOptions(builtins.str, Enum):
     READ_WRITE = "ReadWrite"
 
 
+@pulumi.type_token("azure-native:devtestlab:LinuxOsState")
 class LinuxOsState(builtins.str, Enum):
     """
     The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
@@ -69,6 +74,7 @@ class LinuxOsState(builtins.str, Enum):
     DEPROVISION_APPLIED = "DeprovisionApplied"
 
 
+@pulumi.type_token("azure-native:devtestlab:ManagedIdentityType")
 class ManagedIdentityType(builtins.str, Enum):
     """
     Managed identity.
@@ -79,6 +85,7 @@ class ManagedIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:devtestlab:NotificationChannelEventType")
 class NotificationChannelEventType(builtins.str, Enum):
     """
     The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
@@ -87,6 +94,7 @@ class NotificationChannelEventType(builtins.str, Enum):
     COST = "Cost"
 
 
+@pulumi.type_token("azure-native:devtestlab:PolicyEvaluatorType")
 class PolicyEvaluatorType(builtins.str, Enum):
     """
     The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
@@ -95,6 +103,7 @@ class PolicyEvaluatorType(builtins.str, Enum):
     MAX_VALUE_POLICY = "MaxValuePolicy"
 
 
+@pulumi.type_token("azure-native:devtestlab:PolicyFactName")
 class PolicyFactName(builtins.str, Enum):
     """
     The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
@@ -111,6 +120,7 @@ class PolicyFactName(builtins.str, Enum):
     SCHEDULE_EDIT_PERMISSION = "ScheduleEditPermission"
 
 
+@pulumi.type_token("azure-native:devtestlab:PolicyStatus")
 class PolicyStatus(builtins.str, Enum):
     """
     The status of the policy.
@@ -119,6 +129,7 @@ class PolicyStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:devtestlab:PremiumDataDisk")
 class PremiumDataDisk(builtins.str, Enum):
     """
     The setting to enable usage of premium data disks.
@@ -129,6 +140,7 @@ class PremiumDataDisk(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:devtestlab:SourceControlType")
 class SourceControlType(builtins.str, Enum):
     """
     The artifact source's type.
@@ -138,6 +150,7 @@ class SourceControlType(builtins.str, Enum):
     STORAGE_ACCOUNT = "StorageAccount"
 
 
+@pulumi.type_token("azure-native:devtestlab:StorageType")
 class StorageType(builtins.str, Enum):
     """
     The storage type for the disk (i.e. Standard, Premium).
@@ -147,6 +160,7 @@ class StorageType(builtins.str, Enum):
     STANDARD_SSD = "StandardSSD"
 
 
+@pulumi.type_token("azure-native:devtestlab:TransportProtocol")
 class TransportProtocol(builtins.str, Enum):
     """
     Protocol type of the port.
@@ -155,6 +169,7 @@ class TransportProtocol(builtins.str, Enum):
     UDP = "Udp"
 
 
+@pulumi.type_token("azure-native:devtestlab:UsagePermissionType")
 class UsagePermissionType(builtins.str, Enum):
     """
     Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
@@ -164,6 +179,7 @@ class UsagePermissionType(builtins.str, Enum):
     ALLOW = "Allow"
 
 
+@pulumi.type_token("azure-native:devtestlab:WindowsOsState")
 class WindowsOsState(builtins.str, Enum):
     """
     The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).

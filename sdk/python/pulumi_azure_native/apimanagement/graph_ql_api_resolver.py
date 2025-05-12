@@ -134,10 +134,8 @@ class GraphQLApiResolverArgs:
         pulumi.set(self, "resolver_id", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:GraphQLApiResolver")
 class GraphQLApiResolver(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:GraphQLApiResolver"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
