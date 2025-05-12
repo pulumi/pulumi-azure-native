@@ -229,10 +229,8 @@ class LinkArgs:
         pulumi.set(self, "reference_only", value)
 
 
+@pulumi.type_token("azure-native:customerinsights:Link")
 class Link(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:customerinsights:Link"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

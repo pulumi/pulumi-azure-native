@@ -137,10 +137,8 @@ class PlanMemberArgs:
         pulumi.set(self, "tier", value)
 
 
+@pulumi.type_token("azure-native:devcenter:PlanMember")
 class PlanMember(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devcenter:PlanMember"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

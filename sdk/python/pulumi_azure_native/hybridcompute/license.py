@@ -139,10 +139,8 @@ class LicenseInitArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure-native:hybridcompute:License")
 class License(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybridcompute:License"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -57,6 +57,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:media:AacAudioProfile")
 class AacAudioProfile(builtins.str, Enum):
     """
     The encoding profile to be used when encoding audio with AAC.
@@ -75,6 +76,7 @@ class AacAudioProfile(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:AccountEncryptionKeyType")
 class AccountEncryptionKeyType(builtins.str, Enum):
     """
     The type of key used to encrypt the Account Key.
@@ -89,6 +91,7 @@ class AccountEncryptionKeyType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:AnalysisResolution")
 class AnalysisResolution(builtins.str, Enum):
     """
     Specifies the maximum resolution at which your video is analyzed. The default behavior is "SourceResolution," which will keep the input video at its original resolution when analyzed. Using "StandardDefinition" will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to "StandardDefinition" will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics for details). However, faces that end up being too small in the resized video may not be detected.
@@ -97,6 +100,7 @@ class AnalysisResolution(builtins.str, Enum):
     STANDARD_DEFINITION = "StandardDefinition"
 
 
+@pulumi.type_token("azure-native:media:AssetContainerPermission")
 class AssetContainerPermission(builtins.str, Enum):
     """
     The permissions to set on the SAS URL.
@@ -115,6 +119,7 @@ class AssetContainerPermission(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:AttributeFilter")
 class AttributeFilter(builtins.str, Enum):
     """
     The type of AttributeFilter to apply to the TrackAttribute in order to select the tracks.
@@ -137,6 +142,7 @@ class AttributeFilter(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:AudioAnalysisMode")
 class AudioAnalysisMode(builtins.str, Enum):
     """
     Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
@@ -151,6 +157,7 @@ class AudioAnalysisMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:BlurType")
 class BlurType(builtins.str, Enum):
     """
     Blur type
@@ -177,6 +184,7 @@ class BlurType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:ChannelMapping")
 class ChannelMapping(builtins.str, Enum):
     """
     Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.
@@ -215,6 +223,7 @@ class ChannelMapping(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:Complexity")
 class Complexity(builtins.str, Enum):
     """
     Allows you to configure the encoder settings to control the balance between speed and quality. Example: set Complexity as Speed for faster encoding but less compression efficiency.
@@ -233,6 +242,7 @@ class Complexity(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:ContentKeyPolicyFairPlayRentalAndLeaseKeyType")
 class ContentKeyPolicyFairPlayRentalAndLeaseKeyType(builtins.str, Enum):
     """
     The rental and lease key type.
@@ -259,6 +269,7 @@ class ContentKeyPolicyFairPlayRentalAndLeaseKeyType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:ContentKeyPolicyPlayReadyContentType")
 class ContentKeyPolicyPlayReadyContentType(builtins.str, Enum):
     """
     The PlayReady content type.
@@ -281,6 +292,7 @@ class ContentKeyPolicyPlayReadyContentType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:ContentKeyPolicyPlayReadyLicenseType")
 class ContentKeyPolicyPlayReadyLicenseType(builtins.str, Enum):
     """
     The license type.
@@ -299,6 +311,7 @@ class ContentKeyPolicyPlayReadyLicenseType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:ContentKeyPolicyPlayReadyUnknownOutputPassingOption")
 class ContentKeyPolicyPlayReadyUnknownOutputPassingOption(builtins.str, Enum):
     """
     Configures Unknown output handling settings of the license.
@@ -321,6 +334,7 @@ class ContentKeyPolicyPlayReadyUnknownOutputPassingOption(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:ContentKeyPolicyRestrictionTokenType")
 class ContentKeyPolicyRestrictionTokenType(builtins.str, Enum):
     """
     The type of token.
@@ -339,6 +353,7 @@ class ContentKeyPolicyRestrictionTokenType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:DefaultAction")
 class DefaultAction(builtins.str, Enum):
     """
     The behavior for IP access control in Key Delivery.
@@ -353,6 +368,7 @@ class DefaultAction(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:DeinterlaceMode")
 class DeinterlaceMode(builtins.str, Enum):
     """
     The deinterlacing mode. Defaults to AutoPixelAdaptive.
@@ -367,6 +383,7 @@ class DeinterlaceMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:DeinterlaceParity")
 class DeinterlaceParity(builtins.str, Enum):
     """
     The field parity for de-interlacing, defaults to Auto.
@@ -385,6 +402,7 @@ class DeinterlaceParity(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:EncoderNamedPreset")
 class EncoderNamedPreset(builtins.str, Enum):
     """
     The built-in preset to be used for encoding videos.
@@ -459,6 +477,7 @@ class EncoderNamedPreset(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:EntropyMode")
 class EntropyMode(builtins.str, Enum):
     """
     The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
@@ -473,6 +492,7 @@ class EntropyMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:FaceRedactorMode")
 class FaceRedactorMode(builtins.str, Enum):
     """
     This mode provides the ability to choose between the following settings: 1) Analyze - For detection only.This mode generates a metadata JSON file marking appearances of faces throughout the video.Where possible, appearances of the same person are assigned the same ID. 2) Combined - Additionally redacts(blurs) detected faces. 3) Redact - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces.It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction.
@@ -491,6 +511,7 @@ class FaceRedactorMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:FilterTrackPropertyCompareOperation")
 class FilterTrackPropertyCompareOperation(builtins.str, Enum):
     """
     The track property condition operation.
@@ -505,6 +526,7 @@ class FilterTrackPropertyCompareOperation(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:FilterTrackPropertyType")
 class FilterTrackPropertyType(builtins.str, Enum):
     """
     The track property type.
@@ -535,6 +557,7 @@ class FilterTrackPropertyType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:H264Complexity")
 class H264Complexity(builtins.str, Enum):
     """
     Tells the encoder how to choose its encoding settings. The default value is Balanced.
@@ -553,6 +576,7 @@ class H264Complexity(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:H264RateControlMode")
 class H264RateControlMode(builtins.str, Enum):
     """
     The video rate control mode
@@ -571,6 +595,7 @@ class H264RateControlMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:H264VideoProfile")
 class H264VideoProfile(builtins.str, Enum):
     """
     We currently support Baseline, Main, High, High422, High444. Default is Auto.
@@ -601,6 +626,7 @@ class H264VideoProfile(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:H265Complexity")
 class H265Complexity(builtins.str, Enum):
     """
     Tells the encoder how to choose its encoding settings.  Quality will provide for a higher compression ratio but at a higher cost and longer compute time.  Speed will produce a relatively larger file but is faster and more economical. The default value is Balanced.
@@ -619,6 +645,7 @@ class H265Complexity(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:H265VideoProfile")
 class H265VideoProfile(builtins.str, Enum):
     """
     We currently support Main. Default is Auto.
@@ -637,6 +664,7 @@ class H265VideoProfile(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:InsightsType")
 class InsightsType(builtins.str, Enum):
     """
     Defines the type of insights that you want the service to generate. The allowed values are 'AudioInsightsOnly', 'VideoInsightsOnly', and 'AllInsights'. The default is AllInsights. If you set this to AllInsights and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use AudioInsightsOnly if you expect some of your inputs to be video only; or use VideoInsightsOnly if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
@@ -655,6 +683,7 @@ class InsightsType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:InterleaveOutput")
 class InterleaveOutput(builtins.str, Enum):
     """
     Sets the interleave mode of the output to control how audio and video are stored in the container format. Example: set InterleavedOutput as NonInterleavedOutput to produce audio-only and video-only outputs in separate MP4 files.
@@ -669,6 +698,7 @@ class InterleaveOutput(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:LiveEventEncodingType")
 class LiveEventEncodingType(builtins.str, Enum):
     """
     Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
@@ -695,6 +725,7 @@ class LiveEventEncodingType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:LiveEventInputProtocol")
 class LiveEventInputProtocol(builtins.str, Enum):
     """
     The input protocol for the live event. This is specified at creation time and cannot be updated.
@@ -709,6 +740,7 @@ class LiveEventInputProtocol(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:MinimumTlsVersion")
 class MinimumTlsVersion(builtins.str, Enum):
     """
     The minimum TLS version allowed for this account's requests. This is an optional property. If unspecified, a secure default value will be used.
@@ -731,6 +763,7 @@ class MinimumTlsVersion(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:OnErrorType")
 class OnErrorType(builtins.str, Enum):
     """
     A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
@@ -745,6 +778,7 @@ class OnErrorType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:Priority")
 class Priority(builtins.str, Enum):
     """
     Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
@@ -763,6 +797,7 @@ class Priority(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -772,6 +807,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:media:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Whether or not public network access is allowed for resources under the Media Services account.
@@ -786,6 +822,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:Rotation")
 class Rotation(builtins.str, Enum):
     """
     The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
@@ -816,6 +853,7 @@ class Rotation(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:SecurityLevel")
 class SecurityLevel(builtins.str, Enum):
     """
     The security level.
@@ -838,6 +876,7 @@ class SecurityLevel(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:StorageAccountType")
 class StorageAccountType(builtins.str, Enum):
     """
     The type of the storage account.
@@ -852,6 +891,7 @@ class StorageAccountType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:StorageAuthentication")
 class StorageAuthentication(builtins.str, Enum):
     SYSTEM = "System"
     """
@@ -863,6 +903,7 @@ class StorageAuthentication(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:StreamOptionsFlag")
 class StreamOptionsFlag(builtins.str, Enum):
     DEFAULT = "Default"
     """
@@ -878,6 +919,7 @@ class StreamOptionsFlag(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:StretchMode")
 class StretchMode(builtins.str, Enum):
     """
     The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
@@ -896,6 +938,7 @@ class StretchMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:TrackAttribute")
 class TrackAttribute(builtins.str, Enum):
     """
     The TrackAttribute to filter the tracks by.
@@ -910,6 +953,7 @@ class TrackAttribute(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:TrackPropertyCompareOperation")
 class TrackPropertyCompareOperation(builtins.str, Enum):
     """
     Track property condition operation
@@ -924,6 +968,7 @@ class TrackPropertyCompareOperation(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:TrackPropertyType")
 class TrackPropertyType(builtins.str, Enum):
     """
     Track property type
@@ -938,6 +983,7 @@ class TrackPropertyType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:VideoSyncMode")
 class VideoSyncMode(builtins.str, Enum):
     """
     The Video Sync Mode
@@ -960,6 +1006,7 @@ class VideoSyncMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:media:Visibility")
 class Visibility(builtins.str, Enum):
     """
     When PlayerVisibility is set to "Visible", the text track will be present in the DASH manifest or HLS playlist when requested by a client. When the PlayerVisibility is set to "Hidden", the text will not be available to the client. The default value is "Visible".

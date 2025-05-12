@@ -105,10 +105,8 @@ class AksAssessmentOperationArgs:
         pulumi.set(self, "scope", value)
 
 
+@pulumi.type_token("azure-native:migrate:AksAssessmentOperation")
 class AksAssessmentOperation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:migrate:AksAssessmentOperation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

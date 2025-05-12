@@ -106,10 +106,8 @@ class HciEdgeDeviceJobArgs:
         pulumi.set(self, "jobs_name", value)
 
 
+@pulumi.type_token("azure-native:azurestackhci:HciEdgeDeviceJob")
 class HciEdgeDeviceJob(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurestackhci:HciEdgeDeviceJob"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

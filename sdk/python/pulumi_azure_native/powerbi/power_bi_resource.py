@@ -125,10 +125,8 @@ class PowerBIResourceArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure-native:powerbi:PowerBIResource")
 class PowerBIResource(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:powerbi:PowerBIResource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

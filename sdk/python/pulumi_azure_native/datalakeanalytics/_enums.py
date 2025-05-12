@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:datalakeanalytics:AADObjectType")
 class AADObjectType(builtins.str, Enum):
     """
     The type of AAD object the object identifier refers to.
@@ -23,6 +24,7 @@ class AADObjectType(builtins.str, Enum):
     SERVICE_PRINCIPAL = "ServicePrincipal"
 
 
+@pulumi.type_token("azure-native:datalakeanalytics:FirewallAllowAzureIpsState")
 class FirewallAllowAzureIpsState(builtins.str, Enum):
     """
     The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
@@ -31,6 +33,7 @@ class FirewallAllowAzureIpsState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:datalakeanalytics:FirewallState")
 class FirewallState(builtins.str, Enum):
     """
     The current state of the IP address firewall for this account.
@@ -39,6 +42,7 @@ class FirewallState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:datalakeanalytics:TierType")
 class TierType(builtins.str, Enum):
     """
     The commitment tier for the next month.

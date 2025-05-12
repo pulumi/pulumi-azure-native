@@ -138,10 +138,8 @@ class RouteMapArgs:
         pulumi.set(self, "rules", value)
 
 
+@pulumi.type_token("azure-native:network:RouteMap")
 class RouteMap(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:RouteMap"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

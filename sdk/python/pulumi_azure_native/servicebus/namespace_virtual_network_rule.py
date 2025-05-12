@@ -87,10 +87,8 @@ class NamespaceVirtualNetworkRuleArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+@pulumi.type_token("azure-native:servicebus:NamespaceVirtualNetworkRule")
 class NamespaceVirtualNetworkRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:servicebus:NamespaceVirtualNetworkRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

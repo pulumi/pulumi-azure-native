@@ -121,10 +121,8 @@ class PolicyFragmentArgs:
         pulumi.set(self, "id", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:PolicyFragment")
 class PolicyFragment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:PolicyFragment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

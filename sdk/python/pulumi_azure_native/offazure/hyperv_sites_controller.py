@@ -175,10 +175,8 @@ class HypervSitesControllerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:offazure:HypervSitesController")
 class HypervSitesController(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:offazure:HypervSitesController"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

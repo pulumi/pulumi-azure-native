@@ -59,10 +59,8 @@ class SubscriptionTarDirectoryArgs:
         pulumi.set(self, "subscription_id", value)
 
 
+@pulumi.type_token("azure-native:subscription:SubscriptionTarDirectory")
 class SubscriptionTarDirectory(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:subscription:SubscriptionTarDirectory"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

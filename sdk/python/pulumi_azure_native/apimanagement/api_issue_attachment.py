@@ -146,10 +146,8 @@ class ApiIssueAttachmentArgs:
         pulumi.set(self, "attachment_id", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:ApiIssueAttachment")
 class ApiIssueAttachment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:ApiIssueAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

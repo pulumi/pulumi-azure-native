@@ -134,10 +134,8 @@ class ComputePolicyArgs:
         pulumi.set(self, "min_priority_per_job", value)
 
 
+@pulumi.type_token("azure-native:datalakeanalytics:ComputePolicy")
 class ComputePolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datalakeanalytics:ComputePolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

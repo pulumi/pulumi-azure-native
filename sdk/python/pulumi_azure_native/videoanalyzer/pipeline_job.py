@@ -120,10 +120,8 @@ class PipelineJobArgs:
         pulumi.set(self, "pipeline_job_name", value)
 
 
+@pulumi.type_token("azure-native:videoanalyzer:PipelineJob")
 class PipelineJob(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:videoanalyzer:PipelineJob"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -235,10 +235,8 @@ class PrivateEndpointArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:network:PrivateEndpoint")
 class PrivateEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:PrivateEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

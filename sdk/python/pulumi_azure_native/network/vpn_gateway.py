@@ -223,10 +223,8 @@ class VpnGatewayArgs:
         pulumi.set(self, "vpn_gateway_scale_unit", value)
 
 
+@pulumi.type_token("azure-native:network:VpnGateway")
 class VpnGateway(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:VpnGateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

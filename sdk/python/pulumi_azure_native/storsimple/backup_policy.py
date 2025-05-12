@@ -118,10 +118,8 @@ class BackupPolicyArgs:
         pulumi.set(self, "kind", value)
 
 
+@pulumi.type_token("azure-native:storsimple:BackupPolicy")
 class BackupPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storsimple:BackupPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

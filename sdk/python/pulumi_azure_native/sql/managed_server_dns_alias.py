@@ -85,10 +85,8 @@ class ManagedServerDnsAliasArgs:
         pulumi.set(self, "dns_alias_name", value)
 
 
+@pulumi.type_token("azure-native:sql:ManagedServerDnsAlias")
 class ManagedServerDnsAlias(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:ManagedServerDnsAlias"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

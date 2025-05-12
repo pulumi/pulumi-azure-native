@@ -122,10 +122,8 @@ class PricingArgs:
         pulumi.set(self, "sub_plan", value)
 
 
+@pulumi.type_token("azure-native:security:Pricing")
 class Pricing(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:Pricing"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

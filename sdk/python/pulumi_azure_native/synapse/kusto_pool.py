@@ -189,10 +189,8 @@ class KustoPoolArgs:
         pulumi.set(self, "workspace_uid", value)
 
 
+@pulumi.type_token("azure-native:synapse:KustoPool")
 class KustoPool(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:synapse:KustoPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

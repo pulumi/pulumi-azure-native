@@ -170,10 +170,8 @@ class LocalNetworkGatewayInitArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:network:LocalNetworkGateway")
 class LocalNetworkGateway(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:LocalNetworkGateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

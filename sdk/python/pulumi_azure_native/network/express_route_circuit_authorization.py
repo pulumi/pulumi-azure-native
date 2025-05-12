@@ -136,10 +136,8 @@ class ExpressRouteCircuitAuthorizationInitArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure-native:network:ExpressRouteCircuitAuthorization")
 class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:ExpressRouteCircuitAuthorization"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

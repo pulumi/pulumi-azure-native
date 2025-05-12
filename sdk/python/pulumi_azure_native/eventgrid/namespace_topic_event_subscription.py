@@ -153,10 +153,8 @@ class NamespaceTopicEventSubscriptionArgs:
         pulumi.set(self, "filters_configuration", value)
 
 
+@pulumi.type_token("azure-native:eventgrid:NamespaceTopicEventSubscription")
 class NamespaceTopicEventSubscription(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:eventgrid:NamespaceTopicEventSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

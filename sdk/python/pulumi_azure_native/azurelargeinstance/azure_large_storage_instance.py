@@ -139,10 +139,8 @@ class AzureLargeStorageInstanceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:azurelargeinstance:AzureLargeStorageInstance")
 class AzureLargeStorageInstance(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurelargeinstance:AzureLargeStorageInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

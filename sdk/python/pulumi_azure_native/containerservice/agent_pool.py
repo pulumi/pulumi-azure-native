@@ -762,10 +762,8 @@ class AgentPoolArgs:
         pulumi.set(self, "workload_runtime", value)
 
 
+@pulumi.type_token("azure-native:containerservice:AgentPool")
 class AgentPool(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerservice:AgentPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

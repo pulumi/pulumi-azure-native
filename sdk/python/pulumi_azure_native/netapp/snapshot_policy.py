@@ -185,10 +185,8 @@ class SnapshotPolicyArgs:
         pulumi.set(self, "weekly_schedule", value)
 
 
+@pulumi.type_token("azure-native:netapp:SnapshotPolicy")
 class SnapshotPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:netapp:SnapshotPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

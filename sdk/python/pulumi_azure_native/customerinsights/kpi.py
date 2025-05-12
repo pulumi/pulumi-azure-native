@@ -293,10 +293,8 @@ class KpiArgs:
         pulumi.set(self, "unit", value)
 
 
+@pulumi.type_token("azure-native:customerinsights:Kpi")
 class Kpi(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:customerinsights:Kpi"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

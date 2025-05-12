@@ -137,10 +137,8 @@ class HubRouteTableArgs:
         pulumi.set(self, "routes", value)
 
 
+@pulumi.type_token("azure-native:network:HubRouteTable")
 class HubRouteTable(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:HubRouteTable"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

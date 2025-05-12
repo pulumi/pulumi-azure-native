@@ -90,10 +90,8 @@ class BusinessCaseOperationArgs:
         pulumi.set(self, "settings", value)
 
 
+@pulumi.type_token("azure-native:migrate:BusinessCaseOperation")
 class BusinessCaseOperation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:migrate:BusinessCaseOperation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

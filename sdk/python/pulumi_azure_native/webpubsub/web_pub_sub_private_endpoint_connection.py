@@ -106,10 +106,8 @@ class WebPubSubPrivateEndpointConnectionArgs:
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
+@pulumi.type_token("azure-native:webpubsub:WebPubSubPrivateEndpointConnection")
 class WebPubSubPrivateEndpointConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:webpubsub:WebPubSubPrivateEndpointConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

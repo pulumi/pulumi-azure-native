@@ -120,10 +120,8 @@ class DaprComponentResiliencyPolicyArgs:
         pulumi.set(self, "outbound_policy", value)
 
 
+@pulumi.type_token("azure-native:app:DaprComponentResiliencyPolicy")
 class DaprComponentResiliencyPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:app:DaprComponentResiliencyPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -475,10 +475,8 @@ class ServerGroupClusterArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:dbforpostgresql:ServerGroupCluster")
 class ServerGroupCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dbforpostgresql:ServerGroupCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

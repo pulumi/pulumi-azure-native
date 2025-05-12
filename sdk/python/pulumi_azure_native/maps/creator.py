@@ -120,10 +120,8 @@ class CreatorArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:maps:Creator")
 class Creator(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:maps:Creator"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

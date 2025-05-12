@@ -392,10 +392,8 @@ class ClusterArgs:
         pulumi.set(self, "vulnerability_scanning_settings", value)
 
 
+@pulumi.type_token("azure-native:networkcloud:Cluster")
 class Cluster(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:networkcloud:Cluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -104,6 +104,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:datafactory:ActivityOnInactiveMarkAs")
 class ActivityOnInactiveMarkAs(builtins.str, Enum):
     """
     Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
@@ -113,6 +114,7 @@ class ActivityOnInactiveMarkAs(builtins.str, Enum):
     SKIPPED = "Skipped"
 
 
+@pulumi.type_token("azure-native:datafactory:ActivityState")
 class ActivityState(builtins.str, Enum):
     """
     Activity state. This is an optional property and if not provided, the state will be Active by default.
@@ -121,6 +123,7 @@ class ActivityState(builtins.str, Enum):
     INACTIVE = "Inactive"
 
 
+@pulumi.type_token("azure-native:datafactory:AmazonRdsForOracleAuthenticationType")
 class AmazonRdsForOracleAuthenticationType(builtins.str, Enum):
     """
     Authentication type for connecting to the AmazonRdsForOracle database. Only used for Version 2.0.
@@ -128,6 +131,7 @@ class AmazonRdsForOracleAuthenticationType(builtins.str, Enum):
     BASIC = "Basic"
 
 
+@pulumi.type_token("azure-native:datafactory:AmazonRdsForSqlAuthenticationType")
 class AmazonRdsForSqlAuthenticationType(builtins.str, Enum):
     """
     The type used for authentication. Type: string.
@@ -136,6 +140,7 @@ class AmazonRdsForSqlAuthenticationType(builtins.str, Enum):
     WINDOWS = "Windows"
 
 
+@pulumi.type_token("azure-native:datafactory:AzureFunctionActivityMethod")
 class AzureFunctionActivityMethod(builtins.str, Enum):
     """
     Rest API method for target endpoint.
@@ -149,6 +154,7 @@ class AzureFunctionActivityMethod(builtins.str, Enum):
     TRACE = "TRACE"
 
 
+@pulumi.type_token("azure-native:datafactory:AzurePostgreSqlWriteMethodEnum")
 class AzurePostgreSqlWriteMethodEnum(builtins.str, Enum):
     """
     The write behavior for the operation. Default is Bulk Insert.
@@ -158,6 +164,7 @@ class AzurePostgreSqlWriteMethodEnum(builtins.str, Enum):
     UPSERT = "Upsert"
 
 
+@pulumi.type_token("azure-native:datafactory:AzureSearchIndexWriteBehaviorType")
 class AzureSearchIndexWriteBehaviorType(builtins.str, Enum):
     """
     Specify the write behavior when upserting documents into Azure Search Index.
@@ -166,6 +173,7 @@ class AzureSearchIndexWriteBehaviorType(builtins.str, Enum):
     UPLOAD = "Upload"
 
 
+@pulumi.type_token("azure-native:datafactory:AzureSqlDWAuthenticationType")
 class AzureSqlDWAuthenticationType(builtins.str, Enum):
     """
     The type used for authentication. Type: string.
@@ -176,6 +184,7 @@ class AzureSqlDWAuthenticationType(builtins.str, Enum):
     USER_ASSIGNED_MANAGED_IDENTITY = "UserAssignedManagedIdentity"
 
 
+@pulumi.type_token("azure-native:datafactory:AzureSqlDatabaseAuthenticationType")
 class AzureSqlDatabaseAuthenticationType(builtins.str, Enum):
     """
     The type used for authentication. Type: string.
@@ -186,6 +195,7 @@ class AzureSqlDatabaseAuthenticationType(builtins.str, Enum):
     USER_ASSIGNED_MANAGED_IDENTITY = "UserAssignedManagedIdentity"
 
 
+@pulumi.type_token("azure-native:datafactory:AzureSqlMIAuthenticationType")
 class AzureSqlMIAuthenticationType(builtins.str, Enum):
     """
     The type used for authentication. Type: string.
@@ -196,6 +206,7 @@ class AzureSqlMIAuthenticationType(builtins.str, Enum):
     USER_ASSIGNED_MANAGED_IDENTITY = "UserAssignedManagedIdentity"
 
 
+@pulumi.type_token("azure-native:datafactory:AzureStorageAuthenticationType")
 class AzureStorageAuthenticationType(builtins.str, Enum):
     """
     The type used for authentication. Type: string.
@@ -207,6 +218,7 @@ class AzureStorageAuthenticationType(builtins.str, Enum):
     MSI = "Msi"
 
 
+@pulumi.type_token("azure-native:datafactory:BigDataPoolReferenceType")
 class BigDataPoolReferenceType(builtins.str, Enum):
     """
     Big data pool reference type.
@@ -214,11 +226,13 @@ class BigDataPoolReferenceType(builtins.str, Enum):
     BIG_DATA_POOL_REFERENCE = "BigDataPoolReference"
 
 
+@pulumi.type_token("azure-native:datafactory:BlobEventTypes")
 class BlobEventTypes(builtins.str, Enum):
     MICROSOFT_STORAGE_BLOB_CREATED = "Microsoft.Storage.BlobCreated"
     MICROSOFT_STORAGE_BLOB_DELETED = "Microsoft.Storage.BlobDeleted"
 
 
+@pulumi.type_token("azure-native:datafactory:CassandraSourceReadConsistencyLevels")
 class CassandraSourceReadConsistencyLevels(builtins.str, Enum):
     """
     The consistency level specifies how many Cassandra servers must respond to a read request before returning data to the client application. Cassandra checks the specified number of Cassandra servers for data to satisfy the read request. Must be one of cassandraSourceReadConsistencyLevels. The default value is 'ONE'. It is case-insensitive.
@@ -235,6 +249,7 @@ class CassandraSourceReadConsistencyLevels(builtins.str, Enum):
     LOCA_L_SERIAL = "LOCAL_SERIAL"
 
 
+@pulumi.type_token("azure-native:datafactory:ConfigurationType")
 class ConfigurationType(builtins.str, Enum):
     """
     The type of the spark config.
@@ -244,6 +259,7 @@ class ConfigurationType(builtins.str, Enum):
     ARTIFACT = "Artifact"
 
 
+@pulumi.type_token("azure-native:datafactory:ConnectionType")
 class ConnectionType(builtins.str, Enum):
     """
     Type of connection via linked service or dataset.
@@ -251,6 +267,7 @@ class ConnectionType(builtins.str, Enum):
     LINKEDSERVICETYPE = "linkedservicetype"
 
 
+@pulumi.type_token("azure-native:datafactory:CosmosDbConnectionMode")
 class CosmosDbConnectionMode(builtins.str, Enum):
     """
     The connection mode used to access CosmosDB account. Type: string.
@@ -259,6 +276,7 @@ class CosmosDbConnectionMode(builtins.str, Enum):
     DIRECT = "Direct"
 
 
+@pulumi.type_token("azure-native:datafactory:CredentialReferenceType")
 class CredentialReferenceType(builtins.str, Enum):
     """
     Credential reference type.
@@ -266,6 +284,7 @@ class CredentialReferenceType(builtins.str, Enum):
     CREDENTIAL_REFERENCE = "CredentialReference"
 
 
+@pulumi.type_token("azure-native:datafactory:DataFlowComputeType")
 class DataFlowComputeType(builtins.str, Enum):
     """
     Compute type of the cluster which will execute data flow job.
@@ -275,6 +294,7 @@ class DataFlowComputeType(builtins.str, Enum):
     COMPUTE_OPTIMIZED = "ComputeOptimized"
 
 
+@pulumi.type_token("azure-native:datafactory:DataFlowReferenceType")
 class DataFlowReferenceType(builtins.str, Enum):
     """
     Data flow reference type.
@@ -282,6 +302,7 @@ class DataFlowReferenceType(builtins.str, Enum):
     DATA_FLOW_REFERENCE = "DataFlowReference"
 
 
+@pulumi.type_token("azure-native:datafactory:DayOfWeek")
 class DayOfWeek(builtins.str, Enum):
     """
     The day of the week.
@@ -295,6 +316,7 @@ class DayOfWeek(builtins.str, Enum):
     SATURDAY = "Saturday"
 
 
+@pulumi.type_token("azure-native:datafactory:DaysOfWeek")
 class DaysOfWeek(builtins.str, Enum):
     SUNDAY = "Sunday"
     MONDAY = "Monday"
@@ -305,6 +327,7 @@ class DaysOfWeek(builtins.str, Enum):
     SATURDAY = "Saturday"
 
 
+@pulumi.type_token("azure-native:datafactory:Db2AuthenticationType")
 class Db2AuthenticationType(builtins.str, Enum):
     """
     AuthenticationType to be used for connection. It is mutually exclusive with connectionString property.
@@ -312,6 +335,7 @@ class Db2AuthenticationType(builtins.str, Enum):
     BASIC = "Basic"
 
 
+@pulumi.type_token("azure-native:datafactory:DependencyCondition")
 class DependencyCondition(builtins.str, Enum):
     SUCCEEDED = "Succeeded"
     FAILED = "Failed"
@@ -319,6 +343,7 @@ class DependencyCondition(builtins.str, Enum):
     COMPLETED = "Completed"
 
 
+@pulumi.type_token("azure-native:datafactory:DynamicsSinkWriteBehavior")
 class DynamicsSinkWriteBehavior(builtins.str, Enum):
     """
     The write behavior for the operation.
@@ -326,6 +351,7 @@ class DynamicsSinkWriteBehavior(builtins.str, Enum):
     UPSERT = "Upsert"
 
 
+@pulumi.type_token("azure-native:datafactory:ExpressionV2Type")
 class ExpressionV2Type(builtins.str, Enum):
     """
     Type of expressions supported by the system. Type: string.
@@ -337,6 +363,7 @@ class ExpressionV2Type(builtins.str, Enum):
     N_ARY = "NAry"
 
 
+@pulumi.type_token("azure-native:datafactory:FactoryIdentityType")
 class FactoryIdentityType(builtins.str, Enum):
     """
     The identity type.
@@ -346,6 +373,7 @@ class FactoryIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:datafactory:FrequencyType")
 class FrequencyType(builtins.str, Enum):
     """
     Frequency of period in terms of 'Hour', 'Minute' or 'Second'.
@@ -355,6 +383,7 @@ class FrequencyType(builtins.str, Enum):
     SECOND = "Second"
 
 
+@pulumi.type_token("azure-native:datafactory:FtpAuthenticationType")
 class FtpAuthenticationType(builtins.str, Enum):
     """
     The authentication type to be used to connect to the FTP server.
@@ -363,6 +392,7 @@ class FtpAuthenticationType(builtins.str, Enum):
     ANONYMOUS = "Anonymous"
 
 
+@pulumi.type_token("azure-native:datafactory:GlobalParameterType")
 class GlobalParameterType(builtins.str, Enum):
     """
     Global Parameter type.
@@ -375,6 +405,7 @@ class GlobalParameterType(builtins.str, Enum):
     ARRAY = "Array"
 
 
+@pulumi.type_token("azure-native:datafactory:GoogleAdWordsAuthenticationType")
 class GoogleAdWordsAuthenticationType(builtins.str, Enum):
     """
     The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
@@ -383,6 +414,7 @@ class GoogleAdWordsAuthenticationType(builtins.str, Enum):
     USER_AUTHENTICATION = "UserAuthentication"
 
 
+@pulumi.type_token("azure-native:datafactory:GoogleBigQueryAuthenticationType")
 class GoogleBigQueryAuthenticationType(builtins.str, Enum):
     """
     The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
@@ -391,6 +423,7 @@ class GoogleBigQueryAuthenticationType(builtins.str, Enum):
     USER_AUTHENTICATION = "UserAuthentication"
 
 
+@pulumi.type_token("azure-native:datafactory:GoogleBigQueryV2AuthenticationType")
 class GoogleBigQueryV2AuthenticationType(builtins.str, Enum):
     """
     The OAuth 2.0 authentication mechanism used for authentication.
@@ -399,6 +432,7 @@ class GoogleBigQueryV2AuthenticationType(builtins.str, Enum):
     USER_AUTHENTICATION = "UserAuthentication"
 
 
+@pulumi.type_token("azure-native:datafactory:GreenplumAuthenticationType")
 class GreenplumAuthenticationType(builtins.str, Enum):
     """
     The authentication type to use. Type: string. Only used for V2.
@@ -406,6 +440,7 @@ class GreenplumAuthenticationType(builtins.str, Enum):
     BASIC = "Basic"
 
 
+@pulumi.type_token("azure-native:datafactory:HBaseAuthenticationType")
 class HBaseAuthenticationType(builtins.str, Enum):
     """
     The authentication mechanism to use to connect to the HBase server.
@@ -414,6 +449,7 @@ class HBaseAuthenticationType(builtins.str, Enum):
     BASIC = "Basic"
 
 
+@pulumi.type_token("azure-native:datafactory:HDInsightActivityDebugInfoOption")
 class HDInsightActivityDebugInfoOption(builtins.str, Enum):
     """
     Debug info option.
@@ -423,6 +459,7 @@ class HDInsightActivityDebugInfoOption(builtins.str, Enum):
     FAILURE = "Failure"
 
 
+@pulumi.type_token("azure-native:datafactory:HiveAuthenticationType")
 class HiveAuthenticationType(builtins.str, Enum):
     """
     The authentication method used to access the Hive server.
@@ -433,6 +470,7 @@ class HiveAuthenticationType(builtins.str, Enum):
     WINDOWS_AZURE_HD_INSIGHT_SERVICE = "WindowsAzureHDInsightService"
 
 
+@pulumi.type_token("azure-native:datafactory:HiveServerType")
 class HiveServerType(builtins.str, Enum):
     """
     The type of Hive server.
@@ -442,6 +480,7 @@ class HiveServerType(builtins.str, Enum):
     HIVE_THRIFT_SERVER = "HiveThriftServer"
 
 
+@pulumi.type_token("azure-native:datafactory:HiveThriftTransportProtocol")
 class HiveThriftTransportProtocol(builtins.str, Enum):
     """
     The transport protocol to use in the Thrift layer.
@@ -451,6 +490,7 @@ class HiveThriftTransportProtocol(builtins.str, Enum):
     HTT_P_ = "HTTP "
 
 
+@pulumi.type_token("azure-native:datafactory:HttpAuthenticationType")
 class HttpAuthenticationType(builtins.str, Enum):
     """
     The authentication type to be used to connect to the HTTP server.
@@ -462,6 +502,7 @@ class HttpAuthenticationType(builtins.str, Enum):
     CLIENT_CERTIFICATE = "ClientCertificate"
 
 
+@pulumi.type_token("azure-native:datafactory:ImpalaAuthenticationType")
 class ImpalaAuthenticationType(builtins.str, Enum):
     """
     The authentication type to use.
@@ -471,6 +512,7 @@ class ImpalaAuthenticationType(builtins.str, Enum):
     USERNAME_AND_PASSWORD = "UsernameAndPassword"
 
 
+@pulumi.type_token("azure-native:datafactory:ImpalaThriftTransportProtocol")
 class ImpalaThriftTransportProtocol(builtins.str, Enum):
     """
     The transport protocol to use in the Thrift layer (for V2 only). Default value is Binary.
@@ -479,6 +521,7 @@ class ImpalaThriftTransportProtocol(builtins.str, Enum):
     HTTP = "HTTP"
 
 
+@pulumi.type_token("azure-native:datafactory:IntegrationRuntimeEdition")
 class IntegrationRuntimeEdition(builtins.str, Enum):
     """
     The edition for the SSIS Integration Runtime
@@ -487,6 +530,7 @@ class IntegrationRuntimeEdition(builtins.str, Enum):
     ENTERPRISE = "Enterprise"
 
 
+@pulumi.type_token("azure-native:datafactory:IntegrationRuntimeEntityReferenceType")
 class IntegrationRuntimeEntityReferenceType(builtins.str, Enum):
     """
     The type of this referenced entity.
@@ -495,6 +539,7 @@ class IntegrationRuntimeEntityReferenceType(builtins.str, Enum):
     LINKED_SERVICE_REFERENCE = "LinkedServiceReference"
 
 
+@pulumi.type_token("azure-native:datafactory:IntegrationRuntimeLicenseType")
 class IntegrationRuntimeLicenseType(builtins.str, Enum):
     """
     License type for bringing your own license scenario.
@@ -503,6 +548,7 @@ class IntegrationRuntimeLicenseType(builtins.str, Enum):
     LICENSE_INCLUDED = "LicenseIncluded"
 
 
+@pulumi.type_token("azure-native:datafactory:IntegrationRuntimeSsisCatalogPricingTier")
 class IntegrationRuntimeSsisCatalogPricingTier(builtins.str, Enum):
     """
     The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
@@ -513,6 +559,7 @@ class IntegrationRuntimeSsisCatalogPricingTier(builtins.str, Enum):
     PREMIUM_RS = "PremiumRS"
 
 
+@pulumi.type_token("azure-native:datafactory:IntegrationRuntimeType")
 class IntegrationRuntimeType(builtins.str, Enum):
     """
     Type of integration runtime.
@@ -521,6 +568,7 @@ class IntegrationRuntimeType(builtins.str, Enum):
     SELF_HOSTED = "SelfHosted"
 
 
+@pulumi.type_token("azure-native:datafactory:ManagedVirtualNetworkReferenceType")
 class ManagedVirtualNetworkReferenceType(builtins.str, Enum):
     """
     Managed Virtual Network reference type.
@@ -528,6 +576,7 @@ class ManagedVirtualNetworkReferenceType(builtins.str, Enum):
     MANAGED_VIRTUAL_NETWORK_REFERENCE = "ManagedVirtualNetworkReference"
 
 
+@pulumi.type_token("azure-native:datafactory:MappingType")
 class MappingType(builtins.str, Enum):
     """
     Type of the CDC attribute mapping. Note: 'Advanced' mapping type is also saved as 'Derived'.
@@ -537,6 +586,7 @@ class MappingType(builtins.str, Enum):
     AGGREGATE = "Aggregate"
 
 
+@pulumi.type_token("azure-native:datafactory:MongoDbAuthenticationType")
 class MongoDbAuthenticationType(builtins.str, Enum):
     """
     The authentication type to be used to connect to the MongoDB database.
@@ -545,6 +595,7 @@ class MongoDbAuthenticationType(builtins.str, Enum):
     ANONYMOUS = "Anonymous"
 
 
+@pulumi.type_token("azure-native:datafactory:NotebookParameterType")
 class NotebookParameterType(builtins.str, Enum):
     """
     Notebook parameter type.
@@ -555,6 +606,7 @@ class NotebookParameterType(builtins.str, Enum):
     BOOL = "bool"
 
 
+@pulumi.type_token("azure-native:datafactory:NotebookReferenceType")
 class NotebookReferenceType(builtins.str, Enum):
     """
     Synapse notebook reference type.
@@ -562,6 +614,7 @@ class NotebookReferenceType(builtins.str, Enum):
     NOTEBOOK_REFERENCE = "NotebookReference"
 
 
+@pulumi.type_token("azure-native:datafactory:ODataAadServicePrincipalCredentialType")
 class ODataAadServicePrincipalCredentialType(builtins.str, Enum):
     """
     Specify the credential type (key or cert) is used for service principal.
@@ -570,6 +623,7 @@ class ODataAadServicePrincipalCredentialType(builtins.str, Enum):
     SERVICE_PRINCIPAL_CERT = "ServicePrincipalCert"
 
 
+@pulumi.type_token("azure-native:datafactory:ODataAuthenticationType")
 class ODataAuthenticationType(builtins.str, Enum):
     """
     Type of authentication used to connect to the OData service.
@@ -581,6 +635,7 @@ class ODataAuthenticationType(builtins.str, Enum):
     MANAGED_SERVICE_IDENTITY = "ManagedServiceIdentity"
 
 
+@pulumi.type_token("azure-native:datafactory:OracleAuthenticationType")
 class OracleAuthenticationType(builtins.str, Enum):
     """
     Authentication type for connecting to the Oracle database. Only used for Version 2.0.
@@ -588,6 +643,7 @@ class OracleAuthenticationType(builtins.str, Enum):
     BASIC = "Basic"
 
 
+@pulumi.type_token("azure-native:datafactory:ParameterType")
 class ParameterType(builtins.str, Enum):
     """
     Parameter type.
@@ -601,6 +657,7 @@ class ParameterType(builtins.str, Enum):
     SECURE_STRING = "SecureString"
 
 
+@pulumi.type_token("azure-native:datafactory:PhoenixAuthenticationType")
 class PhoenixAuthenticationType(builtins.str, Enum):
     """
     The authentication mechanism used to connect to the Phoenix server.
@@ -610,6 +667,7 @@ class PhoenixAuthenticationType(builtins.str, Enum):
     WINDOWS_AZURE_HD_INSIGHT_SERVICE = "WindowsAzureHDInsightService"
 
 
+@pulumi.type_token("azure-native:datafactory:PolybaseSettingsRejectType")
 class PolybaseSettingsRejectType(builtins.str, Enum):
     """
     Reject type.
@@ -618,6 +676,7 @@ class PolybaseSettingsRejectType(builtins.str, Enum):
     PERCENTAGE = "percentage"
 
 
+@pulumi.type_token("azure-native:datafactory:PrestoAuthenticationType")
 class PrestoAuthenticationType(builtins.str, Enum):
     """
     The authentication mechanism used to connect to the Presto server.
@@ -626,6 +685,7 @@ class PrestoAuthenticationType(builtins.str, Enum):
     LDAP = "LDAP"
 
 
+@pulumi.type_token("azure-native:datafactory:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Whether or not public network access is allowed for the data factory.
@@ -634,6 +694,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:datafactory:RecurrenceFrequency")
 class RecurrenceFrequency(builtins.str, Enum):
     """
     The frequency.
@@ -647,6 +708,7 @@ class RecurrenceFrequency(builtins.str, Enum):
     YEAR = "Year"
 
 
+@pulumi.type_token("azure-native:datafactory:RestServiceAuthenticationType")
 class RestServiceAuthenticationType(builtins.str, Enum):
     """
     Type of authentication used to connect to the REST service.
@@ -658,6 +720,7 @@ class RestServiceAuthenticationType(builtins.str, Enum):
     O_AUTH2_CLIENT_CREDENTIAL = "OAuth2ClientCredential"
 
 
+@pulumi.type_token("azure-native:datafactory:SalesforceSinkWriteBehavior")
 class SalesforceSinkWriteBehavior(builtins.str, Enum):
     """
     The write behavior for the operation. Default is Insert.
@@ -666,6 +729,7 @@ class SalesforceSinkWriteBehavior(builtins.str, Enum):
     UPSERT = "Upsert"
 
 
+@pulumi.type_token("azure-native:datafactory:SalesforceV2SinkWriteBehavior")
 class SalesforceV2SinkWriteBehavior(builtins.str, Enum):
     """
     The write behavior for the operation. Default is Insert.
@@ -674,6 +738,7 @@ class SalesforceV2SinkWriteBehavior(builtins.str, Enum):
     UPSERT = "Upsert"
 
 
+@pulumi.type_token("azure-native:datafactory:SapCloudForCustomerSinkWriteBehavior")
 class SapCloudForCustomerSinkWriteBehavior(builtins.str, Enum):
     """
     The write behavior for the operation. Default is 'Insert'.
@@ -682,6 +747,7 @@ class SapCloudForCustomerSinkWriteBehavior(builtins.str, Enum):
     UPDATE = "Update"
 
 
+@pulumi.type_token("azure-native:datafactory:SapHanaAuthenticationType")
 class SapHanaAuthenticationType(builtins.str, Enum):
     """
     The authentication type to be used to connect to the SAP HANA server.
@@ -690,6 +756,7 @@ class SapHanaAuthenticationType(builtins.str, Enum):
     WINDOWS = "Windows"
 
 
+@pulumi.type_token("azure-native:datafactory:ScriptActivityLogDestination")
 class ScriptActivityLogDestination(builtins.str, Enum):
     """
     The destination of logs. Type: string.
@@ -698,6 +765,7 @@ class ScriptActivityLogDestination(builtins.str, Enum):
     EXTERNAL_STORE = "ExternalStore"
 
 
+@pulumi.type_token("azure-native:datafactory:ScriptActivityParameterDirection")
 class ScriptActivityParameterDirection(builtins.str, Enum):
     """
     The direction of the parameter.
@@ -707,6 +775,7 @@ class ScriptActivityParameterDirection(builtins.str, Enum):
     VALUE_INPUT_OUTPUT = "InputOutput"
 
 
+@pulumi.type_token("azure-native:datafactory:ScriptActivityParameterType")
 class ScriptActivityParameterType(builtins.str, Enum):
     """
     The type of the parameter.
@@ -725,6 +794,7 @@ class ScriptActivityParameterType(builtins.str, Enum):
     TIMESPAN = "Timespan"
 
 
+@pulumi.type_token("azure-native:datafactory:ServiceNowAuthenticationType")
 class ServiceNowAuthenticationType(builtins.str, Enum):
     """
     The authentication type to use.
@@ -733,6 +803,7 @@ class ServiceNowAuthenticationType(builtins.str, Enum):
     O_AUTH2 = "OAuth2"
 
 
+@pulumi.type_token("azure-native:datafactory:ServiceNowV2AuthenticationType")
 class ServiceNowV2AuthenticationType(builtins.str, Enum):
     """
     The authentication type to use.
@@ -741,6 +812,7 @@ class ServiceNowV2AuthenticationType(builtins.str, Enum):
     O_AUTH2 = "OAuth2"
 
 
+@pulumi.type_token("azure-native:datafactory:SftpAuthenticationType")
 class SftpAuthenticationType(builtins.str, Enum):
     """
     The authentication type to be used to connect to the FTP server.
@@ -750,6 +822,7 @@ class SftpAuthenticationType(builtins.str, Enum):
     MULTI_FACTOR = "MultiFactor"
 
 
+@pulumi.type_token("azure-native:datafactory:SnowflakeAuthenticationType")
 class SnowflakeAuthenticationType(builtins.str, Enum):
     """
     The type used for authentication. Type: string.
@@ -759,6 +832,7 @@ class SnowflakeAuthenticationType(builtins.str, Enum):
     AAD_SERVICE_PRINCIPAL = "AADServicePrincipal"
 
 
+@pulumi.type_token("azure-native:datafactory:SparkAuthenticationType")
 class SparkAuthenticationType(builtins.str, Enum):
     """
     The authentication method used to access the Spark server.
@@ -769,6 +843,7 @@ class SparkAuthenticationType(builtins.str, Enum):
     WINDOWS_AZURE_HD_INSIGHT_SERVICE = "WindowsAzureHDInsightService"
 
 
+@pulumi.type_token("azure-native:datafactory:SparkConfigurationReferenceType")
 class SparkConfigurationReferenceType(builtins.str, Enum):
     """
     Spark configuration reference type.
@@ -776,6 +851,7 @@ class SparkConfigurationReferenceType(builtins.str, Enum):
     SPARK_CONFIGURATION_REFERENCE = "SparkConfigurationReference"
 
 
+@pulumi.type_token("azure-native:datafactory:SparkJobReferenceType")
 class SparkJobReferenceType(builtins.str, Enum):
     """
     Synapse spark job reference type.
@@ -783,6 +859,7 @@ class SparkJobReferenceType(builtins.str, Enum):
     SPARK_JOB_DEFINITION_REFERENCE = "SparkJobDefinitionReference"
 
 
+@pulumi.type_token("azure-native:datafactory:SparkServerType")
 class SparkServerType(builtins.str, Enum):
     """
     The type of Spark server.
@@ -792,6 +869,7 @@ class SparkServerType(builtins.str, Enum):
     SPARK_THRIFT_SERVER = "SparkThriftServer"
 
 
+@pulumi.type_token("azure-native:datafactory:SparkThriftTransportProtocol")
 class SparkThriftTransportProtocol(builtins.str, Enum):
     """
     The transport protocol to use in the Thrift layer.
@@ -801,6 +879,7 @@ class SparkThriftTransportProtocol(builtins.str, Enum):
     HTT_P_ = "HTTP "
 
 
+@pulumi.type_token("azure-native:datafactory:SqlAlwaysEncryptedAkvAuthType")
 class SqlAlwaysEncryptedAkvAuthType(builtins.str, Enum):
     """
     Sql always encrypted AKV authentication type. Type: string.
@@ -810,6 +889,7 @@ class SqlAlwaysEncryptedAkvAuthType(builtins.str, Enum):
     USER_ASSIGNED_MANAGED_IDENTITY = "UserAssignedManagedIdentity"
 
 
+@pulumi.type_token("azure-native:datafactory:SqlServerAuthenticationType")
 class SqlServerAuthenticationType(builtins.str, Enum):
     """
     The type used for authentication. Type: string.
@@ -819,6 +899,7 @@ class SqlServerAuthenticationType(builtins.str, Enum):
     USER_ASSIGNED_MANAGED_IDENTITY = "UserAssignedManagedIdentity"
 
 
+@pulumi.type_token("azure-native:datafactory:SsisLogLocationType")
 class SsisLogLocationType(builtins.str, Enum):
     """
     The type of SSIS log location.
@@ -826,6 +907,7 @@ class SsisLogLocationType(builtins.str, Enum):
     FILE = "File"
 
 
+@pulumi.type_token("azure-native:datafactory:SsisPackageLocationType")
 class SsisPackageLocationType(builtins.str, Enum):
     """
     The type of SSIS package location.
@@ -836,6 +918,7 @@ class SsisPackageLocationType(builtins.str, Enum):
     PACKAGE_STORE = "PackageStore"
 
 
+@pulumi.type_token("azure-native:datafactory:SybaseAuthenticationType")
 class SybaseAuthenticationType(builtins.str, Enum):
     """
     AuthenticationType to be used for connection.
@@ -844,6 +927,7 @@ class SybaseAuthenticationType(builtins.str, Enum):
     WINDOWS = "Windows"
 
 
+@pulumi.type_token("azure-native:datafactory:TeamDeskAuthenticationType")
 class TeamDeskAuthenticationType(builtins.str, Enum):
     """
     The authentication type to use.
@@ -852,6 +936,7 @@ class TeamDeskAuthenticationType(builtins.str, Enum):
     TOKEN = "Token"
 
 
+@pulumi.type_token("azure-native:datafactory:TeradataAuthenticationType")
 class TeradataAuthenticationType(builtins.str, Enum):
     """
     AuthenticationType to be used for connection.
@@ -860,6 +945,7 @@ class TeradataAuthenticationType(builtins.str, Enum):
     WINDOWS = "Windows"
 
 
+@pulumi.type_token("azure-native:datafactory:TriggerReferenceType")
 class TriggerReferenceType(builtins.str, Enum):
     """
     Trigger reference type.
@@ -867,6 +953,7 @@ class TriggerReferenceType(builtins.str, Enum):
     TRIGGER_REFERENCE = "TriggerReference"
 
 
+@pulumi.type_token("azure-native:datafactory:TumblingWindowFrequency")
 class TumblingWindowFrequency(builtins.str, Enum):
     """
     The frequency of the time windows.
@@ -876,6 +963,7 @@ class TumblingWindowFrequency(builtins.str, Enum):
     MONTH = "Month"
 
 
+@pulumi.type_token("azure-native:datafactory:Type")
 class Type(builtins.str, Enum):
     """
     Linked service reference type.
@@ -883,6 +971,7 @@ class Type(builtins.str, Enum):
     LINKED_SERVICE_REFERENCE = "LinkedServiceReference"
 
 
+@pulumi.type_token("azure-native:datafactory:ValueType")
 class ValueType(builtins.str, Enum):
     """
     Type of value copied from source.
@@ -891,6 +980,7 @@ class ValueType(builtins.str, Enum):
     DISPLAY = "display"
 
 
+@pulumi.type_token("azure-native:datafactory:VariableType")
 class VariableType(builtins.str, Enum):
     """
     Variable type.
@@ -900,6 +990,7 @@ class VariableType(builtins.str, Enum):
     ARRAY = "Array"
 
 
+@pulumi.type_token("azure-native:datafactory:WebActivityMethod")
 class WebActivityMethod(builtins.str, Enum):
     """
     Rest API method for target endpoint.
@@ -910,6 +1001,7 @@ class WebActivityMethod(builtins.str, Enum):
     DELETE = "DELETE"
 
 
+@pulumi.type_token("azure-native:datafactory:WebAuthenticationType")
 class WebAuthenticationType(builtins.str, Enum):
     """
     Type of authentication used to connect to the web table source.
@@ -919,6 +1011,7 @@ class WebAuthenticationType(builtins.str, Enum):
     CLIENT_CERTIFICATE = "ClientCertificate"
 
 
+@pulumi.type_token("azure-native:datafactory:WebHookActivityMethod")
 class WebHookActivityMethod(builtins.str, Enum):
     """
     Rest API method for target endpoint.
@@ -926,6 +1019,7 @@ class WebHookActivityMethod(builtins.str, Enum):
     POST = "POST"
 
 
+@pulumi.type_token("azure-native:datafactory:ZendeskAuthenticationType")
 class ZendeskAuthenticationType(builtins.str, Enum):
     """
     The authentication type to use.

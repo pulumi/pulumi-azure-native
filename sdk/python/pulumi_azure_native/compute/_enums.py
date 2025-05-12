@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -97,6 +97,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:compute:AccessControlRulesMode")
 class AccessControlRulesMode(builtins.str, Enum):
     """
     This property allows you to specify whether the access control rules are in Audit mode, in Enforce mode or Disabled. Possible values are: 'Audit', 'Enforce' or 'Disabled'.
@@ -106,6 +107,7 @@ class AccessControlRulesMode(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:compute:AllocationStrategy")
 class AllocationStrategy(builtins.str, Enum):
     """
     Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated.
@@ -115,6 +117,7 @@ class AllocationStrategy(builtins.str, Enum):
     PRIORITIZED = "Prioritized"
 
 
+@pulumi.type_token("azure-native:compute:Architecture")
 class Architecture(builtins.str, Enum):
     """
     CPU architecture supported by an OS disk.
@@ -123,6 +126,7 @@ class Architecture(builtins.str, Enum):
     ARM64 = "Arm64"
 
 
+@pulumi.type_token("azure-native:compute:CachingTypes")
 class CachingTypes(builtins.str, Enum):
     """
     Specifies the caching requirements. Possible values are: **None,** **ReadOnly,** **ReadWrite.** The defaulting behavior is: **None for Standard storage. ReadOnly for Premium storage.**
@@ -132,6 +136,7 @@ class CachingTypes(builtins.str, Enum):
     READ_WRITE = "ReadWrite"
 
 
+@pulumi.type_token("azure-native:compute:CloudServiceSlotType")
 class CloudServiceSlotType(builtins.str, Enum):
     """
     Slot type for the cloud service.
@@ -142,6 +147,7 @@ class CloudServiceSlotType(builtins.str, Enum):
     STAGING = "Staging"
 
 
+@pulumi.type_token("azure-native:compute:CloudServiceUpgradeMode")
 class CloudServiceUpgradeMode(builtins.str, Enum):
     """
     Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
@@ -153,6 +159,7 @@ class CloudServiceUpgradeMode(builtins.str, Enum):
     SIMULTANEOUS = "Simultaneous"
 
 
+@pulumi.type_token("azure-native:compute:ComponentNames")
 class ComponentNames(builtins.str, Enum):
     """
     The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
@@ -160,6 +167,7 @@ class ComponentNames(builtins.str, Enum):
     MICROSOFT_WINDOWS_SHELL_SETUP = "Microsoft-Windows-Shell-Setup"
 
 
+@pulumi.type_token("azure-native:compute:ConfidentialVMEncryptionType")
 class ConfidentialVMEncryptionType(builtins.str, Enum):
     """
     confidential VM encryption types
@@ -170,6 +178,7 @@ class ConfidentialVMEncryptionType(builtins.str, Enum):
     NON_PERSISTED_TPM = "NonPersistedTPM"
 
 
+@pulumi.type_token("azure-native:compute:ConsistencyModeTypes")
 class ConsistencyModeTypes(builtins.str, Enum):
     """
     ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
@@ -179,6 +188,7 @@ class ConsistencyModeTypes(builtins.str, Enum):
     APPLICATION_CONSISTENT = "ApplicationConsistent"
 
 
+@pulumi.type_token("azure-native:compute:CopyCompletionErrorReason")
 class CopyCompletionErrorReason(builtins.str, Enum):
     """
     Indicates the error code if the background copy of a resource created via the CopyStart operation fails.
@@ -189,6 +199,7 @@ class CopyCompletionErrorReason(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:compute:DataAccessAuthMode")
 class DataAccessAuthMode(builtins.str, Enum):
     """
     Additional authentication requirements when exporting or uploading to a disk or snapshot.
@@ -203,6 +214,7 @@ class DataAccessAuthMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:compute:DedicatedHostLicenseTypes")
 class DedicatedHostLicenseTypes(builtins.str, Enum):
     """
     Specifies the software license type that will be applied to the VMs deployed on the dedicated host. Possible values are: **None,** **Windows_Server_Hybrid,** **Windows_Server_Perpetual.** The default value is: **None.**
@@ -212,6 +224,7 @@ class DedicatedHostLicenseTypes(builtins.str, Enum):
     WINDOWS_SERVER_PERPETUAL = "Windows_Server_Perpetual"
 
 
+@pulumi.type_token("azure-native:compute:DeleteOptions")
 class DeleteOptions(builtins.str, Enum):
     """
     Specify what happens to the public IP when the VM is deleted
@@ -220,6 +233,7 @@ class DeleteOptions(builtins.str, Enum):
     DETACH = "Detach"
 
 
+@pulumi.type_token("azure-native:compute:DiffDiskOptions")
 class DiffDiskOptions(builtins.str, Enum):
     """
     Specifies the ephemeral disk settings for operating system disk.
@@ -227,6 +241,7 @@ class DiffDiskOptions(builtins.str, Enum):
     LOCAL = "Local"
 
 
+@pulumi.type_token("azure-native:compute:DiffDiskPlacement")
 class DiffDiskPlacement(builtins.str, Enum):
     """
     Specifies the ephemeral disk placement for operating system disk. Possible values are: **CacheDisk,** **ResourceDisk,** **NvmeDisk.** The defaulting behavior is: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** or **NvmeDisk** is used. Refer to the VM size documentation for Windows VM at https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk. Minimum api-version for NvmeDisk: 2024-03-01.
@@ -236,6 +251,7 @@ class DiffDiskPlacement(builtins.str, Enum):
     NVME_DISK = "NvmeDisk"
 
 
+@pulumi.type_token("azure-native:compute:DiskControllerTypes")
 class DiskControllerTypes(builtins.str, Enum):
     """
     Specifies the disk controller type configured for the VM. **Note:** This property will be set to the default disk controller type if not specified provided virtual machine is being created with 'hyperVGeneration' set to V2 based on the capabilities of the operating system disk and VM size from the the specified minimum api version. You need to deallocate the VM before updating its disk controller type unless you are updating the VM size in the VM configuration which implicitly deallocates and reallocates the VM. Minimum api-version: 2022-08-01.
@@ -244,6 +260,7 @@ class DiskControllerTypes(builtins.str, Enum):
     NV_ME = "NVMe"
 
 
+@pulumi.type_token("azure-native:compute:DiskCreateOption")
 class DiskCreateOption(builtins.str, Enum):
     """
     This enumerates the possible sources of a disk's creation.
@@ -294,6 +311,7 @@ class DiskCreateOption(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:compute:DiskCreateOptionTypes")
 class DiskCreateOptionTypes(builtins.str, Enum):
     """
     Specifies how the virtual machine disk should be created. Possible values are **Attach:** This value is used when you are using a specialized disk to create the virtual machine. **FromImage:** This value is used when you are using an image to create the virtual machine. If you are using a platform image, you should also use the imageReference element described above. If you are using a marketplace image, you should also use the plan element previously described.
@@ -305,6 +323,7 @@ class DiskCreateOptionTypes(builtins.str, Enum):
     RESTORE = "Restore"
 
 
+@pulumi.type_token("azure-native:compute:DiskDeleteOptionTypes")
 class DiskDeleteOptionTypes(builtins.str, Enum):
     """
     Specifies whether OS Disk should be deleted or detached upon VM deletion. Possible values are: **Delete.** If this value is used, the OS disk is deleted when VM is deleted. **Detach.** If this value is used, the os disk is retained after VM is deleted. The default value is set to **Detach**. For an ephemeral OS Disk, the default value is set to **Delete**. The user cannot change the delete option for an ephemeral OS Disk.
@@ -313,6 +332,7 @@ class DiskDeleteOptionTypes(builtins.str, Enum):
     DETACH = "Detach"
 
 
+@pulumi.type_token("azure-native:compute:DiskDetachOptionTypes")
 class DiskDetachOptionTypes(builtins.str, Enum):
     """
     Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
@@ -320,6 +340,7 @@ class DiskDetachOptionTypes(builtins.str, Enum):
     FORCE_DETACH = "ForceDetach"
 
 
+@pulumi.type_token("azure-native:compute:DiskEncryptionSetIdentityType")
 class DiskEncryptionSetIdentityType(builtins.str, Enum):
     """
     The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
@@ -330,6 +351,7 @@ class DiskEncryptionSetIdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:compute:DiskEncryptionSetType")
 class DiskEncryptionSetType(builtins.str, Enum):
     """
     The type of key used to encrypt the data of the disk.
@@ -348,6 +370,7 @@ class DiskEncryptionSetType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:compute:DiskSecurityTypes")
 class DiskSecurityTypes(builtins.str, Enum):
     """
     Specifies the SecurityType of the VM. Applicable for OS disks only.
@@ -374,6 +397,7 @@ class DiskSecurityTypes(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:compute:DiskStorageAccountTypes")
 class DiskStorageAccountTypes(builtins.str, Enum):
     """
     The sku name.
@@ -408,6 +432,7 @@ class DiskStorageAccountTypes(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:compute:DomainNameLabelScopeTypes")
 class DomainNameLabelScopeTypes(builtins.str, Enum):
     """
     The Domain name label scope.The concatenation of the hashed domain name label that generated according to the policy from domain name label scope and vm index will be the domain name labels of the PublicIPAddress resources that will be created
@@ -418,6 +443,7 @@ class DomainNameLabelScopeTypes(builtins.str, Enum):
     NO_REUSE = "NoReuse"
 
 
+@pulumi.type_token("azure-native:compute:EdgeZoneStorageAccountType")
 class EdgeZoneStorageAccountType(builtins.str, Enum):
     """
     Specifies the storage account type to be used to store the image. This property is not updatable.
@@ -428,6 +454,7 @@ class EdgeZoneStorageAccountType(builtins.str, Enum):
     PREMIUM_LRS = "Premium_LRS"
 
 
+@pulumi.type_token("azure-native:compute:EncryptionType")
 class EncryptionType(builtins.str, Enum):
     """
     The type of key used to encrypt the data of the disk.
@@ -446,6 +473,7 @@ class EncryptionType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:compute:EndpointAccess")
 class EndpointAccess(builtins.str, Enum):
     """
     This property allows you to specify if the requests will be allowed to access the host endpoints. Possible values are: 'Allow', 'Deny'.
@@ -454,6 +482,7 @@ class EndpointAccess(builtins.str, Enum):
     DENY = "Deny"
 
 
+@pulumi.type_token("azure-native:compute:EndpointTypes")
 class EndpointTypes(builtins.str, Enum):
     """
     This property allows you to specify the Endpoint type for which this profile is defining the access control for. Possible values are: 'WireServer' or 'IMDS'
@@ -462,6 +491,7 @@ class EndpointTypes(builtins.str, Enum):
     IMDS = "IMDS"
 
 
+@pulumi.type_token("azure-native:compute:ExtendedLocationTypes")
 class ExtendedLocationTypes(builtins.str, Enum):
     """
     The type of the extended location.
@@ -469,6 +499,7 @@ class ExtendedLocationTypes(builtins.str, Enum):
     EDGE_ZONE = "EdgeZone"
 
 
+@pulumi.type_token("azure-native:compute:GalleryApplicationCustomActionParameterType")
 class GalleryApplicationCustomActionParameterType(builtins.str, Enum):
     """
     Specifies the type of the custom action parameter. Possible values are: String, ConfigurationDataBlob or LogOutputBlob
@@ -478,6 +509,7 @@ class GalleryApplicationCustomActionParameterType(builtins.str, Enum):
     LOG_OUTPUT_BLOB = "LogOutputBlob"
 
 
+@pulumi.type_token("azure-native:compute:GalleryApplicationScriptRebootBehavior")
 class GalleryApplicationScriptRebootBehavior(builtins.str, Enum):
     """
     Optional. The action to be taken with regards to install/update/remove of the gallery application in the event of a reboot.
@@ -486,6 +518,7 @@ class GalleryApplicationScriptRebootBehavior(builtins.str, Enum):
     RERUN = "Rerun"
 
 
+@pulumi.type_token("azure-native:compute:GalleryExtendedLocationType")
 class GalleryExtendedLocationType(builtins.str, Enum):
     """
     It is type of the extended location.
@@ -494,6 +527,7 @@ class GalleryExtendedLocationType(builtins.str, Enum):
     UNKNOWN = "Unknown"
 
 
+@pulumi.type_token("azure-native:compute:GallerySharingPermissionTypes")
 class GallerySharingPermissionTypes(builtins.str, Enum):
     """
     This property allows you to specify the permission of sharing gallery. Possible values are: **Private,** **Groups,** **Community.**
@@ -503,6 +537,7 @@ class GallerySharingPermissionTypes(builtins.str, Enum):
     COMMUNITY = "Community"
 
 
+@pulumi.type_token("azure-native:compute:HostCaching")
 class HostCaching(builtins.str, Enum):
     """
     The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
@@ -512,6 +547,7 @@ class HostCaching(builtins.str, Enum):
     READ_WRITE = "ReadWrite"
 
 
+@pulumi.type_token("azure-native:compute:HyperVGeneration")
 class HyperVGeneration(builtins.str, Enum):
     """
     The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
@@ -520,6 +556,7 @@ class HyperVGeneration(builtins.str, Enum):
     V2 = "V2"
 
 
+@pulumi.type_token("azure-native:compute:HyperVGenerationTypes")
 class HyperVGenerationTypes(builtins.str, Enum):
     """
     Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
@@ -528,6 +565,7 @@ class HyperVGenerationTypes(builtins.str, Enum):
     V2 = "V2"
 
 
+@pulumi.type_token("azure-native:compute:IPVersion")
 class IPVersion(builtins.str, Enum):
     """
     Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
@@ -536,6 +574,7 @@ class IPVersion(builtins.str, Enum):
     I_PV6 = "IPv6"
 
 
+@pulumi.type_token("azure-native:compute:IPVersions")
 class IPVersions(builtins.str, Enum):
     """
     Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
@@ -544,6 +583,7 @@ class IPVersions(builtins.str, Enum):
     I_PV6 = "IPv6"
 
 
+@pulumi.type_token("azure-native:compute:IntervalInMins")
 class IntervalInMins(builtins.str, Enum):
     """
     Interval value in minutes used to create LogAnalytics call rate logs.
@@ -554,6 +594,7 @@ class IntervalInMins(builtins.str, Enum):
     SIXTY_MINS = "SixtyMins"
 
 
+@pulumi.type_token("azure-native:compute:LinuxPatchAssessmentMode")
 class LinuxPatchAssessmentMode(builtins.str, Enum):
     """
     Specifies the mode of VM Guest Patch Assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine. <br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
@@ -562,6 +603,7 @@ class LinuxPatchAssessmentMode(builtins.str, Enum):
     AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
 
 
+@pulumi.type_token("azure-native:compute:LinuxVMGuestPatchAutomaticByPlatformRebootSetting")
 class LinuxVMGuestPatchAutomaticByPlatformRebootSetting(builtins.str, Enum):
     """
     Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
@@ -572,6 +614,7 @@ class LinuxVMGuestPatchAutomaticByPlatformRebootSetting(builtins.str, Enum):
     ALWAYS = "Always"
 
 
+@pulumi.type_token("azure-native:compute:LinuxVMGuestPatchMode")
 class LinuxVMGuestPatchMode(builtins.str, Enum):
     """
     Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
@@ -580,6 +623,7 @@ class LinuxVMGuestPatchMode(builtins.str, Enum):
     AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
 
 
+@pulumi.type_token("azure-native:compute:Mode")
 class Mode(builtins.str, Enum):
     """
     Specifies the mode that ProxyAgent will execute on. Warning: this property has been deprecated, please specify 'mode' under particular hostendpoint setting.
@@ -588,6 +632,7 @@ class Mode(builtins.str, Enum):
     ENFORCE = "Enforce"
 
 
+@pulumi.type_token("azure-native:compute:Modes")
 class Modes(builtins.str, Enum):
     """
     Specifies the execution mode. In Audit mode, the system acts as if it is enforcing the access control policy, including emitting access denial entries in the logs but it does not actually deny any requests to host endpoints. In Enforce mode, the system will enforce the access control and it is the recommended mode of operation.
@@ -597,6 +642,7 @@ class Modes(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:compute:NetworkAccessPolicy")
 class NetworkAccessPolicy(builtins.str, Enum):
     """
     Policy for accessing the disk via network.
@@ -615,6 +661,7 @@ class NetworkAccessPolicy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:compute:NetworkApiVersion")
 class NetworkApiVersion(builtins.str, Enum):
     """
     specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations
@@ -623,6 +670,7 @@ class NetworkApiVersion(builtins.str, Enum):
     NETWORK_API_VERSION_2022_11_01 = "2022-11-01"
 
 
+@pulumi.type_token("azure-native:compute:NetworkInterfaceAuxiliaryMode")
 class NetworkInterfaceAuxiliaryMode(builtins.str, Enum):
     """
     Specifies whether the Auxiliary mode is enabled for the Network Interface resource.
@@ -632,6 +680,7 @@ class NetworkInterfaceAuxiliaryMode(builtins.str, Enum):
     FLOATING = "Floating"
 
 
+@pulumi.type_token("azure-native:compute:NetworkInterfaceAuxiliarySku")
 class NetworkInterfaceAuxiliarySku(builtins.str, Enum):
     """
     Specifies whether the Auxiliary sku is enabled for the Network Interface resource.
@@ -643,6 +692,7 @@ class NetworkInterfaceAuxiliarySku(builtins.str, Enum):
     A8 = "A8"
 
 
+@pulumi.type_token("azure-native:compute:OperatingSystemStateTypes")
 class OperatingSystemStateTypes(builtins.str, Enum):
     """
     The OS State. For managed images, use Generalized.
@@ -657,6 +707,7 @@ class OperatingSystemStateTypes(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:compute:OperatingSystemTypes")
 class OperatingSystemTypes(builtins.str, Enum):
     """
     This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: **Windows,** **Linux.**
@@ -665,6 +716,7 @@ class OperatingSystemTypes(builtins.str, Enum):
     LINUX = "Linux"
 
 
+@pulumi.type_token("azure-native:compute:OrchestrationMode")
 class OrchestrationMode(builtins.str, Enum):
     """
     Specifies the orchestration mode for the virtual machine scale set.
@@ -673,6 +725,7 @@ class OrchestrationMode(builtins.str, Enum):
     FLEXIBLE = "Flexible"
 
 
+@pulumi.type_token("azure-native:compute:PassNames")
 class PassNames(builtins.str, Enum):
     """
     The pass name. Currently, the only allowable value is OobeSystem.
@@ -680,6 +733,7 @@ class PassNames(builtins.str, Enum):
     OOBE_SYSTEM = "OobeSystem"
 
 
+@pulumi.type_token("azure-native:compute:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -689,6 +743,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:compute:ProtocolTypes")
 class ProtocolTypes(builtins.str, Enum):
     """
     Specifies the protocol of WinRM listener. Possible values are: **http,** **https.**
@@ -697,6 +752,7 @@ class ProtocolTypes(builtins.str, Enum):
     HTTPS = "Https"
 
 
+@pulumi.type_token("azure-native:compute:ProvisionedBandwidthCopyOption")
 class ProvisionedBandwidthCopyOption(builtins.str, Enum):
     """
     If this field is set on a snapshot and createOption is CopyStart, the snapshot will be copied at a quicker speed.
@@ -705,6 +761,7 @@ class ProvisionedBandwidthCopyOption(builtins.str, Enum):
     ENHANCED = "Enhanced"
 
 
+@pulumi.type_token("azure-native:compute:ProximityPlacementGroupType")
 class ProximityPlacementGroupType(builtins.str, Enum):
     """
     Specifies the type of the proximity placement group. Possible values are: **Standard** : Co-locate resources within an Azure region or Availability Zone. **Ultra** : For future use.
@@ -713,6 +770,7 @@ class ProximityPlacementGroupType(builtins.str, Enum):
     ULTRA = "Ultra"
 
 
+@pulumi.type_token("azure-native:compute:PublicIPAddressSkuName")
 class PublicIPAddressSkuName(builtins.str, Enum):
     """
     Specify public IP sku name
@@ -721,6 +779,7 @@ class PublicIPAddressSkuName(builtins.str, Enum):
     STANDARD = "Standard"
 
 
+@pulumi.type_token("azure-native:compute:PublicIPAddressSkuTier")
 class PublicIPAddressSkuTier(builtins.str, Enum):
     """
     Specify public IP sku tier
@@ -729,6 +788,7 @@ class PublicIPAddressSkuTier(builtins.str, Enum):
     GLOBAL_ = "Global"
 
 
+@pulumi.type_token("azure-native:compute:PublicIPAllocationMethod")
 class PublicIPAllocationMethod(builtins.str, Enum):
     """
     Specify the public IP allocation type
@@ -737,6 +797,7 @@ class PublicIPAllocationMethod(builtins.str, Enum):
     STATIC = "Static"
 
 
+@pulumi.type_token("azure-native:compute:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Policy for controlling export on the disk.
@@ -751,6 +812,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:compute:RebalanceBehavior")
 class RebalanceBehavior(builtins.str, Enum):
     """
     Type of rebalance behavior that will be used for recreating virtual machines in the scale set across availability zones. Default and only supported value for now is CreateBeforeDelete.
@@ -758,6 +820,7 @@ class RebalanceBehavior(builtins.str, Enum):
     CREATE_BEFORE_DELETE = "CreateBeforeDelete"
 
 
+@pulumi.type_token("azure-native:compute:RebalanceStrategy")
 class RebalanceStrategy(builtins.str, Enum):
     """
     Type of rebalance strategy that will be used for rebalancing virtual machines in the scale set across availability zones. Default and only supported value for now is Recreate.
@@ -765,6 +828,7 @@ class RebalanceStrategy(builtins.str, Enum):
     RECREATE = "Recreate"
 
 
+@pulumi.type_token("azure-native:compute:RepairAction")
 class RepairAction(builtins.str, Enum):
     """
     Type of repair action (replace, restart, reimage) that will be used for repairing unhealthy virtual machines in the scale set. Default value is replace.
@@ -774,6 +838,7 @@ class RepairAction(builtins.str, Enum):
     REIMAGE = "Reimage"
 
 
+@pulumi.type_token("azure-native:compute:ReplicationMode")
 class ReplicationMode(builtins.str, Enum):
     """
     Optional parameter which specifies the mode to be used for replication. This property is not updatable.
@@ -782,6 +847,7 @@ class ReplicationMode(builtins.str, Enum):
     SHALLOW = "Shallow"
 
 
+@pulumi.type_token("azure-native:compute:ResilientVMDeletionStatus")
 class ResilientVMDeletionStatus(builtins.str, Enum):
     """
     Specifies the resilient VM deletion status for the virtual machine.
@@ -792,6 +858,7 @@ class ResilientVMDeletionStatus(builtins.str, Enum):
     FAILED = "Failed"
 
 
+@pulumi.type_token("azure-native:compute:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The type of identity used for the virtual machine. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
@@ -802,6 +869,7 @@ class ResourceIdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:compute:RestorePointEncryptionType")
 class RestorePointEncryptionType(builtins.str, Enum):
     """
     The type of key used to encrypt the data of the disk restore point.
@@ -820,6 +888,7 @@ class RestorePointEncryptionType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:compute:SecurityEncryptionTypes")
 class SecurityEncryptionTypes(builtins.str, Enum):
     """
     Specifies the EncryptionType of the managed disk. It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, VMGuestStateOnly for encryption of just the VMGuestState blob, and NonPersistedTPM for not persisting firmware state in the VMGuestState blob.. **Note:** It can be set for only Confidential VMs.
@@ -829,6 +898,7 @@ class SecurityEncryptionTypes(builtins.str, Enum):
     NON_PERSISTED_TPM = "NonPersistedTPM"
 
 
+@pulumi.type_token("azure-native:compute:SecurityTypes")
 class SecurityTypes(builtins.str, Enum):
     """
     Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. The default behavior is: UefiSettings will not be enabled unless this property is set.
@@ -837,6 +907,7 @@ class SecurityTypes(builtins.str, Enum):
     CONFIDENTIAL_VM = "ConfidentialVM"
 
 
+@pulumi.type_token("azure-native:compute:SettingNames")
 class SettingNames(builtins.str, Enum):
     """
     Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
@@ -845,6 +916,7 @@ class SettingNames(builtins.str, Enum):
     FIRST_LOGON_COMMANDS = "FirstLogonCommands"
 
 
+@pulumi.type_token("azure-native:compute:SnapshotStorageAccountTypes")
 class SnapshotStorageAccountTypes(builtins.str, Enum):
     """
     The sku name.
@@ -863,6 +935,7 @@ class SnapshotStorageAccountTypes(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:compute:StatusLevelTypes")
 class StatusLevelTypes(builtins.str, Enum):
     """
     The level code.
@@ -872,6 +945,7 @@ class StatusLevelTypes(builtins.str, Enum):
     ERROR = "Error"
 
 
+@pulumi.type_token("azure-native:compute:StorageAccountType")
 class StorageAccountType(builtins.str, Enum):
     """
     Specifies the storage account type to be used to store the image. This property is not updatable.
@@ -882,6 +956,7 @@ class StorageAccountType(builtins.str, Enum):
     PREMIUM_V2_LRS = "PremiumV2_LRS"
 
 
+@pulumi.type_token("azure-native:compute:StorageAccountTypes")
 class StorageAccountTypes(builtins.str, Enum):
     """
     Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
@@ -895,6 +970,7 @@ class StorageAccountTypes(builtins.str, Enum):
     PREMIUM_V2_LRS = "PremiumV2_LRS"
 
 
+@pulumi.type_token("azure-native:compute:UefiKeyType")
 class UefiKeyType(builtins.str, Enum):
     """
     The type of key signature.
@@ -903,6 +979,7 @@ class UefiKeyType(builtins.str, Enum):
     X509 = "x509"
 
 
+@pulumi.type_token("azure-native:compute:UefiSignatureTemplateName")
 class UefiSignatureTemplateName(builtins.str, Enum):
     """
     The name of the signature template that contains default UEFI keys.
@@ -912,6 +989,7 @@ class UefiSignatureTemplateName(builtins.str, Enum):
     MICROSOFT_WINDOWS_TEMPLATE = "MicrosoftWindowsTemplate"
 
 
+@pulumi.type_token("azure-native:compute:UpgradeMode")
 class UpgradeMode(builtins.str, Enum):
     """
     Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
@@ -921,6 +999,7 @@ class UpgradeMode(builtins.str, Enum):
     ROLLING = "Rolling"
 
 
+@pulumi.type_token("azure-native:compute:VirtualMachineEvictionPolicyTypes")
 class VirtualMachineEvictionPolicyTypes(builtins.str, Enum):
     """
     Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
@@ -929,6 +1008,7 @@ class VirtualMachineEvictionPolicyTypes(builtins.str, Enum):
     DELETE = "Delete"
 
 
+@pulumi.type_token("azure-native:compute:VirtualMachinePriorityTypes")
 class VirtualMachinePriorityTypes(builtins.str, Enum):
     """
     Specifies the priority for the virtual machines in the scale set. Minimum api-version: 2017-10-30-preview.
@@ -938,12 +1018,14 @@ class VirtualMachinePriorityTypes(builtins.str, Enum):
     SPOT = "Spot"
 
 
+@pulumi.type_token("azure-native:compute:VirtualMachineScaleSetScaleInRules")
 class VirtualMachineScaleSetScaleInRules(builtins.str, Enum):
     DEFAULT = "Default"
     OLDEST_VM = "OldestVM"
     NEWEST_VM = "NewestVM"
 
 
+@pulumi.type_token("azure-native:compute:VirtualMachineSizeTypes")
 class VirtualMachineSizeTypes(builtins.str, Enum):
     """
     Specifies the size of the virtual machine. The enum data type is currently deprecated and will be removed by December 23rd 2023. The recommended way to get the list of available sizes is using these APIs: [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes), [List all available virtual machine sizes in a region]( https://docs.microsoft.com/rest/api/compute/resourceskus/list), [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/sizes). The available VM sizes depend on region and availability set.
@@ -1116,6 +1198,7 @@ class VirtualMachineSizeTypes(builtins.str, Enum):
     STANDARD_NV24 = "Standard_NV24"
 
 
+@pulumi.type_token("azure-native:compute:WindowsPatchAssessmentMode")
 class WindowsPatchAssessmentMode(builtins.str, Enum):
     """
     Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true. 
@@ -1124,6 +1207,7 @@ class WindowsPatchAssessmentMode(builtins.str, Enum):
     AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
 
 
+@pulumi.type_token("azure-native:compute:WindowsVMGuestPatchAutomaticByPlatformRebootSetting")
 class WindowsVMGuestPatchAutomaticByPlatformRebootSetting(builtins.str, Enum):
     """
     Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
@@ -1134,6 +1218,7 @@ class WindowsVMGuestPatchAutomaticByPlatformRebootSetting(builtins.str, Enum):
     ALWAYS = "Always"
 
 
+@pulumi.type_token("azure-native:compute:WindowsVMGuestPatchMode")
 class WindowsVMGuestPatchMode(builtins.str, Enum):
     """
     Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
@@ -1143,6 +1228,7 @@ class WindowsVMGuestPatchMode(builtins.str, Enum):
     AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
 
 
+@pulumi.type_token("azure-native:compute:ZonalPlatformFaultDomainAlignMode")
 class ZonalPlatformFaultDomainAlignMode(builtins.str, Enum):
     """
     Specifies the align mode between Virtual Machine Scale Set compute and storage Fault Domain count.
@@ -1151,6 +1237,7 @@ class ZonalPlatformFaultDomainAlignMode(builtins.str, Enum):
     UNALIGNED = "Unaligned"
 
 
+@pulumi.type_token("azure-native:compute:ZonePlacementPolicyType")
 class ZonePlacementPolicyType(builtins.str, Enum):
     """
     Specifies the policy for virtual machine's placement in availability zone. Possible values are: **Any** - An availability zone will be automatically picked by system as part of virtual machine creation.

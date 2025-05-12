@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -21,6 +21,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:redisenterprise:AofFrequency")
 class AofFrequency(builtins.str, Enum):
     """
     Sets the frequency at which data is written to disk.
@@ -29,6 +30,7 @@ class AofFrequency(builtins.str, Enum):
     ALWAYS = "always"
 
 
+@pulumi.type_token("azure-native:redisenterprise:ClusteringPolicy")
 class ClusteringPolicy(builtins.str, Enum):
     """
     Clustering policy - default is OSSCluster. Specified at create time.
@@ -37,6 +39,7 @@ class ClusteringPolicy(builtins.str, Enum):
     OSS_CLUSTER = "OSSCluster"
 
 
+@pulumi.type_token("azure-native:redisenterprise:CmkIdentityType")
 class CmkIdentityType(builtins.str, Enum):
     """
     Only userAssignedIdentity is supported in this API version; other types may be supported in the future
@@ -45,6 +48,7 @@ class CmkIdentityType(builtins.str, Enum):
     USER_ASSIGNED_IDENTITY = "userAssignedIdentity"
 
 
+@pulumi.type_token("azure-native:redisenterprise:DeferUpgradeSetting")
 class DeferUpgradeSetting(builtins.str, Enum):
     """
     Option to defer upgrade when newest version is released - default is NotDeferred. Learn more:  https://aka.ms/redisversionupgrade
@@ -53,6 +57,7 @@ class DeferUpgradeSetting(builtins.str, Enum):
     NOT_DEFERRED = "NotDeferred"
 
 
+@pulumi.type_token("azure-native:redisenterprise:EvictionPolicy")
 class EvictionPolicy(builtins.str, Enum):
     """
     Redis eviction policy - default is VolatileLRU
@@ -67,6 +72,7 @@ class EvictionPolicy(builtins.str, Enum):
     NO_EVICTION = "NoEviction"
 
 
+@pulumi.type_token("azure-native:redisenterprise:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -77,6 +83,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
 
 
+@pulumi.type_token("azure-native:redisenterprise:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -86,6 +93,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:redisenterprise:Protocol")
 class Protocol(builtins.str, Enum):
     """
     Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
@@ -94,6 +102,7 @@ class Protocol(builtins.str, Enum):
     PLAINTEXT = "Plaintext"
 
 
+@pulumi.type_token("azure-native:redisenterprise:RdbFrequency")
 class RdbFrequency(builtins.str, Enum):
     """
     Sets the frequency at which a snapshot of the database is created.
@@ -103,6 +112,7 @@ class RdbFrequency(builtins.str, Enum):
     RDB_FREQUENCY_12H = "12h"
 
 
+@pulumi.type_token("azure-native:redisenterprise:SkuName")
 class SkuName(builtins.str, Enum):
     """
     The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
@@ -117,6 +127,7 @@ class SkuName(builtins.str, Enum):
     ENTERPRISE_FLASH_F1500 = "EnterpriseFlash_F1500"
 
 
+@pulumi.type_token("azure-native:redisenterprise:TlsVersion")
 class TlsVersion(builtins.str, Enum):
     """
     The minimum TLS version for the cluster to support, e.g. '1.2'

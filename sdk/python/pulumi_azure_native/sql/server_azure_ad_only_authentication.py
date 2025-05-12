@@ -86,10 +86,8 @@ class ServerAzureADOnlyAuthenticationArgs:
         pulumi.set(self, "authentication_name", value)
 
 
+@pulumi.type_token("azure-native:sql:ServerAzureADOnlyAuthentication")
 class ServerAzureADOnlyAuthentication(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:ServerAzureADOnlyAuthentication"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -121,10 +121,8 @@ class TunnelPolicyArgs:
         pulumi.set(self, "tunnel_type", value)
 
 
+@pulumi.type_token("azure-native:cdn:TunnelPolicy")
 class TunnelPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cdn:TunnelPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

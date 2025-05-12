@@ -216,10 +216,8 @@ class IntegrationAccountSchemaArgs:
         pulumi.set(self, "target_namespace", value)
 
 
+@pulumi.type_token("azure-native:logic:IntegrationAccountSchema")
 class IntegrationAccountSchema(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:logic:IntegrationAccountSchema"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

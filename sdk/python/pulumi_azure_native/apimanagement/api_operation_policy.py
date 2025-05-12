@@ -135,10 +135,8 @@ class ApiOperationPolicyArgs:
         pulumi.set(self, "policy_id", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:ApiOperationPolicy")
 class ApiOperationPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:ApiOperationPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

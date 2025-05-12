@@ -126,10 +126,8 @@ class GlobalReachConnectionArgs:
         pulumi.set(self, "peer_express_route_circuit", value)
 
 
+@pulumi.type_token("azure-native:avs:GlobalReachConnection")
 class GlobalReachConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:avs:GlobalReachConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

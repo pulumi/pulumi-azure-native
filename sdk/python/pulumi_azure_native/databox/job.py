@@ -187,10 +187,8 @@ class JobArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:databox:Job")
 class Job(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databox:Job"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

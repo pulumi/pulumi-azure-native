@@ -88,10 +88,8 @@ class AuthorizationArgs:
         pulumi.set(self, "express_route_id", value)
 
 
+@pulumi.type_token("azure-native:avs:Authorization")
 class Authorization(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:avs:Authorization"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

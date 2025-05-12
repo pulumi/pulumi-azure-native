@@ -89,10 +89,8 @@ class WorkspacePrivateEndpointConnectionArgs:
         pulumi.set(self, "private_endpoint_connection_name", value)
 
 
+@pulumi.type_token("azure-native:healthcareapis:WorkspacePrivateEndpointConnection")
 class WorkspacePrivateEndpointConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:healthcareapis:WorkspacePrivateEndpointConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

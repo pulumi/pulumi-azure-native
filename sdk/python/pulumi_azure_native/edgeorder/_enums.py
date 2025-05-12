@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -21,6 +21,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:edgeorder:AddressClassification")
 class AddressClassification(builtins.str, Enum):
     """
     Type of address based on its usage context.
@@ -35,6 +36,7 @@ class AddressClassification(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:edgeorder:AddressType")
 class AddressType(builtins.str, Enum):
     """
     Type of address.
@@ -53,6 +55,7 @@ class AddressType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:edgeorder:AutoProvisioningStatus")
 class AutoProvisioningStatus(builtins.str, Enum):
     """
     Auto Provisioning Details.
@@ -67,6 +70,7 @@ class AutoProvisioningStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:edgeorder:ChildConfigurationType")
 class ChildConfigurationType(builtins.str, Enum):
     DEVICE_CONFIGURATION = "DeviceConfiguration"
     """
@@ -78,6 +82,7 @@ class ChildConfigurationType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:edgeorder:DoubleEncryptionStatus")
 class DoubleEncryptionStatus(builtins.str, Enum):
     """
     Double encryption status as entered by the customer. It is compulsory to give this parameter if the 'Deny' or 'Disabled' policy is configured.
@@ -92,6 +97,7 @@ class DoubleEncryptionStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:edgeorder:NotificationStageName")
 class NotificationStageName(builtins.str, Enum):
     """
     Name of the stage.
@@ -106,6 +112,7 @@ class NotificationStageName(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:edgeorder:OrderItemType")
 class OrderItemType(builtins.str, Enum):
     """
     Order item type.
@@ -124,6 +131,7 @@ class OrderItemType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:edgeorder:OrderMode")
 class OrderMode(builtins.str, Enum):
     """
     Defines the mode of the Order item.
@@ -138,6 +146,7 @@ class OrderMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:edgeorder:SupportedFilterTypes")
 class SupportedFilterTypes(builtins.str, Enum):
     """
     Type of product filter.
@@ -152,6 +161,7 @@ class SupportedFilterTypes(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:edgeorder:TermCommitmentType")
 class TermCommitmentType(builtins.str, Enum):
     """
     Term Commitment Type
@@ -170,6 +180,7 @@ class TermCommitmentType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:edgeorder:TransportShipmentTypes")
 class TransportShipmentTypes(builtins.str, Enum):
     """
     Indicates Shipment Logistics type that the customer preferred.

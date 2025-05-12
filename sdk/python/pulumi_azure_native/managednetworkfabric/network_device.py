@@ -152,10 +152,8 @@ class NetworkDeviceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:NetworkDevice")
 class NetworkDevice(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:managednetworkfabric:NetworkDevice"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

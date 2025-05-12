@@ -168,10 +168,8 @@ class GovernanceAssignmentArgs:
         pulumi.set(self, "remediation_eta", value)
 
 
+@pulumi.type_token("azure-native:security:GovernanceAssignment")
 class GovernanceAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:GovernanceAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

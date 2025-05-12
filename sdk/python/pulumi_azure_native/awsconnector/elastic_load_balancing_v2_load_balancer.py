@@ -106,10 +106,8 @@ class ElasticLoadBalancingV2LoadBalancerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:ElasticLoadBalancingV2LoadBalancer")
 class ElasticLoadBalancingV2LoadBalancer(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:ElasticLoadBalancingV2LoadBalancer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

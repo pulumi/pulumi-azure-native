@@ -134,10 +134,8 @@ class SiteArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:offazure:Site")
 class Site(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:offazure:Site"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

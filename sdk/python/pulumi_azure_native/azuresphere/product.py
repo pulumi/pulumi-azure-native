@@ -88,10 +88,8 @@ class ProductArgs:
         pulumi.set(self, "product_name", value)
 
 
+@pulumi.type_token("azure-native:azuresphere:Product")
 class Product(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azuresphere:Product"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

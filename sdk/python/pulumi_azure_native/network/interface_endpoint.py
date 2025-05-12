@@ -155,10 +155,8 @@ class InterfaceEndpointArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:network:InterfaceEndpoint")
 class InterfaceEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:InterfaceEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

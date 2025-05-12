@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:chaos:FilterType")
 class FilterType(builtins.str, Enum):
     """
     Enum that discriminates between filter types. Currently only `Simple` type is supported.
@@ -22,6 +23,7 @@ class FilterType(builtins.str, Enum):
     SIMPLE = "Simple"
 
 
+@pulumi.type_token("azure-native:chaos:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -32,6 +34,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:chaos:PublicNetworkAccessOption")
 class PublicNetworkAccessOption(builtins.str, Enum):
     """
     Public Network Access Control for PrivateAccess resource.
@@ -40,6 +43,7 @@ class PublicNetworkAccessOption(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:chaos:SelectorType")
 class SelectorType(builtins.str, Enum):
     """
     Enum of the selector type.
@@ -48,6 +52,7 @@ class SelectorType(builtins.str, Enum):
     QUERY = "Query"
 
 
+@pulumi.type_token("azure-native:chaos:TargetReferenceType")
 class TargetReferenceType(builtins.str, Enum):
     """
     Enum of the Target reference type.

@@ -121,10 +121,8 @@ class MigrateAgentArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:migrate:MigrateAgent")
 class MigrateAgent(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:migrate:MigrateAgent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

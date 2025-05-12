@@ -89,10 +89,8 @@ class PrivateEndpointConnectionsForMIPPolicySyncArgs:
         pulumi.set(self, "private_endpoint_connection_name", value)
 
 
+@pulumi.type_token("azure-native:securityandcompliance:PrivateEndpointConnectionsForMIPPolicySync")
 class PrivateEndpointConnectionsForMIPPolicySync(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityandcompliance:PrivateEndpointConnectionsForMIPPolicySync"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

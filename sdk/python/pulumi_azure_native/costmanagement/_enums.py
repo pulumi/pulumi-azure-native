@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -49,6 +49,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:costmanagement:AccumulatedType")
 class AccumulatedType(builtins.str, Enum):
     """
     Show costs accumulated over time.
@@ -57,6 +58,7 @@ class AccumulatedType(builtins.str, Enum):
     FALSE = "false"
 
 
+@pulumi.type_token("azure-native:costmanagement:BudgetNotificationOperatorType")
 class BudgetNotificationOperatorType(builtins.str, Enum):
     """
     The comparison operator.
@@ -96,6 +98,7 @@ class BudgetNotificationOperatorType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:costmanagement:BudgetOperatorType")
 class BudgetOperatorType(builtins.str, Enum):
     """
     The operator to use for comparison.
@@ -103,6 +106,7 @@ class BudgetOperatorType(builtins.str, Enum):
     IN_ = "In"
 
 
+@pulumi.type_token("azure-native:costmanagement:CategoryType")
 class CategoryType(builtins.str, Enum):
     """
     The category of the budget.
@@ -119,6 +123,7 @@ class CategoryType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:costmanagement:ChartType")
 class ChartType(builtins.str, Enum):
     """
     Chart type of the main view in Cost Analysis. Required.
@@ -130,6 +135,7 @@ class ChartType(builtins.str, Enum):
     TABLE = "Table"
 
 
+@pulumi.type_token("azure-native:costmanagement:ConnectorBillingModel")
 class ConnectorBillingModel(builtins.str, Enum):
     """
     Connector billing model
@@ -140,6 +146,7 @@ class ConnectorBillingModel(builtins.str, Enum):
     EXPIRED = "expired"
 
 
+@pulumi.type_token("azure-native:costmanagement:ConnectorStatus")
 class ConnectorStatus(builtins.str, Enum):
     """
     Connector status
@@ -149,6 +156,7 @@ class ConnectorStatus(builtins.str, Enum):
     SUSPENDED = "suspended"
 
 
+@pulumi.type_token("azure-native:costmanagement:CostAllocationPolicyType")
 class CostAllocationPolicyType(builtins.str, Enum):
     """
     Method of cost allocation for the rule
@@ -156,6 +164,7 @@ class CostAllocationPolicyType(builtins.str, Enum):
     FIXED_PROPORTION = "FixedProportion"
 
 
+@pulumi.type_token("azure-native:costmanagement:CostAllocationResourceType")
 class CostAllocationResourceType(builtins.str, Enum):
     """
     Type of resources contained in this cost allocation rule
@@ -170,6 +179,7 @@ class CostAllocationResourceType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:costmanagement:CultureCode")
 class CultureCode(builtins.str, Enum):
     """
     Language in which the recipient will receive the notification, 
@@ -199,6 +209,7 @@ class CultureCode(builtins.str, Enum):
     SV_SE = "sv-se"
 
 
+@pulumi.type_token("azure-native:costmanagement:DaysOfWeek")
 class DaysOfWeek(builtins.str, Enum):
     """
     Days of Week.
@@ -212,6 +223,7 @@ class DaysOfWeek(builtins.str, Enum):
     SUNDAY = "Sunday"
 
 
+@pulumi.type_token("azure-native:costmanagement:ExportType")
 class ExportType(builtins.str, Enum):
     """
     The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
@@ -221,6 +233,7 @@ class ExportType(builtins.str, Enum):
     AMORTIZED_COST = "AmortizedCost"
 
 
+@pulumi.type_token("azure-native:costmanagement:FileFormat")
 class FileFormat(builtins.str, Enum):
     """
     Destination of the view data. Currently only CSV format is supported.
@@ -228,6 +241,7 @@ class FileFormat(builtins.str, Enum):
     CSV = "Csv"
 
 
+@pulumi.type_token("azure-native:costmanagement:FormatType")
 class FormatType(builtins.str, Enum):
     """
     The format of the report being delivered.
@@ -235,6 +249,7 @@ class FormatType(builtins.str, Enum):
     CSV = "Csv"
 
 
+@pulumi.type_token("azure-native:costmanagement:Frequency")
 class Frequency(builtins.str, Enum):
     """
     Frequency of a notification. Represents how long the notification will be silent after triggering an alert for a threshold breach. If not specified, the frequency will be set by default based on the timeGrain (Weekly when timeGrain: Last7Days, Monthly when timeGrain: Last30Days).
@@ -255,6 +270,7 @@ class Frequency(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:costmanagement:FunctionType")
 class FunctionType(builtins.str, Enum):
     """
     The name of the aggregation function to use.
@@ -262,6 +278,7 @@ class FunctionType(builtins.str, Enum):
     SUM = "Sum"
 
 
+@pulumi.type_token("azure-native:costmanagement:GranularityType")
 class GranularityType(builtins.str, Enum):
     """
     The granularity of rows in the report.
@@ -270,6 +287,7 @@ class GranularityType(builtins.str, Enum):
     HOURLY = "Hourly"
 
 
+@pulumi.type_token("azure-native:costmanagement:KpiTypeType")
 class KpiTypeType(builtins.str, Enum):
     """
     KPI type (Forecast, Budget).
@@ -278,6 +296,7 @@ class KpiTypeType(builtins.str, Enum):
     BUDGET = "Budget"
 
 
+@pulumi.type_token("azure-native:costmanagement:MetricType")
 class MetricType(builtins.str, Enum):
     """
     Metric to use when displaying costs.
@@ -287,6 +306,7 @@ class MetricType(builtins.str, Enum):
     AHUB = "AHUB"
 
 
+@pulumi.type_token("azure-native:costmanagement:OperatorType")
 class OperatorType(builtins.str, Enum):
     """
     The operator to use for comparison.
@@ -295,6 +315,7 @@ class OperatorType(builtins.str, Enum):
     CONTAINS = "Contains"
 
 
+@pulumi.type_token("azure-native:costmanagement:PivotTypeType")
 class PivotTypeType(builtins.str, Enum):
     """
     Data type to show in view.
@@ -303,6 +324,7 @@ class PivotTypeType(builtins.str, Enum):
     TAG_KEY = "TagKey"
 
 
+@pulumi.type_token("azure-native:costmanagement:QueryColumnType")
 class QueryColumnType(builtins.str, Enum):
     """
     Has type of the column to group.
@@ -317,6 +339,7 @@ class QueryColumnType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:costmanagement:RecurrenceType")
 class RecurrenceType(builtins.str, Enum):
     """
     The schedule recurrence.
@@ -327,6 +350,7 @@ class RecurrenceType(builtins.str, Enum):
     ANNUALLY = "Annually"
 
 
+@pulumi.type_token("azure-native:costmanagement:ReportColumnType")
 class ReportColumnType(builtins.str, Enum):
     """
     Has type of the column to group.
@@ -335,6 +359,7 @@ class ReportColumnType(builtins.str, Enum):
     DIMENSION = "Dimension"
 
 
+@pulumi.type_token("azure-native:costmanagement:ReportConfigSortingType")
 class ReportConfigSortingType(builtins.str, Enum):
     """
     Direction of sort.
@@ -343,6 +368,7 @@ class ReportConfigSortingType(builtins.str, Enum):
     DESCENDING = "Descending"
 
 
+@pulumi.type_token("azure-native:costmanagement:ReportGranularityType")
 class ReportGranularityType(builtins.str, Enum):
     """
     The granularity of rows in the report.
@@ -351,6 +377,7 @@ class ReportGranularityType(builtins.str, Enum):
     MONTHLY = "Monthly"
 
 
+@pulumi.type_token("azure-native:costmanagement:ReportTimeframeType")
 class ReportTimeframeType(builtins.str, Enum):
     """
     The time frame for pulling data for the report. If custom, then a specific time period must be provided.
@@ -361,6 +388,7 @@ class ReportTimeframeType(builtins.str, Enum):
     CUSTOM = "Custom"
 
 
+@pulumi.type_token("azure-native:costmanagement:ReportType")
 class ReportType(builtins.str, Enum):
     """
     The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
@@ -368,6 +396,7 @@ class ReportType(builtins.str, Enum):
     USAGE = "Usage"
 
 
+@pulumi.type_token("azure-native:costmanagement:RuleStatus")
 class RuleStatus(builtins.str, Enum):
     """
     Status of the rule
@@ -386,6 +415,7 @@ class RuleStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:costmanagement:ScheduleFrequency")
 class ScheduleFrequency(builtins.str, Enum):
     """
     Frequency of the schedule.
@@ -404,6 +434,7 @@ class ScheduleFrequency(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:costmanagement:ScheduledActionKind")
 class ScheduledActionKind(builtins.str, Enum):
     """
     Kind of the scheduled action.
@@ -418,6 +449,7 @@ class ScheduledActionKind(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:costmanagement:ScheduledActionStatus")
 class ScheduledActionStatus(builtins.str, Enum):
     """
     Status of the scheduled action.
@@ -436,6 +468,7 @@ class ScheduledActionStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:costmanagement:SettingsKind")
 class SettingsKind(builtins.str, Enum):
     """
     Specifies the kind of settings.
@@ -443,6 +476,7 @@ class SettingsKind(builtins.str, Enum):
     TAGINHERITANCE = "taginheritance"
 
 
+@pulumi.type_token("azure-native:costmanagement:StatusType")
 class StatusType(builtins.str, Enum):
     """
     The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
@@ -451,6 +485,7 @@ class StatusType(builtins.str, Enum):
     INACTIVE = "Inactive"
 
 
+@pulumi.type_token("azure-native:costmanagement:SystemAssignedServiceIdentityType")
 class SystemAssignedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (either system assigned, or none).
@@ -459,6 +494,7 @@ class SystemAssignedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
 
 
+@pulumi.type_token("azure-native:costmanagement:ThresholdType")
 class ThresholdType(builtins.str, Enum):
     """
     The type of threshold.
@@ -475,6 +511,7 @@ class ThresholdType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:costmanagement:TimeGrainType")
 class TimeGrainType(builtins.str, Enum):
     """
     The time covered by a budget. Tracking of the amount will be reset based on the time grain.
@@ -548,6 +585,7 @@ class TimeGrainType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:costmanagement:TimeframeType")
 class TimeframeType(builtins.str, Enum):
     """
     The time frame for pulling data for the report. If custom, then a specific time period must be provided.
@@ -557,6 +595,7 @@ class TimeframeType(builtins.str, Enum):
     CUSTOM = "Custom"
 
 
+@pulumi.type_token("azure-native:costmanagement:WeeksOfMonth")
 class WeeksOfMonth(builtins.str, Enum):
     """
     Weeks of month.

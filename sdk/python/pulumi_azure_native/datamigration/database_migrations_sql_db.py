@@ -85,10 +85,8 @@ class DatabaseMigrationsSqlDbArgs:
         pulumi.set(self, "target_db_name", value)
 
 
+@pulumi.type_token("azure-native:datamigration:DatabaseMigrationsSqlDb")
 class DatabaseMigrationsSqlDb(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datamigration:DatabaseMigrationsSqlDb"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

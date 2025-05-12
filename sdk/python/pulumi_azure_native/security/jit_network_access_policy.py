@@ -117,10 +117,8 @@ class JitNetworkAccessPolicyArgs:
         pulumi.set(self, "requests", value)
 
 
+@pulumi.type_token("azure-native:security:JitNetworkAccessPolicy")
 class JitNetworkAccessPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:JitNetworkAccessPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

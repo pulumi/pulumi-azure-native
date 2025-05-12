@@ -87,10 +87,8 @@ class StorageAccountStaticWebsiteArgs:
         pulumi.set(self, "index_document", value)
 
 
+@pulumi.type_token("azure-native:storage:StorageAccountStaticWebsite")
 class StorageAccountStaticWebsite(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storage:StorageAccountStaticWebsite"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -72,10 +72,8 @@ class HcxEnterpriseSiteArgs:
         pulumi.set(self, "hcx_enterprise_site_name", value)
 
 
+@pulumi.type_token("azure-native:avs:HcxEnterpriseSite")
 class HcxEnterpriseSite(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:avs:HcxEnterpriseSite"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

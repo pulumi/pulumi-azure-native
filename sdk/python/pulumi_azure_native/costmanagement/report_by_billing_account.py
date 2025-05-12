@@ -121,10 +121,8 @@ class ReportByBillingAccountArgs:
         pulumi.set(self, "schedule", value)
 
 
+@pulumi.type_token("azure-native:costmanagement:ReportByBillingAccount")
 class ReportByBillingAccount(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:costmanagement:ReportByBillingAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

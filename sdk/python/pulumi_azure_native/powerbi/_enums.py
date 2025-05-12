@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:powerbi:AzureSkuName")
 class AzureSkuName(builtins.str, Enum):
     """
     SKU name
@@ -21,6 +22,7 @@ class AzureSkuName(builtins.str, Enum):
     S1 = "S1"
 
 
+@pulumi.type_token("azure-native:powerbi:AzureSkuTier")
 class AzureSkuTier(builtins.str, Enum):
     """
     SKU tier
@@ -28,6 +30,7 @@ class AzureSkuTier(builtins.str, Enum):
     STANDARD = "Standard"
 
 
+@pulumi.type_token("azure-native:powerbi:PersistedConnectionStatus")
 class PersistedConnectionStatus(builtins.str, Enum):
     """
     Status of the connection.
@@ -38,6 +41,7 @@ class PersistedConnectionStatus(builtins.str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+@pulumi.type_token("azure-native:powerbi:ResourceProvisioningState")
 class ResourceProvisioningState(builtins.str, Enum):
     """
     Provisioning state of the Private Endpoint Connection.

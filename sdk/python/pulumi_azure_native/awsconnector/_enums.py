@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -230,6 +230,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:awsconnector:AccelerateConfigurationAccelerationStatus")
 class AccelerateConfigurationAccelerationStatus(builtins.str, Enum):
     """
     Specifies the transfer acceleration status of the bucket.
@@ -244,6 +245,7 @@ class AccelerateConfigurationAccelerationStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:AccessControl")
 class AccessControl(builtins.str, Enum):
     """
     This is a legacy property, and it is not recommended for most use cases. A majority of modern use cases in Amazon S3 no longer require the use of ACLs, and we recommend that you keep ACLs disabled. For more information, see [Controlling object ownership](https://docs.aws.amazon.com//AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.  A canned access control list (ACL) that grants predefined permissions to the bucket. For more information about canned ACLs, see [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) in the *Amazon S3 User Guide*.  S3 buckets are created with ACLs disabled by default. Therefore, unless you explicitly set the [AWS::S3::OwnershipControls](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html) property to enable ACLs, your resource will fail to deploy with any value other than Private. Use cases requiring ACLs are uncommon.  The majority of access control configurations can be successfully and more easily achieved with bucket policies. For more information, see [AWS::S3::BucketPolicy](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html). For examples of common policy configurations, including S3 Server Access Logs buckets and more, see [Bucket policy examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) in the *Amazon S3 User Guide*.
@@ -282,6 +284,7 @@ class AccessControl(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:Action")
 class Action(builtins.str, Enum):
     """
     Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
@@ -312,6 +315,7 @@ class Action(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:AddOnStatus")
 class AddOnStatus(builtins.str, Enum):
     """
     Status of the Addon
@@ -346,6 +350,7 @@ class AddOnStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:AmdSevSnpSpecification")
 class AmdSevSnpSpecification(builtins.str, Enum):
     """
     Property value
@@ -360,6 +365,7 @@ class AmdSevSnpSpecification(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:AnomalyResultEnum")
 class AnomalyResultEnum(builtins.str, Enum):
     """
     Property value
@@ -374,6 +380,7 @@ class AnomalyResultEnum(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:AppType")
 class AppType(builtins.str, Enum):
     """
     The type of app.
@@ -400,6 +407,7 @@ class AppType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ArchitectureValues")
 class ArchitectureValues(builtins.str, Enum):
     """
     Property value
@@ -426,6 +434,7 @@ class ArchitectureValues(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:Architectures")
 class Architectures(builtins.str, Enum):
     """
     Architectures enum
@@ -440,6 +449,7 @@ class Architectures(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ArtifactNamespace")
 class ArtifactNamespace(builtins.str, Enum):
     """
     Property value
@@ -454,6 +464,7 @@ class ArtifactNamespace(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ArtifactPackaging")
 class ArtifactPackaging(builtins.str, Enum):
     """
     Property value
@@ -468,6 +479,7 @@ class ArtifactPackaging(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ArtifactsType")
 class ArtifactsType(builtins.str, Enum):
     """
     Property value
@@ -486,6 +498,7 @@ class ArtifactsType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:AttachmentStatus")
 class AttachmentStatus(builtins.str, Enum):
     """
     Property value
@@ -508,6 +521,7 @@ class AttachmentStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:AuthType")
 class AuthType(builtins.str, Enum):
     """
     Property value
@@ -530,6 +544,7 @@ class AuthType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:AuthenticationMode")
 class AuthenticationMode(builtins.str, Enum):
     """
     Property value
@@ -548,6 +563,7 @@ class AuthenticationMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:AuthenticationType")
 class AuthenticationType(builtins.str, Enum):
     """
     Property value
@@ -574,6 +590,7 @@ class AuthenticationType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:AuthorizationConfigIAM")
 class AuthorizationConfigIAM(builtins.str, Enum):
     """
     Determines whether to use the Amazon ECS task role defined in a task definition when mounting the Amazon EFS file system. If it is turned on, transit encryption must be turned on in the ``EFSVolumeConfiguration``. If this parameter is omitted, the default value of ``DISABLED`` is used. For more information, see [Using Amazon EFS access points](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html#efs-volume-accesspoints) in the *Amazon Elastic Container Service Developer Guide*.
@@ -588,6 +605,7 @@ class AuthorizationConfigIAM(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:AutoTuneState")
 class AutoTuneState(builtins.str, Enum):
     """
     Property value
@@ -630,6 +648,7 @@ class AutoTuneState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:AwsVpcConfigurationAssignPublicIp")
 class AwsVpcConfigurationAssignPublicIp(builtins.str, Enum):
     """
     Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED``.
@@ -644,6 +663,7 @@ class AwsVpcConfigurationAssignPublicIp(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:BackupPolicyStatus")
 class BackupPolicyStatus(builtins.str, Enum):
     """
     Set the backup policy status for the file system.  +   *ENABLED* - Turns automatic backups on for the file system.   +   *DISABLED* - Turns automatic backups off for the file system.
@@ -658,6 +678,7 @@ class BackupPolicyStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:BatchReportModeType")
 class BatchReportModeType(builtins.str, Enum):
     """
     Property value
@@ -672,6 +693,7 @@ class BatchReportModeType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:BootModeValues")
 class BootModeValues(builtins.str, Enum):
     """
     Property value
@@ -690,6 +712,7 @@ class BootModeValues(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:BucketOwnerAccess")
 class BucketOwnerAccess(builtins.str, Enum):
     """
     Property value
@@ -708,6 +731,7 @@ class BucketOwnerAccess(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:CFNFeatureConfigurationStatus")
 class CFNFeatureConfigurationStatus(builtins.str, Enum):
     """
     Property status
@@ -722,6 +746,7 @@ class CFNFeatureConfigurationStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:CacheMode")
 class CacheMode(builtins.str, Enum):
     """
     CacheMode enum
@@ -740,6 +765,7 @@ class CacheMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:CacheType")
 class CacheType(builtins.str, Enum):
     """
     Property value
@@ -758,6 +784,7 @@ class CacheType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:CallAs")
 class CallAs(builtins.str, Enum):
     """
     Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
@@ -772,6 +799,7 @@ class CallAs(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:Capabilities")
 class Capabilities(builtins.str, Enum):
     """
     Capabilities enum
@@ -790,6 +818,7 @@ class Capabilities(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:CapacityReservationPreference")
 class CapacityReservationPreference(builtins.str, Enum):
     """
     Property value
@@ -804,6 +833,7 @@ class CapacityReservationPreference(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:CertificateStatus")
 class CertificateStatus(builtins.str, Enum):
     """
     Property value
@@ -838,6 +868,7 @@ class CertificateStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:CertificateType")
 class CertificateType(builtins.str, Enum):
     """
     Property value
@@ -856,6 +887,7 @@ class CertificateType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ClusterEndpointEncryptionType")
 class ClusterEndpointEncryptionType(builtins.str, Enum):
     """
     Property value
@@ -870,6 +902,7 @@ class ClusterEndpointEncryptionType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ClusterIssueCode")
 class ClusterIssueCode(builtins.str, Enum):
     """
     Property value
@@ -952,6 +985,7 @@ class ClusterIssueCode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ClusterState")
 class ClusterState(builtins.str, Enum):
     """
     Property value
@@ -986,6 +1020,7 @@ class ClusterState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ClusterStateChangeReasonCode")
 class ClusterStateChangeReasonCode(builtins.str, Enum):
     """
     Property value
@@ -1024,6 +1059,7 @@ class ClusterStateChangeReasonCode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ClusterStatus")
 class ClusterStatus(builtins.str, Enum):
     """
     Property value
@@ -1054,6 +1090,7 @@ class ClusterStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ComplianceSeverity")
 class ComplianceSeverity(builtins.str, Enum):
     """
     Property value
@@ -1084,6 +1121,7 @@ class ComplianceSeverity(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ComplianceStatus")
 class ComplianceStatus(builtins.str, Enum):
     """
     Property value
@@ -1098,6 +1136,7 @@ class ComplianceStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ComputeType")
 class ComputeType(builtins.str, Enum):
     """
     Property value
@@ -1144,6 +1183,7 @@ class ComputeType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ConfigChangeStatus")
 class ConfigChangeStatus(builtins.str, Enum):
     """
     Property value
@@ -1182,6 +1222,7 @@ class ConfigChangeStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ContinuousBackupsStatus")
 class ContinuousBackupsStatus(builtins.str, Enum):
     """
     Property value
@@ -1196,6 +1237,7 @@ class ContinuousBackupsStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:CorsRuleAllowedMethods")
 class CorsRuleAllowedMethods(builtins.str, Enum):
     """
     CorsRuleAllowedMethods enum
@@ -1222,6 +1264,7 @@ class CorsRuleAllowedMethods(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:CredentialProviderType")
 class CredentialProviderType(builtins.str, Enum):
     """
     Property value
@@ -1232,6 +1275,7 @@ class CredentialProviderType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:DataSourceLevelMetricsBehavior")
 class DataSourceLevelMetricsBehavior(builtins.str, Enum):
     """
     Property value
@@ -1246,6 +1290,7 @@ class DataSourceLevelMetricsBehavior(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:DataType")
 class DataType(builtins.str, Enum):
     """
     The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
@@ -1260,6 +1305,7 @@ class DataType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:DefaultAction")
 class DefaultAction(builtins.str, Enum):
     """
     Property value
@@ -1274,6 +1320,7 @@ class DefaultAction(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:DefaultBehavior")
 class DefaultBehavior(builtins.str, Enum):
     """
     Default handling for logs that don't match any of the specified filtering conditions.
@@ -1288,6 +1335,7 @@ class DefaultBehavior(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:DefaultRetentionMode")
 class DefaultRetentionMode(builtins.str, Enum):
     """
     The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
@@ -1302,6 +1350,7 @@ class DefaultRetentionMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:DeleteMarkerReplicationStatus")
 class DeleteMarkerReplicationStatus(builtins.str, Enum):
     """
     Indicates whether to replicate delete markers. Disabled by default.
@@ -1316,6 +1365,7 @@ class DeleteMarkerReplicationStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:DeploymentControllerType")
 class DeploymentControllerType(builtins.str, Enum):
     """
     The deployment controller type to use. There are three deployment controller types available:  + ECS The rolling update (ECS) deployment type involves replacing the current running version of the container with the latest version. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the DeploymentConfiguration. + CODE_DEPLOY The blue/green (CODE_DEPLOY) deployment type uses the blue/green deployment model powered by , which allows you to verify a new deployment of a service before sending production traffic to it. + EXTERNAL The external (EXTERNAL) deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
@@ -1334,6 +1384,7 @@ class DeploymentControllerType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:DeploymentStatus")
 class DeploymentStatus(builtins.str, Enum):
     """
     Property value
@@ -1360,6 +1411,7 @@ class DeploymentStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:DeploymentTargetsAccountFilterType")
 class DeploymentTargetsAccountFilterType(builtins.str, Enum):
     """
     The filter type you want to apply on organizational units and accounts.
@@ -1382,6 +1434,7 @@ class DeploymentTargetsAccountFilterType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:DestinationFormat")
 class DestinationFormat(builtins.str, Enum):
     """
     Specifies the file format used when exporting data to Amazon S3.  *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
@@ -1400,6 +1453,7 @@ class DestinationFormat(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:DeviceType")
 class DeviceType(builtins.str, Enum):
     """
     Property value
@@ -1414,6 +1468,7 @@ class DeviceType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:Distribution")
 class Distribution(builtins.str, Enum):
     """
     The method used to distribute log data to the destination, which can be either random or grouped by log stream.
@@ -1428,6 +1483,7 @@ class Distribution(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:DomainProcessingStatusType")
 class DomainProcessingStatusType(builtins.str, Enum):
     """
     Property value
@@ -1462,6 +1518,7 @@ class DomainProcessingStatusType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:DomainType")
 class DomainType(builtins.str, Enum):
     """
     Property value
@@ -1476,6 +1533,7 @@ class DomainType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:EBSTagSpecificationPropagateTags")
 class EBSTagSpecificationPropagateTags(builtins.str, Enum):
     """
     Determines whether to propagate the tags from the task definition to the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't propagated.
@@ -1490,6 +1548,7 @@ class EBSTagSpecificationPropagateTags(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:EFSVolumeConfigurationTransitEncryption")
 class EFSVolumeConfigurationTransitEncryption(builtins.str, Enum):
     """
     Determines whether to use encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be turned on if Amazon EFS IAM authorization is used. If this parameter is omitted, the default value of ``DISABLED`` is used. For more information, see [Encrypting data in transit](https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html) in the *Amazon Elastic File System User Guide*.
@@ -1504,6 +1563,7 @@ class EFSVolumeConfigurationTransitEncryption(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:EncryptionConfigurationEncryptionType")
 class EncryptionConfigurationEncryptionType(builtins.str, Enum):
     """
     The encryption type to use. If you use the ``KMS`` encryption type, the contents of the repository will be encrypted using server-side encryption with KMSlong key stored in KMS. When you use KMS to encrypt your data, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you already created. For more information, see [Protecting data using server-side encryption with an key stored in (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide*. If you use the ``AES256`` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES-256 encryption algorithm. For more information, see [Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) in the *Ama The encryption type to use.
@@ -1518,6 +1578,7 @@ class EncryptionConfigurationEncryptionType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:EnvironmentType")
 class EnvironmentType(builtins.str, Enum):
     """
     Property value
@@ -1552,6 +1613,7 @@ class EnvironmentType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:EnvironmentVariableType")
 class EnvironmentVariableType(builtins.str, Enum):
     """
     Property value
@@ -1570,6 +1632,7 @@ class EnvironmentVariableType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:EventCode")
 class EventCode(builtins.str, Enum):
     """
     Property value
@@ -1596,6 +1659,7 @@ class EventCode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:EventSelectorReadWriteType")
 class EventSelectorReadWriteType(builtins.str, Enum):
     """
     Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
@@ -1614,6 +1678,7 @@ class EventSelectorReadWriteType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ExportSourceType")
 class ExportSourceType(builtins.str, Enum):
     """
     Property value
@@ -1628,6 +1693,7 @@ class ExportSourceType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ExtendedKeyUsageName")
 class ExtendedKeyUsageName(builtins.str, Enum):
     """
     ExtendedKeyUsageName enum
@@ -1682,6 +1748,7 @@ class ExtendedKeyUsageName(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:FeatureSet")
 class FeatureSet(builtins.str, Enum):
     """
     Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.
@@ -1696,6 +1763,7 @@ class FeatureSet(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:FieldLogLevel")
 class FieldLogLevel(builtins.str, Enum):
     """
     Property value
@@ -1714,6 +1782,7 @@ class FieldLogLevel(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:FileFormat")
 class FileFormat(builtins.str, Enum):
     """
     Property fileFormat
@@ -1728,6 +1797,7 @@ class FileFormat(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:FileSystemProtectionReplicationOverwriteProtection")
 class FileSystemProtectionReplicationOverwriteProtection(builtins.str, Enum):
     """
     The status of the file system's replication overwrite protection.  +   ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default.   +   ``DISABLED`` – The file system can be used as the destination file system in a replication configuration. The file system is read-only and can only be modified by EFS replication.  +   ``REPLICATING`` – The file system is being used as the destination file system in a replication configuration. The file system is read-only and is only modified only by EFS replication.   If the replication configuration is deleted, the file system's replication overwrite protection is re-enabled, the file system becomes writeable.
@@ -1742,6 +1812,7 @@ class FileSystemProtectionReplicationOverwriteProtection(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:FileSystemType")
 class FileSystemType(builtins.str, Enum):
     """
     Property value
@@ -1752,6 +1823,7 @@ class FileSystemType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:FilterBehavior")
 class FilterBehavior(builtins.str, Enum):
     """
     How to handle logs that satisfy the filter's conditions and requirement.
@@ -1766,6 +1838,7 @@ class FilterBehavior(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:FilterRequirement")
 class FilterRequirement(builtins.str, Enum):
     """
     Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
@@ -1780,6 +1853,7 @@ class FilterRequirement(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:GraphQLApiIntrospectionConfig")
 class GraphQLApiIntrospectionConfig(builtins.str, Enum):
     """
     Property value
@@ -1794,6 +1868,7 @@ class GraphQLApiIntrospectionConfig(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:GraphQLApiType")
 class GraphQLApiType(builtins.str, Enum):
     """
     Property value
@@ -1808,6 +1883,7 @@ class GraphQLApiType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:GraphQLApiVisibility")
 class GraphQLApiVisibility(builtins.str, Enum):
     """
     Property value
@@ -1822,6 +1898,7 @@ class GraphQLApiVisibility(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:HeaderDirection")
 class HeaderDirection(builtins.str, Enum):
     """
     Property direction
@@ -1836,6 +1913,7 @@ class HeaderDirection(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:HeaderProtocol")
 class HeaderProtocol(builtins.str, Enum):
     """
     Property protocol
@@ -1918,6 +1996,7 @@ class HeaderProtocol(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:HostnameType")
 class HostnameType(builtins.str, Enum):
     """
     Property value
@@ -1932,6 +2011,7 @@ class HostnameType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:HttpTokensState")
 class HttpTokensState(builtins.str, Enum):
     """
     Property value
@@ -1946,6 +2026,7 @@ class HttpTokensState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:HypervisorType")
 class HypervisorType(builtins.str, Enum):
     """
     Property value
@@ -1960,6 +2041,7 @@ class HypervisorType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:IPAddressType")
 class IPAddressType(builtins.str, Enum):
     """
     Property value
@@ -1974,6 +2056,7 @@ class IPAddressType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ImagePullCredentialsType")
 class ImagePullCredentialsType(builtins.str, Enum):
     """
     Property value
@@ -1988,6 +2071,7 @@ class ImagePullCredentialsType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ImageState")
 class ImageState(builtins.str, Enum):
     """
     Property value
@@ -2026,6 +2110,7 @@ class ImageState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ImageTagMutability")
 class ImageTagMutability(builtins.str, Enum):
     """
     The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
@@ -2040,6 +2125,7 @@ class ImageTagMutability(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ImageTypeValues")
 class ImageTypeValues(builtins.str, Enum):
     """
     Property value
@@ -2058,6 +2144,7 @@ class ImageTypeValues(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ImdsSupportValues")
 class ImdsSupportValues(builtins.str, Enum):
     """
     Property value
@@ -2068,6 +2155,7 @@ class ImdsSupportValues(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:InitiatedBy")
 class InitiatedBy(builtins.str, Enum):
     """
     Property value
@@ -2082,6 +2170,7 @@ class InitiatedBy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:InstanceAutoRecoveryState")
 class InstanceAutoRecoveryState(builtins.str, Enum):
     """
     Property value
@@ -2096,6 +2185,7 @@ class InstanceAutoRecoveryState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:InstanceBootModeValues")
 class InstanceBootModeValues(builtins.str, Enum):
     """
     Property value
@@ -2110,6 +2200,7 @@ class InstanceBootModeValues(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:InstanceCollectionType")
 class InstanceCollectionType(builtins.str, Enum):
     """
     Property value
@@ -2124,6 +2215,7 @@ class InstanceCollectionType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:InstanceLifecycleType")
 class InstanceLifecycleType(builtins.str, Enum):
     """
     Property value
@@ -2142,6 +2234,7 @@ class InstanceLifecycleType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:InstanceMetadataEndpointState")
 class InstanceMetadataEndpointState(builtins.str, Enum):
     """
     Property value
@@ -2156,6 +2249,7 @@ class InstanceMetadataEndpointState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:InstanceMetadataOptionsState")
 class InstanceMetadataOptionsState(builtins.str, Enum):
     """
     Property value
@@ -2170,6 +2264,7 @@ class InstanceMetadataOptionsState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:InstanceMetadataProtocolState")
 class InstanceMetadataProtocolState(builtins.str, Enum):
     """
     Property value
@@ -2184,6 +2279,7 @@ class InstanceMetadataProtocolState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:InstanceMetadataTagsState")
 class InstanceMetadataTagsState(builtins.str, Enum):
     """
     Property value
@@ -2198,6 +2294,7 @@ class InstanceMetadataTagsState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:InstanceRoleType")
 class InstanceRoleType(builtins.str, Enum):
     """
     Property value
@@ -2216,6 +2313,7 @@ class InstanceRoleType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:InstanceStateName")
 class InstanceStateName(builtins.str, Enum):
     """
     Property value
@@ -2246,6 +2344,7 @@ class InstanceStateName(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:InstanceType")
 class InstanceType(builtins.str, Enum):
     """
     Property value
@@ -2880,6 +2979,7 @@ class InstanceType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:IntelligentTieringConfigurationStatus")
 class IntelligentTieringConfigurationStatus(builtins.str, Enum):
     """
     Specifies the status of the configuration.
@@ -2894,6 +2994,7 @@ class IntelligentTieringConfigurationStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:InventoryConfigurationIncludedObjectVersions")
 class InventoryConfigurationIncludedObjectVersions(builtins.str, Enum):
     """
     Object versions to include in the inventory list. If set to ``All``, the list includes all the object versions, which adds the version-related fields ``VersionId``, ``IsLatest``, and ``DeleteMarker`` to the list. If set to ``Current``, the list does not contain these version-related fields.
@@ -2908,6 +3009,7 @@ class InventoryConfigurationIncludedObjectVersions(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:InventoryConfigurationOptionalFields")
 class InventoryConfigurationOptionalFields(builtins.str, Enum):
     """
     InventoryConfigurationOptionalFields enum
@@ -2974,6 +3076,7 @@ class InventoryConfigurationOptionalFields(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:InventoryConfigurationScheduleFrequency")
 class InventoryConfigurationScheduleFrequency(builtins.str, Enum):
     """
     Specifies the schedule for generating inventory results.
@@ -2988,6 +3091,7 @@ class InventoryConfigurationScheduleFrequency(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:IpFamily")
 class IpFamily(builtins.str, Enum):
     """
     Property value
@@ -3002,6 +3106,7 @@ class IpFamily(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:IpamState")
 class IpamState(builtins.str, Enum):
     """
     Property value
@@ -3056,6 +3161,7 @@ class IpamState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:IpamTier")
 class IpamTier(builtins.str, Enum):
     """
     Property value
@@ -3070,6 +3176,7 @@ class IpamTier(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:JobComparator")
 class JobComparator(builtins.str, Enum):
     """
     Property value
@@ -3108,6 +3215,7 @@ class JobComparator(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:JobStatus")
 class JobStatus(builtins.str, Enum):
     """
     Property value
@@ -3138,6 +3246,7 @@ class JobStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:JobType")
 class JobType(builtins.str, Enum):
     """
     Property value
@@ -3152,6 +3261,7 @@ class JobType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:JoinedMethod")
 class JoinedMethod(builtins.str, Enum):
     """
     The method by which the account joined the organization.
@@ -3166,6 +3276,7 @@ class JoinedMethod(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:KeyAlgorithm")
 class KeyAlgorithm(builtins.str, Enum):
     """
     Property value
@@ -3200,6 +3311,7 @@ class KeyAlgorithm(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:KeyFormat")
 class KeyFormat(builtins.str, Enum):
     """
     The format of the key pair. Default: ``pem``
@@ -3214,6 +3326,7 @@ class KeyFormat(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:KeySpec")
 class KeySpec(builtins.str, Enum):
     """
     Specifies the type of KMS key to create. The default value, ``SYMMETRIC_DEFAULT``, creates a KMS key with a 256-bit symmetric key for encryption and decryption. In China Regions, ``SYMMETRIC_DEFAULT`` creates a 128-bit symmetric key that uses SM4 encryption. You can't change the ``KeySpec`` value after the KMS key is created. For help choosing a key spec for your KMS key, see [Choosing a KMS key type](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html) in the *Developer Guide*. The ``KeySpec`` property determines the type of key material in the KMS key and the algorithms that the KMS key supports. To further restrict the algorithms that can be used with the KMS key, use a condition key in its key policy or IAM policy. For more information, see [condition keys](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms) in the *Developer Guide*.  If you change the value of the ``KeySpec`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.    [services that are integrated with](https://docs.aws.amazon.com/kms/features/#AWS_Service_Integration) use symmetric encryption KMS keys to protect your data. These services do not support encryption with asymmetric KMS keys. For help determining whether a KMS key is asymmetric, see [Identifying asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *Developer Guide*.   KMS supports the following key specs for KMS keys:  +  Symmetric encryption key (default)  +   ``SYMMETRIC_DEFAULT`` (AES-256-GCM)    +  HMAC keys (symmetric)  +   ``HMAC_224``   +   ``HMAC_256``   +   ``HMAC_384``   +   ``HMAC_512``     +  Asymmetric RSA key pairs  +   ``RSA_2048``   +   ``RSA_3072``   +   ``RSA_4096``     +  Asymmetric NIST-recommended elliptic curve key pairs  +   ``ECC_NIST_P256`` (secp256r1)  +   ``ECC_NIST_P384`` (secp384r1)  +   ``ECC_NIST_P521`` (secp521r1)    +  Other asymmetric elliptic curve key pairs  +   ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.    +  SM2 key pairs (China Regions only)  +   ``SM2``
@@ -3272,6 +3385,7 @@ class KeySpec(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:KeyType")
 class KeyType(builtins.str, Enum):
     """
     The type of key pair. Note that ED25519 keys are not supported for Windows instances. If the ``PublicKeyMaterial`` property is specified, the ``KeyType`` property is ignored, and the key type is inferred from the ``PublicKeyMaterial`` value. Default: ``rsa``
@@ -3286,6 +3400,7 @@ class KeyType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:KeyUsage")
 class KeyUsage(builtins.str, Enum):
     """
     Determines the [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. The default value is ``ENCRYPT_DECRYPT``. This property is required for asymmetric KMS keys and HMAC KMS keys. You can't change the ``KeyUsage`` value after the KMS key is created.  If you change the value of the ``KeyUsage`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.  Select only one valid value.  +  For symmetric encryption KMS keys, omit the property or specify ``ENCRYPT_DECRYPT``.  +  For asymmetric KMS keys with RSA key material, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.  +  For asymmetric KMS keys with ECC key material, specify ``SIGN_VERIFY``.  +  For asymmetric KMS keys with SM2 (China Regions only) key material, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.  +  For HMAC KMS keys, specify ``GENERATE_VERIFY_MAC``.
@@ -3304,6 +3419,7 @@ class KeyUsage(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:KeyUsageName")
 class KeyUsageName(builtins.str, Enum):
     """
     KeyUsageName enum
@@ -3354,6 +3470,7 @@ class KeyUsageName(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:KinesisStreamSpecificationApproximateCreationDateTimePrecision")
 class KinesisStreamSpecificationApproximateCreationDateTimePrecision(builtins.str, Enum):
     """
     The precision for the time and date that the stream was created.
@@ -3368,6 +3485,7 @@ class KinesisStreamSpecificationApproximateCreationDateTimePrecision(builtins.st
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:LastRunErrorStatusCode")
 class LastRunErrorStatusCode(builtins.str, Enum):
     """
     Property value
@@ -3382,6 +3500,7 @@ class LastRunErrorStatusCode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:LaunchType")
 class LaunchType(builtins.str, Enum):
     """
     The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -3400,6 +3519,7 @@ class LaunchType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:LogDestinationType")
 class LogDestinationType(builtins.str, Enum):
     """
     Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
@@ -3418,6 +3538,7 @@ class LogDestinationType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:LogGroupClass")
 class LogGroupClass(builtins.str, Enum):
     """
     Specifies the log group class for this log group. There are two classes:  +  The ``Standard`` log class supports all CWL features.  +  The ``Infrequent Access`` log class supports a subset of CWL features and incurs lower costs.   For details about the features supported by each class, see [Log classes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html)
@@ -3432,6 +3553,7 @@ class LogGroupClass(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:LogType")
 class LogType(builtins.str, Enum):
     """
     LogType enum
@@ -3458,6 +3580,7 @@ class LogType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:LoggingConfigApplicationLogLevel")
 class LoggingConfigApplicationLogLevel(builtins.str, Enum):
     """
     Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where ``TRACE`` is the highest level and ``FATAL`` is the lowest.
@@ -3488,6 +3611,7 @@ class LoggingConfigApplicationLogLevel(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:LoggingConfigLogFormat")
 class LoggingConfigLogFormat(builtins.str, Enum):
     """
     The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.
@@ -3502,6 +3626,7 @@ class LoggingConfigLogFormat(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:LoggingConfigProtocol")
 class LoggingConfigProtocol(builtins.str, Enum):
     """
     Property protocol
@@ -3528,6 +3653,7 @@ class LoggingConfigProtocol(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:LoggingConfigSystemLogLevel")
 class LoggingConfigSystemLogLevel(builtins.str, Enum):
     """
     Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
@@ -3546,6 +3672,7 @@ class LoggingConfigSystemLogLevel(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:LogsConfigStatusType")
 class LogsConfigStatusType(builtins.str, Enum):
     """
     Property value
@@ -3560,6 +3687,7 @@ class LogsConfigStatusType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:MaximumExecutionFrequency")
 class MaximumExecutionFrequency(builtins.str, Enum):
     """
     Property value
@@ -3586,6 +3714,7 @@ class MaximumExecutionFrequency(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:MetricTransformationUnit")
 class MetricTransformationUnit(builtins.str, Enum):
     """
     The unit to assign to the metric. If you omit this, the unit is set as ``None``.
@@ -3700,6 +3829,7 @@ class MetricTransformationUnit(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:MetricsStatus")
 class MetricsStatus(builtins.str, Enum):
     """
     Specifies whether the replication metrics are enabled.
@@ -3714,6 +3844,7 @@ class MetricsStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:MitigationInEffectEnum")
 class MitigationInEffectEnum(builtins.str, Enum):
     """
     Property value
@@ -3728,6 +3859,7 @@ class MitigationInEffectEnum(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:MonitoringState")
 class MonitoringState(builtins.str, Enum):
     """
     Property value
@@ -3750,6 +3882,7 @@ class MonitoringState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:NetworkInterfaceStatus")
 class NetworkInterfaceStatus(builtins.str, Enum):
     """
     Property value
@@ -3776,6 +3909,7 @@ class NetworkInterfaceStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:NetworkOrigin")
 class NetworkOrigin(builtins.str, Enum):
     """
     Indicates whether this Access Point allows access from the public Internet. If VpcConfiguration is specified for this Access Point, then NetworkOrigin is VPC, and the Access Point doesn't allow access from the public Internet. Otherwise, NetworkOrigin is Internet, and the Access Point allows access from the public Internet, subject to the Access Point and bucket access policies.
@@ -3790,6 +3924,7 @@ class NetworkOrigin(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:NoncurrentVersionTransitionStorageClass")
 class NoncurrentVersionTransitionStorageClass(builtins.str, Enum):
     """
     The class of storage used to store the object.
@@ -3820,6 +3955,7 @@ class NoncurrentVersionTransitionStorageClass(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:NotebookInstanceStatus")
 class NotebookInstanceStatus(builtins.str, Enum):
     """
     Property value
@@ -3854,6 +3990,7 @@ class NotebookInstanceStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:OpenSearchPartitionInstanceType")
 class OpenSearchPartitionInstanceType(builtins.str, Enum):
     """
     Property value
@@ -4272,6 +4409,7 @@ class OpenSearchPartitionInstanceType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:OpenSearchWarmPartitionInstanceType")
 class OpenSearchWarmPartitionInstanceType(builtins.str, Enum):
     """
     Property value
@@ -4290,6 +4428,7 @@ class OpenSearchWarmPartitionInstanceType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:OperationLevelMetricsConfig")
 class OperationLevelMetricsConfig(builtins.str, Enum):
     """
     Property value
@@ -4304,6 +4443,7 @@ class OperationLevelMetricsConfig(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:OperationPreferencesRegionConcurrencyType")
 class OperationPreferencesRegionConcurrencyType(builtins.str, Enum):
     """
     The concurrency type of deploying StackSets operations in regions, could be in parallel or one region at a time
@@ -4318,6 +4458,7 @@ class OperationPreferencesRegionConcurrencyType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:Origin")
 class Origin(builtins.str, Enum):
     """
     The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is ``AWS_KMS``, which means that KMS creates the key material. To [create a KMS key with no key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html) (for imported key material), set this value to ``EXTERNAL``. For more information about importing key material into KMS, see [Importing Key Material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html) in the *Developer Guide*. You can ignore ``ENABLED`` when Origin is ``EXTERNAL``. When a KMS key with Origin ``EXTERNAL`` is created, the key state is ``PENDING_IMPORT`` and ``ENABLED`` is ``false``. After you import the key material, ``ENABLED`` updated to ``true``. The KMS key can then be used for Cryptographic Operations.    CFN doesn't support creating an ``Origin`` parameter of the ``AWS_CLOUDHSM`` or ``EXTERNAL_KEY_STORE`` values.
@@ -4332,6 +4473,7 @@ class Origin(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:OwnershipControlsRuleObjectOwnership")
 class OwnershipControlsRuleObjectOwnership(builtins.str, Enum):
     """
     Specifies an object ownership rule.
@@ -4350,6 +4492,7 @@ class OwnershipControlsRuleObjectOwnership(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:PackageType")
 class PackageType(builtins.str, Enum):
     """
     The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
@@ -4364,6 +4507,7 @@ class PackageType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:PartitionedPrefixPartitionDateSource")
 class PartitionedPrefixPartitionDateSource(builtins.str, Enum):
     """
     Specifies the partition date source for the partitioned prefix. PartitionDateSource can be EventTime or DeliveryTime.
@@ -4378,6 +4522,7 @@ class PartitionedPrefixPartitionDateSource(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:Permission")
 class Permission(builtins.str, Enum):
     """
     Property value
@@ -4404,6 +4549,7 @@ class Permission(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:PermissionModel")
 class PermissionModel(builtins.str, Enum):
     """
     Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
@@ -4418,6 +4564,7 @@ class PermissionModel(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:PingStatus")
 class PingStatus(builtins.str, Enum):
     """
     Property value
@@ -4436,6 +4583,7 @@ class PingStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:PlacementConstraintType")
 class PlacementConstraintType(builtins.str, Enum):
     """
     The type of constraint. Use ``distinctInstance`` to ensure that each task in a particular group is running on a different container instance. Use ``memberOf`` to restrict the selection to a group of valid candidates.
@@ -4450,6 +4598,7 @@ class PlacementConstraintType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:PlacementGroupStrategy")
 class PlacementGroupStrategy(builtins.str, Enum):
     """
     Property value
@@ -4472,6 +4621,7 @@ class PlacementGroupStrategy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:PlacementStrategyType")
 class PlacementStrategyType(builtins.str, Enum):
     """
     The type of placement strategy. The ``random`` placement strategy randomly places tasks on available candidates. The ``spread`` placement strategy spreads placement across available candidates evenly based on the ``field`` parameter. The ``binpack`` strategy places tasks on available candidates that have the least available amount of the resource that's specified with the ``field`` parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory but still enough to run the task.
@@ -4490,6 +4640,7 @@ class PlacementStrategyType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:PlatformType")
 class PlatformType(builtins.str, Enum):
     """
     Property value
@@ -4508,6 +4659,7 @@ class PlatformType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:PlatformValues")
 class PlatformValues(builtins.str, Enum):
     """
     Property value
@@ -4518,6 +4670,7 @@ class PlatformValues(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:PointInTimeRecoveryStatus")
 class PointInTimeRecoveryStatus(builtins.str, Enum):
     """
     Property value
@@ -4532,6 +4685,7 @@ class PointInTimeRecoveryStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:PortMappingAppProtocol")
 class PortMappingAppProtocol(builtins.str, Enum):
     """
     The application protocol that's used for the port mapping. This parameter only applies to Service Connect. We recommend that you set this parameter to be consistent with the protocol that your application uses. If you set this parameter, Amazon ECS adds protocol-specific connection handling to the Service Connect proxy. If you set this parameter, Amazon ECS adds protocol-specific telemetry in the Amazon ECS console and CloudWatch. If you don't set a value for this parameter, then TCP is used. However, Amazon ECS doesn't add protocol-specific telemetry for TCP.  ``appProtocol`` is immutable in a Service Connect service. Updating this field requires a service deletion and redeployment. Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -4550,6 +4704,7 @@ class PortMappingAppProtocol(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ProcessorFeatureName")
 class ProcessorFeatureName(builtins.str, Enum):
     """
     The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.
@@ -4564,6 +4719,7 @@ class ProcessorFeatureName(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ProductCodeValues")
 class ProductCodeValues(builtins.str, Enum):
     """
     Property value
@@ -4578,6 +4734,7 @@ class ProductCodeValues(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ProjectVisibilityType")
 class ProjectVisibilityType(builtins.str, Enum):
     """
     Property value
@@ -4592,6 +4749,7 @@ class ProjectVisibilityType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:PropagateTags")
 class PropagateTags(builtins.str, Enum):
     """
     Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the [TagResource](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html) API action. The default is ``NONE``.
@@ -4606,6 +4764,7 @@ class PropagateTags(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:PropertyValueType")
 class PropertyValueType(builtins.str, Enum):
     """
     Property value
@@ -4620,6 +4779,7 @@ class PropertyValueType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:RRType")
 class RRType(builtins.str, Enum):
     """
     Property value
@@ -4678,6 +4838,7 @@ class RRType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:RecorderStatus")
 class RecorderStatus(builtins.str, Enum):
     """
     Property value
@@ -4696,6 +4857,7 @@ class RecorderStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:RecordingFrequency")
 class RecordingFrequency(builtins.str, Enum):
     """
     Property value
@@ -4710,6 +4872,7 @@ class RecordingFrequency(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:RecordingStrategyType")
 class RecordingStrategyType(builtins.str, Enum):
     """
     Property value
@@ -4728,6 +4891,7 @@ class RecordingStrategyType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:RedirectAllRequestsToProtocol")
 class RedirectAllRequestsToProtocol(builtins.str, Enum):
     """
     Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
@@ -4742,6 +4906,7 @@ class RedirectAllRequestsToProtocol(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:RedirectRuleProtocol")
 class RedirectRuleProtocol(builtins.str, Enum):
     """
     Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
@@ -4756,6 +4921,7 @@ class RedirectRuleProtocol(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:RenewalEligibility")
 class RenewalEligibility(builtins.str, Enum):
     """
     Property value
@@ -4770,6 +4936,7 @@ class RenewalEligibility(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ReplicaModificationsStatus")
 class ReplicaModificationsStatus(builtins.str, Enum):
     """
     Specifies whether Amazon S3 replicates modifications on replicas.  *Allowed values*: ``Enabled`` | ``Disabled``
@@ -4784,6 +4951,7 @@ class ReplicaModificationsStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ReplicationDestinationStorageClass")
 class ReplicationDestinationStorageClass(builtins.str, Enum):
     """
     The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica.  For valid values, see the ``StorageClass`` element of the [PUT Bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) action in the *Amazon S3 API Reference*.
@@ -4822,6 +4990,7 @@ class ReplicationDestinationStorageClass(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ReplicationRuleStatus")
 class ReplicationRuleStatus(builtins.str, Enum):
     """
     Specifies whether the rule is enabled.
@@ -4836,6 +5005,7 @@ class ReplicationRuleStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ReplicationTimeStatus")
 class ReplicationTimeStatus(builtins.str, Enum):
     """
     Specifies whether the replication time is enabled.
@@ -4850,6 +5020,7 @@ class ReplicationTimeStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:RepoUpgradeOnBoot")
 class RepoUpgradeOnBoot(builtins.str, Enum):
     """
     Property value
@@ -4864,6 +5035,7 @@ class RepoUpgradeOnBoot(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ResolverLevelMetricsBehavior")
 class ResolverLevelMetricsBehavior(builtins.str, Enum):
     """
     Property value
@@ -4878,6 +5050,7 @@ class ResolverLevelMetricsBehavior(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ResourceRecordSetFailover")
 class ResourceRecordSetFailover(builtins.str, Enum):
     """
     Property value
@@ -4892,6 +5065,7 @@ class ResourceRecordSetFailover(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ResourceRecordSetRegion")
 class ResourceRecordSetRegion(builtins.str, Enum):
     """
     Property value
@@ -5022,6 +5196,7 @@ class ResourceRecordSetRegion(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ResourceSpecInstanceType")
 class ResourceSpecInstanceType(builtins.str, Enum):
     """
     The instance type that the image version runs on.
@@ -5280,6 +5455,7 @@ class ResourceSpecInstanceType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ResourceType")
 class ResourceType(builtins.str, Enum):
     """
     Property value
@@ -5294,6 +5470,7 @@ class ResourceType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:RuleStatus")
 class RuleStatus(builtins.str, Enum):
     """
     If ``Enabled``, the rule is currently being applied. If ``Disabled``, the rule is not currently being applied.
@@ -5308,6 +5485,7 @@ class RuleStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:RulesSourceListGeneratedRulesType")
 class RulesSourceListGeneratedRulesType(builtins.str, Enum):
     """
     Property generatedRulesType
@@ -5322,6 +5500,7 @@ class RulesSourceListGeneratedRulesType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:RuntimeManagementConfigUpdateRuntimeOn")
 class RuntimeManagementConfigUpdateRuntimeOn(builtins.str, Enum):
     """
     Specify the runtime update mode.  +   *Auto (default)* - Automatically update to the most recent and secure runtime version using a [Two-phase runtime version rollout](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase). This is the best choice for most customers to ensure they always benefit from runtime updates.  +   *FunctionUpdate* - LAM updates the runtime of you function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.  +   *Manual* - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information, see [Roll back a runtime version](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback).    *Valid Values*: ``Auto`` | ``FunctionUpdate`` | ``Manual``
@@ -5340,6 +5519,7 @@ class RuntimeManagementConfigUpdateRuntimeOn(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:SSEStatus")
 class SSEStatus(builtins.str, Enum):
     """
     Property value
@@ -5362,6 +5542,7 @@ class SSEStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:SSEType")
 class SSEType(builtins.str, Enum):
     """
     Property value
@@ -5380,6 +5561,7 @@ class SSEType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ScaleDownBehavior")
 class ScaleDownBehavior(builtins.str, Enum):
     """
     Property value
@@ -5394,6 +5576,7 @@ class ScaleDownBehavior(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ScanStatus")
 class ScanStatus(builtins.str, Enum):
     """
     Property value
@@ -5432,6 +5615,7 @@ class ScanStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:SchedulingStrategy")
 class SchedulingStrategy(builtins.str, Enum):
     """
     The scheduling strategy to use for the service. For more information, see [Services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html). There are two service scheduler strategies available:  +   ``REPLICA``-The replica scheduling strategy places and maintains the desired number of tasks across your cluster. By default, the service scheduler spreads tasks across Availability Zones. You can use task placement strategies and constraints to customize task placement decisions. This scheduler strategy is required if the service uses the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types.  +   ``DAEMON``-The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster. The service scheduler also evaluates the task placement constraints for running tasks and will stop tasks that don't meet the placement constraints. When you're using this strategy, you don't need to specify a desired number of tasks, a task placement strategy, or use Service Auto Scaling policies.  Tasks using the Fargate launch type or the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types don't support the ``DAEMON`` scheduling strategy.
@@ -5446,6 +5630,7 @@ class SchedulingStrategy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ServerSideEncryptionByDefaultSSEAlgorithm")
 class ServerSideEncryptionByDefaultSSEAlgorithm(builtins.str, Enum):
     """
     Server-side encryption algorithm to use for the default encryption.
@@ -5464,6 +5649,7 @@ class ServerSideEncryptionByDefaultSSEAlgorithm(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:ServerType")
 class ServerType(builtins.str, Enum):
     """
     Property value
@@ -5490,6 +5676,7 @@ class ServerType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:SimpleCriterionKeyForJob")
 class SimpleCriterionKeyForJob(builtins.str, Enum):
     """
     Property value
@@ -5512,6 +5699,7 @@ class SimpleCriterionKeyForJob(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:SnapStartApplyOn")
 class SnapStartApplyOn(builtins.str, Enum):
     """
     Set ``ApplyOn`` to ``PublishedVersions`` to create a snapshot of the initialized execution environment when you publish a function version.
@@ -5526,6 +5714,7 @@ class SnapStartApplyOn(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:SnapshotState")
 class SnapshotState(builtins.str, Enum):
     """
     Property value
@@ -5552,6 +5741,7 @@ class SnapshotState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:SourceAuthType")
 class SourceAuthType(builtins.str, Enum):
     """
     Property value
@@ -5566,6 +5756,7 @@ class SourceAuthType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:SourceType")
 class SourceType(builtins.str, Enum):
     """
     Property value
@@ -5584,6 +5775,7 @@ class SourceType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:SseKmsEncryptedObjectsStatus")
 class SseKmsEncryptedObjectsStatus(builtins.str, Enum):
     """
     Specifies whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
@@ -5598,6 +5790,7 @@ class SseKmsEncryptedObjectsStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:StackStatus")
 class StackStatus(builtins.str, Enum):
     """
     Property stackStatus
@@ -5696,6 +5889,7 @@ class StackStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:StatefulEngineOptionsRuleOrder")
 class StatefulEngineOptionsRuleOrder(builtins.str, Enum):
     """
     Property ruleOrder
@@ -5710,6 +5904,7 @@ class StatefulEngineOptionsRuleOrder(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:StatefulEngineOptionsStreamExceptionPolicy")
 class StatefulEngineOptionsStreamExceptionPolicy(builtins.str, Enum):
     """
     Property streamExceptionPolicy
@@ -5728,6 +5923,7 @@ class StatefulEngineOptionsStreamExceptionPolicy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:StatefulRuleAction")
 class StatefulRuleAction(builtins.str, Enum):
     """
     Property action
@@ -5750,6 +5946,7 @@ class StatefulRuleAction(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:StatefulRuleGroupOverrideAction")
 class StatefulRuleGroupOverrideAction(builtins.str, Enum):
     """
     Property action
@@ -5760,6 +5957,7 @@ class StatefulRuleGroupOverrideAction(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:StatefulRuleOptionsRuleOrder")
 class StatefulRuleOptionsRuleOrder(builtins.str, Enum):
     """
     Property ruleOrder
@@ -5774,6 +5972,7 @@ class StatefulRuleOptionsRuleOrder(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:Status")
 class Status(builtins.str, Enum):
     """
     The status of the account in the organization.
@@ -5792,6 +5991,7 @@ class Status(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:StatusName")
 class StatusName(builtins.str, Enum):
     """
     Property value
@@ -5802,6 +6002,7 @@ class StatusName(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:StatusType")
 class StatusType(builtins.str, Enum):
     """
     Property value
@@ -5816,6 +6017,7 @@ class StatusType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:StorageTier")
 class StorageTier(builtins.str, Enum):
     """
     Property value
@@ -5830,6 +6032,7 @@ class StorageTier(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:SummaryStatus")
 class SummaryStatus(builtins.str, Enum):
     """
     Property value
@@ -5856,6 +6059,7 @@ class SummaryStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:TLSSecurityPolicy")
 class TLSSecurityPolicy(builtins.str, Enum):
     """
     Property value
@@ -5874,6 +6078,7 @@ class TLSSecurityPolicy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:TargetHealthReasonEnum")
 class TargetHealthReasonEnum(builtins.str, Enum):
     """
     Property value
@@ -5928,6 +6133,7 @@ class TargetHealthReasonEnum(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:TargetHealthStateEnum")
 class TargetHealthStateEnum(builtins.str, Enum):
     """
     Property value
@@ -5962,6 +6168,7 @@ class TargetHealthStateEnum(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:Tenancy")
 class Tenancy(builtins.str, Enum):
     """
     Property value
@@ -5980,6 +6187,7 @@ class Tenancy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:Tier")
 class Tier(builtins.str, Enum):
     """
     The parameter tier.
@@ -5998,6 +6206,7 @@ class Tier(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:TieringAccessTier")
 class TieringAccessTier(builtins.str, Enum):
     """
     S3 Intelligent-Tiering access tier. See [Storage class for automatically optimizing frequently and infrequently accessed objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access) for a list of access tiers in the S3 Intelligent-Tiering storage class.
@@ -6012,6 +6221,7 @@ class TieringAccessTier(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:TpmSupportValues")
 class TpmSupportValues(builtins.str, Enum):
     """
     Property value
@@ -6022,6 +6232,7 @@ class TpmSupportValues(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:TracingConfigMode")
 class TracingConfigMode(builtins.str, Enum):
     """
     The tracing mode.
@@ -6036,6 +6247,7 @@ class TracingConfigMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:TrafficType")
 class TrafficType(builtins.str, Enum):
     """
     The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
@@ -6054,6 +6266,7 @@ class TrafficType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:TransitionStorageClass")
 class TransitionStorageClass(builtins.str, Enum):
     """
     The storage class to which you want the object to transition.
@@ -6084,6 +6297,7 @@ class TransitionStorageClass(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:Type")
 class Type(builtins.str, Enum):
     """
     The type of parameter.
@@ -6098,6 +6312,7 @@ class Type(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:VersioningConfigurationStatus")
 class VersioningConfigurationStatus(builtins.str, Enum):
     """
     The versioning state of the bucket.
@@ -6112,6 +6327,7 @@ class VersioningConfigurationStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:VirtualizationType")
 class VirtualizationType(builtins.str, Enum):
     """
     Property value
@@ -6126,6 +6342,7 @@ class VirtualizationType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:VolumeType")
 class VolumeType(builtins.str, Enum):
     """
     Property value
@@ -6148,6 +6365,7 @@ class VolumeType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:VpcEndpointType")
 class VpcEndpointType(builtins.str, Enum):
     """
     The type of endpoint. Default: Gateway
@@ -6166,6 +6384,7 @@ class VpcEndpointType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:WebhookBuildType")
 class WebhookBuildType(builtins.str, Enum):
     """
     Property value
@@ -6180,6 +6399,7 @@ class WebhookBuildType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:awsconnector:WebhookFilterType")
 class WebhookFilterType(builtins.str, Enum):
     """
     Property value

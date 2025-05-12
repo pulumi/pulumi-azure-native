@@ -104,10 +104,8 @@ class PrivateResolverVirtualNetworkLinkArgs:
         pulumi.set(self, "virtual_network_link_name", value)
 
 
+@pulumi.type_token("azure-native:dnsresolver:PrivateResolverVirtualNetworkLink")
 class PrivateResolverVirtualNetworkLink(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dnsresolver:PrivateResolverVirtualNetworkLink"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

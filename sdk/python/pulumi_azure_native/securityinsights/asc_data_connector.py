@@ -123,10 +123,8 @@ class ASCDataConnectorArgs:
         pulumi.set(self, "subscription_id", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:ASCDataConnector")
 class ASCDataConnector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:ASCDataConnector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

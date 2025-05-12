@@ -74,10 +74,8 @@ class DevOpsConfigurationArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:security:DevOpsConfiguration")
 class DevOpsConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:DevOpsConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

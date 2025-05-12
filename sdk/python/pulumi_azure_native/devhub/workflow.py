@@ -315,10 +315,8 @@ class WorkflowArgs:
         pulumi.set(self, "workflow_name", value)
 
 
+@pulumi.type_token("azure-native:devhub:Workflow")
 class Workflow(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devhub:Workflow"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -184,10 +184,8 @@ class AssetEndpointProfileArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:deviceregistry:AssetEndpointProfile")
 class AssetEndpointProfile(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:deviceregistry:AssetEndpointProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

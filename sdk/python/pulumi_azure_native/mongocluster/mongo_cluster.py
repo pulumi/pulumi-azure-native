@@ -107,10 +107,8 @@ class MongoClusterArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:mongocluster:MongoCluster")
 class MongoCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:mongocluster:MongoCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

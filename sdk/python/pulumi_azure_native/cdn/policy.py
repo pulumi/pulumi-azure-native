@@ -186,10 +186,8 @@ class PolicyArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:cdn:Policy")
 class Policy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cdn:Policy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

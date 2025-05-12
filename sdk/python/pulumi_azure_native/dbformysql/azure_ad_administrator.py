@@ -153,10 +153,8 @@ class AzureADAdministratorArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure-native:dbformysql:AzureADAdministrator")
 class AzureADAdministrator(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dbformysql:AzureADAdministrator"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

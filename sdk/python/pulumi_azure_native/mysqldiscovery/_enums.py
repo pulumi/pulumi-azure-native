@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:mysqldiscovery:Edition")
 class Edition(builtins.str, Enum):
     """
     mysql server edition.
@@ -21,6 +22,7 @@ class Edition(builtins.str, Enum):
     ENTERPRISE = "Enterprise"
 
 
+@pulumi.type_token("azure-native:mysqldiscovery:ProvisioningState")
 class ProvisioningState(builtins.str, Enum):
     """
     Gets or sets the provisioning state.
@@ -34,6 +36,7 @@ class ProvisioningState(builtins.str, Enum):
     UPDATING = "Updating"
 
 
+@pulumi.type_token("azure-native:mysqldiscovery:SupportStatus")
 class SupportStatus(builtins.str, Enum):
     """
     mysql version support status.

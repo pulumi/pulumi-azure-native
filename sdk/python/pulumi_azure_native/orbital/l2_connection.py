@@ -165,10 +165,8 @@ class L2ConnectionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:orbital:L2Connection")
 class L2Connection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:orbital:L2Connection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

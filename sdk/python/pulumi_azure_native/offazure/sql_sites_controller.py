@@ -110,10 +110,8 @@ class SqlSitesControllerArgs:
         pulumi.set(self, "sql_site_name", value)
 
 
+@pulumi.type_token("azure-native:offazure:SqlSitesController")
 class SqlSitesController(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:offazure:SqlSitesController"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

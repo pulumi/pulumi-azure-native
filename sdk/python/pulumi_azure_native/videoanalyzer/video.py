@@ -137,10 +137,8 @@ class VideoArgs:
         pulumi.set(self, "video_name", value)
 
 
+@pulumi.type_token("azure-native:videoanalyzer:Video")
 class Video(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:videoanalyzer:Video"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

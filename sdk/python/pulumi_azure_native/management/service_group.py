@@ -91,10 +91,8 @@ class ServiceGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:management:ServiceGroup")
 class ServiceGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:management:ServiceGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

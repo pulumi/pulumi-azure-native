@@ -88,10 +88,8 @@ class SolutionConfigurationArgs:
         pulumi.set(self, "solution_settings", value)
 
 
+@pulumi.type_token("azure-native:hybridconnectivity:SolutionConfiguration")
 class SolutionConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybridconnectivity:SolutionConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

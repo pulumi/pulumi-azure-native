@@ -246,10 +246,8 @@ class WebAppDeploymentSlotArgs:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppDeploymentSlot")
 class WebAppDeploymentSlot(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppDeploymentSlot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

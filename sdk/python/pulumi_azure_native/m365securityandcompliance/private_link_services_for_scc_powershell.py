@@ -138,10 +138,8 @@ class PrivateLinkServicesForSCCPowershellArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:m365securityandcompliance:PrivateLinkServicesForSCCPowershell")
 class PrivateLinkServicesForSCCPowershell(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:m365securityandcompliance:PrivateLinkServicesForSCCPowershell"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

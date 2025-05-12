@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -34,6 +34,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:ApplicationGroupType")
 class ApplicationGroupType(builtins.str, Enum):
     """
     Resource Type of ApplicationGroup.
@@ -42,6 +43,7 @@ class ApplicationGroupType(builtins.str, Enum):
     DESKTOP = "Desktop"
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:CommandLineSetting")
 class CommandLineSetting(builtins.str, Enum):
     """
     Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
@@ -51,6 +53,7 @@ class CommandLineSetting(builtins.str, Enum):
     REQUIRE = "Require"
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:DayOfWeek")
 class DayOfWeek(builtins.str, Enum):
     MONDAY = "Monday"
     TUESDAY = "Tuesday"
@@ -61,6 +64,7 @@ class DayOfWeek(builtins.str, Enum):
     SUNDAY = "Sunday"
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:FailHealthCheckOnStagingFailure")
 class FailHealthCheckOnStagingFailure(builtins.str, Enum):
     """
     Parameter indicating how the health check should behave if this package fails staging
@@ -70,6 +74,7 @@ class FailHealthCheckOnStagingFailure(builtins.str, Enum):
     DO_NOT_FAIL = "DoNotFail"
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:HostPoolType")
 class HostPoolType(builtins.str, Enum):
     """
     HostPool type for desktop.
@@ -88,6 +93,7 @@ class HostPoolType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:HostpoolPublicNetworkAccess")
 class HostpoolPublicNetworkAccess(builtins.str, Enum):
     """
     Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
@@ -98,6 +104,7 @@ class HostpoolPublicNetworkAccess(builtins.str, Enum):
     ENABLED_FOR_CLIENTS_ONLY = "EnabledForClientsOnly"
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:LoadBalancerType")
 class LoadBalancerType(builtins.str, Enum):
     """
     The type of the load balancer.
@@ -107,6 +114,7 @@ class LoadBalancerType(builtins.str, Enum):
     PERSISTENT = "Persistent"
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:PackageTimestamped")
 class PackageTimestamped(builtins.str, Enum):
     """
     Is package timestamped so it can ignore the certificate expiry date
@@ -115,6 +123,7 @@ class PackageTimestamped(builtins.str, Enum):
     NOT_TIMESTAMPED = "NotTimestamped"
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:PersonalDesktopAssignmentType")
 class PersonalDesktopAssignmentType(builtins.str, Enum):
     """
     PersonalDesktopAssignment type for HostPool.
@@ -123,6 +132,7 @@ class PersonalDesktopAssignmentType(builtins.str, Enum):
     DIRECT = "Direct"
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:PreferredAppGroupType")
 class PreferredAppGroupType(builtins.str, Enum):
     """
     The type of preferred application group type, default to Desktop Application Group
@@ -132,6 +142,7 @@ class PreferredAppGroupType(builtins.str, Enum):
     RAIL_APPLICATIONS = "RailApplications"
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -141,6 +152,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
@@ -149,6 +161,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:RegistrationTokenOperation")
 class RegistrationTokenOperation(builtins.str, Enum):
     """
     The type of resetting the token.
@@ -158,6 +171,7 @@ class RegistrationTokenOperation(builtins.str, Enum):
     UPDATE = "Update"
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:RemoteApplicationType")
 class RemoteApplicationType(builtins.str, Enum):
     """
     Resource Type of Application.
@@ -166,6 +180,7 @@ class RemoteApplicationType(builtins.str, Enum):
     MSIX_APPLICATION = "MsixApplication"
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The identity type.
@@ -173,6 +188,7 @@ class ResourceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:SSOSecretType")
 class SSOSecretType(builtins.str, Enum):
     """
     The type of single sign on Secret Type.
@@ -183,6 +199,7 @@ class SSOSecretType(builtins.str, Enum):
     CERTIFICATE_IN_KEY_VAULT = "CertificateInKeyVault"
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:ScalingHostPoolType")
 class ScalingHostPoolType(builtins.str, Enum):
     """
     HostPool type for desktop.
@@ -193,6 +210,7 @@ class ScalingHostPoolType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:SessionHandlingOperation")
 class SessionHandlingOperation(builtins.str, Enum):
     """
     Action to be taken after a logoff during the ramp up period.
@@ -201,6 +219,7 @@ class SessionHandlingOperation(builtins.str, Enum):
     DEALLOCATE = "Deallocate"
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:SessionHostComponentUpdateType")
 class SessionHostComponentUpdateType(builtins.str, Enum):
     """
     The type of maintenance for session host components.
@@ -215,6 +234,7 @@ class SessionHostComponentUpdateType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:SessionHostLoadBalancingAlgorithm")
 class SessionHostLoadBalancingAlgorithm(builtins.str, Enum):
     """
     Load balancing algorithm for ramp up period.
@@ -223,6 +243,7 @@ class SessionHostLoadBalancingAlgorithm(builtins.str, Enum):
     DEPTH_FIRST = "DepthFirst"
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:SetStartVMOnConnect")
 class SetStartVMOnConnect(builtins.str, Enum):
     """
     The desired configuration of Start VM On Connect for the hostpool during the ramp up phase. If this is disabled, session hosts must be turned on using rampUpAutoStartHosts or by turning them on manually.
@@ -231,6 +252,7 @@ class SetStartVMOnConnect(builtins.str, Enum):
     DISABLE = "Disable"
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:SkuTier")
 class SkuTier(builtins.str, Enum):
     """
     This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
@@ -241,6 +263,7 @@ class SkuTier(builtins.str, Enum):
     PREMIUM = "Premium"
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:StartupBehavior")
 class StartupBehavior(builtins.str, Enum):
     """
     The desired startup behavior during the ramp up period for personal vms in the hostpool.
@@ -259,6 +282,7 @@ class StartupBehavior(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:StopHostsWhen")
 class StopHostsWhen(builtins.str, Enum):
     """
     Specifies when to stop hosts during ramp down period.

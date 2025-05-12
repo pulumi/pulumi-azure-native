@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:billing:BillingManagementTenantState")
 class BillingManagementTenantState(builtins.str, Enum):
     """
     The state determines whether users from the associated tenant can be assigned roles for commerce activities like viewing and downloading invoices, managing payments, and making purchases.
@@ -24,6 +25,7 @@ class BillingManagementTenantState(builtins.str, Enum):
     REVOKED = "Revoked"
 
 
+@pulumi.type_token("azure-native:billing:InvoiceSectionState")
 class InvoiceSectionState(builtins.str, Enum):
     """
     Identifies the status of an invoice section.
@@ -37,6 +39,7 @@ class InvoiceSectionState(builtins.str, Enum):
     RESTRICTED = "Restricted"
 
 
+@pulumi.type_token("azure-native:billing:InvoiceSectionStateReasonCode")
 class InvoiceSectionStateReasonCode(builtins.str, Enum):
     """
     Reason for the specified invoice section status.
@@ -48,6 +51,7 @@ class InvoiceSectionStateReasonCode(builtins.str, Enum):
     SPENDING_LIMIT_EXPIRED = "SpendingLimitExpired"
 
 
+@pulumi.type_token("azure-native:billing:ProvisioningTenantState")
 class ProvisioningTenantState(builtins.str, Enum):
     """
     The state determines whether subscriptions and licenses can be provisioned in the associated tenant. It can be set to 'Pending' to initiate a billing request.

@@ -183,10 +183,8 @@ class AttachedDatabaseConfigurationArgs:
         pulumi.set(self, "table_level_sharing_properties", value)
 
 
+@pulumi.type_token("azure-native:kusto:AttachedDatabaseConfiguration")
 class AttachedDatabaseConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:kusto:AttachedDatabaseConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

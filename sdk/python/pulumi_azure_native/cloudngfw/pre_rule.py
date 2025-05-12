@@ -332,10 +332,8 @@ class PreRuleArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:cloudngfw:PreRule")
 class PreRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cloudngfw:PreRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

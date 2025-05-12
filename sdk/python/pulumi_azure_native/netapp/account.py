@@ -139,10 +139,8 @@ class AccountArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:netapp:Account")
 class Account(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:netapp:Account"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

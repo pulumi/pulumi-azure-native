@@ -199,10 +199,8 @@ class WebAppPremierAddOnArgs:
         pulumi.set(self, "vendor", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppPremierAddOn")
 class WebAppPremierAddOn(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppPremierAddOn"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

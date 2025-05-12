@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -19,6 +19,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:solutions:ApplicationArtifactType")
 class ApplicationArtifactType(builtins.str, Enum):
     """
     The managed application definition artifact type.
@@ -28,6 +29,7 @@ class ApplicationArtifactType(builtins.str, Enum):
     CUSTOM = "Custom"
 
 
+@pulumi.type_token("azure-native:solutions:ApplicationDefinitionArtifactName")
 class ApplicationDefinitionArtifactName(builtins.str, Enum):
     """
     The managed application definition artifact name.
@@ -38,6 +40,7 @@ class ApplicationDefinitionArtifactName(builtins.str, Enum):
     MAIN_TEMPLATE_PARAMETERS = "MainTemplateParameters"
 
 
+@pulumi.type_token("azure-native:solutions:ApplicationLockLevel")
 class ApplicationLockLevel(builtins.str, Enum):
     """
     The managed application lock level.
@@ -47,6 +50,7 @@ class ApplicationLockLevel(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:solutions:ApplicationManagementMode")
 class ApplicationManagementMode(builtins.str, Enum):
     """
     The managed application management mode.
@@ -56,6 +60,7 @@ class ApplicationManagementMode(builtins.str, Enum):
     MANAGED = "Managed"
 
 
+@pulumi.type_token("azure-native:solutions:DeploymentMode")
 class DeploymentMode(builtins.str, Enum):
     """
     The managed application deployment mode.
@@ -65,6 +70,7 @@ class DeploymentMode(builtins.str, Enum):
     COMPLETE = "Complete"
 
 
+@pulumi.type_token("azure-native:solutions:JitApprovalMode")
 class JitApprovalMode(builtins.str, Enum):
     """
     JIT approval mode.
@@ -74,6 +80,7 @@ class JitApprovalMode(builtins.str, Enum):
     MANUAL_APPROVE = "ManualApprove"
 
 
+@pulumi.type_token("azure-native:solutions:JitApproverType")
 class JitApproverType(builtins.str, Enum):
     """
     The approver type.
@@ -82,6 +89,7 @@ class JitApproverType(builtins.str, Enum):
     GROUP = "group"
 
 
+@pulumi.type_token("azure-native:solutions:JitSchedulingType")
 class JitSchedulingType(builtins.str, Enum):
     """
     The type of JIT schedule.
@@ -91,6 +99,7 @@ class JitSchedulingType(builtins.str, Enum):
     RECURRING = "Recurring"
 
 
+@pulumi.type_token("azure-native:solutions:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The identity type.

@@ -314,10 +314,8 @@ class ProfileArgs:
         pulumi.set(self, "type_name", value)
 
 
+@pulumi.type_token("azure-native:customerinsights:Profile")
 class Profile(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:customerinsights:Profile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

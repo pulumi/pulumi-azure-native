@@ -201,10 +201,8 @@ class OrganizationClusterByIdArgs:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("azure-native:confluent:OrganizationClusterById")
 class OrganizationClusterById(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:confluent:OrganizationClusterById"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

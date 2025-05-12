@@ -266,10 +266,8 @@ class InboundNatRuleInitArgs:
         pulumi.set(self, "protocol", value)
 
 
+@pulumi.type_token("azure-native:network:InboundNatRule")
 class InboundNatRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:InboundNatRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -139,10 +139,8 @@ class MonitorArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:elastic:Monitor")
 class Monitor(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:elastic:Monitor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

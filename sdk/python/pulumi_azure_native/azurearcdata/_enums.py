@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -32,6 +32,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:azurearcdata:AccountProvisioningMode")
 class AccountProvisioningMode(builtins.str, Enum):
     """
     The service account provisioning mode for this Active Directory connector.
@@ -40,6 +41,7 @@ class AccountProvisioningMode(builtins.str, Enum):
     MANUAL = "manual"
 
 
+@pulumi.type_token("azure-native:azurearcdata:ActivationState")
 class ActivationState(builtins.str, Enum):
     """
     The activation state of the license.
@@ -48,6 +50,7 @@ class ActivationState(builtins.str, Enum):
     DEACTIVATED = "Deactivated"
 
 
+@pulumi.type_token("azure-native:azurearcdata:AggregationType")
 class AggregationType(builtins.str, Enum):
     """
     The aggregation type to use for the numerical columns in the dataset.
@@ -59,6 +62,7 @@ class AggregationType(builtins.str, Enum):
     COUNT = "Count"
 
 
+@pulumi.type_token("azure-native:azurearcdata:ArcSqlManagedInstanceLicenseType")
 class ArcSqlManagedInstanceLicenseType(builtins.str, Enum):
     """
     The license type to apply for this managed instance.
@@ -68,6 +72,7 @@ class ArcSqlManagedInstanceLicenseType(builtins.str, Enum):
     DISASTER_RECOVERY = "DisasterRecovery"
 
 
+@pulumi.type_token("azure-native:azurearcdata:BillingPlan")
 class BillingPlan(builtins.str, Enum):
     """
     SQL Server license type.
@@ -76,6 +81,7 @@ class BillingPlan(builtins.str, Enum):
     PAID = "Paid"
 
 
+@pulumi.type_token("azure-native:azurearcdata:DatabaseCreateMode")
 class DatabaseCreateMode(builtins.str, Enum):
     """
     Database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. sourceDatabaseId and restorePointInTime must be specified.
@@ -84,6 +90,7 @@ class DatabaseCreateMode(builtins.str, Enum):
     POINT_IN_TIME_RESTORE = "PointInTimeRestore"
 
 
+@pulumi.type_token("azure-native:azurearcdata:DatabaseState")
 class DatabaseState(builtins.str, Enum):
     """
     State of the database.
@@ -99,6 +106,7 @@ class DatabaseState(builtins.str, Enum):
     OFFLINE_SECONDARY = "OfflineSecondary"
 
 
+@pulumi.type_token("azure-native:azurearcdata:EditionType")
 class EditionType(builtins.str, Enum):
     """
     SQL Server edition.
@@ -112,6 +120,7 @@ class EditionType(builtins.str, Enum):
     BUSINESS_INTELLIGENCE = "Business Intelligence"
 
 
+@pulumi.type_token("azure-native:azurearcdata:ExtendedLocationTypes")
 class ExtendedLocationTypes(builtins.str, Enum):
     """
     The type of the extended location.
@@ -119,6 +128,7 @@ class ExtendedLocationTypes(builtins.str, Enum):
     CUSTOM_LOCATION = "CustomLocation"
 
 
+@pulumi.type_token("azure-native:azurearcdata:FailoverGroupPartnerSyncMode")
 class FailoverGroupPartnerSyncMode(builtins.str, Enum):
     """
     The partner sync mode of the SQL managed instance.
@@ -127,6 +137,7 @@ class FailoverGroupPartnerSyncMode(builtins.str, Enum):
     SYNC = "sync"
 
 
+@pulumi.type_token("azure-native:azurearcdata:HostType")
 class HostType(builtins.str, Enum):
     """
     Type of host for Azure Arc SQL Server
@@ -146,6 +157,7 @@ class HostType(builtins.str, Enum):
     OTHER = "Other"
 
 
+@pulumi.type_token("azure-native:azurearcdata:Infrastructure")
 class Infrastructure(builtins.str, Enum):
     """
     The infrastructure the data controller is running on.
@@ -158,6 +170,7 @@ class Infrastructure(builtins.str, Enum):
     OTHER = "other"
 
 
+@pulumi.type_token("azure-native:azurearcdata:InstanceFailoverGroupRole")
 class InstanceFailoverGroupRole(builtins.str, Enum):
     """
     The role of the SQL managed instance in this failover group.
@@ -168,6 +181,7 @@ class InstanceFailoverGroupRole(builtins.str, Enum):
     FORCE_SECONDARY = "force-secondary"
 
 
+@pulumi.type_token("azure-native:azurearcdata:LicenseCategory")
 class LicenseCategory(builtins.str, Enum):
     """
     This property represents the choice between SQL Server Core and ESU licenses.
@@ -175,6 +189,7 @@ class LicenseCategory(builtins.str, Enum):
     CORE = "Core"
 
 
+@pulumi.type_token("azure-native:azurearcdata:PostgresInstanceSkuTier")
 class PostgresInstanceSkuTier(builtins.str, Enum):
     """
     This field is required to be implemented by the Resource Provider if the service has more than one tier.
@@ -182,6 +197,7 @@ class PostgresInstanceSkuTier(builtins.str, Enum):
     HYPERSCALE = "Hyperscale"
 
 
+@pulumi.type_token("azure-native:azurearcdata:RecoveryMode")
 class RecoveryMode(builtins.str, Enum):
     """
     Status of the database.
@@ -191,6 +207,7 @@ class RecoveryMode(builtins.str, Enum):
     SIMPLE = "Simple"
 
 
+@pulumi.type_token("azure-native:azurearcdata:ScopeType")
 class ScopeType(builtins.str, Enum):
     """
     The Azure scope to which the license will apply.
@@ -200,6 +217,7 @@ class ScopeType(builtins.str, Enum):
     RESOURCE_GROUP = "ResourceGroup"
 
 
+@pulumi.type_token("azure-native:azurearcdata:SqlManagedInstanceSkuName")
 class SqlManagedInstanceSkuName(builtins.str, Enum):
     """
     The name of the SKU.
@@ -207,6 +225,7 @@ class SqlManagedInstanceSkuName(builtins.str, Enum):
     V_CORE = "vCore"
 
 
+@pulumi.type_token("azure-native:azurearcdata:SqlManagedInstanceSkuTier")
 class SqlManagedInstanceSkuTier(builtins.str, Enum):
     """
     The pricing tier for the instance.
@@ -215,6 +234,7 @@ class SqlManagedInstanceSkuTier(builtins.str, Enum):
     BUSINESS_CRITICAL = "BusinessCritical"
 
 
+@pulumi.type_token("azure-native:azurearcdata:SqlVersion")
 class SqlVersion(builtins.str, Enum):
     """
     SQL Server version.
@@ -228,6 +248,7 @@ class SqlVersion(builtins.str, Enum):
     UNKNOWN = "Unknown"
 
 
+@pulumi.type_token("azure-native:azurearcdata:State")
 class State(builtins.str, Enum):
     """
     The activation state of the license.
@@ -237,6 +258,7 @@ class State(builtins.str, Enum):
     TERMINATED = "Terminated"
 
 
+@pulumi.type_token("azure-native:azurearcdata:Version")
 class Version(builtins.str, Enum):
     """
     The SQL Server version the license covers.

@@ -537,10 +537,8 @@ class StorageAccountArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:storage:StorageAccount")
 class StorageAccount(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storage:StorageAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

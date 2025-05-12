@@ -89,10 +89,8 @@ class PrivateEndpointConnectionByHostPoolArgs:
         pulumi.set(self, "private_endpoint_connection_name", value)
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:PrivateEndpointConnectionByHostPool")
 class PrivateEndpointConnectionByHostPool(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:desktopvirtualization:PrivateEndpointConnectionByHostPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -120,10 +120,8 @@ class AccessPolicyArgs:
         pulumi.set(self, "roles", value)
 
 
+@pulumi.type_token("azure-native:timeseriesinsights:AccessPolicy")
 class AccessPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:timeseriesinsights:AccessPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

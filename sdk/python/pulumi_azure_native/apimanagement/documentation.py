@@ -103,10 +103,8 @@ class DocumentationArgs:
         pulumi.set(self, "title", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:Documentation")
 class Documentation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:Documentation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

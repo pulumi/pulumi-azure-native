@@ -89,10 +89,8 @@ class ApplicationAcceleratorArgs:
         pulumi.set(self, "sku", value)
 
 
+@pulumi.type_token("azure-native:appplatform:ApplicationAccelerator")
 class ApplicationAccelerator(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:appplatform:ApplicationAccelerator"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

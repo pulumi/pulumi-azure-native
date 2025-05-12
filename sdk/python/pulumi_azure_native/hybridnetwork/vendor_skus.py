@@ -171,10 +171,8 @@ class VendorSkusArgs:
         pulumi.set(self, "sku_type", value)
 
 
+@pulumi.type_token("azure-native:hybridnetwork:VendorSkus")
 class VendorSkus(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybridnetwork:VendorSkus"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

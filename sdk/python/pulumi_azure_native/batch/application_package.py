@@ -102,10 +102,8 @@ class ApplicationPackageArgs:
         pulumi.set(self, "version_name", value)
 
 
+@pulumi.type_token("azure-native:batch:ApplicationPackage")
 class ApplicationPackage(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:batch:ApplicationPackage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -72,10 +72,8 @@ class ApplicationLiveViewArgs:
         pulumi.set(self, "application_live_view_name", value)
 
 
+@pulumi.type_token("azure-native:appplatform:ApplicationLiveView")
 class ApplicationLiveView(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:appplatform:ApplicationLiveView"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

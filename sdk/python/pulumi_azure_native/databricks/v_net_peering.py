@@ -200,10 +200,8 @@ class VNetPeeringArgs:
         pulumi.set(self, "use_remote_gateways", value)
 
 
+@pulumi.type_token("azure-native:databricks:VNetPeering")
 class VNetPeering(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databricks:VNetPeering"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -56,10 +56,8 @@ class SupportPlanTypeArgs:
         pulumi.set(self, "plan_type_name", value)
 
 
+@pulumi.type_token("azure-native:addons:SupportPlanType")
 class SupportPlanType(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:addons:SupportPlanType"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

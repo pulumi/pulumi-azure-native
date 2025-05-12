@@ -233,10 +233,8 @@ class WorkspaceSubscriptionArgs:
         pulumi.set(self, "state", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:WorkspaceSubscription")
 class WorkspaceSubscription(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:WorkspaceSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

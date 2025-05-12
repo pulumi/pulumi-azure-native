@@ -103,10 +103,8 @@ class SqlPoolTransparentDataEncryptionArgs:
         pulumi.set(self, "transparent_data_encryption_name", value)
 
 
+@pulumi.type_token("azure-native:synapse:SqlPoolTransparentDataEncryption")
 class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:synapse:SqlPoolTransparentDataEncryption"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

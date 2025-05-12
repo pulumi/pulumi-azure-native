@@ -71,10 +71,8 @@ class IscsiPathArgs:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.type_token("azure-native:avs:IscsiPath")
 class IscsiPath(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:avs:IscsiPath"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

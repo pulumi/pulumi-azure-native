@@ -344,10 +344,8 @@ class RoleAssignmentArgs:
         pulumi.set(self, "widget_types", value)
 
 
+@pulumi.type_token("azure-native:customerinsights:RoleAssignment")
 class RoleAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:customerinsights:RoleAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

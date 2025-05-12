@@ -219,10 +219,8 @@ class BatchAccountArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:batch:BatchAccount")
 class BatchAccount(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:batch:BatchAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

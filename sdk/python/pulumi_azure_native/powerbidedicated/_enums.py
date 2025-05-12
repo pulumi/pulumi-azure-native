@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:powerbidedicated:CapacitySkuTier")
 class CapacitySkuTier(builtins.str, Enum):
     """
     The name of the Azure pricing tier to which the SKU applies.
@@ -23,6 +24,7 @@ class CapacitySkuTier(builtins.str, Enum):
     AUTO_PREMIUM_HOST = "AutoPremiumHost"
 
 
+@pulumi.type_token("azure-native:powerbidedicated:IdentityType")
 class IdentityType(builtins.str, Enum):
     """
     The type of identity that last modified the resource
@@ -33,6 +35,7 @@ class IdentityType(builtins.str, Enum):
     KEY = "Key"
 
 
+@pulumi.type_token("azure-native:powerbidedicated:Mode")
 class Mode(builtins.str, Enum):
     """
     Specifies the generation of the Power BI Embedded capacity. If no value is specified, the default value 'Gen2' is used. [Learn More](https://docs.microsoft.com/power-bi/developer/embedded/power-bi-embedded-generation-2)
@@ -41,6 +44,7 @@ class Mode(builtins.str, Enum):
     GEN2 = "Gen2"
 
 
+@pulumi.type_token("azure-native:powerbidedicated:VCoreSkuTier")
 class VCoreSkuTier(builtins.str, Enum):
     """
     The name of the Azure pricing tier to which the SKU applies.

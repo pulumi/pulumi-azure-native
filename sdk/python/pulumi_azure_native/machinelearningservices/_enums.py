@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -154,6 +154,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:machinelearningservices:AllowedContentLevel")
 class AllowedContentLevel(builtins.str, Enum):
     """
     Level at which content is filtered.
@@ -163,6 +164,7 @@ class AllowedContentLevel(builtins.str, Enum):
     HIGH = "High"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ApplicationSharingPolicy")
 class ApplicationSharingPolicy(builtins.str, Enum):
     """
     Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
@@ -171,6 +173,7 @@ class ApplicationSharingPolicy(builtins.str, Enum):
     SHARED = "Shared"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:AuthMode")
 class AuthMode(builtins.str, Enum):
     """
     [Required] Authentication mode for the endpoint.
@@ -178,6 +181,7 @@ class AuthMode(builtins.str, Enum):
     AAD = "AAD"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:AutoRebuildSetting")
 class AutoRebuildSetting(builtins.str, Enum):
     """
     Defines if image needs to be rebuilt based on base image changes.
@@ -186,6 +190,7 @@ class AutoRebuildSetting(builtins.str, Enum):
     ON_BASE_IMAGE_UPDATE = "OnBaseImageUpdate"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:BatchDeploymentConfigurationType")
 class BatchDeploymentConfigurationType(builtins.str, Enum):
     """
     [Required] The type of the deployment
@@ -194,6 +199,7 @@ class BatchDeploymentConfigurationType(builtins.str, Enum):
     PIPELINE_COMPONENT = "PipelineComponent"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:BatchLoggingLevel")
 class BatchLoggingLevel(builtins.str, Enum):
     """
     Logging level for batch inference operation.
@@ -203,6 +209,7 @@ class BatchLoggingLevel(builtins.str, Enum):
     DEBUG = "Debug"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:BatchOutputAction")
 class BatchOutputAction(builtins.str, Enum):
     """
     Indicates how the output will be organized.
@@ -211,6 +218,7 @@ class BatchOutputAction(builtins.str, Enum):
     APPEND_ROW = "AppendRow"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:BlockedTransformers")
 class BlockedTransformers(builtins.str, Enum):
     """
     Enum for all classification models supported by AutoML.
@@ -257,6 +265,7 @@ class BlockedTransformers(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:CapabilityHostKind")
 class CapabilityHostKind(builtins.str, Enum):
     """
     Kind of this capability host.
@@ -264,6 +273,7 @@ class CapabilityHostKind(builtins.str, Enum):
     AGENTS = "Agents"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:CategoricalDataDriftMetric")
 class CategoricalDataDriftMetric(builtins.str, Enum):
     """
     [Required] The categorical data drift metric to calculate.
@@ -282,6 +292,7 @@ class CategoricalDataDriftMetric(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:CategoricalDataQualityMetric")
 class CategoricalDataQualityMetric(builtins.str, Enum):
     """
     [Required] The categorical data quality metric to calculate.
@@ -300,6 +311,7 @@ class CategoricalDataQualityMetric(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:CategoricalPredictionDriftMetric")
 class CategoricalPredictionDriftMetric(builtins.str, Enum):
     """
     [Required] The categorical prediction drift metric to calculate.
@@ -318,6 +330,7 @@ class CategoricalPredictionDriftMetric(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ClassificationModels")
 class ClassificationModels(builtins.str, Enum):
     """
     Enum for all classification models supported by AutoML.
@@ -388,6 +401,7 @@ class ClassificationModels(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ClassificationMultilabelPrimaryMetrics")
 class ClassificationMultilabelPrimaryMetrics(builtins.str, Enum):
     """
     Primary metric to optimize for this task.
@@ -422,6 +436,7 @@ class ClassificationMultilabelPrimaryMetrics(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ClassificationPrimaryMetrics")
 class ClassificationPrimaryMetrics(builtins.str, Enum):
     """
     Primary metric for Text-Classification task.
@@ -452,6 +467,7 @@ class ClassificationPrimaryMetrics(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ClusterPurpose")
 class ClusterPurpose(builtins.str, Enum):
     """
     Intended usage of the cluster
@@ -461,6 +477,7 @@ class ClusterPurpose(builtins.str, Enum):
     DEV_TEST = "DevTest"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ComputeInstanceAuthorizationType")
 class ComputeInstanceAuthorizationType(builtins.str, Enum):
     """
     The Compute Instance Authorization type. Available values are personal (default).
@@ -468,6 +485,7 @@ class ComputeInstanceAuthorizationType(builtins.str, Enum):
     PERSONAL = "personal"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ComputePowerAction")
 class ComputePowerAction(builtins.str, Enum):
     """
     [Required] The compute power action.
@@ -476,6 +494,7 @@ class ComputePowerAction(builtins.str, Enum):
     STOP = "Stop"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ComputeRecurrenceFrequency")
 class ComputeRecurrenceFrequency(builtins.str, Enum):
     """
     [Required] The frequency to trigger schedule.
@@ -502,6 +521,7 @@ class ComputeRecurrenceFrequency(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ComputeTriggerType")
 class ComputeTriggerType(builtins.str, Enum):
     """
     [Required] The schedule trigger type.
@@ -510,6 +530,7 @@ class ComputeTriggerType(builtins.str, Enum):
     CRON = "Cron"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ComputeType")
 class ComputeType(builtins.str, Enum):
     """
     The type of compute
@@ -526,6 +547,7 @@ class ComputeType(builtins.str, Enum):
     SYNAPSE_SPARK = "SynapseSpark"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ComputeWeekDay")
 class ComputeWeekDay(builtins.str, Enum):
     """
     Enum of weekday
@@ -560,6 +582,7 @@ class ComputeWeekDay(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ConnectionAuthType")
 class ConnectionAuthType(builtins.str, Enum):
     """
     Authentication type of the connection target
@@ -578,6 +601,7 @@ class ConnectionAuthType(builtins.str, Enum):
     AAD = "AAD"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ConnectionCategory")
 class ConnectionCategory(builtins.str, Enum):
     """
     Category of the connection
@@ -689,6 +713,7 @@ class ConnectionCategory(builtins.str, Enum):
     MANAGED_ONLINE_ENDPOINT = "ManagedOnlineEndpoint"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ContainerType")
 class ContainerType(builtins.str, Enum):
     """
     The type of container to retrieve logs from.
@@ -697,6 +722,7 @@ class ContainerType(builtins.str, Enum):
     INFERENCE_SERVER = "InferenceServer"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ContentSafetyStatus")
 class ContentSafetyStatus(builtins.str, Enum):
     """
     [Required] Specifies the status of content safety.
@@ -705,6 +731,7 @@ class ContentSafetyStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:CredentialsType")
 class CredentialsType(builtins.str, Enum):
     """
     [Required] Credential type used to authentication with storage.
@@ -716,6 +743,7 @@ class CredentialsType(builtins.str, Enum):
     SERVICE_PRINCIPAL = "ServicePrincipal"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:DataCollectionMode")
 class DataCollectionMode(builtins.str, Enum):
     """
     Enable or disable data collection.
@@ -724,6 +752,7 @@ class DataCollectionMode(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:DataType")
 class DataType(builtins.str, Enum):
     """
     [Required] Specifies the type of data.
@@ -733,6 +762,7 @@ class DataType(builtins.str, Enum):
     MLTABLE = "mltable"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:DatasetType")
 class DatasetType(builtins.str, Enum):
     """
     Specifies dataset type.
@@ -741,6 +771,7 @@ class DatasetType(builtins.str, Enum):
     FILE = "file"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:DatastoreType")
 class DatastoreType(builtins.str, Enum):
     """
     [Required] Storage type backing the datastore.
@@ -752,6 +783,7 @@ class DatastoreType(builtins.str, Enum):
     ONE_LAKE = "OneLake"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:DatastoreTypeArm")
 class DatastoreTypeArm(builtins.str, Enum):
     """
     Specifies datastore type.
@@ -766,6 +798,7 @@ class DatastoreTypeArm(builtins.str, Enum):
     PSQLDB = "psqldb"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:DeploymentModelVersionUpgradeOption")
 class DeploymentModelVersionUpgradeOption(builtins.str, Enum):
     """
     Deployment model version upgrade option.
@@ -775,6 +808,7 @@ class DeploymentModelVersionUpgradeOption(builtins.str, Enum):
     NO_AUTO_UPGRADE = "NoAutoUpgrade"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:DistributionType")
 class DistributionType(builtins.str, Enum):
     """
     [Required] Specifies the type of distribution framework.
@@ -784,6 +818,7 @@ class DistributionType(builtins.str, Enum):
     MPI = "Mpi"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:DockerSpecificationType")
 class DockerSpecificationType(builtins.str, Enum):
     """
     [Required] Docker specification must be either Build or Image
@@ -792,6 +827,7 @@ class DockerSpecificationType(builtins.str, Enum):
     IMAGE = "Image"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:EarlyTerminationPolicyType")
 class EarlyTerminationPolicyType(builtins.str, Enum):
     """
     [Required] Name of policy configuration
@@ -801,6 +837,7 @@ class EarlyTerminationPolicyType(builtins.str, Enum):
     TRUNCATION_SELECTION = "TruncationSelection"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:EgressPublicNetworkAccessType")
 class EgressPublicNetworkAccessType(builtins.str, Enum):
     """
     If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
@@ -809,6 +846,7 @@ class EgressPublicNetworkAccessType(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:EmailNotificationEnableType")
 class EmailNotificationEnableType(builtins.str, Enum):
     """
     Enum to determine the email notification type.
@@ -818,6 +856,7 @@ class EmailNotificationEnableType(builtins.str, Enum):
     JOB_CANCELLED = "JobCancelled"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:EncryptionStatus")
 class EncryptionStatus(builtins.str, Enum):
     """
     Indicates whether or not the encryption is enabled for the workspace.
@@ -826,6 +865,7 @@ class EncryptionStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:EndpointAuthMode")
 class EndpointAuthMode(builtins.str, Enum):
     """
     [Required] The authentication method for invoking the endpoint (data plane operation). Use 'Key' for key-based authentication. Use 'AMLToken' for Azure Machine Learning token-based authentication. Use 'AADToken' for Microsoft Entra token-based authentication.
@@ -835,6 +875,7 @@ class EndpointAuthMode(builtins.str, Enum):
     AAD_TOKEN = "AADToken"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:EndpointComputeType")
 class EndpointComputeType(builtins.str, Enum):
     """
     [Required] The compute type of the endpoint.
@@ -844,6 +885,7 @@ class EndpointComputeType(builtins.str, Enum):
     AZURE_ML_COMPUTE = "AzureMLCompute"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:EndpointServiceConnectionStatus")
 class EndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Connection status of the service consumer with the service provider
@@ -854,6 +896,7 @@ class EndpointServiceConnectionStatus(builtins.str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:EnvironmentVariableType")
 class EnvironmentVariableType(builtins.str, Enum):
     """
     Type of the Environment Variable. Possible values are: local - For local variable
@@ -861,6 +904,7 @@ class EnvironmentVariableType(builtins.str, Enum):
     LOCAL = "local"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:FeatureAttributionMetric")
 class FeatureAttributionMetric(builtins.str, Enum):
     """
     [Required] The feature attribution metric to calculate.
@@ -871,6 +915,7 @@ class FeatureAttributionMetric(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:FeatureDataType")
 class FeatureDataType(builtins.str, Enum):
     """
     Specifies the data type
@@ -885,6 +930,7 @@ class FeatureDataType(builtins.str, Enum):
     BOOLEAN = "Boolean"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:FeatureImportanceMode")
 class FeatureImportanceMode(builtins.str, Enum):
     """
     The mode of operation for computing feature importance.
@@ -899,6 +945,7 @@ class FeatureImportanceMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:FeatureLags")
 class FeatureLags(builtins.str, Enum):
     """
     Flag for generating lags for the numeric features with 'auto' or null.
@@ -913,6 +960,7 @@ class FeatureLags(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:FeaturizationMode")
 class FeaturizationMode(builtins.str, Enum):
     """
     Featurization mode - User can keep the default 'Auto' mode and AutoML will take care of necessary transformation of the data in featurization phase.
@@ -933,6 +981,7 @@ class FeaturizationMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:FirewallSku")
 class FirewallSku(builtins.str, Enum):
     """
     Firewall Sku used for FQDN Rules
@@ -941,6 +990,7 @@ class FirewallSku(builtins.str, Enum):
     BASIC = "Basic"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ForecastHorizonMode")
 class ForecastHorizonMode(builtins.str, Enum):
     """
     [Required] Set forecast horizon value selection mode.
@@ -955,6 +1005,7 @@ class ForecastHorizonMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ForecastingModels")
 class ForecastingModels(builtins.str, Enum):
     """
     Enum for all forecasting models supported by AutoML.
@@ -1046,6 +1097,7 @@ class ForecastingModels(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ForecastingPrimaryMetrics")
 class ForecastingPrimaryMetrics(builtins.str, Enum):
     """
     Primary metric for forecasting task.
@@ -1068,6 +1120,7 @@ class ForecastingPrimaryMetrics(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:Goal")
 class Goal(builtins.str, Enum):
     """
     [Required] Defines supported metric goals for hyperparameter tuning
@@ -1076,6 +1129,7 @@ class Goal(builtins.str, Enum):
     MAXIMIZE = "Maximize"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:Header")
 class Header(builtins.str, Enum):
     """
     Header type.
@@ -1086,6 +1140,7 @@ class Header(builtins.str, Enum):
     COMBINE_ALL_FILES_HEADERS = "combine_all_files_headers"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:IdentityConfigurationType")
 class IdentityConfigurationType(builtins.str, Enum):
     """
     [Required] Specifies the type of identity framework.
@@ -1095,6 +1150,7 @@ class IdentityConfigurationType(builtins.str, Enum):
     USER_IDENTITY = "UserIdentity"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ImageAnnotationType")
 class ImageAnnotationType(builtins.str, Enum):
     """
     Annotation type of image labeling job.
@@ -1104,6 +1160,7 @@ class ImageAnnotationType(builtins.str, Enum):
     INSTANCE_SEGMENTATION = "InstanceSegmentation"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ImageType")
 class ImageType(builtins.str, Enum):
     """
     Type of the image. Possible values are: docker - For docker images. azureml - For AzureML images
@@ -1112,6 +1169,7 @@ class ImageType(builtins.str, Enum):
     AZUREML = "azureml"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:IncrementalDataRefresh")
 class IncrementalDataRefresh(builtins.str, Enum):
     """
     Indicates whether to enable incremental data refresh.
@@ -1120,6 +1178,7 @@ class IncrementalDataRefresh(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:InputDeliveryMode")
 class InputDeliveryMode(builtins.str, Enum):
     """
     Input Asset Delivery Mode.
@@ -1132,6 +1191,7 @@ class InputDeliveryMode(builtins.str, Enum):
     EVAL_DOWNLOAD = "EvalDownload"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:InstanceSegmentationPrimaryMetrics")
 class InstanceSegmentationPrimaryMetrics(builtins.str, Enum):
     """
     Primary metric to optimize for this task.
@@ -1143,6 +1203,7 @@ class InstanceSegmentationPrimaryMetrics(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:IsolationMode")
 class IsolationMode(builtins.str, Enum):
     """
     Isolation mode for the managed network of a machine learning workspace.
@@ -1152,6 +1213,7 @@ class IsolationMode(builtins.str, Enum):
     ALLOW_ONLY_APPROVED_OUTBOUND = "AllowOnlyApprovedOutbound"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:JobInputType")
 class JobInputType(builtins.str, Enum):
     """
     [Required] Specifies the type of job.
@@ -1165,6 +1227,7 @@ class JobInputType(builtins.str, Enum):
     TRITON_MODEL = "triton_model"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:JobLimitsType")
 class JobLimitsType(builtins.str, Enum):
     """
     [Required] JobLimit type.
@@ -1173,6 +1236,7 @@ class JobLimitsType(builtins.str, Enum):
     SWEEP = "Sweep"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:JobOutputType")
 class JobOutputType(builtins.str, Enum):
     """
     [Required] Specifies the type of job.
@@ -1185,6 +1249,7 @@ class JobOutputType(builtins.str, Enum):
     TRITON_MODEL = "triton_model"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:JobTier")
 class JobTier(builtins.str, Enum):
     """
     Controls the compute job tier
@@ -1196,6 +1261,7 @@ class JobTier(builtins.str, Enum):
     PREMIUM = "Premium"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:JobType")
 class JobType(builtins.str, Enum):
     """
     [Required] Specifies the type of job.
@@ -1207,6 +1273,7 @@ class JobType(builtins.str, Enum):
     SPARK = "Spark"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:LearningRateScheduler")
 class LearningRateScheduler(builtins.str, Enum):
     """
     Type of learning rate scheduler. Must be 'warmup_cosine' or 'step'.
@@ -1225,6 +1292,7 @@ class LearningRateScheduler(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:LinkedServiceLinkType")
 class LinkedServiceLinkType(builtins.str, Enum):
     """
     Type of the link target.
@@ -1232,6 +1300,7 @@ class LinkedServiceLinkType(builtins.str, Enum):
     SYNAPSE = "Synapse"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:LoadBalancerType")
 class LoadBalancerType(builtins.str, Enum):
     """
     Load Balancer Type
@@ -1240,6 +1309,7 @@ class LoadBalancerType(builtins.str, Enum):
     INTERNAL_LOAD_BALANCER = "InternalLoadBalancer"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:LogVerbosity")
 class LogVerbosity(builtins.str, Enum):
     """
     Log verbosity for the job.
@@ -1270,6 +1340,7 @@ class LogVerbosity(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:MLAssistConfigurationType")
 class MLAssistConfigurationType(builtins.str, Enum):
     """
     [Required] Indicates whether MLAssist feature is enabled.
@@ -1278,6 +1349,7 @@ class MLAssistConfigurationType(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ManagedNetworkStatus")
 class ManagedNetworkStatus(builtins.str, Enum):
     """
     Status for the managed network of a machine learning workspace.
@@ -1286,6 +1358,7 @@ class ManagedNetworkStatus(builtins.str, Enum):
     ACTIVE = "Active"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -1296,6 +1369,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:MaterializationStoreType")
 class MaterializationStoreType(builtins.str, Enum):
     """
     Specifies the stores to which materialization should happen
@@ -1306,6 +1380,7 @@ class MaterializationStoreType(builtins.str, Enum):
     ONLINE_AND_OFFLINE = "OnlineAndOffline"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:MediaType")
 class MediaType(builtins.str, Enum):
     """
     [Required] Media type of the job.
@@ -1314,6 +1389,7 @@ class MediaType(builtins.str, Enum):
     TEXT = "Text"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ModelSize")
 class ModelSize(builtins.str, Enum):
     """
     Model size. Must be 'small', 'medium', 'large', or 'xlarge'.
@@ -1342,6 +1418,7 @@ class ModelSize(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ModelTaskType")
 class ModelTaskType(builtins.str, Enum):
     """
     [Required] The machine learning task type of the monitored model.
@@ -1350,6 +1427,7 @@ class ModelTaskType(builtins.str, Enum):
     REGRESSION = "Regression"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:MonitorComputeIdentityType")
 class MonitorComputeIdentityType(builtins.str, Enum):
     """
     [Required] Specifies the type of identity to use within the monitoring jobs.
@@ -1364,6 +1442,7 @@ class MonitorComputeIdentityType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:MonitorComputeType")
 class MonitorComputeType(builtins.str, Enum):
     """
     [Required] Specifies the type of signal to monitor.
@@ -1374,6 +1453,7 @@ class MonitorComputeType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:MonitoringFeatureDataType")
 class MonitoringFeatureDataType(builtins.str, Enum):
     """
     [Required] Specifies the data type of the metric threshold.
@@ -1388,6 +1468,7 @@ class MonitoringFeatureDataType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:MonitoringFeatureFilterType")
 class MonitoringFeatureFilterType(builtins.str, Enum):
     """
     [Required] Specifies the feature filter to leverage when selecting features to calculate metrics over.
@@ -1406,6 +1487,7 @@ class MonitoringFeatureFilterType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:MonitoringInputDataType")
 class MonitoringInputDataType(builtins.str, Enum):
     """
     [Required] Specifies the type of signal to monitor.
@@ -1424,6 +1506,7 @@ class MonitoringInputDataType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:MonitoringNotificationType")
 class MonitoringNotificationType(builtins.str, Enum):
     AML_NOTIFICATION = "AmlNotification"
     """
@@ -1431,6 +1514,7 @@ class MonitoringNotificationType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:MonitoringSignalType")
 class MonitoringSignalType(builtins.str, Enum):
     """
     [Required] Specifies the type of signal to monitor.
@@ -1457,6 +1541,7 @@ class MonitoringSignalType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:MultiSelect")
 class MultiSelect(builtins.str, Enum):
     """
     Indicates whether it is allowed to select multiple classes in this category.
@@ -1465,6 +1550,7 @@ class MultiSelect(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:NCrossValidationsMode")
 class NCrossValidationsMode(builtins.str, Enum):
     """
     [Required] Mode for determining N-Cross validations.
@@ -1479,6 +1565,7 @@ class NCrossValidationsMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:NodesValueType")
 class NodesValueType(builtins.str, Enum):
     """
     [Required] Type of the Nodes value
@@ -1486,6 +1573,7 @@ class NodesValueType(builtins.str, Enum):
     ALL = "All"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:NumericalDataDriftMetric")
 class NumericalDataDriftMetric(builtins.str, Enum):
     """
     [Required] The numerical data drift metric to calculate.
@@ -1508,6 +1596,7 @@ class NumericalDataDriftMetric(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:NumericalDataQualityMetric")
 class NumericalDataQualityMetric(builtins.str, Enum):
     """
     [Required] The numerical data quality metric to calculate.
@@ -1526,6 +1615,7 @@ class NumericalDataQualityMetric(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:NumericalPredictionDriftMetric")
 class NumericalPredictionDriftMetric(builtins.str, Enum):
     """
     [Required] The numerical prediction drift metric to calculate.
@@ -1548,6 +1638,7 @@ class NumericalPredictionDriftMetric(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ObjectDetectionPrimaryMetrics")
 class ObjectDetectionPrimaryMetrics(builtins.str, Enum):
     """
     Primary metric to optimize for this task.
@@ -1559,6 +1650,7 @@ class ObjectDetectionPrimaryMetrics(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:OneLakeArtifactType")
 class OneLakeArtifactType(builtins.str, Enum):
     """
     [Required] OneLake artifact type
@@ -1566,6 +1658,7 @@ class OneLakeArtifactType(builtins.str, Enum):
     LAKE_HOUSE = "LakeHouse"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:OperatingSystemType")
 class OperatingSystemType(builtins.str, Enum):
     """
     The OS type of the environment.
@@ -1574,6 +1667,7 @@ class OperatingSystemType(builtins.str, Enum):
     WINDOWS = "Windows"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:OsType")
 class OsType(builtins.str, Enum):
     """
     Compute OS Type
@@ -1582,6 +1676,7 @@ class OsType(builtins.str, Enum):
     WINDOWS = "Windows"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:OutputDeliveryMode")
 class OutputDeliveryMode(builtins.str, Enum):
     """
     Output Asset Delivery Mode.
@@ -1591,6 +1686,7 @@ class OutputDeliveryMode(builtins.str, Enum):
     DIRECT = "Direct"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -1602,6 +1698,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     TIMEOUT = "Timeout"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:Protocol")
 class Protocol(builtins.str, Enum):
     """
     Protocol over which communication will happen over this endpoint
@@ -1611,6 +1708,7 @@ class Protocol(builtins.str, Enum):
     HTTP = "http"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Whether requests from Public Network are allowed.
@@ -1619,6 +1717,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:PublicNetworkAccessType")
 class PublicNetworkAccessType(builtins.str, Enum):
     """
     Set to "Enabled" for endpoints that should allow public access when Private Link is enabled.
@@ -1627,6 +1726,7 @@ class PublicNetworkAccessType(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:RaiPolicyContentSource")
 class RaiPolicyContentSource(builtins.str, Enum):
     """
     Content source to apply the Content Filters.
@@ -1635,6 +1735,7 @@ class RaiPolicyContentSource(builtins.str, Enum):
     COMPLETION = "Completion"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:RaiPolicyMode")
 class RaiPolicyMode(builtins.str, Enum):
     """
     Content Filters mode.
@@ -1644,6 +1745,7 @@ class RaiPolicyMode(builtins.str, Enum):
     BLOCKING = "Blocking"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:RaiPolicyType")
 class RaiPolicyType(builtins.str, Enum):
     """
     Content Filters policy type.
@@ -1652,6 +1754,7 @@ class RaiPolicyType(builtins.str, Enum):
     SYSTEM_MANAGED = "SystemManaged"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:RandomSamplingAlgorithmRule")
 class RandomSamplingAlgorithmRule(builtins.str, Enum):
     """
     The specific type of random algorithm
@@ -1660,6 +1763,7 @@ class RandomSamplingAlgorithmRule(builtins.str, Enum):
     SOBOL = "Sobol"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:RecurrenceFrequency")
 class RecurrenceFrequency(builtins.str, Enum):
     """
     [Required] The frequency to trigger schedule.
@@ -1686,6 +1790,7 @@ class RecurrenceFrequency(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ReferenceType")
 class ReferenceType(builtins.str, Enum):
     """
     [Required] Specifies the type of asset reference.
@@ -1695,6 +1800,7 @@ class ReferenceType(builtins.str, Enum):
     OUTPUT_PATH = "OutputPath"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:RegressionModels")
 class RegressionModels(builtins.str, Enum):
     """
     Enum for all Regression models supported by AutoML.
@@ -1747,6 +1853,7 @@ class RegressionModels(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:RegressionPrimaryMetrics")
 class RegressionPrimaryMetrics(builtins.str, Enum):
     """
     Primary metric for regression task.
@@ -1769,6 +1876,7 @@ class RegressionPrimaryMetrics(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:RemoteLoginPortPublicAccess")
 class RemoteLoginPortPublicAccess(builtins.str, Enum):
     """
     State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
@@ -1778,6 +1886,7 @@ class RemoteLoginPortPublicAccess(builtins.str, Enum):
     NOT_SPECIFIED = "NotSpecified"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The identity type.
@@ -1788,6 +1897,7 @@ class ResourceIdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:RollingRateType")
 class RollingRateType(builtins.str, Enum):
     """
     When model data is collected to blob storage, we need to roll the data to different path to avoid logging all of them in a single blob file.
@@ -1802,6 +1912,7 @@ class RollingRateType(builtins.str, Enum):
     MINUTE = "Minute"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:RuleAction")
 class RuleAction(builtins.str, Enum):
     """
     The action enum for networking rule.
@@ -1810,6 +1921,7 @@ class RuleAction(builtins.str, Enum):
     DENY = "Deny"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:RuleCategory")
 class RuleCategory(builtins.str, Enum):
     """
     Category of a managed network Outbound Rule of a machine learning workspace.
@@ -1820,6 +1932,7 @@ class RuleCategory(builtins.str, Enum):
     DEPENDENCY = "Dependency"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:RuleStatus")
 class RuleStatus(builtins.str, Enum):
     """
     Type of a managed network Outbound Rule of a machine learning workspace.
@@ -1828,6 +1941,7 @@ class RuleStatus(builtins.str, Enum):
     ACTIVE = "Active"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:RuleType")
 class RuleType(builtins.str, Enum):
     """
     Type of a managed network Outbound Rule of a machine learning workspace.
@@ -1837,6 +1951,7 @@ class RuleType(builtins.str, Enum):
     SERVICE_TAG = "ServiceTag"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:SamplingAlgorithmType")
 class SamplingAlgorithmType(builtins.str, Enum):
     """
     [Required] The algorithm used for generating hyperparameter values, along with configuration properties
@@ -1846,6 +1961,7 @@ class SamplingAlgorithmType(builtins.str, Enum):
     BAYESIAN = "Bayesian"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ScaleType")
 class ScaleType(builtins.str, Enum):
     """
     [Required] Type of deployment scaling algorithm
@@ -1854,6 +1970,7 @@ class ScaleType(builtins.str, Enum):
     TARGET_UTILIZATION = "TargetUtilization"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ScheduleActionType")
 class ScheduleActionType(builtins.str, Enum):
     """
     [Required] Specifies the action type of the schedule
@@ -1863,6 +1980,7 @@ class ScheduleActionType(builtins.str, Enum):
     CREATE_MONITOR = "CreateMonitor"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ScheduleProvisioningState")
 class ScheduleProvisioningState(builtins.str, Enum):
     """
     The current deployment state of schedule.
@@ -1872,6 +1990,7 @@ class ScheduleProvisioningState(builtins.str, Enum):
     FAILED = "Failed"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ScheduleStatus")
 class ScheduleStatus(builtins.str, Enum):
     """
     Is the schedule enabled or disabled?
@@ -1880,6 +1999,7 @@ class ScheduleStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:SeasonalityMode")
 class SeasonalityMode(builtins.str, Enum):
     """
     [Required] Seasonality mode.
@@ -1894,6 +2014,7 @@ class SeasonalityMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:SecretsType")
 class SecretsType(builtins.str, Enum):
     """
     [Required] Credential type used to authentication with storage.
@@ -1904,6 +2025,7 @@ class SecretsType(builtins.str, Enum):
     SERVICE_PRINCIPAL = "ServicePrincipal"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ServerlessInferenceEndpointAuthMode")
 class ServerlessInferenceEndpointAuthMode(builtins.str, Enum):
     """
     [Required] Specifies the authentication mode for the Serverless endpoint.
@@ -1911,6 +2033,7 @@ class ServerlessInferenceEndpointAuthMode(builtins.str, Enum):
     KEY = "Key"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ServiceDataAccessAuthIdentity")
 class ServiceDataAccessAuthIdentity(builtins.str, Enum):
     """
     Indicates which identity to use to authenticate service data access to customer's storage.
@@ -1929,6 +2052,7 @@ class ServiceDataAccessAuthIdentity(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ShortSeriesHandlingConfiguration")
 class ShortSeriesHandlingConfiguration(builtins.str, Enum):
     """
     The parameter defining how if AutoML should handle short time series.
@@ -1951,6 +2075,7 @@ class ShortSeriesHandlingConfiguration(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:SkuTier")
 class SkuTier(builtins.str, Enum):
     """
     This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
@@ -1961,6 +2086,7 @@ class SkuTier(builtins.str, Enum):
     PREMIUM = "Premium"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:SourceType")
 class SourceType(builtins.str, Enum):
     """
     Data source type.
@@ -1970,6 +2096,7 @@ class SourceType(builtins.str, Enum):
     PARQUET_FILES = "parquet_files"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:SparkJobEntryType")
 class SparkJobEntryType(builtins.str, Enum):
     """
     [Required] Type of the job's entry point.
@@ -1978,6 +2105,7 @@ class SparkJobEntryType(builtins.str, Enum):
     SPARK_JOB_SCALA_ENTRY = "SparkJobScalaEntry"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:SshPublicAccess")
 class SshPublicAccess(builtins.str, Enum):
     """
     State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
@@ -1986,6 +2114,7 @@ class SshPublicAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:SslConfigStatus")
 class SslConfigStatus(builtins.str, Enum):
     """
     Enable or disable ssl for scoring
@@ -1995,6 +2124,7 @@ class SslConfigStatus(builtins.str, Enum):
     AUTO = "Auto"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:StackMetaLearnerType")
 class StackMetaLearnerType(builtins.str, Enum):
     """
     The meta-learner is a model trained on the output of the individual heterogeneous models.
@@ -2021,6 +2151,7 @@ class StackMetaLearnerType(builtins.str, Enum):
     LINEAR_REGRESSION = "LinearRegression"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:StochasticOptimizer")
 class StochasticOptimizer(builtins.str, Enum):
     """
     Type of optimizer.
@@ -2043,6 +2174,7 @@ class StochasticOptimizer(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:TargetAggregationFunction")
 class TargetAggregationFunction(builtins.str, Enum):
     """
     The function to be used to aggregate the time series target column to conform to a user specified frequency.
@@ -2058,6 +2190,7 @@ class TargetAggregationFunction(builtins.str, Enum):
     MEAN = "Mean"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:TargetLagsMode")
 class TargetLagsMode(builtins.str, Enum):
     """
     [Required] Set target lags mode - Auto/Custom
@@ -2072,6 +2205,7 @@ class TargetLagsMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:TargetRollingWindowSizeMode")
 class TargetRollingWindowSizeMode(builtins.str, Enum):
     """
     [Required] TargetRollingWindowSiz detection mode.
@@ -2086,6 +2220,7 @@ class TargetRollingWindowSizeMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:TaskType")
 class TaskType(builtins.str, Enum):
     """
     [Required] Task type for AutoMLJob.
@@ -2140,6 +2275,7 @@ class TaskType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:TextAnnotationType")
 class TextAnnotationType(builtins.str, Enum):
     """
     Annotation type of text labeling job.
@@ -2148,6 +2284,7 @@ class TextAnnotationType(builtins.str, Enum):
     NAMED_ENTITY_RECOGNITION = "NamedEntityRecognition"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:TriggerType")
 class TriggerType(builtins.str, Enum):
     """
     [Required] 
@@ -2156,6 +2293,7 @@ class TriggerType(builtins.str, Enum):
     CRON = "Cron"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:UseStl")
 class UseStl(builtins.str, Enum):
     """
     Configure STL Decomposition of the time-series target column.
@@ -2168,6 +2306,7 @@ class UseStl(builtins.str, Enum):
     SEASON_TREND = "SeasonTrend"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ValidationMetricType")
 class ValidationMetricType(builtins.str, Enum):
     """
     Metric computation method to use for validation metrics.
@@ -2190,6 +2329,7 @@ class ValidationMetricType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ValueFormat")
 class ValueFormat(builtins.str, Enum):
     """
     format for the workspace connection value
@@ -2197,6 +2337,7 @@ class ValueFormat(builtins.str, Enum):
     JSON = "JSON"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:VmPriority")
 class VmPriority(builtins.str, Enum):
     """
     Virtual Machine priority
@@ -2205,6 +2346,7 @@ class VmPriority(builtins.str, Enum):
     LOW_PRIORITY = "LowPriority"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:VolumeDefinitionType")
 class VolumeDefinitionType(builtins.str, Enum):
     """
     Type of Volume Definition. Possible Values: bind,volume,tmpfs,npipe
@@ -2215,6 +2357,7 @@ class VolumeDefinitionType(builtins.str, Enum):
     NPIPE = "npipe"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:WebhookType")
 class WebhookType(builtins.str, Enum):
     """
     [Required] Specifies the type of service to send a callback
@@ -2222,6 +2365,7 @@ class WebhookType(builtins.str, Enum):
     AZURE_DEV_OPS = "AzureDevOps"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:WeekDay")
 class WeekDay(builtins.str, Enum):
     """
     Enum of weekday

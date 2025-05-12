@@ -120,10 +120,8 @@ class DnsResolverPolicyVirtualNetworkLinkArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:dnsresolver:DnsResolverPolicyVirtualNetworkLink")
 class DnsResolverPolicyVirtualNetworkLink(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dnsresolver:DnsResolverPolicyVirtualNetworkLink"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

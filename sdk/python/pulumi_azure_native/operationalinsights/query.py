@@ -167,10 +167,8 @@ class QueryArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:operationalinsights:Query")
 class Query(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:operationalinsights:Query"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

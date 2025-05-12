@@ -122,10 +122,8 @@ class AvailabilitySetArgs:
         pulumi.set(self, "vmm_server_id", value)
 
 
+@pulumi.type_token("azure-native:scvmm:AvailabilitySet")
 class AvailabilitySet(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:scvmm:AvailabilitySet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

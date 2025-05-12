@@ -376,10 +376,8 @@ class ManagedDatabaseArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:sql:ManagedDatabase")
 class ManagedDatabase(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:ManagedDatabase"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -18,6 +18,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:appcomplianceautomation:ContentType")
 class ContentType(builtins.str, Enum):
     """
     content type
@@ -28,6 +29,7 @@ class ContentType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:appcomplianceautomation:EnableSslVerification")
 class EnableSslVerification(builtins.str, Enum):
     """
     whether to enable ssl verification
@@ -42,6 +44,7 @@ class EnableSslVerification(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:appcomplianceautomation:EvidenceType")
 class EvidenceType(builtins.str, Enum):
     """
     Evidence type.
@@ -60,6 +63,7 @@ class EvidenceType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:appcomplianceautomation:NotificationEvent")
 class NotificationEvent(builtins.str, Enum):
     """
     notification event.
@@ -86,6 +90,7 @@ class NotificationEvent(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:appcomplianceautomation:ResourceOrigin")
 class ResourceOrigin(builtins.str, Enum):
     """
     Resource Origin.
@@ -104,6 +109,7 @@ class ResourceOrigin(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:appcomplianceautomation:SendAllEvents")
 class SendAllEvents(builtins.str, Enum):
     """
     whether to send notification under any event.
@@ -118,6 +124,7 @@ class SendAllEvents(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:appcomplianceautomation:UpdateWebhookKey")
 class UpdateWebhookKey(builtins.str, Enum):
     """
     whether to update webhookKey.
@@ -132,6 +139,7 @@ class UpdateWebhookKey(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:appcomplianceautomation:WebhookStatus")
 class WebhookStatus(builtins.str, Enum):
     """
     Webhook status.

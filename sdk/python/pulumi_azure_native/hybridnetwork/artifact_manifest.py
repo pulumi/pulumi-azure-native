@@ -137,10 +137,8 @@ class ArtifactManifestArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:hybridnetwork:ArtifactManifest")
 class ArtifactManifest(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybridnetwork:ArtifactManifest"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

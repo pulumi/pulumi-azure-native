@@ -232,10 +232,8 @@ class WorkbookArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure-native:applicationinsights:Workbook")
 class Workbook(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:applicationinsights:Workbook"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -121,10 +121,8 @@ class KeyValueArgs:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("azure-native:appconfiguration:KeyValue")
 class KeyValue(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:appconfiguration:KeyValue"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -103,10 +103,8 @@ class SuppressionListArgs:
         pulumi.set(self, "suppression_list_name", value)
 
 
+@pulumi.type_token("azure-native:communication:SuppressionList")
 class SuppressionList(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:communication:SuppressionList"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

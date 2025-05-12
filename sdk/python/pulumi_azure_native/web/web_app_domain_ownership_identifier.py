@@ -103,10 +103,8 @@ class WebAppDomainOwnershipIdentifierArgs:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppDomainOwnershipIdentifier")
 class WebAppDomainOwnershipIdentifier(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppDomainOwnershipIdentifier"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -139,10 +139,8 @@ class SecurityStandardArgs:
         pulumi.set(self, "standard_id", value)
 
 
+@pulumi.type_token("azure-native:security:SecurityStandard")
 class SecurityStandard(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:SecurityStandard"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

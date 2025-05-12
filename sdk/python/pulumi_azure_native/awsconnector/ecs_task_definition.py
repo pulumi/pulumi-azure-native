@@ -107,10 +107,8 @@ class EcsTaskDefinitionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:EcsTaskDefinition")
 class EcsTaskDefinition(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:EcsTaskDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

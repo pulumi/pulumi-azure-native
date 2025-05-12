@@ -137,10 +137,8 @@ class ClusterArgs:
         pulumi.set(self, "vsan_datastore_name", value)
 
 
+@pulumi.type_token("azure-native:avs:Cluster")
 class Cluster(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:avs:Cluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -279,10 +279,8 @@ class AgentPoolArgs:
         pulumi.set(self, "upgrade_settings", value)
 
 
+@pulumi.type_token("azure-native:networkcloud:AgentPool")
 class AgentPool(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:networkcloud:AgentPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

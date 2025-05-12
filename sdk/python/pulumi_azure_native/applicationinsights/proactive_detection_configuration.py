@@ -169,10 +169,8 @@ class ProactiveDetectionConfigurationArgs:
         pulumi.set(self, "send_emails_to_subscription_owners", value)
 
 
+@pulumi.type_token("azure-native:applicationinsights:ProactiveDetectionConfiguration")
 class ProactiveDetectionConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:applicationinsights:ProactiveDetectionConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

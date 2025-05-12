@@ -154,10 +154,8 @@ class MachineGroupArgs:
         pulumi.set(self, "machines", value)
 
 
+@pulumi.type_token("azure-native:operationalinsights:MachineGroup")
 class MachineGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:operationalinsights:MachineGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

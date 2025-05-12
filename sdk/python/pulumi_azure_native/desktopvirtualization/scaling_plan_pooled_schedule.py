@@ -346,10 +346,8 @@ class ScalingPlanPooledScheduleArgs:
         pulumi.set(self, "scaling_plan_schedule_name", value)
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:ScalingPlanPooledSchedule")
 class ScalingPlanPooledSchedule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:desktopvirtualization:ScalingPlanPooledSchedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

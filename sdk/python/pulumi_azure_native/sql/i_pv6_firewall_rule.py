@@ -119,10 +119,8 @@ class IPv6FirewallRuleArgs:
         pulumi.set(self, "start_i_pv6_address", value)
 
 
+@pulumi.type_token("azure-native:sql:IPv6FirewallRule")
 class IPv6FirewallRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:IPv6FirewallRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -56,10 +56,8 @@ class GroupQuotaSubscriptionArgs:
         pulumi.set(self, "management_group_id", value)
 
 
+@pulumi.type_token("azure-native:quota:GroupQuotaSubscription")
 class GroupQuotaSubscription(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:quota:GroupQuotaSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

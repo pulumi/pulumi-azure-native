@@ -141,10 +141,8 @@ class PermissionBindingArgs:
         pulumi.set(self, "topic_space_name", value)
 
 
+@pulumi.type_token("azure-native:eventgrid:PermissionBinding")
 class PermissionBinding(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:eventgrid:PermissionBinding"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

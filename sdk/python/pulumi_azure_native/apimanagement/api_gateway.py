@@ -138,10 +138,8 @@ class ApiGatewayArgs:
         pulumi.set(self, "virtual_network_type", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:ApiGateway")
 class ApiGateway(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:ApiGateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

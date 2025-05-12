@@ -572,10 +572,8 @@ class MachineLearningDatastoreArgs:
         pulumi.set(self, "workspace_system_assigned_identity", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:MachineLearningDatastore")
 class MachineLearningDatastore(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:MachineLearningDatastore"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

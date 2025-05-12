@@ -72,10 +72,8 @@ class TaskHubArgs:
         pulumi.set(self, "task_hub_name", value)
 
 
+@pulumi.type_token("azure-native:durabletask:TaskHub")
 class TaskHub(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:durabletask:TaskHub"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

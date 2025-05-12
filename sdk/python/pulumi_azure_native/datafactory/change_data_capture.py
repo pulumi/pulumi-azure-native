@@ -183,10 +183,8 @@ class ChangeDataCaptureArgs:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("azure-native:datafactory:ChangeDataCapture")
 class ChangeDataCapture(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datafactory:ChangeDataCapture"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

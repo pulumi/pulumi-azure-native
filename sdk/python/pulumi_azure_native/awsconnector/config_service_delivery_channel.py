@@ -107,10 +107,8 @@ class ConfigServiceDeliveryChannelArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:ConfigServiceDeliveryChannel")
 class ConfigServiceDeliveryChannel(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:ConfigServiceDeliveryChannel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

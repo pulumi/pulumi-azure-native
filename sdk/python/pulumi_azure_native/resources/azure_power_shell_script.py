@@ -318,10 +318,8 @@ class AzurePowerShellScriptArgs:
         pulumi.set(self, "timeout", value)
 
 
+@pulumi.type_token("azure-native:resources:AzurePowerShellScript")
 class AzurePowerShellScript(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:resources:AzurePowerShellScript"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

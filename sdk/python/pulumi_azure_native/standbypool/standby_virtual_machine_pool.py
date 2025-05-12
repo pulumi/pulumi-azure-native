@@ -138,10 +138,8 @@ class StandbyVirtualMachinePoolArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:standbypool:StandbyVirtualMachinePool")
 class StandbyVirtualMachinePool(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:standbypool:StandbyVirtualMachinePool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -121,10 +121,8 @@ class ConfigurationProfilesVersionArgs:
         pulumi.set(self, "version_name", value)
 
 
+@pulumi.type_token("azure-native:automanage:ConfigurationProfilesVersion")
 class ConfigurationProfilesVersion(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:automanage:ConfigurationProfilesVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

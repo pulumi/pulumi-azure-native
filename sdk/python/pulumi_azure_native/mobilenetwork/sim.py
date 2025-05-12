@@ -184,10 +184,8 @@ class SimArgs:
         pulumi.set(self, "static_ip_configuration", value)
 
 
+@pulumi.type_token("azure-native:mobilenetwork:Sim")
 class Sim(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:mobilenetwork:Sim"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

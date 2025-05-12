@@ -247,10 +247,8 @@ class IncidentArgs:
         pulumi.set(self, "owner", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:Incident")
 class Incident(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:Incident"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

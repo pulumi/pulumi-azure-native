@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:dnsresolver:ActionType")
 class ActionType(builtins.str, Enum):
     """
     The type of action to take.
@@ -24,6 +25,7 @@ class ActionType(builtins.str, Enum):
     BLOCK = "Block"
 
 
+@pulumi.type_token("azure-native:dnsresolver:BlockResponseCode")
 class BlockResponseCode(builtins.str, Enum):
     """
     The response code for block actions.
@@ -31,6 +33,7 @@ class BlockResponseCode(builtins.str, Enum):
     SERVFAIL = "SERVFAIL"
 
 
+@pulumi.type_token("azure-native:dnsresolver:DnsSecurityRuleState")
 class DnsSecurityRuleState(builtins.str, Enum):
     """
     The state of DNS security rule.
@@ -39,6 +42,7 @@ class DnsSecurityRuleState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:dnsresolver:ForwardingRuleState")
 class ForwardingRuleState(builtins.str, Enum):
     """
     The state of forwarding rule.
@@ -47,6 +51,7 @@ class ForwardingRuleState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:dnsresolver:IpAllocationMethod")
 class IpAllocationMethod(builtins.str, Enum):
     """
     Private IP address allocation method.

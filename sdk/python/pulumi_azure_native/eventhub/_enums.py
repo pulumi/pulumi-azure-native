@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -32,12 +32,14 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:eventhub:AccessRights")
 class AccessRights(builtins.str, Enum):
     MANAGE = "Manage"
     SEND = "Send"
     LISTEN = "Listen"
 
 
+@pulumi.type_token("azure-native:eventhub:ApplicationGroupPolicyType")
 class ApplicationGroupPolicyType(builtins.str, Enum):
     """
     Application Group Policy types
@@ -45,6 +47,7 @@ class ApplicationGroupPolicyType(builtins.str, Enum):
     THROTTLING_POLICY = "ThrottlingPolicy"
 
 
+@pulumi.type_token("azure-native:eventhub:CaptureIdentityType")
 class CaptureIdentityType(builtins.str, Enum):
     """
     Type of Azure Active Directory Managed Identity.
@@ -53,6 +56,7 @@ class CaptureIdentityType(builtins.str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+@pulumi.type_token("azure-native:eventhub:CleanupPolicyRetentionDescription")
 class CleanupPolicyRetentionDescription(builtins.str, Enum):
     """
     Enumerates the possible values for cleanup policy
@@ -61,6 +65,7 @@ class CleanupPolicyRetentionDescription(builtins.str, Enum):
     COMPACT = "Compact"
 
 
+@pulumi.type_token("azure-native:eventhub:ClusterSkuName")
 class ClusterSkuName(builtins.str, Enum):
     """
     Name of this SKU.
@@ -68,6 +73,7 @@ class ClusterSkuName(builtins.str, Enum):
     DEDICATED = "Dedicated"
 
 
+@pulumi.type_token("azure-native:eventhub:DefaultAction")
 class DefaultAction(builtins.str, Enum):
     """
     Default Action for Network Rule Set
@@ -76,6 +82,7 @@ class DefaultAction(builtins.str, Enum):
     DENY = "Deny"
 
 
+@pulumi.type_token("azure-native:eventhub:EncodingCaptureDescription")
 class EncodingCaptureDescription(builtins.str, Enum):
     """
     Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
@@ -84,6 +91,7 @@ class EncodingCaptureDescription(builtins.str, Enum):
     AVRO_DEFLATE = "AvroDeflate"
 
 
+@pulumi.type_token("azure-native:eventhub:EndPointProvisioningState")
 class EndPointProvisioningState(builtins.str, Enum):
     """
     Provisioning state of the Private Endpoint Connection.
@@ -96,6 +104,7 @@ class EndPointProvisioningState(builtins.str, Enum):
     FAILED = "Failed"
 
 
+@pulumi.type_token("azure-native:eventhub:EntityStatus")
 class EntityStatus(builtins.str, Enum):
     """
     Enumerates the possible values for the status of the Event Hub.
@@ -111,6 +120,7 @@ class EntityStatus(builtins.str, Enum):
     UNKNOWN = "Unknown"
 
 
+@pulumi.type_token("azure-native:eventhub:IPAction")
 class IPAction(builtins.str, Enum):
     """
     The IP Filter Action
@@ -119,6 +129,7 @@ class IPAction(builtins.str, Enum):
     REJECT = "Reject"
 
 
+@pulumi.type_token("azure-native:eventhub:KeySource")
 class KeySource(builtins.str, Enum):
     """
     Enumerates the possible value of keySource for Encryption
@@ -126,6 +137,7 @@ class KeySource(builtins.str, Enum):
     MICROSOFT_KEY_VAULT = "Microsoft.KeyVault"
 
 
+@pulumi.type_token("azure-native:eventhub:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity.
@@ -136,6 +148,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:eventhub:MetricId")
 class MetricId(builtins.str, Enum):
     """
     Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
@@ -146,6 +159,7 @@ class MetricId(builtins.str, Enum):
     OUTGOING_MESSAGES = "OutgoingMessages"
 
 
+@pulumi.type_token("azure-native:eventhub:NetworkRuleIPAction")
 class NetworkRuleIPAction(builtins.str, Enum):
     """
     The IP Filter Action
@@ -153,6 +167,7 @@ class NetworkRuleIPAction(builtins.str, Enum):
     ALLOW = "Allow"
 
 
+@pulumi.type_token("azure-native:eventhub:PrivateLinkConnectionStatus")
 class PrivateLinkConnectionStatus(builtins.str, Enum):
     """
     Status of the connection.
@@ -163,6 +178,7 @@ class PrivateLinkConnectionStatus(builtins.str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+@pulumi.type_token("azure-native:eventhub:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     This determines if traffic is allowed over public network. By default it is enabled.
@@ -172,6 +188,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     SECURED_BY_PERIMETER = "SecuredByPerimeter"
 
 
+@pulumi.type_token("azure-native:eventhub:PublicNetworkAccessFlag")
 class PublicNetworkAccessFlag(builtins.str, Enum):
     """
     This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules. 
@@ -181,17 +198,20 @@ class PublicNetworkAccessFlag(builtins.str, Enum):
     SECURED_BY_PERIMETER = "SecuredByPerimeter"
 
 
+@pulumi.type_token("azure-native:eventhub:SchemaCompatibility")
 class SchemaCompatibility(builtins.str, Enum):
     NONE = "None"
     BACKWARD = "Backward"
     FORWARD = "Forward"
 
 
+@pulumi.type_token("azure-native:eventhub:SchemaType")
 class SchemaType(builtins.str, Enum):
     UNKNOWN = "Unknown"
     AVRO = "Avro"
 
 
+@pulumi.type_token("azure-native:eventhub:SkuName")
 class SkuName(builtins.str, Enum):
     """
     Name of this SKU.
@@ -201,6 +221,7 @@ class SkuName(builtins.str, Enum):
     PREMIUM = "Premium"
 
 
+@pulumi.type_token("azure-native:eventhub:SkuTier")
 class SkuTier(builtins.str, Enum):
     """
     The billing tier of this particular SKU.
@@ -210,6 +231,7 @@ class SkuTier(builtins.str, Enum):
     PREMIUM = "Premium"
 
 
+@pulumi.type_token("azure-native:eventhub:TlsVersion")
 class TlsVersion(builtins.str, Enum):
     """
     The minimum TLS version for the cluster to support, e.g. '1.2'

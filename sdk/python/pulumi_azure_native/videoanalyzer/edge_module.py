@@ -72,10 +72,8 @@ class EdgeModuleArgs:
         pulumi.set(self, "edge_module_name", value)
 
 
+@pulumi.type_token("azure-native:videoanalyzer:EdgeModule")
 class EdgeModule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:videoanalyzer:EdgeModule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

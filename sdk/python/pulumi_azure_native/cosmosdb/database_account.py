@@ -637,10 +637,8 @@ class DatabaseAccountArgs:
         pulumi.set(self, "virtual_network_rules", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:DatabaseAccount")
 class DatabaseAccount(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:DatabaseAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

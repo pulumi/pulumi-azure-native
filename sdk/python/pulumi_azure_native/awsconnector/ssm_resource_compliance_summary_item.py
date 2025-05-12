@@ -107,10 +107,8 @@ class SsmResourceComplianceSummaryItemArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:SsmResourceComplianceSummaryItem")
 class SsmResourceComplianceSummaryItem(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:SsmResourceComplianceSummaryItem"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -106,10 +106,8 @@ class DashboardArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:portal:Dashboard")
 class Dashboard(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:portal:Dashboard"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

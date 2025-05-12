@@ -117,10 +117,8 @@ class FederatedIdentityCredentialArgs:
         pulumi.set(self, "federated_identity_credential_resource_name", value)
 
 
+@pulumi.type_token("azure-native:managedidentity:FederatedIdentityCredential")
 class FederatedIdentityCredential(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:managedidentity:FederatedIdentityCredential"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -181,10 +181,8 @@ class PipelineArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:iotoperationsdataprocessor:Pipeline")
 class Pipeline(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:iotoperationsdataprocessor:Pipeline"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

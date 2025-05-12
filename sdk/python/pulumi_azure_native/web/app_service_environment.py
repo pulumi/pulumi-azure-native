@@ -316,10 +316,8 @@ class AppServiceEnvironmentArgs:
         pulumi.set(self, "zone_redundant", value)
 
 
+@pulumi.type_token("azure-native:web:AppServiceEnvironment")
 class AppServiceEnvironment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:AppServiceEnvironment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

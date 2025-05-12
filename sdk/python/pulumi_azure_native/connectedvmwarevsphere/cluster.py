@@ -170,10 +170,8 @@ class ClusterArgs:
         pulumi.set(self, "v_center_id", value)
 
 
+@pulumi.type_token("azure-native:connectedvmwarevsphere:Cluster")
 class Cluster(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:connectedvmwarevsphere:Cluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

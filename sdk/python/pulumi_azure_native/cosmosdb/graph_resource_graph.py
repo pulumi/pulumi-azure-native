@@ -153,10 +153,8 @@ class GraphResourceGraphArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:GraphResourceGraph")
 class GraphResourceGraph(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:GraphResourceGraph"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

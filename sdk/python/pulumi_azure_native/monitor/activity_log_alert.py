@@ -171,10 +171,8 @@ class ActivityLogAlertArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:monitor:ActivityLogAlert")
 class ActivityLogAlert(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:monitor:ActivityLogAlert"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

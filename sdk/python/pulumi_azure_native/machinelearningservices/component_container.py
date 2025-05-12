@@ -88,10 +88,8 @@ class ComponentContainerInitArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ComponentContainer")
 class ComponentContainer(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:ComponentContainer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

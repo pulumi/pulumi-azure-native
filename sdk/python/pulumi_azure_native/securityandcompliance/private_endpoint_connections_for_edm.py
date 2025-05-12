@@ -89,10 +89,8 @@ class PrivateEndpointConnectionsForEDMArgs:
         pulumi.set(self, "private_endpoint_connection_name", value)
 
 
+@pulumi.type_token("azure-native:securityandcompliance:PrivateEndpointConnectionsForEDM")
 class PrivateEndpointConnectionsForEDM(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityandcompliance:PrivateEndpointConnectionsForEDM"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

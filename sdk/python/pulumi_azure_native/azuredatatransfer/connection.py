@@ -107,10 +107,8 @@ class ConnectionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:azuredatatransfer:Connection")
 class Connection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azuredatatransfer:Connection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -22,6 +22,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:alertsmanagement:ActionRuleStatus")
 class ActionRuleStatus(builtins.str, Enum):
     """
     Indicates if the given action rule is enabled or disabled
@@ -30,6 +31,7 @@ class ActionRuleStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:alertsmanagement:ActionRuleType")
 class ActionRuleType(builtins.str, Enum):
     """
     Indicates type of action rule
@@ -39,6 +41,7 @@ class ActionRuleType(builtins.str, Enum):
     DIAGNOSTICS = "Diagnostics"
 
 
+@pulumi.type_token("azure-native:alertsmanagement:ActionType")
 class ActionType(builtins.str, Enum):
     """
     Action that should be applied.
@@ -47,6 +50,7 @@ class ActionType(builtins.str, Enum):
     REMOVE_ALL_ACTION_GROUPS = "RemoveAllActionGroups"
 
 
+@pulumi.type_token("azure-native:alertsmanagement:AlertRuleState")
 class AlertRuleState(builtins.str, Enum):
     """
     The alert rule state.
@@ -55,6 +59,7 @@ class AlertRuleState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:alertsmanagement:DaysOfWeek")
 class DaysOfWeek(builtins.str, Enum):
     """
     Days of week.
@@ -68,6 +73,7 @@ class DaysOfWeek(builtins.str, Enum):
     SATURDAY = "Saturday"
 
 
+@pulumi.type_token("azure-native:alertsmanagement:Field")
 class Field(builtins.str, Enum):
     """
     Field for a given condition.
@@ -85,6 +91,7 @@ class Field(builtins.str, Enum):
     ALERT_CONTEXT = "AlertContext"
 
 
+@pulumi.type_token("azure-native:alertsmanagement:Operator")
 class Operator(builtins.str, Enum):
     """
     Operator for a given condition.
@@ -95,6 +102,7 @@ class Operator(builtins.str, Enum):
     DOES_NOT_CONTAIN = "DoesNotContain"
 
 
+@pulumi.type_token("azure-native:alertsmanagement:RecurrenceType")
 class RecurrenceType(builtins.str, Enum):
     """
     Specifies when the recurrence should be applied.
@@ -104,6 +112,7 @@ class RecurrenceType(builtins.str, Enum):
     MONTHLY = "Monthly"
 
 
+@pulumi.type_token("azure-native:alertsmanagement:ScopeType")
 class ScopeType(builtins.str, Enum):
     """
     type of target scope
@@ -113,6 +122,7 @@ class ScopeType(builtins.str, Enum):
     SUBSCRIPTION = "Subscription"
 
 
+@pulumi.type_token("azure-native:alertsmanagement:Severity")
 class Severity(builtins.str, Enum):
     """
     The alert rule severity.
@@ -124,6 +134,7 @@ class Severity(builtins.str, Enum):
     SEV4 = "Sev4"
 
 
+@pulumi.type_token("azure-native:alertsmanagement:Status")
 class Status(builtins.str, Enum):
     """
     The issue status
@@ -150,6 +161,7 @@ class Status(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:alertsmanagement:SuppressionType")
 class SuppressionType(builtins.str, Enum):
     """
     Specifies when the suppression should be applied

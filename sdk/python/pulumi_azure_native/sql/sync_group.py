@@ -249,10 +249,8 @@ class SyncGroupArgs:
         pulumi.set(self, "use_private_link_connection", value)
 
 
+@pulumi.type_token("azure-native:sql:SyncGroup")
 class SyncGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:SyncGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

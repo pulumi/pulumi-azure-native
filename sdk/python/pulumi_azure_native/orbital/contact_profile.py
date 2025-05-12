@@ -201,10 +201,8 @@ class ContactProfileArgs:
         pulumi.set(self, "third_party_configurations", value)
 
 
+@pulumi.type_token("azure-native:orbital:ContactProfile")
 class ContactProfile(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:orbital:ContactProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

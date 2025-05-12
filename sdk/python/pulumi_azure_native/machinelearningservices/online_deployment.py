@@ -184,10 +184,8 @@ class OnlineDeploymentArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:OnlineDeployment")
 class OnlineDeployment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:OnlineDeployment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

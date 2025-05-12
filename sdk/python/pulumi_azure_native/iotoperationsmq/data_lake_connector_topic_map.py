@@ -166,10 +166,8 @@ class DataLakeConnectorTopicMapArgs:
         pulumi.set(self, "topic_map_name", value)
 
 
+@pulumi.type_token("azure-native:iotoperationsmq:DataLakeConnectorTopicMap")
 class DataLakeConnectorTopicMap(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:iotoperationsmq:DataLakeConnectorTopicMap"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

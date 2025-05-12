@@ -135,10 +135,8 @@ class ModernizeProjectArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:migrate:ModernizeProject")
 class ModernizeProject(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:migrate:ModernizeProject"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

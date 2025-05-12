@@ -878,10 +878,8 @@ class NodeTypeArgs:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure-native:servicefabric:NodeType")
 class NodeType(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:servicefabric:NodeType"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

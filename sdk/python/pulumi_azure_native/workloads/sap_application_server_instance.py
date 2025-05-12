@@ -104,10 +104,8 @@ class SapApplicationServerInstanceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:workloads:SapApplicationServerInstance")
 class SapApplicationServerInstance(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:workloads:SapApplicationServerInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

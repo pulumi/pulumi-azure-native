@@ -315,10 +315,8 @@ class ProviderArgs:
         pulumi.set(self, "use_oidc", value)
 
 
+@pulumi.type_token("pulumi:providers:azure-native")
 class Provider(pulumi.ProviderResource):
-
-    pulumi_type = "pulumi:providers:azure-native"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

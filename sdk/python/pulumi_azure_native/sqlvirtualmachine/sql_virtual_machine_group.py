@@ -139,10 +139,8 @@ class SqlVirtualMachineGroupArgs:
         pulumi.set(self, "wsfc_domain_profile", value)
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:SqlVirtualMachineGroup")
 class SqlVirtualMachineGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sqlvirtualmachine:SqlVirtualMachineGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

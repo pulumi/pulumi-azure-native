@@ -155,10 +155,8 @@ class FluidRelayServerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:fluidrelay:FluidRelayServer")
 class FluidRelayServer(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:fluidrelay:FluidRelayServer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

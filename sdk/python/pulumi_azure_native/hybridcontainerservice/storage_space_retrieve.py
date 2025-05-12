@@ -118,10 +118,8 @@ class StorageSpaceRetrieveArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:hybridcontainerservice:StorageSpaceRetrieve")
 class StorageSpaceRetrieve(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybridcontainerservice:StorageSpaceRetrieve"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

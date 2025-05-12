@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:agfoodplatform:AuthCredentialsKind")
 class AuthCredentialsKind(builtins.str, Enum):
     """
     Enum for different types of AuthCredentials supported.
@@ -22,6 +23,7 @@ class AuthCredentialsKind(builtins.str, Enum):
     API_KEY_AUTH_CREDENTIALS = "ApiKeyAuthCredentials"
 
 
+@pulumi.type_token("azure-native:agfoodplatform:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -31,6 +33,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:agfoodplatform:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Property to allow or block public traffic for an Azure Data Manager For Agriculture resource.
@@ -39,6 +42,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:agfoodplatform:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The identity type.

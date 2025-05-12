@@ -216,10 +216,8 @@ class WebAppHostNameBindingArgs:
         pulumi.set(self, "thumbprint", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppHostNameBinding")
 class WebAppHostNameBinding(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppHostNameBinding"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -118,10 +118,8 @@ class DeviceArgs:
         pulumi.set(self, "device_name", value)
 
 
+@pulumi.type_token("azure-native:azuresphere:Device")
 class Device(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azuresphere:Device"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

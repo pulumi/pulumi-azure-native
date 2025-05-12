@@ -250,10 +250,8 @@ class CustomImageArgs:
         pulumi.set(self, "vm", value)
 
 
+@pulumi.type_token("azure-native:devtestlab:CustomImage")
 class CustomImage(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devtestlab:CustomImage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

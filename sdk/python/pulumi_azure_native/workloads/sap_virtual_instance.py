@@ -184,10 +184,8 @@ class SapVirtualInstanceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:workloads:SapVirtualInstance")
 class SapVirtualInstance(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:workloads:SapVirtualInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

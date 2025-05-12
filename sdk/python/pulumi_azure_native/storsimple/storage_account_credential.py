@@ -136,10 +136,8 @@ class StorageAccountCredentialArgs:
         pulumi.set(self, "storage_account_credential_name", value)
 
 
+@pulumi.type_token("azure-native:storsimple:StorageAccountCredential")
 class StorageAccountCredential(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storsimple:StorageAccountCredential"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

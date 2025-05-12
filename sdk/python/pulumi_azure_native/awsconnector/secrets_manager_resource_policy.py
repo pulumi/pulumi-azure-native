@@ -106,10 +106,8 @@ class SecretsManagerResourcePolicyArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:SecretsManagerResourcePolicy")
 class SecretsManagerResourcePolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:SecretsManagerResourcePolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

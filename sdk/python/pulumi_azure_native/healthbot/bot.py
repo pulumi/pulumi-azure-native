@@ -138,10 +138,8 @@ class BotArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:healthbot:Bot")
 class Bot(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:healthbot:Bot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

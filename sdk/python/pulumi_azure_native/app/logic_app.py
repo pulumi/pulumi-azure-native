@@ -72,10 +72,8 @@ class LogicAppArgs:
         pulumi.set(self, "logic_app_name", value)
 
 
+@pulumi.type_token("azure-native:app:LogicApp")
 class LogicApp(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:app:LogicApp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

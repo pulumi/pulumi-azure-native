@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:managednetwork:Kind")
 class Kind(builtins.str, Enum):
     """
     Responsibility role under which this Managed Network Group will be created
@@ -19,6 +20,7 @@ class Kind(builtins.str, Enum):
     CONNECTIVITY = "Connectivity"
 
 
+@pulumi.type_token("azure-native:managednetwork:Type")
 class Type(builtins.str, Enum):
     """
     Gets or sets the connectivity type of a network structure policy

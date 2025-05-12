@@ -160,10 +160,8 @@ class MasterSitesControllerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:offazure:MasterSitesController")
 class MasterSitesController(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:offazure:MasterSitesController"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

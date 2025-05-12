@@ -180,10 +180,8 @@ class StorageApplianceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:networkcloud:StorageAppliance")
 class StorageAppliance(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:networkcloud:StorageAppliance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

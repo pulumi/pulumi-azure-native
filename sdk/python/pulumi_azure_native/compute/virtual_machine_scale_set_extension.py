@@ -265,10 +265,8 @@ class VirtualMachineScaleSetExtensionInitArgs:
         pulumi.set(self, "vmss_extension_name", value)
 
 
+@pulumi.type_token("azure-native:compute:VirtualMachineScaleSetExtension")
 class VirtualMachineScaleSetExtension(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:compute:VirtualMachineScaleSetExtension"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

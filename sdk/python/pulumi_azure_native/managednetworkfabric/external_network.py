@@ -217,10 +217,8 @@ class ExternalNetworkArgs:
         pulumi.set(self, "option_b_properties", value)
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:ExternalNetwork")
 class ExternalNetwork(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:managednetworkfabric:ExternalNetwork"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

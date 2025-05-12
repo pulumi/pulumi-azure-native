@@ -214,10 +214,8 @@ class WebAppPremierAddOnSlotArgs:
         pulumi.set(self, "vendor", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppPremierAddOnSlot")
 class WebAppPremierAddOnSlot(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppPremierAddOnSlot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -90,10 +90,8 @@ class TimeSeriesDatabaseConnectionArgs:
         pulumi.set(self, "time_series_database_connection_name", value)
 
 
+@pulumi.type_token("azure-native:digitaltwins:TimeSeriesDatabaseConnection")
 class TimeSeriesDatabaseConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:digitaltwins:TimeSeriesDatabaseConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

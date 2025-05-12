@@ -154,10 +154,8 @@ class EncryptionSetArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:devcenter:EncryptionSet")
 class EncryptionSet(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devcenter:EncryptionSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

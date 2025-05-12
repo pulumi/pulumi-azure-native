@@ -107,10 +107,8 @@ class LedgerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:confidentialledger:Ledger")
 class Ledger(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:confidentialledger:Ledger"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -141,10 +141,8 @@ class MachineLearningDatasetArgs:
         pulumi.set(self, "time_series", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:MachineLearningDataset")
 class MachineLearningDataset(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:MachineLearningDataset"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

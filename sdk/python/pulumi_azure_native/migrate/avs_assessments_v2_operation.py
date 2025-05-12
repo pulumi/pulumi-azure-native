@@ -90,10 +90,8 @@ class AvsAssessmentsV2OperationArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:migrate:AvsAssessmentsV2Operation")
 class AvsAssessmentsV2Operation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:migrate:AvsAssessmentsV2Operation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -123,10 +123,8 @@ class SaasSubscriptionLevelArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:saas:SaasSubscriptionLevel")
 class SaasSubscriptionLevel(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:saas:SaasSubscriptionLevel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

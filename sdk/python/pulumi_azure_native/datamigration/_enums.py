@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -23,6 +23,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:datamigration:AuthenticationType")
 class AuthenticationType(builtins.str, Enum):
     """
     Authentication type to use for connection
@@ -34,6 +35,7 @@ class AuthenticationType(builtins.str, Enum):
     ACTIVE_DIRECTORY_PASSWORD = "ActiveDirectoryPassword"
 
 
+@pulumi.type_token("azure-native:datamigration:BackupMode")
 class BackupMode(builtins.str, Enum):
     """
     Backup Mode to specify whether to use existing backup or create new backup.
@@ -42,6 +44,7 @@ class BackupMode(builtins.str, Enum):
     EXISTING_BACKUP = "ExistingBackup"
 
 
+@pulumi.type_token("azure-native:datamigration:MongoDbReplication")
 class MongoDbReplication(builtins.str, Enum):
     """
     Describes how changes will be replicated from the source to the target. The default is OneTime.
@@ -51,6 +54,7 @@ class MongoDbReplication(builtins.str, Enum):
     CONTINUOUS = "Continuous"
 
 
+@pulumi.type_token("azure-native:datamigration:MongoDbShardKeyOrder")
 class MongoDbShardKeyOrder(builtins.str, Enum):
     """
     The field ordering
@@ -60,6 +64,7 @@ class MongoDbShardKeyOrder(builtins.str, Enum):
     HASHED = "Hashed"
 
 
+@pulumi.type_token("azure-native:datamigration:MySqlTargetPlatformType")
 class MySqlTargetPlatformType(builtins.str, Enum):
     """
     Target Platform for the migration
@@ -68,6 +73,7 @@ class MySqlTargetPlatformType(builtins.str, Enum):
     AZURE_DB_FOR_MY_SQL = "AzureDbForMySQL"
 
 
+@pulumi.type_token("azure-native:datamigration:ProjectSourcePlatform")
 class ProjectSourcePlatform(builtins.str, Enum):
     """
     Source platform for the project
@@ -79,6 +85,7 @@ class ProjectSourcePlatform(builtins.str, Enum):
     UNKNOWN = "Unknown"
 
 
+@pulumi.type_token("azure-native:datamigration:ProjectTargetPlatform")
 class ProjectTargetPlatform(builtins.str, Enum):
     """
     Target platform for the project
@@ -91,6 +98,7 @@ class ProjectTargetPlatform(builtins.str, Enum):
     UNKNOWN = "Unknown"
 
 
+@pulumi.type_token("azure-native:datamigration:ResourceType")
 class ResourceType(builtins.str, Enum):
     SQL_MI = "SqlMi"
     SQL_VM = "SqlVm"
@@ -98,6 +106,7 @@ class ResourceType(builtins.str, Enum):
     MONGO_TO_COSMOS_DB_MONGO = "MongoToCosmosDbMongo"
 
 
+@pulumi.type_token("azure-native:datamigration:ServerLevelPermissionsGroup")
 class ServerLevelPermissionsGroup(builtins.str, Enum):
     """
     Permission group for validations
@@ -109,6 +118,7 @@ class ServerLevelPermissionsGroup(builtins.str, Enum):
     MIGRATION_FROM_SQL_SERVER_TO_AZURE_VM = "MigrationFromSqlServerToAzureVM"
 
 
+@pulumi.type_token("azure-native:datamigration:SqlSourcePlatform")
 class SqlSourcePlatform(builtins.str, Enum):
     """
     Server platform type for connection
@@ -116,6 +126,7 @@ class SqlSourcePlatform(builtins.str, Enum):
     SQL_ON_PREM = "SqlOnPrem"
 
 
+@pulumi.type_token("azure-native:datamigration:SsisMigrationOverwriteOption")
 class SsisMigrationOverwriteOption(builtins.str, Enum):
     """
     The overwrite option for the SSIS project migration
@@ -124,6 +135,7 @@ class SsisMigrationOverwriteOption(builtins.str, Enum):
     OVERWRITE = "Overwrite"
 
 
+@pulumi.type_token("azure-native:datamigration:SsisStoreType")
 class SsisStoreType(builtins.str, Enum):
     """
     The SSIS store type of source, only SSIS catalog is supported now in DMS (classic)
@@ -131,6 +143,7 @@ class SsisStoreType(builtins.str, Enum):
     SSIS_CATALOG = "SsisCatalog"
 
 
+@pulumi.type_token("azure-native:datamigration:TaskType")
 class TaskType(builtins.str, Enum):
     """
     Task type.

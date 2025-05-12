@@ -104,10 +104,8 @@ class FrontendsInterfaceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:servicenetworking:FrontendsInterface")
 class FrontendsInterface(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:servicenetworking:FrontendsInterface"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

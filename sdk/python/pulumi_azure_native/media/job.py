@@ -167,10 +167,8 @@ class JobArgs:
         pulumi.set(self, "priority", value)
 
 
+@pulumi.type_token("azure-native:media:Job")
 class Job(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:media:Job"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

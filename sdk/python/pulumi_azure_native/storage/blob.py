@@ -185,10 +185,8 @@ class BlobArgs:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("azure-native:storage:Blob")
 class Blob(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storage:Blob"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

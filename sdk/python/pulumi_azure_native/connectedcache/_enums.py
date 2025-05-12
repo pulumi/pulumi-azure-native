@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:connectedcache:AutoUpdateRingType")
 class AutoUpdateRingType(builtins.str, Enum):
     """
     Auto Update Ring Type which is slow or fast etc.
@@ -33,6 +34,7 @@ class AutoUpdateRingType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:connectedcache:CustomerTransitState")
 class CustomerTransitState(builtins.str, Enum):
     """
     Customer resource transit state.
@@ -51,6 +53,7 @@ class CustomerTransitState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:connectedcache:CycleType")
 class CycleType(builtins.str, Enum):
     """
     Update Cycle Type
@@ -69,6 +72,7 @@ class CycleType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:connectedcache:OsType")
 class OsType(builtins.str, Enum):
     """
     Operating system of the cache node
@@ -87,6 +91,7 @@ class OsType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:connectedcache:ProxyRequired")
 class ProxyRequired(builtins.str, Enum):
     """
     Cache node resource requires a proxy

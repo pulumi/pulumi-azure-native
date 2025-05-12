@@ -107,10 +107,8 @@ class Ec2FlowLogArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:Ec2FlowLog")
 class Ec2FlowLog(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:Ec2FlowLog"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

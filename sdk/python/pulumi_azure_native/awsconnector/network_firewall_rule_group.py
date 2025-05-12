@@ -107,10 +107,8 @@ class NetworkFirewallRuleGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:NetworkFirewallRuleGroup")
 class NetworkFirewallRuleGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:NetworkFirewallRuleGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -193,10 +193,8 @@ class CertificateProfileArgs:
         pulumi.set(self, "profile_name", value)
 
 
+@pulumi.type_token("azure-native:codesigning:CertificateProfile")
 class CertificateProfile(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:codesigning:CertificateProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

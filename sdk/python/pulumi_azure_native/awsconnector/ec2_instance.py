@@ -59,10 +59,8 @@ class Ec2InstanceArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:Ec2Instance")
 class Ec2Instance(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:Ec2Instance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

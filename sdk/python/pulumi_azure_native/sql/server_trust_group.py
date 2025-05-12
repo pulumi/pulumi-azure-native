@@ -104,10 +104,8 @@ class ServerTrustGroupArgs:
         pulumi.set(self, "server_trust_group_name", value)
 
 
+@pulumi.type_token("azure-native:sql:ServerTrustGroup")
 class ServerTrustGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:ServerTrustGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

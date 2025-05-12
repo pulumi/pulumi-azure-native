@@ -87,10 +87,8 @@ class CustomerSubscriptionArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure-native:azurestack:CustomerSubscription")
 class CustomerSubscription(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurestack:CustomerSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

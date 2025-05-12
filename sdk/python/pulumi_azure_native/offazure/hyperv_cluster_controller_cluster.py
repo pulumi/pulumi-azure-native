@@ -137,10 +137,8 @@ class HypervClusterControllerClusterArgs:
         pulumi.set(self, "run_as_account_id", value)
 
 
+@pulumi.type_token("azure-native:offazure:HypervClusterControllerCluster")
 class HypervClusterControllerCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:offazure:HypervClusterControllerCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -153,10 +153,8 @@ class EmailTemplateArgs:
         pulumi.set(self, "title", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:EmailTemplate")
 class EmailTemplate(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:EmailTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

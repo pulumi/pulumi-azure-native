@@ -183,10 +183,8 @@ class SecretSyncArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:secretsynccontroller:SecretSync")
 class SecretSync(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:secretsynccontroller:SecretSync"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

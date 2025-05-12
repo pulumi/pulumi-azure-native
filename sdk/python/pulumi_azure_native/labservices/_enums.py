@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -18,6 +18,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:labservices:ConnectionType")
 class ConnectionType(builtins.str, Enum):
     """
     The enabled access level for Web Access over SSH.
@@ -27,6 +28,7 @@ class ConnectionType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:labservices:CreateOption")
 class CreateOption(builtins.str, Enum):
     """
     Indicates what lab virtual machines are created from.
@@ -41,6 +43,7 @@ class CreateOption(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:labservices:EnableState")
 class EnableState(builtins.str, Enum):
     """
     Whether a VM will get shutdown when it hasn't been connected to after a period of time.
@@ -49,6 +52,7 @@ class EnableState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:labservices:RecurrenceFrequency")
 class RecurrenceFrequency(builtins.str, Enum):
     """
     The frequency of the recurrence.
@@ -63,6 +67,7 @@ class RecurrenceFrequency(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:labservices:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The identity type.
@@ -70,6 +75,7 @@ class ResourceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
 
 
+@pulumi.type_token("azure-native:labservices:ShutdownOnIdleMode")
 class ShutdownOnIdleMode(builtins.str, Enum):
     """
     Whether a VM will get shutdown when it has idled for a period of time.
@@ -88,6 +94,7 @@ class ShutdownOnIdleMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:labservices:SkuTier")
 class SkuTier(builtins.str, Enum):
     """
     This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
@@ -98,6 +105,7 @@ class SkuTier(builtins.str, Enum):
     PREMIUM = "Premium"
 
 
+@pulumi.type_token("azure-native:labservices:WeekDay")
 class WeekDay(builtins.str, Enum):
     """
     Days of the week.

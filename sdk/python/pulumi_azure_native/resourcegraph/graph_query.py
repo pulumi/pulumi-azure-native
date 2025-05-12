@@ -120,10 +120,8 @@ class GraphQueryArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:resourcegraph:GraphQuery")
 class GraphQuery(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:resourcegraph:GraphQuery"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

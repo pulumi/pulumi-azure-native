@@ -228,10 +228,8 @@ class RosettaNetProcessConfigurationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:logic:RosettaNetProcessConfiguration")
 class RosettaNetProcessConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:logic:RosettaNetProcessConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

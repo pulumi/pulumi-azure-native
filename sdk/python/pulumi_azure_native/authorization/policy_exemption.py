@@ -203,10 +203,8 @@ class PolicyExemptionArgs:
         pulumi.set(self, "resource_selectors", value)
 
 
+@pulumi.type_token("azure-native:authorization:PolicyExemption")
 class PolicyExemption(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:authorization:PolicyExemption"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -368,10 +368,8 @@ class RedisArgs:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure-native:redis:Redis")
 class Redis(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:redis:Redis"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -138,10 +138,8 @@ class EncryptionScopeArgs:
         pulumi.set(self, "state", value)
 
 
+@pulumi.type_token("azure-native:storage:EncryptionScope")
 class EncryptionScope(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storage:EncryptionScope"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

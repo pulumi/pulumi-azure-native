@@ -119,10 +119,8 @@ class EncryptionProtectorArgs:
         pulumi.set(self, "server_key_name", value)
 
 
+@pulumi.type_token("azure-native:sql:EncryptionProtector")
 class EncryptionProtector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:EncryptionProtector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

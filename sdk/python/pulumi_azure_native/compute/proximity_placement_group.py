@@ -155,10 +155,8 @@ class ProximityPlacementGroupArgs:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure-native:compute:ProximityPlacementGroup")
 class ProximityPlacementGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:compute:ProximityPlacementGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

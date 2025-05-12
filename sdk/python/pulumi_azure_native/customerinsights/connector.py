@@ -150,10 +150,8 @@ class ConnectorArgs:
         pulumi.set(self, "is_internal", value)
 
 
+@pulumi.type_token("azure-native:customerinsights:Connector")
 class Connector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:customerinsights:Connector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

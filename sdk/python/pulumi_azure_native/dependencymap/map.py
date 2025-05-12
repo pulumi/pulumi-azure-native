@@ -89,10 +89,8 @@ class MapArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:dependencymap:Map")
 class Map(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dependencymap:Map"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

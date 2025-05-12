@@ -107,10 +107,8 @@ class S3BucketArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:S3Bucket")
 class S3Bucket(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:S3Bucket"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

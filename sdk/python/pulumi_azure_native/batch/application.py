@@ -135,10 +135,8 @@ class ApplicationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:batch:Application")
 class Application(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:batch:Application"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

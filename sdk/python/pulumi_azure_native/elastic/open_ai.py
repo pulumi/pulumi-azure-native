@@ -89,10 +89,8 @@ class OpenAIArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:elastic:OpenAI")
 class OpenAI(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:elastic:OpenAI"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

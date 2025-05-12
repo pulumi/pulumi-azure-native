@@ -141,10 +141,8 @@ class NetworkSecurityGroupInitArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:network:NetworkSecurityGroup")
 class NetworkSecurityGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:NetworkSecurityGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

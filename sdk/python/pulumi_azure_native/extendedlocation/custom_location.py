@@ -219,10 +219,8 @@ class CustomLocationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:extendedlocation:CustomLocation")
 class CustomLocation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:extendedlocation:CustomLocation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

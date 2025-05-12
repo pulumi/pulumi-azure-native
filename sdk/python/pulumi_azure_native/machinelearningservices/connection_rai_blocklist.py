@@ -119,10 +119,8 @@ class ConnectionRaiBlocklistArgs:
         pulumi.set(self, "rai_blocklist_name", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ConnectionRaiBlocklist")
 class ConnectionRaiBlocklist(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:ConnectionRaiBlocklist"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

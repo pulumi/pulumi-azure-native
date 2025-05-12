@@ -134,10 +134,8 @@ class StaticSiteLinkedBackendForBuildArgs:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("azure-native:web:StaticSiteLinkedBackendForBuild")
 class StaticSiteLinkedBackendForBuild(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:StaticSiteLinkedBackendForBuild"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

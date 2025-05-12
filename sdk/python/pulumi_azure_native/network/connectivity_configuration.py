@@ -168,10 +168,8 @@ class ConnectivityConfigurationArgs:
         pulumi.set(self, "is_global", value)
 
 
+@pulumi.type_token("azure-native:network:ConnectivityConfiguration")
 class ConnectivityConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:ConnectivityConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

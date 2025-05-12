@@ -71,10 +71,8 @@ class ServerDnsAliasArgs:
         pulumi.set(self, "dns_alias_name", value)
 
 
+@pulumi.type_token("azure-native:sql:ServerDnsAlias")
 class ServerDnsAlias(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:ServerDnsAlias"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

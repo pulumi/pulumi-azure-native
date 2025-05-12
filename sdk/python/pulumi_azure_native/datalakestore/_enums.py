@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -17,6 +17,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:datalakestore:EncryptionConfigType")
 class EncryptionConfigType(builtins.str, Enum):
     """
     The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
@@ -25,6 +26,7 @@ class EncryptionConfigType(builtins.str, Enum):
     SERVICE_MANAGED = "ServiceManaged"
 
 
+@pulumi.type_token("azure-native:datalakestore:EncryptionIdentityType")
 class EncryptionIdentityType(builtins.str, Enum):
     """
     The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
@@ -32,6 +34,7 @@ class EncryptionIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
 
 
+@pulumi.type_token("azure-native:datalakestore:EncryptionState")
 class EncryptionState(builtins.str, Enum):
     """
     The current state of encryption for this Data Lake Store account.
@@ -40,6 +43,7 @@ class EncryptionState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:datalakestore:FirewallAllowAzureIpsState")
 class FirewallAllowAzureIpsState(builtins.str, Enum):
     """
     The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
@@ -48,6 +52,7 @@ class FirewallAllowAzureIpsState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:datalakestore:FirewallState")
 class FirewallState(builtins.str, Enum):
     """
     The current state of the IP address firewall for this Data Lake Store account.
@@ -56,6 +61,7 @@ class FirewallState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:datalakestore:TierType")
 class TierType(builtins.str, Enum):
     """
     The commitment tier to use for next month.
@@ -69,6 +75,7 @@ class TierType(builtins.str, Enum):
     COMMITMENT_5_PB = "Commitment_5PB"
 
 
+@pulumi.type_token("azure-native:datalakestore:TrustedIdProviderState")
 class TrustedIdProviderState(builtins.str, Enum):
     """
     The current state of the trusted identity provider feature for this Data Lake Store account.

@@ -332,10 +332,8 @@ class CommunicationsGatewayArgs:
         pulumi.set(self, "teams_voicemail_pilot_number", value)
 
 
+@pulumi.type_token("azure-native:voiceservices:CommunicationsGateway")
 class CommunicationsGateway(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:voiceservices:CommunicationsGateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

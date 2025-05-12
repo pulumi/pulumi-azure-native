@@ -186,10 +186,8 @@ class TargetArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure-native:iotoperationsorchestrator:Target")
 class Target(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:iotoperationsorchestrator:Target"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

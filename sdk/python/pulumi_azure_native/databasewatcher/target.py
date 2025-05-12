@@ -135,10 +135,8 @@ class TargetArgs:
         pulumi.set(self, "target_vault", value)
 
 
+@pulumi.type_token("azure-native:databasewatcher:Target")
 class Target(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databasewatcher:Target"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

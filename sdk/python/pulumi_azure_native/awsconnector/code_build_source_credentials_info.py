@@ -107,10 +107,8 @@ class CodeBuildSourceCredentialsInfoArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:CodeBuildSourceCredentialsInfo")
 class CodeBuildSourceCredentialsInfo(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:CodeBuildSourceCredentialsInfo"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -89,10 +89,8 @@ class SecretArgs:
         pulumi.set(self, "secret_name", value)
 
 
+@pulumi.type_token("azure-native:cdn:Secret")
 class Secret(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cdn:Secret"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

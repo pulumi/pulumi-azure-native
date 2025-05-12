@@ -280,10 +280,8 @@ class BookmarkArgs:
         pulumi.set(self, "updated_by", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:Bookmark")
 class Bookmark(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:Bookmark"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

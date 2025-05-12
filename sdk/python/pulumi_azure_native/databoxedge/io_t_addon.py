@@ -136,10 +136,8 @@ class IoTAddonArgs:
         pulumi.set(self, "addon_name", value)
 
 
+@pulumi.type_token("azure-native:databoxedge:IoTAddon")
 class IoTAddon(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databoxedge:IoTAddon"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -60,10 +60,8 @@ class AliasArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:subscription:Alias")
 class Alias(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:subscription:Alias"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

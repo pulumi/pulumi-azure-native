@@ -116,10 +116,8 @@ class ConnectionDeploymentArgs:
         pulumi.set(self, "proxy_api_version", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ConnectionDeployment")
 class ConnectionDeployment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:ConnectionDeployment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

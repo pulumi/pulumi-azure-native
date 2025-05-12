@@ -73,10 +73,8 @@ class CustomEntityStoreAssignmentArgs:
         pulumi.set(self, "principal", value)
 
 
+@pulumi.type_token("azure-native:security:CustomEntityStoreAssignment")
 class CustomEntityStoreAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:CustomEntityStoreAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

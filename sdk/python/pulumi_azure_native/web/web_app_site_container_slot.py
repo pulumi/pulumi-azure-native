@@ -263,10 +263,8 @@ class WebAppSiteContainerSlotArgs:
         pulumi.set(self, "volume_mounts", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppSiteContainerSlot")
 class WebAppSiteContainerSlot(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppSiteContainerSlot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

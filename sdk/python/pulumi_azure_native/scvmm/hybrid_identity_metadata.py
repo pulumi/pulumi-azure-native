@@ -104,10 +104,8 @@ class HybridIdentityMetadataArgs:
         pulumi.set(self, "resource_uid", value)
 
 
+@pulumi.type_token("azure-native:scvmm:HybridIdentityMetadata")
 class HybridIdentityMetadata(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:scvmm:HybridIdentityMetadata"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

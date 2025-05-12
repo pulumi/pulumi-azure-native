@@ -135,10 +135,8 @@ class NspProfileArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:network:NspProfile")
 class NspProfile(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:NspProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -117,10 +117,8 @@ class SmtpUsernameArgs:
         pulumi.set(self, "smtp_username", value)
 
 
+@pulumi.type_token("azure-native:communication:SmtpUsername")
 class SmtpUsername(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:communication:SmtpUsername"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

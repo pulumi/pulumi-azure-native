@@ -219,10 +219,8 @@ class MonitorArgs:
         pulumi.set(self, "zone_redundancy_preference", value)
 
 
+@pulumi.type_token("azure-native:workloads:Monitor")
 class Monitor(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:workloads:Monitor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

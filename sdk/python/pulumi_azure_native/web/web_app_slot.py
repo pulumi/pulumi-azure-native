@@ -766,10 +766,8 @@ class WebAppSlotArgs:
         pulumi.set(self, "workload_profile_name", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppSlot")
 class WebAppSlot(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppSlot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

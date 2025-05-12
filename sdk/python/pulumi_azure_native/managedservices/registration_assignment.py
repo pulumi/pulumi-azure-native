@@ -74,10 +74,8 @@ class RegistrationAssignmentArgs:
         pulumi.set(self, "registration_assignment_id", value)
 
 
+@pulumi.type_token("azure-native:managedservices:RegistrationAssignment")
 class RegistrationAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:managedservices:RegistrationAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -118,10 +118,8 @@ class AccessPolicyAssignmentArgs:
         pulumi.set(self, "access_policy_assignment_name", value)
 
 
+@pulumi.type_token("azure-native:redisenterprise:AccessPolicyAssignment")
 class AccessPolicyAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:redisenterprise:AccessPolicyAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

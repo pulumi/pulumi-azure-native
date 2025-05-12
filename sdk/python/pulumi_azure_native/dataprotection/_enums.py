@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -29,11 +29,13 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:dataprotection:AKSVolumeTypes")
 class AKSVolumeTypes(builtins.str, Enum):
     AZURE_DISK = "AzureDisk"
     AZURE_FILE_SHARE_SMB = "AzureFileShareSMB"
 
 
+@pulumi.type_token("azure-native:dataprotection:AbsoluteMarker")
 class AbsoluteMarker(builtins.str, Enum):
     ALL_BACKUP = "AllBackup"
     FIRST_OF_DAY = "FirstOfDay"
@@ -42,11 +44,13 @@ class AbsoluteMarker(builtins.str, Enum):
     FIRST_OF_YEAR = "FirstOfYear"
 
 
+@pulumi.type_token("azure-native:dataprotection:AlertsState")
 class AlertsState(builtins.str, Enum):
     ENABLED = "Enabled"
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:dataprotection:CrossRegionRestoreState")
 class CrossRegionRestoreState(builtins.str, Enum):
     """
     CrossRegionRestore state
@@ -55,6 +59,7 @@ class CrossRegionRestoreState(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:dataprotection:CrossSubscriptionRestoreState")
 class CrossSubscriptionRestoreState(builtins.str, Enum):
     """
     CrossSubscriptionRestore state
@@ -64,6 +69,7 @@ class CrossSubscriptionRestoreState(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:dataprotection:DataStoreTypes")
 class DataStoreTypes(builtins.str, Enum):
     """
     type of datastore; Operational/Vault/Archive
@@ -73,6 +79,7 @@ class DataStoreTypes(builtins.str, Enum):
     ARCHIVE_STORE = "ArchiveStore"
 
 
+@pulumi.type_token("azure-native:dataprotection:DayOfWeek")
 class DayOfWeek(builtins.str, Enum):
     FRIDAY = "Friday"
     MONDAY = "Monday"
@@ -83,6 +90,7 @@ class DayOfWeek(builtins.str, Enum):
     WEDNESDAY = "Wednesday"
 
 
+@pulumi.type_token("azure-native:dataprotection:EncryptionState")
 class EncryptionState(builtins.str, Enum):
     """
     Encryption state of the Backup Vault.
@@ -101,6 +109,7 @@ class EncryptionState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:dataprotection:IdentityType")
 class IdentityType(builtins.str, Enum):
     """
     The identity type. 'SystemAssigned' and 'UserAssigned' are mutually exclusive. 'SystemAssigned' will use implicitly created managed identity.
@@ -109,6 +118,7 @@ class IdentityType(builtins.str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+@pulumi.type_token("azure-native:dataprotection:ImmutabilityState")
 class ImmutabilityState(builtins.str, Enum):
     """
     Immutability state
@@ -118,6 +128,7 @@ class ImmutabilityState(builtins.str, Enum):
     LOCKED = "Locked"
 
 
+@pulumi.type_token("azure-native:dataprotection:InfrastructureEncryptionState")
 class InfrastructureEncryptionState(builtins.str, Enum):
     """
     Enabling/Disabling the Double Encryption state
@@ -126,6 +137,7 @@ class InfrastructureEncryptionState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:dataprotection:Month")
 class Month(builtins.str, Enum):
     APRIL = "April"
     AUGUST = "August"
@@ -141,6 +153,7 @@ class Month(builtins.str, Enum):
     SEPTEMBER = "September"
 
 
+@pulumi.type_token("azure-native:dataprotection:ResourcePropertiesObjectType")
 class ResourcePropertiesObjectType(builtins.str, Enum):
     """
     Type of the specific object - used for deserializing
@@ -148,6 +161,7 @@ class ResourcePropertiesObjectType(builtins.str, Enum):
     DEFAULT_RESOURCE_PROPERTIES = "DefaultResourceProperties"
 
 
+@pulumi.type_token("azure-native:dataprotection:SecretStoreType")
 class SecretStoreType(builtins.str, Enum):
     """
     Gets or sets the type of secret store
@@ -156,6 +170,7 @@ class SecretStoreType(builtins.str, Enum):
     AZURE_KEY_VAULT = "AzureKeyVault"
 
 
+@pulumi.type_token("azure-native:dataprotection:SoftDeleteState")
 class SoftDeleteState(builtins.str, Enum):
     """
     State of soft delete
@@ -174,6 +189,7 @@ class SoftDeleteState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:dataprotection:StorageSettingStoreTypes")
 class StorageSettingStoreTypes(builtins.str, Enum):
     """
     Gets or sets the type of the datastore.
@@ -183,6 +199,7 @@ class StorageSettingStoreTypes(builtins.str, Enum):
     VAULT_STORE = "VaultStore"
 
 
+@pulumi.type_token("azure-native:dataprotection:StorageSettingTypes")
 class StorageSettingTypes(builtins.str, Enum):
     """
     Gets or sets the type.
@@ -192,6 +209,7 @@ class StorageSettingTypes(builtins.str, Enum):
     ZONE_REDUNDANT = "ZoneRedundant"
 
 
+@pulumi.type_token("azure-native:dataprotection:ValidationType")
 class ValidationType(builtins.str, Enum):
     """
     Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
@@ -200,6 +218,7 @@ class ValidationType(builtins.str, Enum):
     DEEP_VALIDATION = "DeepValidation"
 
 
+@pulumi.type_token("azure-native:dataprotection:WeekNumber")
 class WeekNumber(builtins.str, Enum):
     FIRST = "First"
     FOURTH = "Fourth"

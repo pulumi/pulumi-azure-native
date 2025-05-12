@@ -89,10 +89,8 @@ class CredentialOperationArgs:
         pulumi.set(self, "credential_name", value)
 
 
+@pulumi.type_token("azure-native:datafactory:CredentialOperation")
 class CredentialOperation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datafactory:CredentialOperation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -106,10 +106,8 @@ class SignalRPrivateEndpointConnectionArgs:
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
+@pulumi.type_token("azure-native:signalrservice:SignalRPrivateEndpointConnection")
 class SignalRPrivateEndpointConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:signalrservice:SignalRPrivateEndpointConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

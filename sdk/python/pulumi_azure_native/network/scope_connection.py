@@ -120,10 +120,8 @@ class ScopeConnectionArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure-native:network:ScopeConnection")
 class ScopeConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:ScopeConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

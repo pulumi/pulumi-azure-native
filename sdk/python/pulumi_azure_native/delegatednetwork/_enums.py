@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:delegatednetwork:ControllerPurpose")
 class ControllerPurpose(builtins.str, Enum):
     """
     The purpose of the dnc controller resource.
@@ -21,6 +22,7 @@ class ControllerPurpose(builtins.str, Enum):
     PROD = "prod"
 
 
+@pulumi.type_token("azure-native:delegatednetwork:OrchestratorKind")
 class OrchestratorKind(builtins.str, Enum):
     """
     The kind of workbook. Choices are user and shared.
@@ -28,6 +30,7 @@ class OrchestratorKind(builtins.str, Enum):
     KUBERNETES = "Kubernetes"
 
 
+@pulumi.type_token("azure-native:delegatednetwork:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters

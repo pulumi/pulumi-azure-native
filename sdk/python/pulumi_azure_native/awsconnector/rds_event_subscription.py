@@ -106,10 +106,8 @@ class RdsEventSubscriptionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:RdsEventSubscription")
 class RdsEventSubscription(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:RdsEventSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -137,10 +137,8 @@ class UserArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:devtestlab:User")
 class User(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devtestlab:User"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

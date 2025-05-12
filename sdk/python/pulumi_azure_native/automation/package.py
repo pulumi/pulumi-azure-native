@@ -119,10 +119,8 @@ class PackageArgs:
         pulumi.set(self, "package_name", value)
 
 
+@pulumi.type_token("azure-native:automation:Package")
 class Package(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:automation:Package"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

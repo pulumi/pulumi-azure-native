@@ -106,10 +106,8 @@ class DatabaseMigrationServiceReplicationInstanceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:DatabaseMigrationServiceReplicationInstance")
 class DatabaseMigrationServiceReplicationInstance(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:DatabaseMigrationServiceReplicationInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

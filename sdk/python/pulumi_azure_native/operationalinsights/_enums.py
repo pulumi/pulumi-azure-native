@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -22,6 +22,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:operationalinsights:BillingType")
 class BillingType(builtins.str, Enum):
     """
     The cluster's billing type.
@@ -30,6 +31,7 @@ class BillingType(builtins.str, Enum):
     WORKSPACES = "Workspaces"
 
 
+@pulumi.type_token("azure-native:operationalinsights:ClusterSkuNameEnum")
 class ClusterSkuNameEnum(builtins.str, Enum):
     """
     The SKU (tier) of a cluster.
@@ -37,6 +39,7 @@ class ClusterSkuNameEnum(builtins.str, Enum):
     CAPACITY_RESERVATION = "CapacityReservation"
 
 
+@pulumi.type_token("azure-native:operationalinsights:ColumnDataTypeHintEnum")
 class ColumnDataTypeHintEnum(builtins.str, Enum):
     """
     Column data type logical hint.
@@ -59,6 +62,7 @@ class ColumnDataTypeHintEnum(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:operationalinsights:ColumnTypeEnum")
 class ColumnTypeEnum(builtins.str, Enum):
     """
     Column data type.
@@ -73,6 +77,7 @@ class ColumnTypeEnum(builtins.str, Enum):
     DYNAMIC = "dynamic"
 
 
+@pulumi.type_token("azure-native:operationalinsights:DataSourceKind")
 class DataSourceKind(builtins.str, Enum):
     """
     The kind of the DataSource.
@@ -112,6 +117,7 @@ class DataSourceKind(builtins.str, Enum):
     SQL_DATA_CLASSIFICATION = "SqlDataClassification"
 
 
+@pulumi.type_token("azure-native:operationalinsights:IdentityType")
 class IdentityType(builtins.str, Enum):
     """
     Type of managed service identity.
@@ -121,6 +127,7 @@ class IdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:operationalinsights:LinkedServiceEntityStatus")
 class LinkedServiceEntityStatus(builtins.str, Enum):
     """
     The provisioning state of the linked service.
@@ -131,6 +138,7 @@ class LinkedServiceEntityStatus(builtins.str, Enum):
     UPDATING = "Updating"
 
 
+@pulumi.type_token("azure-native:operationalinsights:MachineGroupType")
 class MachineGroupType(builtins.str, Enum):
     """
     Type of the machine group
@@ -142,6 +150,7 @@ class MachineGroupType(builtins.str, Enum):
     USER_STATIC = "user-static"
 
 
+@pulumi.type_token("azure-native:operationalinsights:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -152,6 +161,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:operationalinsights:PublicNetworkAccessType")
 class PublicNetworkAccessType(builtins.str, Enum):
     """
     The network access type for accessing Log Analytics query.
@@ -166,6 +176,7 @@ class PublicNetworkAccessType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:operationalinsights:TablePlanEnum")
 class TablePlanEnum(builtins.str, Enum):
     """
     Instruct the system how to handle and charge the logs ingested to this table.
@@ -180,6 +191,7 @@ class TablePlanEnum(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:operationalinsights:WorkspaceSkuNameEnum")
 class WorkspaceSkuNameEnum(builtins.str, Enum):
     """
     The name of the SKU.

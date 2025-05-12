@@ -107,10 +107,8 @@ class GuardDutyDetectorArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:GuardDutyDetector")
 class GuardDutyDetector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:GuardDutyDetector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

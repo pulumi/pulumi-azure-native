@@ -106,10 +106,8 @@ class Ec2SecurityGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:Ec2SecurityGroup")
 class Ec2SecurityGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:Ec2SecurityGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

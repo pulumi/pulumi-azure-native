@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -23,6 +23,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:healthcareapis:AnalyticsConnectorDataDestinationType")
 class AnalyticsConnectorDataDestinationType(builtins.str, Enum):
     """
     Type of data destination.
@@ -30,6 +31,7 @@ class AnalyticsConnectorDataDestinationType(builtins.str, Enum):
     DATALAKE = "datalake"
 
 
+@pulumi.type_token("azure-native:healthcareapis:AnalyticsConnectorDataSourceType")
 class AnalyticsConnectorDataSourceType(builtins.str, Enum):
     """
     Type of data source.
@@ -37,6 +39,7 @@ class AnalyticsConnectorDataSourceType(builtins.str, Enum):
     FHIRSERVICE = "fhirservice"
 
 
+@pulumi.type_token("azure-native:healthcareapis:AnalyticsConnectorMappingType")
 class AnalyticsConnectorMappingType(builtins.str, Enum):
     """
     Type of data mapping.
@@ -44,6 +47,7 @@ class AnalyticsConnectorMappingType(builtins.str, Enum):
     FHIR_TO_PARQUET = "fhirToParquet"
 
 
+@pulumi.type_token("azure-native:healthcareapis:FhirResourceVersionPolicy")
 class FhirResourceVersionPolicy(builtins.str, Enum):
     """
     Controls how resources are versioned on the FHIR service
@@ -53,6 +57,7 @@ class FhirResourceVersionPolicy(builtins.str, Enum):
     VERSIONED_UPDATE = "versioned-update"
 
 
+@pulumi.type_token("azure-native:healthcareapis:FhirServiceKind")
 class FhirServiceKind(builtins.str, Enum):
     """
     The kind of the service.
@@ -61,6 +66,7 @@ class FhirServiceKind(builtins.str, Enum):
     FHIR_R4 = "fhir-R4"
 
 
+@pulumi.type_token("azure-native:healthcareapis:FhirServiceVersion")
 class FhirServiceVersion(builtins.str, Enum):
     """
     The kind of FHIR Service.
@@ -69,6 +75,7 @@ class FhirServiceVersion(builtins.str, Enum):
     R4 = "R4"
 
 
+@pulumi.type_token("azure-native:healthcareapis:IotIdentityResolutionType")
 class IotIdentityResolutionType(builtins.str, Enum):
     """
     Determines how resource identity is resolved on the destination.
@@ -77,6 +84,7 @@ class IotIdentityResolutionType(builtins.str, Enum):
     LOOKUP = "Lookup"
 
 
+@pulumi.type_token("azure-native:healthcareapis:Kind")
 class Kind(builtins.str, Enum):
     """
     The kind of the service.
@@ -86,6 +94,7 @@ class Kind(builtins.str, Enum):
     FHIR_R4 = "fhir-R4"
 
 
+@pulumi.type_token("azure-native:healthcareapis:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of identity being specified, currently SystemAssigned and None are allowed.
@@ -94,6 +103,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:healthcareapis:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -103,6 +113,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:healthcareapis:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Control permission for data plane traffic coming from public networks while private endpoint is enabled.
@@ -111,6 +122,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:healthcareapis:ServiceManagedIdentityType")
 class ServiceManagedIdentityType(builtins.str, Enum):
     """
     Type of identity being specified, currently SystemAssigned and None are allowed.
@@ -121,6 +133,7 @@ class ServiceManagedIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:healthcareapis:SmartDataActions")
 class SmartDataActions(builtins.str, Enum):
     """
     The Data Actions that can be enabled for a Smart Identity Provider Application.

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:securityandcompliance:Kind")
 class Kind(builtins.str, Enum):
     """
     The kind of the service.
@@ -23,6 +24,7 @@ class Kind(builtins.str, Enum):
     FHIR_R4 = "fhir-R4"
 
 
+@pulumi.type_token("azure-native:securityandcompliance:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of identity being specified, currently SystemAssigned and None are allowed.
@@ -31,6 +33,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:securityandcompliance:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -40,6 +43,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:securityandcompliance:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Control permission for data plane traffic coming from public networks while private endpoint is enabled.

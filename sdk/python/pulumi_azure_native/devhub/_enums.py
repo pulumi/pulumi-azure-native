@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -17,6 +17,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:devhub:DockerfileGenerationMode")
 class DockerfileGenerationMode(builtins.str, Enum):
     """
     The mode of generation to be used for generating Dockerfiles.
@@ -31,6 +32,7 @@ class DockerfileGenerationMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:devhub:GenerationLanguage")
 class GenerationLanguage(builtins.str, Enum):
     """
     The programming language used.
@@ -89,6 +91,7 @@ class GenerationLanguage(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:devhub:GenerationManifestType")
 class GenerationManifestType(builtins.str, Enum):
     """
     Determines the type of manifests to be generated.
@@ -103,6 +106,7 @@ class GenerationManifestType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:devhub:ManifestGenerationMode")
 class ManifestGenerationMode(builtins.str, Enum):
     """
     The mode of generation to be used for generating Manifest.
@@ -117,6 +121,7 @@ class ManifestGenerationMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:devhub:ManifestType")
 class ManifestType(builtins.str, Enum):
     """
     Determines the type of manifests within the repository.
@@ -131,6 +136,7 @@ class ManifestType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:devhub:QuickStartTemplateType")
 class QuickStartTemplateType(builtins.str, Enum):
     """
     Determines the authorization status of requests.
@@ -157,6 +163,7 @@ class QuickStartTemplateType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:devhub:WorkflowRunStatus")
 class WorkflowRunStatus(builtins.str, Enum):
     """
     Describes the status of the workflow run

@@ -214,10 +214,8 @@ class SourceControlArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:SourceControl")
 class SourceControl(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:SourceControl"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

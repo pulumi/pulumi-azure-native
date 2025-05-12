@@ -90,10 +90,8 @@ class BillingProfileArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:billing:BillingProfile")
 class BillingProfile(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:billing:BillingProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

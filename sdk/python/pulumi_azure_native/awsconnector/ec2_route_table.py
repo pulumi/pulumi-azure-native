@@ -106,10 +106,8 @@ class Ec2RouteTableArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:Ec2RouteTable")
 class Ec2RouteTable(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:Ec2RouteTable"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

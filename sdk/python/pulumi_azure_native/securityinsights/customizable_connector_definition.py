@@ -154,10 +154,8 @@ class CustomizableConnectorDefinitionArgs:
         pulumi.set(self, "last_modified_utc", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:CustomizableConnectorDefinition")
 class CustomizableConnectorDefinition(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:CustomizableConnectorDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

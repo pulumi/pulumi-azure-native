@@ -155,10 +155,8 @@ class ConnectedEnvironmentArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:app:ConnectedEnvironment")
 class ConnectedEnvironment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:app:ConnectedEnvironment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

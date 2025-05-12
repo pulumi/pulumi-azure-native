@@ -221,10 +221,8 @@ class GlobalScheduleArgs:
         pulumi.set(self, "weekly_recurrence", value)
 
 
+@pulumi.type_token("azure-native:devtestlab:GlobalSchedule")
 class GlobalSchedule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devtestlab:GlobalSchedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

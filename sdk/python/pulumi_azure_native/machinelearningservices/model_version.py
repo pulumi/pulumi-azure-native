@@ -103,10 +103,8 @@ class ModelVersionInitArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ModelVersion")
 class ModelVersion(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:ModelVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

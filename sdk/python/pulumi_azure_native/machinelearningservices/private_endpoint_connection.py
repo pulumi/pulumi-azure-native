@@ -153,10 +153,8 @@ class PrivateEndpointConnectionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:PrivateEndpointConnection")
 class PrivateEndpointConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:PrivateEndpointConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

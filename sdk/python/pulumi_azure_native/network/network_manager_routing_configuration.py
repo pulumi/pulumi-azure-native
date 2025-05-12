@@ -88,10 +88,8 @@ class NetworkManagerRoutingConfigurationArgs:
         pulumi.set(self, "description", value)
 
 
+@pulumi.type_token("azure-native:network:NetworkManagerRoutingConfiguration")
 class NetworkManagerRoutingConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:NetworkManagerRoutingConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

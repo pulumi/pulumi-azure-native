@@ -135,10 +135,8 @@ class NspLinkArgs:
         pulumi.set(self, "remote_inbound_profiles", value)
 
 
+@pulumi.type_token("azure-native:network:NspLink")
 class NspLink(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:NspLink"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

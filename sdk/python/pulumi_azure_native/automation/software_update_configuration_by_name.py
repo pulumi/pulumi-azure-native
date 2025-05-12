@@ -136,10 +136,8 @@ class SoftwareUpdateConfigurationByNameArgs:
         pulumi.set(self, "tasks", value)
 
 
+@pulumi.type_token("azure-native:automation:SoftwareUpdateConfigurationByName")
 class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:automation:SoftwareUpdateConfigurationByName"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

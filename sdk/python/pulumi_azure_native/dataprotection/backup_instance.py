@@ -106,10 +106,8 @@ class BackupInstanceInitArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:dataprotection:BackupInstance")
 class BackupInstance(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dataprotection:BackupInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

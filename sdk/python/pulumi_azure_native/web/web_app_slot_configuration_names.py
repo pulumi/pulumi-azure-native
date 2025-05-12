@@ -119,10 +119,8 @@ class WebAppSlotConfigurationNamesArgs:
         pulumi.set(self, "kind", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppSlotConfigurationNames")
 class WebAppSlotConfigurationNames(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppSlotConfigurationNames"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

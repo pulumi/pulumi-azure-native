@@ -120,10 +120,8 @@ class LoadBalancerArgs:
         pulumi.set(self, "service_selector", value)
 
 
+@pulumi.type_token("azure-native:kubernetesruntime:LoadBalancer")
 class LoadBalancer(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:kubernetesruntime:LoadBalancer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

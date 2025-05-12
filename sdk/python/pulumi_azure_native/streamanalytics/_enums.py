@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -24,6 +24,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:streamanalytics:AuthenticationMode")
 class AuthenticationMode(builtins.str, Enum):
     """
     Authentication Mode.
@@ -33,6 +34,7 @@ class AuthenticationMode(builtins.str, Enum):
     CONNECTION_STRING = "ConnectionString"
 
 
+@pulumi.type_token("azure-native:streamanalytics:ClusterSkuName")
 class ClusterSkuName(builtins.str, Enum):
     """
     Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
@@ -43,6 +45,7 @@ class ClusterSkuName(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:streamanalytics:CompatibilityLevel")
 class CompatibilityLevel(builtins.str, Enum):
     """
     Controls certain runtime behaviors of the streaming job.
@@ -51,6 +54,7 @@ class CompatibilityLevel(builtins.str, Enum):
     COMPATIBILITY_LEVEL_1_2 = "1.2"
 
 
+@pulumi.type_token("azure-native:streamanalytics:CompressionType")
 class CompressionType(builtins.str, Enum):
     """
     Indicates the type of compression that the input uses. Required on PUT (CreateOrReplace) requests.
@@ -60,6 +64,7 @@ class CompressionType(builtins.str, Enum):
     DEFLATE = "Deflate"
 
 
+@pulumi.type_token("azure-native:streamanalytics:ContentStoragePolicy")
 class ContentStoragePolicy(builtins.str, Enum):
     """
     Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
@@ -68,6 +73,7 @@ class ContentStoragePolicy(builtins.str, Enum):
     JOB_STORAGE_ACCOUNT = "JobStorageAccount"
 
 
+@pulumi.type_token("azure-native:streamanalytics:Encoding")
 class Encoding(builtins.str, Enum):
     """
     Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
@@ -75,6 +81,7 @@ class Encoding(builtins.str, Enum):
     UTF8 = "UTF8"
 
 
+@pulumi.type_token("azure-native:streamanalytics:EventSerializationType")
 class EventSerializationType(builtins.str, Enum):
     """
     Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
@@ -85,6 +92,7 @@ class EventSerializationType(builtins.str, Enum):
     PARQUET = "Parquet"
 
 
+@pulumi.type_token("azure-native:streamanalytics:EventsOutOfOrderPolicy")
 class EventsOutOfOrderPolicy(builtins.str, Enum):
     """
     Indicates the policy to apply to events that arrive out of order in the input event stream.
@@ -93,6 +101,7 @@ class EventsOutOfOrderPolicy(builtins.str, Enum):
     DROP = "Drop"
 
 
+@pulumi.type_token("azure-native:streamanalytics:JobType")
 class JobType(builtins.str, Enum):
     """
     Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
@@ -101,6 +110,7 @@ class JobType(builtins.str, Enum):
     EDGE = "Edge"
 
 
+@pulumi.type_token("azure-native:streamanalytics:JsonOutputSerializationFormat")
 class JsonOutputSerializationFormat(builtins.str, Enum):
     """
     This property only applies to JSON serialization of outputs only. It is not applicable to inputs. This property specifies the format of the JSON the output will be written in. The currently supported values are 'lineSeparated' indicating the output will be formatted by having each JSON object separated by a new line and 'array' indicating the output will be formatted as an array of JSON objects. Default value is 'lineSeparated' if left null.
@@ -109,6 +119,7 @@ class JsonOutputSerializationFormat(builtins.str, Enum):
     ARRAY = "Array"
 
 
+@pulumi.type_token("azure-native:streamanalytics:OutputErrorPolicy")
 class OutputErrorPolicy(builtins.str, Enum):
     """
     Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
@@ -117,6 +128,7 @@ class OutputErrorPolicy(builtins.str, Enum):
     DROP = "Drop"
 
 
+@pulumi.type_token("azure-native:streamanalytics:OutputStartMode")
 class OutputStartMode(builtins.str, Enum):
     """
     This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
@@ -126,6 +138,7 @@ class OutputStartMode(builtins.str, Enum):
     LAST_OUTPUT_EVENT_TIME = "LastOutputEventTime"
 
 
+@pulumi.type_token("azure-native:streamanalytics:RefreshType")
 class RefreshType(builtins.str, Enum):
     """
     Indicates the type of data refresh option.
@@ -135,6 +148,7 @@ class RefreshType(builtins.str, Enum):
     REFRESH_PERIODICALLY_WITH_DELTA = "RefreshPeriodicallyWithDelta"
 
 
+@pulumi.type_token("azure-native:streamanalytics:SkuName")
 class SkuName(builtins.str, Enum):
     """
     The name of the SKU. Required on PUT (CreateOrReplace) requests.

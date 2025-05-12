@@ -153,10 +153,8 @@ class ResourceSyncRuleArgs:
         pulumi.set(self, "target_resource_group", value)
 
 
+@pulumi.type_token("azure-native:extendedlocation:ResourceSyncRule")
 class ResourceSyncRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:extendedlocation:ResourceSyncRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

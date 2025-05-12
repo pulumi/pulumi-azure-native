@@ -84,10 +84,8 @@ class SyncIdentityProviderArgs:
         pulumi.set(self, "resources", value)
 
 
+@pulumi.type_token("azure-native:redhatopenshift:SyncIdentityProvider")
 class SyncIdentityProvider(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:redhatopenshift:SyncIdentityProvider"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

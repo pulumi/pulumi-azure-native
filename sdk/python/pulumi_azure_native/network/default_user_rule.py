@@ -135,10 +135,8 @@ class DefaultUserRuleArgs:
         pulumi.set(self, "rule_name", value)
 
 
+@pulumi.type_token("azure-native:network:DefaultUserRule")
 class DefaultUserRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:DefaultUserRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

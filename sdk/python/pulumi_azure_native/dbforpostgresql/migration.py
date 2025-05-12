@@ -442,10 +442,8 @@ class MigrationArgs:
         pulumi.set(self, "trigger_cutover", value)
 
 
+@pulumi.type_token("azure-native:dbforpostgresql:Migration")
 class Migration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dbforpostgresql:Migration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

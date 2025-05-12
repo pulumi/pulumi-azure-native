@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -38,6 +38,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:synapse:BlobStorageEventType")
 class BlobStorageEventType(builtins.str, Enum):
     """
     The name of blob storage event type to process.
@@ -46,6 +47,7 @@ class BlobStorageEventType(builtins.str, Enum):
     MICROSOFT_STORAGE_BLOB_RENAMED = "Microsoft.Storage.BlobRenamed"
 
 
+@pulumi.type_token("azure-native:synapse:ClusterPrincipalRole")
 class ClusterPrincipalRole(builtins.str, Enum):
     """
     Cluster principal role.
@@ -54,6 +56,7 @@ class ClusterPrincipalRole(builtins.str, Enum):
     ALL_DATABASES_VIEWER = "AllDatabasesViewer"
 
 
+@pulumi.type_token("azure-native:synapse:Compression")
 class Compression(builtins.str, Enum):
     """
     The event hub messages compression type
@@ -62,6 +65,7 @@ class Compression(builtins.str, Enum):
     G_ZIP = "GZip"
 
 
+@pulumi.type_token("azure-native:synapse:ConfigurationType")
 class ConfigurationType(builtins.str, Enum):
     """
     The type of the spark config properties file.
@@ -70,6 +74,7 @@ class ConfigurationType(builtins.str, Enum):
     ARTIFACT = "Artifact"
 
 
+@pulumi.type_token("azure-native:synapse:CreateMode")
 class CreateMode(builtins.str, Enum):
     """
     Specifies the mode of sql pool creation.
@@ -88,6 +93,7 @@ class CreateMode(builtins.str, Enum):
     RESTORE = "Restore"
 
 
+@pulumi.type_token("azure-native:synapse:DataConnectionKind")
 class DataConnectionKind(builtins.str, Enum):
     """
     Kind of the endpoint for the data connection
@@ -97,6 +103,7 @@ class DataConnectionKind(builtins.str, Enum):
     IOT_HUB = "IotHub"
 
 
+@pulumi.type_token("azure-native:synapse:DataFlowComputeType")
 class DataFlowComputeType(builtins.str, Enum):
     """
     Compute type of the cluster which will execute data flow job.
@@ -106,6 +113,7 @@ class DataFlowComputeType(builtins.str, Enum):
     COMPUTE_OPTIMIZED = "ComputeOptimized"
 
 
+@pulumi.type_token("azure-native:synapse:DatabasePrincipalRole")
 class DatabasePrincipalRole(builtins.str, Enum):
     """
     Database principal role.
@@ -118,6 +126,7 @@ class DatabasePrincipalRole(builtins.str, Enum):
     VIEWER = "Viewer"
 
 
+@pulumi.type_token("azure-native:synapse:DefaultPrincipalsModificationKind")
 class DefaultPrincipalsModificationKind(builtins.str, Enum):
     """
     The default principals modification kind
@@ -127,6 +136,7 @@ class DefaultPrincipalsModificationKind(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:synapse:EventGridDataFormat")
 class EventGridDataFormat(builtins.str, Enum):
     """
     The data format of the message. Optionally the data format can be added to each message.
@@ -149,6 +159,7 @@ class EventGridDataFormat(builtins.str, Enum):
     W3_CLOGFILE = "W3CLOGFILE"
 
 
+@pulumi.type_token("azure-native:synapse:EventHubDataFormat")
 class EventHubDataFormat(builtins.str, Enum):
     """
     The data format of the message. Optionally the data format can be added to each message.
@@ -171,6 +182,7 @@ class EventHubDataFormat(builtins.str, Enum):
     W3_CLOGFILE = "W3CLOGFILE"
 
 
+@pulumi.type_token("azure-native:synapse:IntegrationRuntimeEdition")
 class IntegrationRuntimeEdition(builtins.str, Enum):
     """
     The edition for the SSIS Integration Runtime
@@ -179,6 +191,7 @@ class IntegrationRuntimeEdition(builtins.str, Enum):
     ENTERPRISE = "Enterprise"
 
 
+@pulumi.type_token("azure-native:synapse:IntegrationRuntimeEntityReferenceType")
 class IntegrationRuntimeEntityReferenceType(builtins.str, Enum):
     """
     The type of this referenced entity.
@@ -187,6 +200,7 @@ class IntegrationRuntimeEntityReferenceType(builtins.str, Enum):
     LINKED_SERVICE_REFERENCE = "LinkedServiceReference"
 
 
+@pulumi.type_token("azure-native:synapse:IntegrationRuntimeLicenseType")
 class IntegrationRuntimeLicenseType(builtins.str, Enum):
     """
     License type for bringing your own license scenario.
@@ -195,6 +209,7 @@ class IntegrationRuntimeLicenseType(builtins.str, Enum):
     LICENSE_INCLUDED = "LicenseIncluded"
 
 
+@pulumi.type_token("azure-native:synapse:IntegrationRuntimeSsisCatalogPricingTier")
 class IntegrationRuntimeSsisCatalogPricingTier(builtins.str, Enum):
     """
     The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
@@ -205,6 +220,7 @@ class IntegrationRuntimeSsisCatalogPricingTier(builtins.str, Enum):
     PREMIUM_RS = "PremiumRS"
 
 
+@pulumi.type_token("azure-native:synapse:IntegrationRuntimeType")
 class IntegrationRuntimeType(builtins.str, Enum):
     """
     Type of integration runtime.
@@ -213,6 +229,7 @@ class IntegrationRuntimeType(builtins.str, Enum):
     SELF_HOSTED = "SelfHosted"
 
 
+@pulumi.type_token("azure-native:synapse:IotHubDataFormat")
 class IotHubDataFormat(builtins.str, Enum):
     """
     The data format of the message. Optionally the data format can be added to each message.
@@ -235,6 +252,7 @@ class IotHubDataFormat(builtins.str, Enum):
     W3_CLOGFILE = "W3CLOGFILE"
 
 
+@pulumi.type_token("azure-native:synapse:Kind")
 class Kind(builtins.str, Enum):
     """
     Kind of the database
@@ -243,6 +261,7 @@ class Kind(builtins.str, Enum):
     READ_ONLY_FOLLOWING = "ReadOnlyFollowing"
 
 
+@pulumi.type_token("azure-native:synapse:NodeSize")
 class NodeSize(builtins.str, Enum):
     """
     The level of compute power that each node in the Big Data pool has.
@@ -256,6 +275,7 @@ class NodeSize(builtins.str, Enum):
     XXX_LARGE = "XXXLarge"
 
 
+@pulumi.type_token("azure-native:synapse:NodeSizeFamily")
 class NodeSizeFamily(builtins.str, Enum):
     """
     The kind of nodes that the Big Data pool provides.
@@ -266,6 +286,7 @@ class NodeSizeFamily(builtins.str, Enum):
     HARDWARE_ACCELERATED_GPU = "HardwareAcceleratedGPU"
 
 
+@pulumi.type_token("azure-native:synapse:PrincipalType")
 class PrincipalType(builtins.str, Enum):
     """
     Principal type.
@@ -275,6 +296,7 @@ class PrincipalType(builtins.str, Enum):
     USER = "User"
 
 
+@pulumi.type_token("azure-native:synapse:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The type of managed identity for the workspace
@@ -284,6 +306,7 @@ class ResourceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:synapse:SensitivityLabelRank")
 class SensitivityLabelRank(builtins.str, Enum):
     NONE = "None"
     LOW = "Low"
@@ -292,6 +315,7 @@ class SensitivityLabelRank(builtins.str, Enum):
     CRITICAL = "Critical"
 
 
+@pulumi.type_token("azure-native:synapse:SkuName")
 class SkuName(builtins.str, Enum):
     """
     SKU name.
@@ -300,6 +324,7 @@ class SkuName(builtins.str, Enum):
     STORAGE_OPTIMIZED = "Storage optimized"
 
 
+@pulumi.type_token("azure-native:synapse:SkuSize")
 class SkuSize(builtins.str, Enum):
     """
     SKU size.
@@ -310,6 +335,7 @@ class SkuSize(builtins.str, Enum):
     LARGE = "Large"
 
 
+@pulumi.type_token("azure-native:synapse:StorageAccountType")
 class StorageAccountType(builtins.str, Enum):
     """
     The storage account type used to store backups for this sql pool.
@@ -318,6 +344,7 @@ class StorageAccountType(builtins.str, Enum):
     LRS = "LRS"
 
 
+@pulumi.type_token("azure-native:synapse:TransparentDataEncryptionStatus")
 class TransparentDataEncryptionStatus(builtins.str, Enum):
     """
     The status of the database transparent data encryption.
@@ -326,6 +353,7 @@ class TransparentDataEncryptionStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:synapse:WorkspacePublicNetworkAccess")
 class WorkspacePublicNetworkAccess(builtins.str, Enum):
     """
     Enable or Disable public network access to workspace

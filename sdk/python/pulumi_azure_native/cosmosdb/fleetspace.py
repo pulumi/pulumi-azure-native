@@ -106,10 +106,8 @@ class FleetspaceArgs:
         pulumi.set(self, "throughput_pool_configuration", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:Fleetspace")
 class Fleetspace(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:Fleetspace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

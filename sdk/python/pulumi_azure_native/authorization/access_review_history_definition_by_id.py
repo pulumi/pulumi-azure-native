@@ -156,10 +156,8 @@ class AccessReviewHistoryDefinitionByIdArgs:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("azure-native:authorization:AccessReviewHistoryDefinitionById")
 class AccessReviewHistoryDefinitionById(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:authorization:AccessReviewHistoryDefinitionById"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

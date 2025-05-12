@@ -212,10 +212,8 @@ class CommunityTrainingArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:community:CommunityTraining")
 class CommunityTraining(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:community:CommunityTraining"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

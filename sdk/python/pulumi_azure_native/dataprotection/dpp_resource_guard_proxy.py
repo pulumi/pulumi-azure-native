@@ -89,10 +89,8 @@ class DppResourceGuardProxyArgs:
         pulumi.set(self, "resource_guard_proxy_name", value)
 
 
+@pulumi.type_token("azure-native:dataprotection:DppResourceGuardProxy")
 class DppResourceGuardProxy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dataprotection:DppResourceGuardProxy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -417,10 +417,8 @@ class ServerBlobAuditingPolicyArgs:
         pulumi.set(self, "storage_endpoint", value)
 
 
+@pulumi.type_token("azure-native:sql:ServerBlobAuditingPolicy")
 class ServerBlobAuditingPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:ServerBlobAuditingPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

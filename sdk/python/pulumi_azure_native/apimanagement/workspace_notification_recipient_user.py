@@ -101,10 +101,8 @@ class WorkspaceNotificationRecipientUserArgs:
         pulumi.set(self, "user_id", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:WorkspaceNotificationRecipientUser")
 class WorkspaceNotificationRecipientUser(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:WorkspaceNotificationRecipientUser"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -106,10 +106,8 @@ class RdsDbSnapshotAttributesResultArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:RdsDbSnapshotAttributesResult")
 class RdsDbSnapshotAttributesResult(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:RdsDbSnapshotAttributesResult"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

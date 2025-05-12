@@ -120,10 +120,8 @@ class SqlServerAvailabilityGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:azurearcdata:SqlServerAvailabilityGroup")
 class SqlServerAvailabilityGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurearcdata:SqlServerAvailabilityGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

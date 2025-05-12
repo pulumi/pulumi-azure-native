@@ -235,10 +235,8 @@ class LocalRulestackArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:cloudngfw:LocalRulestack")
 class LocalRulestack(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cloudngfw:LocalRulestack"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

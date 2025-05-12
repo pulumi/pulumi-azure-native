@@ -209,10 +209,8 @@ class AttachedDataNetworkArgs:
         pulumi.set(self, "user_equipment_static_address_pool_prefix", value)
 
 
+@pulumi.type_token("azure-native:mobilenetwork:AttachedDataNetwork")
 class AttachedDataNetwork(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:mobilenetwork:AttachedDataNetwork"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

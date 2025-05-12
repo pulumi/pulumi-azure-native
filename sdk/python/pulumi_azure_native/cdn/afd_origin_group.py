@@ -138,10 +138,8 @@ class AFDOriginGroupArgs:
         pulumi.set(self, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes", value)
 
 
+@pulumi.type_token("azure-native:cdn:AFDOriginGroup")
 class AFDOriginGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cdn:AFDOriginGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

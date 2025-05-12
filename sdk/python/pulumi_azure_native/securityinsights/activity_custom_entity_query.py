@@ -235,10 +235,8 @@ class ActivityCustomEntityQueryArgs:
         pulumi.set(self, "title", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:ActivityCustomEntityQuery")
 class ActivityCustomEntityQuery(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:ActivityCustomEntityQuery"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

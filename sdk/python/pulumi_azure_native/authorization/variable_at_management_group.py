@@ -73,10 +73,8 @@ class VariableAtManagementGroupArgs:
         pulumi.set(self, "variable_name", value)
 
 
+@pulumi.type_token("azure-native:authorization:VariableAtManagementGroup")
 class VariableAtManagementGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:authorization:VariableAtManagementGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

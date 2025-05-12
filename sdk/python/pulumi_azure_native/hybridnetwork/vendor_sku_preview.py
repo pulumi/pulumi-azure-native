@@ -72,10 +72,8 @@ class VendorSkuPreviewArgs:
         pulumi.set(self, "preview_subscription", value)
 
 
+@pulumi.type_token("azure-native:hybridnetwork:VendorSkuPreview")
 class VendorSkuPreview(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybridnetwork:VendorSkuPreview"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

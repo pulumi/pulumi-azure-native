@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -40,6 +40,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:hybridnetwork:ApplicationEnablement")
 class ApplicationEnablement(builtins.str, Enum):
     """
     The application enablement.
@@ -49,6 +50,7 @@ class ApplicationEnablement(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:ArtifactReplicationStrategy")
 class ArtifactReplicationStrategy(builtins.str, Enum):
     """
     The replication strategy.
@@ -57,6 +59,7 @@ class ArtifactReplicationStrategy(builtins.str, Enum):
     SINGLE_REPLICATION = "SingleReplication"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:ArtifactStoreType")
 class ArtifactStoreType(builtins.str, Enum):
     """
     The artifact store type.
@@ -66,6 +69,7 @@ class ArtifactStoreType(builtins.str, Enum):
     AZURE_STORAGE_ACCOUNT = "AzureStorageAccount"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:ArtifactType")
 class ArtifactType(builtins.str, Enum):
     """
     The artifact type.
@@ -77,6 +81,7 @@ class ArtifactType(builtins.str, Enum):
     IMAGE_FILE = "ImageFile"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:AzureArcKubernetesArtifactType")
 class AzureArcKubernetesArtifactType(builtins.str, Enum):
     """
     The artifact type.
@@ -85,6 +90,7 @@ class AzureArcKubernetesArtifactType(builtins.str, Enum):
     HELM_PACKAGE = "HelmPackage"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:AzureCoreArtifactType")
 class AzureCoreArtifactType(builtins.str, Enum):
     """
     The artifact type.
@@ -94,6 +100,7 @@ class AzureCoreArtifactType(builtins.str, Enum):
     ARM_TEMPLATE = "ArmTemplate"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:AzureOperatorNexusArtifactType")
 class AzureOperatorNexusArtifactType(builtins.str, Enum):
     """
     The artifact type.
@@ -103,6 +110,7 @@ class AzureOperatorNexusArtifactType(builtins.str, Enum):
     ARM_TEMPLATE = "ArmTemplate"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:BackingResourcePublicNetworkAccess")
 class BackingResourcePublicNetworkAccess(builtins.str, Enum):
     """
     The artifact store backing resource network access type
@@ -111,6 +119,7 @@ class BackingResourcePublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:ConfigurationGroupValueConfigurationType")
 class ConfigurationGroupValueConfigurationType(builtins.str, Enum):
     """
     The value which indicates if configuration values are secrets
@@ -120,6 +129,7 @@ class ConfigurationGroupValueConfigurationType(builtins.str, Enum):
     OPEN = "Open"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:ContainerizedNetworkFunctionNFVIType")
 class ContainerizedNetworkFunctionNFVIType(builtins.str, Enum):
     """
     The network function type.
@@ -128,6 +138,7 @@ class ContainerizedNetworkFunctionNFVIType(builtins.str, Enum):
     AZURE_ARC_KUBERNETES = "AzureArcKubernetes"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:DeviceType")
 class DeviceType(builtins.str, Enum):
     """
     The type of the device.
@@ -136,6 +147,7 @@ class DeviceType(builtins.str, Enum):
     AZURE_STACK_EDGE = "AzureStackEdge"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:DiskCreateOptionTypes")
 class DiskCreateOptionTypes(builtins.str, Enum):
     """
     Specifies how the virtual machine should be created.
@@ -144,6 +156,7 @@ class DiskCreateOptionTypes(builtins.str, Enum):
     EMPTY = "Empty"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:IPAllocationMethod")
 class IPAllocationMethod(builtins.str, Enum):
     """
     IP address allocation method.
@@ -153,6 +166,7 @@ class IPAllocationMethod(builtins.str, Enum):
     DYNAMIC = "Dynamic"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:IPVersion")
 class IPVersion(builtins.str, Enum):
     """
     IP address version.
@@ -161,6 +175,7 @@ class IPVersion(builtins.str, Enum):
     I_PV4 = "IPv4"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:IdType")
 class IdType(builtins.str, Enum):
     """
     The resource reference arm id type.
@@ -170,6 +185,7 @@ class IdType(builtins.str, Enum):
     SECRET = "Secret"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -180,6 +196,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:NFVIType")
 class NFVIType(builtins.str, Enum):
     """
     The NFVI type.
@@ -190,6 +207,7 @@ class NFVIType(builtins.str, Enum):
     AZURE_OPERATOR_NEXUS = "AzureOperatorNexus"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:NetworkFunctionConfigurationType")
 class NetworkFunctionConfigurationType(builtins.str, Enum):
     """
     The value which indicates if NF  values are secrets
@@ -199,6 +217,7 @@ class NetworkFunctionConfigurationType(builtins.str, Enum):
     OPEN = "Open"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:NetworkFunctionRoleConfigurationType")
 class NetworkFunctionRoleConfigurationType(builtins.str, Enum):
     """
     Role type.
@@ -207,6 +226,7 @@ class NetworkFunctionRoleConfigurationType(builtins.str, Enum):
     VIRTUAL_MACHINE = "VirtualMachine"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:NetworkFunctionType")
 class NetworkFunctionType(builtins.str, Enum):
     """
     The network function type.
@@ -216,6 +236,7 @@ class NetworkFunctionType(builtins.str, Enum):
     CONTAINERIZED_NETWORK_FUNCTION = "ContainerizedNetworkFunction"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:OperatingSystemTypes")
 class OperatingSystemTypes(builtins.str, Enum):
     """
     The OS type.
@@ -225,6 +246,7 @@ class OperatingSystemTypes(builtins.str, Enum):
     LINUX = "Linux"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:PublisherScope")
 class PublisherScope(builtins.str, Enum):
     """
     The publisher scope.
@@ -233,6 +255,7 @@ class PublisherScope(builtins.str, Enum):
     PRIVATE = "Private"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:SkuDeploymentMode")
 class SkuDeploymentMode(builtins.str, Enum):
     """
     The sku deployment mode.
@@ -242,6 +265,7 @@ class SkuDeploymentMode(builtins.str, Enum):
     PRIVATE_EDGE_ZONE = "PrivateEdgeZone"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:SkuName")
 class SkuName(builtins.str, Enum):
     """
     Name of this Sku
@@ -250,6 +274,7 @@ class SkuName(builtins.str, Enum):
     STANDARD = "Standard"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:SkuType")
 class SkuType(builtins.str, Enum):
     """
     The sku type.
@@ -260,6 +285,7 @@ class SkuType(builtins.str, Enum):
     FIREWALL = "Firewall"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:TemplateType")
 class TemplateType(builtins.str, Enum):
     """
     The template type.
@@ -268,6 +294,7 @@ class TemplateType(builtins.str, Enum):
     ARM_TEMPLATE = "ArmTemplate"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:Type")
 class Type(builtins.str, Enum):
     """
     The resource element template type.
@@ -277,6 +304,7 @@ class Type(builtins.str, Enum):
     NETWORK_FUNCTION_DEFINITION = "NetworkFunctionDefinition"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:VMSwitchType")
 class VMSwitchType(builtins.str, Enum):
     """
     The type of the VM switch.
@@ -287,6 +315,7 @@ class VMSwitchType(builtins.str, Enum):
     LAN = "Lan"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:VirtualMachineSizeTypes")
 class VirtualMachineSizeTypes(builtins.str, Enum):
     """
     The size of the virtual machine.
@@ -320,6 +349,7 @@ class VirtualMachineSizeTypes(builtins.str, Enum):
     STANDARD_F16S = "Standard_F16s"
 
 
+@pulumi.type_token("azure-native:hybridnetwork:VirtualNetworkFunctionNFVIType")
 class VirtualNetworkFunctionNFVIType(builtins.str, Enum):
     """
     The network function type.

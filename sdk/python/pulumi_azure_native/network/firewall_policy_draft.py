@@ -250,10 +250,8 @@ class FirewallPolicyDraftArgs:
         pulumi.set(self, "threat_intel_whitelist", value)
 
 
+@pulumi.type_token("azure-native:network:FirewallPolicyDraft")
 class FirewallPolicyDraft(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:FirewallPolicyDraft"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -133,10 +133,8 @@ class ApiVersionArgs:
         pulumi.set(self, "version_name", value)
 
 
+@pulumi.type_token("azure-native:apicenter:ApiVersion")
 class ApiVersion(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apicenter:ApiVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -90,10 +90,8 @@ class WebAppAssessmentV3OperationArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:migrate:WebAppAssessmentV3Operation")
 class WebAppAssessmentV3Operation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:migrate:WebAppAssessmentV3Operation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

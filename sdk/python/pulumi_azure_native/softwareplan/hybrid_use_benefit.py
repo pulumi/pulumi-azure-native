@@ -73,10 +73,8 @@ class HybridUseBenefitArgs:
         pulumi.set(self, "plan_id", value)
 
 
+@pulumi.type_token("azure-native:softwareplan:HybridUseBenefit")
 class HybridUseBenefit(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:softwareplan:HybridUseBenefit"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

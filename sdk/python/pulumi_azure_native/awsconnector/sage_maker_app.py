@@ -107,10 +107,8 @@ class SageMakerAppArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:SageMakerApp")
 class SageMakerApp(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:SageMakerApp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

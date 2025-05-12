@@ -194,10 +194,8 @@ class ADLSGen2FolderDataSetMappingArgs:
         pulumi.set(self, "data_set_mapping_name", value)
 
 
+@pulumi.type_token("azure-native:datashare:ADLSGen2FolderDataSetMapping")
 class ADLSGen2FolderDataSetMapping(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datashare:ADLSGen2FolderDataSetMapping"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

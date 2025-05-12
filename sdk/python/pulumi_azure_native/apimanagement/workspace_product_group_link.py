@@ -116,10 +116,8 @@ class WorkspaceProductGroupLinkArgs:
         pulumi.set(self, "group_link_id", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:WorkspaceProductGroupLink")
 class WorkspaceProductGroupLink(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:WorkspaceProductGroupLink"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

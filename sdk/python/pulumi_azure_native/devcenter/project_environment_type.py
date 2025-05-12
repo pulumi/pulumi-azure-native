@@ -202,10 +202,8 @@ class ProjectEnvironmentTypeArgs:
         pulumi.set(self, "user_role_assignments", value)
 
 
+@pulumi.type_token("azure-native:devcenter:ProjectEnvironmentType")
 class ProjectEnvironmentType(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devcenter:ProjectEnvironmentType"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

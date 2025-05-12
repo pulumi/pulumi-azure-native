@@ -154,10 +154,8 @@ class NetworkManagerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:network:NetworkManager")
 class NetworkManager(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:NetworkManager"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

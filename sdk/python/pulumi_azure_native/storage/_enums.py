@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -55,6 +55,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:storage:AccessTier")
 class AccessTier(builtins.str, Enum):
     """
     Required for storage accounts where kind = BlobStorage. The access tier is used for billing. The 'Premium' access tier is the default value for premium block blobs storage account type and it cannot be changed for the premium block blobs storage account type.
@@ -65,6 +66,7 @@ class AccessTier(builtins.str, Enum):
     COLD = "Cold"
 
 
+@pulumi.type_token("azure-native:storage:AccountImmutabilityPolicyState")
 class AccountImmutabilityPolicyState(builtins.str, Enum):
     """
     The ImmutabilityPolicy state defines the mode of the policy. Disabled state disables the policy, Unlocked state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, Locked state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
@@ -74,6 +76,7 @@ class AccountImmutabilityPolicyState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:storage:AccountType")
 class AccountType(builtins.str, Enum):
     """
     Specifies the Active Directory account type for Azure Storage.
@@ -82,6 +85,7 @@ class AccountType(builtins.str, Enum):
     COMPUTER = "Computer"
 
 
+@pulumi.type_token("azure-native:storage:Action")
 class Action(builtins.str, Enum):
     """
     The action of virtual network rule.
@@ -89,6 +93,7 @@ class Action(builtins.str, Enum):
     ALLOW = "Allow"
 
 
+@pulumi.type_token("azure-native:storage:AllowedCopyScope")
 class AllowedCopyScope(builtins.str, Enum):
     """
     Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet.
@@ -97,6 +102,7 @@ class AllowedCopyScope(builtins.str, Enum):
     AAD = "AAD"
 
 
+@pulumi.type_token("azure-native:storage:AllowedMethods")
 class AllowedMethods(builtins.str, Enum):
     DELETE = "DELETE"
     GET = "GET"
@@ -110,6 +116,7 @@ class AllowedMethods(builtins.str, Enum):
     TRACE = "TRACE"
 
 
+@pulumi.type_token("azure-native:storage:BlobAccessTier")
 class BlobAccessTier(builtins.str, Enum):
     """
     The access tier of a storage blob.
@@ -128,6 +135,7 @@ class BlobAccessTier(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:storage:BlobType")
 class BlobType(builtins.str, Enum):
     """
     The type of a storage blob to be created.
@@ -142,6 +150,7 @@ class BlobType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:storage:Bypass")
 class Bypass(builtins.str, Enum):
     """
     Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
@@ -152,6 +161,7 @@ class Bypass(builtins.str, Enum):
     AZURE_SERVICES = "AzureServices"
 
 
+@pulumi.type_token("azure-native:storage:DefaultAction")
 class DefaultAction(builtins.str, Enum):
     """
     Specifies the default action of allow or deny when no other rules match.
@@ -160,6 +170,7 @@ class DefaultAction(builtins.str, Enum):
     DENY = "Deny"
 
 
+@pulumi.type_token("azure-native:storage:DefaultSharePermission")
 class DefaultSharePermission(builtins.str, Enum):
     """
     Default share permission for users using Kerberos authentication if RBAC role is not assigned.
@@ -170,6 +181,7 @@ class DefaultSharePermission(builtins.str, Enum):
     STORAGE_FILE_DATA_SMB_SHARE_ELEVATED_CONTRIBUTOR = "StorageFileDataSmbShareElevatedContributor"
 
 
+@pulumi.type_token("azure-native:storage:DirectoryServiceOptions")
 class DirectoryServiceOptions(builtins.str, Enum):
     """
     Indicates the directory service used. Note that this enum may be extended in the future.
@@ -180,6 +192,7 @@ class DirectoryServiceOptions(builtins.str, Enum):
     AADKERB = "AADKERB"
 
 
+@pulumi.type_token("azure-native:storage:DnsEndpointType")
 class DnsEndpointType(builtins.str, Enum):
     """
     Allows you to specify the type of endpoint. Set this to AzureDNSZone to create a large number of accounts in a single subscription, which creates accounts in an Azure DNS Zone and the endpoint URL will have an alphanumeric DNS Zone identifier.
@@ -188,6 +201,7 @@ class DnsEndpointType(builtins.str, Enum):
     AZURE_DNS_ZONE = "AzureDnsZone"
 
 
+@pulumi.type_token("azure-native:storage:EnabledProtocols")
 class EnabledProtocols(builtins.str, Enum):
     """
     The authentication protocol that is used for the file share. Can only be specified when creating a share.
@@ -196,6 +210,7 @@ class EnabledProtocols(builtins.str, Enum):
     NFS = "NFS"
 
 
+@pulumi.type_token("azure-native:storage:EncryptionScopeSource")
 class EncryptionScopeSource(builtins.str, Enum):
     """
     The provider for the encryption scope. Possible values (case-insensitive):  Microsoft.Storage, Microsoft.KeyVault.
@@ -204,6 +219,7 @@ class EncryptionScopeSource(builtins.str, Enum):
     MICROSOFT_KEY_VAULT = "Microsoft.KeyVault"
 
 
+@pulumi.type_token("azure-native:storage:EncryptionScopeState")
 class EncryptionScopeState(builtins.str, Enum):
     """
     The state of the encryption scope. Possible values (case-insensitive):  Enabled, Disabled.
@@ -212,6 +228,7 @@ class EncryptionScopeState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:storage:ExpirationAction")
 class ExpirationAction(builtins.str, Enum):
     """
     The SAS Expiration Action defines the action to be performed when sasPolicy.sasExpirationPeriod is violated. The 'Log' action can be used for audit purposes and the 'Block' action can be used to block and deny the usage of SAS tokens that do not adhere to the sas policy expiration period.
@@ -220,6 +237,7 @@ class ExpirationAction(builtins.str, Enum):
     BLOCK = "Block"
 
 
+@pulumi.type_token("azure-native:storage:ExtendedLocationTypes")
 class ExtendedLocationTypes(builtins.str, Enum):
     """
     The type of the extended location.
@@ -227,6 +245,7 @@ class ExtendedLocationTypes(builtins.str, Enum):
     EDGE_ZONE = "EdgeZone"
 
 
+@pulumi.type_token("azure-native:storage:Format")
 class Format(builtins.str, Enum):
     """
     This is a required field, it specifies the format for the inventory files.
@@ -235,6 +254,7 @@ class Format(builtins.str, Enum):
     PARQUET = "Parquet"
 
 
+@pulumi.type_token("azure-native:storage:HttpProtocol")
 class HttpProtocol(builtins.str, Enum):
     """
     The protocol permitted for a request made with the account SAS.
@@ -243,6 +263,7 @@ class HttpProtocol(builtins.str, Enum):
     HTTPS = "https"
 
 
+@pulumi.type_token("azure-native:storage:IdentityType")
 class IdentityType(builtins.str, Enum):
     """
     The identity type.
@@ -253,6 +274,7 @@ class IdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:storage:IntervalUnit")
 class IntervalUnit(builtins.str, Enum):
     """
     Run interval unit of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
@@ -260,6 +282,7 @@ class IntervalUnit(builtins.str, Enum):
     DAYS = "Days"
 
 
+@pulumi.type_token("azure-native:storage:InventoryRuleType")
 class InventoryRuleType(builtins.str, Enum):
     """
     The valid value is Inventory
@@ -267,6 +290,7 @@ class InventoryRuleType(builtins.str, Enum):
     INVENTORY = "Inventory"
 
 
+@pulumi.type_token("azure-native:storage:KeySource")
 class KeySource(builtins.str, Enum):
     """
     The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
@@ -275,6 +299,7 @@ class KeySource(builtins.str, Enum):
     MICROSOFT_KEYVAULT = "Microsoft.Keyvault"
 
 
+@pulumi.type_token("azure-native:storage:KeyType")
 class KeyType(builtins.str, Enum):
     """
     Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
@@ -283,6 +308,7 @@ class KeyType(builtins.str, Enum):
     ACCOUNT = "Account"
 
 
+@pulumi.type_token("azure-native:storage:Kind")
 class Kind(builtins.str, Enum):
     """
     Required. Indicates the type of storage account.
@@ -294,6 +320,7 @@ class Kind(builtins.str, Enum):
     BLOCK_BLOB_STORAGE = "BlockBlobStorage"
 
 
+@pulumi.type_token("azure-native:storage:LargeFileSharesState")
 class LargeFileSharesState(builtins.str, Enum):
     """
     Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
@@ -302,6 +329,7 @@ class LargeFileSharesState(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:storage:MinimumTlsVersion")
 class MinimumTlsVersion(builtins.str, Enum):
     """
     Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
@@ -312,6 +340,7 @@ class MinimumTlsVersion(builtins.str, Enum):
     TLS1_3 = "TLS1_3"
 
 
+@pulumi.type_token("azure-native:storage:Name")
 class Name(builtins.str, Enum):
     """
     Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
@@ -319,6 +348,7 @@ class Name(builtins.str, Enum):
     ACCESS_TIME_TRACKING = "AccessTimeTracking"
 
 
+@pulumi.type_token("azure-native:storage:ObjectType")
 class ObjectType(builtins.str, Enum):
     """
     This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
@@ -327,6 +357,7 @@ class ObjectType(builtins.str, Enum):
     CONTAINER = "Container"
 
 
+@pulumi.type_token("azure-native:storage:Permissions")
 class Permissions(builtins.str, Enum):
     """
     The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
@@ -341,6 +372,7 @@ class Permissions(builtins.str, Enum):
     P = "p"
 
 
+@pulumi.type_token("azure-native:storage:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -350,6 +382,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:storage:PublicAccess")
 class PublicAccess(builtins.str, Enum):
     """
     Specifies whether data in the container may be accessed publicly and the level of access.
@@ -359,6 +392,7 @@ class PublicAccess(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:storage:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Allow, disallow, or let Network Security Perimeter configuration to evaluate public network access to Storage Account. Value is optional but if passed in, must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
@@ -368,6 +402,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     SECURED_BY_PERIMETER = "SecuredByPerimeter"
 
 
+@pulumi.type_token("azure-native:storage:RootSquashType")
 class RootSquashType(builtins.str, Enum):
     """
     The property is for NFS share only. The default is NoRootSquash.
@@ -377,6 +412,7 @@ class RootSquashType(builtins.str, Enum):
     ALL_SQUASH = "AllSquash"
 
 
+@pulumi.type_token("azure-native:storage:RoutingChoice")
 class RoutingChoice(builtins.str, Enum):
     """
     Routing Choice defines the kind of network routing opted by the user.
@@ -385,6 +421,7 @@ class RoutingChoice(builtins.str, Enum):
     INTERNET_ROUTING = "InternetRouting"
 
 
+@pulumi.type_token("azure-native:storage:RuleType")
 class RuleType(builtins.str, Enum):
     """
     The valid value is Lifecycle
@@ -392,6 +429,7 @@ class RuleType(builtins.str, Enum):
     LIFECYCLE = "Lifecycle"
 
 
+@pulumi.type_token("azure-native:storage:Schedule")
 class Schedule(builtins.str, Enum):
     """
     This is a required field. This field is used to schedule an inventory formation.
@@ -400,6 +438,7 @@ class Schedule(builtins.str, Enum):
     WEEKLY = "Weekly"
 
 
+@pulumi.type_token("azure-native:storage:Services")
 class Services(builtins.str, Enum):
     """
     The signed services accessible with the account SAS. Possible values include: Blob (b), Queue (q), Table (t), File (f).
@@ -410,6 +449,7 @@ class Services(builtins.str, Enum):
     F = "f"
 
 
+@pulumi.type_token("azure-native:storage:ShareAccessTier")
 class ShareAccessTier(builtins.str, Enum):
     """
     Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
@@ -420,6 +460,7 @@ class ShareAccessTier(builtins.str, Enum):
     PREMIUM = "Premium"
 
 
+@pulumi.type_token("azure-native:storage:SignedResource")
 class SignedResource(builtins.str, Enum):
     """
     The signed services accessible with the service SAS. Possible values include: Blob (b), Container (c), File (f), Share (s).
@@ -430,6 +471,7 @@ class SignedResource(builtins.str, Enum):
     S = "s"
 
 
+@pulumi.type_token("azure-native:storage:SignedResourceTypes")
 class SignedResourceTypes(builtins.str, Enum):
     """
     The signed resource types that are accessible with the account SAS. Service (s): Access to service-level APIs; Container (c): Access to container-level APIs; Object (o): Access to object-level APIs for blobs, queue messages, table entities, and files.
@@ -439,6 +481,7 @@ class SignedResourceTypes(builtins.str, Enum):
     O = "o"
 
 
+@pulumi.type_token("azure-native:storage:SkuName")
 class SkuName(builtins.str, Enum):
     """
     The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
@@ -459,6 +502,7 @@ class SkuName(builtins.str, Enum):
     PREMIUM_V2_ZRS = "PremiumV2_ZRS"
 
 
+@pulumi.type_token("azure-native:storage:State")
 class State(builtins.str, Enum):
     """
     Gets the state of virtual network rule.
@@ -470,6 +514,7 @@ class State(builtins.str, Enum):
     NETWORK_SOURCE_DELETED = "NetworkSourceDeleted"
 
 
+@pulumi.type_token("azure-native:storage:TriggerType")
 class TriggerType(builtins.str, Enum):
     """
     The trigger type of the storage task assignment execution

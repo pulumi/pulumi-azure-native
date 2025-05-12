@@ -74,10 +74,8 @@ class RetentionPolicyArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:durabletask:RetentionPolicy")
 class RetentionPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:durabletask:RetentionPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

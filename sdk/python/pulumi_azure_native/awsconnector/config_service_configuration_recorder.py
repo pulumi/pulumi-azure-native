@@ -107,10 +107,8 @@ class ConfigServiceConfigurationRecorderArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:ConfigServiceConfigurationRecorder")
 class ConfigServiceConfigurationRecorder(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:ConfigServiceConfigurationRecorder"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

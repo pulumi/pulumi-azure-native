@@ -120,10 +120,8 @@ class IntegrationAccountAssemblyArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:logic:IntegrationAccountAssembly")
 class IntegrationAccountAssembly(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:logic:IntegrationAccountAssembly"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

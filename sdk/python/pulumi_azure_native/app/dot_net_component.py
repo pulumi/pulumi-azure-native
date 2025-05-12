@@ -122,10 +122,8 @@ class DotNetComponentArgs:
         pulumi.set(self, "service_binds", value)
 
 
+@pulumi.type_token("azure-native:app:DotNetComponent")
 class DotNetComponent(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:app:DotNetComponent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

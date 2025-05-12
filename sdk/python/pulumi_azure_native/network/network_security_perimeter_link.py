@@ -135,10 +135,8 @@ class NetworkSecurityPerimeterLinkArgs:
         pulumi.set(self, "remote_inbound_profiles", value)
 
 
+@pulumi.type_token("azure-native:network:NetworkSecurityPerimeterLink")
 class NetworkSecurityPerimeterLink(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:NetworkSecurityPerimeterLink"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

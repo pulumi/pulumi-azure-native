@@ -106,10 +106,8 @@ class IamRoleArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:IamRole")
 class IamRole(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:IamRole"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

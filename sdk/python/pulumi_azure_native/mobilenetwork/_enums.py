@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -23,6 +23,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:mobilenetwork:AuthenticationType")
 class AuthenticationType(builtins.str, Enum):
     """
     How to authenticate users who access local diagnostics APIs.
@@ -37,6 +38,7 @@ class AuthenticationType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:mobilenetwork:BillingSku")
 class BillingSku(builtins.str, Enum):
     """
     The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
@@ -63,6 +65,7 @@ class BillingSku(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:mobilenetwork:CoreNetworkType")
 class CoreNetworkType(builtins.str, Enum):
     """
     The core network technology generation (5G core or EPC / 4G core).
@@ -81,6 +84,7 @@ class CoreNetworkType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:mobilenetwork:DesiredInstallationState")
 class DesiredInstallationState(builtins.str, Enum):
     """
     The desired installation state
@@ -95,6 +99,7 @@ class DesiredInstallationState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:mobilenetwork:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (currently only UserAssigned allowed).
@@ -103,6 +108,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+@pulumi.type_token("azure-native:mobilenetwork:NaptEnabled")
 class NaptEnabled(builtins.str, Enum):
     """
     Whether NAPT is enabled for connections to this attached data network.
@@ -117,6 +123,7 @@ class NaptEnabled(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:mobilenetwork:NasEncryptionType")
 class NasEncryptionType(builtins.str, Enum):
     """
     The supported NAS Encryption types.
@@ -135,6 +142,7 @@ class NasEncryptionType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:mobilenetwork:PduSessionType")
 class PduSessionType(builtins.str, Enum):
     """
     The default PDU session type, which is used if the UE does not request a specific session type.
@@ -143,6 +151,7 @@ class PduSessionType(builtins.str, Enum):
     I_PV6 = "IPv6"
 
 
+@pulumi.type_token("azure-native:mobilenetwork:PlatformType")
 class PlatformType(builtins.str, Enum):
     """
     The platform type where packet core is deployed.
@@ -157,6 +166,7 @@ class PlatformType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:mobilenetwork:PreemptionCapability")
 class PreemptionCapability(builtins.str, Enum):
     """
     Default QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
@@ -171,6 +181,7 @@ class PreemptionCapability(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:mobilenetwork:PreemptionVulnerability")
 class PreemptionVulnerability(builtins.str, Enum):
     """
     Default QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
@@ -185,6 +196,7 @@ class PreemptionVulnerability(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:mobilenetwork:SdfDirection")
 class SdfDirection(builtins.str, Enum):
     """
     The direction of this flow.
@@ -203,6 +215,7 @@ class SdfDirection(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:mobilenetwork:TrafficControlPermission")
 class TrafficControlPermission(builtins.str, Enum):
     """
     Determines whether flows that match this data flow policy rule are permitted.

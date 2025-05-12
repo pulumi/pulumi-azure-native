@@ -119,10 +119,8 @@ class SecretValueArgs:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("azure-native:servicefabricmesh:SecretValue")
 class SecretValue(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:servicefabricmesh:SecretValue"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

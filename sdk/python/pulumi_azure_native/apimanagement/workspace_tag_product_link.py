@@ -116,10 +116,8 @@ class WorkspaceTagProductLinkArgs:
         pulumi.set(self, "product_link_id", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:WorkspaceTagProductLink")
 class WorkspaceTagProductLink(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:WorkspaceTagProductLink"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

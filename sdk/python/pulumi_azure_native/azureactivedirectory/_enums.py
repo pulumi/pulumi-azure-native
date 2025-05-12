@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:azureactivedirectory:B2CResourceSKUName")
 class B2CResourceSKUName(builtins.str, Enum):
     """
     The name of the SKU for the tenant.
@@ -32,6 +33,7 @@ class B2CResourceSKUName(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azureactivedirectory:B2CResourceSKUTier")
 class B2CResourceSKUTier(builtins.str, Enum):
     """
     The tier of the tenant.
@@ -42,6 +44,7 @@ class B2CResourceSKUTier(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azureactivedirectory:CIAMResourceSKUName")
 class CIAMResourceSKUName(builtins.str, Enum):
     """
     The name of the SKU for the tenant.
@@ -51,6 +54,7 @@ class CIAMResourceSKUName(builtins.str, Enum):
     PREMIUM_P2 = "PremiumP2"
 
 
+@pulumi.type_token("azure-native:azureactivedirectory:CIAMResourceSKUTier")
 class CIAMResourceSKUTier(builtins.str, Enum):
     """
     The tier of the tenant.

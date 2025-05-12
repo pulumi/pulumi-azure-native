@@ -460,10 +460,8 @@ class HostPoolArgs:
         pulumi.set(self, "vm_template", value)
 
 
+@pulumi.type_token("azure-native:desktopvirtualization:HostPool")
 class HostPool(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:desktopvirtualization:HostPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

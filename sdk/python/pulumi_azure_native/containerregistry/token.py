@@ -122,10 +122,8 @@ class TokenArgs:
         pulumi.set(self, "token_name", value)
 
 
+@pulumi.type_token("azure-native:containerregistry:Token")
 class Token(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerregistry:Token"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

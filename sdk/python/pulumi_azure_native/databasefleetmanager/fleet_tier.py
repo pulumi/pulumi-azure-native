@@ -90,10 +90,8 @@ class FleetTierArgs:
         pulumi.set(self, "tier_name", value)
 
 
+@pulumi.type_token("azure-native:databasefleetmanager:FleetTier")
 class FleetTier(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databasefleetmanager:FleetTier"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -86,10 +86,8 @@ class ManagedInstanceAzureADOnlyAuthenticationArgs:
         pulumi.set(self, "authentication_name", value)
 
 
+@pulumi.type_token("azure-native:sql:ManagedInstanceAzureADOnlyAuthentication")
 class ManagedInstanceAzureADOnlyAuthentication(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:ManagedInstanceAzureADOnlyAuthentication"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

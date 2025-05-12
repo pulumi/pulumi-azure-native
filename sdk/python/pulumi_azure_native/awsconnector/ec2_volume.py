@@ -106,10 +106,8 @@ class Ec2VolumeArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:Ec2Volume")
 class Ec2Volume(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:Ec2Volume"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

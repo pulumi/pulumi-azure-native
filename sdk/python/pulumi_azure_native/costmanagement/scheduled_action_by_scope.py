@@ -182,10 +182,8 @@ class ScheduledActionByScopeArgs:
         pulumi.set(self, "notification_email", value)
 
 
+@pulumi.type_token("azure-native:costmanagement:ScheduledActionByScope")
 class ScheduledActionByScope(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:costmanagement:ScheduledActionByScope"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

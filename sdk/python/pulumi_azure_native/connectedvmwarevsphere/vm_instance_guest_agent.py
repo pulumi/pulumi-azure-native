@@ -107,10 +107,8 @@ class VMInstanceGuestAgentArgs:
         pulumi.set(self, "provisioning_action", value)
 
 
+@pulumi.type_token("azure-native:connectedvmwarevsphere:VMInstanceGuestAgent")
 class VMInstanceGuestAgent(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:connectedvmwarevsphere:VMInstanceGuestAgent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

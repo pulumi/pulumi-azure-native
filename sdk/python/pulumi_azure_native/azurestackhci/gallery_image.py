@@ -250,10 +250,8 @@ class GalleryImageArgs:
         pulumi.set(self, "vm_image_repository_credentials", value)
 
 
+@pulumi.type_token("azure-native:azurestackhci:GalleryImage")
 class GalleryImage(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurestackhci:GalleryImage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

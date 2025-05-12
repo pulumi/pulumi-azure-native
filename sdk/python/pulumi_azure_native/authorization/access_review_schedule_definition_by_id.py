@@ -428,10 +428,8 @@ class AccessReviewScheduleDefinitionByIdArgs:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("azure-native:authorization:AccessReviewScheduleDefinitionById")
 class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:authorization:AccessReviewScheduleDefinitionById"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

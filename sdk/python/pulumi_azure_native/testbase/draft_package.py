@@ -446,10 +446,8 @@ class DraftPackageArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure-native:testbase:DraftPackage")
 class DraftPackage(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:testbase:DraftPackage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

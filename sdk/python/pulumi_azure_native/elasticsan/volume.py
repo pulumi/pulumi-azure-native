@@ -136,10 +136,8 @@ class VolumeArgs:
         pulumi.set(self, "volume_name", value)
 
 
+@pulumi.type_token("azure-native:elasticsan:Volume")
 class Volume(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:elasticsan:Volume"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

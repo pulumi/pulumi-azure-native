@@ -89,10 +89,8 @@ class ProtectedItemArgs:
         pulumi.set(self, "protected_item_name", value)
 
 
+@pulumi.type_token("azure-native:datareplication:ProtectedItem")
 class ProtectedItem(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datareplication:ProtectedItem"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

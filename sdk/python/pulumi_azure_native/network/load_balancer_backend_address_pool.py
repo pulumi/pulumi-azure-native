@@ -202,10 +202,8 @@ class LoadBalancerBackendAddressPoolArgs:
         pulumi.set(self, "virtual_network", value)
 
 
+@pulumi.type_token("azure-native:network:LoadBalancerBackendAddressPool")
 class LoadBalancerBackendAddressPool(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:LoadBalancerBackendAddressPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

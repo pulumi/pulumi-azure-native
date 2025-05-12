@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:windowsesu:OsType")
 class OsType(builtins.str, Enum):
     """
     Type of OS for which the key is requested.
@@ -21,6 +22,7 @@ class OsType(builtins.str, Enum):
     WINDOWS_SERVER2008_R2 = "WindowsServer2008R2"
 
 
+@pulumi.type_token("azure-native:windowsesu:SupportType")
 class SupportType(builtins.str, Enum):
     """
     Type of support

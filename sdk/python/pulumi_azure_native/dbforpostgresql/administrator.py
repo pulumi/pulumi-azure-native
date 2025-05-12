@@ -121,10 +121,8 @@ class AdministratorArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure-native:dbforpostgresql:Administrator")
 class Administrator(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dbforpostgresql:Administrator"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

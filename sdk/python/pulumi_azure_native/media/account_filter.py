@@ -122,10 +122,8 @@ class AccountFilterArgs:
         pulumi.set(self, "tracks", value)
 
 
+@pulumi.type_token("azure-native:media:AccountFilter")
 class AccountFilter(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:media:AccountFilter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

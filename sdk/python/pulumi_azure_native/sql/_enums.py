@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -75,6 +75,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:sql:AdministratorType")
 class AdministratorType(builtins.str, Enum):
     """
     Type of the sever administrator.
@@ -82,6 +83,7 @@ class AdministratorType(builtins.str, Enum):
     ACTIVE_DIRECTORY = "ActiveDirectory"
 
 
+@pulumi.type_token("azure-native:sql:AlwaysEncryptedEnclaveType")
 class AlwaysEncryptedEnclaveType(builtins.str, Enum):
     """
     Type of enclave requested on the elastic pool.
@@ -90,6 +92,7 @@ class AlwaysEncryptedEnclaveType(builtins.str, Enum):
     VBS = "VBS"
 
 
+@pulumi.type_token("azure-native:sql:AuthMetadataLookupModes")
 class AuthMetadataLookupModes(builtins.str, Enum):
     """
     The managed instance's authentication metadata lookup mode.
@@ -99,6 +102,7 @@ class AuthMetadataLookupModes(builtins.str, Enum):
     WINDOWS = "Windows"
 
 
+@pulumi.type_token("azure-native:sql:AutoExecuteStatus")
 class AutoExecuteStatus(builtins.str, Enum):
     """
     Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
@@ -108,6 +112,7 @@ class AutoExecuteStatus(builtins.str, Enum):
     DEFAULT = "Default"
 
 
+@pulumi.type_token("azure-native:sql:AvailabilityZoneType")
 class AvailabilityZoneType(builtins.str, Enum):
     """
     Specifies the availability zone the pool's primary replica is pinned to.
@@ -118,6 +123,7 @@ class AvailabilityZoneType(builtins.str, Enum):
     THREE = "3"
 
 
+@pulumi.type_token("azure-native:sql:BackupStorageAccessTier")
 class BackupStorageAccessTier(builtins.str, Enum):
     """
     The BackupStorageAccessTier for the LTR backups
@@ -126,6 +132,7 @@ class BackupStorageAccessTier(builtins.str, Enum):
     ARCHIVE = "Archive"
 
 
+@pulumi.type_token("azure-native:sql:BackupStorageRedundancy")
 class BackupStorageRedundancy(builtins.str, Enum):
     """
     The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
@@ -136,6 +143,7 @@ class BackupStorageRedundancy(builtins.str, Enum):
     GEO_ZONE = "GeoZone"
 
 
+@pulumi.type_token("azure-native:sql:BlobAuditingPolicyState")
 class BlobAuditingPolicyState(builtins.str, Enum):
     """
     Specifies the state of the audit. If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled are required.
@@ -144,6 +152,7 @@ class BlobAuditingPolicyState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:sql:CatalogCollationType")
 class CatalogCollationType(builtins.str, Enum):
     """
     Collation of the metadata catalog.
@@ -152,6 +161,7 @@ class CatalogCollationType(builtins.str, Enum):
     SQ_L_LATIN1_GENERAL_CP1_C_I_AS = "SQL_Latin1_General_CP1_CI_AS"
 
 
+@pulumi.type_token("azure-native:sql:ClientClassificationSource")
 class ClientClassificationSource(builtins.str, Enum):
     NONE = "None"
     NATIVE = "Native"
@@ -159,6 +169,7 @@ class ClientClassificationSource(builtins.str, Enum):
     MIP = "MIP"
 
 
+@pulumi.type_token("azure-native:sql:CreateMode")
 class CreateMode(builtins.str, Enum):
     """
     Specifies the mode of database creation.
@@ -191,6 +202,7 @@ class CreateMode(builtins.str, Enum):
     ONLINE_SECONDARY = "OnlineSecondary"
 
 
+@pulumi.type_token("azure-native:sql:DataMaskingState")
 class DataMaskingState(builtins.str, Enum):
     """
     The state of the data masking policy.
@@ -199,6 +211,7 @@ class DataMaskingState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:sql:DatabaseIdentityType")
 class DatabaseIdentityType(builtins.str, Enum):
     """
     The identity type
@@ -207,6 +220,7 @@ class DatabaseIdentityType(builtins.str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+@pulumi.type_token("azure-native:sql:DatabaseLicenseType")
 class DatabaseLicenseType(builtins.str, Enum):
     """
     The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
@@ -215,6 +229,7 @@ class DatabaseLicenseType(builtins.str, Enum):
     BASE_PRICE = "BasePrice"
 
 
+@pulumi.type_token("azure-native:sql:DatabaseReadScale")
 class DatabaseReadScale(builtins.str, Enum):
     """
     The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
@@ -223,6 +238,7 @@ class DatabaseReadScale(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:sql:DayOfWeek")
 class DayOfWeek(builtins.str, Enum):
     """
     Stop day.
@@ -236,6 +252,7 @@ class DayOfWeek(builtins.str, Enum):
     SATURDAY = "Saturday"
 
 
+@pulumi.type_token("azure-native:sql:ElasticPoolLicenseType")
 class ElasticPoolLicenseType(builtins.str, Enum):
     """
     The license type to apply for this elastic pool.
@@ -244,6 +261,7 @@ class ElasticPoolLicenseType(builtins.str, Enum):
     BASE_PRICE = "BasePrice"
 
 
+@pulumi.type_token("azure-native:sql:FailoverGroupDatabasesSecondaryType")
 class FailoverGroupDatabasesSecondaryType(builtins.str, Enum):
     """
     Databases secondary type on partner server.
@@ -252,6 +270,7 @@ class FailoverGroupDatabasesSecondaryType(builtins.str, Enum):
     STANDBY = "Standby"
 
 
+@pulumi.type_token("azure-native:sql:FailoverModeType")
 class FailoverModeType(builtins.str, Enum):
     """
     The link failover mode - can be Manual if intended to be used for two-way failover with a supported SQL Server, or None for one-way failover to Azure.
@@ -260,6 +279,7 @@ class FailoverModeType(builtins.str, Enum):
     MANUAL = "Manual"
 
 
+@pulumi.type_token("azure-native:sql:FreeLimitExhaustionBehavior")
 class FreeLimitExhaustionBehavior(builtins.str, Enum):
     """
     Specifies the behavior when monthly free limits are exhausted for the free database.
@@ -272,6 +292,7 @@ class FreeLimitExhaustionBehavior(builtins.str, Enum):
     BILL_OVER_USAGE = "BillOverUsage"
 
 
+@pulumi.type_token("azure-native:sql:GeoBackupPolicyState")
 class GeoBackupPolicyState(builtins.str, Enum):
     """
     The state of the geo backup policy.
@@ -280,6 +301,7 @@ class GeoBackupPolicyState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:sql:HybridSecondaryUsage")
 class HybridSecondaryUsage(builtins.str, Enum):
     """
     Hybrid secondary usage. Possible values are 'Active' (default value) and 'Passive' (customer uses the secondary as Passive DR).
@@ -288,6 +310,7 @@ class HybridSecondaryUsage(builtins.str, Enum):
     PASSIVE = "Passive"
 
 
+@pulumi.type_token("azure-native:sql:IdentityType")
 class IdentityType(builtins.str, Enum):
     """
     The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
@@ -298,6 +321,7 @@ class IdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:sql:InstancePoolLicenseType")
 class InstancePoolLicenseType(builtins.str, Enum):
     """
     The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
@@ -306,6 +330,7 @@ class InstancePoolLicenseType(builtins.str, Enum):
     BASE_PRICE = "BasePrice"
 
 
+@pulumi.type_token("azure-native:sql:JobAgentIdentityType")
 class JobAgentIdentityType(builtins.str, Enum):
     """
     The job agent identity type
@@ -316,6 +341,7 @@ class JobAgentIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssignedUserAssigned"
 
 
+@pulumi.type_token("azure-native:sql:JobScheduleType")
 class JobScheduleType(builtins.str, Enum):
     """
     Schedule interval type
@@ -324,6 +350,7 @@ class JobScheduleType(builtins.str, Enum):
     RECURRING = "Recurring"
 
 
+@pulumi.type_token("azure-native:sql:JobStepActionSource")
 class JobStepActionSource(builtins.str, Enum):
     """
     The source of the action to execute.
@@ -331,6 +358,7 @@ class JobStepActionSource(builtins.str, Enum):
     INLINE = "Inline"
 
 
+@pulumi.type_token("azure-native:sql:JobStepActionType")
 class JobStepActionType(builtins.str, Enum):
     """
     Type of action being executed by the job step.
@@ -338,6 +366,7 @@ class JobStepActionType(builtins.str, Enum):
     T_SQL = "TSql"
 
 
+@pulumi.type_token("azure-native:sql:JobStepOutputType")
 class JobStepOutputType(builtins.str, Enum):
     """
     The output destination type.
@@ -345,6 +374,7 @@ class JobStepOutputType(builtins.str, Enum):
     SQL_DATABASE = "SqlDatabase"
 
 
+@pulumi.type_token("azure-native:sql:JobTargetGroupMembershipType")
 class JobTargetGroupMembershipType(builtins.str, Enum):
     """
     Whether the target is included or excluded from the group.
@@ -353,6 +383,7 @@ class JobTargetGroupMembershipType(builtins.str, Enum):
     EXCLUDE = "Exclude"
 
 
+@pulumi.type_token("azure-native:sql:JobTargetType")
 class JobTargetType(builtins.str, Enum):
     """
     The target type.
@@ -364,6 +395,7 @@ class JobTargetType(builtins.str, Enum):
     SQL_SERVER = "SqlServer"
 
 
+@pulumi.type_token("azure-native:sql:LinkRole")
 class LinkRole(builtins.str, Enum):
     """
     Managed instance side link role
@@ -372,6 +404,7 @@ class LinkRole(builtins.str, Enum):
     SECONDARY = "Secondary"
 
 
+@pulumi.type_token("azure-native:sql:ManagedDatabaseCreateMode")
 class ManagedDatabaseCreateMode(builtins.str, Enum):
     """
     Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore. RestoreLongTermRetentionBackup: Create a database by restoring from a long term retention backup (longTermRetentionBackupResourceId required).
@@ -383,6 +416,7 @@ class ManagedDatabaseCreateMode(builtins.str, Enum):
     RESTORE_LONG_TERM_RETENTION_BACKUP = "RestoreLongTermRetentionBackup"
 
 
+@pulumi.type_token("azure-native:sql:ManagedInstanceAdministratorType")
 class ManagedInstanceAdministratorType(builtins.str, Enum):
     """
     Type of the managed instance administrator.
@@ -390,6 +424,7 @@ class ManagedInstanceAdministratorType(builtins.str, Enum):
     ACTIVE_DIRECTORY = "ActiveDirectory"
 
 
+@pulumi.type_token("azure-native:sql:ManagedInstanceDatabaseFormat")
 class ManagedInstanceDatabaseFormat(builtins.str, Enum):
     """
     Specifies the internal format of instance databases specific to the SQL engine version.
@@ -398,6 +433,7 @@ class ManagedInstanceDatabaseFormat(builtins.str, Enum):
     SQL_SERVER2022 = "SQLServer2022"
 
 
+@pulumi.type_token("azure-native:sql:ManagedInstanceLicenseType")
 class ManagedInstanceLicenseType(builtins.str, Enum):
     """
     The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
@@ -406,6 +442,7 @@ class ManagedInstanceLicenseType(builtins.str, Enum):
     BASE_PRICE = "BasePrice"
 
 
+@pulumi.type_token("azure-native:sql:ManagedInstanceProxyOverride")
 class ManagedInstanceProxyOverride(builtins.str, Enum):
     """
     Connection type used for connecting to the instance.
@@ -415,6 +452,7 @@ class ManagedInstanceProxyOverride(builtins.str, Enum):
     DEFAULT = "Default"
 
 
+@pulumi.type_token("azure-native:sql:ManagedServerCreateMode")
 class ManagedServerCreateMode(builtins.str, Enum):
     """
     Specifies the mode of database creation.
@@ -427,6 +465,7 @@ class ManagedServerCreateMode(builtins.str, Enum):
     POINT_IN_TIME_RESTORE = "PointInTimeRestore"
 
 
+@pulumi.type_token("azure-native:sql:MinimalTlsVersion")
 class MinimalTlsVersion(builtins.str, Enum):
     """
     Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'
@@ -438,6 +477,7 @@ class MinimalTlsVersion(builtins.str, Enum):
     MINIMAL_TLS_VERSION_1_3 = "1.3"
 
 
+@pulumi.type_token("azure-native:sql:PricingModel")
 class PricingModel(builtins.str, Enum):
     """
     Pricing model of Managed Instance.
@@ -446,6 +486,7 @@ class PricingModel(builtins.str, Enum):
     FREEMIUM = "Freemium"
 
 
+@pulumi.type_token("azure-native:sql:PrincipalType")
 class PrincipalType(builtins.str, Enum):
     """
     Principal Type of the sever administrator.
@@ -455,6 +496,7 @@ class PrincipalType(builtins.str, Enum):
     APPLICATION = "Application"
 
 
+@pulumi.type_token("azure-native:sql:PrivateLinkServiceConnectionStateStatus")
 class PrivateLinkServiceConnectionStateStatus(builtins.str, Enum):
     """
     The private link service connection status.
@@ -465,6 +507,7 @@ class PrivateLinkServiceConnectionStateStatus(builtins.str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+@pulumi.type_token("azure-native:sql:ReadOnlyEndpointFailoverPolicy")
 class ReadOnlyEndpointFailoverPolicy(builtins.str, Enum):
     """
     Failover policy of the read-only endpoint for the failover group.
@@ -473,6 +516,7 @@ class ReadOnlyEndpointFailoverPolicy(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:sql:ReadWriteEndpointFailoverPolicy")
 class ReadWriteEndpointFailoverPolicy(builtins.str, Enum):
     """
     Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
@@ -481,6 +525,7 @@ class ReadWriteEndpointFailoverPolicy(builtins.str, Enum):
     AUTOMATIC = "Automatic"
 
 
+@pulumi.type_token("azure-native:sql:ReplicationLinkType")
 class ReplicationLinkType(builtins.str, Enum):
     """
     Link type (GEO, NAMED, STANDBY). Update operation does not support NAMED.
@@ -490,6 +535,7 @@ class ReplicationLinkType(builtins.str, Enum):
     STANDBY = "STANDBY"
 
 
+@pulumi.type_token("azure-native:sql:ReplicationModeType")
 class ReplicationModeType(builtins.str, Enum):
     """
     Replication mode of the link
@@ -498,6 +544,7 @@ class ReplicationModeType(builtins.str, Enum):
     SYNC = "Sync"
 
 
+@pulumi.type_token("azure-native:sql:SampleName")
 class SampleName(builtins.str, Enum):
     """
     The name of the sample schema to apply when creating this database.
@@ -507,6 +554,7 @@ class SampleName(builtins.str, Enum):
     WIDE_WORLD_IMPORTERS_FULL = "WideWorldImportersFull"
 
 
+@pulumi.type_token("azure-native:sql:SecondaryInstanceType")
 class SecondaryInstanceType(builtins.str, Enum):
     """
     Type of the geo-secondary instance. Set 'Standby' if the instance is used as a DR option only.
@@ -515,6 +563,7 @@ class SecondaryInstanceType(builtins.str, Enum):
     STANDBY = "Standby"
 
 
+@pulumi.type_token("azure-native:sql:SecondaryType")
 class SecondaryType(builtins.str, Enum):
     """
     The secondary type of the database if it is a secondary.  Valid values are Geo, Named and Standby.
@@ -524,6 +573,7 @@ class SecondaryType(builtins.str, Enum):
     STANDBY = "Standby"
 
 
+@pulumi.type_token("azure-native:sql:SecurityAlertPolicyEmailAccountAdmins")
 class SecurityAlertPolicyEmailAccountAdmins(builtins.str, Enum):
     """
     Specifies that the alert is sent to the account administrators.
@@ -532,6 +582,7 @@ class SecurityAlertPolicyEmailAccountAdmins(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:sql:SecurityAlertPolicyState")
 class SecurityAlertPolicyState(builtins.str, Enum):
     """
     Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
@@ -541,6 +592,7 @@ class SecurityAlertPolicyState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:sql:SecurityAlertPolicyUseServerDefault")
 class SecurityAlertPolicyUseServerDefault(builtins.str, Enum):
     """
     Specifies whether to use the default server policy.
@@ -549,6 +601,7 @@ class SecurityAlertPolicyUseServerDefault(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:sql:SecurityAlertsPolicyState")
 class SecurityAlertsPolicyState(builtins.str, Enum):
     """
     Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
@@ -557,6 +610,7 @@ class SecurityAlertsPolicyState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:sql:SeedingModeType")
 class SeedingModeType(builtins.str, Enum):
     """
     Database seeding mode – can be Automatic (default), or Manual for supported scenarios.
@@ -565,6 +619,7 @@ class SeedingModeType(builtins.str, Enum):
     MANUAL = "Manual"
 
 
+@pulumi.type_token("azure-native:sql:SensitivityLabelRank")
 class SensitivityLabelRank(builtins.str, Enum):
     NONE = "None"
     LOW = "Low"
@@ -573,6 +628,7 @@ class SensitivityLabelRank(builtins.str, Enum):
     CRITICAL = "Critical"
 
 
+@pulumi.type_token("azure-native:sql:ServerKeyType")
 class ServerKeyType(builtins.str, Enum):
     """
     The server key type like 'ServiceManaged', 'AzureKeyVault'.
@@ -581,6 +637,7 @@ class ServerKeyType(builtins.str, Enum):
     AZURE_KEY_VAULT = "AzureKeyVault"
 
 
+@pulumi.type_token("azure-native:sql:ServerNetworkAccessFlag")
 class ServerNetworkAccessFlag(builtins.str, Enum):
     """
     Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
@@ -589,6 +646,7 @@ class ServerNetworkAccessFlag(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:sql:ServerPublicNetworkAccessFlag")
 class ServerPublicNetworkAccessFlag(builtins.str, Enum):
     """
     Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'
@@ -598,6 +656,7 @@ class ServerPublicNetworkAccessFlag(builtins.str, Enum):
     SECURED_BY_PERIMETER = "SecuredByPerimeter"
 
 
+@pulumi.type_token("azure-native:sql:ServicePrincipalType")
 class ServicePrincipalType(builtins.str, Enum):
     """
     Service principal type.
@@ -606,6 +665,7 @@ class ServicePrincipalType(builtins.str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
 
 
+@pulumi.type_token("azure-native:sql:SqlVulnerabilityAssessmentState")
 class SqlVulnerabilityAssessmentState(builtins.str, Enum):
     """
     Specifies the state of the SQL Vulnerability Assessment, whether it is enabled or disabled or a state has not been applied yet on the specific database or server.
@@ -614,6 +674,7 @@ class SqlVulnerabilityAssessmentState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:sql:SyncConflictResolutionPolicy")
 class SyncConflictResolutionPolicy(builtins.str, Enum):
     """
     Conflict resolution policy of the sync group.
@@ -622,6 +683,7 @@ class SyncConflictResolutionPolicy(builtins.str, Enum):
     MEMBER_WIN = "MemberWin"
 
 
+@pulumi.type_token("azure-native:sql:SyncDirection")
 class SyncDirection(builtins.str, Enum):
     """
     Sync direction of the sync member.
@@ -631,6 +693,7 @@ class SyncDirection(builtins.str, Enum):
     ONE_WAY_HUB_TO_MEMBER = "OneWayHubToMember"
 
 
+@pulumi.type_token("azure-native:sql:SyncMemberDbType")
 class SyncMemberDbType(builtins.str, Enum):
     """
     Database type of the sync member.
@@ -639,6 +702,7 @@ class SyncMemberDbType(builtins.str, Enum):
     SQL_SERVER_DATABASE = "SqlServerDatabase"
 
 
+@pulumi.type_token("azure-native:sql:TransparentDataEncryptionState")
 class TransparentDataEncryptionState(builtins.str, Enum):
     """
     Specifies the state of the transparent data encryption.
@@ -647,6 +711,7 @@ class TransparentDataEncryptionState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:sql:TrustScope")
 class TrustScope(builtins.str, Enum):
     GLOBAL_TRANSACTIONS = "GlobalTransactions"
     SERVICE_BROKER = "ServiceBroker"

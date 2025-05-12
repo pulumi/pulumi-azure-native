@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:virtualmachineimages:AutoRunState")
 class AutoRunState(builtins.str, Enum):
     """
     Enabling this field will trigger an automatic build on image template creation or update.
@@ -29,6 +30,7 @@ class AutoRunState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:virtualmachineimages:OnBuildError")
 class OnBuildError(builtins.str, Enum):
     """
     If there is a validation error and this field is set to 'cleanup', the build VM and associated network resources will be cleaned up. This is the default behavior. If there is a validation error and this field is set to 'abort', the build VM will be preserved.
@@ -37,6 +39,7 @@ class OnBuildError(builtins.str, Enum):
     ABORT = "abort"
 
 
+@pulumi.type_token("azure-native:virtualmachineimages:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The type of identity used for the image template. The type 'None' will remove any identities from the image template.
@@ -45,6 +48,7 @@ class ResourceIdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:virtualmachineimages:SharedImageStorageAccountType")
 class SharedImageStorageAccountType(builtins.str, Enum):
     """
     Specifies the storage account type to be used to store the image in this region. Omit to use the default (Standard_LRS).
@@ -54,6 +58,7 @@ class SharedImageStorageAccountType(builtins.str, Enum):
     PREMIUM_LRS = "Premium_LRS"
 
 
+@pulumi.type_token("azure-native:virtualmachineimages:VMBootOptimizationState")
 class VMBootOptimizationState(builtins.str, Enum):
     """
     Enabling this field will improve VM boot time by optimizing the final customized image output.

@@ -319,10 +319,8 @@ class ContainerGroupProfileArgs:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure-native:containerinstance:ContainerGroupProfile")
 class ContainerGroupProfile(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerinstance:ContainerGroupProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

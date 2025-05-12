@@ -140,10 +140,8 @@ class DelegatedSubnetServiceDetailsArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:delegatednetwork:DelegatedSubnetServiceDetails")
 class DelegatedSubnetServiceDetails(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:delegatednetwork:DelegatedSubnetServiceDetails"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

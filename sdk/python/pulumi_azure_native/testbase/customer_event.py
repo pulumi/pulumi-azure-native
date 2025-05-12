@@ -103,10 +103,8 @@ class CustomerEventArgs:
         pulumi.set(self, "customer_event_name", value)
 
 
+@pulumi.type_token("azure-native:testbase:CustomerEvent")
 class CustomerEvent(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:testbase:CustomerEvent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

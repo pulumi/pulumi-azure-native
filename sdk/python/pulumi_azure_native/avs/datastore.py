@@ -137,10 +137,8 @@ class DatastoreArgs:
         pulumi.set(self, "net_app_volume", value)
 
 
+@pulumi.type_token("azure-native:avs:Datastore")
 class Datastore(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:avs:Datastore"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -16,6 +16,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:recommendationsservice:AccountConfiguration")
 class AccountConfiguration(builtins.str, Enum):
     """
     Account configuration. This can only be set at RecommendationsService Account creation.
@@ -24,6 +25,7 @@ class AccountConfiguration(builtins.str, Enum):
     CAPACITY = "Capacity"
 
 
+@pulumi.type_token("azure-native:recommendationsservice:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -34,6 +36,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:recommendationsservice:ModelingFeatures")
 class ModelingFeatures(builtins.str, Enum):
     """
     Modeling features controls the set of supported scenarios\\models being computed. This can only be set at Modeling creation.
@@ -43,6 +46,7 @@ class ModelingFeatures(builtins.str, Enum):
     PREMIUM = "Premium"
 
 
+@pulumi.type_token("azure-native:recommendationsservice:ModelingFrequency")
 class ModelingFrequency(builtins.str, Enum):
     """
     Modeling frequency controls the modeling compute frequency.
@@ -52,6 +56,7 @@ class ModelingFrequency(builtins.str, Enum):
     HIGH = "High"
 
 
+@pulumi.type_token("azure-native:recommendationsservice:ModelingSize")
 class ModelingSize(builtins.str, Enum):
     """
     Modeling size controls the maximum supported input data size.
@@ -61,6 +66,7 @@ class ModelingSize(builtins.str, Enum):
     LARGE = "Large"
 
 
+@pulumi.type_token("azure-native:recommendationsservice:PrincipalType")
 class PrincipalType(builtins.str, Enum):
     """
     AAD principal type.

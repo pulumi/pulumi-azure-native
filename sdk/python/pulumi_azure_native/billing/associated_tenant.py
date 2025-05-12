@@ -91,10 +91,8 @@ class AssociatedTenantArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:billing:AssociatedTenant")
 class AssociatedTenant(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:billing:AssociatedTenant"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

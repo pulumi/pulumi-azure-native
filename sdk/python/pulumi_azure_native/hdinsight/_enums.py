@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -35,6 +35,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:hdinsight:AutoscaleType")
 class AutoscaleType(builtins.str, Enum):
     """
     User to specify which type of Autoscale to be implemented - Scheduled Based or Load Based.
@@ -43,6 +44,7 @@ class AutoscaleType(builtins.str, Enum):
     LOAD_BASED = "LoadBased"
 
 
+@pulumi.type_token("azure-native:hdinsight:ComparisonOperator")
 class ComparisonOperator(builtins.str, Enum):
     """
     The comparison operator.
@@ -53,6 +55,7 @@ class ComparisonOperator(builtins.str, Enum):
     LESS_THAN_OR_EQUAL = "lessThanOrEqual"
 
 
+@pulumi.type_token("azure-native:hdinsight:ContentEncoding")
 class ContentEncoding(builtins.str, Enum):
     """
     This property indicates if the content is encoded and is case-insensitive. Please set the value to base64 if the content is base64 encoded. Set it to none or skip it if the content is plain text.
@@ -61,6 +64,7 @@ class ContentEncoding(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:hdinsight:DataDiskType")
 class DataDiskType(builtins.str, Enum):
     """
     Managed Disk Type.
@@ -73,6 +77,7 @@ class DataDiskType(builtins.str, Enum):
     PREMIUM_SS_D_V2_LRS = "Premium_SSD_v2_LRS"
 
 
+@pulumi.type_token("azure-native:hdinsight:DaysOfWeek")
 class DaysOfWeek(builtins.str, Enum):
     MONDAY = "Monday"
     TUESDAY = "Tuesday"
@@ -83,6 +88,7 @@ class DaysOfWeek(builtins.str, Enum):
     SUNDAY = "Sunday"
 
 
+@pulumi.type_token("azure-native:hdinsight:DbConnectionAuthenticationMode")
 class DbConnectionAuthenticationMode(builtins.str, Enum):
     """
     The authentication mode to connect to your Hive metastore database. More details: https://learn.microsoft.com/en-us/azure/azure-sql/database/logins-create-manage?view=azuresql#authentication-and-authorization
@@ -97,6 +103,7 @@ class DbConnectionAuthenticationMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:hdinsight:DeploymentMode")
 class DeploymentMode(builtins.str, Enum):
     """
     A string property that indicates the deployment mode of Flink cluster. It can have one of the following enum values => Application, Session. Default value is Session
@@ -105,6 +112,7 @@ class DeploymentMode(builtins.str, Enum):
     SESSION = "Session"
 
 
+@pulumi.type_token("azure-native:hdinsight:DirectoryType")
 class DirectoryType(builtins.str, Enum):
     """
     The directory type.
@@ -112,6 +120,7 @@ class DirectoryType(builtins.str, Enum):
     ACTIVE_DIRECTORY = "ActiveDirectory"
 
 
+@pulumi.type_token("azure-native:hdinsight:JsonWebKeyEncryptionAlgorithm")
 class JsonWebKeyEncryptionAlgorithm(builtins.str, Enum):
     """
     Algorithm identifier for encryption, default RSA-OAEP.
@@ -121,6 +130,7 @@ class JsonWebKeyEncryptionAlgorithm(builtins.str, Enum):
     RSA1_5 = "RSA1_5"
 
 
+@pulumi.type_token("azure-native:hdinsight:KeyVaultObjectType")
 class KeyVaultObjectType(builtins.str, Enum):
     """
     Type of key vault object: secret, key or certificate.
@@ -130,6 +140,7 @@ class KeyVaultObjectType(builtins.str, Enum):
     CERTIFICATE = "Certificate"
 
 
+@pulumi.type_token("azure-native:hdinsight:ManagedIdentityType")
 class ManagedIdentityType(builtins.str, Enum):
     """
     The type of managed identity.
@@ -139,6 +150,7 @@ class ManagedIdentityType(builtins.str, Enum):
     INTERNAL = "internal"
 
 
+@pulumi.type_token("azure-native:hdinsight:MetastoreDbConnectionAuthenticationMode")
 class MetastoreDbConnectionAuthenticationMode(builtins.str, Enum):
     """
     The authentication mode to connect to your Hive metastore database. More details: https://learn.microsoft.com/en-us/azure/azure-sql/database/logins-create-manage?view=azuresql#authentication-and-authorization
@@ -153,6 +165,7 @@ class MetastoreDbConnectionAuthenticationMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:hdinsight:OSType")
 class OSType(builtins.str, Enum):
     """
     The type of operating system.
@@ -161,6 +174,7 @@ class OSType(builtins.str, Enum):
     LINUX = "Linux"
 
 
+@pulumi.type_token("azure-native:hdinsight:OutboundDependenciesManagedType")
 class OutboundDependenciesManagedType(builtins.str, Enum):
     """
     A value to describe how the outbound dependencies of a HDInsight cluster are managed. 'Managed' means that the outbound dependencies are managed by the HDInsight service. 'External' means that the outbound dependencies are managed by a customer specific solution.
@@ -169,6 +183,7 @@ class OutboundDependenciesManagedType(builtins.str, Enum):
     EXTERNAL = "External"
 
 
+@pulumi.type_token("azure-native:hdinsight:OutboundType")
 class OutboundType(builtins.str, Enum):
     """
     This can only be set at cluster pool creation time and cannot be changed later. 
@@ -183,6 +198,7 @@ class OutboundType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:hdinsight:PrivateIPAllocationMethod")
 class PrivateIPAllocationMethod(builtins.str, Enum):
     """
     The method that private IP address is allocated.
@@ -191,6 +207,7 @@ class PrivateIPAllocationMethod(builtins.str, Enum):
     STATIC = "static"
 
 
+@pulumi.type_token("azure-native:hdinsight:PrivateLink")
 class PrivateLink(builtins.str, Enum):
     """
     Indicates whether or not private link is enabled.
@@ -199,6 +216,7 @@ class PrivateLink(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:hdinsight:PrivateLinkServiceConnectionStatus")
 class PrivateLinkServiceConnectionStatus(builtins.str, Enum):
     """
     The concrete private link service connection.
@@ -209,6 +227,7 @@ class PrivateLinkServiceConnectionStatus(builtins.str, Enum):
     REMOVED = "Removed"
 
 
+@pulumi.type_token("azure-native:hdinsight:RangerUsersyncMode")
 class RangerUsersyncMode(builtins.str, Enum):
     """
     User & groups can be synced automatically or via a static list that's refreshed.
@@ -217,6 +236,7 @@ class RangerUsersyncMode(builtins.str, Enum):
     AUTOMATIC = "automatic"
 
 
+@pulumi.type_token("azure-native:hdinsight:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
@@ -227,6 +247,7 @@ class ResourceIdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:hdinsight:ResourceProviderConnection")
 class ResourceProviderConnection(builtins.str, Enum):
     """
     The direction for the resource provider connection.
@@ -235,6 +256,7 @@ class ResourceProviderConnection(builtins.str, Enum):
     OUTBOUND = "Outbound"
 
 
+@pulumi.type_token("azure-native:hdinsight:ScaleActionType")
 class ScaleActionType(builtins.str, Enum):
     """
     The action type.
@@ -243,6 +265,7 @@ class ScaleActionType(builtins.str, Enum):
     SCALEDOWN = "scaledown"
 
 
+@pulumi.type_token("azure-native:hdinsight:ScheduleDay")
 class ScheduleDay(builtins.str, Enum):
     SUNDAY = "Sunday"
     MONDAY = "Monday"
@@ -253,6 +276,7 @@ class ScheduleDay(builtins.str, Enum):
     SATURDAY = "Saturday"
 
 
+@pulumi.type_token("azure-native:hdinsight:Tier")
 class Tier(builtins.str, Enum):
     """
     The cluster tier.
@@ -261,6 +285,7 @@ class Tier(builtins.str, Enum):
     PREMIUM = "Premium"
 
 
+@pulumi.type_token("azure-native:hdinsight:UpgradeMode")
 class UpgradeMode(builtins.str, Enum):
     """
     A string property that indicates the upgrade mode to be performed on the Flink job. It can have one of the following enum values => STATELESS_UPDATE, UPDATE, LAST_STATE_UPDATE.

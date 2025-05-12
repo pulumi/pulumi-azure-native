@@ -185,10 +185,8 @@ class SimPolicyArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:mobilenetwork:SimPolicy")
 class SimPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:mobilenetwork:SimPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

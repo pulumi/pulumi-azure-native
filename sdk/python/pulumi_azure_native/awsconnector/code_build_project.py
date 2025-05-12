@@ -107,10 +107,8 @@ class CodeBuildProjectArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:CodeBuildProject")
 class CodeBuildProject(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:CodeBuildProject"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

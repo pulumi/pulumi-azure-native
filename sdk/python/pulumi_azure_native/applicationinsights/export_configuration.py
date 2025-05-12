@@ -215,10 +215,8 @@ class ExportConfigurationArgs:
         pulumi.set(self, "record_types", value)
 
 
+@pulumi.type_token("azure-native:applicationinsights:ExportConfiguration")
 class ExportConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:applicationinsights:ExportConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

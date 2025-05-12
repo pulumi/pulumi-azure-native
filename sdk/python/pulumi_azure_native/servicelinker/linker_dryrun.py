@@ -75,10 +75,8 @@ class LinkerDryrunArgs:
         pulumi.set(self, "parameters", value)
 
 
+@pulumi.type_token("azure-native:servicelinker:LinkerDryrun")
 class LinkerDryrun(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:servicelinker:LinkerDryrun"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

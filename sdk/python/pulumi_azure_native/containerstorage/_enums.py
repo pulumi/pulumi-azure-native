@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:containerstorage:AzureDiskSkuName")
 class AzureDiskSkuName(builtins.str, Enum):
     """
     Sku name
@@ -49,6 +50,7 @@ class AzureDiskSkuName(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerstorage:ElasticSanSkuName")
 class ElasticSanSkuName(builtins.str, Enum):
     """
     Sku name
@@ -63,6 +65,7 @@ class ElasticSanSkuName(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerstorage:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -73,6 +76,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
 
 
+@pulumi.type_token("azure-native:containerstorage:ReclaimPolicy")
 class ReclaimPolicy(builtins.str, Enum):
     """
     ReclaimPolicy defines what happens to the backend storage when StoragePool is deleted
@@ -87,6 +91,7 @@ class ReclaimPolicy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerstorage:Zone")
 class Zone(builtins.str, Enum):
     """
     Availability Zones

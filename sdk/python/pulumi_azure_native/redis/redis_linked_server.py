@@ -117,10 +117,8 @@ class RedisLinkedServerArgs:
         pulumi.set(self, "linked_server_name", value)
 
 
+@pulumi.type_token("azure-native:redis:RedisLinkedServer")
 class RedisLinkedServer(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:redis:RedisLinkedServer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

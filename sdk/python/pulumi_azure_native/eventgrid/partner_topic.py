@@ -223,10 +223,8 @@ class PartnerTopicArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:eventgrid:PartnerTopic")
 class PartnerTopic(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:eventgrid:PartnerTopic"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

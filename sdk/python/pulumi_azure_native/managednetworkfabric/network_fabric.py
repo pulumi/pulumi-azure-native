@@ -260,10 +260,8 @@ class NetworkFabricArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:NetworkFabric")
 class NetworkFabric(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:managednetworkfabric:NetworkFabric"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -32,6 +32,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:appplatform:ApiPortalApiTryOutEnabledState")
 class ApiPortalApiTryOutEnabledState(builtins.str, Enum):
     """
     Indicates whether the API try-out feature is enabled or disabled. When enabled, users can try out the API by sending requests and viewing responses in API portal. When disabled, users cannot try out the API.
@@ -40,6 +41,7 @@ class ApiPortalApiTryOutEnabledState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:appplatform:ApmType")
 class ApmType(builtins.str, Enum):
     """
     Type of application performance monitoring
@@ -51,6 +53,7 @@ class ApmType(builtins.str, Enum):
     ELASTIC_APM = "ElasticAPM"
 
 
+@pulumi.type_token("azure-native:appplatform:BackendProtocol")
 class BackendProtocol(builtins.str, Enum):
     """
     How ingress should communicate with this app backend service.
@@ -59,6 +62,7 @@ class BackendProtocol(builtins.str, Enum):
     DEFAULT = "Default"
 
 
+@pulumi.type_token("azure-native:appplatform:BindingType")
 class BindingType(builtins.str, Enum):
     """
     Buildpack Binding Type
@@ -72,6 +76,7 @@ class BindingType(builtins.str, Enum):
     CA_CERTIFICATES = "CACertificates"
 
 
+@pulumi.type_token("azure-native:appplatform:ConfigServerEnabledState")
 class ConfigServerEnabledState(builtins.str, Enum):
     """
     Enabled state of the config server. This is only used in Consumption tier.
@@ -86,6 +91,7 @@ class ConfigServerEnabledState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:appplatform:ConfigurationServiceGeneration")
 class ConfigurationServiceGeneration(builtins.str, Enum):
     """
     The generation of the Application Configuration Service.
@@ -94,6 +100,7 @@ class ConfigurationServiceGeneration(builtins.str, Enum):
     GEN2 = "Gen2"
 
 
+@pulumi.type_token("azure-native:appplatform:CustomizedAcceleratorType")
 class CustomizedAcceleratorType(builtins.str, Enum):
     """
     Type of the customized accelerator.
@@ -102,6 +109,7 @@ class CustomizedAcceleratorType(builtins.str, Enum):
     FRAGMENT = "Fragment"
 
 
+@pulumi.type_token("azure-native:appplatform:DevToolPortalFeatureState")
 class DevToolPortalFeatureState(builtins.str, Enum):
     """
     State of the plugin
@@ -116,6 +124,7 @@ class DevToolPortalFeatureState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:appplatform:Frequency")
 class Frequency(builtins.str, Enum):
     """
     The frequency to run the maintenance job
@@ -123,6 +132,7 @@ class Frequency(builtins.str, Enum):
     WEEKLY = "Weekly"
 
 
+@pulumi.type_token("azure-native:appplatform:GatewayCertificateVerification")
 class GatewayCertificateVerification(builtins.str, Enum):
     """
     Whether to enable certificate verification or not
@@ -137,6 +147,7 @@ class GatewayCertificateVerification(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:appplatform:GatewayRouteConfigProtocol")
 class GatewayRouteConfigProtocol(builtins.str, Enum):
     """
     Protocol of routed Azure Spring Apps applications.
@@ -145,6 +156,7 @@ class GatewayRouteConfigProtocol(builtins.str, Enum):
     HTTPS = "HTTPS"
 
 
+@pulumi.type_token("azure-native:appplatform:GitImplementation")
 class GitImplementation(builtins.str, Enum):
     """
     Git libraries used to support various repository providers
@@ -153,6 +165,7 @@ class GitImplementation(builtins.str, Enum):
     LIBGIT2 = "libgit2"
 
 
+@pulumi.type_token("azure-native:appplatform:HTTPSchemeType")
 class HTTPSchemeType(builtins.str, Enum):
     """
     Scheme to use for connecting to the host. Defaults to HTTP.
@@ -165,6 +178,7 @@ class HTTPSchemeType(builtins.str, Enum):
     HTTPS = "HTTPS"
 
 
+@pulumi.type_token("azure-native:appplatform:KeyVaultCertificateAutoSync")
 class KeyVaultCertificateAutoSync(builtins.str, Enum):
     """
     Indicates whether to automatically synchronize certificate from key vault or not.
@@ -173,6 +187,7 @@ class KeyVaultCertificateAutoSync(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:appplatform:ManagedIdentityType")
 class ManagedIdentityType(builtins.str, Enum):
     """
     Type of the managed identity
@@ -183,6 +198,7 @@ class ManagedIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:appplatform:ProbeActionType")
 class ProbeActionType(builtins.str, Enum):
     """
     The type of the action to take to perform the health check.
@@ -192,6 +208,7 @@ class ProbeActionType(builtins.str, Enum):
     EXEC_ACTION = "ExecAction"
 
 
+@pulumi.type_token("azure-native:appplatform:SessionAffinity")
 class SessionAffinity(builtins.str, Enum):
     """
     Type of the affinity, set this to Cookie to enable session affinity.
@@ -200,6 +217,7 @@ class SessionAffinity(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:appplatform:StorageType")
 class StorageType(builtins.str, Enum):
     """
     The type of the storage.
@@ -207,6 +225,7 @@ class StorageType(builtins.str, Enum):
     STORAGE_ACCOUNT = "StorageAccount"
 
 
+@pulumi.type_token("azure-native:appplatform:TestEndpointAuthState")
 class TestEndpointAuthState(builtins.str, Enum):
     """
     State of test endpoint auth.
@@ -221,6 +240,7 @@ class TestEndpointAuthState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:appplatform:TriggerType")
 class TriggerType(builtins.str, Enum):
     """
     Type of job trigger
@@ -228,6 +248,7 @@ class TriggerType(builtins.str, Enum):
     MANUAL = "Manual"
 
 
+@pulumi.type_token("azure-native:appplatform:Type")
 class Type(builtins.str, Enum):
     """
     The type of the underlying resource to mount as a persistent disk.
@@ -235,6 +256,7 @@ class Type(builtins.str, Enum):
     AZURE_FILE_VOLUME = "AzureFileVolume"
 
 
+@pulumi.type_token("azure-native:appplatform:WeekDay")
 class WeekDay(builtins.str, Enum):
     """
     The day to run the maintenance job

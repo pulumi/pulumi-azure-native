@@ -171,10 +171,8 @@ class MultipleActivationKeyArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:windowsesu:MultipleActivationKey")
 class MultipleActivationKey(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:windowsesu:MultipleActivationKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

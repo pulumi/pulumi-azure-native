@@ -118,10 +118,8 @@ class DataMaskingPolicyArgs:
         pulumi.set(self, "exempt_principals", value)
 
 
+@pulumi.type_token("azure-native:sql:DataMaskingPolicy")
 class DataMaskingPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:DataMaskingPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

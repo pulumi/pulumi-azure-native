@@ -232,10 +232,8 @@ class MachineExtensionArgs:
         pulumi.set(self, "type_handler_version", value)
 
 
+@pulumi.type_token("azure-native:scvmm:MachineExtension")
 class MachineExtension(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:scvmm:MachineExtension"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

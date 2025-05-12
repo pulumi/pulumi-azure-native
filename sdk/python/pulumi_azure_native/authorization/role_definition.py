@@ -138,10 +138,8 @@ class RoleDefinitionArgs:
         pulumi.set(self, "role_type", value)
 
 
+@pulumi.type_token("azure-native:authorization:RoleDefinition")
 class RoleDefinition(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:authorization:RoleDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

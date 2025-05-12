@@ -187,10 +187,8 @@ class StandardAssignmentArgs:
         pulumi.set(self, "standard_assignment_name", value)
 
 
+@pulumi.type_token("azure-native:security:StandardAssignment")
 class StandardAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:StandardAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

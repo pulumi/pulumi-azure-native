@@ -751,10 +751,8 @@ class WebAppArgs:
         pulumi.set(self, "workload_profile_name", value)
 
 
+@pulumi.type_token("azure-native:web:WebApp")
 class WebApp(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebApp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

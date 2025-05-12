@@ -154,10 +154,8 @@ class CustomAssessmentAutomationArgs:
         pulumi.set(self, "supported_cloud", value)
 
 
+@pulumi.type_token("azure-native:security:CustomAssessmentAutomation")
 class CustomAssessmentAutomation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:CustomAssessmentAutomation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

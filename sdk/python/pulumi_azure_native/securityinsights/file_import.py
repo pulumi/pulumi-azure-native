@@ -134,10 +134,8 @@ class FileImportArgs:
         pulumi.set(self, "file_import_id", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:FileImport")
 class FileImport(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:FileImport"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

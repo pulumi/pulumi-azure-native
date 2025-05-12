@@ -106,10 +106,8 @@ class SqlServerLicenseArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:azurearcdata:SqlServerLicense")
 class SqlServerLicense(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurearcdata:SqlServerLicense"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

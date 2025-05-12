@@ -92,10 +92,8 @@ class PeerAsnArgs:
         pulumi.set(self, "peer_name", value)
 
 
+@pulumi.type_token("azure-native:peering:PeerAsn")
 class PeerAsn(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:peering:PeerAsn"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:importexport:DriveState")
 class DriveState(builtins.str, Enum):
     """
     The drive's current state. 
@@ -25,6 +26,7 @@ class DriveState(builtins.str, Enum):
     SHIPPED_BACK = "ShippedBack"
 
 
+@pulumi.type_token("azure-native:importexport:EncryptionKekType")
 class EncryptionKekType(builtins.str, Enum):
     """
     The type of kek encryption key

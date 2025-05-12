@@ -106,10 +106,8 @@ class ApiPortalArgs:
         pulumi.set(self, "sku", value)
 
 
+@pulumi.type_token("azure-native:appplatform:ApiPortal")
 class ApiPortal(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:appplatform:ApiPortal"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

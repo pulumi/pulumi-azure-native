@@ -106,10 +106,8 @@ class SqsQueueArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:SqsQueue")
 class SqsQueue(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:SqsQueue"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -168,10 +168,8 @@ class ElasticSanArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:elasticsan:ElasticSan")
 class ElasticSan(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:elasticsan:ElasticSan"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -170,10 +170,8 @@ class WebAppRelayServiceConnectionSlotArgs:
         pulumi.set(self, "resource_type", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppRelayServiceConnectionSlot")
 class WebAppRelayServiceConnectionSlot(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppRelayServiceConnectionSlot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

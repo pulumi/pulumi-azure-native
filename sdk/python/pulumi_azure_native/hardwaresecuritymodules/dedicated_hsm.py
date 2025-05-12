@@ -170,10 +170,8 @@ class DedicatedHsmArgs:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure-native:hardwaresecuritymodules:DedicatedHsm")
 class DedicatedHsm(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hardwaresecuritymodules:DedicatedHsm"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

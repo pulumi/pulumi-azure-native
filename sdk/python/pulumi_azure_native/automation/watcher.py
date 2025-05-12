@@ -184,10 +184,8 @@ class WatcherArgs:
         pulumi.set(self, "watcher_name", value)
 
 
+@pulumi.type_token("azure-native:automation:Watcher")
 class Watcher(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:automation:Watcher"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -105,10 +105,8 @@ class BandwidthSettingArgs:
         pulumi.set(self, "kind", value)
 
 
+@pulumi.type_token("azure-native:storsimple:BandwidthSetting")
 class BandwidthSetting(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storsimple:BandwidthSetting"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

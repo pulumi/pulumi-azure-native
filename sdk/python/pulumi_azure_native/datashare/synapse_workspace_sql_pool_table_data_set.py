@@ -119,10 +119,8 @@ class SynapseWorkspaceSqlPoolTableDataSetArgs:
         pulumi.set(self, "data_set_name", value)
 
 
+@pulumi.type_token("azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSet")
 class SynapseWorkspaceSqlPoolTableDataSet(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

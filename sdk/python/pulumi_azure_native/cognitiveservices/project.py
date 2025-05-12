@@ -138,10 +138,8 @@ class ProjectArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:cognitiveservices:Project")
 class Project(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cognitiveservices:Project"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

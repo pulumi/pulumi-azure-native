@@ -107,10 +107,8 @@ class DiskAccessArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:compute:DiskAccess")
 class DiskAccess(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:compute:DiskAccess"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

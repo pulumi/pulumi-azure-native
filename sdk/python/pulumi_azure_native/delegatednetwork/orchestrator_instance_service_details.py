@@ -217,10 +217,8 @@ class OrchestratorInstanceServiceDetailsArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:delegatednetwork:OrchestratorInstanceServiceDetails")
 class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:delegatednetwork:OrchestratorInstanceServiceDetails"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

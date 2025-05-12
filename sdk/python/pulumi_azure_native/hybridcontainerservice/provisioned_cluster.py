@@ -135,10 +135,8 @@ class ProvisionedClusterArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:hybridcontainerservice:ProvisionedCluster")
 class ProvisionedCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybridcontainerservice:ProvisionedCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

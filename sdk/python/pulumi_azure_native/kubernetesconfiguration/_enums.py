@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -19,6 +19,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:kubernetesconfiguration:AKSIdentityType")
 class AKSIdentityType(builtins.str, Enum):
     """
     The identity type.
@@ -27,6 +28,7 @@ class AKSIdentityType(builtins.str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+@pulumi.type_token("azure-native:kubernetesconfiguration:LevelType")
 class LevelType(builtins.str, Enum):
     """
     Level of the status.
@@ -36,6 +38,7 @@ class LevelType(builtins.str, Enum):
     INFORMATION = "Information"
 
 
+@pulumi.type_token("azure-native:kubernetesconfiguration:OperatorScopeType")
 class OperatorScopeType(builtins.str, Enum):
     """
     Scope at which the operator will be installed.
@@ -44,6 +47,7 @@ class OperatorScopeType(builtins.str, Enum):
     NAMESPACE = "namespace"
 
 
+@pulumi.type_token("azure-native:kubernetesconfiguration:OperatorType")
 class OperatorType(builtins.str, Enum):
     """
     Type of the operator
@@ -51,6 +55,7 @@ class OperatorType(builtins.str, Enum):
     FLUX = "Flux"
 
 
+@pulumi.type_token("azure-native:kubernetesconfiguration:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -60,6 +65,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:kubernetesconfiguration:PublicNetworkAccessType")
 class PublicNetworkAccessType(builtins.str, Enum):
     """
     Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
@@ -74,6 +80,7 @@ class PublicNetworkAccessType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:kubernetesconfiguration:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The identity type.
@@ -81,6 +88,7 @@ class ResourceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
 
 
+@pulumi.type_token("azure-native:kubernetesconfiguration:ScopeType")
 class ScopeType(builtins.str, Enum):
     """
     Scope at which the operator will be installed.
@@ -89,6 +97,7 @@ class ScopeType(builtins.str, Enum):
     NAMESPACE = "namespace"
 
 
+@pulumi.type_token("azure-native:kubernetesconfiguration:SourceKindType")
 class SourceKindType(builtins.str, Enum):
     """
     Source Kind to pull the configuration data from.

@@ -226,10 +226,8 @@ class CosmosDbDataConnectionArgs:
         pulumi.set(self, "retrieval_start_date", value)
 
 
+@pulumi.type_token("azure-native:kusto:CosmosDbDataConnection")
 class CosmosDbDataConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:kusto:CosmosDbDataConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

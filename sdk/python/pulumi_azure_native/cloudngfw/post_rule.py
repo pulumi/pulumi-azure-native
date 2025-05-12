@@ -332,10 +332,8 @@ class PostRuleArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:cloudngfw:PostRule")
 class PostRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cloudngfw:PostRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

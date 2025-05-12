@@ -286,10 +286,8 @@ class SqlPoolArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:synapse:SqlPool")
 class SqlPool(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:synapse:SqlPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

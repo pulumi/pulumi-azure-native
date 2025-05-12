@@ -90,10 +90,8 @@ class TagRuleArgs:
         pulumi.set(self, "rule_set_name", value)
 
 
+@pulumi.type_token("azure-native:elastic:TagRule")
 class TagRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:elastic:TagRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

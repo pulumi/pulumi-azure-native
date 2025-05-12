@@ -105,10 +105,8 @@ class BuildArgs:
         pulumi.set(self, "destination_container_registry", value)
 
 
+@pulumi.type_token("azure-native:app:Build")
 class Build(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:app:Build"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

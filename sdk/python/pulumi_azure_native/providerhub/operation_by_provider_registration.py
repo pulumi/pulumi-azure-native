@@ -40,10 +40,8 @@ class OperationByProviderRegistrationArgs:
         pulumi.set(self, "provider_namespace", value)
 
 
+@pulumi.type_token("azure-native:providerhub:OperationByProviderRegistration")
 class OperationByProviderRegistration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:providerhub:OperationByProviderRegistration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

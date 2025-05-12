@@ -635,10 +635,8 @@ class ApplicationGatewayArgs:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure-native:network:ApplicationGateway")
 class ApplicationGateway(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:ApplicationGateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

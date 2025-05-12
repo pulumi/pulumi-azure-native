@@ -88,10 +88,8 @@ class AFDTargetGroupArgs:
         pulumi.set(self, "target_group_name", value)
 
 
+@pulumi.type_token("azure-native:cdn:AFDTargetGroup")
 class AFDTargetGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cdn:AFDTargetGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

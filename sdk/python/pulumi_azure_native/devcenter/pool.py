@@ -246,10 +246,8 @@ class PoolArgs:
         pulumi.set(self, "virtual_network_type", value)
 
 
+@pulumi.type_token("azure-native:devcenter:Pool")
 class Pool(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devcenter:Pool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

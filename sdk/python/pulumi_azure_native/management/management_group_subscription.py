@@ -57,10 +57,8 @@ class ManagementGroupSubscriptionArgs:
         pulumi.set(self, "subscription_id", value)
 
 
+@pulumi.type_token("azure-native:management:ManagementGroupSubscription")
 class ManagementGroupSubscription(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:management:ManagementGroupSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

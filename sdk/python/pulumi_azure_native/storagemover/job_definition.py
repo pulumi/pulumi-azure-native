@@ -197,10 +197,8 @@ class JobDefinitionArgs:
         pulumi.set(self, "target_subpath", value)
 
 
+@pulumi.type_token("azure-native:storagemover:JobDefinition")
 class JobDefinition(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storagemover:JobDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

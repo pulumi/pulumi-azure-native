@@ -150,10 +150,8 @@ class BackupLongTermRetentionPolicyArgs:
         pulumi.set(self, "yearly_retention", value)
 
 
+@pulumi.type_token("azure-native:sql:BackupLongTermRetentionPolicy")
 class BackupLongTermRetentionPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:BackupLongTermRetentionPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

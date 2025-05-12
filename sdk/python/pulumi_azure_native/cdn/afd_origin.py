@@ -254,10 +254,8 @@ class AFDOriginArgs:
         pulumi.set(self, "weight", value)
 
 
+@pulumi.type_token("azure-native:cdn:AFDOrigin")
 class AFDOrigin(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cdn:AFDOrigin"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:hybriddata:RunLocation")
 class RunLocation(builtins.str, Enum):
     """
     This is the preferred geo location for the job to run.
@@ -47,6 +48,7 @@ class RunLocation(builtins.str, Enum):
     WESTUS2 = "westus2"
 
 
+@pulumi.type_token("azure-native:hybriddata:State")
 class State(builtins.str, Enum):
     """
     State of the job definition.
@@ -56,6 +58,7 @@ class State(builtins.str, Enum):
     SUPPORTED = "Supported"
 
 
+@pulumi.type_token("azure-native:hybriddata:SupportedAlgorithm")
 class SupportedAlgorithm(builtins.str, Enum):
     """
     The encryption algorithm used to encrypt data.
@@ -66,6 +69,7 @@ class SupportedAlgorithm(builtins.str, Enum):
     PLAIN_TEXT = "PlainText"
 
 
+@pulumi.type_token("azure-native:hybriddata:UserConfirmation")
 class UserConfirmation(builtins.str, Enum):
     """
     Enum to detect if user confirmation is required. If not passed will default to NotRequired.

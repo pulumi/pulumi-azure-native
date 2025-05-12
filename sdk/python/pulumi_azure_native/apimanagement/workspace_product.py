@@ -198,10 +198,8 @@ class WorkspaceProductArgs:
         pulumi.set(self, "terms", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:WorkspaceProduct")
 class WorkspaceProduct(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:WorkspaceProduct"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -25,6 +25,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:databox:AddressType")
 class AddressType(builtins.str, Enum):
     """
     Type of address.
@@ -43,6 +44,7 @@ class AddressType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:databox:ClassDiscriminator")
 class ClassDiscriminator(builtins.str, Enum):
     """
     Indicates the type of job details.
@@ -65,6 +67,7 @@ class ClassDiscriminator(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:databox:DataAccountType")
 class DataAccountType(builtins.str, Enum):
     """
     Type of the account of data.
@@ -79,6 +82,7 @@ class DataAccountType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:databox:DoubleEncryption")
 class DoubleEncryption(builtins.str, Enum):
     """
     Defines secondary layer of software-based encryption enablement.
@@ -93,6 +97,7 @@ class DoubleEncryption(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:databox:FilterFileType")
 class FilterFileType(builtins.str, Enum):
     """
     Type of the filter file.
@@ -107,6 +112,7 @@ class FilterFileType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:databox:HardwareEncryption")
 class HardwareEncryption(builtins.str, Enum):
     """
     Defines Hardware level encryption (Only for disk)
@@ -121,6 +127,7 @@ class HardwareEncryption(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:databox:JobDeliveryType")
 class JobDeliveryType(builtins.str, Enum):
     """
     Delivery type of Job.
@@ -135,6 +142,7 @@ class JobDeliveryType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:databox:KekType")
 class KekType(builtins.str, Enum):
     """
     Type of encryption key used for key encryption.
@@ -149,6 +157,7 @@ class KekType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:databox:LogCollectionLevel")
 class LogCollectionLevel(builtins.str, Enum):
     """
     Level of the logs to be collected.
@@ -163,6 +172,7 @@ class LogCollectionLevel(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:databox:NotificationStageName")
 class NotificationStageName(builtins.str, Enum):
     """
     Name of the stage.
@@ -201,6 +211,7 @@ class NotificationStageName(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:databox:SkuName")
 class SkuName(builtins.str, Enum):
     """
     The sku name.
@@ -223,6 +234,7 @@ class SkuName(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:databox:StorageAccountAccessTier")
 class StorageAccountAccessTier(builtins.str, Enum):
     ARCHIVE = "Archive"
     """
@@ -230,6 +242,7 @@ class StorageAccountAccessTier(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:databox:TransferConfigurationType")
 class TransferConfigurationType(builtins.str, Enum):
     """
     Type of the configuration for transfer.
@@ -244,6 +257,7 @@ class TransferConfigurationType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:databox:TransferType")
 class TransferType(builtins.str, Enum):
     """
     Type of the data transfer.
@@ -258,6 +272,7 @@ class TransferType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:databox:TransportShipmentTypes")
 class TransportShipmentTypes(builtins.str, Enum):
     """
     Indicates Shipment Logistics type that the customer preferred.

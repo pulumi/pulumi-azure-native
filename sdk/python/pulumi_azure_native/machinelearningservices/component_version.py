@@ -103,10 +103,8 @@ class ComponentVersionInitArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ComponentVersion")
 class ComponentVersion(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:ComponentVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

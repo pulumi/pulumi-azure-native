@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:blueprint:ArtifactKind")
 class ArtifactKind(builtins.str, Enum):
     """
     Specifies the kind of blueprint artifact.
@@ -24,6 +25,7 @@ class ArtifactKind(builtins.str, Enum):
     POLICY_ASSIGNMENT = "policyAssignment"
 
 
+@pulumi.type_token("azure-native:blueprint:AssignmentLockMode")
 class AssignmentLockMode(builtins.str, Enum):
     """
     Lock mode.
@@ -33,6 +35,7 @@ class AssignmentLockMode(builtins.str, Enum):
     ALL_RESOURCES_DO_NOT_DELETE = "AllResourcesDoNotDelete"
 
 
+@pulumi.type_token("azure-native:blueprint:BlueprintTargetScope")
 class BlueprintTargetScope(builtins.str, Enum):
     """
     The scope where this blueprint definition can be assigned.
@@ -47,6 +50,7 @@ class BlueprintTargetScope(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:blueprint:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of the managed identity.
@@ -56,6 +60,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+@pulumi.type_token("azure-native:blueprint:TemplateParameterType")
 class TemplateParameterType(builtins.str, Enum):
     """
     Allowed data types for Resource Manager template parameters.

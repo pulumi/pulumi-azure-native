@@ -215,10 +215,8 @@ class SmartDetectorAlertRuleArgs:
         pulumi.set(self, "throttling", value)
 
 
+@pulumi.type_token("azure-native:alertsmanagement:SmartDetectorAlertRule")
 class SmartDetectorAlertRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:alertsmanagement:SmartDetectorAlertRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

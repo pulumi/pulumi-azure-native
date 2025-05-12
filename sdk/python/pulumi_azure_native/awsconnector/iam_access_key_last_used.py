@@ -106,10 +106,8 @@ class IamAccessKeyLastUsedArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:IamAccessKeyLastUsed")
 class IamAccessKeyLastUsed(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:IamAccessKeyLastUsed"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

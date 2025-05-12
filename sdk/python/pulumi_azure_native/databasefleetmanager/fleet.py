@@ -106,10 +106,8 @@ class FleetArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:databasefleetmanager:Fleet")
 class Fleet(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databasefleetmanager:Fleet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -105,10 +105,8 @@ class WebAppCollectorOperationArgs:
         pulumi.set(self, "discovery_site_id", value)
 
 
+@pulumi.type_token("azure-native:migrate:WebAppCollectorOperation")
 class WebAppCollectorOperation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:migrate:WebAppCollectorOperation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

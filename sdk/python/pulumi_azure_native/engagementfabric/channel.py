@@ -118,10 +118,8 @@ class ChannelArgs:
         pulumi.set(self, "credentials", value)
 
 
+@pulumi.type_token("azure-native:engagementfabric:Channel")
 class Channel(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:engagementfabric:Channel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

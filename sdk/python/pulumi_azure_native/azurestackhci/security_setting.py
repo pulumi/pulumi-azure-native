@@ -127,10 +127,8 @@ class SecuritySettingArgs:
         pulumi.set(self, "wdac_compliance_assignment", value)
 
 
+@pulumi.type_token("azure-native:azurestackhci:SecuritySetting")
 class SecuritySetting(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurestackhci:SecuritySetting"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

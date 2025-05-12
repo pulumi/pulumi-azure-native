@@ -167,10 +167,8 @@ class ServiceEndpointPolicyDefinitionInitArgs:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("azure-native:network:ServiceEndpointPolicyDefinition")
 class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:ServiceEndpointPolicyDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

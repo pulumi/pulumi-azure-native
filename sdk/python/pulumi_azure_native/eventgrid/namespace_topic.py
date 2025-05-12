@@ -125,10 +125,8 @@ class NamespaceTopicArgs:
         pulumi.set(self, "topic_name", value)
 
 
+@pulumi.type_token("azure-native:eventgrid:NamespaceTopic")
 class NamespaceTopic(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:eventgrid:NamespaceTopic"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

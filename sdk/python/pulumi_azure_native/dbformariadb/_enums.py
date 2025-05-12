@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -18,6 +18,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:dbformariadb:CreateMode")
 class CreateMode(builtins.str, Enum):
     """
     The mode to create a new server.
@@ -28,6 +29,7 @@ class CreateMode(builtins.str, Enum):
     REPLICA = "Replica"
 
 
+@pulumi.type_token("azure-native:dbformariadb:GeoRedundantBackup")
 class GeoRedundantBackup(builtins.str, Enum):
     """
     Enable Geo-redundant or not for server backup.
@@ -36,6 +38,7 @@ class GeoRedundantBackup(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:dbformariadb:MinimalTlsVersionEnum")
 class MinimalTlsVersionEnum(builtins.str, Enum):
     """
     Enforce a minimal Tls version for the server.
@@ -46,6 +49,7 @@ class MinimalTlsVersionEnum(builtins.str, Enum):
     TLS_ENFORCEMENT_DISABLED = "TLSEnforcementDisabled"
 
 
+@pulumi.type_token("azure-native:dbformariadb:PublicNetworkAccessEnum")
 class PublicNetworkAccessEnum(builtins.str, Enum):
     """
     Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
@@ -54,6 +58,7 @@ class PublicNetworkAccessEnum(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:dbformariadb:ServerVersion")
 class ServerVersion(builtins.str, Enum):
     """
     Server version.
@@ -62,6 +67,7 @@ class ServerVersion(builtins.str, Enum):
     SERVER_VERSION_10_3 = "10.3"
 
 
+@pulumi.type_token("azure-native:dbformariadb:SkuTier")
 class SkuTier(builtins.str, Enum):
     """
     The tier of the particular SKU, e.g. Basic.
@@ -71,6 +77,7 @@ class SkuTier(builtins.str, Enum):
     MEMORY_OPTIMIZED = "MemoryOptimized"
 
 
+@pulumi.type_token("azure-native:dbformariadb:SslEnforcementEnum")
 class SslEnforcementEnum(builtins.str, Enum):
     """
     Enable ssl enforcement or not when connect to server.
@@ -79,6 +86,7 @@ class SslEnforcementEnum(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:dbformariadb:StorageAutogrow")
 class StorageAutogrow(builtins.str, Enum):
     """
     Enable Storage Auto Grow.

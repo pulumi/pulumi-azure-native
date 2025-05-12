@@ -90,10 +90,8 @@ class SqlAssessmentV3OperationArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:migrate:SqlAssessmentV3Operation")
 class SqlAssessmentV3Operation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:migrate:SqlAssessmentV3Operation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

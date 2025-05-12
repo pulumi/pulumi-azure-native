@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:policyinsights:ComplianceState")
 class ComplianceState(builtins.str, Enum):
     """
     The compliance state that should be set on the resource.
@@ -30,6 +31,7 @@ class ComplianceState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:policyinsights:ResourceDiscoveryMode")
 class ResourceDiscoveryMode(builtins.str, Enum):
     """
     The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.

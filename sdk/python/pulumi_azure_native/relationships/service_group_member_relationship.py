@@ -74,10 +74,8 @@ class ServiceGroupMemberRelationshipArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:relationships:ServiceGroupMemberRelationship")
 class ServiceGroupMemberRelationship(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:relationships:ServiceGroupMemberRelationship"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

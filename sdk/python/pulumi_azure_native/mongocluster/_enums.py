@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:mongocluster:CreateMode")
 class CreateMode(builtins.str, Enum):
     """
     The mode to create a mongo cluster.
@@ -37,6 +38,7 @@ class CreateMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:mongocluster:HighAvailabilityMode")
 class HighAvailabilityMode(builtins.str, Enum):
     """
     The target high availability mode requested for the cluster.
@@ -55,6 +57,7 @@ class HighAvailabilityMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:mongocluster:PreviewFeature")
 class PreviewFeature(builtins.str, Enum):
     """
     Preview features that can be enabled on a mongo cluster.
@@ -65,6 +68,7 @@ class PreviewFeature(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:mongocluster:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -74,6 +78,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:mongocluster:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Whether or not public endpoint access is allowed for this mongo cluster.

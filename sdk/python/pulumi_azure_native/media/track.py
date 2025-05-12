@@ -105,10 +105,8 @@ class TrackArgs:
         pulumi.set(self, "track_name", value)
 
 
+@pulumi.type_token("azure-native:media:Track")
 class Track(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:media:Track"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

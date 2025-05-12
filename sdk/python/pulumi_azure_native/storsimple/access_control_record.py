@@ -103,10 +103,8 @@ class AccessControlRecordArgs:
         pulumi.set(self, "kind", value)
 
 
+@pulumi.type_token("azure-native:storsimple:AccessControlRecord")
 class AccessControlRecord(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storsimple:AccessControlRecord"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

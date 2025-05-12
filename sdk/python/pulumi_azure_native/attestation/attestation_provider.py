@@ -106,10 +106,8 @@ class AttestationProviderArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:attestation:AttestationProvider")
 class AttestationProvider(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:attestation:AttestationProvider"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

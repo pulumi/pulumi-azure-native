@@ -103,10 +103,8 @@ class ManagedInstanceKeyArgs:
         pulumi.set(self, "uri", value)
 
 
+@pulumi.type_token("azure-native:sql:ManagedInstanceKey")
 class ManagedInstanceKey(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:ManagedInstanceKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

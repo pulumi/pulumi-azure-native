@@ -123,10 +123,8 @@ class CloudServiceArgs:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure-native:compute:CloudService")
 class CloudService(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:compute:CloudService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

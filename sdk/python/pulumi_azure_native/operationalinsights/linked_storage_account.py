@@ -87,10 +87,8 @@ class LinkedStorageAccountArgs:
         pulumi.set(self, "storage_account_ids", value)
 
 
+@pulumi.type_token("azure-native:operationalinsights:LinkedStorageAccount")
 class LinkedStorageAccount(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:operationalinsights:LinkedStorageAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

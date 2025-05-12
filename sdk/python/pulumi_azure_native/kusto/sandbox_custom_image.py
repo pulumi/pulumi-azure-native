@@ -135,10 +135,8 @@ class SandboxCustomImageArgs:
         pulumi.set(self, "sandbox_custom_image_name", value)
 
 
+@pulumi.type_token("azure-native:kusto:SandboxCustomImage")
 class SandboxCustomImage(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:kusto:SandboxCustomImage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

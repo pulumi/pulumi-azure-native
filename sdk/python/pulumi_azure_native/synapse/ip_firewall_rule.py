@@ -103,10 +103,8 @@ class IpFirewallRuleArgs:
         pulumi.set(self, "start_ip_address", value)
 
 
+@pulumi.type_token("azure-native:synapse:IpFirewallRule")
 class IpFirewallRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:synapse:IpFirewallRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

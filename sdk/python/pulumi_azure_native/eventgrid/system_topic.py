@@ -139,10 +139,8 @@ class SystemTopicArgs:
         pulumi.set(self, "topic_type", value)
 
 
+@pulumi.type_token("azure-native:eventgrid:SystemTopic")
 class SystemTopic(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:eventgrid:SystemTopic"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

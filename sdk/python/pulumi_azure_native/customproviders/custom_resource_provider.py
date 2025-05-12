@@ -139,10 +139,8 @@ class CustomResourceProviderArgs:
         pulumi.set(self, "validations", value)
 
 
+@pulumi.type_token("azure-native:customproviders:CustomResourceProvider")
 class CustomResourceProvider(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:customproviders:CustomResourceProvider"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

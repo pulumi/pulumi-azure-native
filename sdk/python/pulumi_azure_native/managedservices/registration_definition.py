@@ -91,10 +91,8 @@ class RegistrationDefinitionArgs:
         pulumi.set(self, "registration_definition_id", value)
 
 
+@pulumi.type_token("azure-native:managedservices:RegistrationDefinition")
 class RegistrationDefinition(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:managedservices:RegistrationDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

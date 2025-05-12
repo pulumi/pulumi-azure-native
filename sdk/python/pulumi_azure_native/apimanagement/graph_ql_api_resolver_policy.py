@@ -135,10 +135,8 @@ class GraphQLApiResolverPolicyArgs:
         pulumi.set(self, "policy_id", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:GraphQLApiResolverPolicy")
 class GraphQLApiResolverPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:GraphQLApiResolverPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -122,10 +122,8 @@ class AppArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:appplatform:App")
 class App(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:appplatform:App"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:communication:DomainManagement")
 class DomainManagement(builtins.str, Enum):
     """
     Describes how a Domains resource is being managed.
@@ -22,6 +23,7 @@ class DomainManagement(builtins.str, Enum):
     CUSTOMER_MANAGED_IN_EXCHANGE_ONLINE = "CustomerManagedInExchangeOnline"
 
 
+@pulumi.type_token("azure-native:communication:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -32,6 +34,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:communication:UserEngagementTracking")
 class UserEngagementTracking(builtins.str, Enum):
     """
     Describes whether user engagement tracking is enabled or disabled.

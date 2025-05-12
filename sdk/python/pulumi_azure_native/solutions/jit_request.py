@@ -136,10 +136,8 @@ class JitRequestArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:solutions:JitRequest")
 class JitRequest(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:solutions:JitRequest"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

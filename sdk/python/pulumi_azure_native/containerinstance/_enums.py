@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -23,6 +23,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:containerinstance:ContainerGroupIpAddressType")
 class ContainerGroupIpAddressType(builtins.str, Enum):
     """
     Specifies if the IP is exposed to the public internet or private VNET.
@@ -31,6 +32,7 @@ class ContainerGroupIpAddressType(builtins.str, Enum):
     PRIVATE = "Private"
 
 
+@pulumi.type_token("azure-native:containerinstance:ContainerGroupNetworkProtocol")
 class ContainerGroupNetworkProtocol(builtins.str, Enum):
     """
     The protocol associated with the port.
@@ -39,6 +41,7 @@ class ContainerGroupNetworkProtocol(builtins.str, Enum):
     UDP = "UDP"
 
 
+@pulumi.type_token("azure-native:containerinstance:ContainerGroupPriority")
 class ContainerGroupPriority(builtins.str, Enum):
     """
     The priority of the container group.
@@ -47,6 +50,7 @@ class ContainerGroupPriority(builtins.str, Enum):
     SPOT = "Spot"
 
 
+@pulumi.type_token("azure-native:containerinstance:ContainerGroupRestartPolicy")
 class ContainerGroupRestartPolicy(builtins.str, Enum):
     """
     Restart policy for all containers within the container group. 
@@ -59,6 +63,7 @@ class ContainerGroupRestartPolicy(builtins.str, Enum):
     NEVER = "Never"
 
 
+@pulumi.type_token("azure-native:containerinstance:ContainerGroupSku")
 class ContainerGroupSku(builtins.str, Enum):
     """
     The SKU for a container group.
@@ -68,6 +73,7 @@ class ContainerGroupSku(builtins.str, Enum):
     CONFIDENTIAL = "Confidential"
 
 
+@pulumi.type_token("azure-native:containerinstance:ContainerNetworkProtocol")
 class ContainerNetworkProtocol(builtins.str, Enum):
     """
     The protocol associated with the port.
@@ -76,6 +82,7 @@ class ContainerNetworkProtocol(builtins.str, Enum):
     UDP = "UDP"
 
 
+@pulumi.type_token("azure-native:containerinstance:DnsNameLabelReusePolicy")
 class DnsNameLabelReusePolicy(builtins.str, Enum):
     """
     The value representing the security enum. The 'Unsecure' value is the default value if not selected and means the object's domain name label is not secured against subdomain takeover. The 'TenantReuse' value is the default value if selected and means the object's domain name label can be reused within the same tenant. The 'SubscriptionReuse' value means the object's domain name label can be reused within the same subscription. The 'ResourceGroupReuse' value means the object's domain name label can be reused within the same resource group. The 'NoReuse' value means the object's domain name label cannot be reused within the same resource group, subscription, or tenant.
@@ -87,6 +94,7 @@ class DnsNameLabelReusePolicy(builtins.str, Enum):
     NOREUSE = "Noreuse"
 
 
+@pulumi.type_token("azure-native:containerinstance:GpuSku")
 class GpuSku(builtins.str, Enum):
     """
     The SKU of the GPU resource.
@@ -96,6 +104,7 @@ class GpuSku(builtins.str, Enum):
     V100 = "V100"
 
 
+@pulumi.type_token("azure-native:containerinstance:LogAnalyticsLogType")
 class LogAnalyticsLogType(builtins.str, Enum):
     """
     The log type to be used.
@@ -104,6 +113,7 @@ class LogAnalyticsLogType(builtins.str, Enum):
     CONTAINER_INSTANCE_LOGS = "ContainerInstanceLogs"
 
 
+@pulumi.type_token("azure-native:containerinstance:OperatingSystemTypes")
 class OperatingSystemTypes(builtins.str, Enum):
     """
     The operating system type required by the containers in the container group.
@@ -112,6 +122,7 @@ class OperatingSystemTypes(builtins.str, Enum):
     LINUX = "Linux"
 
 
+@pulumi.type_token("azure-native:containerinstance:Priority")
 class Priority(builtins.str, Enum):
     """
     The priority of the container group.
@@ -120,6 +131,7 @@ class Priority(builtins.str, Enum):
     SPOT = "Spot"
 
 
+@pulumi.type_token("azure-native:containerinstance:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
@@ -130,6 +142,7 @@ class ResourceIdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:containerinstance:Scheme")
 class Scheme(builtins.str, Enum):
     """
     The scheme.

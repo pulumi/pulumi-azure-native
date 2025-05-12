@@ -170,10 +170,8 @@ class ReadWriteDatabaseArgs:
         pulumi.set(self, "soft_delete_period", value)
 
 
+@pulumi.type_token("azure-native:kusto:ReadWriteDatabase")
 class ReadWriteDatabase(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:kusto:ReadWriteDatabase"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -74,10 +74,8 @@ class DependencyOfRelationshipArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:relationships:DependencyOfRelationship")
 class DependencyOfRelationship(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:relationships:DependencyOfRelationship"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

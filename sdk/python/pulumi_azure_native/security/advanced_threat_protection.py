@@ -72,10 +72,8 @@ class AdvancedThreatProtectionArgs:
         pulumi.set(self, "setting_name", value)
 
 
+@pulumi.type_token("azure-native:security:AdvancedThreatProtection")
 class AdvancedThreatProtection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:AdvancedThreatProtection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

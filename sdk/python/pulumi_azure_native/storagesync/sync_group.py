@@ -72,10 +72,8 @@ class SyncGroupArgs:
         pulumi.set(self, "sync_group_name", value)
 
 
+@pulumi.type_token("azure-native:storagesync:SyncGroup")
 class SyncGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storagesync:SyncGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

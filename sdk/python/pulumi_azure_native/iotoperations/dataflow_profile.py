@@ -105,10 +105,8 @@ class DataflowProfileArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:iotoperations:DataflowProfile")
 class DataflowProfile(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:iotoperations:DataflowProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -139,10 +139,8 @@ class WatcherArgs:
         pulumi.set(self, "watcher_name", value)
 
 
+@pulumi.type_token("azure-native:databasewatcher:Watcher")
 class Watcher(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databasewatcher:Watcher"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

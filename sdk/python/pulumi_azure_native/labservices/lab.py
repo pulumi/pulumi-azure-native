@@ -231,10 +231,8 @@ class LabArgs:
         pulumi.set(self, "title", value)
 
 
+@pulumi.type_token("azure-native:labservices:Lab")
 class Lab(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:labservices:Lab"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

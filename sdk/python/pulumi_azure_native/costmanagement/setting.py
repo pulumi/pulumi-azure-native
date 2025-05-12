@@ -90,10 +90,8 @@ class SettingArgs:
         pulumi.set(self, "start_on", value)
 
 
+@pulumi.type_token("azure-native:costmanagement:Setting")
 class Setting(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:costmanagement:Setting"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

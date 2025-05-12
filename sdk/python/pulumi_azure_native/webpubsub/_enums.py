@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -19,6 +19,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:webpubsub:ACLAction")
 class ACLAction(builtins.str, Enum):
     """
     Azure Networking ACL Action.
@@ -27,14 +28,17 @@ class ACLAction(builtins.str, Enum):
     DENY = "Deny"
 
 
+@pulumi.type_token("azure-native:webpubsub:EventListenerEndpointDiscriminator")
 class EventListenerEndpointDiscriminator(builtins.str, Enum):
     EVENT_HUB = "EventHub"
 
 
+@pulumi.type_token("azure-native:webpubsub:EventListenerFilterDiscriminator")
 class EventListenerFilterDiscriminator(builtins.str, Enum):
     EVENT_NAME = "EventName"
 
 
+@pulumi.type_token("azure-native:webpubsub:ManagedIdentityType")
 class ManagedIdentityType(builtins.str, Enum):
     """
     Represents the identity type: systemAssigned, userAssigned, None
@@ -44,6 +48,7 @@ class ManagedIdentityType(builtins.str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+@pulumi.type_token("azure-native:webpubsub:PrivateLinkServiceConnectionStatus")
 class PrivateLinkServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -54,6 +59,7 @@ class PrivateLinkServiceConnectionStatus(builtins.str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+@pulumi.type_token("azure-native:webpubsub:ServiceKind")
 class ServiceKind(builtins.str, Enum):
     """
     The kind of the service
@@ -62,6 +68,7 @@ class ServiceKind(builtins.str, Enum):
     SOCKET_IO = "SocketIO"
 
 
+@pulumi.type_token("azure-native:webpubsub:UpstreamAuthType")
 class UpstreamAuthType(builtins.str, Enum):
     """
     Upstream auth type enum.
@@ -70,6 +77,7 @@ class UpstreamAuthType(builtins.str, Enum):
     MANAGED_IDENTITY = "ManagedIdentity"
 
 
+@pulumi.type_token("azure-native:webpubsub:WebPubSubRequestType")
 class WebPubSubRequestType(builtins.str, Enum):
     """
     The incoming request type to the service
@@ -80,6 +88,7 @@ class WebPubSubRequestType(builtins.str, Enum):
     TRACE = "Trace"
 
 
+@pulumi.type_token("azure-native:webpubsub:WebPubSubSkuTier")
 class WebPubSubSkuTier(builtins.str, Enum):
     """
     Optional tier of this particular SKU. 'Standard' or 'Free'. 

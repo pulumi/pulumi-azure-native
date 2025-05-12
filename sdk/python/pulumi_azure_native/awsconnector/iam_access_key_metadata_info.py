@@ -107,10 +107,8 @@ class IamAccessKeyMetadataInfoArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:IamAccessKeyMetadataInfo")
 class IamAccessKeyMetadataInfo(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:IamAccessKeyMetadataInfo"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -418,10 +418,8 @@ class ApiManagementServiceArgs:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:ApiManagementService")
 class ApiManagementService(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:ApiManagementService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

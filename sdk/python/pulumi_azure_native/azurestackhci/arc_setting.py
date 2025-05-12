@@ -170,10 +170,8 @@ class ArcSettingArgs:
         pulumi.set(self, "connectivity_properties", value)
 
 
+@pulumi.type_token("azure-native:azurestackhci:ArcSetting")
 class ArcSetting(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurestackhci:ArcSetting"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

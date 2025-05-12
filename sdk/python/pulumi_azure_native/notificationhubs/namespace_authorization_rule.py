@@ -156,10 +156,8 @@ class NamespaceAuthorizationRuleArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:notificationhubs:NamespaceAuthorizationRule")
 class NamespaceAuthorizationRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:notificationhubs:NamespaceAuthorizationRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

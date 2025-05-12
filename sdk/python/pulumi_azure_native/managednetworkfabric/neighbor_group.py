@@ -121,10 +121,8 @@ class NeighborGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:NeighborGroup")
 class NeighborGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:managednetworkfabric:NeighborGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

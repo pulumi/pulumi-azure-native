@@ -239,10 +239,8 @@ class KubeEnvironmentArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:web:KubeEnvironment")
 class KubeEnvironment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:KubeEnvironment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -509,10 +509,8 @@ class VirtualNetworkGatewayInitArgs:
         pulumi.set(self, "vpn_type", value)
 
 
+@pulumi.type_token("azure-native:network:VirtualNetworkGateway")
 class VirtualNetworkGateway(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:VirtualNetworkGateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

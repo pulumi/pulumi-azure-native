@@ -89,10 +89,8 @@ class PrivateEndpointArgs:
         pulumi.set(self, "private_endpoint_name", value)
 
 
+@pulumi.type_token("azure-native:streamanalytics:PrivateEndpoint")
 class PrivateEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:streamanalytics:PrivateEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

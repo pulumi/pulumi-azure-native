@@ -235,10 +235,8 @@ class AzureBareMetalInstanceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:baremetalinfrastructure:AzureBareMetalInstance")
 class AzureBareMetalInstance(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:baremetalinfrastructure:AzureBareMetalInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

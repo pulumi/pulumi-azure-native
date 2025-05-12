@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -30,6 +30,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:cognitiveservices:ByPassSelection")
 class ByPassSelection(builtins.str, Enum):
     """
     Setting for trusted services.
@@ -38,6 +39,7 @@ class ByPassSelection(builtins.str, Enum):
     AZURE_SERVICES = "AzureServices"
 
 
+@pulumi.type_token("azure-native:cognitiveservices:CapabilityHostKind")
 class CapabilityHostKind(builtins.str, Enum):
     """
     Kind of this capability host.
@@ -45,6 +47,7 @@ class CapabilityHostKind(builtins.str, Enum):
     AGENTS = "Agents"
 
 
+@pulumi.type_token("azure-native:cognitiveservices:ConnectionAuthType")
 class ConnectionAuthType(builtins.str, Enum):
     """
     Authentication type of the connection target
@@ -63,6 +66,7 @@ class ConnectionAuthType(builtins.str, Enum):
     AAD = "AAD"
 
 
+@pulumi.type_token("azure-native:cognitiveservices:ConnectionCategory")
 class ConnectionCategory(builtins.str, Enum):
     """
     Category of the connection
@@ -174,6 +178,7 @@ class ConnectionCategory(builtins.str, Enum):
     MANAGED_ONLINE_ENDPOINT = "ManagedOnlineEndpoint"
 
 
+@pulumi.type_token("azure-native:cognitiveservices:ContentLevel")
 class ContentLevel(builtins.str, Enum):
     """
     Level at which content is filtered.
@@ -183,6 +188,7 @@ class ContentLevel(builtins.str, Enum):
     HIGH = "High"
 
 
+@pulumi.type_token("azure-native:cognitiveservices:DeploymentModelVersionUpgradeOption")
 class DeploymentModelVersionUpgradeOption(builtins.str, Enum):
     """
     Deployment model version upgrade option.
@@ -192,6 +198,7 @@ class DeploymentModelVersionUpgradeOption(builtins.str, Enum):
     NO_AUTO_UPGRADE = "NoAutoUpgrade"
 
 
+@pulumi.type_token("azure-native:cognitiveservices:DeploymentScaleType")
 class DeploymentScaleType(builtins.str, Enum):
     """
     Deployment scale type.
@@ -200,6 +207,7 @@ class DeploymentScaleType(builtins.str, Enum):
     MANUAL = "Manual"
 
 
+@pulumi.type_token("azure-native:cognitiveservices:EncryptionScopeState")
 class EncryptionScopeState(builtins.str, Enum):
     """
     The encryptionScope state.
@@ -208,6 +216,7 @@ class EncryptionScopeState(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:cognitiveservices:HostingModel")
 class HostingModel(builtins.str, Enum):
     """
     Account hosting model.
@@ -218,6 +227,7 @@ class HostingModel(builtins.str, Enum):
     PROVISIONED_WEB = "ProvisionedWeb"
 
 
+@pulumi.type_token("azure-native:cognitiveservices:KeySource")
 class KeySource(builtins.str, Enum):
     """
     Enumerates the possible value of keySource for Encryption
@@ -226,18 +236,21 @@ class KeySource(builtins.str, Enum):
     MICROSOFT_KEY_VAULT = "Microsoft.KeyVault"
 
 
+@pulumi.type_token("azure-native:cognitiveservices:ManagedPERequirement")
 class ManagedPERequirement(builtins.str, Enum):
     REQUIRED = "Required"
     NOT_REQUIRED = "NotRequired"
     NOT_APPLICABLE = "NotApplicable"
 
 
+@pulumi.type_token("azure-native:cognitiveservices:ManagedPEStatus")
 class ManagedPEStatus(builtins.str, Enum):
     INACTIVE = "Inactive"
     ACTIVE = "Active"
     NOT_APPLICABLE = "NotApplicable"
 
 
+@pulumi.type_token("azure-native:cognitiveservices:NetworkRuleAction")
 class NetworkRuleAction(builtins.str, Enum):
     """
     The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
@@ -246,6 +259,7 @@ class NetworkRuleAction(builtins.str, Enum):
     DENY = "Deny"
 
 
+@pulumi.type_token("azure-native:cognitiveservices:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -255,6 +269,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:cognitiveservices:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Whether or not public endpoint access is allowed for this account.
@@ -263,6 +278,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:cognitiveservices:RaiPolicyContentSource")
 class RaiPolicyContentSource(builtins.str, Enum):
     """
     Content source to apply the Content Filters.
@@ -271,6 +287,7 @@ class RaiPolicyContentSource(builtins.str, Enum):
     COMPLETION = "Completion"
 
 
+@pulumi.type_token("azure-native:cognitiveservices:RaiPolicyMode")
 class RaiPolicyMode(builtins.str, Enum):
     """
     Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2024-10-01. It is the same as 'Deferred' in previous version.
@@ -281,6 +298,7 @@ class RaiPolicyMode(builtins.str, Enum):
     ASYNCHRONOUS_FILTER = "Asynchronous_filter"
 
 
+@pulumi.type_token("azure-native:cognitiveservices:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The identity type.
@@ -291,6 +309,7 @@ class ResourceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
 
 
+@pulumi.type_token("azure-native:cognitiveservices:RoutingMethods")
 class RoutingMethods(builtins.str, Enum):
     """
     Multiregion routing methods.
@@ -300,6 +319,7 @@ class RoutingMethods(builtins.str, Enum):
     PERFORMANCE = "Performance"
 
 
+@pulumi.type_token("azure-native:cognitiveservices:SkuTier")
 class SkuTier(builtins.str, Enum):
     """
     This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.

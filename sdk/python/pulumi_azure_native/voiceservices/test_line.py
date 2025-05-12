@@ -135,10 +135,8 @@ class TestLineArgs:
         pulumi.set(self, "test_line_name", value)
 
 
+@pulumi.type_token("azure-native:voiceservices:TestLine")
 class TestLine(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:voiceservices:TestLine"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

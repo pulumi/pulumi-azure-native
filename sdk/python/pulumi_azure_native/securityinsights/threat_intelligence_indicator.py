@@ -538,10 +538,8 @@ class ThreatIntelligenceIndicatorArgs:
         pulumi.set(self, "valid_until", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:ThreatIntelligenceIndicator")
 class ThreatIntelligenceIndicator(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:ThreatIntelligenceIndicator"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

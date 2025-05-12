@@ -59,10 +59,8 @@ class EksClusterArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:EksCluster")
 class EksCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:EksCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

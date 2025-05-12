@@ -88,10 +88,8 @@ class ProductWikiArgs:
         pulumi.set(self, "documents", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:ProductWiki")
 class ProductWiki(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:ProductWiki"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

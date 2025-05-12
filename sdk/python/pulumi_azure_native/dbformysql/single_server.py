@@ -138,10 +138,8 @@ class SingleServerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:dbformysql:SingleServer")
 class SingleServer(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dbformysql:SingleServer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

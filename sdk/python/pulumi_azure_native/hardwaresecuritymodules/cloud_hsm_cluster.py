@@ -155,10 +155,8 @@ class CloudHsmClusterArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:hardwaresecuritymodules:CloudHsmCluster")
 class CloudHsmCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hardwaresecuritymodules:CloudHsmCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

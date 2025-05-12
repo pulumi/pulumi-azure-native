@@ -251,10 +251,8 @@ class MaintenanceConfigurationArgs:
         pulumi.set(self, "visibility", value)
 
 
+@pulumi.type_token("azure-native:maintenance:MaintenanceConfiguration")
 class MaintenanceConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:maintenance:MaintenanceConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

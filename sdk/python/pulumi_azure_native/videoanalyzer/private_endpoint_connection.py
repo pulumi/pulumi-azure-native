@@ -89,10 +89,8 @@ class PrivateEndpointConnectionArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure-native:videoanalyzer:PrivateEndpointConnection")
 class PrivateEndpointConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:videoanalyzer:PrivateEndpointConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

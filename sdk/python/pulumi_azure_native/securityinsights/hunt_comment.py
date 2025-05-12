@@ -102,10 +102,8 @@ class HuntCommentArgs:
         pulumi.set(self, "hunt_comment_id", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:HuntComment")
 class HuntComment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:HuntComment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

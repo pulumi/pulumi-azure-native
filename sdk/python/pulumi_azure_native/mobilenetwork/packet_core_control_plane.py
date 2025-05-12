@@ -344,10 +344,8 @@ class PacketCoreControlPlaneArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure-native:mobilenetwork:PacketCoreControlPlane")
 class PacketCoreControlPlane(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:mobilenetwork:PacketCoreControlPlane"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

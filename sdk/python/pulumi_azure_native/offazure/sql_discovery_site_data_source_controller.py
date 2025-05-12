@@ -103,10 +103,8 @@ class SqlDiscoverySiteDataSourceControllerArgs:
         pulumi.set(self, "discovery_site_id", value)
 
 
+@pulumi.type_token("azure-native:offazure:SqlDiscoverySiteDataSourceController")
 class SqlDiscoverySiteDataSourceController(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:offazure:SqlDiscoverySiteDataSourceController"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

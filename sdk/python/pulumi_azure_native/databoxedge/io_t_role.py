@@ -199,10 +199,8 @@ class IoTRoleArgs:
         pulumi.set(self, "share_mappings", value)
 
 
+@pulumi.type_token("azure-native:databoxedge:IoTRole")
 class IoTRole(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databoxedge:IoTRole"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

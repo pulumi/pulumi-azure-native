@@ -88,10 +88,8 @@ class CodeContainerInitArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:CodeContainer")
 class CodeContainer(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:CodeContainer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -107,10 +107,8 @@ class Ec2InstanceStatusArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:Ec2InstanceStatus")
 class Ec2InstanceStatus(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:Ec2InstanceStatus"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

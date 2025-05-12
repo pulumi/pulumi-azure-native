@@ -88,10 +88,8 @@ class MarketplaceSubscriptionInitArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:MarketplaceSubscription")
 class MarketplaceSubscription(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:MarketplaceSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

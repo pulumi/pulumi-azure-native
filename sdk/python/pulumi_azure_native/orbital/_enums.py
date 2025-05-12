@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:orbital:AutoTrackingConfiguration")
 class AutoTrackingConfiguration(builtins.str, Enum):
     """
     Auto-tracking configuration.
@@ -24,6 +25,7 @@ class AutoTrackingConfiguration(builtins.str, Enum):
     S_BAND = "sBand"
 
 
+@pulumi.type_token("azure-native:orbital:Capability")
 class Capability(builtins.str, Enum):
     """
     Capability of the Ground Station.
@@ -32,6 +34,7 @@ class Capability(builtins.str, Enum):
     COMMUNICATION = "Communication"
 
 
+@pulumi.type_token("azure-native:orbital:Direction")
 class Direction(builtins.str, Enum):
     """
     Direction (Uplink or Downlink).
@@ -40,6 +43,7 @@ class Direction(builtins.str, Enum):
     DOWNLINK = "Downlink"
 
 
+@pulumi.type_token("azure-native:orbital:Polarization")
 class Polarization(builtins.str, Enum):
     """
     Polarization. e.g. (RHCP, LHCP).
@@ -50,6 +54,7 @@ class Polarization(builtins.str, Enum):
     LINEAR_HORIZONTAL = "linearHorizontal"
 
 
+@pulumi.type_token("azure-native:orbital:Protocol")
 class Protocol(builtins.str, Enum):
     """
     Protocol either UDP or TCP.

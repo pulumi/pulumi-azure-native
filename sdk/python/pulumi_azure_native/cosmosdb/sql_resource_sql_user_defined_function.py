@@ -166,10 +166,8 @@ class SqlResourceSqlUserDefinedFunctionArgs:
         pulumi.set(self, "user_defined_function_name", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:SqlResourceSqlUserDefinedFunction")
 class SqlResourceSqlUserDefinedFunction(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:SqlResourceSqlUserDefinedFunction"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

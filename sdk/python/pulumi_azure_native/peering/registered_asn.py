@@ -87,10 +87,8 @@ class RegisteredAsnArgs:
         pulumi.set(self, "registered_asn_name", value)
 
 
+@pulumi.type_token("azure-native:peering:RegisteredAsn")
 class RegisteredAsn(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:peering:RegisteredAsn"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -72,10 +72,8 @@ class BackupInitArgs:
         pulumi.set(self, "backup_name", value)
 
 
+@pulumi.type_token("azure-native:dbforpostgresql:Backup")
 class Backup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dbforpostgresql:Backup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -118,10 +118,8 @@ class SignalRSharedPrivateLinkResourceArgs:
         pulumi.set(self, "shared_private_link_resource_name", value)
 
 
+@pulumi.type_token("azure-native:signalrservice:SignalRSharedPrivateLinkResource")
 class SignalRSharedPrivateLinkResource(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:signalrservice:SignalRSharedPrivateLinkResource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

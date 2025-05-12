@@ -71,10 +71,8 @@ class NotificationRegistrationArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:providerhub:NotificationRegistration")
 class NotificationRegistration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:providerhub:NotificationRegistration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -234,10 +234,8 @@ class StorageClassArgs:
         pulumi.set(self, "volume_binding_mode", value)
 
 
+@pulumi.type_token("azure-native:kubernetesruntime:StorageClass")
 class StorageClass(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:kubernetesruntime:StorageClass"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -119,10 +119,8 @@ class FqdnListLocalRulestackArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure-native:cloudngfw:FqdnListLocalRulestack")
 class FqdnListLocalRulestack(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cloudngfw:FqdnListLocalRulestack"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

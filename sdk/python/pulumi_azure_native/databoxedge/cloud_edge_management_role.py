@@ -105,10 +105,8 @@ class CloudEdgeManagementRoleArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure-native:databoxedge:CloudEdgeManagementRole")
 class CloudEdgeManagementRole(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databoxedge:CloudEdgeManagementRole"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

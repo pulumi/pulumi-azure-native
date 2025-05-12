@@ -88,10 +88,8 @@ class RegistrationArgs:
         pulumi.set(self, "registration_name", value)
 
 
+@pulumi.type_token("azure-native:azurestack:Registration")
 class Registration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurestack:Registration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

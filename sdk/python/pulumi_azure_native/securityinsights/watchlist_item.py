@@ -231,10 +231,8 @@ class WatchlistItemArgs:
         pulumi.set(self, "watchlist_item_type", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:WatchlistItem")
 class WatchlistItem(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:WatchlistItem"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

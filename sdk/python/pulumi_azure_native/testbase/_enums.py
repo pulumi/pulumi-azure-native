@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -28,6 +28,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:testbase:Action")
 class Action(builtins.str, Enum):
     """
     The action of the command.
@@ -40,6 +41,7 @@ class Action(builtins.str, Enum):
     FLOW_DRIVEN_CUSTOM = "FlowDrivenCustom"
 
 
+@pulumi.type_token("azure-native:testbase:Architecture")
 class Architecture(builtins.str, Enum):
     """
     The architecture of a first party application of a Test Base Account.
@@ -49,6 +51,7 @@ class Architecture(builtins.str, Enum):
     ARM64 = "arm64"
 
 
+@pulumi.type_token("azure-native:testbase:ContentType")
 class ContentType(builtins.str, Enum):
     """
     The type of command content.
@@ -58,6 +61,7 @@ class ContentType(builtins.str, Enum):
     PATH = "Path"
 
 
+@pulumi.type_token("azure-native:testbase:CredentialType")
 class CredentialType(builtins.str, Enum):
     """
     Credential type.
@@ -68,6 +72,7 @@ class CredentialType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:testbase:DraftPackageSourceType")
 class DraftPackageSourceType(builtins.str, Enum):
     """
     The source type.
@@ -79,6 +84,7 @@ class DraftPackageSourceType(builtins.str, Enum):
     INTUNE_ENROLLMENT = "IntuneEnrollment"
 
 
+@pulumi.type_token("azure-native:testbase:Engagements")
 class Engagements(builtins.str, Enum):
     MVI = "MVI"
     MVP = "MVP"
@@ -87,6 +93,7 @@ class Engagements(builtins.str, Enum):
     OTHER = "Other"
 
 
+@pulumi.type_token("azure-native:testbase:FileUploadResourceType")
 class FileUploadResourceType(builtins.str, Enum):
     """
     Resource type for file uploading.
@@ -101,6 +108,7 @@ class FileUploadResourceType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:testbase:ImageArchitecture")
 class ImageArchitecture(builtins.str, Enum):
     """
     Custom image architecture.
@@ -111,6 +119,7 @@ class ImageArchitecture(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:testbase:ImageOSState")
 class ImageOSState(builtins.str, Enum):
     """
     Custom image OS state.
@@ -125,6 +134,7 @@ class ImageOSState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:testbase:ImageSecurityType")
 class ImageSecurityType(builtins.str, Enum):
     """
     Custom image security type.
@@ -139,6 +149,7 @@ class ImageSecurityType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:testbase:ImageSource")
 class ImageSource(builtins.str, Enum):
     """
     Custom image source type.
@@ -153,6 +164,7 @@ class ImageSource(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:testbase:InteropExecutionMode")
 class InteropExecutionMode(builtins.str, Enum):
     """
     Specifies how the first party applications should be inter-operated with user's application.
@@ -167,6 +179,7 @@ class InteropExecutionMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:testbase:IntuneExtractStatus")
 class IntuneExtractStatus(builtins.str, Enum):
     """
     Extract status.
@@ -178,6 +191,7 @@ class IntuneExtractStatus(builtins.str, Enum):
     NO_DEPENDENCY_APP = "NoDependencyApp"
 
 
+@pulumi.type_token("azure-native:testbase:PackageStudioTabs")
 class PackageStudioTabs(builtins.str, Enum):
     """
     Specifies the tabs when creating / cloning / editing a package.
@@ -191,10 +205,12 @@ class PackageStudioTabs(builtins.str, Enum):
     REVIEW_AND_CREATE_TAB = "ReviewAndCreateTab"
 
 
+@pulumi.type_token("azure-native:testbase:RequestTypes")
 class RequestTypes(builtins.str, Enum):
     PRE_RELEASE_ACCESS = "PreReleaseAccess"
 
 
+@pulumi.type_token("azure-native:testbase:SystemAssignedServiceIdentityType")
 class SystemAssignedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (either system assigned, or none).
@@ -203,6 +219,7 @@ class SystemAssignedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
 
 
+@pulumi.type_token("azure-native:testbase:TestType")
 class TestType(builtins.str, Enum):
     """
     The type of the test.
@@ -212,6 +229,7 @@ class TestType(builtins.str, Enum):
     FLOW_DRIVEN_TEST = "FlowDrivenTest"
 
 
+@pulumi.type_token("azure-native:testbase:Tier")
 class Tier(builtins.str, Enum):
     """
     The tier of this particular SKU.

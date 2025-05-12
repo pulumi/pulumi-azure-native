@@ -105,10 +105,8 @@ class PrivateLinkHubArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:synapse:PrivateLinkHub")
 class PrivateLinkHub(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:synapse:PrivateLinkHub"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

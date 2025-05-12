@@ -75,10 +75,8 @@ class PrivateLinkAssociationArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:authorization:PrivateLinkAssociation")
 class PrivateLinkAssociation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:authorization:PrivateLinkAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

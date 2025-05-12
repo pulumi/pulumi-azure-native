@@ -102,10 +102,8 @@ class ApiReleaseArgs:
         pulumi.set(self, "release_id", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:ApiRelease")
 class ApiRelease(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:ApiRelease"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

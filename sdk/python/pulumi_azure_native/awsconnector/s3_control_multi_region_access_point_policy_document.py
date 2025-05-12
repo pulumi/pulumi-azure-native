@@ -106,10 +106,8 @@ class S3ControlMultiRegionAccessPointPolicyDocumentArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:S3ControlMultiRegionAccessPointPolicyDocument")
 class S3ControlMultiRegionAccessPointPolicyDocument(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:S3ControlMultiRegionAccessPointPolicyDocument"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -299,10 +299,8 @@ class NetworkVirtualApplianceArgs:
         pulumi.set(self, "virtual_hub", value)
 
 
+@pulumi.type_token("azure-native:network:NetworkVirtualAppliance")
 class NetworkVirtualAppliance(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:NetworkVirtualAppliance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

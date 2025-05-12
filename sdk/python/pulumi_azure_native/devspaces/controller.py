@@ -136,10 +136,8 @@ class ControllerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:devspaces:Controller")
 class Controller(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devspaces:Controller"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

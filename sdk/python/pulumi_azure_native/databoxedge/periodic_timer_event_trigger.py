@@ -136,10 +136,8 @@ class PeriodicTimerEventTriggerArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure-native:databoxedge:PeriodicTimerEventTrigger")
 class PeriodicTimerEventTrigger(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databoxedge:PeriodicTimerEventTrigger"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

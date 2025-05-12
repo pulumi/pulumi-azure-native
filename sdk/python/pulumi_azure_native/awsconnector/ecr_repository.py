@@ -107,10 +107,8 @@ class EcrRepositoryArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:EcrRepository")
 class EcrRepository(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:EcrRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

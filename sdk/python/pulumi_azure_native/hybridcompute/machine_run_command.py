@@ -283,10 +283,8 @@ class MachineRunCommandArgs:
         pulumi.set(self, "timeout_in_seconds", value)
 
 
+@pulumi.type_token("azure-native:hybridcompute:MachineRunCommand")
 class MachineRunCommand(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybridcompute:MachineRunCommand"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

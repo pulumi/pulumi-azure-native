@@ -101,10 +101,8 @@ class FirewallRuleArgs:
         pulumi.set(self, "rule_name", value)
 
 
+@pulumi.type_token("azure-native:redis:FirewallRule")
 class FirewallRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:redis:FirewallRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

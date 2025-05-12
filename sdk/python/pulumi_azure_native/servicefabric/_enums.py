@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -42,6 +42,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:servicefabric:Access")
 class Access(builtins.str, Enum):
     """
     The network traffic is allowed or denied.
@@ -50,6 +51,7 @@ class Access(builtins.str, Enum):
     DENY = "deny"
 
 
+@pulumi.type_token("azure-native:servicefabric:ClusterUpgradeCadence")
 class ClusterUpgradeCadence(builtins.str, Enum):
     """
     Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **clusterUpgradeMode** is set to 'Automatic'.
@@ -68,6 +70,7 @@ class ClusterUpgradeCadence(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabric:ClusterUpgradeMode")
 class ClusterUpgradeMode(builtins.str, Enum):
     """
     The upgrade mode of the cluster when new Service Fabric runtime version is available.
@@ -82,6 +85,7 @@ class ClusterUpgradeMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabric:Direction")
 class Direction(builtins.str, Enum):
     """
     Network security rule direction.
@@ -90,6 +94,7 @@ class Direction(builtins.str, Enum):
     OUTBOUND = "outbound"
 
 
+@pulumi.type_token("azure-native:servicefabric:DiskType")
 class DiskType(builtins.str, Enum):
     """
     Managed data disk type. Specifies the storage account type for the managed disk
@@ -108,6 +113,7 @@ class DiskType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabric:EvictionPolicyType")
 class EvictionPolicyType(builtins.str, Enum):
     """
     Specifies the eviction policy for virtual machines in a SPOT node type. Default is Delete.
@@ -122,6 +128,7 @@ class EvictionPolicyType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabric:FailureAction")
 class FailureAction(builtins.str, Enum):
     """
     The compensating action to perform when a Monitored upgrade encounters monitoring policy or health policy violations. Invalid indicates the failure action is invalid. Rollback specifies that the upgrade will start rolling back automatically. Manual indicates that the upgrade will switch to UnmonitoredManual upgrade mode.
@@ -136,6 +143,7 @@ class FailureAction(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabric:IPAddressType")
 class IPAddressType(builtins.str, Enum):
     """
     The IP address type of this frontend configuration. If omitted the default value is IPv4.
@@ -150,6 +158,7 @@ class IPAddressType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabric:ManagedClusterAddOnFeature")
 class ManagedClusterAddOnFeature(builtins.str, Enum):
     """
     Available cluster add-on features
@@ -168,6 +177,7 @@ class ManagedClusterAddOnFeature(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabric:ManagedIdentityType")
 class ManagedIdentityType(builtins.str, Enum):
     """
     The type of managed identity for the resource.
@@ -190,6 +200,7 @@ class ManagedIdentityType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabric:MoveCost")
 class MoveCost(builtins.str, Enum):
     """
     Specifies the move cost for the service.
@@ -212,6 +223,7 @@ class MoveCost(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabric:NsgProtocol")
 class NsgProtocol(builtins.str, Enum):
     """
     Network protocol this rule applies to.
@@ -225,6 +237,7 @@ class NsgProtocol(builtins.str, Enum):
     ESP = "esp"
 
 
+@pulumi.type_token("azure-native:servicefabric:PartitionScheme")
 class PartitionScheme(builtins.str, Enum):
     """
     Enumerates the ways that a service can be partitioned.
@@ -243,6 +256,7 @@ class PartitionScheme(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabric:PrivateEndpointNetworkPolicies")
 class PrivateEndpointNetworkPolicies(builtins.str, Enum):
     """
     Enable or Disable apply network policies on private end point in the subnet.
@@ -251,6 +265,7 @@ class PrivateEndpointNetworkPolicies(builtins.str, Enum):
     DISABLED = "disabled"
 
 
+@pulumi.type_token("azure-native:servicefabric:PrivateIPAddressVersion")
 class PrivateIPAddressVersion(builtins.str, Enum):
     """
     Specifies whether the IP configuration's private IP is IPv4 or IPv6. Default is IPv4.
@@ -259,6 +274,7 @@ class PrivateIPAddressVersion(builtins.str, Enum):
     I_PV6 = "IPv6"
 
 
+@pulumi.type_token("azure-native:servicefabric:PrivateLinkServiceNetworkPolicies")
 class PrivateLinkServiceNetworkPolicies(builtins.str, Enum):
     """
     Enable or Disable apply network policies on private link service in the subnet.
@@ -267,6 +283,7 @@ class PrivateLinkServiceNetworkPolicies(builtins.str, Enum):
     DISABLED = "disabled"
 
 
+@pulumi.type_token("azure-native:servicefabric:ProbeProtocol")
 class ProbeProtocol(builtins.str, Enum):
     """
     the reference to the load balancer probe used by the load balancing rule.
@@ -276,6 +293,7 @@ class ProbeProtocol(builtins.str, Enum):
     HTTPS = "https"
 
 
+@pulumi.type_token("azure-native:servicefabric:Protocol")
 class Protocol(builtins.str, Enum):
     """
     The reference to the transport protocol used by the load balancing rule.
@@ -284,6 +302,7 @@ class Protocol(builtins.str, Enum):
     UDP = "udp"
 
 
+@pulumi.type_token("azure-native:servicefabric:PublicIPAddressVersion")
 class PublicIPAddressVersion(builtins.str, Enum):
     """
     Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
@@ -292,6 +311,7 @@ class PublicIPAddressVersion(builtins.str, Enum):
     I_PV6 = "IPv6"
 
 
+@pulumi.type_token("azure-native:servicefabric:RollingUpgradeMode")
 class RollingUpgradeMode(builtins.str, Enum):
     """
     The mode used to monitor health during a rolling upgrade. The values are Monitored, and UnmonitoredAuto.
@@ -306,6 +326,7 @@ class RollingUpgradeMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabric:SecurityType")
 class SecurityType(builtins.str, Enum):
     """
     Specifies the security type of the nodeType. Only Standard and TrustedLaunch are currently supported
@@ -320,6 +341,7 @@ class SecurityType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabric:ServiceCorrelationScheme")
 class ServiceCorrelationScheme(builtins.str, Enum):
     """
     The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
@@ -334,6 +356,7 @@ class ServiceCorrelationScheme(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabric:ServiceKind")
 class ServiceKind(builtins.str, Enum):
     """
     The kind of service (Stateless or Stateful).
@@ -348,6 +371,7 @@ class ServiceKind(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabric:ServiceLoadMetricWeight")
 class ServiceLoadMetricWeight(builtins.str, Enum):
     """
     The service load metric relative weight, compared to other metrics configured for this service, as a number.
@@ -370,6 +394,7 @@ class ServiceLoadMetricWeight(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabric:ServicePackageActivationMode")
 class ServicePackageActivationMode(builtins.str, Enum):
     """
     The activation Mode of the service package
@@ -384,6 +409,7 @@ class ServicePackageActivationMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabric:ServicePlacementPolicyType")
 class ServicePlacementPolicyType(builtins.str, Enum):
     """
     The type of placement policy for a service fabric service. Following are the possible values.
@@ -410,6 +436,7 @@ class ServicePlacementPolicyType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabric:ServiceScalingMechanismKind")
 class ServiceScalingMechanismKind(builtins.str, Enum):
     """
     Enumerates the ways that a service can be partitioned.
@@ -424,6 +451,7 @@ class ServiceScalingMechanismKind(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabric:ServiceScalingTriggerKind")
 class ServiceScalingTriggerKind(builtins.str, Enum):
     """
     Enumerates the ways that a service can be partitioned.
@@ -438,6 +466,7 @@ class ServiceScalingTriggerKind(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabric:SkuName")
 class SkuName(builtins.str, Enum):
     """
     Sku Name.
@@ -452,6 +481,7 @@ class SkuName(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabric:VmSetupAction")
 class VmSetupAction(builtins.str, Enum):
     """
     action to be performed on the vms before bootstrapping the service fabric runtime.
@@ -466,6 +496,7 @@ class VmSetupAction(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabric:VmssExtensionSetupOrder")
 class VmssExtensionSetupOrder(builtins.str, Enum):
     """
     Vm extension setup order.
@@ -476,6 +507,7 @@ class VmssExtensionSetupOrder(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:servicefabric:ZonalUpdateMode")
 class ZonalUpdateMode(builtins.str, Enum):
     """
     Indicates the update mode for Cross Az clusters.

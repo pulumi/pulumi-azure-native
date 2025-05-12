@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -17,12 +17,14 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:relay:AccessRights")
 class AccessRights(builtins.str, Enum):
     MANAGE = "Manage"
     SEND = "Send"
     LISTEN = "Listen"
 
 
+@pulumi.type_token("azure-native:relay:EndPointProvisioningState")
 class EndPointProvisioningState(builtins.str, Enum):
     """
     Provisioning state of the Private Endpoint Connection.
@@ -35,6 +37,7 @@ class EndPointProvisioningState(builtins.str, Enum):
     FAILED = "Failed"
 
 
+@pulumi.type_token("azure-native:relay:PrivateLinkConnectionStatus")
 class PrivateLinkConnectionStatus(builtins.str, Enum):
     """
     Status of the connection.
@@ -45,6 +48,7 @@ class PrivateLinkConnectionStatus(builtins.str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+@pulumi.type_token("azure-native:relay:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     This determines if traffic is allowed over public network. By default it is enabled.
@@ -54,6 +58,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     SECURED_BY_PERIMETER = "SecuredByPerimeter"
 
 
+@pulumi.type_token("azure-native:relay:Relaytype")
 class Relaytype(builtins.str, Enum):
     """
     WCF relay type.
@@ -62,6 +67,7 @@ class Relaytype(builtins.str, Enum):
     HTTP = "Http"
 
 
+@pulumi.type_token("azure-native:relay:SkuName")
 class SkuName(builtins.str, Enum):
     """
     Name of this SKU.
@@ -69,6 +75,7 @@ class SkuName(builtins.str, Enum):
     STANDARD = "Standard"
 
 
+@pulumi.type_token("azure-native:relay:SkuTier")
 class SkuTier(builtins.str, Enum):
     """
     The tier of this SKU.

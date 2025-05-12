@@ -107,10 +107,8 @@ class SageMakerNotebookInstanceSummaryArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:SageMakerNotebookInstanceSummary")
 class SageMakerNotebookInstanceSummary(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:SageMakerNotebookInstanceSummary"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

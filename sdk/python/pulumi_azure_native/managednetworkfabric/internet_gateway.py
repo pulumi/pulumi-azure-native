@@ -152,10 +152,8 @@ class InternetGatewayArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:InternetGateway")
 class InternetGateway(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:managednetworkfabric:InternetGateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

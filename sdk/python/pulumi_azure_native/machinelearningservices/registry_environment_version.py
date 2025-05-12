@@ -104,10 +104,8 @@ class RegistryEnvironmentVersionArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:RegistryEnvironmentVersion")
 class RegistryEnvironmentVersion(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:RegistryEnvironmentVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

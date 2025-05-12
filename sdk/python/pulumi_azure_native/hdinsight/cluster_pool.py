@@ -170,10 +170,8 @@ class ClusterPoolArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:hdinsight:ClusterPool")
 class ClusterPool(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hdinsight:ClusterPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

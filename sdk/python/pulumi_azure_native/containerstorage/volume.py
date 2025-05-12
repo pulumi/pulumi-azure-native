@@ -102,10 +102,8 @@ class VolumeArgs:
         pulumi.set(self, "volume_name", value)
 
 
+@pulumi.type_token("azure-native:containerstorage:Volume")
 class Volume(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerstorage:Volume"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -104,10 +104,8 @@ class ReplicationvCenterArgs:
         pulumi.set(self, "vcenter_name", value)
 
 
+@pulumi.type_token("azure-native:recoveryservices:ReplicationvCenter")
 class ReplicationvCenter(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:recoveryservices:ReplicationvCenter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

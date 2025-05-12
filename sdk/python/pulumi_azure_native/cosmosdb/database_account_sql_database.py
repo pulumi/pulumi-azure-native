@@ -103,10 +103,8 @@ class DatabaseAccountSqlDatabaseArgs:
         pulumi.set(self, "database_name", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:DatabaseAccountSqlDatabase")
 class DatabaseAccountSqlDatabase(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:DatabaseAccountSqlDatabase"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

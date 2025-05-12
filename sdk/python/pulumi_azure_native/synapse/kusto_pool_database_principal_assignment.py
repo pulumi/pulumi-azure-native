@@ -164,10 +164,8 @@ class KustoPoolDatabasePrincipalAssignmentArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure-native:synapse:KustoPoolDatabasePrincipalAssignment")
 class KustoPoolDatabasePrincipalAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:synapse:KustoPoolDatabasePrincipalAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

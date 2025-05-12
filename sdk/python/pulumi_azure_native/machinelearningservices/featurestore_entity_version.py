@@ -104,10 +104,8 @@ class FeaturestoreEntityVersionInitArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:FeaturestoreEntityVersion")
 class FeaturestoreEntityVersion(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:FeaturestoreEntityVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

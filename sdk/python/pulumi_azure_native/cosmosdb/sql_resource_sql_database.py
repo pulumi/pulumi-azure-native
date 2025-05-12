@@ -137,10 +137,8 @@ class SqlResourceSqlDatabaseArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:SqlResourceSqlDatabase")
 class SqlResourceSqlDatabase(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:SqlResourceSqlDatabase"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

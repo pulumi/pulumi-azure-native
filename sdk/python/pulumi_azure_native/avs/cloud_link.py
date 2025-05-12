@@ -88,10 +88,8 @@ class CloudLinkArgs:
         pulumi.set(self, "linked_cloud", value)
 
 
+@pulumi.type_token("azure-native:avs:CloudLink")
 class CloudLink(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:avs:CloudLink"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

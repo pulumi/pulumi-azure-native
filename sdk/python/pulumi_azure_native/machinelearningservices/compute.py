@@ -154,10 +154,8 @@ class ComputeArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:Compute")
 class Compute(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:Compute"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -123,10 +123,8 @@ class PipelineGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:monitor:PipelineGroup")
 class PipelineGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:monitor:PipelineGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

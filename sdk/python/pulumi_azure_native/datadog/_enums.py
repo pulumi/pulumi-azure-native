@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:datadog:ManagedIdentityTypes")
 class ManagedIdentityTypes(builtins.str, Enum):
     """
     Specifies the identity type of the Datadog Monitor. At this time the only allowed value is 'SystemAssigned'.
@@ -23,6 +24,7 @@ class ManagedIdentityTypes(builtins.str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+@pulumi.type_token("azure-native:datadog:MonitoringStatus")
 class MonitoringStatus(builtins.str, Enum):
     """
     Flag specifying if the resource monitoring is enabled or disabled.
@@ -31,6 +33,7 @@ class MonitoringStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:datadog:Operation")
 class Operation(builtins.str, Enum):
     """
     The operation for the patch on the resource.
@@ -42,6 +45,7 @@ class Operation(builtins.str, Enum):
     ACTIVE = "Active"
 
 
+@pulumi.type_token("azure-native:datadog:Status")
 class Status(builtins.str, Enum):
     """
     The state of monitoring.
@@ -52,6 +56,7 @@ class Status(builtins.str, Enum):
     DELETING = "Deleting"
 
 
+@pulumi.type_token("azure-native:datadog:TagAction")
 class TagAction(builtins.str, Enum):
     """
     Valid actions for a filtering tag. Exclusion takes priority over inclusion.

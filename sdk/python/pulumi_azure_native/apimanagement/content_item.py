@@ -102,10 +102,8 @@ class ContentItemArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:ContentItem")
 class ContentItem(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:ContentItem"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

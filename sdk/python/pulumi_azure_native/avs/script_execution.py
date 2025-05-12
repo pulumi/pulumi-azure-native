@@ -204,10 +204,8 @@ class ScriptExecutionArgs:
         pulumi.set(self, "script_execution_name", value)
 
 
+@pulumi.type_token("azure-native:avs:ScriptExecution")
 class ScriptExecution(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:avs:ScriptExecution"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

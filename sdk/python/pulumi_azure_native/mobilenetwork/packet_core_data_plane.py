@@ -136,10 +136,8 @@ class PacketCoreDataPlaneArgs:
         pulumi.set(self, "user_plane_access_virtual_ipv4_addresses", value)
 
 
+@pulumi.type_token("azure-native:mobilenetwork:PacketCoreDataPlane")
 class PacketCoreDataPlane(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:mobilenetwork:PacketCoreDataPlane"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

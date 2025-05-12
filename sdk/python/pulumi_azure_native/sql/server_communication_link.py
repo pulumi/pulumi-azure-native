@@ -86,10 +86,8 @@ class ServerCommunicationLinkArgs:
         pulumi.set(self, "communication_link_name", value)
 
 
+@pulumi.type_token("azure-native:sql:ServerCommunicationLink")
 class ServerCommunicationLink(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:ServerCommunicationLink"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

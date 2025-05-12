@@ -88,10 +88,8 @@ class SentinelOnboardingStateArgs:
         pulumi.set(self, "sentinel_onboarding_state_name", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:SentinelOnboardingState")
 class SentinelOnboardingState(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:SentinelOnboardingState"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

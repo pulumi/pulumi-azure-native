@@ -106,10 +106,8 @@ class TrafficControllerInterfaceArgs:
         pulumi.set(self, "traffic_controller_name", value)
 
 
+@pulumi.type_token("azure-native:servicenetworking:TrafficControllerInterface")
 class TrafficControllerInterface(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:servicenetworking:TrafficControllerInterface"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

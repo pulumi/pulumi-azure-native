@@ -140,10 +140,8 @@ class CloudServicesNetworkArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:networkcloud:CloudServicesNetwork")
 class CloudServicesNetwork(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:networkcloud:CloudServicesNetwork"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

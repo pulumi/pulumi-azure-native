@@ -107,10 +107,8 @@ class Wafv2LoggingConfigurationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:Wafv2LoggingConfiguration")
 class Wafv2LoggingConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:Wafv2LoggingConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

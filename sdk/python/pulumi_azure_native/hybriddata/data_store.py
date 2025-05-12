@@ -152,10 +152,8 @@ class DataStoreArgs:
         pulumi.set(self, "repository_id", value)
 
 
+@pulumi.type_token("azure-native:hybriddata:DataStore")
 class DataStore(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybriddata:DataStore"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

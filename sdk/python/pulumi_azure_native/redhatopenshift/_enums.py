@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -16,6 +16,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:redhatopenshift:EncryptionAtHost")
 class EncryptionAtHost(builtins.str, Enum):
     """
     Whether master virtual machines are encrypted at host.
@@ -24,6 +25,7 @@ class EncryptionAtHost(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:redhatopenshift:FipsValidatedModules")
 class FipsValidatedModules(builtins.str, Enum):
     """
     If FIPS validated crypto modules are used
@@ -32,6 +34,7 @@ class FipsValidatedModules(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:redhatopenshift:OutboundType")
 class OutboundType(builtins.str, Enum):
     """
     The OutboundType used for egress traffic.
@@ -40,6 +43,7 @@ class OutboundType(builtins.str, Enum):
     USER_DEFINED_ROUTING = "UserDefinedRouting"
 
 
+@pulumi.type_token("azure-native:redhatopenshift:PreconfiguredNSG")
 class PreconfiguredNSG(builtins.str, Enum):
     """
     Specifies whether subnets are pre-attached with an NSG
@@ -48,6 +52,7 @@ class PreconfiguredNSG(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:redhatopenshift:ProvisioningState")
 class ProvisioningState(builtins.str, Enum):
     """
     The cluster provisioning state.
@@ -61,6 +66,7 @@ class ProvisioningState(builtins.str, Enum):
     UPDATING = "Updating"
 
 
+@pulumi.type_token("azure-native:redhatopenshift:Visibility")
 class Visibility(builtins.str, Enum):
     """
     Ingress visibility.

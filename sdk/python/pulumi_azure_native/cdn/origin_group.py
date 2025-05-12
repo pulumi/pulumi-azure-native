@@ -152,10 +152,8 @@ class OriginGroupArgs:
         pulumi.set(self, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes", value)
 
 
+@pulumi.type_token("azure-native:cdn:OriginGroup")
 class OriginGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cdn:OriginGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

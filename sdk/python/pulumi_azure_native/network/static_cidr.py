@@ -104,10 +104,8 @@ class StaticCidrArgs:
         pulumi.set(self, "static_cidr_name", value)
 
 
+@pulumi.type_token("azure-native:network:StaticCidr")
 class StaticCidr(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:StaticCidr"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

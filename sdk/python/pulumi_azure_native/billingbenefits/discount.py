@@ -264,10 +264,8 @@ class DiscountArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:billingbenefits:Discount")
 class Discount(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:billingbenefits:Discount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

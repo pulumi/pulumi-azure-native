@@ -170,10 +170,8 @@ class ExperimentArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:frontdoor:Experiment")
 class Experiment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:frontdoor:Experiment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

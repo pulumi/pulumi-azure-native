@@ -154,10 +154,8 @@ class RestorePointArgs:
         pulumi.set(self, "time_created", value)
 
 
+@pulumi.type_token("azure-native:compute:RestorePoint")
 class RestorePoint(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:compute:RestorePoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

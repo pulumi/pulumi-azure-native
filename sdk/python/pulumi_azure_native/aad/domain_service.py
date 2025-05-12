@@ -269,10 +269,8 @@ class DomainServiceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:aad:DomainService")
 class DomainService(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:aad:DomainService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -187,10 +187,8 @@ class ADCCatalogArgs:
         pulumi.set(self, "users", value)
 
 
+@pulumi.type_token("azure-native:datacatalog:ADCCatalog")
 class ADCCatalog(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datacatalog:ADCCatalog"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

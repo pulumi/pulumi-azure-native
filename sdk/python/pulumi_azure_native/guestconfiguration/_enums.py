@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:guestconfiguration:AssignmentType")
 class AssignmentType(builtins.str, Enum):
     """
     Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
@@ -22,6 +23,7 @@ class AssignmentType(builtins.str, Enum):
     APPLY_AND_MONITOR = "ApplyAndMonitor"
 
 
+@pulumi.type_token("azure-native:guestconfiguration:Kind")
 class Kind(builtins.str, Enum):
     """
     Kind of the guest configuration. For example:DSC

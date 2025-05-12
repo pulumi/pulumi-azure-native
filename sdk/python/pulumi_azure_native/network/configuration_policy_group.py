@@ -154,10 +154,8 @@ class ConfigurationPolicyGroupArgs:
         pulumi.set(self, "priority", value)
 
 
+@pulumi.type_token("azure-native:network:ConfigurationPolicyGroup")
 class ConfigurationPolicyGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:ConfigurationPolicyGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

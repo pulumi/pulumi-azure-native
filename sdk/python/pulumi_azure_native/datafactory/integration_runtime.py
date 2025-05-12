@@ -89,10 +89,8 @@ class IntegrationRuntimeArgs:
         pulumi.set(self, "integration_runtime_name", value)
 
 
+@pulumi.type_token("azure-native:datafactory:IntegrationRuntime")
 class IntegrationRuntime(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datafactory:IntegrationRuntime"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

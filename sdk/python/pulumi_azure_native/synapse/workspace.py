@@ -353,10 +353,8 @@ class WorkspaceArgs:
         pulumi.set(self, "workspace_repository_configuration", value)
 
 
+@pulumi.type_token("azure-native:synapse:Workspace")
 class Workspace(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:synapse:Workspace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

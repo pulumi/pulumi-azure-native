@@ -106,10 +106,8 @@ class ManagementLockAtResourceGroupLevelArgs:
         pulumi.set(self, "owners", value)
 
 
+@pulumi.type_token("azure-native:authorization:ManagementLockAtResourceGroupLevel")
 class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:authorization:ManagementLockAtResourceGroupLevel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

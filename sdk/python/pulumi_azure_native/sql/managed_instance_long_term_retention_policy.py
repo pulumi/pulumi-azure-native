@@ -167,10 +167,8 @@ class ManagedInstanceLongTermRetentionPolicyArgs:
         pulumi.set(self, "yearly_retention", value)
 
 
+@pulumi.type_token("azure-native:sql:ManagedInstanceLongTermRetentionPolicy")
 class ManagedInstanceLongTermRetentionPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:ManagedInstanceLongTermRetentionPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

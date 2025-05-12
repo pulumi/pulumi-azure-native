@@ -179,10 +179,8 @@ class ADLSGen2FileDataSetArgs:
         pulumi.set(self, "data_set_name", value)
 
 
+@pulumi.type_token("azure-native:datashare:ADLSGen2FileDataSet")
 class ADLSGen2FileDataSet(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datashare:ADLSGen2FileDataSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

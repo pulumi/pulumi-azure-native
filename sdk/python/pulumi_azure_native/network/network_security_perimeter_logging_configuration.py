@@ -89,10 +89,8 @@ class NetworkSecurityPerimeterLoggingConfigurationArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:network:NetworkSecurityPerimeterLoggingConfiguration")
 class NetworkSecurityPerimeterLoggingConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:NetworkSecurityPerimeterLoggingConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

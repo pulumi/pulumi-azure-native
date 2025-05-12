@@ -242,10 +242,8 @@ class L3NetworkArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:networkcloud:L3Network")
 class L3Network(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:networkcloud:L3Network"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

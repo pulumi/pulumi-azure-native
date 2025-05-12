@@ -151,10 +151,8 @@ class InstanceFailoverGroupArgs:
         pulumi.set(self, "secondary_type", value)
 
 
+@pulumi.type_token("azure-native:sql:InstanceFailoverGroup")
 class InstanceFailoverGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:InstanceFailoverGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

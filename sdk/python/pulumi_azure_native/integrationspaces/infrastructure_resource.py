@@ -102,10 +102,8 @@ class InfrastructureResourceArgs:
         pulumi.set(self, "infrastructure_resource_name", value)
 
 
+@pulumi.type_token("azure-native:integrationspaces:InfrastructureResource")
 class InfrastructureResource(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:integrationspaces:InfrastructureResource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
