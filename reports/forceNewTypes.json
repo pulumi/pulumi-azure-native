@@ -1008,6 +1008,83 @@
     "Property": "platformReservedDnsIP"
   },
   {
+    "VersionedModule": "app/v20250202preview",
+    "Module": "App",
+    "ResourceName": "Certificate",
+    "ReferenceName": "Certificate",
+    "Property": "password"
+  },
+  {
+    "VersionedModule": "app/v20250202preview",
+    "Module": "App",
+    "ResourceName": "Certificate",
+    "ReferenceName": "Certificate",
+    "Property": "value"
+  },
+  {
+    "VersionedModule": "app/v20250202preview",
+    "Module": "App",
+    "ResourceName": "ConnectedEnvironment",
+    "ReferenceName": "CustomDomainConfiguration",
+    "Property": "dnsSuffix"
+  },
+  {
+    "VersionedModule": "app/v20250202preview",
+    "Module": "App",
+    "ResourceName": "ConnectedEnvironmentsCertificate",
+    "ReferenceName": "Certificate",
+    "Property": "password"
+  },
+  {
+    "VersionedModule": "app/v20250202preview",
+    "Module": "App",
+    "ResourceName": "ConnectedEnvironmentsCertificate",
+    "ReferenceName": "Certificate",
+    "Property": "value"
+  },
+  {
+    "VersionedModule": "app/v20250202preview",
+    "Module": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "CustomDomainConfiguration",
+    "Property": "dnsSuffix"
+  },
+  {
+    "VersionedModule": "app/v20250202preview",
+    "Module": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "dockerBridgeCidr"
+  },
+  {
+    "VersionedModule": "app/v20250202preview",
+    "Module": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "infrastructureSubnetId"
+  },
+  {
+    "VersionedModule": "app/v20250202preview",
+    "Module": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "internal"
+  },
+  {
+    "VersionedModule": "app/v20250202preview",
+    "Module": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "platformReservedCidr"
+  },
+  {
+    "VersionedModule": "app/v20250202preview",
+    "Module": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "platformReservedDnsIP"
+  },
+  {
     "VersionedModule": "appplatform",
     "Module": "AppPlatform",
     "ResourceName": "Certificate",

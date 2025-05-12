@@ -96,7 +96,6 @@ __all__ = [
     'SAPSupportedSkuResponse',
     'SAPVirtualInstanceErrorResponse',
     'SAPVirtualInstanceIdentityResponse',
-    'SAPVirtualInstanceIdentityResponseUserAssignedIdentities',
     'SSLConfigurationResponse',
     'SapLandscapeMonitorMetricThresholdsResponse',
     'SapLandscapeMonitorPropertiesGroupingResponse',
@@ -5590,11 +5589,11 @@ class SAPVirtualInstanceIdentityResponse(dict):
 
     def __init__(__self__, *,
                  type: builtins.str,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.SAPVirtualInstanceIdentityResponseUserAssignedIdentities']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (user assigned identities)
         :param builtins.str type: The type of managed identity assigned to this resource.
-        :param Mapping[str, 'SAPVirtualInstanceIdentityResponseUserAssignedIdentities'] user_assigned_identities: The identities assigned to this resource by the user.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The identities assigned to this resource by the user.
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -5610,59 +5609,11 @@ class SAPVirtualInstanceIdentityResponse(dict):
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.SAPVirtualInstanceIdentityResponseUserAssignedIdentities']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
         """
         The identities assigned to this resource by the user.
         """
         return pulumi.get(self, "user_assigned_identities")
-
-
-@pulumi.output_type
-class SAPVirtualInstanceIdentityResponseUserAssignedIdentities(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "principalId":
-            suggest = "principal_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SAPVirtualInstanceIdentityResponseUserAssignedIdentities. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SAPVirtualInstanceIdentityResponseUserAssignedIdentities.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SAPVirtualInstanceIdentityResponseUserAssignedIdentities.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_id: builtins.str,
-                 principal_id: builtins.str):
-        """
-        :param builtins.str client_id: The client ID of the assigned identity.
-        :param builtins.str principal_id: The principal ID of the assigned identity.
-        """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-
-    @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> builtins.str:
-        """
-        The client ID of the assigned identity.
-        """
-        return pulumi.get(self, "client_id")
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> builtins.str:
-        """
-        The principal ID of the assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type
