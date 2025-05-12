@@ -104,10 +104,8 @@ class CustomDomainArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:appplatform:CustomDomain")
 class CustomDomain(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:appplatform:CustomDomain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

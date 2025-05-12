@@ -136,10 +136,8 @@ class LinkedServiceArgs:
         pulumi.set(self, "write_access_resource_id", value)
 
 
+@pulumi.type_token("azure-native:operationalinsights:LinkedService")
 class LinkedService(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:operationalinsights:LinkedService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

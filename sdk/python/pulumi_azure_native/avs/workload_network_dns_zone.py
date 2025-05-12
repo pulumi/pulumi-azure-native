@@ -168,10 +168,8 @@ class WorkloadNetworkDnsZoneArgs:
         pulumi.set(self, "source_ip", value)
 
 
+@pulumi.type_token("azure-native:avs:WorkloadNetworkDnsZone")
 class WorkloadNetworkDnsZone(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:avs:WorkloadNetworkDnsZone"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

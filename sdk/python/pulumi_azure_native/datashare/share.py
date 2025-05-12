@@ -121,10 +121,8 @@ class ShareArgs:
         pulumi.set(self, "terms", value)
 
 
+@pulumi.type_token("azure-native:datashare:Share")
 class Share(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datashare:Share"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

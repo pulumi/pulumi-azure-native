@@ -118,10 +118,8 @@ class BackupShortTermRetentionPolicyArgs:
         pulumi.set(self, "retention_days", value)
 
 
+@pulumi.type_token("azure-native:sql:BackupShortTermRetentionPolicy")
 class BackupShortTermRetentionPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:BackupShortTermRetentionPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

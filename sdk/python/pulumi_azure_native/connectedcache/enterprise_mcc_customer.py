@@ -107,10 +107,8 @@ class EnterpriseMccCustomerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:connectedcache:EnterpriseMccCustomer")
 class EnterpriseMccCustomer(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:connectedcache:EnterpriseMccCustomer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -104,10 +104,8 @@ class GroupArgs:
         pulumi.set(self, "group_name", value)
 
 
+@pulumi.type_token("azure-native:migrate:Group")
 class Group(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:migrate:Group"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

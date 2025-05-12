@@ -153,10 +153,8 @@ class WorkloadNetworkPortMirroringArgs:
         pulumi.set(self, "source", value)
 
 
+@pulumi.type_token("azure-native:avs:WorkloadNetworkPortMirroring")
 class WorkloadNetworkPortMirroring(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:avs:WorkloadNetworkPortMirroring"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

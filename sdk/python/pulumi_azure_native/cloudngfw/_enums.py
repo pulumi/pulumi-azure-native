@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -25,6 +25,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:cloudngfw:ActionEnum")
 class ActionEnum(builtins.str, Enum):
     """
     rule action
@@ -35,6 +36,7 @@ class ActionEnum(builtins.str, Enum):
     DENY_RESET_BOTH = "DenyResetBoth"
 
 
+@pulumi.type_token("azure-native:cloudngfw:BillingCycle")
 class BillingCycle(builtins.str, Enum):
     """
     different billing cycles like MONTHLY/WEEKLY
@@ -43,6 +45,7 @@ class BillingCycle(builtins.str, Enum):
     MONTHLY = "MONTHLY"
 
 
+@pulumi.type_token("azure-native:cloudngfw:BooleanEnum")
 class BooleanEnum(builtins.str, Enum):
     """
     cidr should not be 'any'
@@ -51,6 +54,7 @@ class BooleanEnum(builtins.str, Enum):
     FALSE = "FALSE"
 
 
+@pulumi.type_token("azure-native:cloudngfw:DNSProxy")
 class DNSProxy(builtins.str, Enum):
     """
     Enable DNS proxy, disabled by default
@@ -59,6 +63,7 @@ class DNSProxy(builtins.str, Enum):
     ENABLED = "ENABLED"
 
 
+@pulumi.type_token("azure-native:cloudngfw:DecryptionRuleTypeEnum")
 class DecryptionRuleTypeEnum(builtins.str, Enum):
     """
     enable or disable decryption
@@ -68,6 +73,7 @@ class DecryptionRuleTypeEnum(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:cloudngfw:DefaultMode")
 class DefaultMode(builtins.str, Enum):
     """
     Mode for default rules creation
@@ -77,6 +83,7 @@ class DefaultMode(builtins.str, Enum):
     NONE = "NONE"
 
 
+@pulumi.type_token("azure-native:cloudngfw:EgressNat")
 class EgressNat(builtins.str, Enum):
     """
     Enable egress NAT, enabled by default
@@ -85,6 +92,7 @@ class EgressNat(builtins.str, Enum):
     ENABLED = "ENABLED"
 
 
+@pulumi.type_token("azure-native:cloudngfw:EnabledDNSType")
 class EnabledDNSType(builtins.str, Enum):
     """
     Enabled DNS proxy type, disabled by default
@@ -93,6 +101,7 @@ class EnabledDNSType(builtins.str, Enum):
     AZURE = "AZURE"
 
 
+@pulumi.type_token("azure-native:cloudngfw:ManagedIdentityType")
 class ManagedIdentityType(builtins.str, Enum):
     """
     The type of managed identity assigned to this resource.
@@ -103,6 +112,7 @@ class ManagedIdentityType(builtins.str, Enum):
     SYSTEM_AND_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:cloudngfw:MarketplaceSubscriptionStatus")
 class MarketplaceSubscriptionStatus(builtins.str, Enum):
     """
     Marketplace Subscription Status
@@ -115,6 +125,7 @@ class MarketplaceSubscriptionStatus(builtins.str, Enum):
     FULFILLMENT_REQUESTED = "FulfillmentRequested"
 
 
+@pulumi.type_token("azure-native:cloudngfw:NetworkType")
 class NetworkType(builtins.str, Enum):
     """
     vnet or vwan, cannot be updated
@@ -123,6 +134,7 @@ class NetworkType(builtins.str, Enum):
     VWAN = "VWAN"
 
 
+@pulumi.type_token("azure-native:cloudngfw:ProtocolType")
 class ProtocolType(builtins.str, Enum):
     """
     Protocol Type
@@ -131,6 +143,7 @@ class ProtocolType(builtins.str, Enum):
     UDP = "UDP"
 
 
+@pulumi.type_token("azure-native:cloudngfw:ScopeType")
 class ScopeType(builtins.str, Enum):
     """
     Rulestack Type
@@ -139,6 +152,7 @@ class ScopeType(builtins.str, Enum):
     GLOBAL_ = "GLOBAL"
 
 
+@pulumi.type_token("azure-native:cloudngfw:StateEnum")
 class StateEnum(builtins.str, Enum):
     """
     state of this rule
@@ -147,6 +161,7 @@ class StateEnum(builtins.str, Enum):
     ENABLED = "ENABLED"
 
 
+@pulumi.type_token("azure-native:cloudngfw:UsageType")
 class UsageType(builtins.str, Enum):
     """
     different usage type like PAYG/COMMITTED

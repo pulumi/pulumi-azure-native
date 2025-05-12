@@ -87,10 +87,8 @@ class ComponentLinkedStorageAccountArgs:
         pulumi.set(self, "storage_type", value)
 
 
+@pulumi.type_token("azure-native:applicationinsights:ComponentLinkedStorageAccount")
 class ComponentLinkedStorageAccount(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:applicationinsights:ComponentLinkedStorageAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

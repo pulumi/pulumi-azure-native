@@ -122,10 +122,8 @@ class ImportSitesControllerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:offazure:ImportSitesController")
 class ImportSitesController(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:offazure:ImportSitesController"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

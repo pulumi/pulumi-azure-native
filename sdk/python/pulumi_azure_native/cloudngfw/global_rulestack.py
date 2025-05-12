@@ -204,10 +204,8 @@ class GlobalRulestackArgs:
         pulumi.set(self, "security_services", value)
 
 
+@pulumi.type_token("azure-native:cloudngfw:GlobalRulestack")
 class GlobalRulestack(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cloudngfw:GlobalRulestack"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

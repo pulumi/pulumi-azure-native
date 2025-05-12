@@ -87,10 +87,8 @@ class ServerInstanceArgs:
         pulumi.set(self, "server_instance_name", value)
 
 
+@pulumi.type_token("azure-native:workloads:ServerInstance")
 class ServerInstance(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:workloads:ServerInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -105,10 +105,8 @@ class FunctionInitArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:streamanalytics:Function")
 class Function(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:streamanalytics:Function"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -97,10 +97,8 @@ class VMwareCollectorArgs:
         pulumi.set(self, "vm_ware_collector_name", value)
 
 
+@pulumi.type_token("azure-native:migrate:VMwareCollector")
 class VMwareCollector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:migrate:VMwareCollector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

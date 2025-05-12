@@ -200,10 +200,8 @@ class DatasetArgs:
         pulumi.set(self, "ttl", value)
 
 
+@pulumi.type_token("azure-native:iotoperationsdataprocessor:Dataset")
 class Dataset(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:iotoperationsdataprocessor:Dataset"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

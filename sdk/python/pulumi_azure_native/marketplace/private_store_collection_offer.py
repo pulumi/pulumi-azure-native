@@ -154,10 +154,8 @@ class PrivateStoreCollectionOfferArgs:
         pulumi.set(self, "update_suppressed_due_idempotence", value)
 
 
+@pulumi.type_token("azure-native:marketplace:PrivateStoreCollectionOffer")
 class PrivateStoreCollectionOffer(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:marketplace:PrivateStoreCollectionOffer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -122,10 +122,8 @@ class GuestConfigurationConnectedVMwarevSphereAssignmentArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:guestconfiguration:GuestConfigurationConnectedVMwarevSphereAssignment")
 class GuestConfigurationConnectedVMwarevSphereAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:guestconfiguration:GuestConfigurationConnectedVMwarevSphereAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

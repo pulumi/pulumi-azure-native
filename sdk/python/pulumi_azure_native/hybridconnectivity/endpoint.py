@@ -89,10 +89,8 @@ class EndpointArgs:
         pulumi.set(self, "resource_id", value)
 
 
+@pulumi.type_token("azure-native:hybridconnectivity:Endpoint")
 class Endpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybridconnectivity:Endpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

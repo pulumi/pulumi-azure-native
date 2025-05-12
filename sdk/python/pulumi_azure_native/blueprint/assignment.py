@@ -200,10 +200,8 @@ class AssignmentArgs:
         pulumi.set(self, "scope", value)
 
 
+@pulumi.type_token("azure-native:blueprint:Assignment")
 class Assignment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:blueprint:Assignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

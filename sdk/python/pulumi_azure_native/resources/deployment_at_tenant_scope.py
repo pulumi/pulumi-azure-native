@@ -91,10 +91,8 @@ class DeploymentAtTenantScopeArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:resources:DeploymentAtTenantScope")
 class DeploymentAtTenantScope(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:resources:DeploymentAtTenantScope"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

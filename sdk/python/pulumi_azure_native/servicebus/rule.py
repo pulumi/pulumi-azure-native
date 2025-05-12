@@ -168,10 +168,8 @@ class RuleArgs:
         pulumi.set(self, "sql_filter", value)
 
 
+@pulumi.type_token("azure-native:servicebus:Rule")
 class Rule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:servicebus:Rule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

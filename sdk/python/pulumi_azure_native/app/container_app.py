@@ -219,10 +219,8 @@ class ContainerAppArgs:
         pulumi.set(self, "workload_profile_name", value)
 
 
+@pulumi.type_token("azure-native:app:ContainerApp")
 class ContainerApp(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:app:ContainerApp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -72,10 +72,8 @@ class DomainTopicArgs:
         pulumi.set(self, "domain_topic_name", value)
 
 
+@pulumi.type_token("azure-native:eventgrid:DomainTopic")
 class DomainTopic(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:eventgrid:DomainTopic"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

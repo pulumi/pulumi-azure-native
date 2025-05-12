@@ -88,10 +88,8 @@ class DataConnectorArgs:
         pulumi.set(self, "data_connector_name", value)
 
 
+@pulumi.type_token("azure-native:agfoodplatform:DataConnector")
 class DataConnector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:agfoodplatform:DataConnector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

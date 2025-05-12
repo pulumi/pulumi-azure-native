@@ -288,10 +288,8 @@ class WebTestArgs:
         pulumi.set(self, "web_test_name", value)
 
 
+@pulumi.type_token("azure-native:applicationinsights:WebTest")
 class WebTest(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:applicationinsights:WebTest"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

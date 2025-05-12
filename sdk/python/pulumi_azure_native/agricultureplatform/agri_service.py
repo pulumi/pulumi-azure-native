@@ -139,10 +139,8 @@ class AgriServiceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:agricultureplatform:AgriService")
 class AgriService(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:agricultureplatform:AgriService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

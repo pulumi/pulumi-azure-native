@@ -202,10 +202,8 @@ class TenantActionGroupArgs:
         pulumi.set(self, "webhook_receivers", value)
 
 
+@pulumi.type_token("azure-native:monitor:TenantActionGroup")
 class TenantActionGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:monitor:TenantActionGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

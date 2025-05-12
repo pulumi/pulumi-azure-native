@@ -319,10 +319,8 @@ class InternalNetworkArgs:
         pulumi.set(self, "static_route_configuration", value)
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:InternalNetwork")
 class InternalNetwork(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:managednetworkfabric:InternalNetwork"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

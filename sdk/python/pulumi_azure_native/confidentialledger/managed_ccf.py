@@ -107,10 +107,8 @@ class ManagedCCFArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:confidentialledger:ManagedCCF")
 class ManagedCCF(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:confidentialledger:ManagedCCF"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

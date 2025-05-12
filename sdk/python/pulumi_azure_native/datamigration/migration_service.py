@@ -89,10 +89,8 @@ class MigrationServiceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:datamigration:MigrationService")
 class MigrationService(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datamigration:MigrationService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

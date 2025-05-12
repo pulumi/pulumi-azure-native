@@ -298,10 +298,8 @@ class NotificationHubArgs:
         pulumi.set(self, "xiaomi_credential", value)
 
 
+@pulumi.type_token("azure-native:notificationhubs:NotificationHub")
 class NotificationHub(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:notificationhubs:NotificationHub"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

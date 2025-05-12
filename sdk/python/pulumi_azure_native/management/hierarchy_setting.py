@@ -72,10 +72,8 @@ class HierarchySettingArgs:
         pulumi.set(self, "require_authorization_for_group_creation", value)
 
 
+@pulumi.type_token("azure-native:management:HierarchySetting")
 class HierarchySetting(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:management:HierarchySetting"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

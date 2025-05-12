@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:powerplatform:EnterprisePolicyKind")
 class EnterprisePolicyKind(builtins.str, Enum):
     """
     The kind (type) of Enterprise Policy.
@@ -26,6 +27,7 @@ class EnterprisePolicyKind(builtins.str, Enum):
     IDENTITY = "Identity"
 
 
+@pulumi.type_token("azure-native:powerplatform:HealthStatus")
 class HealthStatus(builtins.str, Enum):
     """
     The health status of the resource.
@@ -36,6 +38,7 @@ class HealthStatus(builtins.str, Enum):
     UNHEALTHY = "Unhealthy"
 
 
+@pulumi.type_token("azure-native:powerplatform:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -45,6 +48,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:powerplatform:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
@@ -53,6 +57,7 @@ class ResourceIdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:powerplatform:State")
 class State(builtins.str, Enum):
     """
     lockbox configuration

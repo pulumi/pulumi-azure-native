@@ -170,10 +170,8 @@ class ManagedNetworkGroupArgs:
         pulumi.set(self, "virtual_networks", value)
 
 
+@pulumi.type_token("azure-native:managednetwork:ManagedNetworkGroup")
 class ManagedNetworkGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:managednetwork:ManagedNetworkGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

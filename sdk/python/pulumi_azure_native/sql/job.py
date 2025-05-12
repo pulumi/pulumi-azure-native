@@ -123,10 +123,8 @@ class JobArgs:
         pulumi.set(self, "schedule", value)
 
 
+@pulumi.type_token("azure-native:sql:Job")
 class Job(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:Job"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

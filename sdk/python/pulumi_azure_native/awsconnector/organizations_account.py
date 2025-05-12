@@ -107,10 +107,8 @@ class OrganizationsAccountArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:OrganizationsAccount")
 class OrganizationsAccount(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:OrganizationsAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

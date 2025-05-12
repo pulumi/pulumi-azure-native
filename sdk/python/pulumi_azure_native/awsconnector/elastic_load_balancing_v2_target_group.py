@@ -106,10 +106,8 @@ class ElasticLoadBalancingV2TargetGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:ElasticLoadBalancingV2TargetGroup")
 class ElasticLoadBalancingV2TargetGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:ElasticLoadBalancingV2TargetGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

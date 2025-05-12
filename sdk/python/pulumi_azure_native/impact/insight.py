@@ -74,10 +74,8 @@ class InsightArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:impact:Insight")
 class Insight(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:impact:Insight"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

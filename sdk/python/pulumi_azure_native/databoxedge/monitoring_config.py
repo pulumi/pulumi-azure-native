@@ -87,10 +87,8 @@ class MonitoringConfigArgs:
         pulumi.set(self, "role_name", value)
 
 
+@pulumi.type_token("azure-native:databoxedge:MonitoringConfig")
 class MonitoringConfig(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databoxedge:MonitoringConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

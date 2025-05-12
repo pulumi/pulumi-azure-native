@@ -331,10 +331,8 @@ class MachineArgs:
         pulumi.set(self, "vm_id", value)
 
 
+@pulumi.type_token("azure-native:hybridcompute:Machine")
 class Machine(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybridcompute:Machine"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -139,10 +139,8 @@ class StorageSyncServiceArgs:
         pulumi.set(self, "use_identity", value)
 
 
+@pulumi.type_token("azure-native:storagesync:StorageSyncService")
 class StorageSyncService(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storagesync:StorageSyncService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

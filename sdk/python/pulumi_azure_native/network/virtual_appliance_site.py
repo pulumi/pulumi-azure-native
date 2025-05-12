@@ -137,10 +137,8 @@ class VirtualApplianceSiteArgs:
         pulumi.set(self, "site_name", value)
 
 
+@pulumi.type_token("azure-native:network:VirtualApplianceSite")
 class VirtualApplianceSite(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:VirtualApplianceSite"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

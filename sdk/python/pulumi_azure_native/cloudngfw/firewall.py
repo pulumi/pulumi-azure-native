@@ -279,10 +279,8 @@ class FirewallArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:cloudngfw:Firewall")
 class Firewall(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cloudngfw:Firewall"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

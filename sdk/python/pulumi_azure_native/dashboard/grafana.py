@@ -139,10 +139,8 @@ class GrafanaArgs:
         pulumi.set(self, "workspace_name", value)
 
 
+@pulumi.type_token("azure-native:dashboard:Grafana")
 class Grafana(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dashboard:Grafana"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

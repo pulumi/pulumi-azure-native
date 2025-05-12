@@ -118,10 +118,8 @@ class SerialPortArgs:
         pulumi.set(self, "state", value)
 
 
+@pulumi.type_token("azure-native:serialconsole:SerialPort")
 class SerialPort(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:serialconsole:SerialPort"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

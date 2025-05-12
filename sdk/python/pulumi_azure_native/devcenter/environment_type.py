@@ -104,10 +104,8 @@ class EnvironmentTypeArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:devcenter:EnvironmentType")
 class EnvironmentType(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devcenter:EnvironmentType"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

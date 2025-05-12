@@ -136,10 +136,8 @@ class DomainArgs:
         pulumi.set(self, "user_engagement_tracking", value)
 
 
+@pulumi.type_token("azure-native:communication:Domain")
 class Domain(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:communication:Domain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

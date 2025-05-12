@@ -71,10 +71,8 @@ class WebAppSiteExtensionArgs:
         pulumi.set(self, "site_extension_id", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppSiteExtension")
 class WebAppSiteExtension(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppSiteExtension"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

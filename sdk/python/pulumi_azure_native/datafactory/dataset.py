@@ -89,10 +89,8 @@ class DatasetArgs:
         pulumi.set(self, "dataset_name", value)
 
 
+@pulumi.type_token("azure-native:datafactory:Dataset")
 class Dataset(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datafactory:Dataset"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

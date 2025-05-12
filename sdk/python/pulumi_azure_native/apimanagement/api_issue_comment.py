@@ -147,10 +147,8 @@ class ApiIssueCommentArgs:
         pulumi.set(self, "created_date", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:ApiIssueComment")
 class ApiIssueComment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:ApiIssueComment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

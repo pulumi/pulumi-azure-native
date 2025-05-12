@@ -74,10 +74,8 @@ class SubscriptionNetworkManagerConnectionArgs:
         pulumi.set(self, "network_manager_id", value)
 
 
+@pulumi.type_token("azure-native:network:SubscriptionNetworkManagerConnection")
 class SubscriptionNetworkManagerConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:SubscriptionNetworkManagerConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -217,10 +217,8 @@ class UpdateSummaryArgs:
         pulumi.set(self, "state", value)
 
 
+@pulumi.type_token("azure-native:azurestackhci:UpdateSummary")
 class UpdateSummary(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurestackhci:UpdateSummary"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

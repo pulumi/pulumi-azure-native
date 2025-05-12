@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -81,6 +81,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:migrate:AssessmentSizingCriterion")
 class AssessmentSizingCriterion(builtins.str, Enum):
     """
     Assessment sizing criterion.
@@ -95,6 +96,7 @@ class AssessmentSizingCriterion(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:AssessmentStage")
 class AssessmentStage(builtins.str, Enum):
     """
     User configurable setting that describes the status of the assessment.
@@ -104,6 +106,7 @@ class AssessmentStage(builtins.str, Enum):
     APPROVED = "Approved"
 
 
+@pulumi.type_token("azure-native:migrate:AssessmentType")
 class AssessmentType(builtins.str, Enum):
     """
     Assessment type of the assessment.
@@ -115,6 +118,7 @@ class AssessmentType(builtins.str, Enum):
     WEB_APP_ASSESSMENT = "WebAppAssessment"
 
 
+@pulumi.type_token("azure-native:migrate:AsyncCommitModeIntent")
 class AsyncCommitModeIntent(builtins.str, Enum):
     """
     Gets or sets user preference indicating intent of async commit mode.
@@ -133,6 +137,7 @@ class AsyncCommitModeIntent(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:AutomationArtifactStatus")
 class AutomationArtifactStatus(builtins.str, Enum):
     """
     Gets or sets the status of automation artifacts.
@@ -141,6 +146,7 @@ class AutomationArtifactStatus(builtins.str, Enum):
     GENERATED = "Generated"
 
 
+@pulumi.type_token("azure-native:migrate:AvsAssessmentScenario")
 class AvsAssessmentScenario(builtins.str, Enum):
     """
     AVS Assessment Scenario.
@@ -159,6 +165,7 @@ class AvsAssessmentScenario(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:AzureArcState")
 class AzureArcState(builtins.str, Enum):
     """
     AzureArc state indicates whether to include azure arc related costs in on-premises or not.
@@ -177,6 +184,7 @@ class AzureArcState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:AzureAvsNodeType")
 class AzureAvsNodeType(builtins.str, Enum):
     """
     Azure AVS Node type
@@ -203,6 +211,7 @@ class AzureAvsNodeType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:AzureCurrency")
 class AzureCurrency(builtins.str, Enum):
     """
     Currency in which prices should be reported.
@@ -313,6 +322,7 @@ class AzureCurrency(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:AzureDiskType")
 class AzureDiskType(builtins.str, Enum):
     """
     Azure Disk Type
@@ -347,6 +357,7 @@ class AzureDiskType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:AzureEnvironmentType")
 class AzureEnvironmentType(builtins.str, Enum):
     """
     Gets or sets environment type.
@@ -365,6 +376,7 @@ class AzureEnvironmentType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:AzureHybridUseBenefit")
 class AzureHybridUseBenefit(builtins.str, Enum):
     """
     Gets or sets the user configurable setting to display the linux azure hybrid use
@@ -384,6 +396,7 @@ class AzureHybridUseBenefit(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:AzureLocation")
 class AzureLocation(builtins.str, Enum):
     """
     Gets or sets the Azure Location or Azure region where to which the machines
@@ -659,6 +672,7 @@ class AzureLocation(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:AzureOffer")
 class AzureOffer(builtins.str, Enum):
     """
     Gets or sets the Azure offer code.
@@ -709,6 +723,7 @@ class AzureOffer(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:AzureOfferCode")
 class AzureOfferCode(builtins.str, Enum):
     """
     Azure Offer Code.
@@ -758,6 +773,7 @@ class AzureOfferCode(builtins.str, Enum):
     SAVINGS_PLAN3_YEAR = "SavingsPlan3Year"
 
 
+@pulumi.type_token("azure-native:migrate:AzurePricingTier")
 class AzurePricingTier(builtins.str, Enum):
     """
     Gets or sets Azure Pricing Tier - Free, Basic, etc.
@@ -772,6 +788,7 @@ class AzurePricingTier(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:AzureReservedInstance")
 class AzureReservedInstance(builtins.str, Enum):
     """
     Reserved instance.
@@ -781,6 +798,7 @@ class AzureReservedInstance(builtins.str, Enum):
     RI3_YEAR = "RI3Year"
 
 
+@pulumi.type_token("azure-native:migrate:AzureSecurityOfferingType")
 class AzureSecurityOfferingType(builtins.str, Enum):
     """
     Azure security offering type.
@@ -795,6 +813,7 @@ class AzureSecurityOfferingType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:AzureSqlDataBaseType")
 class AzureSqlDataBaseType(builtins.str, Enum):
     """
     Gets or sets the azure PAAS SQL instance type.
@@ -817,6 +836,7 @@ class AzureSqlDataBaseType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:AzureSqlInstanceType")
 class AzureSqlInstanceType(builtins.str, Enum):
     """
     Gets or sets the azure PAAS SQL instance type.
@@ -839,6 +859,7 @@ class AzureSqlInstanceType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:AzureSqlPurchaseModel")
 class AzureSqlPurchaseModel(builtins.str, Enum):
     """
     Gets or sets the azure SQL purchase model.
@@ -857,6 +878,7 @@ class AzureSqlPurchaseModel(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:AzureSqlServiceTier")
 class AzureSqlServiceTier(builtins.str, Enum):
     """
     Gets or sets the azure SQL service tier.
@@ -868,6 +890,7 @@ class AzureSqlServiceTier(builtins.str, Enum):
     HYPER_SCALE = "HyperScale"
 
 
+@pulumi.type_token("azure-native:migrate:AzureSqlServiceTierV3")
 class AzureSqlServiceTierV3(builtins.str, Enum):
     """
     Gets or sets the azure SQL service tier.
@@ -894,6 +917,7 @@ class AzureSqlServiceTierV3(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:AzureStorageRedundancy")
 class AzureStorageRedundancy(builtins.str, Enum):
     """
     Gets or sets the Azure Storage Redundancy. Example: Locally Redundant Storage.
@@ -920,6 +944,7 @@ class AzureStorageRedundancy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:AzureTarget")
 class AzureTarget(builtins.str, Enum):
     """
     Azure Target
@@ -982,6 +1007,7 @@ class AzureTarget(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:AzureVmCategory")
 class AzureVmCategory(builtins.str, Enum):
     """
     Gets or sets azure VM category.
@@ -1020,6 +1046,7 @@ class AzureVmCategory(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:AzureVmFamily")
 class AzureVmFamily(builtins.str, Enum):
     """
     Azure VM Family
@@ -1234,6 +1261,7 @@ class AzureVmFamily(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:AzureVmSecurityType")
 class AzureVmSecurityType(builtins.str, Enum):
     """
     Azure Vm Security Type
@@ -1256,6 +1284,7 @@ class AzureVmSecurityType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:BusinessCaseCurrency")
 class BusinessCaseCurrency(builtins.str, Enum):
     """
     Business case Currency.
@@ -1366,6 +1395,7 @@ class BusinessCaseCurrency(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:ComputeTier")
 class ComputeTier(builtins.str, Enum):
     """
     Gets or sets the azure SQL compute tier.
@@ -1388,6 +1418,7 @@ class ComputeTier(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:ConfigurationType")
 class ConfigurationType(builtins.str, Enum):
     """
     Gets or sets the configuration type.
@@ -1397,6 +1428,7 @@ class ConfigurationType(builtins.str, Enum):
     APACHE_TOMCAT_CONTEXT_RESOURCE = "ApacheTomcatContextResource"
 
 
+@pulumi.type_token("azure-native:migrate:ConsolidationType")
 class ConsolidationType(builtins.str, Enum):
     """
     Gets or sets consolidation type.
@@ -1411,6 +1443,7 @@ class ConsolidationType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:Currency")
 class Currency(builtins.str, Enum):
     """
     Currency to report prices in.
@@ -1443,6 +1476,7 @@ class Currency(builtins.str, Enum):
     CNY = "CNY"
 
 
+@pulumi.type_token("azure-native:migrate:DiscoverySource")
 class DiscoverySource(builtins.str, Enum):
     """
     Workload discovery source.
@@ -1461,6 +1495,7 @@ class DiscoverySource(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:EnvironmentType")
 class EnvironmentType(builtins.str, Enum):
     """
     Gets or sets user configurable setting to display the environment type.
@@ -1479,6 +1514,7 @@ class EnvironmentType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:ExternalStorageType")
 class ExternalStorageType(builtins.str, Enum):
     """
     Different External storage skus.
@@ -1505,6 +1541,7 @@ class ExternalStorageType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:FttAndRaidLevel")
 class FttAndRaidLevel(builtins.str, Enum):
     """
     FTT and RAID Level.
@@ -1535,6 +1572,7 @@ class FttAndRaidLevel(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:GroupType")
 class GroupType(builtins.str, Enum):
     """
     Gets the group type for the assessment.
@@ -1543,6 +1581,7 @@ class GroupType(builtins.str, Enum):
     IMPORT_ = "Import"
 
 
+@pulumi.type_token("azure-native:migrate:HyperVLicenseType")
 class HyperVLicenseType(builtins.str, Enum):
     """
     HyperV licence type.
@@ -1561,6 +1600,7 @@ class HyperVLicenseType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:LicensingProgram")
 class LicensingProgram(builtins.str, Enum):
     """
     Gets or sets the licensing program.
@@ -1583,6 +1623,7 @@ class LicensingProgram(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:LoadBalancerType")
 class LoadBalancerType(builtins.str, Enum):
     """
     Gets or sets the load balancer type.
@@ -1591,6 +1632,7 @@ class LoadBalancerType(builtins.str, Enum):
     PUBLIC = "Public"
 
 
+@pulumi.type_token("azure-native:migrate:MigrationStrategy")
 class MigrationStrategy(builtins.str, Enum):
     """
     Migration Strategy.
@@ -1617,6 +1659,7 @@ class MigrationStrategy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:MoveType")
 class MoveType(builtins.str, Enum):
     """
     Defines the MoveType.
@@ -1625,6 +1668,7 @@ class MoveType(builtins.str, Enum):
     REGION_TO_ZONE = "RegionToZone"
 
 
+@pulumi.type_token("azure-native:migrate:MultiSubnetIntent")
 class MultiSubnetIntent(builtins.str, Enum):
     """
     Gets or sets user preference indicating intent of multi-subnet configuration.
@@ -1643,11 +1687,13 @@ class MultiSubnetIntent(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:OperatingSystemType")
 class OperatingSystemType(builtins.str, Enum):
     WINDOWS = "Windows"
     LINUX = "Linux"
 
 
+@pulumi.type_token("azure-native:migrate:OptimizationLogic")
 class OptimizationLogic(builtins.str, Enum):
     """
     Gets or sets SQL optimization logic.
@@ -1658,6 +1704,7 @@ class OptimizationLogic(builtins.str, Enum):
     MODERNIZE_TO_AZURE_SQL_DB = "ModernizeToAzureSqlDb"
 
 
+@pulumi.type_token("azure-native:migrate:OsLicense")
 class OsLicense(builtins.str, Enum):
     """
     Gets or sets user configurable setting to display the azure hybrid use benefit.
@@ -1676,6 +1723,7 @@ class OsLicense(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:Percentile")
 class Percentile(builtins.str, Enum):
     """
     Percentile of the utilization data values to be considered while assessing
@@ -1703,6 +1751,7 @@ class Percentile(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:PricingTier")
 class PricingTier(builtins.str, Enum):
     """
     Gets or sets pricing tier.
@@ -1717,6 +1766,7 @@ class PricingTier(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -1726,6 +1776,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:migrate:ProjectStatus")
 class ProjectStatus(builtins.str, Enum):
     """
     Assessment project status.
@@ -1734,6 +1785,7 @@ class ProjectStatus(builtins.str, Enum):
     INACTIVE = "Inactive"
 
 
+@pulumi.type_token("azure-native:migrate:ProvisioningState")
 class ProvisioningState(builtins.str, Enum):
     """
     The status of the last operation.
@@ -1768,6 +1820,7 @@ class ProvisioningState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:ReservedInstance")
 class ReservedInstance(builtins.str, Enum):
     """
     Azure reserved instance.
@@ -1777,6 +1830,7 @@ class ReservedInstance(builtins.str, Enum):
     RI3_YEAR = "RI3Year"
 
 
+@pulumi.type_token("azure-native:migrate:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The type of identity used for the resource mover service.
@@ -1786,12 +1840,14 @@ class ResourceIdentityType(builtins.str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+@pulumi.type_token("azure-native:migrate:ResourceIdentityTypes")
 class ResourceIdentityTypes(builtins.str, Enum):
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
 
 
+@pulumi.type_token("azure-native:migrate:SavingsOption")
 class SavingsOption(builtins.str, Enum):
     """
     Gets the business case savings option type.
@@ -1810,6 +1866,7 @@ class SavingsOption(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:SavingsOptions")
 class SavingsOptions(builtins.str, Enum):
     """
     Gets or sets the savings options.
@@ -1840,6 +1897,7 @@ class SavingsOptions(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:ScopeType")
 class ScopeType(builtins.str, Enum):
     """
     The scope type
@@ -1854,6 +1912,7 @@ class ScopeType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:SecretStoreType")
 class SecretStoreType(builtins.str, Enum):
     NONE = "None"
     KUBE_SECRET = "KubeSecret"
@@ -1861,6 +1920,7 @@ class SecretStoreType(builtins.str, Enum):
     APP_SERVICE_APP_SETTINGS = "AppServiceAppSettings"
 
 
+@pulumi.type_token("azure-native:migrate:SqlServerLicense")
 class SqlServerLicense(builtins.str, Enum):
     """
     SQL server license.
@@ -1879,6 +1939,7 @@ class SqlServerLicense(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:SqlServerLicenseType")
 class SqlServerLicenseType(builtins.str, Enum):
     """
     SQL Server version.
@@ -1897,6 +1958,7 @@ class SqlServerLicenseType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:Status")
 class Status(builtins.str, Enum):
     """
     Private link connection state.
@@ -1907,6 +1969,7 @@ class Status(builtins.str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+@pulumi.type_token("azure-native:migrate:TargetAvailabilityZone")
 class TargetAvailabilityZone(builtins.str, Enum):
     """
     Gets or sets the target availability zone.
@@ -1917,6 +1980,7 @@ class TargetAvailabilityZone(builtins.str, Enum):
     NA = "NA"
 
 
+@pulumi.type_token("azure-native:migrate:TargetHydrationStorageProviderType")
 class TargetHydrationStorageProviderType(builtins.str, Enum):
     """
     Gets or sets the storage provider type on the target.
@@ -1925,6 +1989,7 @@ class TargetHydrationStorageProviderType(builtins.str, Enum):
     AZURE_FILE_SHARE = "AzureFileShare"
 
 
+@pulumi.type_token("azure-native:migrate:TargetStorageAccessType")
 class TargetStorageAccessType(builtins.str, Enum):
     """
     Gets or sets the target storage access type.
@@ -1933,6 +1998,7 @@ class TargetStorageAccessType(builtins.str, Enum):
     EXCLUSIVE = "Exclusive"
 
 
+@pulumi.type_token("azure-native:migrate:TargetStorageProjectionType")
 class TargetStorageProjectionType(builtins.str, Enum):
     """
     Gets or sets the target projection type.
@@ -1941,6 +2007,7 @@ class TargetStorageProjectionType(builtins.str, Enum):
     PERSISTENT_VOLUME = "PersistentVolume"
 
 
+@pulumi.type_token("azure-native:migrate:TimeRange")
 class TimeRange(builtins.str, Enum):
     """
     Time Range for which the historic utilization data should be considered for
@@ -1964,6 +2031,7 @@ class TimeRange(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:migrate:WorkloadDeploymentTarget")
 class WorkloadDeploymentTarget(builtins.str, Enum):
     """
     Gets or sets the deployment target platform.
@@ -1973,6 +2041,7 @@ class WorkloadDeploymentTarget(builtins.str, Enum):
     AZURE_APP_SERVICE_NATIVE = "AzureAppServiceNative"
 
 
+@pulumi.type_token("azure-native:migrate:WorkloadDeploymentType")
 class WorkloadDeploymentType(builtins.str, Enum):
     """
     Gets or sets the instance type.
@@ -1981,6 +2050,7 @@ class WorkloadDeploymentType(builtins.str, Enum):
     APACHE_TOMCAT_AKS_WORKLOAD_DEPLOYMENT = "ApacheTomcatAKSWorkloadDeployment"
 
 
+@pulumi.type_token("azure-native:migrate:WorkloadType")
 class WorkloadType(builtins.str, Enum):
     """
     Gets or sets the instance type.
@@ -1989,6 +2059,7 @@ class WorkloadType(builtins.str, Enum):
     APACHE_TOMCAT_WORKLOAD = "ApacheTomcatWorkload"
 
 
+@pulumi.type_token("azure-native:migrate:ZoneRedundant")
 class ZoneRedundant(builtins.str, Enum):
     """
     Defines the zone redundant resource setting.

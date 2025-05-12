@@ -151,10 +151,8 @@ class SchemaArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:deviceregistry:Schema")
 class Schema(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:deviceregistry:Schema"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

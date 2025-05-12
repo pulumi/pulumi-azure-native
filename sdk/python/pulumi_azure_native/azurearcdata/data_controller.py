@@ -122,10 +122,8 @@ class DataControllerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:azurearcdata:DataController")
 class DataController(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurearcdata:DataController"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

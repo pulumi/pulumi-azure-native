@@ -104,10 +104,8 @@ class ReachabilityAnalysisIntentArgs:
         pulumi.set(self, "reachability_analysis_intent_name", value)
 
 
+@pulumi.type_token("azure-native:network:ReachabilityAnalysisIntent")
 class ReachabilityAnalysisIntent(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:ReachabilityAnalysisIntent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -103,10 +103,8 @@ class StaticMemberArgs:
         pulumi.set(self, "static_member_name", value)
 
 
+@pulumi.type_token("azure-native:network:StaticMember")
 class StaticMember(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:StaticMember"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

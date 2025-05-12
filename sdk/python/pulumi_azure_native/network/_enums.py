@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -194,6 +194,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:network:Access")
 class Access(builtins.str, Enum):
     """
     The access type of the rule.
@@ -202,6 +203,7 @@ class Access(builtins.str, Enum):
     DENY = "Deny"
 
 
+@pulumi.type_token("azure-native:network:AccessRuleDirection")
 class AccessRuleDirection(builtins.str, Enum):
     """
     Direction that specifies whether the access rules is inbound/outbound.
@@ -210,6 +212,7 @@ class AccessRuleDirection(builtins.str, Enum):
     OUTBOUND = "Outbound"
 
 
+@pulumi.type_token("azure-native:network:ActionType")
 class ActionType(builtins.str, Enum):
     """
     Describes the override action to be applied when rule matches.
@@ -221,6 +224,7 @@ class ActionType(builtins.str, Enum):
     JS_CHALLENGE = "JSChallenge"
 
 
+@pulumi.type_token("azure-native:network:AddressPrefixType")
 class AddressPrefixType(builtins.str, Enum):
     """
     Address prefix type.
@@ -229,6 +233,7 @@ class AddressPrefixType(builtins.str, Enum):
     SERVICE_TAG = "ServiceTag"
 
 
+@pulumi.type_token("azure-native:network:AddressSpaceAggregationOption")
 class AddressSpaceAggregationOption(builtins.str, Enum):
     """
     Determine update behavior for changes to network groups referenced within the rules in this configuration.
@@ -237,6 +242,7 @@ class AddressSpaceAggregationOption(builtins.str, Enum):
     MANUAL = "Manual"
 
 
+@pulumi.type_token("azure-native:network:AdminRuleKind")
 class AdminRuleKind(builtins.str, Enum):
     """
     Whether the rule is custom or default.
@@ -245,6 +251,7 @@ class AdminRuleKind(builtins.str, Enum):
     DEFAULT = "Default"
 
 
+@pulumi.type_token("azure-native:network:AdminState")
 class AdminState(builtins.str, Enum):
     """
     Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
@@ -253,6 +260,7 @@ class AdminState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:network:ApplicationGatewayClientRevocationOptions")
 class ApplicationGatewayClientRevocationOptions(builtins.str, Enum):
     """
     Verify client certificate revocation status.
@@ -261,6 +269,7 @@ class ApplicationGatewayClientRevocationOptions(builtins.str, Enum):
     OCSP = "OCSP"
 
 
+@pulumi.type_token("azure-native:network:ApplicationGatewayCookieBasedAffinity")
 class ApplicationGatewayCookieBasedAffinity(builtins.str, Enum):
     """
     Cookie based affinity.
@@ -269,6 +278,7 @@ class ApplicationGatewayCookieBasedAffinity(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:network:ApplicationGatewayCustomErrorStatusCode")
 class ApplicationGatewayCustomErrorStatusCode(builtins.str, Enum):
     """
     Status code of the application gateway custom error.
@@ -284,6 +294,7 @@ class ApplicationGatewayCustomErrorStatusCode(builtins.str, Enum):
     HTTP_STATUS504 = "HttpStatus504"
 
 
+@pulumi.type_token("azure-native:network:ApplicationGatewayFirewallMode")
 class ApplicationGatewayFirewallMode(builtins.str, Enum):
     """
     Web application firewall mode.
@@ -292,6 +303,7 @@ class ApplicationGatewayFirewallMode(builtins.str, Enum):
     PREVENTION = "Prevention"
 
 
+@pulumi.type_token("azure-native:network:ApplicationGatewayFirewallRateLimitDuration")
 class ApplicationGatewayFirewallRateLimitDuration(builtins.str, Enum):
     """
     Duration over which Rate Limit policy will be applied. Applies only when ruleType is RateLimitRule.
@@ -300,6 +312,7 @@ class ApplicationGatewayFirewallRateLimitDuration(builtins.str, Enum):
     FIVE_MINS = "FiveMins"
 
 
+@pulumi.type_token("azure-native:network:ApplicationGatewayFirewallUserSessionVariable")
 class ApplicationGatewayFirewallUserSessionVariable(builtins.str, Enum):
     """
     User Session clause variable.
@@ -309,6 +322,7 @@ class ApplicationGatewayFirewallUserSessionVariable(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:network:ApplicationGatewayLoadDistributionAlgorithm")
 class ApplicationGatewayLoadDistributionAlgorithm(builtins.str, Enum):
     """
     Load Distribution Targets resource of an application gateway.
@@ -318,6 +332,7 @@ class ApplicationGatewayLoadDistributionAlgorithm(builtins.str, Enum):
     IP_HASH = "IpHash"
 
 
+@pulumi.type_token("azure-native:network:ApplicationGatewayProtocol")
 class ApplicationGatewayProtocol(builtins.str, Enum):
     """
     The protocol used for the probe.
@@ -340,6 +355,7 @@ class ApplicationGatewayProtocol(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:network:ApplicationGatewayRedirectType")
 class ApplicationGatewayRedirectType(builtins.str, Enum):
     """
     HTTP redirection type.
@@ -350,6 +366,7 @@ class ApplicationGatewayRedirectType(builtins.str, Enum):
     TEMPORARY = "Temporary"
 
 
+@pulumi.type_token("azure-native:network:ApplicationGatewayRequestRoutingRuleType")
 class ApplicationGatewayRequestRoutingRuleType(builtins.str, Enum):
     """
     Rule type.
@@ -358,6 +375,7 @@ class ApplicationGatewayRequestRoutingRuleType(builtins.str, Enum):
     PATH_BASED_ROUTING = "PathBasedRouting"
 
 
+@pulumi.type_token("azure-native:network:ApplicationGatewaySkuFamily")
 class ApplicationGatewaySkuFamily(builtins.str, Enum):
     """
     Family of an application gateway SKU.
@@ -366,6 +384,7 @@ class ApplicationGatewaySkuFamily(builtins.str, Enum):
     GENERATION_2 = "Generation_2"
 
 
+@pulumi.type_token("azure-native:network:ApplicationGatewaySkuName")
 class ApplicationGatewaySkuName(builtins.str, Enum):
     """
     Name of an application gateway SKU.
@@ -380,6 +399,7 @@ class ApplicationGatewaySkuName(builtins.str, Enum):
     BASIC = "Basic"
 
 
+@pulumi.type_token("azure-native:network:ApplicationGatewaySslCipherSuite")
 class ApplicationGatewaySslCipherSuite(builtins.str, Enum):
     """
     Ssl cipher suites enums.
@@ -414,6 +434,7 @@ class ApplicationGatewaySslCipherSuite(builtins.str, Enum):
     TL_S_ECDH_E_RS_A_WIT_H_AE_S_256_GC_M_SHA384 = "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
 
 
+@pulumi.type_token("azure-native:network:ApplicationGatewaySslPolicyName")
 class ApplicationGatewaySslPolicyName(builtins.str, Enum):
     """
     Name of Ssl predefined policy.
@@ -425,6 +446,7 @@ class ApplicationGatewaySslPolicyName(builtins.str, Enum):
     APP_GW_SSL_POLICY20220101_S = "AppGwSslPolicy20220101S"
 
 
+@pulumi.type_token("azure-native:network:ApplicationGatewaySslPolicyType")
 class ApplicationGatewaySslPolicyType(builtins.str, Enum):
     """
     Type of Ssl Policy.
@@ -434,6 +456,7 @@ class ApplicationGatewaySslPolicyType(builtins.str, Enum):
     CUSTOM_V2 = "CustomV2"
 
 
+@pulumi.type_token("azure-native:network:ApplicationGatewaySslProtocol")
 class ApplicationGatewaySslProtocol(builtins.str, Enum):
     """
     Minimum version of Ssl protocol to be supported on application gateway.
@@ -444,6 +467,7 @@ class ApplicationGatewaySslProtocol(builtins.str, Enum):
     TL_SV1_3 = "TLSv1_3"
 
 
+@pulumi.type_token("azure-native:network:ApplicationGatewayTier")
 class ApplicationGatewayTier(builtins.str, Enum):
     """
     Tier of an application gateway.
@@ -455,6 +479,7 @@ class ApplicationGatewayTier(builtins.str, Enum):
     BASIC = "Basic"
 
 
+@pulumi.type_token("azure-native:network:AssociationAccessMode")
 class AssociationAccessMode(builtins.str, Enum):
     """
     Access mode on the association.
@@ -464,6 +489,7 @@ class AssociationAccessMode(builtins.str, Enum):
     AUDIT = "Audit"
 
 
+@pulumi.type_token("azure-native:network:AuthorizationUseStatus")
 class AuthorizationUseStatus(builtins.str, Enum):
     """
     The authorization use status.
@@ -472,6 +498,7 @@ class AuthorizationUseStatus(builtins.str, Enum):
     IN_USE = "InUse"
 
 
+@pulumi.type_token("azure-native:network:AutoLearnPrivateRangesMode")
 class AutoLearnPrivateRangesMode(builtins.str, Enum):
     """
     The operation mode for automatically learning private ranges to not be SNAT
@@ -480,6 +507,7 @@ class AutoLearnPrivateRangesMode(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:network:AzureFirewallApplicationRuleProtocolType")
 class AzureFirewallApplicationRuleProtocolType(builtins.str, Enum):
     """
     Protocol type.
@@ -489,6 +517,7 @@ class AzureFirewallApplicationRuleProtocolType(builtins.str, Enum):
     MSSQL = "Mssql"
 
 
+@pulumi.type_token("azure-native:network:AzureFirewallNatRCActionType")
 class AzureFirewallNatRCActionType(builtins.str, Enum):
     """
     The type of action.
@@ -497,6 +526,7 @@ class AzureFirewallNatRCActionType(builtins.str, Enum):
     DNAT = "Dnat"
 
 
+@pulumi.type_token("azure-native:network:AzureFirewallNetworkRuleProtocol")
 class AzureFirewallNetworkRuleProtocol(builtins.str, Enum):
     """
     The protocol of a Network Rule resource.
@@ -507,6 +537,7 @@ class AzureFirewallNetworkRuleProtocol(builtins.str, Enum):
     ICMP = "ICMP"
 
 
+@pulumi.type_token("azure-native:network:AzureFirewallRCActionType")
 class AzureFirewallRCActionType(builtins.str, Enum):
     """
     The type of action.
@@ -515,6 +546,7 @@ class AzureFirewallRCActionType(builtins.str, Enum):
     DENY = "Deny"
 
 
+@pulumi.type_token("azure-native:network:AzureFirewallSkuName")
 class AzureFirewallSkuName(builtins.str, Enum):
     """
     Name of an Azure Firewall SKU.
@@ -523,6 +555,7 @@ class AzureFirewallSkuName(builtins.str, Enum):
     AZF_W_HUB = "AZFW_Hub"
 
 
+@pulumi.type_token("azure-native:network:AzureFirewallSkuTier")
 class AzureFirewallSkuTier(builtins.str, Enum):
     """
     Tier of an Azure Firewall.
@@ -532,6 +565,7 @@ class AzureFirewallSkuTier(builtins.str, Enum):
     BASIC = "Basic"
 
 
+@pulumi.type_token("azure-native:network:AzureFirewallThreatIntelMode")
 class AzureFirewallThreatIntelMode(builtins.str, Enum):
     """
     The operation mode for Threat Intelligence.
@@ -541,6 +575,7 @@ class AzureFirewallThreatIntelMode(builtins.str, Enum):
     OFF = "Off"
 
 
+@pulumi.type_token("azure-native:network:BastionHostSkuName")
 class BastionHostSkuName(builtins.str, Enum):
     """
     The name of the sku of this Bastion Host.
@@ -551,6 +586,7 @@ class BastionHostSkuName(builtins.str, Enum):
     PREMIUM = "Premium"
 
 
+@pulumi.type_token("azure-native:network:CommissionedState")
 class CommissionedState(builtins.str, Enum):
     """
     The commissioned state of the Custom IP Prefix.
@@ -565,6 +601,7 @@ class CommissionedState(builtins.str, Enum):
     DEPROVISIONED = "Deprovisioned"
 
 
+@pulumi.type_token("azure-native:network:ConfigurationType")
 class ConfigurationType(builtins.str, Enum):
     """
     Configuration Deployment Type.
@@ -575,6 +612,7 @@ class ConfigurationType(builtins.str, Enum):
     ROUTING = "Routing"
 
 
+@pulumi.type_token("azure-native:network:ConnectionMonitorEndpointFilterItemType")
 class ConnectionMonitorEndpointFilterItemType(builtins.str, Enum):
     """
     The type of item included in the filter. Currently only 'AgentAddress' is supported.
@@ -582,6 +620,7 @@ class ConnectionMonitorEndpointFilterItemType(builtins.str, Enum):
     AGENT_ADDRESS = "AgentAddress"
 
 
+@pulumi.type_token("azure-native:network:ConnectionMonitorEndpointFilterType")
 class ConnectionMonitorEndpointFilterType(builtins.str, Enum):
     """
     The behavior of the endpoint filter. Currently only 'Include' is supported.
@@ -589,6 +628,7 @@ class ConnectionMonitorEndpointFilterType(builtins.str, Enum):
     INCLUDE = "Include"
 
 
+@pulumi.type_token("azure-native:network:ConnectionMonitorTestConfigurationProtocol")
 class ConnectionMonitorTestConfigurationProtocol(builtins.str, Enum):
     """
     The protocol to use in test evaluation.
@@ -598,6 +638,7 @@ class ConnectionMonitorTestConfigurationProtocol(builtins.str, Enum):
     ICMP = "Icmp"
 
 
+@pulumi.type_token("azure-native:network:ConnectivityTopology")
 class ConnectivityTopology(builtins.str, Enum):
     """
     Connectivity topology type.
@@ -606,6 +647,7 @@ class ConnectivityTopology(builtins.str, Enum):
     MESH = "Mesh"
 
 
+@pulumi.type_token("azure-native:network:CoverageLevel")
 class CoverageLevel(builtins.str, Enum):
     """
     Test coverage for the endpoint.
@@ -618,6 +660,7 @@ class CoverageLevel(builtins.str, Enum):
     FULL = "Full"
 
 
+@pulumi.type_token("azure-native:network:CustomIpPrefixType")
 class CustomIpPrefixType(builtins.str, Enum):
     """
     Type of custom IP prefix. Should be Singular, Parent, or Child.
@@ -627,6 +670,7 @@ class CustomIpPrefixType(builtins.str, Enum):
     CHILD = "Child"
 
 
+@pulumi.type_token("azure-native:network:DdosSettingsProtectionMode")
 class DdosSettingsProtectionMode(builtins.str, Enum):
     """
     The DDoS protection mode of the public IP
@@ -636,6 +680,7 @@ class DdosSettingsProtectionMode(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:network:DeleteExistingPeering")
 class DeleteExistingPeering(builtins.str, Enum):
     """
     Flag if need to remove current existing peerings.
@@ -644,6 +689,7 @@ class DeleteExistingPeering(builtins.str, Enum):
     TRUE = "True"
 
 
+@pulumi.type_token("azure-native:network:DeleteOptions")
 class DeleteOptions(builtins.str, Enum):
     """
     Specify what happens to the public IP address when the VM using it is deleted
@@ -652,6 +698,7 @@ class DeleteOptions(builtins.str, Enum):
     DETACH = "Detach"
 
 
+@pulumi.type_token("azure-native:network:DestinationPortBehavior")
 class DestinationPortBehavior(builtins.str, Enum):
     """
     Destination port behavior.
@@ -660,6 +707,7 @@ class DestinationPortBehavior(builtins.str, Enum):
     LISTEN_IF_AVAILABLE = "ListenIfAvailable"
 
 
+@pulumi.type_token("azure-native:network:DhGroup")
 class DhGroup(builtins.str, Enum):
     """
     The DH Group used in IKE Phase 1 for initial SA.
@@ -674,6 +722,7 @@ class DhGroup(builtins.str, Enum):
     DH_GROUP24 = "DHGroup24"
 
 
+@pulumi.type_token("azure-native:network:DisableBgpRoutePropagation")
 class DisableBgpRoutePropagation(builtins.str, Enum):
     """
     Determines whether BGP route propagation is enabled. Defaults to true.
@@ -682,6 +731,7 @@ class DisableBgpRoutePropagation(builtins.str, Enum):
     TRUE = "True"
 
 
+@pulumi.type_token("azure-native:network:EndpointType")
 class EndpointType(builtins.str, Enum):
     """
     The endpoint type.
@@ -697,6 +747,7 @@ class EndpointType(builtins.str, Enum):
     AZURE_ARC_NETWORK = "AzureArcNetwork"
 
 
+@pulumi.type_token("azure-native:network:ExceptionEntryMatchVariable")
 class ExceptionEntryMatchVariable(builtins.str, Enum):
     """
     The variable on which we evaluate the exception condition
@@ -706,6 +757,7 @@ class ExceptionEntryMatchVariable(builtins.str, Enum):
     REQUEST_HEADER = "RequestHeader"
 
 
+@pulumi.type_token("azure-native:network:ExceptionEntrySelectorMatchOperator")
 class ExceptionEntrySelectorMatchOperator(builtins.str, Enum):
     """
     When the matchVariable points to a key-value pair (e.g, RequestHeader), this operates on the selector
@@ -716,6 +768,7 @@ class ExceptionEntrySelectorMatchOperator(builtins.str, Enum):
     ENDS_WITH = "EndsWith"
 
 
+@pulumi.type_token("azure-native:network:ExceptionEntryValueMatchOperator")
 class ExceptionEntryValueMatchOperator(builtins.str, Enum):
     """
     Operates on the allowed values for the matchVariable
@@ -727,6 +780,7 @@ class ExceptionEntryValueMatchOperator(builtins.str, Enum):
     IP_MATCH = "IPMatch"
 
 
+@pulumi.type_token("azure-native:network:ExpressRouteCircuitPeeringState")
 class ExpressRouteCircuitPeeringState(builtins.str, Enum):
     """
     The state of peering.
@@ -735,6 +789,7 @@ class ExpressRouteCircuitPeeringState(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:network:ExpressRouteCircuitSkuFamily")
 class ExpressRouteCircuitSkuFamily(builtins.str, Enum):
     """
     The family of the SKU.
@@ -743,6 +798,7 @@ class ExpressRouteCircuitSkuFamily(builtins.str, Enum):
     METERED_DATA = "MeteredData"
 
 
+@pulumi.type_token("azure-native:network:ExpressRouteCircuitSkuTier")
 class ExpressRouteCircuitSkuTier(builtins.str, Enum):
     """
     The tier of the SKU.
@@ -753,6 +809,7 @@ class ExpressRouteCircuitSkuTier(builtins.str, Enum):
     LOCAL = "Local"
 
 
+@pulumi.type_token("azure-native:network:ExpressRouteLinkAdminState")
 class ExpressRouteLinkAdminState(builtins.str, Enum):
     """
     Administrative state of the physical port.
@@ -761,6 +818,7 @@ class ExpressRouteLinkAdminState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:network:ExpressRouteLinkMacSecCipher")
 class ExpressRouteLinkMacSecCipher(builtins.str, Enum):
     """
     Mac security cipher.
@@ -771,6 +829,7 @@ class ExpressRouteLinkMacSecCipher(builtins.str, Enum):
     GCM_AES_XPN256 = "GcmAesXpn256"
 
 
+@pulumi.type_token("azure-native:network:ExpressRouteLinkMacSecSciState")
 class ExpressRouteLinkMacSecSciState(builtins.str, Enum):
     """
     Sci mode enabled/disabled.
@@ -779,6 +838,7 @@ class ExpressRouteLinkMacSecSciState(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:network:ExpressRoutePeeringState")
 class ExpressRoutePeeringState(builtins.str, Enum):
     """
     The peering state.
@@ -787,6 +847,7 @@ class ExpressRoutePeeringState(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:network:ExpressRoutePeeringType")
 class ExpressRoutePeeringType(builtins.str, Enum):
     """
     The peering type.
@@ -796,6 +857,7 @@ class ExpressRoutePeeringType(builtins.str, Enum):
     MICROSOFT_PEERING = "MicrosoftPeering"
 
 
+@pulumi.type_token("azure-native:network:ExpressRoutePortsBillingType")
 class ExpressRoutePortsBillingType(builtins.str, Enum):
     """
     The billing type of the ExpressRoutePort resource.
@@ -804,6 +866,7 @@ class ExpressRoutePortsBillingType(builtins.str, Enum):
     UNLIMITED_DATA = "UnlimitedData"
 
 
+@pulumi.type_token("azure-native:network:ExpressRoutePortsEncapsulation")
 class ExpressRoutePortsEncapsulation(builtins.str, Enum):
     """
     Encapsulation method on physical ports.
@@ -812,6 +875,7 @@ class ExpressRoutePortsEncapsulation(builtins.str, Enum):
     QIN_Q = "QinQ"
 
 
+@pulumi.type_token("azure-native:network:ExtendedLocationTypes")
 class ExtendedLocationTypes(builtins.str, Enum):
     """
     The type of the extended location.
@@ -819,6 +883,7 @@ class ExtendedLocationTypes(builtins.str, Enum):
     EDGE_ZONE = "EdgeZone"
 
 
+@pulumi.type_token("azure-native:network:FirewallPolicyFilterRuleActionType")
 class FirewallPolicyFilterRuleActionType(builtins.str, Enum):
     """
     The type of action.
@@ -827,6 +892,7 @@ class FirewallPolicyFilterRuleActionType(builtins.str, Enum):
     DENY = "Deny"
 
 
+@pulumi.type_token("azure-native:network:FirewallPolicyFilterRuleCollectionActionType")
 class FirewallPolicyFilterRuleCollectionActionType(builtins.str, Enum):
     """
     The type of action.
@@ -835,6 +901,7 @@ class FirewallPolicyFilterRuleCollectionActionType(builtins.str, Enum):
     DENY = "Deny"
 
 
+@pulumi.type_token("azure-native:network:FirewallPolicyIDPSQuerySortOrder")
 class FirewallPolicyIDPSQuerySortOrder(builtins.str, Enum):
     """
     Describes if results should be in ascending/descending order
@@ -843,6 +910,7 @@ class FirewallPolicyIDPSQuerySortOrder(builtins.str, Enum):
     DESCENDING = "Descending"
 
 
+@pulumi.type_token("azure-native:network:FirewallPolicyIntrusionDetectionProfileType")
 class FirewallPolicyIntrusionDetectionProfileType(builtins.str, Enum):
     """
     IDPS profile name. When attached to a parent policy, the firewall's effective profile is the profile name of the parent policy.
@@ -853,6 +921,7 @@ class FirewallPolicyIntrusionDetectionProfileType(builtins.str, Enum):
     EXTENDED = "Extended"
 
 
+@pulumi.type_token("azure-native:network:FirewallPolicyIntrusionDetectionProtocol")
 class FirewallPolicyIntrusionDetectionProtocol(builtins.str, Enum):
     """
     The rule bypass protocol.
@@ -863,6 +932,7 @@ class FirewallPolicyIntrusionDetectionProtocol(builtins.str, Enum):
     ANY = "ANY"
 
 
+@pulumi.type_token("azure-native:network:FirewallPolicyIntrusionDetectionStateType")
 class FirewallPolicyIntrusionDetectionStateType(builtins.str, Enum):
     """
     Intrusion detection general state. When attached to a parent policy, the firewall's effective IDPS mode is the stricter mode of the two.
@@ -872,6 +942,7 @@ class FirewallPolicyIntrusionDetectionStateType(builtins.str, Enum):
     DENY = "Deny"
 
 
+@pulumi.type_token("azure-native:network:FirewallPolicyNatRuleActionType")
 class FirewallPolicyNatRuleActionType(builtins.str, Enum):
     """
     The type of action.
@@ -879,6 +950,7 @@ class FirewallPolicyNatRuleActionType(builtins.str, Enum):
     DNAT = "DNAT"
 
 
+@pulumi.type_token("azure-native:network:FirewallPolicyNatRuleCollectionActionType")
 class FirewallPolicyNatRuleCollectionActionType(builtins.str, Enum):
     """
     The type of action.
@@ -886,6 +958,7 @@ class FirewallPolicyNatRuleCollectionActionType(builtins.str, Enum):
     DNAT = "DNAT"
 
 
+@pulumi.type_token("azure-native:network:FirewallPolicyRuleApplicationProtocolType")
 class FirewallPolicyRuleApplicationProtocolType(builtins.str, Enum):
     """
     Protocol type.
@@ -894,6 +967,7 @@ class FirewallPolicyRuleApplicationProtocolType(builtins.str, Enum):
     HTTPS = "Https"
 
 
+@pulumi.type_token("azure-native:network:FirewallPolicyRuleCollectionType")
 class FirewallPolicyRuleCollectionType(builtins.str, Enum):
     """
     The type of the rule collection.
@@ -902,6 +976,7 @@ class FirewallPolicyRuleCollectionType(builtins.str, Enum):
     FIREWALL_POLICY_FILTER_RULE_COLLECTION = "FirewallPolicyFilterRuleCollection"
 
 
+@pulumi.type_token("azure-native:network:FirewallPolicyRuleConditionApplicationProtocolType")
 class FirewallPolicyRuleConditionApplicationProtocolType(builtins.str, Enum):
     """
     Protocol type.
@@ -910,6 +985,7 @@ class FirewallPolicyRuleConditionApplicationProtocolType(builtins.str, Enum):
     HTTPS = "Https"
 
 
+@pulumi.type_token("azure-native:network:FirewallPolicyRuleConditionNetworkProtocol")
 class FirewallPolicyRuleConditionNetworkProtocol(builtins.str, Enum):
     """
     The Network protocol of a Rule condition.
@@ -920,6 +996,7 @@ class FirewallPolicyRuleConditionNetworkProtocol(builtins.str, Enum):
     ICMP = "ICMP"
 
 
+@pulumi.type_token("azure-native:network:FirewallPolicyRuleConditionType")
 class FirewallPolicyRuleConditionType(builtins.str, Enum):
     """
     Rule Condition Type.
@@ -929,6 +1006,7 @@ class FirewallPolicyRuleConditionType(builtins.str, Enum):
     NAT_RULE_CONDITION = "NatRuleCondition"
 
 
+@pulumi.type_token("azure-native:network:FirewallPolicyRuleNetworkProtocol")
 class FirewallPolicyRuleNetworkProtocol(builtins.str, Enum):
     """
     The Network protocol of a Rule.
@@ -939,6 +1017,7 @@ class FirewallPolicyRuleNetworkProtocol(builtins.str, Enum):
     ICMP = "ICMP"
 
 
+@pulumi.type_token("azure-native:network:FirewallPolicyRuleType")
 class FirewallPolicyRuleType(builtins.str, Enum):
     """
     The type of the rule.
@@ -947,6 +1026,7 @@ class FirewallPolicyRuleType(builtins.str, Enum):
     FIREWALL_POLICY_FILTER_RULE = "FirewallPolicyFilterRule"
 
 
+@pulumi.type_token("azure-native:network:FirewallPolicySkuTier")
 class FirewallPolicySkuTier(builtins.str, Enum):
     """
     Tier of Firewall Policy.
@@ -956,6 +1036,7 @@ class FirewallPolicySkuTier(builtins.str, Enum):
     BASIC = "Basic"
 
 
+@pulumi.type_token("azure-native:network:FlowLogFormatType")
 class FlowLogFormatType(builtins.str, Enum):
     """
     The file type of flow log.
@@ -963,6 +1044,7 @@ class FlowLogFormatType(builtins.str, Enum):
     JSON = "JSON"
 
 
+@pulumi.type_token("azure-native:network:GatewayLoadBalancerTunnelInterfaceType")
 class GatewayLoadBalancerTunnelInterfaceType(builtins.str, Enum):
     """
     Traffic type of gateway load balancer tunnel interface.
@@ -972,6 +1054,7 @@ class GatewayLoadBalancerTunnelInterfaceType(builtins.str, Enum):
     EXTERNAL = "External"
 
 
+@pulumi.type_token("azure-native:network:GatewayLoadBalancerTunnelProtocol")
 class GatewayLoadBalancerTunnelProtocol(builtins.str, Enum):
     """
     Protocol of gateway load balancer tunnel interface.
@@ -981,6 +1064,7 @@ class GatewayLoadBalancerTunnelProtocol(builtins.str, Enum):
     VXLAN = "VXLAN"
 
 
+@pulumi.type_token("azure-native:network:Geo")
 class Geo(builtins.str, Enum):
     """
     The Geo for CIDR advertising. Should be an Geo code.
@@ -996,6 +1080,7 @@ class Geo(builtins.str, Enum):
     AQ = "AQ"
 
 
+@pulumi.type_token("azure-native:network:GroupConnectivity")
 class GroupConnectivity(builtins.str, Enum):
     """
     Group connectivity type.
@@ -1004,6 +1089,7 @@ class GroupConnectivity(builtins.str, Enum):
     DIRECTLY_CONNECTED = "DirectlyConnected"
 
 
+@pulumi.type_token("azure-native:network:GroupMemberType")
 class GroupMemberType(builtins.str, Enum):
     """
     The type of the group member.
@@ -1012,6 +1098,7 @@ class GroupMemberType(builtins.str, Enum):
     SUBNET = "Subnet"
 
 
+@pulumi.type_token("azure-native:network:HTTPConfigurationMethod")
 class HTTPConfigurationMethod(builtins.str, Enum):
     """
     The HTTP method to use.
@@ -1020,6 +1107,7 @@ class HTTPConfigurationMethod(builtins.str, Enum):
     POST = "Post"
 
 
+@pulumi.type_token("azure-native:network:HubRoutingPreference")
 class HubRoutingPreference(builtins.str, Enum):
     """
     The hubRoutingPreference of this VirtualHub.
@@ -1029,6 +1117,7 @@ class HubRoutingPreference(builtins.str, Enum):
     AS_PATH = "ASPath"
 
 
+@pulumi.type_token("azure-native:network:IPAllocationMethod")
 class IPAllocationMethod(builtins.str, Enum):
     """
     The private IP address allocation method.
@@ -1037,6 +1126,7 @@ class IPAllocationMethod(builtins.str, Enum):
     DYNAMIC = "Dynamic"
 
 
+@pulumi.type_token("azure-native:network:IPVersion")
 class IPVersion(builtins.str, Enum):
     """
     Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
@@ -1045,6 +1135,7 @@ class IPVersion(builtins.str, Enum):
     I_PV6 = "IPv6"
 
 
+@pulumi.type_token("azure-native:network:IkeEncryption")
 class IkeEncryption(builtins.str, Enum):
     """
     The IKE encryption algorithm (IKE phase 2).
@@ -1058,6 +1149,7 @@ class IkeEncryption(builtins.str, Enum):
     GCMAES128 = "GCMAES128"
 
 
+@pulumi.type_token("azure-native:network:IkeIntegrity")
 class IkeIntegrity(builtins.str, Enum):
     """
     The IKE integrity algorithm (IKE phase 2).
@@ -1070,6 +1162,7 @@ class IkeIntegrity(builtins.str, Enum):
     GCMAES128 = "GCMAES128"
 
 
+@pulumi.type_token("azure-native:network:IpAllocationType")
 class IpAllocationType(builtins.str, Enum):
     """
     The type for the IpAllocation.
@@ -1078,6 +1171,7 @@ class IpAllocationType(builtins.str, Enum):
     HYPERNET = "Hypernet"
 
 
+@pulumi.type_token("azure-native:network:IpsecEncryption")
 class IpsecEncryption(builtins.str, Enum):
     """
     The IPSec encryption algorithm (IKE phase 1).
@@ -1093,6 +1187,7 @@ class IpsecEncryption(builtins.str, Enum):
     GCMAES256 = "GCMAES256"
 
 
+@pulumi.type_token("azure-native:network:IpsecIntegrity")
 class IpsecIntegrity(builtins.str, Enum):
     """
     The IPSec integrity algorithm (IKE phase 1).
@@ -1105,6 +1200,7 @@ class IpsecIntegrity(builtins.str, Enum):
     GCMAES256 = "GCMAES256"
 
 
+@pulumi.type_token("azure-native:network:IsGlobal")
 class IsGlobal(builtins.str, Enum):
     """
     Flag if global mesh is supported.
@@ -1113,6 +1209,7 @@ class IsGlobal(builtins.str, Enum):
     TRUE = "True"
 
 
+@pulumi.type_token("azure-native:network:LoadBalancerBackendAddressAdminState")
 class LoadBalancerBackendAddressAdminState(builtins.str, Enum):
     """
     A list of administrative states which once set can override health probe so that Load Balancer will always forward new connections to backend, or deny new connections and reset existing connections.
@@ -1122,6 +1219,7 @@ class LoadBalancerBackendAddressAdminState(builtins.str, Enum):
     DOWN = "Down"
 
 
+@pulumi.type_token("azure-native:network:LoadBalancerOutboundRuleProtocol")
 class LoadBalancerOutboundRuleProtocol(builtins.str, Enum):
     """
     The protocol for the outbound rule in load balancer.
@@ -1131,6 +1229,7 @@ class LoadBalancerOutboundRuleProtocol(builtins.str, Enum):
     ALL = "All"
 
 
+@pulumi.type_token("azure-native:network:LoadBalancerSkuName")
 class LoadBalancerSkuName(builtins.str, Enum):
     """
     Name of a load balancer SKU.
@@ -1140,6 +1239,7 @@ class LoadBalancerSkuName(builtins.str, Enum):
     GATEWAY = "Gateway"
 
 
+@pulumi.type_token("azure-native:network:LoadBalancerSkuTier")
 class LoadBalancerSkuTier(builtins.str, Enum):
     """
     Tier of a load balancer SKU.
@@ -1148,6 +1248,7 @@ class LoadBalancerSkuTier(builtins.str, Enum):
     GLOBAL_ = "Global"
 
 
+@pulumi.type_token("azure-native:network:LoadDistribution")
 class LoadDistribution(builtins.str, Enum):
     """
     The load distribution policy for this rule.
@@ -1157,6 +1258,7 @@ class LoadDistribution(builtins.str, Enum):
     SOURCE_IP_PROTOCOL = "SourceIPProtocol"
 
 
+@pulumi.type_token("azure-native:network:ManagedRuleEnabledState")
 class ManagedRuleEnabledState(builtins.str, Enum):
     """
     The state of the managed rule. Defaults to Disabled if not specified.
@@ -1165,6 +1267,7 @@ class ManagedRuleEnabledState(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:network:NatGatewaySkuName")
 class NatGatewaySkuName(builtins.str, Enum):
     """
     Name of Nat Gateway SKU.
@@ -1172,6 +1275,7 @@ class NatGatewaySkuName(builtins.str, Enum):
     STANDARD = "Standard"
 
 
+@pulumi.type_token("azure-native:network:NetworkIntentPolicyBasedService")
 class NetworkIntentPolicyBasedService(builtins.str, Enum):
     """
     Network intent policy based services.
@@ -1181,6 +1285,7 @@ class NetworkIntentPolicyBasedService(builtins.str, Enum):
     ALLOW_RULES_ONLY = "AllowRulesOnly"
 
 
+@pulumi.type_token("azure-native:network:NetworkInterfaceAuxiliaryMode")
 class NetworkInterfaceAuxiliaryMode(builtins.str, Enum):
     """
     Auxiliary mode of Network Interface resource.
@@ -1191,6 +1296,7 @@ class NetworkInterfaceAuxiliaryMode(builtins.str, Enum):
     ACCELERATED_CONNECTIONS = "AcceleratedConnections"
 
 
+@pulumi.type_token("azure-native:network:NetworkInterfaceAuxiliarySku")
 class NetworkInterfaceAuxiliarySku(builtins.str, Enum):
     """
     Auxiliary sku of Network Interface resource.
@@ -1202,6 +1308,7 @@ class NetworkInterfaceAuxiliarySku(builtins.str, Enum):
     A8 = "A8"
 
 
+@pulumi.type_token("azure-native:network:NetworkInterfaceMigrationPhase")
 class NetworkInterfaceMigrationPhase(builtins.str, Enum):
     """
     Migration phase of Network Interface resource.
@@ -1213,6 +1320,7 @@ class NetworkInterfaceMigrationPhase(builtins.str, Enum):
     COMMITTED = "Committed"
 
 
+@pulumi.type_token("azure-native:network:NetworkInterfaceNicType")
 class NetworkInterfaceNicType(builtins.str, Enum):
     """
     Type of Network Interface resource.
@@ -1221,6 +1329,7 @@ class NetworkInterfaceNicType(builtins.str, Enum):
     ELASTIC = "Elastic"
 
 
+@pulumi.type_token("azure-native:network:NetworkProtocol")
 class NetworkProtocol(builtins.str, Enum):
     """
     Network protocol this resource applies to.
@@ -1231,6 +1340,7 @@ class NetworkProtocol(builtins.str, Enum):
     ICMP = "ICMP"
 
 
+@pulumi.type_token("azure-native:network:NextStep")
 class NextStep(builtins.str, Enum):
     """
     Next step after rule is evaluated. Current supported behaviors are 'Continue'(to next rule) and 'Terminate'.
@@ -1240,6 +1350,7 @@ class NextStep(builtins.str, Enum):
     TERMINATE = "Terminate"
 
 
+@pulumi.type_token("azure-native:network:NicTypeInRequest")
 class NicTypeInRequest(builtins.str, Enum):
     """
     NIC type. This should be either PublicNic or PrivateNic.
@@ -1248,6 +1359,7 @@ class NicTypeInRequest(builtins.str, Enum):
     PRIVATE_NIC = "PrivateNic"
 
 
+@pulumi.type_token("azure-native:network:OutputType")
 class OutputType(builtins.str, Enum):
     """
     Connection monitor output destination type. Currently, only "Workspace" is supported.
@@ -1255,6 +1367,7 @@ class OutputType(builtins.str, Enum):
     WORKSPACE = "Workspace"
 
 
+@pulumi.type_token("azure-native:network:OwaspCrsExclusionEntryMatchVariable")
 class OwaspCrsExclusionEntryMatchVariable(builtins.str, Enum):
     """
     The variable to be excluded.
@@ -1270,6 +1383,7 @@ class OwaspCrsExclusionEntryMatchVariable(builtins.str, Enum):
     REQUEST_ARG_VALUES = "RequestArgValues"
 
 
+@pulumi.type_token("azure-native:network:OwaspCrsExclusionEntrySelectorMatchOperator")
 class OwaspCrsExclusionEntrySelectorMatchOperator(builtins.str, Enum):
     """
     When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
@@ -1281,6 +1395,7 @@ class OwaspCrsExclusionEntrySelectorMatchOperator(builtins.str, Enum):
     EQUALS_ANY = "EqualsAny"
 
 
+@pulumi.type_token("azure-native:network:PacketCaptureTargetType")
 class PacketCaptureTargetType(builtins.str, Enum):
     """
     Target type of the resource provided.
@@ -1289,6 +1404,7 @@ class PacketCaptureTargetType(builtins.str, Enum):
     AZURE_VMSS = "AzureVMSS"
 
 
+@pulumi.type_token("azure-native:network:PcProtocol")
 class PcProtocol(builtins.str, Enum):
     """
     Protocol to be filtered on.
@@ -1298,6 +1414,7 @@ class PcProtocol(builtins.str, Enum):
     ANY = "Any"
 
 
+@pulumi.type_token("azure-native:network:PfsGroup")
 class PfsGroup(builtins.str, Enum):
     """
     The Pfs Group used in IKE Phase 2 for new child SA.
@@ -1313,6 +1430,7 @@ class PfsGroup(builtins.str, Enum):
     PFSMM = "PFSMM"
 
 
+@pulumi.type_token("azure-native:network:PreferredIPVersion")
 class PreferredIPVersion(builtins.str, Enum):
     """
     The preferred IP version to use in test evaluation. The connection monitor may choose to use a different version depending on other parameters.
@@ -1321,6 +1439,7 @@ class PreferredIPVersion(builtins.str, Enum):
     I_PV6 = "IPv6"
 
 
+@pulumi.type_token("azure-native:network:PreferredRoutingGateway")
 class PreferredRoutingGateway(builtins.str, Enum):
     """
     The preferred gateway to route on-prem traffic
@@ -1330,6 +1449,7 @@ class PreferredRoutingGateway(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:network:PrivateEndpointVNetPolicies")
 class PrivateEndpointVNetPolicies(builtins.str, Enum):
     """
     Private Endpoint VNet Policies.
@@ -1338,6 +1458,7 @@ class PrivateEndpointVNetPolicies(builtins.str, Enum):
     BASIC = "Basic"
 
 
+@pulumi.type_token("azure-native:network:ProbeNoHealthyBackendsBehavior")
 class ProbeNoHealthyBackendsBehavior(builtins.str, Enum):
     """
     Determines how new connections are handled by the load balancer when all backend instances are probed down.
@@ -1352,6 +1473,7 @@ class ProbeNoHealthyBackendsBehavior(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:network:ProbeProtocol")
 class ProbeProtocol(builtins.str, Enum):
     """
     The protocol of the end point. If 'Tcp' is specified, a received ACK is required for the probe to be successful. If 'Http' or 'Https' is specified, a 200 OK response from the specifies URI is required for the probe to be successful.
@@ -1361,6 +1483,7 @@ class ProbeProtocol(builtins.str, Enum):
     HTTPS = "Https"
 
 
+@pulumi.type_token("azure-native:network:ProtocolType")
 class ProtocolType(builtins.str, Enum):
     """
     RNM supported protocol types.
@@ -1376,6 +1499,7 @@ class ProtocolType(builtins.str, Enum):
     ALL = "All"
 
 
+@pulumi.type_token("azure-native:network:PublicIPAddressMigrationPhase")
 class PublicIPAddressMigrationPhase(builtins.str, Enum):
     """
     Migration phase of Public IP Address.
@@ -1387,6 +1511,7 @@ class PublicIPAddressMigrationPhase(builtins.str, Enum):
     COMMITTED = "Committed"
 
 
+@pulumi.type_token("azure-native:network:PublicIPAddressSkuName")
 class PublicIPAddressSkuName(builtins.str, Enum):
     """
     Name of a public IP address SKU.
@@ -1395,6 +1520,7 @@ class PublicIPAddressSkuName(builtins.str, Enum):
     STANDARD = "Standard"
 
 
+@pulumi.type_token("azure-native:network:PublicIPAddressSkuTier")
 class PublicIPAddressSkuTier(builtins.str, Enum):
     """
     Tier of a public IP address SKU.
@@ -1403,6 +1529,7 @@ class PublicIPAddressSkuTier(builtins.str, Enum):
     GLOBAL_ = "Global"
 
 
+@pulumi.type_token("azure-native:network:PublicIPPrefixSkuName")
 class PublicIPPrefixSkuName(builtins.str, Enum):
     """
     Name of a public IP prefix SKU.
@@ -1410,6 +1537,7 @@ class PublicIPPrefixSkuName(builtins.str, Enum):
     STANDARD = "Standard"
 
 
+@pulumi.type_token("azure-native:network:PublicIPPrefixSkuTier")
 class PublicIPPrefixSkuTier(builtins.str, Enum):
     """
     Tier of a public IP prefix SKU.
@@ -1418,6 +1546,7 @@ class PublicIPPrefixSkuTier(builtins.str, Enum):
     GLOBAL_ = "Global"
 
 
+@pulumi.type_token("azure-native:network:PublicIpAddressDnsSettingsDomainNameLabelScope")
 class PublicIpAddressDnsSettingsDomainNameLabelScope(builtins.str, Enum):
     """
     The domain name label scope. If a domain name label and a domain name label scope are specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN.
@@ -1428,6 +1557,7 @@ class PublicIpAddressDnsSettingsDomainNameLabelScope(builtins.str, Enum):
     NO_REUSE = "NoReuse"
 
 
+@pulumi.type_token("azure-native:network:ResiliencyModel")
 class ResiliencyModel(builtins.str, Enum):
     """
     Property to indicate if the Express Route Gateway has resiliency model of MultiHomed or SingleHomed
@@ -1436,6 +1566,7 @@ class ResiliencyModel(builtins.str, Enum):
     MULTI_HOMED = "MultiHomed"
 
 
+@pulumi.type_token("azure-native:network:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
@@ -1446,6 +1577,7 @@ class ResourceIdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:network:RouteFilterRuleType")
 class RouteFilterRuleType(builtins.str, Enum):
     """
     The rule type of the rule.
@@ -1453,6 +1585,7 @@ class RouteFilterRuleType(builtins.str, Enum):
     COMMUNITY = "Community"
 
 
+@pulumi.type_token("azure-native:network:RouteMapActionType")
 class RouteMapActionType(builtins.str, Enum):
     """
     Type of action to be taken. Supported types are 'Remove', 'Add', 'Replace', and 'Drop.'
@@ -1464,6 +1597,7 @@ class RouteMapActionType(builtins.str, Enum):
     DROP = "Drop"
 
 
+@pulumi.type_token("azure-native:network:RouteMapMatchCondition")
 class RouteMapMatchCondition(builtins.str, Enum):
     """
     Match condition to apply RouteMap rules.
@@ -1475,6 +1609,7 @@ class RouteMapMatchCondition(builtins.str, Enum):
     NOT_EQUALS = "NotEquals"
 
 
+@pulumi.type_token("azure-native:network:RouteNextHopType")
 class RouteNextHopType(builtins.str, Enum):
     """
     The type of Azure hop the packet should be sent to.
@@ -1486,6 +1621,7 @@ class RouteNextHopType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:network:RoutingRuleDestinationType")
 class RoutingRuleDestinationType(builtins.str, Enum):
     """
     Destination type.
@@ -1494,6 +1630,7 @@ class RoutingRuleDestinationType(builtins.str, Enum):
     SERVICE_TAG = "ServiceTag"
 
 
+@pulumi.type_token("azure-native:network:RoutingRuleNextHopType")
 class RoutingRuleNextHopType(builtins.str, Enum):
     """
     Next hop type.
@@ -1505,6 +1642,7 @@ class RoutingRuleNextHopType(builtins.str, Enum):
     VNET_LOCAL = "VnetLocal"
 
 
+@pulumi.type_token("azure-native:network:ScrubbingRuleEntryMatchOperator")
 class ScrubbingRuleEntryMatchOperator(builtins.str, Enum):
     """
     When matchVariable is a collection, operate on the selector to specify which elements in the collection this rule applies to.
@@ -1513,6 +1651,7 @@ class ScrubbingRuleEntryMatchOperator(builtins.str, Enum):
     EQUALS_ANY = "EqualsAny"
 
 
+@pulumi.type_token("azure-native:network:ScrubbingRuleEntryMatchVariable")
 class ScrubbingRuleEntryMatchVariable(builtins.str, Enum):
     """
     The variable to be scrubbed from the logs.
@@ -1525,6 +1664,7 @@ class ScrubbingRuleEntryMatchVariable(builtins.str, Enum):
     REQUEST_IP_ADDRESS = "RequestIPAddress"
 
 
+@pulumi.type_token("azure-native:network:ScrubbingRuleEntryState")
 class ScrubbingRuleEntryState(builtins.str, Enum):
     """
     Defines the state of log scrubbing rule. Default value is Enabled.
@@ -1533,6 +1673,7 @@ class ScrubbingRuleEntryState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:network:SecurityConfigurationRuleAccess")
 class SecurityConfigurationRuleAccess(builtins.str, Enum):
     """
     Indicates the access allowed for this particular rule
@@ -1542,6 +1683,7 @@ class SecurityConfigurationRuleAccess(builtins.str, Enum):
     ALWAYS_ALLOW = "AlwaysAllow"
 
 
+@pulumi.type_token("azure-native:network:SecurityConfigurationRuleDirection")
 class SecurityConfigurationRuleDirection(builtins.str, Enum):
     """
     Indicates if the traffic matched against the rule in inbound or outbound.
@@ -1550,6 +1692,7 @@ class SecurityConfigurationRuleDirection(builtins.str, Enum):
     OUTBOUND = "Outbound"
 
 
+@pulumi.type_token("azure-native:network:SecurityConfigurationRuleProtocol")
 class SecurityConfigurationRuleProtocol(builtins.str, Enum):
     """
     Network protocol this rule applies to.
@@ -1562,6 +1705,7 @@ class SecurityConfigurationRuleProtocol(builtins.str, Enum):
     AH = "Ah"
 
 
+@pulumi.type_token("azure-native:network:SecurityProviderName")
 class SecurityProviderName(builtins.str, Enum):
     """
     The security provider name.
@@ -1571,6 +1715,7 @@ class SecurityProviderName(builtins.str, Enum):
     CHECKPOINT = "Checkpoint"
 
 
+@pulumi.type_token("azure-native:network:SecurityRuleAccess")
 class SecurityRuleAccess(builtins.str, Enum):
     """
     The network traffic is allowed or denied.
@@ -1579,6 +1724,7 @@ class SecurityRuleAccess(builtins.str, Enum):
     DENY = "Deny"
 
 
+@pulumi.type_token("azure-native:network:SecurityRuleDirection")
 class SecurityRuleDirection(builtins.str, Enum):
     """
     The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
@@ -1587,6 +1733,7 @@ class SecurityRuleDirection(builtins.str, Enum):
     OUTBOUND = "Outbound"
 
 
+@pulumi.type_token("azure-native:network:SecurityRuleProtocol")
 class SecurityRuleProtocol(builtins.str, Enum):
     """
     Network protocol this rule applies to.
@@ -1599,6 +1746,7 @@ class SecurityRuleProtocol(builtins.str, Enum):
     AH = "Ah"
 
 
+@pulumi.type_token("azure-native:network:SensitivityType")
 class SensitivityType(builtins.str, Enum):
     """
     Describes the override sensitivity to be applied when rule matches.
@@ -1609,6 +1757,7 @@ class SensitivityType(builtins.str, Enum):
     HIGH = "High"
 
 
+@pulumi.type_token("azure-native:network:ServiceProviderProvisioningState")
 class ServiceProviderProvisioningState(builtins.str, Enum):
     """
     The ServiceProviderProvisioningState state of the resource.
@@ -1619,6 +1768,7 @@ class ServiceProviderProvisioningState(builtins.str, Enum):
     DEPROVISIONING = "Deprovisioning"
 
 
+@pulumi.type_token("azure-native:network:SharingScope")
 class SharingScope(builtins.str, Enum):
     """
     Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
@@ -1627,6 +1777,7 @@ class SharingScope(builtins.str, Enum):
     DELEGATED_SERVICES = "DelegatedServices"
 
 
+@pulumi.type_token("azure-native:network:SyncMode")
 class SyncMode(builtins.str, Enum):
     """
     Backend address synchronous mode for the backend pool
@@ -1635,6 +1786,7 @@ class SyncMode(builtins.str, Enum):
     MANUAL = "Manual"
 
 
+@pulumi.type_token("azure-native:network:TransportProtocol")
 class TransportProtocol(builtins.str, Enum):
     """
     The reference to the transport protocol used by the load balancing rule.
@@ -1644,6 +1796,7 @@ class TransportProtocol(builtins.str, Enum):
     ALL = "All"
 
 
+@pulumi.type_token("azure-native:network:UseHubGateway")
 class UseHubGateway(builtins.str, Enum):
     """
     Flag if need to use hub gateway.
@@ -1652,6 +1805,7 @@ class UseHubGateway(builtins.str, Enum):
     TRUE = "True"
 
 
+@pulumi.type_token("azure-native:network:UserRuleKind")
 class UserRuleKind(builtins.str, Enum):
     """
     Whether the rule is custom or default.
@@ -1660,6 +1814,7 @@ class UserRuleKind(builtins.str, Enum):
     DEFAULT = "Default"
 
 
+@pulumi.type_token("azure-native:network:VirtualNetworkEncryptionEnforcement")
 class VirtualNetworkEncryptionEnforcement(builtins.str, Enum):
     """
     If the encrypted VNet allows VM that does not support encryption. This field is for future support, AllowUnencrypted is the only supported value at general availability.
@@ -1668,6 +1823,7 @@ class VirtualNetworkEncryptionEnforcement(builtins.str, Enum):
     ALLOW_UNENCRYPTED = "AllowUnencrypted"
 
 
+@pulumi.type_token("azure-native:network:VirtualNetworkGatewayConnectionMode")
 class VirtualNetworkGatewayConnectionMode(builtins.str, Enum):
     """
     The connection mode for this connection.
@@ -1677,6 +1833,7 @@ class VirtualNetworkGatewayConnectionMode(builtins.str, Enum):
     INITIATOR_ONLY = "InitiatorOnly"
 
 
+@pulumi.type_token("azure-native:network:VirtualNetworkGatewayConnectionProtocol")
 class VirtualNetworkGatewayConnectionProtocol(builtins.str, Enum):
     """
     Connection protocol used for this connection.
@@ -1685,6 +1842,7 @@ class VirtualNetworkGatewayConnectionProtocol(builtins.str, Enum):
     IK_EV1 = "IKEv1"
 
 
+@pulumi.type_token("azure-native:network:VirtualNetworkGatewayConnectionType")
 class VirtualNetworkGatewayConnectionType(builtins.str, Enum):
     """
     Gateway connection type.
@@ -1695,6 +1853,7 @@ class VirtualNetworkGatewayConnectionType(builtins.str, Enum):
     VPN_CLIENT = "VPNClient"
 
 
+@pulumi.type_token("azure-native:network:VirtualNetworkGatewaySkuName")
 class VirtualNetworkGatewaySkuName(builtins.str, Enum):
     """
     Gateway SKU name.
@@ -1719,6 +1878,7 @@ class VirtualNetworkGatewaySkuName(builtins.str, Enum):
     ER_GW_SCALE = "ErGwScale"
 
 
+@pulumi.type_token("azure-native:network:VirtualNetworkGatewaySkuTier")
 class VirtualNetworkGatewaySkuTier(builtins.str, Enum):
     """
     Gateway SKU tier.
@@ -1743,6 +1903,7 @@ class VirtualNetworkGatewaySkuTier(builtins.str, Enum):
     ER_GW_SCALE = "ErGwScale"
 
 
+@pulumi.type_token("azure-native:network:VirtualNetworkGatewayType")
 class VirtualNetworkGatewayType(builtins.str, Enum):
     """
     The type of this virtual network gateway.
@@ -1752,6 +1913,7 @@ class VirtualNetworkGatewayType(builtins.str, Enum):
     LOCAL_GATEWAY = "LocalGateway"
 
 
+@pulumi.type_token("azure-native:network:VirtualNetworkPeeringLevel")
 class VirtualNetworkPeeringLevel(builtins.str, Enum):
     """
     The peering sync status of the virtual network peering.
@@ -1762,6 +1924,7 @@ class VirtualNetworkPeeringLevel(builtins.str, Enum):
     LOCAL_AND_REMOTE_NOT_IN_SYNC = "LocalAndRemoteNotInSync"
 
 
+@pulumi.type_token("azure-native:network:VirtualNetworkPeeringState")
 class VirtualNetworkPeeringState(builtins.str, Enum):
     """
     The status of the virtual network peering.
@@ -1771,6 +1934,7 @@ class VirtualNetworkPeeringState(builtins.str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+@pulumi.type_token("azure-native:network:VirtualNetworkPrivateEndpointNetworkPolicies")
 class VirtualNetworkPrivateEndpointNetworkPolicies(builtins.str, Enum):
     """
     Enable or Disable apply network policies on private end point in the subnet.
@@ -1781,6 +1945,7 @@ class VirtualNetworkPrivateEndpointNetworkPolicies(builtins.str, Enum):
     ROUTE_TABLE_ENABLED = "RouteTableEnabled"
 
 
+@pulumi.type_token("azure-native:network:VirtualNetworkPrivateLinkServiceNetworkPolicies")
 class VirtualNetworkPrivateLinkServiceNetworkPolicies(builtins.str, Enum):
     """
     Enable or Disable apply network policies on private link service in the subnet.
@@ -1789,6 +1954,7 @@ class VirtualNetworkPrivateLinkServiceNetworkPolicies(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:network:VnetLocalRouteOverrideCriteria")
 class VnetLocalRouteOverrideCriteria(builtins.str, Enum):
     """
     Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
@@ -1797,6 +1963,7 @@ class VnetLocalRouteOverrideCriteria(builtins.str, Enum):
     EQUAL = "Equal"
 
 
+@pulumi.type_token("azure-native:network:VpnAuthenticationType")
 class VpnAuthenticationType(builtins.str, Enum):
     """
     VPN authentication types enabled for the VpnServerConfiguration.
@@ -1806,6 +1973,7 @@ class VpnAuthenticationType(builtins.str, Enum):
     AAD = "AAD"
 
 
+@pulumi.type_token("azure-native:network:VpnClientProtocol")
 class VpnClientProtocol(builtins.str, Enum):
     """
     VPN client protocol enabled for the virtual network gateway.
@@ -1815,6 +1983,7 @@ class VpnClientProtocol(builtins.str, Enum):
     OPEN_VPN = "OpenVPN"
 
 
+@pulumi.type_token("azure-native:network:VpnGatewayGeneration")
 class VpnGatewayGeneration(builtins.str, Enum):
     """
     The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
@@ -1824,6 +1993,7 @@ class VpnGatewayGeneration(builtins.str, Enum):
     GENERATION2 = "Generation2"
 
 
+@pulumi.type_token("azure-native:network:VpnGatewayTunnelingProtocol")
 class VpnGatewayTunnelingProtocol(builtins.str, Enum):
     """
     VPN protocol enabled for the VpnServerConfiguration.
@@ -1832,6 +2002,7 @@ class VpnGatewayTunnelingProtocol(builtins.str, Enum):
     OPEN_VPN = "OpenVPN"
 
 
+@pulumi.type_token("azure-native:network:VpnLinkConnectionMode")
 class VpnLinkConnectionMode(builtins.str, Enum):
     """
     Vpn link connection mode.
@@ -1841,6 +2012,7 @@ class VpnLinkConnectionMode(builtins.str, Enum):
     INITIATOR_ONLY = "InitiatorOnly"
 
 
+@pulumi.type_token("azure-native:network:VpnNatRuleMode")
 class VpnNatRuleMode(builtins.str, Enum):
     """
     The Source NAT direction of a VPN NAT.
@@ -1849,6 +2021,7 @@ class VpnNatRuleMode(builtins.str, Enum):
     INGRESS_SNAT = "IngressSnat"
 
 
+@pulumi.type_token("azure-native:network:VpnNatRuleType")
 class VpnNatRuleType(builtins.str, Enum):
     """
     The type of NAT rule for VPN NAT.
@@ -1857,6 +2030,7 @@ class VpnNatRuleType(builtins.str, Enum):
     DYNAMIC = "Dynamic"
 
 
+@pulumi.type_token("azure-native:network:VpnPolicyMemberAttributeType")
 class VpnPolicyMemberAttributeType(builtins.str, Enum):
     """
     The Vpn Policy member attribute type.
@@ -1866,6 +2040,7 @@ class VpnPolicyMemberAttributeType(builtins.str, Enum):
     RADIUS_AZURE_GROUP_ID = "RadiusAzureGroupId"
 
 
+@pulumi.type_token("azure-native:network:VpnType")
 class VpnType(builtins.str, Enum):
     """
     The type of this virtual network gateway.
@@ -1874,6 +2049,7 @@ class VpnType(builtins.str, Enum):
     ROUTE_BASED = "RouteBased"
 
 
+@pulumi.type_token("azure-native:network:WebApplicationFirewallAction")
 class WebApplicationFirewallAction(builtins.str, Enum):
     """
     Type of Actions.
@@ -1884,6 +2060,7 @@ class WebApplicationFirewallAction(builtins.str, Enum):
     JS_CHALLENGE = "JSChallenge"
 
 
+@pulumi.type_token("azure-native:network:WebApplicationFirewallEnabledState")
 class WebApplicationFirewallEnabledState(builtins.str, Enum):
     """
     The state of the policy.
@@ -1892,6 +2069,7 @@ class WebApplicationFirewallEnabledState(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:network:WebApplicationFirewallMatchVariable")
 class WebApplicationFirewallMatchVariable(builtins.str, Enum):
     """
     Match Variable.
@@ -1906,6 +2084,7 @@ class WebApplicationFirewallMatchVariable(builtins.str, Enum):
     REQUEST_COOKIES = "RequestCookies"
 
 
+@pulumi.type_token("azure-native:network:WebApplicationFirewallMode")
 class WebApplicationFirewallMode(builtins.str, Enum):
     """
     The mode of the policy.
@@ -1914,6 +2093,7 @@ class WebApplicationFirewallMode(builtins.str, Enum):
     DETECTION = "Detection"
 
 
+@pulumi.type_token("azure-native:network:WebApplicationFirewallOperator")
 class WebApplicationFirewallOperator(builtins.str, Enum):
     """
     The operator to be matched.
@@ -1932,6 +2112,7 @@ class WebApplicationFirewallOperator(builtins.str, Enum):
     ANY = "Any"
 
 
+@pulumi.type_token("azure-native:network:WebApplicationFirewallRuleType")
 class WebApplicationFirewallRuleType(builtins.str, Enum):
     """
     The rule type.
@@ -1941,6 +2122,7 @@ class WebApplicationFirewallRuleType(builtins.str, Enum):
     INVALID = "Invalid"
 
 
+@pulumi.type_token("azure-native:network:WebApplicationFirewallScrubbingState")
 class WebApplicationFirewallScrubbingState(builtins.str, Enum):
     """
     State of the log scrubbing config. Default value is Enabled.
@@ -1949,6 +2131,7 @@ class WebApplicationFirewallScrubbingState(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:network:WebApplicationFirewallState")
 class WebApplicationFirewallState(builtins.str, Enum):
     """
     Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
@@ -1957,6 +2140,7 @@ class WebApplicationFirewallState(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:network:WebApplicationFirewallTransform")
 class WebApplicationFirewallTransform(builtins.str, Enum):
     """
     Transforms applied before matching.

@@ -295,10 +295,8 @@ class WebAppFunctionArgs:
         pulumi.set(self, "test_data_href", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppFunction")
 class WebAppFunction(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppFunction"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

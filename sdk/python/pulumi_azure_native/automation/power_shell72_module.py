@@ -136,10 +136,8 @@ class PowerShell72ModuleArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:automation:PowerShell72Module")
 class PowerShell72Module(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:automation:PowerShell72Module"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -138,10 +138,8 @@ class PrivateLinkServicesForEDMUploadArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:m365securityandcompliance:PrivateLinkServicesForEDMUpload")
 class PrivateLinkServicesForEDMUpload(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:m365securityandcompliance:PrivateLinkServicesForEDMUpload"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

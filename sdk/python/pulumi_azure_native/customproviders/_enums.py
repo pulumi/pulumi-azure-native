@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:customproviders:ActionRouting")
 class ActionRouting(builtins.str, Enum):
     """
     The routing types that are supported for action requests.
@@ -20,6 +21,7 @@ class ActionRouting(builtins.str, Enum):
     PROXY = "Proxy"
 
 
+@pulumi.type_token("azure-native:customproviders:ResourceTypeRouting")
 class ResourceTypeRouting(builtins.str, Enum):
     """
     The routing types that are supported for resource requests.
@@ -28,6 +30,7 @@ class ResourceTypeRouting(builtins.str, Enum):
     PROXY_CACHE = "Proxy,Cache"
 
 
+@pulumi.type_token("azure-native:customproviders:ValidationType")
 class ValidationType(builtins.str, Enum):
     """
     The type of validation to run against a matching request.

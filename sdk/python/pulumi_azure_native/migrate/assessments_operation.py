@@ -421,10 +421,8 @@ class AssessmentsOperationArgs:
         pulumi.set(self, "vm_uptime", value)
 
 
+@pulumi.type_token("azure-native:migrate:AssessmentsOperation")
 class AssessmentsOperation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:migrate:AssessmentsOperation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

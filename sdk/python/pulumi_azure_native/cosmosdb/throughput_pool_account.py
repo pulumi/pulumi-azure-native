@@ -104,10 +104,8 @@ class ThroughputPoolAccountArgs:
         pulumi.set(self, "throughput_pool_account_name", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:ThroughputPoolAccount")
 class ThroughputPoolAccount(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:ThroughputPoolAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

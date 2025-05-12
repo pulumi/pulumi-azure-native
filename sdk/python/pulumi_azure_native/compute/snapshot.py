@@ -394,10 +394,8 @@ class SnapshotArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:compute:Snapshot")
 class Snapshot(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:compute:Snapshot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

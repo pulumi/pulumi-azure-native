@@ -122,10 +122,8 @@ class MSTIDataConnectorArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:MSTIDataConnector")
 class MSTIDataConnector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:MSTIDataConnector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

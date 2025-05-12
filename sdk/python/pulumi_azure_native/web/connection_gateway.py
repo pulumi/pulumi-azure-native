@@ -118,10 +118,8 @@ class ConnectionGatewayArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:web:ConnectionGateway")
 class ConnectionGateway(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:ConnectionGateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

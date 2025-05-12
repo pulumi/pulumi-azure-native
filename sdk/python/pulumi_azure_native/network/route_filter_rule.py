@@ -165,10 +165,8 @@ class RouteFilterRuleInitArgs:
         pulumi.set(self, "rule_name", value)
 
 
+@pulumi.type_token("azure-native:network:RouteFilterRule")
 class RouteFilterRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:RouteFilterRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

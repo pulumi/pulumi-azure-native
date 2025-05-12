@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -25,12 +25,14 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:servicebus:AccessRights")
 class AccessRights(builtins.str, Enum):
     MANAGE = "Manage"
     SEND = "Send"
     LISTEN = "Listen"
 
 
+@pulumi.type_token("azure-native:servicebus:DefaultAction")
 class DefaultAction(builtins.str, Enum):
     """
     Default Action for Network Rule Set
@@ -39,6 +41,7 @@ class DefaultAction(builtins.str, Enum):
     DENY = "Deny"
 
 
+@pulumi.type_token("azure-native:servicebus:EndPointProvisioningState")
 class EndPointProvisioningState(builtins.str, Enum):
     """
     Provisioning state of the Private Endpoint Connection.
@@ -51,6 +54,7 @@ class EndPointProvisioningState(builtins.str, Enum):
     FAILED = "Failed"
 
 
+@pulumi.type_token("azure-native:servicebus:EntityStatus")
 class EntityStatus(builtins.str, Enum):
     """
     Enumerates the possible values for the status of a messaging entity.
@@ -66,6 +70,7 @@ class EntityStatus(builtins.str, Enum):
     UNKNOWN = "Unknown"
 
 
+@pulumi.type_token("azure-native:servicebus:FilterType")
 class FilterType(builtins.str, Enum):
     """
     Filter type that is evaluated against a BrokeredMessage.
@@ -74,6 +79,7 @@ class FilterType(builtins.str, Enum):
     CORRELATION_FILTER = "CorrelationFilter"
 
 
+@pulumi.type_token("azure-native:servicebus:IPAction")
 class IPAction(builtins.str, Enum):
     """
     The IP Filter Action
@@ -82,6 +88,7 @@ class IPAction(builtins.str, Enum):
     REJECT = "Reject"
 
 
+@pulumi.type_token("azure-native:servicebus:KeySource")
 class KeySource(builtins.str, Enum):
     """
     Enumerates the possible value of keySource for Encryption
@@ -89,6 +96,7 @@ class KeySource(builtins.str, Enum):
     MICROSOFT_KEY_VAULT = "Microsoft.KeyVault"
 
 
+@pulumi.type_token("azure-native:servicebus:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity.
@@ -99,6 +107,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:servicebus:NetworkRuleIPAction")
 class NetworkRuleIPAction(builtins.str, Enum):
     """
     The IP Filter Action
@@ -106,6 +115,7 @@ class NetworkRuleIPAction(builtins.str, Enum):
     ALLOW = "Allow"
 
 
+@pulumi.type_token("azure-native:servicebus:PrivateLinkConnectionStatus")
 class PrivateLinkConnectionStatus(builtins.str, Enum):
     """
     Status of the connection.
@@ -116,6 +126,7 @@ class PrivateLinkConnectionStatus(builtins.str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+@pulumi.type_token("azure-native:servicebus:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     This determines if traffic is allowed over public network. By default it is enabled.
@@ -125,6 +136,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     SECURED_BY_PERIMETER = "SecuredByPerimeter"
 
 
+@pulumi.type_token("azure-native:servicebus:PublicNetworkAccessFlag")
 class PublicNetworkAccessFlag(builtins.str, Enum):
     """
     This determines if traffic is allowed over public network. By default it is enabled.
@@ -133,6 +145,7 @@ class PublicNetworkAccessFlag(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:servicebus:SkuName")
 class SkuName(builtins.str, Enum):
     """
     Name of this SKU.
@@ -142,6 +155,7 @@ class SkuName(builtins.str, Enum):
     PREMIUM = "Premium"
 
 
+@pulumi.type_token("azure-native:servicebus:SkuTier")
 class SkuTier(builtins.str, Enum):
     """
     The billing tier of this particular SKU.
@@ -151,6 +165,7 @@ class SkuTier(builtins.str, Enum):
     PREMIUM = "Premium"
 
 
+@pulumi.type_token("azure-native:servicebus:TlsVersion")
 class TlsVersion(builtins.str, Enum):
     """
     The minimum TLS version for the cluster to support, e.g. '1.2'

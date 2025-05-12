@@ -154,10 +154,8 @@ class CloudConnectionArgs:
         pulumi.set(self, "virtual_hub", value)
 
 
+@pulumi.type_token("azure-native:hybridcloud:CloudConnection")
 class CloudConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybridcloud:CloudConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

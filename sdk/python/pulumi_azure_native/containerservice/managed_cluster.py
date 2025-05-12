@@ -683,10 +683,8 @@ class ManagedClusterArgs:
         pulumi.set(self, "workload_auto_scaler_profile", value)
 
 
+@pulumi.type_token("azure-native:containerservice:ManagedCluster")
 class ManagedCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerservice:ManagedCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

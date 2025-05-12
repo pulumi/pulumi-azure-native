@@ -170,10 +170,8 @@ class PoolArgs:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure-native:containerstorage:Pool")
 class Pool(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerstorage:Pool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

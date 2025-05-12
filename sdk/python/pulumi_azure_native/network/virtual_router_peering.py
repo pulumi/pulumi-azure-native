@@ -135,10 +135,8 @@ class VirtualRouterPeeringArgs:
         pulumi.set(self, "peering_name", value)
 
 
+@pulumi.type_token("azure-native:network:VirtualRouterPeering")
 class VirtualRouterPeering(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:VirtualRouterPeering"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -103,10 +103,8 @@ class ReplicationRecoveryServicesProviderArgs:
         pulumi.set(self, "provider_name", value)
 
 
+@pulumi.type_token("azure-native:recoveryservices:ReplicationRecoveryServicesProvider")
 class ReplicationRecoveryServicesProvider(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:recoveryservices:ReplicationRecoveryServicesProvider"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

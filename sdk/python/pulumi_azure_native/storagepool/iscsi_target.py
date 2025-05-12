@@ -169,10 +169,8 @@ class IscsiTargetArgs:
         pulumi.set(self, "target_iqn", value)
 
 
+@pulumi.type_token("azure-native:storagepool:IscsiTarget")
 class IscsiTarget(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storagepool:IscsiTarget"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

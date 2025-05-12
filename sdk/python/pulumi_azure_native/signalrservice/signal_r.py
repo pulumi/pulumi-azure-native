@@ -387,10 +387,8 @@ class SignalRArgs:
         pulumi.set(self, "upstream", value)
 
 
+@pulumi.type_token("azure-native:signalrservice:SignalR")
 class SignalR(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:signalrservice:SignalR"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

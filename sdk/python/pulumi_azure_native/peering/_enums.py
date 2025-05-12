@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:peering:DirectPeeringType")
 class DirectPeeringType(builtins.str, Enum):
     """
     The type of direct peering.
@@ -28,6 +29,7 @@ class DirectPeeringType(builtins.str, Enum):
     EDGE_ZONE_FOR_OPERATORS = "EdgeZoneForOperators"
 
 
+@pulumi.type_token("azure-native:peering:Kind")
 class Kind(builtins.str, Enum):
     """
     The kind of the peering.
@@ -36,6 +38,7 @@ class Kind(builtins.str, Enum):
     EXCHANGE = "Exchange"
 
 
+@pulumi.type_token("azure-native:peering:Role")
 class Role(builtins.str, Enum):
     """
     The role of the contact.
@@ -48,6 +51,7 @@ class Role(builtins.str, Enum):
     OTHER = "Other"
 
 
+@pulumi.type_token("azure-native:peering:SessionAddressProvider")
 class SessionAddressProvider(builtins.str, Enum):
     """
     The field indicating if Microsoft provides session ip addresses.

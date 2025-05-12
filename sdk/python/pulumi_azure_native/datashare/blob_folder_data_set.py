@@ -179,10 +179,8 @@ class BlobFolderDataSetArgs:
         pulumi.set(self, "data_set_name", value)
 
 
+@pulumi.type_token("azure-native:datashare:BlobFolderDataSet")
 class BlobFolderDataSet(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datashare:BlobFolderDataSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

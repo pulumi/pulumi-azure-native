@@ -107,10 +107,8 @@ class LightsailInstanceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:LightsailInstance")
 class LightsailInstance(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:LightsailInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

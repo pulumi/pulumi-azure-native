@@ -220,10 +220,8 @@ class SensitivityLabelArgs:
         pulumi.set(self, "sensitivity_label_source", value)
 
 
+@pulumi.type_token("azure-native:sql:SensitivityLabel")
 class SensitivityLabel(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:SensitivityLabel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

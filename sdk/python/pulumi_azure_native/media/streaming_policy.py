@@ -154,10 +154,8 @@ class StreamingPolicyArgs:
         pulumi.set(self, "streaming_policy_name", value)
 
 
+@pulumi.type_token("azure-native:media:StreamingPolicy")
 class StreamingPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:media:StreamingPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

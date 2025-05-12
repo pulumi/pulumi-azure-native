@@ -89,10 +89,8 @@ class WebPubSubHubArgs:
         pulumi.set(self, "hub_name", value)
 
 
+@pulumi.type_token("azure-native:webpubsub:WebPubSubHub")
 class WebPubSubHub(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:webpubsub:WebPubSubHub"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

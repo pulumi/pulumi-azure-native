@@ -104,10 +104,8 @@ class Python3PackageArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:automation:Python3Package")
 class Python3Package(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:automation:Python3Package"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

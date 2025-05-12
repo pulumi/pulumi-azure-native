@@ -137,10 +137,8 @@ class WorkloadNetworkSegmentArgs:
         pulumi.set(self, "subnet", value)
 
 
+@pulumi.type_token("azure-native:avs:WorkloadNetworkSegment")
 class WorkloadNetworkSegment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:avs:WorkloadNetworkSegment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

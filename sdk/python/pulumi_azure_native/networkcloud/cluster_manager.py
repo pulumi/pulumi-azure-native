@@ -186,10 +186,8 @@ class ClusterManagerArgs:
         pulumi.set(self, "vm_size", value)
 
 
+@pulumi.type_token("azure-native:networkcloud:ClusterManager")
 class ClusterManager(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:networkcloud:ClusterManager"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

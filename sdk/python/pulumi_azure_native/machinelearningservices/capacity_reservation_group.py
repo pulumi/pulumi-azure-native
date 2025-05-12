@@ -154,10 +154,8 @@ class CapacityReservationGroupInitArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:CapacityReservationGroup")
 class CapacityReservationGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:CapacityReservationGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -153,10 +153,8 @@ class RuleArgs:
         pulumi.set(self, "rule_name", value)
 
 
+@pulumi.type_token("azure-native:cdn:Rule")
 class Rule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cdn:Rule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

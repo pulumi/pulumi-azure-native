@@ -86,10 +86,8 @@ class TrustedIdProviderArgs:
         pulumi.set(self, "trusted_id_provider_name", value)
 
 
+@pulumi.type_token("azure-native:datalakestore:TrustedIdProvider")
 class TrustedIdProvider(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datalakestore:TrustedIdProvider"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

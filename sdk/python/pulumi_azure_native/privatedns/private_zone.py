@@ -88,10 +88,8 @@ class PrivateZoneArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:privatedns:PrivateZone")
 class PrivateZone(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:privatedns:PrivateZone"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

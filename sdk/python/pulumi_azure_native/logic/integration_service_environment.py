@@ -139,10 +139,8 @@ class IntegrationServiceEnvironmentArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:logic:IntegrationServiceEnvironment")
 class IntegrationServiceEnvironment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:logic:IntegrationServiceEnvironment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

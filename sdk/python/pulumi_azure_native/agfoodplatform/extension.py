@@ -105,10 +105,8 @@ class ExtensionArgs:
         pulumi.set(self, "extension_version", value)
 
 
+@pulumi.type_token("azure-native:agfoodplatform:Extension")
 class Extension(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:agfoodplatform:Extension"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

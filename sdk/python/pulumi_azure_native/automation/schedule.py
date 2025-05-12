@@ -199,10 +199,8 @@ class ScheduleArgs:
         pulumi.set(self, "time_zone", value)
 
 
+@pulumi.type_token("azure-native:automation:Schedule")
 class Schedule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:automation:Schedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

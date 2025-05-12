@@ -88,10 +88,8 @@ class NamespaceAuthorizationRuleArgs:
         pulumi.set(self, "authorization_rule_name", value)
 
 
+@pulumi.type_token("azure-native:servicebus:NamespaceAuthorizationRule")
 class NamespaceAuthorizationRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:servicebus:NamespaceAuthorizationRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

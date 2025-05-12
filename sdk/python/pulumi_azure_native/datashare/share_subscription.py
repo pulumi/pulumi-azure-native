@@ -118,10 +118,8 @@ class ShareSubscriptionArgs:
         pulumi.set(self, "share_subscription_name", value)
 
 
+@pulumi.type_token("azure-native:datashare:ShareSubscription")
 class ShareSubscription(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datashare:ShareSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

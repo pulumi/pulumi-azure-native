@@ -379,10 +379,8 @@ class StreamingJobArgs:
         pulumi.set(self, "transformation", value)
 
 
+@pulumi.type_token("azure-native:streamanalytics:StreamingJob")
 class StreamingJob(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:streamanalytics:StreamingJob"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -134,10 +134,8 @@ class HyperVSiteArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:offazure:HyperVSite")
 class HyperVSite(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:offazure:HyperVSite"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

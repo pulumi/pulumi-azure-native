@@ -118,10 +118,8 @@ class HuntRelationArgs:
         pulumi.set(self, "labels", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:HuntRelation")
 class HuntRelation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:HuntRelation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

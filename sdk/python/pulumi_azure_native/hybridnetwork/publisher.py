@@ -123,10 +123,8 @@ class PublisherArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:hybridnetwork:Publisher")
 class Publisher(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybridnetwork:Publisher"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

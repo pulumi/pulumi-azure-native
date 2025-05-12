@@ -121,10 +121,8 @@ class SecurityPoliciesInterfaceArgs:
         pulumi.set(self, "waf_policy", value)
 
 
+@pulumi.type_token("azure-native:servicenetworking:SecurityPoliciesInterface")
 class SecurityPoliciesInterface(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:servicenetworking:SecurityPoliciesInterface"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

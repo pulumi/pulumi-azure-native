@@ -166,10 +166,8 @@ class MarkupRuleArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure-native:costmanagement:MarkupRule")
 class MarkupRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:costmanagement:MarkupRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

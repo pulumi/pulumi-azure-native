@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -43,6 +43,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:logic:AgreementType")
 class AgreementType(builtins.str, Enum):
     """
     The agreement type.
@@ -53,6 +54,7 @@ class AgreementType(builtins.str, Enum):
     EDIFACT = "Edifact"
 
 
+@pulumi.type_token("azure-native:logic:DayOfWeek")
 class DayOfWeek(builtins.str, Enum):
     """
     The day of the week.
@@ -66,6 +68,7 @@ class DayOfWeek(builtins.str, Enum):
     SATURDAY = "Saturday"
 
 
+@pulumi.type_token("azure-native:logic:DaysOfWeek")
 class DaysOfWeek(builtins.str, Enum):
     SUNDAY = "Sunday"
     MONDAY = "Monday"
@@ -76,6 +79,7 @@ class DaysOfWeek(builtins.str, Enum):
     SATURDAY = "Saturday"
 
 
+@pulumi.type_token("azure-native:logic:EdifactCharacterSet")
 class EdifactCharacterSet(builtins.str, Enum):
     """
     The EDIFACT frame setting characterSet.
@@ -97,6 +101,7 @@ class EdifactCharacterSet(builtins.str, Enum):
     KECA = "KECA"
 
 
+@pulumi.type_token("azure-native:logic:EdifactDecimalIndicator")
 class EdifactDecimalIndicator(builtins.str, Enum):
     """
     The EDIFACT frame setting decimal indicator.
@@ -106,6 +111,7 @@ class EdifactDecimalIndicator(builtins.str, Enum):
     DECIMAL = "Decimal"
 
 
+@pulumi.type_token("azure-native:logic:EncryptionAlgorithm")
 class EncryptionAlgorithm(builtins.str, Enum):
     """
     The encryption algorithm.
@@ -119,6 +125,7 @@ class EncryptionAlgorithm(builtins.str, Enum):
     AES256 = "AES256"
 
 
+@pulumi.type_token("azure-native:logic:HashingAlgorithm")
 class HashingAlgorithm(builtins.str, Enum):
     """
     The signing or hashing algorithm.
@@ -132,6 +139,7 @@ class HashingAlgorithm(builtins.str, Enum):
     SHA2512 = "SHA2512"
 
 
+@pulumi.type_token("azure-native:logic:IntegrationAccountSkuName")
 class IntegrationAccountSkuName(builtins.str, Enum):
     """
     The sku name.
@@ -142,6 +150,7 @@ class IntegrationAccountSkuName(builtins.str, Enum):
     STANDARD = "Standard"
 
 
+@pulumi.type_token("azure-native:logic:IntegrationServiceEnvironmentAccessEndpointType")
 class IntegrationServiceEnvironmentAccessEndpointType(builtins.str, Enum):
     """
     The access endpoint type.
@@ -151,6 +160,7 @@ class IntegrationServiceEnvironmentAccessEndpointType(builtins.str, Enum):
     INTERNAL = "Internal"
 
 
+@pulumi.type_token("azure-native:logic:IntegrationServiceEnvironmentSkuName")
 class IntegrationServiceEnvironmentSkuName(builtins.str, Enum):
     """
     The sku name.
@@ -160,6 +170,7 @@ class IntegrationServiceEnvironmentSkuName(builtins.str, Enum):
     DEVELOPER = "Developer"
 
 
+@pulumi.type_token("azure-native:logic:KeyType")
 class KeyType(builtins.str, Enum):
     """
     The key type.
@@ -169,6 +180,7 @@ class KeyType(builtins.str, Enum):
     SECONDARY = "Secondary"
 
 
+@pulumi.type_token("azure-native:logic:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity. The type 'SystemAssigned' includes an implicitly created identity. The type 'None' will remove any identities from the resource.
@@ -178,6 +190,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:logic:MapType")
 class MapType(builtins.str, Enum):
     """
     The map type.
@@ -189,6 +202,7 @@ class MapType(builtins.str, Enum):
     LIQUID = "Liquid"
 
 
+@pulumi.type_token("azure-native:logic:MessageFilterType")
 class MessageFilterType(builtins.str, Enum):
     """
     The message filter type.
@@ -198,6 +212,7 @@ class MessageFilterType(builtins.str, Enum):
     EXCLUDE = "Exclude"
 
 
+@pulumi.type_token("azure-native:logic:OpenAuthenticationProviderType")
 class OpenAuthenticationProviderType(builtins.str, Enum):
     """
     Type of provider for OAuth.
@@ -205,6 +220,7 @@ class OpenAuthenticationProviderType(builtins.str, Enum):
     AAD = "AAD"
 
 
+@pulumi.type_token("azure-native:logic:ParameterType")
 class ParameterType(builtins.str, Enum):
     """
     The type.
@@ -220,6 +236,7 @@ class ParameterType(builtins.str, Enum):
     SECURE_OBJECT = "SecureObject"
 
 
+@pulumi.type_token("azure-native:logic:PartnerType")
 class PartnerType(builtins.str, Enum):
     """
     The partner type.
@@ -228,6 +245,7 @@ class PartnerType(builtins.str, Enum):
     B2_B = "B2B"
 
 
+@pulumi.type_token("azure-native:logic:RecurrenceFrequency")
 class RecurrenceFrequency(builtins.str, Enum):
     """
     The frequency.
@@ -242,6 +260,7 @@ class RecurrenceFrequency(builtins.str, Enum):
     YEAR = "Year"
 
 
+@pulumi.type_token("azure-native:logic:RosettaNetActionType")
 class RosettaNetActionType(builtins.str, Enum):
     """
     The value indicating whether the RosettaNet PIP is used for a single action.
@@ -251,6 +270,7 @@ class RosettaNetActionType(builtins.str, Enum):
     DOUBLE_ACTION = "DoubleAction"
 
 
+@pulumi.type_token("azure-native:logic:RosettaNetPipActivityType")
 class RosettaNetPipActivityType(builtins.str, Enum):
     """
     The RosettaNet ProcessConfiguration activity type.
@@ -264,6 +284,7 @@ class RosettaNetPipActivityType(builtins.str, Enum):
     REQUEST_RESPONSE = "RequestResponse"
 
 
+@pulumi.type_token("azure-native:logic:RosettaNetPipConfidentialityScope")
 class RosettaNetPipConfidentialityScope(builtins.str, Enum):
     """
     The persistent confidentiality encryption scope.
@@ -274,6 +295,7 @@ class RosettaNetPipConfidentialityScope(builtins.str, Enum):
     PAYLOAD_CONTAINER = "PayloadContainer"
 
 
+@pulumi.type_token("azure-native:logic:RosettaNetPipRoleType")
 class RosettaNetPipRoleType(builtins.str, Enum):
     """
     The RosettaNet ProcessConfiguration role type.
@@ -284,6 +306,7 @@ class RosettaNetPipRoleType(builtins.str, Enum):
     EMPLOYEE = "Employee"
 
 
+@pulumi.type_token("azure-native:logic:RosettaNetResponseType")
 class RosettaNetResponseType(builtins.str, Enum):
     """
     The value indicating whether the RosettaNet PIP communication is synchronous.
@@ -293,6 +316,7 @@ class RosettaNetResponseType(builtins.str, Enum):
     ASYNC_ = "Async"
 
 
+@pulumi.type_token("azure-native:logic:SchemaType")
 class SchemaType(builtins.str, Enum):
     """
     The schema type.
@@ -301,6 +325,7 @@ class SchemaType(builtins.str, Enum):
     XML = "Xml"
 
 
+@pulumi.type_token("azure-native:logic:SegmentTerminatorSuffix")
 class SegmentTerminatorSuffix(builtins.str, Enum):
     """
     The segment terminator suffix.
@@ -312,6 +337,7 @@ class SegmentTerminatorSuffix(builtins.str, Enum):
     CRLF = "CRLF"
 
 
+@pulumi.type_token("azure-native:logic:SigningAlgorithm")
 class SigningAlgorithm(builtins.str, Enum):
     """
     The signing algorithm.
@@ -324,6 +350,7 @@ class SigningAlgorithm(builtins.str, Enum):
     SHA2512 = "SHA2512"
 
 
+@pulumi.type_token("azure-native:logic:TrailingSeparatorPolicy")
 class TrailingSeparatorPolicy(builtins.str, Enum):
     """
     The trailing separator policy.
@@ -334,6 +361,7 @@ class TrailingSeparatorPolicy(builtins.str, Enum):
     MANDATORY = "Mandatory"
 
 
+@pulumi.type_token("azure-native:logic:UsageIndicator")
 class UsageIndicator(builtins.str, Enum):
     """
     The usage indicator.
@@ -344,6 +372,7 @@ class UsageIndicator(builtins.str, Enum):
     PRODUCTION = "Production"
 
 
+@pulumi.type_token("azure-native:logic:WorkflowProvisioningState")
 class WorkflowProvisioningState(builtins.str, Enum):
     """
     The provisioning state.
@@ -372,6 +401,7 @@ class WorkflowProvisioningState(builtins.str, Enum):
     IN_PROGRESS = "InProgress"
 
 
+@pulumi.type_token("azure-native:logic:WorkflowState")
 class WorkflowState(builtins.str, Enum):
     """
     The state.
@@ -384,6 +414,7 @@ class WorkflowState(builtins.str, Enum):
     SUSPENDED = "Suspended"
 
 
+@pulumi.type_token("azure-native:logic:X12CharacterSet")
 class X12CharacterSet(builtins.str, Enum):
     """
     The X12 character set.
@@ -394,6 +425,7 @@ class X12CharacterSet(builtins.str, Enum):
     UTF8 = "UTF8"
 
 
+@pulumi.type_token("azure-native:logic:X12DateFormat")
 class X12DateFormat(builtins.str, Enum):
     """
     The group header date format.
@@ -403,6 +435,7 @@ class X12DateFormat(builtins.str, Enum):
     YYMMDD = "YYMMDD"
 
 
+@pulumi.type_token("azure-native:logic:X12TimeFormat")
 class X12TimeFormat(builtins.str, Enum):
     """
     The group header time format.

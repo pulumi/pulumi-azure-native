@@ -137,10 +137,8 @@ class SqlServerRegistrationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:azuredata:SqlServerRegistration")
 class SqlServerRegistration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azuredata:SqlServerRegistration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

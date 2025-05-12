@@ -255,10 +255,8 @@ class NamespaceArgs:
         pulumi.set(self, "zone_redundant", value)
 
 
+@pulumi.type_token("azure-native:servicebus:Namespace")
 class Namespace(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:servicebus:Namespace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

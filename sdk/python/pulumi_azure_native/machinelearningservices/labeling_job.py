@@ -89,10 +89,8 @@ class LabelingJobInitArgs:
         pulumi.set(self, "id", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:LabelingJob")
 class LabelingJob(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:LabelingJob"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

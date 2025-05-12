@@ -169,10 +169,8 @@ class AgentPoolArgs:
         pulumi.set(self, "virtual_network_subnet_resource_id", value)
 
 
+@pulumi.type_token("azure-native:containerregistry:AgentPool")
 class AgentPool(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerregistry:AgentPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

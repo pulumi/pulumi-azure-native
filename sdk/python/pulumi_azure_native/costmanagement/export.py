@@ -185,10 +185,8 @@ class ExportArgs:
         pulumi.set(self, "schedule", value)
 
 
+@pulumi.type_token("azure-native:costmanagement:Export")
 class Export(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:costmanagement:Export"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

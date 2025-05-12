@@ -180,10 +180,8 @@ class OpenIdConnectProviderArgs:
         pulumi.set(self, "use_in_test_console", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:OpenIdConnectProvider")
 class OpenIdConnectProvider(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:OpenIdConnectProvider"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

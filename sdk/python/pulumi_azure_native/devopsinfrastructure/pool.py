@@ -198,10 +198,8 @@ class PoolArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:devopsinfrastructure:Pool")
 class Pool(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devopsinfrastructure:Pool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

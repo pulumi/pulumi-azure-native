@@ -172,10 +172,8 @@ class VirtualMachineTemplateArgs:
         pulumi.set(self, "virtual_machine_template_name", value)
 
 
+@pulumi.type_token("azure-native:connectedvmwarevsphere:VirtualMachineTemplate")
 class VirtualMachineTemplate(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:connectedvmwarevsphere:VirtualMachineTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

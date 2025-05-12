@@ -112,10 +112,8 @@ class TopicSpaceArgs:
         pulumi.set(self, "topic_templates", value)
 
 
+@pulumi.type_token("azure-native:eventgrid:TopicSpace")
 class TopicSpace(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:eventgrid:TopicSpace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

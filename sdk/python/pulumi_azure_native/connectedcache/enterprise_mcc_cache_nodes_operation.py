@@ -122,10 +122,8 @@ class EnterpriseMccCacheNodesOperationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:connectedcache:EnterpriseMccCacheNodesOperation")
 class EnterpriseMccCacheNodesOperation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:connectedcache:EnterpriseMccCacheNodesOperation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -121,10 +121,8 @@ class CustomizedAcceleratorArgs:
         pulumi.set(self, "sku", value)
 
 
+@pulumi.type_token("azure-native:appplatform:CustomizedAccelerator")
 class CustomizedAccelerator(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:appplatform:CustomizedAccelerator"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

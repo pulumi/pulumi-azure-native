@@ -118,10 +118,8 @@ class ReplicationNetworkMappingArgs:
         pulumi.set(self, "network_mapping_name", value)
 
 
+@pulumi.type_token("azure-native:recoveryservices:ReplicationNetworkMapping")
 class ReplicationNetworkMapping(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:recoveryservices:ReplicationNetworkMapping"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

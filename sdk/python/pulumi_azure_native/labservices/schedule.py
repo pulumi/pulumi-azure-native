@@ -152,10 +152,8 @@ class ScheduleArgs:
         pulumi.set(self, "start_at", value)
 
 
+@pulumi.type_token("azure-native:labservices:Schedule")
 class Schedule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:labservices:Schedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

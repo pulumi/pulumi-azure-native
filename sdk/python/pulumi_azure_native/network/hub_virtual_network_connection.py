@@ -186,10 +186,8 @@ class HubVirtualNetworkConnectionArgs:
         pulumi.set(self, "routing_configuration", value)
 
 
+@pulumi.type_token("azure-native:network:HubVirtualNetworkConnection")
 class HubVirtualNetworkConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:HubVirtualNetworkConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

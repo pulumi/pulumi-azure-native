@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:attestation:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -22,6 +23,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:attestation:PublicNetworkAccessType")
 class PublicNetworkAccessType(builtins.str, Enum):
     """
     Controls whether traffic from the public network is allowed to access the Attestation Provider APIs.
@@ -36,6 +38,7 @@ class PublicNetworkAccessType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:attestation:TpmAttestationAuthenticationType")
 class TpmAttestationAuthenticationType(builtins.str, Enum):
     """
     The setting that controls whether authentication is enabled or disabled for TPM Attestation REST APIs.

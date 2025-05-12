@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -19,6 +19,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:deviceprovisioningservices:AccessRightsDescription")
 class AccessRightsDescription(builtins.str, Enum):
     """
     Rights that this key has.
@@ -31,6 +32,7 @@ class AccessRightsDescription(builtins.str, Enum):
     REGISTRATION_STATUS_WRITE = "RegistrationStatusWrite"
 
 
+@pulumi.type_token("azure-native:deviceprovisioningservices:AllocationPolicy")
 class AllocationPolicy(builtins.str, Enum):
     """
     Allocation policy to be used by this provisioning service.
@@ -40,6 +42,7 @@ class AllocationPolicy(builtins.str, Enum):
     STATIC = "Static"
 
 
+@pulumi.type_token("azure-native:deviceprovisioningservices:IotDpsSku")
 class IotDpsSku(builtins.str, Enum):
     """
     Sku name.
@@ -47,6 +50,7 @@ class IotDpsSku(builtins.str, Enum):
     S1 = "S1"
 
 
+@pulumi.type_token("azure-native:deviceprovisioningservices:IpFilterActionType")
 class IpFilterActionType(builtins.str, Enum):
     """
     The desired action for requests captured by this rule.
@@ -55,6 +59,7 @@ class IpFilterActionType(builtins.str, Enum):
     REJECT = "Reject"
 
 
+@pulumi.type_token("azure-native:deviceprovisioningservices:IpFilterTargetType")
 class IpFilterTargetType(builtins.str, Enum):
     """
     Target for requests captured by this rule.
@@ -64,6 +69,7 @@ class IpFilterTargetType(builtins.str, Enum):
     DEVICE_API = "deviceApi"
 
 
+@pulumi.type_token("azure-native:deviceprovisioningservices:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -74,6 +80,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:deviceprovisioningservices:PrivateLinkServiceConnectionStatus")
 class PrivateLinkServiceConnectionStatus(builtins.str, Enum):
     """
     The status of a private endpoint connection
@@ -84,6 +91,7 @@ class PrivateLinkServiceConnectionStatus(builtins.str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+@pulumi.type_token("azure-native:deviceprovisioningservices:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Whether requests from Public Network are allowed
@@ -92,6 +100,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:deviceprovisioningservices:State")
 class State(builtins.str, Enum):
     """
     Current state of the provisioning service.

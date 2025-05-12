@@ -497,10 +497,8 @@ class WorkspaceArgs:
         pulumi.set(self, "workspace_name", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:Workspace")
 class Workspace(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:Workspace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

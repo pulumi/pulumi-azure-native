@@ -167,10 +167,8 @@ class IncidentTaskArgs:
         pulumi.set(self, "last_modified_by", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:IncidentTask")
 class IncidentTask(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:IncidentTask"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

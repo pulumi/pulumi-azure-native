@@ -121,10 +121,8 @@ class InboundEndpointArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:dnsresolver:InboundEndpoint")
 class InboundEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dnsresolver:InboundEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

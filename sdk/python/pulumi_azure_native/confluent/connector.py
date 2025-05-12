@@ -152,10 +152,8 @@ class ConnectorArgs:
         pulumi.set(self, "partner_connector_info", value)
 
 
+@pulumi.type_token("azure-native:confluent:Connector")
 class Connector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:confluent:Connector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

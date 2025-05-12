@@ -167,10 +167,8 @@ class WorkspaceNamedValueArgs:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:WorkspaceNamedValue")
 class WorkspaceNamedValue(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:WorkspaceNamedValue"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

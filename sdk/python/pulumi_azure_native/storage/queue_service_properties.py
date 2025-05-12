@@ -90,10 +90,8 @@ class QueueServicePropertiesArgs:
         pulumi.set(self, "queue_service_name", value)
 
 
+@pulumi.type_token("azure-native:storage:QueueServiceProperties")
 class QueueServiceProperties(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storage:QueueServiceProperties"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

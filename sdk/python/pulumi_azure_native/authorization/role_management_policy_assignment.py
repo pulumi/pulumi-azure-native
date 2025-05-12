@@ -89,10 +89,8 @@ class RoleManagementPolicyAssignmentArgs:
         pulumi.set(self, "role_management_policy_assignment_name", value)
 
 
+@pulumi.type_token("azure-native:authorization:RoleManagementPolicyAssignment")
 class RoleManagementPolicyAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:authorization:RoleManagementPolicyAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

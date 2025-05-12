@@ -196,10 +196,8 @@ class DedicatedCloudNodeArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:vmwarecloudsimple:DedicatedCloudNode")
 class DedicatedCloudNode(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:vmwarecloudsimple:DedicatedCloudNode"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -103,10 +103,8 @@ class CredentialArgs:
         pulumi.set(self, "credential_name", value)
 
 
+@pulumi.type_token("azure-native:testbase:Credential")
 class Credential(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:testbase:Credential"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

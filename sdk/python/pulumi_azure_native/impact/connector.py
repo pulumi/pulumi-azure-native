@@ -60,10 +60,8 @@ class ConnectorArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:impact:Connector")
 class Connector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:impact:Connector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

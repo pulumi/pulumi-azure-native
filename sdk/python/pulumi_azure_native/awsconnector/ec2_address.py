@@ -107,10 +107,8 @@ class Ec2AddressArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:Ec2Address")
 class Ec2Address(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:Ec2Address"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

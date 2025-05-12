@@ -170,10 +170,8 @@ class VirtualHubIpConfigurationArgs:
         pulumi.set(self, "subnet", value)
 
 
+@pulumi.type_token("azure-native:network:VirtualHubIpConfiguration")
 class VirtualHubIpConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:VirtualHubIpConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

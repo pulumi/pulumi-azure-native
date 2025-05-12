@@ -140,10 +140,8 @@ class DiagnosticSettingArgs:
         pulumi.set(self, "workspace_id", value)
 
 
+@pulumi.type_token("azure-native:aadiam:DiagnosticSetting")
 class DiagnosticSetting(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:aadiam:DiagnosticSetting"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

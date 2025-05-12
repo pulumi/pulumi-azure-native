@@ -57,10 +57,8 @@ class ConsoleWithLocationArgs:
         pulumi.set(self, "console_name", value)
 
 
+@pulumi.type_token("azure-native:portal:ConsoleWithLocation")
 class ConsoleWithLocation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:portal:ConsoleWithLocation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

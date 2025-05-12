@@ -86,10 +86,8 @@ class AccessPolicyArgs:
         pulumi.set(self, "access_policy_name", value)
 
 
+@pulumi.type_token("azure-native:redis:AccessPolicy")
 class AccessPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:redis:AccessPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

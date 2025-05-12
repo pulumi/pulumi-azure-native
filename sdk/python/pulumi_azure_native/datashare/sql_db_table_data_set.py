@@ -164,10 +164,8 @@ class SqlDBTableDataSetArgs:
         pulumi.set(self, "data_set_name", value)
 
 
+@pulumi.type_token("azure-native:datashare:SqlDBTableDataSet")
 class SqlDBTableDataSet(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datashare:SqlDBTableDataSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

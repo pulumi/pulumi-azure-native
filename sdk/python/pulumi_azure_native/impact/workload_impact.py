@@ -60,10 +60,8 @@ class WorkloadImpactArgs:
         pulumi.set(self, "workload_impact_name", value)
 
 
+@pulumi.type_token("azure-native:impact:WorkloadImpact")
 class WorkloadImpact(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:impact:WorkloadImpact"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

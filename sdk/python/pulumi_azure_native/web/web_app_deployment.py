@@ -231,10 +231,8 @@ class WebAppDeploymentArgs:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppDeployment")
 class WebAppDeployment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppDeployment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

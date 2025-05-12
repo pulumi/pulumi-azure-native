@@ -136,10 +136,8 @@ class WorkspaceCertificateArgs:
         pulumi.set(self, "password", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:WorkspaceCertificate")
 class WorkspaceCertificate(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:WorkspaceCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

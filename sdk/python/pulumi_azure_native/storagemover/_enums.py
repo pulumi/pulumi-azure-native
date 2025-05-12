@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:storagemover:CopyMode")
 class CopyMode(builtins.str, Enum):
     """
     Strategy to use for copy.
@@ -23,6 +24,7 @@ class CopyMode(builtins.str, Enum):
     MIRROR = "Mirror"
 
 
+@pulumi.type_token("azure-native:storagemover:CredentialType")
 class CredentialType(builtins.str, Enum):
     """
     The Credentials type.
@@ -30,6 +32,7 @@ class CredentialType(builtins.str, Enum):
     AZURE_KEY_VAULT_SMB = "AzureKeyVaultSmb"
 
 
+@pulumi.type_token("azure-native:storagemover:DayOfWeek")
 class DayOfWeek(builtins.str, Enum):
     """
     The day of week.
@@ -43,6 +46,7 @@ class DayOfWeek(builtins.str, Enum):
     SUNDAY = "Sunday"
 
 
+@pulumi.type_token("azure-native:storagemover:EndpointType")
 class EndpointType(builtins.str, Enum):
     """
     The Endpoint resource type.
@@ -53,6 +57,7 @@ class EndpointType(builtins.str, Enum):
     SMB_MOUNT = "SmbMount"
 
 
+@pulumi.type_token("azure-native:storagemover:NfsVersion")
 class NfsVersion(builtins.str, Enum):
     """
     The NFS protocol version.

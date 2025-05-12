@@ -106,10 +106,8 @@ class IamInstanceProfileInitArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:IamInstanceProfile")
 class IamInstanceProfile(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:IamInstanceProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

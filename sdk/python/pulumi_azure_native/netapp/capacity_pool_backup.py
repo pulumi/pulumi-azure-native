@@ -152,10 +152,8 @@ class CapacityPoolBackupArgs:
         pulumi.set(self, "use_existing_snapshot", value)
 
 
+@pulumi.type_token("azure-native:netapp:CapacityPoolBackup")
 class CapacityPoolBackup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:netapp:CapacityPoolBackup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

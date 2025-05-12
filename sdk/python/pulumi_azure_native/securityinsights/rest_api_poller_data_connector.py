@@ -232,10 +232,8 @@ class RestApiPollerDataConnectorArgs:
         pulumi.set(self, "response", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:RestApiPollerDataConnector")
 class RestApiPollerDataConnector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:RestApiPollerDataConnector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

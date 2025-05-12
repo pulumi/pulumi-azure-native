@@ -359,10 +359,8 @@ class DiscoveredAssetArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:deviceregistry:DiscoveredAsset")
 class DiscoveredAsset(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:deviceregistry:DiscoveredAsset"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

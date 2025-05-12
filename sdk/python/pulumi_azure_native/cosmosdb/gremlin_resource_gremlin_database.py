@@ -137,10 +137,8 @@ class GremlinResourceGremlinDatabaseArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:GremlinResourceGremlinDatabase")
 class GremlinResourceGremlinDatabase(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:GremlinResourceGremlinDatabase"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

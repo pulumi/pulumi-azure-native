@@ -103,10 +103,8 @@ class WebPubSubCustomDomainArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure-native:webpubsub:WebPubSubCustomDomain")
 class WebPubSubCustomDomain(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:webpubsub:WebPubSubCustomDomain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

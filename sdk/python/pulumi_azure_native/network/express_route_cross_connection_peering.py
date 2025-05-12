@@ -266,10 +266,8 @@ class ExpressRouteCrossConnectionPeeringArgs:
         pulumi.set(self, "vlan_id", value)
 
 
+@pulumi.type_token("azure-native:network:ExpressRouteCrossConnectionPeering")
 class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:ExpressRouteCrossConnectionPeering"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

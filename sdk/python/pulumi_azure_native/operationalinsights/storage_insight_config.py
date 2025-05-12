@@ -152,10 +152,8 @@ class StorageInsightConfigArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:operationalinsights:StorageInsightConfig")
 class StorageInsightConfig(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:operationalinsights:StorageInsightConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -401,10 +401,8 @@ class ScheduledAlertRuleArgs:
         pulumi.set(self, "template_version", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:ScheduledAlertRule")
 class ScheduledAlertRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:ScheduledAlertRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

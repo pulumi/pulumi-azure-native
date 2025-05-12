@@ -185,10 +185,8 @@ class DaprSubscriptionArgs:
         pulumi.set(self, "topic", value)
 
 
+@pulumi.type_token("azure-native:app:DaprSubscription")
 class DaprSubscription(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:app:DaprSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -87,10 +87,8 @@ class TriggerArgs:
         pulumi.set(self, "trigger_name", value)
 
 
+@pulumi.type_token("azure-native:virtualmachineimages:Trigger")
 class Trigger(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:virtualmachineimages:Trigger"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -262,10 +262,8 @@ class EventHubDataConnectionArgs:
         pulumi.set(self, "table_name", value)
 
 
+@pulumi.type_token("azure-native:synapse:EventHubDataConnection")
 class EventHubDataConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:synapse:EventHubDataConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

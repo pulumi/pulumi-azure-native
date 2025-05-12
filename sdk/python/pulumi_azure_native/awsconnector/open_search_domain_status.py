@@ -107,10 +107,8 @@ class OpenSearchDomainStatusArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:OpenSearchDomainStatus")
 class OpenSearchDomainStatus(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:OpenSearchDomainStatus"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

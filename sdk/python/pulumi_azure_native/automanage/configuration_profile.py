@@ -106,10 +106,8 @@ class ConfigurationProfileArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:automanage:ConfigurationProfile")
 class ConfigurationProfile(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:automanage:ConfigurationProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

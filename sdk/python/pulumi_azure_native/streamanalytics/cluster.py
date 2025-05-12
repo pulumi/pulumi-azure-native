@@ -107,10 +107,8 @@ class ClusterArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:streamanalytics:Cluster")
 class Cluster(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:streamanalytics:Cluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

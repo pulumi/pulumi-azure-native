@@ -218,10 +218,8 @@ class ConnectorArgs:
         pulumi.set(self, "v_net_solution", value)
 
 
+@pulumi.type_token("azure-native:servicelinker:Connector")
 class Connector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:servicelinker:Connector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -237,10 +237,8 @@ class NetworkToNetworkInterconnectArgs:
         pulumi.set(self, "option_b_layer3_configuration", value)
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:NetworkToNetworkInterconnect")
 class NetworkToNetworkInterconnect(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:managednetworkfabric:NetworkToNetworkInterconnect"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

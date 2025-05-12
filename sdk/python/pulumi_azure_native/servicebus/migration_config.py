@@ -102,10 +102,8 @@ class MigrationConfigArgs:
         pulumi.set(self, "config_name", value)
 
 
+@pulumi.type_token("azure-native:servicebus:MigrationConfig")
 class MigrationConfig(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:servicebus:MigrationConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

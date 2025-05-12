@@ -121,10 +121,8 @@ class GroupsOperationArgs:
         pulumi.set(self, "supported_assessment_types", value)
 
 
+@pulumi.type_token("azure-native:migrate:GroupsOperation")
 class GroupsOperation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:migrate:GroupsOperation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

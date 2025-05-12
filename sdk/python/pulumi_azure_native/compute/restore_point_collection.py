@@ -106,10 +106,8 @@ class RestorePointCollectionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:compute:RestorePointCollection")
 class RestorePointCollection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:compute:RestorePointCollection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -169,10 +169,8 @@ class WebAppVnetConnectionSlotArgs:
         pulumi.set(self, "vnet_resource_id", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppVnetConnectionSlot")
 class WebAppVnetConnectionSlot(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppVnetConnectionSlot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

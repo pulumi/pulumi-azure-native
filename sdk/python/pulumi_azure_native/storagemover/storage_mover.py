@@ -105,10 +105,8 @@ class StorageMoverArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:storagemover:StorageMover")
 class StorageMover(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storagemover:StorageMover"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

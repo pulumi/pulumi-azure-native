@@ -119,10 +119,8 @@ class PrefixListLocalRulestackArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure-native:cloudngfw:PrefixListLocalRulestack")
 class PrefixListLocalRulestack(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cloudngfw:PrefixListLocalRulestack"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

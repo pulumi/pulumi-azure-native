@@ -153,10 +153,8 @@ class IntegrationAccountCertificateArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:logic:IntegrationAccountCertificate")
 class IntegrationAccountCertificate(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:logic:IntegrationAccountCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

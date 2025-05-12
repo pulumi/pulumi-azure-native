@@ -121,10 +121,8 @@ class ServiceEndpointArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:recommendationsservice:ServiceEndpoint")
 class ServiceEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:recommendationsservice:ServiceEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

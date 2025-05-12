@@ -137,10 +137,8 @@ class DeploymentSettingArgs:
         pulumi.set(self, "operation_type", value)
 
 
+@pulumi.type_token("azure-native:azurestackhci:DeploymentSetting")
 class DeploymentSetting(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurestackhci:DeploymentSetting"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

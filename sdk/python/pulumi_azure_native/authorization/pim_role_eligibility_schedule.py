@@ -185,10 +185,8 @@ class PimRoleEligibilityScheduleArgs:
         pulumi.set(self, "ticket_info", value)
 
 
+@pulumi.type_token("azure-native:authorization:PimRoleEligibilitySchedule")
 class PimRoleEligibilitySchedule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:authorization:PimRoleEligibilitySchedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

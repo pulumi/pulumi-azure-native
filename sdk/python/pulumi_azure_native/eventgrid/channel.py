@@ -172,10 +172,8 @@ class ChannelArgs:
         pulumi.set(self, "readiness_state", value)
 
 
+@pulumi.type_token("azure-native:eventgrid:Channel")
 class Channel(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:eventgrid:Channel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

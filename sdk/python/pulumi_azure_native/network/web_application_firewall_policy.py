@@ -154,10 +154,8 @@ class WebApplicationFirewallPolicyArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:network:WebApplicationFirewallPolicy")
 class WebApplicationFirewallPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:WebApplicationFirewallPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

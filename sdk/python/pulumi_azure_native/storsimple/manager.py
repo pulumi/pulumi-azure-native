@@ -139,10 +139,8 @@ class ManagerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:storsimple:Manager")
 class Manager(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storsimple:Manager"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

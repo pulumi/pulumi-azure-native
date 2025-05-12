@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:changeanalysis:ChangeDetailsMode")
 class ChangeDetailsMode(builtins.str, Enum):
     """
     The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
@@ -22,6 +23,7 @@ class ChangeDetailsMode(builtins.str, Enum):
     EXCLUDE = "Exclude"
 
 
+@pulumi.type_token("azure-native:changeanalysis:ManagedIdentityTypes")
 class ManagedIdentityTypes(builtins.str, Enum):
     """
     The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
@@ -30,6 +32,7 @@ class ManagedIdentityTypes(builtins.str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
 
 
+@pulumi.type_token("azure-native:changeanalysis:NotificationsState")
 class NotificationsState(builtins.str, Enum):
     """
     The state of notifications feature.

@@ -122,10 +122,8 @@ class VolumeGroupArgs:
         pulumi.set(self, "volumes", value)
 
 
+@pulumi.type_token("azure-native:netapp:VolumeGroup")
 class VolumeGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:netapp:VolumeGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

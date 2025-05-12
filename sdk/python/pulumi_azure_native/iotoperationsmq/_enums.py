@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -25,6 +25,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:iotoperationsmq:BrokerMemoryProfile")
 class BrokerMemoryProfile(builtins.str, Enum):
     """
     Memory profile of broker.
@@ -47,6 +48,7 @@ class BrokerMemoryProfile(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperationsmq:DataLakeDatabaseFormat")
 class DataLakeDatabaseFormat(builtins.str, Enum):
     """
     DataLake database format to use.
@@ -61,6 +63,7 @@ class DataLakeDatabaseFormat(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperationsmq:DeltaTableFormatEnum")
 class DeltaTableFormatEnum(builtins.str, Enum):
     """
     Delta table format supported.
@@ -127,6 +130,7 @@ class DeltaTableFormatEnum(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperationsmq:ExtendedLocationType")
 class ExtendedLocationType(builtins.str, Enum):
     """
     Type of ExtendedLocation.
@@ -137,6 +141,7 @@ class ExtendedLocationType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperationsmq:FabricPathType")
 class FabricPathType(builtins.str, Enum):
     """
     Fabric path type to use.
@@ -151,6 +156,7 @@ class FabricPathType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperationsmq:KafkaAcks")
 class KafkaAcks(builtins.str, Enum):
     """
     The kafka acks to use.
@@ -169,6 +175,7 @@ class KafkaAcks(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperationsmq:KafkaMessageCompressionType")
 class KafkaMessageCompressionType(builtins.str, Enum):
     """
     The compression to use for kafka messages.
@@ -191,6 +198,7 @@ class KafkaMessageCompressionType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperationsmq:KafkaPartitionStrategy")
 class KafkaPartitionStrategy(builtins.str, Enum):
     """
     The partition strategy to use for Kafka.
@@ -213,6 +221,7 @@ class KafkaPartitionStrategy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperationsmq:KafkaSaslType")
 class KafkaSaslType(builtins.str, Enum):
     """
     Sasl Mechanism for remote broker authentication.
@@ -231,6 +240,7 @@ class KafkaSaslType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperationsmq:MqttBridgeRemoteBrokerProtocol")
 class MqttBridgeRemoteBrokerProtocol(builtins.str, Enum):
     """
     Protocol for remote connection.
@@ -245,6 +255,7 @@ class MqttBridgeRemoteBrokerProtocol(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperationsmq:MqttBridgeRouteDirection")
 class MqttBridgeRouteDirection(builtins.str, Enum):
     """
     Direction of the route.
@@ -259,6 +270,7 @@ class MqttBridgeRouteDirection(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperationsmq:MqttProtocol")
 class MqttProtocol(builtins.str, Enum):
     """
     The protocol to use for connecting with Brokers.
@@ -273,6 +285,7 @@ class MqttProtocol(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperationsmq:ResourceInfoDefinitionMethods")
 class ResourceInfoDefinitionMethods(builtins.str, Enum):
     """
     The type of action that the clients can perform on the broker: Connect, Publish or Subscribe.
@@ -291,6 +304,7 @@ class ResourceInfoDefinitionMethods(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperationsmq:RunMode")
 class RunMode(builtins.str, Enum):
     """
     The Running Mode of the Broker Deployment.
@@ -305,6 +319,7 @@ class RunMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperationsmq:ServiceType")
 class ServiceType(builtins.str, Enum):
     """
     The Kubernetes Service type to deploy for Listener.

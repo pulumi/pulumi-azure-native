@@ -124,10 +124,8 @@ class SecurityContactArgs:
         pulumi.set(self, "security_contact_name", value)
 
 
+@pulumi.type_token("azure-native:security:SecurityContact")
 class SecurityContact(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:SecurityContact"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

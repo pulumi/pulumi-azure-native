@@ -90,10 +90,8 @@ class RulesEngineArgs:
         pulumi.set(self, "rules_engine_name", value)
 
 
+@pulumi.type_token("azure-native:frontdoor:RulesEngine")
 class RulesEngine(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:frontdoor:RulesEngine"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

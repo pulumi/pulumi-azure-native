@@ -89,10 +89,8 @@ class SolutionArgs:
         pulumi.set(self, "solution_id", value)
 
 
+@pulumi.type_token("azure-native:agfoodplatform:Solution")
 class Solution(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:agfoodplatform:Solution"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -246,10 +246,8 @@ class MqttBridgeConnectorArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:iotoperationsmq:MqttBridgeConnector")
 class MqttBridgeConnector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:iotoperationsmq:MqttBridgeConnector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

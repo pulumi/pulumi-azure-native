@@ -89,10 +89,8 @@ class SecurityPolicyArgs:
         pulumi.set(self, "security_policy_name", value)
 
 
+@pulumi.type_token("azure-native:cdn:SecurityPolicy")
 class SecurityPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cdn:SecurityPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

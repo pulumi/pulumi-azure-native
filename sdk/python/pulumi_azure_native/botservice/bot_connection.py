@@ -154,10 +154,8 @@ class BotConnectionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:botservice:BotConnection")
 class BotConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:botservice:BotConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

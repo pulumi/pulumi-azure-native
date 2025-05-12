@@ -71,10 +71,8 @@ class APICollectionByAzureApiManagementServiceArgs:
         pulumi.set(self, "api_id", value)
 
 
+@pulumi.type_token("azure-native:security:APICollectionByAzureApiManagementService")
 class APICollectionByAzureApiManagementService(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:APICollectionByAzureApiManagementService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

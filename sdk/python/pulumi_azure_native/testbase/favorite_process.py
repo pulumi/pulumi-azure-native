@@ -102,10 +102,8 @@ class FavoriteProcessArgs:
         pulumi.set(self, "favorite_process_resource_name", value)
 
 
+@pulumi.type_token("azure-native:testbase:FavoriteProcess")
 class FavoriteProcess(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:testbase:FavoriteProcess"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -153,10 +153,8 @@ class CapacityPoolBucketArgs:
         pulumi.set(self, "server", value)
 
 
+@pulumi.type_token("azure-native:netapp:CapacityPoolBucket")
 class CapacityPoolBucket(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:netapp:CapacityPoolBucket"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

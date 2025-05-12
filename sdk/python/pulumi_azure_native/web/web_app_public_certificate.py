@@ -120,10 +120,8 @@ class WebAppPublicCertificateArgs:
         pulumi.set(self, "public_certificate_name", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppPublicCertificate")
 class WebAppPublicCertificate(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppPublicCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

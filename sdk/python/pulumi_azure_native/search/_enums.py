@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -21,6 +21,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:search:AadAuthFailureMode")
 class AadAuthFailureMode(builtins.str, Enum):
     """
     Describes what response the data plane API of a search service would send for requests that failed authentication.
@@ -35,6 +36,7 @@ class AadAuthFailureMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:search:HostingMode")
 class HostingMode(builtins.str, Enum):
     """
     Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
@@ -49,6 +51,7 @@ class HostingMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:search:IdentityType")
 class IdentityType(builtins.str, Enum):
     """
     The identity type.
@@ -57,6 +60,7 @@ class IdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
 
 
+@pulumi.type_token("azure-native:search:PrivateLinkServiceConnectionProvisioningState")
 class PrivateLinkServiceConnectionProvisioningState(builtins.str, Enum):
     """
     The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, or Incomplete
@@ -87,6 +91,7 @@ class PrivateLinkServiceConnectionProvisioningState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:search:PrivateLinkServiceConnectionStatus")
 class PrivateLinkServiceConnectionStatus(builtins.str, Enum):
     """
     Status of the the private link service connection. Valid values are Pending, Approved, Rejected, or Disconnected.
@@ -109,6 +114,7 @@ class PrivateLinkServiceConnectionStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:search:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
@@ -117,6 +123,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "disabled"
 
 
+@pulumi.type_token("azure-native:search:SearchEncryptionWithCmk")
 class SearchEncryptionWithCmk(builtins.str, Enum):
     """
     Describes how a search service should enforce having one or more non-customer-encrypted resources.
@@ -135,6 +142,7 @@ class SearchEncryptionWithCmk(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:search:SearchSemanticSearch")
 class SearchSemanticSearch(builtins.str, Enum):
     """
     Sets options that control the availability of semantic search. This configuration is only possible for certain search SKUs in certain locations.
@@ -153,6 +161,7 @@ class SearchSemanticSearch(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:search:SharedPrivateLinkResourceProvisioningState")
 class SharedPrivateLinkResourceProvisioningState(builtins.str, Enum):
     """
     The provisioning state of the shared private link resource. Valid values are Updating, Deleting, Failed, Succeeded or Incomplete.
@@ -164,6 +173,7 @@ class SharedPrivateLinkResourceProvisioningState(builtins.str, Enum):
     INCOMPLETE = "Incomplete"
 
 
+@pulumi.type_token("azure-native:search:SharedPrivateLinkResourceStatus")
 class SharedPrivateLinkResourceStatus(builtins.str, Enum):
     """
     Status of the shared private link resource. Valid values are Pending, Approved, Rejected or Disconnected.
@@ -174,6 +184,7 @@ class SharedPrivateLinkResourceStatus(builtins.str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+@pulumi.type_token("azure-native:search:SkuName")
 class SkuName(builtins.str, Enum):
     """
     The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'

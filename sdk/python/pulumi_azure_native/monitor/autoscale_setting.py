@@ -204,10 +204,8 @@ class AutoscaleSettingArgs:
         pulumi.set(self, "target_resource_uri", value)
 
 
+@pulumi.type_token("azure-native:monitor:AutoscaleSetting")
 class AutoscaleSetting(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:monitor:AutoscaleSetting"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

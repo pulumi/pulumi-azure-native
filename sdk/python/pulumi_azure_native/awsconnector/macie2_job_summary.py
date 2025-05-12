@@ -107,10 +107,8 @@ class Macie2JobSummaryArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:Macie2JobSummary")
 class Macie2JobSummary(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:Macie2JobSummary"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

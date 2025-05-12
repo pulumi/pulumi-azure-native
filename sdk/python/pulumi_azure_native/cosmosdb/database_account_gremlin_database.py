@@ -103,10 +103,8 @@ class DatabaseAccountGremlinDatabaseArgs:
         pulumi.set(self, "database_name", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:DatabaseAccountGremlinDatabase")
 class DatabaseAccountGremlinDatabase(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:DatabaseAccountGremlinDatabase"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

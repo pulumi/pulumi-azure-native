@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -50,6 +50,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:azurefleet:AcceleratorManufacturer")
 class AcceleratorManufacturer(builtins.str, Enum):
     """
     Accelerator manufacturers supported by Azure VMs.
@@ -68,6 +69,7 @@ class AcceleratorManufacturer(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:AcceleratorType")
 class AcceleratorType(builtins.str, Enum):
     """
     Accelerator types supported by Azure VMs.
@@ -82,6 +84,7 @@ class AcceleratorType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:ArchitectureType")
 class ArchitectureType(builtins.str, Enum):
     """
     Architecture types supported by Azure VMs.
@@ -96,6 +99,7 @@ class ArchitectureType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:CachingTypes")
 class CachingTypes(builtins.str, Enum):
     """
     Specifies the caching requirements. Possible values are: **None,**
@@ -116,6 +120,7 @@ class CachingTypes(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:ComponentName")
 class ComponentName(builtins.str, Enum):
     """
     The component name. Currently, the only allowable value is
@@ -124,6 +129,7 @@ class ComponentName(builtins.str, Enum):
     MICROSOFT_WINDOWS_SHELL_SETUP = "Microsoft-Windows-Shell-Setup"
 
 
+@pulumi.type_token("azure-native:azurefleet:CpuManufacturer")
 class CpuManufacturer(builtins.str, Enum):
     """
     Cpu Manufacturers  supported by Azure VMs.
@@ -146,6 +152,7 @@ class CpuManufacturer(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:DeleteOptions")
 class DeleteOptions(builtins.str, Enum):
     """
     Specify what happens to the public IP when the VM is deleted
@@ -160,6 +167,7 @@ class DeleteOptions(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:DiffDiskOptions")
 class DiffDiskOptions(builtins.str, Enum):
     """
     Specifies the ephemeral disk settings for operating system disk.
@@ -170,6 +178,7 @@ class DiffDiskOptions(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:DiffDiskPlacement")
 class DiffDiskPlacement(builtins.str, Enum):
     """
     Specifies the ephemeral disk placement for operating system disk. Possible
@@ -194,6 +203,7 @@ class DiffDiskPlacement(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:DiskControllerTypes")
 class DiskControllerTypes(builtins.str, Enum):
     """
     Specifies the disk controller type configured for the virtual machines in the scale set. Minimum api-version: 2022-08-01
@@ -208,6 +218,7 @@ class DiskControllerTypes(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:DiskCreateOptionTypes")
 class DiskCreateOptionTypes(builtins.str, Enum):
     """
     Specifies how the virtual machines in the scale set should be created. The only
@@ -241,6 +252,7 @@ class DiskCreateOptionTypes(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:DiskDeleteOptionTypes")
 class DiskDeleteOptionTypes(builtins.str, Enum):
     """
     Specifies whether OS Disk should be deleted or detached upon VMSS Flex deletion
@@ -262,6 +274,7 @@ class DiskDeleteOptionTypes(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:DomainNameLabelScopeTypes")
 class DomainNameLabelScopeTypes(builtins.str, Enum):
     """
     The Domain name label scope.The concatenation of the hashed domain name label
@@ -287,6 +300,7 @@ class DomainNameLabelScopeTypes(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:EvictionPolicy")
 class EvictionPolicy(builtins.str, Enum):
     """
     Eviction Policy to follow when evicting Spot VMs.
@@ -301,6 +315,7 @@ class EvictionPolicy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:IPVersion")
 class IPVersion(builtins.str, Enum):
     """
     Available from Api-Version 2019-07-01 onwards, it represents whether the
@@ -317,6 +332,7 @@ class IPVersion(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:LinuxPatchAssessmentMode")
 class LinuxPatchAssessmentMode(builtins.str, Enum):
     """
     Specifies the mode of VM Guest Patch Assessment for the IaaS virtual
@@ -335,6 +351,7 @@ class LinuxPatchAssessmentMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:LinuxVMGuestPatchAutomaticByPlatformRebootSetting")
 class LinuxVMGuestPatchAutomaticByPlatformRebootSetting(builtins.str, Enum):
     """
     Specifies the reboot setting for all AutomaticByPlatform patch installation
@@ -358,6 +375,7 @@ class LinuxVMGuestPatchAutomaticByPlatformRebootSetting(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:LinuxVMGuestPatchMode")
 class LinuxVMGuestPatchMode(builtins.str, Enum):
     """
     Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual
@@ -377,6 +395,7 @@ class LinuxVMGuestPatchMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:LocalStorageDiskType")
 class LocalStorageDiskType(builtins.str, Enum):
     """
     Different kind of Local storage disk types supported by Azure VMs.
@@ -391,6 +410,7 @@ class LocalStorageDiskType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -401,6 +421,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:azurefleet:Mode")
 class Mode(builtins.str, Enum):
     """
     Specifies the mode that ProxyAgent will execute on if the feature is enabled.
@@ -418,6 +439,7 @@ class Mode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:NetworkApiVersion")
 class NetworkApiVersion(builtins.str, Enum):
     """
     specifies the Microsoft.Network API version used when creating networking
@@ -430,6 +452,7 @@ class NetworkApiVersion(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:NetworkInterfaceAuxiliaryMode")
 class NetworkInterfaceAuxiliaryMode(builtins.str, Enum):
     """
     Specifies whether the Auxiliary mode is enabled for the Network Interface
@@ -449,6 +472,7 @@ class NetworkInterfaceAuxiliaryMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:NetworkInterfaceAuxiliarySku")
 class NetworkInterfaceAuxiliarySku(builtins.str, Enum):
     """
     Specifies whether the Auxiliary sku is enabled for the Network Interface
@@ -476,6 +500,7 @@ class NetworkInterfaceAuxiliarySku(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:OperatingSystemTypes")
 class OperatingSystemTypes(builtins.str, Enum):
     """
     This property allows you to specify the type of the OS that is included in the
@@ -492,6 +517,7 @@ class OperatingSystemTypes(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:PassName")
 class PassName(builtins.str, Enum):
     """
     The pass name. Currently, the only allowable value is OobeSystem.
@@ -499,6 +525,7 @@ class PassName(builtins.str, Enum):
     OOBE_SYSTEM = "OobeSystem"
 
 
+@pulumi.type_token("azure-native:azurefleet:ProtocolTypes")
 class ProtocolTypes(builtins.str, Enum):
     """
     Specifies the protocol of WinRM listener. Possible values are: **http,**
@@ -514,6 +541,7 @@ class ProtocolTypes(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:PublicIPAddressSkuName")
 class PublicIPAddressSkuName(builtins.str, Enum):
     """
     Specify public IP sku name
@@ -528,6 +556,7 @@ class PublicIPAddressSkuName(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:PublicIPAddressSkuTier")
 class PublicIPAddressSkuTier(builtins.str, Enum):
     """
     Specify public IP sku tier
@@ -542,6 +571,7 @@ class PublicIPAddressSkuTier(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:RegularPriorityAllocationStrategy")
 class RegularPriorityAllocationStrategy(builtins.str, Enum):
     """
     Allocation strategy to follow when determining the VM sizes distribution for Regular VMs.
@@ -556,6 +586,7 @@ class RegularPriorityAllocationStrategy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:SecurityEncryptionTypes")
 class SecurityEncryptionTypes(builtins.str, Enum):
     """
     Specifies the EncryptionType of the managed disk. It is set to
@@ -581,6 +612,7 @@ class SecurityEncryptionTypes(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:SecurityTypes")
 class SecurityTypes(builtins.str, Enum):
     """
     Specifies the SecurityType of the virtual machine. It has to be set to any
@@ -597,6 +629,7 @@ class SecurityTypes(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:SettingNames")
 class SettingNames(builtins.str, Enum):
     """
     Specifies the name of the setting to which the content applies. Possible values
@@ -612,6 +645,7 @@ class SettingNames(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:SpotAllocationStrategy")
 class SpotAllocationStrategy(builtins.str, Enum):
     """
     Allocation strategy to follow when determining the VM sizes distribution for Spot VMs.
@@ -630,6 +664,7 @@ class SpotAllocationStrategy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:StorageAccountTypes")
 class StorageAccountTypes(builtins.str, Enum):
     """
     Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can
@@ -665,6 +700,7 @@ class StorageAccountTypes(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:VMAttributeSupport")
 class VMAttributeSupport(builtins.str, Enum):
     """
     Specifies whether the VMSize supporting RDMA (Remote Direct Memory Access) should be used to build Fleet or not.
@@ -683,6 +719,7 @@ class VMAttributeSupport(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:VMCategory")
 class VMCategory(builtins.str, Enum):
     """
     VMCategories defined for Azure VMs.
@@ -723,6 +760,7 @@ class VMCategory(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:WindowsPatchAssessmentMode")
 class WindowsPatchAssessmentMode(builtins.str, Enum):
     """
     Specifies the mode of VM Guest patch assessment for the IaaS virtual
@@ -741,6 +779,7 @@ class WindowsPatchAssessmentMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:WindowsVMGuestPatchAutomaticByPlatformRebootSetting")
 class WindowsVMGuestPatchAutomaticByPlatformRebootSetting(builtins.str, Enum):
     """
     Specifies the reboot setting for all AutomaticByPlatform patch installation
@@ -764,6 +803,7 @@ class WindowsVMGuestPatchAutomaticByPlatformRebootSetting(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurefleet:WindowsVMGuestPatchMode")
 class WindowsVMGuestPatchMode(builtins.str, Enum):
     """
     Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual

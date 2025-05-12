@@ -89,10 +89,8 @@ class AccountCapabilityHostArgs:
         pulumi.set(self, "capability_host_name", value)
 
 
+@pulumi.type_token("azure-native:cognitiveservices:AccountCapabilityHost")
 class AccountCapabilityHost(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cognitiveservices:AccountCapabilityHost"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

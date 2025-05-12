@@ -89,10 +89,8 @@ class ManagedNetworkSettingsRuleArgs:
         pulumi.set(self, "rule_name", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ManagedNetworkSettingsRule")
 class ManagedNetworkSettingsRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:ManagedNetworkSettingsRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

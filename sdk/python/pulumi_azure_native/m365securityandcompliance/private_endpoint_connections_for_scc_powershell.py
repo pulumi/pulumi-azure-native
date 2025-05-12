@@ -89,10 +89,8 @@ class PrivateEndpointConnectionsForSCCPowershellArgs:
         pulumi.set(self, "private_endpoint_connection_name", value)
 
 
+@pulumi.type_token("azure-native:m365securityandcompliance:PrivateEndpointConnectionsForSCCPowershell")
 class PrivateEndpointConnectionsForSCCPowershell(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:m365securityandcompliance:PrivateEndpointConnectionsForSCCPowershell"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

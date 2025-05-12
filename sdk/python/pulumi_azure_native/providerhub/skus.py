@@ -86,10 +86,8 @@ class SkusArgs:
         pulumi.set(self, "sku", value)
 
 
+@pulumi.type_token("azure-native:providerhub:Skus")
 class Skus(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:providerhub:Skus"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

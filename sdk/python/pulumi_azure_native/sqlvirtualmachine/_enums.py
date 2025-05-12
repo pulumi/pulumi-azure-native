@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -32,6 +32,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:AdditionalVmPatch")
 class AdditionalVmPatch(builtins.str, Enum):
     """
     Additional Patch to be enable or enabled on the SQL Virtual Machine.
@@ -40,6 +41,7 @@ class AdditionalVmPatch(builtins.str, Enum):
     MICROSOFT_UPDATE = "MicrosoftUpdate"
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:AssessmentDayOfWeek")
 class AssessmentDayOfWeek(builtins.str, Enum):
     """
     Day of the week to run assessment.
@@ -53,6 +55,7 @@ class AssessmentDayOfWeek(builtins.str, Enum):
     SUNDAY = "Sunday"
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:AutoBackupDaysOfWeek")
 class AutoBackupDaysOfWeek(builtins.str, Enum):
     MONDAY = "Monday"
     TUESDAY = "Tuesday"
@@ -63,6 +66,7 @@ class AutoBackupDaysOfWeek(builtins.str, Enum):
     SUNDAY = "Sunday"
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:BackupScheduleType")
 class BackupScheduleType(builtins.str, Enum):
     """
     Backup schedule type.
@@ -71,6 +75,7 @@ class BackupScheduleType(builtins.str, Enum):
     AUTOMATED = "Automated"
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:ClusterSubnetType")
 class ClusterSubnetType(builtins.str, Enum):
     """
     Cluster subnet type.
@@ -79,6 +84,7 @@ class ClusterSubnetType(builtins.str, Enum):
     MULTI_SUBNET = "MultiSubnet"
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:Commit")
 class Commit(builtins.str, Enum):
     """
     Replica commit mode in availability group.
@@ -87,6 +93,7 @@ class Commit(builtins.str, Enum):
     ASYNCHRONOUS_COMMIT = "Asynchronous_Commit"
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:ConnectivityType")
 class ConnectivityType(builtins.str, Enum):
     """
     SQL Server connectivity option.
@@ -96,6 +103,7 @@ class ConnectivityType(builtins.str, Enum):
     PUBLIC = "PUBLIC"
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:DayOfWeek")
 class DayOfWeek(builtins.str, Enum):
     """
     Day of week to apply the patch on.
@@ -110,6 +118,7 @@ class DayOfWeek(builtins.str, Enum):
     SUNDAY = "Sunday"
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:DiskConfigurationType")
 class DiskConfigurationType(builtins.str, Enum):
     """
     Disk configuration to apply to SQL Server.
@@ -119,6 +128,7 @@ class DiskConfigurationType(builtins.str, Enum):
     ADD = "ADD"
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:Failover")
 class Failover(builtins.str, Enum):
     """
     Replica failover mode in availability group.
@@ -127,6 +137,7 @@ class Failover(builtins.str, Enum):
     MANUAL = "Manual"
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:FullBackupFrequencyType")
 class FullBackupFrequencyType(builtins.str, Enum):
     """
     Frequency of full backups. In both cases, full backups begin during the next scheduled time window.
@@ -135,6 +146,7 @@ class FullBackupFrequencyType(builtins.str, Enum):
     WEEKLY = "Weekly"
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:IdentityType")
 class IdentityType(builtins.str, Enum):
     """
     The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
@@ -145,6 +157,7 @@ class IdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:LeastPrivilegeMode")
 class LeastPrivilegeMode(builtins.str, Enum):
     """
     SQL IaaS Agent least privilege mode.
@@ -153,6 +166,7 @@ class LeastPrivilegeMode(builtins.str, Enum):
     NOT_SET = "NotSet"
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:ReadableSecondary")
 class ReadableSecondary(builtins.str, Enum):
     """
     Replica readable secondary mode in availability group.
@@ -162,6 +176,7 @@ class ReadableSecondary(builtins.str, Enum):
     READ_ONLY = "Read_Only"
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:Role")
 class Role(builtins.str, Enum):
     """
     Replica Role in availability group.
@@ -170,6 +185,7 @@ class Role(builtins.str, Enum):
     SECONDARY = "Secondary"
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:SqlImageSku")
 class SqlImageSku(builtins.str, Enum):
     """
     SQL Server edition type.
@@ -181,6 +197,7 @@ class SqlImageSku(builtins.str, Enum):
     WEB = "Web"
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:SqlManagementMode")
 class SqlManagementMode(builtins.str, Enum):
     """
     SQL Server Management type. NOTE: This parameter is not used anymore. API will automatically detect the Sql Management, refrain from using it.
@@ -190,6 +207,7 @@ class SqlManagementMode(builtins.str, Enum):
     NO_AGENT = "NoAgent"
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:SqlServerLicenseType")
 class SqlServerLicenseType(builtins.str, Enum):
     """
     SQL Server license type.
@@ -199,6 +217,7 @@ class SqlServerLicenseType(builtins.str, Enum):
     DR = "DR"
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:SqlVmGroupImageSku")
 class SqlVmGroupImageSku(builtins.str, Enum):
     """
     SQL image sku.
@@ -207,6 +226,7 @@ class SqlVmGroupImageSku(builtins.str, Enum):
     ENTERPRISE = "Enterprise"
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:SqlWorkloadType")
 class SqlWorkloadType(builtins.str, Enum):
     """
     SQL Server workload type.
@@ -216,6 +236,7 @@ class SqlWorkloadType(builtins.str, Enum):
     DW = "DW"
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:StorageWorkloadType")
 class StorageWorkloadType(builtins.str, Enum):
     """
     Storage workload type.
@@ -225,6 +246,7 @@ class StorageWorkloadType(builtins.str, Enum):
     DW = "DW"
 
 
+@pulumi.type_token("azure-native:sqlvirtualmachine:VmIdentityType")
 class VmIdentityType(builtins.str, Enum):
     """
     Identity type of the virtual machine. Specify None to opt-out of Managed Identities.

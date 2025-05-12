@@ -121,10 +121,8 @@ class RoutingIntentArgs:
         pulumi.set(self, "routing_policies", value)
 
 
+@pulumi.type_token("azure-native:network:RoutingIntent")
 class RoutingIntent(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:RoutingIntent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

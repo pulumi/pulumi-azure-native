@@ -123,10 +123,8 @@ class CustomApiArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:web:CustomApi")
 class CustomApi(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:CustomApi"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

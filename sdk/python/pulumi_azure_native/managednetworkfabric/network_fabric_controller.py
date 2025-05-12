@@ -227,10 +227,8 @@ class NetworkFabricControllerArgs:
         pulumi.set(self, "workload_express_route_connections", value)
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:NetworkFabricController")
 class NetworkFabricController(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:managednetworkfabric:NetworkFabricController"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

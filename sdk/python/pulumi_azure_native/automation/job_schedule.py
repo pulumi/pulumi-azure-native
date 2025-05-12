@@ -135,10 +135,8 @@ class JobScheduleArgs:
         pulumi.set(self, "run_on", value)
 
 
+@pulumi.type_token("azure-native:automation:JobSchedule")
 class JobSchedule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:automation:JobSchedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

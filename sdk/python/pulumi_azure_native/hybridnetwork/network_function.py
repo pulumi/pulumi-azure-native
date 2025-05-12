@@ -123,10 +123,8 @@ class NetworkFunctionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:hybridnetwork:NetworkFunction")
 class NetworkFunction(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybridnetwork:NetworkFunction"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

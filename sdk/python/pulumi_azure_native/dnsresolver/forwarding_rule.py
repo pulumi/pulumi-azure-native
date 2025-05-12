@@ -136,10 +136,8 @@ class ForwardingRuleArgs:
         pulumi.set(self, "metadata", value)
 
 
+@pulumi.type_token("azure-native:dnsresolver:ForwardingRule")
 class ForwardingRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dnsresolver:ForwardingRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:hybridconnectivity:HostType")
 class HostType(builtins.str, Enum):
     """
     Host cloud the public cloud connector.
@@ -23,6 +24,7 @@ class HostType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:hybridconnectivity:ServiceName")
 class ServiceName(builtins.str, Enum):
     """
     The name of the service. It is an optional property, if not provided, service configuration tokens issue code would be by passed.
@@ -31,6 +33,7 @@ class ServiceName(builtins.str, Enum):
     WAC = "WAC"
 
 
+@pulumi.type_token("azure-native:hybridconnectivity:Type")
 class Type(builtins.str, Enum):
     """
     The type of endpoint.

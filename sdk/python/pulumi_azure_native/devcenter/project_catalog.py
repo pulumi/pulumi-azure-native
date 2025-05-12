@@ -138,10 +138,8 @@ class ProjectCatalogArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:devcenter:ProjectCatalog")
 class ProjectCatalog(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devcenter:ProjectCatalog"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

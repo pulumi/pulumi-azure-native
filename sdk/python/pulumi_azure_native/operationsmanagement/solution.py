@@ -122,10 +122,8 @@ class SolutionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:operationsmanagement:Solution")
 class Solution(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:operationsmanagement:Solution"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

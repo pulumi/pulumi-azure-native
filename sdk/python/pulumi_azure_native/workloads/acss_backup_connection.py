@@ -122,10 +122,8 @@ class ACSSBackupConnectionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:workloads:ACSSBackupConnection")
 class ACSSBackupConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:workloads:ACSSBackupConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

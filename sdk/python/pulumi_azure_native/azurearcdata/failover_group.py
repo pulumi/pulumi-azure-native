@@ -89,10 +89,8 @@ class FailoverGroupArgs:
         pulumi.set(self, "failover_group_name", value)
 
 
+@pulumi.type_token("azure-native:azurearcdata:FailoverGroup")
 class FailoverGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurearcdata:FailoverGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -155,10 +155,8 @@ class WebAppSitePushSettingsSlotArgs:
         pulumi.set(self, "tags_requiring_auth", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppSitePushSettingsSlot")
 class WebAppSitePushSettingsSlot(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppSitePushSettingsSlot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

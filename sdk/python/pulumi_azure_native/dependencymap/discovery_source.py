@@ -135,10 +135,8 @@ class DiscoverySourceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:dependencymap:DiscoverySource")
 class DiscoverySource(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dependencymap:DiscoverySource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

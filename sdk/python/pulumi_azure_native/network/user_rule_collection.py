@@ -119,10 +119,8 @@ class UserRuleCollectionArgs:
         pulumi.set(self, "rule_collection_name", value)
 
 
+@pulumi.type_token("azure-native:network:UserRuleCollection")
 class UserRuleCollection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:UserRuleCollection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

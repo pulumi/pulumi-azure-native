@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:vmwarecloudsimple:DiskIndependenceMode")
 class DiskIndependenceMode(builtins.str, Enum):
     """
     Disk's independence mode type
@@ -21,6 +22,7 @@ class DiskIndependenceMode(builtins.str, Enum):
     INDEPENDENT_NONPERSISTENT = "independent_nonpersistent"
 
 
+@pulumi.type_token("azure-native:vmwarecloudsimple:NICType")
 class NICType(builtins.str, Enum):
     """
     NIC type

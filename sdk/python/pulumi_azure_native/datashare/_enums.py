@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -19,6 +19,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:datashare:DataSetKind")
 class DataSetKind(builtins.str, Enum):
     """
     Kind of data set.
@@ -39,6 +40,7 @@ class DataSetKind(builtins.str, Enum):
     SYNAPSE_WORKSPACE_SQL_POOL_TABLE = "SynapseWorkspaceSqlPoolTable"
 
 
+@pulumi.type_token("azure-native:datashare:DataSetMappingKind")
 class DataSetMappingKind(builtins.str, Enum):
     """
     Kind of data set mapping.
@@ -57,6 +59,7 @@ class DataSetMappingKind(builtins.str, Enum):
     SYNAPSE_WORKSPACE_SQL_POOL_TABLE = "SynapseWorkspaceSqlPoolTable"
 
 
+@pulumi.type_token("azure-native:datashare:OutputType")
 class OutputType(builtins.str, Enum):
     """
     File output type
@@ -65,6 +68,7 @@ class OutputType(builtins.str, Enum):
     PARQUET = "Parquet"
 
 
+@pulumi.type_token("azure-native:datashare:RecurrenceInterval")
 class RecurrenceInterval(builtins.str, Enum):
     """
     Recurrence Interval
@@ -73,6 +77,7 @@ class RecurrenceInterval(builtins.str, Enum):
     DAY = "Day"
 
 
+@pulumi.type_token("azure-native:datashare:ShareKind")
 class ShareKind(builtins.str, Enum):
     """
     Share kind.
@@ -81,6 +86,7 @@ class ShareKind(builtins.str, Enum):
     IN_PLACE = "InPlace"
 
 
+@pulumi.type_token("azure-native:datashare:SynchronizationMode")
 class SynchronizationMode(builtins.str, Enum):
     """
     Synchronization mode
@@ -89,6 +95,7 @@ class SynchronizationMode(builtins.str, Enum):
     FULL_SYNC = "FullSync"
 
 
+@pulumi.type_token("azure-native:datashare:SynchronizationSettingKind")
 class SynchronizationSettingKind(builtins.str, Enum):
     """
     Kind of synchronization setting.
@@ -96,6 +103,7 @@ class SynchronizationSettingKind(builtins.str, Enum):
     SCHEDULE_BASED = "ScheduleBased"
 
 
+@pulumi.type_token("azure-native:datashare:TriggerKind")
 class TriggerKind(builtins.str, Enum):
     """
     Kind of synchronization on trigger.
@@ -103,6 +111,7 @@ class TriggerKind(builtins.str, Enum):
     SCHEDULE_BASED = "ScheduleBased"
 
 
+@pulumi.type_token("azure-native:datashare:Type")
 class Type(builtins.str, Enum):
     """
     Identity Type

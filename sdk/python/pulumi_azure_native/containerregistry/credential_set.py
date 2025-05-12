@@ -124,10 +124,8 @@ class CredentialSetArgs:
         pulumi.set(self, "login_server", value)
 
 
+@pulumi.type_token("azure-native:containerregistry:CredentialSet")
 class CredentialSet(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerregistry:CredentialSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

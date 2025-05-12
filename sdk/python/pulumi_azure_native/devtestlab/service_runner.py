@@ -122,10 +122,8 @@ class ServiceRunnerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:devtestlab:ServiceRunner")
 class ServiceRunner(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devtestlab:ServiceRunner"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

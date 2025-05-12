@@ -105,10 +105,8 @@ class ProjectPolicyArgs:
         pulumi.set(self, "scopes", value)
 
 
+@pulumi.type_token("azure-native:devcenter:ProjectPolicy")
 class ProjectPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devcenter:ProjectPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

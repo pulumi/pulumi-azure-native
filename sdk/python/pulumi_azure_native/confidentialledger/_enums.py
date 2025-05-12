@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:confidentialledger:LanguageRuntime")
 class LanguageRuntime(builtins.str, Enum):
     """
     Unique name for the Managed CCF.
@@ -23,6 +24,7 @@ class LanguageRuntime(builtins.str, Enum):
     JS = "JS"
 
 
+@pulumi.type_token("azure-native:confidentialledger:LedgerRoleName")
 class LedgerRoleName(builtins.str, Enum):
     """
     LedgerRole associated with the Security Principal of Ledger
@@ -32,6 +34,7 @@ class LedgerRoleName(builtins.str, Enum):
     ADMINISTRATOR = "Administrator"
 
 
+@pulumi.type_token("azure-native:confidentialledger:LedgerSku")
 class LedgerSku(builtins.str, Enum):
     """
     SKU associated with the ledger
@@ -41,6 +44,7 @@ class LedgerSku(builtins.str, Enum):
     UNKNOWN = "Unknown"
 
 
+@pulumi.type_token("azure-native:confidentialledger:LedgerType")
 class LedgerType(builtins.str, Enum):
     """
     Type of Confidential Ledger
@@ -50,6 +54,7 @@ class LedgerType(builtins.str, Enum):
     PRIVATE = "Private"
 
 
+@pulumi.type_token("azure-native:confidentialledger:RunningState")
 class RunningState(builtins.str, Enum):
     """
     Object representing RunningState for Managed CCF.

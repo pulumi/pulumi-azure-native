@@ -181,10 +181,8 @@ class BmcKeySetArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:networkcloud:BmcKeySet")
 class BmcKeySet(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:networkcloud:BmcKeySet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

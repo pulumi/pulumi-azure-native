@@ -119,10 +119,8 @@ class SecurityUserRuleCollectionArgs:
         pulumi.set(self, "rule_collection_name", value)
 
 
+@pulumi.type_token("azure-native:network:SecurityUserRuleCollection")
 class SecurityUserRuleCollection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:SecurityUserRuleCollection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

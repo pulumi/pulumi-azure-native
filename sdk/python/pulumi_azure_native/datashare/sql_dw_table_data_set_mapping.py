@@ -179,10 +179,8 @@ class SqlDWTableDataSetMappingArgs:
         pulumi.set(self, "data_set_mapping_name", value)
 
 
+@pulumi.type_token("azure-native:datashare:SqlDWTableDataSetMapping")
 class SqlDWTableDataSetMapping(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datashare:SqlDWTableDataSetMapping"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

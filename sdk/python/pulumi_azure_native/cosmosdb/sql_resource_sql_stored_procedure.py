@@ -166,10 +166,8 @@ class SqlResourceSqlStoredProcedureArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:SqlResourceSqlStoredProcedure")
 class SqlResourceSqlStoredProcedure(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:SqlResourceSqlStoredProcedure"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

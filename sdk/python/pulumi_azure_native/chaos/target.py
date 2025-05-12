@@ -133,10 +133,8 @@ class TargetArgs:
         pulumi.set(self, "target_name", value)
 
 
+@pulumi.type_token("azure-native:chaos:Target")
 class Target(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:chaos:Target"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

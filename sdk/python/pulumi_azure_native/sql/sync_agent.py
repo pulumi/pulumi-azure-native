@@ -87,10 +87,8 @@ class SyncAgentArgs:
         pulumi.set(self, "sync_database_id", value)
 
 
+@pulumi.type_token("azure-native:sql:SyncAgent")
 class SyncAgent(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:SyncAgent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

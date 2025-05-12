@@ -106,10 +106,8 @@ class PolicyRestrictionArgs:
         pulumi.set(self, "scope", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:PolicyRestriction")
 class PolicyRestriction(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:PolicyRestriction"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

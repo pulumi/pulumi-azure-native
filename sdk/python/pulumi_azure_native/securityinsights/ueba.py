@@ -106,10 +106,8 @@ class UebaArgs:
         pulumi.set(self, "settings_name", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:Ueba")
 class Ueba(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:Ueba"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

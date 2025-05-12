@@ -133,10 +133,8 @@ class ArchifeArgs:
         pulumi.set(self, "repository_endpoint_prefix", value)
 
 
+@pulumi.type_token("azure-native:containerregistry:Archife")
 class Archife(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerregistry:Archife"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

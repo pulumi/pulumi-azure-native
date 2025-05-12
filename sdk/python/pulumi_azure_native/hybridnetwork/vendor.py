@@ -42,10 +42,8 @@ class VendorArgs:
         pulumi.set(self, "vendor_name", value)
 
 
+@pulumi.type_token("azure-native:hybridnetwork:Vendor")
 class Vendor(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybridnetwork:Vendor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -90,10 +90,8 @@ class ResourceGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:resources:ResourceGroup")
 class ResourceGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:resources:ResourceGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

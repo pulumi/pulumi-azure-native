@@ -185,10 +185,8 @@ class TemplateSpecVersionArgs:
         pulumi.set(self, "ui_form_definition", value)
 
 
+@pulumi.type_token("azure-native:resources:TemplateSpecVersion")
 class TemplateSpecVersion(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:resources:TemplateSpecVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

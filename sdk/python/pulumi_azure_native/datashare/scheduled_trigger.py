@@ -151,10 +151,8 @@ class ScheduledTriggerArgs:
         pulumi.set(self, "trigger_name", value)
 
 
+@pulumi.type_token("azure-native:datashare:ScheduledTrigger")
 class ScheduledTrigger(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datashare:ScheduledTrigger"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

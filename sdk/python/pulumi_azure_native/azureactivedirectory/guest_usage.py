@@ -105,10 +105,8 @@ class GuestUsageArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure-native:azureactivedirectory:GuestUsage")
 class GuestUsage(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azureactivedirectory:GuestUsage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

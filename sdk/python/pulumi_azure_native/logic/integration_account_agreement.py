@@ -212,10 +212,8 @@ class IntegrationAccountAgreementArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:logic:IntegrationAccountAgreement")
 class IntegrationAccountAgreement(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:logic:IntegrationAccountAgreement"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -105,10 +105,8 @@ class FleetAnalyticArgs:
         pulumi.set(self, "storage_location_uri", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:FleetAnalytic")
 class FleetAnalytic(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:FleetAnalytic"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

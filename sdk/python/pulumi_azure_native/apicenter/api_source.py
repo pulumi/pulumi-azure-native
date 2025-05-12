@@ -155,10 +155,8 @@ class ApiSourceArgs:
         pulumi.set(self, "target_lifecycle_stage", value)
 
 
+@pulumi.type_token("azure-native:apicenter:ApiSource")
 class ApiSource(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apicenter:ApiSource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

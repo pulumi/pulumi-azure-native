@@ -167,10 +167,8 @@ class SqlResourceSqlTriggerArgs:
         pulumi.set(self, "trigger_name", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:SqlResourceSqlTrigger")
 class SqlResourceSqlTrigger(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:SqlResourceSqlTrigger"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

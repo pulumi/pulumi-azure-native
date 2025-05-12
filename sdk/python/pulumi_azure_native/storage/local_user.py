@@ -233,10 +233,8 @@ class LocalUserArgs:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("azure-native:storage:LocalUser")
 class LocalUser(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storage:LocalUser"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

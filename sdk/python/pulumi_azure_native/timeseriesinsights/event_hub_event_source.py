@@ -277,10 +277,8 @@ class EventHubEventSourceArgs:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("azure-native:timeseriesinsights:EventHubEventSource")
 class EventHubEventSource(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:timeseriesinsights:EventHubEventSource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -154,10 +154,8 @@ class MECRoleArgs:
         pulumi.set(self, "resource_unique_id", value)
 
 
+@pulumi.type_token("azure-native:databoxedge:MECRole")
 class MECRole(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databoxedge:MECRole"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -120,10 +120,8 @@ class MongoMIResourceMongoMIRoleAssignmentArgs:
         pulumi.set(self, "scope", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:MongoMIResourceMongoMIRoleAssignment")
 class MongoMIResourceMongoMIRoleAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:MongoMIResourceMongoMIRoleAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

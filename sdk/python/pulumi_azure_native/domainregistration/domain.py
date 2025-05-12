@@ -276,10 +276,8 @@ class DomainArgs:
         pulumi.set(self, "target_dns_type", value)
 
 
+@pulumi.type_token("azure-native:domainregistration:Domain")
 class Domain(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:domainregistration:Domain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

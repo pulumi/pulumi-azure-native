@@ -139,10 +139,8 @@ class ManufacturingDataServiceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:manufacturingplatform:ManufacturingDataService")
 class ManufacturingDataService(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:manufacturingplatform:ManufacturingDataService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

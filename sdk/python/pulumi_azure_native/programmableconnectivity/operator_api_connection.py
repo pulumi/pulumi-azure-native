@@ -200,10 +200,8 @@ class OperatorApiConnectionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:programmableconnectivity:OperatorApiConnection")
 class OperatorApiConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:programmableconnectivity:OperatorApiConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

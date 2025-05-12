@@ -89,10 +89,8 @@ class TableArgs:
         pulumi.set(self, "table_name", value)
 
 
+@pulumi.type_token("azure-native:storage:Table")
 class Table(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storage:Table"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -106,10 +106,8 @@ class Ec2VpcArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:Ec2Vpc")
 class Ec2Vpc(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:Ec2Vpc"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -299,10 +299,8 @@ class FirewallPolicyArgs:
         pulumi.set(self, "transport_security", value)
 
 
+@pulumi.type_token("azure-native:network:FirewallPolicy")
 class FirewallPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:FirewallPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

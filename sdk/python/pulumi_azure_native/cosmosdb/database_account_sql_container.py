@@ -119,10 +119,8 @@ class DatabaseAccountSqlContainerArgs:
         pulumi.set(self, "container_name", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:DatabaseAccountSqlContainer")
 class DatabaseAccountSqlContainer(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:DatabaseAccountSqlContainer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

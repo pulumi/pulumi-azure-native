@@ -125,10 +125,8 @@ class ContainerAppsSourceControlArgs:
         pulumi.set(self, "source_control_name", value)
 
 
+@pulumi.type_token("azure-native:app:ContainerAppsSourceControl")
 class ContainerAppsSourceControl(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:app:ContainerAppsSourceControl"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

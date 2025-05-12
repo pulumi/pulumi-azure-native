@@ -135,10 +135,8 @@ class ConnectionArgs:
         pulumi.set(self, "field_definition_values", value)
 
 
+@pulumi.type_token("azure-native:automation:Connection")
 class Connection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:automation:Connection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

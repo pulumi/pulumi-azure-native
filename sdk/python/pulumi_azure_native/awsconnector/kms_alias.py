@@ -106,10 +106,8 @@ class KmsAliasArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:KmsAlias")
 class KmsAlias(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:KmsAlias"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

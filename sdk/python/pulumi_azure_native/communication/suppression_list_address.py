@@ -165,10 +165,8 @@ class SuppressionListAddressArgs:
         pulumi.set(self, "notes", value)
 
 
+@pulumi.type_token("azure-native:communication:SuppressionListAddress")
 class SuppressionListAddress(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:communication:SuppressionListAddress"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

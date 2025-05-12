@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -22,6 +22,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:storagecache:AmlFilesystemIdentityType")
 class AmlFilesystemIdentityType(builtins.str, Enum):
     """
     The type of identity used for the resource.
@@ -30,6 +31,7 @@ class AmlFilesystemIdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:storagecache:AmlFilesystemSquashMode")
 class AmlFilesystemSquashMode(builtins.str, Enum):
     """
     Squash mode of the AML file system. 'All': User and Group IDs on files will be squashed to the provided values for all users on non-trusted systems. 'RootOnly': User and Group IDs on files will be squashed to provided values for solely the root user on non-trusted systems. 'None': No squashing of User and Group IDs is performed for any users on any systems.
@@ -39,6 +41,7 @@ class AmlFilesystemSquashMode(builtins.str, Enum):
     ALL = "All"
 
 
+@pulumi.type_token("azure-native:storagecache:AutoExportJobAdminStatus")
 class AutoExportJobAdminStatus(builtins.str, Enum):
     """
     The administrative status of the auto export job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will disable the current active auto export job. By default it is set to 'Enable'.
@@ -47,6 +50,7 @@ class AutoExportJobAdminStatus(builtins.str, Enum):
     DISABLE = "Disable"
 
 
+@pulumi.type_token("azure-native:storagecache:AutoExportStatusType")
 class AutoExportStatusType(builtins.str, Enum):
     """
     The operational state of auto export. InProgress indicates the export is running.  Disabling indicates the user has requested to disable the export but the disabling is still in progress. Disabled indicates auto export has been disabled.  DisableFailed indicates the disabling has failed.  Failed means the export was unable to continue, due to a fatal error.
@@ -58,6 +62,7 @@ class AutoExportStatusType(builtins.str, Enum):
     FAILED = "Failed"
 
 
+@pulumi.type_token("azure-native:storagecache:CacheIdentityType")
 class CacheIdentityType(builtins.str, Enum):
     """
     The type of identity used for the cache
@@ -68,6 +73,7 @@ class CacheIdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:storagecache:ConflictResolutionMode")
 class ConflictResolutionMode(builtins.str, Enum):
     """
     How the import job will handle conflicts. For example, if the import job is trying to bring in a directory, but a file is at that path, how it handles it. Fail indicates that the import job should stop immediately and not do anything with the conflict. Skip indicates that it should pass over the conflict. OverwriteIfDirty causes the import job to delete and re-import the file or directory if it is a conflicting type, is dirty, or was not previously imported. OverwriteAlways extends OverwriteIfDirty to include releasing files that had been restored but were not dirty. Please reference https://learn.microsoft.com/en-us/azure/azure-managed-lustre/ for a thorough explanation of these resolution modes.
@@ -78,6 +84,7 @@ class ConflictResolutionMode(builtins.str, Enum):
     OVERWRITE_ALWAYS = "OverwriteAlways"
 
 
+@pulumi.type_token("azure-native:storagecache:MaintenanceDayOfWeekType")
 class MaintenanceDayOfWeekType(builtins.str, Enum):
     """
     Day of the week on which the maintenance window will occur.
@@ -91,6 +98,7 @@ class MaintenanceDayOfWeekType(builtins.str, Enum):
     SUNDAY = "Sunday"
 
 
+@pulumi.type_token("azure-native:storagecache:NfsAccessRuleAccess")
 class NfsAccessRuleAccess(builtins.str, Enum):
     """
     Access allowed by this rule.
@@ -100,6 +108,7 @@ class NfsAccessRuleAccess(builtins.str, Enum):
     RW = "rw"
 
 
+@pulumi.type_token("azure-native:storagecache:NfsAccessRuleScope")
 class NfsAccessRuleScope(builtins.str, Enum):
     """
     Scope for this rule. The scope and filter determine which clients match the rule.
@@ -109,6 +118,7 @@ class NfsAccessRuleScope(builtins.str, Enum):
     HOST = "host"
 
 
+@pulumi.type_token("azure-native:storagecache:OperationalStateType")
 class OperationalStateType(builtins.str, Enum):
     """
     Storage target operational state.
@@ -119,6 +129,7 @@ class OperationalStateType(builtins.str, Enum):
     FLUSHING = "Flushing"
 
 
+@pulumi.type_token("azure-native:storagecache:StorageTargetType")
 class StorageTargetType(builtins.str, Enum):
     """
     Type of the Storage Target.
@@ -129,6 +140,7 @@ class StorageTargetType(builtins.str, Enum):
     BLOB_NFS = "blobNfs"
 
 
+@pulumi.type_token("azure-native:storagecache:UsernameSource")
 class UsernameSource(builtins.str, Enum):
     """
     This setting determines how the cache gets username and group names for clients.

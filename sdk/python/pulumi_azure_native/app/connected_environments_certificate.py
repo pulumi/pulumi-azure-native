@@ -121,10 +121,8 @@ class ConnectedEnvironmentsCertificateArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:app:ConnectedEnvironmentsCertificate")
 class ConnectedEnvironmentsCertificate(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:app:ConnectedEnvironmentsCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -164,10 +164,8 @@ class WebPubSubReplicaArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:webpubsub:WebPubSubReplica")
 class WebPubSubReplica(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:webpubsub:WebPubSubReplica"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

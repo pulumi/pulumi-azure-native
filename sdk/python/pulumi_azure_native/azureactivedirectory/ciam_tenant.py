@@ -137,10 +137,8 @@ class CIAMTenantArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure-native:azureactivedirectory:CIAMTenant")
 class CIAMTenant(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azureactivedirectory:CIAMTenant"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

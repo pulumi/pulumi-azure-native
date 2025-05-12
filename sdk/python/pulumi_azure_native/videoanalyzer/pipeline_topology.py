@@ -182,10 +182,8 @@ class PipelineTopologyArgs:
         pulumi.set(self, "processors", value)
 
 
+@pulumi.type_token("azure-native:videoanalyzer:PipelineTopology")
 class PipelineTopology(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:videoanalyzer:PipelineTopology"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

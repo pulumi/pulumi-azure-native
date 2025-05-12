@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:azuresphere:AllowCrashDumpCollection")
 class AllowCrashDumpCollection(builtins.str, Enum):
     """
     Flag to define if the user allows for crash dump collection.
@@ -28,6 +29,7 @@ class AllowCrashDumpCollection(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azuresphere:OSFeedType")
 class OSFeedType(builtins.str, Enum):
     """
     Operating system feed type of the device group.
@@ -42,6 +44,7 @@ class OSFeedType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azuresphere:RegionalDataBoundary")
 class RegionalDataBoundary(builtins.str, Enum):
     """
     Regional data boundary for an image
@@ -56,6 +59,7 @@ class RegionalDataBoundary(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azuresphere:UpdatePolicy")
 class UpdatePolicy(builtins.str, Enum):
     """
     Update policy of the device group.

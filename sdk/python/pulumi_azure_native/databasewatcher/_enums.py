@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:databasewatcher:AlertRuleCreationProperties")
 class AlertRuleCreationProperties(builtins.str, Enum):
     """
     The properties with which the alert rule resource was created.
@@ -28,6 +29,7 @@ class AlertRuleCreationProperties(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:databasewatcher:KustoOfferingType")
 class KustoOfferingType(builtins.str, Enum):
     """
     The type of a Kusto offering.
@@ -46,6 +48,7 @@ class KustoOfferingType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:databasewatcher:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -56,6 +59,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
 
 
+@pulumi.type_token("azure-native:databasewatcher:TargetAuthenticationType")
 class TargetAuthenticationType(builtins.str, Enum):
     """
     The type of authentication to use when connecting to a target.

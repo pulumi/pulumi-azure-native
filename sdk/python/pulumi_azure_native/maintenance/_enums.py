@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:maintenance:MaintenanceScope")
 class MaintenanceScope(builtins.str, Enum):
     """
     Gets or sets maintenanceScope of the configuration
@@ -48,6 +49,7 @@ class MaintenanceScope(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:maintenance:RebootOptions")
 class RebootOptions(builtins.str, Enum):
     """
     Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
@@ -57,6 +59,7 @@ class RebootOptions(builtins.str, Enum):
     ALWAYS = "Always"
 
 
+@pulumi.type_token("azure-native:maintenance:TagOperators")
 class TagOperators(builtins.str, Enum):
     """
     Filter VMs by Any or All specified tags.
@@ -65,6 +68,7 @@ class TagOperators(builtins.str, Enum):
     ANY = "Any"
 
 
+@pulumi.type_token("azure-native:maintenance:Visibility")
 class Visibility(builtins.str, Enum):
     """
     Gets or sets the visibility of the configuration. The default value is 'Custom'

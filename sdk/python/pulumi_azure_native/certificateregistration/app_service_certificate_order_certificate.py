@@ -151,10 +151,8 @@ class AppServiceCertificateOrderCertificateArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:certificateregistration:AppServiceCertificateOrderCertificate")
 class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:certificateregistration:AppServiceCertificateOrderCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

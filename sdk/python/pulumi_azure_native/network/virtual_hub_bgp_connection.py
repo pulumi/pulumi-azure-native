@@ -153,10 +153,8 @@ class VirtualHubBgpConnectionArgs:
         pulumi.set(self, "peer_ip", value)
 
 
+@pulumi.type_token("azure-native:network:VirtualHubBgpConnection")
 class VirtualHubBgpConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:VirtualHubBgpConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

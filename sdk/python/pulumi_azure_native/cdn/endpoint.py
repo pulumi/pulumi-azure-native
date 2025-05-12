@@ -367,10 +367,8 @@ class EndpointArgs:
         pulumi.set(self, "web_application_firewall_policy_link", value)
 
 
+@pulumi.type_token("azure-native:cdn:Endpoint")
 class Endpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cdn:Endpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

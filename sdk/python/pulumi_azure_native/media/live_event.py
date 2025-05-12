@@ -265,10 +265,8 @@ class LiveEventArgs:
         pulumi.set(self, "use_static_hostname", value)
 
 
+@pulumi.type_token("azure-native:media:LiveEvent")
 class LiveEvent(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:media:LiveEvent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

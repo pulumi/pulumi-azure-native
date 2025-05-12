@@ -107,10 +107,8 @@ class SnsTopicArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:SnsTopic")
 class SnsTopic(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:SnsTopic"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

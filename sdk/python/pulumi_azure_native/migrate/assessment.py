@@ -120,10 +120,8 @@ class AssessmentArgs:
         pulumi.set(self, "e_tag", value)
 
 
+@pulumi.type_token("azure-native:migrate:Assessment")
 class Assessment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:migrate:Assessment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

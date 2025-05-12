@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:scom:HybridLicenseType")
 class HybridLicenseType(builtins.str, Enum):
     """
     Specifies that the image or disk that is being used was licensed on-premises. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -20,6 +21,7 @@ class HybridLicenseType(builtins.str, Enum):
     AZURE_HYBRID_BENEFIT = "AzureHybridBenefit"
 
 
+@pulumi.type_token("azure-native:scom:ManagedIdentityType")
 class ManagedIdentityType(builtins.str, Enum):
     """
     The identity type

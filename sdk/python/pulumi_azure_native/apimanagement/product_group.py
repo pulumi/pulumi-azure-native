@@ -86,10 +86,8 @@ class ProductGroupArgs:
         pulumi.set(self, "group_id", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:ProductGroup")
 class ProductGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:ProductGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

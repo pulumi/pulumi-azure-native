@@ -170,10 +170,8 @@ class Gen1EnvironmentArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:timeseriesinsights:Gen1Environment")
 class Gen1Environment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:timeseriesinsights:Gen1Environment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

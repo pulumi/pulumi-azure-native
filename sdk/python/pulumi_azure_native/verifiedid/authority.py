@@ -89,10 +89,8 @@ class AuthorityArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:verifiedid:Authority")
 class Authority(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:verifiedid:Authority"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

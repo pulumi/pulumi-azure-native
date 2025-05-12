@@ -73,10 +73,8 @@ class ClusterInstanceHybridIdentityMetadatumArgs:
         pulumi.set(self, "resource_uid", value)
 
 
+@pulumi.type_token("azure-native:hybridcontainerservice:ClusterInstanceHybridIdentityMetadatum")
 class ClusterInstanceHybridIdentityMetadatum(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybridcontainerservice:ClusterInstanceHybridIdentityMetadatum"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

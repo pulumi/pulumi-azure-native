@@ -121,10 +121,8 @@ class ApplicationGatewayPrivateEndpointConnectionArgs:
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
+@pulumi.type_token("azure-native:network:ApplicationGatewayPrivateEndpointConnection")
 class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:ApplicationGatewayPrivateEndpointConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

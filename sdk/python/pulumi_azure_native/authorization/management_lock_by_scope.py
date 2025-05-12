@@ -106,10 +106,8 @@ class ManagementLockByScopeArgs:
         pulumi.set(self, "owners", value)
 
 
+@pulumi.type_token("azure-native:authorization:ManagementLockByScope")
 class ManagementLockByScope(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:authorization:ManagementLockByScope"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

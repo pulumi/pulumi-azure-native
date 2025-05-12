@@ -137,10 +137,8 @@ class ReferenceDataSetArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:timeseriesinsights:ReferenceDataSet")
 class ReferenceDataSet(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:timeseriesinsights:ReferenceDataSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

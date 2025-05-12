@@ -136,10 +136,8 @@ class AgentArgs:
         pulumi.set(self, "upload_limit_schedule", value)
 
 
+@pulumi.type_token("azure-native:storagemover:Agent")
 class Agent(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storagemover:Agent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

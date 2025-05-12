@@ -336,10 +336,8 @@ class ComponentArgs:
         pulumi.set(self, "workspace_resource_id", value)
 
 
+@pulumi.type_token("azure-native:applicationinsights:Component")
 class Component(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:applicationinsights:Component"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

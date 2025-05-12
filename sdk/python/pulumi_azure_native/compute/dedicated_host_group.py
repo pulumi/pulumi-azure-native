@@ -153,10 +153,8 @@ class DedicatedHostGroupArgs:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure-native:compute:DedicatedHostGroup")
 class DedicatedHostGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:compute:DedicatedHostGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

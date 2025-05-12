@@ -88,10 +88,8 @@ class PolicyArgs:
         pulumi.set(self, "policy_name", value)
 
 
+@pulumi.type_token("azure-native:datareplication:Policy")
 class Policy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datareplication:Policy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

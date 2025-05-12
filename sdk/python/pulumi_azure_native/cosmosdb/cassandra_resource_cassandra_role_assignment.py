@@ -120,10 +120,8 @@ class CassandraResourceCassandraRoleAssignmentArgs:
         pulumi.set(self, "scope", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:CassandraResourceCassandraRoleAssignment")
 class CassandraResourceCassandraRoleAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:CassandraResourceCassandraRoleAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

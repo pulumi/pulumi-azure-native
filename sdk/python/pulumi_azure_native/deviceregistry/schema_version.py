@@ -118,10 +118,8 @@ class SchemaVersionArgs:
         pulumi.set(self, "schema_version_name", value)
 
 
+@pulumi.type_token("azure-native:deviceregistry:SchemaVersion")
 class SchemaVersion(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:deviceregistry:SchemaVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

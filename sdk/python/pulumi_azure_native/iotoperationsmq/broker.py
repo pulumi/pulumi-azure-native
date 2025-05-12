@@ -313,10 +313,8 @@ class BrokerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:iotoperationsmq:Broker")
 class Broker(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:iotoperationsmq:Broker"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -104,10 +104,8 @@ class EnvironmentVersionInitArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:EnvironmentVersion")
 class EnvironmentVersion(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:EnvironmentVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

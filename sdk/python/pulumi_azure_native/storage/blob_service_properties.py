@@ -218,10 +218,8 @@ class BlobServicePropertiesArgs:
         pulumi.set(self, "restore_policy", value)
 
 
+@pulumi.type_token("azure-native:storage:BlobServiceProperties")
 class BlobServiceProperties(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storage:BlobServiceProperties"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

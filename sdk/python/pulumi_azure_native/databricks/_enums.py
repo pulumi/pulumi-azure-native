@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -23,16 +23,19 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:databricks:AutomaticClusterUpdateValue")
 class AutomaticClusterUpdateValue(builtins.str, Enum):
     ENABLED = "Enabled"
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:databricks:ComplianceSecurityProfileValue")
 class ComplianceSecurityProfileValue(builtins.str, Enum):
     ENABLED = "Enabled"
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:databricks:ComplianceStandard")
 class ComplianceStandard(builtins.str, Enum):
     """
     Compliance standard that can be associated with a workspace.
@@ -42,6 +45,7 @@ class ComplianceStandard(builtins.str, Enum):
     PC_I_DSS = "PCI_DSS"
 
 
+@pulumi.type_token("azure-native:databricks:DefaultStorageFirewall")
 class DefaultStorageFirewall(builtins.str, Enum):
     """
     Gets or Sets Default Storage Firewall configuration information
@@ -50,6 +54,7 @@ class DefaultStorageFirewall(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:databricks:EncryptionKeySource")
 class EncryptionKeySource(builtins.str, Enum):
     """
     The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
@@ -57,11 +62,13 @@ class EncryptionKeySource(builtins.str, Enum):
     MICROSOFT_KEYVAULT = "Microsoft.Keyvault"
 
 
+@pulumi.type_token("azure-native:databricks:EnhancedSecurityMonitoringValue")
 class EnhancedSecurityMonitoringValue(builtins.str, Enum):
     ENABLED = "Enabled"
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:databricks:IdentityType")
 class IdentityType(builtins.str, Enum):
     """
     The identity type of the Access Connector Resource.
@@ -70,6 +77,7 @@ class IdentityType(builtins.str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+@pulumi.type_token("azure-native:databricks:InitialType")
 class InitialType(builtins.str, Enum):
     """
     Defines the initial type of the default catalog. Possible values (case-insensitive):  HiveMetastore, UnityCatalog
@@ -78,6 +86,7 @@ class InitialType(builtins.str, Enum):
     UNITY_CATALOG = "UnityCatalog"
 
 
+@pulumi.type_token("azure-native:databricks:KeySource")
 class KeySource(builtins.str, Enum):
     """
     The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
@@ -86,6 +95,7 @@ class KeySource(builtins.str, Enum):
     MICROSOFT_KEYVAULT = "Microsoft.Keyvault"
 
 
+@pulumi.type_token("azure-native:databricks:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -96,6 +106,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:databricks:PrivateLinkServiceConnectionStatus")
 class PrivateLinkServiceConnectionStatus(builtins.str, Enum):
     """
     The status of a private endpoint connection
@@ -106,6 +117,7 @@ class PrivateLinkServiceConnectionStatus(builtins.str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+@pulumi.type_token("azure-native:databricks:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
@@ -114,6 +126,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:databricks:RequiredNsgRules")
 class RequiredNsgRules(builtins.str, Enum):
     """
     Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.

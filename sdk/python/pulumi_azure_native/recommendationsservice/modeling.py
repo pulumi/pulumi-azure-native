@@ -122,10 +122,8 @@ class ModelingArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:recommendationsservice:Modeling")
 class Modeling(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:recommendationsservice:Modeling"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

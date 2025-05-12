@@ -267,10 +267,8 @@ class AccountArgs:
         pulumi.set(self, "virtual_network_rules", value)
 
 
+@pulumi.type_token("azure-native:datalakestore:Account")
 class Account(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datalakestore:Account"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

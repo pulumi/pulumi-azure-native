@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -39,6 +39,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:app:AccessMode")
 class AccessMode(builtins.str, Enum):
     """
     Access mode for storage
@@ -47,6 +48,7 @@ class AccessMode(builtins.str, Enum):
     READ_WRITE = "ReadWrite"
 
 
+@pulumi.type_token("azure-native:app:Action")
 class Action(builtins.str, Enum):
     """
     Allow or Deny rules to determine for incoming IP. Note: Rules can only consist of ALL Allow or ALL Deny
@@ -55,6 +57,7 @@ class Action(builtins.str, Enum):
     DENY = "Deny"
 
 
+@pulumi.type_token("azure-native:app:ActiveRevisionsMode")
 class ActiveRevisionsMode(builtins.str, Enum):
     """
     ActiveRevisionsMode controls how active revisions are handled for the Container app:
@@ -64,6 +67,7 @@ class ActiveRevisionsMode(builtins.str, Enum):
     SINGLE = "Single"
 
 
+@pulumi.type_token("azure-native:app:Affinity")
 class Affinity(builtins.str, Enum):
     """
     Sticky Session Affinity
@@ -72,6 +76,7 @@ class Affinity(builtins.str, Enum):
     NONE = "none"
 
 
+@pulumi.type_token("azure-native:app:AppProtocol")
 class AppProtocol(builtins.str, Enum):
     """
     Tells Dapr which protocol your application is using. Valid options are http and grpc. Default is http
@@ -80,6 +85,7 @@ class AppProtocol(builtins.str, Enum):
     GRPC = "grpc"
 
 
+@pulumi.type_token("azure-native:app:BindingType")
 class BindingType(builtins.str, Enum):
     """
     Custom Domain binding type.
@@ -89,6 +95,7 @@ class BindingType(builtins.str, Enum):
     AUTO = "Auto"
 
 
+@pulumi.type_token("azure-native:app:ClientCredentialMethod")
 class ClientCredentialMethod(builtins.str, Enum):
     """
     The method that should be used to authenticate the user.
@@ -96,6 +103,7 @@ class ClientCredentialMethod(builtins.str, Enum):
     CLIENT_SECRET_POST = "ClientSecretPost"
 
 
+@pulumi.type_token("azure-native:app:ContainerType")
 class ContainerType(builtins.str, Enum):
     """
     The container type of the sessions.
@@ -104,6 +112,7 @@ class ContainerType(builtins.str, Enum):
     PYTHON_LTS = "PythonLTS"
 
 
+@pulumi.type_token("azure-native:app:CookieExpirationConvention")
 class CookieExpirationConvention(builtins.str, Enum):
     """
     The convention used when determining the session cookie's expiration.
@@ -112,6 +121,7 @@ class CookieExpirationConvention(builtins.str, Enum):
     IDENTITY_PROVIDER_DERIVED = "IdentityProviderDerived"
 
 
+@pulumi.type_token("azure-native:app:DotNetComponentType")
 class DotNetComponentType(builtins.str, Enum):
     """
     Type of the .NET Component.
@@ -119,6 +129,7 @@ class DotNetComponentType(builtins.str, Enum):
     ASPIRE_DASHBOARD = "AspireDashboard"
 
 
+@pulumi.type_token("azure-native:app:ExecutionType")
 class ExecutionType(builtins.str, Enum):
     """
     The execution type of the session pool.
@@ -126,6 +137,7 @@ class ExecutionType(builtins.str, Enum):
     TIMED = "Timed"
 
 
+@pulumi.type_token("azure-native:app:ExtendedLocationTypes")
 class ExtendedLocationTypes(builtins.str, Enum):
     """
     The type of the extended location.
@@ -133,6 +145,7 @@ class ExtendedLocationTypes(builtins.str, Enum):
     CUSTOM_LOCATION = "CustomLocation"
 
 
+@pulumi.type_token("azure-native:app:ForwardProxyConvention")
 class ForwardProxyConvention(builtins.str, Enum):
     """
     The convention used to determine the url of the request made.
@@ -142,6 +155,7 @@ class ForwardProxyConvention(builtins.str, Enum):
     CUSTOM = "Custom"
 
 
+@pulumi.type_token("azure-native:app:IdentitySettingsLifeCycle")
 class IdentitySettingsLifeCycle(builtins.str, Enum):
     """
     Use to select the lifecycle stages of a Session Pool during which the Managed Identity should be available.
@@ -150,6 +164,7 @@ class IdentitySettingsLifeCycle(builtins.str, Enum):
     MAIN = "Main"
 
 
+@pulumi.type_token("azure-native:app:IngressClientCertificateMode")
 class IngressClientCertificateMode(builtins.str, Enum):
     """
     Client certificate mode for mTLS authentication. Ignore indicates server drops client certificate on forwarding. Accept indicates server forwards client certificate but does not require a client certificate. Require indicates server requires a client certificate.
@@ -159,6 +174,7 @@ class IngressClientCertificateMode(builtins.str, Enum):
     REQUIRE = "require"
 
 
+@pulumi.type_token("azure-native:app:IngressTransportMethod")
 class IngressTransportMethod(builtins.str, Enum):
     """
     Ingress transport protocol
@@ -169,6 +185,7 @@ class IngressTransportMethod(builtins.str, Enum):
     TCP = "tcp"
 
 
+@pulumi.type_token("azure-native:app:JavaComponentType")
 class JavaComponentType(builtins.str, Enum):
     """
     Type of the Java Component.
@@ -180,6 +197,7 @@ class JavaComponentType(builtins.str, Enum):
     NACOS = "Nacos"
 
 
+@pulumi.type_token("azure-native:app:LogLevel")
 class LogLevel(builtins.str, Enum):
     """
     Sets the log level for the Dapr sidecar. Allowed values are debug, info, warn, error. Default is info.
@@ -190,6 +208,7 @@ class LogLevel(builtins.str, Enum):
     ERROR = "error"
 
 
+@pulumi.type_token("azure-native:app:ManagedCertificateDomainControlValidation")
 class ManagedCertificateDomainControlValidation(builtins.str, Enum):
     """
     Selected type of domain control validation for managed certificates.
@@ -199,6 +218,7 @@ class ManagedCertificateDomainControlValidation(builtins.str, Enum):
     TXT = "TXT"
 
 
+@pulumi.type_token("azure-native:app:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -209,6 +229,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:app:PoolManagementType")
 class PoolManagementType(builtins.str, Enum):
     """
     The pool management type of the session pool.
@@ -217,6 +238,7 @@ class PoolManagementType(builtins.str, Enum):
     DYNAMIC = "Dynamic"
 
 
+@pulumi.type_token("azure-native:app:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -227,6 +249,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+@pulumi.type_token("azure-native:app:Scheme")
 class Scheme(builtins.str, Enum):
     """
     Scheme to use for connecting to the host. Defaults to HTTP.
@@ -235,6 +258,7 @@ class Scheme(builtins.str, Enum):
     HTTPS = "HTTPS"
 
 
+@pulumi.type_token("azure-native:app:SessionNetworkStatus")
 class SessionNetworkStatus(builtins.str, Enum):
     """
     Network status for the sessions.
@@ -243,6 +267,7 @@ class SessionNetworkStatus(builtins.str, Enum):
     EGRESS_DISABLED = "EgressDisabled"
 
 
+@pulumi.type_token("azure-native:app:StorageType")
 class StorageType(builtins.str, Enum):
     """
     Storage type for the volume. If not provided, use EmptyDir.
@@ -252,6 +277,7 @@ class StorageType(builtins.str, Enum):
     SECRET = "Secret"
 
 
+@pulumi.type_token("azure-native:app:TriggerType")
 class TriggerType(builtins.str, Enum):
     """
     Trigger type of the job
@@ -261,6 +287,7 @@ class TriggerType(builtins.str, Enum):
     MANUAL = "Manual"
 
 
+@pulumi.type_token("azure-native:app:Type")
 class Type(builtins.str, Enum):
     """
     The type of probe.
@@ -270,6 +297,7 @@ class Type(builtins.str, Enum):
     STARTUP = "Startup"
 
 
+@pulumi.type_token("azure-native:app:UnauthenticatedClientActionV2")
 class UnauthenticatedClientActionV2(builtins.str, Enum):
     """
     The action to take when an unauthenticated client attempts to access the app.
@@ -280,6 +308,7 @@ class UnauthenticatedClientActionV2(builtins.str, Enum):
     RETURN403 = "Return403"
 
 
+@pulumi.type_token("azure-native:app:WeekDay")
 class WeekDay(builtins.str, Enum):
     """
     Day of the week when a managed environment can be patched.

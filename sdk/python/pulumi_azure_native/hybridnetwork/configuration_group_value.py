@@ -106,10 +106,8 @@ class ConfigurationGroupValueArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:hybridnetwork:ConfigurationGroupValue")
 class ConfigurationGroupValue(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybridnetwork:ConfigurationGroupValue"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

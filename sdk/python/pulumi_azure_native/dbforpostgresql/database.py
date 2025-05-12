@@ -104,10 +104,8 @@ class DatabaseArgs:
         pulumi.set(self, "database_name", value)
 
 
+@pulumi.type_token("azure-native:dbforpostgresql:Database")
 class Database(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dbforpostgresql:Database"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

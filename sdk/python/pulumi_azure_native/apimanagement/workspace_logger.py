@@ -168,10 +168,8 @@ class WorkspaceLoggerArgs:
         pulumi.set(self, "resource_id", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:WorkspaceLogger")
 class WorkspaceLogger(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:WorkspaceLogger"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

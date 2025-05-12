@@ -313,10 +313,8 @@ class SubscriptionArgs:
         pulumi.set(self, "subscription_name", value)
 
 
+@pulumi.type_token("azure-native:servicebus:Subscription")
 class Subscription(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:servicebus:Subscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

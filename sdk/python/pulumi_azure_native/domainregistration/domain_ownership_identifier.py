@@ -103,10 +103,8 @@ class DomainOwnershipIdentifierArgs:
         pulumi.set(self, "ownership_id", value)
 
 
+@pulumi.type_token("azure-native:domainregistration:DomainOwnershipIdentifier")
 class DomainOwnershipIdentifier(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:domainregistration:DomainOwnershipIdentifier"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

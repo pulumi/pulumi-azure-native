@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:offazure:MasterSitePropertiesPublicNetworkAccess")
 class MasterSitePropertiesPublicNetworkAccess(builtins.str, Enum):
     """
     Gets or sets the state of public network access.
@@ -33,6 +34,7 @@ class MasterSitePropertiesPublicNetworkAccess(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:offazure:PrivateLinkServiceConnectionStateStatus")
 class PrivateLinkServiceConnectionStateStatus(builtins.str, Enum):
     """
     state status
@@ -55,6 +57,7 @@ class PrivateLinkServiceConnectionStateStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:offazure:ProvisioningState")
 class ProvisioningState(builtins.str, Enum):
     """
     The status of the last operation.
@@ -89,6 +92,7 @@ class ProvisioningState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:offazure:SqlSitePropertiesDiscoveryScenario")
 class SqlSitePropertiesDiscoveryScenario(builtins.str, Enum):
     """
     Gets or sets the discovery scenario.
@@ -103,6 +107,7 @@ class SqlSitePropertiesDiscoveryScenario(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:offazure:WebAppSitePropertiesDiscoveryScenario")
 class WebAppSitePropertiesDiscoveryScenario(builtins.str, Enum):
     """
     Gets or sets the discovery scenario.

@@ -263,10 +263,8 @@ class IotHubDataConnectionArgs:
         pulumi.set(self, "table_name", value)
 
 
+@pulumi.type_token("azure-native:kusto:IotHubDataConnection")
 class IotHubDataConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:kusto:IotHubDataConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

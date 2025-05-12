@@ -357,10 +357,8 @@ class AuthorizationServerArgs:
         pulumi.set(self, "use_in_test_console", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:AuthorizationServer")
 class AuthorizationServer(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:AuthorizationServer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

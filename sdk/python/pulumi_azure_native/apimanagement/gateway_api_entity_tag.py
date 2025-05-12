@@ -104,10 +104,8 @@ class GatewayApiEntityTagArgs:
         pulumi.set(self, "provisioning_state", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:GatewayApiEntityTag")
 class GatewayApiEntityTag(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:GatewayApiEntityTag"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

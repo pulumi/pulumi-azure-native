@@ -268,10 +268,8 @@ class ServerEndpointArgs:
         pulumi.set(self, "volume_free_space_percent", value)
 
 
+@pulumi.type_token("azure-native:storagesync:ServerEndpoint")
 class ServerEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storagesync:ServerEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

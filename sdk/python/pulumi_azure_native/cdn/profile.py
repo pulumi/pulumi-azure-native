@@ -154,10 +154,8 @@ class ProfileArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:cdn:Profile")
 class Profile(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cdn:Profile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

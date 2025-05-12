@@ -170,10 +170,8 @@ class ResourcePoolArgs:
         pulumi.set(self, "v_center_id", value)
 
 
+@pulumi.type_token("azure-native:connectedvmwarevsphere:ResourcePool")
 class ResourcePool(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:connectedvmwarevsphere:ResourcePool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

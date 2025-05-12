@@ -170,10 +170,8 @@ class ManagementGroupDiagnosticSettingArgs:
         pulumi.set(self, "workspace_id", value)
 
 
+@pulumi.type_token("azure-native:monitor:ManagementGroupDiagnosticSetting")
 class ManagementGroupDiagnosticSetting(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:monitor:ManagementGroupDiagnosticSetting"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

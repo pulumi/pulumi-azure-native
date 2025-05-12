@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -19,6 +19,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:trafficmanager:AllowedEndpointRecordType")
 class AllowedEndpointRecordType(builtins.str, Enum):
     """
     The allowed type DNS record types for this profile.
@@ -29,6 +30,7 @@ class AllowedEndpointRecordType(builtins.str, Enum):
     ANY = "Any"
 
 
+@pulumi.type_token("azure-native:trafficmanager:AlwaysServe")
 class AlwaysServe(builtins.str, Enum):
     """
     If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
@@ -37,6 +39,7 @@ class AlwaysServe(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:trafficmanager:EndpointMonitorStatus")
 class EndpointMonitorStatus(builtins.str, Enum):
     """
     The monitoring status of the endpoint.
@@ -50,6 +53,7 @@ class EndpointMonitorStatus(builtins.str, Enum):
     UNMONITORED = "Unmonitored"
 
 
+@pulumi.type_token("azure-native:trafficmanager:EndpointStatus")
 class EndpointStatus(builtins.str, Enum):
     """
     The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
@@ -58,6 +62,7 @@ class EndpointStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:trafficmanager:MonitorProtocol")
 class MonitorProtocol(builtins.str, Enum):
     """
     The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
@@ -67,6 +72,7 @@ class MonitorProtocol(builtins.str, Enum):
     TCP = "TCP"
 
 
+@pulumi.type_token("azure-native:trafficmanager:ProfileMonitorStatus")
 class ProfileMonitorStatus(builtins.str, Enum):
     """
     The profile-level monitoring status of the Traffic Manager profile.
@@ -78,6 +84,7 @@ class ProfileMonitorStatus(builtins.str, Enum):
     INACTIVE = "Inactive"
 
 
+@pulumi.type_token("azure-native:trafficmanager:ProfileStatus")
 class ProfileStatus(builtins.str, Enum):
     """
     The status of the Traffic Manager profile.
@@ -86,6 +93,7 @@ class ProfileStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:trafficmanager:TrafficRoutingMethod")
 class TrafficRoutingMethod(builtins.str, Enum):
     """
     The traffic routing method of the Traffic Manager profile.
@@ -98,6 +106,7 @@ class TrafficRoutingMethod(builtins.str, Enum):
     SUBNET = "Subnet"
 
 
+@pulumi.type_token("azure-native:trafficmanager:TrafficViewEnrollmentStatus")
 class TrafficViewEnrollmentStatus(builtins.str, Enum):
     """
     Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.

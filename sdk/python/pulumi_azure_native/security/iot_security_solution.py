@@ -253,10 +253,8 @@ class IotSecuritySolutionArgs:
         pulumi.set(self, "workspace", value)
 
 
+@pulumi.type_token("azure-native:security:IotSecuritySolution")
 class IotSecuritySolution(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:IotSecuritySolution"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

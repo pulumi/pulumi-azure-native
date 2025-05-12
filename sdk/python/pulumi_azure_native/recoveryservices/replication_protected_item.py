@@ -120,10 +120,8 @@ class ReplicationProtectedItemArgs:
         pulumi.set(self, "replicated_protected_item_name", value)
 
 
+@pulumi.type_token("azure-native:recoveryservices:ReplicationProtectedItem")
 class ReplicationProtectedItem(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:recoveryservices:ReplicationProtectedItem"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

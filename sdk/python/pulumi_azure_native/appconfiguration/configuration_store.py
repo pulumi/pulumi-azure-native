@@ -240,10 +240,8 @@ class ConfigurationStoreArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:appconfiguration:ConfigurationStore")
 class ConfigurationStore(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:appconfiguration:ConfigurationStore"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

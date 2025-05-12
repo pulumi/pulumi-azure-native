@@ -184,10 +184,8 @@ class InferenceGroupInitArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:InferenceGroup")
 class InferenceGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:InferenceGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

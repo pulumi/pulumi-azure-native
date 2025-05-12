@@ -392,10 +392,8 @@ class PoolArgs:
         pulumi.set(self, "vm_size", value)
 
 
+@pulumi.type_token("azure-native:batch:Pool")
 class Pool(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:batch:Pool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

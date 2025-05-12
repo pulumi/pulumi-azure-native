@@ -57,10 +57,8 @@ class SecurityOperatorArgs:
         pulumi.set(self, "security_operator_name", value)
 
 
+@pulumi.type_token("azure-native:security:SecurityOperator")
 class SecurityOperator(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:SecurityOperator"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

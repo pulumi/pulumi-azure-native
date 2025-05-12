@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:sovereign:FirewallCreationOptions")
 class FirewallCreationOptions(builtins.str, Enum):
     """
     Parameter used for deploying a Firewall: Select 'No' to skip deployment, 'Standard' to deploy the Standard SKU, or 'Premium' to deploy the Premium SKU.
@@ -33,6 +34,7 @@ class FirewallCreationOptions(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:sovereign:ManagedIdentityResourceType")
 class ManagedIdentityResourceType(builtins.str, Enum):
     """
     The type of managed identity.
@@ -47,6 +49,7 @@ class ManagedIdentityResourceType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:sovereign:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -57,6 +60,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:sovereign:ResourceCreationOptions")
 class ResourceCreationOptions(builtins.str, Enum):
     """
     Parameter used to deploy a log analytics workspace: Select 'Yes' to enable deployment, 'No' to skip it, or 'Existing' to reuse an existing log analytics workspace.
@@ -75,6 +79,7 @@ class ResourceCreationOptions(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:sovereign:ResourceType")
 class ResourceType(builtins.str, Enum):
     """
     The type of the resource.

@@ -72,10 +72,8 @@ class MonitoredResourceArgs:
         pulumi.set(self, "monitored_resource_name", value)
 
 
+@pulumi.type_token("azure-native:scom:MonitoredResource")
 class MonitoredResource(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:scom:MonitoredResource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

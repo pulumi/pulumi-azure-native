@@ -119,10 +119,8 @@ class HybridRunbookWorkerArgs:
         pulumi.set(self, "vm_resource_id", value)
 
 
+@pulumi.type_token("azure-native:automation:HybridRunbookWorker")
 class HybridRunbookWorker(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:automation:HybridRunbookWorker"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

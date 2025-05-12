@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -58,6 +58,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:containerservice:AdoptionPolicy")
 class AdoptionPolicy(builtins.str, Enum):
     """
     Action if Kubernetes namespace with same name already exists.
@@ -76,6 +77,7 @@ class AdoptionPolicy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:AgentPoolMode")
 class AgentPoolMode(builtins.str, Enum):
     """
     A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
@@ -90,6 +92,7 @@ class AgentPoolMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:AgentPoolType")
 class AgentPoolType(builtins.str, Enum):
     """
     The type of Agent Pool.
@@ -104,6 +107,7 @@ class AgentPoolType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:AutoUpgradeNodeImageSelectionType")
 class AutoUpgradeNodeImageSelectionType(builtins.str, Enum):
     """
     The node image upgrade type.
@@ -118,6 +122,7 @@ class AutoUpgradeNodeImageSelectionType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:BackendPoolType")
 class BackendPoolType(builtins.str, Enum):
     """
     The type of the managed inbound Load Balancer BackendPool.
@@ -132,6 +137,7 @@ class BackendPoolType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:Code")
 class Code(builtins.str, Enum):
     """
     Tells whether the cluster is Running or Stopped
@@ -146,6 +152,7 @@ class Code(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:ConnectionStatus")
 class ConnectionStatus(builtins.str, Enum):
     """
     The private link service connection status.
@@ -156,6 +163,7 @@ class ConnectionStatus(builtins.str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+@pulumi.type_token("azure-native:containerservice:DeletePolicy")
 class DeletePolicy(builtins.str, Enum):
     """
     Delete options of a namespace.
@@ -170,6 +178,7 @@ class DeletePolicy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:Expander")
 class Expander(builtins.str, Enum):
     """
     If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
@@ -192,6 +201,7 @@ class Expander(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:ExtendedLocationTypes")
 class ExtendedLocationTypes(builtins.str, Enum):
     """
     The type of the extended location.
@@ -199,6 +209,7 @@ class ExtendedLocationTypes(builtins.str, Enum):
     EDGE_ZONE = "EdgeZone"
 
 
+@pulumi.type_token("azure-native:containerservice:GPUInstanceProfile")
 class GPUInstanceProfile(builtins.str, Enum):
     """
     GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU.
@@ -210,6 +221,7 @@ class GPUInstanceProfile(builtins.str, Enum):
     MIG7G = "MIG7g"
 
 
+@pulumi.type_token("azure-native:containerservice:IpFamily")
 class IpFamily(builtins.str, Enum):
     """
     The IP version to use for cluster networking and IP assignment.
@@ -218,6 +230,7 @@ class IpFamily(builtins.str, Enum):
     I_PV6 = "IPv6"
 
 
+@pulumi.type_token("azure-native:containerservice:IstioIngressGatewayMode")
 class IstioIngressGatewayMode(builtins.str, Enum):
     """
     Mode of an ingress gateway.
@@ -232,6 +245,7 @@ class IstioIngressGatewayMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:KeyVaultNetworkAccessTypes")
 class KeyVaultNetworkAccessTypes(builtins.str, Enum):
     """
     Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
@@ -240,6 +254,7 @@ class KeyVaultNetworkAccessTypes(builtins.str, Enum):
     PRIVATE = "Private"
 
 
+@pulumi.type_token("azure-native:containerservice:KubeletDiskType")
 class KubeletDiskType(builtins.str, Enum):
     """
     Determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage.
@@ -254,6 +269,7 @@ class KubeletDiskType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:KubernetesSupportPlan")
 class KubernetesSupportPlan(builtins.str, Enum):
     """
     The support plan for the Managed Cluster. If unspecified, the default is 'KubernetesOfficial'.
@@ -268,6 +284,7 @@ class KubernetesSupportPlan(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:LicenseType")
 class LicenseType(builtins.str, Enum):
     """
     The license type to use for Windows VMs. See [Azure Hybrid User Benefits](https://azure.microsoft.com/pricing/hybrid-benefit/faq/) for more details.
@@ -282,6 +299,7 @@ class LicenseType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:LoadBalancerSku")
 class LoadBalancerSku(builtins.str, Enum):
     """
     The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
@@ -296,6 +314,7 @@ class LoadBalancerSku(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:ManagedClusterSKUName")
 class ManagedClusterSKUName(builtins.str, Enum):
     """
     The name of a managed cluster SKU.
@@ -306,6 +325,7 @@ class ManagedClusterSKUName(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:ManagedClusterSKUTier")
 class ManagedClusterSKUTier(builtins.str, Enum):
     """
     If not specified, the default is 'Free'. See [AKS Pricing Tier](https://learn.microsoft.com/azure/aks/free-standard-pricing-tiers) for more details.
@@ -324,6 +344,7 @@ class ManagedClusterSKUTier(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:ManagedClusterUpgradeType")
 class ManagedClusterUpgradeType(builtins.str, Enum):
     """
     ManagedClusterUpgradeType is the type of upgrade to be applied.
@@ -342,6 +363,7 @@ class ManagedClusterUpgradeType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -352,6 +374,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
 
 
+@pulumi.type_token("azure-native:containerservice:NetworkDataplane")
 class NetworkDataplane(builtins.str, Enum):
     """
     Network dataplane used in the Kubernetes cluster.
@@ -366,6 +389,7 @@ class NetworkDataplane(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:NetworkMode")
 class NetworkMode(builtins.str, Enum):
     """
     This cannot be specified if networkPlugin is anything other than 'azure'.
@@ -380,6 +404,7 @@ class NetworkMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:NetworkPlugin")
 class NetworkPlugin(builtins.str, Enum):
     """
     Network plugin used for building the Kubernetes network.
@@ -398,6 +423,7 @@ class NetworkPlugin(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:NetworkPluginMode")
 class NetworkPluginMode(builtins.str, Enum):
     """
     The mode the network plugin should use.
@@ -408,6 +434,7 @@ class NetworkPluginMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:NetworkPolicy")
 class NetworkPolicy(builtins.str, Enum):
     """
     Network policy used for building the Kubernetes network.
@@ -430,6 +457,7 @@ class NetworkPolicy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:NodeImageSelectionType")
 class NodeImageSelectionType(builtins.str, Enum):
     """
     The node image upgrade type.
@@ -448,6 +476,7 @@ class NodeImageSelectionType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:NodeOSUpgradeChannel")
 class NodeOSUpgradeChannel(builtins.str, Enum):
     """
     Manner in which the OS on your nodes is updated. The default is NodeImage.
@@ -470,6 +499,7 @@ class NodeOSUpgradeChannel(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:OSDiskType")
 class OSDiskType(builtins.str, Enum):
     """
     The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
@@ -484,6 +514,7 @@ class OSDiskType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:OSSKU")
 class OSSKU(builtins.str, Enum):
     """
     Specifies the OS SKU used by the agent pool. The default is Ubuntu if OSType is Linux. The default is Windows2019 when Kubernetes <= 1.24 or Windows2022 when Kubernetes >= 1.25 if OSType is Windows.
@@ -510,6 +541,7 @@ class OSSKU(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:OSType")
 class OSType(builtins.str, Enum):
     """
     The operating system type. The default is Linux.
@@ -524,6 +556,7 @@ class OSType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:Operator")
 class Operator(builtins.str, Enum):
     """
     operator represents a key's relationship to a set of values. Valid operators are In and NotIn
@@ -546,6 +579,7 @@ class Operator(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:OutboundType")
 class OutboundType(builtins.str, Enum):
     """
     This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
@@ -568,6 +602,7 @@ class OutboundType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:PolicyRule")
 class PolicyRule(builtins.str, Enum):
     """
     Ingress policy for the network.
@@ -586,6 +621,7 @@ class PolicyRule(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:Protocol")
 class Protocol(builtins.str, Enum):
     """
     The network protocol of the port.
@@ -600,6 +636,7 @@ class Protocol(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Allow or deny public network access for AKS
@@ -608,6 +645,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:containerservice:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
@@ -626,6 +664,7 @@ class ResourceIdentityType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:RestrictionLevel")
 class RestrictionLevel(builtins.str, Enum):
     """
     The restriction level applied to the cluster's node resource group. If not specified, the default is 'Unrestricted'
@@ -640,6 +679,7 @@ class RestrictionLevel(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:ScaleDownMode")
 class ScaleDownMode(builtins.str, Enum):
     """
     This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
@@ -654,6 +694,7 @@ class ScaleDownMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:ScaleSetEvictionPolicy")
 class ScaleSetEvictionPolicy(builtins.str, Enum):
     """
     This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
@@ -668,6 +709,7 @@ class ScaleSetEvictionPolicy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:ScaleSetPriority")
 class ScaleSetPriority(builtins.str, Enum):
     """
     The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
@@ -682,6 +724,7 @@ class ScaleSetPriority(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:ServiceMeshMode")
 class ServiceMeshMode(builtins.str, Enum):
     """
     Mode of the service mesh.
@@ -696,6 +739,7 @@ class ServiceMeshMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:SnapshotType")
 class SnapshotType(builtins.str, Enum):
     """
     The type of a snapshot. The default is NodePool.
@@ -706,6 +750,7 @@ class SnapshotType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:Type")
 class Type(builtins.str, Enum):
     """
     Specifies on which week of the month the dayOfWeek applies.
@@ -732,6 +777,7 @@ class Type(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:UpgradeChannel")
 class UpgradeChannel(builtins.str, Enum):
     """
     For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
@@ -758,6 +804,7 @@ class UpgradeChannel(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:WeekDay")
 class WeekDay(builtins.str, Enum):
     """
     The day of the week.
@@ -771,6 +818,7 @@ class WeekDay(builtins.str, Enum):
     SATURDAY = "Saturday"
 
 
+@pulumi.type_token("azure-native:containerservice:WorkloadRuntime")
 class WorkloadRuntime(builtins.str, Enum):
     """
     Determines the type of workload a node can run.

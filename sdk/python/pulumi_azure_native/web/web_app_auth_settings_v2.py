@@ -154,10 +154,8 @@ class WebAppAuthSettingsV2Args:
         pulumi.set(self, "platform", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppAuthSettingsV2")
 class WebAppAuthSettingsV2(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppAuthSettingsV2"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

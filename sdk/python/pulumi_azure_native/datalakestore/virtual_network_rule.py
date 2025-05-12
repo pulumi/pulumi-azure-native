@@ -86,10 +86,8 @@ class VirtualNetworkRuleArgs:
         pulumi.set(self, "virtual_network_rule_name", value)
 
 
+@pulumi.type_token("azure-native:datalakestore:VirtualNetworkRule")
 class VirtualNetworkRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datalakestore:VirtualNetworkRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

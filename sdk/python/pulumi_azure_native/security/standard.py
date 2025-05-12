@@ -187,10 +187,8 @@ class StandardArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:security:Standard")
 class Standard(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:Standard"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

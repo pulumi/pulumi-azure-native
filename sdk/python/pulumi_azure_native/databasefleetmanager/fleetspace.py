@@ -90,10 +90,8 @@ class FleetspaceArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:databasefleetmanager:Fleetspace")
 class Fleetspace(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databasefleetmanager:Fleetspace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

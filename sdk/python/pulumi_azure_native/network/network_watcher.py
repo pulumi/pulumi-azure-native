@@ -104,10 +104,8 @@ class NetworkWatcherArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:network:NetworkWatcher")
 class NetworkWatcher(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:NetworkWatcher"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

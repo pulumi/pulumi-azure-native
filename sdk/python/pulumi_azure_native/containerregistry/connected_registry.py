@@ -168,10 +168,8 @@ class ConnectedRegistryArgs:
         pulumi.set(self, "notifications_list", value)
 
 
+@pulumi.type_token("azure-native:containerregistry:ConnectedRegistry")
 class ConnectedRegistry(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerregistry:ConnectedRegistry"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

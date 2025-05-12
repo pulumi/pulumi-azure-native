@@ -103,10 +103,8 @@ class ApiGatewayConfigConnectionArgs:
         pulumi.set(self, "source_id", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:ApiGatewayConfigConnection")
 class ApiGatewayConfigConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:ApiGatewayConfigConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

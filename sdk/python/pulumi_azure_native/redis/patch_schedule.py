@@ -89,10 +89,8 @@ class PatchScheduleArgs:
         pulumi.set(self, "default", value)
 
 
+@pulumi.type_token("azure-native:redis:PatchSchedule")
 class PatchSchedule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:redis:PatchSchedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

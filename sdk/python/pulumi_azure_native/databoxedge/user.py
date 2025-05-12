@@ -105,10 +105,8 @@ class UserArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure-native:databoxedge:User")
 class User(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databoxedge:User"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

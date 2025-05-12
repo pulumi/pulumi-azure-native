@@ -154,10 +154,8 @@ class AutoScaleVCoreArgs:
         pulumi.set(self, "vcore_name", value)
 
 
+@pulumi.type_token("azure-native:powerbidedicated:AutoScaleVCore")
 class AutoScaleVCore(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:powerbidedicated:AutoScaleVCore"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

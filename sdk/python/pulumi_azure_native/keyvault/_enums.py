@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -29,6 +29,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:keyvault:ActionsRequired")
 class ActionsRequired(builtins.str, Enum):
     """
     A message indicating if changes on the service provider require any updates on the consumer.
@@ -36,6 +37,7 @@ class ActionsRequired(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:keyvault:CertificatePermissions")
 class CertificatePermissions(builtins.str, Enum):
     ALL = "all"
     GET = "get"
@@ -56,6 +58,7 @@ class CertificatePermissions(builtins.str, Enum):
     RESTORE = "restore"
 
 
+@pulumi.type_token("azure-native:keyvault:CreateMode")
 class CreateMode(builtins.str, Enum):
     """
     The vault's create mode to indicate whether the vault need to be recovered or not.
@@ -64,6 +67,7 @@ class CreateMode(builtins.str, Enum):
     DEFAULT = "default"
 
 
+@pulumi.type_token("azure-native:keyvault:JsonWebKeyCurveName")
 class JsonWebKeyCurveName(builtins.str, Enum):
     """
     The elliptic curve name. For valid values, see JsonWebKeyCurveName. Default for EC and EC-HSM keys is P-256
@@ -74,6 +78,7 @@ class JsonWebKeyCurveName(builtins.str, Enum):
     P_256_K = "P-256K"
 
 
+@pulumi.type_token("azure-native:keyvault:JsonWebKeyOperation")
 class JsonWebKeyOperation(builtins.str, Enum):
     """
     The permitted JSON web key operations of the key. For more information, see JsonWebKeyOperation.
@@ -88,6 +93,7 @@ class JsonWebKeyOperation(builtins.str, Enum):
     RELEASE = "release"
 
 
+@pulumi.type_token("azure-native:keyvault:JsonWebKeyType")
 class JsonWebKeyType(builtins.str, Enum):
     """
     The type of the key. For valid values, see JsonWebKeyType.
@@ -98,6 +104,7 @@ class JsonWebKeyType(builtins.str, Enum):
     RS_A_HSM = "RSA-HSM"
 
 
+@pulumi.type_token("azure-native:keyvault:KeyPermissions")
 class KeyPermissions(builtins.str, Enum):
     ALL = "all"
     ENCRYPT = "encrypt"
@@ -122,6 +129,7 @@ class KeyPermissions(builtins.str, Enum):
     SETROTATIONPOLICY = "setrotationpolicy"
 
 
+@pulumi.type_token("azure-native:keyvault:KeyRotationPolicyActionType")
 class KeyRotationPolicyActionType(builtins.str, Enum):
     """
     The type of action.
@@ -130,6 +138,7 @@ class KeyRotationPolicyActionType(builtins.str, Enum):
     NOTIFY = "notify"
 
 
+@pulumi.type_token("azure-native:keyvault:ManagedHsmSkuFamily")
 class ManagedHsmSkuFamily(builtins.str, Enum):
     """
     SKU Family of the managed HSM Pool
@@ -138,6 +147,7 @@ class ManagedHsmSkuFamily(builtins.str, Enum):
     C = "C"
 
 
+@pulumi.type_token("azure-native:keyvault:ManagedHsmSkuName")
 class ManagedHsmSkuName(builtins.str, Enum):
     """
     SKU of the managed HSM Pool
@@ -149,6 +159,7 @@ class ManagedHsmSkuName(builtins.str, Enum):
     CUSTOM_C10 = "Custom_C10"
 
 
+@pulumi.type_token("azure-native:keyvault:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -159,6 +170,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:keyvault:NetworkRuleAction")
 class NetworkRuleAction(builtins.str, Enum):
     """
     The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
@@ -167,6 +179,7 @@ class NetworkRuleAction(builtins.str, Enum):
     DENY = "Deny"
 
 
+@pulumi.type_token("azure-native:keyvault:NetworkRuleBypassOptions")
 class NetworkRuleBypassOptions(builtins.str, Enum):
     """
     Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
@@ -175,6 +188,7 @@ class NetworkRuleBypassOptions(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:keyvault:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been approved, rejected or removed by the key vault owner.
@@ -185,6 +199,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+@pulumi.type_token("azure-native:keyvault:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Control permission to the managed HSM from public networks.
@@ -193,6 +208,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:keyvault:SecretPermissions")
 class SecretPermissions(builtins.str, Enum):
     ALL = "all"
     GET = "get"
@@ -205,6 +221,7 @@ class SecretPermissions(builtins.str, Enum):
     PURGE = "purge"
 
 
+@pulumi.type_token("azure-native:keyvault:SkuFamily")
 class SkuFamily(builtins.str, Enum):
     """
     SKU family name
@@ -212,6 +229,7 @@ class SkuFamily(builtins.str, Enum):
     A = "A"
 
 
+@pulumi.type_token("azure-native:keyvault:SkuName")
 class SkuName(builtins.str, Enum):
     """
     SKU name to specify whether the key vault is a standard vault or a premium vault.
@@ -220,6 +238,7 @@ class SkuName(builtins.str, Enum):
     PREMIUM = "premium"
 
 
+@pulumi.type_token("azure-native:keyvault:StoragePermissions")
 class StoragePermissions(builtins.str, Enum):
     ALL = "all"
     GET = "get"

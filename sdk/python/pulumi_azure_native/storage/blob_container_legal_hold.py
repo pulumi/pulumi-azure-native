@@ -101,10 +101,8 @@ class BlobContainerLegalHoldArgs:
         pulumi.set(self, "allow_protected_append_writes_all", value)
 
 
+@pulumi.type_token("azure-native:storage:BlobContainerLegalHold")
 class BlobContainerLegalHold(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storage:BlobContainerLegalHold"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

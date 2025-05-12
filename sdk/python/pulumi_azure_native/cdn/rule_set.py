@@ -72,10 +72,8 @@ class RuleSetArgs:
         pulumi.set(self, "rule_set_name", value)
 
 
+@pulumi.type_token("azure-native:cdn:RuleSet")
 class RuleSet(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cdn:RuleSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

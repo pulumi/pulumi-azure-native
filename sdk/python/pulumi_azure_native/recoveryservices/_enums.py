@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -67,6 +67,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:recoveryservices:AcquireStorageAccountLock")
 class AcquireStorageAccountLock(builtins.str, Enum):
     """
     Whether storage account lock is to be acquired for this container or not.
@@ -75,6 +76,7 @@ class AcquireStorageAccountLock(builtins.str, Enum):
     NOT_ACQUIRE = "NotAcquire"
 
 
+@pulumi.type_token("azure-native:recoveryservices:AgentAutoUpdateStatus")
 class AgentAutoUpdateStatus(builtins.str, Enum):
     """
     A value indicating whether the auto update is enabled.
@@ -83,11 +85,13 @@ class AgentAutoUpdateStatus(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:recoveryservices:AlertsState")
 class AlertsState(builtins.str, Enum):
     ENABLED = "Enabled"
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:recoveryservices:AutoProtectionOfDataDisk")
 class AutoProtectionOfDataDisk(builtins.str, Enum):
     """
     A value indicating whether the disk auto protection is enabled.
@@ -96,6 +100,7 @@ class AutoProtectionOfDataDisk(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:recoveryservices:AutomationAccountAuthenticationType")
 class AutomationAccountAuthenticationType(builtins.str, Enum):
     """
     A value indicating the type authentication to use for automation Account.
@@ -104,6 +109,7 @@ class AutomationAccountAuthenticationType(builtins.str, Enum):
     SYSTEM_ASSIGNED_IDENTITY = "SystemAssignedIdentity"
 
 
+@pulumi.type_token("azure-native:recoveryservices:BackupItemType")
 class BackupItemType(builtins.str, Enum):
     """
     Type of backup items associated with this container.
@@ -126,6 +132,7 @@ class BackupItemType(builtins.str, Enum):
     SAP_HANA_DB_INSTANCE = "SAPHanaDBInstance"
 
 
+@pulumi.type_token("azure-native:recoveryservices:BackupManagementType")
 class BackupManagementType(builtins.str, Enum):
     """
     Type of backup management for the backed up item.
@@ -141,6 +148,7 @@ class BackupManagementType(builtins.str, Enum):
     DEFAULT_BACKUP = "DefaultBackup"
 
 
+@pulumi.type_token("azure-native:recoveryservices:CreateMode")
 class CreateMode(builtins.str, Enum):
     """
     Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
@@ -150,6 +158,7 @@ class CreateMode(builtins.str, Enum):
     RECOVER = "Recover"
 
 
+@pulumi.type_token("azure-native:recoveryservices:CrossRegionRestore")
 class CrossRegionRestore(builtins.str, Enum):
     """
     Flag to show if Cross Region Restore is enabled on the Vault or not
@@ -158,12 +167,14 @@ class CrossRegionRestore(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:recoveryservices:CrossSubscriptionRestoreState")
 class CrossSubscriptionRestoreState(builtins.str, Enum):
     ENABLED = "Enabled"
     DISABLED = "Disabled"
     PERMANENTLY_DISABLED = "PermanentlyDisabled"
 
 
+@pulumi.type_token("azure-native:recoveryservices:DayOfWeek")
 class DayOfWeek(builtins.str, Enum):
     SUNDAY = "Sunday"
     MONDAY = "Monday"
@@ -174,6 +185,7 @@ class DayOfWeek(builtins.str, Enum):
     SATURDAY = "Saturday"
 
 
+@pulumi.type_token("azure-native:recoveryservices:DiskAccountType")
 class DiskAccountType(builtins.str, Enum):
     """
     The disk type.
@@ -187,6 +199,7 @@ class DiskAccountType(builtins.str, Enum):
     PREMIUM_ZRS = "Premium_ZRS"
 
 
+@pulumi.type_token("azure-native:recoveryservices:EnhancedSecurityState")
 class EnhancedSecurityState(builtins.str, Enum):
     INVALID = "Invalid"
     ENABLED = "Enabled"
@@ -194,6 +207,7 @@ class EnhancedSecurityState(builtins.str, Enum):
     ALWAYS_ON = "AlwaysON"
 
 
+@pulumi.type_token("azure-native:recoveryservices:ExtendedLocationType")
 class ExtendedLocationType(builtins.str, Enum):
     """
     The extended location type.
@@ -201,6 +215,7 @@ class ExtendedLocationType(builtins.str, Enum):
     EDGE_ZONE = "EdgeZone"
 
 
+@pulumi.type_token("azure-native:recoveryservices:FailoverDeploymentModel")
 class FailoverDeploymentModel(builtins.str, Enum):
     """
     The failover deployment model.
@@ -210,6 +225,7 @@ class FailoverDeploymentModel(builtins.str, Enum):
     RESOURCE_MANAGER = "ResourceManager"
 
 
+@pulumi.type_token("azure-native:recoveryservices:HealthErrorCustomerResolvability")
 class HealthErrorCustomerResolvability(builtins.str, Enum):
     """
     Value indicating whether the health error is customer resolvable.
@@ -218,22 +234,26 @@ class HealthErrorCustomerResolvability(builtins.str, Enum):
     NOT_ALLOWED = "NotAllowed"
 
 
+@pulumi.type_token("azure-native:recoveryservices:IAASVMPolicyType")
 class IAASVMPolicyType(builtins.str, Enum):
     INVALID = "Invalid"
     V1 = "V1"
     V2 = "V2"
 
 
+@pulumi.type_token("azure-native:recoveryservices:IaasVMSnapshotConsistencyType")
 class IaasVMSnapshotConsistencyType(builtins.str, Enum):
     ONLY_CRASH_CONSISTENT = "OnlyCrashConsistent"
 
 
+@pulumi.type_token("azure-native:recoveryservices:ImmutabilityState")
 class ImmutabilityState(builtins.str, Enum):
     DISABLED = "Disabled"
     UNLOCKED = "Unlocked"
     LOCKED = "Locked"
 
 
+@pulumi.type_token("azure-native:recoveryservices:InfrastructureEncryptionState")
 class InfrastructureEncryptionState(builtins.str, Enum):
     """
     Enabling/Disabling the Double Encryption state
@@ -242,6 +262,7 @@ class InfrastructureEncryptionState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:recoveryservices:LastBackupStatus")
 class LastBackupStatus(builtins.str, Enum):
     """
     Last backup operation status. Possible values: Healthy, Unhealthy.
@@ -252,6 +273,7 @@ class LastBackupStatus(builtins.str, Enum):
     IR_PENDING = "IRPending"
 
 
+@pulumi.type_token("azure-native:recoveryservices:LicenseType")
 class LicenseType(builtins.str, Enum):
     """
     The license type.
@@ -261,6 +283,7 @@ class LicenseType(builtins.str, Enum):
     WINDOWS_SERVER = "WindowsServer"
 
 
+@pulumi.type_token("azure-native:recoveryservices:LinuxLicenseType")
 class LinuxLicenseType(builtins.str, Enum):
     """
     The license type for Linux VM's.
@@ -270,6 +293,7 @@ class LinuxLicenseType(builtins.str, Enum):
     LINUX_SERVER = "LinuxServer"
 
 
+@pulumi.type_token("azure-native:recoveryservices:MonthOfYear")
 class MonthOfYear(builtins.str, Enum):
     INVALID = "Invalid"
     JANUARY = "January"
@@ -286,6 +310,7 @@ class MonthOfYear(builtins.str, Enum):
     DECEMBER = "December"
 
 
+@pulumi.type_token("azure-native:recoveryservices:MultiVmGroupCreateOption")
 class MultiVmGroupCreateOption(builtins.str, Enum):
     """
     Whether Multi VM group is auto created or specified by user.
@@ -294,6 +319,7 @@ class MultiVmGroupCreateOption(builtins.str, Enum):
     USER_SPECIFIED = "UserSpecified"
 
 
+@pulumi.type_token("azure-native:recoveryservices:OperationType")
 class OperationType(builtins.str, Enum):
     """
     Re-Do Operation
@@ -304,6 +330,7 @@ class OperationType(builtins.str, Enum):
     REHYDRATE = "Rehydrate"
 
 
+@pulumi.type_token("azure-native:recoveryservices:PolicyType")
 class PolicyType(builtins.str, Enum):
     """
     Type of backup policy type
@@ -318,11 +345,13 @@ class PolicyType(builtins.str, Enum):
     SNAPSHOT_COPY_ONLY_FULL = "SnapshotCopyOnlyFull"
 
 
+@pulumi.type_token("azure-native:recoveryservices:PossibleOperationsDirections")
 class PossibleOperationsDirections(builtins.str, Enum):
     PRIMARY_TO_RECOVERY = "PrimaryToRecovery"
     RECOVERY_TO_PRIMARY = "RecoveryToPrimary"
 
 
+@pulumi.type_token("azure-native:recoveryservices:PrivateEndpointConnectionStatus")
 class PrivateEndpointConnectionStatus(builtins.str, Enum):
     """
     Gets or sets the status
@@ -333,6 +362,7 @@ class PrivateEndpointConnectionStatus(builtins.str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+@pulumi.type_token("azure-native:recoveryservices:ProtectableContainerType")
 class ProtectableContainerType(builtins.str, Enum):
     """
     Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
@@ -360,6 +390,7 @@ class ProtectableContainerType(builtins.str, Enum):
     AZURE_WORKLOAD_CONTAINER = "AzureWorkloadContainer"
 
 
+@pulumi.type_token("azure-native:recoveryservices:ProtectedItemHealthStatus")
 class ProtectedItemHealthStatus(builtins.str, Enum):
     """
     Health status of the backup item, evaluated based on last heartbeat received
@@ -371,6 +402,7 @@ class ProtectedItemHealthStatus(builtins.str, Enum):
     IR_PENDING = "IRPending"
 
 
+@pulumi.type_token("azure-native:recoveryservices:ProtectedItemState")
 class ProtectedItemState(builtins.str, Enum):
     """
     Protection state of the backup engine
@@ -384,6 +416,7 @@ class ProtectedItemState(builtins.str, Enum):
     BACKUPS_SUSPENDED = "BackupsSuspended"
 
 
+@pulumi.type_token("azure-native:recoveryservices:ProtectionIntentItemType")
 class ProtectionIntentItemType(builtins.str, Enum):
     """
     backup protectionIntent type.
@@ -396,6 +429,7 @@ class ProtectionIntentItemType(builtins.str, Enum):
     AZURE_WORKLOAD_SQL_AUTO_PROTECTION_INTENT = "AzureWorkloadSQLAutoProtectionIntent"
 
 
+@pulumi.type_token("azure-native:recoveryservices:ProtectionState")
 class ProtectionState(builtins.str, Enum):
     """
     Backup state of this backup item.
@@ -409,6 +443,7 @@ class ProtectionState(builtins.str, Enum):
     BACKUPS_SUSPENDED = "BackupsSuspended"
 
 
+@pulumi.type_token("azure-native:recoveryservices:ProtectionStatus")
 class ProtectionStatus(builtins.str, Enum):
     """
     Backup state of this backup item.
@@ -420,6 +455,7 @@ class ProtectionStatus(builtins.str, Enum):
     PROTECTION_FAILED = "ProtectionFailed"
 
 
+@pulumi.type_token("azure-native:recoveryservices:ProvisioningState")
 class ProvisioningState(builtins.str, Enum):
     """
     Gets or sets provisioning state of the private endpoint connection
@@ -430,6 +466,7 @@ class ProvisioningState(builtins.str, Enum):
     PENDING = "Pending"
 
 
+@pulumi.type_token("azure-native:recoveryservices:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     property to enable or disable resource provider inbound network traffic from public clients
@@ -438,6 +475,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:recoveryservices:RecoveryPlanActionLocation")
 class RecoveryPlanActionLocation(builtins.str, Enum):
     """
     The fabric location.
@@ -446,6 +484,7 @@ class RecoveryPlanActionLocation(builtins.str, Enum):
     RECOVERY = "Recovery"
 
 
+@pulumi.type_token("azure-native:recoveryservices:RecoveryPlanGroupType")
 class RecoveryPlanGroupType(builtins.str, Enum):
     """
     The group type.
@@ -455,6 +494,7 @@ class RecoveryPlanGroupType(builtins.str, Enum):
     FAILOVER = "Failover"
 
 
+@pulumi.type_token("azure-native:recoveryservices:ReplicationProtectedItemOperation")
 class ReplicationProtectedItemOperation(builtins.str, Enum):
     REVERSE_REPLICATE = "ReverseReplicate"
     COMMIT = "Commit"
@@ -472,6 +512,7 @@ class ReplicationProtectedItemOperation(builtins.str, Enum):
     COMPLETE_MIGRATION = "CompleteMigration"
 
 
+@pulumi.type_token("azure-native:recoveryservices:ResourceHealthStatus")
 class ResourceHealthStatus(builtins.str, Enum):
     """
     Resource Health Status
@@ -484,6 +525,7 @@ class ResourceHealthStatus(builtins.str, Enum):
     INVALID = "Invalid"
 
 
+@pulumi.type_token("azure-native:recoveryservices:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
@@ -494,6 +536,7 @@ class ResourceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
 
 
+@pulumi.type_token("azure-native:recoveryservices:RetentionDurationType")
 class RetentionDurationType(builtins.str, Enum):
     """
     Retention duration type: days/weeks/months/years
@@ -506,6 +549,7 @@ class RetentionDurationType(builtins.str, Enum):
     YEARS = "Years"
 
 
+@pulumi.type_token("azure-native:recoveryservices:RetentionScheduleFormat")
 class RetentionScheduleFormat(builtins.str, Enum):
     """
     Retention schedule format for yearly retention policy.
@@ -515,6 +559,7 @@ class RetentionScheduleFormat(builtins.str, Enum):
     WEEKLY = "Weekly"
 
 
+@pulumi.type_token("azure-native:recoveryservices:ScheduleRunType")
 class ScheduleRunType(builtins.str, Enum):
     """
     Frequency of the schedule operation of this policy.
@@ -525,6 +570,7 @@ class ScheduleRunType(builtins.str, Enum):
     HOURLY = "Hourly"
 
 
+@pulumi.type_token("azure-native:recoveryservices:SecurityConfiguration")
 class SecurityConfiguration(builtins.str, Enum):
     """
     A value indicating whether trusted platform module to be enabled.
@@ -533,6 +579,7 @@ class SecurityConfiguration(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:recoveryservices:SecurityType")
 class SecurityType(builtins.str, Enum):
     """
     The target VM security type.
@@ -542,6 +589,7 @@ class SecurityType(builtins.str, Enum):
     CONFIDENTIAL_VM = "ConfidentialVM"
 
 
+@pulumi.type_token("azure-native:recoveryservices:SetMultiVmSyncStatus")
 class SetMultiVmSyncStatus(builtins.str, Enum):
     """
     A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
@@ -550,6 +598,7 @@ class SetMultiVmSyncStatus(builtins.str, Enum):
     DISABLE = "Disable"
 
 
+@pulumi.type_token("azure-native:recoveryservices:SkuName")
 class SkuName(builtins.str, Enum):
     """
     Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
@@ -558,6 +607,7 @@ class SkuName(builtins.str, Enum):
     RS0 = "RS0"
 
 
+@pulumi.type_token("azure-native:recoveryservices:SoftDeleteState")
 class SoftDeleteState(builtins.str, Enum):
     INVALID = "Invalid"
     ENABLED = "Enabled"
@@ -565,6 +615,7 @@ class SoftDeleteState(builtins.str, Enum):
     ALWAYS_ON = "AlwaysON"
 
 
+@pulumi.type_token("azure-native:recoveryservices:SqlServerLicenseType")
 class SqlServerLicenseType(builtins.str, Enum):
     """
     The SQL Server license type.
@@ -575,6 +626,7 @@ class SqlServerLicenseType(builtins.str, Enum):
     AHUB = "AHUB"
 
 
+@pulumi.type_token("azure-native:recoveryservices:StandardTierStorageRedundancy")
 class StandardTierStorageRedundancy(builtins.str, Enum):
     """
     The storage redundancy setting of a vault
@@ -585,6 +637,7 @@ class StandardTierStorageRedundancy(builtins.str, Enum):
     ZONE_REDUNDANT = "ZoneRedundant"
 
 
+@pulumi.type_token("azure-native:recoveryservices:TieringMode")
 class TieringMode(builtins.str, Enum):
     """
     Tiering Mode to control automatic tiering of recovery points. Supported values are:
@@ -598,6 +651,7 @@ class TieringMode(builtins.str, Enum):
     DO_NOT_TIER = "DoNotTier"
 
 
+@pulumi.type_token("azure-native:recoveryservices:VaultSubResourceType")
 class VaultSubResourceType(builtins.str, Enum):
     """
     GroupId for the PrivateEndpointConnection - AzureBackup, AzureBackup_secondary or AzureSiteRecovery
@@ -607,6 +661,7 @@ class VaultSubResourceType(builtins.str, Enum):
     AZURE_SITE_RECOVERY = "AzureSiteRecovery"
 
 
+@pulumi.type_token("azure-native:recoveryservices:WeekOfMonth")
 class WeekOfMonth(builtins.str, Enum):
     FIRST = "First"
     SECOND = "Second"
@@ -616,6 +671,7 @@ class WeekOfMonth(builtins.str, Enum):
     INVALID = "Invalid"
 
 
+@pulumi.type_token("azure-native:recoveryservices:WorkloadItemType")
 class WorkloadItemType(builtins.str, Enum):
     """
     Workload item type of the item for which intent is to be set
@@ -630,6 +686,7 @@ class WorkloadItemType(builtins.str, Enum):
     SAP_HANA_DB_INSTANCE = "SAPHanaDBInstance"
 
 
+@pulumi.type_token("azure-native:recoveryservices:WorkloadType")
 class WorkloadType(builtins.str, Enum):
     """
     Type of workload for the backup management

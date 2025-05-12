@@ -90,10 +90,8 @@ class AssessmentArgs:
         pulumi.set(self, "workload_id", value)
 
 
+@pulumi.type_token("azure-native:advisor:Assessment")
 class Assessment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:advisor:Assessment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

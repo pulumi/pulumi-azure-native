@@ -186,10 +186,8 @@ class KafkaConfigurationArgs:
         pulumi.set(self, "kafka_configuration_name", value)
 
 
+@pulumi.type_token("azure-native:purview:KafkaConfiguration")
 class KafkaConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:purview:KafkaConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

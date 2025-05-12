@@ -103,10 +103,8 @@ class ExpressRoutePortAuthorizationArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure-native:network:ExpressRoutePortAuthorization")
 class ExpressRoutePortAuthorization(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:ExpressRoutePortAuthorization"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

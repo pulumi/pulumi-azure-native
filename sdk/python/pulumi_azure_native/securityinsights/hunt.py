@@ -204,10 +204,8 @@ class HuntArgs:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:Hunt")
 class Hunt(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:Hunt"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

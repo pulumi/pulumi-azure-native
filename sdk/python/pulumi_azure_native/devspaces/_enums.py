@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:devspaces:SkuName")
 class SkuName(builtins.str, Enum):
     """
     The name of the SKU for Azure Dev Spaces Controller.
@@ -19,6 +20,7 @@ class SkuName(builtins.str, Enum):
     S1 = "S1"
 
 
+@pulumi.type_token("azure-native:devspaces:SkuTier")
 class SkuTier(builtins.str, Enum):
     """
     The tier of the SKU for Azure Dev Spaces Controller.

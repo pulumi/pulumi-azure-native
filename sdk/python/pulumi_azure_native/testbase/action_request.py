@@ -93,10 +93,8 @@ class ActionRequestArgs:
         pulumi.set(self, "pre_release_access_request_spec", value)
 
 
+@pulumi.type_token("azure-native:testbase:ActionRequest")
 class ActionRequest(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:testbase:ActionRequest"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

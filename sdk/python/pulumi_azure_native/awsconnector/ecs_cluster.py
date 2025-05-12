@@ -106,10 +106,8 @@ class EcsClusterArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:EcsCluster")
 class EcsCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:EcsCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -89,10 +89,8 @@ class JavaComponentArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:app:JavaComponent")
 class JavaComponent(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:app:JavaComponent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

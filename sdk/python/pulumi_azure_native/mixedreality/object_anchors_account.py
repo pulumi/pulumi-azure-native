@@ -167,10 +167,8 @@ class ObjectAnchorsAccountArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:mixedreality:ObjectAnchorsAccount")
 class ObjectAnchorsAccount(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:mixedreality:ObjectAnchorsAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

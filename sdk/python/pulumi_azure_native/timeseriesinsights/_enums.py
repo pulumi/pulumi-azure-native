@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -20,6 +20,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:timeseriesinsights:AccessPolicyRole")
 class AccessPolicyRole(builtins.str, Enum):
     """
     A role defining the data plane operations that a principal can perform on a Time Series Insights client.
@@ -28,6 +29,7 @@ class AccessPolicyRole(builtins.str, Enum):
     CONTRIBUTOR = "Contributor"
 
 
+@pulumi.type_token("azure-native:timeseriesinsights:DataStringComparisonBehavior")
 class DataStringComparisonBehavior(builtins.str, Enum):
     """
     The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
@@ -36,6 +38,7 @@ class DataStringComparisonBehavior(builtins.str, Enum):
     ORDINAL_IGNORE_CASE = "OrdinalIgnoreCase"
 
 
+@pulumi.type_token("azure-native:timeseriesinsights:EnvironmentKind")
 class EnvironmentKind(builtins.str, Enum):
     """
     The kind of the environment.
@@ -44,6 +47,7 @@ class EnvironmentKind(builtins.str, Enum):
     GEN2 = "Gen2"
 
 
+@pulumi.type_token("azure-native:timeseriesinsights:EventSourceKind")
 class EventSourceKind(builtins.str, Enum):
     """
     The kind of the event source.
@@ -52,6 +56,7 @@ class EventSourceKind(builtins.str, Enum):
     MICROSOFT_IO_T_HUB = "Microsoft.IoTHub"
 
 
+@pulumi.type_token("azure-native:timeseriesinsights:IngressStartAtType")
 class IngressStartAtType(builtins.str, Enum):
     """
     The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
@@ -61,6 +66,7 @@ class IngressStartAtType(builtins.str, Enum):
     CUSTOM_ENQUEUED_TIME = "CustomEnqueuedTime"
 
 
+@pulumi.type_token("azure-native:timeseriesinsights:LocalTimestampFormat")
 class LocalTimestampFormat(builtins.str, Enum):
     """
     An enum that represents the format of the local timestamp property that needs to be set.
@@ -68,6 +74,7 @@ class LocalTimestampFormat(builtins.str, Enum):
     EMBEDDED = "Embedded"
 
 
+@pulumi.type_token("azure-native:timeseriesinsights:PropertyType")
 class PropertyType(builtins.str, Enum):
     """
     The type of the property.
@@ -75,6 +82,7 @@ class PropertyType(builtins.str, Enum):
     STRING = "String"
 
 
+@pulumi.type_token("azure-native:timeseriesinsights:ReferenceDataKeyPropertyType")
 class ReferenceDataKeyPropertyType(builtins.str, Enum):
     """
     The type of the key property.
@@ -85,6 +93,7 @@ class ReferenceDataKeyPropertyType(builtins.str, Enum):
     DATE_TIME = "DateTime"
 
 
+@pulumi.type_token("azure-native:timeseriesinsights:SkuName")
 class SkuName(builtins.str, Enum):
     """
     The name of this SKU.
@@ -95,6 +104,7 @@ class SkuName(builtins.str, Enum):
     L1 = "L1"
 
 
+@pulumi.type_token("azure-native:timeseriesinsights:StorageLimitExceededBehavior")
 class StorageLimitExceededBehavior(builtins.str, Enum):
     """
     The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.

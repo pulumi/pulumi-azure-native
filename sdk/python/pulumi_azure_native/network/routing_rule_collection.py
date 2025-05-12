@@ -136,10 +136,8 @@ class RoutingRuleCollectionArgs:
         pulumi.set(self, "rule_collection_name", value)
 
 
+@pulumi.type_token("azure-native:network:RoutingRuleCollection")
 class RoutingRuleCollection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:RoutingRuleCollection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

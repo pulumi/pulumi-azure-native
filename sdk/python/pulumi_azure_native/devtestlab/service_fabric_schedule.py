@@ -266,10 +266,8 @@ class ServiceFabricScheduleArgs:
         pulumi.set(self, "weekly_recurrence", value)
 
 
+@pulumi.type_token("azure-native:devtestlab:ServiceFabricSchedule")
 class ServiceFabricSchedule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devtestlab:ServiceFabricSchedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

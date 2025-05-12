@@ -67,10 +67,8 @@ class OutboundFirewallRuleArgs:
         pulumi.set(self, "outbound_rule_fqdn", value)
 
 
+@pulumi.type_token("azure-native:sql:OutboundFirewallRule")
 class OutboundFirewallRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:OutboundFirewallRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

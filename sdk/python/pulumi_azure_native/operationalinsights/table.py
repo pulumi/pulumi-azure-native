@@ -170,10 +170,8 @@ class TableArgs:
         pulumi.set(self, "total_retention_in_days", value)
 
 
+@pulumi.type_token("azure-native:operationalinsights:Table")
 class Table(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:operationalinsights:Table"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

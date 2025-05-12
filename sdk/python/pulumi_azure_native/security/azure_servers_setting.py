@@ -75,10 +75,8 @@ class AzureServersSettingArgs:
         pulumi.set(self, "setting_kind", value)
 
 
+@pulumi.type_token("azure-native:security:AzureServersSetting")
 class AzureServersSetting(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:AzureServersSetting"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

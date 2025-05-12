@@ -107,10 +107,8 @@ class Route53ResourceRecordSetArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:Route53ResourceRecordSet")
 class Route53ResourceRecordSet(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:Route53ResourceRecordSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

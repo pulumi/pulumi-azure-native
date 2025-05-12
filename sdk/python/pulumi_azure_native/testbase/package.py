@@ -264,10 +264,8 @@ class PackageArgs:
         pulumi.set(self, "tests", value)
 
 
+@pulumi.type_token("azure-native:testbase:Package")
 class Package(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:testbase:Package"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

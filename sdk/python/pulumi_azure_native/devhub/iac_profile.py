@@ -243,10 +243,8 @@ class IacProfileArgs:
         pulumi.set(self, "templates", value)
 
 
+@pulumi.type_token("azure-native:devhub:IacProfile")
 class IacProfile(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devhub:IacProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

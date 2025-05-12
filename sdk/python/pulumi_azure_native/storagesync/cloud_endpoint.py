@@ -151,10 +151,8 @@ class CloudEndpointArgs:
         pulumi.set(self, "storage_account_tenant_id", value)
 
 
+@pulumi.type_token("azure-native:storagesync:CloudEndpoint")
 class CloudEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storagesync:CloudEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -106,10 +106,8 @@ class MqArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:iotoperationsmq:Mq")
 class Mq(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:iotoperationsmq:Mq"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

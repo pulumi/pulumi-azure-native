@@ -200,10 +200,8 @@ class RelationshipArgs:
         pulumi.set(self, "relationship_name", value)
 
 
+@pulumi.type_token("azure-native:customerinsights:Relationship")
 class Relationship(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:customerinsights:Relationship"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

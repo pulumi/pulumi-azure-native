@@ -107,10 +107,8 @@ class PartnerRegistrationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:eventgrid:PartnerRegistration")
 class PartnerRegistration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:eventgrid:PartnerRegistration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

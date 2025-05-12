@@ -119,10 +119,8 @@ class IntegrationAccountSessionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:logic:IntegrationAccountSession")
 class IntegrationAccountSession(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:logic:IntegrationAccountSession"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

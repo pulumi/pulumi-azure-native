@@ -330,10 +330,8 @@ class AgentPoolArgs:
         pulumi.set(self, "vm_size", value)
 
 
+@pulumi.type_token("azure-native:hybridcontainerservice:AgentPool")
 class AgentPool(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybridcontainerservice:AgentPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

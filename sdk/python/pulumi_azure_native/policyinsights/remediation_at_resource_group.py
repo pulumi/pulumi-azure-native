@@ -171,10 +171,8 @@ class RemediationAtResourceGroupArgs:
         pulumi.set(self, "resource_discovery_mode", value)
 
 
+@pulumi.type_token("azure-native:policyinsights:RemediationAtResourceGroup")
 class RemediationAtResourceGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:policyinsights:RemediationAtResourceGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -121,10 +121,8 @@ class ApplicationGroupArgs:
         pulumi.set(self, "policies", value)
 
 
+@pulumi.type_token("azure-native:eventhub:ApplicationGroup")
 class ApplicationGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:eventhub:ApplicationGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

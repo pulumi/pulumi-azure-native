@@ -119,10 +119,8 @@ class ReplicationStorageClassificationMappingArgs:
         pulumi.set(self, "storage_classification_mapping_name", value)
 
 
+@pulumi.type_token("azure-native:recoveryservices:ReplicationStorageClassificationMapping")
 class ReplicationStorageClassificationMapping(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:recoveryservices:ReplicationStorageClassificationMapping"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -169,10 +169,8 @@ class DedicatedHostArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:compute:DedicatedHost")
 class DedicatedHost(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:compute:DedicatedHost"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -106,10 +106,8 @@ class EmployeeArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:contoso:Employee")
 class Employee(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:contoso:Employee"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

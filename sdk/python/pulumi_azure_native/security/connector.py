@@ -76,10 +76,8 @@ class ConnectorArgs:
         pulumi.set(self, "hybrid_compute_settings", value)
 
 
+@pulumi.type_token("azure-native:security:Connector")
 class Connector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:Connector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

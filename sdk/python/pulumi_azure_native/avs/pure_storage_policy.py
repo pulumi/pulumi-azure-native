@@ -102,10 +102,8 @@ class PureStoragePolicyArgs:
         pulumi.set(self, "storage_policy_name", value)
 
 
+@pulumi.type_token("azure-native:avs:PureStoragePolicy")
 class PureStoragePolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:avs:PureStoragePolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

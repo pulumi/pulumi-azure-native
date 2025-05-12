@@ -137,10 +137,8 @@ class PrivateStoreCollectionArgs:
         pulumi.set(self, "subscriptions_list", value)
 
 
+@pulumi.type_token("azure-native:marketplace:PrivateStoreCollection")
 class PrivateStoreCollection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:marketplace:PrivateStoreCollection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

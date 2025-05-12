@@ -181,10 +181,8 @@ class DataExportArgs:
         pulumi.set(self, "last_modified_date", value)
 
 
+@pulumi.type_token("azure-native:operationalinsights:DataExport")
 class DataExport(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:operationalinsights:DataExport"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -262,10 +262,8 @@ class OriginArgs:
         pulumi.set(self, "weight", value)
 
 
+@pulumi.type_token("azure-native:cdn:Origin")
 class Origin(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cdn:Origin"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

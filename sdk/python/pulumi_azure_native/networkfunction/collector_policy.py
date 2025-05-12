@@ -138,10 +138,8 @@ class CollectorPolicyArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:networkfunction:CollectorPolicy")
 class CollectorPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:networkfunction:CollectorPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

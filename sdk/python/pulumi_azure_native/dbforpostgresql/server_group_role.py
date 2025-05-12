@@ -137,10 +137,8 @@ class ServerGroupRoleArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure-native:dbforpostgresql:ServerGroupRole")
 class ServerGroupRole(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dbforpostgresql:ServerGroupRole"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

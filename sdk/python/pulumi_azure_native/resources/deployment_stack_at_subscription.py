@@ -234,10 +234,8 @@ class DeploymentStackAtSubscriptionArgs:
         pulumi.set(self, "template_link", value)
 
 
+@pulumi.type_token("azure-native:resources:DeploymentStackAtSubscription")
 class DeploymentStackAtSubscription(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:resources:DeploymentStackAtSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -107,10 +107,8 @@ class DynamoDbContinuousBackupsDescriptionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:DynamoDbContinuousBackupsDescription")
 class DynamoDbContinuousBackupsDescription(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:DynamoDbContinuousBackupsDescription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

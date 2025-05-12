@@ -232,10 +232,8 @@ class ArtifactSourceArgs:
         pulumi.set(self, "uri", value)
 
 
+@pulumi.type_token("azure-native:devtestlab:ArtifactSource")
 class ArtifactSource(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devtestlab:ArtifactSource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

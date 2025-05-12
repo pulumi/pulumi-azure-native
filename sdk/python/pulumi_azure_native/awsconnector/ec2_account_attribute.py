@@ -106,10 +106,8 @@ class Ec2AccountAttributeArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:Ec2AccountAttribute")
 class Ec2AccountAttribute(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:Ec2AccountAttribute"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

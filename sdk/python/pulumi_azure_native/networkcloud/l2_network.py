@@ -155,10 +155,8 @@ class L2NetworkArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:networkcloud:L2Network")
 class L2Network(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:networkcloud:L2Network"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -103,10 +103,8 @@ class VolumeSnapshotArgs:
         pulumi.set(self, "snapshot_name", value)
 
 
+@pulumi.type_token("azure-native:elasticsan:VolumeSnapshot")
 class VolumeSnapshot(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:elasticsan:VolumeSnapshot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

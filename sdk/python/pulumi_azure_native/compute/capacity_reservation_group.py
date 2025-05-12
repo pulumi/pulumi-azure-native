@@ -122,10 +122,8 @@ class CapacityReservationGroupArgs:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure-native:compute:CapacityReservationGroup")
 class CapacityReservationGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:compute:CapacityReservationGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

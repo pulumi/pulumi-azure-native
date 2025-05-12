@@ -102,10 +102,8 @@ class IotHubResourceEventHubConsumerGroupArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure-native:iothub:IotHubResourceEventHubConsumerGroup")
 class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:iothub:IotHubResourceEventHubConsumerGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

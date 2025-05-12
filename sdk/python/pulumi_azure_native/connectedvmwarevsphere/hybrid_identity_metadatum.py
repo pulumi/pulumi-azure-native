@@ -104,10 +104,8 @@ class HybridIdentityMetadatumArgs:
         pulumi.set(self, "vm_id", value)
 
 
+@pulumi.type_token("azure-native:connectedvmwarevsphere:HybridIdentityMetadatum")
 class HybridIdentityMetadatum(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:connectedvmwarevsphere:HybridIdentityMetadatum"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

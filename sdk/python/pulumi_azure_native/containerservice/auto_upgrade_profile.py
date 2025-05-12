@@ -143,10 +143,8 @@ class AutoUpgradeProfileArgs:
         pulumi.set(self, "update_strategy_id", value)
 
 
+@pulumi.type_token("azure-native:containerservice:AutoUpgradeProfile")
 class AutoUpgradeProfile(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerservice:AutoUpgradeProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

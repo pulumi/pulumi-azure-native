@@ -171,10 +171,8 @@ class RemoteRenderingAccountArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:mixedreality:RemoteRenderingAccount")
 class RemoteRenderingAccount(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:mixedreality:RemoteRenderingAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -232,10 +232,8 @@ class BackendArgs:
         pulumi.set(self, "tls", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:Backend")
 class Backend(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:Backend"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -120,10 +120,8 @@ class OuContainerArgs:
         pulumi.set(self, "spn", value)
 
 
+@pulumi.type_token("azure-native:aad:OuContainer")
 class OuContainer(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:aad:OuContainer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

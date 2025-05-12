@@ -185,10 +185,8 @@ class StorageTargetArgs:
         pulumi.set(self, "unknown", value)
 
 
+@pulumi.type_token("azure-native:storagecache:StorageTarget")
 class StorageTarget(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storagecache:StorageTarget"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

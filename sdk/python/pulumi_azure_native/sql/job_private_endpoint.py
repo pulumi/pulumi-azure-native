@@ -101,10 +101,8 @@ class JobPrivateEndpointArgs:
         pulumi.set(self, "private_endpoint_name", value)
 
 
+@pulumi.type_token("azure-native:sql:JobPrivateEndpoint")
 class JobPrivateEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:JobPrivateEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

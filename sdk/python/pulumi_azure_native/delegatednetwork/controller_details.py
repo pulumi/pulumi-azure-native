@@ -107,10 +107,8 @@ class ControllerDetailsInitArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:delegatednetwork:ControllerDetails")
 class ControllerDetails(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:delegatednetwork:ControllerDetails"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

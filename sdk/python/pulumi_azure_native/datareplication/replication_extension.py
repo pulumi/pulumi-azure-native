@@ -88,10 +88,8 @@ class ReplicationExtensionArgs:
         pulumi.set(self, "replication_extension_name", value)
 
 
+@pulumi.type_token("azure-native:datareplication:ReplicationExtension")
 class ReplicationExtension(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datareplication:ReplicationExtension"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

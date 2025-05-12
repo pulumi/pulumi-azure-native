@@ -102,10 +102,8 @@ class BgpPeerArgs:
         pulumi.set(self, "bgp_peer_name", value)
 
 
+@pulumi.type_token("azure-native:kubernetesruntime:BgpPeer")
 class BgpPeer(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:kubernetesruntime:BgpPeer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -106,10 +106,8 @@ class IamGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:IamGroup")
 class IamGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:IamGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

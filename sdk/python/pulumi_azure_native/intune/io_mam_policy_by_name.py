@@ -313,10 +313,8 @@ class IoMAMPolicyByNameArgs:
         pulumi.set(self, "touch_id", value)
 
 
+@pulumi.type_token("azure-native:intune:IoMAMPolicyByName")
 class IoMAMPolicyByName(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:intune:IoMAMPolicyByName"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

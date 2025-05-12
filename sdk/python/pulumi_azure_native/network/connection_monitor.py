@@ -270,10 +270,8 @@ class ConnectionMonitorArgs:
         pulumi.set(self, "test_groups", value)
 
 
+@pulumi.type_token("azure-native:network:ConnectionMonitor")
 class ConnectionMonitor(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:ConnectionMonitor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

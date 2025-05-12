@@ -136,10 +136,8 @@ class FileEventTriggerArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure-native:databoxedge:FileEventTrigger")
 class FileEventTrigger(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databoxedge:FileEventTrigger"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

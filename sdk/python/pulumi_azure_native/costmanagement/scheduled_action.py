@@ -183,10 +183,8 @@ class ScheduledActionArgs:
         pulumi.set(self, "scope", value)
 
 
+@pulumi.type_token("azure-native:costmanagement:ScheduledAction")
 class ScheduledAction(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:costmanagement:ScheduledAction"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

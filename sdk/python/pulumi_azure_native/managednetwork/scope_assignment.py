@@ -88,10 +88,8 @@ class ScopeAssignmentArgs:
         pulumi.set(self, "scope_assignment_name", value)
 
 
+@pulumi.type_token("azure-native:managednetwork:ScopeAssignment")
 class ScopeAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:managednetwork:ScopeAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

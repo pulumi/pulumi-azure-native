@@ -219,10 +219,8 @@ class OpenShiftClusterArgs:
         pulumi.set(self, "worker_profiles", value)
 
 
+@pulumi.type_token("azure-native:redhatopenshift:OpenShiftCluster")
 class OpenShiftCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:redhatopenshift:OpenShiftCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

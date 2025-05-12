@@ -121,10 +121,8 @@ class StaticSitePrivateEndpointConnectionArgs:
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
+@pulumi.type_token("azure-native:web:StaticSitePrivateEndpointConnection")
 class StaticSitePrivateEndpointConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:StaticSitePrivateEndpointConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

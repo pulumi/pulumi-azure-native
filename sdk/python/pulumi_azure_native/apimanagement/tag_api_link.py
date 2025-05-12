@@ -101,10 +101,8 @@ class TagApiLinkArgs:
         pulumi.set(self, "api_link_id", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:TagApiLink")
 class TagApiLink(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:TagApiLink"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

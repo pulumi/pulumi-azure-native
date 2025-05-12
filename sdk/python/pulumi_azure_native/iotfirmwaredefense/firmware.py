@@ -204,10 +204,8 @@ class FirmwareArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure-native:iotfirmwaredefense:Firmware")
 class Firmware(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:iotfirmwaredefense:Firmware"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

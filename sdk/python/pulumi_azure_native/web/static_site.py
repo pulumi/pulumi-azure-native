@@ -299,10 +299,8 @@ class StaticSiteArgs:
         pulumi.set(self, "template_properties", value)
 
 
+@pulumi.type_token("azure-native:web:StaticSite")
 class StaticSite(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:StaticSite"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

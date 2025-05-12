@@ -187,10 +187,8 @@ class ClusterArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:operationalinsights:Cluster")
 class Cluster(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:operationalinsights:Cluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

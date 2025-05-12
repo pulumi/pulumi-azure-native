@@ -169,10 +169,8 @@ class VCenterArgs:
         pulumi.set(self, "vcenter_name", value)
 
 
+@pulumi.type_token("azure-native:connectedvmwarevsphere:VCenter")
 class VCenter(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:connectedvmwarevsphere:VCenter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

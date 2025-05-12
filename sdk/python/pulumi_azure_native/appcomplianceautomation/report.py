@@ -123,10 +123,8 @@ class ReportArgs:
         pulumi.set(self, "storage_info", value)
 
 
+@pulumi.type_token("azure-native:appcomplianceautomation:Report")
 class Report(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:appcomplianceautomation:Report"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

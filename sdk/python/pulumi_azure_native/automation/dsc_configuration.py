@@ -201,10 +201,8 @@ class DscConfigurationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:automation:DscConfiguration")
 class DscConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:automation:DscConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -41,10 +41,8 @@ class PartnerArgs:
         pulumi.set(self, "partner_id", value)
 
 
+@pulumi.type_token("azure-native:managementpartner:Partner")
 class Partner(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:managementpartner:Partner"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

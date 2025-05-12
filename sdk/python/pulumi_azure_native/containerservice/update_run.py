@@ -147,10 +147,8 @@ class UpdateRunArgs:
         pulumi.set(self, "update_strategy_id", value)
 
 
+@pulumi.type_token("azure-native:containerservice:UpdateRun")
 class UpdateRun(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:containerservice:UpdateRun"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

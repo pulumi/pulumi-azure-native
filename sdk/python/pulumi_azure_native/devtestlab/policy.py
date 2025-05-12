@@ -215,10 +215,8 @@ class PolicyArgs:
         pulumi.set(self, "threshold", value)
 
 
+@pulumi.type_token("azure-native:devtestlab:Policy")
 class Policy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devtestlab:Policy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -169,10 +169,8 @@ class IotDpsResourceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:deviceprovisioningservices:IotDpsResource")
 class IotDpsResource(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:deviceprovisioningservices:IotDpsResource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -116,10 +116,8 @@ class WorkspaceProductApiLinkArgs:
         pulumi.set(self, "api_link_id", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:WorkspaceProductApiLink")
 class WorkspaceProductApiLink(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:WorkspaceProductApiLink"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

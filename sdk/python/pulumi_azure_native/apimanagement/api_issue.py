@@ -164,10 +164,8 @@ class ApiIssueArgs:
         pulumi.set(self, "state", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:ApiIssue")
 class ApiIssue(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:ApiIssue"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

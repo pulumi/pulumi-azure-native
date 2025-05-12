@@ -104,10 +104,8 @@ class DisasterRecoveryConfigArgs:
         pulumi.set(self, "partner_namespace", value)
 
 
+@pulumi.type_token("azure-native:eventhub:DisasterRecoveryConfig")
 class DisasterRecoveryConfig(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:eventhub:DisasterRecoveryConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

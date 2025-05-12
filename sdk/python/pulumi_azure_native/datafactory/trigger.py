@@ -89,10 +89,8 @@ class TriggerArgs:
         pulumi.set(self, "trigger_name", value)
 
 
+@pulumi.type_token("azure-native:datafactory:Trigger")
 class Trigger(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datafactory:Trigger"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

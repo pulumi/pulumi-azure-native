@@ -117,10 +117,8 @@ class CapabilityArgs:
         pulumi.set(self, "capability_name", value)
 
 
+@pulumi.type_token("azure-native:chaos:Capability")
 class Capability(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:chaos:Capability"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

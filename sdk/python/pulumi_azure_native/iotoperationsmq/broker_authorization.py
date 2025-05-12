@@ -166,10 +166,8 @@ class BrokerAuthorizationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:iotoperationsmq:BrokerAuthorization")
 class BrokerAuthorization(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:iotoperationsmq:BrokerAuthorization"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

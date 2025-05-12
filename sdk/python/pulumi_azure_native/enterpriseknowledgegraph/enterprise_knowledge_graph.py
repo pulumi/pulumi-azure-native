@@ -123,10 +123,8 @@ class EnterpriseKnowledgeGraphArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:enterpriseknowledgegraph:EnterpriseKnowledgeGraph")
 class EnterpriseKnowledgeGraph(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:enterpriseknowledgegraph:EnterpriseKnowledgeGraph"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

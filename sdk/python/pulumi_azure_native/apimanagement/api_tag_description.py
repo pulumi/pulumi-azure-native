@@ -134,10 +134,8 @@ class ApiTagDescriptionArgs:
         pulumi.set(self, "tag_description_id", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:ApiTagDescription")
 class ApiTagDescription(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:ApiTagDescription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

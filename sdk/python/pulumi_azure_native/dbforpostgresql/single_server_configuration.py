@@ -103,10 +103,8 @@ class SingleServerConfigurationArgs:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("azure-native:dbforpostgresql:SingleServerConfiguration")
 class SingleServerConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dbforpostgresql:SingleServerConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

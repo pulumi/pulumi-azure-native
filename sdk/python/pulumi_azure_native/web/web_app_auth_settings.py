@@ -784,10 +784,8 @@ class WebAppAuthSettingsArgs:
         pulumi.set(self, "validate_issuer", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppAuthSettings")
 class WebAppAuthSettings(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppAuthSettings"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

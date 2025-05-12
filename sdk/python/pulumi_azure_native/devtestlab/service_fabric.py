@@ -151,10 +151,8 @@ class ServiceFabricArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:devtestlab:ServiceFabric")
 class ServiceFabric(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devtestlab:ServiceFabric"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -123,10 +123,8 @@ class CassandraClusterArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:CassandraCluster")
 class CassandraCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:CassandraCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

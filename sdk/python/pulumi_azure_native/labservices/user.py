@@ -103,10 +103,8 @@ class UserArgs:
         pulumi.set(self, "user_name", value)
 
 
+@pulumi.type_token("azure-native:labservices:User")
 class User(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:labservices:User"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -186,10 +186,8 @@ class LicenseProfileArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:hybridcompute:LicenseProfile")
 class LicenseProfile(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybridcompute:LicenseProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

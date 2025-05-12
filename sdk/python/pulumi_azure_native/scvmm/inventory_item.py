@@ -104,10 +104,8 @@ class InventoryItemArgs:
         pulumi.set(self, "kind", value)
 
 
+@pulumi.type_token("azure-native:scvmm:InventoryItem")
 class InventoryItem(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:scvmm:InventoryItem"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

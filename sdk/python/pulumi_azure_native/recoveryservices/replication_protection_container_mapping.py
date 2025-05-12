@@ -120,10 +120,8 @@ class ReplicationProtectionContainerMappingArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:recoveryservices:ReplicationProtectionContainerMapping")
 class ReplicationProtectionContainerMapping(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:recoveryservices:ReplicationProtectionContainerMapping"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

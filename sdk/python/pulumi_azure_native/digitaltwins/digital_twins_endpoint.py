@@ -89,10 +89,8 @@ class DigitalTwinsEndpointArgs:
         pulumi.set(self, "endpoint_name", value)
 
 
+@pulumi.type_token("azure-native:digitaltwins:DigitalTwinsEndpoint")
 class DigitalTwinsEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:digitaltwins:DigitalTwinsEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -121,10 +121,8 @@ class AuthorizationProviderArgs:
         pulumi.set(self, "oauth2", value)
 
 
+@pulumi.type_token("azure-native:apimanagement:AuthorizationProvider")
 class AuthorizationProvider(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apimanagement:AuthorizationProvider"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

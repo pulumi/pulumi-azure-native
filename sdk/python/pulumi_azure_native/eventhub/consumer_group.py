@@ -103,10 +103,8 @@ class ConsumerGroupArgs:
         pulumi.set(self, "user_metadata", value)
 
 
+@pulumi.type_token("azure-native:eventhub:ConsumerGroup")
 class ConsumerGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:eventhub:ConsumerGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

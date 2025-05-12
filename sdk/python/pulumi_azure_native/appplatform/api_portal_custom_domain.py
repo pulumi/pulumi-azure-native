@@ -104,10 +104,8 @@ class ApiPortalCustomDomainArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:appplatform:ApiPortalCustomDomain")
 class ApiPortalCustomDomain(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:appplatform:ApiPortalCustomDomain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

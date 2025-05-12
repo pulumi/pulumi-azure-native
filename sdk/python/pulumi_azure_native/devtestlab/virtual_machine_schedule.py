@@ -251,10 +251,8 @@ class VirtualMachineScheduleArgs:
         pulumi.set(self, "weekly_recurrence", value)
 
 
+@pulumi.type_token("azure-native:devtestlab:VirtualMachineSchedule")
 class VirtualMachineSchedule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:devtestlab:VirtualMachineSchedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

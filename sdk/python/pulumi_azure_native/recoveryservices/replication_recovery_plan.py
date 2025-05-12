@@ -89,10 +89,8 @@ class ReplicationRecoveryPlanArgs:
         pulumi.set(self, "recovery_plan_name", value)
 
 
+@pulumi.type_token("azure-native:recoveryservices:ReplicationRecoveryPlan")
 class ReplicationRecoveryPlan(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:recoveryservices:ReplicationRecoveryPlan"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

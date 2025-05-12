@@ -89,10 +89,8 @@ class CloudHsmClusterPrivateEndpointConnectionArgs:
         pulumi.set(self, "pe_connection_name", value)
 
 
+@pulumi.type_token("azure-native:hardwaresecuritymodules:CloudHsmClusterPrivateEndpointConnection")
 class CloudHsmClusterPrivateEndpointConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hardwaresecuritymodules:CloudHsmClusterPrivateEndpointConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -173,10 +173,8 @@ class RoutePolicyArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:managednetworkfabric:RoutePolicy")
 class RoutePolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:managednetworkfabric:RoutePolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -150,10 +150,8 @@ class StaticSiteDatabaseConnectionArgs:
         pulumi.set(self, "kind", value)
 
 
+@pulumi.type_token("azure-native:web:StaticSiteDatabaseConnection")
 class StaticSiteDatabaseConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:StaticSiteDatabaseConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

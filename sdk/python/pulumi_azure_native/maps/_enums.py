@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -16,6 +16,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:maps:InfrastructureEncryption")
 class InfrastructureEncryption(builtins.str, Enum):
     """
     (Optional) Discouraged to include in resource definition. Only needed where it is possible to disable platform (AKA infrastructure) encryption. Azure SQL TDE is an example of this. Values are enabled and disabled.
@@ -24,6 +25,7 @@ class InfrastructureEncryption(builtins.str, Enum):
     DISABLED = "disabled"
 
 
+@pulumi.type_token("azure-native:maps:Kind")
 class Kind(builtins.str, Enum):
     """
     Get or Set Kind property.
@@ -31,6 +33,7 @@ class Kind(builtins.str, Enum):
     GEN2 = "Gen2"
 
 
+@pulumi.type_token("azure-native:maps:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -41,6 +44,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:maps:Name")
 class Name(builtins.str, Enum):
     """
     The name of the SKU, in standard format (such as G2).
@@ -48,6 +52,7 @@ class Name(builtins.str, Enum):
     G2 = "G2"
 
 
+@pulumi.type_token("azure-native:maps:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -57,6 +62,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:maps:SigningKey")
 class SigningKey(builtins.str, Enum):
     """
     The Maps account key to use for signing. Picking `primaryKey` or `secondaryKey` will use the Maps account Shared Keys, and using `managedIdentity` will use the auto-renewed private key to sign the SAS.

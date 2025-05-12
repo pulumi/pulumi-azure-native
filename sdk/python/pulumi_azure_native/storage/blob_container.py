@@ -186,10 +186,8 @@ class BlobContainerArgs:
         pulumi.set(self, "public_access", value)
 
 
+@pulumi.type_token("azure-native:storage:BlobContainer")
 class BlobContainer(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storage:BlobContainer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

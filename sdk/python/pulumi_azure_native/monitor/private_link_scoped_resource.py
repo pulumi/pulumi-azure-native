@@ -121,10 +121,8 @@ class PrivateLinkScopedResourceArgs:
         pulumi.set(self, "subscription_location", value)
 
 
+@pulumi.type_token("azure-native:monitor:PrivateLinkScopedResource")
 class PrivateLinkScopedResource(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:monitor:PrivateLinkScopedResource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

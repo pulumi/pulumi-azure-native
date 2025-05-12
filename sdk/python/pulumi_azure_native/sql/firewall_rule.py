@@ -119,10 +119,8 @@ class FirewallRuleArgs:
         pulumi.set(self, "start_ip_address", value)
 
 
+@pulumi.type_token("azure-native:sql:FirewallRule")
 class FirewallRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:FirewallRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

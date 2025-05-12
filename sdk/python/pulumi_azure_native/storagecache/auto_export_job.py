@@ -155,10 +155,8 @@ class AutoExportJobArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:storagecache:AutoExportJob")
 class AutoExportJob(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storagecache:AutoExportJob"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

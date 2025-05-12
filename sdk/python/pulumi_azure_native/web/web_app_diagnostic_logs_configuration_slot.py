@@ -153,10 +153,8 @@ class WebAppDiagnosticLogsConfigurationSlotArgs:
         pulumi.set(self, "kind", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppDiagnosticLogsConfigurationSlot")
 class WebAppDiagnosticLogsConfigurationSlot(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppDiagnosticLogsConfigurationSlot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -106,10 +106,8 @@ class ConnectorDryrunArgs:
         pulumi.set(self, "subscription_id", value)
 
 
+@pulumi.type_token("azure-native:servicelinker:ConnectorDryrun")
 class ConnectorDryrun(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:servicelinker:ConnectorDryrun"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

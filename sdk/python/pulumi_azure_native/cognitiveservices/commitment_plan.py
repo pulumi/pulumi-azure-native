@@ -154,10 +154,8 @@ class CommitmentPlanArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:cognitiveservices:CommitmentPlan")
 class CommitmentPlan(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cognitiveservices:CommitmentPlan"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

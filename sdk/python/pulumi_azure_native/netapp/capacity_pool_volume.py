@@ -790,10 +790,8 @@ class CapacityPoolVolumeArgs:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure-native:netapp:CapacityPoolVolume")
 class CapacityPoolVolume(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:netapp:CapacityPoolVolume"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

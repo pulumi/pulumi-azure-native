@@ -167,10 +167,8 @@ class MqttBridgeTopicMapArgs:
         pulumi.set(self, "topic_map_name", value)
 
 
+@pulumi.type_token("azure-native:iotoperationsmq:MqttBridgeTopicMap")
 class MqttBridgeTopicMap(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:iotoperationsmq:MqttBridgeTopicMap"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

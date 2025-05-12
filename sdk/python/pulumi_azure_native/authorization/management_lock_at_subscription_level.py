@@ -91,10 +91,8 @@ class ManagementLockAtSubscriptionLevelArgs:
         pulumi.set(self, "owners", value)
 
 
+@pulumi.type_token("azure-native:authorization:ManagementLockAtSubscriptionLevel")
 class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:authorization:ManagementLockAtSubscriptionLevel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

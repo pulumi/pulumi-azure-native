@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -19,6 +19,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:elasticsan:Action")
 class Action(builtins.str, Enum):
     """
     The action of virtual network rule.
@@ -26,6 +27,7 @@ class Action(builtins.str, Enum):
     ALLOW = "Allow"
 
 
+@pulumi.type_token("azure-native:elasticsan:EncryptionType")
 class EncryptionType(builtins.str, Enum):
     """
     Type of encryption
@@ -40,6 +42,7 @@ class EncryptionType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:elasticsan:IdentityType")
 class IdentityType(builtins.str, Enum):
     """
     The identity type.
@@ -49,6 +52,7 @@ class IdentityType(builtins.str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+@pulumi.type_token("azure-native:elasticsan:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -59,6 +63,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:elasticsan:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Allow or disallow public network access to ElasticSan. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
@@ -67,6 +72,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:elasticsan:SkuName")
 class SkuName(builtins.str, Enum):
     """
     The sku name.
@@ -81,6 +87,7 @@ class SkuName(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:elasticsan:SkuTier")
 class SkuTier(builtins.str, Enum):
     """
     The sku tier.
@@ -91,6 +98,7 @@ class SkuTier(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:elasticsan:StorageTargetType")
 class StorageTargetType(builtins.str, Enum):
     """
     Type of storage target
@@ -99,6 +107,7 @@ class StorageTargetType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:elasticsan:VolumeCreateOption")
 class VolumeCreateOption(builtins.str, Enum):
     """
     This enumerates the possible sources of a volume creation.

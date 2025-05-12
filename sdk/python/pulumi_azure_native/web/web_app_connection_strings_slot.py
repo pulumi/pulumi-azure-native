@@ -105,10 +105,8 @@ class WebAppConnectionStringsSlotArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppConnectionStringsSlot")
 class WebAppConnectionStringsSlot(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppConnectionStringsSlot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

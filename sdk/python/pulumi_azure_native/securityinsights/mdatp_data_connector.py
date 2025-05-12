@@ -123,10 +123,8 @@ class MDATPDataConnectorArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure-native:securityinsights:MDATPDataConnector")
 class MDATPDataConnector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:securityinsights:MDATPDataConnector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

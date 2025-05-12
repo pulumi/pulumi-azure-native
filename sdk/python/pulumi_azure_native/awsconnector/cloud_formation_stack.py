@@ -107,10 +107,8 @@ class CloudFormationStackArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:CloudFormationStack")
 class CloudFormationStack(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:CloudFormationStack"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

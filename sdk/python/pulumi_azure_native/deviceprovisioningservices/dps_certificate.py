@@ -89,10 +89,8 @@ class DpsCertificateArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:deviceprovisioningservices:DpsCertificate")
 class DpsCertificate(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:deviceprovisioningservices:DpsCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

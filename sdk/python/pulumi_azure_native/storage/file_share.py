@@ -234,10 +234,8 @@ class FileShareArgs:
         pulumi.set(self, "signed_identifiers", value)
 
 
+@pulumi.type_token("azure-native:storage:FileShare")
 class FileShare(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storage:FileShare"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

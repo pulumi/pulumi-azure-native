@@ -72,10 +72,8 @@ class AssociationArgs:
         pulumi.set(self, "target_resource_id", value)
 
 
+@pulumi.type_token("azure-native:customproviders:Association")
 class Association(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:customproviders:Association"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

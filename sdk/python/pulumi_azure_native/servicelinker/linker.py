@@ -187,10 +187,8 @@ class LinkerArgs:
         pulumi.set(self, "v_net_solution", value)
 
 
+@pulumi.type_token("azure-native:servicelinker:Linker")
 class Linker(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:servicelinker:Linker"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

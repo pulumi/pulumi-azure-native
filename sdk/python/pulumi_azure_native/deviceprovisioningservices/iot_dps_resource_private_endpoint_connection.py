@@ -89,10 +89,8 @@ class IotDpsResourcePrivateEndpointConnectionArgs:
         pulumi.set(self, "private_endpoint_connection_name", value)
 
 
+@pulumi.type_token("azure-native:deviceprovisioningservices:IotDpsResourcePrivateEndpointConnection")
 class IotDpsResourcePrivateEndpointConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:deviceprovisioningservices:IotDpsResourcePrivateEndpointConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

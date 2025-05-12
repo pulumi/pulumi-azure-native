@@ -89,10 +89,8 @@ class UserAssignedIdentityArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:managedidentity:UserAssignedIdentity")
 class UserAssignedIdentity(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:managedidentity:UserAssignedIdentity"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

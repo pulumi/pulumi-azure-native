@@ -104,10 +104,8 @@ class FileArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:datamigration:File")
 class File(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datamigration:File"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

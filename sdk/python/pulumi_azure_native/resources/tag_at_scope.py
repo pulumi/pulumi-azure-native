@@ -57,10 +57,8 @@ class TagAtScopeArgs:
         pulumi.set(self, "scope", value)
 
 
+@pulumi.type_token("azure-native:resources:TagAtScope")
 class TagAtScope(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:resources:TagAtScope"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

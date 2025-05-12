@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -86,6 +86,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:securityinsights:ActionType")
 class ActionType(builtins.str, Enum):
     """
     The type of the automation rule action.
@@ -104,6 +105,7 @@ class ActionType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:AgentType")
 class AgentType(builtins.str, Enum):
     """
     Type of the agent
@@ -111,6 +113,7 @@ class AgentType(builtins.str, Enum):
     SAP = "SAP"
 
 
+@pulumi.type_token("azure-native:securityinsights:AlertDetail")
 class AlertDetail(builtins.str, Enum):
     """
     Alert detail
@@ -125,6 +128,7 @@ class AlertDetail(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:AlertProperty")
 class AlertProperty(builtins.str, Enum):
     """
     The V3 alert property
@@ -167,6 +171,7 @@ class AlertProperty(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:AlertRuleKind")
 class AlertRuleKind(builtins.str, Enum):
     """
     The alert rule kind
@@ -176,6 +181,7 @@ class AlertRuleKind(builtins.str, Enum):
     FUSION = "Fusion"
 
 
+@pulumi.type_token("azure-native:securityinsights:AlertSeverity")
 class AlertSeverity(builtins.str, Enum):
     """
     The severity for alerts created by this alert rule.
@@ -198,6 +204,7 @@ class AlertSeverity(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:AttackTactic")
 class AttackTactic(builtins.str, Enum):
     """
     The severity for alerts created by this alert rule.
@@ -221,6 +228,7 @@ class AttackTactic(builtins.str, Enum):
     INHIBIT_RESPONSE_FUNCTION = "InhibitResponseFunction"
 
 
+@pulumi.type_token("azure-native:securityinsights:AutomationRuleBooleanConditionSupportedOperator")
 class AutomationRuleBooleanConditionSupportedOperator(builtins.str, Enum):
     """
     Describes a boolean condition operator.
@@ -235,6 +243,7 @@ class AutomationRuleBooleanConditionSupportedOperator(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:AutomationRulePropertyArrayChangedConditionSupportedArrayType")
 class AutomationRulePropertyArrayChangedConditionSupportedArrayType(builtins.str, Enum):
     ALERTS = "Alerts"
     """
@@ -254,6 +263,7 @@ class AutomationRulePropertyArrayChangedConditionSupportedArrayType(builtins.str
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:AutomationRulePropertyArrayChangedConditionSupportedChangeType")
 class AutomationRulePropertyArrayChangedConditionSupportedChangeType(builtins.str, Enum):
     ADDED = "Added"
     """
@@ -261,6 +271,7 @@ class AutomationRulePropertyArrayChangedConditionSupportedChangeType(builtins.st
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:AutomationRulePropertyArrayConditionSupportedArrayConditionType")
 class AutomationRulePropertyArrayConditionSupportedArrayConditionType(builtins.str, Enum):
     """
     Describes an array condition evaluation type.
@@ -271,6 +282,7 @@ class AutomationRulePropertyArrayConditionSupportedArrayConditionType(builtins.s
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:AutomationRulePropertyArrayConditionSupportedArrayType")
 class AutomationRulePropertyArrayConditionSupportedArrayType(builtins.str, Enum):
     """
     Describes an array condition evaluated array type.
@@ -285,6 +297,7 @@ class AutomationRulePropertyArrayConditionSupportedArrayType(builtins.str, Enum)
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:AutomationRulePropertyChangedConditionSupportedChangedType")
 class AutomationRulePropertyChangedConditionSupportedChangedType(builtins.str, Enum):
     CHANGED_FROM = "ChangedFrom"
     """
@@ -296,6 +309,7 @@ class AutomationRulePropertyChangedConditionSupportedChangedType(builtins.str, E
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:AutomationRulePropertyChangedConditionSupportedPropertyType")
 class AutomationRulePropertyChangedConditionSupportedPropertyType(builtins.str, Enum):
     INCIDENT_SEVERITY = "IncidentSeverity"
     """
@@ -311,6 +325,7 @@ class AutomationRulePropertyChangedConditionSupportedPropertyType(builtins.str, 
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:AutomationRulePropertyConditionSupportedOperator")
 class AutomationRulePropertyConditionSupportedOperator(builtins.str, Enum):
     EQUALS = "Equals"
     """
@@ -346,6 +361,7 @@ class AutomationRulePropertyConditionSupportedOperator(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:AutomationRulePropertyConditionSupportedProperty")
 class AutomationRulePropertyConditionSupportedProperty(builtins.str, Enum):
     """
     The property to evaluate in an automation rule property condition.
@@ -584,6 +600,7 @@ class AutomationRulePropertyConditionSupportedProperty(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:CcpAuthType")
 class CcpAuthType(builtins.str, Enum):
     """
     The auth type
@@ -601,6 +618,7 @@ class CcpAuthType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:securityinsights:ConditionType")
 class ConditionType(builtins.str, Enum):
     PROPERTY = "Property"
     """
@@ -624,6 +642,7 @@ class ConditionType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:ConfigurationType")
 class ConfigurationType(builtins.str, Enum):
     """
     Represents the types of configuration for a system.
@@ -631,6 +650,7 @@ class ConfigurationType(builtins.str, Enum):
     SAP = "SAP"
 
 
+@pulumi.type_token("azure-native:securityinsights:ContentType")
 class ContentType(builtins.str, Enum):
     """
     Content type.
@@ -639,6 +659,7 @@ class ContentType(builtins.str, Enum):
     WORKBOOK = "Workbook"
 
 
+@pulumi.type_token("azure-native:securityinsights:CustomEntityQueryKind")
 class CustomEntityQueryKind(builtins.str, Enum):
     """
     the entity query kind
@@ -646,6 +667,7 @@ class CustomEntityQueryKind(builtins.str, Enum):
     ACTIVITY = "Activity"
 
 
+@pulumi.type_token("azure-native:securityinsights:DataConnectorDefinitionKind")
 class DataConnectorDefinitionKind(builtins.str, Enum):
     """
     The data connector kind
@@ -653,6 +675,7 @@ class DataConnectorDefinitionKind(builtins.str, Enum):
     CUSTOMIZABLE = "Customizable"
 
 
+@pulumi.type_token("azure-native:securityinsights:DataConnectorKind")
 class DataConnectorKind(builtins.str, Enum):
     """
     The data connector kind
@@ -670,6 +693,7 @@ class DataConnectorKind(builtins.str, Enum):
     REST_API_POLLER = "RestApiPoller"
 
 
+@pulumi.type_token("azure-native:securityinsights:DataTypeState")
 class DataTypeState(builtins.str, Enum):
     """
     Describe whether this data type connection is enabled or not.
@@ -678,6 +702,7 @@ class DataTypeState(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:securityinsights:DeploymentFetchStatus")
 class DeploymentFetchStatus(builtins.str, Enum):
     """
     Status while fetching the last deployment.
@@ -687,6 +712,7 @@ class DeploymentFetchStatus(builtins.str, Enum):
     NOT_FOUND = "NotFound"
 
 
+@pulumi.type_token("azure-native:securityinsights:DeploymentResult")
 class DeploymentResult(builtins.str, Enum):
     """
     The outcome of the deployment.
@@ -696,6 +722,7 @@ class DeploymentResult(builtins.str, Enum):
     FAILED = "Failed"
 
 
+@pulumi.type_token("azure-native:securityinsights:DeploymentState")
 class DeploymentState(builtins.str, Enum):
     """
     Current status of the deployment.
@@ -706,6 +733,7 @@ class DeploymentState(builtins.str, Enum):
     CANCELING = "Canceling"
 
 
+@pulumi.type_token("azure-native:securityinsights:EntityMappingType")
 class EntityMappingType(builtins.str, Enum):
     """
     The V3 type of the mapped entity
@@ -784,6 +812,7 @@ class EntityMappingType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:EntityProviders")
 class EntityProviders(builtins.str, Enum):
     """
     The entity provider that is synced.
@@ -792,6 +821,7 @@ class EntityProviders(builtins.str, Enum):
     AZURE_ACTIVE_DIRECTORY = "AzureActiveDirectory"
 
 
+@pulumi.type_token("azure-native:securityinsights:EntityTimelineKind")
 class EntityTimelineKind(builtins.str, Enum):
     """
     The entity query kind
@@ -814,6 +844,7 @@ class EntityTimelineKind(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:EntityType")
 class EntityType(builtins.str, Enum):
     """
     The type of the query's source entity
@@ -908,6 +939,7 @@ class EntityType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:EventGroupingAggregationKind")
 class EventGroupingAggregationKind(builtins.str, Enum):
     """
     The event grouping aggregation kinds
@@ -916,6 +948,7 @@ class EventGroupingAggregationKind(builtins.str, Enum):
     ALERT_PER_RESULT = "AlertPerResult"
 
 
+@pulumi.type_token("azure-native:securityinsights:FileFormat")
 class FileFormat(builtins.str, Enum):
     """
     The format of the file
@@ -934,6 +967,7 @@ class FileFormat(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:FileImportContentType")
 class FileImportContentType(builtins.str, Enum):
     """
     The content type of this file.
@@ -952,6 +986,7 @@ class FileImportContentType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:Flag")
 class Flag(builtins.str, Enum):
     """
     Flag indicates if this package is in preview.
@@ -960,6 +995,7 @@ class Flag(builtins.str, Enum):
     FALSE = "false"
 
 
+@pulumi.type_token("azure-native:securityinsights:HttpMethodVerb")
 class HttpMethodVerb(builtins.str, Enum):
     """
     The HTTP method, default value GET.
@@ -970,6 +1006,7 @@ class HttpMethodVerb(builtins.str, Enum):
     DELETE = "DELETE"
 
 
+@pulumi.type_token("azure-native:securityinsights:HttpsConfigurationType")
 class HttpsConfigurationType(builtins.str, Enum):
     """
     Represents the types of HTTPS configuration to connect to the SapControl service.
@@ -979,6 +1016,7 @@ class HttpsConfigurationType(builtins.str, Enum):
     HTTPS_WITHOUT_SSL_VERIFICATION = "HttpsWithoutSslVerification"
 
 
+@pulumi.type_token("azure-native:securityinsights:HypothesisStatus")
 class HypothesisStatus(builtins.str, Enum):
     """
     The hypothesis status of the hunt.
@@ -988,6 +1026,7 @@ class HypothesisStatus(builtins.str, Enum):
     VALIDATED = "Validated"
 
 
+@pulumi.type_token("azure-native:securityinsights:IncidentClassification")
 class IncidentClassification(builtins.str, Enum):
     """
     The reason the incident was closed
@@ -1010,6 +1049,7 @@ class IncidentClassification(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:IncidentClassificationReason")
 class IncidentClassificationReason(builtins.str, Enum):
     """
     The classification reason the incident was closed with
@@ -1032,6 +1072,7 @@ class IncidentClassificationReason(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:IncidentSeverity")
 class IncidentSeverity(builtins.str, Enum):
     """
     The severity of the incident
@@ -1054,6 +1095,7 @@ class IncidentSeverity(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:IncidentStatus")
 class IncidentStatus(builtins.str, Enum):
     """
     The status of the incident
@@ -1072,6 +1114,7 @@ class IncidentStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:IncidentTaskStatus")
 class IncidentTaskStatus(builtins.str, Enum):
     """
     The status of the task
@@ -1086,6 +1129,7 @@ class IncidentTaskStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:IngestionMode")
 class IngestionMode(builtins.str, Enum):
     """
     Describes how to ingest the records in the file.
@@ -1104,6 +1148,7 @@ class IngestionMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:IngestionType")
 class IngestionType(builtins.str, Enum):
     """
     Types of ingestion.
@@ -1112,6 +1157,7 @@ class IngestionType(builtins.str, Enum):
     INCREMENTAL = "Incremental"
 
 
+@pulumi.type_token("azure-native:securityinsights:KeyVaultAuthenticationMode")
 class KeyVaultAuthenticationMode(builtins.str, Enum):
     """
     The key mode of the agent.
@@ -1121,6 +1167,7 @@ class KeyVaultAuthenticationMode(builtins.str, Enum):
     SERVICE_PRINCIPAL = "ServicePrincipal"
 
 
+@pulumi.type_token("azure-native:securityinsights:Kind")
 class Kind(builtins.str, Enum):
     """
     Type of the content item we depend on
@@ -1144,6 +1191,7 @@ class Kind(builtins.str, Enum):
     AUTOMATION_RULE = "AutomationRule"
 
 
+@pulumi.type_token("azure-native:securityinsights:LogStatusType")
 class LogStatusType(builtins.str, Enum):
     """
     Types of log status.
@@ -1152,6 +1200,7 @@ class LogStatusType(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:securityinsights:LogType")
 class LogType(builtins.str, Enum):
     """
     Types of logs and tables.
@@ -1190,6 +1239,7 @@ class LogType(builtins.str, Enum):
     USRACL = "USRACL"
 
 
+@pulumi.type_token("azure-native:securityinsights:MatchingMethod")
 class MatchingMethod(builtins.str, Enum):
     """
     Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
@@ -1208,6 +1258,7 @@ class MatchingMethod(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:MicrosoftSecurityProductName")
 class MicrosoftSecurityProductName(builtins.str, Enum):
     """
     The alerts' productName on which the cases will be generated
@@ -1219,6 +1270,7 @@ class MicrosoftSecurityProductName(builtins.str, Enum):
     AZURE_SECURITY_CENTER_FOR_IO_T = "Azure Security Center for IoT"
 
 
+@pulumi.type_token("azure-native:securityinsights:Mode")
 class Mode(builtins.str, Enum):
     """
     The current mode of the workspace manager configuration
@@ -1233,6 +1285,7 @@ class Mode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:Operator")
 class Operator(builtins.str, Enum):
     """
     Operator used for list of dependencies in criteria array.
@@ -1241,6 +1294,7 @@ class Operator(builtins.str, Enum):
     OR_ = "OR"
 
 
+@pulumi.type_token("azure-native:securityinsights:OwnerType")
 class OwnerType(builtins.str, Enum):
     """
     The type of the owner the incident is assigned to.
@@ -1259,6 +1313,7 @@ class OwnerType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:PackageKind")
 class PackageKind(builtins.str, Enum):
     """
     the packageKind of the package contains this template
@@ -1267,6 +1322,7 @@ class PackageKind(builtins.str, Enum):
     STANDALONE = "Standalone"
 
 
+@pulumi.type_token("azure-native:securityinsights:ProviderPermissionsScope")
 class ProviderPermissionsScope(builtins.str, Enum):
     """
     The scope on which the user should have permissions, in order to be able to create connections.
@@ -1276,6 +1332,7 @@ class ProviderPermissionsScope(builtins.str, Enum):
     WORKSPACE = "Workspace"
 
 
+@pulumi.type_token("azure-native:securityinsights:RepoType")
 class RepoType(builtins.str, Enum):
     """
     The repository type of the source control
@@ -1284,6 +1341,7 @@ class RepoType(builtins.str, Enum):
     DEV_OPS = "DevOps"
 
 
+@pulumi.type_token("azure-native:securityinsights:RepositoryAccessKind")
 class RepositoryAccessKind(builtins.str, Enum):
     """
     The kind of repository access credentials
@@ -1293,6 +1351,7 @@ class RepositoryAccessKind(builtins.str, Enum):
     APP = "App"
 
 
+@pulumi.type_token("azure-native:securityinsights:RestApiPollerRequestPagingKind")
 class RestApiPollerRequestPagingKind(builtins.str, Enum):
     """
     Type of paging
@@ -1306,6 +1365,7 @@ class RestApiPollerRequestPagingKind(builtins.str, Enum):
     COUNT_BASED_PAGING = "CountBasedPaging"
 
 
+@pulumi.type_token("azure-native:securityinsights:SapAuthenticationType")
 class SapAuthenticationType(builtins.str, Enum):
     """
     The authentication type to SAP.
@@ -1315,6 +1375,7 @@ class SapAuthenticationType(builtins.str, Enum):
     SNC_WITH_USERNAME_PASSWORD = "SncWithUsernamePassword"
 
 
+@pulumi.type_token("azure-native:securityinsights:SecretSource")
 class SecretSource(builtins.str, Enum):
     """
     The secret source of the agent.
@@ -1323,6 +1384,7 @@ class SecretSource(builtins.str, Enum):
     AZURE_KEY_VAULT = "AzureKeyVault"
 
 
+@pulumi.type_token("azure-native:securityinsights:SecurityMLAnalyticsSettingsKind")
 class SecurityMLAnalyticsSettingsKind(builtins.str, Enum):
     """
     The kind of security ML Analytics Settings
@@ -1330,6 +1392,7 @@ class SecurityMLAnalyticsSettingsKind(builtins.str, Enum):
     ANOMALY = "Anomaly"
 
 
+@pulumi.type_token("azure-native:securityinsights:SettingKind")
 class SettingKind(builtins.str, Enum):
     """
     The kind of the setting
@@ -1340,6 +1403,7 @@ class SettingKind(builtins.str, Enum):
     UEBA = "Ueba"
 
 
+@pulumi.type_token("azure-native:securityinsights:SettingsStatus")
 class SettingsStatus(builtins.str, Enum):
     """
     The anomaly SecurityMLAnalyticsSettings status
@@ -1354,6 +1418,7 @@ class SettingsStatus(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:SourceKind")
 class SourceKind(builtins.str, Enum):
     """
     Source type of the content
@@ -1364,6 +1429,7 @@ class SourceKind(builtins.str, Enum):
     SOURCE_REPOSITORY = "SourceRepository"
 
 
+@pulumi.type_token("azure-native:securityinsights:SourceType")
 class SourceType(builtins.str, Enum):
     """
     The sourceType of the watchlist
@@ -1378,6 +1444,7 @@ class SourceType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:Status")
 class Status(builtins.str, Enum):
     """
     The status of the hunt.
@@ -1389,6 +1456,7 @@ class Status(builtins.str, Enum):
     APPROVED = "Approved"
 
 
+@pulumi.type_token("azure-native:securityinsights:SupportTier")
 class SupportTier(builtins.str, Enum):
     """
     Type of support for content item
@@ -1398,6 +1466,7 @@ class SupportTier(builtins.str, Enum):
     COMMUNITY = "Community"
 
 
+@pulumi.type_token("azure-native:securityinsights:SystemConfigurationConnectorType")
 class SystemConfigurationConnectorType(builtins.str, Enum):
     """
     Represents the types of SAP systems.
@@ -1406,6 +1475,7 @@ class SystemConfigurationConnectorType(builtins.str, Enum):
     SAP_CONTROL = "SapControl"
 
 
+@pulumi.type_token("azure-native:securityinsights:SystemStatusType")
 class SystemStatusType(builtins.str, Enum):
     """
     The status of the system.
@@ -1414,6 +1484,7 @@ class SystemStatusType(builtins.str, Enum):
     STOPPED = "Stopped"
 
 
+@pulumi.type_token("azure-native:securityinsights:ThreatIntelligenceResourceInnerKind")
 class ThreatIntelligenceResourceInnerKind(builtins.str, Enum):
     """
     The kind of the entity.
@@ -1424,6 +1495,7 @@ class ThreatIntelligenceResourceInnerKind(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:TriggerOperator")
 class TriggerOperator(builtins.str, Enum):
     """
     The operation against the threshold that triggers alert rule.
@@ -1434,6 +1506,7 @@ class TriggerOperator(builtins.str, Enum):
     NOT_EQUAL = "NotEqual"
 
 
+@pulumi.type_token("azure-native:securityinsights:TriggersOn")
 class TriggersOn(builtins.str, Enum):
     INCIDENTS = "Incidents"
     """
@@ -1445,6 +1518,7 @@ class TriggersOn(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:TriggersWhen")
 class TriggersWhen(builtins.str, Enum):
     CREATED = "Created"
     """
@@ -1456,6 +1530,7 @@ class TriggersWhen(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:UebaDataSources")
 class UebaDataSources(builtins.str, Enum):
     """
     The data source that enriched by ueba.
@@ -1466,6 +1541,7 @@ class UebaDataSources(builtins.str, Enum):
     SIGNIN_LOGS = "SigninLogs"
 
 
+@pulumi.type_token("azure-native:securityinsights:Version")
 class Version(builtins.str, Enum):
     """
     The version number associated with the source control

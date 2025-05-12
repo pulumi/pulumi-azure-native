@@ -122,10 +122,8 @@ class WorkloadInstanceArgs:
         pulumi.set(self, "workload_instance_name", value)
 
 
+@pulumi.type_token("azure-native:migrate:WorkloadInstance")
 class WorkloadInstance(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:migrate:WorkloadInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

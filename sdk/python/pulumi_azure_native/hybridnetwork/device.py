@@ -105,10 +105,8 @@ class DeviceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:hybridnetwork:Device")
 class Device(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:hybridnetwork:Device"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

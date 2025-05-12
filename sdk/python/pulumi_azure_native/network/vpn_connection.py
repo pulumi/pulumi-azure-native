@@ -346,10 +346,8 @@ class VpnConnectionInitArgs:
         pulumi.set(self, "vpn_link_connections", value)
 
 
+@pulumi.type_token("azure-native:network:VpnConnection")
 class VpnConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:VpnConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

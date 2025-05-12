@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:databasefleetmanager:DatabaseCreateMode")
 class DatabaseCreateMode(builtins.str, Enum):
     """
     Create mode. Available options: Default - Create a database. Copy - Copy the source database (source database name must be specified) PointInTimeRestore - Create a database by restoring source database from a point in time (source database name and restore from time must be specified)
@@ -32,6 +33,7 @@ class DatabaseCreateMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:databasefleetmanager:IdentityType")
 class IdentityType(builtins.str, Enum):
     """
     Identity type of the main principal.
@@ -46,6 +48,7 @@ class IdentityType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:databasefleetmanager:PrincipalType")
 class PrincipalType(builtins.str, Enum):
     """
     Principal type of the main principal.
@@ -60,6 +63,7 @@ class PrincipalType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:databasefleetmanager:ZoneRedundancy")
 class ZoneRedundancy(builtins.str, Enum):
     """
     Enable zone redundancy for all databases in this tier.

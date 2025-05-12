@@ -139,10 +139,8 @@ class SimGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:mobilenetwork:SimGroup")
 class SimGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:mobilenetwork:SimGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

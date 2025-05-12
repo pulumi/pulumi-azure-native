@@ -107,10 +107,8 @@ class RdsExportTaskArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:RdsExportTask")
 class RdsExportTask(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:RdsExportTask"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -360,10 +360,8 @@ class RecordSetArgs:
         pulumi.set(self, "txt_records", value)
 
 
+@pulumi.type_token("azure-native:dns:RecordSet")
 class RecordSet(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dns:RecordSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -120,10 +120,8 @@ class WorkloadNetworkDhcpArgs:
         pulumi.set(self, "revision", value)
 
 
+@pulumi.type_token("azure-native:avs:WorkloadNetworkDhcp")
 class WorkloadNetworkDhcp(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:avs:WorkloadNetworkDhcp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

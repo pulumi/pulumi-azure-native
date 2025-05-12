@@ -103,10 +103,8 @@ class WebAppSwiftVirtualNetworkConnectionArgs:
         pulumi.set(self, "swift_supported", value)
 
 
+@pulumi.type_token("azure-native:web:WebAppSwiftVirtualNetworkConnection")
 class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:web:WebAppSwiftVirtualNetworkConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

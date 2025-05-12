@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:networkfunction:DestinationType")
 class DestinationType(builtins.str, Enum):
     """
     Emission destination type.
@@ -21,6 +22,7 @@ class DestinationType(builtins.str, Enum):
     AZURE_MONITOR = "AzureMonitor"
 
 
+@pulumi.type_token("azure-native:networkfunction:EmissionType")
 class EmissionType(builtins.str, Enum):
     """
     Emission format type.
@@ -28,6 +30,7 @@ class EmissionType(builtins.str, Enum):
     IPFIX = "IPFIX"
 
 
+@pulumi.type_token("azure-native:networkfunction:IngestionType")
 class IngestionType(builtins.str, Enum):
     """
     The ingestion type.
@@ -35,6 +38,7 @@ class IngestionType(builtins.str, Enum):
     IPFIX = "IPFIX"
 
 
+@pulumi.type_token("azure-native:networkfunction:SourceType")
 class SourceType(builtins.str, Enum):
     """
     Ingestion source type.

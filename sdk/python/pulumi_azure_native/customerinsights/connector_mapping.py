@@ -182,10 +182,8 @@ class ConnectorMappingArgs:
         pulumi.set(self, "mapping_name", value)
 
 
+@pulumi.type_token("azure-native:customerinsights:ConnectorMapping")
 class ConnectorMapping(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:customerinsights:ConnectorMapping"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -138,10 +138,8 @@ class PostgresInstanceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:azurearcdata:PostgresInstance")
 class PostgresInstance(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurearcdata:PostgresInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

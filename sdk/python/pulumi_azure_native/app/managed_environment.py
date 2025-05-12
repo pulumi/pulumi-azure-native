@@ -266,10 +266,8 @@ class ManagedEnvironmentArgs:
         pulumi.set(self, "zone_redundant", value)
 
 
+@pulumi.type_token("azure-native:app:ManagedEnvironment")
 class ManagedEnvironment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:app:ManagedEnvironment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

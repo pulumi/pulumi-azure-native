@@ -90,10 +90,8 @@ class HttpRouteConfigArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:app:HttpRouteConfig")
 class HttpRouteConfig(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:app:HttpRouteConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

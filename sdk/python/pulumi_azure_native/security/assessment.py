@@ -137,10 +137,8 @@ class AssessmentArgs:
         pulumi.set(self, "partners_data", value)
 
 
+@pulumi.type_token("azure-native:security:Assessment")
 class Assessment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:Assessment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

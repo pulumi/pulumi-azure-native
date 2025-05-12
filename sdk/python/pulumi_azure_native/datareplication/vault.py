@@ -107,10 +107,8 @@ class VaultArgs:
         pulumi.set(self, "vault_name", value)
 
 
+@pulumi.type_token("azure-native:datareplication:Vault")
 class Vault(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datareplication:Vault"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

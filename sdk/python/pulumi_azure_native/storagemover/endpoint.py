@@ -89,10 +89,8 @@ class EndpointArgs:
         pulumi.set(self, "endpoint_name", value)
 
 
+@pulumi.type_token("azure-native:storagemover:Endpoint")
 class Endpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:storagemover:Endpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

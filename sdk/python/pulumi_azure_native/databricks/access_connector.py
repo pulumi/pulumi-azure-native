@@ -107,10 +107,8 @@ class AccessConnectorArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:databricks:AccessConnector")
 class AccessConnector(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databricks:AccessConnector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

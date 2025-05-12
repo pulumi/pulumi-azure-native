@@ -246,10 +246,8 @@ class GovernanceRuleArgs:
         pulumi.set(self, "rule_id", value)
 
 
+@pulumi.type_token("azure-native:security:GovernanceRule")
 class GovernanceRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:GovernanceRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

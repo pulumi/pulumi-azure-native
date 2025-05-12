@@ -87,10 +87,8 @@ class RegisteredPrefixArgs:
         pulumi.set(self, "registered_prefix_name", value)
 
 
+@pulumi.type_token("azure-native:peering:RegisteredPrefix")
 class RegisteredPrefix(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:peering:RegisteredPrefix"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

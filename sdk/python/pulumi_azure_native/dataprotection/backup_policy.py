@@ -90,10 +90,8 @@ class BackupPolicyInitArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:dataprotection:BackupPolicy")
 class BackupPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:dataprotection:BackupPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

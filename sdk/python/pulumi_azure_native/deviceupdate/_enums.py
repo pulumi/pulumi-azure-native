@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:deviceupdate:AuthenticationType")
 class AuthenticationType(builtins.str, Enum):
     """
     Authentication Type
@@ -22,6 +23,7 @@ class AuthenticationType(builtins.str, Enum):
     KEY_BASED = "KeyBased"
 
 
+@pulumi.type_token("azure-native:deviceupdate:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -32,6 +34,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:deviceupdate:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -41,6 +44,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:deviceupdate:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Whether or not public network access is allowed for the account.
@@ -49,6 +53,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:deviceupdate:SKU")
 class SKU(builtins.str, Enum):
     """
     Device Update Sku

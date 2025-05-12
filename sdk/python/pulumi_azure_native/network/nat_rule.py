@@ -186,10 +186,8 @@ class NatRuleInitArgs:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("azure-native:network:NatRule")
 class NatRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:network:NatRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

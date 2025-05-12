@@ -343,10 +343,8 @@ class GalleryImageArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:compute:GalleryImage")
 class GalleryImage(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:compute:GalleryImage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

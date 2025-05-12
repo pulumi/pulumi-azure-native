@@ -73,10 +73,8 @@ class MonitoringSettingArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:appplatform:MonitoringSetting")
 class MonitoringSetting(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:appplatform:MonitoringSetting"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

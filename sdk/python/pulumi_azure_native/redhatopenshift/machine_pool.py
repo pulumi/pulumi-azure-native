@@ -84,10 +84,8 @@ class MachinePoolArgs:
         pulumi.set(self, "resources", value)
 
 
+@pulumi.type_token("azure-native:redhatopenshift:MachinePool")
 class MachinePool(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:redhatopenshift:MachinePool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

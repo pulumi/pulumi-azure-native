@@ -250,10 +250,8 @@ class KafkaConnectorTopicMapArgs:
         pulumi.set(self, "topic_map_name", value)
 
 
+@pulumi.type_token("azure-native:iotoperationsmq:KafkaConnectorTopicMap")
 class KafkaConnectorTopicMap(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:iotoperationsmq:KafkaConnectorTopicMap"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -137,10 +137,8 @@ class TableResourceTableArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:cosmosdb:TableResourceTable")
 class TableResourceTable(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cosmosdb:TableResourceTable"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

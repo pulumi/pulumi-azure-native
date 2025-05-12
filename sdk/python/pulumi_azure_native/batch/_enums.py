@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -43,6 +43,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:batch:AuthenticationMode")
 class AuthenticationMode(builtins.str, Enum):
     """
     The authentication mode for the Batch account.
@@ -61,6 +62,7 @@ class AuthenticationMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:AutoStorageAuthenticationMode")
 class AutoStorageAuthenticationMode(builtins.str, Enum):
     """
     The authentication mode which the Batch service will use to manage the auto-storage account.
@@ -75,6 +77,7 @@ class AutoStorageAuthenticationMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:AutoUserScope")
 class AutoUserScope(builtins.str, Enum):
     """
     The default value is Pool. If the pool is running Windows a value of Task should be specified if stricter isolation between tasks is required. For example, if the task mutates the registry in a way which could impact other tasks, or if certificates have been specified on the pool which should not be accessible by normal tasks but should be accessible by start tasks.
@@ -89,6 +92,7 @@ class AutoUserScope(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:CachingType")
 class CachingType(builtins.str, Enum):
     NONE = "None"
     """
@@ -104,6 +108,7 @@ class CachingType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:CertificateStoreLocation")
 class CertificateStoreLocation(builtins.str, Enum):
     """
     The default value is currentUser. This property is applicable only for pools configured with Windows compute nodes. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
@@ -118,6 +123,7 @@ class CertificateStoreLocation(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:CertificateVisibility")
 class CertificateVisibility(builtins.str, Enum):
     START_TASK = "StartTask"
     """
@@ -133,6 +139,7 @@ class CertificateVisibility(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:ComputeNodeDeallocationOption")
 class ComputeNodeDeallocationOption(builtins.str, Enum):
     """
     If omitted, the default value is Requeue.
@@ -155,6 +162,7 @@ class ComputeNodeDeallocationOption(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:ComputeNodeFillType")
 class ComputeNodeFillType(builtins.str, Enum):
     SPREAD = "Spread"
     """
@@ -166,6 +174,7 @@ class ComputeNodeFillType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:ContainerHostDataPath")
 class ContainerHostDataPath(builtins.str, Enum):
     SHARED = "Shared"
     """
@@ -193,6 +202,7 @@ class ContainerHostDataPath(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:ContainerType")
 class ContainerType(builtins.str, Enum):
     DOCKER_COMPATIBLE = "DockerCompatible"
     """
@@ -204,6 +214,7 @@ class ContainerType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:ContainerWorkingDirectory")
 class ContainerWorkingDirectory(builtins.str, Enum):
     TASK_WORKING_DIRECTORY = "TaskWorkingDirectory"
     """
@@ -215,6 +226,7 @@ class ContainerWorkingDirectory(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:DiffDiskPlacement")
 class DiffDiskPlacement(builtins.str, Enum):
     """
     This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://learn.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://learn.microsoft.com/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
@@ -225,6 +237,7 @@ class DiffDiskPlacement(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:DiskEncryptionTarget")
 class DiskEncryptionTarget(builtins.str, Enum):
     """
     If omitted, no disks on the compute nodes in the pool will be encrypted.
@@ -239,6 +252,7 @@ class DiskEncryptionTarget(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:DynamicVNetAssignmentScope")
 class DynamicVNetAssignmentScope(builtins.str, Enum):
     NONE = "none"
     """
@@ -250,6 +264,7 @@ class DynamicVNetAssignmentScope(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:ElevationLevel")
 class ElevationLevel(builtins.str, Enum):
     """
     nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
@@ -264,6 +279,7 @@ class ElevationLevel(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:EndpointAccessDefaultAction")
 class EndpointAccessDefaultAction(builtins.str, Enum):
     """
     Default action for endpoint access. It is only applicable when publicNetworkAccess is enabled.
@@ -278,6 +294,7 @@ class EndpointAccessDefaultAction(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:IPAddressProvisioningType")
 class IPAddressProvisioningType(builtins.str, Enum):
     """
     The default value is BatchManaged
@@ -296,6 +313,7 @@ class IPAddressProvisioningType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:IPRuleAction")
 class IPRuleAction(builtins.str, Enum):
     """
     Action when client IP address is matched.
@@ -306,6 +324,7 @@ class IPRuleAction(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:InboundEndpointProtocol")
 class InboundEndpointProtocol(builtins.str, Enum):
     TCP = "TCP"
     """
@@ -317,6 +336,7 @@ class InboundEndpointProtocol(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:InterNodeCommunicationState")
 class InterNodeCommunicationState(builtins.str, Enum):
     """
     This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
@@ -331,6 +351,7 @@ class InterNodeCommunicationState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:KeySource")
 class KeySource(builtins.str, Enum):
     """
     Type of the key source.
@@ -345,6 +366,7 @@ class KeySource(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:LoginMode")
 class LoginMode(builtins.str, Enum):
     """
     Specifies login mode for the user. The default value is Interactive.
@@ -359,6 +381,7 @@ class LoginMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:NetworkSecurityGroupRuleAccess")
 class NetworkSecurityGroupRuleAccess(builtins.str, Enum):
     ALLOW = "Allow"
     """
@@ -370,6 +393,7 @@ class NetworkSecurityGroupRuleAccess(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:NodeCommunicationMode")
 class NodeCommunicationMode(builtins.str, Enum):
     """
     If omitted, the default value is Default.
@@ -388,6 +412,7 @@ class NodeCommunicationMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:NodePlacementPolicyType")
 class NodePlacementPolicyType(builtins.str, Enum):
     """
     Allocation policy used by Batch Service to provision the nodes. If not specified, Batch will use the regional policy.
@@ -402,6 +427,7 @@ class NodePlacementPolicyType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:PoolAllocationMode")
 class PoolAllocationMode(builtins.str, Enum):
     """
     The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Microsoft Entra ID. If the mode is UserSubscription, clients must use Microsoft Entra ID. The default is BatchService.
@@ -416,6 +442,7 @@ class PoolAllocationMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:PoolIdentityType")
 class PoolIdentityType(builtins.str, Enum):
     """
     The type of identity used for the Batch Pool.
@@ -430,6 +457,7 @@ class PoolIdentityType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:PublicNetworkAccessType")
 class PublicNetworkAccessType(builtins.str, Enum):
     """
     If not specified, the default value is 'enabled'.
@@ -448,6 +476,7 @@ class PublicNetworkAccessType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The type of identity used for the Batch account.
@@ -466,11 +495,13 @@ class ResourceIdentityType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:SecurityEncryptionTypes")
 class SecurityEncryptionTypes(builtins.str, Enum):
     NON_PERSISTED_TPM = "NonPersistedTPM"
     VM_GUEST_STATE_ONLY = "VMGuestStateOnly"
 
 
+@pulumi.type_token("azure-native:batch:SecurityTypes")
 class SecurityTypes(builtins.str, Enum):
     TRUSTED_LAUNCH = "trustedLaunch"
     """
@@ -482,6 +513,7 @@ class SecurityTypes(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:StorageAccountType")
 class StorageAccountType(builtins.str, Enum):
     STANDARD_LRS = "Standard_LRS"
     """
@@ -497,6 +529,7 @@ class StorageAccountType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:batch:UpgradeMode")
 class UpgradeMode(builtins.str, Enum):
     AUTOMATIC = "automatic"
     """

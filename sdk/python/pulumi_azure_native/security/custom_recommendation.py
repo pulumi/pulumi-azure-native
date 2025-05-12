@@ -170,10 +170,8 @@ class CustomRecommendationArgs:
         pulumi.set(self, "severity", value)
 
 
+@pulumi.type_token("azure-native:security:CustomRecommendation")
 class CustomRecommendation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:CustomRecommendation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

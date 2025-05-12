@@ -170,10 +170,8 @@ class TrunkedNetworkArgs:
         pulumi.set(self, "trunked_network_name", value)
 
 
+@pulumi.type_token("azure-native:networkcloud:TrunkedNetwork")
 class TrunkedNetwork(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:networkcloud:TrunkedNetwork"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

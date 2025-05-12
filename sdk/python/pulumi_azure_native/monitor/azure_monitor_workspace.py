@@ -106,10 +106,8 @@ class AzureMonitorWorkspaceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:monitor:AzureMonitorWorkspace")
 class AzureMonitorWorkspace(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:monitor:AzureMonitorWorkspace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

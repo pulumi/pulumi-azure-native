@@ -87,10 +87,8 @@ class ServerTrustCertificateArgs:
         pulumi.set(self, "public_blob", value)
 
 
+@pulumi.type_token("azure-native:sql:ServerTrustCertificate")
 class ServerTrustCertificate(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:sql:ServerTrustCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

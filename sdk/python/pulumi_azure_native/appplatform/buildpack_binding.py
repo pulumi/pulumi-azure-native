@@ -120,10 +120,8 @@ class BuildpackBindingArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.type_token("azure-native:appplatform:BuildpackBinding")
 class BuildpackBinding(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:appplatform:BuildpackBinding"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -41,10 +41,8 @@ class CopilotSettingArgs:
         pulumi.set(self, "access_control_enabled", value)
 
 
+@pulumi.type_token("azure-native:portalservices:CopilotSetting")
 class CopilotSetting(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:portalservices:CopilotSetting"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

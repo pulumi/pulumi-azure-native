@@ -106,10 +106,8 @@ class ApiGatewayRestApiArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:ApiGatewayRestApi")
 class ApiGatewayRestApi(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:ApiGatewayRestApi"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

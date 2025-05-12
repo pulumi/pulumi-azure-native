@@ -105,10 +105,8 @@ class OrderArgs:
         pulumi.set(self, "shipping_address", value)
 
 
+@pulumi.type_token("azure-native:databoxedge:Order")
 class Order(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databoxedge:Order"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -243,10 +243,8 @@ class DomainTopicEventSubscriptionArgs:
         pulumi.set(self, "retry_policy", value)
 
 
+@pulumi.type_token("azure-native:eventgrid:DomainTopicEventSubscription")
 class DomainTopicEventSubscription(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:eventgrid:DomainTopicEventSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -71,10 +71,8 @@ class WorkspaceSettingArgs:
         pulumi.set(self, "workspace_setting_name", value)
 
 
+@pulumi.type_token("azure-native:security:WorkspaceSetting")
 class WorkspaceSetting(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:security:WorkspaceSetting"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

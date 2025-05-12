@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:extendedlocation:HostType")
 class HostType(builtins.str, Enum):
     """
     Type of host the Custom Locations is referencing (Kubernetes, etc...).
@@ -19,6 +20,7 @@ class HostType(builtins.str, Enum):
     KUBERNETES = "Kubernetes"
 
 
+@pulumi.type_token("azure-native:extendedlocation:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
     The identity type.

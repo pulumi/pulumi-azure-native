@@ -394,10 +394,8 @@ class BigDataPoolArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:synapse:BigDataPool")
 class BigDataPool(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:synapse:BigDataPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

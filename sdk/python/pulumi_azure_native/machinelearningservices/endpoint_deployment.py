@@ -100,10 +100,8 @@ class EndpointDeploymentArgs:
         pulumi.set(self, "deployment_name", value)
 
 
+@pulumi.type_token("azure-native:machinelearningservices:EndpointDeployment")
 class EndpointDeployment(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:machinelearningservices:EndpointDeployment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

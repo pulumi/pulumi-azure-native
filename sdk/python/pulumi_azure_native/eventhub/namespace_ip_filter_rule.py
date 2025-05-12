@@ -120,10 +120,8 @@ class NamespaceIpFilterRuleArgs:
         pulumi.set(self, "ip_mask", value)
 
 
+@pulumi.type_token("azure-native:eventhub:NamespaceIpFilterRule")
 class NamespaceIpFilterRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:eventhub:NamespaceIpFilterRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

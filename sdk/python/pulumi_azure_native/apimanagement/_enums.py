@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -59,6 +59,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:apimanagement:AlwaysLog")
 class AlwaysLog(builtins.str, Enum):
     """
     Specifies for what type of messages sampling settings should not apply.
@@ -69,6 +70,7 @@ class AlwaysLog(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:ApiGatewaySkuType")
 class ApiGatewaySkuType(builtins.str, Enum):
     """
     Name of the Sku.
@@ -87,6 +89,7 @@ class ApiGatewaySkuType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:ApiType")
 class ApiType(builtins.str, Enum):
     """
     Type of API.
@@ -97,6 +100,7 @@ class ApiType(builtins.str, Enum):
     GRAPHQL = "graphql"
 
 
+@pulumi.type_token("azure-native:apimanagement:ApimIdentityType")
 class ApimIdentityType(builtins.str, Enum):
     """
     The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
@@ -107,6 +111,7 @@ class ApimIdentityType(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:apimanagement:AppType")
 class AppType(builtins.str, Enum):
     """
     Determines the type of application which send the create user request. Default is legacy portal.
@@ -121,6 +126,7 @@ class AppType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:AuthorizationMethod")
 class AuthorizationMethod(builtins.str, Enum):
     HEAD = "HEAD"
     OPTIONS = "OPTIONS"
@@ -132,6 +138,7 @@ class AuthorizationMethod(builtins.str, Enum):
     DELETE = "DELETE"
 
 
+@pulumi.type_token("azure-native:apimanagement:AuthorizationType")
 class AuthorizationType(builtins.str, Enum):
     """
     Authorization type options
@@ -142,6 +149,7 @@ class AuthorizationType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:BackendProtocol")
 class BackendProtocol(builtins.str, Enum):
     """
     Backend communication protocol.
@@ -156,6 +164,7 @@ class BackendProtocol(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:BackendType")
 class BackendType(builtins.str, Enum):
     """
     Type of the backend. A backend can be either Single or Pool.
@@ -170,11 +179,13 @@ class BackendType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:BearerTokenSendingMethod")
 class BearerTokenSendingMethod(builtins.str, Enum):
     AUTHORIZATION_HEADER = "authorizationHeader"
     QUERY = "query"
 
 
+@pulumi.type_token("azure-native:apimanagement:BearerTokenSendingMethods")
 class BearerTokenSendingMethods(builtins.str, Enum):
     """
     Form of an authorization grant, which the client uses to request the access token.
@@ -189,6 +200,7 @@ class BearerTokenSendingMethods(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:CertificateSource")
 class CertificateSource(builtins.str, Enum):
     """
     Certificate Source.
@@ -199,6 +211,7 @@ class CertificateSource(builtins.str, Enum):
     BUILT_IN = "BuiltIn"
 
 
+@pulumi.type_token("azure-native:apimanagement:CertificateStatus")
 class CertificateStatus(builtins.str, Enum):
     """
     Certificate Status.
@@ -208,6 +221,7 @@ class CertificateStatus(builtins.str, Enum):
     IN_PROGRESS = "InProgress"
 
 
+@pulumi.type_token("azure-native:apimanagement:ClientAuthenticationMethod")
 class ClientAuthenticationMethod(builtins.str, Enum):
     BASIC = "Basic"
     """
@@ -219,6 +233,7 @@ class ClientAuthenticationMethod(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:Confirmation")
 class Confirmation(builtins.str, Enum):
     """
     Determines the type of confirmation e-mail that will be sent to the newly created user.
@@ -233,6 +248,7 @@ class Confirmation(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:ContentFormat")
 class ContentFormat(builtins.str, Enum):
     """
     Format of the Content in which the API is getting imported.
@@ -283,6 +299,7 @@ class ContentFormat(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:DataMaskingMode")
 class DataMaskingMode(builtins.str, Enum):
     """
     Data masking mode.
@@ -297,6 +314,7 @@ class DataMaskingMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:GatewayListDebugCredentialsContractPurpose")
 class GatewayListDebugCredentialsContractPurpose(builtins.str, Enum):
     """
     Purpose of debug credential.
@@ -307,6 +325,7 @@ class GatewayListDebugCredentialsContractPurpose(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:GrantType")
 class GrantType(builtins.str, Enum):
     AUTHORIZATION_CODE = "authorizationCode"
     """
@@ -326,6 +345,7 @@ class GrantType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:GroupType")
 class GroupType(builtins.str, Enum):
     """
     Group type.
@@ -335,6 +355,7 @@ class GroupType(builtins.str, Enum):
     EXTERNAL = "external"
 
 
+@pulumi.type_token("azure-native:apimanagement:HostnameType")
 class HostnameType(builtins.str, Enum):
     """
     Hostname type.
@@ -346,6 +367,7 @@ class HostnameType(builtins.str, Enum):
     DEVELOPER_PORTAL = "DeveloperPortal"
 
 
+@pulumi.type_token("azure-native:apimanagement:HttpCorrelationProtocol")
 class HttpCorrelationProtocol(builtins.str, Enum):
     """
     Sets correlation protocol to use for Application Insights diagnostics.
@@ -364,6 +386,7 @@ class HttpCorrelationProtocol(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:IdentityProviderType")
 class IdentityProviderType(builtins.str, Enum):
     """
     Identity Provider Type identifier.
@@ -394,6 +417,7 @@ class IdentityProviderType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:KeyType")
 class KeyType(builtins.str, Enum):
     """
     The Key to be used to generate token for user.
@@ -402,6 +426,7 @@ class KeyType(builtins.str, Enum):
     SECONDARY = "secondary"
 
 
+@pulumi.type_token("azure-native:apimanagement:LlmDiagnosticSettings")
 class LlmDiagnosticSettings(builtins.str, Enum):
     """
     Specifies whether default diagnostic should be enabled for Large Language Models or not.
@@ -416,6 +441,7 @@ class LlmDiagnosticSettings(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:LlmMessageLogTypes")
 class LlmMessageLogTypes(builtins.str, Enum):
     """
     Specifies which message should be logged. Currently there is only 'all' option.
@@ -426,6 +452,7 @@ class LlmMessageLogTypes(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:LoggerType")
 class LoggerType(builtins.str, Enum):
     """
     Logger type.
@@ -444,6 +471,7 @@ class LoggerType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:NatGatewayState")
 class NatGatewayState(builtins.str, Enum):
     """
     Property can be used to enable NAT Gateway for this API Management service.
@@ -458,6 +486,7 @@ class NatGatewayState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:OAuth2GrantType")
 class OAuth2GrantType(builtins.str, Enum):
     """
     OAuth2 grant type options
@@ -472,6 +501,7 @@ class OAuth2GrantType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:OperationNameFormat")
 class OperationNameFormat(builtins.str, Enum):
     """
     The format of the Operation Name for Application Insights telemetries. Default is Name.
@@ -486,6 +516,7 @@ class OperationNameFormat(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:PolicyContentFormat")
 class PolicyContentFormat(builtins.str, Enum):
     """
     Format of the policyContent.
@@ -508,6 +539,7 @@ class PolicyContentFormat(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:PolicyFragmentContentFormat")
 class PolicyFragmentContentFormat(builtins.str, Enum):
     """
     Format of the policy fragment content.
@@ -522,6 +554,7 @@ class PolicyFragmentContentFormat(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:PolicyRestrictionRequireBase")
 class PolicyRestrictionRequireBase(builtins.str, Enum):
     """
     Indicates if base policy should be enforced for the policy document.
@@ -536,6 +569,7 @@ class PolicyRestrictionRequireBase(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:PrivateEndpointServiceConnectionStatus")
 class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -545,6 +579,7 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     REJECTED = "Rejected"
 
 
+@pulumi.type_token("azure-native:apimanagement:ProductState")
 class ProductState(builtins.str, Enum):
     """
     whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
@@ -553,6 +588,7 @@ class ProductState(builtins.str, Enum):
     PUBLISHED = "published"
 
 
+@pulumi.type_token("azure-native:apimanagement:Protocol")
 class Protocol(builtins.str, Enum):
     HTTP = "http"
     HTTPS = "https"
@@ -560,6 +596,7 @@ class Protocol(builtins.str, Enum):
     WSS = "wss"
 
 
+@pulumi.type_token("azure-native:apimanagement:ProvisioningState")
 class ProvisioningState(builtins.str, Enum):
     """
     Provisioning state.
@@ -567,6 +604,7 @@ class ProvisioningState(builtins.str, Enum):
     CREATED = "created"
 
 
+@pulumi.type_token("azure-native:apimanagement:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
     Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
@@ -575,6 +613,7 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:apimanagement:SamplingType")
 class SamplingType(builtins.str, Enum):
     """
     Sampling type.
@@ -585,6 +624,7 @@ class SamplingType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:SchemaType")
 class SchemaType(builtins.str, Enum):
     """
     Schema Type. Immutable.
@@ -599,6 +639,7 @@ class SchemaType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:SkuType")
 class SkuType(builtins.str, Enum):
     """
     Name of the Sku.
@@ -629,6 +670,7 @@ class SkuType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:SoapApiType")
 class SoapApiType(builtins.str, Enum):
     """
     Type of API to create. 
@@ -655,6 +697,7 @@ class SoapApiType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:State")
 class State(builtins.str, Enum):
     """
     Status of the issue.
@@ -681,6 +724,7 @@ class State(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:SubscriptionState")
 class SubscriptionState(builtins.str, Enum):
     """
     Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
@@ -693,6 +737,7 @@ class SubscriptionState(builtins.str, Enum):
     CANCELLED = "cancelled"
 
 
+@pulumi.type_token("azure-native:apimanagement:TranslateRequiredQueryParametersConduct")
 class TranslateRequiredQueryParametersConduct(builtins.str, Enum):
     """
     Strategy of translating required query parameters to template ones. By default has value 'template'. Possible values: 'template', 'query'
@@ -707,6 +752,7 @@ class TranslateRequiredQueryParametersConduct(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:UserState")
 class UserState(builtins.str, Enum):
     """
     Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
@@ -729,6 +775,7 @@ class UserState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:Verbosity")
 class Verbosity(builtins.str, Enum):
     """
     The verbosity level applied to traces emitted by trace policies.
@@ -747,6 +794,7 @@ class Verbosity(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:VersioningScheme")
 class VersioningScheme(builtins.str, Enum):
     """
     An value that determines where the API Version identifier will be located in a HTTP request.
@@ -765,6 +813,7 @@ class VersioningScheme(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:apimanagement:VirtualNetworkType")
 class VirtualNetworkType(builtins.str, Enum):
     """
     The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.

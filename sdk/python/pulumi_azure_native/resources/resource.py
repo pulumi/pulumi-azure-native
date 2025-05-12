@@ -263,10 +263,8 @@ class ResourceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:resources:Resource")
 class Resource(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:resources:Resource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -170,10 +170,8 @@ class EventHubArgs:
         pulumi.set(self, "user_metadata", value)
 
 
+@pulumi.type_token("azure-native:eventhub:EventHub")
 class EventHub(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:eventhub:EventHub"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

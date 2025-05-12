@@ -478,10 +478,8 @@ class AvsAssessmentsOperationArgs:
         pulumi.set(self, "vcpu_oversubscription", value)
 
 
+@pulumi.type_token("azure-native:migrate:AvsAssessmentsOperation")
 class AvsAssessmentsOperation(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:migrate:AvsAssessmentsOperation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

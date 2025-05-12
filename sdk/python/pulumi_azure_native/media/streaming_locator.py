@@ -215,10 +215,8 @@ class StreamingLocatorArgs:
         pulumi.set(self, "streaming_locator_name", value)
 
 
+@pulumi.type_token("azure-native:media:StreamingLocator")
 class StreamingLocator(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:media:StreamingLocator"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

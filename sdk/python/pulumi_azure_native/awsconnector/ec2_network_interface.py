@@ -106,10 +106,8 @@ class Ec2NetworkInterfaceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:Ec2NetworkInterface")
 class Ec2NetworkInterface(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:Ec2NetworkInterface"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

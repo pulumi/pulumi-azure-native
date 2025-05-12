@@ -107,10 +107,8 @@ class LogsMetricFilterArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:LogsMetricFilter")
 class LogsMetricFilter(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:LogsMetricFilter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

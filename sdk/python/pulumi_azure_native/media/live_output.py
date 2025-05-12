@@ -198,10 +198,8 @@ class LiveOutputArgs:
         pulumi.set(self, "rewind_window_length", value)
 
 
+@pulumi.type_token("azure-native:media:LiveOutput")
 class LiveOutput(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:media:LiveOutput"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

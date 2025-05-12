@@ -282,10 +282,8 @@ class ViewArgs:
         pulumi.set(self, "view_name", value)
 
 
+@pulumi.type_token("azure-native:costmanagement:View")
 class View(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:costmanagement:View"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

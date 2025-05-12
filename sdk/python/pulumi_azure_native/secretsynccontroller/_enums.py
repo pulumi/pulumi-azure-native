@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:secretsynccontroller:ExtendedLocationType")
 class ExtendedLocationType(builtins.str, Enum):
     """
     The type of the extended location.
@@ -26,6 +27,7 @@ class ExtendedLocationType(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:secretsynccontroller:KubernetesSecretType")
 class KubernetesSecretType(builtins.str, Enum):
     """
     Type specifies the type of the Kubernetes secret object, e.g. "Opaque" or"kubernetes.io/tls". The controller must have permission to create secrets of the specified type.

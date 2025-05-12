@@ -74,10 +74,8 @@ class SiteArgs:
         pulumi.set(self, "site_name", value)
 
 
+@pulumi.type_token("azure-native:edge:Site")
 class Site(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:edge:Site"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

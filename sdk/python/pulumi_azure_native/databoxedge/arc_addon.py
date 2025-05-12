@@ -149,10 +149,8 @@ class ArcAddonArgs:
         pulumi.set(self, "addon_name", value)
 
 
+@pulumi.type_token("azure-native:databoxedge:ArcAddon")
 class ArcAddon(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:databoxedge:ArcAddon"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

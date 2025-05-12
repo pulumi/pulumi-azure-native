@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:manufacturingplatform:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -24,6 +25,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:manufacturingplatform:RedundancyState")
 class RedundancyState(builtins.str, Enum):
     """
     Zone redundancy state for resources
@@ -38,6 +40,7 @@ class RedundancyState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:manufacturingplatform:ResourceState")
 class ResourceState(builtins.str, Enum):
     """
     State of the resource
@@ -52,6 +55,7 @@ class ResourceState(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:manufacturingplatform:SkuTier")
 class SkuTier(builtins.str, Enum):
     """
     This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.

@@ -153,10 +153,8 @@ class VirtualNetworkArgs:
         pulumi.set(self, "vmm_server_id", value)
 
 
+@pulumi.type_token("azure-native:scvmm:VirtualNetwork")
 class VirtualNetwork(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:scvmm:VirtualNetwork"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

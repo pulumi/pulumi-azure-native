@@ -125,10 +125,8 @@ class ServiceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:apicenter:Service")
 class Service(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:apicenter:Service"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

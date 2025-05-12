@@ -107,10 +107,8 @@ class EcsServiceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:awsconnector:EcsService")
 class EcsService(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:awsconnector:EcsService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

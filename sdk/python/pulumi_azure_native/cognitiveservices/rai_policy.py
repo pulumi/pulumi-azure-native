@@ -106,10 +106,8 @@ class RaiPolicyArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:cognitiveservices:RaiPolicy")
 class RaiPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:cognitiveservices:RaiPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

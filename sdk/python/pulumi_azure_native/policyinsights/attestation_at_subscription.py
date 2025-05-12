@@ -187,10 +187,8 @@ class AttestationAtSubscriptionArgs:
         pulumi.set(self, "policy_definition_reference_id", value)
 
 
+@pulumi.type_token("azure-native:policyinsights:AttestationAtSubscription")
 class AttestationAtSubscription(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:policyinsights:AttestationAtSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

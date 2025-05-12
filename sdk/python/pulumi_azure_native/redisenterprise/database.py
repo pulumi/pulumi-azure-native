@@ -202,10 +202,8 @@ class DatabaseArgs:
         pulumi.set(self, "port", value)
 
 
+@pulumi.type_token("azure-native:redisenterprise:Database")
 class Database(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:redisenterprise:Database"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

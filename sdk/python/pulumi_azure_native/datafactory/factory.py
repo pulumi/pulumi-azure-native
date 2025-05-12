@@ -187,10 +187,8 @@ class FactoryArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:datafactory:Factory")
 class Factory(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:datafactory:Factory"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

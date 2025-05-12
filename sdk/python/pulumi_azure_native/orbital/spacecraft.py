@@ -167,10 +167,8 @@ class SpacecraftArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure-native:orbital:Spacecraft")
 class Spacecraft(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:orbital:Spacecraft"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

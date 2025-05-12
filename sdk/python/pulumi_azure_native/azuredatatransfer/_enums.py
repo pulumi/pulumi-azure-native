@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -21,6 +21,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("azure-native:azuredatatransfer:DataType")
 class DataType(builtins.str, Enum):
     """
     Transfer Storage Blobs or Tables
@@ -29,6 +30,7 @@ class DataType(builtins.str, Enum):
     TABLE = "Table"
 
 
+@pulumi.type_token("azure-native:azuredatatransfer:Direction")
 class Direction(builtins.str, Enum):
     """
     Direction of data movement
@@ -37,6 +39,7 @@ class Direction(builtins.str, Enum):
     RECEIVE = "Receive"
 
 
+@pulumi.type_token("azure-native:azuredatatransfer:FlowBillingTier")
 class FlowBillingTier(builtins.str, Enum):
     """
     Billing tier for this messaging flow
@@ -46,6 +49,7 @@ class FlowBillingTier(builtins.str, Enum):
     PREMIUM = "Premium"
 
 
+@pulumi.type_token("azure-native:azuredatatransfer:FlowStatus")
 class FlowStatus(builtins.str, Enum):
     """
     Status of the current flow
@@ -54,6 +58,7 @@ class FlowStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:azuredatatransfer:FlowType")
 class FlowType(builtins.str, Enum):
     """
     Flow type for the specified resource
@@ -72,6 +77,7 @@ class FlowType(builtins.str, Enum):
     MISSION_OPAQUE_XML = "MissionOpaqueXML"
 
 
+@pulumi.type_token("azure-native:azuredatatransfer:ListApprovedSchemasDirection")
 class ListApprovedSchemasDirection(builtins.str, Enum):
     """
     The direction pipeline to filter approved schemas.
@@ -80,6 +86,7 @@ class ListApprovedSchemasDirection(builtins.str, Enum):
     RECEIVE = "Receive"
 
 
+@pulumi.type_token("azure-native:azuredatatransfer:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(builtins.str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -90,6 +97,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:azuredatatransfer:SchemaDirection")
 class SchemaDirection(builtins.str, Enum):
     """
     The direction of the schema.
@@ -98,6 +106,7 @@ class SchemaDirection(builtins.str, Enum):
     RECEIVE = "Receive"
 
 
+@pulumi.type_token("azure-native:azuredatatransfer:SchemaStatus")
 class SchemaStatus(builtins.str, Enum):
     """
     Status of the schema
@@ -106,6 +115,7 @@ class SchemaStatus(builtins.str, Enum):
     APPROVED = "Approved"
 
 
+@pulumi.type_token("azure-native:azuredatatransfer:SchemaType")
 class SchemaType(builtins.str, Enum):
     """
     The Schema Type
@@ -114,6 +124,7 @@ class SchemaType(builtins.str, Enum):
     ZIP = "Zip"
 
 
+@pulumi.type_token("azure-native:azuredatatransfer:StreamProtocol")
 class StreamProtocol(builtins.str, Enum):
     """
     The protocol of the stream

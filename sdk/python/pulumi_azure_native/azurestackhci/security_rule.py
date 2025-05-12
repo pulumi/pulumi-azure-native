@@ -230,10 +230,8 @@ class SecurityRuleArgs:
         pulumi.set(self, "source_port_ranges", value)
 
 
+@pulumi.type_token("azure-native:azurestackhci:SecurityRule")
 class SecurityRule(pulumi.CustomResource):
-
-    pulumi_type = "azure-native:azurestackhci:SecurityRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
