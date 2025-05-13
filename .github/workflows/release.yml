@@ -1,3 +1,10 @@
+permissions: write-all # Equivalent to default permissions plus id-token: write
+env:
+  ESC_ACTION_OIDC_AUTH: true
+  ESC_ACTION_OIDC_ORGANIZATION: pulumi
+  ESC_ACTION_OIDC_REQUESTED_TOKEN_TYPE: urn:pulumi:token-type:access_token:organization
+  ESC_ACTION_ENVIRONMENT: imports/github-secrets
+  ESC_ACTION_EXPORT_ENVIRONMENT_VARIABLES: false
 name: release
 
 on:
@@ -41,6 +48,9 @@ jobs:
     # not a prerelease
     if: ${{ !contains(github.ref_name,'-') }}
     steps:
+      - name: Fetch secrets from ESC
+        id: esc-secrets
+        uses: pulumi/esc-action@v1
       - name: Install pulumictl
         uses: jaxxstorm/action-install-gh-release@v1.11.0
         with:
@@ -48,5 +58,5 @@ jobs:
       - name: Dispatch Event
         run: pulumictl create docs-build pulumi-azure-native ${{ github.ref_name }}
         env:
-          GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
     name: dispatch_docs_build
