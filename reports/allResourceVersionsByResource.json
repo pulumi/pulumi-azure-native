@@ -2032,21 +2032,24 @@
       "2023-11-02-preview",
       "2024-02-02-preview",
       "2024-08-02-preview",
-      "2024-10-02-preview"
+      "2024-10-02-preview",
+      "2025-02-02-preview"
     ],
     "Build": [
       "2023-08-01-preview",
       "2023-11-02-preview",
       "2024-02-02-preview",
       "2024-08-02-preview",
-      "2024-10-02-preview"
+      "2024-10-02-preview",
+      "2025-02-02-preview"
     ],
     "Builder": [
       "2023-08-01-preview",
       "2023-11-02-preview",
       "2024-02-02-preview",
       "2024-08-02-preview",
-      "2024-10-02-preview"
+      "2024-10-02-preview",
+      "2025-02-02-preview"
     ],
     "Certificate": [
       "2022-01-01-preview",
@@ -2063,7 +2066,8 @@
       "2024-03-01",
       "2024-08-02-preview",
       "2024-10-02-preview",
-      "2025-01-01"
+      "2025-01-01",
+      "2025-02-02-preview"
     ],
     "ConnectedEnvironment": [
       "2022-06-01-preview",
@@ -2078,7 +2082,8 @@
       "2024-03-01",
       "2024-08-02-preview",
       "2024-10-02-preview",
-      "2025-01-01"
+      "2025-01-01",
+      "2025-02-02-preview"
     ],
     "ConnectedEnvironmentsCertificate": [
       "2022-06-01-preview",
@@ -2093,7 +2098,8 @@
       "2024-03-01",
       "2024-08-02-preview",
       "2024-10-02-preview",
-      "2025-01-01"
+      "2025-01-01",
+      "2025-02-02-preview"
     ],
     "ConnectedEnvironmentsDaprComponent": [
       "2022-06-01-preview",
@@ -2108,7 +2114,8 @@
       "2024-03-01",
       "2024-08-02-preview",
       "2024-10-02-preview",
-      "2025-01-01"
+      "2025-01-01",
+      "2025-02-02-preview"
     ],
     "ConnectedEnvironmentsStorage": [
       "2022-06-01-preview",
@@ -2123,7 +2130,8 @@
       "2024-03-01",
       "2024-08-02-preview",
       "2024-10-02-preview",
-      "2025-01-01"
+      "2025-01-01",
+      "2025-02-02-preview"
     ],
     "ContainerApp": [
       "2022-01-01-preview",
@@ -2140,7 +2148,8 @@
       "2024-03-01",
       "2024-08-02-preview",
       "2024-10-02-preview",
-      "2025-01-01"
+      "2025-01-01",
+      "2025-02-02-preview"
     ],
     "ContainerAppsAuthConfig": [
       "2022-01-01-preview",
@@ -2157,13 +2166,15 @@
       "2024-03-01",
       "2024-08-02-preview",
       "2024-10-02-preview",
-      "2025-01-01"
+      "2025-01-01",
+      "2025-02-02-preview"
     ],
     "ContainerAppsSessionPool": [
       "2024-02-02-preview",
       "2024-08-02-preview",
       "2024-10-02-preview",
-      "2025-01-01"
+      "2025-01-01",
+      "2025-02-02-preview"
     ],
     "ContainerAppsSourceControl": [
       "2022-01-01-preview",
@@ -2180,7 +2191,8 @@
       "2024-03-01",
       "2024-08-02-preview",
       "2024-10-02-preview",
-      "2025-01-01"
+      "2025-01-01",
+      "2025-02-02-preview"
     ],
     "DaprComponent": [
       "2022-01-01-preview",
@@ -2197,37 +2209,43 @@
       "2024-03-01",
       "2024-08-02-preview",
       "2024-10-02-preview",
-      "2025-01-01"
+      "2025-01-01",
+      "2025-02-02-preview"
     ],
     "DaprComponentResiliencyPolicy": [
       "2023-08-01-preview",
       "2023-11-02-preview",
       "2024-02-02-preview",
       "2024-08-02-preview",
-      "2024-10-02-preview"
+      "2024-10-02-preview",
+      "2025-02-02-preview"
     ],
     "DaprSubscription": [
       "2023-08-01-preview",
       "2023-11-02-preview",
       "2024-02-02-preview",
       "2024-08-02-preview",
-      "2024-10-02-preview"
+      "2024-10-02-preview",
+      "2025-02-02-preview"
     ],
     "DotNetComponent": [
       "2023-11-02-preview",
       "2024-02-02-preview",
       "2024-08-02-preview",
-      "2024-10-02-preview"
+      "2024-10-02-preview",
+      "2025-02-02-preview"
     ],
     "HttpRouteConfig": [
-      "2024-10-02-preview"
+      "2024-10-02-preview",
+      "2025-02-02-preview"
     ],
     "JavaComponent": [
       "2023-11-02-preview",
       "2024-02-02-preview",
       "2024-08-02-preview",
       "2024-10-02-preview",
-      "2025-01-01"
+      "2025-01-01",
+      "2025-02-02-preview"
     ],
     "Job": [
       "2022-11-01-preview",
@@ -2240,15 +2258,18 @@
       "2024-03-01",
       "2024-08-02-preview",
       "2024-10-02-preview",
-      "2025-01-01"
+      "2025-01-01",
+      "2025-02-02-preview"
     ],
     "LogicApp": [
       "2024-02-02-preview",
       "2024-08-02-preview",
-      "2024-10-02-preview"
+      "2024-10-02-preview",
+      "2025-02-02-preview"
     ],
     "MaintenanceConfiguration": [
-      "2024-10-02-preview"
+      "2024-10-02-preview",
+      "2025-02-02-preview"
     ],
     "ManagedCertificate": [
       "2022-11-01-preview",
@@ -2261,7 +2282,8 @@
       "2024-03-01",
       "2024-08-02-preview",
       "2024-10-02-preview",
-      "2025-01-01"
+      "2025-01-01",
+      "2025-02-02-preview"
     ],
     "ManagedEnvironment": [
       "2022-01-01-preview",
@@ -2278,12 +2300,14 @@
       "2024-03-01",
       "2024-08-02-preview",
       "2024-10-02-preview",
-      "2025-01-01"
+      "2025-01-01",
+      "2025-02-02-preview"
     ],
     "ManagedEnvironmentPrivateEndpointConnection": [
       "2024-02-02-preview",
       "2024-08-02-preview",
-      "2024-10-02-preview"
+      "2024-10-02-preview",
+      "2025-02-02-preview"
     ],
     "ManagedEnvironmentsStorage": [
       "2022-01-01-preview",
@@ -2300,7 +2324,8 @@
       "2024-03-01",
       "2024-08-02-preview",
       "2024-10-02-preview",
-      "2025-01-01"
+      "2025-01-01",
+      "2025-02-02-preview"
     ],
     "getContainerAppAuthToken": [
       "2022-06-01-preview",
@@ -2315,7 +2340,8 @@
       "2024-03-01",
       "2024-08-02-preview",
       "2024-10-02-preview",
-      "2025-01-01"
+      "2025-01-01",
+      "2025-02-02-preview"
     ],
     "getCustomDomainVerificationId": [
       "2023-05-02-preview",
@@ -2325,7 +2351,8 @@
       "2024-03-01",
       "2024-08-02-preview",
       "2024-10-02-preview",
-      "2025-01-01"
+      "2025-01-01",
+      "2025-02-02-preview"
     ],
     "getManagedEnvironmentAuthToken": [
       "2022-06-01-preview",
@@ -2340,14 +2367,16 @@
       "2024-03-01",
       "2024-08-02-preview",
       "2024-10-02-preview",
-      "2025-01-01"
+      "2025-01-01",
+      "2025-02-02-preview"
     ],
     "listBuildAuthToken": [
       "2023-08-01-preview",
       "2023-11-02-preview",
       "2024-02-02-preview",
       "2024-08-02-preview",
-      "2024-10-02-preview"
+      "2024-10-02-preview",
+      "2025-02-02-preview"
     ],
     "listConnectedEnvironmentsDaprComponentSecrets": [
       "2022-06-01-preview",
@@ -2362,7 +2391,8 @@
       "2024-03-01",
       "2024-08-02-preview",
       "2024-10-02-preview",
-      "2025-01-01"
+      "2025-01-01",
+      "2025-02-02-preview"
     ],
     "listContainerAppCustomHostNameAnalysis": [
       "2022-01-01-preview",
@@ -2379,7 +2409,8 @@
       "2024-03-01",
       "2024-08-02-preview",
       "2024-10-02-preview",
-      "2025-01-01"
+      "2025-01-01",
+      "2025-02-02-preview"
     ],
     "listContainerAppSecrets": [
       "2022-01-01-preview",
@@ -2396,7 +2427,8 @@
       "2024-03-01",
       "2024-08-02-preview",
       "2024-10-02-preview",
-      "2025-01-01"
+      "2025-01-01",
+      "2025-02-02-preview"
     ],
     "listDaprComponentSecrets": [
       "2022-03-01",
@@ -2412,7 +2444,8 @@
       "2024-03-01",
       "2024-08-02-preview",
       "2024-10-02-preview",
-      "2025-01-01"
+      "2025-01-01",
+      "2025-02-02-preview"
     ],
     "listJobSecrets": [
       "2022-11-01-preview",
@@ -2425,12 +2458,14 @@
       "2024-03-01",
       "2024-08-02-preview",
       "2024-10-02-preview",
-      "2025-01-01"
+      "2025-01-01",
+      "2025-02-02-preview"
     ],
     "listLogicAppWorkflowsConnections": [
       "2024-02-02-preview",
       "2024-08-02-preview",
-      "2024-10-02-preview"
+      "2024-10-02-preview",
+      "2025-02-02-preview"
     ]
   },
   "AppComplianceAutomation": {
@@ -4174,7 +4209,8 @@
       "2024-05-07",
       "2024-09-11",
       "2024-09-27",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-04-11-preview"
     ],
     "Flow": [
       "2023-10-11-preview",
@@ -4182,7 +4218,8 @@
       "2024-05-07",
       "2024-09-11",
       "2024-09-27",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-04-11-preview"
     ],
     "Pipeline": [
       "2023-10-11-preview",
@@ -4190,23 +4227,28 @@
       "2024-05-07",
       "2024-09-11",
       "2024-09-27",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-04-11-preview"
     ],
     "getFlowDestinationEndpointPorts": [
       "2024-09-27",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-04-11-preview"
     ],
     "getFlowDestinationEndpoints": [
       "2024-09-27",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-04-11-preview"
     ],
     "getFlowSourceAddresses": [
       "2024-09-27",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-04-11-preview"
     ],
     "getFlowStreamConnectionString": [
       "2024-09-27",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-04-11-preview"
     ],
     "listAzureDataTransferApprovedSchemas": [
       "2023-10-11-preview",
@@ -4214,7 +4256,11 @@
       "2024-05-07",
       "2024-09-11",
       "2024-09-27",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-04-11-preview"
+    ],
+    "listListFlowsByPipeline": [
+      "2025-04-11-preview"
     ],
     "listListPendingConnection": [
       "2023-10-11-preview",
@@ -4222,7 +4268,8 @@
       "2024-05-07",
       "2024-09-11",
       "2024-09-27",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-04-11-preview"
     ],
     "listListPendingFlow": [
       "2023-10-11-preview",
@@ -4230,7 +4277,8 @@
       "2024-05-07",
       "2024-09-11",
       "2024-09-27",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-04-11-preview"
     ],
     "listListSchema": [
       "2023-10-11-preview",
@@ -4238,7 +4286,8 @@
       "2024-05-07",
       "2024-09-11",
       "2024-09-27",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-04-11-preview"
     ]
   },
   "AzureFleet": {
@@ -7156,7 +7205,8 @@
       "2025-01-01",
       "2025-01-02-preview",
       "2025-02-01",
-      "2025-02-02-preview"
+      "2025-02-02-preview",
+      "2025-03-01"
     ],
     "AutoUpgradeProfile": [
       "2024-05-02-preview",
@@ -7284,7 +7334,8 @@
       "2025-01-01",
       "2025-01-02-preview",
       "2025-02-01",
-      "2025-02-02-preview"
+      "2025-02-02-preview",
+      "2025-03-01"
     ],
     "ManagedCluster": [
       "2017-08-31",
@@ -7374,7 +7425,8 @@
       "2025-01-01",
       "2025-01-02-preview",
       "2025-02-01",
-      "2025-02-02-preview"
+      "2025-02-02-preview",
+      "2025-03-01"
     ],
     "ManagedClusterSnapshot": [
       "2022-02-02-preview",
@@ -7495,7 +7547,8 @@
       "2025-01-01",
       "2025-01-02-preview",
       "2025-02-01",
-      "2025-02-02-preview"
+      "2025-02-02-preview",
+      "2025-03-01"
     ],
     "Snapshot": [
       "2021-08-01",
@@ -7563,7 +7616,8 @@
       "2025-01-01",
       "2025-01-02-preview",
       "2025-02-01",
-      "2025-02-02-preview"
+      "2025-02-02-preview",
+      "2025-03-01"
     ],
     "TrustedAccessRoleBinding": [
       "2022-04-02-preview",
@@ -7608,7 +7662,8 @@
       "2025-01-01",
       "2025-01-02-preview",
       "2025-02-01",
-      "2025-02-02-preview"
+      "2025-02-02-preview",
+      "2025-03-01"
     ],
     "UpdateRun": [
       "2023-03-15-preview",
@@ -7734,7 +7789,8 @@
       "2025-01-01",
       "2025-01-02-preview",
       "2025-02-01",
-      "2025-02-02-preview"
+      "2025-02-02-preview",
+      "2025-03-01"
     ],
     "listManagedClusterMonitoringUserCredentials": [
       "2019-10-01",
@@ -7817,7 +7873,8 @@
       "2025-01-01",
       "2025-01-02-preview",
       "2025-02-01",
-      "2025-02-02-preview"
+      "2025-02-02-preview",
+      "2025-03-01"
     ],
     "listManagedClusterUserCredentials": [
       "2018-03-31",
@@ -7906,7 +7963,8 @@
       "2025-01-01",
       "2025-01-02-preview",
       "2025-02-01",
-      "2025-02-02-preview"
+      "2025-02-02-preview",
+      "2025-03-01"
     ],
     "listNamespaceCredential": [
       "2025-02-02-preview"
@@ -22336,10 +22394,12 @@
     "Workspace": [
       "2019-11-04-preview",
       "2022-01-10-preview",
-      "2023-11-13-preview"
+      "2023-11-13-preview",
+      "2025-01-01-preview"
     ],
     "listWorkspaceKeys": [
-      "2023-11-13-preview"
+      "2023-11-13-preview",
+      "2025-01-01-preview"
     ]
   },
   "Quota": {
@@ -28041,10 +28101,12 @@
       "2024-06-01-preview",
       "2024-09-23-preview",
       "2025-01-01",
-      "2025-03-01"
+      "2025-03-01",
+      "2025-04-01"
     ],
     "PrivateEndpointConnection": [
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2025-04-01"
     ]
   },
   "VirtualMachineImages": {

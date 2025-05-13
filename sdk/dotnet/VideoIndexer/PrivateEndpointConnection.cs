@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.VideoIndexer
     /// The private endpoint connection resource.
     /// 
     /// Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
+    /// 
+    /// Other available API versions: 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native videoindexer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:videoindexer:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -91,6 +93,7 @@ namespace Pulumi.AzureNative.VideoIndexer
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20240601preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20250401:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

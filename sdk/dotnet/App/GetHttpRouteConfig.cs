@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.App
         /// Advanced Ingress routing for path/header based routing for a Container App Environment
         /// 
         /// Uses Azure REST API version 2024-10-02-preview.
+        /// 
+        /// Other available API versions: 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetHttpRouteConfigResult> InvokeAsync(GetHttpRouteConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHttpRouteConfigResult>("azure-native:app:getHttpRouteConfig", args ?? new GetHttpRouteConfigArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.App
         /// Advanced Ingress routing for path/header based routing for a Container App Environment
         /// 
         /// Uses Azure REST API version 2024-10-02-preview.
+        /// 
+        /// Other available API versions: 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetHttpRouteConfigResult> Invoke(GetHttpRouteConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHttpRouteConfigResult>("azure-native:app:getHttpRouteConfig", args ?? new GetHttpRouteConfigInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.App
         /// Advanced Ingress routing for path/header based routing for a Container App Environment
         /// 
         /// Uses Azure REST API version 2024-10-02-preview.
+        /// 
+        /// Other available API versions: 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetHttpRouteConfigResult> Invoke(GetHttpRouteConfigInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetHttpRouteConfigResult>("azure-native:app:getHttpRouteConfig", args ?? new GetHttpRouteConfigInvokeArgs(), options.WithDefaults());
