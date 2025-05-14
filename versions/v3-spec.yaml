@@ -1145,6 +1145,7 @@ Network:
         getApplicationGatewayBackendHealthOnDemand: "2024-05-01"
         getBastionShareableLink: "2024-05-01"
         getIpamPoolUsage: "2024-05-01"
+        getNetworkVirtualApplianceBootDiagnosticLogs: "2024-07-01"
         getP2sVpnGatewayP2sVpnConnectionHealth: "2024-05-01"
         getP2sVpnGatewayP2sVpnConnectionHealthDetailed: "2024-05-01"
         getVirtualNetworkGatewayAdvertisedRoutes: "2024-05-01"
@@ -1153,6 +1154,8 @@ Network:
         getVirtualNetworkGatewayFailoverAllTestDetails: "2024-05-01"
         getVirtualNetworkGatewayFailoverSingleTestDetails: "2024-05-01"
         getVirtualNetworkGatewayLearnedRoutes: "2024-05-01"
+        getVirtualNetworkGatewayResiliencyInformation: "2024-07-01"
+        getVirtualNetworkGatewayRoutesInformation: "2024-07-01"
         getVirtualNetworkGatewayVpnProfilePackageUrl: "2024-05-01"
         getVirtualNetworkGatewayVpnclientConnectionHealth: "2024-05-01"
         getVirtualNetworkGatewayVpnclientIpsecParameters: "2024-05-01"
@@ -1206,6 +1209,9 @@ Network:
         - modulename: Network
           resourcename: ManagementGroupNetworkManagerConnection
           detail: version 2024-05-01 is greater than 2022-09-01
+        - modulename: Network
+          resourcename: ManagementGroupNetworkManagerConnection
+          detail: version 2024-07-01 is greater than 2022-09-01
 NetworkCloud:
     tracking: "2025-02-01"
 NetworkFunction:
