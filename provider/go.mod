@@ -35,7 +35,7 @@ require (
 	github.com/pulumi/providertest v0.1.5
 	github.com/pulumi/pulumi-java/pkg v1.11.0
 	github.com/pulumi/pulumi-yaml v1.15.1
-	github.com/pulumi/pulumi/pkg/v3 v3.168.0
+	github.com/pulumi/pulumi/pkg/v3 v3.169.0
 	github.com/pulumi/pulumi/sdk/v3 v3.169.0
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/segmentio/encoding v0.3.5
