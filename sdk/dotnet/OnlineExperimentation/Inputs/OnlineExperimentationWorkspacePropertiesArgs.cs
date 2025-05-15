@@ -11,37 +11,37 @@ namespace Pulumi.AzureNative.OnlineExperimentation.Inputs
 {
 
     /// <summary>
-    /// The properties of an online experiment workspace.
+    /// The properties of an online experimentation workspace.
     /// </summary>
-    public sealed class OnlineExperimentWorkspacePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class OnlineExperimentationWorkspacePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The resource identifier of App Configuration with which this online experiment workspace is tied for experimentation. This is a required field for creating an online experiment workspace.
+        /// The resource identifier of App Configuration with which this online experimentation workspace is tied for experimentation. This is a required field for creating an online experimentation workspace.
         /// </summary>
         [Input("appConfigurationResourceId", required: true)]
         public Input<string> AppConfigurationResourceId { get; set; } = null!;
 
         /// <summary>
-        /// The encryption configuration for the online experiment workspace resource.
+        /// The encryption configuration for the online experimentation workspace resource.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.ResourceEncryptionConfigurationArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// The resource identifier of the Log Analytics workspace which online experiment workspace uses for generating experiment analysis results.
+        /// The resource identifier of the Log Analytics workspace which online experimentation workspace uses for generating experiment analysis results.
         /// </summary>
         [Input("logAnalyticsWorkspaceResourceId", required: true)]
         public Input<string> LogAnalyticsWorkspaceResourceId { get; set; } = null!;
 
         /// <summary>
-        /// The resource identifier of storage account where logs are exported from Log Analytics workspace. Online Experiment workspace uses it generating experiment analysis results.
+        /// The resource identifier of storage account where logs are exported from Log Analytics workspace. online experimentation workspace uses it generating experiment analysis results.
         /// </summary>
         [Input("logsExporterStorageAccountResourceId", required: true)]
         public Input<string> LogsExporterStorageAccountResourceId { get; set; } = null!;
 
-        public OnlineExperimentWorkspacePropertiesArgs()
+        public OnlineExperimentationWorkspacePropertiesArgs()
         {
         }
-        public static new OnlineExperimentWorkspacePropertiesArgs Empty => new OnlineExperimentWorkspacePropertiesArgs();
+        public static new OnlineExperimentationWorkspacePropertiesArgs Empty => new OnlineExperimentationWorkspacePropertiesArgs();
     }
 }

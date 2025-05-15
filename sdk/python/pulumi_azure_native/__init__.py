@@ -3515,7 +3515,7 @@ _utilities.register(
   "mod": "onlineexperimentation",
   "fqn": "pulumi_azure_native.onlineexperimentation",
   "classes": {
-   "azure-native:onlineexperimentation:OnlineExperimentWorkspace": "OnlineExperimentWorkspace"
+   "azure-native:onlineexperimentation:OnlineExperimentationWorkspace": "OnlineExperimentationWorkspace"
   }
  },
  {

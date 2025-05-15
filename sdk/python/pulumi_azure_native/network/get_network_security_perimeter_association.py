@@ -180,6 +180,8 @@ def get_network_security_perimeter_association(association_name: Optional[builti
 
     Uses Azure REST API version 2024-06-01-preview.
 
+    Other available API versions: 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str association_name: The name of the NSP association.
     :param builtins.str network_security_perimeter_name: The name of the network security perimeter.
@@ -212,6 +214,8 @@ def get_network_security_perimeter_association_output(association_name: Optional
     Gets the specified NSP association by name.
 
     Uses Azure REST API version 2024-06-01-preview.
+
+    Other available API versions: 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str association_name: The name of the NSP association.

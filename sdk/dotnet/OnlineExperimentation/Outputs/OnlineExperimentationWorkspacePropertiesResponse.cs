@@ -11,29 +11,29 @@ namespace Pulumi.AzureNative.OnlineExperimentation.Outputs
 {
 
     /// <summary>
-    /// The properties of an online experiment workspace.
+    /// The properties of an online experimentation workspace.
     /// </summary>
     [OutputType]
-    public sealed class OnlineExperimentWorkspacePropertiesResponse
+    public sealed class OnlineExperimentationWorkspacePropertiesResponse
     {
         /// <summary>
-        /// The resource identifier of App Configuration with which this online experiment workspace is tied for experimentation. This is a required field for creating an online experiment workspace.
+        /// The resource identifier of App Configuration with which this online experimentation workspace is tied for experimentation. This is a required field for creating an online experimentation workspace.
         /// </summary>
         public readonly string AppConfigurationResourceId;
         /// <summary>
-        /// The encryption configuration for the online experiment workspace resource.
+        /// The encryption configuration for the online experimentation workspace resource.
         /// </summary>
         public readonly Outputs.ResourceEncryptionConfigurationResponse? Encryption;
         /// <summary>
-        /// The data plane endpoint for the online experiment workspace resource.
+        /// The data plane endpoint for the online experimentation workspace resource.
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
-        /// The resource identifier of the Log Analytics workspace which online experiment workspace uses for generating experiment analysis results.
+        /// The resource identifier of the Log Analytics workspace which online experimentation workspace uses for generating experiment analysis results.
         /// </summary>
         public readonly string LogAnalyticsWorkspaceResourceId;
         /// <summary>
-        /// The resource identifier of storage account where logs are exported from Log Analytics workspace. Online Experiment workspace uses it generating experiment analysis results.
+        /// The resource identifier of storage account where logs are exported from Log Analytics workspace. online experimentation workspace uses it generating experiment analysis results.
         /// </summary>
         public readonly string LogsExporterStorageAccountResourceId;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.OnlineExperimentation.Outputs
         public readonly string WorkspaceId;
 
         [OutputConstructor]
-        private OnlineExperimentWorkspacePropertiesResponse(
+        private OnlineExperimentationWorkspacePropertiesResponse(
             string appConfigurationResourceId,
 
             Outputs.ResourceEncryptionConfigurationResponse? encryption,

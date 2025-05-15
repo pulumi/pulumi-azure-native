@@ -9,35 +9,35 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.OnlineExperimentation
 {
-    public static class GetOnlineExperimentWorkspace
+    public static class GetOnlineExperimentationWorkspace
     {
         /// <summary>
-        /// Gets an experiment workspace
+        /// Gets an online experimentation workspace.
         /// 
         /// Uses Azure REST API version 2025-05-31-preview.
         /// </summary>
-        public static Task<GetOnlineExperimentWorkspaceResult> InvokeAsync(GetOnlineExperimentWorkspaceArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOnlineExperimentWorkspaceResult>("azure-native:onlineexperimentation:getOnlineExperimentWorkspace", args ?? new GetOnlineExperimentWorkspaceArgs(), options.WithDefaults());
+        public static Task<GetOnlineExperimentationWorkspaceResult> InvokeAsync(GetOnlineExperimentationWorkspaceArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOnlineExperimentationWorkspaceResult>("azure-native:onlineexperimentation:getOnlineExperimentationWorkspace", args ?? new GetOnlineExperimentationWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets an experiment workspace
+        /// Gets an online experimentation workspace.
         /// 
         /// Uses Azure REST API version 2025-05-31-preview.
         /// </summary>
-        public static Output<GetOnlineExperimentWorkspaceResult> Invoke(GetOnlineExperimentWorkspaceInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetOnlineExperimentWorkspaceResult>("azure-native:onlineexperimentation:getOnlineExperimentWorkspace", args ?? new GetOnlineExperimentWorkspaceInvokeArgs(), options.WithDefaults());
+        public static Output<GetOnlineExperimentationWorkspaceResult> Invoke(GetOnlineExperimentationWorkspaceInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOnlineExperimentationWorkspaceResult>("azure-native:onlineexperimentation:getOnlineExperimentationWorkspace", args ?? new GetOnlineExperimentationWorkspaceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets an experiment workspace
+        /// Gets an online experimentation workspace.
         /// 
         /// Uses Azure REST API version 2025-05-31-preview.
         /// </summary>
-        public static Output<GetOnlineExperimentWorkspaceResult> Invoke(GetOnlineExperimentWorkspaceInvokeArgs args, InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetOnlineExperimentWorkspaceResult>("azure-native:onlineexperimentation:getOnlineExperimentWorkspace", args ?? new GetOnlineExperimentWorkspaceInvokeArgs(), options.WithDefaults());
+        public static Output<GetOnlineExperimentationWorkspaceResult> Invoke(GetOnlineExperimentationWorkspaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOnlineExperimentationWorkspaceResult>("azure-native:onlineexperimentation:getOnlineExperimentationWorkspace", args ?? new GetOnlineExperimentationWorkspaceInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetOnlineExperimentWorkspaceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetOnlineExperimentationWorkspaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -46,18 +46,18 @@ namespace Pulumi.AzureNative.OnlineExperimentation
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the OnlineExperimentWorkspace
+        /// The name of the OnlineExperimentationWorkspace
         /// </summary>
         [Input("workspaceName", required: true)]
         public string WorkspaceName { get; set; } = null!;
 
-        public GetOnlineExperimentWorkspaceArgs()
+        public GetOnlineExperimentationWorkspaceArgs()
         {
         }
-        public static new GetOnlineExperimentWorkspaceArgs Empty => new GetOnlineExperimentWorkspaceArgs();
+        public static new GetOnlineExperimentationWorkspaceArgs Empty => new GetOnlineExperimentationWorkspaceArgs();
     }
 
-    public sealed class GetOnlineExperimentWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetOnlineExperimentationWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -66,20 +66,20 @@ namespace Pulumi.AzureNative.OnlineExperimentation
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the OnlineExperimentWorkspace
+        /// The name of the OnlineExperimentationWorkspace
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;
 
-        public GetOnlineExperimentWorkspaceInvokeArgs()
+        public GetOnlineExperimentationWorkspaceInvokeArgs()
         {
         }
-        public static new GetOnlineExperimentWorkspaceInvokeArgs Empty => new GetOnlineExperimentWorkspaceInvokeArgs();
+        public static new GetOnlineExperimentationWorkspaceInvokeArgs Empty => new GetOnlineExperimentationWorkspaceInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetOnlineExperimentWorkspaceResult
+    public sealed class GetOnlineExperimentationWorkspaceResult
     {
         /// <summary>
         /// The Azure API version of the resource.
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.OnlineExperimentation
         /// <summary>
         /// The resource-specific properties for this resource.
         /// </summary>
-        public readonly Outputs.OnlineExperimentWorkspacePropertiesResponse Properties;
+        public readonly Outputs.OnlineExperimentationWorkspacePropertiesResponse Properties;
         /// <summary>
         /// The SKU (Stock Keeping Unit) assigned to this resource.
         /// </summary>
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.OnlineExperimentation
         public readonly string Type;
 
         [OutputConstructor]
-        private GetOnlineExperimentWorkspaceResult(
+        private GetOnlineExperimentationWorkspaceResult(
             string azureApiVersion,
 
             string id,
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.OnlineExperimentation
 
             string name,
 
-            Outputs.OnlineExperimentWorkspacePropertiesResponse properties,
+            Outputs.OnlineExperimentationWorkspacePropertiesResponse properties,
 
             Outputs.OnlineExperimentationWorkspaceSkuResponse? sku,
 

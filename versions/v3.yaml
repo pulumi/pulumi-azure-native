@@ -9411,6 +9411,11 @@ Network:
         SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/ipAddressManager.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/ipamPools/{poolName}/getPoolUsage
         RpNamespace: Microsoft.Network
+    getNetworkVirtualApplianceBootDiagnosticLogs:
+        ApiVersion: "2024-07-01"
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-07-01/networkVirtualAppliance.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkVirtualAppliances/{networkVirtualApplianceName}/getBootDiagnosticLogs
+        RpNamespace: Microsoft.Network
     getP2sVpnGatewayP2sVpnConnectionHealth:
         ApiVersion: "2024-05-01"
         SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualWan.json
@@ -9450,6 +9455,16 @@ Network:
         ApiVersion: "2024-05-01"
         SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-05-01/virtualNetworkGateway.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}/getLearnedRoutes
+        RpNamespace: Microsoft.Network
+    getVirtualNetworkGatewayResiliencyInformation:
+        ApiVersion: "2024-07-01"
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-07-01/virtualNetworkGateway.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}/getResiliencyInformation
+        RpNamespace: Microsoft.Network
+    getVirtualNetworkGatewayRoutesInformation:
+        ApiVersion: "2024-07-01"
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-07-01/virtualNetworkGateway.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}/getRoutesInformation
         RpNamespace: Microsoft.Network
     getVirtualNetworkGatewayVpnProfilePackageUrl:
         ApiVersion: "2024-05-01"
@@ -9832,9 +9847,9 @@ OffAzureSpringBoot:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{springbootsitesName}
         RpNamespace: Microsoft.OffAzureSpringBoot
 OnlineExperimentation:
-    OnlineExperimentWorkspace:
+    OnlineExperimentationWorkspace:
         ApiVersion: 2025-05-31-preview
-        SpecFilePath: specification/onlineexperimentation/resource-manager/Microsoft.OnlineExperimentation/preview/2025-05-31-preview/OnlineExperimentWorkspace.json
+        SpecFilePath: specification/onlineexperimentation/resource-manager/Microsoft.OnlineExperimentation/preview/2025-05-31-preview/OnlineExperimentationWorkspace.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OnlineExperimentation/workspaces/{workspaceName}
         RpNamespace: Microsoft.OnlineExperimentation
 OpenEnergyPlatform:

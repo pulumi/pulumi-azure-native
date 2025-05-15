@@ -42019,6 +42019,8 @@ class HiveLinkedServiceResponse(dict):
             suggest = "allow_self_signed_server_cert"
         elif key == "connectVia":
             suggest = "connect_via"
+        elif key == "enableServerCertificateValidation":
+            suggest = "enable_server_certificate_validation"
         elif key == "enableSsl":
             suggest = "enable_ssl"
         elif key == "encryptedCredential":
@@ -42060,6 +42062,7 @@ class HiveLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[builtins.str] = None,
+                 enable_server_certificate_validation: Optional[Any] = None,
                  enable_ssl: Optional[Any] = None,
                  encrypted_credential: Optional[builtins.str] = None,
                  http_path: Optional[Any] = None,
@@ -42086,6 +42089,7 @@ class HiveLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param builtins.str description: Linked service description.
+        :param Any enable_server_certificate_validation: Specifies whether the connections to the server will validate server certificate, the default value is True. Only used for Version 2.0
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         :param builtins.str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any http_path: The partial URL corresponding to the Hive server.
@@ -42115,6 +42119,8 @@ class HiveLinkedServiceResponse(dict):
             pulumi.set(__self__, "connect_via", connect_via)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if enable_server_certificate_validation is not None:
+            pulumi.set(__self__, "enable_server_certificate_validation", enable_server_certificate_validation)
         if enable_ssl is not None:
             pulumi.set(__self__, "enable_ssl", enable_ssl)
         if encrypted_credential is not None:
@@ -42210,6 +42216,14 @@ class HiveLinkedServiceResponse(dict):
         Linked service description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="enableServerCertificateValidation")
+    def enable_server_certificate_validation(self) -> Optional[Any]:
+        """
+        Specifies whether the connections to the server will validate server certificate, the default value is True. Only used for Version 2.0
+        """
+        return pulumi.get(self, "enable_server_certificate_validation")
 
     @property
     @pulumi.getter(name="enableSsl")
@@ -79761,6 +79775,8 @@ class SparkLinkedServiceResponse(dict):
             suggest = "allow_self_signed_server_cert"
         elif key == "connectVia":
             suggest = "connect_via"
+        elif key == "enableServerCertificateValidation":
+            suggest = "enable_server_certificate_validation"
         elif key == "enableSsl":
             suggest = "enable_ssl"
         elif key == "encryptedCredential":
@@ -79797,6 +79813,7 @@ class SparkLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[builtins.str] = None,
+                 enable_server_certificate_validation: Optional[Any] = None,
                  enable_ssl: Optional[Any] = None,
                  encrypted_credential: Optional[builtins.str] = None,
                  http_path: Optional[Any] = None,
@@ -79820,6 +79837,7 @@ class SparkLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param builtins.str description: Linked service description.
+        :param Any enable_server_certificate_validation: Specifies whether the connections to the server will validate server certificate, the default value is True. Only used for Version 2.0
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         :param builtins.str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any http_path: The partial URL corresponding to the Spark server.
@@ -79846,6 +79864,8 @@ class SparkLinkedServiceResponse(dict):
             pulumi.set(__self__, "connect_via", connect_via)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if enable_server_certificate_validation is not None:
+            pulumi.set(__self__, "enable_server_certificate_validation", enable_server_certificate_validation)
         if enable_ssl is not None:
             pulumi.set(__self__, "enable_ssl", enable_ssl)
         if encrypted_credential is not None:
@@ -79941,6 +79961,14 @@ class SparkLinkedServiceResponse(dict):
         Linked service description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="enableServerCertificateValidation")
+    def enable_server_certificate_validation(self) -> Optional[Any]:
+        """
+        Specifies whether the connections to the server will validate server certificate, the default value is True. Only used for Version 2.0
+        """
+        return pulumi.get(self, "enable_server_certificate_validation")
 
     @property
     @pulumi.getter(name="enableSsl")

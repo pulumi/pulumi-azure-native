@@ -5,15 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetOnlineExperimentWorkspaceArgs, GetOnlineExperimentWorkspaceResult, GetOnlineExperimentWorkspaceOutputArgs } from "./getOnlineExperimentWorkspace";
-export const getOnlineExperimentWorkspace: typeof import("./getOnlineExperimentWorkspace").getOnlineExperimentWorkspace = null as any;
-export const getOnlineExperimentWorkspaceOutput: typeof import("./getOnlineExperimentWorkspace").getOnlineExperimentWorkspaceOutput = null as any;
-utilities.lazyLoad(exports, ["getOnlineExperimentWorkspace","getOnlineExperimentWorkspaceOutput"], () => require("./getOnlineExperimentWorkspace"));
+export { GetOnlineExperimentationWorkspaceArgs, GetOnlineExperimentationWorkspaceResult, GetOnlineExperimentationWorkspaceOutputArgs } from "./getOnlineExperimentationWorkspace";
+export const getOnlineExperimentationWorkspace: typeof import("./getOnlineExperimentationWorkspace").getOnlineExperimentationWorkspace = null as any;
+export const getOnlineExperimentationWorkspaceOutput: typeof import("./getOnlineExperimentationWorkspace").getOnlineExperimentationWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getOnlineExperimentationWorkspace","getOnlineExperimentationWorkspaceOutput"], () => require("./getOnlineExperimentationWorkspace"));
 
-export { OnlineExperimentWorkspaceArgs } from "./onlineExperimentWorkspace";
-export type OnlineExperimentWorkspace = import("./onlineExperimentWorkspace").OnlineExperimentWorkspace;
-export const OnlineExperimentWorkspace: typeof import("./onlineExperimentWorkspace").OnlineExperimentWorkspace = null as any;
-utilities.lazyLoad(exports, ["OnlineExperimentWorkspace"], () => require("./onlineExperimentWorkspace"));
+export { OnlineExperimentationWorkspaceArgs } from "./onlineExperimentationWorkspace";
+export type OnlineExperimentationWorkspace = import("./onlineExperimentationWorkspace").OnlineExperimentationWorkspace;
+export const OnlineExperimentationWorkspace: typeof import("./onlineExperimentationWorkspace").OnlineExperimentationWorkspace = null as any;
+utilities.lazyLoad(exports, ["OnlineExperimentationWorkspace"], () => require("./onlineExperimentationWorkspace"));
 
 
 // Export enums:
@@ -23,8 +23,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:onlineexperimentation:OnlineExperimentWorkspace":
-                return new OnlineExperimentWorkspace(name, <any>undefined, { urn })
+            case "azure-native:onlineexperimentation:OnlineExperimentationWorkspace":
+                return new OnlineExperimentationWorkspace(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
