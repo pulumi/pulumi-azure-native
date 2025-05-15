@@ -1008,6 +1008,83 @@
     "Property": "platformReservedDnsIP"
   },
   {
+    "VersionedModule": "app/v20250202preview",
+    "Module": "App",
+    "ResourceName": "Certificate",
+    "ReferenceName": "Certificate",
+    "Property": "password"
+  },
+  {
+    "VersionedModule": "app/v20250202preview",
+    "Module": "App",
+    "ResourceName": "Certificate",
+    "ReferenceName": "Certificate",
+    "Property": "value"
+  },
+  {
+    "VersionedModule": "app/v20250202preview",
+    "Module": "App",
+    "ResourceName": "ConnectedEnvironment",
+    "ReferenceName": "CustomDomainConfiguration",
+    "Property": "dnsSuffix"
+  },
+  {
+    "VersionedModule": "app/v20250202preview",
+    "Module": "App",
+    "ResourceName": "ConnectedEnvironmentsCertificate",
+    "ReferenceName": "Certificate",
+    "Property": "password"
+  },
+  {
+    "VersionedModule": "app/v20250202preview",
+    "Module": "App",
+    "ResourceName": "ConnectedEnvironmentsCertificate",
+    "ReferenceName": "Certificate",
+    "Property": "value"
+  },
+  {
+    "VersionedModule": "app/v20250202preview",
+    "Module": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "CustomDomainConfiguration",
+    "Property": "dnsSuffix"
+  },
+  {
+    "VersionedModule": "app/v20250202preview",
+    "Module": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "dockerBridgeCidr"
+  },
+  {
+    "VersionedModule": "app/v20250202preview",
+    "Module": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "infrastructureSubnetId"
+  },
+  {
+    "VersionedModule": "app/v20250202preview",
+    "Module": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "internal"
+  },
+  {
+    "VersionedModule": "app/v20250202preview",
+    "Module": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "platformReservedCidr"
+  },
+  {
+    "VersionedModule": "app/v20250202preview",
+    "Module": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "platformReservedDnsIP"
+  },
+  {
     "VersionedModule": "appplatform",
     "Module": "AppPlatform",
     "ResourceName": "Certificate",
@@ -1898,6 +1975,13 @@
   },
   {
     "VersionedModule": "azuredatatransfer/v20250301preview",
+    "Module": "AzureDataTransfer",
+    "ResourceName": "Flow",
+    "ReferenceName": "selectedResource",
+    "Property": "location"
+  },
+  {
+    "VersionedModule": "azuredatatransfer/v20250411preview",
     "Module": "AzureDataTransfer",
     "ResourceName": "Flow",
     "ReferenceName": "selectedResource",
@@ -81874,15 +81958,15 @@
   {
     "VersionedModule": "onlineexperimentation",
     "Module": "OnlineExperimentation",
-    "ResourceName": "OnlineExperimentWorkspace",
-    "ReferenceName": "OnlineExperimentWorkspaceProperties",
+    "ResourceName": "OnlineExperimentationWorkspace",
+    "ReferenceName": "OnlineExperimentationWorkspaceProperties",
     "Property": "appConfigurationResourceId"
   },
   {
     "VersionedModule": "onlineexperimentation/v20250531preview",
     "Module": "OnlineExperimentation",
-    "ResourceName": "OnlineExperimentWorkspace",
-    "ReferenceName": "OnlineExperimentWorkspaceProperties",
+    "ResourceName": "OnlineExperimentationWorkspace",
+    "ReferenceName": "OnlineExperimentationWorkspaceProperties",
     "Property": "appConfigurationResourceId"
   },
   {
