@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01-preview.
  *
- * Other available API versions: 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-01-01-preview, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ReachabilityAnalysisIntent extends pulumi.CustomResource {
     /**
@@ -102,7 +102,7 @@ export class ReachabilityAnalysisIntent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20240101preview:ReachabilityAnalysisIntent" }, { type: "azure-native:network/v20240501:ReachabilityAnalysisIntent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20240101preview:ReachabilityAnalysisIntent" }, { type: "azure-native:network/v20240501:ReachabilityAnalysisIntent" }, { type: "azure-native:network/v20240701:ReachabilityAnalysisIntent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReachabilityAnalysisIntent.__pulumiType, name, resourceInputs, opts);
     }

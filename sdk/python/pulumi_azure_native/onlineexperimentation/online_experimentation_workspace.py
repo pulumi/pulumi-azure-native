@@ -18,27 +18,27 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['OnlineExperimentWorkspaceArgs', 'OnlineExperimentWorkspace']
+__all__ = ['OnlineExperimentationWorkspaceArgs', 'OnlineExperimentationWorkspace']
 
 @pulumi.input_type
-class OnlineExperimentWorkspaceArgs:
+class OnlineExperimentationWorkspaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[builtins.str],
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
-                 properties: Optional[pulumi.Input['OnlineExperimentWorkspacePropertiesArgs']] = None,
+                 properties: Optional[pulumi.Input['OnlineExperimentationWorkspacePropertiesArgs']] = None,
                  sku: Optional[pulumi.Input['OnlineExperimentationWorkspaceSkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  workspace_name: Optional[pulumi.Input[builtins.str]] = None):
         """
-        The set of arguments for constructing a OnlineExperimentWorkspace resource.
+        The set of arguments for constructing a OnlineExperimentationWorkspace resource.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input['OnlineExperimentWorkspacePropertiesArgs'] properties: The resource-specific properties for this resource.
+        :param pulumi.Input['OnlineExperimentationWorkspacePropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input['OnlineExperimentationWorkspaceSkuArgs'] sku: The SKU (Stock Keeping Unit) assigned to this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[builtins.str] workspace_name: The name of the OnlineExperimentWorkspace
+        :param pulumi.Input[builtins.str] workspace_name: The name of the OnlineExperimentationWorkspace
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if identity is not None:
@@ -92,14 +92,14 @@ class OnlineExperimentWorkspaceArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['OnlineExperimentWorkspacePropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['OnlineExperimentationWorkspacePropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['OnlineExperimentWorkspacePropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['OnlineExperimentationWorkspacePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @property
@@ -130,7 +130,7 @@ class OnlineExperimentWorkspaceArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the OnlineExperimentWorkspace
+        The name of the OnlineExperimentationWorkspace
         """
         return pulumi.get(self, "workspace_name")
 
@@ -139,22 +139,22 @@ class OnlineExperimentWorkspaceArgs:
         pulumi.set(self, "workspace_name", value)
 
 
-@pulumi.type_token("azure-native:onlineexperimentation:OnlineExperimentWorkspace")
-class OnlineExperimentWorkspace(pulumi.CustomResource):
+@pulumi.type_token("azure-native:onlineexperimentation:OnlineExperimentationWorkspace")
+class OnlineExperimentationWorkspace(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['OnlineExperimentWorkspacePropertiesArgs', 'OnlineExperimentWorkspacePropertiesArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['OnlineExperimentationWorkspacePropertiesArgs', 'OnlineExperimentationWorkspacePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  sku: Optional[pulumi.Input[Union['OnlineExperimentationWorkspaceSkuArgs', 'OnlineExperimentationWorkspaceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  workspace_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        An online experiment workspace resource.
+        An online experimentation workspace resource.
 
         Uses Azure REST API version 2025-05-31-preview.
 
@@ -162,30 +162,30 @@ class OnlineExperimentWorkspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[Union['OnlineExperimentWorkspacePropertiesArgs', 'OnlineExperimentWorkspacePropertiesArgsDict']] properties: The resource-specific properties for this resource.
+        :param pulumi.Input[Union['OnlineExperimentationWorkspacePropertiesArgs', 'OnlineExperimentationWorkspacePropertiesArgsDict']] properties: The resource-specific properties for this resource.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['OnlineExperimentationWorkspaceSkuArgs', 'OnlineExperimentationWorkspaceSkuArgsDict']] sku: The SKU (Stock Keeping Unit) assigned to this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[builtins.str] workspace_name: The name of the OnlineExperimentWorkspace
+        :param pulumi.Input[builtins.str] workspace_name: The name of the OnlineExperimentationWorkspace
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OnlineExperimentWorkspaceArgs,
+                 args: OnlineExperimentationWorkspaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        An online experiment workspace resource.
+        An online experimentation workspace resource.
 
         Uses Azure REST API version 2025-05-31-preview.
 
         :param str resource_name: The name of the resource.
-        :param OnlineExperimentWorkspaceArgs args: The arguments to use to populate this resource's properties.
+        :param OnlineExperimentationWorkspaceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(OnlineExperimentWorkspaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(OnlineExperimentationWorkspaceArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -196,7 +196,7 @@ class OnlineExperimentWorkspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['OnlineExperimentWorkspacePropertiesArgs', 'OnlineExperimentWorkspacePropertiesArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['OnlineExperimentationWorkspacePropertiesArgs', 'OnlineExperimentationWorkspacePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  sku: Optional[pulumi.Input[Union['OnlineExperimentationWorkspaceSkuArgs', 'OnlineExperimentationWorkspaceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -208,7 +208,7 @@ class OnlineExperimentWorkspace(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = OnlineExperimentWorkspaceArgs.__new__(OnlineExperimentWorkspaceArgs)
+            __props__ = OnlineExperimentationWorkspaceArgs.__new__(OnlineExperimentationWorkspaceArgs)
 
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
@@ -223,10 +223,10 @@ class OnlineExperimentWorkspace(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:onlineexperimentation/v20250531preview:OnlineExperimentWorkspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:onlineexperimentation/v20250531preview:OnlineExperimentationWorkspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
-        super(OnlineExperimentWorkspace, __self__).__init__(
-            'azure-native:onlineexperimentation:OnlineExperimentWorkspace',
+        super(OnlineExperimentationWorkspace, __self__).__init__(
+            'azure-native:onlineexperimentation:OnlineExperimentationWorkspace',
             resource_name,
             __props__,
             opts)
@@ -234,9 +234,9 @@ class OnlineExperimentWorkspace(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'OnlineExperimentWorkspace':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'OnlineExperimentationWorkspace':
         """
-        Get an existing OnlineExperimentWorkspace resource's state with the given name, id, and optional extra
+        Get an existing OnlineExperimentationWorkspace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -245,7 +245,7 @@ class OnlineExperimentWorkspace(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = OnlineExperimentWorkspaceArgs.__new__(OnlineExperimentWorkspaceArgs)
+        __props__ = OnlineExperimentationWorkspaceArgs.__new__(OnlineExperimentationWorkspaceArgs)
 
         __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["identity"] = None
@@ -256,7 +256,7 @@ class OnlineExperimentWorkspace(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        return OnlineExperimentWorkspace(resource_name, opts=opts, __props__=__props__)
+        return OnlineExperimentationWorkspace(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="azureApiVersion")
@@ -292,7 +292,7 @@ class OnlineExperimentWorkspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.OnlineExperimentWorkspacePropertiesResponse']:
+    def properties(self) -> pulumi.Output['outputs.OnlineExperimentationWorkspacePropertiesResponse']:
         """
         The resource-specific properties for this resource.
         """

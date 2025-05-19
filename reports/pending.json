@@ -48,7 +48,8 @@
   "App": [
     "2024-08-02-preview",
     "2024-10-02-preview",
-    "2025-01-01"
+    "2025-01-01",
+    "2025-02-02-preview"
   ],
   "AppComplianceAutomation": [],
   "AppConfiguration": [
@@ -120,7 +121,8 @@
   ],
   "AzureData": [],
   "AzureDataTransfer": [
-    "2025-03-01-preview"
+    "2025-03-01-preview",
+    "2025-04-11-preview"
   ],
   "AzureFleet": [],
   "AzureLargeInstance": [],
@@ -915,7 +917,8 @@
     "2024-01-01-preview",
     "2024-03-01",
     "2024-05-01",
-    "2024-06-01-preview"
+    "2024-06-01-preview",
+    "2024-07-01"
   ],
   "NetworkCloud": [],
   "NetworkFunction": [],
@@ -970,7 +973,9 @@
   ],
   "ProviderHub": [],
   "Purview": [],
-  "Quantum": [],
+  "Quantum": [
+    "2025-01-01-preview"
+  ],
   "Quota": [
     "2025-03-15-preview"
   ],
@@ -1207,7 +1212,8 @@
     "2024-06-01-preview",
     "2024-09-23-preview",
     "2025-01-01",
-    "2025-03-01"
+    "2025-03-01",
+    "2025-04-01"
   ],
   "VirtualMachineImages": [],
   "VoiceServices": [

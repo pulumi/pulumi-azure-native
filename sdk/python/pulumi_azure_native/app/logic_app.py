@@ -87,7 +87,7 @@ class LogicApp(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-10-02-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-02-preview.
 
-        Other available API versions: 2024-02-02-preview, 2024-08-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -106,7 +106,7 @@ class LogicApp(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-10-02-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-02-preview.
 
-        Other available API versions: 2024-02-02-preview, 2024-08-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param LogicAppArgs args: The arguments to use to populate this resource's properties.
@@ -146,7 +146,7 @@ class LogicApp(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20240202preview:LogicApp"), pulumi.Alias(type_="azure-native:app/v20240802preview:LogicApp"), pulumi.Alias(type_="azure-native:app/v20241002preview:LogicApp")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20240202preview:LogicApp"), pulumi.Alias(type_="azure-native:app/v20240802preview:LogicApp"), pulumi.Alias(type_="azure-native:app/v20241002preview:LogicApp"), pulumi.Alias(type_="azure-native:app/v20250202preview:LogicApp")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LogicApp, __self__).__init__(
             'azure-native:app:LogicApp',

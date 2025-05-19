@@ -98,6 +98,7 @@ __all__ = [
     'BgpPeerStatusResponse',
     'BgpSettingsResponse',
     'BreakOutCategoryPoliciesResponse',
+    'CircuitMetadataMapResponse',
     'ConfigurationGroupResponse',
     'ConnectionMonitorDestinationResponse',
     'ConnectionMonitorEndpointFilterItemResponse',
@@ -183,7 +184,9 @@ __all__ = [
     'FrontendIPConfigurationResponse',
     'GatewayCustomBgpIpAddressIpConfigurationResponse',
     'GatewayLoadBalancerTunnelInterfaceResponse',
+    'GatewayResiliencyRecommendationResponse',
     'GatewayRouteResponse',
+    'GatewayRouteSetResponse',
     'GroupByUserSessionResponse',
     'GroupByVariableResponse',
     'GroupMembersItemResponse',
@@ -288,12 +291,14 @@ __all__ = [
     'ReachabilityAnalysisRunPropertiesResponse',
     'RecordSetResponse',
     'ReferencedPublicIpAddressResponse',
+    'ResiliencyRecommendationComponentsResponse',
     'ResourceBasicsResponse',
     'ResourceNavigationLinkResponse',
     'RetentionPolicyParametersResponse',
     'RouteFilterRuleResponse',
     'RouteMapRuleResponse',
     'RouteResponse',
+    'RouteSourceDetailsResponse',
     'RouteTableResponse',
     'RoutingConfigurationResponse',
     'RoutingPolicyResponse',
@@ -9726,6 +9731,49 @@ class BreakOutCategoryPoliciesResponse(dict):
 
 
 @pulumi.output_type
+class CircuitMetadataMapResponse(dict):
+    def __init__(__self__, *,
+                 link: Optional[builtins.str] = None,
+                 location: Optional[builtins.str] = None,
+                 name: Optional[builtins.str] = None):
+        """
+        :param builtins.str link: Link to the Express Route circuit
+        :param builtins.str location: Peering location of the Express Route Circuit
+        :param builtins.str name: Express Route Circuit Name
+        """
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[builtins.str]:
+        """
+        Link to the Express Route circuit
+        """
+        return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[builtins.str]:
+        """
+        Peering location of the Express Route Circuit
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Express Route Circuit Name
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class ConfigurationGroupResponse(dict):
     """
     The network configuration group resource
@@ -16386,6 +16434,89 @@ class GatewayLoadBalancerTunnelInterfaceResponse(dict):
 
 
 @pulumi.output_type
+class GatewayResiliencyRecommendationResponse(dict):
+    """
+    Resiliency Recommendation details
+    """
+    def __init__(__self__, *,
+                 call_to_action_link: Optional[builtins.str] = None,
+                 call_to_action_text: Optional[builtins.str] = None,
+                 recommendation_id: Optional[builtins.str] = None,
+                 recommendation_text: Optional[builtins.str] = None,
+                 recommendation_title: Optional[builtins.str] = None,
+                 severity: Optional[builtins.str] = None):
+        """
+        Resiliency Recommendation details
+        :param builtins.str call_to_action_link: Link to the public documentation for the associated recommendation
+        :param builtins.str call_to_action_text: Acton items to apply the recommendation
+        :param builtins.str recommendation_id: Recommendation Id
+        :param builtins.str recommendation_text: Recommendation details
+        :param builtins.str recommendation_title: Recommendation Title
+        :param builtins.str severity: Impact associated with the recommendation
+        """
+        if call_to_action_link is not None:
+            pulumi.set(__self__, "call_to_action_link", call_to_action_link)
+        if call_to_action_text is not None:
+            pulumi.set(__self__, "call_to_action_text", call_to_action_text)
+        if recommendation_id is not None:
+            pulumi.set(__self__, "recommendation_id", recommendation_id)
+        if recommendation_text is not None:
+            pulumi.set(__self__, "recommendation_text", recommendation_text)
+        if recommendation_title is not None:
+            pulumi.set(__self__, "recommendation_title", recommendation_title)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+
+    @property
+    @pulumi.getter(name="callToActionLink")
+    def call_to_action_link(self) -> Optional[builtins.str]:
+        """
+        Link to the public documentation for the associated recommendation
+        """
+        return pulumi.get(self, "call_to_action_link")
+
+    @property
+    @pulumi.getter(name="callToActionText")
+    def call_to_action_text(self) -> Optional[builtins.str]:
+        """
+        Acton items to apply the recommendation
+        """
+        return pulumi.get(self, "call_to_action_text")
+
+    @property
+    @pulumi.getter(name="recommendationId")
+    def recommendation_id(self) -> Optional[builtins.str]:
+        """
+        Recommendation Id
+        """
+        return pulumi.get(self, "recommendation_id")
+
+    @property
+    @pulumi.getter(name="recommendationText")
+    def recommendation_text(self) -> Optional[builtins.str]:
+        """
+        Recommendation details
+        """
+        return pulumi.get(self, "recommendation_text")
+
+    @property
+    @pulumi.getter(name="recommendationTitle")
+    def recommendation_title(self) -> Optional[builtins.str]:
+        """
+        Recommendation Title
+        """
+        return pulumi.get(self, "recommendation_title")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[builtins.str]:
+        """
+        Impact associated with the recommendation
+        """
+        return pulumi.get(self, "severity")
+
+
+@pulumi.output_type
 class GatewayRouteResponse(dict):
     """
     Gateway routing details.
@@ -16471,6 +16602,49 @@ class GatewayRouteResponse(dict):
         The route's weight.
         """
         return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
+class GatewayRouteSetResponse(dict):
+    def __init__(__self__, *,
+                 details: Optional[Mapping[str, Sequence['outputs.RouteSourceDetailsResponse']]] = None,
+                 locations: Optional[Sequence[builtins.str]] = None,
+                 name: Optional[builtins.str] = None):
+        """
+        :param Mapping[str, Sequence['RouteSourceDetailsResponse']] details: List of different Route Sources
+        :param Sequence[builtins.str] locations: List of different locations from where the routes are learned
+        :param builtins.str name: Route Set name
+        """
+        if details is not None:
+            pulumi.set(__self__, "details", details)
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional[Mapping[str, Sequence['outputs.RouteSourceDetailsResponse']]]:
+        """
+        List of different Route Sources
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter
+    def locations(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of different locations from where the routes are learned
+        """
+        return pulumi.get(self, "locations")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Route Set name
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -26874,6 +27048,65 @@ class ReferencedPublicIpAddressResponse(dict):
 
 
 @pulumi.output_type
+class ResiliencyRecommendationComponentsResponse(dict):
+    """
+    Gateway Resiliency based Recommendations
+    """
+    def __init__(__self__, *,
+                 current_score: Optional[builtins.str] = None,
+                 max_score: Optional[builtins.str] = None,
+                 name: Optional[builtins.str] = None,
+                 recommendations: Optional[Sequence['outputs.GatewayResiliencyRecommendationResponse']] = None):
+        """
+        Gateway Resiliency based Recommendations
+        :param builtins.str current_score: Current Score of the gateway
+        :param builtins.str max_score: Max score that the gateway can achieve if the specified recommendation is applied
+        :param builtins.str name: Name of the Resiliency based Recommendation Component
+        :param Sequence['GatewayResiliencyRecommendationResponse'] recommendations: List of Gateway Resiliency based Recommendations
+        """
+        if current_score is not None:
+            pulumi.set(__self__, "current_score", current_score)
+        if max_score is not None:
+            pulumi.set(__self__, "max_score", max_score)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if recommendations is not None:
+            pulumi.set(__self__, "recommendations", recommendations)
+
+    @property
+    @pulumi.getter(name="currentScore")
+    def current_score(self) -> Optional[builtins.str]:
+        """
+        Current Score of the gateway
+        """
+        return pulumi.get(self, "current_score")
+
+    @property
+    @pulumi.getter(name="maxScore")
+    def max_score(self) -> Optional[builtins.str]:
+        """
+        Max score that the gateway can achieve if the specified recommendation is applied
+        """
+        return pulumi.get(self, "max_score")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the Resiliency based Recommendation Component
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def recommendations(self) -> Optional[Sequence['outputs.GatewayResiliencyRecommendationResponse']]:
+        """
+        List of Gateway Resiliency based Recommendations
+        """
+        return pulumi.get(self, "recommendations")
+
+
+@pulumi.output_type
 class ResourceBasicsResponse(dict):
     """
     Representation of basic resource information.
@@ -27394,6 +27627,49 @@ class RouteResponse(dict):
         The type of the resource.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class RouteSourceDetailsResponse(dict):
+    def __init__(__self__, *,
+                 circuit: Optional[builtins.str] = None,
+                 pri: Optional[builtins.str] = None,
+                 sec: Optional[builtins.str] = None):
+        """
+        :param builtins.str circuit: Express Route Circuit identifier
+        :param builtins.str pri: Flag to indicate if the route learned from the primary device is active or passive
+        :param builtins.str sec: Flag to indicate if the route learned from the secondary device is active or passive
+        """
+        if circuit is not None:
+            pulumi.set(__self__, "circuit", circuit)
+        if pri is not None:
+            pulumi.set(__self__, "pri", pri)
+        if sec is not None:
+            pulumi.set(__self__, "sec", sec)
+
+    @property
+    @pulumi.getter
+    def circuit(self) -> Optional[builtins.str]:
+        """
+        Express Route Circuit identifier
+        """
+        return pulumi.get(self, "circuit")
+
+    @property
+    @pulumi.getter
+    def pri(self) -> Optional[builtins.str]:
+        """
+        Flag to indicate if the route learned from the primary device is active or passive
+        """
+        return pulumi.get(self, "pri")
+
+    @property
+    @pulumi.getter
+    def sec(self) -> Optional[builtins.str]:
+        """
+        Flag to indicate if the route learned from the secondary device is active or passive
+        """
+        return pulumi.get(self, "sec")
 
 
 @pulumi.output_type

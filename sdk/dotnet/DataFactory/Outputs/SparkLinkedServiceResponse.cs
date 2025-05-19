@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Specifies whether the connections to the server will validate server certificate, the default value is True. Only used for Version 2.0
+        /// </summary>
+        public readonly object? EnableServerCertificateValidation;
+        /// <summary>
         /// Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         /// </summary>
         public readonly object? EnableSsl;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? description,
 
+            object? enableServerCertificateValidation,
+
             object? enableSsl,
 
             string? encryptedCredential,
@@ -146,6 +152,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             AuthenticationType = authenticationType;
             ConnectVia = connectVia;
             Description = description;
+            EnableServerCertificateValidation = enableServerCertificateValidation;
             EnableSsl = enableSsl;
             EncryptedCredential = encryptedCredential;
             Host = host;

@@ -17,16 +17,16 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetOnlineExperimentWorkspaceResult',
-    'AwaitableGetOnlineExperimentWorkspaceResult',
-    'get_online_experiment_workspace',
-    'get_online_experiment_workspace_output',
+    'GetOnlineExperimentationWorkspaceResult',
+    'AwaitableGetOnlineExperimentationWorkspaceResult',
+    'get_online_experimentation_workspace',
+    'get_online_experimentation_workspace_output',
 ]
 
 @pulumi.output_type
-class GetOnlineExperimentWorkspaceResult:
+class GetOnlineExperimentationWorkspaceResult:
     """
-    An online experiment workspace resource.
+    An online experimentation workspace resource.
     """
     def __init__(__self__, azure_api_version=None, id=None, identity=None, location=None, name=None, properties=None, sku=None, system_data=None, tags=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
@@ -102,7 +102,7 @@ class GetOnlineExperimentWorkspaceResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.OnlineExperimentWorkspacePropertiesResponse':
+    def properties(self) -> 'outputs.OnlineExperimentationWorkspacePropertiesResponse':
         """
         The resource-specific properties for this resource.
         """
@@ -141,12 +141,12 @@ class GetOnlineExperimentWorkspaceResult:
         return pulumi.get(self, "type")
 
 
-class AwaitableGetOnlineExperimentWorkspaceResult(GetOnlineExperimentWorkspaceResult):
+class AwaitableGetOnlineExperimentationWorkspaceResult(GetOnlineExperimentationWorkspaceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetOnlineExperimentWorkspaceResult(
+        return GetOnlineExperimentationWorkspaceResult(
             azure_api_version=self.azure_api_version,
             id=self.id,
             identity=self.identity,
@@ -159,25 +159,25 @@ class AwaitableGetOnlineExperimentWorkspaceResult(GetOnlineExperimentWorkspaceRe
             type=self.type)
 
 
-def get_online_experiment_workspace(resource_group_name: Optional[builtins.str] = None,
-                                    workspace_name: Optional[builtins.str] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOnlineExperimentWorkspaceResult:
+def get_online_experimentation_workspace(resource_group_name: Optional[builtins.str] = None,
+                                         workspace_name: Optional[builtins.str] = None,
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOnlineExperimentationWorkspaceResult:
     """
-    Gets an experiment workspace
+    Gets an online experimentation workspace.
 
     Uses Azure REST API version 2025-05-31-preview.
 
 
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param builtins.str workspace_name: The name of the OnlineExperimentWorkspace
+    :param builtins.str workspace_name: The name of the OnlineExperimentationWorkspace
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('azure-native:onlineexperimentation:getOnlineExperimentWorkspace', __args__, opts=opts, typ=GetOnlineExperimentWorkspaceResult).value
+    __ret__ = pulumi.runtime.invoke('azure-native:onlineexperimentation:getOnlineExperimentationWorkspace', __args__, opts=opts, typ=GetOnlineExperimentationWorkspaceResult).value
 
-    return AwaitableGetOnlineExperimentWorkspaceResult(
+    return AwaitableGetOnlineExperimentationWorkspaceResult(
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -188,24 +188,24 @@ def get_online_experiment_workspace(resource_group_name: Optional[builtins.str] 
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_online_experiment_workspace_output(resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
-                                           workspace_name: Optional[pulumi.Input[builtins.str]] = None,
-                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOnlineExperimentWorkspaceResult]:
+def get_online_experimentation_workspace_output(resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
+                                                workspace_name: Optional[pulumi.Input[builtins.str]] = None,
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOnlineExperimentationWorkspaceResult]:
     """
-    Gets an experiment workspace
+    Gets an online experimentation workspace.
 
     Uses Azure REST API version 2025-05-31-preview.
 
 
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param builtins.str workspace_name: The name of the OnlineExperimentWorkspace
+    :param builtins.str workspace_name: The name of the OnlineExperimentationWorkspace
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:onlineexperimentation:getOnlineExperimentWorkspace', __args__, opts=opts, typ=GetOnlineExperimentWorkspaceResult)
-    return __ret__.apply(lambda __response__: GetOnlineExperimentWorkspaceResult(
+    __ret__ = pulumi.runtime.invoke_output('azure-native:onlineexperimentation:getOnlineExperimentationWorkspace', __args__, opts=opts, typ=GetOnlineExperimentationWorkspaceResult)
+    return __ret__.apply(lambda __response__: GetOnlineExperimentationWorkspaceResult(
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),

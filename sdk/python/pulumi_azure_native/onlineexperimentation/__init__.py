@@ -7,7 +7,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .get_online_experiment_workspace import *
-from .online_experiment_workspace import *
+from .get_online_experimentation_workspace import *
+from .online_experimentation_workspace import *
 from ._inputs import *
 from . import outputs

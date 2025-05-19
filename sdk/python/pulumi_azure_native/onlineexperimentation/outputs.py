@@ -21,7 +21,7 @@ __all__ = [
     'CustomerManagedKeyEncryptionResponse',
     'KeyEncryptionKeyIdentityResponse',
     'ManagedServiceIdentityResponse',
-    'OnlineExperimentWorkspacePropertiesResponse',
+    'OnlineExperimentationWorkspacePropertiesResponse',
     'OnlineExperimentationWorkspaceSkuResponse',
     'ResourceEncryptionConfigurationResponse',
     'SystemDataResponse',
@@ -228,9 +228,9 @@ class ManagedServiceIdentityResponse(dict):
 
 
 @pulumi.output_type
-class OnlineExperimentWorkspacePropertiesResponse(dict):
+class OnlineExperimentationWorkspacePropertiesResponse(dict):
     """
-    The properties of an online experiment workspace.
+    The properties of an online experimentation workspace.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -247,14 +247,14 @@ class OnlineExperimentWorkspacePropertiesResponse(dict):
             suggest = "workspace_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in OnlineExperimentWorkspacePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in OnlineExperimentationWorkspacePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        OnlineExperimentWorkspacePropertiesResponse.__key_warning(key)
+        OnlineExperimentationWorkspacePropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        OnlineExperimentWorkspacePropertiesResponse.__key_warning(key)
+        OnlineExperimentationWorkspacePropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -266,14 +266,14 @@ class OnlineExperimentWorkspacePropertiesResponse(dict):
                  workspace_id: builtins.str,
                  encryption: Optional['outputs.ResourceEncryptionConfigurationResponse'] = None):
         """
-        The properties of an online experiment workspace.
-        :param builtins.str app_configuration_resource_id: The resource identifier of App Configuration with which this online experiment workspace is tied for experimentation. This is a required field for creating an online experiment workspace.
-        :param builtins.str endpoint: The data plane endpoint for the online experiment workspace resource.
-        :param builtins.str log_analytics_workspace_resource_id: The resource identifier of the Log Analytics workspace which online experiment workspace uses for generating experiment analysis results.
-        :param builtins.str logs_exporter_storage_account_resource_id: The resource identifier of storage account where logs are exported from Log Analytics workspace. Online Experiment workspace uses it generating experiment analysis results.
+        The properties of an online experimentation workspace.
+        :param builtins.str app_configuration_resource_id: The resource identifier of App Configuration with which this online experimentation workspace is tied for experimentation. This is a required field for creating an online experimentation workspace.
+        :param builtins.str endpoint: The data plane endpoint for the online experimentation workspace resource.
+        :param builtins.str log_analytics_workspace_resource_id: The resource identifier of the Log Analytics workspace which online experimentation workspace uses for generating experiment analysis results.
+        :param builtins.str logs_exporter_storage_account_resource_id: The resource identifier of storage account where logs are exported from Log Analytics workspace. online experimentation workspace uses it generating experiment analysis results.
         :param builtins.str provisioning_state: The provisioning state for the resource
         :param builtins.str workspace_id: The Id of the workspace.
-        :param 'ResourceEncryptionConfigurationResponse' encryption: The encryption configuration for the online experiment workspace resource.
+        :param 'ResourceEncryptionConfigurationResponse' encryption: The encryption configuration for the online experimentation workspace resource.
         """
         pulumi.set(__self__, "app_configuration_resource_id", app_configuration_resource_id)
         pulumi.set(__self__, "endpoint", endpoint)
@@ -288,7 +288,7 @@ class OnlineExperimentWorkspacePropertiesResponse(dict):
     @pulumi.getter(name="appConfigurationResourceId")
     def app_configuration_resource_id(self) -> builtins.str:
         """
-        The resource identifier of App Configuration with which this online experiment workspace is tied for experimentation. This is a required field for creating an online experiment workspace.
+        The resource identifier of App Configuration with which this online experimentation workspace is tied for experimentation. This is a required field for creating an online experimentation workspace.
         """
         return pulumi.get(self, "app_configuration_resource_id")
 
@@ -296,7 +296,7 @@ class OnlineExperimentWorkspacePropertiesResponse(dict):
     @pulumi.getter
     def endpoint(self) -> builtins.str:
         """
-        The data plane endpoint for the online experiment workspace resource.
+        The data plane endpoint for the online experimentation workspace resource.
         """
         return pulumi.get(self, "endpoint")
 
@@ -304,7 +304,7 @@ class OnlineExperimentWorkspacePropertiesResponse(dict):
     @pulumi.getter(name="logAnalyticsWorkspaceResourceId")
     def log_analytics_workspace_resource_id(self) -> builtins.str:
         """
-        The resource identifier of the Log Analytics workspace which online experiment workspace uses for generating experiment analysis results.
+        The resource identifier of the Log Analytics workspace which online experimentation workspace uses for generating experiment analysis results.
         """
         return pulumi.get(self, "log_analytics_workspace_resource_id")
 
@@ -312,7 +312,7 @@ class OnlineExperimentWorkspacePropertiesResponse(dict):
     @pulumi.getter(name="logsExporterStorageAccountResourceId")
     def logs_exporter_storage_account_resource_id(self) -> builtins.str:
         """
-        The resource identifier of storage account where logs are exported from Log Analytics workspace. Online Experiment workspace uses it generating experiment analysis results.
+        The resource identifier of storage account where logs are exported from Log Analytics workspace. online experimentation workspace uses it generating experiment analysis results.
         """
         return pulumi.get(self, "logs_exporter_storage_account_resource_id")
 
@@ -336,7 +336,7 @@ class OnlineExperimentWorkspacePropertiesResponse(dict):
     @pulumi.getter
     def encryption(self) -> Optional['outputs.ResourceEncryptionConfigurationResponse']:
         """
-        The encryption configuration for the online experiment workspace resource.
+        The encryption configuration for the online experimentation workspace resource.
         """
         return pulumi.get(self, "encryption")
 
@@ -377,7 +377,7 @@ class OnlineExperimentationWorkspaceSkuResponse(dict):
 @pulumi.output_type
 class ResourceEncryptionConfigurationResponse(dict):
     """
-    The encryption configuration for the online experiment workspace resource.
+    The encryption configuration for the online experimentation workspace resource.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -399,7 +399,7 @@ class ResourceEncryptionConfigurationResponse(dict):
     def __init__(__self__, *,
                  customer_managed_key_encryption: Optional['outputs.CustomerManagedKeyEncryptionResponse'] = None):
         """
-        The encryption configuration for the online experiment workspace resource.
+        The encryption configuration for the online experimentation workspace resource.
         :param 'CustomerManagedKeyEncryptionResponse' customer_managed_key_encryption: All Customer-managed key encryption properties for the resource.
         """
         if customer_managed_key_encryption is not None:

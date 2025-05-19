@@ -10,12 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.OnlineExperimentation
 {
     /// <summary>
-    /// An online experiment workspace resource.
+    /// An online experimentation workspace resource.
     /// 
     /// Uses Azure REST API version 2025-05-31-preview.
     /// </summary>
-    [AzureNativeResourceType("azure-native:onlineexperimentation:OnlineExperimentWorkspace")]
-    public partial class OnlineExperimentWorkspace : global::Pulumi.CustomResource
+    [AzureNativeResourceType("azure-native:onlineexperimentation:OnlineExperimentationWorkspace")]
+    public partial class OnlineExperimentationWorkspace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Azure API version of the resource.
@@ -45,7 +45,7 @@ namespace Pulumi.AzureNative.OnlineExperimentation
         /// The resource-specific properties for this resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.OnlineExperimentWorkspacePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.OnlineExperimentationWorkspacePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The SKU (Stock Keeping Unit) assigned to this resource.
@@ -73,19 +73,19 @@ namespace Pulumi.AzureNative.OnlineExperimentation
 
 
         /// <summary>
-        /// Create a OnlineExperimentWorkspace resource with the given unique name, arguments, and options.
+        /// Create a OnlineExperimentationWorkspace resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public OnlineExperimentWorkspace(string name, OnlineExperimentWorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:onlineexperimentation:OnlineExperimentWorkspace", name, args ?? new OnlineExperimentWorkspaceArgs(), MakeResourceOptions(options, ""))
+        public OnlineExperimentationWorkspace(string name, OnlineExperimentationWorkspaceArgs args, CustomResourceOptions? options = null)
+            : base("azure-native:onlineexperimentation:OnlineExperimentationWorkspace", name, args ?? new OnlineExperimentationWorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private OnlineExperimentWorkspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:onlineexperimentation:OnlineExperimentWorkspace", name, null, MakeResourceOptions(options, id))
+        private OnlineExperimentationWorkspace(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azure-native:onlineexperimentation:OnlineExperimentationWorkspace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.OnlineExperimentation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:onlineexperimentation/v20250531preview:OnlineExperimentWorkspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:onlineexperimentation/v20250531preview:OnlineExperimentationWorkspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,20 +105,20 @@ namespace Pulumi.AzureNative.OnlineExperimentation
             return merged;
         }
         /// <summary>
-        /// Get an existing OnlineExperimentWorkspace resource's state with the given name, ID, and optional extra
+        /// Get an existing OnlineExperimentationWorkspace resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static OnlineExperimentWorkspace Get(string name, Input<string> id, CustomResourceOptions? options = null)
+        public static OnlineExperimentationWorkspace Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new OnlineExperimentWorkspace(name, id, options);
+            return new OnlineExperimentationWorkspace(name, id, options);
         }
     }
 
-    public sealed class OnlineExperimentWorkspaceArgs : global::Pulumi.ResourceArgs
+    public sealed class OnlineExperimentationWorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The managed service identities assigned to this resource.
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.OnlineExperimentation
         /// The resource-specific properties for this resource.
         /// </summary>
         [Input("properties")]
-        public Input<Inputs.OnlineExperimentWorkspacePropertiesArgs>? Properties { get; set; }
+        public Input<Inputs.OnlineExperimentationWorkspacePropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -163,14 +163,14 @@ namespace Pulumi.AzureNative.OnlineExperimentation
         }
 
         /// <summary>
-        /// The name of the OnlineExperimentWorkspace
+        /// The name of the OnlineExperimentationWorkspace
         /// </summary>
         [Input("workspaceName")]
         public Input<string>? WorkspaceName { get; set; }
 
-        public OnlineExperimentWorkspaceArgs()
+        public OnlineExperimentationWorkspaceArgs()
         {
         }
-        public static new OnlineExperimentWorkspaceArgs Empty => new OnlineExperimentWorkspaceArgs();
+        public static new OnlineExperimentationWorkspaceArgs Empty => new OnlineExperimentationWorkspaceArgs();
     }
 }

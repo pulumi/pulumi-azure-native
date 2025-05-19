@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.OnlineExperimentation.Outputs
 {
 
     /// <summary>
-    /// The encryption configuration for the online experiment workspace resource.
+    /// The encryption configuration for the online experimentation workspace resource.
     /// </summary>
     [OutputType]
     public sealed class ResourceEncryptionConfigurationResponse

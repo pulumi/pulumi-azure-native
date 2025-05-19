@@ -100,6 +100,7 @@ from .get_network_security_perimeter_link import *
 from .get_network_security_perimeter_logging_configuration import *
 from .get_network_security_perimeter_profile import *
 from .get_network_virtual_appliance import *
+from .get_network_virtual_appliance_boot_diagnostic_logs import *
 from .get_network_virtual_appliance_connection import *
 from .get_network_watcher import *
 from .get_nsp_access_rule import *
@@ -156,6 +157,8 @@ from .get_virtual_network_gateway_connection import *
 from .get_virtual_network_gateway_connection_ike_sas import *
 from .get_virtual_network_gateway_learned_routes import *
 from .get_virtual_network_gateway_nat_rule import *
+from .get_virtual_network_gateway_resiliency_information import *
+from .get_virtual_network_gateway_routes_information import *
 from .get_virtual_network_gateway_vpn_profile_package_url import *
 from .get_virtual_network_gateway_vpnclient_connection_health import *
 from .get_virtual_network_gateway_vpnclient_ipsec_parameters import *

@@ -2780,6 +2780,76 @@
     "Error": "resolved module name mismatch: file: Network, uri: Compute"
   },
   {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2024-07-01/cloudServiceNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/networkInterfaces",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2024-07-01/cloudServiceNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/roleInstances/{roleInstanceName}/networkInterfaces",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2024-07-01/cloudServiceNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/roleInstances/{roleInstanceName}/networkInterfaces/{networkInterfaceName}",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2024-07-01/cloudServicePublicIpAddress.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/publicipaddresses",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2024-07-01/cloudServicePublicIpAddress.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/roleInstances/{roleInstanceName}/networkInterfaces/{networkInterfaceName}/ipconfigurations/{ipConfigurationName}/publicipaddresses",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2024-07-01/cloudServicePublicIpAddress.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/roleInstances/{roleInstanceName}/networkInterfaces/{networkInterfaceName}/ipconfigurations/{ipConfigurationName}/publicipaddresses/{publicIpAddressName}",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2024-07-01/vmssNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/networkInterfaces",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2024-07-01/vmssNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{virtualmachineIndex}/networkInterfaces",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2024-07-01/vmssNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{virtualmachineIndex}/networkInterfaces/{networkInterfaceName}",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2024-07-01/vmssNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{virtualmachineIndex}/networkInterfaces/{networkInterfaceName}/ipConfigurations",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2024-07-01/vmssNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{virtualmachineIndex}/networkInterfaces/{networkInterfaceName}/ipConfigurations/{ipConfigurationName}",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2024-07-01/vmssPublicIpAddress.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/publicipaddresses",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2024-07-01/vmssPublicIpAddress.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{virtualmachineIndex}/networkInterfaces/{networkInterfaceName}/ipconfigurations/{ipConfigurationName}/publicipaddresses",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2024-07-01/vmssPublicIpAddress.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{virtualmachineIndex}/networkInterfaces/{networkInterfaceName}/ipconfigurations/{ipConfigurationName}/publicipaddresses/{publicIpAddressName}",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
     "FilePath": "specification/notificationhubs/resource-manager/Microsoft.NotificationHubs/stable/2014-09-01/notificationhubs.json",
     "Path": "/{operationStatusLink}",
     "Error": "resolved module name mismatch: file: NotificationHubs, uri: "

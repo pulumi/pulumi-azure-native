@@ -470,6 +470,11 @@ export const getNetworkVirtualAppliance: typeof import("./getNetworkVirtualAppli
 export const getNetworkVirtualApplianceOutput: typeof import("./getNetworkVirtualAppliance").getNetworkVirtualApplianceOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkVirtualAppliance","getNetworkVirtualApplianceOutput"], () => require("./getNetworkVirtualAppliance"));
 
+export { GetNetworkVirtualApplianceBootDiagnosticLogsArgs, GetNetworkVirtualApplianceBootDiagnosticLogsResult, GetNetworkVirtualApplianceBootDiagnosticLogsOutputArgs } from "./getNetworkVirtualApplianceBootDiagnosticLogs";
+export const getNetworkVirtualApplianceBootDiagnosticLogs: typeof import("./getNetworkVirtualApplianceBootDiagnosticLogs").getNetworkVirtualApplianceBootDiagnosticLogs = null as any;
+export const getNetworkVirtualApplianceBootDiagnosticLogsOutput: typeof import("./getNetworkVirtualApplianceBootDiagnosticLogs").getNetworkVirtualApplianceBootDiagnosticLogsOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkVirtualApplianceBootDiagnosticLogs","getNetworkVirtualApplianceBootDiagnosticLogsOutput"], () => require("./getNetworkVirtualApplianceBootDiagnosticLogs"));
+
 export { GetNetworkVirtualApplianceConnectionArgs, GetNetworkVirtualApplianceConnectionResult, GetNetworkVirtualApplianceConnectionOutputArgs } from "./getNetworkVirtualApplianceConnection";
 export const getNetworkVirtualApplianceConnection: typeof import("./getNetworkVirtualApplianceConnection").getNetworkVirtualApplianceConnection = null as any;
 export const getNetworkVirtualApplianceConnectionOutput: typeof import("./getNetworkVirtualApplianceConnection").getNetworkVirtualApplianceConnectionOutput = null as any;
@@ -749,6 +754,16 @@ export { GetVirtualNetworkGatewayNatRuleArgs, GetVirtualNetworkGatewayNatRuleRes
 export const getVirtualNetworkGatewayNatRule: typeof import("./getVirtualNetworkGatewayNatRule").getVirtualNetworkGatewayNatRule = null as any;
 export const getVirtualNetworkGatewayNatRuleOutput: typeof import("./getVirtualNetworkGatewayNatRule").getVirtualNetworkGatewayNatRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualNetworkGatewayNatRule","getVirtualNetworkGatewayNatRuleOutput"], () => require("./getVirtualNetworkGatewayNatRule"));
+
+export { GetVirtualNetworkGatewayResiliencyInformationArgs, GetVirtualNetworkGatewayResiliencyInformationResult, GetVirtualNetworkGatewayResiliencyInformationOutputArgs } from "./getVirtualNetworkGatewayResiliencyInformation";
+export const getVirtualNetworkGatewayResiliencyInformation: typeof import("./getVirtualNetworkGatewayResiliencyInformation").getVirtualNetworkGatewayResiliencyInformation = null as any;
+export const getVirtualNetworkGatewayResiliencyInformationOutput: typeof import("./getVirtualNetworkGatewayResiliencyInformation").getVirtualNetworkGatewayResiliencyInformationOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualNetworkGatewayResiliencyInformation","getVirtualNetworkGatewayResiliencyInformationOutput"], () => require("./getVirtualNetworkGatewayResiliencyInformation"));
+
+export { GetVirtualNetworkGatewayRoutesInformationArgs, GetVirtualNetworkGatewayRoutesInformationResult, GetVirtualNetworkGatewayRoutesInformationOutputArgs } from "./getVirtualNetworkGatewayRoutesInformation";
+export const getVirtualNetworkGatewayRoutesInformation: typeof import("./getVirtualNetworkGatewayRoutesInformation").getVirtualNetworkGatewayRoutesInformation = null as any;
+export const getVirtualNetworkGatewayRoutesInformationOutput: typeof import("./getVirtualNetworkGatewayRoutesInformation").getVirtualNetworkGatewayRoutesInformationOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualNetworkGatewayRoutesInformation","getVirtualNetworkGatewayRoutesInformationOutput"], () => require("./getVirtualNetworkGatewayRoutesInformation"));
 
 export { GetVirtualNetworkGatewayVpnProfilePackageUrlArgs, GetVirtualNetworkGatewayVpnProfilePackageUrlResult, GetVirtualNetworkGatewayVpnProfilePackageUrlOutputArgs } from "./getVirtualNetworkGatewayVpnProfilePackageUrl";
 export const getVirtualNetworkGatewayVpnProfilePackageUrl: typeof import("./getVirtualNetworkGatewayVpnProfilePackageUrl").getVirtualNetworkGatewayVpnProfilePackageUrl = null as any;

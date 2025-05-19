@@ -58,6 +58,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Specifies whether the connections to the server will validate server certificate, the default value is True. Only used for Version 2.0
+        /// </summary>
+        [Input("enableServerCertificateValidation")]
+        public Input<object>? EnableServerCertificateValidation { get; set; }
+
+        /// <summary>
         /// Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         /// </summary>
         [Input("enableSsl")]

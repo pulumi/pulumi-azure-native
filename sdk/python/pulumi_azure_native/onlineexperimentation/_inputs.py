@@ -23,8 +23,8 @@ __all__ = [
     'KeyEncryptionKeyIdentityArgsDict',
     'ManagedServiceIdentityArgs',
     'ManagedServiceIdentityArgsDict',
-    'OnlineExperimentWorkspacePropertiesArgs',
-    'OnlineExperimentWorkspacePropertiesArgsDict',
+    'OnlineExperimentationWorkspacePropertiesArgs',
+    'OnlineExperimentationWorkspacePropertiesArgsDict',
     'OnlineExperimentationWorkspaceSkuArgs',
     'OnlineExperimentationWorkspaceSkuArgsDict',
     'ResourceEncryptionConfigurationArgs',
@@ -221,42 +221,42 @@ class ManagedServiceIdentityArgs:
 
 
 if not MYPY:
-    class OnlineExperimentWorkspacePropertiesArgsDict(TypedDict):
+    class OnlineExperimentationWorkspacePropertiesArgsDict(TypedDict):
         """
-        The properties of an online experiment workspace.
+        The properties of an online experimentation workspace.
         """
         app_configuration_resource_id: pulumi.Input[builtins.str]
         """
-        The resource identifier of App Configuration with which this online experiment workspace is tied for experimentation. This is a required field for creating an online experiment workspace.
+        The resource identifier of App Configuration with which this online experimentation workspace is tied for experimentation. This is a required field for creating an online experimentation workspace.
         """
         log_analytics_workspace_resource_id: pulumi.Input[builtins.str]
         """
-        The resource identifier of the Log Analytics workspace which online experiment workspace uses for generating experiment analysis results.
+        The resource identifier of the Log Analytics workspace which online experimentation workspace uses for generating experiment analysis results.
         """
         logs_exporter_storage_account_resource_id: pulumi.Input[builtins.str]
         """
-        The resource identifier of storage account where logs are exported from Log Analytics workspace. Online Experiment workspace uses it generating experiment analysis results.
+        The resource identifier of storage account where logs are exported from Log Analytics workspace. online experimentation workspace uses it generating experiment analysis results.
         """
         encryption: NotRequired[pulumi.Input['ResourceEncryptionConfigurationArgsDict']]
         """
-        The encryption configuration for the online experiment workspace resource.
+        The encryption configuration for the online experimentation workspace resource.
         """
 elif False:
-    OnlineExperimentWorkspacePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    OnlineExperimentationWorkspacePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class OnlineExperimentWorkspacePropertiesArgs:
+class OnlineExperimentationWorkspacePropertiesArgs:
     def __init__(__self__, *,
                  app_configuration_resource_id: pulumi.Input[builtins.str],
                  log_analytics_workspace_resource_id: pulumi.Input[builtins.str],
                  logs_exporter_storage_account_resource_id: pulumi.Input[builtins.str],
                  encryption: Optional[pulumi.Input['ResourceEncryptionConfigurationArgs']] = None):
         """
-        The properties of an online experiment workspace.
-        :param pulumi.Input[builtins.str] app_configuration_resource_id: The resource identifier of App Configuration with which this online experiment workspace is tied for experimentation. This is a required field for creating an online experiment workspace.
-        :param pulumi.Input[builtins.str] log_analytics_workspace_resource_id: The resource identifier of the Log Analytics workspace which online experiment workspace uses for generating experiment analysis results.
-        :param pulumi.Input[builtins.str] logs_exporter_storage_account_resource_id: The resource identifier of storage account where logs are exported from Log Analytics workspace. Online Experiment workspace uses it generating experiment analysis results.
-        :param pulumi.Input['ResourceEncryptionConfigurationArgs'] encryption: The encryption configuration for the online experiment workspace resource.
+        The properties of an online experimentation workspace.
+        :param pulumi.Input[builtins.str] app_configuration_resource_id: The resource identifier of App Configuration with which this online experimentation workspace is tied for experimentation. This is a required field for creating an online experimentation workspace.
+        :param pulumi.Input[builtins.str] log_analytics_workspace_resource_id: The resource identifier of the Log Analytics workspace which online experimentation workspace uses for generating experiment analysis results.
+        :param pulumi.Input[builtins.str] logs_exporter_storage_account_resource_id: The resource identifier of storage account where logs are exported from Log Analytics workspace. online experimentation workspace uses it generating experiment analysis results.
+        :param pulumi.Input['ResourceEncryptionConfigurationArgs'] encryption: The encryption configuration for the online experimentation workspace resource.
         """
         pulumi.set(__self__, "app_configuration_resource_id", app_configuration_resource_id)
         pulumi.set(__self__, "log_analytics_workspace_resource_id", log_analytics_workspace_resource_id)
@@ -268,7 +268,7 @@ class OnlineExperimentWorkspacePropertiesArgs:
     @pulumi.getter(name="appConfigurationResourceId")
     def app_configuration_resource_id(self) -> pulumi.Input[builtins.str]:
         """
-        The resource identifier of App Configuration with which this online experiment workspace is tied for experimentation. This is a required field for creating an online experiment workspace.
+        The resource identifier of App Configuration with which this online experimentation workspace is tied for experimentation. This is a required field for creating an online experimentation workspace.
         """
         return pulumi.get(self, "app_configuration_resource_id")
 
@@ -280,7 +280,7 @@ class OnlineExperimentWorkspacePropertiesArgs:
     @pulumi.getter(name="logAnalyticsWorkspaceResourceId")
     def log_analytics_workspace_resource_id(self) -> pulumi.Input[builtins.str]:
         """
-        The resource identifier of the Log Analytics workspace which online experiment workspace uses for generating experiment analysis results.
+        The resource identifier of the Log Analytics workspace which online experimentation workspace uses for generating experiment analysis results.
         """
         return pulumi.get(self, "log_analytics_workspace_resource_id")
 
@@ -292,7 +292,7 @@ class OnlineExperimentWorkspacePropertiesArgs:
     @pulumi.getter(name="logsExporterStorageAccountResourceId")
     def logs_exporter_storage_account_resource_id(self) -> pulumi.Input[builtins.str]:
         """
-        The resource identifier of storage account where logs are exported from Log Analytics workspace. Online Experiment workspace uses it generating experiment analysis results.
+        The resource identifier of storage account where logs are exported from Log Analytics workspace. online experimentation workspace uses it generating experiment analysis results.
         """
         return pulumi.get(self, "logs_exporter_storage_account_resource_id")
 
@@ -304,7 +304,7 @@ class OnlineExperimentWorkspacePropertiesArgs:
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['ResourceEncryptionConfigurationArgs']]:
         """
-        The encryption configuration for the online experiment workspace resource.
+        The encryption configuration for the online experimentation workspace resource.
         """
         return pulumi.get(self, "encryption")
 
@@ -351,7 +351,7 @@ class OnlineExperimentationWorkspaceSkuArgs:
 if not MYPY:
     class ResourceEncryptionConfigurationArgsDict(TypedDict):
         """
-        The encryption configuration for the online experiment workspace resource.
+        The encryption configuration for the online experimentation workspace resource.
         """
         customer_managed_key_encryption: NotRequired[pulumi.Input['CustomerManagedKeyEncryptionArgsDict']]
         """
@@ -365,7 +365,7 @@ class ResourceEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  customer_managed_key_encryption: Optional[pulumi.Input['CustomerManagedKeyEncryptionArgs']] = None):
         """
-        The encryption configuration for the online experiment workspace resource.
+        The encryption configuration for the online experimentation workspace resource.
         :param pulumi.Input['CustomerManagedKeyEncryptionArgs'] customer_managed_key_encryption: All Customer-managed key encryption properties for the resource.
         """
         if customer_managed_key_encryption is not None:
