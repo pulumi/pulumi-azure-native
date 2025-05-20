@@ -145,7 +145,7 @@ clean:
 	rm -rf .make/*
 	rm -rf bin
 	rm -rf dist
-	cd provider/cmd/pulumi-resource-azure-native && rm -f metadata-compact.json schema-full.json
+	cd provider/cmd/pulumi-resource-azure-native && rm -f metadata-compact.json schema-*
 	rm -rf sdk/dotnet/bin
 	rm -rf sdk/dotnet/build sdk/dotnet/src
 	rm -rf sdk/nodejs/bin
@@ -308,10 +308,16 @@ dist/pulumi-azure-native_$(PROVIDER_VERSION)_checksums.txt: dist/$(PROVIDER)-v$(
 	cd provider && go mod download
 	@touch $@
 
-.make/provider_prebuild: .make/prebuild bin/schema-full.json bin/metadata-compact.json versions/v${MAJOR_VERSION}.yaml
-	cp bin/schema-full.json provider/cmd/$(PROVIDER)
+.make/provider_prebuild: .make/prebuild bin/schema-full.json bin/schema-default-versions.json bin/metadata-compact.json versions/v${MAJOR_VERSION}.yaml
 	cp bin/metadata-compact.json provider/cmd/$(PROVIDER)
 	cp -v versions/v${MAJOR_VERSION}.yaml provider/pkg/versionLookup/default-versions.yaml
+
+	gzip --keep --force bin/schema-full.json
+	cp bin/schema-full.json.gz provider/cmd/$(PROVIDER)
+
+	gzip --keep --force bin/schema-default-versions.json
+	cp bin/schema-default-versions.json.gz provider/cmd/$(PROVIDER)
+
 	@touch $@
 
 .make/prebuild: .pulumi/bin/pulumi
