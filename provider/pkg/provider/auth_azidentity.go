@@ -102,7 +102,8 @@ func NewAzCoreIdentity(ctx context.Context, authConf *authConfiguration, baseCli
 //     2. Service Principal with client secret
 //     3. OIDC
 //     4. Managed Identity
-//     5. Azure CLI
+//     5. Default Credential
+//     6. Azure CLI
 //   - When a method is configured but instantiating the credential fails, we return an error and do not fall through to
 //     the next method.
 //   - Auxiliary or additional tenants are supported for SP with client secret and CLI authentication, not for others.
@@ -175,6 +176,18 @@ func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts a
 		return azidentity.NewManagedIdentityCredential(&msiOpts)
 	} else {
 		logging.V(9).Infof("Managed Identity (MSI) credential is not enabled, skipping")
+	}
+
+	if authConf.useDefault {
+		logging.V(9).Infof("[auth] Using default Azure credential")
+		options := &azidentity.DefaultAzureCredentialOptions{
+			AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
+			ClientOptions:              baseClientOpts,
+		}
+		cli, err := azidentity.NewDefaultAzureCredential(options)
+		if err == nil {
+			return cli, nil
+		}
 	}
 
 	logging.V(9).Infof("[auth] Using Azure CLI credential")
@@ -346,6 +359,11 @@ type authConfiguration struct {
 	// https://github.com/Azure/azure-sdk-for-go/blob/sdk/azidentity/v1.8.0/sdk/azidentity/managed_identity_client.go#L143
 	useMsi bool
 
+	// Enables the use of azcore's DefaultAzureCredential strategy.
+	// DefaultAzureCredential simplifies authentication while developing applications that deploy to Azure by
+	// combining credentials used in Azure hosting environments and credentials used in local development.
+	useDefault bool
+
 	// showSubscription invokes `az account show` and is overridable by tests to fake invoking the az CLI.
 	showSubscription azSubscriptionProvider
 }
@@ -385,6 +403,8 @@ func readAuthConfig(getConfig configGetter) (*authConfiguration, error) {
 		oidcTokenFilePath:     getConfig("oidcTokenFilePath", "ARM_OIDC_TOKEN_FILE_PATH"),
 		oidcTokenRequestToken: getConfig("oidcRequestToken", "ACTIONS_ID_TOKEN_REQUEST_TOKEN"),
 		oidcTokenRequestUrl:   getConfig("oidcRequestUrl", "ACTIONS_ID_TOKEN_REQUEST_URL"),
+
+		useDefault: getConfig("useDefaultAzureCredential", "PULUMI_USE_DEFAULT_AZURE_CREDENTIAL") == "true",
 
 		showSubscription: defaultAzSubscriptionProvider,
 	}, nil
