@@ -301,7 +301,10 @@ func (r *resourceCrudClient) MaintainSubResourcePropertiesIfNotSet(ctx context.C
 		return fmt.Errorf("reading cloud state: %w", err)
 	}
 
-	writtenProperties := writePropertiesToBody(missingProperties, bodyParams, state)
+	writtenProperties, err := writePropertiesToBody(missingProperties, bodyParams, state)
+	if err != nil {
+		return fmt.Errorf("failed to copy remote value(s): %w", err)
+	}
 	for writtenProperty, writtenValue := range writtenProperties {
 		logging.V(9).Infof("Maintaining remote value for property: %s.%s = %v", id, writtenProperty, writtenValue)
 	}
@@ -435,41 +438,65 @@ type propertyPath struct {
 	propertyName string
 }
 
-func writePropertiesToBody(missingProperties []propertyPath, bodyParams map[string]interface{}, remoteState map[string]interface{}) map[string]interface{} {
+func writePropertiesToBody(missingProperties []propertyPath, bodyParams map[string]interface{}, remoteState map[string]interface{}) (map[string]interface{}, error) {
 	writtenProperties := map[string]interface{}{}
 	for _, prop := range missingProperties {
-		currentBodyContainer := bodyParams
-		currentStateContainer := remoteState
-		for _, containerName := range prop.path {
-			innerBodyContainer, bodyOk := currentBodyContainer[containerName]
-			innerStateContainer, stateOk := currentStateContainer[containerName]
-			// If the container doesn't exist in either body or state, create it and continue iterating.
-			// But if it doesn't exist in either, there is no point in continuing.
-			if !bodyOk && !stateOk {
-				break
-			}
-			if !bodyOk {
-				innerBodyContainer = map[string]interface{}{}
-				currentBodyContainer[containerName] = innerBodyContainer
-			}
-			if !stateOk {
-				innerStateContainer = map[string]interface{}{}
-				currentStateContainer[containerName] = innerStateContainer
-			}
-			innerBodyObj, innerBodyIsObject := innerBodyContainer.(map[string]interface{})
-			innerStateObj, innerStateIsObject := innerStateContainer.(map[string]interface{})
-			if !innerBodyIsObject || !innerStateIsObject { // we've reached a leaf node (primitive type)
-				break
-			}
-			currentBodyContainer = innerBodyObj
-			currentStateContainer = innerStateObj
+		stateValue, ok, err := nestedField(remoteState, prop.path...)
+		if err != nil {
+			// the remoteState has an unexpected structure
+			return nil, fmt.Errorf("error reading remote state: %w", err)
 		}
-
-		stateValue, ok := currentStateContainer[prop.propertyName]
 		if ok {
-			currentBodyContainer[prop.propertyName] = stateValue
-			writtenProperties[fmt.Sprintf("%s.%s", strings.Join(prop.path, "."), prop.propertyName)] = stateValue
+			setNestedField(bodyParams, stateValue, prop.path...)
+			writtenProperties[strings.Join(prop.path, ".")] = stateValue
 		}
 	}
-	return writtenProperties
+	return writtenProperties, nil
+}
+
+// nestedField returns a reference to a nested field.
+// Returns false if value is not found and an error if unable
+// to traverse obj.
+//
+// Note: fields passed to this function are treated as keys within the passed
+// object; no array/slice syntax is supported.
+func nestedField(obj map[string]interface{}, fields ...string) (interface{}, bool, error) {
+	var val interface{} = obj
+
+	for i, field := range fields {
+		if val == nil {
+			return nil, false, nil
+		}
+		if m, ok := val.(map[string]interface{}); ok {
+			val, ok = m[field]
+			if !ok {
+				return nil, false, nil
+			}
+		} else {
+			return nil, false, fmt.Errorf("%v accessor error: %v is of the type %T, expected map[string]interface{}", strings.Join(fields[:i+1], "."), val, val)
+		}
+	}
+	return val, true, nil
+}
+
+// setNestedField sets the value of a nested field to a deep copy of the value provided.
+// Returns an error if value cannot be set because one of the nesting levels is not a map[string]interface{}.
+func setNestedField(obj map[string]interface{}, value interface{}, fields ...string) error {
+	m := obj
+
+	for i, field := range fields[:len(fields)-1] {
+		if val, ok := m[field]; ok {
+			if valMap, ok := val.(map[string]interface{}); ok {
+				m = valMap
+			} else {
+				return fmt.Errorf("value cannot be set because %v is not a map[string]interface{}", strings.Join(fields[:i+1], "."))
+			}
+		} else {
+			newVal := make(map[string]interface{})
+			m[field] = newVal
+			m = newVal
+		}
+	}
+	m[fields[len(fields)-1]] = value
+	return nil
 }

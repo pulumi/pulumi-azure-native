@@ -21,7 +21,7 @@ func TestWritePropertiesToBody(t *testing.T) {
 	t.Run("top-level", func(t *testing.T) {
 		missingProperties := []propertyPath{{
 			propertyName: "remote",
-			path:         []string{},
+			path:         []string{"remote"},
 		}}
 		bodyParams := map[string]interface{}{
 			"existing": "value",
@@ -38,15 +38,16 @@ func TestWritePropertiesToBody(t *testing.T) {
 		assert.Equal(t, expected, bodyParams)
 	})
 
-	t.Run("properties container", func(t *testing.T) {
+	t.Run("extra property", func(t *testing.T) {
 		missingProperties := []propertyPath{{
 			propertyName: "remote",
-			path:         []string{"properties"},
+			path:         []string{"properties", "remote"},
 		}}
 		bodyParams := map[string]interface{}{
 			"properties": map[string]interface{}{
 				"existing": "value",
-			}}
+			},
+		}
 		response := map[string]interface{}{
 			"properties": map[string]interface{}{
 				"remote": "foo",
@@ -65,7 +66,7 @@ func TestWritePropertiesToBody(t *testing.T) {
 	t.Run("existing properties are maintained", func(t *testing.T) {
 		missingProperties := []propertyPath{{
 			propertyName: "remote",
-			path:         []string{"properties"},
+			path:         []string{"properties", "remote"},
 		}}
 		bodyParams := map[string]interface{}{
 			"properties": map[string]interface{}{
@@ -91,7 +92,7 @@ func TestWritePropertiesToBody(t *testing.T) {
 	t.Run("properties missed from remote", func(t *testing.T) {
 		missingProperties := []propertyPath{{
 			propertyName: "remote",
-			path:         []string{"properties"},
+			path:         []string{"properties", "remote"},
 		}}
 		bodyParams := map[string]interface{}{
 			"properties": map[string]interface{}{
@@ -115,7 +116,7 @@ func TestWritePropertiesToBody(t *testing.T) {
 	t.Run("properties container missing from remote", func(t *testing.T) {
 		missingProperties := []propertyPath{{
 			propertyName: "remote",
-			path:         []string{"properties"},
+			path:         []string{"properties", "remote"},
 		}}
 		bodyParams := map[string]interface{}{
 			"properties": map[string]interface{}{
@@ -133,7 +134,7 @@ func TestWritePropertiesToBody(t *testing.T) {
 	})
 
 	// Regression test for #3036 - do not add empty containers to the body that will not be filled
-	t.Run("two containers missing from remote", func(t *testing.T) {
+	t.Run("issue-3036", func(t *testing.T) {
 		missingProperties := []propertyPath{{
 			propertyName: "remote",
 			path:         []string{"properties", "privateNetworks"},
@@ -153,10 +154,33 @@ func TestWritePropertiesToBody(t *testing.T) {
 		assert.Equal(t, expected, bodyParams)
 	})
 
+	// Regression test for #4094 - do not add empty container at a leaf level
+	t.Run("issue-4094", func(t *testing.T) {
+		missingProperties := []propertyPath{{
+			propertyName: "remote",
+			path:         []string{"properties", "securityRules"},
+		}}
+		bodyParams := map[string]interface{}{
+			"properties": map[string]interface{}{},
+		}
+		response := map[string]interface{}{
+			"properties": map[string]interface{}{
+				"securityRules": []interface{}{},
+			},
+		}
+		writePropertiesToBody(missingProperties, bodyParams, response)
+		expected := map[string]interface{}{
+			"properties": map[string]interface{}{
+				"securityRules": []interface{}{},
+			},
+		}
+		assert.Equal(t, expected, bodyParams)
+	})
+
 	t.Run("properties container missing in body", func(t *testing.T) {
 		missingProperties := []propertyPath{{
 			propertyName: "remote",
-			path:         []string{"properties"},
+			path:         []string{"properties", "remote"},
 		}}
 		bodyParams := map[string]interface{}{}
 		response := map[string]interface{}{
@@ -176,10 +200,24 @@ func TestWritePropertiesToBody(t *testing.T) {
 	t.Run("empty with container", func(t *testing.T) {
 		missingProperties := []propertyPath{{
 			propertyName: "remote",
-			path:         []string{"properties"},
+			path:         []string{"properties", "remote"},
 		}}
 		bodyParams := map[string]interface{}{}
 		response := map[string]interface{}{}
+		writePropertiesToBody(missingProperties, bodyParams, response)
+		expected := map[string]interface{}{}
+		assert.Equal(t, expected, bodyParams)
+	})
+
+	t.Run("intermediate containers", func(t *testing.T) {
+		missingProperties := []propertyPath{{
+			propertyName: "remote",
+			path:         []string{"properties", "remote"},
+		}}
+		bodyParams := map[string]interface{}{}
+		response := map[string]interface{}{
+			"properties": map[string]interface{}{},
+		}
 		writePropertiesToBody(missingProperties, bodyParams, response)
 		expected := map[string]interface{}{}
 		assert.Equal(t, expected, bodyParams)
@@ -263,6 +301,14 @@ func TestFindUnsetSubResourceProperties(t *testing.T) {
 
 func TestFindUnsetSubResourcePropertiesFollowingTypeRefs(t *testing.T) {
 	res, lookupType := setUpResourceWithRefAndProviderWithTypeLookup()
+
+	t.Run("properties is not set", func(t *testing.T) {
+		bodyParams := map[string]interface{}{}
+		unset := findUnsetPropertiesToMaintain(res, bodyParams, false, lookupType)
+		require.Equal(t, 1, len(unset))
+		assert.Equal(t, "properties", unset[0].propertyName)
+		assert.Equal(t, []string{"properties", "accessPolicies"}, unset[0].path)
+	})
 
 	t.Run("KV accessPolicies is not set", func(t *testing.T) {
 		bodyParams := map[string]interface{}{
