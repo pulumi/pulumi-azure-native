@@ -1172,50 +1172,6 @@ Verbose logs contain more information, see https://www.pulumi.com/docs/support/t
 	return response
 }
 
-// Properties pointing to sub-resources that can be maintained as separate resources might not be
-// present in the inputs because the user wants to manage them as standalone resources. However,
-// such a property might be required by Azure even if it's not annotated as such in the spec, e.g.,
-// Key Vault's accessPolicies. Therefore, we set these properties to their default value here,
-// an empty array. For more details, see section "Sub-resources" in CONTRIBUTING.md.
-//
-// During create, no sub-resources can exist yet so there's no danger of overwriting existing values.
-//
-// The `input` param is used to determine the unset sub-resource properties. They are then reset in
-// the `output` parameter which is modified in-place.
-//
-// Implementation note: we should make it possible to write custom resources that call code from
-// the default implementation as needed. This would allow us to cleanly implement special logic
-// like for Key Vault into custom resources without duplicating much code. In the Key Vault case,
-// the custom Read() would look like
-//
-//	provider.azureCanCreate(ctx, id, &res)
-//	setUnsetSubresourcePropertiesToDefaults(res, bodyParams) // custom
-//	k.azureCreateOrUpdate
-//	...
-func (k *azureNativeProvider) setUnsetSubresourcePropertiesToDefaults(res resources.AzureAPIResource,
-	input, output map[string]interface{}, outputIsInApiShape bool) {
-	unset := k.findUnsetPropertiesToMaintain(&res, input, outputIsInApiShape)
-
-	for _, p := range unset {
-		cur := output
-		for _, pathEl := range p.path[:len(p.path)-1] {
-			curObj, ok := cur[pathEl]
-			if !ok {
-				newContainer := map[string]any{}
-				cur[pathEl] = newContainer
-				cur = newContainer
-				continue
-			}
-			cur, ok = curObj.(map[string]any)
-			if !ok {
-				break
-			}
-		}
-
-		cur[p.path[len(p.path)-1]] = []any{}
-	}
-}
-
 type propertyPath struct {
 	path         []string
 	propertyName string
@@ -1334,11 +1290,9 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 		return nil, err
 	}
 
-	var outputsWithoutIgnores = outputs
-
 	plainOldState := oldState.Mappable()
 	if oldState.HasValue(customresources.OriginalStateKey) {
-		outputsWithoutIgnores[customresources.OriginalStateKey] = plainOldState[customresources.OriginalStateKey]
+		outputs[customresources.OriginalStateKey] = plainOldState[customresources.OriginalStateKey]
 	}
 
 	if inputs == nil {
@@ -1369,7 +1323,7 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 		oldInputProjection := k.converter.SdkOutputsToSdkInputs(res.PutParameters, plainOldState)
 		// 3a. Remove sub-resource properties from new outputs which weren't set in the old inputs.
 		// If the user didn't specify them inline originally, we don't want to push them into the inputs now.
-		outputsWithoutIgnores = k.resetUnsetSubResourceProperties(ctx, urn, outputs, inputs, res)
+		outputsWithoutIgnores := k.removeUnsetSubResourceProperties(ctx, urn, outputs, inputs, res)
 		// 3b. Project new outputs to their corresponding input shape (exclude read-only properties).
 		newInputProjection := k.converter.SdkOutputsToSdkInputs(res.PutParameters, outputsWithoutIgnores)
 		// 4. Calculate the difference between two projections. This should give us actual significant changes
@@ -1382,7 +1336,7 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 	}
 
 	// Store both outputs and inputs into the state.
-	obj := checkpointObject(res, inputs, outputsWithoutIgnores)
+	obj := checkpointObject(res, inputs, outputs)
 
 	// Serialize and return RPC outputs.
 	checkpoint, err := plugin.MarshalProperties(
@@ -1419,8 +1373,14 @@ func removeDefaults(res resources.AzureAPIResource, plainOldState, previousInput
 // removeUnsetSubResourceProperties resets sub-resource properties in the outputs if they weren't set in the old inputs.
 // If the user didn't specify them inline originally, we don't want to push them into the inputs now.
 // For more details, see section "Sub-resources" in CONTRIBUTING.md.
-func (k *azureNativeProvider) resetUnsetSubResourceProperties(ctx context.Context, urn resource.URN, sdkResponse map[string]any,
+func (k *azureNativeProvider) removeUnsetSubResourceProperties(ctx context.Context, urn resource.URN, sdkResponse map[string]any,
 	oldInputs resource.PropertyMap, res *resources.AzureAPIResource) map[string]any {
+	propertiesToRemove := k.findUnsetPropertiesToMaintain(res, oldInputs.Mappable(), false)
+
+	if len(propertiesToRemove) == 0 {
+		return sdkResponse
+	}
+
 	// Take a deep copy so we don't modify the original which is also used later for diffing.
 	copy := deepcopy.Copy(sdkResponse)
 	result, ok := copy.(map[string]interface{})
@@ -1432,9 +1392,33 @@ Verbose logs contain more information, see https://www.pulumi.com/docs/support/t
 		return sdkResponse
 	}
 
-	k.setUnsetSubresourcePropertiesToDefaults(*res, oldInputs.Mappable(), result, false)
-
+	for _, prop := range propertiesToRemove {
+		deleteFromMap(result, prop.path)
+	}
 	return result
+}
+
+func deleteFromMap(m map[string]interface{}, path []string) bool {
+	container := m
+	for i, key := range path {
+		if i == len(path)-1 {
+			_, found := container[key]
+			if found {
+				delete(container, key)
+			}
+			return found
+		}
+
+		value, ok := container[key]
+		if !ok {
+			return false
+		}
+		container, ok = value.(map[string]interface{})
+		if !ok {
+			return false
+		}
+	}
+	return false
 }
 
 // Update updates an existing resource with new values.
