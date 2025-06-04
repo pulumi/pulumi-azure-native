@@ -136,7 +136,7 @@ func TestWritePropertiesToBody(t *testing.T) {
 	// Regression test for #3036 - do not add empty containers to the body that will not be filled
 	t.Run("issue-3036", func(t *testing.T) {
 		missingProperties := []propertyPath{{
-			propertyName: "remote",
+			propertyName: "privateNetworks",
 			path:         []string{"properties", "privateNetworks"},
 		}}
 		bodyParams := map[string]interface{}{
@@ -154,15 +154,13 @@ func TestWritePropertiesToBody(t *testing.T) {
 		assert.Equal(t, expected, bodyParams)
 	})
 
-	// Regression test for #4094 - do not add empty container at a leaf level
+	// Regression test for #4094 - do not add empty container in update case
 	t.Run("issue-4094", func(t *testing.T) {
 		missingProperties := []propertyPath{{
-			propertyName: "remote",
+			propertyName: "properties",
 			path:         []string{"properties", "securityRules"},
 		}}
-		bodyParams := map[string]interface{}{
-			"properties": map[string]interface{}{},
-		}
+		bodyParams := map[string]interface{}{}
 		response := map[string]interface{}{
 			"properties": map[string]interface{}{
 				"securityRules": []interface{}{},
@@ -179,7 +177,7 @@ func TestWritePropertiesToBody(t *testing.T) {
 
 	t.Run("properties container missing in body", func(t *testing.T) {
 		missingProperties := []propertyPath{{
-			propertyName: "remote",
+			propertyName: "properties",
 			path:         []string{"properties", "remote"},
 		}}
 		bodyParams := map[string]interface{}{}
@@ -199,7 +197,7 @@ func TestWritePropertiesToBody(t *testing.T) {
 
 	t.Run("empty with container", func(t *testing.T) {
 		missingProperties := []propertyPath{{
-			propertyName: "remote",
+			propertyName: "properties",
 			path:         []string{"properties", "remote"},
 		}}
 		bodyParams := map[string]interface{}{}
@@ -211,7 +209,7 @@ func TestWritePropertiesToBody(t *testing.T) {
 
 	t.Run("intermediate containers", func(t *testing.T) {
 		missingProperties := []propertyPath{{
-			propertyName: "remote",
+			propertyName: "properties",
 			path:         []string{"properties", "remote"},
 		}}
 		bodyParams := map[string]interface{}{}
