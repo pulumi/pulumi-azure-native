@@ -441,58 +441,58 @@ type propertyPath struct {
 func writePropertiesToBody(missingProperties []propertyPath, bodyParams map[string]interface{}, remoteState map[string]interface{}) (map[string]interface{}, error) {
 	writtenProperties := map[string]interface{}{}
 	for _, prop := range missingProperties {
-		stateValue, ok, err := nestedField(remoteState, prop.path...)
+		stateValue, ok, err := nestedFieldNoCopy(remoteState, prop.path...)
 		if err != nil {
 			// the remoteState has an unexpected structure
 			return nil, fmt.Errorf("error reading remote state: %w", err)
 		}
 		if ok {
-			setNestedField(bodyParams, stateValue, prop.path...)
+			setNestedFieldNoCopy(bodyParams, stateValue, prop.path...)
 			writtenProperties[strings.Join(prop.path, ".")] = stateValue
 		}
 	}
 	return writtenProperties, nil
 }
 
-// nestedField returns a reference to a nested field.
+// nestedFieldNoCopy returns a reference to a nested field.
 // Returns false if value is not found and an error if unable
 // to traverse obj.
 //
 // Note: fields passed to this function are treated as keys within the passed
 // object; no array/slice syntax is supported.
-func nestedField(obj map[string]interface{}, fields ...string) (interface{}, bool, error) {
-	var val interface{} = obj
+func nestedFieldNoCopy(obj map[string]any, fields ...string) (any, bool, error) {
+	var val any = obj
 
 	for i, field := range fields {
 		if val == nil {
 			return nil, false, nil
 		}
-		if m, ok := val.(map[string]interface{}); ok {
+		if m, ok := val.(map[string]any); ok {
 			val, ok = m[field]
 			if !ok {
 				return nil, false, nil
 			}
 		} else {
-			return nil, false, fmt.Errorf("%v accessor error: %v is of the type %T, expected map[string]interface{}", strings.Join(fields[:i+1], "."), val, val)
+			return nil, false, fmt.Errorf("%v accessor error: %v is of the type %T, expected map[string]any", strings.Join(fields[:i+1], "."), val, val)
 		}
 	}
 	return val, true, nil
 }
 
-// setNestedField sets the value of a nested field to a deep copy of the value provided.
-// Returns an error if value cannot be set because one of the nesting levels is not a map[string]interface{}.
-func setNestedField(obj map[string]interface{}, value interface{}, fields ...string) error {
+// setNestedFieldNoCopy sets the value of a nested field to the value provided (not copied).
+// Returns an error if value cannot be set because one of the nesting levels is not a map[string]any.
+func setNestedFieldNoCopy(obj map[string]any, value any, fields ...string) error {
 	m := obj
 
 	for i, field := range fields[:len(fields)-1] {
 		if val, ok := m[field]; ok {
-			if valMap, ok := val.(map[string]interface{}); ok {
+			if valMap, ok := val.(map[string]any); ok {
 				m = valMap
 			} else {
-				return fmt.Errorf("value cannot be set because %v is not a map[string]interface{}", strings.Join(fields[:i+1], "."))
+				return fmt.Errorf("value cannot be set because %v is not a map[string]any", strings.Join(fields[:i+1], "."))
 			}
 		} else {
-			newVal := make(map[string]interface{})
+			newVal := make(map[string]any)
 			m[field] = newVal
 			m = newVal
 		}
