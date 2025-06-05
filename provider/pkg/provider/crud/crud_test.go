@@ -221,3 +221,93 @@ func TestSqlVirtualMachineUsesReadQueryParams(t *testing.T) {
 		assert.Empty(t, req.URL.Query().Get("$expand"))
 	})
 }
+
+func TestNestedFieldNoCopy(t *testing.T) {
+	target := map[string]any{"foo": "bar"}
+
+	obj := map[string]any{
+		"a": map[string]any{
+			"b": target,
+			"c": nil,
+			"d": []any{"foo"},
+			"e": []any{
+				map[string]any{
+					"f": "bar",
+				},
+			},
+		},
+	}
+
+	// case 1: field exists and is non-nil
+	res, exists, err := nestedFieldNoCopy(obj, "a", "b")
+	assert.True(t, exists)
+	assert.NoError(t, err)
+	assert.Equal(t, target, res)
+	target["foo"] = "baz"
+	assert.Equal(t, target["foo"], res.(map[string]any)["foo"], "result should be a reference to the expected item")
+
+	// case 2: field exists and is nil
+	res, exists, err = nestedFieldNoCopy(obj, "a", "c")
+	assert.True(t, exists)
+	assert.NoError(t, err)
+	assert.Nil(t, res)
+
+	// case 3: error traversing obj
+	res, exists, err = nestedFieldNoCopy(obj, "a", "d", "foo")
+	assert.False(t, exists)
+	assert.Error(t, err)
+	assert.Nil(t, res)
+
+	// case 4: field does not exist
+	res, exists, err = nestedFieldNoCopy(obj, "a", "g")
+	assert.False(t, exists)
+	assert.NoError(t, err)
+	assert.Nil(t, res)
+
+	// case 5: intermediate field does not exist
+	res, exists, err = nestedFieldNoCopy(obj, "a", "g", "f")
+	assert.False(t, exists)
+	assert.NoError(t, err)
+	assert.Nil(t, res)
+
+	// case 6: intermediate field is null
+	//         (background: happens easily in YAML)
+	res, exists, err = nestedFieldNoCopy(obj, "a", "c", "f")
+	assert.False(t, exists)
+	assert.NoError(t, err)
+	assert.Nil(t, res)
+
+	// case 7: array/slice syntax is not supported
+	//         (background: users may expect this to be supported)
+	res, exists, err = nestedFieldNoCopy(obj, "a", "e[0]")
+	assert.False(t, exists)
+	assert.NoError(t, err)
+	assert.Nil(t, res)
+}
+
+func TestSetNestedFieldNoCopy(t *testing.T) {
+	obj := map[string]any{
+		"x": map[string]any{
+			"y": 1,
+			"a": "foo",
+		},
+	}
+
+	// setting into a new container
+	err := setNestedFieldNoCopy(obj, []any{"bar"}, "z")
+	assert.NoError(t, err)
+	assert.Len(t, obj, 2)
+	assert.Equal(t, "bar", obj["z"].([]interface{})[0])
+
+	// setting into an existing container
+	err = setNestedFieldNoCopy(obj, []any{"bar"}, "x", "z")
+	assert.NoError(t, err)
+	assert.Len(t, obj["x"], 3)
+	assert.Len(t, obj["x"].(map[string]interface{})["z"], 1)
+	assert.Equal(t, "bar", obj["x"].(map[string]interface{})["z"].([]interface{})[0])
+
+	// error traversing a non-container
+	err = setNestedFieldNoCopy(obj, []any{}, "x", "y", "z")
+	assert.Error(t, err, `value cannot be set because x.y is not a map[string]interface{}`)
+
+}

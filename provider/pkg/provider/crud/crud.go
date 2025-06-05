@@ -301,7 +301,10 @@ func (r *resourceCrudClient) MaintainSubResourcePropertiesIfNotSet(ctx context.C
 		return fmt.Errorf("reading cloud state: %w", err)
 	}
 
-	writtenProperties := writePropertiesToBody(missingProperties, bodyParams, state)
+	writtenProperties, err := writePropertiesToBody(missingProperties, bodyParams, state)
+	if err != nil {
+		return fmt.Errorf("failed to copy remote value(s): %w", err)
+	}
 	for writtenProperty, writtenValue := range writtenProperties {
 		logging.V(9).Infof("Maintaining remote value for property: %s.%s = %v", id, writtenProperty, writtenValue)
 	}
@@ -315,7 +318,7 @@ func (r *resourceCrudClient) SetUnsetSubresourcePropertiesToDefaults(input, outp
 
 	for _, p := range unset {
 		cur := output
-		for _, pathEl := range p.path[:len(p.path)-1] {
+		for _, pathEl := range p[:len(p)-1] {
 			curObj, ok := cur[pathEl]
 			if !ok {
 				newContainer := map[string]any{}
@@ -329,7 +332,7 @@ func (r *resourceCrudClient) SetUnsetSubresourcePropertiesToDefaults(input, outp
 			}
 		}
 
-		cur[p.path[len(p.path)-1]] = []any{}
+		cur[p[len(p)-1]] = []any{}
 	}
 }
 
@@ -340,10 +343,7 @@ func findUnsetPropertiesToMaintain(res *resources.AzureAPIResource, bodyParams m
 		for i, pathEl := range path {
 			v, ok := curBody[pathEl]
 			if !ok {
-				missingProperties = append(missingProperties, propertyPath{
-					path:         path,
-					propertyName: pathEl,
-				})
+				missingProperties = append(missingProperties, propertyPath(path))
 				break
 			}
 
@@ -354,10 +354,7 @@ func findUnsetPropertiesToMaintain(res *resources.AzureAPIResource, bodyParams m
 
 			curBody, ok = v.(map[string]interface{})
 			if !ok {
-				missingProperties = append(missingProperties, propertyPath{
-					path:         path,
-					propertyName: pathEl,
-				})
+				missingProperties = append(missingProperties, propertyPath(path))
 				break
 			}
 		}
@@ -430,46 +427,68 @@ func (r *resourceCrudClient) Read(ctx context.Context, id string, overrideApiVer
 	return nil, errors.Errorf("expected object from Read of '%s', got %T", url, resp)
 }
 
-type propertyPath struct {
-	path         []string
-	propertyName string
-}
+// propertyPath represents a path to a property in a nested structure, e.g. propertyPath{"properties", "privateEndpointConnections"}.
+type propertyPath = []string
 
-func writePropertiesToBody(missingProperties []propertyPath, bodyParams map[string]interface{}, remoteState map[string]interface{}) map[string]interface{} {
+func writePropertiesToBody(missingProperties []propertyPath, bodyParams map[string]interface{}, remoteState map[string]interface{}) (map[string]interface{}, error) {
 	writtenProperties := map[string]interface{}{}
 	for _, prop := range missingProperties {
-		currentBodyContainer := bodyParams
-		currentStateContainer := remoteState
-		for _, containerName := range prop.path {
-			innerBodyContainer, bodyOk := currentBodyContainer[containerName]
-			innerStateContainer, stateOk := currentStateContainer[containerName]
-			// If the container doesn't exist in either body or state, create it and continue iterating.
-			// But if it doesn't exist in either, there is no point in continuing.
-			if !bodyOk && !stateOk {
-				break
-			}
-			if !bodyOk {
-				innerBodyContainer = map[string]interface{}{}
-				currentBodyContainer[containerName] = innerBodyContainer
-			}
-			if !stateOk {
-				innerStateContainer = map[string]interface{}{}
-				currentStateContainer[containerName] = innerStateContainer
-			}
-			innerBodyObj, innerBodyIsObject := innerBodyContainer.(map[string]interface{})
-			innerStateObj, innerStateIsObject := innerStateContainer.(map[string]interface{})
-			if !innerBodyIsObject || !innerStateIsObject { // we've reached a leaf node (primitive type)
-				break
-			}
-			currentBodyContainer = innerBodyObj
-			currentStateContainer = innerStateObj
+		stateValue, ok, err := nestedFieldNoCopy(remoteState, prop...)
+		if err != nil {
+			// the remoteState has an unexpected structure
+			return nil, fmt.Errorf("error reading remote state: %w", err)
 		}
-
-		stateValue, ok := currentStateContainer[prop.propertyName]
 		if ok {
-			currentBodyContainer[prop.propertyName] = stateValue
-			writtenProperties[fmt.Sprintf("%s.%s", strings.Join(prop.path, "."), prop.propertyName)] = stateValue
+			setNestedFieldNoCopy(bodyParams, stateValue, prop...)
+			writtenProperties[strings.Join(prop, ".")] = stateValue
 		}
 	}
-	return writtenProperties
+	return writtenProperties, nil
+}
+
+// nestedFieldNoCopy returns a reference to a nested field.
+// Returns false if value is not found and an error if unable
+// to traverse obj.
+//
+// Note: fields passed to this function are treated as keys within the passed
+// object; no array/slice syntax is supported.
+func nestedFieldNoCopy(obj map[string]any, fields ...string) (any, bool, error) {
+	var val any = obj
+
+	for i, field := range fields {
+		if val == nil {
+			return nil, false, nil
+		}
+		if m, ok := val.(map[string]any); ok {
+			val, ok = m[field]
+			if !ok {
+				return nil, false, nil
+			}
+		} else {
+			return nil, false, fmt.Errorf("%v accessor error: %v is of the type %T, expected map[string]any", strings.Join(fields[:i+1], "."), val, val)
+		}
+	}
+	return val, true, nil
+}
+
+// setNestedFieldNoCopy sets the value of a nested field to the value provided (not copied).
+// Returns an error if value cannot be set because one of the nesting levels is not a map[string]any.
+func setNestedFieldNoCopy(obj map[string]any, value any, fields ...string) error {
+	m := obj
+
+	for i, field := range fields[:len(fields)-1] {
+		if val, ok := m[field]; ok {
+			if valMap, ok := val.(map[string]any); ok {
+				m = valMap
+			} else {
+				return fmt.Errorf("value cannot be set because %v is not a map[string]any", strings.Join(fields[:i+1], "."))
+			}
+		} else {
+			newVal := make(map[string]any)
+			m[field] = newVal
+			m = newVal
+		}
+	}
+	m[fields[len(fields)-1]] = value
+	return nil
 }
