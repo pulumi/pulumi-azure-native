@@ -318,7 +318,7 @@ func (r *resourceCrudClient) SetUnsetSubresourcePropertiesToDefaults(input, outp
 
 	for _, p := range unset {
 		cur := output
-		for _, pathEl := range p.path[:len(p.path)-1] {
+		for _, pathEl := range p[:len(p)-1] {
 			curObj, ok := cur[pathEl]
 			if !ok {
 				newContainer := map[string]any{}
@@ -332,7 +332,7 @@ func (r *resourceCrudClient) SetUnsetSubresourcePropertiesToDefaults(input, outp
 			}
 		}
 
-		cur[p.path[len(p.path)-1]] = []any{}
+		cur[p[len(p)-1]] = []any{}
 	}
 }
 
@@ -343,10 +343,7 @@ func findUnsetPropertiesToMaintain(res *resources.AzureAPIResource, bodyParams m
 		for i, pathEl := range path {
 			v, ok := curBody[pathEl]
 			if !ok {
-				missingProperties = append(missingProperties, propertyPath{
-					path:         path,
-					propertyName: pathEl,
-				})
+				missingProperties = append(missingProperties, propertyPath(path))
 				break
 			}
 
@@ -357,10 +354,7 @@ func findUnsetPropertiesToMaintain(res *resources.AzureAPIResource, bodyParams m
 
 			curBody, ok = v.(map[string]interface{})
 			if !ok {
-				missingProperties = append(missingProperties, propertyPath{
-					path:         path,
-					propertyName: pathEl,
-				})
+				missingProperties = append(missingProperties, propertyPath(path))
 				break
 			}
 		}
@@ -433,22 +427,20 @@ func (r *resourceCrudClient) Read(ctx context.Context, id string, overrideApiVer
 	return nil, errors.Errorf("expected object from Read of '%s', got %T", url, resp)
 }
 
-type propertyPath struct {
-	path         []string
-	propertyName string
-}
+// propertyPath represents a path to a property in a nested structure, e.g. propertyPath{"properties", "privateEndpointConnections"}.
+type propertyPath = []string
 
 func writePropertiesToBody(missingProperties []propertyPath, bodyParams map[string]interface{}, remoteState map[string]interface{}) (map[string]interface{}, error) {
 	writtenProperties := map[string]interface{}{}
 	for _, prop := range missingProperties {
-		stateValue, ok, err := nestedFieldNoCopy(remoteState, prop.path...)
+		stateValue, ok, err := nestedFieldNoCopy(remoteState, prop...)
 		if err != nil {
 			// the remoteState has an unexpected structure
 			return nil, fmt.Errorf("error reading remote state: %w", err)
 		}
 		if ok {
-			setNestedFieldNoCopy(bodyParams, stateValue, prop.path...)
-			writtenProperties[strings.Join(prop.path, ".")] = stateValue
+			setNestedFieldNoCopy(bodyParams, stateValue, prop...)
+			writtenProperties[strings.Join(prop, ".")] = stateValue
 		}
 	}
 	return writtenProperties, nil
