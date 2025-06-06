@@ -1,0 +1,55 @@
+name: subresources
+runtime: yaml
+description: Tests for subresources
+config:
+  revision:
+    type: string
+    default: "1"
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+
+  external-nsg:
+    type: azure-native:network:NetworkSecurityGroup
+    properties:
+      resourceGroupName: ${rg.name}
+      tags:
+        revision: ${revision}
+
+  external-rule:
+    type: azure-native:network:SecurityRule
+    properties:
+      resourceGroupName: ${rg.name}
+      networkSecurityGroupName: ${external-nsg.name}
+      securityRuleName: external
+      priority: 120
+      direction: Inbound
+      access: Deny
+      protocol: Tcp
+      sourcePortRange: "*"
+      destinationPortRange: "80"
+      sourceAddressPrefix: "*"
+      destinationAddressPrefix: "*"
+      description: Denies inbound HTTP traffic
+
+  inline-nsg:
+    type: azure-native:network:NetworkSecurityGroup
+    properties:
+      resourceGroupName: ${rg.name}
+      tags:
+        revision: ${revision}
+      securityRules:
+        - name: inline
+          priority: 120
+          direction: Inbound
+          access: Deny
+          protocol: Tcp
+          sourcePortRange: "*"
+          destinationPortRange: "80"
+          sourceAddressPrefix: "*"
+          destinationAddressPrefix: "*"
+          description: Denies inbound HTTP traffic
+
+outputs:
+  external-nsg-security-rules: ${external-nsg.securityRules}
+  inline-nsg-security-rules: ${inline-nsg.securityRules}
