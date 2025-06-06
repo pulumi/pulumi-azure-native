@@ -159,7 +159,7 @@ func TestMappableOldStatePreservesDefaultsThatWereNotInputs(t *testing.T) {
 	assert.Contains(t, m, "networkRuleSet")
 }
 
-func TestResetUnsetSubResourceProperties(t *testing.T) {
+func TestRemoveUnsetSubResourceProperties(t *testing.T) {
 	ctx := context.Background()
 
 	res, provider := setUpResourceWithRefAndProviderWithTypeLookup("")
@@ -168,7 +168,7 @@ func TestResetUnsetSubResourceProperties(t *testing.T) {
 		empty := &resources.AzureAPIResource{}
 		oldInputs := resource.PropertyMap{}
 		sdkResponse := map[string]any{}
-		actual := provider.resetUnsetSubResourceProperties(ctx, "urn", sdkResponse, oldInputs, empty)
+		actual := provider.removeUnsetSubResourceProperties(ctx, "urn", sdkResponse, oldInputs, empty)
 		expected := map[string]any{}
 		assert.Equal(t, expected, actual)
 	})
@@ -182,11 +182,9 @@ func TestResetUnsetSubResourceProperties(t *testing.T) {
 				},
 			},
 		}
-		actual := provider.resetUnsetSubResourceProperties(ctx, "urn", sdkResponse, oldInputs, res)
+		actual := provider.removeUnsetSubResourceProperties(ctx, "urn", sdkResponse, oldInputs, res)
 		expected := map[string]any{
-			"properties": map[string]any{
-				"accessPolicies": []any{},
-			},
+			"properties": map[string]any{},
 		}
 		assert.Equal(t, expected, actual)
 	})
@@ -202,10 +200,38 @@ func TestResetUnsetSubResourceProperties(t *testing.T) {
 				"accessPolicies": []any{},
 			},
 		}
-		actual := provider.resetUnsetSubResourceProperties(ctx, "urn", sdkResponse, oldInputs, res)
+		actual := provider.removeUnsetSubResourceProperties(ctx, "urn", sdkResponse, oldInputs, res)
 		expected := sdkResponse
 		assert.Equal(t, expected, actual)
 	})
+}
+
+func TestDeleteFromMap(t *testing.T) {
+	m := map[string]any{
+		"a": "scalar",
+		"b": map[string]any{
+			"b.a": "scalar",
+			"b.b": map[string]any{
+				"b.b.a": map[string]any{},
+			},
+		},
+	}
+
+	deleted := deleteFromMap(m, []string{"a"})
+	assert.True(t, deleted)
+	assert.NotContains(t, m, "a")
+	assert.Contains(t, m, "b")
+
+	deleted = deleteFromMap(m, []string{"b", "b.b", "b.b.a"})
+	assert.True(t, deleted)
+	assert.Contains(t, m, "b")
+	b := m["b"].(map[string]any)
+	assert.Contains(t, b, "b.a")
+	assert.Contains(t, b, "b.b")
+	bb := b["b.b"].(map[string]any)
+	assert.NotContains(t, bb, "b.b.a")
+
+	assert.False(t, deleteFromMap(m, []string{"b", "notfound"}))
 }
 
 // Helper to avoid repeating the same setup code in multiple tests. Returns a resource with a
@@ -273,66 +299,6 @@ func setUpResourceWithRefAndProviderWithTypeLookup(version string) (*resources.A
 	}
 
 	return &res, &provider
-}
-
-func TestSetUnsetSubresourcePropertiesToDefaults(t *testing.T) {
-	res, provider := setUpResourceWithRefAndProviderWithTypeLookup("")
-
-	t.Run("unchanged", func(t *testing.T) {
-		body := map[string]any{
-			"container": map[string]any{
-				"properties": map[string]any{
-					"accessPolicies": []any{},
-				},
-			},
-		}
-		provider.setUnsetSubresourcePropertiesToDefaults(*res, body, body, true)
-		assert.Equal(t, map[string]any{
-			"container": map[string]any{
-				"properties": map[string]any{
-					"accessPolicies": []any{},
-				},
-			},
-		}, body)
-	})
-
-	t.Run("simple missing", func(t *testing.T) {
-		body := map[string]any{
-			"container": map[string]any{
-				"properties": map[string]any{},
-			},
-		}
-		provider.setUnsetSubresourcePropertiesToDefaults(*res, body, body, true)
-		assert.Equal(t, map[string]any{
-			"container": map[string]any{
-				"properties": map[string]any{
-					"accessPolicies": []any{},
-				},
-			},
-		}, body)
-	})
-
-	t.Run("nested missing", func(t *testing.T) {
-		body := map[string]any{}
-		provider.setUnsetSubresourcePropertiesToDefaults(*res, body, body, true)
-		assert.Equal(t, map[string]any{
-			"container": map[string]any{
-				"properties": map[string]any{
-					"accessPolicies": []any{},
-				},
-			},
-		}, body)
-	})
-
-	t.Run("nested missing in SDK shape", func(t *testing.T) {
-		body := map[string]any{}
-		provider.setUnsetSubresourcePropertiesToDefaults(*res, body, body, false)
-		assert.Equal(t, map[string]any{
-			"properties": map[string]any{
-				"accessPolicies": []any{},
-			},
-		}, body)
-	})
 }
 
 func TestInvokeResponseToOutputs(t *testing.T) {

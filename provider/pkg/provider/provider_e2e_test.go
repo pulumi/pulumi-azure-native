@@ -22,8 +22,10 @@ import (
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/assertpreview"
 	"github.com/pulumi/providertest/pulumitest/assertrefresh"
+	"github.com/pulumi/providertest/pulumitest/changesummary"
 	"github.com/pulumi/providertest/pulumitest/opttest"
 
+	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 )
 
@@ -64,6 +66,31 @@ func TestRequiredContainers(t *testing.T) {
 	pt := newPulumiTest(t, "required-containers")
 	pt.Preview(t)
 	pt.Up(t)
+	assertrefresh.HasNoChanges(t, pt.Refresh(t))
+}
+
+func TestSubResources(t *testing.T) {
+	t.Parallel()
+	pt := newPulumiTest(t, "subresources")
+
+	// deploy an NSG with an "external" security rule, and an NSG with an inline security rule.
+	up := pt.Up(t)
+	assert.Len(t, up.Outputs["external-nsg-security-rules"].Value, 0)
+	assert.Len(t, up.Outputs["inline-nsg-security-rules"].Value, 1)
+	inlineRule := up.Outputs["inline-nsg-security-rules"].Value.([]any)[0].(map[string]any)
+	assert.Equal(t, "inline", inlineRule["name"])
+
+	// update a tag on the NSGs, and then check that the external security rules are now available as outputs.
+	pt.SetConfig(t, "subresources:revision", "2")
+	up = pt.Up(t)
+	upSummary := changesummary.FromStringIntMap(*up.Summary.ResourceChanges)
+	assert.Equal(t, 2, upSummary[apitype.OpUpdate])
+	assert.Len(t, up.Outputs["inline-nsg-security-rules"].Value, 1)
+	assert.Len(t, up.Outputs["external-nsg-security-rules"].Value, 1)
+	externalRule := up.Outputs["external-nsg-security-rules"].Value.([]any)[0].(map[string]any)
+	assert.Equal(t, "external", externalRule["name"])
+
+	// check that the state is stable after a refresh.
 	assertrefresh.HasNoChanges(t, pt.Refresh(t))
 }
 
