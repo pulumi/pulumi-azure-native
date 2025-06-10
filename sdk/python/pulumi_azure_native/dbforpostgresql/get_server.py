@@ -185,7 +185,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.UserAssignedIdentityResponse']:
+    def identity(self) -> Optional['outputs.ServerUserAssignedIdentityResponse']:
         """
         Describes the identity of the application.
         """

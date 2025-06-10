@@ -76,7 +76,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * Describes the identity of the application.
      */
-    public readonly identity!: pulumi.Output<outputs.dbforpostgresql.UserAssignedIdentityResponse | undefined>;
+    public readonly identity!: pulumi.Output<outputs.dbforpostgresql.ServerUserAssignedIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -265,7 +265,7 @@ export interface ServerArgs {
     /**
      * Describes the identity of the application.
      */
-    identity?: pulumi.Input<inputs.dbforpostgresql.UserAssignedIdentityArgs>;
+    identity?: pulumi.Input<inputs.dbforpostgresql.ServerUserAssignedIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

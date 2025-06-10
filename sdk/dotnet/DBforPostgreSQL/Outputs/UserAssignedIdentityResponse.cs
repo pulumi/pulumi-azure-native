@@ -24,36 +24,15 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
         /// The principal ID of the assigned identity.
         /// </summary>
         public readonly string PrincipalId;
-        /// <summary>
-        /// Tenant id of the server.
-        /// </summary>
-        public readonly string? TenantId;
-        /// <summary>
-        /// the types of identities associated with this resource
-        /// </summary>
-        public readonly string? Type;
-        /// <summary>
-        /// represents user assigned identities map.
-        /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.UserIdentityResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private UserAssignedIdentityResponse(
             string clientId,
 
-            string principalId,
-
-            string? tenantId,
-
-            string? type,
-
-            ImmutableDictionary<string, Outputs.UserIdentityResponse>? userAssignedIdentities)
+            string principalId)
         {
             ClientId = clientId;
             PrincipalId = principalId;
-            TenantId = tenantId;
-            Type = type;
-            UserAssignedIdentities = userAssignedIdentities;
         }
     }
 }
