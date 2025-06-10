@@ -312,6 +312,10 @@ func (ctx *ReferenceContext) resolveReference(ref spec.Ref) (*reference, bool, e
 	return &reference{newCtx, value}, true, nil
 }
 
+func (ctx *ReferenceContext) Title() string {
+	return ctx.swagger.Info.Title
+}
+
 // Cache of parsed Swagger specifications for a location.
 var specCache = map[string]*spec.Swagger{}
 

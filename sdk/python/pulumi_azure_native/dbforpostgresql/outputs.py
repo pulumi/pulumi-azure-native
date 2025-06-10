@@ -44,6 +44,7 @@ __all__ = [
     'ServerPrivateEndpointConnectionResponse',
     'ServerPrivateLinkServiceConnectionStatePropertyResponse',
     'ServerSkuResponse',
+    'ServerUserAssignedIdentityResponse',
     'SimplePrivateEndpointConnectionResponse',
     'SingleServerSkuResponse',
     'SkuResponse',
@@ -1910,6 +1911,84 @@ class ServerSkuResponse(dict):
 
 
 @pulumi.output_type
+class ServerUserAssignedIdentityResponse(dict):
+    """
+    Information describing the identities associated with this application.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerUserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerUserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerUserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tenant_id: builtins.str,
+                 type: builtins.str,
+                 principal_id: Optional[builtins.str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityResponse']] = None):
+        """
+        Information describing the identities associated with this application.
+        :param builtins.str tenant_id: Tenant id of the server.
+        :param builtins.str type: the types of identities associated with this resource
+        :param builtins.str principal_id: the identity principal Id of the server.
+        :param Mapping[str, 'UserIdentityResponse'] user_assigned_identities: represents user assigned identities map.
+        """
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> builtins.str:
+        """
+        Tenant id of the server.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        the types of identities associated with this resource
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[builtins.str]:
+        """
+        the identity principal Id of the server.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserIdentityResponse']]:
+        """
+        represents user assigned identities map.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
 class SimplePrivateEndpointConnectionResponse(dict):
     """
     A private endpoint connection.
@@ -2432,10 +2511,6 @@ class UserAssignedIdentityResponse(dict):
             suggest = "client_id"
         elif key == "principalId":
             suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-        elif key == "userAssignedIdentities":
-            suggest = "user_assigned_identities"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2450,26 +2525,14 @@ class UserAssignedIdentityResponse(dict):
 
     def __init__(__self__, *,
                  client_id: builtins.str,
-                 principal_id: builtins.str,
-                 tenant_id: Optional[builtins.str] = None,
-                 type: Optional[builtins.str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityResponse']] = None):
+                 principal_id: builtins.str):
         """
         User assigned identity properties
         :param builtins.str client_id: The client ID of the assigned identity.
         :param builtins.str principal_id: The principal ID of the assigned identity.
-        :param builtins.str tenant_id: Tenant id of the server.
-        :param builtins.str type: the types of identities associated with this resource
-        :param Mapping[str, 'UserIdentityResponse'] user_assigned_identities: represents user assigned identities map.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "principal_id", principal_id)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="clientId")
@@ -2486,30 +2549,6 @@ class UserAssignedIdentityResponse(dict):
         The principal ID of the assigned identity.
         """
         return pulumi.get(self, "principal_id")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[builtins.str]:
-        """
-        Tenant id of the server.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[builtins.str]:
-        """
-        the types of identities associated with this resource
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserIdentityResponse']]:
-        """
-        represents user assigned identities map.
-        """
-        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type

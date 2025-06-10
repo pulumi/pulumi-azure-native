@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// Describes the identity of the application.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.UserAssignedIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ServerUserAssignedIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -293,7 +293,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// Describes the identity of the application.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.UserAssignedIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ServerUserAssignedIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

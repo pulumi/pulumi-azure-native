@@ -505,5 +505,12 @@ func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, isOutput bool)
 	}
 	standardName := ToUpperCamel(MakeLegalIdentifier(ctx.ReferenceName))
 	referenceName := m.typeNameOverride(standardName)
+
+	if ctx.Title() == "PostgreSQLServerManagementClient" && referenceName == "UserAssignedIdentity" {
+		// This is a special case for the PostgreSQLServerManagementClient which has a UserAssignedIdentity
+		// that is not the same as the common UserAssignedIdentity.
+		referenceName = "ServerUserAssignedIdentity"
+	}
+
 	return fmt.Sprintf("azure-native:%s:%s%s", m.module, referenceName, suffix)
 }

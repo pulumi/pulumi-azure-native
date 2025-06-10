@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Describes the identity of the application.
         /// </summary>
-        public readonly Outputs.UserAssignedIdentityResponse? Identity;
+        public readonly Outputs.ServerUserAssignedIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -216,7 +216,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 
             string id,
 
-            Outputs.UserAssignedIdentityResponse? identity,
+            Outputs.ServerUserAssignedIdentityResponse? identity,
 
             string location,
 

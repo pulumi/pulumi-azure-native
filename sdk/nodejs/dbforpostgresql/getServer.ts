@@ -76,7 +76,7 @@ export interface GetServerResult {
     /**
      * Describes the identity of the application.
      */
-    readonly identity?: outputs.dbforpostgresql.UserAssignedIdentityResponse;
+    readonly identity?: outputs.dbforpostgresql.ServerUserAssignedIdentityResponse;
     /**
      * The geo-location where the resource lives
      */

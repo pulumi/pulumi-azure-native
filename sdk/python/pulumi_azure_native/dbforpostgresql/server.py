@@ -32,7 +32,7 @@ class ServerArgs:
                  create_mode: Optional[pulumi.Input[Union[builtins.str, 'CreateMode']]] = None,
                  data_encryption: Optional[pulumi.Input['DataEncryptionArgs']] = None,
                  high_availability: Optional[pulumi.Input['HighAvailabilityArgs']] = None,
-                 identity: Optional[pulumi.Input['UserAssignedIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ServerUserAssignedIdentityArgs']] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  maintenance_window: Optional[pulumi.Input['MaintenanceWindowArgs']] = None,
                  network: Optional[pulumi.Input['NetworkArgs']] = None,
@@ -56,7 +56,7 @@ class ServerArgs:
         :param pulumi.Input[Union[builtins.str, 'CreateMode']] create_mode: The mode to create a new PostgreSQL server.
         :param pulumi.Input['DataEncryptionArgs'] data_encryption: Data encryption properties of a server.
         :param pulumi.Input['HighAvailabilityArgs'] high_availability: High availability properties of a server.
-        :param pulumi.Input['UserAssignedIdentityArgs'] identity: Describes the identity of the application.
+        :param pulumi.Input['ServerUserAssignedIdentityArgs'] identity: Describes the identity of the application.
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['MaintenanceWindowArgs'] maintenance_window: Maintenance window properties of a server.
         :param pulumi.Input['NetworkArgs'] network: Network properties of a server. This Network property is required to be passed only in case you want the server to be Private access server.
@@ -226,14 +226,14 @@ class ServerArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['UserAssignedIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ServerUserAssignedIdentityArgs']]:
         """
         Describes the identity of the application.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['UserAssignedIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ServerUserAssignedIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -395,7 +395,7 @@ class Server(pulumi.CustomResource):
                  create_mode: Optional[pulumi.Input[Union[builtins.str, 'CreateMode']]] = None,
                  data_encryption: Optional[pulumi.Input[Union['DataEncryptionArgs', 'DataEncryptionArgsDict']]] = None,
                  high_availability: Optional[pulumi.Input[Union['HighAvailabilityArgs', 'HighAvailabilityArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['UserAssignedIdentityArgs', 'UserAssignedIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ServerUserAssignedIdentityArgs', 'ServerUserAssignedIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  maintenance_window: Optional[pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
                  network: Optional[pulumi.Input[Union['NetworkArgs', 'NetworkArgsDict']]] = None,
@@ -427,7 +427,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[Union[builtins.str, 'CreateMode']] create_mode: The mode to create a new PostgreSQL server.
         :param pulumi.Input[Union['DataEncryptionArgs', 'DataEncryptionArgsDict']] data_encryption: Data encryption properties of a server.
         :param pulumi.Input[Union['HighAvailabilityArgs', 'HighAvailabilityArgsDict']] high_availability: High availability properties of a server.
-        :param pulumi.Input[Union['UserAssignedIdentityArgs', 'UserAssignedIdentityArgsDict']] identity: Describes the identity of the application.
+        :param pulumi.Input[Union['ServerUserAssignedIdentityArgs', 'ServerUserAssignedIdentityArgsDict']] identity: Describes the identity of the application.
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']] maintenance_window: Maintenance window properties of a server.
         :param pulumi.Input[Union['NetworkArgs', 'NetworkArgsDict']] network: Network properties of a server. This Network property is required to be passed only in case you want the server to be Private access server.
@@ -478,7 +478,7 @@ class Server(pulumi.CustomResource):
                  create_mode: Optional[pulumi.Input[Union[builtins.str, 'CreateMode']]] = None,
                  data_encryption: Optional[pulumi.Input[Union['DataEncryptionArgs', 'DataEncryptionArgsDict']]] = None,
                  high_availability: Optional[pulumi.Input[Union['HighAvailabilityArgs', 'HighAvailabilityArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['UserAssignedIdentityArgs', 'UserAssignedIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ServerUserAssignedIdentityArgs', 'ServerUserAssignedIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  maintenance_window: Optional[pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
                  network: Optional[pulumi.Input[Union['NetworkArgs', 'NetworkArgsDict']]] = None,
@@ -654,7 +654,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.UserAssignedIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.ServerUserAssignedIdentityResponse']]:
         """
         Describes the identity of the application.
         """
