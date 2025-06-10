@@ -188,8 +188,11 @@ func newPulumiTest(t *testing.T, testProgramDir string, opts ...opttest.Option) 
 }
 
 func providerServer(_ providers.PulumiTest) (pulumirpc.ResourceProviderServer, error) {
-	version.Version = "0.0.1"
-
+	version.Version = os.Getenv("PROVIDER_VERSION")
+	if version.Version == "" {
+		version.Version = "0.0.1"
+		fmt.Println("Defaulting version to '0.0.1'. You can override using the PROVIDER_VERSION variable.")
+	}
 	if len(schemaBytes) == 0 {
 		return nil, fmt.Errorf("schema not loaded")
 	}
