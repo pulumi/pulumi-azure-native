@@ -206,7 +206,7 @@ func main() {
 // emitSchema writes the Pulumi schema JSON to the 'schema.json' file in the given directory.
 func emitSchema(pkgSpec schema.PackageSpec, version, outputPath string) error {
 	pkgSpec.Version = version
-	schemaJSON, err := json.Marshal(pkgSpec)
+	schemaJSON, err := json.MarshalIndent(pkgSpec, "", "    ")
 	if err != nil {
 		return errors.Wrap(err, "marshaling Pulumi schema")
 	}
