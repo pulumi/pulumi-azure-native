@@ -472,7 +472,7 @@ export interface DatabaseArgs {
     /**
      * The resource ids of the user assigned identities to use
      */
-    keys?: pulumi.Input<pulumi.Input<string>[]>;
+    keys?: pulumi.Input<{[key: string]: pulumi.Input<inputs.sql.DatabaseKeyArgs>}>;
     /**
      * The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
      */

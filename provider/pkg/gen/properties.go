@@ -353,7 +353,7 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 		return nil, nil, err
 	}
 
-	typeSpec, err := m.genTypeSpec(name, schema, context, variants.isOutput)
+	typeSpec, err := m.genTypeSpec(name, schema, context, variants.isOutput, true /* skipEmptyTypes */)
 	if err != nil {
 		return nil, nil, fmt.Errorf("failed to generate type spec for property %q: %w", name, err)
 	}
