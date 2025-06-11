@@ -27,6 +27,8 @@ __all__ = [
     'HeaderFieldArgsDict',
     'MyWorkbookManagedIdentityArgs',
     'MyWorkbookManagedIdentityArgsDict',
+    'UserAssignedIdentityArgs',
+    'UserAssignedIdentityArgsDict',
     'WebTestGeolocationArgs',
     'WebTestGeolocationArgsDict',
     'WebTestPropertiesConfigurationArgs',
@@ -448,6 +450,24 @@ class MyWorkbookManagedIdentityArgs:
 
 
 if not MYPY:
+    class UserAssignedIdentityArgsDict(TypedDict):
+        """
+        User assigned identity properties
+        """
+        pass
+elif False:
+    UserAssignedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserAssignedIdentityArgs:
+    def __init__(__self__):
+        """
+        User assigned identity properties
+        """
+        pass
+
+
+if not MYPY:
     class WebTestGeolocationArgsDict(TypedDict):
         """
         Geo-physical location to run a WebTest from. You must specify one or more locations for the test to run from.
@@ -856,7 +876,7 @@ if not MYPY:
         """
         Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgsDict']]]]
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -867,11 +887,11 @@ elif False:
 class WorkbookResourceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]] = None):
         """
         Identity used for BYOS
         :param pulumi.Input[Union[builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -891,14 +911,14 @@ class WorkbookResourceIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 

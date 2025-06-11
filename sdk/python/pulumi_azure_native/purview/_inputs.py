@@ -29,6 +29,8 @@ __all__ = [
     'PrivateEndpointArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
     'PrivateLinkServiceConnectionStateArgsDict',
+    'UserAssignedIdentityArgs',
+    'UserAssignedIdentityArgsDict',
 ]
 
 MYPY = False
@@ -154,7 +156,7 @@ if not MYPY:
         """
         Identity Type
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgsDict']]]]
         """
         User Assigned Identities
         """
@@ -165,11 +167,11 @@ elif False:
 class IdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[Union[builtins.str, 'ManagedIdentityType']]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]] = None):
         """
         The Managed Identity of the resource
         :param pulumi.Input[Union[builtins.str, 'ManagedIdentityType']] type: Identity Type
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: User Assigned Identities
+        :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]] user_assigned_identities: User Assigned Identities
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -190,14 +192,14 @@ class IdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]:
         """
         User Assigned Identities
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -347,5 +349,23 @@ class PrivateLinkServiceConnectionStateArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[Union[builtins.str, 'PrivateEndpointConnectionStatus']]]):
         pulumi.set(self, "status", value)
+
+
+if not MYPY:
+    class UserAssignedIdentityArgsDict(TypedDict):
+        """
+        Uses client ID and Principal ID
+        """
+        pass
+elif False:
+    UserAssignedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserAssignedIdentityArgs:
+    def __init__(__self__):
+        """
+        Uses client ID and Principal ID
+        """
+        pass
 
 

@@ -23,6 +23,8 @@ __all__ = [
     'CustomerManagedKeyEncryptionPropertiesArgsDict',
     'EncryptionPropertiesArgs',
     'EncryptionPropertiesArgsDict',
+    'IdentityUserAssignedIdentitiesArgs',
+    'IdentityUserAssignedIdentitiesArgsDict',
     'IdentityArgs',
     'IdentityArgsDict',
 ]
@@ -178,6 +180,18 @@ class EncryptionPropertiesArgs:
 
 
 if not MYPY:
+    class IdentityUserAssignedIdentitiesArgsDict(TypedDict):
+        pass
+elif False:
+    IdentityUserAssignedIdentitiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IdentityUserAssignedIdentitiesArgs:
+    def __init__(__self__):
+        pass
+
+
+if not MYPY:
     class IdentityArgsDict(TypedDict):
         """
         Identity for the resource.
@@ -186,7 +200,7 @@ if not MYPY:
         """
         The identity type.
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['IdentityUserAssignedIdentitiesArgsDict']]]]
         """
         The list of user identities associated with the resource.
         """
@@ -197,11 +211,11 @@ elif False:
 class IdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['IdentityUserAssignedIdentitiesArgs']]]] = None):
         """
         Identity for the resource.
         :param pulumi.Input['ResourceIdentityType'] type: The identity type.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: The list of user identities associated with the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input['IdentityUserAssignedIdentitiesArgs']]] user_assigned_identities: The list of user identities associated with the resource.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -222,14 +236,14 @@ class IdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['IdentityUserAssignedIdentitiesArgs']]]]:
         """
         The list of user identities associated with the resource.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['IdentityUserAssignedIdentitiesArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 

@@ -47,6 +47,8 @@ __all__ = [
     'PlanArgsDict',
     'SkuArgs',
     'SkuArgsDict',
+    'UserAssignedResourceIdentityArgs',
+    'UserAssignedResourceIdentityArgsDict',
 ]
 
 MYPY = False
@@ -555,7 +557,7 @@ if not MYPY:
         """
         The identity type.
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedResourceIdentityArgsDict']]]]
         """
         The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -566,11 +568,11 @@ elif False:
 class IdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedResourceIdentityArgs']]]] = None):
         """
         Identity for the resource.
         :param pulumi.Input['ResourceIdentityType'] type: The identity type.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedResourceIdentityArgs']]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -591,14 +593,14 @@ class IdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedResourceIdentityArgs']]]]:
         """
         The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedResourceIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -1042,5 +1044,23 @@ class SkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "tier", value)
+
+
+if not MYPY:
+    class UserAssignedResourceIdentityArgsDict(TypedDict):
+        """
+        Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
+        """
+        pass
+elif False:
+    UserAssignedResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserAssignedResourceIdentityArgs:
+    def __init__(__self__):
+        """
+        Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
+        """
+        pass
 
 

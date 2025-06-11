@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.IoTHub.Inputs
         public Input<Pulumi.AzureNative.IoTHub.ResourceIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
-        private InputList<string>? _userAssignedIdentities;
-        public InputList<string> UserAssignedIdentities
+        private InputMap<Inputs.ArmUserIdentityArgs>? _userAssignedIdentities;
+        public InputMap<Inputs.ArmUserIdentityArgs> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<Inputs.ArmUserIdentityArgs>());
             set => _userAssignedIdentities = value;
         }
 

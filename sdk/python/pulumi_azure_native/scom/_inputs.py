@@ -31,6 +31,8 @@ __all__ = [
     'ManagedIdentityArgsDict',
     'MonitoringInstancePropertiesArgs',
     'MonitoringInstancePropertiesArgsDict',
+    'UserIdentityArgs',
+    'UserIdentityArgsDict',
 ]
 
 MYPY = False
@@ -406,7 +408,7 @@ if not MYPY:
         """
         The identity type
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgsDict']]]]
         """
         The resource ids of the user assigned identities to use
         """
@@ -417,11 +419,11 @@ elif False:
 class ManagedIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[Union[builtins.str, 'ManagedIdentityType']]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgs']]]] = None):
         """
         Azure Active Directory identity configuration for a resource.
         :param pulumi.Input[Union[builtins.str, 'ManagedIdentityType']] type: The identity type
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: The resource ids of the user assigned identities to use
+        :param pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgs']]] user_assigned_identities: The resource ids of the user assigned identities to use
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -442,14 +444,14 @@ class ManagedIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgs']]]]:
         """
         The resource ids of the user assigned identities to use
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -587,5 +589,23 @@ class MonitoringInstancePropertiesArgs:
     @v_net_subnet_id.setter
     def v_net_subnet_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "v_net_subnet_id", value)
+
+
+if not MYPY:
+    class UserIdentityArgsDict(TypedDict):
+        """
+        Azure Active Directory identity configuration for a resource.
+        """
+        pass
+elif False:
+    UserIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserIdentityArgs:
+    def __init__(__self__):
+        """
+        Azure Active Directory identity configuration for a resource.
+        """
+        pass
 
 

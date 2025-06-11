@@ -21,18 +21,6 @@ namespace Pulumi.AzureNative.DBforMySQL.Inputs
         [Input("type")]
         public InputUnion<string, Pulumi.AzureNative.DBforMySQL.ManagedServiceIdentityType>? Type { get; set; }
 
-        [Input("userAssignedIdentities")]
-        private InputList<string>? _userAssignedIdentities;
-
-        /// <summary>
-        /// Metadata of user assigned identity.
-        /// </summary>
-        public InputList<string> UserAssignedIdentities
-        {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
-            set => _userAssignedIdentities = value;
-        }
-
         public MySQLServerIdentityArgs()
         {
         }

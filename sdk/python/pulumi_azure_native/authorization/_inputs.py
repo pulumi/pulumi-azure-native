@@ -31,6 +31,8 @@ __all__ = [
     'ApprovalSettingsArgsDict',
     'ApprovalStageArgs',
     'ApprovalStageArgsDict',
+    'IdentityUserAssignedIdentitiesArgs',
+    'IdentityUserAssignedIdentitiesArgsDict',
     'IdentityArgs',
     'IdentityArgsDict',
     'ManagementLockOwnerArgs',
@@ -844,6 +846,18 @@ class ApprovalStageArgs:
 
 
 if not MYPY:
+    class IdentityUserAssignedIdentitiesArgsDict(TypedDict):
+        pass
+elif False:
+    IdentityUserAssignedIdentitiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IdentityUserAssignedIdentitiesArgs:
+    def __init__(__self__):
+        pass
+
+
+if not MYPY:
     class IdentityArgsDict(TypedDict):
         """
         Identity for the resource.  Policy assignments support a maximum of one identity.  That is either a system assigned identity or a single user assigned identity.
@@ -852,7 +866,7 @@ if not MYPY:
         """
         The identity type. This is the only required field when adding a system or user assigned identity to a resource.
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['IdentityUserAssignedIdentitiesArgsDict']]]]
         """
         The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -863,11 +877,11 @@ elif False:
 class IdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['IdentityUserAssignedIdentitiesArgs']]]] = None):
         """
         Identity for the resource.  Policy assignments support a maximum of one identity.  That is either a system assigned identity or a single user assigned identity.
         :param pulumi.Input['ResourceIdentityType'] type: The identity type. This is the only required field when adding a system or user assigned identity to a resource.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param pulumi.Input[Mapping[str, pulumi.Input['IdentityUserAssignedIdentitiesArgs']]] user_assigned_identities: The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -888,14 +902,14 @@ class IdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['IdentityUserAssignedIdentitiesArgs']]]]:
         """
         The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['IdentityUserAssignedIdentitiesArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 

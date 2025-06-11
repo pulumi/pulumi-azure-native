@@ -79,6 +79,8 @@ __all__ = [
     'SmartIdentityProviderConfigurationArgsDict',
     'StorageConfigurationArgs',
     'StorageConfigurationArgsDict',
+    'UserAssignedIdentityArgs',
+    'UserAssignedIdentityArgsDict',
 ]
 
 MYPY = False
@@ -1677,7 +1679,7 @@ if not MYPY:
         """
         Type of identity being specified, currently SystemAssigned and None are allowed.
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgsDict']]]]
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -1688,11 +1690,11 @@ elif False:
 class ServiceManagedIdentityIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[builtins.str, 'ServiceManagedIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]] = None):
         """
         Setting indicating whether the service has a managed identity associated with it.
         :param pulumi.Input[Union[builtins.str, 'ServiceManagedIdentityType']] type: Type of identity being specified, currently SystemAssigned and None are allowed.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -1712,14 +1714,14 @@ class ServiceManagedIdentityIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -2217,5 +2219,23 @@ class StorageConfigurationArgs:
     @storage_resource_id.setter
     def storage_resource_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "storage_resource_id", value)
+
+
+if not MYPY:
+    class UserAssignedIdentityArgsDict(TypedDict):
+        """
+        User assigned identity properties
+        """
+        pass
+elif False:
+    UserAssignedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserAssignedIdentityArgs:
+    def __init__(__self__):
+        """
+        User assigned identity properties
+        """
+        pass
 
 

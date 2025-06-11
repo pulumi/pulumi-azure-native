@@ -53,6 +53,8 @@ __all__ = [
     'ResourceSkuArgsDict',
     'UpstreamAuthSettingsArgs',
     'UpstreamAuthSettingsArgsDict',
+    'UserAssignedIdentityPropertyArgs',
+    'UserAssignedIdentityPropertyArgsDict',
     'WebPubSubHubPropertiesArgs',
     'WebPubSubHubPropertiesArgsDict',
     'WebPubSubNetworkACLsArgs',
@@ -639,7 +641,7 @@ if not MYPY:
         """
         Represents the identity type: systemAssigned, userAssigned, None
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityPropertyArgsDict']]]]
         """
         Get or set the user assigned identities
         """
@@ -650,11 +652,11 @@ elif False:
 class ManagedIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[Union[builtins.str, 'ManagedIdentityType']]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityPropertyArgs']]]] = None):
         """
         A class represent managed identities used for request and response
         :param pulumi.Input[Union[builtins.str, 'ManagedIdentityType']] type: Represents the identity type: systemAssigned, userAssigned, None
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: Get or set the user assigned identities
+        :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityPropertyArgs']]] user_assigned_identities: Get or set the user assigned identities
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -675,14 +677,14 @@ class ManagedIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityPropertyArgs']]]]:
         """
         Get or set the user assigned identities
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityPropertyArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -1231,6 +1233,24 @@ class UpstreamAuthSettingsArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[builtins.str, 'UpstreamAuthType']]]):
         pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class UserAssignedIdentityPropertyArgsDict(TypedDict):
+        """
+        Properties of user assigned identity.
+        """
+        pass
+elif False:
+    UserAssignedIdentityPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserAssignedIdentityPropertyArgs:
+    def __init__(__self__):
+        """
+        Properties of user assigned identity.
+        """
+        pass
 
 
 if not MYPY:

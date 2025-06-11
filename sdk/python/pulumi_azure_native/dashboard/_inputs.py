@@ -25,6 +25,8 @@ __all__ = [
     'GrafanaConfigurationsArgsDict',
     'GrafanaIntegrationsArgs',
     'GrafanaIntegrationsArgsDict',
+    'GrafanaPluginArgs',
+    'GrafanaPluginArgsDict',
     'IntegrationFabricPropertiesArgs',
     'IntegrationFabricPropertiesArgsDict',
     'ManagedGrafanaPropertiesArgs',
@@ -41,6 +43,8 @@ __all__ = [
     'SmtpArgsDict',
     'SnapshotsArgs',
     'SnapshotsArgsDict',
+    'UserAssignedIdentityArgs',
+    'UserAssignedIdentityArgsDict',
     'UsersArgs',
     'UsersArgsDict',
 ]
@@ -268,6 +272,24 @@ class GrafanaIntegrationsArgs:
 
 
 if not MYPY:
+    class GrafanaPluginArgsDict(TypedDict):
+        """
+        Plugin of Grafana
+        """
+        pass
+elif False:
+    GrafanaPluginArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GrafanaPluginArgs:
+    def __init__(__self__):
+        """
+        Plugin of Grafana
+        """
+        pass
+
+
+if not MYPY:
     class IntegrationFabricPropertiesArgsDict(TypedDict):
         data_source_resource_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -372,7 +394,7 @@ if not MYPY:
         """
         The major Grafana software version to target.
         """
-        grafana_plugins: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        grafana_plugins: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['GrafanaPluginArgsDict']]]]
         """
         Installed plugin list of the Grafana instance. Key is plugin id, value is plugin definition.
         """
@@ -397,7 +419,7 @@ class ManagedGrafanaPropertiesArgs:
                  grafana_configurations: Optional[pulumi.Input['GrafanaConfigurationsArgs']] = None,
                  grafana_integrations: Optional[pulumi.Input['GrafanaIntegrationsArgs']] = None,
                  grafana_major_version: Optional[pulumi.Input[builtins.str]] = None,
-                 grafana_plugins: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 grafana_plugins: Optional[pulumi.Input[Mapping[str, pulumi.Input['GrafanaPluginArgs']]]] = None,
                  public_network_access: Optional[pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']]] = None,
                  zone_redundancy: Optional[pulumi.Input[Union[builtins.str, 'ZoneRedundancy']]] = None):
         """
@@ -409,7 +431,7 @@ class ManagedGrafanaPropertiesArgs:
         :param pulumi.Input['GrafanaConfigurationsArgs'] grafana_configurations: Server configurations of a Grafana instance
         :param pulumi.Input['GrafanaIntegrationsArgs'] grafana_integrations: GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
         :param pulumi.Input[builtins.str] grafana_major_version: The major Grafana software version to target.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] grafana_plugins: Installed plugin list of the Grafana instance. Key is plugin id, value is plugin definition.
+        :param pulumi.Input[Mapping[str, pulumi.Input['GrafanaPluginArgs']]] grafana_plugins: Installed plugin list of the Grafana instance. Key is plugin id, value is plugin definition.
         :param pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']] public_network_access: Indicate the state for enable or disable traffic over the public interface.
         :param pulumi.Input[Union[builtins.str, 'ZoneRedundancy']] zone_redundancy: The zone redundancy setting of the Grafana instance.
         """
@@ -520,14 +542,14 @@ class ManagedGrafanaPropertiesArgs:
 
     @property
     @pulumi.getter(name="grafanaPlugins")
-    def grafana_plugins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def grafana_plugins(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['GrafanaPluginArgs']]]]:
         """
         Installed plugin list of the Grafana instance. Key is plugin id, value is plugin definition.
         """
         return pulumi.get(self, "grafana_plugins")
 
     @grafana_plugins.setter
-    def grafana_plugins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def grafana_plugins(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['GrafanaPluginArgs']]]]):
         pulumi.set(self, "grafana_plugins", value)
 
     @property
@@ -564,7 +586,7 @@ if not MYPY:
         """
         Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgsDict']]]]
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -575,11 +597,11 @@ elif False:
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[Union[builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -599,14 +621,14 @@ class ManagedServiceIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -970,6 +992,24 @@ class SnapshotsArgs:
     @external_enabled.setter
     def external_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "external_enabled", value)
+
+
+if not MYPY:
+    class UserAssignedIdentityArgsDict(TypedDict):
+        """
+        User assigned identity properties
+        """
+        pass
+elif False:
+    UserAssignedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserAssignedIdentityArgs:
+    def __init__(__self__):
+        """
+        User assigned identity properties
+        """
+        pass
 
 
 if not MYPY:

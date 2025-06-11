@@ -58,14 +58,14 @@ namespace Pulumi.AzureNative.Dashboard.Inputs
         public Input<string>? GrafanaMajorVersion { get; set; }
 
         [Input("grafanaPlugins")]
-        private InputList<string>? _grafanaPlugins;
+        private InputMap<Inputs.GrafanaPluginArgs>? _grafanaPlugins;
 
         /// <summary>
         /// Installed plugin list of the Grafana instance. Key is plugin id, value is plugin definition.
         /// </summary>
-        public InputList<string> GrafanaPlugins
+        public InputMap<Inputs.GrafanaPluginArgs> GrafanaPlugins
         {
-            get => _grafanaPlugins ?? (_grafanaPlugins = new InputList<string>());
+            get => _grafanaPlugins ?? (_grafanaPlugins = new InputMap<Inputs.GrafanaPluginArgs>());
             set => _grafanaPlugins = value;
         }
 

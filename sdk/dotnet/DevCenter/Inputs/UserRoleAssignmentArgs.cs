@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.DevCenter.Inputs
     public sealed class UserRoleAssignmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("roles")]
-        private InputList<string>? _roles;
+        private InputMap<Inputs.EnvironmentRoleArgs>? _roles;
 
         /// <summary>
         /// A map of roles to assign to the parent user.
         /// </summary>
-        public InputList<string> Roles
+        public InputMap<Inputs.EnvironmentRoleArgs> Roles
         {
-            get => _roles ?? (_roles = new InputList<string>());
+            get => _roles ?? (_roles = new InputMap<Inputs.EnvironmentRoleArgs>());
             set => _roles = value;
         }
 

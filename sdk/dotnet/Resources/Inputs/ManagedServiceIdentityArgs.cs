@@ -22,14 +22,14 @@ namespace Pulumi.AzureNative.Resources.Inputs
         public InputUnion<string, Pulumi.AzureNative.Resources.ManagedServiceIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
-        private InputList<string>? _userAssignedIdentities;
+        private InputMap<Inputs.UserAssignedIdentityArgs>? _userAssignedIdentities;
 
         /// <summary>
         /// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
         /// </summary>
-        public InputList<string> UserAssignedIdentities
+        public InputMap<Inputs.UserAssignedIdentityArgs> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<Inputs.UserAssignedIdentityArgs>());
             set => _userAssignedIdentities = value;
         }
 

@@ -251,6 +251,8 @@ __all__ = [
     'TransformOutputArgsDict',
     'TransportStreamFormatArgs',
     'TransportStreamFormatArgsDict',
+    'UserAssignedManagedIdentityArgs',
+    'UserAssignedManagedIdentityArgsDict',
     'UtcClipTimeArgs',
     'UtcClipTimeArgsDict',
     'VideoAnalyzerPresetArgs',
@@ -7974,7 +7976,7 @@ if not MYPY:
         """
         The identity type.
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedManagedIdentityArgsDict']]]]
         """
         The user assigned managed identities.
         """
@@ -7985,10 +7987,10 @@ elif False:
 class MediaServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[builtins.str],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedManagedIdentityArgs']]]] = None):
         """
         :param pulumi.Input[builtins.str] type: The identity type.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: The user assigned managed identities.
+        :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedManagedIdentityArgs']]] user_assigned_identities: The user assigned managed identities.
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -8008,14 +8010,14 @@ class MediaServiceIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedManagedIdentityArgs']]]]:
         """
         The user assigned managed identities.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedManagedIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -10434,6 +10436,18 @@ class TransportStreamFormatArgs:
     @output_files.setter
     def output_files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OutputFileArgs']]]]):
         pulumi.set(self, "output_files", value)
+
+
+if not MYPY:
+    class UserAssignedManagedIdentityArgsDict(TypedDict):
+        pass
+elif False:
+    UserAssignedManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserAssignedManagedIdentityArgs:
+    def __init__(__self__):
+        pass
 
 
 if not MYPY:

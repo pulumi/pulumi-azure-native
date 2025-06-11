@@ -39,7 +39,7 @@ class DatabaseArgs:
                  high_availability_replica_count: Optional[pulumi.Input[builtins.int]] = None,
                  identity: Optional[pulumi.Input['DatabaseIdentityArgs']] = None,
                  is_ledger_on: Optional[pulumi.Input[builtins.bool]] = None,
-                 keys: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 keys: Optional[pulumi.Input[Mapping[str, pulumi.Input['DatabaseKeyArgs']]]] = None,
                  license_type: Optional[pulumi.Input[Union[builtins.str, 'DatabaseLicenseType']]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  long_term_retention_backup_resource_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -102,7 +102,7 @@ class DatabaseArgs:
         :param pulumi.Input[builtins.int] high_availability_replica_count: The number of secondary replicas associated with the Business Critical, Premium, or Hyperscale edition database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         :param pulumi.Input['DatabaseIdentityArgs'] identity: The Azure Active Directory identity of the database.
         :param pulumi.Input[builtins.bool] is_ledger_on: Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] keys: The resource ids of the user assigned identities to use
+        :param pulumi.Input[Mapping[str, pulumi.Input['DatabaseKeyArgs']]] keys: The resource ids of the user assigned identities to use
         :param pulumi.Input[Union[builtins.str, 'DatabaseLicenseType']] license_type: The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
         :param pulumi.Input[builtins.str] location: Resource location.
         :param pulumi.Input[builtins.str] long_term_retention_backup_resource_id: The resource identifier of the long term retention backup associated with create operation of this database.
@@ -457,14 +457,14 @@ class DatabaseArgs:
 
     @property
     @pulumi.getter
-    def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def keys(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DatabaseKeyArgs']]]]:
         """
         The resource ids of the user assigned identities to use
         """
         return pulumi.get(self, "keys")
 
     @keys.setter
-    def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def keys(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DatabaseKeyArgs']]]]):
         pulumi.set(self, "keys", value)
 
     @property
@@ -810,7 +810,7 @@ class Database(pulumi.CustomResource):
                  high_availability_replica_count: Optional[pulumi.Input[builtins.int]] = None,
                  identity: Optional[pulumi.Input[Union['DatabaseIdentityArgs', 'DatabaseIdentityArgsDict']]] = None,
                  is_ledger_on: Optional[pulumi.Input[builtins.bool]] = None,
-                 keys: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DatabaseKeyArgs', 'DatabaseKeyArgsDict']]]]] = None,
                  license_type: Optional[pulumi.Input[Union[builtins.str, 'DatabaseLicenseType']]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  long_term_retention_backup_resource_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -881,7 +881,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] high_availability_replica_count: The number of secondary replicas associated with the Business Critical, Premium, or Hyperscale edition database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         :param pulumi.Input[Union['DatabaseIdentityArgs', 'DatabaseIdentityArgsDict']] identity: The Azure Active Directory identity of the database.
         :param pulumi.Input[builtins.bool] is_ledger_on: Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] keys: The resource ids of the user assigned identities to use
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['DatabaseKeyArgs', 'DatabaseKeyArgsDict']]]] keys: The resource ids of the user assigned identities to use
         :param pulumi.Input[Union[builtins.str, 'DatabaseLicenseType']] license_type: The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
         :param pulumi.Input[builtins.str] location: Resource location.
         :param pulumi.Input[builtins.str] long_term_retention_backup_resource_id: The resource identifier of the long term retention backup associated with create operation of this database.
@@ -985,7 +985,7 @@ class Database(pulumi.CustomResource):
                  high_availability_replica_count: Optional[pulumi.Input[builtins.int]] = None,
                  identity: Optional[pulumi.Input[Union['DatabaseIdentityArgs', 'DatabaseIdentityArgsDict']]] = None,
                  is_ledger_on: Optional[pulumi.Input[builtins.bool]] = None,
-                 keys: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DatabaseKeyArgs', 'DatabaseKeyArgsDict']]]]] = None,
                  license_type: Optional[pulumi.Input[Union[builtins.str, 'DatabaseLicenseType']]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  long_term_retention_backup_resource_id: Optional[pulumi.Input[builtins.str]] = None,

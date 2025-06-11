@@ -19,6 +19,10 @@ from ._enums import *
 __all__ = [
     'DatabaseIdentityArgs',
     'DatabaseIdentityArgsDict',
+    'DatabaseKeyArgs',
+    'DatabaseKeyArgsDict',
+    'DatabaseUserIdentityArgs',
+    'DatabaseUserIdentityArgsDict',
     'DatabaseVulnerabilityAssessmentRuleBaselineItemArgs',
     'DatabaseVulnerabilityAssessmentRuleBaselineItemArgsDict',
     'DistributedAvailabilityGroupDatabaseArgs',
@@ -35,6 +39,8 @@ __all__ = [
     'InstanceFailoverGroupReadWriteEndpointArgsDict',
     'JobAgentIdentityArgs',
     'JobAgentIdentityArgsDict',
+    'JobAgentUserAssignedIdentityArgs',
+    'JobAgentUserAssignedIdentityArgsDict',
     'JobScheduleArgs',
     'JobScheduleArgsDict',
     'JobStepActionArgs',
@@ -79,6 +85,8 @@ __all__ = [
     'SyncGroupSchemaTableArgsDict',
     'SyncGroupSchemaArgs',
     'SyncGroupSchemaArgsDict',
+    'UserIdentityArgs',
+    'UserIdentityArgsDict',
     'VulnerabilityAssessmentRecurringScansPropertiesArgs',
     'VulnerabilityAssessmentRecurringScansPropertiesArgsDict',
 ]
@@ -94,7 +102,7 @@ if not MYPY:
         """
         The identity type
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DatabaseUserIdentityArgsDict']]]]
         """
         The resource ids of the user assigned identities to use
         """
@@ -105,11 +113,11 @@ elif False:
 class DatabaseIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[Union[builtins.str, 'DatabaseIdentityType']]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['DatabaseUserIdentityArgs']]]] = None):
         """
         Azure Active Directory identity configuration for a resource.
         :param pulumi.Input[Union[builtins.str, 'DatabaseIdentityType']] type: The identity type
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: The resource ids of the user assigned identities to use
+        :param pulumi.Input[Mapping[str, pulumi.Input['DatabaseUserIdentityArgs']]] user_assigned_identities: The resource ids of the user assigned identities to use
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -130,15 +138,51 @@ class DatabaseIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DatabaseUserIdentityArgs']]]]:
         """
         The resource ids of the user assigned identities to use
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DatabaseUserIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+if not MYPY:
+    class DatabaseKeyArgsDict(TypedDict):
+        """
+        Database level key used for encryption at rest.
+        """
+        pass
+elif False:
+    DatabaseKeyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DatabaseKeyArgs:
+    def __init__(__self__):
+        """
+        Database level key used for encryption at rest.
+        """
+        pass
+
+
+if not MYPY:
+    class DatabaseUserIdentityArgsDict(TypedDict):
+        """
+        Azure Active Directory identity configuration for a resource.
+        """
+        pass
+elif False:
+    DatabaseUserIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DatabaseUserIdentityArgs:
+    def __init__(__self__):
+        """
+        Azure Active Directory identity configuration for a resource.
+        """
+        pass
 
 
 if not MYPY:
@@ -503,7 +547,7 @@ if not MYPY:
         """
         The job agent identity tenant id
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['JobAgentUserAssignedIdentityArgsDict']]]]
         """
         The resource ids of the user assigned identities to use
         """
@@ -515,12 +559,12 @@ class JobAgentIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[builtins.str, 'JobAgentIdentityType']],
                  tenant_id: Optional[pulumi.Input[builtins.str]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['JobAgentUserAssignedIdentityArgs']]]] = None):
         """
         Azure Active Directory identity configuration for a resource.
         :param pulumi.Input[Union[builtins.str, 'JobAgentIdentityType']] type: The job agent identity type
         :param pulumi.Input[builtins.str] tenant_id: The job agent identity tenant id
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: The resource ids of the user assigned identities to use
+        :param pulumi.Input[Mapping[str, pulumi.Input['JobAgentUserAssignedIdentityArgs']]] user_assigned_identities: The resource ids of the user assigned identities to use
         """
         pulumi.set(__self__, "type", type)
         if tenant_id is not None:
@@ -554,15 +598,33 @@ class JobAgentIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['JobAgentUserAssignedIdentityArgs']]]]:
         """
         The resource ids of the user assigned identities to use
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['JobAgentUserAssignedIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+if not MYPY:
+    class JobAgentUserAssignedIdentityArgsDict(TypedDict):
+        """
+        Azure Active Directory identity configuration for a resource.
+        """
+        pass
+elif False:
+    JobAgentUserAssignedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobAgentUserAssignedIdentityArgs:
+    def __init__(__self__):
+        """
+        Azure Active Directory identity configuration for a resource.
+        """
+        pass
 
 
 if not MYPY:
@@ -1662,7 +1724,7 @@ if not MYPY:
         """
         The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgsDict']]]]
         """
         The resource ids of the user assigned identities to use
         """
@@ -1673,11 +1735,11 @@ elif False:
 class ResourceIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[Union[builtins.str, 'IdentityType']]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgs']]]] = None):
         """
         Azure Active Directory identity configuration for a resource.
         :param pulumi.Input[Union[builtins.str, 'IdentityType']] type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: The resource ids of the user assigned identities to use
+        :param pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgs']]] user_assigned_identities: The resource ids of the user assigned identities to use
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -1698,14 +1760,14 @@ class ResourceIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgs']]]]:
         """
         The resource ids of the user assigned identities to use
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -2309,6 +2371,24 @@ class SyncGroupSchemaArgs:
     @tables.setter
     def tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]]]):
         pulumi.set(self, "tables", value)
+
+
+if not MYPY:
+    class UserIdentityArgsDict(TypedDict):
+        """
+        Azure Active Directory identity configuration for a resource.
+        """
+        pass
+elif False:
+    UserIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserIdentityArgs:
+    def __init__(__self__):
+        """
+        Azure Active Directory identity configuration for a resource.
+        """
+        pass
 
 
 if not MYPY:

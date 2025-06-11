@@ -22,14 +22,14 @@ namespace Pulumi.AzureNative.Sql.Inputs
         public InputUnion<string, Pulumi.AzureNative.Sql.DatabaseIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
-        private InputList<string>? _userAssignedIdentities;
+        private InputMap<Inputs.DatabaseUserIdentityArgs>? _userAssignedIdentities;
 
         /// <summary>
         /// The resource ids of the user assigned identities to use
         /// </summary>
-        public InputList<string> UserAssignedIdentities
+        public InputMap<Inputs.DatabaseUserIdentityArgs> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<Inputs.DatabaseUserIdentityArgs>());
             set => _userAssignedIdentities = value;
         }
 

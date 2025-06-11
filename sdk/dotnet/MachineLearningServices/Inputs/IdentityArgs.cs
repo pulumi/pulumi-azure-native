@@ -22,14 +22,14 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<Pulumi.AzureNative.MachineLearningServices.ResourceIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
-        private InputList<string>? _userAssignedIdentities;
+        private InputMap<Inputs.UserAssignedIdentityArgs>? _userAssignedIdentities;
 
         /// <summary>
         /// The user assigned identities associated with the resource.
         /// </summary>
-        public InputList<string> UserAssignedIdentities
+        public InputMap<Inputs.UserAssignedIdentityArgs> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<Inputs.UserAssignedIdentityArgs>());
             set => _userAssignedIdentities = value;
         }
 

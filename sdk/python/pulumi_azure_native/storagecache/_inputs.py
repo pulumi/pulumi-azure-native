@@ -39,6 +39,8 @@ __all__ = [
     'CacheDirectorySettingsArgsDict',
     'CacheEncryptionSettingsArgs',
     'CacheEncryptionSettingsArgsDict',
+    'CacheIdentityUserAssignedIdentitiesArgs',
+    'CacheIdentityUserAssignedIdentitiesArgsDict',
     'CacheIdentityArgs',
     'CacheIdentityArgsDict',
     'CacheNetworkSettingsArgs',
@@ -73,6 +75,8 @@ __all__ = [
     'SkuNameArgsDict',
     'UnknownTargetArgs',
     'UnknownTargetArgsDict',
+    'UserAssignedIdentitiesUserAssignedIdentitiesArgs',
+    'UserAssignedIdentitiesUserAssignedIdentitiesArgsDict',
 ]
 
 MYPY = False
@@ -254,7 +258,7 @@ if not MYPY:
         """
         The type of identity used for the resource.
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentitiesUserAssignedIdentitiesArgsDict']]]]
         """
         A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
         """
@@ -265,11 +269,11 @@ elif False:
 class AmlFilesystemIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['AmlFilesystemIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentitiesUserAssignedIdentitiesArgs']]]] = None):
         """
         Managed Identity properties.
         :param pulumi.Input['AmlFilesystemIdentityType'] type: The type of identity used for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+        :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentitiesUserAssignedIdentitiesArgs']]] user_assigned_identities: A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -290,14 +294,14 @@ class AmlFilesystemIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentitiesUserAssignedIdentitiesArgs']]]]:
         """
         A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentitiesUserAssignedIdentitiesArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -849,6 +853,18 @@ class CacheEncryptionSettingsArgs:
 
 
 if not MYPY:
+    class CacheIdentityUserAssignedIdentitiesArgsDict(TypedDict):
+        pass
+elif False:
+    CacheIdentityUserAssignedIdentitiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CacheIdentityUserAssignedIdentitiesArgs:
+    def __init__(__self__):
+        pass
+
+
+if not MYPY:
     class CacheIdentityArgsDict(TypedDict):
         """
         Cache identity properties.
@@ -857,7 +873,7 @@ if not MYPY:
         """
         The type of identity used for the cache
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['CacheIdentityUserAssignedIdentitiesArgsDict']]]]
         """
         A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
         """
@@ -868,11 +884,11 @@ elif False:
 class CacheIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['CacheIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['CacheIdentityUserAssignedIdentitiesArgs']]]] = None):
         """
         Cache identity properties.
         :param pulumi.Input['CacheIdentityType'] type: The type of identity used for the cache
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+        :param pulumi.Input[Mapping[str, pulumi.Input['CacheIdentityUserAssignedIdentitiesArgs']]] user_assigned_identities: A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -893,14 +909,14 @@ class CacheIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['CacheIdentityUserAssignedIdentitiesArgs']]]]:
         """
         A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['CacheIdentityUserAssignedIdentitiesArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -2086,5 +2102,17 @@ class UnknownTargetArgs:
     @attributes.setter
     def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "attributes", value)
+
+
+if not MYPY:
+    class UserAssignedIdentitiesUserAssignedIdentitiesArgsDict(TypedDict):
+        pass
+elif False:
+    UserAssignedIdentitiesUserAssignedIdentitiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserAssignedIdentitiesUserAssignedIdentitiesArgs:
+    def __init__(__self__):
+        pass
 
 

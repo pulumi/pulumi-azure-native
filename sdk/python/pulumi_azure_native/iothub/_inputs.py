@@ -19,6 +19,8 @@ from ._enums import *
 __all__ = [
     'ArmIdentityArgs',
     'ArmIdentityArgsDict',
+    'ArmUserIdentityArgs',
+    'ArmUserIdentityArgsDict',
     'CertificatePropertiesArgs',
     'CertificatePropertiesArgsDict',
     'CloudToDevicePropertiesArgs',
@@ -83,7 +85,7 @@ if not MYPY:
         """
         The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ArmUserIdentityArgsDict']]]]
 elif False:
     ArmIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -91,7 +93,7 @@ elif False:
 class ArmIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['ArmUserIdentityArgs']]]] = None):
         """
         :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
         """
@@ -114,12 +116,24 @@ class ArmIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ArmUserIdentityArgs']]]]:
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ArmUserIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+if not MYPY:
+    class ArmUserIdentityArgsDict(TypedDict):
+        pass
+elif False:
+    ArmUserIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ArmUserIdentityArgs:
+    def __init__(__self__):
+        pass
 
 
 if not MYPY:

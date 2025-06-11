@@ -34,14 +34,14 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         public InputUnion<string, Pulumi.AzureNative.AppPlatform.ManagedIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
-        private InputList<string>? _userAssignedIdentities;
+        private InputMap<Inputs.UserAssignedManagedIdentityArgs>? _userAssignedIdentities;
 
         /// <summary>
         /// Properties of user-assigned managed identities
         /// </summary>
-        public InputList<string> UserAssignedIdentities
+        public InputMap<Inputs.UserAssignedManagedIdentityArgs> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<Inputs.UserAssignedManagedIdentityArgs>());
             set => _userAssignedIdentities = value;
         }
 

@@ -28,14 +28,14 @@ namespace Pulumi.AzureNative.Sql.Inputs
         public InputUnion<string, Pulumi.AzureNative.Sql.JobAgentIdentityType> Type { get; set; } = null!;
 
         [Input("userAssignedIdentities")]
-        private InputList<string>? _userAssignedIdentities;
+        private InputMap<Inputs.JobAgentUserAssignedIdentityArgs>? _userAssignedIdentities;
 
         /// <summary>
         /// The resource ids of the user assigned identities to use
         /// </summary>
-        public InputList<string> UserAssignedIdentities
+        public InputMap<Inputs.JobAgentUserAssignedIdentityArgs> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<Inputs.JobAgentUserAssignedIdentityArgs>());
             set => _userAssignedIdentities = value;
         }
 

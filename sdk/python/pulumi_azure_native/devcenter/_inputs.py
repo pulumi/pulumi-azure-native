@@ -25,6 +25,8 @@ __all__ = [
     'DevCenterProjectCatalogSettingsArgsDict',
     'EncryptionArgs',
     'EncryptionArgsDict',
+    'EnvironmentRoleArgs',
+    'EnvironmentRoleArgsDict',
     'GitCatalogArgs',
     'GitCatalogArgsDict',
     'ImageReferenceArgs',
@@ -41,6 +43,8 @@ __all__ = [
     'SkuArgsDict',
     'StopOnDisconnectConfigurationArgs',
     'StopOnDisconnectConfigurationArgsDict',
+    'UserAssignedIdentityArgs',
+    'UserAssignedIdentityArgsDict',
     'UserRoleAssignmentArgs',
     'UserRoleAssignmentArgsDict',
 ]
@@ -248,6 +252,24 @@ class EncryptionArgs:
 
 
 if not MYPY:
+    class EnvironmentRoleArgsDict(TypedDict):
+        """
+        A role that can be assigned to a user.
+        """
+        pass
+elif False:
+    EnvironmentRoleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EnvironmentRoleArgs:
+    def __init__(__self__):
+        """
+        A role that can be assigned to a user.
+        """
+        pass
+
+
+if not MYPY:
     class GitCatalogArgsDict(TypedDict):
         """
         Properties for a Git repository catalog.
@@ -388,7 +410,7 @@ if not MYPY:
         """
         Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgsDict']]]]
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -399,11 +421,11 @@ elif False:
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[Union[builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -423,14 +445,14 @@ class ManagedServiceIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -475,7 +497,7 @@ if not MYPY:
         """
         The role definition assigned to the environment creator on backing resources.
         """
-        roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        roles: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['EnvironmentRoleArgsDict']]]]
         """
         A map of roles to assign to the environment creator.
         """
@@ -485,24 +507,24 @@ elif False:
 @pulumi.input_type
 class ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs:
     def __init__(__self__, *,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 roles: Optional[pulumi.Input[Mapping[str, pulumi.Input['EnvironmentRoleArgs']]]] = None):
         """
         The role definition assigned to the environment creator on backing resources.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] roles: A map of roles to assign to the environment creator.
+        :param pulumi.Input[Mapping[str, pulumi.Input['EnvironmentRoleArgs']]] roles: A map of roles to assign to the environment creator.
         """
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
 
     @property
     @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def roles(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['EnvironmentRoleArgs']]]]:
         """
         A map of roles to assign to the environment creator.
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def roles(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['EnvironmentRoleArgs']]]]):
         pulumi.set(self, "roles", value)
 
 
@@ -734,11 +756,29 @@ class StopOnDisconnectConfigurationArgs:
 
 
 if not MYPY:
+    class UserAssignedIdentityArgsDict(TypedDict):
+        """
+        User assigned identity properties
+        """
+        pass
+elif False:
+    UserAssignedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserAssignedIdentityArgs:
+    def __init__(__self__):
+        """
+        User assigned identity properties
+        """
+        pass
+
+
+if not MYPY:
     class UserRoleAssignmentArgsDict(TypedDict):
         """
         Mapping of user object ID to role assignments.
         """
-        roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        roles: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['EnvironmentRoleArgsDict']]]]
         """
         A map of roles to assign to the parent user.
         """
@@ -748,24 +788,24 @@ elif False:
 @pulumi.input_type
 class UserRoleAssignmentArgs:
     def __init__(__self__, *,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 roles: Optional[pulumi.Input[Mapping[str, pulumi.Input['EnvironmentRoleArgs']]]] = None):
         """
         Mapping of user object ID to role assignments.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] roles: A map of roles to assign to the parent user.
+        :param pulumi.Input[Mapping[str, pulumi.Input['EnvironmentRoleArgs']]] roles: A map of roles to assign to the parent user.
         """
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
 
     @property
     @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def roles(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['EnvironmentRoleArgs']]]]:
         """
         A map of roles to assign to the parent user.
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def roles(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['EnvironmentRoleArgs']]]]):
         pulumi.set(self, "roles", value)
 
 

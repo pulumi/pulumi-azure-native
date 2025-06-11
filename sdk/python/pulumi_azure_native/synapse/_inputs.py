@@ -93,6 +93,8 @@ __all__ = [
     'SqlPoolVulnerabilityAssessmentRuleBaselineItemArgsDict',
     'TableLevelSharingPropertiesArgs',
     'TableLevelSharingPropertiesArgsDict',
+    'UserAssignedManagedIdentityArgs',
+    'UserAssignedManagedIdentityArgsDict',
     'VirtualNetworkProfileArgs',
     'VirtualNetworkProfileArgsDict',
     'VulnerabilityAssessmentRecurringScansPropertiesArgs',
@@ -1954,7 +1956,7 @@ if not MYPY:
         """
         The type of managed identity for the workspace
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedManagedIdentityArgsDict']]]]
         """
         The user assigned managed identities.
         """
@@ -1965,11 +1967,11 @@ elif False:
 class ManagedIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedManagedIdentityArgs']]]] = None):
         """
         The workspace managed identity
         :param pulumi.Input['ResourceIdentityType'] type: The type of managed identity for the workspace
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: The user assigned managed identities.
+        :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedManagedIdentityArgs']]] user_assigned_identities: The user assigned managed identities.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -1990,14 +1992,14 @@ class ManagedIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedManagedIdentityArgs']]]]:
         """
         The user assigned managed identities.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedManagedIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -2911,6 +2913,24 @@ class TableLevelSharingPropertiesArgs:
     @tables_to_include.setter
     def tables_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tables_to_include", value)
+
+
+if not MYPY:
+    class UserAssignedManagedIdentityArgsDict(TypedDict):
+        """
+        User Assigned Managed Identity
+        """
+        pass
+elif False:
+    UserAssignedManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserAssignedManagedIdentityArgs:
+    def __init__(__self__):
+        """
+        User Assigned Managed Identity
+        """
+        pass
 
 
 if not MYPY:

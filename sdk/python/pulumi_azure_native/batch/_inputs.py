@@ -119,6 +119,8 @@ __all__ = [
     'UpgradePolicyArgsDict',
     'UserAccountArgs',
     'UserAccountArgsDict',
+    'UserAssignedIdentitiesArgs',
+    'UserAssignedIdentitiesArgsDict',
     'UserIdentityArgs',
     'UserIdentityArgsDict',
     'VMDiskSecurityProfileArgs',
@@ -686,7 +688,7 @@ if not MYPY:
         """
         The type of identity used for the Batch account.
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentitiesArgsDict']]]]
         """
         The list of user identities associated with the Batch account.
         """
@@ -697,11 +699,11 @@ elif False:
 class BatchAccountIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['ResourceIdentityType'],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentitiesArgs']]]] = None):
         """
         The identity of the Batch account, if configured. This is used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration or when `ManagedIdentity` is selected as the auto-storage authentication mode.
         :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the Batch account.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: The list of user identities associated with the Batch account.
+        :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentitiesArgs']]] user_assigned_identities: The list of user identities associated with the Batch account.
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -721,14 +723,14 @@ class BatchAccountIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentitiesArgs']]]]:
         """
         The list of user identities associated with the Batch account.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentitiesArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -741,7 +743,7 @@ if not MYPY:
         """
         The type of identity used for the Batch Pool.
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentitiesArgsDict']]]]
         """
         The list of user identities associated with the Batch pool.
         """
@@ -752,11 +754,11 @@ elif False:
 class BatchPoolIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['PoolIdentityType'],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentitiesArgs']]]] = None):
         """
         The identity of the Batch pool, if configured. If the pool identity is updated during update an existing pool, only the new vms which are created after the pool shrinks to 0 will have the updated identities
         :param pulumi.Input['PoolIdentityType'] type: The type of identity used for the Batch Pool.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: The list of user identities associated with the Batch pool.
+        :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentitiesArgs']]] user_assigned_identities: The list of user identities associated with the Batch pool.
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -776,14 +778,14 @@ class BatchPoolIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentitiesArgs']]]]:
         """
         The list of user identities associated with the Batch pool.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentitiesArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -3761,6 +3763,24 @@ class UserAccountArgs:
     @windows_user_configuration.setter
     def windows_user_configuration(self, value: Optional[pulumi.Input['WindowsUserConfigurationArgs']]):
         pulumi.set(self, "windows_user_configuration", value)
+
+
+if not MYPY:
+    class UserAssignedIdentitiesArgsDict(TypedDict):
+        """
+        The list of associated user identities.
+        """
+        pass
+elif False:
+    UserAssignedIdentitiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserAssignedIdentitiesArgs:
+    def __init__(__self__):
+        """
+        The list of associated user identities.
+        """
+        pass
 
 
 if not MYPY:

@@ -22,14 +22,14 @@ namespace Pulumi.AzureNative.FluidRelay.Inputs
         public Input<Pulumi.AzureNative.FluidRelay.ResourceIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
-        private InputList<string>? _userAssignedIdentities;
+        private InputMap<Inputs.IdentityUserAssignedIdentitiesArgs>? _userAssignedIdentities;
 
         /// <summary>
         /// The list of user identities associated with the resource.
         /// </summary>
-        public InputList<string> UserAssignedIdentities
+        public InputMap<Inputs.IdentityUserAssignedIdentitiesArgs> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<Inputs.IdentityUserAssignedIdentitiesArgs>());
             set => _userAssignedIdentities = value;
         }
 

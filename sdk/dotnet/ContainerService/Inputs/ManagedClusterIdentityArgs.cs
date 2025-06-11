@@ -34,14 +34,14 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<Pulumi.AzureNative.ContainerService.ResourceIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
-        private InputList<string>? _userAssignedIdentities;
+        private InputMap<Inputs.ManagedClusterIdentityUserAssignedIdentitiesArgs>? _userAssignedIdentities;
 
         /// <summary>
         /// The keys must be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         /// </summary>
-        public InputList<string> UserAssignedIdentities
+        public InputMap<Inputs.ManagedClusterIdentityUserAssignedIdentitiesArgs> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<Inputs.ManagedClusterIdentityUserAssignedIdentitiesArgs>());
             set => _userAssignedIdentities = value;
         }
 

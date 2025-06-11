@@ -77,6 +77,8 @@ __all__ = [
     'SecurityContextDefinitionArgsDict',
     'StandbyPoolProfileDefinitionArgs',
     'StandbyPoolProfileDefinitionArgsDict',
+    'UserAssignedIdentitiesArgs',
+    'UserAssignedIdentitiesArgsDict',
     'VolumeMountArgs',
     'VolumeMountArgsDict',
     'VolumeArgs',
@@ -352,7 +354,7 @@ if not MYPY:
         """
         The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentitiesArgsDict']]]]
         """
         The list of user identities associated with the container group.
         """
@@ -363,11 +365,11 @@ elif False:
 class ContainerGroupIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentitiesArgs']]]] = None):
         """
         Identity for the container group.
         :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: The list of user identities associated with the container group.
+        :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentitiesArgs']]] user_assigned_identities: The list of user identities associated with the container group.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -388,14 +390,14 @@ class ContainerGroupIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentitiesArgs']]]]:
         """
         The list of user identities associated with the container group.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentitiesArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -2618,6 +2620,24 @@ class StandbyPoolProfileDefinitionArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class UserAssignedIdentitiesArgsDict(TypedDict):
+        """
+        The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        pass
+elif False:
+    UserAssignedIdentitiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserAssignedIdentitiesArgs:
+    def __init__(__self__):
+        """
+        The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        pass
 
 
 if not MYPY:

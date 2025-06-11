@@ -69,6 +69,8 @@ __all__ = [
     'TokenClaimArgsDict',
     'UnsecuredEndpointArgs',
     'UnsecuredEndpointArgsDict',
+    'UserAssignedManagedIdentityArgs',
+    'UserAssignedManagedIdentityArgsDict',
     'UsernamePasswordCredentialsArgs',
     'UsernamePasswordCredentialsArgsDict',
     'VideoAnalyzerIdentityArgs',
@@ -1962,6 +1964,24 @@ class UnsecuredEndpointArgs:
 
 
 if not MYPY:
+    class UserAssignedManagedIdentityArgsDict(TypedDict):
+        """
+        The details of the user assigned managed identity used by the Video Analyzer resource.
+        """
+        pass
+elif False:
+    UserAssignedManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserAssignedManagedIdentityArgs:
+    def __init__(__self__):
+        """
+        The details of the user assigned managed identity used by the Video Analyzer resource.
+        """
+        pass
+
+
+if not MYPY:
     class UsernamePasswordCredentialsArgsDict(TypedDict):
         """
         Username and password credentials.
@@ -2046,7 +2066,7 @@ if not MYPY:
         """
         The identity type.
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedManagedIdentityArgsDict']]]]
         """
         The User Assigned Managed Identities.
         """
@@ -2057,11 +2077,11 @@ elif False:
 class VideoAnalyzerIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[builtins.str],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedManagedIdentityArgs']]]] = None):
         """
         The managed identity for the Video Analyzer resource.
         :param pulumi.Input[builtins.str] type: The identity type.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: The User Assigned Managed Identities.
+        :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedManagedIdentityArgs']]] user_assigned_identities: The User Assigned Managed Identities.
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -2081,14 +2101,14 @@ class VideoAnalyzerIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedManagedIdentityArgs']]]]:
         """
         The User Assigned Managed Identities.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedManagedIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 

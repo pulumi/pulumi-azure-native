@@ -22,14 +22,14 @@ namespace Pulumi.AzureNative.StorageCache.Inputs
         public Input<Pulumi.AzureNative.StorageCache.AmlFilesystemIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
-        private InputList<string>? _userAssignedIdentities;
+        private InputMap<Inputs.UserAssignedIdentitiesUserAssignedIdentitiesArgs>? _userAssignedIdentities;
 
         /// <summary>
         /// A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
         /// </summary>
-        public InputList<string> UserAssignedIdentities
+        public InputMap<Inputs.UserAssignedIdentitiesUserAssignedIdentitiesArgs> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<Inputs.UserAssignedIdentitiesUserAssignedIdentitiesArgs>());
             set => _userAssignedIdentities = value;
         }
 

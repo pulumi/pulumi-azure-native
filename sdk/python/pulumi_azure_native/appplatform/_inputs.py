@@ -217,6 +217,8 @@ __all__ = [
     'TemporaryDiskArgsDict',
     'UploadedUserSourceInfoArgs',
     'UploadedUserSourceInfoArgsDict',
+    'UserAssignedManagedIdentityArgs',
+    'UserAssignedManagedIdentityArgsDict',
     'WarUploadedUserSourceInfoArgs',
     'WarUploadedUserSourceInfoArgsDict',
     'WeeklyMaintenanceScheduleConfigurationArgs',
@@ -7029,7 +7031,7 @@ if not MYPY:
         """
         Type of the managed identity
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedManagedIdentityArgsDict']]]]
         """
         Properties of user-assigned managed identities
         """
@@ -7042,13 +7044,13 @@ class ManagedIdentityPropertiesArgs:
                  principal_id: Optional[pulumi.Input[builtins.str]] = None,
                  tenant_id: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[Union[builtins.str, 'ManagedIdentityType']]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedManagedIdentityArgs']]]] = None):
         """
         Managed identity properties retrieved from ARM request headers.
         :param pulumi.Input[builtins.str] principal_id: Principal Id of system-assigned managed identity.
         :param pulumi.Input[builtins.str] tenant_id: Tenant Id of system-assigned managed identity.
         :param pulumi.Input[Union[builtins.str, 'ManagedIdentityType']] type: Type of the managed identity
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: Properties of user-assigned managed identities
+        :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedManagedIdentityArgs']]] user_assigned_identities: Properties of user-assigned managed identities
         """
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
@@ -7097,14 +7099,14 @@ class ManagedIdentityPropertiesArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedManagedIdentityArgs']]]]:
         """
         Properties of user-assigned managed identities
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedManagedIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -9022,6 +9024,24 @@ class UploadedUserSourceInfoArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "version", value)
+
+
+if not MYPY:
+    class UserAssignedManagedIdentityArgsDict(TypedDict):
+        """
+        The details of the user-assigned managed identity assigned to an App.
+        """
+        pass
+elif False:
+    UserAssignedManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserAssignedManagedIdentityArgs:
+    def __init__(__self__):
+        """
+        The details of the user-assigned managed identity assigned to an App.
+        """
+        pass
 
 
 if not MYPY:

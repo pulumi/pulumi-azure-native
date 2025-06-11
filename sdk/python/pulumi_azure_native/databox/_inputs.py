@@ -79,6 +79,8 @@ __all__ = [
     'TransferFilterDetailsArgsDict',
     'TransportPreferencesArgs',
     'TransportPreferencesArgsDict',
+    'UserAssignedIdentityArgs',
+    'UserAssignedIdentityArgsDict',
     'UserAssignedPropertiesArgs',
     'UserAssignedPropertiesArgsDict',
 ]
@@ -2255,7 +2257,7 @@ if not MYPY:
         """
         Identity type
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgsDict']]]]
         """
         User Assigned Identities
         """
@@ -2266,11 +2268,11 @@ elif False:
 class ResourceIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[builtins.str]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]] = None):
         """
         Msi identity details of the resource
         :param pulumi.Input[builtins.str] type: Identity type
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: User Assigned Identities
+        :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]] user_assigned_identities: User Assigned Identities
         """
         if type is None:
             type = 'None'
@@ -2293,14 +2295,14 @@ class ResourceIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]:
         """
         User Assigned Identities
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -3124,6 +3126,24 @@ class TransportPreferencesArgs:
     @preferred_shipment_type.setter
     def preferred_shipment_type(self, value: pulumi.Input[Union[builtins.str, 'TransportShipmentTypes']]):
         pulumi.set(self, "preferred_shipment_type", value)
+
+
+if not MYPY:
+    class UserAssignedIdentityArgsDict(TypedDict):
+        """
+        Class defining User assigned identity details.
+        """
+        pass
+elif False:
+    UserAssignedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserAssignedIdentityArgs:
+    def __init__(__self__):
+        """
+        Class defining User assigned identity details.
+        """
+        pass
 
 
 if not MYPY:

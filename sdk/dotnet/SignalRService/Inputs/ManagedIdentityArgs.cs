@@ -22,14 +22,14 @@ namespace Pulumi.AzureNative.SignalRService.Inputs
         public InputUnion<string, Pulumi.AzureNative.SignalRService.ManagedIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
-        private InputList<string>? _userAssignedIdentities;
+        private InputMap<Inputs.UserAssignedIdentityPropertyArgs>? _userAssignedIdentities;
 
         /// <summary>
         /// Get or set the user assigned identities
         /// </summary>
-        public InputList<string> UserAssignedIdentities
+        public InputMap<Inputs.UserAssignedIdentityPropertyArgs> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<Inputs.UserAssignedIdentityPropertyArgs>());
             set => _userAssignedIdentities = value;
         }
 

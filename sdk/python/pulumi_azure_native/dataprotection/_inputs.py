@@ -115,6 +115,8 @@ __all__ = [
     'TaggingCriteriaArgsDict',
     'TargetCopySettingArgs',
     'TargetCopySettingArgsDict',
+    'UserAssignedIdentityArgs',
+    'UserAssignedIdentityArgsDict',
 ]
 
 MYPY = False
@@ -1890,7 +1892,7 @@ if not MYPY:
         """
         The identityType which can be either SystemAssigned, UserAssigned, 'SystemAssigned,UserAssigned' or None
         """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgsDict']]]]
         """
         Gets or sets the user assigned identities.
         """
@@ -1901,11 +1903,11 @@ elif False:
 class DppIdentityDetailsArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[builtins.str]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]] = None):
         """
         Identity details
         :param pulumi.Input[builtins.str] type: The identityType which can be either SystemAssigned, UserAssigned, 'SystemAssigned,UserAssigned' or None
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: Gets or sets the user assigned identities.
+        :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]] user_assigned_identities: Gets or sets the user assigned identities.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -1926,14 +1928,14 @@ class DppIdentityDetailsArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]:
         """
         Gets or sets the user assigned identities.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -3567,5 +3569,23 @@ class TargetCopySettingArgs:
     @data_store.setter
     def data_store(self, value: pulumi.Input['DataStoreInfoBaseArgs']):
         pulumi.set(self, "data_store", value)
+
+
+if not MYPY:
+    class UserAssignedIdentityArgsDict(TypedDict):
+        """
+        User assigned identity properties
+        """
+        pass
+elif False:
+    UserAssignedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserAssignedIdentityArgs:
+    def __init__(__self__):
+        """
+        User assigned identity properties
+        """
+        pass
 
 
