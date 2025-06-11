@@ -29,7 +29,7 @@ import (
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
 
-func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, context *openapi.ReferenceContext, isOutput bool) (*pschema.TypeSpec, error) {
+func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, context *openapi.ReferenceContext, isOutput bool, skipEmptyTypes bool) (*pschema.TypeSpec, error) {
 	resolvedSchema, err := context.ResolveSchema(schema)
 	if err != nil {
 		return nil, fmt.Errorf("failed to resolve schema: %w", err)
@@ -89,7 +89,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 			}
 
 			// Don't generate a type definition for a typed object with zero properties.
-			if len(props.specs) == 0 {
+			if len(props.specs) == 0 && skipEmptyTypes {
 				delete(m.visitedTypes, tok)
 				return nil, nil
 			}
@@ -193,9 +193,14 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 
 	case resolvedSchema.AdditionalProperties != nil && resolvedSchema.AdditionalProperties.Schema != nil:
 		// Define the type of maps (untyped objects).
-		additionalProperties, err := m.genTypeSpec(propertyName, resolvedSchema.AdditionalProperties.Schema, resolvedSchema.ReferenceContext, isOutput)
+		additionalProperties, err := m.genTypeSpec(propertyName, resolvedSchema.AdditionalProperties.Schema, resolvedSchema.ReferenceContext, isOutput, false /* skipEmptyTypes */)
 		if err != nil {
 			return nil, fmt.Errorf("failed to generate type spec for additional properties: %w", err)
+		}
+
+		// Nil type means empty: e.g., when an input type has only read-only properties. Bubble the nil up.
+		if additionalProperties == nil {
+			return nil, nil
 		}
 
 		return &pschema.TypeSpec{
@@ -359,7 +364,7 @@ func (m *moduleGenerator) genDiscriminatedType(resolvedSchema *openapi.Schema, i
 		return nil, false, err
 	}
 	for _, subtype := range subtypes {
-		typ, err := m.genTypeSpec("", subtype, resolvedSchema.ReferenceContext, isOutput)
+		typ, err := m.genTypeSpec("", subtype, resolvedSchema.ReferenceContext, isOutput, false /* skipEmptyTypes */)
 		if err != nil {
 			return nil, false, err
 		}
