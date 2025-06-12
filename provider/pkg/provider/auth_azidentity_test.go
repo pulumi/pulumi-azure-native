@@ -313,6 +313,15 @@ func TestNewCredential(t *testing.T) {
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.AzureCLICredential{}, cred)
 	})
+
+	t.Run("Default", func(t *testing.T) {
+		conf := &authConfiguration{
+			useDefault: true,
+		}
+		cred, err := newSingleMethodAuthCredential(conf)
+		require.NoError(t, err)
+		require.IsType(t, &azidentity.DefaultAzureCredential{}, cred)
+	})
 }
 
 func TestOidcTokenExchangeAssertion(t *testing.T) {

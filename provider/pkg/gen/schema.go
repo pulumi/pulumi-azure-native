@@ -161,6 +161,11 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 					Description: "The URL to initiate the OIDC token exchange. ",
 				},
 
+				"useDefaultAzureCredential": {
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+					Description: "Use the default credential chain of the Azure SDK (see https://learn.microsoft.com/en-us/azure/developer/go/sdk/authentication/credential-chains#defaultazurecredential-overview).",
+				},
+
 				// Managed Tracking GUID for User-Agent.
 				"partnerId": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
