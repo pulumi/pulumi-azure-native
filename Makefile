@@ -437,5 +437,5 @@ export FAKE_MODULE
 	@touch $@
 
 .make/install_provider: .make/provider_mod_download provider/cmd/$(PROVIDER)/* $(PROVIDER_PKG)
-	cd provider && go install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER)
+	cd provider && go install $(VERSION_FLAGS) $(PROJECT)/v2/provider/cmd/$(PROVIDER)
 	@touch $@
