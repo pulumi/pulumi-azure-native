@@ -133,7 +133,7 @@ update_submodules:
 PROVIDER_TEST_TAGS ?= unit # Default to unit tests only for quick local feedback
 .PHONY: test_provider
 test_provider: .make/provider_mod_download .make/provider_prebuild provider/cmd/$(PROVIDER)/*.go $(PROVIDER_PKG)
-	cd provider && go test -v --tags=$(PROVIDER_TEST_TAGS) -coverprofile="coverage.txt" -coverpkg=./... ./...
+	cd provider && PROVIDER_VERSION=$(PROVIDER_VERSION) go test -v --tags=$(PROVIDER_TEST_TAGS) -coverprofile="coverage.txt" -coverpkg=./... ./...
 
 .PHONY: lint_provider
 lint_provider: .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go $(PROVIDER_PKG)
