@@ -4,7 +4,6 @@ package provider
 
 import (
 	"bytes"
-	"context"
 	"encoding/json"
 	"fmt"
 	"os/exec"
@@ -15,8 +14,6 @@ import (
 	"github.com/Azure/go-autorest/autorest"
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	"github.com/hashicorp/go-azure-helpers/authentication"
-	"github.com/hashicorp/go-azure-helpers/sender"
-	"github.com/manicminer/hamilton/environments"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure/cloud"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
@@ -258,70 +255,4 @@ func runAzCmd(target interface{}, arg ...string) error {
 	}
 
 	return nil
-}
-
-type AuthorizerFactory func(api environments.Api) (autorest.Authorizer, error)
-
-func (k *azureNativeProvider) makeAuthorizerFactories(ctx context.Context,
-	authConfig *authConfig) (AuthorizerFactory, AuthorizerFactory, error) {
-
-	buildSender := sender.BuildSender("AzureNative")
-
-	oauthConfig, err := k.buildOAuthConfig(authConfig.Config)
-	if err != nil {
-		return nil, nil, err
-	}
-
-	endpoint := k.environment.TokenAudience
-
-	if authConfig.useCli {
-		return k.makeADALAuthorizerFactories(ctx, authConfig.Config, oauthConfig, endpoint, buildSender)
-	}
-	return k.makeMSALAuthorizerFactories(ctx, authConfig.Config, oauthConfig, endpoint, buildSender)
-}
-
-func (k *azureNativeProvider) makeADALAuthorizerFactories(ctx context.Context,
-	authConfig *authentication.Config, oauthConfig *authentication.OAuthConfig, endpoint string, autorestSender autorest.Sender) (AuthorizerFactory, AuthorizerFactory, error) {
-
-	tokenFactory := func(api environments.Api) (autorest.Authorizer, error) {
-		logging.V(9).Infof("Getting ADAL token for %s", endpoint)
-		return authConfig.GetADALToken(ctx, autorestSender, oauthConfig, endpoint)
-	}
-
-	bearerAuthFactory := func(api environments.Api) (autorest.Authorizer, error) {
-		logging.V(9).Infof("Getting ADAL bearer auth callback for %s", endpoint)
-		return authConfig.ADALBearerAuthorizerCallback(ctx, autorestSender, oauthConfig), nil
-	}
-
-	return tokenFactory, bearerAuthFactory, nil
-}
-
-func (k *azureNativeProvider) makeMSALAuthorizerFactories(ctx context.Context, authConfig *authentication.Config,
-	oauthConfig *authentication.OAuthConfig, endpoint string, autorestSender autorest.Sender) (AuthorizerFactory, AuthorizerFactory, error) {
-
-	tokenFactory := func(api environments.Api) (autorest.Authorizer, error) {
-		logging.V(9).Infof("Getting MSAL token for %s", endpoint)
-		return authConfig.GetMSALToken(ctx, api, autorestSender, oauthConfig, endpoint)
-	}
-
-	bearerAuthFactory := func(api environments.Api) (autorest.Authorizer, error) {
-		logging.V(9).Infof("Getting MSAL bearer auth callback for %s", endpoint)
-		return authConfig.MSALBearerAuthorizerCallback(ctx, api, autorestSender, oauthConfig, endpoint), nil
-	}
-
-	return tokenFactory, bearerAuthFactory, nil
-}
-
-type TokenFactory func(ctx context.Context, auth *authConfig, endpoint string) (string, error)
-
-// deprecated
-func (k *azureNativeProvider) buildOAuthConfig(authConfig *authentication.Config) (*authentication.OAuthConfig, error) {
-	oauthConfig, err := authConfig.BuildOAuthConfig(k.environment.ActiveDirectoryEndpoint)
-	if err != nil {
-		return nil, err
-	}
-	if oauthConfig == nil {
-		return nil, fmt.Errorf("unable to configure OAuthConfig for tenant %s", authConfig.TenantID)
-	}
-	return oauthConfig, nil
 }
