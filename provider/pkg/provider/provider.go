@@ -210,33 +210,6 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	}
 
 	k.cloud = authConfig.cloud()
-
-	hamiltonEnv := k.autorestEnvToHamiltonEnv()
-
-	// The ctx Context given by gRPC is request-scoped and will be canceled after this request. We
-	// need the authorizers to function across requests.
-	authCtx := context.Background()
-
-	tokenAuth, bearerAuth, err := k.makeAuthorizerFactories(authCtx, authConfig)
-	if err != nil {
-		return nil, fmt.Errorf("auth setup: %w", err)
-	}
-
-	resourceManagerAuth, err := tokenAuth(hamiltonEnv.ResourceManager)
-	if err != nil {
-		return nil, fmt.Errorf("building authorizer for %s: %w", hamiltonEnv.ResourceManager.Endpoint, err)
-	}
-
-	resourceManagerBearerAuth, err := bearerAuth(hamiltonEnv.ResourceManager)
-	if err != nil {
-		return nil, fmt.Errorf("building bearer authorizer for %s: %w", hamiltonEnv.ResourceManager.Endpoint, err)
-	}
-
-	keyVaultBearerAuth, err := bearerAuth(hamiltonEnv.KeyVault)
-	if err != nil {
-		return nil, fmt.Errorf("building bearer authorizer for %s: %w", hamiltonEnv.KeyVault.Endpoint, err)
-	}
-
 	k.subscriptionID = authConfig.SubscriptionID
 
 	userAgent := k.getUserAgent()
@@ -253,8 +226,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 	// When the provider is parameterized, resources and types that custom resources are built on will probably not be available.
 	if !k.isParameterized() {
-		k.customResources, err = customresources.BuildCustomResources(&k.environment, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
-			resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, credential)
+		k.customResources, err = customresources.BuildCustomResources(&k.environment, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID, credential)
 		if err != nil {
 			return nil, fmt.Errorf("initializing custom resources: %w", err)
 		}
