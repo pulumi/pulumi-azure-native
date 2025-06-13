@@ -15,7 +15,6 @@ import (
 
 	"github.com/blang/semver"
 	structpb "github.com/golang/protobuf/ptypes/struct"
-	"github.com/manicminer/hamilton/environments"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/diag"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/deepcopy"
 	"github.com/segmentio/encoding/json"
@@ -1854,18 +1853,6 @@ func parseCheckpointObject(reqOldInputs *structpb.Struct, obj resource.PropertyM
 	}
 
 	return nil, nil
-}
-
-// deprecated
-func (k *azureNativeProvider) autorestEnvToHamiltonEnv() environments.Environment {
-	switch k.environment.Name {
-	case azureEnv.USGovernmentCloud.Name:
-		return environments.USGovernmentL4
-	case azureEnv.ChinaCloud.Name:
-		return environments.China
-	default:
-		return environments.Global
-	}
 }
 
 // getApiVersion usually returns the API version set on `resource` (from metadata). For resources where the user
