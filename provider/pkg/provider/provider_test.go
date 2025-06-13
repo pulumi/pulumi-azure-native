@@ -477,21 +477,21 @@ func TestUsesCorrectAzureClient(t *testing.T) {
 
 	t.Run("default", func(t *testing.T) {
 		t.Setenv("PULUMI_ENABLE_AZCORE_BACKEND", "")
-		client, err := p.newAzureClient(nil, &fake.TokenCredential{}, "pulumi")
+		client, err := p.newAzureClient(&fake.TokenCredential{}, "pulumi")
 		require.NoError(t, err)
 		assert.Equal(t, "azureClientImpl", reflect.TypeOf(client).Elem().Name())
 	})
 
 	t.Run("Autorest and legacy auth disabled explicitly", func(t *testing.T) {
 		t.Setenv("PULUMI_ENABLE_AZCORE_BACKEND", "false")
-		client, err := p.newAzureClient(nil, &fake.TokenCredential{}, "pulumi")
+		client, err := p.newAzureClient(&fake.TokenCredential{}, "pulumi")
 		require.NoError(t, err)
 		assert.Equal(t, "azureClientImpl", reflect.TypeOf(client).Elem().Name())
 	})
 
 	t.Run("Azcore enabled", func(t *testing.T) {
 		t.Setenv("PULUMI_ENABLE_AZCORE_BACKEND", "true")
-		client, err := p.newAzureClient(nil, &fake.TokenCredential{}, "pulumi")
+		client, err := p.newAzureClient(&fake.TokenCredential{}, "pulumi")
 		require.NoError(t, err)
 		assert.Equal(t, "azCoreClient", reflect.TypeOf(client).Elem().Name())
 	})
@@ -511,7 +511,7 @@ func TestAzcoreAzureClientUsesCorrectCloud(t *testing.T) {
 			cloud: cloudInstance,
 		}
 
-		client, err := p.newAzureClient(nil, &fake.TokenCredential{}, "pulumi")
+		client, err := p.newAzureClient(&fake.TokenCredential{}, "pulumi")
 		require.NoError(t, err)
 		require.NotNil(t, client)
 
@@ -535,7 +535,7 @@ func TestAutorestAzureClientUsesCorrectCloud(t *testing.T) {
 		}
 		t.Setenv("PULUMI_ENABLE_AZCORE_BACKEND", "false")
 
-		client, err := p.newAzureClient(nil, nil, "pulumi")
+		client, err := p.newAzureClient(nil, "pulumi")
 		require.NoError(t, err)
 		require.NotNil(t, client)
 
