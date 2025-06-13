@@ -243,15 +243,9 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 	userAgent := k.getUserAgent()
 
-	var credential azcore.TokenCredential
-	if util.EnableAzcoreBackend() {
-		credential, err = k.newTokenCredential()
-		if err != nil {
-			return nil, fmt.Errorf("creating Pulumi auth credential: %w", err)
-		}
-	} else {
-		logging.V(9).Infof("Using legacy authentication")
-		credential = azCoreTokenCredential{p: k}
+	credential, err := k.newTokenCredential()
+	if err != nil {
+		return nil, fmt.Errorf("creating Pulumi auth credential: %w", err)
 	}
 
 	k.azureClient, err = k.newAzureClient(resourceManagerAuth, credential, userAgent)
