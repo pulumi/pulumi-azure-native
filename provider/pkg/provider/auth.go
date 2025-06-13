@@ -22,7 +22,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 
 	goversion "github.com/hashicorp/go-version"
-	hamiltonAuth "github.com/manicminer/hamilton-autorest/auth"
 )
 
 type authConfig struct {
@@ -313,50 +312,9 @@ func (k *azureNativeProvider) makeMSALAuthorizerFactories(ctx context.Context, a
 	return tokenFactory, bearerAuthFactory, nil
 }
 
-func (k *azureNativeProvider) getOAuthToken(ctx context.Context, auth *authConfig, endpoint string) (string, error) {
-	buildSender := sender.BuildSender("AzureNative")
-	oauthConfig, err := k.buildOAuthConfig(auth.Config)
-	if err != nil {
-		return "", err
-	}
-
-	api := k.autorestEnvToHamiltonEnv().ResourceManager
-
-	var authorizer autorest.Authorizer
-	if auth.useCli {
-		authorizer, err = auth.GetADALToken(ctx, buildSender, oauthConfig, endpoint)
-	} else {
-		authorizer, err = auth.GetMSALToken(ctx, api, buildSender, oauthConfig, endpoint)
-	}
-	if err != nil {
-		return "", fmt.Errorf("getting authorization token: %w", err)
-	}
-
-	// go-azure-helpers returns different kinds of Authorizer from different auth methods so we
-	// need to check to choose the right method to get a token.
-	var token string
-	ba, ok := authorizer.(*autorest.BearerAuthorizer)
-	if ok {
-		tokenProvider := ba.TokenProvider()
-		token = tokenProvider.OAuthToken()
-	} else {
-		if outer, ok := authorizer.(*hamiltonAuth.Authorizer); ok {
-			t, err := outer.Token()
-			if err != nil {
-				return "", err
-			}
-			token = t.AccessToken
-		}
-	}
-
-	if token == "" {
-		return "", fmt.Errorf("empty token from %T", authorizer)
-	}
-	return token, nil
-}
-
 type TokenFactory func(ctx context.Context, auth *authConfig, endpoint string) (string, error)
 
+// deprecated
 func (k *azureNativeProvider) buildOAuthConfig(authConfig *authentication.Config) (*authentication.OAuthConfig, error) {
 	oauthConfig, err := authConfig.BuildOAuthConfig(k.environment.ActiveDirectoryEndpoint)
 	if err != nil {

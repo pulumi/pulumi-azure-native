@@ -1856,6 +1856,7 @@ func parseCheckpointObject(reqOldInputs *structpb.Struct, obj resource.PropertyM
 	return nil, nil
 }
 
+// deprecated
 func (k *azureNativeProvider) autorestEnvToHamiltonEnv() environments.Environment {
 	switch k.environment.Name {
 	case azureEnv.USGovernmentCloud.Name:
