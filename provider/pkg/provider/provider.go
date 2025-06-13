@@ -24,7 +24,6 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
-	"github.com/Azure/go-autorest/autorest"
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	"github.com/google/uuid"
@@ -35,7 +34,6 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources/customresources"
-	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -248,7 +246,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 		return nil, fmt.Errorf("creating Pulumi auth credential: %w", err)
 	}
 
-	k.azureClient, err = k.newAzureClient(resourceManagerAuth, credential, userAgent)
+	k.azureClient, err = k.newAzureClient(credential, userAgent)
 	if err != nil {
 		return nil, fmt.Errorf("creating Azure client: %w", err)
 	}
@@ -274,13 +272,9 @@ func (k *azureNativeProvider) isParameterized() bool {
 	return strings.HasPrefix(k.name, "azure-native"+parameterizedNameSeparator)
 }
 
-func (k *azureNativeProvider) newAzureClient(armAuth autorest.Authorizer, tokenCred azcore.TokenCredential, userAgent string) (azure.AzureClient, error) {
-	if util.EnableAzcoreBackend() {
-		logging.V(9).Infof("AzureClient: using azcore and azidentity")
-		return azure.NewAzCoreClient(tokenCred, userAgent, k.cloud, nil)
-	}
-	logging.V(9).Infof("AzureClient: using autorest")
-	return azure.NewAzureClient(k.environment, armAuth, userAgent), nil
+func (k *azureNativeProvider) newAzureClient(tokenCred azcore.TokenCredential, userAgent string) (azure.AzureClient, error) {
+	logging.V(9).Infof("AzureClient: using azcore and azidentity")
+	return azure.NewAzCoreClient(tokenCred, userAgent, k.cloud, nil)
 }
 
 // Invoke dynamically executes a built-in function in the provider.
