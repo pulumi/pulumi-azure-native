@@ -1,9 +1,14 @@
 // Copyright 2021, Pulumi Corporation.  All rights reserved.
 
-import * as mysql from "@pulumi/azure-native/dbformysql/v20210501";
+import * as mysql from "@pulumi/azure-native/dbformysql";
 import * as resources from "@pulumi/azure-native/resources";
+import * as managedidentity from "@pulumi/azure-native/managedidentity";
 
 const resourceGroup = new resources.ResourceGroup("rg");
+
+const flexibleServerIdentity = new managedidentity.UserAssignedIdentity(`server-mi`, {
+    resourceGroupName: resourceGroup.name,
+});
 
 const flexibleServer = new mysql.Server("server", {
     resourceGroupName: resourceGroup.name,
@@ -14,6 +19,10 @@ const flexibleServer = new mysql.Server("server", {
     administratorLogin: "cloudsa",
     administratorLoginPassword: `pa$$w0rd`,
     version: "5.7",
+        identity: {
+        type: "UserAssigned",
+        userAssignedIdentities: [flexibleServerIdentity.id]
+    },
 });
 
 new mysql.Configuration("innodb_strict_mode", {
@@ -22,3 +31,5 @@ new mysql.Configuration("innodb_strict_mode", {
     source: "user-override",
     value: "off",
 });
+
+export const identity = flexibleServer.identity;
