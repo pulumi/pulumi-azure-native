@@ -9,8 +9,6 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault"
-	"github.com/Azure/azure-sdk-for-go/services/keyvault/2016-10-01/keyvault"
-	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2019-04-01/storage"
 	"github.com/Azure/go-autorest/autorest"
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
@@ -267,29 +265,11 @@ func BuildCustomResources(env *azureEnv.Environment,
 		customRoleAssignment,
 	}
 
-	// For Key Vault, we need to use separate token sources for azidentity and for the legacy auth. The
-	// `azCoreTokenCredential` adapter that we use elsewhere to translate legacy token sources to azidentity doesn't
-	// work here because KV needs a different token source for the KV endpoint.
-	if util.EnableAzcoreBackend() {
-		resources = append(resources, keyVaultSecret(cloud, tokenCred))
-		resources = append(resources, keyVaultKey(cloud, tokenCred))
+	resources = append(resources, keyVaultSecret(cloud, tokenCred))
+	resources = append(resources, keyVaultKey(cloud, tokenCred))
 
-		resources = append(resources, storageAccountStaticWebsite_azidentity(cloud, tokenCred))
-		resources = append(resources, newBlob_azidentity(cloud, tokenCred))
-	} else {
-		kvClient := keyvault.New()
-		kvClient.Authorizer = kvBearerAuth
-		kvClient.UserAgent = userAgent
-		resources = append(resources, keyVaultSecret_autorest(env.KeyVaultDNSSuffix, &kvClient))
-		resources = append(resources, keyVaultKey_autorest(env.KeyVaultDNSSuffix, &kvClient))
-
-		// Storage resources.
-		storageAccountsClient := storage.NewAccountsClientWithBaseURI(env.ResourceManagerEndpoint, subscriptionID)
-		storageAccountsClient.Authorizer = tokenAuth
-		storageAccountsClient.UserAgent = userAgent
-		resources = append(resources, newStorageAccountStaticWebsite(env, &storageAccountsClient))
-		resources = append(resources, newBlob(env, &storageAccountsClient))
-	}
+	resources = append(resources, storageAccountStaticWebsite_azidentity(cloud, tokenCred))
+	resources = append(resources, newBlob_azidentity(cloud, tokenCred))
 
 	result := map[string]*CustomResource{}
 	for _, r := range resources {
