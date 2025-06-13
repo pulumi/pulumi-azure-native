@@ -320,11 +320,10 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 			"tenantId":       auth.TenantID,
 		}
 	case "azure-native:authorization:getClientToken":
-		auth, err := k.getAuthConfig()
 		if err != nil {
 			return nil, fmt.Errorf("getting auth config: %w", err)
 		}
-		token, err := k.getClientToken(ctx, auth, args["endpoint"])
+		token, err := k.getClientToken(ctx, args["endpoint"])
 		if err != nil {
 			return nil, err
 		}
@@ -392,23 +391,18 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 	return &rpc.InvokeResponse{Return: result}, nil
 }
 
-func (k *azureNativeProvider) getClientToken(ctx context.Context, authConfig *authConfig, endpointArg resource.PropertyValue) (string, error) {
+func (k *azureNativeProvider) getClientToken(ctx context.Context, endpointArg resource.PropertyValue) (string, error) {
 	endpoint := k.tokenEndpoint(endpointArg)
 
-	if util.EnableAzcoreBackend() {
-		cred, err := k.newTokenCredential()
-		if err != nil {
-			return "", err
-		}
-		t, err := cred.GetToken(ctx, tokenRequestOpts(endpoint))
-		if err != nil {
-			return "", err
-		}
-		return t.Token, nil
+	cred, err := k.newTokenCredential()
+	if err != nil {
+		return "", err
 	}
-
-	// legacy autorest/go-azure-helpers auth
-	return k.getOAuthToken(ctx, authConfig, endpoint)
+	t, err := cred.GetToken(ctx, tokenRequestOpts(endpoint))
+	if err != nil {
+		return "", err
+	}
+	return t.Token, nil
 }
 
 // Returns the Azure endpoint where tokens can be requested. If the argument is not null or empty,
@@ -1759,6 +1753,7 @@ func parseCheckpointObject(reqOldInputs *structpb.Struct, obj resource.PropertyM
 	return nil, nil
 }
 
+// deprecated
 func (k *azureNativeProvider) autorestEnvToHamiltonEnv() environments.Environment {
 	switch k.environment.Name {
 	case azureEnv.USGovernmentCloud.Name:
