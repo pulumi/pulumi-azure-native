@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DBforMySQL.Outputs
         /// <summary>
         /// Metadata of user assigned identity.
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableArray<Outputs.UserAssignedIdentityResponse>>? UserAssignedIdentities;
+        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private MySQLServerIdentityResponse(
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.DBforMySQL.Outputs
 
             string? type,
 
-            ImmutableDictionary<string, ImmutableArray<Outputs.UserAssignedIdentityResponse>>? userAssignedIdentities)
+            ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

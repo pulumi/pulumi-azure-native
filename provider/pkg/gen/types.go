@@ -192,8 +192,16 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 		}, nil
 
 	case resolvedSchema.AdditionalProperties != nil && resolvedSchema.AdditionalProperties.Schema != nil:
+		schema := resolvedSchema.AdditionalProperties.Schema
+
+		// special case for userAssignedIdentities where element type is an array of objects,
+		// e.g. for `Microsoft.DBforMySQL/MySQLServerIdentity`.
+		if propertyName == "userAssignedIdentities" && resolvedSchema.AdditionalProperties.Schema.Items != nil {
+			schema = resolvedSchema.AdditionalProperties.Schema.Items.Schema
+		}
+
 		// Define the type of maps (untyped objects).
-		additionalProperties, err := m.genTypeSpec(propertyName, resolvedSchema.AdditionalProperties.Schema, resolvedSchema.ReferenceContext, isOutput)
+		additionalProperties, err := m.genTypeSpec(propertyName, schema, resolvedSchema.ReferenceContext, isOutput)
 		if err != nil {
 			return nil, fmt.Errorf("failed to generate type spec for additional properties: %w", err)
 		}
