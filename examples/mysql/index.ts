@@ -1,6 +1,6 @@
 // Copyright 2021, Pulumi Corporation.  All rights reserved.
 
-import * as mysql from "@pulumi/azure-native/dbformysql/v20210501";
+import * as mysql from "@pulumi/azure-native/dbformysql";
 import * as resources from "@pulumi/azure-native/resources";
 
 const resourceGroup = new resources.ResourceGroup("rg");
@@ -22,3 +22,5 @@ new mysql.Configuration("innodb_strict_mode", {
     source: "user-override",
     value: "off",
 });
+
+export const serverIdentity = flexibleServer.identity;
