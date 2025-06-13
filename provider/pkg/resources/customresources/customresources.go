@@ -10,7 +10,6 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault"
-	"github.com/Azure/go-autorest/autorest"
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
@@ -199,15 +198,11 @@ func (r *CustomResource) ApplySchema(pkg *schema.PackageSpec, meta *AzureAPIMeta
 }
 
 // BuildCustomResources creates a map of custom resources for given environment parameters.
-func BuildCustomResources(env *azureEnv.Environment,
+func BuildCustomResources(
 	azureClient azure.AzureClient,
 	lookupResource ResourceLookupFunc,
 	crudClientFactory crud.ResourceCrudClientFactory,
 	subscriptionID string,
-	bearerAuth autorest.Authorizer, // autorest
-	tokenAuth autorest.Authorizer, // autorest
-	kvBearerAuth autorest.Authorizer, // autorest
-	userAgent string, // autorest
 	cloud azcloud.Configuration,
 	tokenCred azcore.TokenCredential) (map[string]*CustomResource, error) {
 
@@ -273,7 +268,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 }
 
 // featureLookup is a map of custom resource to lookup their capabilities.
-var featureLookup, _ = BuildCustomResources(&azureEnv.Environment{}, nil, nil, nil, "", nil, nil, nil, "", azcloud.Configuration{}, nil)
+var featureLookup, _ = BuildCustomResources(nil, nil, nil, "", azcloud.Configuration{}, nil)
 
 // IncludeCustomResource returns isCustom=true if a custom resource is defined for the given path, and include=true if
 // the given API version should be included.
