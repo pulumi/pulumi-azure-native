@@ -9,7 +9,6 @@ import (
 	"fmt"
 	"os/exec"
 	"strings"
-	"time"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
@@ -357,30 +356,6 @@ func (k *azureNativeProvider) getOAuthToken(ctx context.Context, auth *authConfi
 }
 
 type TokenFactory func(ctx context.Context, auth *authConfig, endpoint string) (string, error)
-
-// Implements the `azcore.TokenCredential` interface.
-type azCoreTokenCredential struct {
-	p *azureNativeProvider
-}
-
-func (cred azCoreTokenCredential) GetToken(ctx context.Context, options policy.TokenRequestOptions) (azcore.AccessToken, error) {
-	authConfig, err := cred.p.getAuthConfig()
-	if err != nil {
-		return azcore.AccessToken{}, err
-	}
-	token, err := cred.p.getOAuthToken(ctx, authConfig, cred.p.environment.ResourceManagerEndpoint)
-	if err != nil {
-		return azcore.AccessToken{}, err
-	}
-	return azcore.AccessToken{
-		Token: token,
-		// This hard-coded expiry is not ideal but we don't know the lifetime of the token at this
-		// point because the Azure response containing it is down the call stack in go-azure-helpers.
-		ExpiresOn: time.Now().Add(2 * time.Hour),
-	}, nil
-}
-
-var _ azcore.TokenCredential = (*azCoreTokenCredential)(nil)
 
 func (k *azureNativeProvider) buildOAuthConfig(authConfig *authentication.Config) (*authentication.OAuthConfig, error) {
 	oauthConfig, err := authConfig.BuildOAuthConfig(k.environment.ActiveDirectoryEndpoint)

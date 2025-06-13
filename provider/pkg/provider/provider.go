@@ -251,84 +251,6 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 	k.skipReadOnUpdate = k.getConfig("skipReadOnUpdate", "ARM_SKIP_READ_ON_UPDATE") == "true"
 
-	if util.EnableAzcoreBackend() {
-		_, err := k.configureAzidentity(ctx)
-		if err != nil {
-			return nil, err
-		}
-
-		return &rpc.ConfigureResponse{
-			SupportsPreview:                 true,
-			SupportsAutonamingConfiguration: true,
-		}, nil
-	}
-
-	authConfig, err := k.getAuthConfig()
-	if err != nil {
-		return nil, err
-	}
-
-	k.environment, err = authConfig.autorestEnvironment()
-	if err != nil {
-		return nil, err
-	}
-
-	k.cloud = authConfig.cloud()
-
-	hamiltonEnv := k.autorestEnvToHamiltonEnv()
-
-	// The ctx Context given by gRPC is request-scoped and will be canceled after this request. We
-	// need the authorizers to function across requests.
-	authCtx := context.Background()
-
-	tokenAuth, bearerAuth, err := k.makeAuthorizerFactories(authCtx, authConfig)
-	if err != nil {
-		return nil, fmt.Errorf("auth setup: %w", err)
-	}
-
-	resourceManagerAuth, err := tokenAuth(hamiltonEnv.ResourceManager)
-	if err != nil {
-		return nil, fmt.Errorf("building authorizer for %s: %w", hamiltonEnv.ResourceManager.Endpoint, err)
-	}
-
-	resourceManagerBearerAuth, err := bearerAuth(hamiltonEnv.ResourceManager)
-	if err != nil {
-		return nil, fmt.Errorf("building bearer authorizer for %s: %w", hamiltonEnv.ResourceManager.Endpoint, err)
-	}
-
-	keyVaultBearerAuth, err := bearerAuth(hamiltonEnv.KeyVault)
-	if err != nil {
-		return nil, fmt.Errorf("building bearer authorizer for %s: %w", hamiltonEnv.KeyVault.Endpoint, err)
-	}
-
-	k.subscriptionID = authConfig.SubscriptionID
-
-	userAgent := k.getUserAgent()
-
-	logging.V(9).Infof("Using legacy authentication")
-	credential := azCoreTokenCredential{p: k}
-
-	k.azureClient, err = azure.NewAzureClient(k.environment, resourceManagerAuth, userAgent), nil
-	if err != nil {
-		return nil, fmt.Errorf("creating Azure client: %w", err)
-	}
-
-	// When the provider is parameterized, resources and types that custom resources are built on will probably not be available.
-	if !k.isParameterized() {
-		k.customResources, err = customresources.BuildCustomResources(&k.environment, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
-			resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, k.cloud, credential)
-		if err != nil {
-			return nil, fmt.Errorf("initializing custom resources: %w", err)
-		}
-	}
-
-	return &rpc.ConfigureResponse{
-		SupportsPreview:                 true,
-		SupportsAutonamingConfiguration: true,
-	}, nil
-}
-
-func (k *azureNativeProvider) configureAzidentity(ctx context.Context) (*rpc.ConfigureResponse, error) {
 	logging.V(9).Infof("Using azcore authentication")
 
 	userAgent := k.getUserAgent()
@@ -367,7 +289,10 @@ func (k *azureNativeProvider) configureAzidentity(ctx context.Context) (*rpc.Con
 		}
 	}
 
-	return nil, nil
+	return &rpc.ConfigureResponse{
+		SupportsPreview:                 true,
+		SupportsAutonamingConfiguration: true,
+	}, nil
 }
 
 func (k *azureNativeProvider) isParameterized() bool {
