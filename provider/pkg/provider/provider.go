@@ -281,8 +281,9 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	// When the provider is parameterized, resources and types that custom resources are built on will probably not be available.
 	if !k.isParameterized() {
 		var err error
-		k.customResources, err = customresources.BuildCustomResources(nil, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
-			nil, nil, nil, "", k.cloud, credential)
+		k.customResources, err = customresources.BuildCustomResources(
+			k.azureClient, k.LookupResource, k.newCrudClient,
+			k.subscriptionID, k.cloud, credential)
 		if err != nil {
 			return nil, fmt.Errorf("initializing custom resources: %w", err)
 		}
