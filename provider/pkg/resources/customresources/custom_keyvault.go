@@ -13,6 +13,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azsecrets"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
 // Note: These are "hybrid" resources: schema, create, update, read use default implementation, while DELETE is overridden.
@@ -52,6 +53,8 @@ func keyVaultSecret(cloud azcloud.Configuration, tokenCred azcore.TokenCredentia
 			if err != nil {
 				return err
 			}
+			logging.V(9).Infof("connecting to vault: %s", vaultUrl)
+
 			_, err = kvClient.DeleteSecret(ctx, secretName.StringValue(), nil)
 			return reportDeletionError(err)
 		},
@@ -81,6 +84,8 @@ func keyVaultKey(cloud azcloud.Configuration, tokenCred azcore.TokenCredential) 
 			if err != nil {
 				return err
 			}
+			logging.V(9).Infof("connecting to vault: %s", vaultUrl)
+
 			_, err = kvClient.DeleteKey(ctx, keyName.StringValue(), nil)
 			return reportDeletionError(err)
 		},
