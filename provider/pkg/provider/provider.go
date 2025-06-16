@@ -23,7 +23,6 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
-	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
@@ -58,8 +57,8 @@ type azureNativeProvider struct {
 	host           *provider.HostClient
 	name           string
 	version        string
+	authConfig     authConfiguration
 	subscriptionID string
-	environment    azureEnv.Environment
 	cloud          azcloud.Configuration
 	config         map[string]string
 
@@ -198,34 +197,31 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 	k.setLoggingContext(ctx)
 
-	authConfig, err := k.getAuthConfig()
+	// Configure authentication to Azure cloud.
+	authConfig, err := k.readAuthConfig()
 	if err != nil {
 		return nil, err
 	}
+	k.authConfig = *authConfig
 
-	k.environment, err = authConfig.autorestEnvironment()
-	if err != nil {
-		return nil, err
-	}
-
-	k.cloud = authConfig.cloud()
-	k.subscriptionID = authConfig.SubscriptionID
+	k.cloud = authConfig.cloud
+	k.subscriptionID = authConfig.subscriptionId
 
 	userAgent := k.getUserAgent()
 
-	credential, err := k.newTokenCredential()
+	credential, err := newTokenCredential(authConfig)
 	if err != nil {
 		return nil, fmt.Errorf("creating Pulumi auth credential: %w", err)
 	}
 
-	k.azureClient, err = k.newAzureClient(credential, userAgent)
+	k.azureClient, err = k.newAzureClient(credential, userAgent, k.cloud)
 	if err != nil {
 		return nil, fmt.Errorf("creating Azure client: %w", err)
 	}
 
 	// When the provider is parameterized, resources and types that custom resources are built on will probably not be available.
 	if !k.isParameterized() {
-		k.customResources, err = customresources.BuildCustomResources(&k.environment, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID, credential)
+		k.customResources, err = customresources.BuildCustomResources(k.cloud, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID, credential)
 		if err != nil {
 			return nil, fmt.Errorf("initializing custom resources: %w", err)
 		}
@@ -285,9 +281,6 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 			"tenantId":       auth.TenantID,
 		}
 	case "azure-native:authorization:getClientToken":
-		if err != nil {
-			return nil, fmt.Errorf("getting auth config: %w", err)
-		}
 		token, err := k.getClientToken(ctx, args["endpoint"])
 		if err != nil {
 			return nil, err
@@ -358,11 +351,11 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 
 func (k *azureNativeProvider) getClientToken(ctx context.Context, endpointArg resource.PropertyValue) (string, error) {
 	endpoint := k.tokenEndpoint(endpointArg)
-
-	cred, err := k.newTokenCredential()
+	cred, err := newTokenCredential(&k.authConfig)
 	if err != nil {
 		return "", err
 	}
+	logging.V(9).Infof("getting a token credential from %s", endpoint)
 	t, err := cred.GetToken(ctx, tokenRequestOpts(endpoint))
 	if err != nil {
 		return "", err
@@ -376,7 +369,7 @@ func (k *azureNativeProvider) tokenEndpoint(endpointArg resource.PropertyValue) 
 	if endpointArg.HasValue() && endpointArg.IsString() && endpointArg.StringValue() != "" {
 		return endpointArg.StringValue()
 	}
-	return k.environment.ResourceManagerEndpoint
+	return k.cloud.Services[azcloud.ResourceManager].Endpoint
 }
 
 func tokenRequestOpts(endpoint string) policy.TokenRequestOptions {

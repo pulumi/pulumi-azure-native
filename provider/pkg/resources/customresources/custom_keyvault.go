@@ -8,14 +8,30 @@ import (
 	"net/http"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azkeys"
 	"github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azsecrets"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
+// Note: These are actually "hybrid" resources: schema, create, update, read are all automatic, while DELETE is manual code.
+// DELETE is implemented via the KeyVault "data plane" API, because it isn't available via ARM.
+
+// from: https://github.com/Azure/go-autorest/blob/autorest/v0.11.29/autorest/azure/environments.go
+func getKeyVaultSuffix(env azcloud.Configuration) (string, error) {
+	suffix := "vault.azure.net"
+	if env.ActiveDirectoryAuthorityHost == azcloud.AzureChina.ActiveDirectoryAuthorityHost {
+		suffix = "vault.azure.cn"
+	} else if env.ActiveDirectoryAuthorityHost == azcloud.AzureGovernment.ActiveDirectoryAuthorityHost {
+		suffix = "vault.usgovcloudapi.net"
+	}
+	return suffix, nil
+}
+
 // keyVaultSecret creates a custom resource for Azure KeyVault Secret.
-func keyVaultSecret(keyVaultDNSSuffix string, tokenCred azcore.TokenCredential) *CustomResource {
+func keyVaultSecret(env azcloud.Configuration, tokenCred azcore.TokenCredential) *CustomResource {
 	return &CustomResource{
 		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/secrets/{secretName}",
 		Delete: func(ctx context.Context, id string, inputs, state resource.PropertyMap) error {
@@ -28,11 +44,17 @@ func keyVaultSecret(keyVaultDNSSuffix string, tokenCred azcore.TokenCredential) 
 				return errors.New("secretName not found in resource state")
 			}
 
+			keyVaultDNSSuffix, err := getKeyVaultSuffix(env)
+			if err != nil {
+				return err
+			}
 			vaultUrl := fmt.Sprintf("https://%s.%s", vaultName.StringValue(), keyVaultDNSSuffix)
 			kvClient, err := azsecrets.NewClient(vaultUrl, tokenCred, nil)
 			if err != nil {
 				return err
 			}
+			logging.V(9).Infof("connecting to vault: %s", vaultUrl)
+
 			_, err = kvClient.DeleteSecret(ctx, secretName.StringValue(), nil)
 			return reportDeletionError(err)
 		},
@@ -40,7 +62,7 @@ func keyVaultSecret(keyVaultDNSSuffix string, tokenCred azcore.TokenCredential) 
 }
 
 // keyVaultKey creates a custom resource for Azure KeyVault Key.
-func keyVaultKey(keyVaultDNSSuffix string, tokenCred azcore.TokenCredential) *CustomResource {
+func keyVaultKey(env azcloud.Configuration, tokenCred azcore.TokenCredential) *CustomResource {
 	return &CustomResource{
 		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/keys/{keyName}",
 		Delete: func(ctx context.Context, id string, inputs, state resource.PropertyMap) error {
@@ -53,11 +75,17 @@ func keyVaultKey(keyVaultDNSSuffix string, tokenCred azcore.TokenCredential) *Cu
 				return errors.New("keyName not found in resource state")
 			}
 
+			keyVaultDNSSuffix, err := getKeyVaultSuffix(env)
+			if err != nil {
+				return err
+			}
 			vaultUrl := fmt.Sprintf("https://%s.%s", vaultName.StringValue(), keyVaultDNSSuffix)
 			kvClient, err := azkeys.NewClient(vaultUrl, tokenCred, nil)
 			if err != nil {
 				return err
 			}
+			logging.V(9).Infof("connecting to vault: %s", vaultUrl)
+
 			_, err = kvClient.DeleteKey(ctx, keyName.StringValue(), nil)
 			return reportDeletionError(err)
 		},

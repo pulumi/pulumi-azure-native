@@ -8,8 +8,8 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
+	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault"
-	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
@@ -197,12 +197,14 @@ func (r *CustomResource) ApplySchema(pkg *schema.PackageSpec, meta *AzureAPIMeta
 }
 
 // BuildCustomResources creates a map of custom resources for given environment parameters.
-func BuildCustomResources(env *azureEnv.Environment,
+func BuildCustomResources(cloud azcloud.Configuration,
 	azureClient azure.AzureClient,
 	lookupResource ResourceLookupFunc,
 	crudClientFactory crud.ResourceCrudClientFactory,
 	subscriptionID string,
 	tokenCred azcore.TokenCredential) (map[string]*CustomResource, error) {
+
+	logging.V(9).Infof("building custom resources for cloud %q", cloud.ActiveDirectoryAuthorityHost)
 
 	armKVClient, err := armkeyvault.NewVaultsClient(subscriptionID, tokenCred, &arm.ClientOptions{})
 	if err != nil {
@@ -252,10 +254,9 @@ func BuildCustomResources(env *azureEnv.Environment,
 		pimRoleEligibilitySchedule,
 	}
 
-	resources = append(resources, keyVaultSecret(env.KeyVaultDNSSuffix, tokenCred))
-	resources = append(resources, keyVaultKey(env.KeyVaultDNSSuffix, tokenCred))
+	resources = append(resources, keyVaultSecret(cloud, tokenCred))
+	resources = append(resources, keyVaultKey(cloud, tokenCred))
 
-	cloud := azure.GetCloudByName(env.Name)
 	resources = append(resources, storageAccountStaticWebsite_azidentity(cloud, tokenCred))
 	resources = append(resources, newBlob_azidentity(cloud, tokenCred))
 
@@ -267,7 +268,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 }
 
 // featureLookup is a map of custom resource to lookup their capabilities.
-var featureLookup, _ = BuildCustomResources(&azureEnv.Environment{}, nil, nil, nil, "", nil)
+var featureLookup, _ = BuildCustomResources(azcloud.Configuration{}, nil, nil, nil, "", nil)
 
 // IncludeCustomResource returns isCustom=true if a custom resource is defined for the given path, and include=true if
 // the given API version should be included.

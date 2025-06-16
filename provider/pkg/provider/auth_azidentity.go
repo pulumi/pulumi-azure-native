@@ -17,17 +17,13 @@ import (
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
-// newTokenCredential is the main entry to the new azcore/azidentity-based authenticattion stack. It returns a
+// newTokenCredential is the main entry to the new azcore/azidentity-based authentication stack. It returns a
 // TokenCredential which can be passed into various Azure Go SDKs.
-func (k *azureNativeProvider) newTokenCredential() (azcore.TokenCredential, error) {
-	authConf, err := k.readAuthConfig()
-	if err != nil {
-		return nil, err
-	}
-
+func newTokenCredential(authConf *authConfiguration) (azcore.TokenCredential, error) {
 	return newSingleMethodAuthCredential(authConf)
 }
 
@@ -235,6 +231,8 @@ func readCertificate(certPath, certPassword string) ([]*x509.Certificate, crypto
 type authConfiguration struct {
 	cloud azcloud.Configuration
 
+	subscriptionId string
+
 	clientId   string
 	tenantId   string
 	auxTenants []string
@@ -259,6 +257,10 @@ type authConfiguration struct {
 
 // getAuthConfig collects auth-related configuration from Pulumi config and environment variables
 func (k *azureNativeProvider) readAuthConfig() (*authConfiguration, error) {
+
+	envName := readAzureEnvironmentFromConfig(k)
+	cloud := azure.GetCloudByName(envName)
+
 	auxTenantsString := k.getConfig("auxiliaryTenantIds", "ARM_AUXILIARY_TENANT_IDS")
 	var auxTenants []string
 	if auxTenantsString != "" {
@@ -272,7 +274,9 @@ func (k *azureNativeProvider) readAuthConfig() (*authConfiguration, error) {
 		clientId:   k.getConfig("clientId", "ARM_CLIENT_ID"),
 		tenantId:   k.getConfig("tenantId", "ARM_TENANT_ID"),
 		auxTenants: auxTenants,
-		cloud:      k.cloud,
+		cloud:      cloud,
+
+		subscriptionId: k.getConfig("subscriptionId", "ARM_SUBSCRIPTION_ID"),
 
 		clientSecret:       k.getConfig("clientSecret", "ARM_CLIENT_SECRET"),
 		clientCertPath:     k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH"),
