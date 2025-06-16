@@ -23,7 +23,6 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
-	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
@@ -64,7 +63,6 @@ type azureNativeProvider struct {
 	name           string
 	version        string
 	subscriptionID string
-	environment    azureEnv.Environment
 	cloud          cloud.Configuration
 	config         map[string]string
 
