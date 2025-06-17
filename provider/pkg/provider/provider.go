@@ -214,7 +214,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 		return nil, fmt.Errorf("creating Pulumi auth credential: %w", err)
 	}
 
-	k.azureClient, err = k.newAzureClient(credential, userAgent, k.cloud)
+	k.azureClient, err = k.newAzureClient(credential, userAgent)
 	if err != nil {
 		return nil, fmt.Errorf("creating Azure client: %w", err)
 	}
@@ -259,26 +259,16 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 	var outputs map[string]interface{}
 	switch req.Tok {
 	case "azure-native:authorization:getClientConfig":
-		auth, err := k.getAuthConfig()
+		auth, err := k.getClientConfig(ctx)
 		if err != nil {
-			return nil, fmt.Errorf("getting auth config: %w", err)
+			return nil, fmt.Errorf("getting client config: %w", err)
 		}
-		objectId := ""
-		if auth.GetAuthenticatedObjectID != nil {
-			objectIdPtr, err := auth.GetAuthenticatedObjectID(ctx)
-			if err != nil {
-				return nil, fmt.Errorf("getting authenticated object ID: %w", err)
-			}
-			if objectIdPtr == nil {
-				return nil, fmt.Errorf("getting authenticated object ID")
-			}
-			objectId = *objectIdPtr
-		}
+
 		outputs = map[string]interface{}{
-			"clientId":       auth.ClientID,
-			"objectId":       objectId,
-			"subscriptionId": auth.SubscriptionID,
-			"tenantId":       auth.TenantID,
+			"clientId":       auth.ClientId,
+			"objectId":       auth.ObjectId,
+			"subscriptionId": auth.SubscriptionId,
+			"tenantId":       auth.TenantId,
 		}
 	case "azure-native:authorization:getClientToken":
 		token, err := k.getClientToken(ctx, args["endpoint"])
@@ -347,6 +337,14 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 		return nil, err
 	}
 	return &rpc.InvokeResponse{Return: result}, nil
+}
+
+func (k *azureNativeProvider) getClientConfig(ctx context.Context) (*ClientConfig, error) {
+	cred, err := newTokenCredential(&k.authConfig)
+	if err != nil {
+		return nil, err
+	}
+	return GetClientConfig(ctx, &k.authConfig, cred)
 }
 
 func (k *azureNativeProvider) getClientToken(ctx context.Context, endpointArg resource.PropertyValue) (string, error) {

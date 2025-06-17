@@ -6,16 +6,22 @@ import (
 	"context"
 	"crypto"
 	"crypto/x509"
+	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"net/url"
 	"os"
+	"strings"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	"github.com/microsoftgraph/msgraph-sdk-go/serviceprincipals"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
@@ -255,7 +261,7 @@ type authConfiguration struct {
 	useMsi bool
 }
 
-// getAuthConfig collects auth-related configuration from Pulumi config and environment variables
+// readAuthConfig collects auth-related configuration from Pulumi config and environment variables
 func (k *azureNativeProvider) readAuthConfig() (*authConfiguration, error) {
 
 	envName := readAzureEnvironmentFromConfig(k)
@@ -291,4 +297,165 @@ func (k *azureNativeProvider) readAuthConfig() (*authConfiguration, error) {
 		oidcTokenRequestToken: k.getConfig("oidcRequestToken", "ACTIONS_ID_TOKEN_REQUEST_TOKEN"),
 		oidcTokenRequestUrl:   k.getConfig("oidcRequestUrl", "ACTIONS_ID_TOKEN_REQUEST_URL"),
 	}, nil
+}
+
+// Claims is used to unmarshall the claims from a JWT issued by the Microsoft Identity Platform.
+type Claims struct {
+	Audience          string   `json:"aud"`
+	Issuer            string   `json:"iss"`
+	IdentityProvider  string   `json:"idp"`
+	ObjectId          string   `json:"oid"`
+	Roles             []string `json:"roles"`
+	Scopes            string   `json:"scp"`
+	Subject           string   `json:"sub"`
+	TenantRegionScope string   `json:"tenant_region_scope"`
+	TenantId          string   `json:"tid"`
+	Version           string   `json:"ver"`
+
+	AppDisplayName string `json:"app_displayname,omitempty"`
+	AppId          string `json:"appid,omitempty"`
+	IdType         string `json:"idtyp,omitempty"`
+}
+
+// parseClaims retrieves and parses the claims from a JWT issued by the Microsoft Identity Platform.
+func parseClaims(token azcore.AccessToken) (claims Claims, err error) {
+	jwt := strings.Split(token.Token, ".")
+	payload, err := base64.RawURLEncoding.DecodeString(jwt[1])
+	if err != nil {
+		return
+	}
+	err = json.Unmarshal(payload, &claims)
+	return
+}
+
+type ClientConfig struct {
+	Cloud azcloud.Configuration
+
+	ClientId       string
+	ObjectId       string
+	SubscriptionId string
+	TenantId       string
+
+	AuthenticatedAsAServicePrincipal bool
+}
+
+func GetClientConfig(ctx context.Context, config *authConfiguration, cred azcore.TokenCredential) (*ClientConfig, error) {
+
+	// https://github.com/hashicorp/terraform-provider-azurerm/blob/572bb4f37d73f4f0d914737eaca4e5a1fd084c86/internal/clients/auth.go#L33
+
+	subscriptionId := config.subscriptionId
+
+	// Acquire an access token so we can inspect the claims
+	// TODO: support other locations
+	scope := "https://graph.microsoft.com/.default"
+	token, err := cred.GetToken(ctx, policy.TokenRequestOptions{
+		Scopes: []string{scope},
+	})
+	if err != nil {
+		return nil, fmt.Errorf("could not acquire access token to parse claims: %+v", err)
+	}
+
+	tokenClaims, err := parseClaims(token)
+	if err != nil {
+		return nil, fmt.Errorf("parsing claims from access token: %+v", err)
+	}
+
+	authenticatedAsServicePrincipal := true
+	if strings.Contains(strings.ToLower(tokenClaims.Scopes), "openid") {
+		authenticatedAsServicePrincipal = false
+	}
+
+	clientId := tokenClaims.AppId
+	if clientId == "" {
+		logging.V(9).Infof("[DEBUG] Using user-supplied ClientID because the `appid` claim was missing from the access token")
+		clientId = config.clientId
+	}
+
+	objectId := tokenClaims.ObjectId
+	if objectId == "" {
+		graphClient, err := msgraphsdk.NewGraphServiceClientWithCredentials(cred, []string{scope})
+		if err != nil {
+			return nil, fmt.Errorf("failed to create Microsoft Graph client: %w", err)
+		}
+		if authenticatedAsServicePrincipal {
+			logging.V(9).Infof("[DEBUG] Querying Microsoft Graph to discover authenticated service principal object ID because the `oid` claim was missing from the access token")
+			id, err := servicePrincipalObjectID(ctx, graphClient, config.clientId)
+			if err != nil {
+				return nil, fmt.Errorf("attempting to discover object ID for authenticated service principal with client ID %q: %w", config.clientId, err)
+			}
+
+			objectId = *id
+		} else {
+			logging.V(9).Infof("[DEBUG] Querying Microsoft Graph to discover authenticated user principal object ID because the `oid` claim was missing from the access token")
+			id, err := userPrincipalObjectID(ctx, graphClient)
+			if err != nil {
+				return nil, fmt.Errorf("attempting to discover object ID for authenticated user principal: %w", err)
+			}
+			objectId = *id
+		}
+	}
+
+	tenantId := tokenClaims.TenantId
+	if tenantId == "" {
+		log.Printf("[DEBUG] Using user-supplied TenantID because the `tid` claim was missing from the access token")
+		tenantId = config.tenantId
+	}
+
+	// We'll permit the provider to proceed with an unknown client ID since it only affects a small number of use cases when authenticating as a user
+	if tenantId == "" {
+		return nil, errors.New("unable to configure ClientAccount: tenant ID could not be determined and was not specified")
+	}
+	if subscriptionId == "" {
+		return nil, errors.New("unable to configure ClientAccount: subscription ID could not be determined and was not specified")
+	}
+
+	account := &ClientConfig{
+		Cloud: config.cloud,
+
+		ClientId:       clientId,
+		ObjectId:       objectId,
+		SubscriptionId: subscriptionId,
+		TenantId:       tenantId,
+
+		AuthenticatedAsAServicePrincipal: authenticatedAsServicePrincipal,
+	}
+
+	return account, nil
+}
+
+func servicePrincipalObjectID(ctx context.Context, client *msgraphsdk.GraphServiceClient, clientId string) (*string, error) {
+	filter := fmt.Sprintf("appId eq '%s'", clientId)
+	response, err := client.ServicePrincipals().Get(ctx, &serviceprincipals.ServicePrincipalsRequestBuilderGetRequestConfiguration{
+		QueryParameters: &serviceprincipals.ServicePrincipalsRequestBuilderGetQueryParameters{
+			Filter: &filter,
+		},
+	})
+	if err != nil {
+		return nil, fmt.Errorf("executing request: %w", err)
+	}
+
+	principals := response.GetValue()
+	if len(principals) != 1 {
+		return nil, fmt.Errorf("unexpected number of results, expected 1, received %d", len(principals))
+	}
+
+	id := principals[0].GetId()
+	if id == nil {
+		return nil, errors.New("returned object ID was nil")
+	}
+
+	return id, nil
+}
+
+func userPrincipalObjectID(ctx context.Context, client *msgraphsdk.GraphServiceClient) (*string, error) {
+	me, err := client.Me().Get(ctx, nil)
+	if err != nil {
+		return nil, fmt.Errorf("executing request: %w", err)
+	}
+
+	if me.GetId() == nil {
+		return nil, fmt.Errorf("returned object ID was nil")
+	}
+
+	return me.GetId(), nil
 }
