@@ -379,9 +379,9 @@ func GetClientConfig(ctx context.Context, config *authConfiguration, cred azcore
 		}
 		if authenticatedAsServicePrincipal {
 			logging.V(9).Infof("[DEBUG] Querying Microsoft Graph to discover authenticated service principal object ID because the `oid` claim was missing from the access token")
-			id, err := servicePrincipalObjectID(ctx, graphClient, config.clientId)
+			id, err := servicePrincipalObjectID(ctx, graphClient, clientId)
 			if err != nil {
-				return nil, fmt.Errorf("attempting to discover object ID for authenticated service principal with client ID %q: %w", config.clientId, err)
+				return nil, fmt.Errorf("attempting to discover object ID for authenticated service principal with client ID %q: %w", clientId, err)
 			}
 
 			objectId = *id
@@ -399,14 +399,6 @@ func GetClientConfig(ctx context.Context, config *authConfiguration, cred azcore
 	if tenantId == "" {
 		log.Printf("[DEBUG] Using user-supplied TenantID because the `tid` claim was missing from the access token")
 		tenantId = config.tenantId
-	}
-
-	// We'll permit the provider to proceed with an unknown client ID since it only affects a small number of use cases when authenticating as a user
-	if tenantId == "" {
-		return nil, errors.New("unable to configure ClientAccount: tenant ID could not be determined and was not specified")
-	}
-	if subscriptionId == "" {
-		return nil, errors.New("unable to configure ClientAccount: subscription ID could not be determined and was not specified")
 	}
 
 	account := &ClientConfig{
