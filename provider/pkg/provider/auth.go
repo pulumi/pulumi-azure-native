@@ -12,17 +12,6 @@ import (
 	goversion "github.com/hashicorp/go-version"
 )
 
-func readAzureEnvironmentFromConfig(k *azureNativeProvider) string {
-	envName := k.getConfig("environment", "ARM_ENVIRONMENT")
-	if envName == "" {
-		envName = k.getConfig("environment", "AZURE_ENVIRONMENT")
-	}
-	if envName == "" {
-		envName = "public"
-	}
-	return envName
-}
-
 func getAzVersion() (*goversion.Version, error) {
 	_, err := exec.LookPath("az")
 	if err != nil {
