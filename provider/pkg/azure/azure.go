@@ -78,6 +78,10 @@ func AzureError(err error) error {
 // has been done earlier.
 func GetCloudByName(cloudName string) azcloud.Configuration {
 	switch strings.ToLower(cloudName) {
+	case "azurecloud":
+		return azcloud.AzurePublic
+	case "azurepubliccloud":
+		return azcloud.AzurePublic
 	case "china":
 		return azcloud.AzureChina
 	case "azurechinacloud":
