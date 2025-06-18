@@ -509,7 +509,7 @@ func TestGetTokenEndpoint(t *testing.T) {
 			cloud: azcloud.AzurePublic,
 		}
 		endpoint := p.tokenEndpoint(resource.NewNullProperty())
-		assert.Equal(t, "https://management.azure.com/", endpoint)
+		assert.Equal(t, "https://management.azure.com", endpoint)
 	})
 
 	t.Run("implicit usgov", func(t *testing.T) {
@@ -518,7 +518,7 @@ func TestGetTokenEndpoint(t *testing.T) {
 			cloud: azcloud.AzureGovernment,
 		}
 		endpoint := p.tokenEndpoint(resource.NewNullProperty())
-		assert.Equal(t, "https://management.usgovcloudapi.net/", endpoint)
+		assert.Equal(t, "https://management.usgovcloudapi.net", endpoint)
 	})
 
 	t.Run("implicit with empty string, public", func(t *testing.T) {
@@ -527,7 +527,7 @@ func TestGetTokenEndpoint(t *testing.T) {
 			cloud: azcloud.AzurePublic,
 		}
 		endpoint := p.tokenEndpoint(resource.NewStringProperty(""))
-		assert.Equal(t, "https://management.azure.com/", endpoint)
+		assert.Equal(t, "https://management.azure.com", endpoint)
 	})
 }
 

@@ -6,7 +6,6 @@ import (
 	"context"
 	"crypto"
 	"crypto/x509"
-	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -261,13 +260,13 @@ type authConfiguration struct {
 	useMsi bool
 }
 
+type configGetter func(configName, envName string) string
+
 // readAuthConfig collects auth-related configuration from Pulumi config and environment variables
-func (k *azureNativeProvider) readAuthConfig() (*authConfiguration, error) {
+func readAuthConfig(getConfig configGetter) (*authConfiguration, error) {
+	cloud := readAzureCloudFromConfig(getConfig)
 
-	envName := readAzureEnvironmentFromConfig(k)
-	cloud := azure.GetCloudByName(envName)
-
-	auxTenantsString := k.getConfig("auxiliaryTenantIds", "ARM_AUXILIARY_TENANT_IDS")
+	auxTenantsString := getConfig("auxiliaryTenantIds", "ARM_AUXILIARY_TENANT_IDS")
 	var auxTenants []string
 	if auxTenantsString != "" {
 		err := json.Unmarshal([]byte(auxTenantsString), &auxTenants)
@@ -277,57 +276,40 @@ func (k *azureNativeProvider) readAuthConfig() (*authConfiguration, error) {
 	}
 
 	return &authConfiguration{
-		clientId:   k.getConfig("clientId", "ARM_CLIENT_ID"),
-		tenantId:   k.getConfig("tenantId", "ARM_TENANT_ID"),
+		clientId:   getConfig("clientId", "ARM_CLIENT_ID"),
+		tenantId:   getConfig("tenantId", "ARM_TENANT_ID"),
 		auxTenants: auxTenants,
 		cloud:      cloud,
 
-		subscriptionId: k.getConfig("subscriptionId", "ARM_SUBSCRIPTION_ID"),
+		subscriptionId: getConfig("subscriptionId", "ARM_SUBSCRIPTION_ID"),
 
-		clientSecret:       k.getConfig("clientSecret", "ARM_CLIENT_SECRET"),
-		clientCertPath:     k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH"),
-		clientCertPassword: k.getConfig("clientCertificatePassword", "ARM_CLIENT_CERTIFICATE_PASSWORD"),
+		clientSecret:       getConfig("clientSecret", "ARM_CLIENT_SECRET"),
+		clientCertPath:     getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH"),
+		clientCertPassword: getConfig("clientCertificatePassword", "ARM_CLIENT_CERTIFICATE_PASSWORD"),
 
-		useMsi: k.getConfig("useMsi", "ARM_USE_MSI") == "true",
+		useMsi: getConfig("useMsi", "ARM_USE_MSI") == "true",
 
-		useOidc:               k.getConfig("useOidc", "ARM_USE_OIDC") == "true",
-		oidcAudience:          k.getConfig("oidcAudience", "ARM_OIDC_AUDIENCE"),
-		oidcToken:             k.getConfig("oidcToken", "ARM_OIDC_TOKEN"),
-		oidcTokenFilePath:     k.getConfig("oidcTokenFilePath", "ARM_OIDC_TOKEN_FILE_PATH"),
-		oidcTokenRequestToken: k.getConfig("oidcRequestToken", "ACTIONS_ID_TOKEN_REQUEST_TOKEN"),
-		oidcTokenRequestUrl:   k.getConfig("oidcRequestUrl", "ACTIONS_ID_TOKEN_REQUEST_URL"),
+		useOidc:               getConfig("useOidc", "ARM_USE_OIDC") == "true",
+		oidcAudience:          getConfig("oidcAudience", "ARM_OIDC_AUDIENCE"),
+		oidcToken:             getConfig("oidcToken", "ARM_OIDC_TOKEN"),
+		oidcTokenFilePath:     getConfig("oidcTokenFilePath", "ARM_OIDC_TOKEN_FILE_PATH"),
+		oidcTokenRequestToken: getConfig("oidcRequestToken", "ACTIONS_ID_TOKEN_REQUEST_TOKEN"),
+		oidcTokenRequestUrl:   getConfig("oidcRequestUrl", "ACTIONS_ID_TOKEN_REQUEST_URL"),
 	}, nil
 }
 
-// Claims is used to unmarshall the claims from a JWT issued by the Microsoft Identity Platform.
-type Claims struct {
-	Audience          string   `json:"aud"`
-	Issuer            string   `json:"iss"`
-	IdentityProvider  string   `json:"idp"`
-	ObjectId          string   `json:"oid"`
-	Roles             []string `json:"roles"`
-	Scopes            string   `json:"scp"`
-	Subject           string   `json:"sub"`
-	TenantRegionScope string   `json:"tenant_region_scope"`
-	TenantId          string   `json:"tid"`
-	Version           string   `json:"ver"`
-
-	AppDisplayName string `json:"app_displayname,omitempty"`
-	AppId          string `json:"appid,omitempty"`
-	IdType         string `json:"idtyp,omitempty"`
-}
-
-// parseClaims retrieves and parses the claims from a JWT issued by the Microsoft Identity Platform.
-func parseClaims(token azcore.AccessToken) (claims Claims, err error) {
-	jwt := strings.Split(token.Token, ".")
-	payload, err := base64.RawURLEncoding.DecodeString(jwt[1])
-	if err != nil {
-		return
+func readAzureCloudFromConfig(getConfig configGetter) azcloud.Configuration {
+	envName := getConfig("environment", "ARM_ENVIRONMENT")
+	if envName == "" {
+		envName = getConfig("environment", "AZURE_ENVIRONMENT")
 	}
-	err = json.Unmarshal(payload, &claims)
-	return
+	if envName == "" {
+		envName = "public"
+	}
+	return azure.GetCloudByName(envName)
 }
 
+// ClientConfig is the provider's resolved identity.
 type ClientConfig struct {
 	Cloud azcloud.Configuration
 
@@ -339,6 +321,8 @@ type ClientConfig struct {
 	AuthenticatedAsAServicePrincipal bool
 }
 
+// GetClientConfig resolves the provider's identity given the auth configuration and a TokenCredential.
+// It returns a ClientConfig which contains the client ID, object ID, subscription ID, tenant.
 func GetClientConfig(ctx context.Context, config *authConfiguration, cred azcore.TokenCredential) (*ClientConfig, error) {
 
 	// https://github.com/hashicorp/terraform-provider-azurerm/blob/572bb4f37d73f4f0d914737eaca4e5a1fd084c86/internal/clients/auth.go#L33
@@ -355,7 +339,7 @@ func GetClientConfig(ctx context.Context, config *authConfiguration, cred azcore
 		return nil, fmt.Errorf("could not acquire access token to parse claims: %+v", err)
 	}
 
-	tokenClaims, err := parseClaims(token)
+	tokenClaims, err := azure.ParseClaims(token)
 	if err != nil {
 		return nil, fmt.Errorf("parsing claims from access token: %+v", err)
 	}
@@ -371,7 +355,8 @@ func GetClientConfig(ctx context.Context, config *authConfiguration, cred azcore
 		clientId = config.clientId
 	}
 
-	objectId := tokenClaims.ObjectId
+	// objectId := tokenClaims.ObjectId
+	objectId := ""
 	if objectId == "" {
 		graphClient, err := msgraphsdk.NewGraphServiceClientWithCredentials(cred, []string{scope})
 		if err != nil {

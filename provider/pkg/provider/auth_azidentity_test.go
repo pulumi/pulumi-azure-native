@@ -11,7 +11,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -20,31 +20,29 @@ import (
 //go:embed test.pfx
 var testPfxCert []byte
 
-func TestGetAuthConfig(t *testing.T) {
-	setAuthEnvVariables := func(value, boolValue string) {
-		if value != "" {
-			t.Setenv("ARM_AUXILIARY_TENANT_IDS", `["`+value+`"]`)
-		}
-		t.Setenv("ARM_CLIENT_CERTIFICATE_PASSWORD", value)
-		t.Setenv("ARM_CLIENT_CERTIFICATE_PATH", value)
-		t.Setenv("ARM_CLIENT_ID", value)
-		t.Setenv("ARM_CLIENT_SECRET", value)
-		t.Setenv("ARM_OIDC_AUDIENCE", value)
-		t.Setenv("ARM_OIDC_TOKEN", value)
-		t.Setenv("ARM_OIDC_TOKEN_FILE_PATH", value)
-		t.Setenv("ACTIONS_ID_TOKEN_REQUEST_TOKEN", value)
-		t.Setenv("ACTIONS_ID_TOKEN_REQUEST_URL", value)
-		t.Setenv("ARM_TENANT_ID", value)
-		t.Setenv("ARM_USE_MSI", boolValue)
-		t.Setenv("ARM_USE_OIDC", boolValue)
+type getter struct {
+	env    map[string]string
+	config map[string]string
+}
+
+func (g *getter) getConfig(configName, envName string) string {
+	if val, ok := g.config[configName]; ok {
+		return val
 	}
+	if val, ok := g.env[envName]; ok {
+		return val
+	}
+	return ""
+}
+
+func TestGetAuthConfig(t *testing.T) {
 
 	t.Run("empty", func(t *testing.T) {
-		setAuthEnvVariables("", "")
-		p := azureNativeProvider{}
-		c, err := p.readAuthConfig()
+		g := &getter{}
+		c, err := readAuthConfig(g.getConfig)
 		require.NoError(t, err)
 		require.NotNil(t, c)
+		require.Equal(t, "https://login.microsoftonline.com/", c.cloud.ActiveDirectoryAuthorityHost)
 		require.Empty(t, c.auxTenants)
 		require.Empty(t, c.clientCertPassword)
 		require.Empty(t, c.clientCertPath)
@@ -61,9 +59,23 @@ func TestGetAuthConfig(t *testing.T) {
 	})
 
 	t.Run("values from config take precedence", func(t *testing.T) {
-		setAuthEnvVariables("env", "false")
-
-		p := azureNativeProvider{
+		g := &getter{
+			env: map[string]string{
+				"ARM_AUXILIARY_TENANT_IDS":        `["env"]`,
+				"ARM_CLIENT_CERTIFICATE_PASSWORD": "env",
+				"ARM_CLIENT_CERTIFICATE_PATH":     "env",
+				"ARM_CLIENT_ID":                   "env",
+				"ARM_CLIENT_SECRET":               "env",
+				"ARM_ENVIRONMENT":                 "AZURECLOUD",
+				"ARM_OIDC_AUDIENCE":               "env",
+				"ARM_OIDC_TOKEN":                  "env",
+				"ARM_OIDC_TOKEN_FILE_PATH":        "env",
+				"ACTIONS_ID_TOKEN_REQUEST_TOKEN":  "env",
+				"ACTIONS_ID_TOKEN_REQUEST_URL":    "env",
+				"ARM_TENANT_ID":                   "env",
+				"ARM_USE_MSI":                     "true",
+				"ARM_USE_OIDC":                    "true",
+			},
 			config: map[string]string{
 				"auxiliaryTenantIds":        `["conf"]`,
 				"clientCertificatePassword": "conf",
@@ -77,15 +89,15 @@ func TestGetAuthConfig(t *testing.T) {
 				"oidcRequestToken":          "conf",
 				"oidcRequestUrl":            "conf",
 				"tenantId":                  "conf",
-				"useMsi":                    "true",
-				"useOidc":                   "true",
+				"useMsi":                    "false",
+				"useOidc":                   "false",
 			},
-			cloud: cloud.AzureGovernment,
 		}
 
-		c, err := p.readAuthConfig()
+		c, err := readAuthConfig(g.getConfig)
 		require.NoError(t, err)
 		require.NotNil(t, c)
+		require.Equal(t, "https://login.microsoftonline.us/", c.cloud.ActiveDirectoryAuthorityHost)
 		require.Equal(t, []string{"conf"}, c.auxTenants)
 		require.Equal(t, "conf", c.clientCertPassword)
 		require.Equal(t, "conf", c.clientCertPath)
@@ -97,19 +109,34 @@ func TestGetAuthConfig(t *testing.T) {
 		require.Equal(t, "conf", c.oidcTokenRequestToken)
 		require.Equal(t, "conf", c.oidcTokenRequestUrl)
 		require.Equal(t, "conf", c.tenantId)
-		require.True(t, c.useOidc)
-		require.True(t, c.useMsi)
+		require.False(t, c.useOidc)
+		require.False(t, c.useMsi)
 	})
 
 	t.Run("values from env", func(t *testing.T) {
-		p := azureNativeProvider{
-			cloud: cloud.AzureChina,
+		g := getter{
+			env: map[string]string{
+				"ARM_AUXILIARY_TENANT_IDS":        `["env"]`,
+				"ARM_CLIENT_CERTIFICATE_PASSWORD": "env",
+				"ARM_CLIENT_CERTIFICATE_PATH":     "env",
+				"ARM_CLIENT_ID":                   "env",
+				"ARM_CLIENT_SECRET":               "env",
+				"ARM_ENVIRONMENT":                 "AZURECHINACLOUD",
+				"ARM_OIDC_AUDIENCE":               "env",
+				"ARM_OIDC_TOKEN":                  "env",
+				"ARM_OIDC_TOKEN_FILE_PATH":        "env",
+				"ACTIONS_ID_TOKEN_REQUEST_TOKEN":  "env",
+				"ACTIONS_ID_TOKEN_REQUEST_URL":    "env",
+				"ARM_TENANT_ID":                   "env",
+				"ARM_USE_MSI":                     "true",
+				"ARM_USE_OIDC":                    "true",
+			},
 		}
-		setAuthEnvVariables("env", "true")
 
-		c, err := p.readAuthConfig()
+		c, err := readAuthConfig(g.getConfig)
 		require.NoError(t, err)
 		require.NotNil(t, c)
+		require.Equal(t, "https://login.chinacloudapi.cn/", c.cloud.ActiveDirectoryAuthorityHost)
 		require.Equal(t, []string{"env"}, c.auxTenants)
 		require.Equal(t, "env", c.clientCertPassword)
 		require.Equal(t, "env", c.clientCertPath)
@@ -337,4 +364,35 @@ func TestOidcTokenExchangeAssertion(t *testing.T) {
 	oidcToken, err := assertion(context.Background())
 	require.NoError(t, err)
 	require.Equal(t, "new-oidc-token", oidcToken)
+}
+
+func TestReadAzureCloudFromConfig(t *testing.T) {
+	t.Run("Default to Public", func(t *testing.T) {
+		g := getter{config: map[string]string{}}
+		assert.Equal(t, azcloud.AzurePublic, readAzureCloudFromConfig(g.getConfig))
+	})
+
+	t.Run("From config", func(t *testing.T) {
+		g := getter{config: map[string]string{"environment": "azureusgovernment"}}
+		assert.Equal(t, azcloud.AzureGovernment, readAzureCloudFromConfig(g.getConfig))
+	})
+
+	t.Run("From AZURE_ENVIRONMENT", func(t *testing.T) {
+		g := getter{config: map[string]string{}, env: map[string]string{"AZURE_ENVIRONMENT": "azureusgovernment"}}
+		assert.Equal(t, azcloud.AzureGovernment, readAzureCloudFromConfig(g.getConfig))
+	})
+
+	t.Run("From ARM_ENVIRONMENT", func(t *testing.T) {
+		g := getter{config: map[string]string{}, env: map[string]string{"ARM_ENVIRONMENT": "azureusgovernment"}}
+		assert.Equal(t, azcloud.AzureGovernment, readAzureCloudFromConfig(g.getConfig))
+	})
+
+	t.Run("ARM_ENVIRONMENT over AZURE_ENVIRONMENT", func(t *testing.T) {
+		env := map[string]string{
+			"ARM_ENVIRONMENT":   "azureusgovernment",
+			"AZURE_ENVIRONMENT": "azurechina",
+		}
+		g := getter{config: map[string]string{}, env: env}
+		assert.Equal(t, azcloud.AzureGovernment, readAzureCloudFromConfig(g.getConfig))
+	})
 }

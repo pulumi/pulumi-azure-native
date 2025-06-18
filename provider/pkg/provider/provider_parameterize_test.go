@@ -1,5 +1,9 @@
 // Copyright 2025, Pulumi Corporation.
 
+// Disable running if we've specifically selected unit tests to run as this is an integration test.
+// This is easier than having to remember to explicitly tag every unit test with `//go:build unit || all`.
+//go:build !unit
+
 package provider
 
 import (

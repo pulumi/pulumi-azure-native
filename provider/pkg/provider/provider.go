@@ -198,7 +198,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	k.setLoggingContext(ctx)
 
 	// Configure authentication to Azure cloud.
-	authConfig, err := k.readAuthConfig()
+	authConfig, err := readAuthConfig(k.getConfig)
 	if err != nil {
 		return nil, err
 	}
