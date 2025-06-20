@@ -39,14 +39,13 @@ type azAccount struct {
 // initAccount is the main entry to the new azcore/azidentity-based authentication stack.
 // It determines the provider's Azure account such as the cloud and subscription ID, and a
 // TokenCredential which can be passed into various Azure Go SDKs.
-func initAccount(ctx context.Context, authConf *authConfiguration, userOpts *arm.ClientOptions) (*azAccount, error) {
+func initAccount(ctx context.Context, authConf *authConfiguration, clientOpts policy.ClientOptions) (*azAccount, error) {
 	account := &azAccount{
 		Cloud:          authConf.cloud,
 		SubscriptionId: authConf.subscriptionId,
 	}
 
-	// initializes the account credential based on the auth configuration.
-	cred, err := newSingleMethodAuthCredential(authConf)
+	cred, err := newSingleMethodAuthCredential(authConf, clientOpts)
 	if err != nil {
 		return nil, errors.Wrapf(err, "failed to create authentication credential")
 	}
@@ -66,7 +65,7 @@ func initAccount(ctx context.Context, authConf *authConfiguration, userOpts *arm
 			// get all subscriptions for the tenant associated with the credential, as is done by the Azure CLI.
 			// if there's exactly one subscription, use it; if there are multiple subscriptions, force the user to
 			// specify the subscription ID explicitly.
-			subs, err := discoverSubscriptions(ctx, cred, userOpts)
+			subs, err := discoverSubscriptions(ctx, cred, clientOpts)
 			if err != nil {
 				logging.Errorf("Failed to discover subscriptions: %v", err)
 			} else if len(subs) == 0 {
@@ -84,8 +83,10 @@ func initAccount(ctx context.Context, authConf *authConfiguration, userOpts *arm
 }
 
 // discoverSubscriptions retrieves all subscriptions associated with the given credential.
-func discoverSubscriptions(ctx context.Context, cred azcore.TokenCredential, userOpts *arm.ClientOptions) ([]*armsubscriptions.Subscription, error) {
-	factory, err := armsubscriptions.NewClientFactory(cred, userOpts)
+func discoverSubscriptions(ctx context.Context, cred azcore.TokenCredential, clientOpts azcore.ClientOptions) ([]*armsubscriptions.Subscription, error) {
+	factory, err := armsubscriptions.NewClientFactory(cred, &arm.ClientOptions{
+		ClientOptions: clientOpts,
+	})
 	if err != nil {
 		return nil, err
 	}
@@ -117,11 +118,7 @@ func discoverSubscriptions(ctx context.Context, cred azcore.TokenCredential, use
 //   - When a method is configured but instantiating the credential fails, we return an error and do not fall through to
 //     the next method.
 //   - Auxiliary or additional tenants are supported for SP with client secret and CLI authentication, not for others.
-func newSingleMethodAuthCredential(authConf *authConfiguration) (azcore.TokenCredential, error) {
-	baseClientOpts := azcore.ClientOptions{
-		Cloud: authConf.cloud,
-	}
-
+func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts azcore.ClientOptions) (azcore.TokenCredential, error) {
 	if authConf.clientCertPath != "" {
 		logging.V(9).Infof("[auth] Using SP with client certificate credential")
 		certs, key, err := readCertificate(authConf.clientCertPath, authConf.clientCertPassword)

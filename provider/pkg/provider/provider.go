@@ -59,6 +59,7 @@ type azureNativeProvider struct {
 	name           string
 	version        string
 	authConfig     authConfiguration
+	cred           *azAccount
 	subscriptionID string
 	cloud          azcloud.Configuration
 	config         map[string]string
@@ -205,16 +206,23 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	}
 	k.authConfig = *authConfig
 
-	userAgent := k.getUserAgent()
+	clientOpts := azcore.ClientOptions{
+		Cloud: authConfig.cloud,
+		Telemetry: policy.TelemetryOptions{
+			ApplicationID: k.getUserAgent(),
+		},
+	}
 
-	credential, err := initAccount(ctx, authConfig, &arm.ClientOptions{})
+	credential, err := initAccount(ctx, authConfig, clientOpts)
 	if err != nil {
 		return nil, fmt.Errorf("creating Pulumi auth credential: %w", err)
 	}
+	k.cred = credential
 	k.cloud = credential.Cloud
 	k.subscriptionID = credential.SubscriptionId
+	clientOpts.Cloud = k.cloud
 
-	k.azureClient, err = k.newAzureClient(credential, userAgent)
+	k.azureClient, err = k.newAzureClient(credential, clientOpts)
 	if err != nil {
 		return nil, fmt.Errorf("creating Azure client: %w", err)
 	}
@@ -239,9 +247,12 @@ func (k *azureNativeProvider) isParameterized() bool {
 	return strings.HasPrefix(k.name, "azure-native"+parameterizedNameSeparator)
 }
 
-func (k *azureNativeProvider) newAzureClient(tokenCred azcore.TokenCredential, userAgent string) (azure.AzureClient, error) {
+func (k *azureNativeProvider) newAzureClient(tokenCred azcore.TokenCredential, clientOpts policy.ClientOptions) (azure.AzureClient, error) {
 	logging.V(9).Infof("AzureClient: using azcore and azidentity")
-	return azure.NewAzCoreClient(tokenCred, userAgent, k.cloud, nil)
+	opts := &arm.ClientOptions{
+		ClientOptions: clientOpts,
+	}
+	return azure.NewAzCoreClient(tokenCred, k.cloud, opts)
 }
 
 // Invoke dynamically executes a built-in function in the provider.
@@ -340,22 +351,14 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 }
 
 func (k *azureNativeProvider) getClientConfig(ctx context.Context) (*ClientConfig, error) {
-	cred, err := initAccount(ctx, &k.authConfig, &arm.ClientOptions{})
-	if err != nil {
-		return nil, err
-	}
-	return GetClientConfig(ctx, &k.authConfig, cred)
+	return GetClientConfig(ctx, &k.authConfig, k.cred)
 }
 
 // getClientToken retrieves an access token scoped to the specified Azure resource endpoint.
 func (k *azureNativeProvider) getClientToken(ctx context.Context, endpointArg resource.PropertyValue) (string, error) {
 	endpoint := k.tokenEndpoint(endpointArg)
-	cred, err := initAccount(ctx, &k.authConfig, &arm.ClientOptions{})
-	if err != nil {
-		return "", err
-	}
 	logging.V(9).Infof("getting a token credential for %s", endpoint)
-	t, err := cred.GetToken(ctx, tokenRequestOpts(endpoint))
+	t, err := k.cred.GetToken(ctx, tokenRequestOpts(endpoint))
 	if err != nil {
 		return "", err
 	}
