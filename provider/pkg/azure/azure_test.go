@@ -13,8 +13,6 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
-	"github.com/Azure/go-autorest/autorest"
-	autorestAzure "github.com/Azure/go-autorest/autorest/azure"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -99,20 +97,6 @@ func TestBuildUserAgent(t *testing.T) {
 }
 
 func TestIsNotFound(t *testing.T) {
-	t.Run("autorest", func(t *testing.T) {
-		assert.True(t, IsNotFound(&autorestAzure.RequestError{
-			DetailedError: autorest.DetailedError{
-
-				StatusCode: http.StatusNotFound,
-			},
-		}))
-		assert.False(t, IsNotFound(&autorestAzure.RequestError{
-			DetailedError: autorest.DetailedError{
-				StatusCode: http.StatusForbidden,
-			},
-		}))
-	})
-
 	t.Run("azcore", func(t *testing.T) {
 		assert.True(t, IsNotFound(&azcore.ResponseError{
 			StatusCode: http.StatusNotFound,
