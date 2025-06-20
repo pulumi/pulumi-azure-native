@@ -21,6 +21,7 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
@@ -204,15 +205,14 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	}
 	k.authConfig = *authConfig
 
-	k.cloud = authConfig.cloud
-	k.subscriptionID = authConfig.subscriptionId
-
 	userAgent := k.getUserAgent()
 
-	credential, err := newTokenCredential(authConfig)
+	credential, err := initAccount(ctx, authConfig, &arm.ClientOptions{})
 	if err != nil {
 		return nil, fmt.Errorf("creating Pulumi auth credential: %w", err)
 	}
+	k.cloud = credential.Cloud
+	k.subscriptionID = credential.SubscriptionId
 
 	k.azureClient, err = k.newAzureClient(credential, userAgent)
 	if err != nil {
@@ -340,20 +340,21 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 }
 
 func (k *azureNativeProvider) getClientConfig(ctx context.Context) (*ClientConfig, error) {
-	cred, err := newTokenCredential(&k.authConfig)
+	cred, err := initAccount(ctx, &k.authConfig, &arm.ClientOptions{})
 	if err != nil {
 		return nil, err
 	}
 	return GetClientConfig(ctx, &k.authConfig, cred)
 }
 
+// getClientToken retrieves an access token scoped to the specified Azure resource endpoint.
 func (k *azureNativeProvider) getClientToken(ctx context.Context, endpointArg resource.PropertyValue) (string, error) {
 	endpoint := k.tokenEndpoint(endpointArg)
-	cred, err := newTokenCredential(&k.authConfig)
+	cred, err := initAccount(ctx, &k.authConfig, &arm.ClientOptions{})
 	if err != nil {
 		return "", err
 	}
-	logging.V(9).Infof("getting a token credential from %s", endpoint)
+	logging.V(9).Infof("getting a token credential for %s", endpoint)
 	t, err := cred.GetToken(ctx, tokenRequestOpts(endpoint))
 	if err != nil {
 		return "", err
@@ -361,7 +362,7 @@ func (k *azureNativeProvider) getClientToken(ctx context.Context, endpointArg re
 	return t.Token, nil
 }
 
-// Returns the Azure endpoint where tokens can be requested. If the argument is not null or empty,
+// Returns the endpoint to be used as the resource (scope) of the token request. If the argument is not null or empty,
 // it will be used verbatim.
 func (k *azureNativeProvider) tokenEndpoint(endpointArg resource.PropertyValue) string {
 	if endpointArg.HasValue() && endpointArg.IsString() && endpointArg.StringValue() != "" {

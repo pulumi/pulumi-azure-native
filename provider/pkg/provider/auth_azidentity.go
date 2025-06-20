@@ -16,9 +16,11 @@ import (
 	"strings"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armsubscriptions"
 	msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
 	"github.com/microsoftgraph/msgraph-sdk-go/serviceprincipals"
 	"github.com/pkg/errors"
@@ -26,10 +28,78 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
-// newTokenCredential is the main entry to the new azcore/azidentity-based authentication stack. It returns a
+type azAccount struct {
+	azcore.TokenCredential
+	Cloud azcloud.Configuration
+
+	// The subscription ID to use for resource management operations; empty if not configured or auto-detected.
+	SubscriptionId string
+}
+
+// initAccount is the main entry to the new azcore/azidentity-based authentication stack.
+// It determines the provider's Azure account such as the cloud and subscription ID, and a
 // TokenCredential which can be passed into various Azure Go SDKs.
-func newTokenCredential(authConf *authConfiguration) (azcore.TokenCredential, error) {
-	return newSingleMethodAuthCredential(authConf)
+func initAccount(ctx context.Context, authConf *authConfiguration, userOpts *arm.ClientOptions) (*azAccount, error) {
+	account := &azAccount{
+		Cloud:          authConf.cloud,
+		SubscriptionId: authConf.subscriptionId,
+	}
+
+	// initializes the account credential based on the auth configuration.
+	cred, err := newSingleMethodAuthCredential(authConf)
+	if err != nil {
+		return nil, errors.Wrapf(err, "failed to create authentication credential")
+	}
+	account.TokenCredential = cred
+
+	// automatically resolve the subscription ID if possible.
+	if authConf.subscriptionId == "" {
+		switch cred.(type) {
+		case *azidentity.AzureCLICredential:
+			// get the default account from the Azure CLI
+			s, err := authConf.azCliSubscriptionProvider(ctx, "")
+			if err != nil {
+				return nil, fmt.Errorf("failed to get account from Azure CLI: %w", err)
+			}
+			account.SubscriptionId = s.ID
+		default:
+			// get all subscriptions for the tenant associated with the credential, as is done by the Azure CLI.
+			// if there's exactly one subscription, use it; if there are multiple subscriptions, force the user to
+			// specify the subscription ID explicitly.
+			subs, err := discoverSubscriptions(ctx, cred, userOpts)
+			if err != nil {
+				logging.Errorf("Failed to discover subscriptions: %v", err)
+			} else if len(subs) == 0 {
+				logging.V(6).Infof("No subscriptions found for the tenant, skipping automatic selection")
+			} else if len(subs) == 1 {
+				account.SubscriptionId = *subs[0].SubscriptionID
+			} else if len(subs) > 1 {
+				logging.V(6).Infof("Multiple subscriptions found for the tenant, skipping automatic selection")
+			}
+			logging.V(6).Infof("Discovered subscription %q", account.SubscriptionId)
+		}
+	}
+
+	return account, nil
+}
+
+// discoverSubscriptions retrieves all subscriptions associated with the given credential.
+func discoverSubscriptions(ctx context.Context, cred azcore.TokenCredential, userOpts *arm.ClientOptions) ([]*armsubscriptions.Subscription, error) {
+	factory, err := armsubscriptions.NewClientFactory(cred, userOpts)
+	if err != nil {
+		return nil, err
+	}
+	subClient := factory.NewClient()
+	pager := subClient.NewListPager(&armsubscriptions.ClientListOptions{})
+	var subscriptions []*armsubscriptions.Subscription
+	for pager.More() {
+		page, err := pager.NextPage(ctx)
+		if err != nil {
+			return nil, err
+		}
+		subscriptions = append(subscriptions, page.Value...)
+	}
+	return subscriptions, nil
 }
 
 // newSingleMethodAuthCredential creates an azcore.TokenCredential. Depending on the given authConfiguration, it is
@@ -101,6 +171,9 @@ func newSingleMethodAuthCredential(authConf *authConfiguration) (azcore.TokenCre
 	logging.V(9).Infof("[auth] Using Azure CLI credential")
 	options := &azidentity.AzureCLICredentialOptions{
 		AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
+	}
+	if authConf.subscriptionId != "" {
+		options.Subscription = authConf.subscriptionId
 	}
 	cli, err := azidentity.NewAzureCLICredential(options)
 	if err == nil {
@@ -258,6 +331,9 @@ type authConfiguration struct {
 	// automatically:
 	// https://github.com/Azure/azure-sdk-for-go/blob/sdk/azidentity/v1.8.0/sdk/azidentity/managed_identity_client.go#L143
 	useMsi bool
+
+	// azCliSubscriptionProvider is used by tests to fake invoking az
+	azCliSubscriptionProvider azSubscriptionProvider
 }
 
 type configGetter func(configName, envName string) string
@@ -295,6 +371,8 @@ func readAuthConfig(getConfig configGetter) (*authConfiguration, error) {
 		oidcTokenFilePath:     getConfig("oidcTokenFilePath", "ARM_OIDC_TOKEN_FILE_PATH"),
 		oidcTokenRequestToken: getConfig("oidcRequestToken", "ACTIONS_ID_TOKEN_REQUEST_TOKEN"),
 		oidcTokenRequestUrl:   getConfig("oidcRequestUrl", "ACTIONS_ID_TOKEN_REQUEST_URL"),
+
+		azCliSubscriptionProvider: defaultAzSubscriptionProvider,
 	}, nil
 }
 
@@ -323,11 +401,9 @@ type ClientConfig struct {
 
 // GetClientConfig resolves the provider's identity given the auth configuration and a TokenCredential.
 // It returns a ClientConfig which contains the client ID, object ID, subscription ID, tenant.
-func GetClientConfig(ctx context.Context, config *authConfiguration, cred azcore.TokenCredential) (*ClientConfig, error) {
+func GetClientConfig(ctx context.Context, config *authConfiguration, cred *azAccount) (*ClientConfig, error) {
 
 	// https://github.com/hashicorp/terraform-provider-azurerm/blob/572bb4f37d73f4f0d914737eaca4e5a1fd084c86/internal/clients/auth.go#L33
-
-	subscriptionId := config.subscriptionId
 
 	// Acquire an access token so we can inspect the claims
 	// TODO: support other locations
@@ -391,7 +467,7 @@ func GetClientConfig(ctx context.Context, config *authConfiguration, cred azcore
 
 		ClientId:       clientId,
 		ObjectId:       objectId,
-		SubscriptionId: subscriptionId,
+		SubscriptionId: cred.SubscriptionId,
 		TenantId:       tenantId,
 
 		AuthenticatedAsAServicePrincipal: authenticatedAsServicePrincipal,
