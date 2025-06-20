@@ -391,31 +391,6 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 }
 
 func (k *azureNativeProvider) getClientConfig(ctx context.Context) (config *ClientConfig, err error) {
-	if !util.EnableAzcoreBackend() {
-		auth, err := k.getAuthConfig()
-		if err != nil {
-			return nil, fmt.Errorf("getting auth config: %w", err)
-		}
-		objectId := ""
-		if auth.GetAuthenticatedObjectID != nil {
-			objectIdPtr, err := auth.GetAuthenticatedObjectID(ctx)
-			if err != nil {
-				return nil, fmt.Errorf("getting authenticated object ID: %w", err)
-			}
-			if objectIdPtr == nil {
-				return nil, fmt.Errorf("getting authenticated object ID")
-			}
-			objectId = *objectIdPtr
-		}
-
-		return &ClientConfig{
-			ClientID:       auth.ClientID,
-			ObjectID:       objectId,
-			SubscriptionID: auth.SubscriptionID,
-			TenantID:       auth.TenantID,
-		}, nil
-	}
-
 	return GetClientConfig(ctx, &k.authConfig, k.credential)
 }
 
@@ -423,20 +398,11 @@ func (k *azureNativeProvider) getClientToken(ctx context.Context, endpointArg re
 	endpoint := k.tokenEndpoint(endpointArg)
 	logging.V(9).Infof("getting a token credential for %s", endpoint)
 
-	if util.EnableAzcoreBackend() {
-		t, err := k.credential.GetToken(ctx, tokenRequestOpts(endpoint))
-		if err != nil {
-			return "", err
-		}
-		return t.Token, nil
-	}
-
-	// legacy autorest/go-azure-helpers auth
-	authConfig, err := k.getAuthConfig()
+	t, err := k.credential.GetToken(ctx, tokenRequestOpts(endpoint))
 	if err != nil {
-		return "", fmt.Errorf("getting auth config: %w", err)
+		return "", err
 	}
-	return k.getOAuthToken(ctx, authConfig, endpoint)
+	return t.Token, nil
 }
 
 // Returns the endpoint to be used as the resource (scope) of the token request.
