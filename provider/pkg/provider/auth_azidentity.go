@@ -141,9 +141,22 @@ func discoverSubscriptions(ctx context.Context, cred azcore.TokenCredential, cli
 func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts azcore.ClientOptions) (azcore.TokenCredential, error) {
 	if authConf.clientCertPath != "" {
 		logging.V(9).Infof("[auth] Using SP with client certificate credential")
+		fmtErrorMessage := "A %s must be configured when authenticating as a Service Principal using a Client Certificate."
+		if authConf.subscriptionId == "" {
+			return nil, fmt.Errorf(fmtErrorMessage, "Subscription ID")
+		}
+		if authConf.tenantId == "" {
+			return nil, fmt.Errorf(fmtErrorMessage, "Tenant ID")
+		}
+		if authConf.clientId == "" {
+			return nil, fmt.Errorf(fmtErrorMessage, "Client ID")
+		}
+		if authConf.clientCertPath == "" {
+			return nil, fmt.Errorf(fmtErrorMessage, "Client Certificate Path")
+		}
 		certs, key, err := readCertificate(authConf.clientCertPath, authConf.clientCertPassword)
 		if err != nil {
-			return nil, err
+			return nil, fmt.Errorf("the Client Certificate Path is not a valid pfx file: %w", err)
 		}
 		options := &azidentity.ClientCertificateCredentialOptions{
 			AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
@@ -156,6 +169,19 @@ func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts a
 
 	if authConf.clientSecret != "" {
 		logging.V(9).Infof("[auth] Using SP with client secret credential")
+		fmtErrorMessage := "A %s must be configured when authenticating as a Service Principal using a Client Secret."
+		if authConf.subscriptionId == "" {
+			return nil, fmt.Errorf(fmtErrorMessage, "Subscription ID")
+		}
+		if authConf.tenantId == "" {
+			return nil, fmt.Errorf(fmtErrorMessage, "Tenant ID")
+		}
+		if authConf.clientId == "" {
+			return nil, fmt.Errorf(fmtErrorMessage, "Client ID")
+		}
+		if authConf.clientSecret == "" {
+			return nil, fmt.Errorf(fmtErrorMessage, "Client Secret")
+		}
 		options := &azidentity.ClientSecretCredentialOptions{
 			AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
 			ClientOptions:              baseClientOpts,
@@ -207,6 +233,17 @@ func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts a
 // - through a token exchange by making a request to a configured endpoint
 // This function configures the client assertion callback according to the above cases.
 func newOidcCredential(authConf *authConfiguration, clientOpts azcore.ClientOptions) (azcore.TokenCredential, error) {
+	fmtErrorMessage := "A %s must be configured when authenticating with OIDC."
+	if authConf.subscriptionId == "" {
+		return nil, fmt.Errorf(fmtErrorMessage, "Subscription ID")
+	}
+	if authConf.tenantId == "" {
+		return nil, fmt.Errorf(fmtErrorMessage, "Tenant ID")
+	}
+	if authConf.clientId == "" {
+		return nil, fmt.Errorf(fmtErrorMessage, "Client ID")
+	}
+
 	// The generic client assertion that simply returns the token it was created with.
 	oidcTokenCredentialCallback := func(token string) (azcore.TokenCredential, error) {
 		return azidentity.NewClientAssertionCredential(
@@ -241,7 +278,7 @@ func newOidcCredential(authConf *authConfiguration, clientOpts azcore.ClientOpti
 			})
 	}
 
-	return nil, errors.New("OIDC token or request URL and token are not provided")
+	return nil, fmt.Errorf(fmtErrorMessage, "OIDC token or request URL and token")
 }
 
 // getOidcTokenExchangeAssertion returns a callback function that implements the OIDC token
