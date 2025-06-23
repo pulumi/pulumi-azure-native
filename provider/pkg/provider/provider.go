@@ -207,12 +207,10 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	k.authConfig = *authConfig
 
 	clientOpts := azcore.ClientOptions{
-		Cloud: authConfig.cloud,
 		Telemetry: policy.TelemetryOptions{
 			ApplicationID: k.getUserAgent(),
 		},
 	}
-
 	credential, err := initAccount(ctx, authConfig, clientOpts)
 	if err != nil {
 		return nil, fmt.Errorf("creating Pulumi auth credential: %w", err)
@@ -220,8 +218,8 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	k.cred = credential
 	k.cloud = credential.Cloud
 	k.subscriptionID = credential.SubscriptionId
-	clientOpts.Cloud = k.cloud
 
+	clientOpts.Cloud = k.cloud
 	k.azureClient, err = k.newAzureClient(credential, clientOpts)
 	if err != nil {
 		return nil, fmt.Errorf("creating Azure client: %w", err)

@@ -39,33 +39,52 @@ type azAccount struct {
 // initAccount is the main entry to the new azcore/azidentity-based authentication stack.
 // It determines the provider's Azure account such as the cloud and subscription ID, and a
 // TokenCredential which can be passed into various Azure Go SDKs.
-func initAccount(ctx context.Context, authConf *authConfiguration, clientOpts policy.ClientOptions) (*azAccount, error) {
-	account := &azAccount{
-		Cloud:          authConf.cloud,
-		SubscriptionId: authConf.subscriptionId,
+func initAccount(ctx context.Context, authConf *authConfiguration, baseClientOpts policy.ClientOptions) (*azAccount, error) {
+	account := &azAccount{}
+
+	if authConf.cloud != nil {
+		baseClientOpts.Cloud = *authConf.cloud
 	}
 
-	cred, err := newSingleMethodAuthCredential(authConf, clientOpts)
+	cred, err := newSingleMethodAuthCredential(authConf, baseClientOpts)
 	if err != nil {
 		return nil, errors.Wrapf(err, "failed to create authentication credential")
 	}
 	account.TokenCredential = cred
 
-	// automatically resolve the subscription ID if possible.
-	if authConf.subscriptionId == "" {
-		switch cred.(type) {
-		case *azidentity.AzureCLICredential:
-			// get the default account from the Azure CLI
-			s, err := authConf.azCliSubscriptionProvider(ctx, "")
-			if err != nil {
-				return nil, fmt.Errorf("failed to get account from Azure CLI: %w", err)
-			}
-			account.SubscriptionId = s.ID
-		default:
+	// resolve the configuration if possible
+	switch cred.(type) {
+	case *azidentity.AzureCLICredential:
+		// get the given (or default if id is empty) account from the Azure CLI
+		s, err := authConf.showSubscription(ctx, authConf.subscriptionId)
+		if err != nil {
+			return nil, fmt.Errorf("failed to get account from Azure CLI: %w", err)
+		}
+		logging.V(6).Infof("Using Az account %q", s.Name)
+
+		// automatically configure the environment and/or subscription ID based on the Azure CLI account.
+		sc := azure.GetCloudByName(s.EnvironmentName)
+		if authConf.cloud != nil && sc.ActiveDirectoryAuthorityHost != authConf.cloud.ActiveDirectoryAuthorityHost {
+			return nil, fmt.Errorf("Azure CLI account environment %q does not match configured environment", s.EnvironmentName)
+		}
+		baseClientOpts.Cloud = sc
+		account.Cloud = sc
+		account.SubscriptionId = s.ID
+
+	default:
+		if authConf.cloud == nil {
+			// if the cloud is not set, use the default Azure cloud
+			account.Cloud = azcloud.AzurePublic
+		} else {
+			account.Cloud = *authConf.cloud
+		}
+
+		account.SubscriptionId = authConf.subscriptionId
+		if account.SubscriptionId == "" {
 			// get all subscriptions for the tenant associated with the credential, as is done by the Azure CLI.
 			// if there's exactly one subscription, use it; if there are multiple subscriptions, force the user to
 			// specify the subscription ID explicitly.
-			subs, err := discoverSubscriptions(ctx, cred, clientOpts)
+			subs, err := discoverSubscriptions(ctx, cred, baseClientOpts)
 			if err != nil {
 				logging.Errorf("Failed to discover subscriptions: %v", err)
 			} else if len(subs) == 0 {
@@ -79,6 +98,7 @@ func initAccount(ctx context.Context, authConf *authConfiguration, clientOpts po
 		}
 	}
 
+	logging.V(6).Infof("Using Az cloud %q with subscription ID %q", account.Cloud.ActiveDirectoryAuthorityHost, account.SubscriptionId)
 	return account, nil
 }
 
@@ -147,7 +167,7 @@ func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts a
 
 	if authConf.useOidc {
 		logging.V(9).Infof("[auth] Using OIDC credential")
-		return newOidcCredential(authConf)
+		return newOidcCredential(authConf, baseClientOpts)
 	} else {
 		logging.V(9).Infof("OIDC credential is not enabled, skipping")
 	}
@@ -186,7 +206,7 @@ func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts a
 // - from a file
 // - through a token exchange by making a request to a configured endpoint
 // This function configures the client assertion callback according to the above cases.
-func newOidcCredential(authConf *authConfiguration) (azcore.TokenCredential, error) {
+func newOidcCredential(authConf *authConfiguration, clientOpts azcore.ClientOptions) (azcore.TokenCredential, error) {
 	// The generic client assertion that simply returns the token it was created with.
 	oidcTokenCredentialCallback := func(token string) (azcore.TokenCredential, error) {
 		return azidentity.NewClientAssertionCredential(
@@ -217,9 +237,7 @@ func newOidcCredential(authConf *authConfiguration) (azcore.TokenCredential, err
 			authConf.clientId,
 			getOidcTokenExchangeAssertion(authConf),
 			&azidentity.ClientAssertionCredentialOptions{
-				ClientOptions: azcore.ClientOptions{
-					Cloud: authConf.cloud,
-				},
+				ClientOptions: clientOpts,
 			})
 	}
 
@@ -304,7 +322,7 @@ func readCertificate(certPath, certPassword string) ([]*x509.Certificate, crypto
 }
 
 type authConfiguration struct {
-	cloud azcloud.Configuration
+	cloud *azcloud.Configuration
 
 	subscriptionId string
 
@@ -329,8 +347,8 @@ type authConfiguration struct {
 	// https://github.com/Azure/azure-sdk-for-go/blob/sdk/azidentity/v1.8.0/sdk/azidentity/managed_identity_client.go#L143
 	useMsi bool
 
-	// azCliSubscriptionProvider is used by tests to fake invoking az
-	azCliSubscriptionProvider azSubscriptionProvider
+	// showSubscription invokes `az account show` and is overridable by tests to fake invoking the az CLI.
+	showSubscription azSubscriptionProvider
 }
 
 type configGetter func(configName, envName string) string
@@ -369,19 +387,21 @@ func readAuthConfig(getConfig configGetter) (*authConfiguration, error) {
 		oidcTokenRequestToken: getConfig("oidcRequestToken", "ACTIONS_ID_TOKEN_REQUEST_TOKEN"),
 		oidcTokenRequestUrl:   getConfig("oidcRequestUrl", "ACTIONS_ID_TOKEN_REQUEST_URL"),
 
-		azCliSubscriptionProvider: defaultAzSubscriptionProvider,
+		showSubscription: defaultAzSubscriptionProvider,
 	}, nil
 }
 
-func readAzureCloudFromConfig(getConfig configGetter) azcloud.Configuration {
+func readAzureCloudFromConfig(getConfig configGetter) *azcloud.Configuration {
 	envName := getConfig("environment", "ARM_ENVIRONMENT")
 	if envName == "" {
 		envName = getConfig("environment", "AZURE_ENVIRONMENT")
 	}
 	if envName == "" {
-		envName = "public"
+		// Leave the environment unset at this stage, to be resolved later in initAccount.
+		return nil
 	}
-	return azure.GetCloudByName(envName)
+	cloud := azure.GetCloudByName(envName)
+	return &cloud
 }
 
 // ClientConfig is the provider's resolved identity.
@@ -460,7 +480,7 @@ func GetClientConfig(ctx context.Context, config *authConfiguration, cred *azAcc
 	}
 
 	account := &ClientConfig{
-		Cloud: config.cloud,
+		Cloud: cred.Cloud,
 
 		ClientId:       clientId,
 		ObjectId:       objectId,
