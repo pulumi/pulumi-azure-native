@@ -200,6 +200,10 @@ func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts a
 
 	if authConf.useMsi {
 		logging.V(9).Infof("[auth] Using Managed Identity (MSI) credential")
+		fmtErrorMessage := "A %s must be configured when authenticating as a Managed Identity using MSI."
+		if authConf.subscriptionId == "" {
+			return nil, fmt.Errorf(fmtErrorMessage, "Subscription ID")
+		}
 		msiOpts := azidentity.ManagedIdentityCredentialOptions{
 			ClientOptions: baseClientOpts,
 		}
