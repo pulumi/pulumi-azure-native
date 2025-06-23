@@ -9,7 +9,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"log"
 	"net/http"
 	"net/url"
 	"os"
@@ -445,19 +444,18 @@ func GetClientConfig(ctx context.Context, config *authConfiguration, cred *azAcc
 
 	clientId := tokenClaims.AppId
 	if clientId == "" {
-		logging.V(9).Infof("[DEBUG] Using user-supplied ClientID because the `appid` claim was missing from the access token")
+		logging.V(9).Infof("Using user-supplied ClientID because the `appid` claim was missing from the access token")
 		clientId = config.clientId
 	}
 
-	// objectId := tokenClaims.ObjectId
-	objectId := ""
+	objectId := tokenClaims.ObjectId
 	if objectId == "" {
 		graphClient, err := msgraphsdk.NewGraphServiceClientWithCredentials(cred, []string{scope})
 		if err != nil {
 			return nil, fmt.Errorf("failed to create Microsoft Graph client: %w", err)
 		}
 		if authenticatedAsServicePrincipal {
-			logging.V(9).Infof("[DEBUG] Querying Microsoft Graph to discover authenticated service principal object ID because the `oid` claim was missing from the access token")
+			logging.V(9).Infof("Querying Microsoft Graph to discover authenticated service principal object ID because the `oid` claim was missing from the access token")
 			id, err := servicePrincipalObjectID(ctx, graphClient, clientId)
 			if err != nil {
 				return nil, fmt.Errorf("attempting to discover object ID for authenticated service principal with client ID %q: %w", clientId, err)
@@ -465,7 +463,7 @@ func GetClientConfig(ctx context.Context, config *authConfiguration, cred *azAcc
 
 			objectId = *id
 		} else {
-			logging.V(9).Infof("[DEBUG] Querying Microsoft Graph to discover authenticated user principal object ID because the `oid` claim was missing from the access token")
+			logging.V(9).Infof("Querying Microsoft Graph to discover authenticated user principal object ID because the `oid` claim was missing from the access token")
 			id, err := userPrincipalObjectID(ctx, graphClient)
 			if err != nil {
 				return nil, fmt.Errorf("attempting to discover object ID for authenticated user principal: %w", err)
@@ -476,7 +474,7 @@ func GetClientConfig(ctx context.Context, config *authConfiguration, cred *azAcc
 
 	tenantId := tokenClaims.TenantId
 	if tenantId == "" {
-		log.Printf("[DEBUG] Using user-supplied TenantID because the `tid` claim was missing from the access token")
+		logging.V(9).Infof("Using user-supplied TenantID because the `tid` claim was missing from the access token")
 		tenantId = config.tenantId
 	}
 
