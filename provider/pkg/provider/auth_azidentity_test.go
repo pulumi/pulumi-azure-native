@@ -493,6 +493,15 @@ func TestNewCredential(t *testing.T) {
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.AzureCLICredential{}, cred)
 	})
+
+	t.Run("CLI with subscription id", func(t *testing.T) {
+		conf := &authConfiguration{
+			subscriptionId: "sub-id",
+		}
+		cred, err := newSingleMethodAuthCredential(conf, baseClientOpts)
+		require.NoError(t, err)
+		require.IsType(t, &azidentity.AzureCLICredential{}, cred)
+	})
 }
 
 func TestOidcTokenExchangeAssertion(t *testing.T) {
