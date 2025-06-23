@@ -16,11 +16,9 @@ import (
 	"strings"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
-	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armsubscriptions"
 	msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
 	"github.com/microsoftgraph/msgraph-sdk-go/serviceprincipals"
 	"github.com/pkg/errors"
@@ -78,49 +76,11 @@ func initAccount(ctx context.Context, authConf *authConfiguration, baseClientOpt
 		} else {
 			account.Cloud = *authConf.cloud
 		}
-
 		account.SubscriptionId = authConf.subscriptionId
-		if account.SubscriptionId == "" {
-			// get all subscriptions for the tenant associated with the credential, as is done by the Azure CLI.
-			// if there's exactly one subscription, use it; if there are multiple subscriptions, force the user to
-			// specify the subscription ID explicitly.
-			subs, err := discoverSubscriptions(ctx, cred, baseClientOpts)
-			if err != nil {
-				logging.Errorf("Failed to discover subscriptions: %v", err)
-			} else if len(subs) == 0 {
-				logging.V(6).Infof("No subscriptions found for the tenant, skipping automatic selection")
-			} else if len(subs) == 1 {
-				account.SubscriptionId = *subs[0].SubscriptionID
-			} else if len(subs) > 1 {
-				logging.V(6).Infof("Multiple subscriptions found for the tenant, skipping automatic selection")
-			}
-			logging.V(6).Infof("Discovered subscription %q", account.SubscriptionId)
-		}
 	}
 
 	logging.V(6).Infof("Using Az cloud %q with subscription ID %q", account.Cloud.ActiveDirectoryAuthorityHost, account.SubscriptionId)
 	return account, nil
-}
-
-// discoverSubscriptions retrieves all subscriptions associated with the given credential.
-func discoverSubscriptions(ctx context.Context, cred azcore.TokenCredential, clientOpts azcore.ClientOptions) ([]*armsubscriptions.Subscription, error) {
-	factory, err := armsubscriptions.NewClientFactory(cred, &arm.ClientOptions{
-		ClientOptions: clientOpts,
-	})
-	if err != nil {
-		return nil, err
-	}
-	subClient := factory.NewClient()
-	pager := subClient.NewListPager(&armsubscriptions.ClientListOptions{})
-	var subscriptions []*armsubscriptions.Subscription
-	for pager.More() {
-		page, err := pager.NextPage(ctx)
-		if err != nil {
-			return nil, err
-		}
-		subscriptions = append(subscriptions, page.Value...)
-	}
-	return subscriptions, nil
 }
 
 // newSingleMethodAuthCredential creates an azcore.TokenCredential. Depending on the given authConfiguration, it is
