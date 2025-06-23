@@ -213,7 +213,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	}
 	credential, err := initAccount(ctx, authConfig, clientOpts)
 	if err != nil {
-		return nil, fmt.Errorf("creating Pulumi auth credential: %w", err)
+		return nil, err
 	}
 	k.cred = credential
 	k.cloud = credential.Cloud
