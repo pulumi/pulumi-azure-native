@@ -92,21 +92,12 @@ func TestServicebusRecreateSdk(t *testing.T) {
 }
 
 func TestAzureInAzureWithSystemManagedIdentity(t *testing.T) {
-	// This test fails on the autorest backend, see #2432
-	if os.Getenv("PULUMI_ENABLE_AZCORE_BACKEND") != "true" {
-		t.Skip("Skipping test because azcore backend is not enabled")
-	}
 	test := getGoBaseOptionsSdk(t, testDir(t, "go-azure-in-azure"))
 	integration.ProgramTest(t, &test)
 }
 
 func TestAzureInAzureWithUserManagedIdentity(t *testing.T) {
 	skipIfShort(t)
-	// This test fails on the autorest backend, see #2432
-	if os.Getenv("PULUMI_ENABLE_AZCORE_BACKEND") != "true" {
-		t.Skip("Skipping test because azcore backend is not enabled")
-	}
-
 	test := getGoBaseOptionsSdk(t, testDir(t, "go-azure-in-azure")).
 		With(integration.ProgramTestOptions{
 			Env: []string{"PULUMI_TEST_USER_IDENTITY=true"},
