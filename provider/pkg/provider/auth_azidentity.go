@@ -110,9 +110,6 @@ func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts a
 		if authConf.clientId == "" {
 			return nil, fmt.Errorf(fmtErrorMessage, "Client ID")
 		}
-		if authConf.clientCertPath == "" {
-			return nil, fmt.Errorf(fmtErrorMessage, "Client Certificate Path")
-		}
 		certs, key, err := readCertificate(authConf.clientCertPath, authConf.clientCertPassword)
 		if err != nil {
 			return nil, fmt.Errorf("the Client Certificate Path is not a valid pfx file: %w", err)
@@ -137,9 +134,6 @@ func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts a
 		}
 		if authConf.clientId == "" {
 			return nil, fmt.Errorf(fmtErrorMessage, "Client ID")
-		}
-		if authConf.clientSecret == "" {
-			return nil, fmt.Errorf(fmtErrorMessage, "Client Secret")
 		}
 		options := &azidentity.ClientSecretCredentialOptions{
 			AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
@@ -181,11 +175,7 @@ func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts a
 	if authConf.subscriptionId != "" {
 		options.Subscription = authConf.subscriptionId
 	}
-	cli, err := azidentity.NewAzureCLICredential(options)
-	if err == nil {
-		return cli, nil
-	}
-	return nil, errors.Errorf("Failed to find any valid credentials")
+	return azidentity.NewAzureCLICredential(options)
 }
 
 // newOidcCredential creates a TokenCredential for OpenID Connect (OIDC) authentication.
