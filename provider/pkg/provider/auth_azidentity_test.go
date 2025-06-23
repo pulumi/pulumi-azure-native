@@ -11,7 +11,9 @@ import (
 	"path/filepath"
 	"testing"
 
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -42,7 +44,7 @@ func TestGetAuthConfig(t *testing.T) {
 		c, err := readAuthConfig(g.getConfig)
 		require.NoError(t, err)
 		require.NotNil(t, c)
-		require.Equal(t, "https://login.microsoftonline.com/", c.cloud.ActiveDirectoryAuthorityHost)
+		require.Nil(t, c.cloud)
 		require.Empty(t, c.auxTenants)
 		require.Empty(t, c.clientCertPassword)
 		require.Empty(t, c.clientCertPath)
@@ -154,25 +156,61 @@ func TestGetAuthConfig(t *testing.T) {
 }
 
 func TestNewCredential(t *testing.T) {
+	baseClientOpts := azcore.ClientOptions{
+		Telemetry: policy.TelemetryOptions{
+			ApplicationID: "test",
+		},
+	}
 	t.Run("SP with client secret", func(t *testing.T) {
 		conf := &authConfiguration{
-			clientId:     "client-id",
-			clientSecret: "client-secret",
-			tenantId:     "tenant-id",
+			subscriptionId: "sub-id",
+			clientId:       "client-id",
+			clientSecret:   "client-secret",
+			tenantId:       "tenant-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, baseClientOpts)
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ClientSecretCredential{}, cred)
-	})
 
-	t.Run("Incomplete SP with client secret conf missing tenant id", func(t *testing.T) {
-		conf := &authConfiguration{
-			clientId:     "client-id",
-			clientSecret: "client-secret",
+		// parameter validation sub-tests
+		tests := []struct {
+			config *authConfiguration
+			errMsg string
+		}{
+			{
+				config: &authConfiguration{
+					clientId:     "client-id",
+					clientSecret: "client-secret",
+					tenantId:     "tenant-id",
+				},
+				errMsg: "Subscription ID",
+			},
+			{
+				config: &authConfiguration{
+					subscriptionId: "sub-id",
+					clientSecret:   "client-secret",
+					tenantId:       "tenant-id",
+				},
+				errMsg: "Client ID",
+			},
+			{
+				config: &authConfiguration{
+					subscriptionId: "sub-id",
+					clientId:       "client-id",
+					clientSecret:   "client-secret",
+				},
+				errMsg: "Tenant ID",
+			},
 		}
-		_, err := newSingleMethodAuthCredential(conf)
-		require.Error(t, err)
-		require.Contains(t, err.Error(), "tenant")
+
+		for _, tt := range tests {
+			t.Run("missing "+tt.errMsg, func(t *testing.T) {
+				_, err := newSingleMethodAuthCredential(tt.config, baseClientOpts)
+				require.Error(t, err)
+				require.Contains(t, err.Error(), "using a Client Secret")
+				require.Contains(t, err.Error(), tt.errMsg)
+			})
+		}
 	})
 
 	t.Run("SP with client cert", func(t *testing.T) {
@@ -180,14 +218,55 @@ func TestNewCredential(t *testing.T) {
 		require.NoError(t, os.WriteFile(certPath, testPfxCert, 0644))
 
 		conf := &authConfiguration{
+			subscriptionId:     "sub-id",
 			clientId:           "client-id",
 			clientCertPath:     certPath,
 			clientCertPassword: "pulumi",
 			tenantId:           "tenant-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, baseClientOpts)
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ClientCertificateCredential{}, cred)
+
+		// parameter validation sub-tests
+		tests := []struct {
+			config *authConfiguration
+			errMsg string
+		}{
+			{
+				config: &authConfiguration{
+					clientId:       "client-id",
+					clientCertPath: certPath,
+					tenantId:       "tenant-id",
+				},
+				errMsg: "Subscription ID",
+			},
+			{
+				config: &authConfiguration{
+					subscriptionId: "sub-id",
+					clientCertPath: certPath,
+					tenantId:       "tenant-id",
+				},
+				errMsg: "Client ID",
+			},
+			{
+				config: &authConfiguration{
+					subscriptionId: "sub-id",
+					clientId:       "client-id",
+					clientCertPath: certPath,
+				},
+				errMsg: "Tenant ID",
+			},
+		}
+
+		for _, tt := range tests {
+			t.Run("missing "+tt.errMsg, func(t *testing.T) {
+				_, err := newSingleMethodAuthCredential(tt.config, baseClientOpts)
+				require.Error(t, err)
+				require.Contains(t, err.Error(), "using a Client Certificate")
+				require.Contains(t, err.Error(), tt.errMsg)
+			})
+		}
 	})
 
 	t.Run("SP with invalid client cert", func(t *testing.T) {
@@ -195,11 +274,12 @@ func TestNewCredential(t *testing.T) {
 		require.NoError(t, os.WriteFile(certPath, []byte("cert"), 0644))
 
 		conf := &authConfiguration{
+			subscriptionId: "sub-id",
 			clientId:       "client-id",
 			clientCertPath: certPath,
 			tenantId:       "tenant-id",
 		}
-		_, err := newSingleMethodAuthCredential(conf)
+		_, err := newSingleMethodAuthCredential(conf, baseClientOpts)
 		require.Error(t, err)
 		require.Contains(t, err.Error(), "failed to parse certificate")
 	})
@@ -209,12 +289,13 @@ func TestNewCredential(t *testing.T) {
 		require.NoError(t, os.WriteFile(certPath, testPfxCert, 0644))
 
 		conf := &authConfiguration{
+			subscriptionId:     "sub-id",
 			clientId:           "client-id",
 			clientCertPath:     certPath,
 			clientCertPassword: "wrong",
 			tenantId:           "tenant-id",
 		}
-		_, err := newSingleMethodAuthCredential(conf)
+		_, err := newSingleMethodAuthCredential(conf, baseClientOpts)
 		require.Error(t, err)
 		require.Contains(t, err.Error(), "failed to parse certificate")
 		require.Contains(t, err.Error(), "password incorrect")
@@ -222,14 +303,77 @@ func TestNewCredential(t *testing.T) {
 
 	t.Run("OIDC with token", func(t *testing.T) {
 		conf := &authConfiguration{
-			useOidc:   true,
-			oidcToken: "oidc-token",
-			clientId:  "client-id",
-			tenantId:  "tenant-id",
+			subscriptionId: "sub-id",
+			useOidc:        true,
+			oidcToken:      "oidc-token",
+			clientId:       "client-id",
+			tenantId:       "tenant-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, baseClientOpts)
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ClientAssertionCredential{}, cred)
+
+		// parameter validation sub-tests
+		tests := []struct {
+			config *authConfiguration
+			errMsg string
+		}{
+			{
+				config: &authConfiguration{
+					useOidc:   true,
+					oidcToken: "oidc-token",
+					clientId:  "client-id",
+					tenantId:  "tenant-id",
+				},
+				errMsg: "Subscription ID",
+			},
+			{
+				config: &authConfiguration{
+					subscriptionId: "sub-id",
+					useOidc:        true,
+					oidcToken:      "oidc-token",
+					tenantId:       "tenant-id",
+				},
+				errMsg: "Client ID",
+			},
+			{
+				config: &authConfiguration{
+					subscriptionId: "sub-id",
+					useOidc:        true,
+					oidcToken:      "oidc-token",
+					clientId:       "client-id",
+				},
+				errMsg: "Tenant ID",
+			},
+			{
+				config: &authConfiguration{
+					subscriptionId: "sub-id",
+					useOidc:        true,
+					clientId:       "client-id",
+					tenantId:       "tenant-id",
+				},
+				errMsg: "OIDC token",
+			},
+			{
+				config: &authConfiguration{
+					subscriptionId:      "sub-id",
+					useOidc:             true,
+					oidcTokenRequestUrl: "oidc-token-url",
+					clientId:            "client-id",
+					tenantId:            "tenant-id",
+				},
+				errMsg: "request URL and token",
+			},
+		}
+
+		for _, tt := range tests {
+			t.Run("missing "+tt.errMsg, func(t *testing.T) {
+				_, err := newSingleMethodAuthCredential(tt.config, baseClientOpts)
+				require.Error(t, err)
+				require.Contains(t, err.Error(), "with OIDC")
+				require.Contains(t, err.Error(), tt.errMsg)
+			})
+		}
 	})
 
 	t.Run("OIDC with token file", func(t *testing.T) {
@@ -237,42 +381,46 @@ func TestNewCredential(t *testing.T) {
 		require.NoError(t, os.WriteFile(tokenPath, []byte("token"), 0644))
 
 		conf := &authConfiguration{
+			subscriptionId:    "sub-id",
 			useOidc:           true,
 			oidcTokenFilePath: tokenPath,
 			clientId:          "client-id",
 			tenantId:          "tenant-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, baseClientOpts)
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ClientAssertionCredential{}, cred)
 	})
 
 	t.Run("OIDC with wrong token file", func(t *testing.T) {
 		conf := &authConfiguration{
+			subscriptionId:    "sub-id",
 			useOidc:           true,
 			oidcTokenFilePath: filepath.Join(t.TempDir(), "foo"),
 			clientId:          "client-id",
 			tenantId:          "tenant-id",
 		}
-		_, err := newSingleMethodAuthCredential(conf)
+		_, err := newSingleMethodAuthCredential(conf, baseClientOpts)
 		require.Error(t, err)
 	})
 
 	t.Run("OIDC with token exchange URL", func(t *testing.T) {
 		conf := &authConfiguration{
+			subscriptionId:        "sub-id",
 			useOidc:               true,
 			oidcTokenRequestToken: "oidc-token",
 			oidcTokenRequestUrl:   "oidc-token-url",
 			clientId:              "client-id",
 			tenantId:              "tenant-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, baseClientOpts)
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ClientAssertionCredential{}, cred)
 	})
 
 	t.Run("OIDC with token exchange URL and custom audience", func(t *testing.T) {
 		conf := &authConfiguration{
+			subscriptionId:        "sub-id",
 			useOidc:               true,
 			oidcAudience:          "api://oidc-audience",
 			oidcTokenRequestToken: "oidc-token",
@@ -280,53 +428,58 @@ func TestNewCredential(t *testing.T) {
 			clientId:              "client-id",
 			tenantId:              "tenant-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, baseClientOpts)
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ClientAssertionCredential{}, cred)
 	})
 
-	t.Run("Incomplete OIDC conf", func(t *testing.T) {
-		for _, conf := range []*authConfiguration{
-			{
-				useOidc:   true,
-				oidcToken: "oidc-token",
-				clientId:  "client-id",
-			},
-			{
-				useOidc:             true,
-				oidcTokenRequestUrl: "oidc-token-url",
-				clientId:            "client-id",
-				tenantId:            "tenant-id",
-			},
-		} {
-			_, err := newSingleMethodAuthCredential(conf)
-			require.Error(t, err)
-		}
-	})
-
 	t.Run("MSI", func(t *testing.T) {
 		conf := &authConfiguration{
-			useMsi: true,
+			subscriptionId: "sub-id",
+			useMsi:         true,
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, baseClientOpts)
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ManagedIdentityCredential{}, cred)
+
+		// parameter validation sub-tests
+		tests := []struct {
+			config *authConfiguration
+			errMsg string
+		}{
+			{
+				config: &authConfiguration{
+					useMsi: true,
+				},
+				errMsg: "Subscription ID",
+			},
+		}
+
+		for _, tt := range tests {
+			t.Run("missing "+tt.errMsg, func(t *testing.T) {
+				_, err := newSingleMethodAuthCredential(tt.config, baseClientOpts)
+				require.Error(t, err)
+				require.Contains(t, err.Error(), "using MSI")
+				require.Contains(t, err.Error(), tt.errMsg)
+			})
+		}
 	})
 
 	// Used for user-assigned managed identity
 	t.Run("MSI with client id", func(t *testing.T) {
 		conf := &authConfiguration{
-			clientId: "123",
-			useMsi:   true,
+			subscriptionId: "sub-id",
+			clientId:       "123",
+			useMsi:         true,
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, baseClientOpts)
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ManagedIdentityCredential{}, cred)
 	})
 
 	t.Run("CLI", func(t *testing.T) {
 		conf := &authConfiguration{}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, baseClientOpts)
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.AzureCLICredential{}, cred)
 	})
@@ -336,7 +489,7 @@ func TestNewCredential(t *testing.T) {
 			tenantId:   "tenant-id",
 			auxTenants: []string{"123", "456"},
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, baseClientOpts)
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.AzureCLICredential{}, cred)
 	})
@@ -367,24 +520,24 @@ func TestOidcTokenExchangeAssertion(t *testing.T) {
 }
 
 func TestReadAzureCloudFromConfig(t *testing.T) {
-	t.Run("Default to Public", func(t *testing.T) {
+	t.Run("Default to Nil", func(t *testing.T) {
 		g := getter{config: map[string]string{}}
-		assert.Equal(t, azcloud.AzurePublic, readAzureCloudFromConfig(g.getConfig))
+		assert.Nil(t, readAzureCloudFromConfig(g.getConfig))
 	})
 
 	t.Run("From config", func(t *testing.T) {
 		g := getter{config: map[string]string{"environment": "azureusgovernment"}}
-		assert.Equal(t, azcloud.AzureGovernment, readAzureCloudFromConfig(g.getConfig))
+		assert.Equal(t, azcloud.AzureGovernment, *readAzureCloudFromConfig(g.getConfig))
 	})
 
 	t.Run("From AZURE_ENVIRONMENT", func(t *testing.T) {
 		g := getter{config: map[string]string{}, env: map[string]string{"AZURE_ENVIRONMENT": "azureusgovernment"}}
-		assert.Equal(t, azcloud.AzureGovernment, readAzureCloudFromConfig(g.getConfig))
+		assert.Equal(t, azcloud.AzureGovernment, *readAzureCloudFromConfig(g.getConfig))
 	})
 
 	t.Run("From ARM_ENVIRONMENT", func(t *testing.T) {
 		g := getter{config: map[string]string{}, env: map[string]string{"ARM_ENVIRONMENT": "azureusgovernment"}}
-		assert.Equal(t, azcloud.AzureGovernment, readAzureCloudFromConfig(g.getConfig))
+		assert.Equal(t, azcloud.AzureGovernment, *readAzureCloudFromConfig(g.getConfig))
 	})
 
 	t.Run("ARM_ENVIRONMENT over AZURE_ENVIRONMENT", func(t *testing.T) {
@@ -393,6 +546,6 @@ func TestReadAzureCloudFromConfig(t *testing.T) {
 			"AZURE_ENVIRONMENT": "azurechina",
 		}
 		g := getter{config: map[string]string{}, env: env}
-		assert.Equal(t, azcloud.AzureGovernment, readAzureCloudFromConfig(g.getConfig))
+		assert.Equal(t, azcloud.AzureGovernment, *readAzureCloudFromConfig(g.getConfig))
 	})
 }

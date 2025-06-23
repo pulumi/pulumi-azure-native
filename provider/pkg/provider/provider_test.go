@@ -8,6 +8,7 @@ import (
 
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/fake"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/blang/semver"
 	structpb "github.com/golang/protobuf/ptypes/struct"
 
@@ -480,7 +481,7 @@ func TestAzcoreAzureClientUsesCorrectCloud(t *testing.T) {
 			cloud: cloudInstance,
 		}
 
-		client, err := p.newAzureClient(&fake.TokenCredential{}, "pulumi")
+		client, err := p.newAzureClient(&fake.TokenCredential{}, policy.ClientOptions{})
 		require.NoError(t, err)
 		require.NotNil(t, client)
 
