@@ -6,7 +6,6 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
-	"fmt"
 	"os"
 	"os/exec"
 	"runtime"
@@ -34,10 +33,16 @@ type User struct {
 	Type string `json:"type"`
 }
 
-const credNameAzureCLI = "AzureCLICredential"
+type subscriptionUnavailableError struct {
+	message string
+}
 
-func newCredentialUnavailableError(credType, message string) error {
-	return fmt.Errorf("%s: %s", credType, message)
+func (e *subscriptionUnavailableError) Error() string {
+	return e.message
+}
+
+func newSubscriptionUnavailableError(message string) error {
+	return &subscriptionUnavailableError{message}
 }
 
 type azSubscriptionProvider func(ctx context.Context, subscriptionID string) (*Subscription, error)
@@ -63,7 +68,7 @@ var defaultAzSubscriptionProvider = func(ctx context.Context, subscriptionID str
 	if runtime.GOOS == "windows" {
 		dir := os.Getenv("SYSTEMROOT")
 		if dir == "" {
-			return nil, newCredentialUnavailableError(credNameAzureCLI, "environment variable 'SYSTEMROOT' has no value")
+			return nil, newSubscriptionUnavailableError("environment variable 'SYSTEMROOT' has no value")
 		}
 		cliCmd = exec.CommandContext(ctx, "cmd.exe", "/c", commandLine)
 		cliCmd.Dir = dir
@@ -85,23 +90,14 @@ var defaultAzSubscriptionProvider = func(ctx context.Context, subscriptionID str
 		if msg == "" {
 			msg = err.Error()
 		}
-		return nil, newCredentialUnavailableError(credNameAzureCLI, msg)
+		return nil, newSubscriptionUnavailableError(msg)
 	}
 
 	s := Subscription{}
 	err = json.Unmarshal(output, &s)
 	if err != nil {
-		return nil, newCredentialUnavailableError(credNameAzureCLI, err.Error())
+		return nil, newSubscriptionUnavailableError(err.Error())
 	}
 
-	return &s, nil
-}
-
-func parseSubscription(b []byte, subscriptionID string, provider azSubscriptionProvider) (*Subscription, error) {
-	s := Subscription{}
-	err := json.Unmarshal(b, &s)
-	if err != nil {
-		return nil, err
-	}
 	return &s, nil
 }

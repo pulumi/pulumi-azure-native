@@ -558,3 +558,126 @@ func TestReadAzureCloudFromConfig(t *testing.T) {
 		assert.Equal(t, azcloud.AzureGovernment, *readAzureCloudFromConfig(g.getConfig))
 	})
 }
+
+func TestInitAccount(t *testing.T) {
+	baseClientOpts := azcore.ClientOptions{
+		Telemetry: policy.TelemetryOptions{
+			ApplicationID: "test",
+		},
+	}
+
+	t.Run("CLI", func(t *testing.T) {
+		fake := func(ctx context.Context, subscriptionID string) (*Subscription, error) {
+			return &Subscription{
+				EnvironmentName: "AzureChinaCloud",
+				ID:              "sub-id",
+				Name:            "sub-name",
+			}, nil
+		}
+		conf := &authConfiguration{
+			showSubscription: fake,
+		}
+		account, err := initAccount(context.Background(), conf, baseClientOpts)
+		require.NoError(t, err)
+		require.NotNil(t, account)
+		require.IsType(t, &azidentity.AzureCLICredential{}, account.TokenCredential)
+		require.Equal(t, azcloud.AzureChina, account.Cloud)
+		require.Equal(t, "sub-id", account.SubscriptionId)
+	})
+
+	t.Run("CLI with subscription id", func(t *testing.T) {
+		fake := func(ctx context.Context, subscriptionID string) (*Subscription, error) {
+			require.Equal(t, "sub-id", subscriptionID)
+			return &Subscription{
+				EnvironmentName: "AzureCloud",
+				ID:              "sub-id",
+				Name:            "sub-name",
+			}, nil
+		}
+		conf := &authConfiguration{
+			showSubscription: fake,
+			subscriptionId:   "sub-id",
+		}
+		account, err := initAccount(context.Background(), conf, baseClientOpts)
+		require.NoError(t, err)
+		require.NotNil(t, account)
+		require.IsType(t, &azidentity.AzureCLICredential{}, account.TokenCredential)
+		require.Equal(t, azcloud.AzurePublic, account.Cloud)
+		require.Equal(t, "sub-id", account.SubscriptionId)
+	})
+
+	t.Run("CLI when logged out", func(t *testing.T) {
+		fake := func(ctx context.Context, subscriptionID string) (*Subscription, error) {
+			return nil, newSubscriptionUnavailableError(`ERROR: Please run 'az login' to setup account`)
+		}
+		conf := &authConfiguration{
+			showSubscription: fake,
+		}
+		_, err := initAccount(context.Background(), conf, baseClientOpts)
+		require.ErrorContains(t, err, `ERROR: Please run 'az login' to setup account`)
+	})
+
+	t.Run("CLI with subscription not found", func(t *testing.T) {
+		fake := func(ctx context.Context, subscriptionID string) (*Subscription, error) {
+			require.Equal(t, "conf", subscriptionID)
+			return nil, newSubscriptionUnavailableError(`Subscription 'conf' not found.`)
+		}
+		conf := &authConfiguration{
+			showSubscription: fake,
+			subscriptionId:   "conf",
+		}
+		_, err := initAccount(context.Background(), conf, baseClientOpts)
+		require.ErrorContains(t, err, `Subscription 'conf' not found.`)
+	})
+
+	t.Run("CLI with mismatched environment", func(t *testing.T) {
+		fake := func(ctx context.Context, subscriptionID string) (*Subscription, error) {
+			return &Subscription{
+				EnvironmentName: "AzureChinaCloud",
+				ID:              "sub-id",
+				Name:            "sub-name",
+			}, nil
+		}
+		conf := &authConfiguration{
+			showSubscription: fake,
+			cloud:            &azcloud.AzurePublic,
+		}
+		_, err := initAccount(context.Background(), conf, baseClientOpts)
+		require.ErrorContains(t, err, `Azure CLI account environment "AzureChinaCloud" does not match configured environment`)
+	})
+
+	t.Run("Other", func(t *testing.T) {
+		conf := &authConfiguration{
+			showSubscription: func(ctx context.Context, subscriptionID string) (*Subscription, error) {
+				require.Fail(t, "showSubscription should not be called for other credential types")
+				return nil, nil
+			},
+			subscriptionId: "sub-id",
+			useMsi:         true,
+		}
+		account, err := initAccount(context.Background(), conf, baseClientOpts)
+		require.NoError(t, err)
+		require.NotNil(t, account)
+		require.IsType(t, &azidentity.ManagedIdentityCredential{}, account.TokenCredential)
+		require.Equal(t, azcloud.AzurePublic, account.Cloud)
+		require.Equal(t, "sub-id", account.SubscriptionId)
+	})
+
+	t.Run("Other with environment", func(t *testing.T) {
+		conf := &authConfiguration{
+			showSubscription: func(ctx context.Context, subscriptionID string) (*Subscription, error) {
+				require.Fail(t, "showSubscription should not be called for other credential types")
+				return nil, nil
+			},
+			cloud:          &azcloud.AzureChina,
+			subscriptionId: "sub-id",
+			useMsi:         true,
+		}
+		account, err := initAccount(context.Background(), conf, baseClientOpts)
+		require.NoError(t, err)
+		require.NotNil(t, account)
+		require.IsType(t, &azidentity.ManagedIdentityCredential{}, account.TokenCredential)
+		require.Equal(t, azcloud.AzureChina, account.Cloud)
+		require.Equal(t, "sub-id", account.SubscriptionId)
+	})
+}
