@@ -522,6 +522,11 @@ func (k *azureNativeProvider) Check(ctx context.Context, req *rpc.CheckRequest) 
 		}
 	}
 
+	err = k.canonicalizeInputs(ctx, res, news)
+	if err != nil {
+		return nil, err
+	}
+
 	resInputs, err := plugin.MarshalProperties(news, plugin.MarshalOptions{
 		Label: fmt.Sprintf("%s.resInputs", label), KeepUnknowns: true})
 	if err != nil {
@@ -529,6 +534,48 @@ func (k *azureNativeProvider) Check(ctx context.Context, req *rpc.CheckRequest) 
 	}
 
 	return &rpc.CheckResponse{Inputs: resInputs, Failures: failures}, nil
+}
+
+// canonicalizeInputs canonicalizes the inputs such that they match what would be produced by Read of a live resource.
+// In particular, path parameters are canonicalized to the resource's path template. For example, the /{scope}/ parameter
+// becomes trimmed of a leading slash.
+func (k *azureNativeProvider) canonicalizeInputs(ctx context.Context, res *resources.AzureAPIResource, news resource.PropertyMap) error {
+	_, isCustom := k.customResources[res.Path]
+	if isCustom {
+		// custom resources aren't supported yet, because GetIdAndQuery may not handle unknowns (but PrepareAzureRESTIdAndQuery does).
+		return nil
+	}
+	crudClient := k.newCrudClient(res)
+
+	// Construct the resource ID based on the inputs that are path parameters.
+	// Note that unknowns are represented as plugin.UnknownStringValue in the constructed value,
+	// and remain as unknown in the canonicalized inputs.
+	id, _, err := crudClient.PrepareAzureRESTIdAndQuery(news)
+	if err != nil {
+		return err
+	}
+
+	// Extract the path parameter values from the formatted resource ID and map them back to the inputs.
+	// This approach arrives at the same values as the Read operation, which likewise uses [resources.ParseResourceID].
+	pathItems, err := resources.ParseResourceID(id, res.Path)
+	if err != nil {
+		return err
+	}
+	pathInputs := k.converter.ResponseToSdkInputs(res.PutParameters, pathItems, map[string]any{})
+	for k, pathV := range pathInputs {
+		v, hasV := news[resource.PropertyKey(k)]
+		if !hasV || v.ContainsUnknowns() {
+			continue
+		}
+		if v.ContainsSecrets() {
+			v = resource.MakeSecret(resource.NewStringProperty(pathV.(string)))
+		} else {
+			v = resource.NewStringProperty(pathV.(string))
+		}
+		news[resource.PropertyKey(k)] = v
+	}
+
+	return nil
 }
 
 // Get a default location property for the given inputs.
@@ -859,7 +906,7 @@ func (k *azureNativeProvider) DiffConfig(context.Context, *rpc.DiffRequest) (*rp
 }
 
 // Diff checks what impacts a hypothetical update will have on the resource's properties.
-func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rpc.DiffResponse, error) {
+func (k *azureNativeProvider) Diff(ctx context.Context, req *rpc.DiffRequest) (*rpc.DiffResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Diff(%s)", k.name, urn)
 
@@ -909,6 +956,11 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 
 	// Get the resource definition for looking up additional metadata.
 	res, err := k.lookupResourceFromURN(urn)
+	if err != nil {
+		return nil, err
+	}
+
+	err = k.canonicalizeInputs(ctx, res, oldInputs)
 	if err != nil {
 		return nil, err
 	}
