@@ -28,6 +28,8 @@ type AzureAPIParameter struct {
 	Value *AzureAPIProperty `json:"value"`
 	// Body contains metadata for the body parameter.
 	Body *AzureAPIType `json:"body,omitempty"`
+	// SkipUrlEncoding indicates that the parameter should not be URL-encoded.
+	SkipUrlEncoding bool `json:"skipUrlEncoding,omitempty"`
 }
 
 type AutoNameKind string
