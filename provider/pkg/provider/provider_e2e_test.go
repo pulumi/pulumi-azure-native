@@ -25,6 +25,7 @@ import (
 	"github.com/pulumi/providertest/pulumitest/changesummary"
 	"github.com/pulumi/providertest/pulumitest/opttest"
 
+	"github.com/pulumi/pulumi/sdk/v3/go/auto/optup"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 )
@@ -116,6 +117,21 @@ func TestAutonaming(t *testing.T) {
 	saname, ok := up.Outputs["saname"].Value.(string)
 	assert.True(t, ok)
 	assert.Contains(t, saname, "autonamingsa") // project + name + random suffix, no dashes
+}
+
+func TestTagging(t *testing.T) {
+	t.Parallel()
+	pt := newPulumiTest(t, "tagging")
+	pt.Preview(t)
+	up := pt.Up(t)
+
+	// Verify that the tags were truly applied to the resource groups.
+	// One must first refresh the state to see the tags applied by the TagAtScope resource.
+	up = pt.Up(t, optup.Refresh())
+	rg1Tags, _ := up.Outputs["rg_1_tags"].Value.(map[string]any)
+	assert.Equal(t, map[string]any{"owner": "tag_1"}, rg1Tags)
+	rg2Tags, _ := up.Outputs["rg_2_tags"].Value.(map[string]any)
+	assert.Equal(t, map[string]any{"owner": "tag_2"}, rg2Tags)
 }
 
 func TestUpgradeKeyVault_2_76_0(t *testing.T) {
