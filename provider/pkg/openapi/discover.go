@@ -517,6 +517,8 @@ var excludeRegexes = []*regexp.Regexp{
 	regexp.MustCompile(".*servicefabric/resource-manager/Microsoft.ServiceFabric/preview/2023-11-01-preview.*"),
 	// This preview version is invalid OpenAPI JSON, reading it fails with encoding/json.UnmarshalTypeError in field "definitions".
 	regexp.MustCompile(".*network/resource-manager/Microsoft.Network/preview/2023-03-01-preview.*"),
+	// Examples are not part of the spec.
+	regexp.MustCompile(".*/examples/.*"),
 }
 
 func exclude(filePath string) bool {
