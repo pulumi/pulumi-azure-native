@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// 
     /// Uses Azure REST API version 2023-12-30. In version 2.x of the Azure Native provider, it used API version 2022-01-01.
     /// 
-    /// Other available API versions: 2022-01-01, 2023-06-01-preview, 2023-06-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-01-01, 2023-06-01-preview, 2023-06-30, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:FirewallRule")]
     public partial class FirewallRule : global::Pulumi.CustomResource
@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.DBforMySQL
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20230601preview:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20230630:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20231230:FirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20241201preview:FirewallRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

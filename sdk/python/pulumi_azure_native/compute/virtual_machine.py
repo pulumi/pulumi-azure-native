@@ -57,7 +57,7 @@ class VirtualMachineArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualMachine resource.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AdditionalCapabilitiesArgs'] additional_capabilities: Specifies additional capabilities enabled or disabled on the virtual machine.
         :param pulumi.Input['ApplicationProfileArgs'] application_profile: Specifies the gallery applications that should be made available to the VM/VMSS.
         :param pulumi.Input['SubResourceArgs'] availability_set: Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
@@ -72,7 +72,7 @@ class VirtualMachineArgs:
         :param pulumi.Input['SubResourceArgs'] host_group: Specifies information about the dedicated host group that the virtual machine resides in. **Note:** User cannot specify both host and hostGroup properties. Minimum api-version: 2020-06-01.
         :param pulumi.Input['VirtualMachineIdentityArgs'] identity: The identity of the virtual machine, if configured.
         :param pulumi.Input[builtins.str] license_type: Specifies that the image or disk that is being used was licensed on-premises. <br><br> Possible values for Windows Server operating system are: <br><br> Windows_Client <br><br> Windows_Server <br><br> Possible values for Linux Server operating system are: <br><br> RHEL_BYOS (for RHEL) <br><br> SLES_BYOS (for SUSE) <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) <br><br> [Azure Hybrid Use Benefit for Linux Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) <br><br> Minimum api-version: 2015-06-15
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['NetworkProfileArgs'] network_profile: Specifies the network interfaces of the virtual machine.
         :param pulumi.Input['OSProfileArgs'] os_profile: Specifies the operating system settings used while creating the virtual machine. Some of the settings cannot be changed once VM is provisioned.
         :param pulumi.Input['PlacementArgs'] placement: Placement section specifies the user-defined constraints for virtual machine hardware placement. This property cannot be changed once VM is provisioned. Minimum api-version: 2024-11-01.
@@ -84,11 +84,11 @@ class VirtualMachineArgs:
         :param pulumi.Input['ScheduledEventsProfileArgs'] scheduled_events_profile: Specifies Scheduled Event related configurations.
         :param pulumi.Input['SecurityProfileArgs'] security_profile: Specifies the Security related profile settings for the virtual machine.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Specifies the storage settings for the virtual machine disks.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param pulumi.Input[builtins.str] user_data: UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01.
         :param pulumi.Input['SubResourceArgs'] virtual_machine_scale_set: Specifies information about the virtual machine scale set that the virtual machine should be assigned to. Virtual machines specified in the same virtual machine scale set are allocated to different nodes to maximize availability. Currently, a VM can only be added to virtual machine scale set at creation time. An existing VM cannot be added to a virtual machine scale set. This property cannot exist along with a non-null properties.availabilitySet reference. Minimum api‐version: 2019‐03‐01.
         :param pulumi.Input[builtins.str] vm_name: The name of the virtual machine.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: The virtual machine zones.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: The availability zones.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if additional_capabilities is not None:
@@ -158,7 +158,7 @@ class VirtualMachineArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -338,7 +338,7 @@ class VirtualMachineArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -482,7 +482,7 @@ class VirtualMachineArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -530,7 +530,7 @@ class VirtualMachineArgs:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        The virtual machine zones.
+        The availability zones.
         """
         return pulumi.get(self, "zones")
 
@@ -601,7 +601,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] host_group: Specifies information about the dedicated host group that the virtual machine resides in. **Note:** User cannot specify both host and hostGroup properties. Minimum api-version: 2020-06-01.
         :param pulumi.Input[Union['VirtualMachineIdentityArgs', 'VirtualMachineIdentityArgsDict']] identity: The identity of the virtual machine, if configured.
         :param pulumi.Input[builtins.str] license_type: Specifies that the image or disk that is being used was licensed on-premises. <br><br> Possible values for Windows Server operating system are: <br><br> Windows_Client <br><br> Windows_Server <br><br> Possible values for Linux Server operating system are: <br><br> RHEL_BYOS (for RHEL) <br><br> SLES_BYOS (for SUSE) <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) <br><br> [Azure Hybrid Use Benefit for Linux Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) <br><br> Minimum api-version: 2015-06-15
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']] network_profile: Specifies the network interfaces of the virtual machine.
         :param pulumi.Input[Union['OSProfileArgs', 'OSProfileArgsDict']] os_profile: Specifies the operating system settings used while creating the virtual machine. Some of the settings cannot be changed once VM is provisioned.
         :param pulumi.Input[Union['PlacementArgs', 'PlacementArgsDict']] placement: Placement section specifies the user-defined constraints for virtual machine hardware placement. This property cannot be changed once VM is provisioned. Minimum api-version: 2024-11-01.
@@ -609,16 +609,16 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] platform_fault_domain: Specifies the scale set logical fault domain into which the Virtual Machine will be created. By default, the Virtual Machine will by automatically assigned to a fault domain that best maintains balance across available fault domains. This is applicable only if the 'virtualMachineScaleSet' property of this Virtual Machine is set. The Virtual Machine Scale Set that is referenced, must have 'platformFaultDomainCount' greater than 1. This property cannot be updated once the Virtual Machine is created. Fault domain assignment can be viewed in the Virtual Machine Instance View. Minimum api‐version: 2020‐12‐01.
         :param pulumi.Input[Union[builtins.str, 'VirtualMachinePriorityTypes']] priority: Specifies the priority for the virtual machine. Minimum api-version: 2019-03-01
         :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] proximity_placement_group: Specifies information about the proximity placement group that the virtual machine should be assigned to. Minimum api-version: 2018-04-01.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['ScheduledEventsPolicyArgs', 'ScheduledEventsPolicyArgsDict']] scheduled_events_policy: Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the virtual machine.
         :param pulumi.Input[Union['ScheduledEventsProfileArgs', 'ScheduledEventsProfileArgsDict']] scheduled_events_profile: Specifies Scheduled Event related configurations.
         :param pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']] security_profile: Specifies the Security related profile settings for the virtual machine.
         :param pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']] storage_profile: Specifies the storage settings for the virtual machine disks.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param pulumi.Input[builtins.str] user_data: UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01.
         :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] virtual_machine_scale_set: Specifies information about the virtual machine scale set that the virtual machine should be assigned to. Virtual machines specified in the same virtual machine scale set are allocated to different nodes to maximize availability. Currently, a VM can only be added to virtual machine scale set at creation time. An existing VM cannot be added to a virtual machine scale set. This property cannot exist along with a non-null properties.availabilitySet reference. Minimum api‐version: 2019‐03‐01.
         :param pulumi.Input[builtins.str] vm_name: The name of the virtual machine.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: The virtual machine zones.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: The availability zones.
         """
         ...
     @overload
@@ -730,6 +730,7 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resources"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["time_created"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["vm_id"] = None
@@ -790,6 +791,7 @@ class VirtualMachine(pulumi.CustomResource):
         __props__.__dict__["scheduled_events_profile"] = None
         __props__.__dict__["security_profile"] = None
         __props__.__dict__["storage_profile"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["time_created"] = None
         __props__.__dict__["type"] = None
@@ -939,7 +941,7 @@ class VirtualMachine(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -955,7 +957,7 @@ class VirtualMachine(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -1064,10 +1066,18 @@ class VirtualMachine(pulumi.CustomResource):
         return pulumi.get(self, "storage_profile")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -1083,7 +1093,7 @@ class VirtualMachine(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -1115,7 +1125,7 @@ class VirtualMachine(pulumi.CustomResource):
     @pulumi.getter
     def zones(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        The virtual machine zones.
+        The availability zones.
         """
         return pulumi.get(self, "zones")
 

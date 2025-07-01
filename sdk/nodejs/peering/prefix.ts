@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * The peering service prefix class.
  *
  * Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+ *
+ * Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Prefix extends pulumi.CustomResource {
     /**
@@ -123,7 +125,7 @@ export class Prefix extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:peering/v20190801preview:Prefix" }, { type: "azure-native:peering/v20190901preview:Prefix" }, { type: "azure-native:peering/v20200101preview:Prefix" }, { type: "azure-native:peering/v20200401:Prefix" }, { type: "azure-native:peering/v20201001:Prefix" }, { type: "azure-native:peering/v20210101:Prefix" }, { type: "azure-native:peering/v20210601:Prefix" }, { type: "azure-native:peering/v20220101:Prefix" }, { type: "azure-native:peering/v20220601:Prefix" }, { type: "azure-native:peering/v20221001:Prefix" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:peering/v20190801preview:Prefix" }, { type: "azure-native:peering/v20190901preview:Prefix" }, { type: "azure-native:peering/v20200101preview:Prefix" }, { type: "azure-native:peering/v20200401:Prefix" }, { type: "azure-native:peering/v20201001:Prefix" }, { type: "azure-native:peering/v20210101:Prefix" }, { type: "azure-native:peering/v20210601:Prefix" }, { type: "azure-native:peering/v20220101:Prefix" }, { type: "azure-native:peering/v20220601:Prefix" }, { type: "azure-native:peering/v20221001:Prefix" }, { type: "azure-native:peering/v20250501:Prefix" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Prefix.__pulumiType, name, resourceInputs, opts);
     }

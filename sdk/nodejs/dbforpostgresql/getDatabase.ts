@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets information about a database.
+ * Gets information about an existing database.
  *
  * Uses Azure REST API version 2024-08-01.
  *
@@ -25,7 +25,7 @@ export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions):
 
 export interface GetDatabaseArgs {
     /**
-     * The name of the database.
+     * Name of the database.
      */
     databaseName: string;
     /**
@@ -47,11 +47,11 @@ export interface GetDatabaseResult {
      */
     readonly azureApiVersion: string;
     /**
-     * The charset of the database.
+     * Character set of the database.
      */
     readonly charset?: string;
     /**
-     * The collation of the database.
+     * Collation of the database.
      */
     readonly collation?: string;
     /**
@@ -72,7 +72,7 @@ export interface GetDatabaseResult {
     readonly type: string;
 }
 /**
- * Gets information about a database.
+ * Gets information about an existing database.
  *
  * Uses Azure REST API version 2024-08-01.
  *
@@ -89,7 +89,7 @@ export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.Inv
 
 export interface GetDatabaseOutputArgs {
     /**
-     * The name of the database.
+     * Name of the database.
      */
     databaseName: pulumi.Input<string>;
     /**

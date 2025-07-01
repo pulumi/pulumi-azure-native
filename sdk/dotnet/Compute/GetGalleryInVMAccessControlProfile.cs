@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetGalleryInVMAccessControlProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Shared Image Gallery from which the InVMAccessControlProfiles are to be retrieved.
+        /// The name of the Shared Image Gallery.
         /// </summary>
         [Input("galleryName", required: true)]
         public string GalleryName { get; set; } = null!;
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Compute
         public string InVMAccessControlProfileName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetGalleryInVMAccessControlProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Shared Image Gallery from which the InVMAccessControlProfiles are to be retrieved.
+        /// The name of the Shared Image Gallery.
         /// </summary>
         [Input("galleryName", required: true)]
         public Input<string> GalleryName { get; set; } = null!;
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<string> InVMAccessControlProfileName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -98,15 +98,15 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -114,11 +114,15 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.GalleryInVMAccessControlProfilePropertiesResponse Properties;
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.GalleryInVMAccessControlProfilePropertiesResponse properties,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -143,6 +149,7 @@ namespace Pulumi.AzureNative.Compute
             Location = location;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

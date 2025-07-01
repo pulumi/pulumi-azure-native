@@ -28,7 +28,7 @@ class GetRestorePointCollectionResult:
     """
     Create or update Restore Point collection parameters.
     """
-    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, provisioning_state=None, restore_point_collection_id=None, restore_points=None, source=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, provisioning_state=None, restore_point_collection_id=None, restore_points=None, source=None, system_data=None, tags=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -53,6 +53,9 @@ class GetRestorePointCollectionResult:
         if source and not isinstance(source, dict):
             raise TypeError("Expected argument 'source' to be a dict")
         pulumi.set(__self__, "source", source)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -72,7 +75,7 @@ class GetRestorePointCollectionResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -80,7 +83,7 @@ class GetRestorePointCollectionResult:
     @pulumi.getter
     def location(self) -> builtins.str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -88,7 +91,7 @@ class GetRestorePointCollectionResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -125,10 +128,18 @@ class GetRestorePointCollectionResult:
         return pulumi.get(self, "source")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -136,7 +147,7 @@ class GetRestorePointCollectionResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -155,6 +166,7 @@ class AwaitableGetRestorePointCollectionResult(GetRestorePointCollectionResult):
             restore_point_collection_id=self.restore_point_collection_id,
             restore_points=self.restore_points,
             source=self.source,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -172,7 +184,7 @@ def get_restore_point_collection(expand: Optional[builtins.str] = None,
 
 
     :param builtins.str expand: The expand expression to apply on the operation. If expand=restorePoints, server will return all contained restore points in the restorePointCollection.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str restore_point_collection_name: The name of the restore point collection.
     """
     __args__ = dict()
@@ -191,6 +203,7 @@ def get_restore_point_collection(expand: Optional[builtins.str] = None,
         restore_point_collection_id=pulumi.get(__ret__, 'restore_point_collection_id'),
         restore_points=pulumi.get(__ret__, 'restore_points'),
         source=pulumi.get(__ret__, 'source'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_restore_point_collection_output(expand: Optional[pulumi.Input[Optional[builtins.str]]] = None,
@@ -206,7 +219,7 @@ def get_restore_point_collection_output(expand: Optional[pulumi.Input[Optional[b
 
 
     :param builtins.str expand: The expand expression to apply on the operation. If expand=restorePoints, server will return all contained restore points in the restorePointCollection.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str restore_point_collection_name: The name of the restore point collection.
     """
     __args__ = dict()
@@ -224,5 +237,6 @@ def get_restore_point_collection_output(expand: Optional[pulumi.Input[Optional[b
         restore_point_collection_id=pulumi.get(__response__, 'restore_point_collection_id'),
         restore_points=pulumi.get(__response__, 'restore_points'),
         source=pulumi.get(__response__, 'source'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

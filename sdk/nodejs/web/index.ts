@@ -95,6 +95,16 @@ export const getKubeEnvironment: typeof import("./getKubeEnvironment").getKubeEn
 export const getKubeEnvironmentOutput: typeof import("./getKubeEnvironment").getKubeEnvironmentOutput = null as any;
 utilities.lazyLoad(exports, ["getKubeEnvironment","getKubeEnvironmentOutput"], () => require("./getKubeEnvironment"));
 
+export { GetSiteCertificateArgs, GetSiteCertificateResult, GetSiteCertificateOutputArgs } from "./getSiteCertificate";
+export const getSiteCertificate: typeof import("./getSiteCertificate").getSiteCertificate = null as any;
+export const getSiteCertificateOutput: typeof import("./getSiteCertificate").getSiteCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getSiteCertificate","getSiteCertificateOutput"], () => require("./getSiteCertificate"));
+
+export { GetSiteCertificateSlotArgs, GetSiteCertificateSlotResult, GetSiteCertificateSlotOutputArgs } from "./getSiteCertificateSlot";
+export const getSiteCertificateSlot: typeof import("./getSiteCertificateSlot").getSiteCertificateSlot = null as any;
+export const getSiteCertificateSlotOutput: typeof import("./getSiteCertificateSlot").getSiteCertificateSlotOutput = null as any;
+utilities.lazyLoad(exports, ["getSiteCertificateSlot","getSiteCertificateSlotOutput"], () => require("./getSiteCertificateSlot"));
+
 export { GetStaticSiteArgs, GetStaticSiteResult, GetStaticSiteOutputArgs } from "./getStaticSite";
 export const getStaticSite: typeof import("./getStaticSite").getStaticSite = null as any;
 export const getStaticSiteOutput: typeof import("./getStaticSite").getStaticSiteOutput = null as any;
@@ -565,6 +575,16 @@ export const listWorkflowTriggerCallbackUrl: typeof import("./listWorkflowTrigge
 export const listWorkflowTriggerCallbackUrlOutput: typeof import("./listWorkflowTriggerCallbackUrl").listWorkflowTriggerCallbackUrlOutput = null as any;
 utilities.lazyLoad(exports, ["listWorkflowTriggerCallbackUrl","listWorkflowTriggerCallbackUrlOutput"], () => require("./listWorkflowTriggerCallbackUrl"));
 
+export { SiteCertificateArgs } from "./siteCertificate";
+export type SiteCertificate = import("./siteCertificate").SiteCertificate;
+export const SiteCertificate: typeof import("./siteCertificate").SiteCertificate = null as any;
+utilities.lazyLoad(exports, ["SiteCertificate"], () => require("./siteCertificate"));
+
+export { SiteCertificateSlotArgs } from "./siteCertificateSlot";
+export type SiteCertificateSlot = import("./siteCertificateSlot").SiteCertificateSlot;
+export const SiteCertificateSlot: typeof import("./siteCertificateSlot").SiteCertificateSlot = null as any;
+utilities.lazyLoad(exports, ["SiteCertificateSlot"], () => require("./siteCertificateSlot"));
+
 export { StaticSiteArgs } from "./staticSite";
 export type StaticSite = import("./staticSite").StaticSite;
 export const StaticSite: typeof import("./staticSite").StaticSite = null as any;
@@ -903,6 +923,10 @@ const _module = {
                 return new CustomApi(name, <any>undefined, { urn })
             case "azure-native:web:KubeEnvironment":
                 return new KubeEnvironment(name, <any>undefined, { urn })
+            case "azure-native:web:SiteCertificate":
+                return new SiteCertificate(name, <any>undefined, { urn })
+            case "azure-native:web:SiteCertificateSlot":
+                return new SiteCertificateSlot(name, <any>undefined, { urn })
             case "azure-native:web:StaticSite":
                 return new StaticSite(name, <any>undefined, { urn })
             case "azure-native:web:StaticSiteBuildDatabaseConnection":

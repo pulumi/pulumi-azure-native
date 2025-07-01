@@ -203,6 +203,8 @@ def get_peering_service(peering_service_name: Optional[builtins.str] = None,
 
     Uses Azure REST API version 2022-10-01.
 
+    Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str peering_service_name: The name of the peering.
     :param builtins.str resource_group_name: The name of the resource group.
@@ -234,6 +236,8 @@ def get_peering_service_output(peering_service_name: Optional[pulumi.Input[built
     Gets an existing peering service with the specified name under the given subscription and resource group.
 
     Uses Azure REST API version 2022-10-01.
+
+    Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str peering_service_name: The name of the peering.

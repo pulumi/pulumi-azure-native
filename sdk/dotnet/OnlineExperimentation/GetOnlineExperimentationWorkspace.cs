@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.OnlineExperimentation
         /// Gets an online experimentation workspace.
         /// 
         /// Uses Azure REST API version 2025-05-31-preview.
+        /// 
+        /// Other available API versions: 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native onlineexperimentation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetOnlineExperimentationWorkspaceResult> InvokeAsync(GetOnlineExperimentationWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOnlineExperimentationWorkspaceResult>("azure-native:onlineexperimentation:getOnlineExperimentationWorkspace", args ?? new GetOnlineExperimentationWorkspaceArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.OnlineExperimentation
         /// Gets an online experimentation workspace.
         /// 
         /// Uses Azure REST API version 2025-05-31-preview.
+        /// 
+        /// Other available API versions: 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native onlineexperimentation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetOnlineExperimentationWorkspaceResult> Invoke(GetOnlineExperimentationWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOnlineExperimentationWorkspaceResult>("azure-native:onlineexperimentation:getOnlineExperimentationWorkspace", args ?? new GetOnlineExperimentationWorkspaceInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.OnlineExperimentation
         /// Gets an online experimentation workspace.
         /// 
         /// Uses Azure REST API version 2025-05-31-preview.
+        /// 
+        /// Other available API versions: 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native onlineexperimentation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetOnlineExperimentationWorkspaceResult> Invoke(GetOnlineExperimentationWorkspaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOnlineExperimentationWorkspaceResult>("azure-native:onlineexperimentation:getOnlineExperimentationWorkspace", args ?? new GetOnlineExperimentationWorkspaceInvokeArgs(), options.WithDefaults());

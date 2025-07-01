@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     /// <summary>
-    /// Represents a migration resource.
+    /// Migration.
     /// 
     /// Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
     /// 
@@ -26,31 +26,31 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// To trigger cancel for entire migration we need to send this flag as True
+        /// Indicates if cancel must be triggered for the entire migration.
         /// </summary>
         [Output("cancel")]
         public Output<string?> Cancel { get; private set; } = null!;
 
         /// <summary>
-        /// Current status of migration
+        /// Current status of a migration.
         /// </summary>
         [Output("currentStatus")]
         public Output<Outputs.MigrationStatusResponse> CurrentStatus { get; private set; } = null!;
 
         /// <summary>
-        /// When you want to trigger cancel for specific databases send cancel flag as True and database names in this array
+        /// When you want to trigger cancel for specific databases set 'triggerCutover' to 'True' and the names of the specific databases in this array.
         /// </summary>
         [Output("dbsToCancelMigrationOn")]
         public Output<ImmutableArray<string>> DbsToCancelMigrationOn { get; private set; } = null!;
 
         /// <summary>
-        /// Number of databases to migrate
+        /// Names of databases to migrate.
         /// </summary>
         [Output("dbsToMigrate")]
         public Output<ImmutableArray<string>> DbsToMigrate { get; private set; } = null!;
 
         /// <summary>
-        /// When you want to trigger cutover for specific databases send triggerCutover flag as True and database names in this array
+        /// When you want to trigger cutover for specific databases set 'triggerCutover' to 'True' and the names of the specific databases in this array.
         /// </summary>
         [Output("dbsToTriggerCutoverOn")]
         public Output<ImmutableArray<string>> DbsToTriggerCutoverOn { get; private set; } = null!;
@@ -62,43 +62,43 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// To migrate roles and permissions we need to send this flag as True
+        /// Indicates if roles and permissions must be migrated.
         /// </summary>
         [Output("migrateRoles")]
         public Output<string?> MigrateRoles { get; private set; } = null!;
 
         /// <summary>
-        /// ID for migration, a GUID.
+        /// Identifier of a migration.
         /// </summary>
         [Output("migrationId")]
         public Output<string> MigrationId { get; private set; } = null!;
 
         /// <summary>
-        /// ResourceId of the private endpoint migration instance
+        /// Identifier of the private endpoint migration instance.
         /// </summary>
         [Output("migrationInstanceResourceId")]
         public Output<string?> MigrationInstanceResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// There are two types of migration modes Online and Offline
+        /// Mode used to perform the migration: Online or Offline.
         /// </summary>
         [Output("migrationMode")]
         public Output<string?> MigrationMode { get; private set; } = null!;
 
         /// <summary>
-        /// This indicates the supported Migration option for the migration
+        /// Supported option for a migration.
         /// </summary>
         [Output("migrationOption")]
         public Output<string?> MigrationOption { get; private set; } = null!;
 
         /// <summary>
-        /// End time in UTC for migration window
+        /// End time (UTC) for migration window.
         /// </summary>
         [Output("migrationWindowEndTimeInUtc")]
         public Output<string?> MigrationWindowEndTimeInUtc { get; private set; } = null!;
 
         /// <summary>
-        /// Start time in UTC for migration window
+        /// Start time (UTC) for migration window.
         /// </summary>
         [Output("migrationWindowStartTimeInUtc")]
         public Output<string?> MigrationWindowStartTimeInUtc { get; private set; } = null!;
@@ -110,49 +110,49 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the databases on the target server can be overwritten, if already present. If set to False, the migration workflow will wait for a confirmation, if it detects that the database already exists.
+        /// Indicates if databases on the target server can be overwritten when already present. If set to 'False', when the migration workflow detects that the database already exists on the target server, it will wait for a confirmation.
         /// </summary>
         [Output("overwriteDbsInTarget")]
         public Output<string?> OverwriteDbsInTarget { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether to setup LogicalReplicationOnSourceDb, if needed
+        /// Indicates whether to setup LogicalReplicationOnSourceDb, if needed.
         /// </summary>
         [Output("setupLogicalReplicationOnSourceDbIfNeeded")]
         public Output<string?> SetupLogicalReplicationOnSourceDbIfNeeded { get; private set; } = null!;
 
         /// <summary>
-        /// Source server fully qualified domain name (FQDN) or IP address. It is a optional value, if customer provide it, migration service will always use it for connection
+        /// Fully qualified domain name (FQDN) or IP address of the source server. This property is optional. When provided, the migration service will always use it to connect to the source server.
         /// </summary>
         [Output("sourceDbServerFullyQualifiedDomainName")]
         public Output<string?> SourceDbServerFullyQualifiedDomainName { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata of the source database server
+        /// Metadata of source database server.
         /// </summary>
         [Output("sourceDbServerMetadata")]
         public Output<Outputs.DbServerMetadataResponse> SourceDbServerMetadata { get; private set; } = null!;
 
         /// <summary>
-        /// ResourceId of the source database server in case the sourceType is PostgreSQLSingleServer. For other source types this should be ipaddress:port@username or hostname:port@username
+        /// Identifier of the source database server resource, when 'sourceType' is 'PostgreSQLSingleServer'. For other source types this must be set to ipaddress:port@username or hostname:port@username.
         /// </summary>
         [Output("sourceDbServerResourceId")]
         public Output<string?> SourceDbServerResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// migration source server type : OnPremises, AWS, GCP, AzureVM, PostgreSQLSingleServer, AWS_RDS, AWS_AURORA, AWS_EC2, GCP_CloudSQL, GCP_AlloyDB, GCP_Compute, or EDB
+        /// Source server type used for the migration: ApsaraDB_RDS, AWS, AWS_AURORA, AWS_EC2, AWS_RDS, AzureVM, Crunchy_PostgreSQL, Digital_Ocean_Droplets, Digital_Ocean_PostgreSQL, EDB, EDB_Oracle_Server, EDB_PostgreSQL, GCP, GCP_AlloyDB, GCP_CloudSQL, GCP_Compute, Heroku_PostgreSQL, Huawei_Compute, Huawei_RDS, OnPremises, PostgreSQLCosmosDB, PostgreSQLFlexibleServer, PostgreSQLSingleServer, or Supabase_PostgreSQL
         /// </summary>
         [Output("sourceType")]
         public Output<string?> SourceType { get; private set; } = null!;
 
         /// <summary>
-        /// SSL modes for migration. Default SSL mode for PostgreSQLSingleServer is VerifyFull and Prefer for other source types
+        /// SSL mode used by a migration. Default SSL mode for 'PostgreSQLSingleServer' is 'VerifyFull'. Default SSL mode for other source types is 'Prefer'.
         /// </summary>
         [Output("sslMode")]
         public Output<string?> SslMode { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the data migration should start right away
+        /// Indicates if data migration must start right away.
         /// </summary>
         [Output("startDataMigration")]
         public Output<string?> StartDataMigration { get; private set; } = null!;
@@ -170,25 +170,25 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Target server fully qualified domain name (FQDN) or IP address. It is a optional value, if customer provide it, migration service will always use it for connection
+        /// Fully qualified domain name (FQDN) or IP address of the target server. This property is optional. When provided, the migration service will always use it to connect to the target server.
         /// </summary>
         [Output("targetDbServerFullyQualifiedDomainName")]
         public Output<string?> TargetDbServerFullyQualifiedDomainName { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata of the target database server
+        /// Metadata of target database server.
         /// </summary>
         [Output("targetDbServerMetadata")]
         public Output<Outputs.DbServerMetadataResponse> TargetDbServerMetadata { get; private set; } = null!;
 
         /// <summary>
-        /// ResourceId of the source database server
+        /// Identifier of the target database server resource.
         /// </summary>
         [Output("targetDbServerResourceId")]
         public Output<string> TargetDbServerResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// To trigger cutover for entire migration we need to send this flag as True
+        /// Indicates if cutover must be triggered for the entire migration.
         /// </summary>
         [Output("triggerCutover")]
         public Output<string?> TriggerCutover { get; private set; } = null!;
@@ -257,7 +257,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class MigrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// To trigger cancel for entire migration we need to send this flag as True
+        /// Indicates if cancel must be triggered for the entire migration.
         /// </summary>
         [Input("cancel")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.CancelEnum>? Cancel { get; set; }
@@ -266,7 +266,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         private InputList<string>? _dbsToCancelMigrationOn;
 
         /// <summary>
-        /// When you want to trigger cancel for specific databases send cancel flag as True and database names in this array
+        /// When you want to trigger cancel for specific databases set 'triggerCutover' to 'True' and the names of the specific databases in this array.
         /// </summary>
         public InputList<string> DbsToCancelMigrationOn
         {
@@ -278,7 +278,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         private InputList<string>? _dbsToMigrate;
 
         /// <summary>
-        /// Number of databases to migrate
+        /// Names of databases to migrate.
         /// </summary>
         public InputList<string> DbsToMigrate
         {
@@ -290,7 +290,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         private InputList<string>? _dbsToTriggerCutoverOn;
 
         /// <summary>
-        /// When you want to trigger cutover for specific databases send triggerCutover flag as True and database names in this array
+        /// When you want to trigger cutover for specific databases set 'triggerCutover' to 'True' and the names of the specific databases in this array.
         /// </summary>
         public InputList<string> DbsToTriggerCutoverOn
         {
@@ -305,103 +305,103 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// To migrate roles and permissions we need to send this flag as True
+        /// Indicates if roles and permissions must be migrated.
         /// </summary>
         [Input("migrateRoles")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.MigrateRolesEnum>? MigrateRoles { get; set; }
 
         /// <summary>
-        /// ResourceId of the private endpoint migration instance
+        /// Identifier of the private endpoint migration instance.
         /// </summary>
         [Input("migrationInstanceResourceId")]
         public Input<string>? MigrationInstanceResourceId { get; set; }
 
         /// <summary>
-        /// There are two types of migration modes Online and Offline
+        /// Mode used to perform the migration: Online or Offline.
         /// </summary>
         [Input("migrationMode")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.MigrationMode>? MigrationMode { get; set; }
 
         /// <summary>
-        /// The name of the migration.
+        /// Name of migration.
         /// </summary>
         [Input("migrationName")]
         public Input<string>? MigrationName { get; set; }
 
         /// <summary>
-        /// This indicates the supported Migration option for the migration
+        /// Supported option for a migration.
         /// </summary>
         [Input("migrationOption")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.MigrationOption>? MigrationOption { get; set; }
 
         /// <summary>
-        /// End time in UTC for migration window
+        /// End time (UTC) for migration window.
         /// </summary>
         [Input("migrationWindowEndTimeInUtc")]
         public Input<string>? MigrationWindowEndTimeInUtc { get; set; }
 
         /// <summary>
-        /// Start time in UTC for migration window
+        /// Start time (UTC) for migration window.
         /// </summary>
         [Input("migrationWindowStartTimeInUtc")]
         public Input<string>? MigrationWindowStartTimeInUtc { get; set; }
 
         /// <summary>
-        /// Indicates whether the databases on the target server can be overwritten, if already present. If set to False, the migration workflow will wait for a confirmation, if it detects that the database already exists.
+        /// Indicates if databases on the target server can be overwritten when already present. If set to 'False', when the migration workflow detects that the database already exists on the target server, it will wait for a confirmation.
         /// </summary>
         [Input("overwriteDbsInTarget")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.OverwriteDbsInTargetEnum>? OverwriteDbsInTarget { get; set; }
 
         /// <summary>
-        /// The resource group name of the target database server.
+        /// Name of resource group of target database server.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Migration secret parameters
+        /// Migration secret parameters.
         /// </summary>
         [Input("secretParameters")]
         public Input<Inputs.MigrationSecretParametersArgs>? SecretParameters { get; set; }
 
         /// <summary>
-        /// Indicates whether to setup LogicalReplicationOnSourceDb, if needed
+        /// Indicates whether to setup LogicalReplicationOnSourceDb, if needed.
         /// </summary>
         [Input("setupLogicalReplicationOnSourceDbIfNeeded")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.LogicalReplicationOnSourceDbEnum>? SetupLogicalReplicationOnSourceDbIfNeeded { get; set; }
 
         /// <summary>
-        /// Source server fully qualified domain name (FQDN) or IP address. It is a optional value, if customer provide it, migration service will always use it for connection
+        /// Fully qualified domain name (FQDN) or IP address of the source server. This property is optional. When provided, the migration service will always use it to connect to the source server.
         /// </summary>
         [Input("sourceDbServerFullyQualifiedDomainName")]
         public Input<string>? SourceDbServerFullyQualifiedDomainName { get; set; }
 
         /// <summary>
-        /// ResourceId of the source database server in case the sourceType is PostgreSQLSingleServer. For other source types this should be ipaddress:port@username or hostname:port@username
+        /// Identifier of the source database server resource, when 'sourceType' is 'PostgreSQLSingleServer'. For other source types this must be set to ipaddress:port@username or hostname:port@username.
         /// </summary>
         [Input("sourceDbServerResourceId")]
         public Input<string>? SourceDbServerResourceId { get; set; }
 
         /// <summary>
-        /// migration source server type : OnPremises, AWS, GCP, AzureVM, PostgreSQLSingleServer, AWS_RDS, AWS_AURORA, AWS_EC2, GCP_CloudSQL, GCP_AlloyDB, GCP_Compute, or EDB
+        /// Source server type used for the migration: ApsaraDB_RDS, AWS, AWS_AURORA, AWS_EC2, AWS_RDS, AzureVM, Crunchy_PostgreSQL, Digital_Ocean_Droplets, Digital_Ocean_PostgreSQL, EDB, EDB_Oracle_Server, EDB_PostgreSQL, GCP, GCP_AlloyDB, GCP_CloudSQL, GCP_Compute, Heroku_PostgreSQL, Huawei_Compute, Huawei_RDS, OnPremises, PostgreSQLCosmosDB, PostgreSQLFlexibleServer, PostgreSQLSingleServer, or Supabase_PostgreSQL
         /// </summary>
         [Input("sourceType")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.SourceType>? SourceType { get; set; }
 
         /// <summary>
-        /// SSL modes for migration. Default SSL mode for PostgreSQLSingleServer is VerifyFull and Prefer for other source types
+        /// SSL mode used by a migration. Default SSL mode for 'PostgreSQLSingleServer' is 'VerifyFull'. Default SSL mode for other source types is 'Prefer'.
         /// </summary>
         [Input("sslMode")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.SslMode>? SslMode { get; set; }
 
         /// <summary>
-        /// Indicates whether the data migration should start right away
+        /// Indicates if data migration must start right away.
         /// </summary>
         [Input("startDataMigration")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.StartDataMigrationEnum>? StartDataMigration { get; set; }
 
         /// <summary>
-        /// The subscription ID of the target database server.
+        /// Identifier of subscription of target database server.
         /// </summary>
         [Input("subscriptionId")]
         public Input<string>? SubscriptionId { get; set; }
@@ -419,19 +419,19 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         }
 
         /// <summary>
-        /// Target server fully qualified domain name (FQDN) or IP address. It is a optional value, if customer provide it, migration service will always use it for connection
+        /// Fully qualified domain name (FQDN) or IP address of the target server. This property is optional. When provided, the migration service will always use it to connect to the target server.
         /// </summary>
         [Input("targetDbServerFullyQualifiedDomainName")]
         public Input<string>? TargetDbServerFullyQualifiedDomainName { get; set; }
 
         /// <summary>
-        /// The name of the target database server.
+        /// Name of target database server.
         /// </summary>
         [Input("targetDbServerName", required: true)]
         public Input<string> TargetDbServerName { get; set; } = null!;
 
         /// <summary>
-        /// To trigger cutover for entire migration we need to send this flag as True
+        /// Indicates if cutover must be triggered for the entire migration.
         /// </summary>
         [Input("triggerCutover")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.TriggerCutoverEnum>? TriggerCutover { get; set; }

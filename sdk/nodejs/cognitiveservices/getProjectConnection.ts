@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Connection base resource schema.
  *
  * Uses Azure REST API version 2025-04-01-preview.
+ *
+ * Other available API versions: 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getProjectConnection(args: GetProjectConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -70,6 +72,8 @@ export interface GetProjectConnectionResult {
  * Connection base resource schema.
  *
  * Uses Azure REST API version 2025-04-01-preview.
+ *
+ * Other available API versions: 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getProjectConnectionOutput(args: GetProjectConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProjectConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

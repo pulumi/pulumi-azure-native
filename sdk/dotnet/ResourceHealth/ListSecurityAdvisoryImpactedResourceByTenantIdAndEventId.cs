@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ResourceHealth
         /// 
         /// Uses Azure REST API version 2024-02-01.
         /// 
-        /// Other available API versions: 2022-10-01, 2023-07-01-preview, 2023-10-01-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcehealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-10-01, 2023-07-01-preview, 2023-10-01-preview, 2025-04-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcehealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult> InvokeAsync(ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult>("azure-native:resourcehealth:listSecurityAdvisoryImpactedResourceByTenantIdAndEventId", args ?? new ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.ResourceHealth
         /// 
         /// Uses Azure REST API version 2024-02-01.
         /// 
-        /// Other available API versions: 2022-10-01, 2023-07-01-preview, 2023-10-01-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcehealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-10-01, 2023-07-01-preview, 2023-10-01-preview, 2025-04-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcehealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult> Invoke(ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult>("azure-native:resourcehealth:listSecurityAdvisoryImpactedResourceByTenantIdAndEventId", args ?? new ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.ResourceHealth
         /// 
         /// Uses Azure REST API version 2024-02-01.
         /// 
-        /// Other available API versions: 2022-10-01, 2023-07-01-preview, 2023-10-01-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcehealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-10-01, 2023-07-01-preview, 2023-10-01-preview, 2025-04-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcehealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult> Invoke(ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult>("azure-native:resourcehealth:listSecurityAdvisoryImpactedResourceByTenantIdAndEventId", args ?? new ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdInvokeArgs(), options.WithDefaults());

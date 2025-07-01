@@ -8,6 +8,8 @@ import * as utilities from "../utilities";
  * The customer's prefix that is registered by the peering service provider.
  *
  * Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+ *
+ * Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class RegisteredPrefix extends pulumi.CustomResource {
     /**
@@ -108,7 +110,7 @@ export class RegisteredPrefix extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:peering/v20200101preview:RegisteredPrefix" }, { type: "azure-native:peering/v20200401:RegisteredPrefix" }, { type: "azure-native:peering/v20201001:RegisteredPrefix" }, { type: "azure-native:peering/v20210101:RegisteredPrefix" }, { type: "azure-native:peering/v20210601:RegisteredPrefix" }, { type: "azure-native:peering/v20220101:RegisteredPrefix" }, { type: "azure-native:peering/v20220601:RegisteredPrefix" }, { type: "azure-native:peering/v20221001:RegisteredPrefix" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:peering/v20200101preview:RegisteredPrefix" }, { type: "azure-native:peering/v20200401:RegisteredPrefix" }, { type: "azure-native:peering/v20201001:RegisteredPrefix" }, { type: "azure-native:peering/v20210101:RegisteredPrefix" }, { type: "azure-native:peering/v20210601:RegisteredPrefix" }, { type: "azure-native:peering/v20220101:RegisteredPrefix" }, { type: "azure-native:peering/v20220601:RegisteredPrefix" }, { type: "azure-native:peering/v20221001:RegisteredPrefix" }, { type: "azure-native:peering/v20250501:RegisteredPrefix" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RegisteredPrefix.__pulumiType, name, resourceInputs, opts);
     }

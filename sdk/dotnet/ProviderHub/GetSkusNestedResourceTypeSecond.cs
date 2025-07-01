@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.ProviderHub
         /// Gets the sku details for the given resource type and sku name.
         /// 
         /// Uses Azure REST API version 2021-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSkusNestedResourceTypeSecondResult> InvokeAsync(GetSkusNestedResourceTypeSecondArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSkusNestedResourceTypeSecondResult>("azure-native:providerhub:getSkusNestedResourceTypeSecond", args ?? new GetSkusNestedResourceTypeSecondArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.ProviderHub
         /// Gets the sku details for the given resource type and sku name.
         /// 
         /// Uses Azure REST API version 2021-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSkusNestedResourceTypeSecondResult> Invoke(GetSkusNestedResourceTypeSecondInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSkusNestedResourceTypeSecondResult>("azure-native:providerhub:getSkusNestedResourceTypeSecond", args ?? new GetSkusNestedResourceTypeSecondInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.ProviderHub
         /// Gets the sku details for the given resource type and sku name.
         /// 
         /// Uses Azure REST API version 2021-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSkusNestedResourceTypeSecondResult> Invoke(GetSkusNestedResourceTypeSecondInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSkusNestedResourceTypeSecondResult>("azure-native:providerhub:getSkusNestedResourceTypeSecond", args ?? new GetSkusNestedResourceTypeSecondInvokeArgs(), options.WithDefaults());

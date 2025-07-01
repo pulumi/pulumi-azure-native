@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// If Enabled, Azure Active Directory authentication is enabled.
+    /// Indicates if the server supports Microsoft Entra authentication.
     /// </summary>
     [EnumType]
     public readonly struct ActiveDirectoryAuthEnum : IEquatable<ActiveDirectoryAuthEnum>
@@ -97,7 +97,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// Data encryption type to depict if it is System Managed vs Azure Key vault.
+    /// Data encryption type used by a flexible server.
     /// </summary>
     [EnumType]
     public readonly struct ArmServerKeyType : IEquatable<ArmServerKeyType>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// Name of storage tier for IOPS.
+    /// Storage tier of a flexible server.
     /// </summary>
     [EnumType]
     public readonly struct AzureManagedDiskPerformanceTiers : IEquatable<AzureManagedDiskPerformanceTiers>
@@ -171,7 +171,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// To trigger cancel for entire migration we need to send this flag as True
+    /// Indicates if cancel must be triggered for the entire migration.
     /// </summary>
     [EnumType]
     public readonly struct CancelEnum : IEquatable<CancelEnum>
@@ -202,7 +202,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// The mode to create a new PostgreSQL server.
+    /// Creation mode of a new flexible server.
     /// </summary>
     [EnumType]
     public readonly struct CreateMode : IEquatable<CreateMode>
@@ -297,7 +297,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// A value indicating whether Geo-Redundant backup is enabled on the server.
+    /// Indicates if the server is configured to create geographically redundant backups.
     /// </summary>
     [EnumType]
     public readonly struct GeoRedundantBackupEnum : IEquatable<GeoRedundantBackupEnum>
@@ -328,7 +328,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// The HA mode for the server.
+    /// High availability mode for a flexible server.
     /// </summary>
     [EnumType]
     public readonly struct HighAvailabilityMode : IEquatable<HighAvailabilityMode>
@@ -425,7 +425,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// Primary encryption key status for Data encryption enabled server.
+    /// Status of key used by a flexible server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
     /// </summary>
     [EnumType]
     public readonly struct KeyStatusEnum : IEquatable<KeyStatusEnum>
@@ -456,7 +456,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// Indicates whether to setup LogicalReplicationOnSourceDb, if needed
+    /// Indicates whether to setup LogicalReplicationOnSourceDb, if needed.
     /// </summary>
     [EnumType]
     public readonly struct LogicalReplicationOnSourceDbEnum : IEquatable<LogicalReplicationOnSourceDbEnum>
@@ -487,7 +487,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// To migrate roles and permissions we need to send this flag as True
+    /// Indicates if roles and permissions must be migrated.
     /// </summary>
     [EnumType]
     public readonly struct MigrateRolesEnum : IEquatable<MigrateRolesEnum>
@@ -518,7 +518,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// There are two types of migration modes Online and Offline
+    /// Mode used to perform the migration: Online or Offline.
     /// </summary>
     [EnumType]
     public readonly struct MigrationMode : IEquatable<MigrationMode>
@@ -549,7 +549,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// This indicates the supported Migration option for the migration
+    /// Supported option for a migration.
     /// </summary>
     [EnumType]
     public readonly struct MigrationOption : IEquatable<MigrationOption>
@@ -614,7 +614,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// Indicates whether the databases on the target server can be overwritten, if already present. If set to False, the migration workflow will wait for a confirmation, if it detects that the database already exists.
+    /// Indicates if databases on the target server can be overwritten when already present. If set to 'False', when the migration workflow detects that the database already exists on the target server, it will wait for a confirmation.
     /// </summary>
     [EnumType]
     public readonly struct OverwriteDbsInTargetEnum : IEquatable<OverwriteDbsInTargetEnum>
@@ -673,7 +673,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// If Enabled, Password authentication is enabled.
+    /// Indicates if the server supports password based authentication.
     /// </summary>
     [EnumType]
     public readonly struct PasswordAuthEnum : IEquatable<PasswordAuthEnum>
@@ -796,7 +796,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// Sets the promote mode for a replica server. This is a write only property.
+    /// Type of operation to apply on the read replica. This property is write only. Standalone means that the read replica will be promoted to a standalone server, and will become a completely independent entity from the replication set. Switchover means that the read replica will roles with the primary server.
     /// </summary>
     [EnumType]
     public readonly struct ReadReplicaPromoteMode : IEquatable<ReadReplicaPromoteMode>
@@ -827,7 +827,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// Sets the promote options for a replica server. This is a write only property.
+    /// Data synchronization option to use when processing the operation specified in the promoteMode property This property is write only. Planned means that the operation will wait for data in the read replica to be fully synchronized with its source server before it initiates the operation. Forced means that the operation will not wait for data in the read replica to be synchronized with its source server before it initiates the operation.
     /// </summary>
     [EnumType]
     public readonly struct ReplicationPromoteOption : IEquatable<ReplicationPromoteOption>
@@ -858,7 +858,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// Replication role of the server
+    /// Role of the server in a replication set.
     /// </summary>
     [EnumType]
     public readonly struct ReplicationRole : IEquatable<ReplicationRole>
@@ -919,7 +919,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// public network access is enabled or not
+    /// Indicates if public network access is enabled or not.
     /// </summary>
     [EnumType]
     public readonly struct ServerPublicNetworkAccessState : IEquatable<ServerPublicNetworkAccessState>
@@ -981,7 +981,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// PostgreSQL Server version.
+    /// Major version of PostgreSQL database engine.
     /// </summary>
     [EnumType]
     public readonly struct ServerVersion : IEquatable<ServerVersion>
@@ -1146,7 +1146,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// The tier of the particular SKU, e.g. Burstable.
+    /// Tier of the compute assigned to a flexible server.
     /// </summary>
     [EnumType]
     public readonly struct SkuTier : IEquatable<SkuTier>
@@ -1178,7 +1178,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// migration source server type : OnPremises, AWS, GCP, AzureVM, PostgreSQLSingleServer, AWS_RDS, AWS_AURORA, AWS_EC2, GCP_CloudSQL, GCP_AlloyDB, GCP_Compute, or EDB
+    /// Source server type used for the migration: ApsaraDB_RDS, AWS, AWS_AURORA, AWS_EC2, AWS_RDS, AzureVM, Crunchy_PostgreSQL, Digital_Ocean_Droplets, Digital_Ocean_PostgreSQL, EDB, EDB_Oracle_Server, EDB_PostgreSQL, GCP, GCP_AlloyDB, GCP_CloudSQL, GCP_Compute, Heroku_PostgreSQL, Huawei_Compute, Huawei_RDS, OnPremises, PostgreSQLCosmosDB, PostgreSQLFlexibleServer, PostgreSQLSingleServer, or Supabase_PostgreSQL
     /// </summary>
     [EnumType]
     public readonly struct SourceType : IEquatable<SourceType>
@@ -1250,7 +1250,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// SSL modes for migration. Default SSL mode for PostgreSQLSingleServer is VerifyFull and Prefer for other source types
+    /// SSL mode used by a migration. Default SSL mode for 'PostgreSQLSingleServer' is 'VerifyFull'. Default SSL mode for other source types is 'Prefer'.
     /// </summary>
     [EnumType]
     public readonly struct SslMode : IEquatable<SslMode>
@@ -1283,7 +1283,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// Indicates whether the data migration should start right away
+    /// Indicates if data migration must start right away.
     /// </summary>
     [EnumType]
     public readonly struct StartDataMigrationEnum : IEquatable<StartDataMigrationEnum>
@@ -1314,7 +1314,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// Flag to enable / disable Storage Auto grow for flexible server.
+    /// Flag to enable or disable the automatic growth of storage size of a flexible server when available space is nearing zero and conditions allow for automatically growing storage size.
     /// </summary>
     [EnumType]
     public readonly struct StorageAutoGrow : IEquatable<StorageAutoGrow>
@@ -1376,7 +1376,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// Storage type for the server. Allowed values are Premium_LRS and PremiumV2_LRS, and default is Premium_LRS if not specified
+    /// Type of storage assigned to a flexible server. Allowed values are Premium_LRS or PremiumV2_LRS. If not specified, it defaults to Premium_LRS.
     /// </summary>
     [EnumType]
     public readonly struct StorageType : IEquatable<StorageType>
@@ -1407,7 +1407,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// To trigger cutover for entire migration we need to send this flag as True
+    /// Indicates if cutover must be triggered for the entire migration.
     /// </summary>
     [EnumType]
     public readonly struct TriggerCutoverEnum : IEquatable<TriggerCutoverEnum>
@@ -1438,7 +1438,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// The endpoint type for the virtual endpoint.
+    /// Type of endpoint for the virtual endpoints.
     /// </summary>
     [EnumType]
     public readonly struct VirtualEndpointType : IEquatable<VirtualEndpointType>

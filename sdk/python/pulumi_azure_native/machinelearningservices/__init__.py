@@ -77,6 +77,7 @@ from .get_online_deployment import *
 from .get_online_deployment_logs import *
 from .get_online_endpoint import *
 from .get_online_endpoint_token import *
+from .get_outbound_rule import *
 from .get_private_endpoint_connection import *
 from .get_rai_policy import *
 from .get_registry import *
@@ -127,6 +128,7 @@ from .model_container import *
 from .model_version import *
 from .online_deployment import *
 from .online_endpoint import *
+from .outbound_rule import *
 from .private_endpoint_connection import *
 from .rai_policy import *
 from .registry import *

@@ -17,11 +17,11 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class DefaultVirtualMachineScaleSetInfoResponse
     {
         /// <summary>
-        ///  Indicates if the the maximum capacity of the default migrated Virtual Machine Scale Set after its migration will be constrained to a limited number of VMs.
+        /// Indicates if the the maximum capacity of the default migrated Virtual Machine Scale Set after its migration will be constrained to a limited number of VMs.
         /// </summary>
         public readonly bool ConstrainedMaximumCapacity;
         /// <summary>
-        ///  The default Virtual Machine ScaleSet Uri that the Availability Set will be moved to upon triggering a seamless migration via the ConvertToVirtualMachineScaleSet API.
+        /// The default Virtual Machine ScaleSet Uri that the Availability Set will be moved to upon triggering a seamless migration via the ConvertToVirtualMachineScaleSet API.
         /// </summary>
         public readonly Outputs.SubResourceResponse DefaultVirtualMachineScaleSet;
 

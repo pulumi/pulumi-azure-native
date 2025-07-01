@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
  *
- * Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class WebAppScmAllowedSlot extends pulumi.CustomResource {
     /**
@@ -97,7 +97,7 @@ export class WebAppScmAllowedSlot extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20201201:WebAppScmAllowedSlot" }, { type: "azure-native:web/v20210101:WebAppScmAllowedSlot" }, { type: "azure-native:web/v20210115:WebAppScmAllowedSlot" }, { type: "azure-native:web/v20210201:WebAppScmAllowedSlot" }, { type: "azure-native:web/v20210301:WebAppScmAllowedSlot" }, { type: "azure-native:web/v20220301:WebAppScmAllowedSlot" }, { type: "azure-native:web/v20220901:WebAppScmAllowedSlot" }, { type: "azure-native:web/v20230101:WebAppScmAllowedSlot" }, { type: "azure-native:web/v20231201:WebAppScmAllowedSlot" }, { type: "azure-native:web/v20240401:WebAppScmAllowedSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20201201:WebAppScmAllowedSlot" }, { type: "azure-native:web/v20210101:WebAppScmAllowedSlot" }, { type: "azure-native:web/v20210115:WebAppScmAllowedSlot" }, { type: "azure-native:web/v20210201:WebAppScmAllowedSlot" }, { type: "azure-native:web/v20210301:WebAppScmAllowedSlot" }, { type: "azure-native:web/v20220301:WebAppScmAllowedSlot" }, { type: "azure-native:web/v20220901:WebAppScmAllowedSlot" }, { type: "azure-native:web/v20230101:WebAppScmAllowedSlot" }, { type: "azure-native:web/v20231201:WebAppScmAllowedSlot" }, { type: "azure-native:web/v20240401:WebAppScmAllowedSlot" }, { type: "azure-native:web/v20241101:WebAppScmAllowedSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppScmAllowedSlot.__pulumiType, name, resourceInputs, opts);
     }

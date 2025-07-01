@@ -29,7 +29,7 @@ export interface GetVirtualMachineArgs {
      */
     expand?: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -99,7 +99,7 @@ export interface GetVirtualMachineResult {
      */
     readonly hostGroup?: outputs.compute.SubResourceResponse;
     /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -115,7 +115,7 @@ export interface GetVirtualMachineResult {
      */
     readonly licenseType?: string;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
@@ -123,7 +123,7 @@ export interface GetVirtualMachineResult {
      */
     readonly managedBy: string;
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -179,7 +179,11 @@ export interface GetVirtualMachineResult {
      */
     readonly storageProfile?: outputs.compute.StorageProfileResponse;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.compute.SystemDataResponse;
+    /**
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
@@ -187,7 +191,7 @@ export interface GetVirtualMachineResult {
      */
     readonly timeCreated: string;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -203,7 +207,7 @@ export interface GetVirtualMachineResult {
      */
     readonly vmId: string;
     /**
-     * The virtual machine zones.
+     * The availability zones.
      */
     readonly zones?: string[];
 }
@@ -229,7 +233,7 @@ export interface GetVirtualMachineOutputArgs {
      */
     expand?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

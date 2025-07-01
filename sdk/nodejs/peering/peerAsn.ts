@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * The essential information related to the peer's ASN.
  *
  * Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+ *
+ * Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class PeerAsn extends pulumi.CustomResource {
     /**
@@ -103,7 +105,7 @@ export class PeerAsn extends pulumi.CustomResource {
             resourceInputs["validationState"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:peering/v20190801preview:PeerAsn" }, { type: "azure-native:peering/v20190901preview:PeerAsn" }, { type: "azure-native:peering/v20200101preview:PeerAsn" }, { type: "azure-native:peering/v20200401:PeerAsn" }, { type: "azure-native:peering/v20201001:PeerAsn" }, { type: "azure-native:peering/v20210101:PeerAsn" }, { type: "azure-native:peering/v20210601:PeerAsn" }, { type: "azure-native:peering/v20220101:PeerAsn" }, { type: "azure-native:peering/v20220601:PeerAsn" }, { type: "azure-native:peering/v20221001:PeerAsn" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:peering/v20190801preview:PeerAsn" }, { type: "azure-native:peering/v20190901preview:PeerAsn" }, { type: "azure-native:peering/v20200101preview:PeerAsn" }, { type: "azure-native:peering/v20200401:PeerAsn" }, { type: "azure-native:peering/v20201001:PeerAsn" }, { type: "azure-native:peering/v20210101:PeerAsn" }, { type: "azure-native:peering/v20210601:PeerAsn" }, { type: "azure-native:peering/v20220101:PeerAsn" }, { type: "azure-native:peering/v20220601:PeerAsn" }, { type: "azure-native:peering/v20221001:PeerAsn" }, { type: "azure-native:peering/v20250501:PeerAsn" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PeerAsn.__pulumiType, name, resourceInputs, opts);
     }

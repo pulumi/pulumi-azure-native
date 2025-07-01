@@ -25,15 +25,15 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// Tenant id of the server.
+        /// Identifier of the tenant of a flexible server.
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// the types of identities associated with this resource
+        /// Types of identities associated with a flexible server.
         /// </summary>
         public readonly string? Type;
         /// <summary>
-        /// represents user assigned identities map.
+        /// Map of user assigned managed identities.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.UserIdentityResponse>? UserAssignedIdentities;
 

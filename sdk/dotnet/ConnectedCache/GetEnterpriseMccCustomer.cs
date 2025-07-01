@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.ConnectedCache
         /// Gets the enterprise mcc customer resource information using this get call
         /// 
         /// Uses Azure REST API version 2023-05-01-preview.
+        /// 
+        /// Other available API versions: 2024-11-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetEnterpriseMccCustomerResult> InvokeAsync(GetEnterpriseMccCustomerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseMccCustomerResult>("azure-native:connectedcache:getEnterpriseMccCustomer", args ?? new GetEnterpriseMccCustomerArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.ConnectedCache
         /// Gets the enterprise mcc customer resource information using this get call
         /// 
         /// Uses Azure REST API version 2023-05-01-preview.
+        /// 
+        /// Other available API versions: 2024-11-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetEnterpriseMccCustomerResult> Invoke(GetEnterpriseMccCustomerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnterpriseMccCustomerResult>("azure-native:connectedcache:getEnterpriseMccCustomer", args ?? new GetEnterpriseMccCustomerInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.ConnectedCache
         /// Gets the enterprise mcc customer resource information using this get call
         /// 
         /// Uses Azure REST API version 2023-05-01-preview.
+        /// 
+        /// Other available API versions: 2024-11-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetEnterpriseMccCustomerResult> Invoke(GetEnterpriseMccCustomerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnterpriseMccCustomerResult>("azure-native:connectedcache:getEnterpriseMccCustomer", args ?? new GetEnterpriseMccCustomerInvokeArgs(), options.WithDefaults());

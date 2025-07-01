@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Advisor
     /// 
     /// Uses Azure REST API version 2023-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
     /// 
-    /// Other available API versions: 2024-11-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2024-11-18-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:advisor:Assessment")]
     public partial class Assessment : global::Pulumi.CustomResource
@@ -124,6 +124,7 @@ namespace Pulumi.AzureNative.Advisor
                 {
                     new global::Pulumi.Alias { Type = "azure-native:advisor/v20230901preview:Assessment" },
                     new global::Pulumi.Alias { Type = "azure-native:advisor/v20241118preview:Assessment" },
+                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20250501preview:Assessment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

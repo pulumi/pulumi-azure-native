@@ -158,6 +158,8 @@ class OnlineExperimentationWorkspace(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-05-31-preview.
 
+        Other available API versions: 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native onlineexperimentation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
@@ -178,6 +180,8 @@ class OnlineExperimentationWorkspace(pulumi.CustomResource):
         An online experimentation workspace resource.
 
         Uses Azure REST API version 2025-05-31-preview.
+
+        Other available API versions: 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native onlineexperimentation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param OnlineExperimentationWorkspaceArgs args: The arguments to use to populate this resource's properties.
@@ -223,7 +227,7 @@ class OnlineExperimentationWorkspace(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:onlineexperimentation/v20250531preview:OnlineExperimentationWorkspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:onlineexperimentation/v20250531preview:OnlineExperimentationWorkspace"), pulumi.Alias(type_="azure-native:onlineexperimentation/v20250801preview:OnlineExperimentationWorkspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OnlineExperimentationWorkspace, __self__).__init__(
             'azure-native:onlineexperimentation:OnlineExperimentationWorkspace',

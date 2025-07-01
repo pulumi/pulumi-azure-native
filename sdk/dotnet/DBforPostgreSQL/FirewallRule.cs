@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     /// <summary>
-    /// Represents a server firewall rule.
+    /// Firewall rule.
     /// 
     /// Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
     /// 
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The end IP address of the server firewall rule. Must be IPv4 format.
+        /// IP address defining the end of the range of addresses of a firewall rule. Must be expressed in IPv4 format.
         /// </summary>
         [Output("endIpAddress")]
         public Output<string> EndIpAddress { get; private set; } = null!;
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The start IP address of the server firewall rule. Must be IPv4 format.
+        /// IP address defining the start of the range of addresses of a firewall rule. Must be expressed in IPv4 format.
         /// </summary>
         [Output("startIpAddress")]
         public Output<string> StartIpAddress { get; private set; } = null!;
@@ -124,13 +124,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class FirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The end IP address of the server firewall rule. Must be IPv4 format.
+        /// IP address defining the end of the range of addresses of a firewall rule. Must be expressed in IPv4 format.
         /// </summary>
         [Input("endIpAddress", required: true)]
         public Input<string> EndIpAddress { get; set; } = null!;
 
         /// <summary>
-        /// The name of the server firewall rule.
+        /// Name of the firewall rule.
         /// </summary>
         [Input("firewallRuleName")]
         public Input<string>? FirewallRuleName { get; set; }
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
-        /// The start IP address of the server firewall rule. Must be IPv4 format.
+        /// IP address defining the start of the range of addresses of a firewall rule. Must be expressed in IPv4 format.
         /// </summary>
         [Input("startIpAddress", required: true)]
         public Input<string> StartIpAddress { get; set; } = null!;

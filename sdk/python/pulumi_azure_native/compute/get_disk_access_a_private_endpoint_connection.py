@@ -28,7 +28,7 @@ class GetDiskAccessAPrivateEndpointConnectionResult:
     """
     The Private Endpoint Connection resource.
     """
-    def __init__(__self__, azure_api_version=None, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -47,6 +47,9 @@ class GetDiskAccessAPrivateEndpointConnectionResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -63,7 +66,7 @@ class GetDiskAccessAPrivateEndpointConnectionResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        private endpoint connection Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -71,7 +74,7 @@ class GetDiskAccessAPrivateEndpointConnectionResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        private endpoint connection name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -100,10 +103,18 @@ class GetDiskAccessAPrivateEndpointConnectionResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        private endpoint connection type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -120,6 +131,7 @@ class AwaitableGetDiskAccessAPrivateEndpointConnectionResult(GetDiskAccessAPriva
             private_endpoint=self.private_endpoint,
             private_link_service_connection_state=self.private_link_service_connection_state,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -132,12 +144,12 @@ def get_disk_access_a_private_endpoint_connection(disk_access_name: Optional[bui
 
     Uses Azure REST API version 2024-03-02.
 
-    Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
     :param builtins.str private_endpoint_connection_name: The name of the private endpoint connection.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['diskAccessName'] = disk_access_name
@@ -153,6 +165,7 @@ def get_disk_access_a_private_endpoint_connection(disk_access_name: Optional[bui
         private_endpoint=pulumi.get(__ret__, 'private_endpoint'),
         private_link_service_connection_state=pulumi.get(__ret__, 'private_link_service_connection_state'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_disk_access_a_private_endpoint_connection_output(disk_access_name: Optional[pulumi.Input[builtins.str]] = None,
                                                          private_endpoint_connection_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -163,12 +176,12 @@ def get_disk_access_a_private_endpoint_connection_output(disk_access_name: Optio
 
     Uses Azure REST API version 2024-03-02.
 
-    Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
     :param builtins.str private_endpoint_connection_name: The name of the private endpoint connection.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['diskAccessName'] = disk_access_name
@@ -183,4 +196,5 @@ def get_disk_access_a_private_endpoint_connection_output(disk_access_name: Optio
         private_endpoint=pulumi.get(__response__, 'private_endpoint'),
         private_link_service_connection_state=pulumi.get(__response__, 'private_link_service_connection_state'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

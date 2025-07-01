@@ -24,11 +24,11 @@ export function getGalleryInVMAccessControlProfileVersion(args: GetGalleryInVMAc
 
 export interface GetGalleryInVMAccessControlProfileVersionArgs {
     /**
-     * The name of the Shared Image Gallery in which the inVMAccessControlProfile resides.
+     * The name of the Shared Image Gallery.
      */
     galleryName: string;
     /**
-     * The name of the gallery inVMAccessControlProfile in which the inVMAccessControlProfile version resides.
+     * The name of the gallery inVMAccessControlProfile to be retrieved.
      */
     inVMAccessControlProfileName: string;
     /**
@@ -36,7 +36,7 @@ export interface GetGalleryInVMAccessControlProfileVersionArgs {
      */
     inVMAccessControlProfileVersionName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -58,11 +58,11 @@ export interface GetGalleryInVMAccessControlProfileVersionResult {
      */
     readonly excludeFromLatest?: boolean;
     /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
@@ -70,7 +70,7 @@ export interface GetGalleryInVMAccessControlProfileVersionResult {
      */
     readonly mode: string;
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -90,7 +90,11 @@ export interface GetGalleryInVMAccessControlProfileVersionResult {
      */
     readonly rules?: outputs.compute.AccessControlRulesResponse;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.compute.SystemDataResponse;
+    /**
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
@@ -98,7 +102,7 @@ export interface GetGalleryInVMAccessControlProfileVersionResult {
      */
     readonly targetLocations?: outputs.compute.TargetRegionResponse[];
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -119,11 +123,11 @@ export function getGalleryInVMAccessControlProfileVersionOutput(args: GetGallery
 
 export interface GetGalleryInVMAccessControlProfileVersionOutputArgs {
     /**
-     * The name of the Shared Image Gallery in which the inVMAccessControlProfile resides.
+     * The name of the Shared Image Gallery.
      */
     galleryName: pulumi.Input<string>;
     /**
-     * The name of the gallery inVMAccessControlProfile in which the inVMAccessControlProfile version resides.
+     * The name of the gallery inVMAccessControlProfile to be retrieved.
      */
     inVMAccessControlProfileName: pulumi.Input<string>;
     /**
@@ -131,7 +135,7 @@ export interface GetGalleryInVMAccessControlProfileVersionOutputArgs {
      */
     inVMAccessControlProfileVersionName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

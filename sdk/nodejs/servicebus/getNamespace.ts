@@ -126,7 +126,7 @@ export interface GetNamespaceResult {
      */
     readonly updatedAt: string;
     /**
-     * Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+     * This property reflects if zone redundancy has been enabled for namespaces in regions that support availability zones.
      */
     readonly zoneRedundant?: boolean;
 }

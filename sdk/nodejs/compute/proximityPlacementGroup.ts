@@ -56,13 +56,13 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
     /**
      * Specifies the user intent of the proximity placement group.
      */
-    public readonly intent!: pulumi.Output<outputs.compute.ProximityPlacementGroupPropertiesResponseIntent | undefined>;
+    public readonly intent!: pulumi.Output<outputs.compute.ProximityPlacementGroupPropertiesIntentResponse | undefined>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -70,11 +70,15 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
      */
     public readonly proximityPlacementGroupType!: pulumi.Output<string | undefined>;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -86,7 +90,7 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly virtualMachines!: pulumi.Output<outputs.compute.SubResourceWithColocationStatusResponse[]>;
     /**
-     * Specifies the Availability Zone where virtual machine, virtual machine scale set or availability set associated with the  proximity placement group can be created.
+     * The availability zones.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -115,6 +119,7 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
             resourceInputs["availabilitySets"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualMachineScaleSets"] = undefined /*out*/;
             resourceInputs["virtualMachines"] = undefined /*out*/;
@@ -126,6 +131,7 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["proximityPlacementGroupType"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualMachineScaleSets"] = undefined /*out*/;
@@ -152,7 +158,7 @@ export interface ProximityPlacementGroupArgs {
      */
     intent?: pulumi.Input<inputs.compute.ProximityPlacementGroupPropertiesIntentArgs>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -164,15 +170,15 @@ export interface ProximityPlacementGroupArgs {
      */
     proximityPlacementGroupType?: pulumi.Input<string | enums.compute.ProximityPlacementGroupType>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies the Availability Zone where virtual machine, virtual machine scale set or availability set associated with the  proximity placement group can be created.
+     * The availability zones.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2022-06-15.
  *
- * Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class PartnerRegistration extends pulumi.CustomResource {
     /**
@@ -110,7 +110,7 @@ export class PartnerRegistration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20201015preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20210601preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20211015preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20220615:PartnerRegistration" }, { type: "azure-native:eventgrid/v20230601preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20231215preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20240601preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20241215preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20250215:PartnerRegistration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20201015preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20210601preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20211015preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20220615:PartnerRegistration" }, { type: "azure-native:eventgrid/v20230601preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20231215preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20240601preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20241215preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20250215:PartnerRegistration" }, { type: "azure-native:eventgrid/v20250401preview:PartnerRegistration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PartnerRegistration.__pulumiType, name, resourceInputs, opts);
     }

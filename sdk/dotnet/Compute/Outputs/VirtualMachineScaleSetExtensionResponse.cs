@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the extension.
+        /// Resource name
         /// </summary>
         public readonly string? Name;
         /// <summary>

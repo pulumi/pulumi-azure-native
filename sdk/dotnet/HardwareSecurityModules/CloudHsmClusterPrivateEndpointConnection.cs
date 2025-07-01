@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
     /// 
     /// Uses Azure REST API version 2024-06-30-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-31-preview.
     /// 
-    /// Other available API versions: 2022-08-31-preview, 2023-12-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hardwaresecuritymodules [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-08-31-preview, 2023-12-10-preview, 2025-03-31. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hardwaresecuritymodules [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:hardwaresecuritymodules:CloudHsmClusterPrivateEndpointConnection")]
     public partial class CloudHsmClusterPrivateEndpointConnection : global::Pulumi.CustomResource
@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
                     new global::Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20220831preview:CloudHsmClusterPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20231210preview:CloudHsmClusterPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20240630preview:CloudHsmClusterPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20250331:CloudHsmClusterPrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

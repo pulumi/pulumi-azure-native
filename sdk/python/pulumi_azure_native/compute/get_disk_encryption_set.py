@@ -28,7 +28,7 @@ class GetDiskEncryptionSetResult:
     """
     disk encryption set resource.
     """
-    def __init__(__self__, active_key=None, auto_key_rotation_error=None, azure_api_version=None, encryption_type=None, federated_client_id=None, id=None, identity=None, last_key_rotation_timestamp=None, location=None, name=None, previous_keys=None, provisioning_state=None, rotation_to_latest_key_version_enabled=None, tags=None, type=None):
+    def __init__(__self__, active_key=None, auto_key_rotation_error=None, azure_api_version=None, encryption_type=None, federated_client_id=None, id=None, identity=None, last_key_rotation_timestamp=None, location=None, name=None, previous_keys=None, provisioning_state=None, rotation_to_latest_key_version_enabled=None, system_data=None, tags=None, type=None):
         if active_key and not isinstance(active_key, dict):
             raise TypeError("Expected argument 'active_key' to be a dict")
         pulumi.set(__self__, "active_key", active_key)
@@ -68,6 +68,9 @@ class GetDiskEncryptionSetResult:
         if rotation_to_latest_key_version_enabled and not isinstance(rotation_to_latest_key_version_enabled, bool):
             raise TypeError("Expected argument 'rotation_to_latest_key_version_enabled' to be a bool")
         pulumi.set(__self__, "rotation_to_latest_key_version_enabled", rotation_to_latest_key_version_enabled)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -119,7 +122,7 @@ class GetDiskEncryptionSetResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -143,7 +146,7 @@ class GetDiskEncryptionSetResult:
     @pulumi.getter
     def location(self) -> builtins.str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -151,7 +154,7 @@ class GetDiskEncryptionSetResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -180,10 +183,18 @@ class GetDiskEncryptionSetResult:
         return pulumi.get(self, "rotation_to_latest_key_version_enabled")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -191,7 +202,7 @@ class GetDiskEncryptionSetResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -215,6 +226,7 @@ class AwaitableGetDiskEncryptionSetResult(GetDiskEncryptionSetResult):
             previous_keys=self.previous_keys,
             provisioning_state=self.provisioning_state,
             rotation_to_latest_key_version_enabled=self.rotation_to_latest_key_version_enabled,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -227,11 +239,11 @@ def get_disk_encryption_set(disk_encryption_set_name: Optional[builtins.str] = N
 
     Uses Azure REST API version 2024-03-02.
 
-    Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['diskEncryptionSetName'] = disk_encryption_set_name
@@ -253,6 +265,7 @@ def get_disk_encryption_set(disk_encryption_set_name: Optional[builtins.str] = N
         previous_keys=pulumi.get(__ret__, 'previous_keys'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         rotation_to_latest_key_version_enabled=pulumi.get(__ret__, 'rotation_to_latest_key_version_enabled'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_disk_encryption_set_output(disk_encryption_set_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -263,11 +276,11 @@ def get_disk_encryption_set_output(disk_encryption_set_name: Optional[pulumi.Inp
 
     Uses Azure REST API version 2024-03-02.
 
-    Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['diskEncryptionSetName'] = disk_encryption_set_name
@@ -288,5 +301,6 @@ def get_disk_encryption_set_output(disk_encryption_set_name: Optional[pulumi.Inp
         previous_keys=pulumi.get(__response__, 'previous_keys'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         rotation_to_latest_key_version_enabled=pulumi.get(__response__, 'rotation_to_latest_key_version_enabled'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

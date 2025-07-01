@@ -8,6 +8,8 @@ import * as utilities from "../utilities";
  * The Connection Monitor Test class.
  *
  * Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+ *
+ * Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ConnectionMonitorTest extends pulumi.CustomResource {
     /**
@@ -120,7 +122,7 @@ export class ConnectionMonitorTest extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:peering/v20210601:ConnectionMonitorTest" }, { type: "azure-native:peering/v20220101:ConnectionMonitorTest" }, { type: "azure-native:peering/v20220601:ConnectionMonitorTest" }, { type: "azure-native:peering/v20221001:ConnectionMonitorTest" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:peering/v20210601:ConnectionMonitorTest" }, { type: "azure-native:peering/v20220101:ConnectionMonitorTest" }, { type: "azure-native:peering/v20220601:ConnectionMonitorTest" }, { type: "azure-native:peering/v20221001:ConnectionMonitorTest" }, { type: "azure-native:peering/v20250501:ConnectionMonitorTest" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectionMonitorTest.__pulumiType, name, resourceInputs, opts);
     }

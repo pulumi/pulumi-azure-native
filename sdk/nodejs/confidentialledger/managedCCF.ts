@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-06-28-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-26-preview.
  *
- * Other available API versions: 2022-09-08-preview, 2023-01-26-preview, 2024-07-09-preview, 2024-09-19-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confidentialledger [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-09-08-preview, 2023-01-26-preview, 2024-07-09-preview, 2024-09-19-preview, 2025-06-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confidentialledger [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ManagedCCF extends pulumi.CustomResource {
     /**
@@ -103,7 +103,7 @@ export class ManagedCCF extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:confidentialledger/v20220908preview:ManagedCCF" }, { type: "azure-native:confidentialledger/v20230126preview:ManagedCCF" }, { type: "azure-native:confidentialledger/v20230628preview:ManagedCCF" }, { type: "azure-native:confidentialledger/v20240709preview:ManagedCCF" }, { type: "azure-native:confidentialledger/v20240919preview:ManagedCCF" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:confidentialledger/v20220908preview:ManagedCCF" }, { type: "azure-native:confidentialledger/v20230126preview:ManagedCCF" }, { type: "azure-native:confidentialledger/v20230628preview:ManagedCCF" }, { type: "azure-native:confidentialledger/v20240709preview:ManagedCCF" }, { type: "azure-native:confidentialledger/v20240919preview:ManagedCCF" }, { type: "azure-native:confidentialledger/v20250610preview:ManagedCCF" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedCCF.__pulumiType, name, resourceInputs, opts);
     }

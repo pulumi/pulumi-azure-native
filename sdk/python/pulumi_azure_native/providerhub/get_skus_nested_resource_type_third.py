@@ -117,6 +117,8 @@ def get_skus_nested_resource_type_third(nested_resource_type_first: Optional[bui
 
     Uses Azure REST API version 2021-09-01-preview.
 
+    Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str nested_resource_type_first: The first child resource type.
     :param builtins.str nested_resource_type_second: The second child resource type.
@@ -153,6 +155,8 @@ def get_skus_nested_resource_type_third_output(nested_resource_type_first: Optio
     Gets the sku details for the given resource type and sku name.
 
     Uses Azure REST API version 2021-09-01-preview.
+
+    Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str nested_resource_type_first: The first child resource type.

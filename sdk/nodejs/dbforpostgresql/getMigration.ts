@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets details of a migration.
+ * Gets information about a migration.
  *
  * Uses Azure REST API version 2024-08-01.
  *
@@ -26,25 +26,25 @@ export function getMigration(args: GetMigrationArgs, opts?: pulumi.InvokeOptions
 
 export interface GetMigrationArgs {
     /**
-     * The name of the migration.
+     * Name of migration.
      */
     migrationName: string;
     /**
-     * The resource group name of the target database server.
+     * Name of resource group of target database server.
      */
     resourceGroupName: string;
     /**
-     * The subscription ID of the target database server.
+     * Identifier of subscription of target database server.
      */
     subscriptionId?: string;
     /**
-     * The name of the target database server.
+     * Name of target database server.
      */
     targetDbServerName: string;
 }
 
 /**
- * Represents a migration resource.
+ * Migration.
  */
 export interface GetMigrationResult {
     /**
@@ -52,23 +52,23 @@ export interface GetMigrationResult {
      */
     readonly azureApiVersion: string;
     /**
-     * To trigger cancel for entire migration we need to send this flag as True
+     * Indicates if cancel must be triggered for the entire migration.
      */
     readonly cancel?: string;
     /**
-     * Current status of migration
+     * Current status of a migration.
      */
     readonly currentStatus: outputs.dbforpostgresql.MigrationStatusResponse;
     /**
-     * When you want to trigger cancel for specific databases send cancel flag as True and database names in this array
+     * When you want to trigger cancel for specific databases set 'triggerCutover' to 'True' and the names of the specific databases in this array.
      */
     readonly dbsToCancelMigrationOn?: string[];
     /**
-     * Number of databases to migrate
+     * Names of databases to migrate.
      */
     readonly dbsToMigrate?: string[];
     /**
-     * When you want to trigger cutover for specific databases send triggerCutover flag as True and database names in this array
+     * When you want to trigger cutover for specific databases set 'triggerCutover' to 'True' and the names of the specific databases in this array.
      */
     readonly dbsToTriggerCutoverOn?: string[];
     /**
@@ -80,31 +80,31 @@ export interface GetMigrationResult {
      */
     readonly location: string;
     /**
-     * To migrate roles and permissions we need to send this flag as True
+     * Indicates if roles and permissions must be migrated.
      */
     readonly migrateRoles?: string;
     /**
-     * ID for migration, a GUID.
+     * Identifier of a migration.
      */
     readonly migrationId: string;
     /**
-     * ResourceId of the private endpoint migration instance
+     * Identifier of the private endpoint migration instance.
      */
     readonly migrationInstanceResourceId?: string;
     /**
-     * There are two types of migration modes Online and Offline
+     * Mode used to perform the migration: Online or Offline.
      */
     readonly migrationMode?: string;
     /**
-     * This indicates the supported Migration option for the migration
+     * Supported option for a migration.
      */
     readonly migrationOption?: string;
     /**
-     * End time in UTC for migration window
+     * End time (UTC) for migration window.
      */
     readonly migrationWindowEndTimeInUtc?: string;
     /**
-     * Start time in UTC for migration window
+     * Start time (UTC) for migration window.
      */
     readonly migrationWindowStartTimeInUtc?: string;
     /**
@@ -112,35 +112,35 @@ export interface GetMigrationResult {
      */
     readonly name: string;
     /**
-     * Indicates whether the databases on the target server can be overwritten, if already present. If set to False, the migration workflow will wait for a confirmation, if it detects that the database already exists.
+     * Indicates if databases on the target server can be overwritten when already present. If set to 'False', when the migration workflow detects that the database already exists on the target server, it will wait for a confirmation.
      */
     readonly overwriteDbsInTarget?: string;
     /**
-     * Indicates whether to setup LogicalReplicationOnSourceDb, if needed
+     * Indicates whether to setup LogicalReplicationOnSourceDb, if needed.
      */
     readonly setupLogicalReplicationOnSourceDbIfNeeded?: string;
     /**
-     * Source server fully qualified domain name (FQDN) or IP address. It is a optional value, if customer provide it, migration service will always use it for connection
+     * Fully qualified domain name (FQDN) or IP address of the source server. This property is optional. When provided, the migration service will always use it to connect to the source server.
      */
     readonly sourceDbServerFullyQualifiedDomainName?: string;
     /**
-     * Metadata of the source database server
+     * Metadata of source database server.
      */
     readonly sourceDbServerMetadata: outputs.dbforpostgresql.DbServerMetadataResponse;
     /**
-     * ResourceId of the source database server in case the sourceType is PostgreSQLSingleServer. For other source types this should be ipaddress:port@username or hostname:port@username
+     * Identifier of the source database server resource, when 'sourceType' is 'PostgreSQLSingleServer'. For other source types this must be set to ipaddress:port@username or hostname:port@username.
      */
     readonly sourceDbServerResourceId?: string;
     /**
-     * migration source server type : OnPremises, AWS, GCP, AzureVM, PostgreSQLSingleServer, AWS_RDS, AWS_AURORA, AWS_EC2, GCP_CloudSQL, GCP_AlloyDB, GCP_Compute, or EDB
+     * Source server type used for the migration: ApsaraDB_RDS, AWS, AWS_AURORA, AWS_EC2, AWS_RDS, AzureVM, Crunchy_PostgreSQL, Digital_Ocean_Droplets, Digital_Ocean_PostgreSQL, EDB, EDB_Oracle_Server, EDB_PostgreSQL, GCP, GCP_AlloyDB, GCP_CloudSQL, GCP_Compute, Heroku_PostgreSQL, Huawei_Compute, Huawei_RDS, OnPremises, PostgreSQLCosmosDB, PostgreSQLFlexibleServer, PostgreSQLSingleServer, or Supabase_PostgreSQL
      */
     readonly sourceType?: string;
     /**
-     * SSL modes for migration. Default SSL mode for PostgreSQLSingleServer is VerifyFull and Prefer for other source types
+     * SSL mode used by a migration. Default SSL mode for 'PostgreSQLSingleServer' is 'VerifyFull'. Default SSL mode for other source types is 'Prefer'.
      */
     readonly sslMode?: string;
     /**
-     * Indicates whether the data migration should start right away
+     * Indicates if data migration must start right away.
      */
     readonly startDataMigration?: string;
     /**
@@ -152,19 +152,19 @@ export interface GetMigrationResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Target server fully qualified domain name (FQDN) or IP address. It is a optional value, if customer provide it, migration service will always use it for connection
+     * Fully qualified domain name (FQDN) or IP address of the target server. This property is optional. When provided, the migration service will always use it to connect to the target server.
      */
     readonly targetDbServerFullyQualifiedDomainName?: string;
     /**
-     * Metadata of the target database server
+     * Metadata of target database server.
      */
     readonly targetDbServerMetadata: outputs.dbforpostgresql.DbServerMetadataResponse;
     /**
-     * ResourceId of the source database server
+     * Identifier of the target database server resource.
      */
     readonly targetDbServerResourceId: string;
     /**
-     * To trigger cutover for entire migration we need to send this flag as True
+     * Indicates if cutover must be triggered for the entire migration.
      */
     readonly triggerCutover?: string;
     /**
@@ -173,7 +173,7 @@ export interface GetMigrationResult {
     readonly type: string;
 }
 /**
- * Gets details of a migration.
+ * Gets information about a migration.
  *
  * Uses Azure REST API version 2024-08-01.
  *
@@ -191,19 +191,19 @@ export function getMigrationOutput(args: GetMigrationOutputArgs, opts?: pulumi.I
 
 export interface GetMigrationOutputArgs {
     /**
-     * The name of the migration.
+     * Name of migration.
      */
     migrationName: pulumi.Input<string>;
     /**
-     * The resource group name of the target database server.
+     * Name of resource group of target database server.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The subscription ID of the target database server.
+     * Identifier of subscription of target database server.
      */
     subscriptionId?: pulumi.Input<string>;
     /**
-     * The name of the target database server.
+     * Name of target database server.
      */
     targetDbServerName: pulumi.Input<string>;
 }

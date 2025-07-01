@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Peering
     /// The customer's prefix that is registered by the peering service provider.
     /// 
     /// Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+    /// 
+    /// Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:peering:RegisteredPrefix")]
     public partial class RegisteredPrefix : global::Pulumi.CustomResource
@@ -98,6 +100,7 @@ namespace Pulumi.AzureNative.Peering
                     new global::Pulumi.Alias { Type = "azure-native:peering/v20220101:RegisteredPrefix" },
                     new global::Pulumi.Alias { Type = "azure-native:peering/v20220601:RegisteredPrefix" },
                     new global::Pulumi.Alias { Type = "azure-native:peering/v20221001:RegisteredPrefix" },
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20250501:RegisteredPrefix" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

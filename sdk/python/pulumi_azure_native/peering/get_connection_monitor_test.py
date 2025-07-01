@@ -179,6 +179,8 @@ def get_connection_monitor_test(connection_monitor_test_name: Optional[builtins.
 
     Uses Azure REST API version 2022-10-01.
 
+    Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str connection_monitor_test_name: The name of the connection monitor test
     :param builtins.str peering_service_name: The name of the peering service.
@@ -211,6 +213,8 @@ def get_connection_monitor_test_output(connection_monitor_test_name: Optional[pu
     Gets an existing connection monitor test with the specified name under the given subscription, resource group and peering service.
 
     Uses Azure REST API version 2022-10-01.
+
+    Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str connection_monitor_test_name: The name of the connection monitor test

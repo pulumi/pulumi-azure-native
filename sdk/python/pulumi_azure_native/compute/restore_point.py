@@ -33,7 +33,7 @@ class RestorePointArgs:
                  time_created: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a RestorePoint resource.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] restore_point_collection_name: The name of the restore point collection.
         :param pulumi.Input[Union[builtins.str, 'ConsistencyModeTypes']] consistency_mode: ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
         :param pulumi.Input[Sequence[pulumi.Input['ApiEntityReferenceArgs']]] exclude_disks: List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
@@ -61,7 +61,7 @@ class RestorePointArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -180,7 +180,7 @@ class RestorePoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[builtins.str, 'ConsistencyModeTypes']] consistency_mode: ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApiEntityReferenceArgs', 'ApiEntityReferenceArgsDict']]]] exclude_disks: List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] restore_point_collection_name: The name of the restore point collection.
         :param pulumi.Input[builtins.str] restore_point_name: The name of the restore point.
         :param pulumi.Input[Union['RestorePointSourceMetadataArgs', 'RestorePointSourceMetadataArgsDict']] source_metadata: Gets the details of the VM captured at the time of the restore point creation.
@@ -248,6 +248,7 @@ class RestorePoint(pulumi.CustomResource):
             __props__.__dict__["instance_view"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20210301:RestorePoint"), pulumi.Alias(type_="azure-native:compute/v20210401:RestorePoint"), pulumi.Alias(type_="azure-native:compute/v20210701:RestorePoint"), pulumi.Alias(type_="azure-native:compute/v20211101:RestorePoint"), pulumi.Alias(type_="azure-native:compute/v20220301:RestorePoint"), pulumi.Alias(type_="azure-native:compute/v20220801:RestorePoint"), pulumi.Alias(type_="azure-native:compute/v20221101:RestorePoint"), pulumi.Alias(type_="azure-native:compute/v20230301:RestorePoint"), pulumi.Alias(type_="azure-native:compute/v20230701:RestorePoint"), pulumi.Alias(type_="azure-native:compute/v20230901:RestorePoint"), pulumi.Alias(type_="azure-native:compute/v20240301:RestorePoint"), pulumi.Alias(type_="azure-native:compute/v20240701:RestorePoint"), pulumi.Alias(type_="azure-native:compute/v20241101:RestorePoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -281,6 +282,7 @@ class RestorePoint(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["source_metadata"] = None
         __props__.__dict__["source_restore_point"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["time_created"] = None
         __props__.__dict__["type"] = None
         return RestorePoint(resource_name, opts=opts, __props__=__props__)
@@ -321,7 +323,7 @@ class RestorePoint(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -350,6 +352,14 @@ class RestorePoint(pulumi.CustomResource):
         return pulumi.get(self, "source_restore_point")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter(name="timeCreated")
     def time_created(self) -> pulumi.Output[Optional[builtins.str]]:
         """
@@ -361,7 +371,7 @@ class RestorePoint(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

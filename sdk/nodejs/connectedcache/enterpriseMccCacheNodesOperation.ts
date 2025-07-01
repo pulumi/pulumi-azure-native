@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Represents the high level Nodes needed to provision cache node resources
  *
  * Uses Azure REST API version 2023-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
+ *
+ * Other available API versions: 2024-11-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class EnterpriseMccCacheNodesOperation extends pulumi.CustomResource {
     /**
@@ -105,7 +107,7 @@ export class EnterpriseMccCacheNodesOperation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:connectedcache/v20230501preview:EnterpriseMccCacheNodesOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedcache/v20230501preview:EnterpriseMccCacheNodesOperation" }, { type: "azure-native:connectedcache/v20241130preview:EnterpriseMccCacheNodesOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EnterpriseMccCacheNodesOperation.__pulumiType, name, resourceInputs, opts);
     }

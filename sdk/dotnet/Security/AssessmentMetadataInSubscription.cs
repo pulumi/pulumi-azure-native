@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Security
     /// 
     /// Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
     /// 
-    /// Other available API versions: 2020-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2020-01-01, 2025-05-04-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:AssessmentMetadataInSubscription")]
     public partial class AssessmentMetadataInSubscription : global::Pulumi.CustomResource
@@ -144,6 +144,7 @@ namespace Pulumi.AzureNative.Security
                     new global::Pulumi.Alias { Type = "azure-native:security/v20190101preview:AssessmentsMetadataSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20200101:AssessmentMetadataInSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20210601:AssessmentMetadataInSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20250504preview:AssessmentMetadataInSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:security:AssessmentsMetadataSubscription" },
                 },
             };

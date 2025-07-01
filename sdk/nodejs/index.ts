@@ -53,6 +53,7 @@ import * as cdn from "./cdn";
 import * as certificateregistration from "./certificateregistration";
 import * as changeanalysis from "./changeanalysis";
 import * as chaos from "./chaos";
+import * as cloudhealth from "./cloudhealth";
 import * as cloudngfw from "./cloudngfw";
 import * as codesigning from "./codesigning";
 import * as cognitiveservices from "./cognitiveservices";
@@ -170,7 +171,6 @@ import * as managementpartner from "./managementpartner";
 import * as manufacturingplatform from "./manufacturingplatform";
 import * as maps from "./maps";
 import * as marketplace from "./marketplace";
-import * as media from "./media";
 import * as migrate from "./migrate";
 import * as mixedreality from "./mixedreality";
 import * as mobilenetwork from "./mobilenetwork";
@@ -260,6 +260,7 @@ import * as voiceservices from "./voiceservices";
 import * as web from "./web";
 import * as webpubsub from "./webpubsub";
 import * as weightsandbiases from "./weightsandbiases";
+import * as widget from "./widget";
 import * as windowsesu from "./windowsesu";
 import * as windowsiot from "./windowsiot";
 import * as workloads from "./workloads";
@@ -306,6 +307,7 @@ export {
     certificateregistration,
     changeanalysis,
     chaos,
+    cloudhealth,
     cloudngfw,
     codesigning,
     cognitiveservices,
@@ -423,7 +425,6 @@ export {
     manufacturingplatform,
     maps,
     marketplace,
-    media,
     migrate,
     mixedreality,
     mobilenetwork,
@@ -513,6 +514,7 @@ export {
     web,
     webpubsub,
     weightsandbiases,
+    widget,
     windowsesu,
     windowsiot,
     workloads,

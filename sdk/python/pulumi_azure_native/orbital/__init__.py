@@ -10,9 +10,11 @@ from ._enums import *
 from .contact import *
 from .contact_profile import *
 from .edge_site import *
+from .geo_catalog import *
 from .get_contact import *
 from .get_contact_profile import *
 from .get_edge_site import *
+from .get_geo_catalog import *
 from .get_ground_station import *
 from .get_l2_connection import *
 from .get_spacecraft import *

@@ -26,7 +26,7 @@ __all__ = [
 @pulumi.output_type
 class GetServerResult:
     """
-    Represents a server.
+    Flexible server.
     """
     def __init__(__self__, administrator_login=None, auth_config=None, availability_zone=None, azure_api_version=None, backup=None, data_encryption=None, fully_qualified_domain_name=None, high_availability=None, id=None, identity=None, location=None, maintenance_window=None, minor_version=None, name=None, network=None, private_endpoint_connections=None, replica=None, replica_capacity=None, replication_role=None, sku=None, source_server_resource_id=None, state=None, storage=None, system_data=None, tags=None, type=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
@@ -115,7 +115,7 @@ class GetServerResult:
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> Optional[builtins.str]:
         """
-        The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+        Name of the login designated as the first password based administrator assigned to your instance of PostgreSQL. Must be specified the first time that you enable password based authentication on a server. Once set to a given value, it cannot be changed for the rest of the life of a server. If you disable password based authentication on a server which had it enabled, this password based role isn't deleted.
         """
         return pulumi.get(self, "administrator_login")
 
@@ -123,7 +123,7 @@ class GetServerResult:
     @pulumi.getter(name="authConfig")
     def auth_config(self) -> Optional['outputs.AuthConfigResponse']:
         """
-        AuthConfig properties of a server.
+        Authentication configuration properties of a flexible server.
         """
         return pulumi.get(self, "auth_config")
 
@@ -131,7 +131,7 @@ class GetServerResult:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[builtins.str]:
         """
-        availability zone information of the server.
+        Availability zone of a flexible server.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -147,7 +147,7 @@ class GetServerResult:
     @pulumi.getter
     def backup(self) -> Optional['outputs.BackupResponse']:
         """
-        Backup properties of a server.
+        Backup properties of a flexible server.
         """
         return pulumi.get(self, "backup")
 
@@ -155,7 +155,7 @@ class GetServerResult:
     @pulumi.getter(name="dataEncryption")
     def data_encryption(self) -> Optional['outputs.DataEncryptionResponse']:
         """
-        Data encryption properties of a server.
+        Data encryption properties of a flexible server.
         """
         return pulumi.get(self, "data_encryption")
 
@@ -163,7 +163,7 @@ class GetServerResult:
     @pulumi.getter(name="fullyQualifiedDomainName")
     def fully_qualified_domain_name(self) -> builtins.str:
         """
-        The fully qualified domain name of a server.
+        Fully qualified domain name of a flexible server.
         """
         return pulumi.get(self, "fully_qualified_domain_name")
 
@@ -171,7 +171,7 @@ class GetServerResult:
     @pulumi.getter(name="highAvailability")
     def high_availability(self) -> Optional['outputs.HighAvailabilityResponse']:
         """
-        High availability properties of a server.
+        High availability properties of a flexible server.
         """
         return pulumi.get(self, "high_availability")
 
@@ -187,7 +187,7 @@ class GetServerResult:
     @pulumi.getter
     def identity(self) -> Optional['outputs.UserAssignedIdentityResponse']:
         """
-        Describes the identity of the application.
+        User assigned managed identities assigned to the flexible server.
         """
         return pulumi.get(self, "identity")
 
@@ -203,7 +203,7 @@ class GetServerResult:
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> Optional['outputs.MaintenanceWindowResponse']:
         """
-        Maintenance window properties of a server.
+        Maintenance window properties of a flexible server.
         """
         return pulumi.get(self, "maintenance_window")
 
@@ -211,7 +211,7 @@ class GetServerResult:
     @pulumi.getter(name="minorVersion")
     def minor_version(self) -> builtins.str:
         """
-        The minor version of the server.
+        Minor version of PostgreSQL database engine.
         """
         return pulumi.get(self, "minor_version")
 
@@ -227,7 +227,7 @@ class GetServerResult:
     @pulumi.getter
     def network(self) -> Optional['outputs.NetworkResponse']:
         """
-        Network properties of a server. This Network property is required to be passed only in case you want the server to be Private access server.
+        Network properties of a flexible server. Only required if you want your server to be integrated into a virtual network provided by customer.
         """
         return pulumi.get(self, "network")
 
@@ -235,7 +235,7 @@ class GetServerResult:
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
         """
-        List of private endpoint connections associated with the specified resource.
+        List of private endpoint connections associated with the specified flexible server.
         """
         return pulumi.get(self, "private_endpoint_connections")
 
@@ -243,7 +243,7 @@ class GetServerResult:
     @pulumi.getter
     def replica(self) -> Optional['outputs.ReplicaResponse']:
         """
-        Replica properties of a server. These Replica properties are required to be passed only in case you want to Promote a server.
+        Read replica properties of a flexible server. Required only in case that you want to promote a server.
         """
         return pulumi.get(self, "replica")
 
@@ -251,7 +251,7 @@ class GetServerResult:
     @pulumi.getter(name="replicaCapacity")
     def replica_capacity(self) -> builtins.int:
         """
-        Replicas allowed for a server.
+        Maximum number of read replicas allowed for a flexible server.
         """
         return pulumi.get(self, "replica_capacity")
 
@@ -259,7 +259,7 @@ class GetServerResult:
     @pulumi.getter(name="replicationRole")
     def replication_role(self) -> Optional[builtins.str]:
         """
-        Replication role of the server
+        Role of the server in a replication set.
         """
         return pulumi.get(self, "replication_role")
 
@@ -267,7 +267,7 @@ class GetServerResult:
     @pulumi.getter
     def sku(self) -> Optional['outputs.SkuResponse']:
         """
-        The SKU (pricing tier) of the server.
+        Compute tier and size of a flexible server.
         """
         return pulumi.get(self, "sku")
 
@@ -275,7 +275,7 @@ class GetServerResult:
     @pulumi.getter(name="sourceServerResourceId")
     def source_server_resource_id(self) -> Optional[builtins.str]:
         """
-        The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica' or 'ReviveDropped'. This property is returned only for Replica server
+        Identifier of the flexible server to be used as the source of the new flexible server. Required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', 'Replica', or 'ReviveDropped'. This property is returned only when the target flexible server is a read replica.
         """
         return pulumi.get(self, "source_server_resource_id")
 
@@ -283,7 +283,7 @@ class GetServerResult:
     @pulumi.getter
     def state(self) -> builtins.str:
         """
-        A state of a server that is visible to user.
+        Possible states of a flexible server.
         """
         return pulumi.get(self, "state")
 
@@ -291,7 +291,7 @@ class GetServerResult:
     @pulumi.getter
     def storage(self) -> Optional['outputs.StorageResponse']:
         """
-        Storage properties of a server.
+        Storage properties of a flexible server.
         """
         return pulumi.get(self, "storage")
 
@@ -323,7 +323,7 @@ class GetServerResult:
     @pulumi.getter
     def version(self) -> Optional[builtins.str]:
         """
-        PostgreSQL Server version.
+        Major version of PostgreSQL database engine.
         """
         return pulumi.get(self, "version")
 
@@ -367,7 +367,7 @@ def get_server(resource_group_name: Optional[builtins.str] = None,
                server_name: Optional[builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
-    Gets information about a server.
+    Gets information about an existing flexible server.
 
     Uses Azure REST API version 2024-08-01.
 
@@ -415,7 +415,7 @@ def get_server_output(resource_group_name: Optional[pulumi.Input[builtins.str]] 
                       server_name: Optional[pulumi.Input[builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerResult]:
     """
-    Gets information about a server.
+    Gets information about an existing flexible server.
 
     Uses Azure REST API version 2024-08-01.
 

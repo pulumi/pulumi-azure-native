@@ -62,11 +62,11 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
      */
     public readonly instanceView!: pulumi.Output<outputs.compute.VirtualMachineExtensionInstanceViewResponse | undefined>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    public readonly location!: pulumi.Output<string>;
     /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -98,11 +98,15 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
      */
     public readonly suppressFailures!: pulumi.Output<boolean | undefined>;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -147,6 +151,7 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
         } else {
             resourceInputs["autoUpgradeMinorVersion"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -162,6 +167,7 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
             resourceInputs["publisher"] = undefined /*out*/;
             resourceInputs["settings"] = undefined /*out*/;
             resourceInputs["suppressFailures"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["typeHandlerVersion"] = undefined /*out*/;
@@ -194,7 +200,7 @@ export interface VirtualMachineExtensionArgs {
      */
     instanceView?: pulumi.Input<inputs.compute.VirtualMachineExtensionInstanceViewArgs>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -214,7 +220,7 @@ export interface VirtualMachineExtensionArgs {
      */
     publisher?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -226,7 +232,7 @@ export interface VirtualMachineExtensionArgs {
      */
     suppressFailures?: pulumi.Input<boolean>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -242,7 +248,7 @@ export interface VirtualMachineExtensionArgs {
      */
     vmExtensionName?: pulumi.Input<string>;
     /**
-     * The name of the virtual machine where the extension should be created or updated.
+     * The name of the virtual machine.
      */
     vmName: pulumi.Input<string>;
 }

@@ -37,18 +37,18 @@ class GalleryApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a GalleryApplication resource.
-        :param pulumi.Input[builtins.str] gallery_name: The name of the Shared Application Gallery in which the Application Definition is to be created.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] gallery_name: The name of the Shared Image Gallery.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['OperatingSystemTypes'] supported_os_type: This property allows you to specify the supported type of the OS that application is built for. Possible values are: **Windows,** **Linux.**
         :param pulumi.Input[Sequence[pulumi.Input['GalleryApplicationCustomActionArgs']]] custom_actions: A list of custom actions that can be performed with all of the Gallery Application Versions within this Gallery Application.
         :param pulumi.Input[builtins.str] description: The description of this gallery Application Definition resource. This property is updatable.
         :param pulumi.Input[builtins.str] end_of_life_date: The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
         :param pulumi.Input[builtins.str] eula: The Eula agreement for the gallery Application Definition.
-        :param pulumi.Input[builtins.str] gallery_application_name: The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] gallery_application_name: The name of the gallery Application Definition to be retrieved.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.str] privacy_statement_uri: The privacy statement uri.
         :param pulumi.Input[builtins.str] release_note_uri: The release note uri.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "gallery_name", gallery_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -76,7 +76,7 @@ class GalleryApplicationArgs:
     @pulumi.getter(name="galleryName")
     def gallery_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the Shared Application Gallery in which the Application Definition is to be created.
+        The name of the Shared Image Gallery.
         """
         return pulumi.get(self, "gallery_name")
 
@@ -88,7 +88,7 @@ class GalleryApplicationArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -160,7 +160,7 @@ class GalleryApplicationArgs:
     @pulumi.getter(name="galleryApplicationName")
     def gallery_application_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
+        The name of the gallery Application Definition to be retrieved.
         """
         return pulumi.get(self, "gallery_application_name")
 
@@ -172,7 +172,7 @@ class GalleryApplicationArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -208,7 +208,7 @@ class GalleryApplicationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -249,14 +249,14 @@ class GalleryApplication(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: The description of this gallery Application Definition resource. This property is updatable.
         :param pulumi.Input[builtins.str] end_of_life_date: The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
         :param pulumi.Input[builtins.str] eula: The Eula agreement for the gallery Application Definition.
-        :param pulumi.Input[builtins.str] gallery_application_name: The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
-        :param pulumi.Input[builtins.str] gallery_name: The name of the Shared Application Gallery in which the Application Definition is to be created.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] gallery_application_name: The name of the gallery Application Definition to be retrieved.
+        :param pulumi.Input[builtins.str] gallery_name: The name of the Shared Image Gallery.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.str] privacy_statement_uri: The privacy statement uri.
         :param pulumi.Input[builtins.str] release_note_uri: The release note uri.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['OperatingSystemTypes'] supported_os_type: This property allows you to specify the supported type of the OS that application is built for. Possible values are: **Windows,** **Linux.**
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -327,6 +327,7 @@ class GalleryApplication(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20190301:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20190701:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20191201:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20200930:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20210701:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20211001:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20220103:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20220303:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20220803:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20230703:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20240303:GalleryApplication")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -362,6 +363,7 @@ class GalleryApplication(pulumi.CustomResource):
         __props__.__dict__["privacy_statement_uri"] = None
         __props__.__dict__["release_note_uri"] = None
         __props__.__dict__["supported_os_type"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return GalleryApplication(resource_name, opts=opts, __props__=__props__)
@@ -410,7 +412,7 @@ class GalleryApplication(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -418,7 +420,7 @@ class GalleryApplication(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -447,10 +449,18 @@ class GalleryApplication(pulumi.CustomResource):
         return pulumi.get(self, "supported_os_type")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -458,7 +468,7 @@ class GalleryApplication(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

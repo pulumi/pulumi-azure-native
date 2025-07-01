@@ -190,6 +190,8 @@ class Peering(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
+        Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['PeeringPropertiesDirectArgs', 'PeeringPropertiesDirectArgsDict']] direct: The properties that define a direct peering.
@@ -212,6 +214,8 @@ class Peering(pulumi.CustomResource):
         Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
 
         Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+
+        Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param PeeringArgs args: The arguments to use to populate this resource's properties.
@@ -265,7 +269,7 @@ class Peering(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:peering/v20190801preview:Peering"), pulumi.Alias(type_="azure-native:peering/v20190901preview:Peering"), pulumi.Alias(type_="azure-native:peering/v20200101preview:Peering"), pulumi.Alias(type_="azure-native:peering/v20200401:Peering"), pulumi.Alias(type_="azure-native:peering/v20201001:Peering"), pulumi.Alias(type_="azure-native:peering/v20210101:Peering"), pulumi.Alias(type_="azure-native:peering/v20210601:Peering"), pulumi.Alias(type_="azure-native:peering/v20220101:Peering"), pulumi.Alias(type_="azure-native:peering/v20220601:Peering"), pulumi.Alias(type_="azure-native:peering/v20221001:Peering")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:peering/v20190801preview:Peering"), pulumi.Alias(type_="azure-native:peering/v20190901preview:Peering"), pulumi.Alias(type_="azure-native:peering/v20200101preview:Peering"), pulumi.Alias(type_="azure-native:peering/v20200401:Peering"), pulumi.Alias(type_="azure-native:peering/v20201001:Peering"), pulumi.Alias(type_="azure-native:peering/v20210101:Peering"), pulumi.Alias(type_="azure-native:peering/v20210601:Peering"), pulumi.Alias(type_="azure-native:peering/v20220101:Peering"), pulumi.Alias(type_="azure-native:peering/v20220601:Peering"), pulumi.Alias(type_="azure-native:peering/v20221001:Peering"), pulumi.Alias(type_="azure-native:peering/v20250501:Peering")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Peering, __self__).__init__(
             'azure-native:peering:Peering',

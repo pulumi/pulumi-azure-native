@@ -46,11 +46,11 @@ export class Database extends pulumi.CustomResource {
      */
     public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
-     * The charset of the database.
+     * Character set of the database.
      */
     public readonly charset!: pulumi.Output<string | undefined>;
     /**
-     * The collation of the database.
+     * Collation of the database.
      */
     public readonly collation!: pulumi.Output<string | undefined>;
     /**
@@ -112,15 +112,15 @@ export class Database extends pulumi.CustomResource {
  */
 export interface DatabaseArgs {
     /**
-     * The charset of the database.
+     * Character set of the database.
      */
     charset?: pulumi.Input<string>;
     /**
-     * The collation of the database.
+     * Collation of the database.
      */
     collation?: pulumi.Input<string>;
     /**
-     * The name of the database.
+     * Name of the database.
      */
     databaseName?: pulumi.Input<string>;
     /**

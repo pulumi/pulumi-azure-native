@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.ConnectedCache
         /// This api gets ispCacheNode resource information
         /// 
         /// Uses Azure REST API version 2023-05-01-preview.
+        /// 
+        /// Other available API versions: 2024-11-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetIspCacheNodesOperationResult> InvokeAsync(GetIspCacheNodesOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIspCacheNodesOperationResult>("azure-native:connectedcache:getIspCacheNodesOperation", args ?? new GetIspCacheNodesOperationArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.ConnectedCache
         /// This api gets ispCacheNode resource information
         /// 
         /// Uses Azure REST API version 2023-05-01-preview.
+        /// 
+        /// Other available API versions: 2024-11-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetIspCacheNodesOperationResult> Invoke(GetIspCacheNodesOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIspCacheNodesOperationResult>("azure-native:connectedcache:getIspCacheNodesOperation", args ?? new GetIspCacheNodesOperationInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.ConnectedCache
         /// This api gets ispCacheNode resource information
         /// 
         /// Uses Azure REST API version 2023-05-01-preview.
+        /// 
+        /// Other available API versions: 2024-11-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetIspCacheNodesOperationResult> Invoke(GetIspCacheNodesOperationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIspCacheNodesOperationResult>("azure-native:connectedcache:getIspCacheNodesOperation", args ?? new GetIspCacheNodesOperationInvokeArgs(), options.WithDefaults());

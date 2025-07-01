@@ -63,7 +63,7 @@ class GetDatabaseResult:
     @pulumi.getter
     def charset(self) -> Optional[builtins.str]:
         """
-        The charset of the database.
+        Character set of the database.
         """
         return pulumi.get(self, "charset")
 
@@ -71,7 +71,7 @@ class GetDatabaseResult:
     @pulumi.getter
     def collation(self) -> Optional[builtins.str]:
         """
-        The collation of the database.
+        Collation of the database.
         """
         return pulumi.get(self, "collation")
 
@@ -128,14 +128,14 @@ def get_database(database_name: Optional[builtins.str] = None,
                  server_name: Optional[builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
-    Gets information about a database.
+    Gets information about an existing database.
 
     Uses Azure REST API version 2024-08-01.
 
     Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str database_name: The name of the database.
+    :param builtins.str database_name: Name of the database.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str server_name: The name of the server.
     """
@@ -159,14 +159,14 @@ def get_database_output(database_name: Optional[pulumi.Input[builtins.str]] = No
                         server_name: Optional[pulumi.Input[builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseResult]:
     """
-    Gets information about a database.
+    Gets information about an existing database.
 
     Uses Azure REST API version 2024-08-01.
 
     Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str database_name: The name of the database.
+    :param builtins.str database_name: Name of the database.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str server_name: The name of the server.
     """

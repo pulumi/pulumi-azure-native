@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-04-01-preview.
  *
- * Other available API versions: 2024-07-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ConnectionRaiBlocklistItem extends pulumi.CustomResource {
     /**
@@ -105,7 +105,7 @@ export class ConnectionRaiBlocklistItem extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240401preview:ConnectionRaiBlocklist" }, { type: "azure-native:machinelearningservices/v20240401preview:ConnectionRaiBlocklistItem" }, { type: "azure-native:machinelearningservices/v20240701preview:ConnectionRaiBlocklistItem" }, { type: "azure-native:machinelearningservices/v20241001preview:ConnectionRaiBlocklistItem" }, { type: "azure-native:machinelearningservices/v20250101preview:ConnectionRaiBlocklistItem" }, { type: "azure-native:machinelearningservices:ConnectionRaiBlocklist" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240401preview:ConnectionRaiBlocklist" }, { type: "azure-native:machinelearningservices/v20240401preview:ConnectionRaiBlocklistItem" }, { type: "azure-native:machinelearningservices/v20240701preview:ConnectionRaiBlocklistItem" }, { type: "azure-native:machinelearningservices/v20241001preview:ConnectionRaiBlocklistItem" }, { type: "azure-native:machinelearningservices/v20250101preview:ConnectionRaiBlocklistItem" }, { type: "azure-native:machinelearningservices/v20250401preview:ConnectionRaiBlocklistItem" }, { type: "azure-native:machinelearningservices/v20250701preview:ConnectionRaiBlocklistItem" }, { type: "azure-native:machinelearningservices:ConnectionRaiBlocklist" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectionRaiBlocklistItem.__pulumiType, name, resourceInputs, opts);
     }

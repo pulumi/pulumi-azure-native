@@ -154,6 +154,8 @@ class DiscoverySource(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-01-31-preview. In version 2.x of the Azure Native provider, it used API version 2025-01-31-preview.
 
+        Other available API versions: 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dependencymap [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
@@ -174,6 +176,8 @@ class DiscoverySource(pulumi.CustomResource):
         A Discovery Source resource
 
         Uses Azure REST API version 2025-01-31-preview. In version 2.x of the Azure Native provider, it used API version 2025-01-31-preview.
+
+        Other available API versions: 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dependencymap [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param DiscoverySourceArgs args: The arguments to use to populate this resource's properties.
@@ -226,7 +230,7 @@ class DiscoverySource(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dependencymap/v20250131preview:DiscoverySource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dependencymap/v20250131preview:DiscoverySource"), pulumi.Alias(type_="azure-native:dependencymap/v20250501preview:DiscoverySource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DiscoverySource, __self__).__init__(
             'azure-native:dependencymap:DiscoverySource',

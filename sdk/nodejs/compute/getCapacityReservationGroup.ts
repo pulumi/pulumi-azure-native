@@ -33,7 +33,7 @@ export interface GetCapacityReservationGroupArgs {
      */
     expand?: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -51,7 +51,7 @@ export interface GetCapacityReservationGroupResult {
      */
     readonly capacityReservations: outputs.compute.SubResourceReadOnlyResponse[];
     /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -59,11 +59,11 @@ export interface GetCapacityReservationGroupResult {
      */
     readonly instanceView: outputs.compute.CapacityReservationGroupInstanceViewResponse;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -71,11 +71,15 @@ export interface GetCapacityReservationGroupResult {
      */
     readonly sharingProfile?: outputs.compute.ResourceSharingProfileResponse;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.compute.SystemDataResponse;
+    /**
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -83,7 +87,7 @@ export interface GetCapacityReservationGroupResult {
      */
     readonly virtualMachinesAssociated: outputs.compute.SubResourceReadOnlyResponse[];
     /**
-     * Availability Zones to use for this capacity reservation group. The zones can be assigned only during creation. If not provided, the group supports only regional resources in the region. If provided, enforces each capacity reservation in the group to be in one of the zones.
+     * The availability zones.
      */
     readonly zones?: string[];
 }
@@ -113,7 +117,7 @@ export interface GetCapacityReservationGroupOutputArgs {
      */
     expand?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

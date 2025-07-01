@@ -11,37 +11,37 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     /// <summary>
-    /// Data encryption properties of a server
+    /// Data encryption properties of a flexible server.
     /// </summary>
     [OutputType]
     public sealed class DataEncryptionResponse
     {
         /// <summary>
-        /// Geo-backup encryption key status for Data encryption enabled server.
+        /// Status of key used by a flexible server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
         /// </summary>
         public readonly string? GeoBackupEncryptionKeyStatus;
         /// <summary>
-        /// URI for the key in keyvault for data encryption for geo-backup of server.
+        /// Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a flexible server that is configured to support geographically redundant backups.
         /// </summary>
         public readonly string? GeoBackupKeyURI;
         /// <summary>
-        /// Resource Id for the User assigned identity to be used for data encryption for geo-backup of server.
+        /// Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a flexible server that is configured to support geographically redundant backups.
         /// </summary>
         public readonly string? GeoBackupUserAssignedIdentityId;
         /// <summary>
-        /// Primary encryption key status for Data encryption enabled server.
+        /// Status of key used by a flexible server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
         /// </summary>
         public readonly string? PrimaryEncryptionKeyStatus;
         /// <summary>
-        /// URI for the key in keyvault for data encryption of the primary server.
+        /// URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a flexible server.
         /// </summary>
         public readonly string? PrimaryKeyURI;
         /// <summary>
-        /// Resource Id for the User assigned identity to be used for data encryption of the primary server.
+        /// Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the primary storage associated to a flexible server.
         /// </summary>
         public readonly string? PrimaryUserAssignedIdentityId;
         /// <summary>
-        /// Data encryption type to depict if it is System Managed vs Azure Key vault.
+        /// Data encryption type used by a flexible server.
         /// </summary>
         public readonly string? Type;
 

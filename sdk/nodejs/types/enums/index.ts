@@ -39,6 +39,7 @@ import * as cdn from "./cdn";
 import * as certificateregistration from "./certificateregistration";
 import * as changeanalysis from "./changeanalysis";
 import * as chaos from "./chaos";
+import * as cloudhealth from "./cloudhealth";
 import * as cloudngfw from "./cloudngfw";
 import * as codesigning from "./codesigning";
 import * as cognitiveservices from "./cognitiveservices";
@@ -141,7 +142,6 @@ import * as managedservices from "./managedservices";
 import * as manufacturingplatform from "./manufacturingplatform";
 import * as maps from "./maps";
 import * as marketplace from "./marketplace";
-import * as media from "./media";
 import * as migrate from "./migrate";
 import * as mixedreality from "./mixedreality";
 import * as mobilenetwork from "./mobilenetwork";
@@ -260,6 +260,7 @@ export {
     certificateregistration,
     changeanalysis,
     chaos,
+    cloudhealth,
     cloudngfw,
     codesigning,
     cognitiveservices,
@@ -362,7 +363,6 @@ export {
     manufacturingplatform,
     maps,
     marketplace,
-    media,
     migrate,
     mixedreality,
     mobilenetwork,

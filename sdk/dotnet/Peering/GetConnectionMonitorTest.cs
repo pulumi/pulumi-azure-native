@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Peering
         /// Gets an existing connection monitor test with the specified name under the given subscription, resource group and peering service.
         /// 
         /// Uses Azure REST API version 2022-10-01.
+        /// 
+        /// Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetConnectionMonitorTestResult> InvokeAsync(GetConnectionMonitorTestArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionMonitorTestResult>("azure-native:peering:getConnectionMonitorTest", args ?? new GetConnectionMonitorTestArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Peering
         /// Gets an existing connection monitor test with the specified name under the given subscription, resource group and peering service.
         /// 
         /// Uses Azure REST API version 2022-10-01.
+        /// 
+        /// Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetConnectionMonitorTestResult> Invoke(GetConnectionMonitorTestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionMonitorTestResult>("azure-native:peering:getConnectionMonitorTest", args ?? new GetConnectionMonitorTestInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Peering
         /// Gets an existing connection monitor test with the specified name under the given subscription, resource group and peering service.
         /// 
         /// Uses Azure REST API version 2022-10-01.
+        /// 
+        /// Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetConnectionMonitorTestResult> Invoke(GetConnectionMonitorTestInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionMonitorTestResult>("azure-native:peering:getConnectionMonitorTest", args ?? new GetConnectionMonitorTestInvokeArgs(), options.WithDefaults());

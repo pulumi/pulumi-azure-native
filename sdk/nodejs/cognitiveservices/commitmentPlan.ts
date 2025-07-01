@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
  *
- * Other available API versions: 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class CommitmentPlan extends pulumi.CustomResource {
     /**
@@ -125,7 +125,7 @@ export class CommitmentPlan extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20211001:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20220301:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20221001:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20221201:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20230501:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20231001preview:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20240401preview:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20240601preview:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20241001:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20250401preview:CommitmentPlan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20211001:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20220301:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20221001:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20221201:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20230501:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20231001preview:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20240401preview:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20240601preview:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20241001:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20250401preview:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20250601:CommitmentPlan" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CommitmentPlan.__pulumiType, name, resourceInputs, opts);
     }

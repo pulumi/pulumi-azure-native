@@ -79,7 +79,7 @@ def get_log_analytic_export_request_rate_by_interval(blob_container_sas_uri: Opt
     :param builtins.bool group_by_throttle_policy: Group query result by Throttle Policy applied.
     :param builtins.bool group_by_user_agent: Group query result by User Agent.
     :param 'IntervalInMins' interval_length: Interval value in minutes used to create LogAnalytics call rate logs.
-    :param builtins.str location: The location upon which virtual-machine-sizes is queried.
+    :param builtins.str location: The name of Azure region.
     :param builtins.str to_time: To time of the query
     """
     __args__ = dict()
@@ -125,7 +125,7 @@ def get_log_analytic_export_request_rate_by_interval_output(blob_container_sas_u
     :param builtins.bool group_by_throttle_policy: Group query result by Throttle Policy applied.
     :param builtins.bool group_by_user_agent: Group query result by User Agent.
     :param 'IntervalInMins' interval_length: Interval value in minutes used to create LogAnalytics call rate logs.
-    :param builtins.str location: The location upon which virtual-machine-sizes is queried.
+    :param builtins.str location: The name of Azure region.
     :param builtins.str to_time: To time of the query
     """
     __args__ = dict()

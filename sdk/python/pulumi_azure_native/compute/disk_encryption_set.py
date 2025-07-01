@@ -34,15 +34,15 @@ class DiskEncryptionSetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a DiskEncryptionSet resource.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['KeyForDiskEncryptionSetArgs'] active_key: The key vault key which is currently used by this disk encryption set.
         :param pulumi.Input[builtins.str] disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         :param pulumi.Input[Union[builtins.str, 'DiskEncryptionSetType']] encryption_type: The type of key used to encrypt the data of the disk.
         :param pulumi.Input[builtins.str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant. Setting the value to 'None' will clear the property.
         :param pulumi.Input['EncryptionSetIdentityArgs'] identity: The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.bool] rotation_to_latest_key_version_enabled: Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if active_key is not None:
@@ -66,7 +66,7 @@ class DiskEncryptionSetArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -138,7 +138,7 @@ class DiskEncryptionSetArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -162,7 +162,7 @@ class DiskEncryptionSetArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -192,7 +192,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-02. In version 2.x of the Azure Native provider, it used API version 2022-07-02.
 
-        Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,10 +201,10 @@ class DiskEncryptionSet(pulumi.CustomResource):
         :param pulumi.Input[Union[builtins.str, 'DiskEncryptionSetType']] encryption_type: The type of key used to encrypt the data of the disk.
         :param pulumi.Input[builtins.str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant. Setting the value to 'None' will clear the property.
         :param pulumi.Input[Union['EncryptionSetIdentityArgs', 'EncryptionSetIdentityArgsDict']] identity: The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
-        :param pulumi.Input[builtins.str] location: Resource location
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.bool] rotation_to_latest_key_version_enabled: Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -217,7 +217,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-02. In version 2.x of the Azure Native provider, it used API version 2022-07-02.
 
-        Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param DiskEncryptionSetArgs args: The arguments to use to populate this resource's properties.
@@ -269,8 +269,9 @@ class DiskEncryptionSet(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["previous_keys"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20190701:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20191101:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20200501:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20200630:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20200930:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20201201:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20210401:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20210801:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20211201:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20220302:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20220702:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20230102:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20230402:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20231002:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20240302:DiskEncryptionSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20190701:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20191101:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20200501:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20200630:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20200930:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20201201:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20210401:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20210801:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20211201:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20220302:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20220702:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20230102:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20230402:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20231002:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20240302:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20250102:DiskEncryptionSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DiskEncryptionSet, __self__).__init__(
             'azure-native:compute:DiskEncryptionSet',
@@ -306,6 +307,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
         __props__.__dict__["previous_keys"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["rotation_to_latest_key_version_enabled"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return DiskEncryptionSet(resource_name, opts=opts, __props__=__props__)
@@ -370,7 +372,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -378,7 +380,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -407,10 +409,18 @@ class DiskEncryptionSet(pulumi.CustomResource):
         return pulumi.get(self, "rotation_to_latest_key_version_enabled")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -418,7 +428,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

@@ -7,6 +7,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .dashboard import *
+from .get_dashboard import *
 from .get_grafana import *
 from .get_integration_fabric import *
 from .get_managed_private_endpoint import *

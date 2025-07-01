@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2022-04-01.
  *
- * Other available API versions: 2015-11-01, 2017-03-01, 2017-05-01, 2018-02-01, 2018-03-01, 2018-04-01, 2018-08-01, 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native trafficmanager [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2015-11-01, 2017-03-01, 2017-05-01, 2018-02-01, 2018-03-01, 2018-04-01, 2018-08-01, 2022-04-01-preview, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native trafficmanager [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Endpoint extends pulumi.CustomResource {
     /**
@@ -172,7 +172,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["weight"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20220401:Endpoint" }, { type: "azure-native:network/v20220401preview:Endpoint" }, { type: "azure-native:network:Endpoint" }, { type: "azure-native:trafficmanager/v20151101:Endpoint" }, { type: "azure-native:trafficmanager/v20170301:Endpoint" }, { type: "azure-native:trafficmanager/v20170501:Endpoint" }, { type: "azure-native:trafficmanager/v20180201:Endpoint" }, { type: "azure-native:trafficmanager/v20180301:Endpoint" }, { type: "azure-native:trafficmanager/v20180401:Endpoint" }, { type: "azure-native:trafficmanager/v20180801:Endpoint" }, { type: "azure-native:trafficmanager/v20220401:Endpoint" }, { type: "azure-native:trafficmanager/v20220401preview:Endpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20220401:Endpoint" }, { type: "azure-native:network/v20220401preview:Endpoint" }, { type: "azure-native:network:Endpoint" }, { type: "azure-native:trafficmanager/v20151101:Endpoint" }, { type: "azure-native:trafficmanager/v20170301:Endpoint" }, { type: "azure-native:trafficmanager/v20170501:Endpoint" }, { type: "azure-native:trafficmanager/v20180201:Endpoint" }, { type: "azure-native:trafficmanager/v20180301:Endpoint" }, { type: "azure-native:trafficmanager/v20180401:Endpoint" }, { type: "azure-native:trafficmanager/v20180801:Endpoint" }, { type: "azure-native:trafficmanager/v20220401:Endpoint" }, { type: "azure-native:trafficmanager/v20220401preview:Endpoint" }, { type: "azure-native:trafficmanager/v20240401preview:Endpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }

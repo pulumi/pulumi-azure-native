@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
  *
- * Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  *
  * A Serverless Endpoint requires a Marketplace subscription. You can create one via the [MarketplaceSubscription resource](https://www.pulumi.com/registry/packages/azure-native/api-docs/machinelearningservices/marketplacesubscription/) and then making your endpoint [depend](https://www.pulumi.com/docs/iac/concepts/options/dependson/) on it.
  */
@@ -127,7 +127,7 @@ export class ServerlessEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230801preview:ServerlessEndpoint" }, { type: "azure-native:machinelearningservices/v20240101preview:ServerlessEndpoint" }, { type: "azure-native:machinelearningservices/v20240401:ServerlessEndpoint" }, { type: "azure-native:machinelearningservices/v20240401preview:ServerlessEndpoint" }, { type: "azure-native:machinelearningservices/v20240701preview:ServerlessEndpoint" }, { type: "azure-native:machinelearningservices/v20241001:ServerlessEndpoint" }, { type: "azure-native:machinelearningservices/v20241001preview:ServerlessEndpoint" }, { type: "azure-native:machinelearningservices/v20250101preview:ServerlessEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230801preview:ServerlessEndpoint" }, { type: "azure-native:machinelearningservices/v20240101preview:ServerlessEndpoint" }, { type: "azure-native:machinelearningservices/v20240401:ServerlessEndpoint" }, { type: "azure-native:machinelearningservices/v20240401preview:ServerlessEndpoint" }, { type: "azure-native:machinelearningservices/v20240701preview:ServerlessEndpoint" }, { type: "azure-native:machinelearningservices/v20241001:ServerlessEndpoint" }, { type: "azure-native:machinelearningservices/v20241001preview:ServerlessEndpoint" }, { type: "azure-native:machinelearningservices/v20250101preview:ServerlessEndpoint" }, { type: "azure-native:machinelearningservices/v20250401:ServerlessEndpoint" }, { type: "azure-native:machinelearningservices/v20250401preview:ServerlessEndpoint" }, { type: "azure-native:machinelearningservices/v20250601:ServerlessEndpoint" }, { type: "azure-native:machinelearningservices/v20250701preview:ServerlessEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerlessEndpoint.__pulumiType, name, resourceInputs, opts);
     }

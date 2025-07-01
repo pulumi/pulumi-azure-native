@@ -39,12 +39,12 @@ class VirtualMachineScaleSetExtensionInitArgs:
                  vmss_extension_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualMachineScaleSetExtension resource.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[builtins.str] vm_scale_set_name: The name of the VM scale set where the extension should be create or updated.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[builtins.str] vm_scale_set_name: The name of the VM scale set.
         :param pulumi.Input[builtins.bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param pulumi.Input[builtins.bool] enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
         :param pulumi.Input[builtins.str] force_update_tag: If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
-        :param pulumi.Input[builtins.str] name: The name of the extension.
+        :param pulumi.Input[builtins.str] name: Resource name
         :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param pulumi.Input['KeyVaultSecretReferenceArgs'] protected_settings_from_key_vault: The extensions protected settings that are passed by reference, and consumed from key vault
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
@@ -88,7 +88,7 @@ class VirtualMachineScaleSetExtensionInitArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -100,7 +100,7 @@ class VirtualMachineScaleSetExtensionInitArgs:
     @pulumi.getter(name="vmScaleSetName")
     def vm_scale_set_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the VM scale set where the extension should be create or updated.
+        The name of the VM scale set.
         """
         return pulumi.get(self, "vm_scale_set_name")
 
@@ -148,7 +148,7 @@ class VirtualMachineScaleSetExtensionInitArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the extension.
+        Resource name
         """
         return pulumi.get(self, "name")
 
@@ -299,17 +299,17 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param pulumi.Input[builtins.bool] enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
         :param pulumi.Input[builtins.str] force_update_tag: If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
-        :param pulumi.Input[builtins.str] name: The name of the extension.
+        :param pulumi.Input[builtins.str] name: Resource name
         :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param pulumi.Input[Union['KeyVaultSecretReferenceArgs', 'KeyVaultSecretReferenceArgsDict']] protected_settings_from_key_vault: The extensions protected settings that are passed by reference, and consumed from key vault
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
         :param pulumi.Input[builtins.str] publisher: The name of the extension handler publisher.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param Any settings: Json formatted public settings for the extension.
         :param pulumi.Input[builtins.bool] suppress_failures: Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
         :param pulumi.Input[builtins.str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param pulumi.Input[builtins.str] type_handler_version: Specifies the version of the script handler.
-        :param pulumi.Input[builtins.str] vm_scale_set_name: The name of the VM scale set where the extension should be create or updated.
+        :param pulumi.Input[builtins.str] vm_scale_set_name: The name of the VM scale set.
         :param pulumi.Input[builtins.str] vmss_extension_name: The name of the VM scale set extension.
         """
         ...
@@ -461,7 +461,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The name of the extension.
+        Resource name
         """
         return pulumi.get(self, "name")
 

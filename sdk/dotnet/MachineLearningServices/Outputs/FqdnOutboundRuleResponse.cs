@@ -22,6 +22,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         public readonly string? Category;
         public readonly string? Destination;
         /// <summary>
+        /// Error information about an outbound rule of a machine learning workspace if RuleStatus is failed.
+        /// </summary>
+        public readonly string? ErrorInformation;
+        public readonly ImmutableArray<string> ParentRuleNames;
+        /// <summary>
         /// Type of a managed network Outbound Rule of a machine learning workspace.
         /// </summary>
         public readonly string? Status;
@@ -37,12 +42,18 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string? destination,
 
+            string? errorInformation,
+
+            ImmutableArray<string> parentRuleNames,
+
             string? status,
 
             string type)
         {
             Category = category;
             Destination = destination;
+            ErrorInformation = errorInformation;
+            ParentRuleNames = parentRuleNames;
             Status = status;
             Type = type;
         }

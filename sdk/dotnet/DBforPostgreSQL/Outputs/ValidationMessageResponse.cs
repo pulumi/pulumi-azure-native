@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     /// <summary>
-    /// Validation message object
+    /// Validation message object.
     /// </summary>
     [OutputType]
     public sealed class ValidationMessageResponse
     {
         /// <summary>
-        /// Validation message string
+        /// Validation message string.
         /// </summary>
         public readonly string? Message;
         /// <summary>
-        /// Severity of validation message
+        /// Severity of validation message.
         /// </summary>
         public readonly string? State;
 

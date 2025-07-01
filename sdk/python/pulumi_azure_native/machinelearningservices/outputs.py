@@ -16454,16 +16454,38 @@ class FqdnOutboundRuleResponse(dict):
     """
     FQDN Outbound Rule for the managed network of a machine learning workspace.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorInformation":
+            suggest = "error_information"
+        elif key == "parentRuleNames":
+            suggest = "parent_rule_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FqdnOutboundRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FqdnOutboundRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FqdnOutboundRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: builtins.str,
                  category: Optional[builtins.str] = None,
                  destination: Optional[builtins.str] = None,
+                 error_information: Optional[builtins.str] = None,
+                 parent_rule_names: Optional[Sequence[builtins.str]] = None,
                  status: Optional[builtins.str] = None):
         """
         FQDN Outbound Rule for the managed network of a machine learning workspace.
         :param builtins.str type: Type of a managed network Outbound Rule of a machine learning workspace.
                Expected value is 'FQDN'.
         :param builtins.str category: Category of a managed network Outbound Rule of a machine learning workspace.
+        :param builtins.str error_information: Error information about an outbound rule of a machine learning workspace if RuleStatus is failed.
         :param builtins.str status: Type of a managed network Outbound Rule of a machine learning workspace.
         """
         pulumi.set(__self__, "type", 'FQDN')
@@ -16471,6 +16493,10 @@ class FqdnOutboundRuleResponse(dict):
             pulumi.set(__self__, "category", category)
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
+        if error_information is not None:
+            pulumi.set(__self__, "error_information", error_information)
+        if parent_rule_names is not None:
+            pulumi.set(__self__, "parent_rule_names", parent_rule_names)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -16495,6 +16521,19 @@ class FqdnOutboundRuleResponse(dict):
     @pulumi.getter
     def destination(self) -> Optional[builtins.str]:
         return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="errorInformation")
+    def error_information(self) -> Optional[builtins.str]:
+        """
+        Error information about an outbound rule of a machine learning workspace if RuleStatus is failed.
+        """
+        return pulumi.get(self, "error_information")
+
+    @property
+    @pulumi.getter(name="parentRuleNames")
+    def parent_rule_names(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "parent_rule_names")
 
     @property
     @pulumi.getter
@@ -27709,10 +27748,32 @@ class PrivateEndpointOutboundRuleResponse(dict):
     """
     Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorInformation":
+            suggest = "error_information"
+        elif key == "parentRuleNames":
+            suggest = "parent_rule_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointOutboundRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointOutboundRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointOutboundRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: builtins.str,
                  category: Optional[builtins.str] = None,
                  destination: Optional['outputs.PrivateEndpointDestinationResponse'] = None,
+                 error_information: Optional[builtins.str] = None,
+                 fqdns: Optional[Sequence[builtins.str]] = None,
+                 parent_rule_names: Optional[Sequence[builtins.str]] = None,
                  status: Optional[builtins.str] = None):
         """
         Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
@@ -27720,6 +27781,7 @@ class PrivateEndpointOutboundRuleResponse(dict):
                Expected value is 'PrivateEndpoint'.
         :param builtins.str category: Category of a managed network Outbound Rule of a machine learning workspace.
         :param 'PrivateEndpointDestinationResponse' destination: Private Endpoint destination for a Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
+        :param builtins.str error_information: Error information about an outbound rule of a machine learning workspace if RuleStatus is failed.
         :param builtins.str status: Type of a managed network Outbound Rule of a machine learning workspace.
         """
         pulumi.set(__self__, "type", 'PrivateEndpoint')
@@ -27727,6 +27789,12 @@ class PrivateEndpointOutboundRuleResponse(dict):
             pulumi.set(__self__, "category", category)
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
+        if error_information is not None:
+            pulumi.set(__self__, "error_information", error_information)
+        if fqdns is not None:
+            pulumi.set(__self__, "fqdns", fqdns)
+        if parent_rule_names is not None:
+            pulumi.set(__self__, "parent_rule_names", parent_rule_names)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -27754,6 +27822,24 @@ class PrivateEndpointOutboundRuleResponse(dict):
         Private Endpoint destination for a Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
         """
         return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="errorInformation")
+    def error_information(self) -> Optional[builtins.str]:
+        """
+        Error information about an outbound rule of a machine learning workspace if RuleStatus is failed.
+        """
+        return pulumi.get(self, "error_information")
+
+    @property
+    @pulumi.getter
+    def fqdns(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "fqdns")
+
+    @property
+    @pulumi.getter(name="parentRuleNames")
+    def parent_rule_names(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "parent_rule_names")
 
     @property
     @pulumi.getter
@@ -29143,6 +29229,8 @@ class RegistryResponse(dict):
             suggest = "public_network_access"
         elif key == "regionDetails":
             suggest = "region_details"
+        elif key == "registryId":
+            suggest = "registry_id"
         elif key == "registryPrivateEndpointConnections":
             suggest = "registry_private_endpoint_connections"
 
@@ -29164,6 +29252,7 @@ class RegistryResponse(dict):
                  ml_flow_registry_uri: Optional[builtins.str] = None,
                  public_network_access: Optional[builtins.str] = None,
                  region_details: Optional[Sequence['outputs.RegistryRegionArmDetailsResponse']] = None,
+                 registry_id: Optional[builtins.str] = None,
                  registry_private_endpoint_connections: Optional[Sequence['outputs.RegistryPrivateEndpointConnectionResponse']] = None):
         """
         Details of the Registry
@@ -29174,6 +29263,7 @@ class RegistryResponse(dict):
         :param builtins.str public_network_access: Is the Registry accessible from the internet?
                Possible values: "Enabled" or "Disabled"
         :param Sequence['RegistryRegionArmDetailsResponse'] region_details: Details of each region the registry is in
+        :param builtins.str registry_id: RegistryId Guid for this registry
         :param Sequence['RegistryPrivateEndpointConnectionResponse'] registry_private_endpoint_connections: Private endpoint connections info used for pending connections in private link portal
         """
         if discovery_url is not None:
@@ -29188,6 +29278,8 @@ class RegistryResponse(dict):
             pulumi.set(__self__, "public_network_access", public_network_access)
         if region_details is not None:
             pulumi.set(__self__, "region_details", region_details)
+        if registry_id is not None:
+            pulumi.set(__self__, "registry_id", registry_id)
         if registry_private_endpoint_connections is not None:
             pulumi.set(__self__, "registry_private_endpoint_connections", registry_private_endpoint_connections)
 
@@ -29239,6 +29331,14 @@ class RegistryResponse(dict):
         Details of each region the registry is in
         """
         return pulumi.get(self, "region_details")
+
+    @property
+    @pulumi.getter(name="registryId")
+    def registry_id(self) -> Optional[builtins.str]:
+        """
+        RegistryId Guid for this registry
+        """
+        return pulumi.get(self, "registry_id")
 
     @property
     @pulumi.getter(name="registryPrivateEndpointConnections")
@@ -31245,10 +31345,31 @@ class ServiceTagOutboundRuleResponse(dict):
     """
     Service Tag Outbound Rule for the managed network of a machine learning workspace.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorInformation":
+            suggest = "error_information"
+        elif key == "parentRuleNames":
+            suggest = "parent_rule_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceTagOutboundRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceTagOutboundRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceTagOutboundRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: builtins.str,
                  category: Optional[builtins.str] = None,
                  destination: Optional['outputs.ServiceTagDestinationResponse'] = None,
+                 error_information: Optional[builtins.str] = None,
+                 parent_rule_names: Optional[Sequence[builtins.str]] = None,
                  status: Optional[builtins.str] = None):
         """
         Service Tag Outbound Rule for the managed network of a machine learning workspace.
@@ -31256,6 +31377,7 @@ class ServiceTagOutboundRuleResponse(dict):
                Expected value is 'ServiceTag'.
         :param builtins.str category: Category of a managed network Outbound Rule of a machine learning workspace.
         :param 'ServiceTagDestinationResponse' destination: Service Tag destination for a Service Tag Outbound Rule for the managed network of a machine learning workspace.
+        :param builtins.str error_information: Error information about an outbound rule of a machine learning workspace if RuleStatus is failed.
         :param builtins.str status: Type of a managed network Outbound Rule of a machine learning workspace.
         """
         pulumi.set(__self__, "type", 'ServiceTag')
@@ -31263,6 +31385,10 @@ class ServiceTagOutboundRuleResponse(dict):
             pulumi.set(__self__, "category", category)
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
+        if error_information is not None:
+            pulumi.set(__self__, "error_information", error_information)
+        if parent_rule_names is not None:
+            pulumi.set(__self__, "parent_rule_names", parent_rule_names)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -31290,6 +31416,19 @@ class ServiceTagOutboundRuleResponse(dict):
         Service Tag destination for a Service Tag Outbound Rule for the managed network of a machine learning workspace.
         """
         return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="errorInformation")
+    def error_information(self) -> Optional[builtins.str]:
+        """
+        Error information about an outbound rule of a machine learning workspace if RuleStatus is failed.
+        """
+        return pulumi.get(self, "error_information")
+
+    @property
+    @pulumi.getter(name="parentRuleNames")
+    def parent_rule_names(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "parent_rule_names")
 
     @property
     @pulumi.getter

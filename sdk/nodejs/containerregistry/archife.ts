@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Archife extends pulumi.CustomResource {
     /**
@@ -117,7 +117,7 @@ export class Archife extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20230601preview:Archife" }, { type: "azure-native:containerregistry/v20230801preview:Archife" }, { type: "azure-native:containerregistry/v20231101preview:Archife" }, { type: "azure-native:containerregistry/v20241101preview:Archife" }, { type: "azure-native:containerregistry/v20250301preview:Archife" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20230601preview:Archife" }, { type: "azure-native:containerregistry/v20230801preview:Archife" }, { type: "azure-native:containerregistry/v20231101preview:Archife" }, { type: "azure-native:containerregistry/v20241101preview:Archife" }, { type: "azure-native:containerregistry/v20250301preview:Archife" }, { type: "azure-native:containerregistry/v20250501preview:Archife" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Archife.__pulumiType, name, resourceInputs, opts);
     }

@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
 {
 
     /// <summary>
-    /// Server admin credentials.
+    /// Credentials of administrator users for source and target servers.
     /// </summary>
     public sealed class AdminCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Password for source server.
+        /// Password for the user of the source server.
         /// </summary>
         [Input("sourceServerPassword", required: true)]
         public Input<string> SourceServerPassword { get; set; } = null!;
 
         /// <summary>
-        /// Password for target server.
+        /// Password for the user of the target server.
         /// </summary>
         [Input("targetServerPassword", required: true)]
         public Input<string> TargetServerPassword { get; set; } = null!;

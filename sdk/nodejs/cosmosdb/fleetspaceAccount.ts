@@ -40,17 +40,13 @@ export class FleetspaceAccount extends pulumi.CustomResource {
     }
 
     /**
-     * The location of  global database account in the Fleetspace Account.
-     */
-    public readonly accountLocation!: pulumi.Output<string | undefined>;
-    /**
-     * The resource identifier of global database account in the Fleetspace Account.
-     */
-    public readonly accountResourceIdentifier!: pulumi.Output<string | undefined>;
-    /**
      * The Azure API version of the resource.
      */
     public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * Configuration for fleetspace Account in the fleetspace.
+     */
+    public readonly globalDatabaseAccountProperties!: pulumi.Output<outputs.cosmosdb.FleetspaceAccountPropertiesResponseGlobalDatabaseAccountProperties | undefined>;
     /**
      * The name of the resource
      */
@@ -88,11 +84,10 @@ export class FleetspaceAccount extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountLocation"] = args ? args.accountLocation : undefined;
-            resourceInputs["accountResourceIdentifier"] = args ? args.accountResourceIdentifier : undefined;
             resourceInputs["fleetName"] = args ? args.fleetName : undefined;
             resourceInputs["fleetspaceAccountName"] = args ? args.fleetspaceAccountName : undefined;
             resourceInputs["fleetspaceName"] = args ? args.fleetspaceName : undefined;
+            resourceInputs["globalDatabaseAccountProperties"] = args ? args.globalDatabaseAccountProperties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -100,9 +95,8 @@ export class FleetspaceAccount extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["accountLocation"] = undefined /*out*/;
-            resourceInputs["accountResourceIdentifier"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["globalDatabaseAccountProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -120,14 +114,6 @@ export class FleetspaceAccount extends pulumi.CustomResource {
  */
 export interface FleetspaceAccountArgs {
     /**
-     * The location of  global database account in the Fleetspace Account.
-     */
-    accountLocation?: pulumi.Input<string>;
-    /**
-     * The resource identifier of global database account in the Fleetspace Account.
-     */
-    accountResourceIdentifier?: pulumi.Input<string>;
-    /**
      * Cosmos DB fleet name. Needs to be unique under a subscription.
      */
     fleetName: pulumi.Input<string>;
@@ -139,6 +125,10 @@ export interface FleetspaceAccountArgs {
      * Cosmos DB fleetspace name. Needs to be unique under a fleet.
      */
     fleetspaceName: pulumi.Input<string>;
+    /**
+     * Configuration for fleetspace Account in the fleetspace.
+     */
+    globalDatabaseAccountProperties?: pulumi.Input<inputs.cosmosdb.FleetspaceAccountPropertiesGlobalDatabaseAccountPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

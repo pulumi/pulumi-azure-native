@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     /// <summary>
-    /// Server backup properties
+    /// Properties of a backup.
     /// 
     /// Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01-preview.
     /// 
@@ -26,13 +26,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Backup type.
+        /// Type of backup.
         /// </summary>
         [Output("backupType")]
         public Output<string?> BackupType { get; private set; } = null!;
 
         /// <summary>
-        /// Backup completed time (ISO8601 format).
+        /// Time(ISO8601 format) at which the backup was completed.
         /// </summary>
         [Output("completedTime")]
         public Output<string?> CompletedTime { get; private set; } = null!;
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Backup source
+        /// Source of the backup.
         /// </summary>
         [Output("source")]
         public Output<string?> Source { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class BackupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the backup.
+        /// Name of the backup.
         /// </summary>
         [Input("backupName")]
         public Input<string>? BackupName { get; set; }

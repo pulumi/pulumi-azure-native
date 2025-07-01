@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.Compute
         public bool? GroupByUserAgent { get; set; }
 
         /// <summary>
-        /// The location upon which virtual-machine-sizes is queried.
+        /// The name of Azure region.
         /// </summary>
         [Input("location", required: true)]
         public string Location { get; set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<bool>? GroupByUserAgent { get; set; }
 
         /// <summary>
-        /// The location upon which virtual-machine-sizes is queried.
+        /// The name of Azure region.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;

@@ -167,7 +167,7 @@ def get_bot(bot_name: Optional[builtins.str] = None,
 
     Uses Azure REST API version 2024-02-01.
 
-    Other available API versions: 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthbot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-05-01, 2025-05-25. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthbot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str bot_name: The name of the Bot resource.
@@ -198,7 +198,7 @@ def get_bot_output(bot_name: Optional[pulumi.Input[builtins.str]] = None,
 
     Uses Azure REST API version 2024-02-01.
 
-    Other available API versions: 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthbot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-05-01, 2025-05-25. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthbot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str bot_name: The name of the Bot resource.

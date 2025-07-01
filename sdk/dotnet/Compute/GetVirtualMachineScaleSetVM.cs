@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetVirtualMachineScaleSetVMArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The expand expression to apply on the operation. 'InstanceView' will retrieve the instance view of the virtual machine. 'UserData' will retrieve the UserData of the virtual machine. 'resiliencyView' will retrieve the instance view of the Virtual machine (if applicable) and include 'resilientVMDeletionStatus' as part of it.
+        /// The expand expression to apply on the operation. 'InstanceView' will retrieve the instance view of the virtual machine. 'UserData' will retrieve the UserData of the virtual machine.
         /// </summary>
         [Input("expand")]
         public string? Expand { get; set; }
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.Compute
         public string InstanceId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetVirtualMachineScaleSetVMInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The expand expression to apply on the operation. 'InstanceView' will retrieve the instance view of the virtual machine. 'UserData' will retrieve the UserData of the virtual machine. 'resiliencyView' will retrieve the instance view of the Virtual machine (if applicable) and include 'resilientVMDeletionStatus' as part of it.
+        /// The expand expression to apply on the operation. 'InstanceView' will retrieve the instance view of the virtual machine. 'UserData' will retrieve the UserData of the virtual machine.
         /// </summary>
         [Input("expand")]
         public Input<string>? Expand { get; set; }
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<string> InstanceId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.HardwareProfileResponse? HardwareProfile;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly string? LicenseType;
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
@@ -168,7 +168,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly string ModelDefinitionApplied;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -216,7 +216,11 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.StorageProfileResponse? StorageProfile;
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -224,7 +228,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly string TimeCreated;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -294,6 +298,8 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.StorageProfileResponse? storageProfile,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string timeCreated,
@@ -332,6 +338,7 @@ namespace Pulumi.AzureNative.Compute
             SecurityProfile = securityProfile;
             Sku = sku;
             StorageProfile = storageProfile;
+            SystemData = systemData;
             Tags = tags;
             TimeCreated = timeCreated;
             Type = type;

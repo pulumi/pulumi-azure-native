@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
- * Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Queue extends pulumi.CustomResource {
     /**
@@ -90,7 +90,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20190601:Queue" }, { type: "azure-native:storage/v20200801preview:Queue" }, { type: "azure-native:storage/v20210101:Queue" }, { type: "azure-native:storage/v20210201:Queue" }, { type: "azure-native:storage/v20210401:Queue" }, { type: "azure-native:storage/v20210601:Queue" }, { type: "azure-native:storage/v20210801:Queue" }, { type: "azure-native:storage/v20210901:Queue" }, { type: "azure-native:storage/v20220501:Queue" }, { type: "azure-native:storage/v20220901:Queue" }, { type: "azure-native:storage/v20230101:Queue" }, { type: "azure-native:storage/v20230401:Queue" }, { type: "azure-native:storage/v20230501:Queue" }, { type: "azure-native:storage/v20240101:Queue" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20190601:Queue" }, { type: "azure-native:storage/v20200801preview:Queue" }, { type: "azure-native:storage/v20210101:Queue" }, { type: "azure-native:storage/v20210201:Queue" }, { type: "azure-native:storage/v20210401:Queue" }, { type: "azure-native:storage/v20210601:Queue" }, { type: "azure-native:storage/v20210801:Queue" }, { type: "azure-native:storage/v20210901:Queue" }, { type: "azure-native:storage/v20220501:Queue" }, { type: "azure-native:storage/v20220901:Queue" }, { type: "azure-native:storage/v20230101:Queue" }, { type: "azure-native:storage/v20230401:Queue" }, { type: "azure-native:storage/v20230501:Queue" }, { type: "azure-native:storage/v20240101:Queue" }, { type: "azure-native:storage/v20250101:Queue" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Queue.__pulumiType, name, resourceInputs, opts);
     }

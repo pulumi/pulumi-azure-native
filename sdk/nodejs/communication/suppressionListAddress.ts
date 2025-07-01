@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
  *
- * Other available API versions: 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-09-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class SuppressionListAddress extends pulumi.CustomResource {
     /**
@@ -136,7 +136,7 @@ export class SuppressionListAddress extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:communication/v20230601preview:SuppressionListAddress" }, { type: "azure-native:communication/v20240901preview:SuppressionListAddress" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:communication/v20230601preview:SuppressionListAddress" }, { type: "azure-native:communication/v20240901preview:SuppressionListAddress" }, { type: "azure-native:communication/v20250501preview:SuppressionListAddress" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SuppressionListAddress.__pulumiType, name, resourceInputs, opts);
     }

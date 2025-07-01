@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     /// <summary>
-    /// Represents a virtual endpoint for a server.
+    /// Pair of virtual endpoints for a flexible server.
     /// 
     /// Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
     /// 
@@ -26,13 +26,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The endpoint type for the virtual endpoint.
+        /// Type of endpoint for the virtual endpoints.
         /// </summary>
         [Output("endpointType")]
         public Output<string?> EndpointType { get; private set; } = null!;
 
         /// <summary>
-        /// List of members for a virtual endpoint
+        /// List of flexible servers that one of the virtual endpoints can refer to.
         /// </summary>
         [Output("members")]
         public Output<ImmutableArray<string>> Members { get; private set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// List of virtual endpoints for a server
+        /// List of virtual endpoints for a flexible server.
         /// </summary>
         [Output("virtualEndpoints")]
         public Output<ImmutableArray<string>> VirtualEndpoints { get; private set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class VirtualEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The endpoint type for the virtual endpoint.
+        /// Type of endpoint for the virtual endpoints.
         /// </summary>
         [Input("endpointType")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.VirtualEndpointType>? EndpointType { get; set; }
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         private InputList<string>? _members;
 
         /// <summary>
-        /// List of members for a virtual endpoint
+        /// List of flexible servers that one of the virtual endpoints can refer to.
         /// </summary>
         public InputList<string> Members
         {
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the virtual endpoint.
+        /// Base name of the virtual endpoints.
         /// </summary>
         [Input("virtualEndpointName")]
         public Input<string>? VirtualEndpointName { get; set; }

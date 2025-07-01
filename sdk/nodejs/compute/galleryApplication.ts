@@ -62,11 +62,11 @@ export class GalleryApplication extends pulumi.CustomResource {
      */
     public readonly eula!: pulumi.Output<string | undefined>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -82,11 +82,15 @@ export class GalleryApplication extends pulumi.CustomResource {
      */
     public readonly supportedOSType!: pulumi.Output<string>;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -124,6 +128,7 @@ export class GalleryApplication extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -136,6 +141,7 @@ export class GalleryApplication extends pulumi.CustomResource {
             resourceInputs["privacyStatementUri"] = undefined /*out*/;
             resourceInputs["releaseNoteUri"] = undefined /*out*/;
             resourceInputs["supportedOSType"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -167,15 +173,15 @@ export interface GalleryApplicationArgs {
      */
     eula?: pulumi.Input<string>;
     /**
-     * The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
+     * The name of the gallery Application Definition to be retrieved.
      */
     galleryApplicationName?: pulumi.Input<string>;
     /**
-     * The name of the Shared Application Gallery in which the Application Definition is to be created.
+     * The name of the Shared Image Gallery.
      */
     galleryName: pulumi.Input<string>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -187,7 +193,7 @@ export interface GalleryApplicationArgs {
      */
     releaseNoteUri?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -195,7 +201,7 @@ export interface GalleryApplicationArgs {
      */
     supportedOSType: pulumi.Input<enums.compute.OperatingSystemTypes>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

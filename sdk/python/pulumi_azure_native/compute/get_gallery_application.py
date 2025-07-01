@@ -28,7 +28,7 @@ class GetGalleryApplicationResult:
     """
     Specifies information about the gallery Application Definition that you want to create or update.
     """
-    def __init__(__self__, azure_api_version=None, custom_actions=None, description=None, end_of_life_date=None, eula=None, id=None, location=None, name=None, privacy_statement_uri=None, release_note_uri=None, supported_os_type=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, custom_actions=None, description=None, end_of_life_date=None, eula=None, id=None, location=None, name=None, privacy_statement_uri=None, release_note_uri=None, supported_os_type=None, system_data=None, tags=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -62,6 +62,9 @@ class GetGalleryApplicationResult:
         if supported_os_type and not isinstance(supported_os_type, str):
             raise TypeError("Expected argument 'supported_os_type' to be a str")
         pulumi.set(__self__, "supported_os_type", supported_os_type)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -113,7 +116,7 @@ class GetGalleryApplicationResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -121,7 +124,7 @@ class GetGalleryApplicationResult:
     @pulumi.getter
     def location(self) -> builtins.str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -129,7 +132,7 @@ class GetGalleryApplicationResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -158,10 +161,18 @@ class GetGalleryApplicationResult:
         return pulumi.get(self, "supported_os_type")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -169,7 +180,7 @@ class GetGalleryApplicationResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -191,6 +202,7 @@ class AwaitableGetGalleryApplicationResult(GetGalleryApplicationResult):
             privacy_statement_uri=self.privacy_statement_uri,
             release_note_uri=self.release_note_uri,
             supported_os_type=self.supported_os_type,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -208,8 +220,8 @@ def get_gallery_application(gallery_application_name: Optional[builtins.str] = N
 
 
     :param builtins.str gallery_application_name: The name of the gallery Application Definition to be retrieved.
-    :param builtins.str gallery_name: The name of the Shared Application Gallery from which the Application Definitions are to be retrieved.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str gallery_name: The name of the Shared Image Gallery.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['galleryApplicationName'] = gallery_application_name
@@ -230,6 +242,7 @@ def get_gallery_application(gallery_application_name: Optional[builtins.str] = N
         privacy_statement_uri=pulumi.get(__ret__, 'privacy_statement_uri'),
         release_note_uri=pulumi.get(__ret__, 'release_note_uri'),
         supported_os_type=pulumi.get(__ret__, 'supported_os_type'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_gallery_application_output(gallery_application_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -245,8 +258,8 @@ def get_gallery_application_output(gallery_application_name: Optional[pulumi.Inp
 
 
     :param builtins.str gallery_application_name: The name of the gallery Application Definition to be retrieved.
-    :param builtins.str gallery_name: The name of the Shared Application Gallery from which the Application Definitions are to be retrieved.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str gallery_name: The name of the Shared Image Gallery.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['galleryApplicationName'] = gallery_application_name
@@ -266,5 +279,6 @@ def get_gallery_application_output(gallery_application_name: Optional[pulumi.Inp
         privacy_statement_uri=pulumi.get(__response__, 'privacy_statement_uri'),
         release_note_uri=pulumi.get(__response__, 'release_note_uri'),
         supported_os_type=pulumi.get(__response__, 'supported_os_type'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

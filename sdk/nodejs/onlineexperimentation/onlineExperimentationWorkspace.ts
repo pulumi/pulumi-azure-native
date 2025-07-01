@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * An online experimentation workspace resource.
  *
  * Uses Azure REST API version 2025-05-31-preview.
+ *
+ * Other available API versions: 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native onlineexperimentation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class OnlineExperimentationWorkspace extends pulumi.CustomResource {
     /**
@@ -113,7 +115,7 @@ export class OnlineExperimentationWorkspace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:onlineexperimentation/v20250531preview:OnlineExperimentationWorkspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:onlineexperimentation/v20250531preview:OnlineExperimentationWorkspace" }, { type: "azure-native:onlineexperimentation/v20250801preview:OnlineExperimentationWorkspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OnlineExperimentationWorkspace.__pulumiType, name, resourceInputs, opts);
     }

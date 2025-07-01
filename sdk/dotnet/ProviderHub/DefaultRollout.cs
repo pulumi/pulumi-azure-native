@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.ProviderHub
     /// Default rollout definition.
     /// 
     /// Uses Azure REST API version 2021-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
+    /// 
+    /// Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:providerhub:DefaultRollout")]
     public partial class DefaultRollout : global::Pulumi.CustomResource
@@ -76,6 +78,7 @@ namespace Pulumi.AzureNative.ProviderHub
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:DefaultRollout" },
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:DefaultRollout" },
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:DefaultRollout" },
+                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20240901:DefaultRollout" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -11,21 +11,21 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     /// <summary>
-    /// High availability properties of a server
+    /// High availability properties of a flexible server.
     /// </summary>
     [OutputType]
     public sealed class HighAvailabilityResponse
     {
         /// <summary>
-        /// The HA mode for the server.
+        /// High availability mode for a flexible server.
         /// </summary>
         public readonly string? Mode;
         /// <summary>
-        /// availability zone information of the standby.
+        /// Availability zone associated to the standby server created when high availability is set to SameZone or ZoneRedundant.
         /// </summary>
         public readonly string? StandbyAvailabilityZone;
         /// <summary>
-        /// A state of a HA server that is visible to user.
+        /// Possible states of the standby server created when high availability is set to SameZone or ZoneRedundant.
         /// </summary>
         public readonly string State;
 

@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  *
- * Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native webpubsub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native webpubsub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class WebPubSubCustomCertificate extends pulumi.CustomResource {
     /**
@@ -119,7 +119,7 @@ export class WebPubSubCustomCertificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub/v20220801preview:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20230201:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20230301preview:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20230601preview:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20230801preview:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20240101preview:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20240301:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20240401preview:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20240801preview:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20241001preview:WebPubSubCustomCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub/v20220801preview:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20230201:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20230301preview:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20230601preview:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20230801preview:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20240101preview:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20240301:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20240401preview:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20240801preview:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20241001preview:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20250101preview:WebPubSubCustomCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebPubSubCustomCertificate.__pulumiType, name, resourceInputs, opts);
     }

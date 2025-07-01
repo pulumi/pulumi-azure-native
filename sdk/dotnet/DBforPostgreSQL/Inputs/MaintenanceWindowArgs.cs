@@ -11,30 +11,30 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
 {
 
     /// <summary>
-    /// Maintenance window properties of a server.
+    /// Maintenance window properties of a flexible server.
     /// </summary>
     public sealed class MaintenanceWindowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// indicates whether custom window is enabled or disabled
+        /// Indicates whether custom window is enabled or disabled.
         /// </summary>
         [Input("customWindow")]
         public Input<string>? CustomWindow { get; set; }
 
         /// <summary>
-        /// day of week for maintenance window
+        /// Day of the week to be used for maintenance window.
         /// </summary>
         [Input("dayOfWeek")]
         public Input<int>? DayOfWeek { get; set; }
 
         /// <summary>
-        /// start hour for maintenance window
+        /// Start hour to be used for maintenance window.
         /// </summary>
         [Input("startHour")]
         public Input<int>? StartHour { get; set; }
 
         /// <summary>
-        /// start minute for maintenance window
+        /// Start minute to be used for maintenance window.
         /// </summary>
         [Input("startMinute")]
         public Input<int>? StartMinute { get; set; }

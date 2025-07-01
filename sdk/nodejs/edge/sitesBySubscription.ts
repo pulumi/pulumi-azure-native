@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-01-preview.
  *
- * Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-03-01-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class SitesBySubscription extends pulumi.CustomResource {
     /**
@@ -87,7 +87,7 @@ export class SitesBySubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:edge/v20240201preview:SitesBySubscription" }, { type: "azure-native:edge/v20250301preview:SitesBySubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:edge/v20240201preview:SitesBySubscription" }, { type: "azure-native:edge/v20250301preview:SitesBySubscription" }, { type: "azure-native:edge/v20250601:SitesBySubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SitesBySubscription.__pulumiType, name, resourceInputs, opts);
     }

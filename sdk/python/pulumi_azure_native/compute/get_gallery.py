@@ -28,7 +28,7 @@ class GetGalleryResult:
     """
     Specifies information about the Shared Image Gallery that you want to create or update.
     """
-    def __init__(__self__, azure_api_version=None, description=None, id=None, identifier=None, identity=None, location=None, name=None, provisioning_state=None, sharing_profile=None, sharing_status=None, soft_delete_policy=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, description=None, id=None, identifier=None, identity=None, location=None, name=None, provisioning_state=None, sharing_profile=None, sharing_status=None, soft_delete_policy=None, system_data=None, tags=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -62,6 +62,9 @@ class GetGalleryResult:
         if soft_delete_policy and not isinstance(soft_delete_policy, dict):
             raise TypeError("Expected argument 'soft_delete_policy' to be a dict")
         pulumi.set(__self__, "soft_delete_policy", soft_delete_policy)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -89,7 +92,7 @@ class GetGalleryResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -113,7 +116,7 @@ class GetGalleryResult:
     @pulumi.getter
     def location(self) -> builtins.str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -121,7 +124,7 @@ class GetGalleryResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -158,10 +161,18 @@ class GetGalleryResult:
         return pulumi.get(self, "soft_delete_policy")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -169,7 +180,7 @@ class GetGalleryResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -191,6 +202,7 @@ class AwaitableGetGalleryResult(GetGalleryResult):
             sharing_profile=self.sharing_profile,
             sharing_status=self.sharing_status,
             soft_delete_policy=self.soft_delete_policy,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -210,7 +222,7 @@ def get_gallery(expand: Optional[builtins.str] = None,
 
     :param builtins.str expand: The expand query option to apply on the operation.
     :param builtins.str gallery_name: The name of the Shared Image Gallery.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str select: The select expression to apply on the operation.
     """
     __args__ = dict()
@@ -233,6 +245,7 @@ def get_gallery(expand: Optional[builtins.str] = None,
         sharing_profile=pulumi.get(__ret__, 'sharing_profile'),
         sharing_status=pulumi.get(__ret__, 'sharing_status'),
         soft_delete_policy=pulumi.get(__ret__, 'soft_delete_policy'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_gallery_output(expand: Optional[pulumi.Input[Optional[builtins.str]]] = None,
@@ -250,7 +263,7 @@ def get_gallery_output(expand: Optional[pulumi.Input[Optional[builtins.str]]] = 
 
     :param builtins.str expand: The expand query option to apply on the operation.
     :param builtins.str gallery_name: The name of the Shared Image Gallery.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str select: The select expression to apply on the operation.
     """
     __args__ = dict()
@@ -272,5 +285,6 @@ def get_gallery_output(expand: Optional[pulumi.Input[Optional[builtins.str]]] = 
         sharing_profile=pulumi.get(__response__, 'sharing_profile'),
         sharing_status=pulumi.get(__response__, 'sharing_status'),
         soft_delete_policy=pulumi.get(__response__, 'soft_delete_policy'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))
