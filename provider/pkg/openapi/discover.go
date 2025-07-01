@@ -498,9 +498,13 @@ func swaggerLocations(specsDir, namespace, apiVersions string) ([]string, error)
 		// In December 2022, Azure started authoring some API specs in https://github.com/microsoft/cadl.
 		// pattern2 above matches some of these folders, like
 		// voiceservices/resource-manager/Microsoft.VoiceServices/cadl/examples/2023-01-31, so we exclude them.
-		if !strings.Contains(file, "/cadl/") {
-			fileSet.Add(file)
+		if strings.Contains(file, "/cadl/") {
+			continue
 		}
+		if strings.Contains(file, "/examples/") {
+			continue
+		}
+		fileSet.Add(file)
 	}
 
 	// Sorting alphabetically means the schemas with the latest API version are the last.
