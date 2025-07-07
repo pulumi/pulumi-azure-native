@@ -61,7 +61,7 @@ var forceNewMap = map[openapi.ModuleName]map[string]codegen.StringSet{
 	"ServiceBus": {
 		"Topic":     codegen.NewStringSet("requiresDuplicateDetection", "requiresSession", "enablePartitioning"),
 		"Queue":     codegen.NewStringSet("requiresDuplicateDetection", "requiresSession", "enablePartitioning"),
-		"Namespace": codegen.NewStringSet(), // no force-news, allows zoneRedundant to be updated in-place
+		"Namespace": codegen.NewStringSet("location", "namespaceName", "resourceGroupName"), // zoneRedundant omitted.
 	},
 	"Storage": {
 		"BlobContainer":  codegen.NewStringSet(), // no force-news
