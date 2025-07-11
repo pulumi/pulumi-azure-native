@@ -1,0 +1,36 @@
+name: azure-rm-yaml
+runtime: yaml
+description: A demonstration of tagging using TagAtScope.
+resources:
+  resource_group_1:
+    type: azure-native:resources:ResourceGroup
+    options:
+      ignoreChanges:
+        - tags # issue-4196
+  resource_group_2:
+    type: azure-native:resources:ResourceGroup
+    properties:
+      # issue-3962 - Set the tags to an empty map to distinguish from a nil map.
+      tags: {}
+    options:
+      ignoreChanges:
+        - tags # issue-4196
+  tag_1:
+    type: azure-native:resources:TagAtScope
+    properties:
+      properties:
+        tags:
+          owner: tag_1
+      scope: ${resource_group_1.id}
+  tag_2:
+    type: azure-native:resources:TagAtScope
+    properties:
+      properties:
+        tags:
+          owner: tag_2
+      scope: ${resource_group_2.id}
+outputs:
+  rg_1_name: ${resource_group_1.name}
+  rg_1_tags: ${resource_group_1.tags}
+  rg_2_name: ${resource_group_2.name}
+  rg_2_tags: ${resource_group_2.tags}

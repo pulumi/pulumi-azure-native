@@ -18,7 +18,9 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 		"isEnabled": false,
 	},
 	"/{scope}/providers/Microsoft.Resources/tags/default": {
-		"properties": map[string]string{},
+		"properties": map[string]interface{}{
+			"tags": map[string]interface{}{},
+		},
 	},
 	// https://github.com/pulumi/pulumi-azure-native/issues/1729
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/policies/{policyId}": {

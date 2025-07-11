@@ -16,6 +16,7 @@ func TestIsDefaultResponseTrue(t *testing.T) {
 		"untypedDict": map[string]interface{}{
 			"flag":   true,
 			"string": "bar",
+			"map":    map[string]interface{}{},
 		},
 	}
 	defaultBody := map[string]interface{}{
@@ -24,6 +25,8 @@ func TestIsDefaultResponseTrue(t *testing.T) {
 		"untypedDict": map[string]interface{}{
 			"flag":   true,
 			"string": "bar",
+			"map":    map[string]interface{}{},
+			"extra":  true, // extra elements in the default body need not appear in the response
 		},
 	}
 	actual := c.IsDefaultResponse(resourcePutParameters(), response, defaultBody)
@@ -59,6 +62,21 @@ func TestIsDefaultResponseFalse(t *testing.T) {
 	}
 	actual3 := c.IsDefaultResponse(resourcePutParameters(), response3, defaultBody)
 	assert.False(t, actual3)
+
+	response4 := map[string]interface{}{
+		"untypedDict": map[string]interface{}{
+			"map": map[string]interface{}{
+				"key1": "value1",
+			},
+		},
+	}
+	defaultBody = map[string]interface{}{
+		"untypedDict": map[string]interface{}{
+			"map": map[string]interface{}{},
+		},
+	}
+	actual4 := c.IsDefaultResponse(resourcePutParameters(), response4, defaultBody)
+	assert.False(t, actual4)
 }
 
 func resourcePutParameters() []resources.AzureAPIParameter {
