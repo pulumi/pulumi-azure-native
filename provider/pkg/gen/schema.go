@@ -668,6 +668,7 @@ const (
 	extensionMutabilityRead     = "read"
 	extensionMutabilityUpdate   = "update"
 	extensionParameterLocation  = "x-ms-parameter-location"
+	extensionSkipUrlEncoding    = "x-ms-skip-url-encoding"
 )
 
 type packageGenerator struct {
@@ -1485,6 +1486,7 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 				MaxLength: param.MaxLength,
 				Pattern:   normalizeParamPattern(param),
 			},
+			SkipUrlEncoding: shouldSkipUrlEncoding(param),
 		}
 
 		// Provider has a value defined for subscription ID, so, by default, don't include it into SDKs unless
@@ -1587,6 +1589,15 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 func isMethodParameter(param *openapi.Parameter) bool {
 	if value, ok := param.Extensions.GetString(extensionParameterLocation); ok {
 		return value == "method"
+	}
+
+	return false
+}
+
+// shouldSkipUrlEncoding returns true if a parameter is marked with x-ms-skip-url-encoding.
+func shouldSkipUrlEncoding(param *openapi.Parameter) bool {
+	if value, ok := param.Extensions.GetBool(extensionSkipUrlEncoding); ok {
+		return value
 	}
 
 	return false
