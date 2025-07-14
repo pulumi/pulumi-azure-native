@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native signalrservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native signalrservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class SignalRReplica extends pulumi.CustomResource {
     /**
@@ -128,7 +128,7 @@ export class SignalRReplica extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:signalrservice/v20230301preview:SignalRReplica" }, { type: "azure-native:signalrservice/v20230601preview:SignalRReplica" }, { type: "azure-native:signalrservice/v20230801preview:SignalRReplica" }, { type: "azure-native:signalrservice/v20240101preview:SignalRReplica" }, { type: "azure-native:signalrservice/v20240301:SignalRReplica" }, { type: "azure-native:signalrservice/v20240401preview:SignalRReplica" }, { type: "azure-native:signalrservice/v20240801preview:SignalRReplica" }, { type: "azure-native:signalrservice/v20241001preview:SignalRReplica" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:signalrservice/v20230301preview:SignalRReplica" }, { type: "azure-native:signalrservice/v20230601preview:SignalRReplica" }, { type: "azure-native:signalrservice/v20230801preview:SignalRReplica" }, { type: "azure-native:signalrservice/v20240101preview:SignalRReplica" }, { type: "azure-native:signalrservice/v20240301:SignalRReplica" }, { type: "azure-native:signalrservice/v20240401preview:SignalRReplica" }, { type: "azure-native:signalrservice/v20240801preview:SignalRReplica" }, { type: "azure-native:signalrservice/v20241001preview:SignalRReplica" }, { type: "azure-native:signalrservice/v20250101preview:SignalRReplica" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SignalRReplica.__pulumiType, name, resourceInputs, opts);
     }

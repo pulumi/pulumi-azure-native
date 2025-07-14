@@ -29,9 +29,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? Type;
         /// <summary>
-        /// Value for Constant/Field Type: string.
+        /// Value for Constant/Field Type: object.
         /// </summary>
-        public readonly string? Value;
+        public readonly object? Value;
 
         [OutputConstructor]
         private ExpressionV2Response(
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? type,
 
-            string? value)
+            object? value)
         {
             Operands = operands;
             Operators = operators;

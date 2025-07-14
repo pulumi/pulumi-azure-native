@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DomainRegistration
     /// 
     /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
     /// 
-    /// Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native domainregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native domainregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:domainregistration:DomainOwnershipIdentifier")]
     public partial class DomainOwnershipIdentifier : global::Pulumi.CustomResource
@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.DomainRegistration
                     new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20230101:DomainOwnershipIdentifier" },
                     new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20231201:DomainOwnershipIdentifier" },
                     new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20240401:DomainOwnershipIdentifier" },
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20241101:DomainOwnershipIdentifier" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

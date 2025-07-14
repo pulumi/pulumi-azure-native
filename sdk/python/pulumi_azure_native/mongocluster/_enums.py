@@ -8,10 +8,13 @@ from enum import Enum
 
 __all__ = [
     'CreateMode',
+    'EntraPrincipalType',
     'HighAvailabilityMode',
+    'IdentityProviderType',
     'PreviewFeature',
     'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
+    'UserRole',
 ]
 
 
@@ -38,6 +41,21 @@ class CreateMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:mongocluster:EntraPrincipalType")
+class EntraPrincipalType(builtins.str, Enum):
+    """
+    The principal type of the user.
+    """
+    USER = "user"
+    """
+    Entra user type.
+    """
+    SERVICE_PRINCIPAL = "servicePrincipal"
+    """
+    Entra service principal type.
+    """
+
+
 @pulumi.type_token("azure-native:mongocluster:HighAvailabilityMode")
 class HighAvailabilityMode(builtins.str, Enum):
     """
@@ -54,6 +72,17 @@ class HighAvailabilityMode(builtins.str, Enum):
     ZONE_REDUNDANT_PREFERRED = "ZoneRedundantPreferred"
     """
     High availability mode is enabled and preferences ZoneRedundant if availability zones capacity is available in the region, otherwise falls-back to provisioning with SameZone.
+    """
+
+
+@pulumi.type_token("azure-native:mongocluster:IdentityProviderType")
+class IdentityProviderType(builtins.str, Enum):
+    """
+    The type of identity provider that the user belongs to.
+    """
+    MICROSOFT_ENTRA_ID = "MicrosoftEntraID"
+    """
+    Microsoft Entra ID provider.
     """
 
 
@@ -90,4 +119,15 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
     """
     If set, the private endpoints are the exclusive access method.
+    """
+
+
+@pulumi.type_token("azure-native:mongocluster:UserRole")
+class UserRole(builtins.str, Enum):
+    """
+    The role that is assigned to the user on the database scope.
+    """
+    DATABASE_OWNER = "dbOwner"
+    """
+    Datbase owner role permissions on the target scope.
     """

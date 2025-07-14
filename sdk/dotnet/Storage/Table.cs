@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Storage
     /// 
     /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
     /// 
-    /// Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:Table")]
     public partial class Table : global::Pulumi.CustomResource
@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Storage
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230401:Table" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230501:Table" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20240101:Table" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20250101:Table" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

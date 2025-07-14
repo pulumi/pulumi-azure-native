@@ -3718,5 +3718,15 @@
     "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2024-04-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
+  },
+  {
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2024-11-01/ResourceProvider.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
+    "Error": "resolved module name mismatch: file: Web, uri: Resources"
+  },
+  {
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2024-11-01/ResourceProvider.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources",
+    "Error": "resolved module name mismatch: file: Web, uri: Resources"
   }
 ]

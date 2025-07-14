@@ -50,13 +50,13 @@ namespace Pulumi.AzureNative.Compute
         public Output<string?> Eula { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -80,13 +80,19 @@ namespace Pulumi.AzureNative.Compute
         public Output<string> SupportedOSType { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -181,19 +187,19 @@ namespace Pulumi.AzureNative.Compute
         public Input<string>? Eula { get; set; }
 
         /// <summary>
-        /// The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
+        /// The name of the gallery Application Definition to be retrieved.
         /// </summary>
         [Input("galleryApplicationName")]
         public Input<string>? GalleryApplicationName { get; set; }
 
         /// <summary>
-        /// The name of the Shared Application Gallery in which the Application Definition is to be created.
+        /// The name of the Shared Image Gallery.
         /// </summary>
         [Input("galleryName", required: true)]
         public Input<string> GalleryName { get; set; } = null!;
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -211,7 +217,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<string>? ReleaseNoteUri { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -226,7 +232,7 @@ namespace Pulumi.AzureNative.Compute
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

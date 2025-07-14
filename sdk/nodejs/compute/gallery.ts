@@ -58,11 +58,11 @@ export class Gallery extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.compute.GalleryIdentityResponse | undefined>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -82,11 +82,15 @@ export class Gallery extends pulumi.CustomResource {
      */
     public readonly softDeletePolicy!: pulumi.Output<outputs.compute.SoftDeletePolicyResponse | undefined>;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -117,6 +121,7 @@ export class Gallery extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["sharingStatus"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -129,6 +134,7 @@ export class Gallery extends pulumi.CustomResource {
             resourceInputs["sharingProfile"] = undefined /*out*/;
             resourceInputs["sharingStatus"] = undefined /*out*/;
             resourceInputs["softDeletePolicy"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -148,7 +154,7 @@ export interface GalleryArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
+     * The name of the Shared Image Gallery.
      */
     galleryName?: pulumi.Input<string>;
     /**
@@ -156,11 +162,11 @@ export interface GalleryArgs {
      */
     identity?: pulumi.Input<inputs.compute.GalleryIdentityArgs>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -172,7 +178,7 @@ export interface GalleryArgs {
      */
     softDeletePolicy?: pulumi.Input<inputs.compute.SoftDeletePolicyArgs>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

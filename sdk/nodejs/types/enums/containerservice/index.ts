@@ -130,6 +130,22 @@ export const DeletePolicy = {
  */
 export type DeletePolicy = (typeof DeletePolicy)[keyof typeof DeletePolicy];
 
+export const DeploymentSafeguardsLevel = {
+    /**
+     * Best practice violations will only show warnings
+     */
+    Warn: "Warn",
+    /**
+     * Best practice violations will be denied
+     */
+    Enforce: "Enforce",
+} as const;
+
+/**
+ * The deployment safeguards level. Possible values are Warn and Enforce
+ */
+export type DeploymentSafeguardsLevel = (typeof DeploymentSafeguardsLevel)[keyof typeof DeploymentSafeguardsLevel];
+
 export const Expander = {
     /**
      * Selects the node group that will have the least idle CPU (if tied, unused memory) after scale-up. This is useful when you have different classes of nodes, for example, high CPU or high memory nodes, and only want to expand those when there are pending pods that need a lot of those resources.

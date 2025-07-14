@@ -33,14 +33,14 @@ class GalleryArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Gallery resource.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] description: The description of this Shared Image Gallery resource. This property is updatable.
-        :param pulumi.Input[builtins.str] gallery_name: The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
+        :param pulumi.Input[builtins.str] gallery_name: The name of the Shared Image Gallery.
         :param pulumi.Input['GalleryIdentityArgs'] identity: The identity of the gallery, if configured.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['SharingProfileArgs'] sharing_profile: Profile for gallery sharing to subscription or tenant
         :param pulumi.Input['SoftDeletePolicyArgs'] soft_delete_policy: Contains information about the soft deletion policy of the gallery.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if description is not None:
@@ -62,7 +62,7 @@ class GalleryArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -86,7 +86,7 @@ class GalleryArgs:
     @pulumi.getter(name="galleryName")
     def gallery_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
+        The name of the Shared Image Gallery.
         """
         return pulumi.get(self, "gallery_name")
 
@@ -110,7 +110,7 @@ class GalleryArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -146,7 +146,7 @@ class GalleryArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -180,13 +180,13 @@ class Gallery(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: The description of this Shared Image Gallery resource. This property is updatable.
-        :param pulumi.Input[builtins.str] gallery_name: The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
+        :param pulumi.Input[builtins.str] gallery_name: The name of the Shared Image Gallery.
         :param pulumi.Input[Union['GalleryIdentityArgs', 'GalleryIdentityArgsDict']] identity: The identity of the gallery, if configured.
-        :param pulumi.Input[builtins.str] location: Resource location
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['SharingProfileArgs', 'SharingProfileArgsDict']] sharing_profile: Profile for gallery sharing to subscription or tenant
         :param pulumi.Input[Union['SoftDeletePolicyArgs', 'SoftDeletePolicyArgsDict']] soft_delete_policy: Contains information about the soft deletion policy of the gallery.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -248,6 +248,7 @@ class Gallery(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["sharing_status"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20180601:Gallery"), pulumi.Alias(type_="azure-native:compute/v20190301:Gallery"), pulumi.Alias(type_="azure-native:compute/v20190701:Gallery"), pulumi.Alias(type_="azure-native:compute/v20191201:Gallery"), pulumi.Alias(type_="azure-native:compute/v20200930:Gallery"), pulumi.Alias(type_="azure-native:compute/v20210701:Gallery"), pulumi.Alias(type_="azure-native:compute/v20211001:Gallery"), pulumi.Alias(type_="azure-native:compute/v20220103:Gallery"), pulumi.Alias(type_="azure-native:compute/v20220303:Gallery"), pulumi.Alias(type_="azure-native:compute/v20220803:Gallery"), pulumi.Alias(type_="azure-native:compute/v20230703:Gallery"), pulumi.Alias(type_="azure-native:compute/v20240303:Gallery")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -283,6 +284,7 @@ class Gallery(pulumi.CustomResource):
         __props__.__dict__["sharing_profile"] = None
         __props__.__dict__["sharing_status"] = None
         __props__.__dict__["soft_delete_policy"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Gallery(resource_name, opts=opts, __props__=__props__)
@@ -323,7 +325,7 @@ class Gallery(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -331,7 +333,7 @@ class Gallery(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -368,10 +370,18 @@ class Gallery(pulumi.CustomResource):
         return pulumi.get(self, "soft_delete_policy")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -379,7 +389,7 @@ class Gallery(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

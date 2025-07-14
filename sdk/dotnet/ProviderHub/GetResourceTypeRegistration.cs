@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.ProviderHub
         /// Gets a resource type details in the given subscription and provider.
         /// 
         /// Uses Azure REST API version 2021-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetResourceTypeRegistrationResult> InvokeAsync(GetResourceTypeRegistrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceTypeRegistrationResult>("azure-native:providerhub:getResourceTypeRegistration", args ?? new GetResourceTypeRegistrationArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.ProviderHub
         /// Gets a resource type details in the given subscription and provider.
         /// 
         /// Uses Azure REST API version 2021-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetResourceTypeRegistrationResult> Invoke(GetResourceTypeRegistrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceTypeRegistrationResult>("azure-native:providerhub:getResourceTypeRegistration", args ?? new GetResourceTypeRegistrationInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.ProviderHub
         /// Gets a resource type details in the given subscription and provider.
         /// 
         /// Uses Azure REST API version 2021-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetResourceTypeRegistrationResult> Invoke(GetResourceTypeRegistrationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceTypeRegistrationResult>("azure-native:providerhub:getResourceTypeRegistration", args ?? new GetResourceTypeRegistrationInvokeArgs(), options.WithDefaults());

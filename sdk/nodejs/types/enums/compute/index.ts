@@ -70,14 +70,14 @@ export const CloudServiceUpgradeMode = {
  */
 export type CloudServiceUpgradeMode = (typeof CloudServiceUpgradeMode)[keyof typeof CloudServiceUpgradeMode];
 
-export const ComponentNames = {
+export const ComponentName = {
     Microsoft_Windows_Shell_Setup: "Microsoft-Windows-Shell-Setup",
 } as const;
 
 /**
  * The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
  */
-export type ComponentNames = (typeof ComponentNames)[keyof typeof ComponentNames];
+export type ComponentName = (typeof ComponentName)[keyof typeof ComponentName];
 
 export const ConfidentialVMEncryptionType = {
     EncryptedVMGuestStateOnlyWithPmk: "EncryptedVMGuestStateOnlyWithPmk",
@@ -215,11 +215,11 @@ export const DiskCreateOption = {
      */
     CopyStart: "CopyStart",
     /**
-     * Similar to Import create option. Create a new Trusted Launch VM or Confidential VM supported disk by importing additional blob for VM guest state specified by securityDataUri in storage account specified by storageAccountId
+     * Similar to Import create option. Create a new Trusted Launch VM or Confidential VM supported disk by importing additional blobs for VM guest state specified by securityDataUri and VM metadata specified by securityMetadataUri in storage account specified by storageAccountId. The VM metadata is optional and only required for certain Confidential VM configurations and not required for Trusted Launch VM.
      */
     ImportSecure: "ImportSecure",
     /**
-     * Similar to Upload create option. Create a new Trusted Launch VM or Confidential VM supported disk and upload using write token in both disk and VM guest state
+     * Similar to Upload create option. Create a new Trusted Launch VM or Confidential VM supported disk and upload using write token in disk, VM guest state and VM metadata. The VM metadata is optional and only required for certain Confidential VM configurations and not required for Trusted Launch VM.
      */
     UploadPreparedSecure: "UploadPreparedSecure",
     /**
@@ -261,7 +261,7 @@ export const DiskDetachOptionTypes = {
 } as const;
 
 /**
- * Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+ * Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. **This feature is still in preview**. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
  */
 export type DiskDetachOptionTypes = (typeof DiskDetachOptionTypes)[keyof typeof DiskDetachOptionTypes];
 
@@ -682,14 +682,14 @@ export const OrchestrationMode = {
  */
 export type OrchestrationMode = (typeof OrchestrationMode)[keyof typeof OrchestrationMode];
 
-export const PassNames = {
+export const PassName = {
     OobeSystem: "OobeSystem",
 } as const;
 
 /**
  * The pass name. Currently, the only allowable value is OobeSystem.
  */
-export type PassNames = (typeof PassNames)[keyof typeof PassNames];
+export type PassName = (typeof PassName)[keyof typeof PassName];
 
 export const PrivateEndpointServiceConnectionStatus = {
     Pending: "Pending",
@@ -843,7 +843,7 @@ export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof Re
 
 export const RestorePointEncryptionType = {
     /**
-     * Disk Restore Point is encrypted at rest with Platform managed key. 
+     * Disk Restore Point is encrypted at rest with Platform managed key.
      */
     EncryptionAtRestWithPlatformKey: "EncryptionAtRestWithPlatformKey",
     /**
@@ -1191,7 +1191,7 @@ export const WindowsPatchAssessmentMode = {
 } as const;
 
 /**
- * Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true. 
+ * Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
  */
 export type WindowsPatchAssessmentMode = (typeof WindowsPatchAssessmentMode)[keyof typeof WindowsPatchAssessmentMode];
 
@@ -1214,7 +1214,7 @@ export const WindowsVMGuestPatchMode = {
 } as const;
 
 /**
- * Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+ * Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
  */
 export type WindowsVMGuestPatchMode = (typeof WindowsVMGuestPatchMode)[keyof typeof WindowsVMGuestPatchMode];
 

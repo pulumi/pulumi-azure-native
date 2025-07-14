@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.EventGrid
     /// 
     /// Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
     /// 
-    /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:CaCertificate")]
     public partial class CaCertificate : global::Pulumi.CustomResource
@@ -103,6 +103,7 @@ namespace Pulumi.AzureNative.EventGrid
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20240601preview:CaCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20241215preview:CaCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20250215:CaCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20250401preview:CaCertificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

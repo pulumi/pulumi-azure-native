@@ -38,13 +38,13 @@ namespace Pulumi.AzureNative.Compute
         public Output<Outputs.CapacityReservationGroupInstanceViewResponse> InstanceView { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -56,13 +56,19 @@ namespace Pulumi.AzureNative.Compute
         public Output<Outputs.ResourceSharingProfileResponse?> SharingProfile { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -74,7 +80,7 @@ namespace Pulumi.AzureNative.Compute
         public Output<ImmutableArray<Outputs.SubResourceReadOnlyResponse>> VirtualMachinesAssociated { get; private set; } = null!;
 
         /// <summary>
-        /// Availability Zones to use for this capacity reservation group. The zones can be assigned only during creation. If not provided, the group supports only regional resources in the region. If provided, enforces each capacity reservation in the group to be in one of the zones.
+        /// The availability zones.
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -146,13 +152,13 @@ namespace Pulumi.AzureNative.Compute
         public Input<string>? CapacityReservationGroupName { get; set; }
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -167,7 +173,7 @@ namespace Pulumi.AzureNative.Compute
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -179,7 +185,7 @@ namespace Pulumi.AzureNative.Compute
         private InputList<string>? _zones;
 
         /// <summary>
-        /// Availability Zones to use for this capacity reservation group. The zones can be assigned only during creation. If not provided, the group supports only regional resources in the region. If provided, enforces each capacity reservation in the group to be in one of the zones.
+        /// The availability zones.
         /// </summary>
         public InputList<string> Zones
         {

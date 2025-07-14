@@ -11,21 +11,21 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     /// <summary>
-    /// Migration status.
+    /// State of migration.
     /// </summary>
     [OutputType]
     public sealed class MigrationStatusResponse
     {
         /// <summary>
-        /// Current Migration sub state details.
+        /// Current migration sub state details.
         /// </summary>
         public readonly Outputs.MigrationSubStateDetailsResponse CurrentSubStateDetails;
         /// <summary>
-        /// Error message, if any, for the migration state
+        /// Error message, if any, for the migration state.
         /// </summary>
         public readonly string Error;
         /// <summary>
-        /// State of migration
+        /// State of migration.
         /// </summary>
         public readonly string State;
 

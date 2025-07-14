@@ -22,6 +22,9 @@ __all__ = [
     'BackupPropertiesResponse',
     'ComputePropertiesResponse',
     'ConnectionStringResponse',
+    'DatabaseRoleResponse',
+    'EntraIdentityProviderPropertiesResponse',
+    'EntraIdentityProviderResponse',
     'FirewallRulePropertiesResponse',
     'HighAvailabilityPropertiesResponse',
     'MongoClusterPropertiesResponse',
@@ -33,6 +36,7 @@ __all__ = [
     'ShardingPropertiesResponse',
     'StoragePropertiesResponse',
     'SystemDataResponse',
+    'UserPropertiesResponse',
 ]
 
 @pulumi.output_type
@@ -179,6 +183,113 @@ class ConnectionStringResponse(dict):
         Name of the connection string.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class DatabaseRoleResponse(dict):
+    """
+    Database role definition that is assigned to a user.
+    """
+    def __init__(__self__, *,
+                 db: builtins.str,
+                 role: builtins.str):
+        """
+        Database role definition that is assigned to a user.
+        :param builtins.str db: Database scope that the role is assigned to.
+        :param builtins.str role: The role that is assigned to the user on the database scope.
+        """
+        pulumi.set(__self__, "db", db)
+        pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter
+    def db(self) -> builtins.str:
+        """
+        Database scope that the role is assigned to.
+        """
+        return pulumi.get(self, "db")
+
+    @property
+    @pulumi.getter
+    def role(self) -> builtins.str:
+        """
+        The role that is assigned to the user on the database scope.
+        """
+        return pulumi.get(self, "role")
+
+
+@pulumi.output_type
+class EntraIdentityProviderPropertiesResponse(dict):
+    """
+    Microsoft Entra ID provider properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalType":
+            suggest = "principal_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EntraIdentityProviderPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EntraIdentityProviderPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EntraIdentityProviderPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_type: builtins.str):
+        """
+        Microsoft Entra ID provider properties.
+        :param builtins.str principal_type: The principal type of the user.
+        """
+        pulumi.set(__self__, "principal_type", principal_type)
+
+    @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> builtins.str:
+        """
+        The principal type of the user.
+        """
+        return pulumi.get(self, "principal_type")
+
+
+@pulumi.output_type
+class EntraIdentityProviderResponse(dict):
+    """
+    Defines a Microsoft Entra ID Mongo user.
+    """
+    def __init__(__self__, *,
+                 properties: 'outputs.EntraIdentityProviderPropertiesResponse',
+                 type: builtins.str):
+        """
+        Defines a Microsoft Entra ID Mongo user.
+        :param 'EntraIdentityProviderPropertiesResponse' properties: The Entra identity properties for the user.
+        :param builtins.str type: Identity provider types that a a user identity can belong to.
+               Expected value is 'MicrosoftEntraID'.
+        """
+        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "type", 'MicrosoftEntraID')
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.EntraIdentityProviderPropertiesResponse':
+        """
+        The Entra identity properties for the user.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        Identity provider types that a a user identity can belong to.
+        Expected value is 'MicrosoftEntraID'.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -1045,5 +1156,70 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class UserPropertiesResponse(dict):
+    """
+    Definition of Mongo user resource on a cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "identityProvider":
+            suggest = "identity_provider"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: builtins.str,
+                 identity_provider: Optional['outputs.EntraIdentityProviderResponse'] = None,
+                 roles: Optional[Sequence['outputs.DatabaseRoleResponse']] = None):
+        """
+        Definition of Mongo user resource on a cluster.
+        :param builtins.str provisioning_state: The provisioning state of the user.
+        :param 'EntraIdentityProviderResponse' identity_provider: The user's identity provider definition.
+        :param Sequence['DatabaseRoleResponse'] roles: Database roles that are assigned to the user.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if identity_provider is not None:
+            pulumi.set(__self__, "identity_provider", identity_provider)
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        The provisioning state of the user.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="identityProvider")
+    def identity_provider(self) -> Optional['outputs.EntraIdentityProviderResponse']:
+        """
+        The user's identity provider definition.
+        """
+        return pulumi.get(self, "identity_provider")
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[Sequence['outputs.DatabaseRoleResponse']]:
+        """
+        Database roles that are assigned to the user.
+        """
+        return pulumi.get(self, "roles")
 
 

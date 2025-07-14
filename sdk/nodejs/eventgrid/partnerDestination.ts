@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-12-15-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class PartnerDestination extends pulumi.CustomResource {
     /**
@@ -140,7 +140,7 @@ export class PartnerDestination extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20211015preview:PartnerDestination" }, { type: "azure-native:eventgrid/v20230601preview:PartnerDestination" }, { type: "azure-native:eventgrid/v20231215preview:PartnerDestination" }, { type: "azure-native:eventgrid/v20240601preview:PartnerDestination" }, { type: "azure-native:eventgrid/v20241215preview:PartnerDestination" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20211015preview:PartnerDestination" }, { type: "azure-native:eventgrid/v20230601preview:PartnerDestination" }, { type: "azure-native:eventgrid/v20231215preview:PartnerDestination" }, { type: "azure-native:eventgrid/v20240601preview:PartnerDestination" }, { type: "azure-native:eventgrid/v20241215preview:PartnerDestination" }, { type: "azure-native:eventgrid/v20250401preview:PartnerDestination" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PartnerDestination.__pulumiType, name, resourceInputs, opts);
     }

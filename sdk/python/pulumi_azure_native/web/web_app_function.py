@@ -324,7 +324,7 @@ class WebAppFunction(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -357,7 +357,7 @@ class WebAppFunction(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param WebAppFunctionArgs args: The arguments to use to populate this resource's properties.
@@ -423,7 +423,7 @@ class WebAppFunction(pulumi.CustomResource):
             __props__.__dict__["test_data_href"] = test_data_href
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20160801:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppFunction")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20160801:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20241101:WebAppFunction")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppFunction, __self__).__init__(
             'azure-native:web:WebAppFunction',

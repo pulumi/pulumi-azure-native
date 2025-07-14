@@ -122,7 +122,7 @@ class DnsForwardingRuleset(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01-preview.
 
-        Other available API versions: 2020-04-01-preview, 2022-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,7 +143,7 @@ class DnsForwardingRuleset(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01-preview.
 
-        Other available API versions: 2020-04-01-preview, 2022-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param DnsForwardingRulesetArgs args: The arguments to use to populate this resource's properties.
@@ -190,7 +190,7 @@ class DnsForwardingRuleset(pulumi.CustomResource):
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dnsresolver/v20200401preview:DnsForwardingRuleset"), pulumi.Alias(type_="azure-native:dnsresolver/v20220701:DnsForwardingRuleset"), pulumi.Alias(type_="azure-native:dnsresolver/v20230701preview:DnsForwardingRuleset"), pulumi.Alias(type_="azure-native:network/v20200401preview:DnsForwardingRuleset"), pulumi.Alias(type_="azure-native:network/v20220701:DnsForwardingRuleset"), pulumi.Alias(type_="azure-native:network/v20230701preview:DnsForwardingRuleset"), pulumi.Alias(type_="azure-native:network:DnsForwardingRuleset")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dnsresolver/v20200401preview:DnsForwardingRuleset"), pulumi.Alias(type_="azure-native:dnsresolver/v20220701:DnsForwardingRuleset"), pulumi.Alias(type_="azure-native:dnsresolver/v20230701preview:DnsForwardingRuleset"), pulumi.Alias(type_="azure-native:dnsresolver/v20250501:DnsForwardingRuleset"), pulumi.Alias(type_="azure-native:network/v20200401preview:DnsForwardingRuleset"), pulumi.Alias(type_="azure-native:network/v20220701:DnsForwardingRuleset"), pulumi.Alias(type_="azure-native:network/v20230701preview:DnsForwardingRuleset"), pulumi.Alias(type_="azure-native:network:DnsForwardingRuleset")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DnsForwardingRuleset, __self__).__init__(
             'azure-native:dnsresolver:DnsForwardingRuleset',

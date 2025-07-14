@@ -92,6 +92,8 @@ if typing.TYPE_CHECKING:
     changeanalysis = __changeanalysis
     import pulumi_azure_native.chaos as __chaos
     chaos = __chaos
+    import pulumi_azure_native.cloudhealth as __cloudhealth
+    cloudhealth = __cloudhealth
     import pulumi_azure_native.cloudngfw as __cloudngfw
     cloudngfw = __cloudngfw
     import pulumi_azure_native.codesigning as __codesigning
@@ -326,8 +328,6 @@ if typing.TYPE_CHECKING:
     maps = __maps
     import pulumi_azure_native.marketplace as __marketplace
     marketplace = __marketplace
-    import pulumi_azure_native.media as __media
-    media = __media
     import pulumi_azure_native.migrate as __migrate
     migrate = __migrate
     import pulumi_azure_native.mixedreality as __mixedreality
@@ -504,6 +504,8 @@ if typing.TYPE_CHECKING:
     webpubsub = __webpubsub
     import pulumi_azure_native.weightsandbiases as __weightsandbiases
     weightsandbiases = __weightsandbiases
+    import pulumi_azure_native.widget as __widget
+    widget = __widget
     import pulumi_azure_native.windowsesu as __windowsesu
     windowsesu = __windowsesu
     import pulumi_azure_native.windowsiot as __windowsiot
@@ -552,6 +554,7 @@ else:
     certificateregistration = _utilities.lazy_import('pulumi_azure_native.certificateregistration')
     changeanalysis = _utilities.lazy_import('pulumi_azure_native.changeanalysis')
     chaos = _utilities.lazy_import('pulumi_azure_native.chaos')
+    cloudhealth = _utilities.lazy_import('pulumi_azure_native.cloudhealth')
     cloudngfw = _utilities.lazy_import('pulumi_azure_native.cloudngfw')
     codesigning = _utilities.lazy_import('pulumi_azure_native.codesigning')
     cognitiveservices = _utilities.lazy_import('pulumi_azure_native.cognitiveservices')
@@ -669,7 +672,6 @@ else:
     manufacturingplatform = _utilities.lazy_import('pulumi_azure_native.manufacturingplatform')
     maps = _utilities.lazy_import('pulumi_azure_native.maps')
     marketplace = _utilities.lazy_import('pulumi_azure_native.marketplace')
-    media = _utilities.lazy_import('pulumi_azure_native.media')
     migrate = _utilities.lazy_import('pulumi_azure_native.migrate')
     mixedreality = _utilities.lazy_import('pulumi_azure_native.mixedreality')
     mobilenetwork = _utilities.lazy_import('pulumi_azure_native.mobilenetwork')
@@ -758,6 +760,7 @@ else:
     web = _utilities.lazy_import('pulumi_azure_native.web')
     webpubsub = _utilities.lazy_import('pulumi_azure_native.webpubsub')
     weightsandbiases = _utilities.lazy_import('pulumi_azure_native.weightsandbiases')
+    widget = _utilities.lazy_import('pulumi_azure_native.widget')
     windowsesu = _utilities.lazy_import('pulumi_azure_native.windowsesu')
     windowsiot = _utilities.lazy_import('pulumi_azure_native.windowsiot')
     workloads = _utilities.lazy_import('pulumi_azure_native.workloads')
@@ -1540,6 +1543,19 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "cloudhealth",
+  "fqn": "pulumi_azure_native.cloudhealth",
+  "classes": {
+   "azure-native:cloudhealth:AuthenticationSetting": "AuthenticationSetting",
+   "azure-native:cloudhealth:DiscoveryRule": "DiscoveryRule",
+   "azure-native:cloudhealth:Entity": "Entity",
+   "azure-native:cloudhealth:HealthModel": "HealthModel",
+   "azure-native:cloudhealth:Relationship": "Relationship",
+   "azure-native:cloudhealth:SignalDefinition": "SignalDefinition"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "cloudngfw",
   "fqn": "pulumi_azure_native.cloudngfw",
   "classes": {
@@ -1752,6 +1768,7 @@ _utilities.register(
   "classes": {
    "azure-native:containerservice:AgentPool": "AgentPool",
    "azure-native:containerservice:AutoUpgradeProfile": "AutoUpgradeProfile",
+   "azure-native:containerservice:DeploymentSafeguard": "DeploymentSafeguard",
    "azure-native:containerservice:Fleet": "Fleet",
    "azure-native:containerservice:FleetMember": "FleetMember",
    "azure-native:containerservice:FleetUpdateStrategy": "FleetUpdateStrategy",
@@ -1759,6 +1776,7 @@ _utilities.register(
    "azure-native:containerservice:MaintenanceConfiguration": "MaintenanceConfiguration",
    "azure-native:containerservice:ManagedCluster": "ManagedCluster",
    "azure-native:containerservice:ManagedClusterSnapshot": "ManagedClusterSnapshot",
+   "azure-native:containerservice:ManagedNamespace": "ManagedNamespace",
    "azure-native:containerservice:Namespace": "Namespace",
    "azure-native:containerservice:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:containerservice:Snapshot": "Snapshot",
@@ -1895,6 +1913,7 @@ _utilities.register(
   "mod": "dashboard",
   "fqn": "pulumi_azure_native.dashboard",
   "classes": {
+   "azure-native:dashboard:Dashboard": "Dashboard",
    "azure-native:dashboard:Grafana": "Grafana",
    "azure-native:dashboard:IntegrationFabric": "IntegrationFabric",
    "azure-native:dashboard:ManagedPrivateEndpoint": "ManagedPrivateEndpoint",
@@ -3010,6 +3029,7 @@ _utilities.register(
    "azure-native:machinelearningservices:ModelVersion": "ModelVersion",
    "azure-native:machinelearningservices:OnlineDeployment": "OnlineDeployment",
    "azure-native:machinelearningservices:OnlineEndpoint": "OnlineEndpoint",
+   "azure-native:machinelearningservices:OutboundRule": "OutboundRule",
    "azure-native:machinelearningservices:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:machinelearningservices:RaiPolicy": "RaiPolicy",
    "azure-native:machinelearningservices:Registry": "Registry",
@@ -3147,27 +3167,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "media",
-  "fqn": "pulumi_azure_native.media",
-  "classes": {
-   "azure-native:media:AccountFilter": "AccountFilter",
-   "azure-native:media:Asset": "Asset",
-   "azure-native:media:AssetFilter": "AssetFilter",
-   "azure-native:media:ContentKeyPolicy": "ContentKeyPolicy",
-   "azure-native:media:Job": "Job",
-   "azure-native:media:LiveEvent": "LiveEvent",
-   "azure-native:media:LiveOutput": "LiveOutput",
-   "azure-native:media:MediaService": "MediaService",
-   "azure-native:media:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:media:StreamingEndpoint": "StreamingEndpoint",
-   "azure-native:media:StreamingLocator": "StreamingLocator",
-   "azure-native:media:StreamingPolicy": "StreamingPolicy",
-   "azure-native:media:Track": "Track",
-   "azure-native:media:Transform": "Transform"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "migrate",
   "fqn": "pulumi_azure_native.migrate",
   "classes": {
@@ -3250,7 +3249,8 @@ _utilities.register(
   "classes": {
    "azure-native:mongocluster:FirewallRule": "FirewallRule",
    "azure-native:mongocluster:MongoCluster": "MongoCluster",
-   "azure-native:mongocluster:PrivateEndpointConnection": "PrivateEndpointConnection"
+   "azure-native:mongocluster:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:mongocluster:User": "User"
   }
  },
  {
@@ -3563,6 +3563,7 @@ _utilities.register(
    "azure-native:orbital:Contact": "Contact",
    "azure-native:orbital:ContactProfile": "ContactProfile",
    "azure-native:orbital:EdgeSite": "EdgeSite",
+   "azure-native:orbital:GeoCatalog": "GeoCatalog",
    "azure-native:orbital:GroundStation": "GroundStation",
    "azure-native:orbital:L2Connection": "L2Connection",
    "azure-native:orbital:Spacecraft": "Spacecraft"
@@ -3681,6 +3682,7 @@ _utilities.register(
    "azure-native:providerhub:DefaultRollout": "DefaultRollout",
    "azure-native:providerhub:NotificationRegistration": "NotificationRegistration",
    "azure-native:providerhub:OperationByProviderRegistration": "OperationByProviderRegistration",
+   "azure-native:providerhub:ProviderMonitorSetting": "ProviderMonitorSetting",
    "azure-native:providerhub:ProviderRegistration": "ProviderRegistration",
    "azure-native:providerhub:ResourceTypeRegistration": "ResourceTypeRegistration",
    "azure-native:providerhub:Skus": "Skus",
@@ -4521,6 +4523,8 @@ _utilities.register(
    "azure-native:web:ConnectionGateway": "ConnectionGateway",
    "azure-native:web:CustomApi": "CustomApi",
    "azure-native:web:KubeEnvironment": "KubeEnvironment",
+   "azure-native:web:SiteCertificate": "SiteCertificate",
+   "azure-native:web:SiteCertificateSlot": "SiteCertificateSlot",
    "azure-native:web:StaticSite": "StaticSite",
    "azure-native:web:StaticSiteBuildDatabaseConnection": "StaticSiteBuildDatabaseConnection",
    "azure-native:web:StaticSiteCustomDomain": "StaticSiteCustomDomain",
@@ -4605,6 +4609,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.weightsandbiases",
   "classes": {
    "azure-native:weightsandbiases:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "widget",
+  "fqn": "pulumi_azure_native.widget",
+  "classes": {
+   "azure-native:widget:Employee": "Employee"
   }
  },
  {

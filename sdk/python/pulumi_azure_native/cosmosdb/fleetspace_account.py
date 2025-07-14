@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = ['FleetspaceAccountArgs', 'FleetspaceAccount']
 
@@ -24,27 +25,23 @@ class FleetspaceAccountArgs:
                  fleet_name: pulumi.Input[builtins.str],
                  fleetspace_name: pulumi.Input[builtins.str],
                  resource_group_name: pulumi.Input[builtins.str],
-                 account_location: Optional[pulumi.Input[builtins.str]] = None,
-                 account_resource_identifier: Optional[pulumi.Input[builtins.str]] = None,
-                 fleetspace_account_name: Optional[pulumi.Input[builtins.str]] = None):
+                 fleetspace_account_name: Optional[pulumi.Input[builtins.str]] = None,
+                 global_database_account_properties: Optional[pulumi.Input['FleetspaceAccountPropertiesGlobalDatabaseAccountPropertiesArgs']] = None):
         """
         The set of arguments for constructing a FleetspaceAccount resource.
         :param pulumi.Input[builtins.str] fleet_name: Cosmos DB fleet name. Needs to be unique under a subscription.
         :param pulumi.Input[builtins.str] fleetspace_name: Cosmos DB fleetspace name. Needs to be unique under a fleet.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[builtins.str] account_location: The location of  global database account in the Fleetspace Account.
-        :param pulumi.Input[builtins.str] account_resource_identifier: The resource identifier of global database account in the Fleetspace Account.
         :param pulumi.Input[builtins.str] fleetspace_account_name: Cosmos DB fleetspace account name.
+        :param pulumi.Input['FleetspaceAccountPropertiesGlobalDatabaseAccountPropertiesArgs'] global_database_account_properties: Configuration for fleetspace Account in the fleetspace.
         """
         pulumi.set(__self__, "fleet_name", fleet_name)
         pulumi.set(__self__, "fleetspace_name", fleetspace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if account_location is not None:
-            pulumi.set(__self__, "account_location", account_location)
-        if account_resource_identifier is not None:
-            pulumi.set(__self__, "account_resource_identifier", account_resource_identifier)
         if fleetspace_account_name is not None:
             pulumi.set(__self__, "fleetspace_account_name", fleetspace_account_name)
+        if global_database_account_properties is not None:
+            pulumi.set(__self__, "global_database_account_properties", global_database_account_properties)
 
     @property
     @pulumi.getter(name="fleetName")
@@ -83,30 +80,6 @@ class FleetspaceAccountArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="accountLocation")
-    def account_location(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The location of  global database account in the Fleetspace Account.
-        """
-        return pulumi.get(self, "account_location")
-
-    @account_location.setter
-    def account_location(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "account_location", value)
-
-    @property
-    @pulumi.getter(name="accountResourceIdentifier")
-    def account_resource_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The resource identifier of global database account in the Fleetspace Account.
-        """
-        return pulumi.get(self, "account_resource_identifier")
-
-    @account_resource_identifier.setter
-    def account_resource_identifier(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "account_resource_identifier", value)
-
-    @property
     @pulumi.getter(name="fleetspaceAccountName")
     def fleetspace_account_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -118,6 +91,18 @@ class FleetspaceAccountArgs:
     def fleetspace_account_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "fleetspace_account_name", value)
 
+    @property
+    @pulumi.getter(name="globalDatabaseAccountProperties")
+    def global_database_account_properties(self) -> Optional[pulumi.Input['FleetspaceAccountPropertiesGlobalDatabaseAccountPropertiesArgs']]:
+        """
+        Configuration for fleetspace Account in the fleetspace.
+        """
+        return pulumi.get(self, "global_database_account_properties")
+
+    @global_database_account_properties.setter
+    def global_database_account_properties(self, value: Optional[pulumi.Input['FleetspaceAccountPropertiesGlobalDatabaseAccountPropertiesArgs']]):
+        pulumi.set(self, "global_database_account_properties", value)
+
 
 @pulumi.type_token("azure-native:cosmosdb:FleetspaceAccount")
 class FleetspaceAccount(pulumi.CustomResource):
@@ -125,11 +110,10 @@ class FleetspaceAccount(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_location: Optional[pulumi.Input[builtins.str]] = None,
-                 account_resource_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  fleet_name: Optional[pulumi.Input[builtins.str]] = None,
                  fleetspace_account_name: Optional[pulumi.Input[builtins.str]] = None,
                  fleetspace_name: Optional[pulumi.Input[builtins.str]] = None,
+                 global_database_account_properties: Optional[pulumi.Input[Union['FleetspaceAccountPropertiesGlobalDatabaseAccountPropertiesArgs', 'FleetspaceAccountPropertiesGlobalDatabaseAccountPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -139,11 +123,10 @@ class FleetspaceAccount(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] account_location: The location of  global database account in the Fleetspace Account.
-        :param pulumi.Input[builtins.str] account_resource_identifier: The resource identifier of global database account in the Fleetspace Account.
         :param pulumi.Input[builtins.str] fleet_name: Cosmos DB fleet name. Needs to be unique under a subscription.
         :param pulumi.Input[builtins.str] fleetspace_account_name: Cosmos DB fleetspace account name.
         :param pulumi.Input[builtins.str] fleetspace_name: Cosmos DB fleetspace name. Needs to be unique under a fleet.
+        :param pulumi.Input[Union['FleetspaceAccountPropertiesGlobalDatabaseAccountPropertiesArgs', 'FleetspaceAccountPropertiesGlobalDatabaseAccountPropertiesArgsDict']] global_database_account_properties: Configuration for fleetspace Account in the fleetspace.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -172,11 +155,10 @@ class FleetspaceAccount(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_location: Optional[pulumi.Input[builtins.str]] = None,
-                 account_resource_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  fleet_name: Optional[pulumi.Input[builtins.str]] = None,
                  fleetspace_account_name: Optional[pulumi.Input[builtins.str]] = None,
                  fleetspace_name: Optional[pulumi.Input[builtins.str]] = None,
+                 global_database_account_properties: Optional[pulumi.Input[Union['FleetspaceAccountPropertiesGlobalDatabaseAccountPropertiesArgs', 'FleetspaceAccountPropertiesGlobalDatabaseAccountPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -187,8 +169,6 @@ class FleetspaceAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FleetspaceAccountArgs.__new__(FleetspaceAccountArgs)
 
-            __props__.__dict__["account_location"] = account_location
-            __props__.__dict__["account_resource_identifier"] = account_resource_identifier
             if fleet_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fleet_name'")
             __props__.__dict__["fleet_name"] = fleet_name
@@ -196,6 +176,7 @@ class FleetspaceAccount(pulumi.CustomResource):
             if fleetspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fleetspace_name'")
             __props__.__dict__["fleetspace_name"] = fleetspace_name
+            __props__.__dict__["global_database_account_properties"] = global_database_account_properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -228,30 +209,13 @@ class FleetspaceAccount(pulumi.CustomResource):
 
         __props__ = FleetspaceAccountArgs.__new__(FleetspaceAccountArgs)
 
-        __props__.__dict__["account_location"] = None
-        __props__.__dict__["account_resource_identifier"] = None
         __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["global_database_account_properties"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return FleetspaceAccount(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="accountLocation")
-    def account_location(self) -> pulumi.Output[Optional[builtins.str]]:
-        """
-        The location of  global database account in the Fleetspace Account.
-        """
-        return pulumi.get(self, "account_location")
-
-    @property
-    @pulumi.getter(name="accountResourceIdentifier")
-    def account_resource_identifier(self) -> pulumi.Output[Optional[builtins.str]]:
-        """
-        The resource identifier of global database account in the Fleetspace Account.
-        """
-        return pulumi.get(self, "account_resource_identifier")
 
     @property
     @pulumi.getter(name="azureApiVersion")
@@ -260,6 +224,14 @@ class FleetspaceAccount(pulumi.CustomResource):
         The Azure API version of the resource.
         """
         return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="globalDatabaseAccountProperties")
+    def global_database_account_properties(self) -> pulumi.Output[Optional['outputs.FleetspaceAccountPropertiesResponseGlobalDatabaseAccountProperties']]:
+        """
+        Configuration for fleetspace Account in the fleetspace.
+        """
+        return pulumi.get(self, "global_database_account_properties")
 
     @property
     @pulumi.getter

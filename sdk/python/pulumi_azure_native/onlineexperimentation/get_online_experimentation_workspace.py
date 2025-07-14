@@ -167,6 +167,8 @@ def get_online_experimentation_workspace(resource_group_name: Optional[builtins.
 
     Uses Azure REST API version 2025-05-31-preview.
 
+    Other available API versions: 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native onlineexperimentation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str workspace_name: The name of the OnlineExperimentationWorkspace
@@ -195,6 +197,8 @@ def get_online_experimentation_workspace_output(resource_group_name: Optional[pu
     Gets an online experimentation workspace.
 
     Uses Azure REST API version 2025-05-31-preview.
+
+    Other available API versions: 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native onlineexperimentation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

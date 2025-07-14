@@ -62,11 +62,11 @@ export class DedicatedHost extends pulumi.CustomResource {
      */
     public readonly licenseType!: pulumi.Output<string | undefined>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -86,7 +86,11 @@ export class DedicatedHost extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.compute.SkuResponse>;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -94,7 +98,7 @@ export class DedicatedHost extends pulumi.CustomResource {
      */
     public /*out*/ readonly timeCreated!: pulumi.Output<string>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -137,6 +141,7 @@ export class DedicatedHost extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["provisioningTime"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualMachines"] = undefined /*out*/;
@@ -152,6 +157,7 @@ export class DedicatedHost extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["provisioningTime"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -177,7 +183,7 @@ export interface DedicatedHostArgs {
      */
     hostGroupName: pulumi.Input<string>;
     /**
-     * The name of the dedicated host .
+     * The name of the dedicated host.
      */
     hostName?: pulumi.Input<string>;
     /**
@@ -185,7 +191,7 @@ export interface DedicatedHostArgs {
      */
     licenseType?: pulumi.Input<enums.compute.DedicatedHostLicenseTypes>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -193,7 +199,7 @@ export interface DedicatedHostArgs {
      */
     platformFaultDomain?: pulumi.Input<number>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -201,7 +207,7 @@ export interface DedicatedHostArgs {
      */
     sku: pulumi.Input<inputs.compute.SkuArgs>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -80,6 +80,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "ModuleName": "CloudHealth",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "ModuleName": "Cloudngfw",
     "Detail": "expected tracking stable but found preview"
   },
@@ -108,6 +112,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "ModuleName": "ConnectedCache",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "ModuleName": "ConnectedVMwarevSphere",
     "Detail": "expected tracking preview but found stable"
   },
@@ -130,6 +138,10 @@
   {
     "ModuleName": "DBforMySQL",
     "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "ModuleName": "Dashboard",
+    "Detail": "expected no additions but found some"
   },
   {
     "ModuleName": "DataBox",
@@ -364,6 +376,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "ModuleName": "MongoCluster",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "ModuleName": "Monitor",
     "Detail": "expected tracking stable but found preview"
   },
@@ -410,6 +426,10 @@
   {
     "ModuleName": "ProgrammableConnectivity",
     "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "ModuleName": "ProviderHub",
+    "Detail": "expected no additions but found some"
   },
   {
     "ModuleName": "Purview",

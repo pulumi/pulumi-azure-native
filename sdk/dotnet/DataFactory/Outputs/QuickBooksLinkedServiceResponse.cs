@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
     /// <summary>
-    /// QuickBooks server linked service.
+    /// QuickBooks server linked service. This linked service has supported version property. The Version 1.0 is scheduled for deprecation while your pipeline will continue to run after EOL but without any bug fix or new features.
     /// </summary>
     [OutputType]
     public sealed class QuickBooksLinkedServiceResponse
     {
         /// <summary>
-        /// The access token for OAuth 1.0 authentication.
+        /// The access token for OAuth 2.0 authentication.
         /// </summary>
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? AccessToken;
         /// <summary>
-        /// The access token secret for OAuth 1.0 authentication.
+        /// The access token secret is deprecated for OAuth 1.0 authentication. Only used for version 1.0.
         /// </summary>
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? AccessTokenSecret;
         /// <summary>
@@ -41,11 +41,11 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? ConnectionProperties;
         /// <summary>
-        /// The consumer key for OAuth 1.0 authentication.
+        /// The consumer key for OAuth 2.0 authentication.
         /// </summary>
         public readonly object? ConsumerKey;
         /// <summary>
-        /// The consumer secret for OAuth 1.0 authentication.
+        /// The consumer secret for OAuth 2.0 authentication.
         /// </summary>
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ConsumerSecret;
         /// <summary>
@@ -65,12 +65,16 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
+        /// The refresh token for OAuth 2.0 authentication.
+        /// </summary>
+        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? RefreshToken;
+        /// <summary>
         /// Type of linked service.
         /// Expected value is 'QuickBooks'.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Only used for version 1.0.
         /// </summary>
         public readonly object? UseEncryptedEndpoints;
         /// <summary>
@@ -104,6 +108,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
+            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? refreshToken,
+
             string type,
 
             object? useEncryptedEndpoints,
@@ -122,6 +128,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             EncryptedCredential = encryptedCredential;
             Endpoint = endpoint;
             Parameters = parameters;
+            RefreshToken = refreshToken;
             Type = type;
             UseEncryptedEndpoints = useEncryptedEndpoints;
             Version = version;

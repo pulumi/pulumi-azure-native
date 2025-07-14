@@ -58,6 +58,7 @@ __all__ = [
     'DatabaseRestoreResourceResponse',
     'ExcludedPathResponse',
     'FailoverPolicyResponse',
+    'FleetspaceAccountPropertiesResponseGlobalDatabaseAccountProperties',
     'FleetspacePropertiesResponseThroughputPoolConfiguration',
     'GraphAPIComputeRegionalServiceResourceResponse',
     'GraphAPIComputeServiceResourcePropertiesResponse',
@@ -2739,6 +2740,60 @@ class FailoverPolicyResponse(dict):
         The name of the region in which the database account exists.
         """
         return pulumi.get(self, "location_name")
+
+
+@pulumi.output_type
+class FleetspaceAccountPropertiesResponseGlobalDatabaseAccountProperties(dict):
+    """
+    Configuration for fleetspace Account in the fleetspace.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "armLocation":
+            suggest = "arm_location"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetspaceAccountPropertiesResponseGlobalDatabaseAccountProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetspaceAccountPropertiesResponseGlobalDatabaseAccountProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetspaceAccountPropertiesResponseGlobalDatabaseAccountProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arm_location: Optional[builtins.str] = None,
+                 resource_id: Optional[builtins.str] = None):
+        """
+        Configuration for fleetspace Account in the fleetspace.
+        :param builtins.str arm_location: The location of  global database account in the Fleetspace Account.
+        :param builtins.str resource_id: The resource identifier of global database account in the Fleetspace Account.
+        """
+        if arm_location is not None:
+            pulumi.set(__self__, "arm_location", arm_location)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="armLocation")
+    def arm_location(self) -> Optional[builtins.str]:
+        """
+        The location of  global database account in the Fleetspace Account.
+        """
+        return pulumi.get(self, "arm_location")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[builtins.str]:
+        """
+        The resource identifier of global database account in the Fleetspace Account.
+        """
+        return pulumi.get(self, "resource_id")
 
 
 @pulumi.output_type

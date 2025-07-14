@@ -32,10 +32,10 @@ class AdministratorArgs:
         The set of arguments for constructing a Administrator resource.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] server_name: The name of the server.
-        :param pulumi.Input[builtins.str] object_id: Guid of the objectId for the administrator.
-        :param pulumi.Input[builtins.str] principal_name: Active Directory administrator principal name.
-        :param pulumi.Input[Union[builtins.str, 'PrincipalType']] principal_type: The principal type used to represent the type of Active Directory Administrator.
-        :param pulumi.Input[builtins.str] tenant_id: The tenantId of the Active Directory administrator.
+        :param pulumi.Input[builtins.str] object_id: Object identifier of the Microsoft Entra principal.
+        :param pulumi.Input[builtins.str] principal_name: Name of the Microsoft Entra principal.
+        :param pulumi.Input[Union[builtins.str, 'PrincipalType']] principal_type: The type of Microsoft Entra principal to which the server administrator is associated.
+        :param pulumi.Input[builtins.str] tenant_id: Identifier of the tenant in which the Microsoft Entra principal exists.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
@@ -76,7 +76,7 @@ class AdministratorArgs:
     @pulumi.getter(name="objectId")
     def object_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Guid of the objectId for the administrator.
+        Object identifier of the Microsoft Entra principal.
         """
         return pulumi.get(self, "object_id")
 
@@ -88,7 +88,7 @@ class AdministratorArgs:
     @pulumi.getter(name="principalName")
     def principal_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Active Directory administrator principal name.
+        Name of the Microsoft Entra principal.
         """
         return pulumi.get(self, "principal_name")
 
@@ -100,7 +100,7 @@ class AdministratorArgs:
     @pulumi.getter(name="principalType")
     def principal_type(self) -> Optional[pulumi.Input[Union[builtins.str, 'PrincipalType']]]:
         """
-        The principal type used to represent the type of Active Directory Administrator.
+        The type of Microsoft Entra principal to which the server administrator is associated.
         """
         return pulumi.get(self, "principal_type")
 
@@ -112,7 +112,7 @@ class AdministratorArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The tenantId of the Active Directory administrator.
+        Identifier of the tenant in which the Microsoft Entra principal exists.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -135,7 +135,7 @@ class Administrator(pulumi.CustomResource):
                  tenant_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Represents an Active Directory administrator.
+        Server administrator associated to a Microsoft Entra principal.
 
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
 
@@ -143,12 +143,12 @@ class Administrator(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] object_id: Guid of the objectId for the administrator.
-        :param pulumi.Input[builtins.str] principal_name: Active Directory administrator principal name.
-        :param pulumi.Input[Union[builtins.str, 'PrincipalType']] principal_type: The principal type used to represent the type of Active Directory Administrator.
+        :param pulumi.Input[builtins.str] object_id: Object identifier of the Microsoft Entra principal.
+        :param pulumi.Input[builtins.str] principal_name: Name of the Microsoft Entra principal.
+        :param pulumi.Input[Union[builtins.str, 'PrincipalType']] principal_type: The type of Microsoft Entra principal to which the server administrator is associated.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] server_name: The name of the server.
-        :param pulumi.Input[builtins.str] tenant_id: The tenantId of the Active Directory administrator.
+        :param pulumi.Input[builtins.str] tenant_id: Identifier of the tenant in which the Microsoft Entra principal exists.
         """
         ...
     @overload
@@ -157,7 +157,7 @@ class Administrator(pulumi.CustomResource):
                  args: AdministratorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Represents an Active Directory administrator.
+        Server administrator associated to a Microsoft Entra principal.
 
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
 
@@ -261,7 +261,7 @@ class Administrator(pulumi.CustomResource):
     @pulumi.getter(name="objectId")
     def object_id(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The objectId of the Active Directory administrator.
+        Object identifier of the Microsoft Entra principal.
         """
         return pulumi.get(self, "object_id")
 
@@ -269,7 +269,7 @@ class Administrator(pulumi.CustomResource):
     @pulumi.getter(name="principalName")
     def principal_name(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Active Directory administrator principal name.
+        Name of the Microsoft Entra principal.
         """
         return pulumi.get(self, "principal_name")
 
@@ -277,7 +277,7 @@ class Administrator(pulumi.CustomResource):
     @pulumi.getter(name="principalType")
     def principal_type(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The principal type used to represent the type of Active Directory Administrator.
+        Type of Microsoft Entra principal to which the server administrator is associated.
         """
         return pulumi.get(self, "principal_type")
 
@@ -293,7 +293,7 @@ class Administrator(pulumi.CustomResource):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The tenantId of the Active Directory administrator.
+        Identifier of the tenant in which the Microsoft Entra principal exists.
         """
         return pulumi.get(self, "tenant_id")
 

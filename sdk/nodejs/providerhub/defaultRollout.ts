@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Default rollout definition.
  *
  * Uses Azure REST API version 2021-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
+ *
+ * Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class DefaultRollout extends pulumi.CustomResource {
     /**
@@ -89,7 +91,7 @@ export class DefaultRollout extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:providerhub/v20201120:DefaultRollout" }, { type: "azure-native:providerhub/v20210501preview:DefaultRollout" }, { type: "azure-native:providerhub/v20210601preview:DefaultRollout" }, { type: "azure-native:providerhub/v20210901preview:DefaultRollout" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:providerhub/v20201120:DefaultRollout" }, { type: "azure-native:providerhub/v20210501preview:DefaultRollout" }, { type: "azure-native:providerhub/v20210601preview:DefaultRollout" }, { type: "azure-native:providerhub/v20210901preview:DefaultRollout" }, { type: "azure-native:providerhub/v20240901:DefaultRollout" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DefaultRollout.__pulumiType, name, resourceInputs, opts);
     }

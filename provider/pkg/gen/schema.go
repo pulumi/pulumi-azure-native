@@ -1458,7 +1458,7 @@ func (m *moduleGenerator) escapeCSharpNames(typeName string, resourceResponse *p
 func normalizeParamPattern(param *openapi.Parameter) string {
 	// #3560: the regex has the wrong max length in the spec.
 	// See portal/resource-manager/Microsoft.Portal/preview/2022-12-01-preview/portal.json#L185-L192
-	if param.Name == "dashboardName" && *param.MaxLength > 24 && param.Pattern == "^[a-zA-Z0-9-]{3,24}$" {
+	if param.Name == "dashboardName" && (param.MaxLength != nil && *param.MaxLength > 24) && param.Pattern == "^[a-zA-Z0-9-]{3,24}$" {
 		return fmt.Sprintf("^[a-zA-Z0-9-]{3,%d}$", *param.MaxLength)
 	}
 	return param.Pattern

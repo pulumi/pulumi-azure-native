@@ -2,6 +2,9 @@
   "AzureData": [
     "2019-07-24-preview"
   ],
+  "CloudHealth": [
+    "2025-05-01-preview"
+  ],
   "Cloudngfw": [
     "2025-02-06-preview"
   ],
@@ -62,12 +65,6 @@
   "ManufacturingPlatform": [
     "2025-03-01"
   ],
-  "Media": [
-    "2015-10-01",
-    "2022-07-01",
-    "2022-11-01",
-    "2023-01-01"
-  ],
   "PortalServices": [
     "2024-04-01"
   ],
@@ -97,6 +94,9 @@
   ],
   "VideoAnalyzer": [
     "2021-11-01-preview"
+  ],
+  "Widget": [
+    "2021-11-01"
   ],
   "WindowsESU": [
     "2019-09-16-preview"

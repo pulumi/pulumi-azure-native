@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
- * Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native domainregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native domainregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Domain extends pulumi.CustomResource {
     /**
@@ -205,7 +205,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:domainregistration/v20150401:Domain" }, { type: "azure-native:domainregistration/v20180201:Domain" }, { type: "azure-native:domainregistration/v20190801:Domain" }, { type: "azure-native:domainregistration/v20200601:Domain" }, { type: "azure-native:domainregistration/v20200901:Domain" }, { type: "azure-native:domainregistration/v20201001:Domain" }, { type: "azure-native:domainregistration/v20201201:Domain" }, { type: "azure-native:domainregistration/v20210101:Domain" }, { type: "azure-native:domainregistration/v20210115:Domain" }, { type: "azure-native:domainregistration/v20210201:Domain" }, { type: "azure-native:domainregistration/v20210301:Domain" }, { type: "azure-native:domainregistration/v20220301:Domain" }, { type: "azure-native:domainregistration/v20220901:Domain" }, { type: "azure-native:domainregistration/v20230101:Domain" }, { type: "azure-native:domainregistration/v20231201:Domain" }, { type: "azure-native:domainregistration/v20240401:Domain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:domainregistration/v20150401:Domain" }, { type: "azure-native:domainregistration/v20180201:Domain" }, { type: "azure-native:domainregistration/v20190801:Domain" }, { type: "azure-native:domainregistration/v20200601:Domain" }, { type: "azure-native:domainregistration/v20200901:Domain" }, { type: "azure-native:domainregistration/v20201001:Domain" }, { type: "azure-native:domainregistration/v20201201:Domain" }, { type: "azure-native:domainregistration/v20210101:Domain" }, { type: "azure-native:domainregistration/v20210115:Domain" }, { type: "azure-native:domainregistration/v20210201:Domain" }, { type: "azure-native:domainregistration/v20210301:Domain" }, { type: "azure-native:domainregistration/v20220301:Domain" }, { type: "azure-native:domainregistration/v20220901:Domain" }, { type: "azure-native:domainregistration/v20230101:Domain" }, { type: "azure-native:domainregistration/v20231201:Domain" }, { type: "azure-native:domainregistration/v20240401:Domain" }, { type: "azure-native:domainregistration/v20241101:Domain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Domain.__pulumiType, name, resourceInputs, opts);
     }

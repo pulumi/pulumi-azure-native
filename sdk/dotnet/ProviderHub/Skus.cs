@@ -11,6 +11,8 @@ namespace Pulumi.AzureNative.ProviderHub
 {
     /// <summary>
     /// Uses Azure REST API version 2021-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
+    /// 
+    /// Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:providerhub:Skus")]
     public partial class Skus : global::Pulumi.CustomResource
@@ -71,6 +73,7 @@ namespace Pulumi.AzureNative.ProviderHub
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:Skus" },
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:Skus" },
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:Skus" },
+                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20240901:Skus" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

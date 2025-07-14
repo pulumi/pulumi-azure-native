@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.ConnectedCache.Outputs
         /// </summary>
         public readonly int AddressSpace;
         /// <summary>
-        /// Customer requested day of week for mcc install of auto update cycle
+        /// Customer requested day of week for mcc install of auto update cycle. 0 is default no selection. 1-7 are days of week, 1 is Sunday, 2 is Monday, etc.
         /// </summary>
         public readonly int? AutoUpdateRequestedDay;
         /// <summary>
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.ConnectedCache.Outputs
         /// </summary>
         public readonly string? AutoUpdateRequestedTime;
         /// <summary>
-        /// Customer requested week of month for mcc install of auto update cycle
+        /// Customer requested week of month for mcc install of auto update cycle. 0 is default no selection. 1-5 are valid weeks of month, 1 is first week, 2 is second week, etc.
         /// </summary>
         public readonly int? AutoUpdateRequestedWeek;
         /// <summary>

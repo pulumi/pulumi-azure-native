@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Uses Azure REST API version 2025-01-01-preview.
  *
- * Other available API versions: 2024-07-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getConnectionRaiBlocklist(args: GetConnectionRaiBlocklistArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionRaiBlocklistResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -70,7 +70,7 @@ export interface GetConnectionRaiBlocklistResult {
 /**
  * Uses Azure REST API version 2025-01-01-preview.
  *
- * Other available API versions: 2024-07-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getConnectionRaiBlocklistOutput(args: GetConnectionRaiBlocklistOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectionRaiBlocklistResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

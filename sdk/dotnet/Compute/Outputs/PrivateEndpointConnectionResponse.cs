@@ -17,11 +17,11 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class PrivateEndpointConnectionResponse
     {
         /// <summary>
-        /// private endpoint connection Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// private endpoint connection name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -37,7 +37,11 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// private endpoint connection type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -53,6 +57,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
@@ -60,6 +66,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

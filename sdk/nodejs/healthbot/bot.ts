@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
  *
- * Other available API versions: 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthbot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-05-01, 2025-05-25. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthbot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Bot extends pulumi.CustomResource {
     /**
@@ -118,7 +118,7 @@ export class Bot extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthbot/v20201020:Bot" }, { type: "azure-native:healthbot/v20201020preview:Bot" }, { type: "azure-native:healthbot/v20201208:Bot" }, { type: "azure-native:healthbot/v20201208preview:Bot" }, { type: "azure-native:healthbot/v20210610:Bot" }, { type: "azure-native:healthbot/v20210824:Bot" }, { type: "azure-native:healthbot/v20220808:Bot" }, { type: "azure-native:healthbot/v20230501:Bot" }, { type: "azure-native:healthbot/v20240201:Bot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthbot/v20201020:Bot" }, { type: "azure-native:healthbot/v20201020preview:Bot" }, { type: "azure-native:healthbot/v20201208:Bot" }, { type: "azure-native:healthbot/v20201208preview:Bot" }, { type: "azure-native:healthbot/v20210610:Bot" }, { type: "azure-native:healthbot/v20210824:Bot" }, { type: "azure-native:healthbot/v20220808:Bot" }, { type: "azure-native:healthbot/v20230501:Bot" }, { type: "azure-native:healthbot/v20240201:Bot" }, { type: "azure-native:healthbot/v20250525:Bot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Bot.__pulumiType, name, resourceInputs, opts);
     }

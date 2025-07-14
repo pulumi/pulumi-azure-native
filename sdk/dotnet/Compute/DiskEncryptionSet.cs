@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute
     /// 
     /// Uses Azure REST API version 2024-03-02. In version 2.x of the Azure Native provider, it used API version 2022-07-02.
     /// 
-    /// Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:DiskEncryptionSet")]
     public partial class DiskEncryptionSet : global::Pulumi.CustomResource
@@ -62,13 +62,13 @@ namespace Pulumi.AzureNative.Compute
         public Output<string> LastKeyRotationTimestamp { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -92,13 +92,19 @@ namespace Pulumi.AzureNative.Compute
         public Output<bool?> RotationToLatestKeyVersionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -143,6 +149,7 @@ namespace Pulumi.AzureNative.Compute
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230402:DiskEncryptionSet" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20231002:DiskEncryptionSet" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240302:DiskEncryptionSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20250102:DiskEncryptionSet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -197,13 +204,13 @@ namespace Pulumi.AzureNative.Compute
         public Input<Inputs.EncryptionSetIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -218,7 +225,7 @@ namespace Pulumi.AzureNative.Compute
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

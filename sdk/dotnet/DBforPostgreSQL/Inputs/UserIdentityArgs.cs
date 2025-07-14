@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
 {
 
     /// <summary>
-    /// Describes a single user-assigned identity associated with the application.
+    /// User assigned managed identity associated with a flexible server.
     /// </summary>
     public sealed class UserIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// the client identifier of the Service Principal which this identity represents.
+        /// Identifier of the client of the service principal associated to the user assigned managed identity.
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
         /// <summary>
-        /// the object identifier of the Service Principal which this identity represents.
+        /// Identifier of the object of the service principal associated to the user assigned managed identity.
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }

@@ -21,6 +21,12 @@ __all__ = [
     'AdministratorPropertiesArgsDict',
     'ComputePropertiesArgs',
     'ComputePropertiesArgsDict',
+    'DatabaseRoleArgs',
+    'DatabaseRoleArgsDict',
+    'EntraIdentityProviderPropertiesArgs',
+    'EntraIdentityProviderPropertiesArgsDict',
+    'EntraIdentityProviderArgs',
+    'EntraIdentityProviderArgsDict',
     'FirewallRulePropertiesArgs',
     'FirewallRulePropertiesArgsDict',
     'HighAvailabilityPropertiesArgs',
@@ -39,6 +45,8 @@ __all__ = [
     'ShardingPropertiesArgsDict',
     'StoragePropertiesArgs',
     'StoragePropertiesArgsDict',
+    'UserPropertiesArgs',
+    'UserPropertiesArgsDict',
 ]
 
 MYPY = False
@@ -133,6 +141,152 @@ class ComputePropertiesArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "tier", value)
+
+
+if not MYPY:
+    class DatabaseRoleArgsDict(TypedDict):
+        """
+        Database role definition that is assigned to a user.
+        """
+        db: pulumi.Input[builtins.str]
+        """
+        Database scope that the role is assigned to.
+        """
+        role: pulumi.Input[Union[builtins.str, 'UserRole']]
+        """
+        The role that is assigned to the user on the database scope.
+        """
+elif False:
+    DatabaseRoleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DatabaseRoleArgs:
+    def __init__(__self__, *,
+                 db: pulumi.Input[builtins.str],
+                 role: pulumi.Input[Union[builtins.str, 'UserRole']]):
+        """
+        Database role definition that is assigned to a user.
+        :param pulumi.Input[builtins.str] db: Database scope that the role is assigned to.
+        :param pulumi.Input[Union[builtins.str, 'UserRole']] role: The role that is assigned to the user on the database scope.
+        """
+        pulumi.set(__self__, "db", db)
+        pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter
+    def db(self) -> pulumi.Input[builtins.str]:
+        """
+        Database scope that the role is assigned to.
+        """
+        return pulumi.get(self, "db")
+
+    @db.setter
+    def db(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "db", value)
+
+    @property
+    @pulumi.getter
+    def role(self) -> pulumi.Input[Union[builtins.str, 'UserRole']]:
+        """
+        The role that is assigned to the user on the database scope.
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: pulumi.Input[Union[builtins.str, 'UserRole']]):
+        pulumi.set(self, "role", value)
+
+
+if not MYPY:
+    class EntraIdentityProviderPropertiesArgsDict(TypedDict):
+        """
+        Microsoft Entra ID provider properties.
+        """
+        principal_type: pulumi.Input[Union[builtins.str, 'EntraPrincipalType']]
+        """
+        The principal type of the user.
+        """
+elif False:
+    EntraIdentityProviderPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EntraIdentityProviderPropertiesArgs:
+    def __init__(__self__, *,
+                 principal_type: pulumi.Input[Union[builtins.str, 'EntraPrincipalType']]):
+        """
+        Microsoft Entra ID provider properties.
+        :param pulumi.Input[Union[builtins.str, 'EntraPrincipalType']] principal_type: The principal type of the user.
+        """
+        pulumi.set(__self__, "principal_type", principal_type)
+
+    @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> pulumi.Input[Union[builtins.str, 'EntraPrincipalType']]:
+        """
+        The principal type of the user.
+        """
+        return pulumi.get(self, "principal_type")
+
+    @principal_type.setter
+    def principal_type(self, value: pulumi.Input[Union[builtins.str, 'EntraPrincipalType']]):
+        pulumi.set(self, "principal_type", value)
+
+
+if not MYPY:
+    class EntraIdentityProviderArgsDict(TypedDict):
+        """
+        Defines a Microsoft Entra ID Mongo user.
+        """
+        properties: pulumi.Input['EntraIdentityProviderPropertiesArgsDict']
+        """
+        The Entra identity properties for the user.
+        """
+        type: pulumi.Input[builtins.str]
+        """
+        Identity provider types that a a user identity can belong to.
+        Expected value is 'MicrosoftEntraID'.
+        """
+elif False:
+    EntraIdentityProviderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EntraIdentityProviderArgs:
+    def __init__(__self__, *,
+                 properties: pulumi.Input['EntraIdentityProviderPropertiesArgs'],
+                 type: pulumi.Input[builtins.str]):
+        """
+        Defines a Microsoft Entra ID Mongo user.
+        :param pulumi.Input['EntraIdentityProviderPropertiesArgs'] properties: The Entra identity properties for the user.
+        :param pulumi.Input[builtins.str] type: Identity provider types that a a user identity can belong to.
+               Expected value is 'MicrosoftEntraID'.
+        """
+        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "type", 'MicrosoftEntraID')
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['EntraIdentityProviderPropertiesArgs']:
+        """
+        The Entra identity properties for the user.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['EntraIdentityProviderPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[builtins.str]:
+        """
+        Identity provider types that a a user identity can belong to.
+        Expected value is 'MicrosoftEntraID'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "type", value)
 
 
 if not MYPY:
@@ -752,5 +906,61 @@ class StoragePropertiesArgs:
     @size_gb.setter
     def size_gb(self, value: Optional[pulumi.Input[builtins.float]]):
         pulumi.set(self, "size_gb", value)
+
+
+if not MYPY:
+    class UserPropertiesArgsDict(TypedDict):
+        """
+        Definition of Mongo user resource on a cluster.
+        """
+        identity_provider: NotRequired[pulumi.Input['EntraIdentityProviderArgsDict']]
+        """
+        The user's identity provider definition.
+        """
+        roles: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatabaseRoleArgsDict']]]]
+        """
+        Database roles that are assigned to the user.
+        """
+elif False:
+    UserPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserPropertiesArgs:
+    def __init__(__self__, *,
+                 identity_provider: Optional[pulumi.Input['EntraIdentityProviderArgs']] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseRoleArgs']]]] = None):
+        """
+        Definition of Mongo user resource on a cluster.
+        :param pulumi.Input['EntraIdentityProviderArgs'] identity_provider: The user's identity provider definition.
+        :param pulumi.Input[Sequence[pulumi.Input['DatabaseRoleArgs']]] roles: Database roles that are assigned to the user.
+        """
+        if identity_provider is not None:
+            pulumi.set(__self__, "identity_provider", identity_provider)
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+
+    @property
+    @pulumi.getter(name="identityProvider")
+    def identity_provider(self) -> Optional[pulumi.Input['EntraIdentityProviderArgs']]:
+        """
+        The user's identity provider definition.
+        """
+        return pulumi.get(self, "identity_provider")
+
+    @identity_provider.setter
+    def identity_provider(self, value: Optional[pulumi.Input['EntraIdentityProviderArgs']]):
+        pulumi.set(self, "identity_provider", value)
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseRoleArgs']]]]:
+        """
+        Database roles that are assigned to the user.
+        """
+        return pulumi.get(self, "roles")
+
+    @roles.setter
+    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseRoleArgs']]]]):
+        pulumi.set(self, "roles", value)
 
 

@@ -11,24 +11,24 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
 {
 
     /// <summary>
-    /// Network properties of a server.
+    /// Network properties of a flexible server.
     /// </summary>
     public sealed class NetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Delegated subnet arm resource id. This is required to be passed during create, in case we want the server to be VNET injected, i.e. Private access server. During update, pass this only if we want to update the value for Private DNS zone.
+        /// Resource identifier of the delegated subnet. Required during creation of a new server, in case you want the server to be integrated into your own virtual network. For an update operation, you only have to provide this property if you want to change the value assigned for the private DNS zone.
         /// </summary>
         [Input("delegatedSubnetResourceId")]
         public Input<string>? DelegatedSubnetResourceId { get; set; }
 
         /// <summary>
-        /// Private dns zone arm resource id. This is required to be passed during create, in case we want the server to be VNET injected, i.e. Private access server. During update, pass this only if we want to update the value for Private DNS zone.
+        /// Identifier of the private DNS zone. Required during creation of a new server, in case you want the server to be integrated into your own virtual network. For an update operation, you only have to provide this property if you want to change the value assigned for the private DNS zone.
         /// </summary>
         [Input("privateDnsZoneArmResourceId")]
         public Input<string>? PrivateDnsZoneArmResourceId { get; set; }
 
         /// <summary>
-        /// public network access is enabled or not
+        /// Indicates if public network access is enabled or not.
         /// </summary>
         [Input("publicNetworkAccess")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.ServerPublicNetworkAccessState>? PublicNetworkAccess { get; set; }

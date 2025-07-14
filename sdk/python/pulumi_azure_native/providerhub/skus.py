@@ -100,6 +100,8 @@ class Skus(pulumi.CustomResource):
         """
         Uses Azure REST API version 2021-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
 
+        Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] provider_namespace: The name of the resource provider hosted within ProviderHub.
@@ -114,6 +116,8 @@ class Skus(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Uses Azure REST API version 2021-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
+
+        Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param SkusArgs args: The arguments to use to populate this resource's properties.
@@ -155,7 +159,7 @@ class Skus(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:providerhub/v20201120:Skus"), pulumi.Alias(type_="azure-native:providerhub/v20210501preview:Skus"), pulumi.Alias(type_="azure-native:providerhub/v20210601preview:Skus"), pulumi.Alias(type_="azure-native:providerhub/v20210901preview:Skus")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:providerhub/v20201120:Skus"), pulumi.Alias(type_="azure-native:providerhub/v20210501preview:Skus"), pulumi.Alias(type_="azure-native:providerhub/v20210601preview:Skus"), pulumi.Alias(type_="azure-native:providerhub/v20210901preview:Skus"), pulumi.Alias(type_="azure-native:providerhub/v20240901:Skus")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Skus, __self__).__init__(
             'azure-native:providerhub:Skus',

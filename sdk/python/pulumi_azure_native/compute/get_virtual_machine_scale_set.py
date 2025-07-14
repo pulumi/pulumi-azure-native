@@ -28,7 +28,7 @@ class GetVirtualMachineScaleSetResult:
     """
     Describes a Virtual Machine Scale Set.
     """
-    def __init__(__self__, additional_capabilities=None, automatic_repairs_policy=None, azure_api_version=None, constrained_maximum_capacity=None, do_not_run_extensions_on_overprovisioned_vms=None, etag=None, extended_location=None, host_group=None, id=None, identity=None, location=None, name=None, orchestration_mode=None, overprovision=None, plan=None, platform_fault_domain_count=None, priority_mix_policy=None, provisioning_state=None, proximity_placement_group=None, resiliency_policy=None, scale_in_policy=None, scheduled_events_policy=None, single_placement_group=None, sku=None, sku_profile=None, spot_restore_policy=None, tags=None, time_created=None, type=None, unique_id=None, upgrade_policy=None, virtual_machine_profile=None, zonal_platform_fault_domain_align_mode=None, zone_balance=None, zones=None):
+    def __init__(__self__, additional_capabilities=None, automatic_repairs_policy=None, azure_api_version=None, constrained_maximum_capacity=None, do_not_run_extensions_on_overprovisioned_vms=None, etag=None, extended_location=None, host_group=None, id=None, identity=None, location=None, name=None, orchestration_mode=None, overprovision=None, plan=None, platform_fault_domain_count=None, priority_mix_policy=None, provisioning_state=None, proximity_placement_group=None, resiliency_policy=None, scale_in_policy=None, scheduled_events_policy=None, single_placement_group=None, sku=None, sku_profile=None, spot_restore_policy=None, system_data=None, tags=None, time_created=None, type=None, unique_id=None, upgrade_policy=None, virtual_machine_profile=None, zonal_platform_fault_domain_align_mode=None, zone_balance=None, zones=None):
         if additional_capabilities and not isinstance(additional_capabilities, dict):
             raise TypeError("Expected argument 'additional_capabilities' to be a dict")
         pulumi.set(__self__, "additional_capabilities", additional_capabilities)
@@ -107,6 +107,9 @@ class GetVirtualMachineScaleSetResult:
         if spot_restore_policy and not isinstance(spot_restore_policy, dict):
             raise TypeError("Expected argument 'spot_restore_policy' to be a dict")
         pulumi.set(__self__, "spot_restore_policy", spot_restore_policy)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -203,7 +206,7 @@ class GetVirtualMachineScaleSetResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -219,7 +222,7 @@ class GetVirtualMachineScaleSetResult:
     @pulumi.getter
     def location(self) -> builtins.str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -227,7 +230,7 @@ class GetVirtualMachineScaleSetResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -344,10 +347,18 @@ class GetVirtualMachineScaleSetResult:
         return pulumi.get(self, "spot_restore_policy")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -363,7 +374,7 @@ class GetVirtualMachineScaleSetResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -411,7 +422,7 @@ class GetVirtualMachineScaleSetResult:
     @pulumi.getter
     def zones(self) -> Optional[Sequence[builtins.str]]:
         """
-        The virtual machine scale set zones.
+        The availability zones.
         """
         return pulumi.get(self, "zones")
 
@@ -448,6 +459,7 @@ class AwaitableGetVirtualMachineScaleSetResult(GetVirtualMachineScaleSetResult):
             sku=self.sku,
             sku_profile=self.sku_profile,
             spot_restore_policy=self.spot_restore_policy,
+            system_data=self.system_data,
             tags=self.tags,
             time_created=self.time_created,
             type=self.type,
@@ -472,7 +484,7 @@ def get_virtual_machine_scale_set(expand: Optional[builtins.str] = None,
 
 
     :param builtins.str expand: The expand expression to apply on the operation. 'UserData' retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str vm_scale_set_name: The name of the VM scale set.
     """
     __args__ = dict()
@@ -509,6 +521,7 @@ def get_virtual_machine_scale_set(expand: Optional[builtins.str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         sku_profile=pulumi.get(__ret__, 'sku_profile'),
         spot_restore_policy=pulumi.get(__ret__, 'spot_restore_policy'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         time_created=pulumi.get(__ret__, 'time_created'),
         type=pulumi.get(__ret__, 'type'),
@@ -531,7 +544,7 @@ def get_virtual_machine_scale_set_output(expand: Optional[pulumi.Input[Optional[
 
 
     :param builtins.str expand: The expand expression to apply on the operation. 'UserData' retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str vm_scale_set_name: The name of the VM scale set.
     """
     __args__ = dict()
@@ -567,6 +580,7 @@ def get_virtual_machine_scale_set_output(expand: Optional[pulumi.Input[Optional[
         sku=pulumi.get(__response__, 'sku'),
         sku_profile=pulumi.get(__response__, 'sku_profile'),
         spot_restore_policy=pulumi.get(__response__, 'spot_restore_policy'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         time_created=pulumi.get(__response__, 'time_created'),
         type=pulumi.get(__response__, 'type'),

@@ -11,21 +11,21 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     /// <summary>
-    /// Replica properties of a server
+    /// Replica properties of a flexible server.
     /// </summary>
     [OutputType]
     public sealed class ReplicaResponse
     {
         /// <summary>
-        /// Replicas allowed for a server.
+        /// Maximum number of read replicas allowed for a flexible server.
         /// </summary>
         public readonly int Capacity;
         /// <summary>
-        /// Gets the replication state of a replica server. This property is returned only for replicas api call. Supported values are Active, Catchup, Provisioning, Updating, Broken, Reconfiguring
+        /// Indicates the replication state of a read replica. This property is returned only when the target flexible server is a read replica. Possible  values are Active, Broken, Catchup, Provisioning, Reconfiguring, and Updating
         /// </summary>
         public readonly string ReplicationState;
         /// <summary>
-        /// Used to indicate role of the server in replication set.
+        /// Role of the server in a replication set.
         /// </summary>
         public readonly string? Role;
 

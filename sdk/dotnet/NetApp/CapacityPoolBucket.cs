@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.NetApp
     /// Bucket resource
     /// 
     /// Uses Azure REST API version 2025-01-01-preview.
+    /// 
+    /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:CapacityPoolBucket")]
     public partial class CapacityPoolBucket : global::Pulumi.CustomResource
@@ -101,6 +103,7 @@ namespace Pulumi.AzureNative.NetApp
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20250101preview:CapacityPoolBucket" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20250301preview:CapacityPoolBucket" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

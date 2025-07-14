@@ -52,19 +52,19 @@ namespace Pulumi.AzureNative.Compute
         public string? Expand { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the virtual machine run command.
+        /// The name of the VirtualMachineRunCommand
         /// </summary>
         [Input("runCommandName", required: true)]
         public string RunCommandName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the virtual machine containing the run command.
+        /// The name of the VirtualMachine
         /// </summary>
         [Input("vmName", required: true)]
         public string VmName { get; set; } = null!;
@@ -84,19 +84,19 @@ namespace Pulumi.AzureNative.Compute
         public Input<string>? Expand { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the virtual machine run command.
+        /// The name of the VirtualMachineRunCommand
         /// </summary>
         [Input("runCommandName", required: true)]
         public Input<string> RunCommandName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the virtual machine containing the run command.
+        /// The name of the VirtualMachine
         /// </summary>
         [Input("vmName", required: true)]
         public Input<string> VmName { get; set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// User-assigned managed identity that has access to errorBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
+        /// User-assigned managed identity that has access to errorBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged
         /// </summary>
         public readonly Outputs.RunCommandManagedIdentityResponse? ErrorBlobManagedIdentity;
         /// <summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly string? ErrorBlobUri;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -136,19 +136,19 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.VirtualMachineRunCommandInstanceViewResponse InstanceView;
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// User-assigned managed identity that has access to outputBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
+        /// User-assigned managed identity that has access to outputBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged
         /// </summary>
         public readonly Outputs.RunCommandManagedIdentityResponse? OutputBlobManagedIdentity;
         /// <summary>
-        /// Specifies the Azure storage blob where script output stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer outputBlobManagedIdentity parameter. 
+        /// Specifies the Azure storage blob where script output stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer outputBlobManagedIdentity parameter.
         /// </summary>
         public readonly string? OutputBlobUri;
         /// <summary>
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly ImmutableArray<Outputs.RunCommandInputParameterResponse> ProtectedParameters;
         /// <summary>
-        /// The provisioning state, which only appears in the response. If treatFailureAsDeploymentFailure set to true, any failure in the script will fail the deployment and ProvisioningState will be marked as Failed. If treatFailureAsDeploymentFailure set to false, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. See instance view of run command in case of script failures to see executionMessage, output, error: https://aka.ms/runcommandmanaged#get-execution-status-and-results 
+        /// The provisioning state, which only appears in the response. If treatFailureAsDeploymentFailure set to true, any failure in the script will fail the deployment and ProvisioningState will be marked as Failed. If treatFailureAsDeploymentFailure set to false, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. See instance view of run command in case of script failures to see executionMessage, output, error: https://aka.ms/runcommandmanaged#get-execution-status-and-results
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -176,7 +176,11 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.VirtualMachineRunCommandScriptSourceResponse? Source;
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -184,11 +188,11 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly int? TimeoutInSeconds;
         /// <summary>
-        /// Optional. If set to true, any failure in the script will fail the deployment and ProvisioningState will be marked as Failed. If set to false, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. See instance view of run command in case of script failures to see executionMessage, output, error: https://aka.ms/runcommandmanaged#get-execution-status-and-results 
+        /// Optional. If set to true, any failure in the script will fail the deployment and ProvisioningState will be marked as Failed. If set to false, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. See instance view of run command in case of script failures to see executionMessage, output, error: https://aka.ms/runcommandmanaged#get-execution-status-and-results
         /// </summary>
         public readonly bool? TreatFailureAsDeploymentFailure;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -226,6 +230,8 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.VirtualMachineRunCommandScriptSourceResponse? source,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             int? timeoutInSeconds,
@@ -250,6 +256,7 @@ namespace Pulumi.AzureNative.Compute
             RunAsPassword = runAsPassword;
             RunAsUser = runAsUser;
             Source = source;
+            SystemData = systemData;
             Tags = tags;
             TimeoutInSeconds = timeoutInSeconds;
             TreatFailureAsDeploymentFailure = treatFailureAsDeploymentFailure;

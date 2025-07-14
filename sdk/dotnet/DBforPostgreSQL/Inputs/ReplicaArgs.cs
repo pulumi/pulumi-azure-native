@@ -11,24 +11,24 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
 {
 
     /// <summary>
-    /// Replica properties of a server
+    /// Replica properties of a flexible server.
     /// </summary>
     public sealed class ReplicaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Sets the promote mode for a replica server. This is a write only property.
+        /// Type of operation to apply on the read replica. This property is write only. Standalone means that the read replica will be promoted to a standalone server, and will become a completely independent entity from the replication set. Switchover means that the read replica will roles with the primary server.
         /// </summary>
         [Input("promoteMode")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.ReadReplicaPromoteMode>? PromoteMode { get; set; }
 
         /// <summary>
-        /// Sets the promote options for a replica server. This is a write only property.
+        /// Data synchronization option to use when processing the operation specified in the promoteMode property This property is write only. Planned means that the operation will wait for data in the read replica to be fully synchronized with its source server before it initiates the operation. Forced means that the operation will not wait for data in the read replica to be synchronized with its source server before it initiates the operation.
         /// </summary>
         [Input("promoteOption")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.ReplicationPromoteOption>? PromoteOption { get; set; }
 
         /// <summary>
-        /// Used to indicate role of the server in replication set.
+        /// Role of the server in a replication set.
         /// </summary>
         [Input("role")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.ReplicationRole>? Role { get; set; }

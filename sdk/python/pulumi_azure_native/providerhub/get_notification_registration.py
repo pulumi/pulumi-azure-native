@@ -116,6 +116,8 @@ def get_notification_registration(notification_registration_name: Optional[built
 
     Uses Azure REST API version 2021-09-01-preview.
 
+    Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str notification_registration_name: The notification registration.
     :param builtins.str provider_namespace: The name of the resource provider hosted within ProviderHub.
@@ -140,6 +142,8 @@ def get_notification_registration_output(notification_registration_name: Optiona
     Gets the notification registration details.
 
     Uses Azure REST API version 2021-09-01-preview.
+
+    Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str notification_registration_name: The notification registration.

@@ -45,11 +45,11 @@ class GalleryImageArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a GalleryImage resource.
-        :param pulumi.Input[builtins.str] gallery_name: The name of the Shared Image Gallery in which the Image Definition is to be created.
+        :param pulumi.Input[builtins.str] gallery_name: The name of the Shared Image Gallery.
         :param pulumi.Input['GalleryImageIdentifierArgs'] identifier: This is the gallery image definition identifier.
         :param pulumi.Input['OperatingSystemStateTypes'] os_state: This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
         :param pulumi.Input['OperatingSystemTypes'] os_type: This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. Possible values are: **Windows,** **Linux.**
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.bool] allow_update_image: Optional. Must be set to true if the gallery image features are being updated.
         :param pulumi.Input[Union[builtins.str, 'Architecture']] architecture: The architecture of the image. Applicable to OS disks only.
         :param pulumi.Input[builtins.str] description: The description of this gallery image definition resource. This property is updatable.
@@ -57,14 +57,14 @@ class GalleryImageArgs:
         :param pulumi.Input[builtins.str] end_of_life_date: The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
         :param pulumi.Input[builtins.str] eula: The Eula agreement for the gallery image definition.
         :param pulumi.Input[Sequence[pulumi.Input['GalleryImageFeatureArgs']]] features: A list of gallery image features.
-        :param pulumi.Input[builtins.str] gallery_image_name: The name of the gallery image definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
+        :param pulumi.Input[builtins.str] gallery_image_name: The name of the gallery image definition to be retrieved.
         :param pulumi.Input[Union[builtins.str, 'HyperVGeneration']] hyper_v_generation: The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.str] privacy_statement_uri: The privacy statement uri.
         :param pulumi.Input['ImagePurchasePlanArgs'] purchase_plan: Describes the gallery image definition purchase plan. This is used by marketplace images.
         :param pulumi.Input['RecommendedMachineConfigurationArgs'] recommended: The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
         :param pulumi.Input[builtins.str] release_note_uri: The release note uri.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "gallery_name", gallery_name)
         pulumi.set(__self__, "identifier", identifier)
@@ -106,7 +106,7 @@ class GalleryImageArgs:
     @pulumi.getter(name="galleryName")
     def gallery_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the Shared Image Gallery in which the Image Definition is to be created.
+        The name of the Shared Image Gallery.
         """
         return pulumi.get(self, "gallery_name")
 
@@ -154,7 +154,7 @@ class GalleryImageArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -250,7 +250,7 @@ class GalleryImageArgs:
     @pulumi.getter(name="galleryImageName")
     def gallery_image_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the gallery image definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
+        The name of the gallery image definition to be retrieved.
         """
         return pulumi.get(self, "gallery_image_name")
 
@@ -274,7 +274,7 @@ class GalleryImageArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -334,7 +334,7 @@ class GalleryImageArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -386,19 +386,19 @@ class GalleryImage(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] end_of_life_date: The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
         :param pulumi.Input[builtins.str] eula: The Eula agreement for the gallery image definition.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GalleryImageFeatureArgs', 'GalleryImageFeatureArgsDict']]]] features: A list of gallery image features.
-        :param pulumi.Input[builtins.str] gallery_image_name: The name of the gallery image definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
-        :param pulumi.Input[builtins.str] gallery_name: The name of the Shared Image Gallery in which the Image Definition is to be created.
+        :param pulumi.Input[builtins.str] gallery_image_name: The name of the gallery image definition to be retrieved.
+        :param pulumi.Input[builtins.str] gallery_name: The name of the Shared Image Gallery.
         :param pulumi.Input[Union[builtins.str, 'HyperVGeneration']] hyper_v_generation: The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         :param pulumi.Input[Union['GalleryImageIdentifierArgs', 'GalleryImageIdentifierArgsDict']] identifier: This is the gallery image definition identifier.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['OperatingSystemStateTypes'] os_state: This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
         :param pulumi.Input['OperatingSystemTypes'] os_type: This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. Possible values are: **Windows,** **Linux.**
         :param pulumi.Input[builtins.str] privacy_statement_uri: The privacy statement uri.
         :param pulumi.Input[Union['ImagePurchasePlanArgs', 'ImagePurchasePlanArgsDict']] purchase_plan: Describes the gallery image definition purchase plan. This is used by marketplace images.
         :param pulumi.Input[Union['RecommendedMachineConfigurationArgs', 'RecommendedMachineConfigurationArgsDict']] recommended: The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
         :param pulumi.Input[builtins.str] release_note_uri: The release note uri.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -490,6 +490,7 @@ class GalleryImage(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20180601:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20190301:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20190701:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20191201:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20200930:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20210701:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20211001:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20220103:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20220303:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20220803:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20230703:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20240303:GalleryImage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -534,6 +535,7 @@ class GalleryImage(pulumi.CustomResource):
         __props__.__dict__["purchase_plan"] = None
         __props__.__dict__["recommended"] = None
         __props__.__dict__["release_note_uri"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return GalleryImage(resource_name, opts=opts, __props__=__props__)
@@ -622,7 +624,7 @@ class GalleryImage(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -630,7 +632,7 @@ class GalleryImage(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -691,10 +693,18 @@ class GalleryImage(pulumi.CustomResource):
         return pulumi.get(self, "release_note_uri")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -702,7 +712,7 @@ class GalleryImage(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

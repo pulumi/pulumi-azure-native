@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DnsResolver
         /// 
         /// Uses Azure REST API version 2023-07-01-preview.
         /// 
-        /// Other available API versions: 2020-04-01-preview, 2022-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListDnsResolverByVirtualNetworkResult> InvokeAsync(ListDnsResolverByVirtualNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDnsResolverByVirtualNetworkResult>("azure-native:dnsresolver:listDnsResolverByVirtualNetwork", args ?? new ListDnsResolverByVirtualNetworkArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DnsResolver
         /// 
         /// Uses Azure REST API version 2023-07-01-preview.
         /// 
-        /// Other available API versions: 2020-04-01-preview, 2022-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListDnsResolverByVirtualNetworkResult> Invoke(ListDnsResolverByVirtualNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDnsResolverByVirtualNetworkResult>("azure-native:dnsresolver:listDnsResolverByVirtualNetwork", args ?? new ListDnsResolverByVirtualNetworkInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.DnsResolver
         /// 
         /// Uses Azure REST API version 2023-07-01-preview.
         /// 
-        /// Other available API versions: 2020-04-01-preview, 2022-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListDnsResolverByVirtualNetworkResult> Invoke(ListDnsResolverByVirtualNetworkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListDnsResolverByVirtualNetworkResult>("azure-native:dnsresolver:listDnsResolverByVirtualNetwork", args ?? new ListDnsResolverByVirtualNetworkInvokeArgs(), options.WithDefaults());

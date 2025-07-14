@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Gets a resource type details in the given subscription and provider.
  *
  * Uses Azure REST API version 2021-09-01-preview.
+ *
+ * Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getResourceTypeRegistration(args: GetResourceTypeRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceTypeRegistrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -58,6 +60,8 @@ export interface GetResourceTypeRegistrationResult {
  * Gets a resource type details in the given subscription and provider.
  *
  * Uses Azure REST API version 2021-09-01-preview.
+ *
+ * Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getResourceTypeRegistrationOutput(args: GetResourceTypeRegistrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceTypeRegistrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

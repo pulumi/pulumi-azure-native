@@ -140,7 +140,7 @@ class FileServiceProperties(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,7 +162,7 @@ class FileServiceProperties(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param FileServicePropertiesArgs args: The arguments to use to populate this resource's properties.
@@ -208,7 +208,7 @@ class FileServiceProperties(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["sku"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage/v20190401:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20190601:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20200801preview:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210101:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210201:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210401:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210601:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210801:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210901:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20220501:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20220901:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20230101:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20230401:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20230501:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20240101:FileServiceProperties")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage/v20190401:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20190601:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20200801preview:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210101:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210201:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210401:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210601:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210801:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210901:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20220501:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20220901:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20230101:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20230401:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20230501:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20240101:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20250101:FileServiceProperties")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FileServiceProperties, __self__).__init__(
             'azure-native:storage:FileServiceProperties',

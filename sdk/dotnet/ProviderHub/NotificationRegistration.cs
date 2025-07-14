@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.ProviderHub
     /// The notification registration definition.
     /// 
     /// Uses Azure REST API version 2021-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
+    /// 
+    /// Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:providerhub:NotificationRegistration")]
     public partial class NotificationRegistration : global::Pulumi.CustomResource
@@ -73,6 +75,7 @@ namespace Pulumi.AzureNative.ProviderHub
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:NotificationRegistration" },
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:NotificationRegistration" },
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:NotificationRegistration" },
+                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20240901:NotificationRegistration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

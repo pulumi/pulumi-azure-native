@@ -23,7 +23,7 @@ export function getGalleryInVMAccessControlProfile(args: GetGalleryInVMAccessCon
 
 export interface GetGalleryInVMAccessControlProfileArgs {
     /**
-     * The name of the Shared Image Gallery from which the InVMAccessControlProfiles are to be retrieved.
+     * The name of the Shared Image Gallery.
      */
     galleryName: string;
     /**
@@ -31,7 +31,7 @@ export interface GetGalleryInVMAccessControlProfileArgs {
      */
     inVMAccessControlProfileName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -45,15 +45,15 @@ export interface GetGalleryInVMAccessControlProfileResult {
      */
     readonly azureApiVersion: string;
     /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -61,11 +61,15 @@ export interface GetGalleryInVMAccessControlProfileResult {
      */
     readonly properties: outputs.compute.GalleryInVMAccessControlProfilePropertiesResponse;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.compute.SystemDataResponse;
+    /**
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -85,7 +89,7 @@ export function getGalleryInVMAccessControlProfileOutput(args: GetGalleryInVMAcc
 
 export interface GetGalleryInVMAccessControlProfileOutputArgs {
     /**
-     * The name of the Shared Image Gallery from which the InVMAccessControlProfiles are to be retrieved.
+     * The name of the Shared Image Gallery.
      */
     galleryName: pulumi.Input<string>;
     /**
@@ -93,7 +97,7 @@ export interface GetGalleryInVMAccessControlProfileOutputArgs {
      */
     inVMAccessControlProfileName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

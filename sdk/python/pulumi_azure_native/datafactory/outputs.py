@@ -183,6 +183,7 @@ __all__ = [
     'DataFlowStagingInfoResponse',
     'DataLakeAnalyticsUSQLActivityResponse',
     'DataMapperMappingResponse',
+    'DatabricksJobActivityResponse',
     'DatabricksNotebookActivityResponse',
     'DatabricksSparkJarActivityResponse',
     'DatabricksSparkPythonActivityResponse',
@@ -26041,6 +26042,175 @@ class DataMapperMappingResponse(dict):
 
 
 @pulumi.output_type
+class DatabricksJobActivityResponse(dict):
+    """
+    Databricks Job activity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jobId":
+            suggest = "job_id"
+        elif key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "jobParameters":
+            suggest = "job_parameters"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
+        elif key == "userProperties":
+            suggest = "user_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabricksJobActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabricksJobActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabricksJobActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 job_id: Any,
+                 name: builtins.str,
+                 type: builtins.str,
+                 depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
+                 description: Optional[builtins.str] = None,
+                 job_parameters: Optional[Mapping[str, Any]] = None,
+                 linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 on_inactive_mark_as: Optional[builtins.str] = None,
+                 policy: Optional['outputs.ActivityPolicyResponse'] = None,
+                 state: Optional[builtins.str] = None,
+                 user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
+        """
+        Databricks Job activity.
+        :param Any job_id: The Id of the Databricks Job to be executed. Type: string (or Expression with resultType string).
+        :param builtins.str name: Activity name.
+        :param builtins.str type: Type of activity.
+               Expected value is 'DatabricksJob'.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
+        :param builtins.str description: Activity description.
+        :param Mapping[str, Any] job_parameters: Job parameters to be used for each run of this job. If the job takes a parameter that is not specified, the default value from the job will be used.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param builtins.str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param builtins.str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
+        """
+        pulumi.set(__self__, "job_id", job_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", 'DatabricksJob')
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if job_parameters is not None:
+            pulumi.set(__self__, "job_parameters", job_parameters)
+        if linked_service_name is not None:
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if user_properties is not None:
+            pulumi.set(__self__, "user_properties", user_properties)
+
+    @property
+    @pulumi.getter(name="jobId")
+    def job_id(self) -> Any:
+        """
+        The Id of the Databricks Job to be executed. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "job_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        Type of activity.
+        Expected value is 'DatabricksJob'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[Sequence['outputs.ActivityDependencyResponse']]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[builtins.str]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="jobParameters")
+    def job_parameters(self) -> Optional[Mapping[str, Any]]:
+        """
+        Job parameters to be used for each run of this job. If the job takes a parameter that is not specified, the default value from the job will be used.
+        """
+        return pulumi.get(self, "job_parameters")
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> Optional['outputs.LinkedServiceReferenceResponse']:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[builtins.str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[builtins.str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="userProperties")
+    def user_properties(self) -> Optional[Sequence['outputs.UserPropertyResponse']]:
+        """
+        Activity user properties.
+        """
+        return pulumi.get(self, "user_properties")
+
+
+@pulumi.output_type
 class DatabricksNotebookActivityResponse(dict):
     """
     DatabricksNotebook activity.
@@ -33404,13 +33574,13 @@ class ExpressionV2Response(dict):
                  operands: Optional[Sequence['outputs.ExpressionV2Response']] = None,
                  operators: Optional[Sequence[builtins.str]] = None,
                  type: Optional[builtins.str] = None,
-                 value: Optional[builtins.str] = None):
+                 value: Optional[Any] = None):
         """
         Nested representation of a complex expression.
         :param Sequence['ExpressionV2Response'] operands: List of nested expressions.
         :param Sequence[builtins.str] operators: Expression operator value Type: list of strings.
         :param builtins.str type: Type of expressions supported by the system. Type: string.
-        :param builtins.str value: Value for Constant/Field Type: string.
+        :param Any value: Value for Constant/Field Type: object.
         """
         if operands is not None:
             pulumi.set(__self__, "operands", operands)
@@ -33447,9 +33617,9 @@ class ExpressionV2Response(dict):
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[builtins.str]:
+    def value(self) -> Optional[Any]:
         """
-        Value for Constant/Field Type: string.
+        Value for Constant/Field Type: object.
         """
         return pulumi.get(self, "value")
 
@@ -35290,7 +35460,7 @@ class ForEachActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         This activity is used for iterating over a collection and execute given activities.
-        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'SynapseNotebookActivityResponse', 'SynapseSparkJobDefinitionActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute .
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksJobActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'SynapseNotebookActivityResponse', 'SynapseSparkJobDefinitionActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute .
         :param 'ExpressionResponse' items: Collection to iterate.
         :param builtins.str name: Activity name.
         :param builtins.str type: Type of activity.
@@ -44232,8 +44402,8 @@ class IfConditionActivityResponse(dict):
                Expected value is 'IfCondition'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param builtins.str description: Activity description.
-        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'SynapseNotebookActivityResponse', 'SynapseSparkJobDefinitionActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] if_false_activities: List of activities to execute if expression is evaluated to false. This is an optional property and if not provided, the activity will exit without any action.
-        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'SynapseNotebookActivityResponse', 'SynapseSparkJobDefinitionActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] if_true_activities: List of activities to execute if expression is evaluated to true. This is an optional property and if not provided, the activity will exit without any action.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksJobActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'SynapseNotebookActivityResponse', 'SynapseSparkJobDefinitionActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] if_false_activities: List of activities to execute if expression is evaluated to false. This is an optional property and if not provided, the activity will exit without any action.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksJobActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'SynapseNotebookActivityResponse', 'SynapseSparkJobDefinitionActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] if_true_activities: List of activities to execute if expression is evaluated to true. This is an optional property and if not provided, the activity will exit without any action.
         :param builtins.str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param builtins.str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
@@ -63553,7 +63723,7 @@ class PurviewConfigurationResponse(dict):
 @pulumi.output_type
 class QuickBooksLinkedServiceResponse(dict):
     """
-    QuickBooks server linked service.
+    QuickBooks server linked service. This linked service has supported version property. The Version 1.0 is scheduled for deprecation while your pipeline will continue to run after EOL but without any bug fix or new features.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -63574,6 +63744,8 @@ class QuickBooksLinkedServiceResponse(dict):
             suggest = "consumer_secret"
         elif key == "encryptedCredential":
             suggest = "encrypted_credential"
+        elif key == "refreshToken":
+            suggest = "refresh_token"
         elif key == "useEncryptedEndpoints":
             suggest = "use_encrypted_endpoints"
 
@@ -63602,25 +63774,27 @@ class QuickBooksLinkedServiceResponse(dict):
                  encrypted_credential: Optional[builtins.str] = None,
                  endpoint: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 refresh_token: Optional[Any] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
                  version: Optional[builtins.str] = None):
         """
-        QuickBooks server linked service.
+        QuickBooks server linked service. This linked service has supported version property. The Version 1.0 is scheduled for deprecation while your pipeline will continue to run after EOL but without any bug fix or new features.
         :param builtins.str type: Type of linked service.
                Expected value is 'QuickBooks'.
-        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] access_token: The access token for OAuth 1.0 authentication.
-        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] access_token_secret: The access token secret for OAuth 1.0 authentication.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] access_token: The access token for OAuth 2.0 authentication.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] access_token_secret: The access token secret is deprecated for OAuth 1.0 authentication. Only used for version 1.0.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any company_id: The company ID of the QuickBooks company to authorize.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_properties: Properties used to connect to QuickBooks. It is mutually exclusive with any other properties in the linked service. Type: object.
-        :param Any consumer_key: The consumer key for OAuth 1.0 authentication.
-        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] consumer_secret: The consumer secret for OAuth 1.0 authentication.
+        :param Any consumer_key: The consumer key for OAuth 2.0 authentication.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] consumer_secret: The consumer secret for OAuth 2.0 authentication.
         :param builtins.str description: Linked service description.
         :param builtins.str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any endpoint: The endpoint of the QuickBooks server. (i.e. quickbooks.api.intuit.com)
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
-        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] refresh_token: The refresh token for OAuth 2.0 authentication.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Only used for version 1.0.
         :param builtins.str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'QuickBooks')
@@ -63648,6 +63822,8 @@ class QuickBooksLinkedServiceResponse(dict):
             pulumi.set(__self__, "endpoint", endpoint)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if refresh_token is not None:
+            pulumi.set(__self__, "refresh_token", refresh_token)
         if use_encrypted_endpoints is not None:
             pulumi.set(__self__, "use_encrypted_endpoints", use_encrypted_endpoints)
         if version is not None:
@@ -63666,7 +63842,7 @@ class QuickBooksLinkedServiceResponse(dict):
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[Any]:
         """
-        The access token for OAuth 1.0 authentication.
+        The access token for OAuth 2.0 authentication.
         """
         return pulumi.get(self, "access_token")
 
@@ -63674,7 +63850,7 @@ class QuickBooksLinkedServiceResponse(dict):
     @pulumi.getter(name="accessTokenSecret")
     def access_token_secret(self) -> Optional[Any]:
         """
-        The access token secret for OAuth 1.0 authentication.
+        The access token secret is deprecated for OAuth 1.0 authentication. Only used for version 1.0.
         """
         return pulumi.get(self, "access_token_secret")
 
@@ -63714,7 +63890,7 @@ class QuickBooksLinkedServiceResponse(dict):
     @pulumi.getter(name="consumerKey")
     def consumer_key(self) -> Optional[Any]:
         """
-        The consumer key for OAuth 1.0 authentication.
+        The consumer key for OAuth 2.0 authentication.
         """
         return pulumi.get(self, "consumer_key")
 
@@ -63722,7 +63898,7 @@ class QuickBooksLinkedServiceResponse(dict):
     @pulumi.getter(name="consumerSecret")
     def consumer_secret(self) -> Optional[Any]:
         """
-        The consumer secret for OAuth 1.0 authentication.
+        The consumer secret for OAuth 2.0 authentication.
         """
         return pulumi.get(self, "consumer_secret")
 
@@ -63759,10 +63935,18 @@ class QuickBooksLinkedServiceResponse(dict):
         return pulumi.get(self, "parameters")
 
     @property
+    @pulumi.getter(name="refreshToken")
+    def refresh_token(self) -> Optional[Any]:
+        """
+        The refresh token for OAuth 2.0 authentication.
+        """
+        return pulumi.get(self, "refresh_token")
+
+    @property
     @pulumi.getter(name="useEncryptedEndpoints")
     def use_encrypted_endpoints(self) -> Optional[Any]:
         """
-        Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Only used for version 1.0.
         """
         return pulumi.get(self, "use_encrypted_endpoints")
 
@@ -84510,7 +84694,7 @@ class SwitchActivityResponse(dict):
         :param builtins.str type: Type of activity.
                Expected value is 'Switch'.
         :param Sequence['SwitchCaseResponse'] cases: List of cases that correspond to expected values of the 'on' property. This is an optional property and if not provided, the activity will execute activities provided in defaultActivities.
-        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'SynapseNotebookActivityResponse', 'SynapseSparkJobDefinitionActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] default_activities: List of activities to execute if no case condition is satisfied. This is an optional property and if not provided, the activity will exit without any action.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksJobActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'SynapseNotebookActivityResponse', 'SynapseSparkJobDefinitionActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] default_activities: List of activities to execute if no case condition is satisfied. This is an optional property and if not provided, the activity will exit without any action.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param builtins.str description: Activity description.
         :param builtins.str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
@@ -84627,7 +84811,7 @@ class SwitchCaseResponse(dict):
                  value: Optional[builtins.str] = None):
         """
         Switch cases with have a value and corresponding activities.
-        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'SynapseNotebookActivityResponse', 'SynapseSparkJobDefinitionActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute for satisfied case condition.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksJobActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'SynapseNotebookActivityResponse', 'SynapseSparkJobDefinitionActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute for satisfied case condition.
         :param builtins.str value: Expected value that satisfies the expression result of the 'on' property.
         """
         if activities is not None:
@@ -87943,7 +88127,7 @@ class UntilActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         This activity executes inner activities until the specified boolean expression results to true or timeout is reached, whichever is earlier.
-        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'SynapseNotebookActivityResponse', 'SynapseSparkJobDefinitionActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksJobActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'SynapseNotebookActivityResponse', 'SynapseSparkJobDefinitionActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute.
         :param 'ExpressionResponse' expression: An expression that would evaluate to Boolean. The loop will continue until this expression evaluates to true
         :param builtins.str name: Activity name.
         :param builtins.str type: Type of activity.

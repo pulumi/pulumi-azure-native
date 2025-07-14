@@ -40,13 +40,13 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetGalleryInVMAccessControlProfileVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Shared Image Gallery in which the inVMAccessControlProfile resides.
+        /// The name of the Shared Image Gallery.
         /// </summary>
         [Input("galleryName", required: true)]
         public string GalleryName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the gallery inVMAccessControlProfile in which the inVMAccessControlProfile version resides.
+        /// The name of the gallery inVMAccessControlProfile to be retrieved.
         /// </summary>
         [Input("inVMAccessControlProfileName", required: true)]
         public string InVMAccessControlProfileName { get; set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.Compute
         public string InVMAccessControlProfileVersionName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -72,13 +72,13 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetGalleryInVMAccessControlProfileVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Shared Image Gallery in which the inVMAccessControlProfile resides.
+        /// The name of the Shared Image Gallery.
         /// </summary>
         [Input("galleryName", required: true)]
         public Input<string> GalleryName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the gallery inVMAccessControlProfile in which the inVMAccessControlProfile version resides.
+        /// The name of the gallery inVMAccessControlProfile to be retrieved.
         /// </summary>
         [Input("inVMAccessControlProfileName", required: true)]
         public Input<string> InVMAccessControlProfileName { get; set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<string> InVMAccessControlProfileVersionName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -118,11 +118,11 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly bool? ExcludeFromLatest;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly string Mode;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -150,7 +150,11 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.AccessControlRulesResponse? Rules;
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -158,7 +162,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly ImmutableArray<Outputs.TargetRegionResponse> TargetLocations;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -186,6 +190,8 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.AccessControlRulesResponse? rules,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             ImmutableArray<Outputs.TargetRegionResponse> targetLocations,
@@ -203,6 +209,7 @@ namespace Pulumi.AzureNative.Compute
             PublishedDate = publishedDate;
             ReplicationStatus = replicationStatus;
             Rules = rules;
+            SystemData = systemData;
             Tags = tags;
             TargetLocations = targetLocations;
             Type = type;

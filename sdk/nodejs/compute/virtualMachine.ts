@@ -110,7 +110,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly licenseType!: pulumi.Output<string | undefined>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -118,7 +118,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public /*out*/ readonly managedBy!: pulumi.Output<string>;
     /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -174,7 +174,11 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly storageProfile!: pulumi.Output<outputs.compute.StorageProfileResponse | undefined>;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -182,7 +186,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public /*out*/ readonly timeCreated!: pulumi.Output<string>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -198,7 +202,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public /*out*/ readonly vmId!: pulumi.Output<string>;
     /**
-     * The virtual machine zones.
+     * The availability zones.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -255,6 +259,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resources"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["vmId"] = undefined /*out*/;
@@ -292,6 +297,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["scheduledEventsProfile"] = undefined /*out*/;
             resourceInputs["securityProfile"] = undefined /*out*/;
             resourceInputs["storageProfile"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -368,7 +374,7 @@ export interface VirtualMachineArgs {
      */
     licenseType?: pulumi.Input<string>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -400,7 +406,7 @@ export interface VirtualMachineArgs {
      */
     proximityPlacementGroup?: pulumi.Input<inputs.compute.SubResourceArgs>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -420,7 +426,7 @@ export interface VirtualMachineArgs {
      */
     storageProfile?: pulumi.Input<inputs.compute.StorageProfileArgs>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -436,7 +442,7 @@ export interface VirtualMachineArgs {
      */
     vmName?: pulumi.Input<string>;
     /**
-     * The virtual machine zones.
+     * The availability zones.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -46,11 +46,11 @@ export class AvailabilitySet extends pulumi.CustomResource {
      */
     public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -78,11 +78,15 @@ export class AvailabilitySet extends pulumi.CustomResource {
      */
     public /*out*/ readonly statuses!: pulumi.Output<outputs.compute.InstanceViewStatusResponse[]>;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -121,6 +125,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualMachineScaleSetMigrationInfo"] = undefined /*out*/;
         } else {
@@ -133,6 +138,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
             resourceInputs["scheduledEventsPolicy"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualMachineScaleSetMigrationInfo"] = undefined /*out*/;
@@ -154,7 +160,7 @@ export interface AvailabilitySetArgs {
      */
     availabilitySetName?: pulumi.Input<string>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -170,7 +176,7 @@ export interface AvailabilitySetArgs {
      */
     proximityPlacementGroup?: pulumi.Input<inputs.compute.SubResourceArgs>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -182,7 +188,7 @@ export interface AvailabilitySetArgs {
      */
     sku?: pulumi.Input<inputs.compute.SkuArgs>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

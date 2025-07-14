@@ -138,6 +138,8 @@ class OuContainer(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-12-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
 
+        Other available API versions: 2025-05-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native aad [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] account_name: The account name
@@ -157,6 +159,8 @@ class OuContainer(pulumi.CustomResource):
         Resource for OuContainer.
 
         Uses Azure REST API version 2022-12-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
+
+        Other available API versions: 2025-05-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native aad [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param OuContainerArgs args: The arguments to use to populate this resource's properties.
@@ -213,7 +217,7 @@ class OuContainer(pulumi.CustomResource):
             __props__.__dict__["tags"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:aad/v20170601:OuContainer"), pulumi.Alias(type_="azure-native:aad/v20200101:OuContainer"), pulumi.Alias(type_="azure-native:aad/v20210301:OuContainer"), pulumi.Alias(type_="azure-native:aad/v20210501:OuContainer"), pulumi.Alias(type_="azure-native:aad/v20220901:OuContainer"), pulumi.Alias(type_="azure-native:aad/v20221201:OuContainer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:aad/v20170601:OuContainer"), pulumi.Alias(type_="azure-native:aad/v20200101:OuContainer"), pulumi.Alias(type_="azure-native:aad/v20210301:OuContainer"), pulumi.Alias(type_="azure-native:aad/v20210501:OuContainer"), pulumi.Alias(type_="azure-native:aad/v20220901:OuContainer"), pulumi.Alias(type_="azure-native:aad/v20221201:OuContainer"), pulumi.Alias(type_="azure-native:aad/v20250501:OuContainer"), pulumi.Alias(type_="azure-native:aad/v20250601:OuContainer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OuContainer, __self__).__init__(
             'azure-native:aad:OuContainer',

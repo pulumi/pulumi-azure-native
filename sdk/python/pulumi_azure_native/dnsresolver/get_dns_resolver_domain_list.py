@@ -179,6 +179,8 @@ def get_dns_resolver_domain_list(dns_resolver_domain_list_name: Optional[builtin
 
     Uses Azure REST API version 2023-07-01-preview.
 
+    Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str dns_resolver_domain_list_name: The name of the DNS resolver domain list.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -208,6 +210,8 @@ def get_dns_resolver_domain_list_output(dns_resolver_domain_list_name: Optional[
     Gets properties of a DNS resolver domain list.
 
     Uses Azure REST API version 2023-07-01-preview.
+
+    Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str dns_resolver_domain_list_name: The name of the DNS resolver domain list.

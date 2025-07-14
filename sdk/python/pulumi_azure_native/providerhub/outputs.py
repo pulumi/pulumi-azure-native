@@ -42,6 +42,7 @@ __all__ = [
     'OpenApiValidationResponse',
     'ProviderHubMetadataResponseProviderAuthentication',
     'ProviderHubMetadataResponseThirdPartyProviderAuthorization',
+    'ProviderMonitorSettingPropertiesResponse',
     'ProviderRegistrationPropertiesResponseProviderHubMetadata',
     'ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications',
     'ProviderRegistrationResponseProperties',
@@ -1193,6 +1194,41 @@ class ProviderHubMetadataResponseThirdPartyProviderAuthorization(dict):
     @pulumi.getter(name="managedByTenantId")
     def managed_by_tenant_id(self) -> Optional[builtins.str]:
         return pulumi.get(self, "managed_by_tenant_id")
+
+
+@pulumi.output_type
+class ProviderMonitorSettingPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProviderMonitorSettingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProviderMonitorSettingPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProviderMonitorSettingPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: builtins.str):
+        """
+        :param builtins.str provisioning_state: The provisioning state.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        The provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
 
 
 @pulumi.output_type

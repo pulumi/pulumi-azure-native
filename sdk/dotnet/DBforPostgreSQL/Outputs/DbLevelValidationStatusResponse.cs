@@ -11,25 +11,25 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     /// <summary>
-    /// Validation status summary for an individual database
+    /// Validation status summary for a database.
     /// </summary>
     [OutputType]
     public sealed class DbLevelValidationStatusResponse
     {
         /// <summary>
-        /// Name of the database
+        /// Name of database.
         /// </summary>
         public readonly string? DatabaseName;
         /// <summary>
-        /// End date-time of a database level validation
+        /// End time of a database level validation.
         /// </summary>
         public readonly string? EndedOn;
         /// <summary>
-        /// Start date-time of a database level validation
+        /// Start time of a database level validation.
         /// </summary>
         public readonly string? StartedOn;
         /// <summary>
-        /// Summary of database level validations
+        /// Summary of database level validations.
         /// </summary>
         public readonly ImmutableArray<Outputs.ValidationSummaryItemResponse> Summary;
 

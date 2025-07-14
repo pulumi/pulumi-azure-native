@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.Compute
         public string? Expand { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<string>? Expand { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceReadOnlyResponse> CapacityReservations;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -116,11 +116,11 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.CapacityReservationGroupInstanceViewResponse InstanceView;
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -128,11 +128,15 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.ResourceSharingProfileResponse? SharingProfile;
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -140,7 +144,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceReadOnlyResponse> VirtualMachinesAssociated;
         /// <summary>
-        /// Availability Zones to use for this capacity reservation group. The zones can be assigned only during creation. If not provided, the group supports only regional resources in the region. If provided, enforces each capacity reservation in the group to be in one of the zones.
+        /// The availability zones.
         /// </summary>
         public readonly ImmutableArray<string> Zones;
 
@@ -160,6 +164,8 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.ResourceSharingProfileResponse? sharingProfile,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -175,6 +181,7 @@ namespace Pulumi.AzureNative.Compute
             Location = location;
             Name = name;
             SharingProfile = sharingProfile;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             VirtualMachinesAssociated = virtualMachinesAssociated;

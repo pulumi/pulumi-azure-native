@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.CertificateRegistration
     /// 
     /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
     /// 
-    /// Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native certificateregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native certificateregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:certificateregistration:AppServiceCertificateOrder")]
     public partial class AppServiceCertificateOrder : global::Pulumi.CustomResource
@@ -216,6 +216,7 @@ namespace Pulumi.AzureNative.CertificateRegistration
                     new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20230101:AppServiceCertificateOrder" },
                     new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20231201:AppServiceCertificateOrder" },
                     new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20240401:AppServiceCertificateOrder" },
+                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20241101:AppServiceCertificateOrder" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

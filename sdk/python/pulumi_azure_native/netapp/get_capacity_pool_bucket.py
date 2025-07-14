@@ -174,6 +174,8 @@ def get_capacity_pool_bucket(account_name: Optional[builtins.str] = None,
 
     Uses Azure REST API version 2025-01-01-preview.
 
+    Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str account_name: The name of the NetApp account
     :param builtins.str bucket_name: The name of the bucket
@@ -211,6 +213,8 @@ def get_capacity_pool_bucket_output(account_name: Optional[pulumi.Input[builtins
     Get the details of the specified volume's bucket. A bucket allows additional services, such as AI services, connect to the volume data contained in those buckets.
 
     Uses Azure REST API version 2025-01-01-preview.
+
+    Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str account_name: The name of the NetApp account

@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetSshPublicKeyResult',
@@ -27,7 +28,7 @@ class GetSshPublicKeyResult:
     """
     Specifies information about the SSH public key.
     """
-    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, public_key=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, public_key=None, system_data=None, tags=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -43,6 +44,9 @@ class GetSshPublicKeyResult:
         if public_key and not isinstance(public_key, str):
             raise TypeError("Expected argument 'public_key' to be a str")
         pulumi.set(__self__, "public_key", public_key)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -62,7 +66,7 @@ class GetSshPublicKeyResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -70,7 +74,7 @@ class GetSshPublicKeyResult:
     @pulumi.getter
     def location(self) -> builtins.str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -78,7 +82,7 @@ class GetSshPublicKeyResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -91,10 +95,18 @@ class GetSshPublicKeyResult:
         return pulumi.get(self, "public_key")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -102,7 +114,7 @@ class GetSshPublicKeyResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -118,6 +130,7 @@ class AwaitableGetSshPublicKeyResult(GetSshPublicKeyResult):
             location=self.location,
             name=self.name,
             public_key=self.public_key,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -133,7 +146,7 @@ def get_ssh_public_key(resource_group_name: Optional[builtins.str] = None,
     Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str ssh_public_key_name: The name of the SSH public key.
     """
     __args__ = dict()
@@ -148,6 +161,7 @@ def get_ssh_public_key(resource_group_name: Optional[builtins.str] = None,
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         public_key=pulumi.get(__ret__, 'public_key'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_ssh_public_key_output(resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -161,7 +175,7 @@ def get_ssh_public_key_output(resource_group_name: Optional[pulumi.Input[builtin
     Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str ssh_public_key_name: The name of the SSH public key.
     """
     __args__ = dict()
@@ -175,5 +189,6 @@ def get_ssh_public_key_output(resource_group_name: Optional[pulumi.Input[builtin
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         public_key=pulumi.get(__response__, 'public_key'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

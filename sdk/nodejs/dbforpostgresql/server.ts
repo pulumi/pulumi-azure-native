@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents a server.
+ * Flexible server.
  *
  * Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
  *
@@ -42,15 +42,15 @@ export class Server extends pulumi.CustomResource {
     }
 
     /**
-     * The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+     * Name of the login designated as the first password based administrator assigned to your instance of PostgreSQL. Must be specified the first time that you enable password based authentication on a server. Once set to a given value, it cannot be changed for the rest of the life of a server. If you disable password based authentication on a server which had it enabled, this password based role isn't deleted.
      */
     public readonly administratorLogin!: pulumi.Output<string | undefined>;
     /**
-     * AuthConfig properties of a server.
+     * Authentication configuration properties of a flexible server.
      */
     public readonly authConfig!: pulumi.Output<outputs.dbforpostgresql.AuthConfigResponse | undefined>;
     /**
-     * availability zone information of the server.
+     * Availability zone of a flexible server.
      */
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
@@ -58,23 +58,23 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
-     * Backup properties of a server.
+     * Backup properties of a flexible server.
      */
     public readonly backup!: pulumi.Output<outputs.dbforpostgresql.BackupResponse | undefined>;
     /**
-     * Data encryption properties of a server.
+     * Data encryption properties of a flexible server.
      */
     public readonly dataEncryption!: pulumi.Output<outputs.dbforpostgresql.DataEncryptionResponse | undefined>;
     /**
-     * The fully qualified domain name of a server.
+     * Fully qualified domain name of a flexible server.
      */
     public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string>;
     /**
-     * High availability properties of a server.
+     * High availability properties of a flexible server.
      */
     public readonly highAvailability!: pulumi.Output<outputs.dbforpostgresql.HighAvailabilityResponse | undefined>;
     /**
-     * Describes the identity of the application.
+     * User assigned managed identities assigned to the flexible server.
      */
     public readonly identity!: pulumi.Output<outputs.dbforpostgresql.UserAssignedIdentityResponse | undefined>;
     /**
@@ -82,11 +82,11 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Maintenance window properties of a server.
+     * Maintenance window properties of a flexible server.
      */
     public readonly maintenanceWindow!: pulumi.Output<outputs.dbforpostgresql.MaintenanceWindowResponse | undefined>;
     /**
-     * The minor version of the server.
+     * Minor version of PostgreSQL database engine.
      */
     public /*out*/ readonly minorVersion!: pulumi.Output<string>;
     /**
@@ -94,39 +94,39 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Network properties of a server. This Network property is required to be passed only in case you want the server to be Private access server.
+     * Network properties of a flexible server. Only required if you want your server to be integrated into a virtual network provided by customer.
      */
     public readonly network!: pulumi.Output<outputs.dbforpostgresql.NetworkResponse | undefined>;
     /**
-     * List of private endpoint connections associated with the specified resource.
+     * List of private endpoint connections associated with the specified flexible server.
      */
     public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.dbforpostgresql.PrivateEndpointConnectionResponse[]>;
     /**
-     * Replica properties of a server. These Replica properties are required to be passed only in case you want to Promote a server.
+     * Read replica properties of a flexible server. Required only in case that you want to promote a server.
      */
     public readonly replica!: pulumi.Output<outputs.dbforpostgresql.ReplicaResponse | undefined>;
     /**
-     * Replicas allowed for a server.
+     * Maximum number of read replicas allowed for a flexible server.
      */
     public /*out*/ readonly replicaCapacity!: pulumi.Output<number>;
     /**
-     * Replication role of the server
+     * Role of the server in a replication set.
      */
     public readonly replicationRole!: pulumi.Output<string | undefined>;
     /**
-     * The SKU (pricing tier) of the server.
+     * Compute tier and size of a flexible server.
      */
     public readonly sku!: pulumi.Output<outputs.dbforpostgresql.SkuResponse | undefined>;
     /**
-     * The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica' or 'ReviveDropped'. This property is returned only for Replica server
+     * Identifier of the flexible server to be used as the source of the new flexible server. Required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', 'Replica', or 'ReviveDropped'. This property is returned only when the target flexible server is a read replica.
      */
     public readonly sourceServerResourceId!: pulumi.Output<string | undefined>;
     /**
-     * A state of a server that is visible to user.
+     * Possible states of a flexible server.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
-     * Storage properties of a server.
+     * Storage properties of a flexible server.
      */
     public readonly storage!: pulumi.Output<outputs.dbforpostgresql.StorageResponse | undefined>;
     /**
@@ -142,7 +142,7 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * PostgreSQL Server version.
+     * Major version of PostgreSQL database engine.
      */
     public readonly version!: pulumi.Output<string | undefined>;
 
@@ -231,39 +231,39 @@ export class Server extends pulumi.CustomResource {
  */
 export interface ServerArgs {
     /**
-     * The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+     * Name of the login designated as the first password based administrator assigned to your instance of PostgreSQL. Must be specified the first time that you enable password based authentication on a server. Once set to a given value, it cannot be changed for the rest of the life of a server. If you disable password based authentication on a server which had it enabled, this password based role isn't deleted.
      */
     administratorLogin?: pulumi.Input<string>;
     /**
-     * The administrator login password (required for server creation).
+     * Password assigned to the administrator login. As long as password authentication is enabled, this password can be changed at any time.
      */
     administratorLoginPassword?: pulumi.Input<string>;
     /**
-     * AuthConfig properties of a server.
+     * Authentication configuration properties of a flexible server.
      */
     authConfig?: pulumi.Input<inputs.dbforpostgresql.AuthConfigArgs>;
     /**
-     * availability zone information of the server.
+     * Availability zone of a flexible server.
      */
     availabilityZone?: pulumi.Input<string>;
     /**
-     * Backup properties of a server.
+     * Backup properties of a flexible server.
      */
     backup?: pulumi.Input<inputs.dbforpostgresql.BackupArgs>;
     /**
-     * The mode to create a new PostgreSQL server.
+     * Creation mode of a new flexible server.
      */
     createMode?: pulumi.Input<string | enums.dbforpostgresql.CreateMode>;
     /**
-     * Data encryption properties of a server.
+     * Data encryption properties of a flexible server.
      */
     dataEncryption?: pulumi.Input<inputs.dbforpostgresql.DataEncryptionArgs>;
     /**
-     * High availability properties of a server.
+     * High availability properties of a flexible server.
      */
     highAvailability?: pulumi.Input<inputs.dbforpostgresql.HighAvailabilityArgs>;
     /**
-     * Describes the identity of the application.
+     * User assigned managed identities assigned to the flexible server.
      */
     identity?: pulumi.Input<inputs.dbforpostgresql.UserAssignedIdentityArgs>;
     /**
@@ -271,23 +271,23 @@ export interface ServerArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Maintenance window properties of a server.
+     * Maintenance window properties of a flexible server.
      */
     maintenanceWindow?: pulumi.Input<inputs.dbforpostgresql.MaintenanceWindowArgs>;
     /**
-     * Network properties of a server. This Network property is required to be passed only in case you want the server to be Private access server.
+     * Network properties of a flexible server. Only required if you want your server to be integrated into a virtual network provided by customer.
      */
     network?: pulumi.Input<inputs.dbforpostgresql.NetworkArgs>;
     /**
-     * Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'ReviveDropped'.
+     * Creation time (in ISO8601 format) of the backup which you want to restore in the new flexible server. It's required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', or 'ReviveDropped'.
      */
     pointInTimeUTC?: pulumi.Input<string>;
     /**
-     * Replica properties of a server. These Replica properties are required to be passed only in case you want to Promote a server.
+     * Read replica properties of a flexible server. Required only in case that you want to promote a server.
      */
     replica?: pulumi.Input<inputs.dbforpostgresql.ReplicaArgs>;
     /**
-     * Replication role of the server
+     * Role of the server in a replication set.
      */
     replicationRole?: pulumi.Input<string | enums.dbforpostgresql.ReplicationRole>;
     /**
@@ -299,15 +299,15 @@ export interface ServerArgs {
      */
     serverName?: pulumi.Input<string>;
     /**
-     * The SKU (pricing tier) of the server.
+     * Compute tier and size of a flexible server.
      */
     sku?: pulumi.Input<inputs.dbforpostgresql.SkuArgs>;
     /**
-     * The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica' or 'ReviveDropped'. This property is returned only for Replica server
+     * Identifier of the flexible server to be used as the source of the new flexible server. Required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', 'Replica', or 'ReviveDropped'. This property is returned only when the target flexible server is a read replica.
      */
     sourceServerResourceId?: pulumi.Input<string>;
     /**
-     * Storage properties of a server.
+     * Storage properties of a flexible server.
      */
     storage?: pulumi.Input<inputs.dbforpostgresql.StorageArgs>;
     /**
@@ -315,7 +315,7 @@ export interface ServerArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * PostgreSQL Server version.
+     * Major version of PostgreSQL database engine.
      */
     version?: pulumi.Input<string | enums.dbforpostgresql.ServerVersion>;
 }

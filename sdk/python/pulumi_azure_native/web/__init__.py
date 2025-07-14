@@ -25,6 +25,8 @@ from .get_connection import *
 from .get_connection_gateway import *
 from .get_custom_api import *
 from .get_kube_environment import *
+from .get_site_certificate import *
+from .get_site_certificate_slot import *
 from .get_static_site import *
 from .get_static_site_build_database_connection import *
 from .get_static_site_custom_domain import *
@@ -119,6 +121,8 @@ from .list_web_app_workflows_connections_slot import *
 from .list_workflow_run_action_expression_traces import *
 from .list_workflow_run_action_repetition_expression_traces import *
 from .list_workflow_trigger_callback_url import *
+from .site_certificate import *
+from .site_certificate_slot import *
 from .static_site import *
 from .static_site_build_database_connection import *
 from .static_site_custom_domain import *

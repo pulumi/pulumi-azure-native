@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.TrafficManager
     /// 
     /// Uses Azure REST API version 2022-04-01.
     /// 
-    /// Other available API versions: 2015-11-01, 2017-03-01, 2017-05-01, 2018-02-01, 2018-03-01, 2018-04-01, 2018-08-01, 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native trafficmanager [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2015-11-01, 2017-03-01, 2017-05-01, 2018-02-01, 2018-03-01, 2018-04-01, 2018-08-01, 2022-04-01-preview, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native trafficmanager [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:trafficmanager:Endpoint")]
     public partial class Endpoint : global::Pulumi.CustomResource
@@ -158,6 +158,7 @@ namespace Pulumi.AzureNative.TrafficManager
                     new global::Pulumi.Alias { Type = "azure-native:trafficmanager/v20180801:Endpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:trafficmanager/v20220401:Endpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:trafficmanager/v20220401preview:Endpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:trafficmanager/v20240401preview:Endpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

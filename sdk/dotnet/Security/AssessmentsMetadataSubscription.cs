@@ -124,6 +124,7 @@ namespace Pulumi.AzureNative.Security
                     new global::Pulumi.Alias { Type = "azure-native:security/v20200101:AssessmentsMetadataSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20210601:AssessmentMetadataInSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20210601:AssessmentsMetadataSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20250504preview:AssessmentsMetadataSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:security:AssessmentMetadataInSubscription" },
                 },
             };

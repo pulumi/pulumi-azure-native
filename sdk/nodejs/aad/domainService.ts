@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Domain service.
  *
  * Uses Azure REST API version 2022-12-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
+ *
+ * Other available API versions: 2025-05-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native aad [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class DomainService extends pulumi.CustomResource {
     /**
@@ -209,7 +211,7 @@ export class DomainService extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:aad/v20170101:DomainService" }, { type: "azure-native:aad/v20170601:DomainService" }, { type: "azure-native:aad/v20200101:DomainService" }, { type: "azure-native:aad/v20210301:DomainService" }, { type: "azure-native:aad/v20210501:DomainService" }, { type: "azure-native:aad/v20220901:DomainService" }, { type: "azure-native:aad/v20221201:DomainService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:aad/v20170101:DomainService" }, { type: "azure-native:aad/v20170601:DomainService" }, { type: "azure-native:aad/v20200101:DomainService" }, { type: "azure-native:aad/v20210301:DomainService" }, { type: "azure-native:aad/v20210501:DomainService" }, { type: "azure-native:aad/v20220901:DomainService" }, { type: "azure-native:aad/v20221201:DomainService" }, { type: "azure-native:aad/v20250501:DomainService" }, { type: "azure-native:aad/v20250601:DomainService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DomainService.__pulumiType, name, resourceInputs, opts);
     }

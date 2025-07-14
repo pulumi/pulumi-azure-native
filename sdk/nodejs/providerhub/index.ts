@@ -20,6 +20,11 @@ export const getNotificationRegistration: typeof import("./getNotificationRegist
 export const getNotificationRegistrationOutput: typeof import("./getNotificationRegistration").getNotificationRegistrationOutput = null as any;
 utilities.lazyLoad(exports, ["getNotificationRegistration","getNotificationRegistrationOutput"], () => require("./getNotificationRegistration"));
 
+export { GetProviderMonitorSettingArgs, GetProviderMonitorSettingResult, GetProviderMonitorSettingOutputArgs } from "./getProviderMonitorSetting";
+export const getProviderMonitorSetting: typeof import("./getProviderMonitorSetting").getProviderMonitorSetting = null as any;
+export const getProviderMonitorSettingOutput: typeof import("./getProviderMonitorSetting").getProviderMonitorSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getProviderMonitorSetting","getProviderMonitorSettingOutput"], () => require("./getProviderMonitorSetting"));
+
 export { GetProviderRegistrationArgs, GetProviderRegistrationResult, GetProviderRegistrationOutputArgs } from "./getProviderRegistration";
 export const getProviderRegistration: typeof import("./getProviderRegistration").getProviderRegistration = null as any;
 export const getProviderRegistrationOutput: typeof import("./getProviderRegistration").getProviderRegistrationOutput = null as any;
@@ -59,6 +64,11 @@ export { OperationByProviderRegistrationArgs } from "./operationByProviderRegist
 export type OperationByProviderRegistration = import("./operationByProviderRegistration").OperationByProviderRegistration;
 export const OperationByProviderRegistration: typeof import("./operationByProviderRegistration").OperationByProviderRegistration = null as any;
 utilities.lazyLoad(exports, ["OperationByProviderRegistration"], () => require("./operationByProviderRegistration"));
+
+export { ProviderMonitorSettingArgs } from "./providerMonitorSetting";
+export type ProviderMonitorSetting = import("./providerMonitorSetting").ProviderMonitorSetting;
+export const ProviderMonitorSetting: typeof import("./providerMonitorSetting").ProviderMonitorSetting = null as any;
+utilities.lazyLoad(exports, ["ProviderMonitorSetting"], () => require("./providerMonitorSetting"));
 
 export { ProviderRegistrationArgs } from "./providerRegistration";
 export type ProviderRegistration = import("./providerRegistration").ProviderRegistration;
@@ -104,6 +114,8 @@ const _module = {
                 return new NotificationRegistration(name, <any>undefined, { urn })
             case "azure-native:providerhub:OperationByProviderRegistration":
                 return new OperationByProviderRegistration(name, <any>undefined, { urn })
+            case "azure-native:providerhub:ProviderMonitorSetting":
+                return new ProviderMonitorSetting(name, <any>undefined, { urn })
             case "azure-native:providerhub:ProviderRegistration":
                 return new ProviderRegistration(name, <any>undefined, { urn })
             case "azure-native:providerhub:ResourceTypeRegistration":

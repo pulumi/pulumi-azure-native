@@ -33,13 +33,13 @@ class DedicatedHostGroupArgs:
         """
         The set of arguments for constructing a DedicatedHostGroup resource.
         :param pulumi.Input[builtins.int] platform_fault_domain_count: Number of fault domains that the host group can span.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs'] additional_capabilities: Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
         :param pulumi.Input[builtins.str] host_group_name: The name of the dedicated host group.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.bool] support_automatic_placement: Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. Minimum api-version: 2020-06-01.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: The availability zones.
         """
         pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -72,7 +72,7 @@ class DedicatedHostGroupArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -108,7 +108,7 @@ class DedicatedHostGroupArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -132,7 +132,7 @@ class DedicatedHostGroupArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -144,7 +144,7 @@ class DedicatedHostGroupArgs:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
+        The availability zones.
         """
         return pulumi.get(self, "zones")
 
@@ -179,12 +179,12 @@ class DedicatedHostGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs', 'DedicatedHostGroupPropertiesAdditionalCapabilitiesArgsDict']] additional_capabilities: Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
         :param pulumi.Input[builtins.str] host_group_name: The name of the dedicated host group.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.int] platform_fault_domain_count: Number of fault domains that the host group can span.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.bool] support_automatic_placement: Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. Minimum api-version: 2020-06-01.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: The availability zones.
         """
         ...
     @overload
@@ -247,6 +247,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
             __props__.__dict__["hosts"] = None
             __props__.__dict__["instance_view"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20190301:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20190701:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20191201:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20200601:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20201201:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20210301:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20210401:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20210701:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20211101:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20220301:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20220801:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20221101:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20230301:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20230701:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20230901:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20240301:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20240701:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20241101:DedicatedHostGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -280,6 +281,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["platform_fault_domain_count"] = None
         __props__.__dict__["support_automatic_placement"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["zones"] = None
@@ -287,7 +289,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalCapabilities")
-    def additional_capabilities(self) -> pulumi.Output[Optional['outputs.DedicatedHostGroupPropertiesResponseAdditionalCapabilities']]:
+    def additional_capabilities(self) -> pulumi.Output[Optional['outputs.DedicatedHostGroupPropertiesAdditionalCapabilitiesResponse']]:
         """
         Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
         """
@@ -321,7 +323,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -329,7 +331,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -350,10 +352,18 @@ class DedicatedHostGroup(pulumi.CustomResource):
         return pulumi.get(self, "support_automatic_placement")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -361,7 +371,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -369,7 +379,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
     @pulumi.getter
     def zones(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
+        The availability zones.
         """
         return pulumi.get(self, "zones")
 

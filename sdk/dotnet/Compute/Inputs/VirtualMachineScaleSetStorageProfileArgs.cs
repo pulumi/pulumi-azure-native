@@ -27,8 +27,11 @@ namespace Pulumi.AzureNative.Compute.Inputs
             set => _dataDisks = value;
         }
 
+        /// <summary>
+        /// Specifies the disk controller type configured for the virtual machines in the scale set. Minimum api-version: 2022-08-01
+        /// </summary>
         [Input("diskControllerType")]
-        public Input<string>? DiskControllerType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.DiskControllerTypes>? DiskControllerType { get; set; }
 
         /// <summary>
         /// Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.

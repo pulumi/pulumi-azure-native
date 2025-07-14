@@ -28,7 +28,7 @@ class BackupInitArgs:
         The set of arguments for constructing a Backup resource.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] server_name: The name of the server.
-        :param pulumi.Input[builtins.str] backup_name: The name of the backup.
+        :param pulumi.Input[builtins.str] backup_name: Name of the backup.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
@@ -63,7 +63,7 @@ class BackupInitArgs:
     @pulumi.getter(name="backupName")
     def backup_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the backup.
+        Name of the backup.
         """
         return pulumi.get(self, "backup_name")
 
@@ -83,7 +83,7 @@ class Backup(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Server backup properties
+        Properties of a backup.
 
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01-preview.
 
@@ -91,7 +91,7 @@ class Backup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] backup_name: The name of the backup.
+        :param pulumi.Input[builtins.str] backup_name: Name of the backup.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] server_name: The name of the server.
         """
@@ -102,7 +102,7 @@ class Backup(pulumi.CustomResource):
                  args: BackupInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Server backup properties
+        Properties of a backup.
 
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01-preview.
 
@@ -194,7 +194,7 @@ class Backup(pulumi.CustomResource):
     @pulumi.getter(name="backupType")
     def backup_type(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Backup type.
+        Type of backup.
         """
         return pulumi.get(self, "backup_type")
 
@@ -202,7 +202,7 @@ class Backup(pulumi.CustomResource):
     @pulumi.getter(name="completedTime")
     def completed_time(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Backup completed time (ISO8601 format).
+        Time(ISO8601 format) at which the backup was completed.
         """
         return pulumi.get(self, "completed_time")
 
@@ -218,7 +218,7 @@ class Backup(pulumi.CustomResource):
     @pulumi.getter
     def source(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Backup source
+        Source of the backup.
         """
         return pulumi.get(self, "source")
 

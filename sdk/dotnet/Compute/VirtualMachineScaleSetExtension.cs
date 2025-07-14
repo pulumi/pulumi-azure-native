@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.Compute
         public Output<string?> ForceUpdateTag { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the extension.
+        /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<string>? ForceUpdateTag { get; set; }
 
         /// <summary>
-        /// The name of the extension.
+        /// Resource name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -229,7 +229,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<string>? Publisher { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -259,7 +259,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<string>? TypeHandlerVersion { get; set; }
 
         /// <summary>
-        /// The name of the VM scale set where the extension should be create or updated.
+        /// The name of the VM scale set.
         /// </summary>
         [Input("vmScaleSetName", required: true)]
         public Input<string> VmScaleSetName { get; set; } = null!;

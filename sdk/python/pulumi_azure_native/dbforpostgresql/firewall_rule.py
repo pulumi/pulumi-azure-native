@@ -28,11 +28,11 @@ class FirewallRuleArgs:
                  firewall_rule_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a FirewallRule resource.
-        :param pulumi.Input[builtins.str] end_ip_address: The end IP address of the server firewall rule. Must be IPv4 format.
+        :param pulumi.Input[builtins.str] end_ip_address: IP address defining the end of the range of addresses of a firewall rule. Must be expressed in IPv4 format.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] server_name: The name of the server.
-        :param pulumi.Input[builtins.str] start_ip_address: The start IP address of the server firewall rule. Must be IPv4 format.
-        :param pulumi.Input[builtins.str] firewall_rule_name: The name of the server firewall rule.
+        :param pulumi.Input[builtins.str] start_ip_address: IP address defining the start of the range of addresses of a firewall rule. Must be expressed in IPv4 format.
+        :param pulumi.Input[builtins.str] firewall_rule_name: Name of the firewall rule.
         """
         pulumi.set(__self__, "end_ip_address", end_ip_address)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -45,7 +45,7 @@ class FirewallRuleArgs:
     @pulumi.getter(name="endIpAddress")
     def end_ip_address(self) -> pulumi.Input[builtins.str]:
         """
-        The end IP address of the server firewall rule. Must be IPv4 format.
+        IP address defining the end of the range of addresses of a firewall rule. Must be expressed in IPv4 format.
         """
         return pulumi.get(self, "end_ip_address")
 
@@ -81,7 +81,7 @@ class FirewallRuleArgs:
     @pulumi.getter(name="startIpAddress")
     def start_ip_address(self) -> pulumi.Input[builtins.str]:
         """
-        The start IP address of the server firewall rule. Must be IPv4 format.
+        IP address defining the start of the range of addresses of a firewall rule. Must be expressed in IPv4 format.
         """
         return pulumi.get(self, "start_ip_address")
 
@@ -93,7 +93,7 @@ class FirewallRuleArgs:
     @pulumi.getter(name="firewallRuleName")
     def firewall_rule_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the server firewall rule.
+        Name of the firewall rule.
         """
         return pulumi.get(self, "firewall_rule_name")
 
@@ -115,7 +115,7 @@ class FirewallRule(pulumi.CustomResource):
                  start_ip_address: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Represents a server firewall rule.
+        Firewall rule.
 
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
 
@@ -123,11 +123,11 @@ class FirewallRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] end_ip_address: The end IP address of the server firewall rule. Must be IPv4 format.
-        :param pulumi.Input[builtins.str] firewall_rule_name: The name of the server firewall rule.
+        :param pulumi.Input[builtins.str] end_ip_address: IP address defining the end of the range of addresses of a firewall rule. Must be expressed in IPv4 format.
+        :param pulumi.Input[builtins.str] firewall_rule_name: Name of the firewall rule.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] server_name: The name of the server.
-        :param pulumi.Input[builtins.str] start_ip_address: The start IP address of the server firewall rule. Must be IPv4 format.
+        :param pulumi.Input[builtins.str] start_ip_address: IP address defining the start of the range of addresses of a firewall rule. Must be expressed in IPv4 format.
         """
         ...
     @overload
@@ -136,7 +136,7 @@ class FirewallRule(pulumi.CustomResource):
                  args: FirewallRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Represents a server firewall rule.
+        Firewall rule.
 
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
 
@@ -232,7 +232,7 @@ class FirewallRule(pulumi.CustomResource):
     @pulumi.getter(name="endIpAddress")
     def end_ip_address(self) -> pulumi.Output[builtins.str]:
         """
-        The end IP address of the server firewall rule. Must be IPv4 format.
+        IP address defining the end of the range of addresses of a firewall rule. Must be expressed in IPv4 format.
         """
         return pulumi.get(self, "end_ip_address")
 
@@ -248,7 +248,7 @@ class FirewallRule(pulumi.CustomResource):
     @pulumi.getter(name="startIpAddress")
     def start_ip_address(self) -> pulumi.Output[builtins.str]:
         """
-        The start IP address of the server firewall rule. Must be IPv4 format.
+        IP address defining the start of the range of addresses of a firewall rule. Must be expressed in IPv4 format.
         """
         return pulumi.get(self, "start_ip_address")
 

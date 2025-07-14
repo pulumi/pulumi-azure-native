@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Peering
     /// Peering Service
     /// 
     /// Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+    /// 
+    /// Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:peering:PeeringService")]
     public partial class PeeringService : global::Pulumi.CustomResource
@@ -124,6 +126,7 @@ namespace Pulumi.AzureNative.Peering
                     new global::Pulumi.Alias { Type = "azure-native:peering/v20220101:PeeringService" },
                     new global::Pulumi.Alias { Type = "azure-native:peering/v20220601:PeeringService" },
                     new global::Pulumi.Alias { Type = "azure-native:peering/v20221001:PeeringService" },
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20250501:PeeringService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

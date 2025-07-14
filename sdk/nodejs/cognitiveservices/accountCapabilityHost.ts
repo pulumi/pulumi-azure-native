@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Azure Resource Manager resource envelope.
  *
  * Uses Azure REST API version 2025-04-01-preview.
+ *
+ * Other available API versions: 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class AccountCapabilityHost extends pulumi.CustomResource {
     /**
@@ -90,7 +92,7 @@ export class AccountCapabilityHost extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20250401preview:AccountCapabilityHost" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20250401preview:AccountCapabilityHost" }, { type: "azure-native:cognitiveservices/v20250601:AccountCapabilityHost" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AccountCapabilityHost.__pulumiType, name, resourceInputs, opts);
     }

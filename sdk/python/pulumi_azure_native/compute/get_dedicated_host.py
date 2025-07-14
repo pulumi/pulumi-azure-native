@@ -28,7 +28,7 @@ class GetDedicatedHostResult:
     """
     Specifies information about the Dedicated host.
     """
-    def __init__(__self__, auto_replace_on_failure=None, azure_api_version=None, host_id=None, id=None, instance_view=None, license_type=None, location=None, name=None, platform_fault_domain=None, provisioning_state=None, provisioning_time=None, sku=None, tags=None, time_created=None, type=None, virtual_machines=None):
+    def __init__(__self__, auto_replace_on_failure=None, azure_api_version=None, host_id=None, id=None, instance_view=None, license_type=None, location=None, name=None, platform_fault_domain=None, provisioning_state=None, provisioning_time=None, sku=None, system_data=None, tags=None, time_created=None, type=None, virtual_machines=None):
         if auto_replace_on_failure and not isinstance(auto_replace_on_failure, bool):
             raise TypeError("Expected argument 'auto_replace_on_failure' to be a bool")
         pulumi.set(__self__, "auto_replace_on_failure", auto_replace_on_failure)
@@ -65,6 +65,9 @@ class GetDedicatedHostResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -106,7 +109,7 @@ class GetDedicatedHostResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -130,7 +133,7 @@ class GetDedicatedHostResult:
     @pulumi.getter
     def location(self) -> builtins.str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -138,7 +141,7 @@ class GetDedicatedHostResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -175,10 +178,18 @@ class GetDedicatedHostResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -194,7 +205,7 @@ class GetDedicatedHostResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -225,6 +236,7 @@ class AwaitableGetDedicatedHostResult(GetDedicatedHostResult):
             provisioning_state=self.provisioning_state,
             provisioning_time=self.provisioning_time,
             sku=self.sku,
+            system_data=self.system_data,
             tags=self.tags,
             time_created=self.time_created,
             type=self.type,
@@ -247,7 +259,7 @@ def get_dedicated_host(expand: Optional[builtins.str] = None,
     :param builtins.str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated host. 'UserData' is not supported for dedicated host.
     :param builtins.str host_group_name: The name of the dedicated host group.
     :param builtins.str host_name: The name of the dedicated host.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['expand'] = expand
@@ -270,6 +282,7 @@ def get_dedicated_host(expand: Optional[builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         provisioning_time=pulumi.get(__ret__, 'provisioning_time'),
         sku=pulumi.get(__ret__, 'sku'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         time_created=pulumi.get(__ret__, 'time_created'),
         type=pulumi.get(__ret__, 'type'),
@@ -290,7 +303,7 @@ def get_dedicated_host_output(expand: Optional[pulumi.Input[Optional[builtins.st
     :param builtins.str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated host. 'UserData' is not supported for dedicated host.
     :param builtins.str host_group_name: The name of the dedicated host group.
     :param builtins.str host_name: The name of the dedicated host.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['expand'] = expand
@@ -312,6 +325,7 @@ def get_dedicated_host_output(expand: Optional[pulumi.Input[Optional[builtins.st
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         provisioning_time=pulumi.get(__response__, 'provisioning_time'),
         sku=pulumi.get(__response__, 'sku'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         time_created=pulumi.get(__response__, 'time_created'),
         type=pulumi.get(__response__, 'type'),
