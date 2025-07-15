@@ -461,13 +461,13 @@ class MySQLServerIdentityResponse(dict):
                  principal_id: builtins.str,
                  tenant_id: builtins.str,
                  type: Optional[builtins.str] = None,
-                 user_assigned_identities: Optional[Mapping[str, Sequence['outputs.UserAssignedIdentityResponse']]] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Properties to configure Identity for Bring your Own Keys
         :param builtins.str principal_id: ObjectId from the KeyVault
         :param builtins.str tenant_id: TenantId from the KeyVault
         :param builtins.str type: Type of managed service identity.
-        :param Mapping[str, Sequence['UserAssignedIdentityResponse']] user_assigned_identities: Metadata of user assigned identity.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: Metadata of user assigned identity.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -502,7 +502,7 @@ class MySQLServerIdentityResponse(dict):
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, Sequence['outputs.UserAssignedIdentityResponse']]]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
         """
         Metadata of user assigned identity.
         """
