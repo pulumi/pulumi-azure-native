@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly Outputs.ApiEntityReferenceResponse? HealthProbe;
         /// <summary>
-        /// Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set with orchestration mode 'Flexible'. For support of all network properties, use '2022-11-01'.
+        /// specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set with orchestration mode 'Flexible'
         /// </summary>
         public readonly string? NetworkApiVersion;
         /// <summary>

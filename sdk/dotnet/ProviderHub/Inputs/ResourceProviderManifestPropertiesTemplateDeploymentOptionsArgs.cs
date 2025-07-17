@@ -10,16 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
+    /// <summary>
+    /// The template deployment options.
+    /// </summary>
     public sealed class ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("preflightOptions")]
         private InputList<Union<string, Pulumi.AzureNative.ProviderHub.PreflightOption>>? _preflightOptions;
+
+        /// <summary>
+        /// The preflight options.
+        /// </summary>
         public InputList<Union<string, Pulumi.AzureNative.ProviderHub.PreflightOption>> PreflightOptions
         {
             get => _preflightOptions ?? (_preflightOptions = new InputList<Union<string, Pulumi.AzureNative.ProviderHub.PreflightOption>>());
             set => _preflightOptions = value;
         }
 
+        /// <summary>
+        /// Whether preflight is supported.
+        /// </summary>
         [Input("preflightSupported")]
         public Input<bool>? PreflightSupported { get; set; }
 

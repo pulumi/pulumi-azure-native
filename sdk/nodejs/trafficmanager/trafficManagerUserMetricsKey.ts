@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2022-04-01.
  *
- * Other available API versions: 2017-09-01-preview, 2018-04-01, 2018-08-01, 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native trafficmanager [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2017-09-01-preview, 2018-04-01, 2018-08-01, 2022-04-01-preview, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native trafficmanager [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class TrafficManagerUserMetricsKey extends pulumi.CustomResource {
     /**
@@ -77,7 +77,7 @@ export class TrafficManagerUserMetricsKey extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20220401:TrafficManagerUserMetricsKey" }, { type: "azure-native:network/v20220401preview:TrafficManagerUserMetricsKey" }, { type: "azure-native:network:TrafficManagerUserMetricsKey" }, { type: "azure-native:trafficmanager/v20180401:TrafficManagerUserMetricsKey" }, { type: "azure-native:trafficmanager/v20180801:TrafficManagerUserMetricsKey" }, { type: "azure-native:trafficmanager/v20220401:TrafficManagerUserMetricsKey" }, { type: "azure-native:trafficmanager/v20220401preview:TrafficManagerUserMetricsKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20220401:TrafficManagerUserMetricsKey" }, { type: "azure-native:network/v20220401preview:TrafficManagerUserMetricsKey" }, { type: "azure-native:network:TrafficManagerUserMetricsKey" }, { type: "azure-native:trafficmanager/v20180401:TrafficManagerUserMetricsKey" }, { type: "azure-native:trafficmanager/v20180801:TrafficManagerUserMetricsKey" }, { type: "azure-native:trafficmanager/v20220401:TrafficManagerUserMetricsKey" }, { type: "azure-native:trafficmanager/v20220401preview:TrafficManagerUserMetricsKey" }, { type: "azure-native:trafficmanager/v20240401preview:TrafficManagerUserMetricsKey" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TrafficManagerUserMetricsKey.__pulumiType, name, resourceInputs, opts);
     }

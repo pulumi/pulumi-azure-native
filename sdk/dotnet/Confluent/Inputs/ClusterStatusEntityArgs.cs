@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Confluent.Inputs
     public sealed class ClusterStatusEntityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of Confluent Kafka Units 
+        /// The number of Confluent Kafka Units
         /// </summary>
         [Input("cku")]
         public Input<int>? Cku { get; set; }

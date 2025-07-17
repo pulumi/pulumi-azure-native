@@ -34,6 +34,18 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? MaxConcurrentConnections { get; set; }
 
         /// <summary>
+        /// The decimal precision used to represent Oracle NUMBER type without precision and scale. The range is 1 to 256 and default value is 256 if not specified. Type: integer (or Expression with resultType integer). Only used for Version 2.0.
+        /// </summary>
+        [Input("numberPrecision")]
+        public Input<object>? NumberPrecision { get; set; }
+
+        /// <summary>
+        /// The decimal scale used to represent Oracle NUMBER type without precision and scale. The range is 0 to 130 and default value is 130 if not specified. Type: integer (or Expression with resultType integer). Only used for Version 2.0.
+        /// </summary>
+        [Input("numberScale")]
+        public Input<object>? NumberScale { get; set; }
+
+        /// <summary>
         /// AmazonRdsForOracle reader query. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("oracleReaderQuery")]

@@ -184,8 +184,8 @@ def get_user(expand: Optional[builtins.str] = None,
 
     :param builtins.str expand: Specify the $expand query. Example: 'properties($select=identity)'
     :param builtins.str lab_name: The name of the lab.
-    :param builtins.str name: The name of the user profile.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str name: The name of the User
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['expand'] = expand
@@ -220,8 +220,8 @@ def get_user_output(expand: Optional[pulumi.Input[Optional[builtins.str]]] = Non
 
     :param builtins.str expand: Specify the $expand query. Example: 'properties($select=identity)'
     :param builtins.str lab_name: The name of the lab.
-    :param builtins.str name: The name of the user profile.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str name: The name of the User
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['expand'] = expand

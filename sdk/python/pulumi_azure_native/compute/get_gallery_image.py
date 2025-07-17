@@ -28,7 +28,7 @@ class GetGalleryImageResult:
     """
     Specifies information about the gallery image definition that you want to create or update.
     """
-    def __init__(__self__, allow_update_image=None, architecture=None, azure_api_version=None, description=None, disallowed=None, end_of_life_date=None, eula=None, features=None, hyper_v_generation=None, id=None, identifier=None, location=None, name=None, os_state=None, os_type=None, privacy_statement_uri=None, provisioning_state=None, purchase_plan=None, recommended=None, release_note_uri=None, tags=None, type=None):
+    def __init__(__self__, allow_update_image=None, architecture=None, azure_api_version=None, description=None, disallowed=None, end_of_life_date=None, eula=None, features=None, hyper_v_generation=None, id=None, identifier=None, location=None, name=None, os_state=None, os_type=None, privacy_statement_uri=None, provisioning_state=None, purchase_plan=None, recommended=None, release_note_uri=None, system_data=None, tags=None, type=None):
         if allow_update_image and not isinstance(allow_update_image, bool):
             raise TypeError("Expected argument 'allow_update_image' to be a bool")
         pulumi.set(__self__, "allow_update_image", allow_update_image)
@@ -89,6 +89,9 @@ class GetGalleryImageResult:
         if release_note_uri and not isinstance(release_note_uri, str):
             raise TypeError("Expected argument 'release_note_uri' to be a str")
         pulumi.set(__self__, "release_note_uri", release_note_uri)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -172,7 +175,7 @@ class GetGalleryImageResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -188,7 +191,7 @@ class GetGalleryImageResult:
     @pulumi.getter
     def location(self) -> builtins.str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -196,7 +199,7 @@ class GetGalleryImageResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -257,10 +260,18 @@ class GetGalleryImageResult:
         return pulumi.get(self, "release_note_uri")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -268,7 +279,7 @@ class GetGalleryImageResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -299,6 +310,7 @@ class AwaitableGetGalleryImageResult(GetGalleryImageResult):
             purchase_plan=self.purchase_plan,
             recommended=self.recommended,
             release_note_uri=self.release_note_uri,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -316,8 +328,8 @@ def get_gallery_image(gallery_image_name: Optional[builtins.str] = None,
 
 
     :param builtins.str gallery_image_name: The name of the gallery image definition to be retrieved.
-    :param builtins.str gallery_name: The name of the Shared Image Gallery from which the Image Definitions are to be retrieved.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str gallery_name: The name of the Shared Image Gallery.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['galleryImageName'] = gallery_image_name
@@ -347,6 +359,7 @@ def get_gallery_image(gallery_image_name: Optional[builtins.str] = None,
         purchase_plan=pulumi.get(__ret__, 'purchase_plan'),
         recommended=pulumi.get(__ret__, 'recommended'),
         release_note_uri=pulumi.get(__ret__, 'release_note_uri'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -362,8 +375,8 @@ def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[builtins.
 
 
     :param builtins.str gallery_image_name: The name of the gallery image definition to be retrieved.
-    :param builtins.str gallery_name: The name of the Shared Image Gallery from which the Image Definitions are to be retrieved.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str gallery_name: The name of the Shared Image Gallery.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['galleryImageName'] = gallery_image_name
@@ -392,5 +405,6 @@ def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[builtins.
         purchase_plan=pulumi.get(__response__, 'purchase_plan'),
         recommended=pulumi.get(__response__, 'recommended'),
         release_note_uri=pulumi.get(__response__, 'release_note_uri'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

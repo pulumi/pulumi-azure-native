@@ -544,8 +544,8 @@ class GuestConfigurationAssignmentPropertiesResponse(dict):
         :param builtins.str assignment_hash: Combined hash of the configuration package and parameters.
         :param builtins.str compliance_status: A value indicating compliance status of the machine for the assigned guest configuration.
         :param builtins.str last_compliance_status_checked: Date and time when last compliance status was checked.
-        :param builtins.str latest_report_id: Id of the latest report for the guest configuration assignment. 
-        :param builtins.str parameter_hash: parameter hash for the guest configuration assignment. 
+        :param builtins.str latest_report_id: Id of the latest report for the guest configuration assignment.
+        :param builtins.str parameter_hash: parameter hash for the guest configuration assignment.
         :param builtins.str provisioning_state: The provisioning state, which only appears in the response.
         :param builtins.str resource_type: Type of the resource - VMSS / VM
         :param builtins.str target_resource_id: VM resource Id.
@@ -599,7 +599,7 @@ class GuestConfigurationAssignmentPropertiesResponse(dict):
     @pulumi.getter(name="latestReportId")
     def latest_report_id(self) -> builtins.str:
         """
-        Id of the latest report for the guest configuration assignment. 
+        Id of the latest report for the guest configuration assignment.
         """
         return pulumi.get(self, "latest_report_id")
 
@@ -607,7 +607,7 @@ class GuestConfigurationAssignmentPropertiesResponse(dict):
     @pulumi.getter(name="parameterHash")
     def parameter_hash(self) -> builtins.str:
         """
-        parameter hash for the guest configuration assignment. 
+        parameter hash for the guest configuration assignment.
         """
         return pulumi.get(self, "parameter_hash")
 
@@ -1036,7 +1036,7 @@ class VMSSVMInfoResponse(dict):
         Information about VMSS VM
         :param builtins.str compliance_status: A value indicating compliance status of the machine for the assigned guest configuration.
         :param builtins.str last_compliance_checked: Date and time when last compliance status was checked.
-        :param builtins.str latest_report_id: Id of the latest report for the guest configuration assignment. 
+        :param builtins.str latest_report_id: Id of the latest report for the guest configuration assignment.
         :param builtins.str vm_id: UUID of the VM.
         :param builtins.str vm_resource_id: Azure resource Id of the VM.
         """
@@ -1066,7 +1066,7 @@ class VMSSVMInfoResponse(dict):
     @pulumi.getter(name="latestReportId")
     def latest_report_id(self) -> builtins.str:
         """
-        Id of the latest report for the guest configuration assignment. 
+        Id of the latest report for the guest configuration assignment.
         """
         return pulumi.get(self, "latest_report_id")
 

@@ -35,15 +35,15 @@ class PolicyArgs:
                  threshold: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Policy resource.
-        :param pulumi.Input[builtins.str] lab_name: The name of the lab.
-        :param pulumi.Input[builtins.str] policy_set_name: The name of the policy set.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] lab_name: labs
+        :param pulumi.Input[builtins.str] policy_set_name: policysets
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] description: The description of the policy.
         :param pulumi.Input[Union[builtins.str, 'PolicyEvaluatorType']] evaluator_type: The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
         :param pulumi.Input[builtins.str] fact_data: The fact data of the policy.
         :param pulumi.Input[Union[builtins.str, 'PolicyFactName']] fact_name: The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
         :param pulumi.Input[builtins.str] location: The location of the resource.
-        :param pulumi.Input[builtins.str] name: The name of the policy.
+        :param pulumi.Input[builtins.str] name: The name of the Schedule
         :param pulumi.Input[Union[builtins.str, 'PolicyStatus']] status: The status of the policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
         :param pulumi.Input[builtins.str] threshold: The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
@@ -74,7 +74,7 @@ class PolicyArgs:
     @pulumi.getter(name="labName")
     def lab_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the lab.
+        labs
         """
         return pulumi.get(self, "lab_name")
 
@@ -86,7 +86,7 @@ class PolicyArgs:
     @pulumi.getter(name="policySetName")
     def policy_set_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the policy set.
+        policysets
         """
         return pulumi.get(self, "policy_set_name")
 
@@ -98,7 +98,7 @@ class PolicyArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -170,7 +170,7 @@ class PolicyArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the policy.
+        The name of the Schedule
         """
         return pulumi.get(self, "name")
 
@@ -245,11 +245,11 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[Union[builtins.str, 'PolicyEvaluatorType']] evaluator_type: The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
         :param pulumi.Input[builtins.str] fact_data: The fact data of the policy.
         :param pulumi.Input[Union[builtins.str, 'PolicyFactName']] fact_name: The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
-        :param pulumi.Input[builtins.str] lab_name: The name of the lab.
+        :param pulumi.Input[builtins.str] lab_name: labs
         :param pulumi.Input[builtins.str] location: The location of the resource.
-        :param pulumi.Input[builtins.str] name: The name of the policy.
-        :param pulumi.Input[builtins.str] policy_set_name: The name of the policy set.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] name: The name of the Schedule
+        :param pulumi.Input[builtins.str] policy_set_name: policysets
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[builtins.str, 'PolicyStatus']] status: The status of the policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
         :param pulumi.Input[builtins.str] threshold: The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).

@@ -10,13 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
+    /// <summary>
+    /// The provider registration.
+    /// </summary>
     public sealed class DefaultRolloutSpecificationProviderRegistrationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+        /// </summary>
+        [Input("kind")]
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.ProviderRegistrationKind>? Kind { get; set; }
+
         [Input("properties")]
         public Input<Inputs.ProviderRegistrationPropertiesArgs>? Properties { get; set; }
 
         public DefaultRolloutSpecificationProviderRegistrationArgs()
         {
+            Kind = "Managed";
         }
         public static new DefaultRolloutSpecificationProviderRegistrationArgs Empty => new DefaultRolloutSpecificationProviderRegistrationArgs();
     }

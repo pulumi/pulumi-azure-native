@@ -14,7 +14,9 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// Gets the notification registration details.
         /// 
-        /// Uses Azure REST API version 2021-09-01-preview.
+        /// Uses Azure REST API version 2024-09-01.
+        /// 
+        /// Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetNotificationRegistrationResult> InvokeAsync(GetNotificationRegistrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotificationRegistrationResult>("azure-native:providerhub:getNotificationRegistration", args ?? new GetNotificationRegistrationArgs(), options.WithDefaults());
@@ -22,7 +24,9 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// Gets the notification registration details.
         /// 
-        /// Uses Azure REST API version 2021-09-01-preview.
+        /// Uses Azure REST API version 2024-09-01.
+        /// 
+        /// Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNotificationRegistrationResult> Invoke(GetNotificationRegistrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationRegistrationResult>("azure-native:providerhub:getNotificationRegistration", args ?? new GetNotificationRegistrationInvokeArgs(), options.WithDefaults());
@@ -30,7 +34,9 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// Gets the notification registration details.
         /// 
-        /// Uses Azure REST API version 2021-09-01-preview.
+        /// Uses Azure REST API version 2024-09-01.
+        /// 
+        /// Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNotificationRegistrationResult> Invoke(GetNotificationRegistrationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationRegistrationResult>("azure-native:providerhub:getNotificationRegistration", args ?? new GetNotificationRegistrationInvokeArgs(), options.WithDefaults());
@@ -86,16 +92,16 @@ namespace Pulumi.AzureNative.ProviderHub
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.NotificationRegistrationResponseProperties Properties;
+        public readonly Outputs.NotificationRegistrationPropertiesResponse Properties;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -111,7 +117,7 @@ namespace Pulumi.AzureNative.ProviderHub
 
             string name,
 
-            Outputs.NotificationRegistrationResponseProperties properties,
+            Outputs.NotificationRegistrationPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 

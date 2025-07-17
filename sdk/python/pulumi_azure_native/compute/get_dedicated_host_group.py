@@ -28,7 +28,7 @@ class GetDedicatedHostGroupResult:
     """
     Specifies information about the dedicated host group that the dedicated hosts should be assigned to. Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
     """
-    def __init__(__self__, additional_capabilities=None, azure_api_version=None, hosts=None, id=None, instance_view=None, location=None, name=None, platform_fault_domain_count=None, support_automatic_placement=None, tags=None, type=None, zones=None):
+    def __init__(__self__, additional_capabilities=None, azure_api_version=None, hosts=None, id=None, instance_view=None, location=None, name=None, platform_fault_domain_count=None, support_automatic_placement=None, system_data=None, tags=None, type=None, zones=None):
         if additional_capabilities and not isinstance(additional_capabilities, dict):
             raise TypeError("Expected argument 'additional_capabilities' to be a dict")
         pulumi.set(__self__, "additional_capabilities", additional_capabilities)
@@ -56,6 +56,9 @@ class GetDedicatedHostGroupResult:
         if support_automatic_placement and not isinstance(support_automatic_placement, bool):
             raise TypeError("Expected argument 'support_automatic_placement' to be a bool")
         pulumi.set(__self__, "support_automatic_placement", support_automatic_placement)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -68,7 +71,7 @@ class GetDedicatedHostGroupResult:
 
     @property
     @pulumi.getter(name="additionalCapabilities")
-    def additional_capabilities(self) -> Optional['outputs.DedicatedHostGroupPropertiesResponseAdditionalCapabilities']:
+    def additional_capabilities(self) -> Optional['outputs.DedicatedHostGroupPropertiesAdditionalCapabilitiesResponse']:
         """
         Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
         """
@@ -94,7 +97,7 @@ class GetDedicatedHostGroupResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -110,7 +113,7 @@ class GetDedicatedHostGroupResult:
     @pulumi.getter
     def location(self) -> builtins.str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -118,7 +121,7 @@ class GetDedicatedHostGroupResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -139,10 +142,18 @@ class GetDedicatedHostGroupResult:
         return pulumi.get(self, "support_automatic_placement")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -150,7 +161,7 @@ class GetDedicatedHostGroupResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -158,7 +169,7 @@ class GetDedicatedHostGroupResult:
     @pulumi.getter
     def zones(self) -> Optional[Sequence[builtins.str]]:
         """
-        Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
+        The availability zones.
         """
         return pulumi.get(self, "zones")
 
@@ -178,6 +189,7 @@ class AwaitableGetDedicatedHostGroupResult(GetDedicatedHostGroupResult):
             name=self.name,
             platform_fault_domain_count=self.platform_fault_domain_count,
             support_automatic_placement=self.support_automatic_placement,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             zones=self.zones)
@@ -197,7 +209,7 @@ def get_dedicated_host_group(expand: Optional[builtins.str] = None,
 
     :param builtins.str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated hosts under the dedicated host group. 'UserData' is not supported for dedicated host group.
     :param builtins.str host_group_name: The name of the dedicated host group.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['expand'] = expand
@@ -216,6 +228,7 @@ def get_dedicated_host_group(expand: Optional[builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         platform_fault_domain_count=pulumi.get(__ret__, 'platform_fault_domain_count'),
         support_automatic_placement=pulumi.get(__ret__, 'support_automatic_placement'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zones=pulumi.get(__ret__, 'zones'))
@@ -233,7 +246,7 @@ def get_dedicated_host_group_output(expand: Optional[pulumi.Input[Optional[built
 
     :param builtins.str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated hosts under the dedicated host group. 'UserData' is not supported for dedicated host group.
     :param builtins.str host_group_name: The name of the dedicated host group.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['expand'] = expand
@@ -251,6 +264,7 @@ def get_dedicated_host_group_output(expand: Optional[pulumi.Input[Optional[built
         name=pulumi.get(__response__, 'name'),
         platform_fault_domain_count=pulumi.get(__response__, 'platform_fault_domain_count'),
         support_automatic_placement=pulumi.get(__response__, 'support_automatic_placement'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         zones=pulumi.get(__response__, 'zones')))

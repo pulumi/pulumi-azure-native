@@ -28,7 +28,7 @@ class GetGalleryInVMAccessControlProfileVersionResult:
     """
     Specifies information about the gallery inVMAccessControlProfile version that you want to create or update.
     """
-    def __init__(__self__, azure_api_version=None, default_access=None, exclude_from_latest=None, id=None, location=None, mode=None, name=None, provisioning_state=None, published_date=None, replication_status=None, rules=None, tags=None, target_locations=None, type=None):
+    def __init__(__self__, azure_api_version=None, default_access=None, exclude_from_latest=None, id=None, location=None, mode=None, name=None, provisioning_state=None, published_date=None, replication_status=None, rules=None, system_data=None, tags=None, target_locations=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -62,6 +62,9 @@ class GetGalleryInVMAccessControlProfileVersionResult:
         if rules and not isinstance(rules, dict):
             raise TypeError("Expected argument 'rules' to be a dict")
         pulumi.set(__self__, "rules", rules)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -100,7 +103,7 @@ class GetGalleryInVMAccessControlProfileVersionResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -108,7 +111,7 @@ class GetGalleryInVMAccessControlProfileVersionResult:
     @pulumi.getter
     def location(self) -> builtins.str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -124,7 +127,7 @@ class GetGalleryInVMAccessControlProfileVersionResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -161,10 +164,18 @@ class GetGalleryInVMAccessControlProfileVersionResult:
         return pulumi.get(self, "rules")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -180,7 +191,7 @@ class GetGalleryInVMAccessControlProfileVersionResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -202,6 +213,7 @@ class AwaitableGetGalleryInVMAccessControlProfileVersionResult(GetGalleryInVMAcc
             published_date=self.published_date,
             replication_status=self.replication_status,
             rules=self.rules,
+            system_data=self.system_data,
             tags=self.tags,
             target_locations=self.target_locations,
             type=self.type)
@@ -218,10 +230,10 @@ def get_gallery_in_vm_access_control_profile_version(gallery_name: Optional[buil
     Uses Azure REST API version 2024-03-03.
 
 
-    :param builtins.str gallery_name: The name of the Shared Image Gallery in which the inVMAccessControlProfile resides.
-    :param builtins.str in_vm_access_control_profile_name: The name of the gallery inVMAccessControlProfile in which the inVMAccessControlProfile version resides.
+    :param builtins.str gallery_name: The name of the Shared Image Gallery.
+    :param builtins.str in_vm_access_control_profile_name: The name of the gallery inVMAccessControlProfile to be retrieved.
     :param builtins.str in_vm_access_control_profile_version_name: The name of the gallery inVMAccessControlProfile version to be retrieved.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['galleryName'] = gallery_name
@@ -243,6 +255,7 @@ def get_gallery_in_vm_access_control_profile_version(gallery_name: Optional[buil
         published_date=pulumi.get(__ret__, 'published_date'),
         replication_status=pulumi.get(__ret__, 'replication_status'),
         rules=pulumi.get(__ret__, 'rules'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         target_locations=pulumi.get(__ret__, 'target_locations'),
         type=pulumi.get(__ret__, 'type'))
@@ -257,10 +270,10 @@ def get_gallery_in_vm_access_control_profile_version_output(gallery_name: Option
     Uses Azure REST API version 2024-03-03.
 
 
-    :param builtins.str gallery_name: The name of the Shared Image Gallery in which the inVMAccessControlProfile resides.
-    :param builtins.str in_vm_access_control_profile_name: The name of the gallery inVMAccessControlProfile in which the inVMAccessControlProfile version resides.
+    :param builtins.str gallery_name: The name of the Shared Image Gallery.
+    :param builtins.str in_vm_access_control_profile_name: The name of the gallery inVMAccessControlProfile to be retrieved.
     :param builtins.str in_vm_access_control_profile_version_name: The name of the gallery inVMAccessControlProfile version to be retrieved.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['galleryName'] = gallery_name
@@ -281,6 +294,7 @@ def get_gallery_in_vm_access_control_profile_version_output(gallery_name: Option
         published_date=pulumi.get(__response__, 'published_date'),
         replication_status=pulumi.get(__response__, 'replication_status'),
         rules=pulumi.get(__response__, 'rules'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         target_locations=pulumi.get(__response__, 'target_locations'),
         type=pulumi.get(__response__, 'type')))

@@ -10,10 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Outputs
 {
 
+    /// <summary>
+    /// The medium traffic region configuration.
+    /// </summary>
     [OutputType]
     public sealed class DefaultRolloutSpecificationResponseMediumTraffic
     {
         public readonly ImmutableArray<string> Regions;
+        /// <summary>
+        /// The wait duration.
+        /// </summary>
         public readonly string? WaitDuration;
 
         [OutputConstructor]

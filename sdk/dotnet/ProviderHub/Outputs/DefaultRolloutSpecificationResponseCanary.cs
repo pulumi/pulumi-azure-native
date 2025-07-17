@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Outputs
 {
 
+    /// <summary>
+    /// The canary traffic region configuration.
+    /// </summary>
     [OutputType]
     public sealed class DefaultRolloutSpecificationResponseCanary
     {
+        /// <summary>
+        /// The regions.
+        /// </summary>
         public readonly ImmutableArray<string> Regions;
+        /// <summary>
+        /// The skip regions.
+        /// </summary>
         public readonly ImmutableArray<string> SkipRegions;
 
         [OutputConstructor]

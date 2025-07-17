@@ -13,8 +13,17 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     [OutputType]
     public sealed class ThrottlingMetricResponse
     {
+        /// <summary>
+        /// The interval.
+        /// </summary>
         public readonly string? Interval;
+        /// <summary>
+        /// The limit.
+        /// </summary>
         public readonly double Limit;
+        /// <summary>
+        /// The throttling metric type
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

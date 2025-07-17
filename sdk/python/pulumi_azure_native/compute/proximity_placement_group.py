@@ -33,14 +33,14 @@ class ProximityPlacementGroupArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProximityPlacementGroup resource.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['InstanceViewStatusArgs'] colocation_status: Describes colocation status of the Proximity Placement Group.
         :param pulumi.Input['ProximityPlacementGroupPropertiesIntentArgs'] intent: Specifies the user intent of the proximity placement group.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.str] proximity_placement_group_name: The name of the proximity placement group.
         :param pulumi.Input[Union[builtins.str, 'ProximityPlacementGroupType']] proximity_placement_group_type: Specifies the type of the proximity placement group. Possible values are: **Standard** : Co-locate resources within an Azure region or Availability Zone. **Ultra** : For future use.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Specifies the Availability Zone where virtual machine, virtual machine scale set or availability set associated with the  proximity placement group can be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: The availability zones.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if colocation_status is not None:
@@ -62,7 +62,7 @@ class ProximityPlacementGroupArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -98,7 +98,7 @@ class ProximityPlacementGroupArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -134,7 +134,7 @@ class ProximityPlacementGroupArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -146,7 +146,7 @@ class ProximityPlacementGroupArgs:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Specifies the Availability Zone where virtual machine, virtual machine scale set or availability set associated with the  proximity placement group can be created.
+        The availability zones.
         """
         return pulumi.get(self, "zones")
 
@@ -181,12 +181,12 @@ class ProximityPlacementGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['InstanceViewStatusArgs', 'InstanceViewStatusArgsDict']] colocation_status: Describes colocation status of the Proximity Placement Group.
         :param pulumi.Input[Union['ProximityPlacementGroupPropertiesIntentArgs', 'ProximityPlacementGroupPropertiesIntentArgsDict']] intent: Specifies the user intent of the proximity placement group.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.str] proximity_placement_group_name: The name of the proximity placement group.
         :param pulumi.Input[Union[builtins.str, 'ProximityPlacementGroupType']] proximity_placement_group_type: Specifies the type of the proximity placement group. Possible values are: **Standard** : Co-locate resources within an Azure region or Availability Zone. **Ultra** : For future use.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Specifies the Availability Zone where virtual machine, virtual machine scale set or availability set associated with the  proximity placement group can be created.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: The availability zones.
         """
         ...
     @overload
@@ -246,6 +246,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
             __props__.__dict__["availability_sets"] = None
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machine_scale_sets"] = None
             __props__.__dict__["virtual_machines"] = None
@@ -280,6 +281,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["proximity_placement_group_type"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_machine_scale_sets"] = None
@@ -313,7 +315,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def intent(self) -> pulumi.Output[Optional['outputs.ProximityPlacementGroupPropertiesResponseIntent']]:
+    def intent(self) -> pulumi.Output[Optional['outputs.ProximityPlacementGroupPropertiesIntentResponse']]:
         """
         Specifies the user intent of the proximity placement group.
         """
@@ -323,7 +325,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -331,7 +333,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -344,10 +346,18 @@ class ProximityPlacementGroup(pulumi.CustomResource):
         return pulumi.get(self, "proximity_placement_group_type")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -355,7 +365,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -379,7 +389,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
     @pulumi.getter
     def zones(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        Specifies the Availability Zone where virtual machine, virtual machine scale set or availability set associated with the  proximity placement group can be created.
+        The availability zones.
         """
         return pulumi.get(self, "zones")
 

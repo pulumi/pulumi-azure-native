@@ -94,6 +94,10 @@ export class PrivateRecordSet extends pulumi.CustomResource {
      */
     public readonly srvRecords!: pulumi.Output<outputs.privatedns.SrvRecordResponse[] | undefined>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.privatedns.SystemDataResponse>;
+    /**
      * The TTL (time-to-live) of the records in the record set.
      */
     public readonly ttl!: pulumi.Output<number | undefined>;
@@ -102,7 +106,7 @@ export class PrivateRecordSet extends pulumi.CustomResource {
      */
     public readonly txtRecords!: pulumi.Output<outputs.privatedns.TxtRecordResponse[] | undefined>;
     /**
-     * The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -145,6 +149,7 @@ export class PrivateRecordSet extends pulumi.CustomResource {
             resourceInputs["fqdn"] = undefined /*out*/;
             resourceInputs["isAutoRegistered"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["aRecords"] = undefined /*out*/;
@@ -160,6 +165,7 @@ export class PrivateRecordSet extends pulumi.CustomResource {
             resourceInputs["ptrRecords"] = undefined /*out*/;
             resourceInputs["soaRecord"] = undefined /*out*/;
             resourceInputs["srvRecords"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["ttl"] = undefined /*out*/;
             resourceInputs["txtRecords"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -196,7 +202,7 @@ export interface PrivateRecordSetArgs {
      */
     mxRecords?: pulumi.Input<pulumi.Input<inputs.privatedns.MxRecordArgs>[]>;
     /**
-     * The name of the Private DNS zone (without a terminating dot).
+     * The name of the DNS zone (without a terminating dot).
      */
     privateZoneName: pulumi.Input<string>;
     /**
@@ -204,7 +210,7 @@ export interface PrivateRecordSetArgs {
      */
     ptrRecords?: pulumi.Input<pulumi.Input<inputs.privatedns.PtrRecordArgs>[]>;
     /**
-     * The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the Private DNS zone is created).
+     * The type of DNS record in this record set.
      */
     recordType: pulumi.Input<string>;
     /**
@@ -212,7 +218,7 @@ export interface PrivateRecordSetArgs {
      */
     relativeRecordSetName?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

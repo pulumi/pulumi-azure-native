@@ -255,8 +255,8 @@ def get_artifact_source(expand: Optional[builtins.str] = None,
 
     :param builtins.str expand: Specify the $expand query. Example: 'properties($select=displayName)'
     :param builtins.str lab_name: The name of the lab.
-    :param builtins.str name: The name of the artifact source.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str name: The name of the ArtifactSource
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['expand'] = expand
@@ -297,8 +297,8 @@ def get_artifact_source_output(expand: Optional[pulumi.Input[Optional[builtins.s
 
     :param builtins.str expand: Specify the $expand query. Example: 'properties($select=displayName)'
     :param builtins.str lab_name: The name of the lab.
-    :param builtins.str name: The name of the artifact source.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str name: The name of the ArtifactSource
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['expand'] = expand

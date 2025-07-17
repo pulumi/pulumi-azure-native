@@ -54,11 +54,11 @@ export class Channel extends pulumi.CustomResource {
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the location of the resource.
+     * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name of the resource.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -70,11 +70,15 @@ export class Channel extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.botservice.SkuResponse | undefined>;
     /**
-     * Contains resource tags defined as key/value pairs.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.botservice.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Specifies the type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -110,6 +114,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["zones"] = undefined /*out*/;
         } else {
@@ -120,6 +125,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["zones"] = undefined /*out*/;
@@ -144,7 +150,7 @@ export interface ChannelArgs {
      */
     kind?: pulumi.Input<string | enums.botservice.Kind>;
     /**
-     * Specifies the location of the resource.
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -152,7 +158,7 @@ export interface ChannelArgs {
      */
     properties?: pulumi.Input<inputs.botservice.AcsChatChannelArgs | inputs.botservice.AlexaChannelArgs | inputs.botservice.DirectLineChannelArgs | inputs.botservice.DirectLineSpeechChannelArgs | inputs.botservice.EmailChannelArgs | inputs.botservice.FacebookChannelArgs | inputs.botservice.KikChannelArgs | inputs.botservice.LineChannelArgs | inputs.botservice.M365ExtensionsArgs | inputs.botservice.MsTeamsChannelArgs | inputs.botservice.OmnichannelArgs | inputs.botservice.OutlookChannelArgs | inputs.botservice.SearchAssistantArgs | inputs.botservice.SkypeChannelArgs | inputs.botservice.SlackChannelArgs | inputs.botservice.SmsChannelArgs | inputs.botservice.TelegramChannelArgs | inputs.botservice.TelephonyChannelArgs | inputs.botservice.WebChatChannelArgs>;
     /**
-     * The name of the Bot resource group in the user subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -164,7 +170,7 @@ export interface ChannelArgs {
      */
     sku?: pulumi.Input<inputs.botservice.SkuArgs>;
     /**
-     * Contains resource tags defined as key/value pairs.
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

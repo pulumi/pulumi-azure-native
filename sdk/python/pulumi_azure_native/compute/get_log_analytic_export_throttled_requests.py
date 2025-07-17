@@ -76,7 +76,7 @@ def get_log_analytic_export_throttled_requests(blob_container_sas_uri: Optional[
     :param builtins.bool group_by_resource_name: Group query result by Resource Name.
     :param builtins.bool group_by_throttle_policy: Group query result by Throttle Policy applied.
     :param builtins.bool group_by_user_agent: Group query result by User Agent.
-    :param builtins.str location: The location upon which virtual-machine-sizes is queried.
+    :param builtins.str location: The name of Azure region.
     :param builtins.str to_time: To time of the query
     """
     __args__ = dict()
@@ -119,7 +119,7 @@ def get_log_analytic_export_throttled_requests_output(blob_container_sas_uri: Op
     :param builtins.bool group_by_resource_name: Group query result by Resource Name.
     :param builtins.bool group_by_throttle_policy: Group query result by Throttle Policy applied.
     :param builtins.bool group_by_user_agent: Group query result by User Agent.
-    :param builtins.str location: The location upon which virtual-machine-sizes is queried.
+    :param builtins.str location: The name of Azure region.
     :param builtins.str to_time: To time of the query
     """
     __args__ = dict()

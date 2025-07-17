@@ -171,7 +171,7 @@ namespace Pulumi.AzureNative.DevTestLab
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the formula.
+        /// The name of the Formula
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -183,7 +183,7 @@ namespace Pulumi.AzureNative.DevTestLab
         public Input<string>? OsType { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

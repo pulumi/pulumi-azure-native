@@ -209,11 +209,11 @@ export interface DiskArgs {
      */
     managedDiskId?: pulumi.Input<string>;
     /**
-     * The name of the disk.
+     * The name of the Disk
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

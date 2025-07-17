@@ -25,9 +25,6 @@ __all__ = [
 
 @pulumi.output_type
 class GetNotificationRegistrationResult:
-    """
-    The notification registration definition.
-    """
     def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
@@ -60,7 +57,7 @@ class GetNotificationRegistrationResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -74,14 +71,14 @@ class GetNotificationRegistrationResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.NotificationRegistrationResponseProperties':
+    def properties(self) -> 'outputs.NotificationRegistrationPropertiesResponse':
         return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -114,7 +111,9 @@ def get_notification_registration(notification_registration_name: Optional[built
     """
     Gets the notification registration details.
 
-    Uses Azure REST API version 2021-09-01-preview.
+    Uses Azure REST API version 2024-09-01.
+
+    Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str notification_registration_name: The notification registration.
@@ -139,7 +138,9 @@ def get_notification_registration_output(notification_registration_name: Optiona
     """
     Gets the notification registration details.
 
-    Uses Azure REST API version 2021-09-01-preview.
+    Uses Azure REST API version 2024-09-01.
+
+    Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str notification_registration_name: The notification registration.

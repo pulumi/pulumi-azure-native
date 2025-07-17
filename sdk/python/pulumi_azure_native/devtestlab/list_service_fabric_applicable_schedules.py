@@ -135,8 +135,8 @@ def list_service_fabric_applicable_schedules(lab_name: Optional[builtins.str] = 
 
 
     :param builtins.str lab_name: The name of the lab.
-    :param builtins.str name: The name of the service fabric.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str name: The name of the ServiceFabric
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str user_name: The name of the user profile.
     """
     __args__ = dict()
@@ -167,8 +167,8 @@ def list_service_fabric_applicable_schedules_output(lab_name: Optional[pulumi.In
 
 
     :param builtins.str lab_name: The name of the lab.
-    :param builtins.str name: The name of the service fabric.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str name: The name of the ServiceFabric
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str user_name: The name of the user profile.
     """
     __args__ = dict()

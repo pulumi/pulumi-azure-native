@@ -12,12 +12,21 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
     public sealed class ServiceTreeInfoArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The component id.
+        /// </summary>
         [Input("componentId")]
         public Input<string>? ComponentId { get; set; }
 
+        /// <summary>
+        /// The readiness.
+        /// </summary>
         [Input("readiness")]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.Readiness>? Readiness { get; set; }
 
+        /// <summary>
+        /// The service id.
+        /// </summary>
         [Input("serviceId")]
         public Input<string>? ServiceId { get; set; }
 

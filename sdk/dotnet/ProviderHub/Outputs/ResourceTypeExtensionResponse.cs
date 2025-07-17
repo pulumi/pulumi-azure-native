@@ -13,8 +13,17 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     [OutputType]
     public sealed class ResourceTypeExtensionResponse
     {
+        /// <summary>
+        /// The endpoint uri.
+        /// </summary>
         public readonly string? EndpointUri;
+        /// <summary>
+        /// The extension categories.
+        /// </summary>
         public readonly ImmutableArray<string> ExtensionCategories;
+        /// <summary>
+        /// The timeout.
+        /// </summary>
         public readonly string? Timeout;
 
         [OutputConstructor]

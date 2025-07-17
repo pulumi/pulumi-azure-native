@@ -23,13 +23,13 @@ namespace Pulumi.AzureNative.BotService.Outputs
         /// <summary>
         /// Properties of Provisioning Issue
         /// </summary>
-        public readonly Outputs.ProvisioningIssueResponseProperties Properties;
+        public readonly Outputs.ProvisioningIssuePropertiesResponse Properties;
 
         [OutputConstructor]
         private ProvisioningIssueResponse(
             string? name,
 
-            Outputs.ProvisioningIssueResponseProperties properties)
+            Outputs.ProvisioningIssuePropertiesResponse properties)
         {
             Name = name;
             Properties = properties;

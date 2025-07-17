@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Dns
         public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the DNSSEC configuration.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -48,13 +48,13 @@ namespace Pulumi.AzureNative.Dns
         public Output<ImmutableArray<Outputs.SigningKeyResponse>> SigningKeys { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the DNSSEC configuration.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

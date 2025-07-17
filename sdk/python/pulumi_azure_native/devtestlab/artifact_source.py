@@ -37,13 +37,13 @@ class ArtifactSourceArgs:
         """
         The set of arguments for constructing a ArtifactSource resource.
         :param pulumi.Input[builtins.str] lab_name: The name of the lab.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] arm_template_folder_path: The folder containing Azure Resource Manager templates.
         :param pulumi.Input[builtins.str] branch_ref: The artifact source's branch reference.
         :param pulumi.Input[builtins.str] display_name: The artifact source's display name.
         :param pulumi.Input[builtins.str] folder_path: The folder containing artifacts.
         :param pulumi.Input[builtins.str] location: The location of the resource.
-        :param pulumi.Input[builtins.str] name: The name of the artifact source.
+        :param pulumi.Input[builtins.str] name: The name of the ArtifactSource
         :param pulumi.Input[builtins.str] security_token: The security token to authenticate to the artifact source.
         :param pulumi.Input[Union[builtins.str, 'SourceControlType']] source_type: The artifact source's type.
         :param pulumi.Input[Union[builtins.str, 'EnableStatus']] status: Indicates if the artifact source is enabled (values: Enabled, Disabled).
@@ -91,7 +91,7 @@ class ArtifactSourceArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -163,7 +163,7 @@ class ArtifactSourceArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the artifact source.
+        The name of the ArtifactSource
         """
         return pulumi.get(self, "name")
 
@@ -265,8 +265,8 @@ class ArtifactSource(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] folder_path: The folder containing artifacts.
         :param pulumi.Input[builtins.str] lab_name: The name of the lab.
         :param pulumi.Input[builtins.str] location: The location of the resource.
-        :param pulumi.Input[builtins.str] name: The name of the artifact source.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] name: The name of the ArtifactSource
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] security_token: The security token to authenticate to the artifact source.
         :param pulumi.Input[Union[builtins.str, 'SourceControlType']] source_type: The artifact source's type.
         :param pulumi.Input[Union[builtins.str, 'EnableStatus']] status: Indicates if the artifact source is enabled (values: Enabled, Disabled).

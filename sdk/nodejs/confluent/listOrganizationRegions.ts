@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Result of POST request to list regions supported by confluent
+ * cloud provider regions available for creating Schema Registry clusters.
  *
  * Uses Azure REST API version 2024-07-01.
  *
@@ -48,7 +48,7 @@ export interface ListOrganizationRegionsResult {
     readonly data?: outputs.confluent.RegionRecordResponse[];
 }
 /**
- * Result of POST request to list regions supported by confluent
+ * cloud provider regions available for creating Schema Registry clusters.
  *
  * Uses Azure REST API version 2024-07-01.
  *

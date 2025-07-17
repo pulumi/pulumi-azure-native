@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
  *
- * Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Catalog extends pulumi.CustomResource {
     /**
@@ -149,7 +149,7 @@ export class Catalog extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:Catalog" }, { type: "azure-native:devcenter/v20220901preview:Catalog" }, { type: "azure-native:devcenter/v20221012preview:Catalog" }, { type: "azure-native:devcenter/v20221111preview:Catalog" }, { type: "azure-native:devcenter/v20230101preview:Catalog" }, { type: "azure-native:devcenter/v20230401:Catalog" }, { type: "azure-native:devcenter/v20230801preview:Catalog" }, { type: "azure-native:devcenter/v20231001preview:Catalog" }, { type: "azure-native:devcenter/v20240201:Catalog" }, { type: "azure-native:devcenter/v20240501preview:Catalog" }, { type: "azure-native:devcenter/v20240601preview:Catalog" }, { type: "azure-native:devcenter/v20240701preview:Catalog" }, { type: "azure-native:devcenter/v20240801preview:Catalog" }, { type: "azure-native:devcenter/v20241001preview:Catalog" }, { type: "azure-native:devcenter/v20250201:Catalog" }, { type: "azure-native:devcenter/v20250401preview:Catalog" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:Catalog" }, { type: "azure-native:devcenter/v20220901preview:Catalog" }, { type: "azure-native:devcenter/v20221012preview:Catalog" }, { type: "azure-native:devcenter/v20221111preview:Catalog" }, { type: "azure-native:devcenter/v20230101preview:Catalog" }, { type: "azure-native:devcenter/v20230401:Catalog" }, { type: "azure-native:devcenter/v20230801preview:Catalog" }, { type: "azure-native:devcenter/v20231001preview:Catalog" }, { type: "azure-native:devcenter/v20240201:Catalog" }, { type: "azure-native:devcenter/v20240501preview:Catalog" }, { type: "azure-native:devcenter/v20240601preview:Catalog" }, { type: "azure-native:devcenter/v20240701preview:Catalog" }, { type: "azure-native:devcenter/v20240801preview:Catalog" }, { type: "azure-native:devcenter/v20241001preview:Catalog" }, { type: "azure-native:devcenter/v20250201:Catalog" }, { type: "azure-native:devcenter/v20250401preview:Catalog" }, { type: "azure-native:devcenter/v20250701preview:Catalog" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Catalog.__pulumiType, name, resourceInputs, opts);
     }

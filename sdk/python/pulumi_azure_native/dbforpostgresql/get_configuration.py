@@ -26,7 +26,7 @@ __all__ = [
 @pulumi.output_type
 class GetConfigurationResult:
     """
-    Represents a Configuration.
+    Server parameter.
     """
     def __init__(__self__, allowed_values=None, azure_api_version=None, data_type=None, default_value=None, description=None, documentation_link=None, id=None, is_config_pending_restart=None, is_dynamic_config=None, is_read_only=None, name=None, source=None, system_data=None, type=None, unit=None, value=None):
         if allowed_values and not isinstance(allowed_values, str):
@@ -82,7 +82,7 @@ class GetConfigurationResult:
     @pulumi.getter(name="allowedValues")
     def allowed_values(self) -> builtins.str:
         """
-        Allowed values of the configuration.
+        Allowed values of the server parameter.
         """
         return pulumi.get(self, "allowed_values")
 
@@ -98,7 +98,7 @@ class GetConfigurationResult:
     @pulumi.getter(name="dataType")
     def data_type(self) -> builtins.str:
         """
-        Data type of the configuration.
+        Data type of the server parameter.
         """
         return pulumi.get(self, "data_type")
 
@@ -106,7 +106,7 @@ class GetConfigurationResult:
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> builtins.str:
         """
-        Default value of the configuration.
+        Value assigned by default to the server parameter.
         """
         return pulumi.get(self, "default_value")
 
@@ -114,7 +114,7 @@ class GetConfigurationResult:
     @pulumi.getter
     def description(self) -> builtins.str:
         """
-        Description of the configuration.
+        Description of the server parameter.
         """
         return pulumi.get(self, "description")
 
@@ -122,7 +122,7 @@ class GetConfigurationResult:
     @pulumi.getter(name="documentationLink")
     def documentation_link(self) -> builtins.str:
         """
-        Configuration documentation link.
+        Link pointing to the documentation of the server parameter.
         """
         return pulumi.get(self, "documentation_link")
 
@@ -138,7 +138,7 @@ class GetConfigurationResult:
     @pulumi.getter(name="isConfigPendingRestart")
     def is_config_pending_restart(self) -> builtins.bool:
         """
-        Configuration is pending restart or not.
+        Indicates if the value assigned to the server parameter is pending a server restart for the value to take effect.
         """
         return pulumi.get(self, "is_config_pending_restart")
 
@@ -146,7 +146,7 @@ class GetConfigurationResult:
     @pulumi.getter(name="isDynamicConfig")
     def is_dynamic_config(self) -> builtins.bool:
         """
-        Configuration dynamic or static.
+        Indicates if it's a dynamic (true) or static (false) server parameter. Static server parameters require a server restart after changing the value assigned to it, for the change to take effect. Dynamic server parameters do not require a server restart after changing the value assigned to it, for the change to take effect.
         """
         return pulumi.get(self, "is_dynamic_config")
 
@@ -154,7 +154,7 @@ class GetConfigurationResult:
     @pulumi.getter(name="isReadOnly")
     def is_read_only(self) -> builtins.bool:
         """
-        Configuration read-only or not.
+        Indicates if it's a read-only (true) or modifiable (false) server parameter.
         """
         return pulumi.get(self, "is_read_only")
 
@@ -170,7 +170,7 @@ class GetConfigurationResult:
     @pulumi.getter
     def source(self) -> Optional[builtins.str]:
         """
-        Source of the configuration. Required to update the configuration.
+        Source of the value assigned to the server parameter. Required to update the value assigned to a specific modifiable server parameter.
         """
         return pulumi.get(self, "source")
 
@@ -194,7 +194,7 @@ class GetConfigurationResult:
     @pulumi.getter
     def unit(self) -> builtins.str:
         """
-        Configuration unit.
+        Units in which the server parameter value is expressed.
         """
         return pulumi.get(self, "unit")
 
@@ -202,7 +202,7 @@ class GetConfigurationResult:
     @pulumi.getter
     def value(self) -> Optional[builtins.str]:
         """
-        Value of the configuration. Required to update the configuration.
+        Value of the server parameter (also known as configuration). Required to update the value assigned to a specific modifiable server parameter.
         """
         return pulumi.get(self, "value")
 
@@ -236,14 +236,14 @@ def get_configuration(configuration_name: Optional[builtins.str] = None,
                       server_name: Optional[builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationResult:
     """
-    Gets information about a configuration of server.
+    Gets information about a specific server parameter of a flexible server.
 
     Uses Azure REST API version 2024-08-01.
 
     Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str configuration_name: The name of the server configuration.
+    :param builtins.str configuration_name: Name of the server parameter.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str server_name: The name of the server.
     """
@@ -276,14 +276,14 @@ def get_configuration_output(configuration_name: Optional[pulumi.Input[builtins.
                              server_name: Optional[pulumi.Input[builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationResult]:
     """
-    Gets information about a configuration of server.
+    Gets information about a specific server parameter of a flexible server.
 
     Uses Azure REST API version 2024-08-01.
 
     Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str configuration_name: The name of the server configuration.
+    :param builtins.str configuration_name: Name of the server parameter.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str server_name: The name of the server.
     """

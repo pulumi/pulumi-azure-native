@@ -8,7 +8,6 @@ from enum import Enum
 
 __all__ = [
     'CapacitySkuTier',
-    'IdentityType',
     'Mode',
     'VCoreSkuTier',
 ]
@@ -22,17 +21,6 @@ class CapacitySkuTier(builtins.str, Enum):
     PBI_E_AZURE = "PBIE_Azure"
     PREMIUM = "Premium"
     AUTO_PREMIUM_HOST = "AutoPremiumHost"
-
-
-@pulumi.type_token("azure-native:powerbidedicated:IdentityType")
-class IdentityType(builtins.str, Enum):
-    """
-    The type of identity that last modified the resource
-    """
-    USER = "User"
-    APPLICATION = "Application"
-    MANAGED_IDENTITY = "ManagedIdentity"
-    KEY = "Key"
 
 
 @pulumi.type_token("azure-native:powerbidedicated:Mode")

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Notification Hub Resource.
+ * Gets the notification hub.
  *
  * Uses Azure REST API version 2023-10-01-preview.
  *
@@ -121,7 +121,7 @@ export interface GetNotificationHubResult {
     readonly xiaomiCredential?: outputs.notificationhubs.XiaomiCredentialResponse;
 }
 /**
- * Notification Hub Resource.
+ * Gets the notification hub.
  *
  * Uses Azure REST API version 2023-10-01-preview.
  *

@@ -27,11 +27,11 @@ export interface ListVirtualMachineApplicableSchedulesArgs {
      */
     labName: string;
     /**
-     * The name of the virtual machine.
+     * The name of the LabVirtualMachine
      */
     name: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -89,11 +89,11 @@ export interface ListVirtualMachineApplicableSchedulesOutputArgs {
      */
     labName: pulumi.Input<string>;
     /**
-     * The name of the virtual machine.
+     * The name of the LabVirtualMachine
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

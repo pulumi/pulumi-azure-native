@@ -124,7 +124,7 @@ class Ledger(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-06-28-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-13.
 
-        Other available API versions: 2022-05-13, 2022-09-08-preview, 2023-01-26-preview, 2024-07-09-preview, 2024-09-19-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confidentialledger [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-05-13, 2022-09-08-preview, 2023-01-26-preview, 2024-07-09-preview, 2024-09-19-preview, 2025-06-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confidentialledger [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,7 +145,7 @@ class Ledger(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-06-28-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-13.
 
-        Other available API versions: 2022-05-13, 2022-09-08-preview, 2023-01-26-preview, 2024-07-09-preview, 2024-09-19-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confidentialledger [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-05-13, 2022-09-08-preview, 2023-01-26-preview, 2024-07-09-preview, 2024-09-19-preview, 2025-06-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confidentialledger [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param LedgerArgs args: The arguments to use to populate this resource's properties.
@@ -187,7 +187,7 @@ class Ledger(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:confidentialledger/v20201201preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20210513preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20220513:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20220908preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20230126preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20230628preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20240709preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20240919preview:Ledger")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:confidentialledger/v20201201preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20210513preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20220513:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20220908preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20230126preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20230628preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20240709preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20240919preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20250610preview:Ledger")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Ledger, __self__).__init__(
             'azure-native:confidentialledger:Ledger',

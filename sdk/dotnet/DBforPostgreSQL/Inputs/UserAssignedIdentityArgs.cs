@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
 {
 
     /// <summary>
-    /// Information describing the identities associated with this application.
+    /// Identities associated with a flexible server.
     /// </summary>
     public sealed class UserAssignedIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// the identity principal Id of the server.
+        /// Identifier of the object of the service principal associated to the user assigned managed identity.
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// the types of identities associated with this resource
+        /// Types of identities associated with a flexible server.
         /// </summary>
         [Input("type", required: true)]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.IdentityType> Type { get; set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
         private InputMap<Inputs.UserIdentityArgs>? _userAssignedIdentities;
 
         /// <summary>
-        /// represents user assigned identities map.
+        /// Map of user assigned managed identities.
         /// </summary>
         public InputMap<Inputs.UserIdentityArgs> UserAssignedIdentities
         {

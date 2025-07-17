@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01-preview.
  *
- * Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class BrokerAuthentication extends pulumi.CustomResource {
     /**
@@ -108,7 +108,7 @@ export class BrokerAuthentication extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:BrokerAuthentication" }, { type: "azure-native:iotoperations/v20240815preview:BrokerAuthentication" }, { type: "azure-native:iotoperations/v20240915preview:BrokerAuthentication" }, { type: "azure-native:iotoperations/v20241101:BrokerAuthentication" }, { type: "azure-native:iotoperations/v20250401:BrokerAuthentication" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:BrokerAuthentication" }, { type: "azure-native:iotoperations/v20240815preview:BrokerAuthentication" }, { type: "azure-native:iotoperations/v20240915preview:BrokerAuthentication" }, { type: "azure-native:iotoperations/v20241101:BrokerAuthentication" }, { type: "azure-native:iotoperations/v20250401:BrokerAuthentication" }, { type: "azure-native:iotoperations/v20250701preview:BrokerAuthentication" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BrokerAuthentication.__pulumiType, name, resourceInputs, opts);
     }

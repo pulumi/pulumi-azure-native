@@ -23,16 +23,34 @@ __all__ = ['ProviderRegistrationArgs', 'ProviderRegistration']
 @pulumi.input_type
 class ProviderRegistrationArgs:
     def __init__(__self__, *,
+                 kind: Optional[pulumi.Input[Union[builtins.str, 'ProviderRegistrationKind']]] = None,
                  properties: Optional[pulumi.Input['ProviderRegistrationPropertiesArgs']] = None,
                  provider_namespace: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ProviderRegistration resource.
+        :param pulumi.Input[Union[builtins.str, 'ProviderRegistrationKind']] kind: Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[builtins.str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         """
+        if kind is None:
+            kind = 'Managed'
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if provider_namespace is not None:
             pulumi.set(__self__, "provider_namespace", provider_namespace)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[Union[builtins.str, 'ProviderRegistrationKind']]]:
+        """
+        Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[Union[builtins.str, 'ProviderRegistrationKind']]]):
+        pulumi.set(self, "kind", value)
 
     @property
     @pulumi.getter
@@ -62,14 +80,18 @@ class ProviderRegistration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 kind: Optional[pulumi.Input[Union[builtins.str, 'ProviderRegistrationKind']]] = None,
                  properties: Optional[pulumi.Input[Union['ProviderRegistrationPropertiesArgs', 'ProviderRegistrationPropertiesArgsDict']]] = None,
                  provider_namespace: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Uses Azure REST API version 2021-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
+        Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
+
+        Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union[builtins.str, 'ProviderRegistrationKind']] kind: Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[builtins.str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         """
         ...
@@ -79,7 +101,9 @@ class ProviderRegistration(pulumi.CustomResource):
                  args: Optional[ProviderRegistrationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Uses Azure REST API version 2021-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
+        Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
+
+        Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ProviderRegistrationArgs args: The arguments to use to populate this resource's properties.
@@ -96,6 +120,7 @@ class ProviderRegistration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 kind: Optional[pulumi.Input[Union[builtins.str, 'ProviderRegistrationKind']]] = None,
                  properties: Optional[pulumi.Input[Union['ProviderRegistrationPropertiesArgs', 'ProviderRegistrationPropertiesArgsDict']]] = None,
                  provider_namespace: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -107,13 +132,16 @@ class ProviderRegistration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderRegistrationArgs.__new__(ProviderRegistrationArgs)
 
+            if kind is None:
+                kind = 'Managed'
+            __props__.__dict__["kind"] = kind
             __props__.__dict__["properties"] = properties
             __props__.__dict__["provider_namespace"] = provider_namespace
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:providerhub/v20201120:ProviderRegistration"), pulumi.Alias(type_="azure-native:providerhub/v20210501preview:ProviderRegistration"), pulumi.Alias(type_="azure-native:providerhub/v20210601preview:ProviderRegistration"), pulumi.Alias(type_="azure-native:providerhub/v20210901preview:ProviderRegistration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:providerhub/v20201120:ProviderRegistration"), pulumi.Alias(type_="azure-native:providerhub/v20210501preview:ProviderRegistration"), pulumi.Alias(type_="azure-native:providerhub/v20210601preview:ProviderRegistration"), pulumi.Alias(type_="azure-native:providerhub/v20210901preview:ProviderRegistration"), pulumi.Alias(type_="azure-native:providerhub/v20240901:ProviderRegistration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProviderRegistration, __self__).__init__(
             'azure-native:providerhub:ProviderRegistration',
@@ -138,6 +166,7 @@ class ProviderRegistration(pulumi.CustomResource):
         __props__ = ProviderRegistrationArgs.__new__(ProviderRegistrationArgs)
 
         __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
@@ -154,6 +183,14 @@ class ProviderRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def kind(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
         The name of the resource
@@ -162,14 +199,14 @@ class ProviderRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.ProviderRegistrationResponseProperties']:
+    def properties(self) -> pulumi.Output['outputs.ProviderRegistrationPropertiesResponse']:
         return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

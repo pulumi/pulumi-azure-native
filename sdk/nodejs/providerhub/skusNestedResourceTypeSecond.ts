@@ -8,7 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Uses Azure REST API version 2021-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
+ * Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
+ *
+ * Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class SkusNestedResourceTypeSecond extends pulumi.CustomResource {
     /**
@@ -47,7 +49,7 @@ export class SkusNestedResourceTypeSecond extends pulumi.CustomResource {
     public /*out*/ readonly name!: pulumi.Output<string>;
     public readonly properties!: pulumi.Output<outputs.providerhub.SkuResourceResponseProperties>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.providerhub.SystemDataResponse>;
     /**
@@ -96,7 +98,7 @@ export class SkusNestedResourceTypeSecond extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:providerhub/v20201120:SkusNestedResourceTypeSecond" }, { type: "azure-native:providerhub/v20210501preview:SkusNestedResourceTypeSecond" }, { type: "azure-native:providerhub/v20210601preview:SkusNestedResourceTypeSecond" }, { type: "azure-native:providerhub/v20210901preview:SkusNestedResourceTypeSecond" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:providerhub/v20201120:SkusNestedResourceTypeSecond" }, { type: "azure-native:providerhub/v20210501preview:SkusNestedResourceTypeSecond" }, { type: "azure-native:providerhub/v20210601preview:SkusNestedResourceTypeSecond" }, { type: "azure-native:providerhub/v20210901preview:SkusNestedResourceTypeSecond" }, { type: "azure-native:providerhub/v20240901:SkusNestedResourceTypeSecond" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SkusNestedResourceTypeSecond.__pulumiType, name, resourceInputs, opts);
     }

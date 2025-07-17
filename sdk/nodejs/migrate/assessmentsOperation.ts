@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
  *
- * Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class AssessmentsOperation extends pulumi.CustomResource {
     /**
@@ -357,7 +357,7 @@ export class AssessmentsOperation extends pulumi.CustomResource {
             resourceInputs["vmUptime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:Assessment" }, { type: "azure-native:migrate/v20191001:AssessmentsOperation" }, { type: "azure-native:migrate/v20230315:AssessmentsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentsOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentsOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentsOperation" }, { type: "azure-native:migrate/v20240101preview:AssessmentsOperation" }, { type: "azure-native:migrate:Assessment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:Assessment" }, { type: "azure-native:migrate/v20191001:AssessmentsOperation" }, { type: "azure-native:migrate/v20230315:AssessmentsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentsOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentsOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentsOperation" }, { type: "azure-native:migrate/v20240101preview:AssessmentsOperation" }, { type: "azure-native:migrate/v20240115:AssessmentsOperation" }, { type: "azure-native:migrate:Assessment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentsOperation.__pulumiType, name, resourceInputs, opts);
     }

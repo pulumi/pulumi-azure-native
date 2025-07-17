@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// Get a SchemaRegistry
         /// 
         /// Uses Azure REST API version 2024-09-01-preview.
+        /// 
+        /// Other available API versions: 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSchemaRegistryResult> InvokeAsync(GetSchemaRegistryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSchemaRegistryResult>("azure-native:deviceregistry:getSchemaRegistry", args ?? new GetSchemaRegistryArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// Get a SchemaRegistry
         /// 
         /// Uses Azure REST API version 2024-09-01-preview.
+        /// 
+        /// Other available API versions: 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSchemaRegistryResult> Invoke(GetSchemaRegistryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemaRegistryResult>("azure-native:deviceregistry:getSchemaRegistry", args ?? new GetSchemaRegistryInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// Get a SchemaRegistry
         /// 
         /// Uses Azure REST API version 2024-09-01-preview.
+        /// 
+        /// Other available API versions: 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSchemaRegistryResult> Invoke(GetSchemaRegistryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemaRegistryResult>("azure-native:deviceregistry:getSchemaRegistry", args ?? new GetSchemaRegistryInvokeArgs(), options.WithDefaults());

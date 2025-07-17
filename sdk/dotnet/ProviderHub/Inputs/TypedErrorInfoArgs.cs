@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
+    /// <summary>
+    /// Error information.
+    /// </summary>
     public sealed class TypedErrorInfoArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of the error.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

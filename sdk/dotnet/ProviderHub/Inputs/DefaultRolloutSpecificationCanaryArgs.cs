@@ -10,10 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
+    /// <summary>
+    /// The canary traffic region configuration.
+    /// </summary>
     public sealed class DefaultRolloutSpecificationCanaryArgs : global::Pulumi.ResourceArgs
     {
         [Input("regions")]
         private InputList<string>? _regions;
+
+        /// <summary>
+        /// The regions.
+        /// </summary>
         public InputList<string> Regions
         {
             get => _regions ?? (_regions = new InputList<string>());
@@ -22,6 +29,10 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
         [Input("skipRegions")]
         private InputList<string>? _skipRegions;
+
+        /// <summary>
+        /// The skip regions.
+        /// </summary>
         public InputList<string> SkipRegions
         {
             get => _skipRegions ?? (_skipRegions = new InputList<string>());

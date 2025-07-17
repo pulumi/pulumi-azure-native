@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.Dns
         /// </summary>
         public readonly string Fqdn;
         /// <summary>
-        /// The ID of the record set.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.Dns
         /// </summary>
         public readonly ImmutableArray<Outputs.MxRecordResponse> MxRecords;
         /// <summary>
-        /// The name of the record set.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -184,6 +184,10 @@ namespace Pulumi.AzureNative.Dns
         /// </summary>
         public readonly ImmutableArray<Outputs.SrvRecordResponse> SrvRecords;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// A reference to an azure resource from where the dns resource value is taken.
         /// </summary>
         public readonly Outputs.SubResourceResponse? TargetResource;
@@ -204,7 +208,7 @@ namespace Pulumi.AzureNative.Dns
         /// </summary>
         public readonly ImmutableArray<Outputs.TxtRecordResponse> TxtRecords;
         /// <summary>
-        /// The type of the record set.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -246,6 +250,8 @@ namespace Pulumi.AzureNative.Dns
 
             ImmutableArray<Outputs.SrvRecordResponse> srvRecords,
 
+            Outputs.SystemDataResponse systemData,
+
             Outputs.SubResourceResponse? targetResource,
 
             ImmutableArray<Outputs.TlsaRecordResponse> tlsaRecords,
@@ -276,6 +282,7 @@ namespace Pulumi.AzureNative.Dns
             PtrRecords = ptrRecords;
             SoaRecord = soaRecord;
             SrvRecords = srvRecords;
+            SystemData = systemData;
             TargetResource = targetResource;
             TlsaRecords = tlsaRecords;
             TrafficManagementProfile = trafficManagementProfile;

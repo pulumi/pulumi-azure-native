@@ -548,7 +548,7 @@ if not MYPY:
         """
         The hour element of the time. Allowed values range from 0 (start of the selected day) to 24 (end of the selected day). Hour value 24 cannot be combined with any other minute value but 0.
         """
-        minute: NotRequired[pulumi.Input[builtins.int]]
+        minute: NotRequired[pulumi.Input[builtins.float]]
         """
         The minute element of the time. Allowed values are 0 and 30. If not specified, its value defaults to 0.
         """
@@ -559,11 +559,11 @@ elif False:
 class TimeArgs:
     def __init__(__self__, *,
                  hour: pulumi.Input[builtins.int],
-                 minute: Optional[pulumi.Input[builtins.int]] = None):
+                 minute: Optional[pulumi.Input[builtins.float]] = None):
         """
         The time of day.
         :param pulumi.Input[builtins.int] hour: The hour element of the time. Allowed values range from 0 (start of the selected day) to 24 (end of the selected day). Hour value 24 cannot be combined with any other minute value but 0.
-        :param pulumi.Input[builtins.int] minute: The minute element of the time. Allowed values are 0 and 30. If not specified, its value defaults to 0.
+        :param pulumi.Input[builtins.float] minute: The minute element of the time. Allowed values are 0 and 30. If not specified, its value defaults to 0.
         """
         pulumi.set(__self__, "hour", hour)
         if minute is None:
@@ -585,14 +585,14 @@ class TimeArgs:
 
     @property
     @pulumi.getter
-    def minute(self) -> Optional[pulumi.Input[builtins.int]]:
+    def minute(self) -> Optional[pulumi.Input[builtins.float]]:
         """
         The minute element of the time. Allowed values are 0 and 30. If not specified, its value defaults to 0.
         """
         return pulumi.get(self, "minute")
 
     @minute.setter
-    def minute(self, value: Optional[pulumi.Input[builtins.int]]):
+    def minute(self, value: Optional[pulumi.Input[builtins.float]]):
         pulumi.set(self, "minute", value)
 
 

@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.BotService.Outputs
         /// <summary>
         /// Meta data for the Service Provider
         /// </summary>
-        public readonly Outputs.ServiceProviderParameterResponseMetadata Metadata;
+        public readonly Outputs.ServiceProviderParameterMetadataResponse Metadata;
         /// <summary>
         /// Name of the Service Provider
         /// </summary>
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.BotService.Outputs
 
             string helpUrl,
 
-            Outputs.ServiceProviderParameterResponseMetadata metadata,
+            Outputs.ServiceProviderParameterMetadataResponse metadata,
 
             string name,
 

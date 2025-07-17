@@ -12,18 +12,33 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
     public sealed class LinkedAccessCheckArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action name.
+        /// </summary>
         [Input("actionName")]
         public Input<string>? ActionName { get; set; }
 
+        /// <summary>
+        /// The linked action.
+        /// </summary>
         [Input("linkedAction")]
         public Input<string>? LinkedAction { get; set; }
 
+        /// <summary>
+        /// The linked action verb.
+        /// </summary>
         [Input("linkedActionVerb")]
         public Input<string>? LinkedActionVerb { get; set; }
 
+        /// <summary>
+        /// The linked property.
+        /// </summary>
         [Input("linkedProperty")]
         public Input<string>? LinkedProperty { get; set; }
 
+        /// <summary>
+        /// The linked type.
+        /// </summary>
         [Input("linkedType")]
         public Input<string>? LinkedType { get; set; }
 

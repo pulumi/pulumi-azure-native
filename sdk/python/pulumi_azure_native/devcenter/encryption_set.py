@@ -174,7 +174,7 @@ class EncryptionSet(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
 
-        Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,7 +198,7 @@ class EncryptionSet(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
 
-        Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param EncryptionSetArgs args: The arguments to use to populate this resource's properties.
@@ -249,7 +249,7 @@ class EncryptionSet(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20240501preview:EncryptionSet"), pulumi.Alias(type_="azure-native:devcenter/v20240601preview:EncryptionSet"), pulumi.Alias(type_="azure-native:devcenter/v20240701preview:EncryptionSet"), pulumi.Alias(type_="azure-native:devcenter/v20240801preview:EncryptionSet"), pulumi.Alias(type_="azure-native:devcenter/v20241001preview:EncryptionSet"), pulumi.Alias(type_="azure-native:devcenter/v20250401preview:EncryptionSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20240501preview:EncryptionSet"), pulumi.Alias(type_="azure-native:devcenter/v20240601preview:EncryptionSet"), pulumi.Alias(type_="azure-native:devcenter/v20240701preview:EncryptionSet"), pulumi.Alias(type_="azure-native:devcenter/v20240801preview:EncryptionSet"), pulumi.Alias(type_="azure-native:devcenter/v20241001preview:EncryptionSet"), pulumi.Alias(type_="azure-native:devcenter/v20250401preview:EncryptionSet"), pulumi.Alias(type_="azure-native:devcenter/v20250701preview:EncryptionSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EncryptionSet, __self__).__init__(
             'azure-native:devcenter:EncryptionSet',

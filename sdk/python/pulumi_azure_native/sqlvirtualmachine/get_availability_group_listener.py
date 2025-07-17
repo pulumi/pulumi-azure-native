@@ -102,7 +102,7 @@ class GetAvailabilityGroupListenerResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -126,7 +126,7 @@ class GetAvailabilityGroupListenerResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -150,7 +150,7 @@ class GetAvailabilityGroupListenerResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -158,7 +158,7 @@ class GetAvailabilityGroupListenerResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -198,7 +198,7 @@ def get_availability_group_listener(availability_group_listener_name: Optional[b
 
     :param builtins.str availability_group_listener_name: Name of the availability group listener.
     :param builtins.str expand: The child resources to include in the response.
-    :param builtins.str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str sql_virtual_machine_group_name: Name of the SQL virtual machine group.
     """
     __args__ = dict()
@@ -237,7 +237,7 @@ def get_availability_group_listener_output(availability_group_listener_name: Opt
 
     :param builtins.str availability_group_listener_name: Name of the availability group listener.
     :param builtins.str expand: The child resources to include in the response.
-    :param builtins.str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str sql_virtual_machine_group_name: Name of the SQL virtual machine group.
     """
     __args__ = dict()

@@ -32,10 +32,10 @@ namespace Pulumi.AzureNative.GuestConfiguration
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the guest configuration assignment.
+        /// The guest configuration assignment name.
         /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// Properties of the Guest configuration assignment.
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.GuestConfiguration
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Name of the guest configuration assignment.
+        /// The guest configuration assignment name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.GuestConfiguration
         public Input<Inputs.GuestConfigurationAssignmentPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
-        /// The resource group name.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

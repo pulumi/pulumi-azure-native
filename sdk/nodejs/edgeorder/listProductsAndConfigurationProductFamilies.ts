@@ -48,11 +48,11 @@ export interface ListProductsAndConfigurationProductFamiliesArgs {
  */
 export interface ListProductsAndConfigurationProductFamiliesResult {
     /**
-     * Link for the next set of product families.
+     * The link to the next page of items
      */
     readonly nextLink?: string;
     /**
-     * List of product families.
+     * The ProductFamily items on this page
      */
     readonly value: outputs.edgeorder.ProductFamilyResponse[];
 }

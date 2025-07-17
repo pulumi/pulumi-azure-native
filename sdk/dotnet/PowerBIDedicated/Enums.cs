@@ -40,39 +40,6 @@ namespace Pulumi.AzureNative.PowerBIDedicated
     }
 
     /// <summary>
-    /// The type of identity that last modified the resource
-    /// </summary>
-    [EnumType]
-    public readonly struct IdentityType : IEquatable<IdentityType>
-    {
-        private readonly string _value;
-
-        private IdentityType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static IdentityType User { get; } = new IdentityType("User");
-        public static IdentityType Application { get; } = new IdentityType("Application");
-        public static IdentityType ManagedIdentity { get; } = new IdentityType("ManagedIdentity");
-        public static IdentityType Key { get; } = new IdentityType("Key");
-
-        public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
-        public static bool operator !=(IdentityType left, IdentityType right) => !left.Equals(right);
-
-        public static explicit operator string(IdentityType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is IdentityType other && Equals(other);
-        public bool Equals(IdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Specifies the generation of the Power BI Embedded capacity. If no value is specified, the default value 'Gen2' is used. [Learn More](https://docs.microsoft.com/power-bi/developer/embedded/power-bi-embedded-generation-2)
     /// </summary>
     [EnumType]

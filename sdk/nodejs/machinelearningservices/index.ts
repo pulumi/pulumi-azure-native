@@ -355,6 +355,11 @@ export const getOnlineEndpointToken: typeof import("./getOnlineEndpointToken").g
 export const getOnlineEndpointTokenOutput: typeof import("./getOnlineEndpointToken").getOnlineEndpointTokenOutput = null as any;
 utilities.lazyLoad(exports, ["getOnlineEndpointToken","getOnlineEndpointTokenOutput"], () => require("./getOnlineEndpointToken"));
 
+export { GetOutboundRuleArgs, GetOutboundRuleResult, GetOutboundRuleOutputArgs } from "./getOutboundRule";
+export const getOutboundRule: typeof import("./getOutboundRule").getOutboundRule = null as any;
+export const getOutboundRuleOutput: typeof import("./getOutboundRule").getOutboundRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getOutboundRule","getOutboundRuleOutput"], () => require("./getOutboundRule"));
+
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
@@ -605,6 +610,11 @@ export type OnlineEndpoint = import("./onlineEndpoint").OnlineEndpoint;
 export const OnlineEndpoint: typeof import("./onlineEndpoint").OnlineEndpoint = null as any;
 utilities.lazyLoad(exports, ["OnlineEndpoint"], () => require("./onlineEndpoint"));
 
+export { OutboundRuleArgs } from "./outboundRule";
+export type OutboundRule = import("./outboundRule").OutboundRule;
+export const OutboundRule: typeof import("./outboundRule").OutboundRule = null as any;
+utilities.lazyLoad(exports, ["OutboundRule"], () => require("./outboundRule"));
+
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
@@ -776,6 +786,8 @@ const _module = {
                 return new OnlineDeployment(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:OnlineEndpoint":
                 return new OnlineEndpoint(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:OutboundRule":
+                return new OutboundRule(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:RaiPolicy":

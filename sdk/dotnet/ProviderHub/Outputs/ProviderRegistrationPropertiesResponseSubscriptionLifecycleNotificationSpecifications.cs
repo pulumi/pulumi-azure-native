@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Outputs
 {
 
+    /// <summary>
+    /// The subscription lifecycle notification specifications.
+    /// </summary>
     [OutputType]
     public sealed class ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications
     {
+        /// <summary>
+        /// The soft delete TTL.
+        /// </summary>
         public readonly string? SoftDeleteTTL;
+        /// <summary>
+        /// The subscription state override actions.
+        /// </summary>
         public readonly ImmutableArray<Outputs.SubscriptionStateOverrideActionResponse> SubscriptionStateOverrideActions;
 
         [OutputConstructor]

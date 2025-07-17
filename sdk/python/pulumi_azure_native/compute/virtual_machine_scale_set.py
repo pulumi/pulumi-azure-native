@@ -54,7 +54,7 @@ class VirtualMachineScaleSetArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualMachineScaleSet resource.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AdditionalCapabilitiesArgs'] additional_capabilities: Specifies additional capabilities enabled or disabled on the Virtual Machines in the Virtual Machine Scale Set. For instance: whether the Virtual Machines have the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
         :param pulumi.Input['AutomaticRepairsPolicyArgs'] automatic_repairs_policy: Policy for automatic repairs.
         :param pulumi.Input[builtins.bool] constrained_maximum_capacity: Optional property which must either be set to True or omitted.
@@ -62,7 +62,7 @@ class VirtualMachineScaleSetArgs:
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the Virtual Machine Scale Set.
         :param pulumi.Input['SubResourceArgs'] host_group: Specifies information about the dedicated host group that the virtual machine scale set resides in. Minimum api-version: 2020-06-01.
         :param pulumi.Input['VirtualMachineScaleSetIdentityArgs'] identity: The identity of the virtual machine scale set, if configured.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[builtins.str, 'OrchestrationMode']] orchestration_mode: Specifies the orchestration mode for the virtual machine scale set.
         :param pulumi.Input[builtins.bool] overprovision: Specifies whether the Virtual Machine Scale Set should be overprovisioned.
         :param pulumi.Input['PlanArgs'] plan: Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
@@ -76,13 +76,13 @@ class VirtualMachineScaleSetArgs:
         :param pulumi.Input['SkuArgs'] sku: The virtual machine scale set sku.
         :param pulumi.Input['SkuProfileArgs'] sku_profile: Specifies the sku profile for the virtual machine scale set.
         :param pulumi.Input['SpotRestorePolicyArgs'] spot_restore_policy: Specifies the Spot Restore properties for the virtual machine scale set.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param pulumi.Input['UpgradePolicyArgs'] upgrade_policy: The upgrade policy.
         :param pulumi.Input['VirtualMachineScaleSetVMProfileArgs'] virtual_machine_profile: The virtual machine profile.
-        :param pulumi.Input[builtins.str] vm_scale_set_name: The name of the VM scale set to create or update.
+        :param pulumi.Input[builtins.str] vm_scale_set_name: The name of the VM scale set.
         :param pulumi.Input[Union[builtins.str, 'ZonalPlatformFaultDomainAlignMode']] zonal_platform_fault_domain_align_mode: Specifies the align mode between Virtual Machine Scale Set compute and storage Fault Domain count.
         :param pulumi.Input[builtins.bool] zone_balance: Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: The virtual machine scale set zones.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: The availability zones.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if additional_capabilities is not None:
@@ -146,7 +146,7 @@ class VirtualMachineScaleSetArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -242,7 +242,7 @@ class VirtualMachineScaleSetArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -410,7 +410,7 @@ class VirtualMachineScaleSetArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -446,7 +446,7 @@ class VirtualMachineScaleSetArgs:
     @pulumi.getter(name="vmScaleSetName")
     def vm_scale_set_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the VM scale set to create or update.
+        The name of the VM scale set.
         """
         return pulumi.get(self, "vm_scale_set_name")
 
@@ -482,7 +482,7 @@ class VirtualMachineScaleSetArgs:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        The virtual machine scale set zones.
+        The availability zones.
         """
         return pulumi.get(self, "zones")
 
@@ -543,7 +543,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the Virtual Machine Scale Set.
         :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] host_group: Specifies information about the dedicated host group that the virtual machine scale set resides in. Minimum api-version: 2020-06-01.
         :param pulumi.Input[Union['VirtualMachineScaleSetIdentityArgs', 'VirtualMachineScaleSetIdentityArgsDict']] identity: The identity of the virtual machine scale set, if configured.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[builtins.str, 'OrchestrationMode']] orchestration_mode: Specifies the orchestration mode for the virtual machine scale set.
         :param pulumi.Input[builtins.bool] overprovision: Specifies whether the Virtual Machine Scale Set should be overprovisioned.
         :param pulumi.Input[Union['PlanArgs', 'PlanArgsDict']] plan: Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
@@ -551,20 +551,20 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Union['PriorityMixPolicyArgs', 'PriorityMixPolicyArgsDict']] priority_mix_policy: Specifies the desired targets for mixing Spot and Regular priority VMs within the same VMSS Flex instance.
         :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] proximity_placement_group: Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. Minimum api-version: 2018-04-01.
         :param pulumi.Input[Union['ResiliencyPolicyArgs', 'ResiliencyPolicyArgsDict']] resiliency_policy: Policy for Resiliency
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['ScaleInPolicyArgs', 'ScaleInPolicyArgsDict']] scale_in_policy: Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
         :param pulumi.Input[Union['ScheduledEventsPolicyArgs', 'ScheduledEventsPolicyArgsDict']] scheduled_events_policy: The ScheduledEventsPolicy.
         :param pulumi.Input[builtins.bool] single_placement_group: When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The virtual machine scale set sku.
         :param pulumi.Input[Union['SkuProfileArgs', 'SkuProfileArgsDict']] sku_profile: Specifies the sku profile for the virtual machine scale set.
         :param pulumi.Input[Union['SpotRestorePolicyArgs', 'SpotRestorePolicyArgsDict']] spot_restore_policy: Specifies the Spot Restore properties for the virtual machine scale set.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Union['UpgradePolicyArgs', 'UpgradePolicyArgsDict']] upgrade_policy: The upgrade policy.
         :param pulumi.Input[Union['VirtualMachineScaleSetVMProfileArgs', 'VirtualMachineScaleSetVMProfileArgsDict']] virtual_machine_profile: The virtual machine profile.
-        :param pulumi.Input[builtins.str] vm_scale_set_name: The name of the VM scale set to create or update.
+        :param pulumi.Input[builtins.str] vm_scale_set_name: The name of the VM scale set.
         :param pulumi.Input[Union[builtins.str, 'ZonalPlatformFaultDomainAlignMode']] zonal_platform_fault_domain_align_mode: Specifies the align mode between Virtual Machine Scale Set compute and storage Fault Domain count.
         :param pulumi.Input[builtins.bool] zone_balance: Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: The virtual machine scale set zones.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: The availability zones.
         """
         ...
     @overload
@@ -667,6 +667,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["time_created"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["unique_id"] = None
@@ -719,6 +720,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["sku"] = None
         __props__.__dict__["sku_profile"] = None
         __props__.__dict__["spot_restore_policy"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["time_created"] = None
         __props__.__dict__["type"] = None
@@ -806,7 +808,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -814,7 +816,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -931,10 +933,18 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         return pulumi.get(self, "spot_restore_policy")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -950,7 +960,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -998,7 +1008,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter
     def zones(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        The virtual machine scale set zones.
+        The availability zones.
         """
         return pulumi.get(self, "zones")
 

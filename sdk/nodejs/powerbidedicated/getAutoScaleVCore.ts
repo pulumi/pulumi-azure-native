@@ -22,7 +22,7 @@ export function getAutoScaleVCore(args: GetAutoScaleVCoreArgs, opts?: pulumi.Inv
 
 export interface GetAutoScaleVCoreArgs {
     /**
-     * The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -48,15 +48,15 @@ export interface GetAutoScaleVCoreResult {
      */
     readonly capacityObjectId?: string;
     /**
-     * An identifier that represents the PowerBI Dedicated resource.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Location of the PowerBI Dedicated resource.
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * The name of the PowerBI Dedicated resource.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -68,15 +68,15 @@ export interface GetAutoScaleVCoreResult {
      */
     readonly sku: outputs.powerbidedicated.AutoScaleVCoreSkuResponse;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData?: outputs.powerbidedicated.SystemDataResponse;
+    readonly systemData: outputs.powerbidedicated.SystemDataResponse;
     /**
-     * Key-value pairs of additional resource provisioning properties.
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the PowerBI Dedicated resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -95,7 +95,7 @@ export function getAutoScaleVCoreOutput(args: GetAutoScaleVCoreOutputArgs, opts?
 
 export interface GetAutoScaleVCoreOutputArgs {
     /**
-     * The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

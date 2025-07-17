@@ -50,10 +50,10 @@ namespace Pulumi.AzureNative.Maintenance
         public Output<Outputs.InputPatchConfigurationResponse?> InstallPatches { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets location of the resource
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets maintenanceScope of the configuration
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.Maintenance
         public Output<string?> MaintenanceScope { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the resource
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Maintenance
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets tags of the resource
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.Maintenance
         public Output<string?> TimeZone { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the resource
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.AzureNative.Maintenance
         public Input<Inputs.InputPatchConfigurationArgs>? InstallPatches { get; set; }
 
         /// <summary>
-        /// Gets or sets location of the resource
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -229,13 +229,13 @@ namespace Pulumi.AzureNative.Maintenance
         public Input<string>? RecurEvery { get; set; }
 
         /// <summary>
-        /// Resource Group Name
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Maintenance Configuration Name
+        /// The name of the MaintenanceConfiguration
         /// </summary>
         [Input("resourceName")]
         public Input<string>? ResourceName { get; set; }
@@ -250,7 +250,7 @@ namespace Pulumi.AzureNative.Maintenance
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Gets or sets tags of the resource
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

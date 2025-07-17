@@ -13,7 +13,13 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     [OutputType]
     public sealed class LightHouseAuthorizationResponse
     {
+        /// <summary>
+        /// The principal id.
+        /// </summary>
         public readonly string PrincipalId;
+        /// <summary>
+        /// The role definition id.
+        /// </summary>
         public readonly string RoleDefinitionId;
 
         [OutputConstructor]

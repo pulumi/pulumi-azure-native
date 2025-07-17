@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly Outputs.VirtualMachineAgentInstanceViewResponse? VmAgent;
         /// <summary>
-        /// The application health status for the VM, provided through Application Health Extension or Load Balancer Health Probes.
+        /// The health status for the VM.
         /// </summary>
         public readonly Outputs.VirtualMachineHealthStatusResponse VmHealth;
 

@@ -32,13 +32,13 @@ namespace Pulumi.AzureNative.Confluent
         public Output<string> CreatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// Location of Organization resource
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -68,19 +68,19 @@ namespace Pulumi.AzureNative.Confluent
         public Output<string> SsoUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Organization resource tags
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.Confluent
         public Input<Inputs.LinkOrganizationArgs>? LinkOrganization { get; set; }
 
         /// <summary>
-        /// Location of Organization resource
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -172,7 +172,7 @@ namespace Pulumi.AzureNative.Confluent
         public Input<string>? OrganizationName { get; set; }
 
         /// <summary>
-        /// Resource group name
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.AzureNative.Confluent
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Organization resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

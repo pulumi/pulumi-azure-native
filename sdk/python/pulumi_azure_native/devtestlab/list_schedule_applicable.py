@@ -40,15 +40,15 @@ class ListScheduleApplicableResult:
     @pulumi.getter(name="nextLink")
     def next_link(self) -> Optional[builtins.str]:
         """
-        Link for next set of results.
+        The link to the next page of items
         """
         return pulumi.get(self, "next_link")
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.ScheduleResponse']]:
+    def value(self) -> Sequence['outputs.ScheduleResponse']:
         """
-        Results of the list operation.
+        The Schedule items on this page
         """
         return pulumi.get(self, "value")
 
@@ -73,9 +73,9 @@ def list_schedule_applicable(lab_name: Optional[builtins.str] = None,
     Uses Azure REST API version 2018-09-15.
 
 
-    :param builtins.str lab_name: The name of the lab.
-    :param builtins.str name: The name of the schedule.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str lab_name: labs
+    :param builtins.str name: The name of the Schedule
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['labName'] = lab_name
@@ -97,9 +97,9 @@ def list_schedule_applicable_output(lab_name: Optional[pulumi.Input[builtins.str
     Uses Azure REST API version 2018-09-15.
 
 
-    :param builtins.str lab_name: The name of the lab.
-    :param builtins.str name: The name of the schedule.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str lab_name: labs
+    :param builtins.str name: The name of the Schedule
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['labName'] = lab_name

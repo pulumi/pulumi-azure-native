@@ -137,7 +137,7 @@ class GetAgentResult:
 
     @property
     @pulumi.getter(name="errorDetails")
-    def error_details(self) -> 'outputs.AgentPropertiesResponseErrorDetails':
+    def error_details(self) -> 'outputs.AgentPropertiesErrorDetailsResponse':
         return pulumi.get(self, "error_details")
 
     @property

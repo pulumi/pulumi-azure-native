@@ -13,10 +13,13 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
     public sealed class ExtendedLocationOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("supportedPolicy")]
-        public Input<string>? SupportedPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.ResourceTypeExtendedLocationPolicy>? SupportedPolicy { get; set; }
 
+        /// <summary>
+        /// The type.
+        /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.ExtendedLocationType>? Type { get; set; }
 
         public ExtendedLocationOptionsArgs()
         {

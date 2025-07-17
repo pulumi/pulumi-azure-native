@@ -30,9 +30,9 @@ class ConfigurationArgs:
         The set of arguments for constructing a Configuration resource.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] server_name: The name of the server.
-        :param pulumi.Input[builtins.str] configuration_name: The name of the server configuration.
-        :param pulumi.Input[builtins.str] source: Source of the configuration. Required to update the configuration.
-        :param pulumi.Input[builtins.str] value: Value of the configuration. Required to update the configuration.
+        :param pulumi.Input[builtins.str] configuration_name: Name of the server parameter.
+        :param pulumi.Input[builtins.str] source: Source of the value assigned to the server parameter. Required to update the value assigned to a specific modifiable server parameter.
+        :param pulumi.Input[builtins.str] value: Value of the server parameter (also known as configuration). Required to update the value assigned to a specific modifiable server parameter.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
@@ -71,7 +71,7 @@ class ConfigurationArgs:
     @pulumi.getter(name="configurationName")
     def configuration_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the server configuration.
+        Name of the server parameter.
         """
         return pulumi.get(self, "configuration_name")
 
@@ -83,7 +83,7 @@ class ConfigurationArgs:
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Source of the configuration. Required to update the configuration.
+        Source of the value assigned to the server parameter. Required to update the value assigned to a specific modifiable server parameter.
         """
         return pulumi.get(self, "source")
 
@@ -95,7 +95,7 @@ class ConfigurationArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Value of the configuration. Required to update the configuration.
+        Value of the server parameter (also known as configuration). Required to update the value assigned to a specific modifiable server parameter.
         """
         return pulumi.get(self, "value")
 
@@ -117,7 +117,7 @@ class Configuration(pulumi.CustomResource):
                  value: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Represents a Configuration.
+        Server parameter.
 
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
 
@@ -125,11 +125,11 @@ class Configuration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] configuration_name: The name of the server configuration.
+        :param pulumi.Input[builtins.str] configuration_name: Name of the server parameter.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] server_name: The name of the server.
-        :param pulumi.Input[builtins.str] source: Source of the configuration. Required to update the configuration.
-        :param pulumi.Input[builtins.str] value: Value of the configuration. Required to update the configuration.
+        :param pulumi.Input[builtins.str] source: Source of the value assigned to the server parameter. Required to update the value assigned to a specific modifiable server parameter.
+        :param pulumi.Input[builtins.str] value: Value of the server parameter (also known as configuration). Required to update the value assigned to a specific modifiable server parameter.
         """
         ...
     @overload
@@ -138,7 +138,7 @@ class Configuration(pulumi.CustomResource):
                  args: ConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Represents a Configuration.
+        Server parameter.
 
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
 
@@ -240,7 +240,7 @@ class Configuration(pulumi.CustomResource):
     @pulumi.getter(name="allowedValues")
     def allowed_values(self) -> pulumi.Output[builtins.str]:
         """
-        Allowed values of the configuration.
+        Allowed values of the server parameter.
         """
         return pulumi.get(self, "allowed_values")
 
@@ -256,7 +256,7 @@ class Configuration(pulumi.CustomResource):
     @pulumi.getter(name="dataType")
     def data_type(self) -> pulumi.Output[builtins.str]:
         """
-        Data type of the configuration.
+        Data type of the server parameter.
         """
         return pulumi.get(self, "data_type")
 
@@ -264,7 +264,7 @@ class Configuration(pulumi.CustomResource):
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> pulumi.Output[builtins.str]:
         """
-        Default value of the configuration.
+        Value assigned by default to the server parameter.
         """
         return pulumi.get(self, "default_value")
 
@@ -272,7 +272,7 @@ class Configuration(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[builtins.str]:
         """
-        Description of the configuration.
+        Description of the server parameter.
         """
         return pulumi.get(self, "description")
 
@@ -280,7 +280,7 @@ class Configuration(pulumi.CustomResource):
     @pulumi.getter(name="documentationLink")
     def documentation_link(self) -> pulumi.Output[builtins.str]:
         """
-        Configuration documentation link.
+        Link pointing to the documentation of the server parameter.
         """
         return pulumi.get(self, "documentation_link")
 
@@ -288,7 +288,7 @@ class Configuration(pulumi.CustomResource):
     @pulumi.getter(name="isConfigPendingRestart")
     def is_config_pending_restart(self) -> pulumi.Output[builtins.bool]:
         """
-        Configuration is pending restart or not.
+        Indicates if the value assigned to the server parameter is pending a server restart for the value to take effect.
         """
         return pulumi.get(self, "is_config_pending_restart")
 
@@ -296,7 +296,7 @@ class Configuration(pulumi.CustomResource):
     @pulumi.getter(name="isDynamicConfig")
     def is_dynamic_config(self) -> pulumi.Output[builtins.bool]:
         """
-        Configuration dynamic or static.
+        Indicates if it's a dynamic (true) or static (false) server parameter. Static server parameters require a server restart after changing the value assigned to it, for the change to take effect. Dynamic server parameters do not require a server restart after changing the value assigned to it, for the change to take effect.
         """
         return pulumi.get(self, "is_dynamic_config")
 
@@ -304,7 +304,7 @@ class Configuration(pulumi.CustomResource):
     @pulumi.getter(name="isReadOnly")
     def is_read_only(self) -> pulumi.Output[builtins.bool]:
         """
-        Configuration read-only or not.
+        Indicates if it's a read-only (true) or modifiable (false) server parameter.
         """
         return pulumi.get(self, "is_read_only")
 
@@ -320,7 +320,7 @@ class Configuration(pulumi.CustomResource):
     @pulumi.getter
     def source(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Source of the configuration. Required to update the configuration.
+        Source of the value assigned to the server parameter. Required to update the value assigned to a specific modifiable server parameter.
         """
         return pulumi.get(self, "source")
 
@@ -344,7 +344,7 @@ class Configuration(pulumi.CustomResource):
     @pulumi.getter
     def unit(self) -> pulumi.Output[builtins.str]:
         """
-        Configuration unit.
+        Units in which the server parameter value is expressed.
         """
         return pulumi.get(self, "unit")
 
@@ -352,7 +352,7 @@ class Configuration(pulumi.CustomResource):
     @pulumi.getter
     def value(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Value of the configuration. Required to update the configuration.
+        Value of the server parameter (also known as configuration). Required to update the value assigned to a specific modifiable server parameter.
         """
         return pulumi.get(self, "value")
 

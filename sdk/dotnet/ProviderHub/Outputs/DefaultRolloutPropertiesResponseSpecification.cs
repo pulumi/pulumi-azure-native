@@ -10,21 +10,57 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Outputs
 {
 
+    /// <summary>
+    /// The default rollout specification.
+    /// </summary>
     [OutputType]
     public sealed class DefaultRolloutPropertiesResponseSpecification
     {
+        /// <summary>
+        /// The auto provisioning config.
+        /// </summary>
+        public readonly Outputs.DefaultRolloutSpecificationResponseAutoProvisionConfig? AutoProvisionConfig;
+        /// <summary>
+        /// The canary traffic region configuration.
+        /// </summary>
         public readonly Outputs.DefaultRolloutSpecificationResponseCanary? Canary;
+        /// <summary>
+        /// The expedited rollout definition.
+        /// </summary>
         public readonly Outputs.DefaultRolloutSpecificationResponseExpeditedRollout? ExpeditedRollout;
+        /// <summary>
+        /// The high traffic region configuration.
+        /// </summary>
         public readonly Outputs.DefaultRolloutSpecificationResponseHighTraffic? HighTraffic;
+        /// <summary>
+        /// The low traffic region configuration.
+        /// </summary>
         public readonly Outputs.DefaultRolloutSpecificationResponseLowTraffic? LowTraffic;
+        /// <summary>
+        /// The medium traffic region configuration.
+        /// </summary>
         public readonly Outputs.DefaultRolloutSpecificationResponseMediumTraffic? MediumTraffic;
+        /// <summary>
+        /// The provider registration.
+        /// </summary>
         public readonly Outputs.DefaultRolloutSpecificationResponseProviderRegistration? ProviderRegistration;
+        /// <summary>
+        /// The resource type registrations.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ResourceTypeRegistrationResponse> ResourceTypeRegistrations;
+        /// <summary>
+        /// The rest of the world group one region configuration.
+        /// </summary>
         public readonly Outputs.DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne? RestOfTheWorldGroupOne;
+        /// <summary>
+        /// The rest of the world group two region configuration.
+        /// </summary>
         public readonly Outputs.DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo? RestOfTheWorldGroupTwo;
 
         [OutputConstructor]
         private DefaultRolloutPropertiesResponseSpecification(
+            Outputs.DefaultRolloutSpecificationResponseAutoProvisionConfig? autoProvisionConfig,
+
             Outputs.DefaultRolloutSpecificationResponseCanary? canary,
 
             Outputs.DefaultRolloutSpecificationResponseExpeditedRollout? expeditedRollout,
@@ -43,6 +79,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
 
             Outputs.DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo? restOfTheWorldGroupTwo)
         {
+            AutoProvisionConfig = autoProvisionConfig;
             Canary = canary;
             ExpeditedRollout = expeditedRollout;
             HighTraffic = highTraffic;

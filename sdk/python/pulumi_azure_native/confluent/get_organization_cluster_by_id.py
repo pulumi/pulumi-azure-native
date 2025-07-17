@@ -28,7 +28,7 @@ class GetOrganizationClusterByIdResult:
     """
     Details of cluster record
     """
-    def __init__(__self__, azure_api_version=None, id=None, kind=None, metadata=None, name=None, spec=None, status=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, kind=None, metadata=None, name=None, spec=None, status=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -50,6 +50,9 @@ class GetOrganizationClusterByIdResult:
         if status and not isinstance(status, dict):
             raise TypeError("Expected argument 'status' to be a dict")
         pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -64,9 +67,9 @@ class GetOrganizationClusterByIdResult:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[builtins.str]:
+    def id(self) -> builtins.str:
         """
-        Id of the cluster
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -88,9 +91,9 @@ class GetOrganizationClusterByIdResult:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[builtins.str]:
+    def name(self) -> builtins.str:
         """
-        Display name of the cluster
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -111,10 +114,18 @@ class GetOrganizationClusterByIdResult:
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter
-    def type(self) -> Optional[builtins.str]:
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Type of the resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -132,6 +143,7 @@ class AwaitableGetOrganizationClusterByIdResult(GetOrganizationClusterByIdResult
             name=self.name,
             spec=self.spec,
             status=self.status,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -141,7 +153,7 @@ def get_organization_cluster_by_id(cluster_id: Optional[builtins.str] = None,
                                    resource_group_name: Optional[builtins.str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationClusterByIdResult:
     """
-    Details of cluster record
+    Get cluster by Id
 
     Uses Azure REST API version 2024-07-01.
 
@@ -167,6 +179,7 @@ def get_organization_cluster_by_id(cluster_id: Optional[builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         spec=pulumi.get(__ret__, 'spec'),
         status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_organization_cluster_by_id_output(cluster_id: Optional[pulumi.Input[builtins.str]] = None,
                                           environment_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -174,7 +187,7 @@ def get_organization_cluster_by_id_output(cluster_id: Optional[pulumi.Input[buil
                                           resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationClusterByIdResult]:
     """
-    Details of cluster record
+    Get cluster by Id
 
     Uses Azure REST API version 2024-07-01.
 
@@ -199,4 +212,5 @@ def get_organization_cluster_by_id_output(cluster_id: Optional[pulumi.Input[buil
         name=pulumi.get(__response__, 'name'),
         spec=pulumi.get(__response__, 'spec'),
         status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

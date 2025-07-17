@@ -172,14 +172,14 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["networkAcls"] = args ? args.networkAcls : undefined;
             resourceInputs["pnsCredentials"] = args ? args.pnsCredentials : undefined;
             resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
+            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             resourceInputs["replicationRegion"] = args ? args.replicationRegion : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scaleUnit"] = args ? args.scaleUnit : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zoneRedundancy"] = args ? args.zoneRedundancy : undefined;
+            resourceInputs["zoneRedundancy"] = (args ? args.zoneRedundancy : undefined) ?? "Disabled";
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["critical"] = undefined /*out*/;

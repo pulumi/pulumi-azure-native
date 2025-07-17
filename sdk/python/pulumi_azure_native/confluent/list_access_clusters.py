@@ -80,7 +80,7 @@ def list_access_clusters(organization_name: Optional[builtins.str] = None,
                          search_filters: Optional[Mapping[str, builtins.str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAccessClustersResult:
     """
-    Details of the clusters returned on successful response
+    Cluster details
 
     Uses Azure REST API version 2024-07-01.
 
@@ -107,7 +107,7 @@ def list_access_clusters_output(organization_name: Optional[pulumi.Input[builtin
                                 search_filters: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAccessClustersResult]:
     """
-    Details of the clusters returned on successful response
+    Cluster details
 
     Uses Azure REST API version 2024-07-01.
 

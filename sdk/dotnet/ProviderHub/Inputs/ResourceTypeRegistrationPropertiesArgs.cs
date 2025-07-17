@@ -12,44 +12,210 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
     public sealed class ResourceTypeRegistrationPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Add resource list target locations?
+        /// </summary>
+        [Input("addResourceListTargetLocations")]
+        public Input<bool>? AddResourceListTargetLocations { get; set; }
+
+        /// <summary>
+        /// The additional options.
+        /// </summary>
+        [Input("additionalOptions")]
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.AdditionalOptionsResourceTypeRegistration>? AdditionalOptions { get; set; }
+
+        /// <summary>
+        /// The allow empty role assignments.
+        /// </summary>
+        [Input("allowEmptyRoleAssignments")]
+        public Input<bool>? AllowEmptyRoleAssignments { get; set; }
+
+        [Input("allowedResourceNames")]
+        private InputList<Inputs.AllowedResourceNameArgs>? _allowedResourceNames;
+
+        /// <summary>
+        /// The allowed resource names.
+        /// </summary>
+        public InputList<Inputs.AllowedResourceNameArgs> AllowedResourceNames
+        {
+            get => _allowedResourceNames ?? (_allowedResourceNames = new InputList<Inputs.AllowedResourceNameArgs>());
+            set => _allowedResourceNames = value;
+        }
+
+        [Input("allowedTemplateDeploymentReferenceActions")]
+        private InputList<string>? _allowedTemplateDeploymentReferenceActions;
+
+        /// <summary>
+        /// Allowed template deployment reference actions.
+        /// </summary>
+        public InputList<string> AllowedTemplateDeploymentReferenceActions
+        {
+            get => _allowedTemplateDeploymentReferenceActions ?? (_allowedTemplateDeploymentReferenceActions = new InputList<string>());
+            set => _allowedTemplateDeploymentReferenceActions = value;
+        }
+
         [Input("allowedUnauthorizedActions")]
         private InputList<string>? _allowedUnauthorizedActions;
+
+        /// <summary>
+        /// The allowed unauthorized actions.
+        /// </summary>
         public InputList<string> AllowedUnauthorizedActions
         {
             get => _allowedUnauthorizedActions ?? (_allowedUnauthorizedActions = new InputList<string>());
             set => _allowedUnauthorizedActions = value;
         }
 
+        [Input("allowedUnauthorizedActionsExtensions")]
+        private InputList<Inputs.AllowedUnauthorizedActionsExtensionArgs>? _allowedUnauthorizedActionsExtensions;
+
+        /// <summary>
+        /// The allowed unauthorized actions extensions.
+        /// </summary>
+        public InputList<Inputs.AllowedUnauthorizedActionsExtensionArgs> AllowedUnauthorizedActionsExtensions
+        {
+            get => _allowedUnauthorizedActionsExtensions ?? (_allowedUnauthorizedActionsExtensions = new InputList<Inputs.AllowedUnauthorizedActionsExtensionArgs>());
+            set => _allowedUnauthorizedActionsExtensions = value;
+        }
+
+        [Input("apiProfiles")]
+        private InputList<Inputs.ApiProfileArgs>? _apiProfiles;
+
+        /// <summary>
+        /// The api profiles.
+        /// </summary>
+        public InputList<Inputs.ApiProfileArgs> ApiProfiles
+        {
+            get => _apiProfiles ?? (_apiProfiles = new InputList<Inputs.ApiProfileArgs>());
+            set => _apiProfiles = value;
+        }
+
+        /// <summary>
+        /// The async operation resource type name.
+        /// </summary>
+        [Input("asyncOperationResourceTypeName")]
+        public Input<string>? AsyncOperationResourceTypeName { get; set; }
+
+        [Input("asyncTimeoutRules")]
+        private InputList<Inputs.AsyncTimeoutRuleArgs>? _asyncTimeoutRules;
+
+        /// <summary>
+        /// Async timeout rules
+        /// </summary>
+        public InputList<Inputs.AsyncTimeoutRuleArgs> AsyncTimeoutRules
+        {
+            get => _asyncTimeoutRules ?? (_asyncTimeoutRules = new InputList<Inputs.AsyncTimeoutRuleArgs>());
+            set => _asyncTimeoutRules = value;
+        }
+
         [Input("authorizationActionMappings")]
         private InputList<Inputs.AuthorizationActionMappingArgs>? _authorizationActionMappings;
+
+        /// <summary>
+        /// The authorization action mappings
+        /// </summary>
         public InputList<Inputs.AuthorizationActionMappingArgs> AuthorizationActionMappings
         {
             get => _authorizationActionMappings ?? (_authorizationActionMappings = new InputList<Inputs.AuthorizationActionMappingArgs>());
             set => _authorizationActionMappings = value;
         }
 
+        /// <summary>
+        /// The availability zone rule.
+        /// </summary>
+        [Input("availabilityZoneRule")]
+        public Input<Inputs.ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgs>? AvailabilityZoneRule { get; set; }
+
+        /// <summary>
+        /// Capacity rule.
+        /// </summary>
+        [Input("capacityRule")]
+        public Input<Inputs.ResourceTypeRegistrationPropertiesCapacityRuleArgs>? CapacityRule { get; set; }
+
+        /// <summary>
+        /// The category.
+        /// </summary>
+        [Input("category")]
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.ResourceTypeCategory>? Category { get; set; }
+
+        /// <summary>
+        /// The check name availability specifications.
+        /// </summary>
         [Input("checkNameAvailabilitySpecifications")]
         public Input<Inputs.ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs>? CheckNameAvailabilitySpecifications { get; set; }
 
+        [Input("commonApiVersions")]
+        private InputList<string>? _commonApiVersions;
+
+        /// <summary>
+        /// Common API versions for the resource type.
+        /// </summary>
+        public InputList<string> CommonApiVersions
+        {
+            get => _commonApiVersions ?? (_commonApiVersions = new InputList<string>());
+            set => _commonApiVersions = value;
+        }
+
+        /// <summary>
+        /// The cross tenant token validation.
+        /// </summary>
+        [Input("crossTenantTokenValidation")]
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.CrossTenantTokenValidation>? CrossTenantTokenValidation { get; set; }
+
+        /// <summary>
+        /// The default api version.
+        /// </summary>
         [Input("defaultApiVersion")]
         public Input<string>? DefaultApiVersion { get; set; }
 
         [Input("disallowedActionVerbs")]
         private InputList<string>? _disallowedActionVerbs;
+
+        /// <summary>
+        /// The disallowed action verbs.
+        /// </summary>
         public InputList<string> DisallowedActionVerbs
         {
             get => _disallowedActionVerbs ?? (_disallowedActionVerbs = new InputList<string>());
             set => _disallowedActionVerbs = value;
         }
 
+        [Input("disallowedEndUserOperations")]
+        private InputList<string>? _disallowedEndUserOperations;
+
+        /// <summary>
+        /// The disallowed end user operations.
+        /// </summary>
+        public InputList<string> DisallowedEndUserOperations
+        {
+            get => _disallowedEndUserOperations ?? (_disallowedEndUserOperations = new InputList<string>());
+            set => _disallowedEndUserOperations = value;
+        }
+
+        /// <summary>
+        /// The dsts configuration.
+        /// </summary>
+        [Input("dstsConfiguration")]
+        public Input<Inputs.ResourceTypeRegistrationPropertiesDstsConfigurationArgs>? DstsConfiguration { get; set; }
+
+        /// <summary>
+        /// Whether async operation is enabled.
+        /// </summary>
         [Input("enableAsyncOperation")]
         public Input<bool>? EnableAsyncOperation { get; set; }
 
+        /// <summary>
+        /// Whether third party S2S is enabled.
+        /// </summary>
         [Input("enableThirdPartyS2S")]
         public Input<bool>? EnableThirdPartyS2S { get; set; }
 
         [Input("endpoints")]
         private InputList<Inputs.ResourceTypeEndpointArgs>? _endpoints;
+
+        /// <summary>
+        /// The extensions.
+        /// </summary>
         public InputList<Inputs.ResourceTypeEndpointArgs> Endpoints
         {
             get => _endpoints ?? (_endpoints = new InputList<Inputs.ResourceTypeEndpointArgs>());
@@ -58,126 +224,387 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
         [Input("extendedLocations")]
         private InputList<Inputs.ExtendedLocationOptionsArgs>? _extendedLocations;
+
+        /// <summary>
+        /// The extended locations.
+        /// </summary>
         public InputList<Inputs.ExtendedLocationOptionsArgs> ExtendedLocations
         {
             get => _extendedLocations ?? (_extendedLocations = new InputList<Inputs.ExtendedLocationOptionsArgs>());
             set => _extendedLocations = value;
         }
 
+        /// <summary>
+        /// The extension options.
+        /// </summary>
         [Input("extensionOptions")]
         public Input<Inputs.ResourceTypeRegistrationPropertiesExtensionOptionsArgs>? ExtensionOptions { get; set; }
 
+        /// <summary>
+        /// The features rule.
+        /// </summary>
         [Input("featuresRule")]
         public Input<Inputs.ResourceTypeRegistrationPropertiesFeaturesRuleArgs>? FeaturesRule { get; set; }
 
+        /// <summary>
+        /// The frontdoor request mode.
+        /// </summary>
+        [Input("frontdoorRequestMode")]
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.FrontdoorRequestMode>? FrontdoorRequestMode { get; set; }
+
+        /// <summary>
+        /// Grouping tag.
+        /// </summary>
+        [Input("groupingTag")]
+        public Input<string>? GroupingTag { get; set; }
+
+        /// <summary>
+        /// The identity management.
+        /// </summary>
         [Input("identityManagement")]
         public Input<Inputs.ResourceTypeRegistrationPropertiesIdentityManagementArgs>? IdentityManagement { get; set; }
 
+        /// <summary>
+        /// Whether it is pure proxy.
+        /// </summary>
         [Input("isPureProxy")]
         public Input<bool>? IsPureProxy { get; set; }
 
+        /// <summary>
+        /// The legacy name.
+        /// </summary>
+        [Input("legacyName")]
+        public Input<string>? LegacyName { get; set; }
+
+        [Input("legacyNames")]
+        private InputList<string>? _legacyNames;
+
+        /// <summary>
+        /// The legacy names.
+        /// </summary>
+        public InputList<string> LegacyNames
+        {
+            get => _legacyNames ?? (_legacyNames = new InputList<string>());
+            set => _legacyNames = value;
+        }
+
+        /// <summary>
+        /// The legacy policy.
+        /// </summary>
+        [Input("legacyPolicy")]
+        public Input<Inputs.ResourceTypeRegistrationPropertiesLegacyPolicyArgs>? LegacyPolicy { get; set; }
+
         [Input("linkedAccessChecks")]
         private InputList<Inputs.LinkedAccessCheckArgs>? _linkedAccessChecks;
+
+        /// <summary>
+        /// The linked access checks.
+        /// </summary>
         public InputList<Inputs.LinkedAccessCheckArgs> LinkedAccessChecks
         {
             get => _linkedAccessChecks ?? (_linkedAccessChecks = new InputList<Inputs.LinkedAccessCheckArgs>());
             set => _linkedAccessChecks = value;
         }
 
+        [Input("linkedNotificationRules")]
+        private InputList<Inputs.LinkedNotificationRuleArgs>? _linkedNotificationRules;
+
+        /// <summary>
+        /// The linked notification rules.
+        /// </summary>
+        public InputList<Inputs.LinkedNotificationRuleArgs> LinkedNotificationRules
+        {
+            get => _linkedNotificationRules ?? (_linkedNotificationRules = new InputList<Inputs.LinkedNotificationRuleArgs>());
+            set => _linkedNotificationRules = value;
+        }
+
+        [Input("linkedOperationRules")]
+        private InputList<Inputs.LinkedOperationRuleArgs>? _linkedOperationRules;
+
+        /// <summary>
+        /// The linked operation rules.
+        /// </summary>
+        public InputList<Inputs.LinkedOperationRuleArgs> LinkedOperationRules
+        {
+            get => _linkedOperationRules ?? (_linkedOperationRules = new InputList<Inputs.LinkedOperationRuleArgs>());
+            set => _linkedOperationRules = value;
+        }
+
         [Input("loggingRules")]
         private InputList<Inputs.LoggingRuleArgs>? _loggingRules;
+
+        /// <summary>
+        /// The logging rules.
+        /// </summary>
         public InputList<Inputs.LoggingRuleArgs> LoggingRules
         {
             get => _loggingRules ?? (_loggingRules = new InputList<Inputs.LoggingRuleArgs>());
             set => _loggingRules = value;
         }
 
+        /// <summary>
+        /// The resource provider management.
+        /// </summary>
         [Input("management")]
         public Input<Inputs.ResourceTypeRegistrationPropertiesManagementArgs>? Management { get; set; }
 
-        [Input("marketplaceType")]
-        public Input<string>? MarketplaceType { get; set; }
+        /// <summary>
+        /// Manifest link.
+        /// </summary>
+        [Input("manifestLink")]
+        public Input<string>? ManifestLink { get; set; }
 
+        /// <summary>
+        /// Marketplace options.
+        /// </summary>
+        [Input("marketplaceOptions")]
+        public Input<Inputs.ResourceTypeRegistrationPropertiesMarketplaceOptionsArgs>? MarketplaceOptions { get; set; }
+
+        /// <summary>
+        /// The marketplace type.
+        /// </summary>
+        [Input("marketplaceType")]
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.MarketplaceType>? MarketplaceType { get; set; }
+
+        [Input("metadata")]
+        private InputMap<object>? _metadata;
+
+        /// <summary>
+        /// The metadata.
+        /// </summary>
+        public InputMap<object> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputMap<object>());
+            set => _metadata = value;
+        }
+
+        [Input("notifications")]
+        private InputList<Inputs.NotificationArgs>? _notifications;
+
+        /// <summary>
+        /// The notifications.
+        /// </summary>
+        public InputList<Inputs.NotificationArgs> Notifications
+        {
+            get => _notifications ?? (_notifications = new InputList<Inputs.NotificationArgs>());
+            set => _notifications = value;
+        }
+
+        /// <summary>
+        /// The on behalf of tokens.
+        /// </summary>
+        [Input("onBehalfOfTokens")]
+        public Input<Inputs.ResourceTypeOnBehalfOfTokenArgs>? OnBehalfOfTokens { get; set; }
+
+        /// <summary>
+        /// The open api configuration.
+        /// </summary>
         [Input("openApiConfiguration")]
         public Input<Inputs.OpenApiConfigurationArgs>? OpenApiConfiguration { get; set; }
 
         /// <summary>
-        /// The provisioned state of the resource.
+        /// The policy execution type.
         /// </summary>
-        [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNative.ProviderHub.ProvisioningState>? ProvisioningState { get; set; }
+        [Input("policyExecutionType")]
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.PolicyExecutionType>? PolicyExecutionType { get; set; }
 
+        /// <summary>
+        /// The quota rule.
+        /// </summary>
+        [Input("quotaRule")]
+        public Input<Inputs.QuotaRuleArgs>? QuotaRule { get; set; }
+
+        /// <summary>
+        /// The regionality.
+        /// </summary>
         [Input("regionality")]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.Regionality>? Regionality { get; set; }
 
+        /// <summary>
+        /// The request header options.
+        /// </summary>
         [Input("requestHeaderOptions")]
         public Input<Inputs.ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs>? RequestHeaderOptions { get; set; }
 
         [Input("requiredFeatures")]
         private InputList<string>? _requiredFeatures;
+
+        /// <summary>
+        /// The required features.
+        /// </summary>
         public InputList<string> RequiredFeatures
         {
             get => _requiredFeatures ?? (_requiredFeatures = new InputList<string>());
             set => _requiredFeatures = value;
         }
 
+        /// <summary>
+        /// Resource cache options.
+        /// </summary>
+        [Input("resourceCache")]
+        public Input<Inputs.ResourceTypeRegistrationPropertiesResourceCacheArgs>? ResourceCache { get; set; }
+
         [Input("resourceConcurrencyControlOptions")]
         private InputMap<Inputs.ResourceConcurrencyControlOptionArgs>? _resourceConcurrencyControlOptions;
+
+        /// <summary>
+        /// The resource concurrency control options.
+        /// </summary>
         public InputMap<Inputs.ResourceConcurrencyControlOptionArgs> ResourceConcurrencyControlOptions
         {
             get => _resourceConcurrencyControlOptions ?? (_resourceConcurrencyControlOptions = new InputMap<Inputs.ResourceConcurrencyControlOptionArgs>());
             set => _resourceConcurrencyControlOptions = value;
         }
 
+        /// <summary>
+        /// The resource deletion policy.
+        /// </summary>
         [Input("resourceDeletionPolicy")]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.ResourceDeletionPolicy>? ResourceDeletionPolicy { get; set; }
 
+        /// <summary>
+        /// The resource graph configuration.
+        /// </summary>
         [Input("resourceGraphConfiguration")]
         public Input<Inputs.ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs>? ResourceGraphConfiguration { get; set; }
 
+        /// <summary>
+        /// Resource management options.
+        /// </summary>
+        [Input("resourceManagementOptions")]
+        public Input<Inputs.ResourceTypeRegistrationPropertiesResourceManagementOptionsArgs>? ResourceManagementOptions { get; set; }
+
+        /// <summary>
+        /// The resource move policy.
+        /// </summary>
         [Input("resourceMovePolicy")]
         public Input<Inputs.ResourceTypeRegistrationPropertiesResourceMovePolicyArgs>? ResourceMovePolicy { get; set; }
 
+        /// <summary>
+        /// The resource provider authorization rules.
+        /// </summary>
+        [Input("resourceProviderAuthorizationRules")]
+        public Input<Inputs.ResourceProviderAuthorizationRulesArgs>? ResourceProviderAuthorizationRules { get; set; }
+
+        /// <summary>
+        /// Resource query management options.
+        /// </summary>
+        [Input("resourceQueryManagement")]
+        public Input<Inputs.ResourceTypeRegistrationPropertiesResourceQueryManagementArgs>? ResourceQueryManagement { get; set; }
+
+        /// <summary>
+        /// The resource sub type.
+        /// </summary>
+        [Input("resourceSubType")]
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.ResourceSubType>? ResourceSubType { get; set; }
+
+        /// <summary>
+        /// Resource type common attribute management.
+        /// </summary>
+        [Input("resourceTypeCommonAttributeManagement")]
+        public Input<Inputs.ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementArgs>? ResourceTypeCommonAttributeManagement { get; set; }
+
+        /// <summary>
+        /// The resource validation.
+        /// </summary>
+        [Input("resourceValidation")]
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.ResourceValidation>? ResourceValidation { get; set; }
+
+        /// <summary>
+        /// Routing rule.
+        /// </summary>
+        [Input("routingRule")]
+        public Input<Inputs.ResourceTypeRegistrationPropertiesRoutingRuleArgs>? RoutingRule { get; set; }
+
+        /// <summary>
+        /// The resource routing type.
+        /// </summary>
         [Input("routingType")]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.RoutingType>? RoutingType { get; set; }
 
         [Input("serviceTreeInfos")]
         private InputList<Inputs.ServiceTreeInfoArgs>? _serviceTreeInfos;
+
+        /// <summary>
+        /// The service tree infos.
+        /// </summary>
         public InputList<Inputs.ServiceTreeInfoArgs> ServiceTreeInfos
         {
             get => _serviceTreeInfos ?? (_serviceTreeInfos = new InputList<Inputs.ServiceTreeInfoArgs>());
             set => _serviceTreeInfos = value;
         }
 
+        /// <summary>
+        /// The sku link.
+        /// </summary>
+        [Input("skuLink")]
+        public Input<string>? SkuLink { get; set; }
+
+        /// <summary>
+        /// The subscription lifecycle notification specifications.
+        /// </summary>
         [Input("subscriptionLifecycleNotificationSpecifications")]
         public Input<Inputs.ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs>? SubscriptionLifecycleNotificationSpecifications { get; set; }
 
         [Input("subscriptionStateRules")]
         private InputList<Inputs.SubscriptionStateRuleArgs>? _subscriptionStateRules;
+
+        /// <summary>
+        /// The subscription state rules.
+        /// </summary>
         public InputList<Inputs.SubscriptionStateRuleArgs> SubscriptionStateRules
         {
             get => _subscriptionStateRules ?? (_subscriptionStateRules = new InputList<Inputs.SubscriptionStateRuleArgs>());
             set => _subscriptionStateRules = value;
         }
 
+        /// <summary>
+        /// Whether tags are supported.
+        /// </summary>
+        [Input("supportsTags")]
+        public Input<bool>? SupportsTags { get; set; }
+
         [Input("swaggerSpecifications")]
         private InputList<Inputs.SwaggerSpecificationArgs>? _swaggerSpecifications;
+
+        /// <summary>
+        /// The swagger specifications.
+        /// </summary>
         public InputList<Inputs.SwaggerSpecificationArgs> SwaggerSpecifications
         {
             get => _swaggerSpecifications ?? (_swaggerSpecifications = new InputList<Inputs.SwaggerSpecificationArgs>());
             set => _swaggerSpecifications = value;
         }
 
+        /// <summary>
+        /// The template deployment options.
+        /// </summary>
         [Input("templateDeploymentOptions")]
         public Input<Inputs.ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgs>? TemplateDeploymentOptions { get; set; }
 
+        /// <summary>
+        /// The template deployment policy.
+        /// </summary>
+        [Input("templateDeploymentPolicy")]
+        public Input<Inputs.ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyArgs>? TemplateDeploymentPolicy { get; set; }
+
         [Input("throttlingRules")]
         private InputList<Inputs.ThrottlingRuleArgs>? _throttlingRules;
+
+        /// <summary>
+        /// The throttling rules.
+        /// </summary>
         public InputList<Inputs.ThrottlingRuleArgs> ThrottlingRules
         {
             get => _throttlingRules ?? (_throttlingRules = new InputList<Inputs.ThrottlingRuleArgs>());
             set => _throttlingRules = value;
         }
+
+        /// <summary>
+        /// The token auth configuration.
+        /// </summary>
+        [Input("tokenAuthConfiguration")]
+        public Input<Inputs.TokenAuthConfigurationArgs>? TokenAuthConfiguration { get; set; }
 
         public ResourceTypeRegistrationPropertiesArgs()
         {

@@ -24,7 +24,7 @@ export function getSqlVirtualMachineGroup(args: GetSqlVirtualMachineGroupArgs, o
 
 export interface GetSqlVirtualMachineGroupArgs {
     /**
-     * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -50,15 +50,15 @@ export interface GetSqlVirtualMachineGroupResult {
      */
     readonly clusterManagerType: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource location.
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -78,7 +78,7 @@ export interface GetSqlVirtualMachineGroupResult {
      */
     readonly sqlImageSku?: string;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.sqlvirtualmachine.SystemDataResponse;
     /**
@@ -86,7 +86,7 @@ export interface GetSqlVirtualMachineGroupResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -111,7 +111,7 @@ export function getSqlVirtualMachineGroupOutput(args: GetSqlVirtualMachineGroupO
 
 export interface GetSqlVirtualMachineGroupOutputArgs {
     /**
-     * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

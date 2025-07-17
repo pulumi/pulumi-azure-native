@@ -23,13 +23,13 @@ namespace Pulumi.AzureNative.BotService.Outputs
         /// <summary>
         /// Properties of Access Rule
         /// </summary>
-        public readonly Outputs.NspAccessRuleResponseProperties Properties;
+        public readonly Outputs.NspAccessRulePropertiesResponse Properties;
 
         [OutputConstructor]
         private NspAccessRuleResponse(
             string? name,
 
-            Outputs.NspAccessRuleResponseProperties properties)
+            Outputs.NspAccessRulePropertiesResponse properties)
         {
             Name = name;
             Properties = properties;

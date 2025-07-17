@@ -12,17 +12,27 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
     public sealed class ResourceTypeExtensionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The endpoint uri.
+        /// </summary>
         [Input("endpointUri")]
         public Input<string>? EndpointUri { get; set; }
 
         [Input("extensionCategories")]
         private InputList<Union<string, Pulumi.AzureNative.ProviderHub.ExtensionCategory>>? _extensionCategories;
+
+        /// <summary>
+        /// The extension categories.
+        /// </summary>
         public InputList<Union<string, Pulumi.AzureNative.ProviderHub.ExtensionCategory>> ExtensionCategories
         {
             get => _extensionCategories ?? (_extensionCategories = new InputList<Union<string, Pulumi.AzureNative.ProviderHub.ExtensionCategory>>());
             set => _extensionCategories = value;
         }
 
+        /// <summary>
+        /// The timeout.
+        /// </summary>
         [Input("timeout")]
         public Input<string>? Timeout { get; set; }
 

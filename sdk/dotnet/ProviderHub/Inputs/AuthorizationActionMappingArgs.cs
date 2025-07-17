@@ -12,9 +12,15 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
     public sealed class AuthorizationActionMappingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The desired action name.
+        /// </summary>
         [Input("desired")]
         public Input<string>? Desired { get; set; }
 
+        /// <summary>
+        /// The original action name.
+        /// </summary>
         [Input("original")]
         public Input<string>? Original { get; set; }
 

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public static class GetFirewallRule
     {
         /// <summary>
-        /// List all the firewall rules in a given server.
+        /// Gets information about a firewall rule in a flexible server.
         /// 
         /// Uses Azure REST API version 2024-08-01.
         /// 
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:dbforpostgresql:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List all the firewall rules in a given server.
+        /// Gets information about a firewall rule in a flexible server.
         /// 
         /// Uses Azure REST API version 2024-08-01.
         /// 
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:dbforpostgresql:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List all the firewall rules in a given server.
+        /// Gets information about a firewall rule in a flexible server.
         /// 
         /// Uses Azure REST API version 2024-08-01.
         /// 
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class GetFirewallRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the server firewall rule.
+        /// Name of the firewall rule.
         /// </summary>
         [Input("firewallRuleName", required: true)]
         public string FirewallRuleName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class GetFirewallRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the server firewall rule.
+        /// Name of the firewall rule.
         /// </summary>
         [Input("firewallRuleName", required: true)]
         public Input<string> FirewallRuleName { get; set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// The end IP address of the server firewall rule. Must be IPv4 format.
+        /// IP address defining the end of the range of addresses of a firewall rule. Must be expressed in IPv4 format.
         /// </summary>
         public readonly string EndIpAddress;
         /// <summary>
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The start IP address of the server firewall rule. Must be IPv4 format.
+        /// IP address defining the start of the range of addresses of a firewall rule. Must be expressed in IPv4 format.
         /// </summary>
         public readonly string StartIpAddress;
         /// <summary>

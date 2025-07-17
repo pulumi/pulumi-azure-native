@@ -37,11 +37,11 @@ class GlobalScheduleArgs:
                  weekly_recurrence: Optional[pulumi.Input['WeekDetailsArgs']] = None):
         """
         The set of arguments for constructing a GlobalSchedule resource.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['DayDetailsArgs'] daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
         :param pulumi.Input['HourDetailsArgs'] hourly_recurrence: If the schedule will occur multiple times a day, specify the hourly recurrence.
         :param pulumi.Input[builtins.str] location: The location of the resource.
-        :param pulumi.Input[builtins.str] name: The name of the schedule.
+        :param pulumi.Input[builtins.str] name: The name of the Schedule
         :param pulumi.Input['NotificationSettingsArgs'] notification_settings: Notification settings.
         :param pulumi.Input[Union[builtins.str, 'EnableStatus']] status: The status of the schedule (i.e. Enabled, Disabled)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
@@ -80,7 +80,7 @@ class GlobalScheduleArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -128,7 +128,7 @@ class GlobalScheduleArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the schedule.
+        The name of the Schedule
         """
         return pulumi.get(self, "name")
 
@@ -250,9 +250,9 @@ class GlobalSchedule(pulumi.CustomResource):
         :param pulumi.Input[Union['DayDetailsArgs', 'DayDetailsArgsDict']] daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
         :param pulumi.Input[Union['HourDetailsArgs', 'HourDetailsArgsDict']] hourly_recurrence: If the schedule will occur multiple times a day, specify the hourly recurrence.
         :param pulumi.Input[builtins.str] location: The location of the resource.
-        :param pulumi.Input[builtins.str] name: The name of the schedule.
+        :param pulumi.Input[builtins.str] name: The name of the Schedule
         :param pulumi.Input[Union['NotificationSettingsArgs', 'NotificationSettingsArgsDict']] notification_settings: Notification settings.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[builtins.str, 'EnableStatus']] status: The status of the schedule (i.e. Enabled, Disabled)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
         :param pulumi.Input[builtins.str] target_resource_id: The resource ID to which the schedule belongs

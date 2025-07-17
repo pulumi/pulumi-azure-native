@@ -77,7 +77,7 @@ class GetConfigurationAssignmentsForSubscriptionResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Fully qualified identifier of the resource
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -101,7 +101,7 @@ class GetConfigurationAssignmentsForSubscriptionResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Name of the resource
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -125,7 +125,7 @@ class GetConfigurationAssignmentsForSubscriptionResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Type of the resource
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -157,7 +157,7 @@ def get_configuration_assignments_for_subscription(configuration_assignment_name
     Other available API versions: 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str configuration_assignment_name: Configuration assignment name
+    :param builtins.str configuration_assignment_name: The name of the ConfigurationAssignment
     """
     __args__ = dict()
     __args__['configurationAssignmentName'] = configuration_assignment_name
@@ -184,7 +184,7 @@ def get_configuration_assignments_for_subscription_output(configuration_assignme
     Other available API versions: 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str configuration_assignment_name: Configuration assignment name
+    :param builtins.str configuration_assignment_name: The name of the ConfigurationAssignment
     """
     __args__ = dict()
     __args__['configurationAssignmentName'] = configuration_assignment_name

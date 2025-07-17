@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Compute
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the extension.
+        /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -247,7 +247,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<string>? Publisher { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

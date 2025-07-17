@@ -60,7 +60,7 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly metadata!: pulumi.Output<outputs.confluent.TopicMetadataEntityResponse | undefined>;
     /**
-     * Display name of the topic
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -80,11 +80,15 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly replicationFactor!: pulumi.Output<string | undefined>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.confluent.SystemDataResponse>;
+    /**
      * Topic Id returned by Confluent
      */
     public readonly topicId!: pulumi.Output<string | undefined>;
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -127,6 +131,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["topicName"] = args ? args.topicName : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -139,6 +144,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["partitionsCount"] = undefined /*out*/;
             resourceInputs["partitionsReassignments"] = undefined /*out*/;
             resourceInputs["replicationFactor"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["topicId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

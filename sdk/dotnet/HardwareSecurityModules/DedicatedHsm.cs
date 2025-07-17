@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
     /// 
     /// Uses Azure REST API version 2024-06-30-preview. In version 2.x of the Azure Native provider, it used API version 2021-11-30.
     /// 
-    /// Other available API versions: 2021-11-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hardwaresecuritymodules [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2021-11-30, 2025-03-31. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hardwaresecuritymodules [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:hardwaresecuritymodules:DedicatedHsm")]
     public partial class DedicatedHsm : global::Pulumi.CustomResource
@@ -125,6 +125,7 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
                     new global::Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm" },
                     new global::Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20211130:DedicatedHsm" },
                     new global::Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20240630preview:DedicatedHsm" },
+                    new global::Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20250331:DedicatedHsm" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

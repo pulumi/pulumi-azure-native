@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// Connection base resource schema.
         /// 
         /// Uses Azure REST API version 2025-04-01-preview.
+        /// 
+        /// Other available API versions: 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAccountConnectionResult> InvokeAsync(GetAccountConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountConnectionResult>("azure-native:cognitiveservices:getAccountConnection", args ?? new GetAccountConnectionArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// Connection base resource schema.
         /// 
         /// Uses Azure REST API version 2025-04-01-preview.
+        /// 
+        /// Other available API versions: 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAccountConnectionResult> Invoke(GetAccountConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountConnectionResult>("azure-native:cognitiveservices:getAccountConnection", args ?? new GetAccountConnectionInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// Connection base resource schema.
         /// 
         /// Uses Azure REST API version 2025-04-01-preview.
+        /// 
+        /// Other available API versions: 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAccountConnectionResult> Invoke(GetAccountConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountConnectionResult>("azure-native:cognitiveservices:getAccountConnection", args ?? new GetAccountConnectionInvokeArgs(), options.WithDefaults());

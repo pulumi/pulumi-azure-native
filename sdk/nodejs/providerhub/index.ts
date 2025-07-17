@@ -5,10 +5,30 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AuthorizedApplicationArgs } from "./authorizedApplication";
+export type AuthorizedApplication = import("./authorizedApplication").AuthorizedApplication;
+export const AuthorizedApplication: typeof import("./authorizedApplication").AuthorizedApplication = null as any;
+utilities.lazyLoad(exports, ["AuthorizedApplication"], () => require("./authorizedApplication"));
+
+export { CustomRolloutArgs } from "./customRollout";
+export type CustomRollout = import("./customRollout").CustomRollout;
+export const CustomRollout: typeof import("./customRollout").CustomRollout = null as any;
+utilities.lazyLoad(exports, ["CustomRollout"], () => require("./customRollout"));
+
 export { DefaultRolloutArgs } from "./defaultRollout";
 export type DefaultRollout = import("./defaultRollout").DefaultRollout;
 export const DefaultRollout: typeof import("./defaultRollout").DefaultRollout = null as any;
 utilities.lazyLoad(exports, ["DefaultRollout"], () => require("./defaultRollout"));
+
+export { GetAuthorizedApplicationArgs, GetAuthorizedApplicationResult, GetAuthorizedApplicationOutputArgs } from "./getAuthorizedApplication";
+export const getAuthorizedApplication: typeof import("./getAuthorizedApplication").getAuthorizedApplication = null as any;
+export const getAuthorizedApplicationOutput: typeof import("./getAuthorizedApplication").getAuthorizedApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthorizedApplication","getAuthorizedApplicationOutput"], () => require("./getAuthorizedApplication"));
+
+export { GetCustomRolloutArgs, GetCustomRolloutResult, GetCustomRolloutOutputArgs } from "./getCustomRollout";
+export const getCustomRollout: typeof import("./getCustomRollout").getCustomRollout = null as any;
+export const getCustomRolloutOutput: typeof import("./getCustomRollout").getCustomRolloutOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomRollout","getCustomRolloutOutput"], () => require("./getCustomRollout"));
 
 export { GetDefaultRolloutArgs, GetDefaultRolloutResult, GetDefaultRolloutOutputArgs } from "./getDefaultRollout";
 export const getDefaultRollout: typeof import("./getDefaultRollout").getDefaultRollout = null as any;
@@ -19,6 +39,11 @@ export { GetNotificationRegistrationArgs, GetNotificationRegistrationResult, Get
 export const getNotificationRegistration: typeof import("./getNotificationRegistration").getNotificationRegistration = null as any;
 export const getNotificationRegistrationOutput: typeof import("./getNotificationRegistration").getNotificationRegistrationOutput = null as any;
 utilities.lazyLoad(exports, ["getNotificationRegistration","getNotificationRegistrationOutput"], () => require("./getNotificationRegistration"));
+
+export { GetProviderMonitorSettingArgs, GetProviderMonitorSettingResult, GetProviderMonitorSettingOutputArgs } from "./getProviderMonitorSetting";
+export const getProviderMonitorSetting: typeof import("./getProviderMonitorSetting").getProviderMonitorSetting = null as any;
+export const getProviderMonitorSettingOutput: typeof import("./getProviderMonitorSetting").getProviderMonitorSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getProviderMonitorSetting","getProviderMonitorSettingOutput"], () => require("./getProviderMonitorSetting"));
 
 export { GetProviderRegistrationArgs, GetProviderRegistrationResult, GetProviderRegistrationOutputArgs } from "./getProviderRegistration";
 export const getProviderRegistration: typeof import("./getProviderRegistration").getProviderRegistration = null as any;
@@ -60,6 +85,11 @@ export type OperationByProviderRegistration = import("./operationByProviderRegis
 export const OperationByProviderRegistration: typeof import("./operationByProviderRegistration").OperationByProviderRegistration = null as any;
 utilities.lazyLoad(exports, ["OperationByProviderRegistration"], () => require("./operationByProviderRegistration"));
 
+export { ProviderMonitorSettingArgs } from "./providerMonitorSetting";
+export type ProviderMonitorSetting = import("./providerMonitorSetting").ProviderMonitorSetting;
+export const ProviderMonitorSetting: typeof import("./providerMonitorSetting").ProviderMonitorSetting = null as any;
+utilities.lazyLoad(exports, ["ProviderMonitorSetting"], () => require("./providerMonitorSetting"));
+
 export { ProviderRegistrationArgs } from "./providerRegistration";
 export type ProviderRegistration = import("./providerRegistration").ProviderRegistration;
 export const ProviderRegistration: typeof import("./providerRegistration").ProviderRegistration = null as any;
@@ -98,12 +128,18 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:providerhub:AuthorizedApplication":
+                return new AuthorizedApplication(name, <any>undefined, { urn })
+            case "azure-native:providerhub:CustomRollout":
+                return new CustomRollout(name, <any>undefined, { urn })
             case "azure-native:providerhub:DefaultRollout":
                 return new DefaultRollout(name, <any>undefined, { urn })
             case "azure-native:providerhub:NotificationRegistration":
                 return new NotificationRegistration(name, <any>undefined, { urn })
             case "azure-native:providerhub:OperationByProviderRegistration":
                 return new OperationByProviderRegistration(name, <any>undefined, { urn })
+            case "azure-native:providerhub:ProviderMonitorSetting":
+                return new ProviderMonitorSetting(name, <any>undefined, { urn })
             case "azure-native:providerhub:ProviderRegistration":
                 return new ProviderRegistration(name, <any>undefined, { urn })
             case "azure-native:providerhub:ResourceTypeRegistration":

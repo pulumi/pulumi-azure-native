@@ -225,8 +225,7 @@ def get_notification_hub_pns_credentials(namespace_name: Optional[builtins.str] 
                                          resource_group_name: Optional[builtins.str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationHubPnsCredentialsResult:
     """
-    Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
-    PNS credentials.
+    Lists the PNS Credentials associated with a notification hub.
 
     Uses Azure REST API version 2023-10-01-preview.
 
@@ -265,8 +264,7 @@ def get_notification_hub_pns_credentials_output(namespace_name: Optional[pulumi.
                                                 resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotificationHubPnsCredentialsResult]:
     """
-    Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
-    PNS credentials.
+    Lists the PNS Credentials associated with a notification hub.
 
     Uses Azure REST API version 2023-10-01-preview.
 

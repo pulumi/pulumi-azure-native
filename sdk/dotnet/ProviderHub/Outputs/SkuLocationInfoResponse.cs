@@ -13,10 +13,25 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     [OutputType]
     public sealed class SkuLocationInfoResponse
     {
+        /// <summary>
+        /// The extended locations.
+        /// </summary>
         public readonly ImmutableArray<string> ExtendedLocations;
+        /// <summary>
+        /// The location.
+        /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// The type.
+        /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// The zone details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.SkuZoneDetailResponse> ZoneDetails;
+        /// <summary>
+        /// The zones.
+        /// </summary>
         public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]

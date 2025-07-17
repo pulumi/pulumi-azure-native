@@ -33,7 +33,7 @@ class ZoneArgs:
         """
         The set of arguments for constructing a Zone resource.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[builtins.str] location: Resource location.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] registration_virtual_networks: A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] resolution_virtual_networks: A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
@@ -72,7 +72,7 @@ class ZoneArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Resource location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -164,7 +164,7 @@ class Zone(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] location: Resource location.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]] registration_virtual_networks: A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]] resolution_virtual_networks: A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -298,7 +298,7 @@ class Zone(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        Resource location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -322,7 +322,7 @@ class Zone(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -370,7 +370,7 @@ class Zone(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -386,7 +386,7 @@ class Zone(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

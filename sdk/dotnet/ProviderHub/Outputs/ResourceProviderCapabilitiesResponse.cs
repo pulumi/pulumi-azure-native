@@ -13,8 +13,17 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     [OutputType]
     public sealed class ResourceProviderCapabilitiesResponse
     {
+        /// <summary>
+        /// The effect.
+        /// </summary>
         public readonly string Effect;
+        /// <summary>
+        /// The quota id.
+        /// </summary>
         public readonly string QuotaId;
+        /// <summary>
+        /// The required features.
+        /// </summary>
         public readonly ImmutableArray<string> RequiredFeatures;
 
         [OutputConstructor]

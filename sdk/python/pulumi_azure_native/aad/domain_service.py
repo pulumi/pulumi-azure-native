@@ -296,6 +296,8 @@ class DomainService(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-12-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
 
+        Other available API versions: 2025-05-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native aad [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ConfigDiagnosticsArgs', 'ConfigDiagnosticsArgsDict']] config_diagnostics: Configuration diagnostics data containing latest execution from client.
@@ -324,6 +326,8 @@ class DomainService(pulumi.CustomResource):
         Domain service.
 
         Uses Azure REST API version 2022-12-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
+
+        Other available API versions: 2025-05-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native aad [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param DomainServiceArgs args: The arguments to use to populate this resource's properties.
@@ -395,7 +399,7 @@ class DomainService(pulumi.CustomResource):
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:aad/v20170101:DomainService"), pulumi.Alias(type_="azure-native:aad/v20170601:DomainService"), pulumi.Alias(type_="azure-native:aad/v20200101:DomainService"), pulumi.Alias(type_="azure-native:aad/v20210301:DomainService"), pulumi.Alias(type_="azure-native:aad/v20210501:DomainService"), pulumi.Alias(type_="azure-native:aad/v20220901:DomainService"), pulumi.Alias(type_="azure-native:aad/v20221201:DomainService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:aad/v20170101:DomainService"), pulumi.Alias(type_="azure-native:aad/v20170601:DomainService"), pulumi.Alias(type_="azure-native:aad/v20200101:DomainService"), pulumi.Alias(type_="azure-native:aad/v20210301:DomainService"), pulumi.Alias(type_="azure-native:aad/v20210501:DomainService"), pulumi.Alias(type_="azure-native:aad/v20220901:DomainService"), pulumi.Alias(type_="azure-native:aad/v20221201:DomainService"), pulumi.Alias(type_="azure-native:aad/v20250501:DomainService"), pulumi.Alias(type_="azure-native:aad/v20250601:DomainService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DomainService, __self__).__init__(
             'azure-native:aad:DomainService',

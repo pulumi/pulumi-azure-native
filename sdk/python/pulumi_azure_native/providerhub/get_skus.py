@@ -57,7 +57,7 @@ class GetSkusResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -78,7 +78,7 @@ class GetSkusResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -112,7 +112,9 @@ def get_skus(provider_namespace: Optional[builtins.str] = None,
     """
     Gets the sku details for the given resource type and sku name.
 
-    Uses Azure REST API version 2021-09-01-preview.
+    Uses Azure REST API version 2024-09-01.
+
+    Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str provider_namespace: The name of the resource provider hosted within ProviderHub.
@@ -140,7 +142,9 @@ def get_skus_output(provider_namespace: Optional[pulumi.Input[builtins.str]] = N
     """
     Gets the sku details for the given resource type and sku name.
 
-    Uses Azure REST API version 2021-09-01-preview.
+    Uses Azure REST API version 2024-09-01.
+
+    Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str provider_namespace: The name of the resource provider hosted within ProviderHub.

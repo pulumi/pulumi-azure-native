@@ -33,7 +33,7 @@ export interface GetDedicatedHostGroupArgs {
      */
     hostGroupName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -45,7 +45,7 @@ export interface GetDedicatedHostGroupResult {
     /**
      * Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
      */
-    readonly additionalCapabilities?: outputs.compute.DedicatedHostGroupPropertiesResponseAdditionalCapabilities;
+    readonly additionalCapabilities?: outputs.compute.DedicatedHostGroupPropertiesAdditionalCapabilitiesResponse;
     /**
      * The Azure API version of the resource.
      */
@@ -55,7 +55,7 @@ export interface GetDedicatedHostGroupResult {
      */
     readonly hosts: outputs.compute.SubResourceReadOnlyResponse[];
     /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -63,11 +63,11 @@ export interface GetDedicatedHostGroupResult {
      */
     readonly instanceView: outputs.compute.DedicatedHostGroupInstanceViewResponse;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -79,15 +79,19 @@ export interface GetDedicatedHostGroupResult {
      */
     readonly supportAutomaticPlacement?: boolean;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.compute.SystemDataResponse;
+    /**
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
-     * Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
+     * The availability zones.
      */
     readonly zones?: string[];
 }
@@ -117,7 +121,7 @@ export interface GetDedicatedHostGroupOutputArgs {
      */
     hostGroupName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

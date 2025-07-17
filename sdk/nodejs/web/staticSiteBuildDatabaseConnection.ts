@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
- * Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class StaticSiteBuildDatabaseConnection extends pulumi.CustomResource {
     /**
@@ -128,7 +128,7 @@ export class StaticSiteBuildDatabaseConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20220901:StaticSiteBuildDatabaseConnection" }, { type: "azure-native:web/v20230101:StaticSiteBuildDatabaseConnection" }, { type: "azure-native:web/v20231201:StaticSiteBuildDatabaseConnection" }, { type: "azure-native:web/v20240401:StaticSiteBuildDatabaseConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20220901:StaticSiteBuildDatabaseConnection" }, { type: "azure-native:web/v20230101:StaticSiteBuildDatabaseConnection" }, { type: "azure-native:web/v20231201:StaticSiteBuildDatabaseConnection" }, { type: "azure-native:web/v20240401:StaticSiteBuildDatabaseConnection" }, { type: "azure-native:web/v20241101:StaticSiteBuildDatabaseConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StaticSiteBuildDatabaseConnection.__pulumiType, name, resourceInputs, opts);
     }

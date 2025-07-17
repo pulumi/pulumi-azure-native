@@ -26,7 +26,7 @@ __all__ = [
 @pulumi.output_type
 class GetFirewallRuleResult:
     """
-    Represents a server firewall rule.
+    Firewall rule.
     """
     def __init__(__self__, azure_api_version=None, end_ip_address=None, id=None, name=None, start_ip_address=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
@@ -63,7 +63,7 @@ class GetFirewallRuleResult:
     @pulumi.getter(name="endIpAddress")
     def end_ip_address(self) -> builtins.str:
         """
-        The end IP address of the server firewall rule. Must be IPv4 format.
+        IP address defining the end of the range of addresses of a firewall rule. Must be expressed in IPv4 format.
         """
         return pulumi.get(self, "end_ip_address")
 
@@ -87,7 +87,7 @@ class GetFirewallRuleResult:
     @pulumi.getter(name="startIpAddress")
     def start_ip_address(self) -> builtins.str:
         """
-        The start IP address of the server firewall rule. Must be IPv4 format.
+        IP address defining the start of the range of addresses of a firewall rule. Must be expressed in IPv4 format.
         """
         return pulumi.get(self, "start_ip_address")
 
@@ -128,14 +128,14 @@ def get_firewall_rule(firewall_rule_name: Optional[builtins.str] = None,
                       server_name: Optional[builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallRuleResult:
     """
-    List all the firewall rules in a given server.
+    Gets information about a firewall rule in a flexible server.
 
     Uses Azure REST API version 2024-08-01.
 
     Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str firewall_rule_name: The name of the server firewall rule.
+    :param builtins.str firewall_rule_name: Name of the firewall rule.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str server_name: The name of the server.
     """
@@ -159,14 +159,14 @@ def get_firewall_rule_output(firewall_rule_name: Optional[pulumi.Input[builtins.
                              server_name: Optional[pulumi.Input[builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallRuleResult]:
     """
-    List all the firewall rules in a given server.
+    Gets information about a firewall rule in a flexible server.
 
     Uses Azure REST API version 2024-08-01.
 
     Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str firewall_rule_name: The name of the server firewall rule.
+    :param builtins.str firewall_rule_name: Name of the firewall rule.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str server_name: The name of the server.
     """

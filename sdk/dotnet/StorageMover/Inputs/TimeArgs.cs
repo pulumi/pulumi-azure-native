@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.StorageMover.Inputs
         /// The minute element of the time. Allowed values are 0 and 30. If not specified, its value defaults to 0.
         /// </summary>
         [Input("minute")]
-        public Input<int>? Minute { get; set; }
+        public Input<double>? Minute { get; set; }
 
         public TimeArgs()
         {

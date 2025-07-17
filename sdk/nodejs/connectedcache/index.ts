@@ -40,10 +40,25 @@ export const getEnterpriseMccCacheNodesOperation: typeof import("./getEnterprise
 export const getEnterpriseMccCacheNodesOperationOutput: typeof import("./getEnterpriseMccCacheNodesOperation").getEnterpriseMccCacheNodesOperationOutput = null as any;
 utilities.lazyLoad(exports, ["getEnterpriseMccCacheNodesOperation","getEnterpriseMccCacheNodesOperationOutput"], () => require("./getEnterpriseMccCacheNodesOperation"));
 
+export { GetEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistoryArgs, GetEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistoryResult, GetEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistoryOutputArgs } from "./getEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistory";
+export const getEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistory: typeof import("./getEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistory").getEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistory = null as any;
+export const getEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistoryOutput: typeof import("./getEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistory").getEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistoryOutput = null as any;
+utilities.lazyLoad(exports, ["getEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistory","getEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistoryOutput"], () => require("./getEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistory"));
+
 export { GetEnterpriseMccCacheNodesOperationCacheNodeInstallDetailsArgs, GetEnterpriseMccCacheNodesOperationCacheNodeInstallDetailsResult, GetEnterpriseMccCacheNodesOperationCacheNodeInstallDetailsOutputArgs } from "./getEnterpriseMccCacheNodesOperationCacheNodeInstallDetails";
 export const getEnterpriseMccCacheNodesOperationCacheNodeInstallDetails: typeof import("./getEnterpriseMccCacheNodesOperationCacheNodeInstallDetails").getEnterpriseMccCacheNodesOperationCacheNodeInstallDetails = null as any;
 export const getEnterpriseMccCacheNodesOperationCacheNodeInstallDetailsOutput: typeof import("./getEnterpriseMccCacheNodesOperationCacheNodeInstallDetails").getEnterpriseMccCacheNodesOperationCacheNodeInstallDetailsOutput = null as any;
 utilities.lazyLoad(exports, ["getEnterpriseMccCacheNodesOperationCacheNodeInstallDetails","getEnterpriseMccCacheNodesOperationCacheNodeInstallDetailsOutput"], () => require("./getEnterpriseMccCacheNodesOperationCacheNodeInstallDetails"));
+
+export { GetEnterpriseMccCacheNodesOperationCacheNodeMccIssueDetailsHistoryArgs, GetEnterpriseMccCacheNodesOperationCacheNodeMccIssueDetailsHistoryResult, GetEnterpriseMccCacheNodesOperationCacheNodeMccIssueDetailsHistoryOutputArgs } from "./getEnterpriseMccCacheNodesOperationCacheNodeMccIssueDetailsHistory";
+export const getEnterpriseMccCacheNodesOperationCacheNodeMccIssueDetailsHistory: typeof import("./getEnterpriseMccCacheNodesOperationCacheNodeMccIssueDetailsHistory").getEnterpriseMccCacheNodesOperationCacheNodeMccIssueDetailsHistory = null as any;
+export const getEnterpriseMccCacheNodesOperationCacheNodeMccIssueDetailsHistoryOutput: typeof import("./getEnterpriseMccCacheNodesOperationCacheNodeMccIssueDetailsHistory").getEnterpriseMccCacheNodesOperationCacheNodeMccIssueDetailsHistoryOutput = null as any;
+utilities.lazyLoad(exports, ["getEnterpriseMccCacheNodesOperationCacheNodeMccIssueDetailsHistory","getEnterpriseMccCacheNodesOperationCacheNodeMccIssueDetailsHistoryOutput"], () => require("./getEnterpriseMccCacheNodesOperationCacheNodeMccIssueDetailsHistory"));
+
+export { GetEnterpriseMccCacheNodesOperationCacheNodeTlsCertificateHistoryArgs, GetEnterpriseMccCacheNodesOperationCacheNodeTlsCertificateHistoryResult, GetEnterpriseMccCacheNodesOperationCacheNodeTlsCertificateHistoryOutputArgs } from "./getEnterpriseMccCacheNodesOperationCacheNodeTlsCertificateHistory";
+export const getEnterpriseMccCacheNodesOperationCacheNodeTlsCertificateHistory: typeof import("./getEnterpriseMccCacheNodesOperationCacheNodeTlsCertificateHistory").getEnterpriseMccCacheNodesOperationCacheNodeTlsCertificateHistory = null as any;
+export const getEnterpriseMccCacheNodesOperationCacheNodeTlsCertificateHistoryOutput: typeof import("./getEnterpriseMccCacheNodesOperationCacheNodeTlsCertificateHistory").getEnterpriseMccCacheNodesOperationCacheNodeTlsCertificateHistoryOutput = null as any;
+utilities.lazyLoad(exports, ["getEnterpriseMccCacheNodesOperationCacheNodeTlsCertificateHistory","getEnterpriseMccCacheNodesOperationCacheNodeTlsCertificateHistoryOutput"], () => require("./getEnterpriseMccCacheNodesOperationCacheNodeTlsCertificateHistory"));
 
 export { GetEnterpriseMccCustomerArgs, GetEnterpriseMccCustomerResult, GetEnterpriseMccCustomerOutputArgs } from "./getEnterpriseMccCustomer";
 export const getEnterpriseMccCustomer: typeof import("./getEnterpriseMccCustomer").getEnterpriseMccCustomer = null as any;
@@ -60,10 +75,20 @@ export const getIspCacheNodesOperationBgpCidrs: typeof import("./getIspCacheNode
 export const getIspCacheNodesOperationBgpCidrsOutput: typeof import("./getIspCacheNodesOperationBgpCidrs").getIspCacheNodesOperationBgpCidrsOutput = null as any;
 utilities.lazyLoad(exports, ["getIspCacheNodesOperationBgpCidrs","getIspCacheNodesOperationBgpCidrsOutput"], () => require("./getIspCacheNodesOperationBgpCidrs"));
 
+export { GetIspCacheNodesOperationCacheNodeAutoUpdateHistoryArgs, GetIspCacheNodesOperationCacheNodeAutoUpdateHistoryResult, GetIspCacheNodesOperationCacheNodeAutoUpdateHistoryOutputArgs } from "./getIspCacheNodesOperationCacheNodeAutoUpdateHistory";
+export const getIspCacheNodesOperationCacheNodeAutoUpdateHistory: typeof import("./getIspCacheNodesOperationCacheNodeAutoUpdateHistory").getIspCacheNodesOperationCacheNodeAutoUpdateHistory = null as any;
+export const getIspCacheNodesOperationCacheNodeAutoUpdateHistoryOutput: typeof import("./getIspCacheNodesOperationCacheNodeAutoUpdateHistory").getIspCacheNodesOperationCacheNodeAutoUpdateHistoryOutput = null as any;
+utilities.lazyLoad(exports, ["getIspCacheNodesOperationCacheNodeAutoUpdateHistory","getIspCacheNodesOperationCacheNodeAutoUpdateHistoryOutput"], () => require("./getIspCacheNodesOperationCacheNodeAutoUpdateHistory"));
+
 export { GetIspCacheNodesOperationCacheNodeInstallDetailsArgs, GetIspCacheNodesOperationCacheNodeInstallDetailsResult, GetIspCacheNodesOperationCacheNodeInstallDetailsOutputArgs } from "./getIspCacheNodesOperationCacheNodeInstallDetails";
 export const getIspCacheNodesOperationCacheNodeInstallDetails: typeof import("./getIspCacheNodesOperationCacheNodeInstallDetails").getIspCacheNodesOperationCacheNodeInstallDetails = null as any;
 export const getIspCacheNodesOperationCacheNodeInstallDetailsOutput: typeof import("./getIspCacheNodesOperationCacheNodeInstallDetails").getIspCacheNodesOperationCacheNodeInstallDetailsOutput = null as any;
 utilities.lazyLoad(exports, ["getIspCacheNodesOperationCacheNodeInstallDetails","getIspCacheNodesOperationCacheNodeInstallDetailsOutput"], () => require("./getIspCacheNodesOperationCacheNodeInstallDetails"));
+
+export { GetIspCacheNodesOperationCacheNodeMccIssueDetailsHistoryArgs, GetIspCacheNodesOperationCacheNodeMccIssueDetailsHistoryResult, GetIspCacheNodesOperationCacheNodeMccIssueDetailsHistoryOutputArgs } from "./getIspCacheNodesOperationCacheNodeMccIssueDetailsHistory";
+export const getIspCacheNodesOperationCacheNodeMccIssueDetailsHistory: typeof import("./getIspCacheNodesOperationCacheNodeMccIssueDetailsHistory").getIspCacheNodesOperationCacheNodeMccIssueDetailsHistory = null as any;
+export const getIspCacheNodesOperationCacheNodeMccIssueDetailsHistoryOutput: typeof import("./getIspCacheNodesOperationCacheNodeMccIssueDetailsHistory").getIspCacheNodesOperationCacheNodeMccIssueDetailsHistoryOutput = null as any;
+utilities.lazyLoad(exports, ["getIspCacheNodesOperationCacheNodeMccIssueDetailsHistory","getIspCacheNodesOperationCacheNodeMccIssueDetailsHistoryOutput"], () => require("./getIspCacheNodesOperationCacheNodeMccIssueDetailsHistory"));
 
 export { GetIspCustomerArgs, GetIspCustomerResult, GetIspCustomerOutputArgs } from "./getIspCustomer";
 export const getIspCustomer: typeof import("./getIspCustomer").getIspCustomer = null as any;

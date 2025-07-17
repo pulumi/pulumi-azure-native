@@ -14,14 +14,17 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     public sealed class SkuResourceResponseProperties
     {
         /// <summary>
-        /// The provisioned state of the resource.
+        /// The provisioning state.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The sku settings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.SkuSettingResponse> SkuSettings;
 
         [OutputConstructor]
         private SkuResourceResponseProperties(
-            string? provisioningState,
+            string provisioningState,
 
             ImmutableArray<Outputs.SkuSettingResponse> skuSettings)
         {

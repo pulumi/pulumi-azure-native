@@ -10,14 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
+    /// <summary>
+    /// The resource move policy.
+    /// </summary>
     public sealed class ResourceTypeRegistrationPropertiesResourceMovePolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether cross resource group move is enabled.
+        /// </summary>
         [Input("crossResourceGroupMoveEnabled")]
         public Input<bool>? CrossResourceGroupMoveEnabled { get; set; }
 
+        /// <summary>
+        /// Whether cross subscription move is enabled.
+        /// </summary>
         [Input("crossSubscriptionMoveEnabled")]
         public Input<bool>? CrossSubscriptionMoveEnabled { get; set; }
 
+        /// <summary>
+        /// Whether validation is required.
+        /// </summary>
         [Input("validationRequired")]
         public Input<bool>? ValidationRequired { get; set; }
 

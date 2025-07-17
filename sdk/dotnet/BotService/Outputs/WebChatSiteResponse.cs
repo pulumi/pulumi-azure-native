@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.BotService.Outputs
         /// <summary>
         /// Whether this site is enabled for preview versions of Webchat
         /// </summary>
-        public readonly bool IsWebchatPreviewEnabled;
+        public readonly bool? IsWebchatPreviewEnabled;
         /// <summary>
         /// Primary key. Value only returned through POST to the action Channel List API, otherwise empty.
         /// </summary>
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.BotService.Outputs
 
             bool? isWebChatSpeechEnabled,
 
-            bool isWebchatPreviewEnabled,
+            bool? isWebchatPreviewEnabled,
 
             string key,
 

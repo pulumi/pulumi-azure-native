@@ -14,12 +14,19 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
     {
         [Input("allowedActions")]
         private InputList<string>? _allowedActions;
+
+        /// <summary>
+        /// The allowed actions.
+        /// </summary>
         public InputList<string> AllowedActions
         {
             get => _allowedActions ?? (_allowedActions = new InputList<string>());
             set => _allowedActions = value;
         }
 
+        /// <summary>
+        /// The subscription state.
+        /// </summary>
         [Input("state")]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.SubscriptionState>? State { get; set; }
 

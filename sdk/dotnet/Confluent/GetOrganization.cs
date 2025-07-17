@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Confluent
     public static class GetOrganization
     {
         /// <summary>
-        /// Organization resource.
+        /// Get the properties of a specific Organization resource.
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// 
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Confluent
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("azure-native:confluent:getOrganization", args ?? new GetOrganizationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Organization resource.
+        /// Get the properties of a specific Organization resource.
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// 
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Confluent
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("azure-native:confluent:getOrganization", args ?? new GetOrganizationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Organization resource.
+        /// Get the properties of a specific Organization resource.
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// 
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Confluent
         public string OrganizationName { get; set; } = null!;
 
         /// <summary>
-        /// Resource group name
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.Confluent
         public Input<string> OrganizationName { get; set; } = null!;
 
         /// <summary>
-        /// Resource group name
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -96,15 +96,15 @@ namespace Pulumi.AzureNative.Confluent
         /// </summary>
         public readonly string CreatedTime;
         /// <summary>
-        /// The ARM id of the resource.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Location of Organization resource
+        /// The geo-location where the resource lives
         /// </summary>
-        public readonly string? Location;
+        public readonly string Location;
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -124,15 +124,15 @@ namespace Pulumi.AzureNative.Confluent
         /// </summary>
         public readonly string SsoUrl;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Organization resource tags
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.Confluent
 
             string id,
 
-            string? location,
+            string location,
 
             string name,
 

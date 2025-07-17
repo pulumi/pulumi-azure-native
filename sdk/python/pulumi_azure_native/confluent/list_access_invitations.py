@@ -80,7 +80,7 @@ def list_access_invitations(organization_name: Optional[builtins.str] = None,
                             search_filters: Optional[Mapping[str, builtins.str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAccessInvitationsResult:
     """
-    List invitations success response
+    Organization accounts invitation details
 
     Uses Azure REST API version 2024-07-01.
 
@@ -88,7 +88,7 @@ def list_access_invitations(organization_name: Optional[builtins.str] = None,
 
 
     :param builtins.str organization_name: Organization resource name
-    :param builtins.str resource_group_name: Resource group name
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param Mapping[str, builtins.str] search_filters: Search filters for the request
     """
     __args__ = dict()
@@ -107,7 +107,7 @@ def list_access_invitations_output(organization_name: Optional[pulumi.Input[buil
                                    search_filters: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAccessInvitationsResult]:
     """
-    List invitations success response
+    Organization accounts invitation details
 
     Uses Azure REST API version 2024-07-01.
 
@@ -115,7 +115,7 @@ def list_access_invitations_output(organization_name: Optional[pulumi.Input[buil
 
 
     :param builtins.str organization_name: Organization resource name
-    :param builtins.str resource_group_name: Resource group name
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param Mapping[str, builtins.str] search_filters: Search filters for the request
     """
     __args__ = dict()

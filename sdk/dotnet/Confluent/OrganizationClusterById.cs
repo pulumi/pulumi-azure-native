@@ -36,10 +36,10 @@ namespace Pulumi.AzureNative.Confluent
         public Output<Outputs.SCMetadataEntityResponse?> Metadata { get; private set; } = null!;
 
         /// <summary>
-        /// Display name of the cluster
+        /// The name of the resource
         /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// Specification of the cluster
@@ -54,10 +54,16 @@ namespace Pulumi.AzureNative.Confluent
         public Output<Outputs.ClusterStatusEntityResponse?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the resource
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
-        public Output<string?> Type { get; private set; } = null!;
+        public Output<string> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -121,12 +127,6 @@ namespace Pulumi.AzureNative.Confluent
         public Input<string> EnvironmentId { get; set; } = null!;
 
         /// <summary>
-        /// Id of the cluster
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
         /// Type of cluster
         /// </summary>
         [Input("kind")]
@@ -137,12 +137,6 @@ namespace Pulumi.AzureNative.Confluent
         /// </summary>
         [Input("metadata")]
         public Input<Inputs.SCMetadataEntityArgs>? Metadata { get; set; }
-
-        /// <summary>
-        /// Display name of the cluster
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Organization resource name
@@ -167,12 +161,6 @@ namespace Pulumi.AzureNative.Confluent
         /// </summary>
         [Input("status")]
         public Input<Inputs.ClusterStatusEntityArgs>? Status { get; set; }
-
-        /// <summary>
-        /// Type of the resource
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
 
         public OrganizationClusterByIdArgs()
         {

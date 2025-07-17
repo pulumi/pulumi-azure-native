@@ -66,7 +66,7 @@ export class AvailabilityGroupListener extends pulumi.CustomResource {
      */
     public readonly multiSubnetIpConfigurations!: pulumi.Output<outputs.sqlvirtualmachine.MultiSubnetIpConfigurationResponse[] | undefined>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -78,11 +78,11 @@ export class AvailabilityGroupListener extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.sqlvirtualmachine.SystemDataResponse>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -170,7 +170,7 @@ export interface AvailabilityGroupListenerArgs {
      */
     port?: pulumi.Input<number>;
     /**
-     * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

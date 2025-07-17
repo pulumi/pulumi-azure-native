@@ -851,7 +851,7 @@ class ClusterSpecEntityResponse(dict):
         :param builtins.str api_endpoint: The Kafka API cluster endpoint
         :param builtins.str availability: The availability zone configuration of the cluster
         :param 'ClusterByokEntityResponse' byok: Specification of the cluster
-        :param builtins.str cloud: The cloud service provider 
+        :param builtins.str cloud: The cloud service provider
         :param 'ClusterConfigEntityResponse' config: Specification of the cluster
         :param builtins.str display_name: The name of the cluster
         :param 'ClusterEnvironmentEntityResponse' environment: Specification of the cluster
@@ -914,7 +914,7 @@ class ClusterSpecEntityResponse(dict):
     @pulumi.getter
     def cloud(self) -> Optional[builtins.str]:
         """
-        The cloud service provider 
+        The cloud service provider
         """
         return pulumi.get(self, "cloud")
 
@@ -993,7 +993,7 @@ class ClusterStatusEntityResponse(dict):
                  phase: Optional[builtins.str] = None):
         """
         Status of the cluster record
-        :param builtins.int cku: The number of Confluent Kafka Units 
+        :param builtins.int cku: The number of Confluent Kafka Units
         :param builtins.str phase: The lifecycle phase of the cluster
         """
         if cku is not None:
@@ -1005,7 +1005,7 @@ class ClusterStatusEntityResponse(dict):
     @pulumi.getter
     def cku(self) -> Optional[builtins.int]:
         """
-        The number of Confluent Kafka Units 
+        The number of Confluent Kafka Units
         """
         return pulumi.get(self, "cku")
 
@@ -2860,7 +2860,7 @@ class SCClusterSpecEntityResponse(dict):
         :param builtins.str api_endpoint: The Kafka API cluster endpoint
         :param builtins.str availability: The availability zone configuration of the cluster
         :param 'SCClusterByokEntityResponse' byok: Specification of the cluster byok
-        :param builtins.str cloud: The cloud service provider 
+        :param builtins.str cloud: The cloud service provider
         :param 'ClusterConfigEntityResponse' config: Specification of the cluster configuration
         :param 'SCClusterNetworkEnvironmentEntityResponse' environment: Specification of the cluster environment
         :param builtins.str http_endpoint: The cluster HTTP request URL.
@@ -2926,7 +2926,7 @@ class SCClusterSpecEntityResponse(dict):
     @pulumi.getter
     def cloud(self) -> Optional[builtins.str]:
         """
-        The cloud service provider 
+        The cloud service provider
         """
         return pulumi.get(self, "cloud")
 

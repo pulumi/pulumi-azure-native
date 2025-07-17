@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetPrivateZoneResult',
@@ -27,7 +28,7 @@ class GetPrivateZoneResult:
     """
     Describes a Private DNS zone.
     """
-    def __init__(__self__, azure_api_version=None, etag=None, id=None, internal_id=None, location=None, max_number_of_record_sets=None, max_number_of_virtual_network_links=None, max_number_of_virtual_network_links_with_registration=None, name=None, number_of_record_sets=None, number_of_virtual_network_links=None, number_of_virtual_network_links_with_registration=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, etag=None, id=None, internal_id=None, location=None, max_number_of_record_sets=None, max_number_of_virtual_network_links=None, max_number_of_virtual_network_links_with_registration=None, name=None, number_of_record_sets=None, number_of_virtual_network_links=None, number_of_virtual_network_links_with_registration=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -67,6 +68,9 @@ class GetPrivateZoneResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -94,7 +98,7 @@ class GetPrivateZoneResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateDnsZoneName}'.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -179,6 +183,14 @@ class GetPrivateZoneResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
@@ -190,7 +202,7 @@ class GetPrivateZoneResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -214,6 +226,7 @@ class AwaitableGetPrivateZoneResult(GetPrivateZoneResult):
             number_of_virtual_network_links=self.number_of_virtual_network_links,
             number_of_virtual_network_links_with_registration=self.number_of_virtual_network_links_with_registration,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -230,7 +243,7 @@ def get_private_zone(private_zone_name: Optional[builtins.str] = None,
 
 
     :param builtins.str private_zone_name: The name of the Private DNS zone (without a terminating dot).
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['privateZoneName'] = private_zone_name
@@ -252,6 +265,7 @@ def get_private_zone(private_zone_name: Optional[builtins.str] = None,
         number_of_virtual_network_links=pulumi.get(__ret__, 'number_of_virtual_network_links'),
         number_of_virtual_network_links_with_registration=pulumi.get(__ret__, 'number_of_virtual_network_links_with_registration'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_private_zone_output(private_zone_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -266,7 +280,7 @@ def get_private_zone_output(private_zone_name: Optional[pulumi.Input[builtins.st
 
 
     :param builtins.str private_zone_name: The name of the Private DNS zone (without a terminating dot).
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['privateZoneName'] = private_zone_name
@@ -287,5 +301,6 @@ def get_private_zone_output(private_zone_name: Optional[pulumi.Input[builtins.st
         number_of_virtual_network_links=pulumi.get(__response__, 'number_of_virtual_network_links'),
         number_of_virtual_network_links_with_registration=pulumi.get(__response__, 'number_of_virtual_network_links_with_registration'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

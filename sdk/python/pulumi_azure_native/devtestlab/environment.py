@@ -33,12 +33,12 @@ class EnvironmentArgs:
         """
         The set of arguments for constructing a Environment resource.
         :param pulumi.Input[builtins.str] lab_name: The name of the lab.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] user_name: The name of the user profile.
         :param pulumi.Input[builtins.str] arm_template_display_name: The display name of the Azure Resource Manager template that produced the environment.
         :param pulumi.Input['EnvironmentDeploymentPropertiesArgs'] deployment_properties: The deployment properties of the environment.
         :param pulumi.Input[builtins.str] location: The location of the resource.
-        :param pulumi.Input[builtins.str] name: The name of the environment.
+        :param pulumi.Input[builtins.str] name: The name of the DtlEnvironment
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
         """
         pulumi.set(__self__, "lab_name", lab_name)
@@ -71,7 +71,7 @@ class EnvironmentArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -131,7 +131,7 @@ class EnvironmentArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the environment.
+        The name of the DtlEnvironment
         """
         return pulumi.get(self, "name")
 
@@ -178,8 +178,8 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[Union['EnvironmentDeploymentPropertiesArgs', 'EnvironmentDeploymentPropertiesArgsDict']] deployment_properties: The deployment properties of the environment.
         :param pulumi.Input[builtins.str] lab_name: The name of the lab.
         :param pulumi.Input[builtins.str] location: The location of the resource.
-        :param pulumi.Input[builtins.str] name: The name of the environment.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] name: The name of the DtlEnvironment
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
         :param pulumi.Input[builtins.str] user_name: The name of the user profile.
         """

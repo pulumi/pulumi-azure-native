@@ -13,6 +13,9 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     [OutputType]
     public sealed class ResourceConcurrencyControlOptionResponse
     {
+        /// <summary>
+        /// The policy.
+        /// </summary>
         public readonly string? Policy;
 
         [OutputConstructor]

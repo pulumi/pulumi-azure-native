@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute
     /// 
     /// Uses Azure REST API version 2024-03-02. In version 2.x of the Azure Native provider, it used API version 2022-07-02.
     /// 
-    /// Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:DiskAccessAPrivateEndpointConnection")]
     public partial class DiskAccessAPrivateEndpointConnection : global::Pulumi.CustomResource
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Compute
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// private endpoint connection name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -50,7 +50,13 @@ namespace Pulumi.AzureNative.Compute
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// private endpoint connection type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNative.Compute
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230402:DiskAccessAPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20231002:DiskAccessAPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240302:DiskAccessAPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20250102:DiskAccessAPrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -133,7 +140,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<Inputs.PrivateLinkServiceConnectionStateArgs> PrivateLinkServiceConnectionState { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

@@ -12,12 +12,21 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
     public sealed class SkuCostArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The extended unit.
+        /// </summary>
         [Input("extendedUnit")]
         public Input<string>? ExtendedUnit { get; set; }
 
+        /// <summary>
+        /// The meter id.
+        /// </summary>
         [Input("meterId", required: true)]
         public Input<string> MeterId { get; set; } = null!;
 
+        /// <summary>
+        /// The quantity.
+        /// </summary>
         [Input("quantity")]
         public Input<int>? Quantity { get; set; }
 

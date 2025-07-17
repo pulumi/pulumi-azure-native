@@ -34,7 +34,7 @@ class VirtualNetworkLinkArgs:
         """
         The set of arguments for constructing a VirtualNetworkLink resource.
         :param pulumi.Input[builtins.str] private_zone_name: The name of the Private DNS zone (without a terminating dot).
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] location: The Azure Region where the resource lives
         :param pulumi.Input[builtins.bool] registration_enabled: Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
         :param pulumi.Input[Union[builtins.str, 'ResolutionPolicy']] resolution_policy: The resolution policy on the virtual network link. Only applicable for virtual network links to privatelink zones, and for A,AAAA,CNAME queries. When set to 'NxDomainRedirect', Azure DNS resolver falls back to public resolution if private dns query resolution results in non-existent domain response.
@@ -73,7 +73,7 @@ class VirtualNetworkLinkArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -182,7 +182,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] private_zone_name: The name of the Private DNS zone (without a terminating dot).
         :param pulumi.Input[builtins.bool] registration_enabled: Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
         :param pulumi.Input[Union[builtins.str, 'ResolutionPolicy']] resolution_policy: The resolution policy on the virtual network link. Only applicable for virtual network links to privatelink zones, and for A,AAAA,CNAME queries. When set to 'NxDomainRedirect', Azure DNS resolver falls back to public resolution if private dns query resolution results in non-existent domain response.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] virtual_network: The reference of the virtual network.
         :param pulumi.Input[builtins.str] virtual_network_link_name: The name of the virtual network link.
@@ -248,6 +248,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_network_link_state"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200601:VirtualNetworkLink"), pulumi.Alias(type_="azure-native:network/v20240601:VirtualNetworkLink"), pulumi.Alias(type_="azure-native:network:VirtualNetworkLink"), pulumi.Alias(type_="azure-native:privatedns/v20180901:VirtualNetworkLink"), pulumi.Alias(type_="azure-native:privatedns/v20200101:VirtualNetworkLink"), pulumi.Alias(type_="azure-native:privatedns/v20200601:VirtualNetworkLink"), pulumi.Alias(type_="azure-native:privatedns/v20240601:VirtualNetworkLink")])
@@ -281,6 +282,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["registration_enabled"] = None
         __props__.__dict__["resolution_policy"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_network"] = None
@@ -344,6 +346,14 @@ class VirtualNetworkLink(pulumi.CustomResource):
         return pulumi.get(self, "resolution_policy")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
@@ -355,7 +365,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

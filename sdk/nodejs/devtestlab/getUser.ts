@@ -32,11 +32,11 @@ export interface GetUserArgs {
      */
     labName: string;
     /**
-     * The name of the user profile.
+     * The name of the User
      */
     name: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -115,11 +115,11 @@ export interface GetUserOutputArgs {
      */
     labName: pulumi.Input<string>;
     /**
-     * The name of the user profile.
+     * The name of the User
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

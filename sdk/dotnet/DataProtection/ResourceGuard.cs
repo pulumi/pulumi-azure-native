@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DataProtection
     /// <summary>
     /// Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
     /// 
-    /// Other available API versions: 2023-01-01, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dataprotection [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-01-01, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dataprotection [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:dataprotection:ResourceGuard")]
     public partial class ResourceGuard : global::Pulumi.CustomResource
@@ -115,6 +115,7 @@ namespace Pulumi.AzureNative.DataProtection
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20240401:ResourceGuard" },
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20250101:ResourceGuard" },
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20250201:ResourceGuard" },
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20250701:ResourceGuard" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -10,20 +10,85 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Outputs
 {
 
+    /// <summary>
+    /// The resource provider management.
+    /// </summary>
     [OutputType]
     public sealed class ResourceProviderManifestPropertiesResponseManagement
     {
+        /// <summary>
+        /// The authorization owners.
+        /// </summary>
+        public readonly ImmutableArray<string> AuthorizationOwners;
+        /// <summary>
+        /// List of manifest owners for canary.
+        /// </summary>
+        public readonly ImmutableArray<string> CanaryManifestOwners;
+        /// <summary>
+        /// Options for error response messages.
+        /// </summary>
+        public readonly Outputs.ResourceProviderManagementResponseErrorResponseMessageOptions? ErrorResponseMessageOptions;
+        /// <summary>
+        /// Metadata for expedited rollout.
+        /// </summary>
+        public readonly Outputs.ResourceProviderManagementResponseExpeditedRolloutMetadata? ExpeditedRolloutMetadata;
+        /// <summary>
+        /// List of expedited rollout submitters.
+        /// </summary>
+        public readonly ImmutableArray<string> ExpeditedRolloutSubmitters;
+        /// <summary>
+        /// The incident contact email.
+        /// </summary>
         public readonly string? IncidentContactEmail;
+        /// <summary>
+        /// The incident routing service.
+        /// </summary>
         public readonly string? IncidentRoutingService;
+        /// <summary>
+        /// The incident routing team.
+        /// </summary>
         public readonly string? IncidentRoutingTeam;
+        /// <summary>
+        /// The manifest owners.
+        /// </summary>
         public readonly ImmutableArray<string> ManifestOwners;
+        /// <summary>
+        /// The profit center code for the subscription.
+        /// </summary>
+        public readonly string? PcCode;
+        /// <summary>
+        /// The profit center program id for the subscription.
+        /// </summary>
+        public readonly string? ProfitCenterProgramId;
+        /// <summary>
+        /// The resource access policy.
+        /// </summary>
         public readonly string? ResourceAccessPolicy;
-        public readonly ImmutableArray<object> ResourceAccessRoles;
+        /// <summary>
+        /// The resource access roles.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ResourceAccessRoleResponse> ResourceAccessRoles;
+        /// <summary>
+        /// The schema owners.
+        /// </summary>
         public readonly ImmutableArray<string> SchemaOwners;
+        /// <summary>
+        /// The service tree infos.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ServiceTreeInfoResponse> ServiceTreeInfos;
 
         [OutputConstructor]
         private ResourceProviderManifestPropertiesResponseManagement(
+            ImmutableArray<string> authorizationOwners,
+
+            ImmutableArray<string> canaryManifestOwners,
+
+            Outputs.ResourceProviderManagementResponseErrorResponseMessageOptions? errorResponseMessageOptions,
+
+            Outputs.ResourceProviderManagementResponseExpeditedRolloutMetadata? expeditedRolloutMetadata,
+
+            ImmutableArray<string> expeditedRolloutSubmitters,
+
             string? incidentContactEmail,
 
             string? incidentRoutingService,
@@ -32,18 +97,29 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
 
             ImmutableArray<string> manifestOwners,
 
+            string? pcCode,
+
+            string? profitCenterProgramId,
+
             string? resourceAccessPolicy,
 
-            ImmutableArray<object> resourceAccessRoles,
+            ImmutableArray<Outputs.ResourceAccessRoleResponse> resourceAccessRoles,
 
             ImmutableArray<string> schemaOwners,
 
             ImmutableArray<Outputs.ServiceTreeInfoResponse> serviceTreeInfos)
         {
+            AuthorizationOwners = authorizationOwners;
+            CanaryManifestOwners = canaryManifestOwners;
+            ErrorResponseMessageOptions = errorResponseMessageOptions;
+            ExpeditedRolloutMetadata = expeditedRolloutMetadata;
+            ExpeditedRolloutSubmitters = expeditedRolloutSubmitters;
             IncidentContactEmail = incidentContactEmail;
             IncidentRoutingService = incidentRoutingService;
             IncidentRoutingTeam = incidentRoutingTeam;
             ManifestOwners = manifestOwners;
+            PcCode = pcCode;
+            ProfitCenterProgramId = profitCenterProgramId;
             ResourceAccessPolicy = resourceAccessPolicy;
             ResourceAccessRoles = resourceAccessRoles;
             SchemaOwners = schemaOwners;

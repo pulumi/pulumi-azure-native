@@ -50,7 +50,7 @@ export class Zone extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
-     * Resource location.
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -62,7 +62,7 @@ export class Zone extends pulumi.CustomResource {
      */
     public /*out*/ readonly maxNumberOfRecordsPerRecordSet!: pulumi.Output<number>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -86,7 +86,7 @@ export class Zone extends pulumi.CustomResource {
      */
     public /*out*/ readonly signingKeys!: pulumi.Output<outputs.dns.SigningKeyResponse[]>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.dns.SystemDataResponse>;
     /**
@@ -94,7 +94,7 @@ export class Zone extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -162,7 +162,7 @@ export class Zone extends pulumi.CustomResource {
  */
 export interface ZoneArgs {
     /**
-     * Resource location.
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**

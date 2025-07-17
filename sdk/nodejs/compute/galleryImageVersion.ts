@@ -46,11 +46,11 @@ export class GalleryImageVersion extends pulumi.CustomResource {
      */
     public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -82,11 +82,15 @@ export class GalleryImageVersion extends pulumi.CustomResource {
      */
     public readonly storageProfile!: pulumi.Output<outputs.compute.GalleryImageVersionStorageProfileResponse>;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -132,6 +136,7 @@ export class GalleryImageVersion extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["replicationStatus"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["validationsProfile"] = undefined /*out*/;
         } else {
@@ -145,6 +150,7 @@ export class GalleryImageVersion extends pulumi.CustomResource {
             resourceInputs["safetyProfile"] = undefined /*out*/;
             resourceInputs["securityProfile"] = undefined /*out*/;
             resourceInputs["storageProfile"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["validationsProfile"] = undefined /*out*/;
@@ -161,19 +167,19 @@ export class GalleryImageVersion extends pulumi.CustomResource {
  */
 export interface GalleryImageVersionArgs {
     /**
-     * The name of the gallery image definition in which the Image Version is to be created.
+     * The name of the gallery image definition to be retrieved.
      */
     galleryImageName: pulumi.Input<string>;
     /**
-     * The name of the gallery image version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
+     * The name of the gallery image version to be retrieved.
      */
     galleryImageVersionName?: pulumi.Input<string>;
     /**
-     * The name of the Shared Image Gallery in which the Image Definition resides.
+     * The name of the Shared Image Gallery.
      */
     galleryName: pulumi.Input<string>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -181,7 +187,7 @@ export interface GalleryImageVersionArgs {
      */
     publishingProfile?: pulumi.Input<inputs.compute.GalleryImageVersionPublishingProfileArgs>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -201,7 +207,7 @@ export interface GalleryImageVersionArgs {
      */
     storageProfile: pulumi.Input<inputs.compute.GalleryImageVersionStorageProfileArgs>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

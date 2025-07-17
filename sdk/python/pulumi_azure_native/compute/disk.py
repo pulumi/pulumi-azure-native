@@ -45,7 +45,7 @@ class DiskArgs:
                  optimized_for_frequent_attach: Optional[pulumi.Input[builtins.bool]] = None,
                  os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
                  public_network_access: Optional[pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']]] = None,
-                 purchase_plan: Optional[pulumi.Input['PurchasePlanArgs']] = None,
+                 purchase_plan: Optional[pulumi.Input['DiskPurchasePlanArgs']] = None,
                  security_profile: Optional[pulumi.Input['DiskSecurityProfileArgs']] = None,
                  sku: Optional[pulumi.Input['DiskSkuArgs']] = None,
                  supported_capabilities: Optional[pulumi.Input['SupportedCapabilitiesArgs']] = None,
@@ -56,7 +56,7 @@ class DiskArgs:
         """
         The set of arguments for constructing a Disk resource.
         :param pulumi.Input['CreationDataArgs'] creation_data: Disk source information. CreationData information cannot be changed after the disk has been created.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.bool] bursting_enabled: Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
         :param pulumi.Input[builtins.float] completion_percent: Percentage complete for the background copy when a resource is created via the CopyStart operation.
         :param pulumi.Input[Union[builtins.str, 'DataAccessAuthMode']] data_access_auth_mode: Additional authentication requirements when exporting or uploading to a disk or snapshot.
@@ -71,18 +71,18 @@ class DiskArgs:
         :param pulumi.Input['EncryptionSettingsCollectionArgs'] encryption_settings_collection: Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location where the disk will be created. Extended location cannot be changed.
         :param pulumi.Input[Union[builtins.str, 'HyperVGeneration']] hyper_v_generation: The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
         :param pulumi.Input[Union[builtins.str, 'NetworkAccessPolicy']] network_access_policy: Policy for accessing the disk via network.
         :param pulumi.Input[builtins.bool] optimized_for_frequent_attach: Setting this property to true improves reliability and performance of data disks that are frequently (more than 5 times a day) by detached from one virtual machine and attached to another. This property should not be set for disks that are not detached and attached frequently as it causes the disks to not align with the fault domain of the virtual machine.
         :param pulumi.Input['OperatingSystemTypes'] os_type: The Operating System type.
         :param pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']] public_network_access: Policy for controlling export on the disk.
-        :param pulumi.Input['PurchasePlanArgs'] purchase_plan: Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
+        :param pulumi.Input['DiskPurchasePlanArgs'] purchase_plan: Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
         :param pulumi.Input['DiskSecurityProfileArgs'] security_profile: Contains the security related information for the resource.
         :param pulumi.Input['DiskSkuArgs'] sku: The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, StandardSSD_ZRS, or PremiumV2_LRS.
         :param pulumi.Input['SupportedCapabilitiesArgs'] supported_capabilities: List of supported capabilities for the image from which the OS disk was created.
         :param pulumi.Input[builtins.bool] supports_hibernation: Indicates the OS on a disk supports hibernation.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param pulumi.Input[builtins.str] tier: Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: The Logical zone list for Disk.
         """
@@ -161,7 +161,7 @@ class DiskArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -341,7 +341,7 @@ class DiskArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -411,14 +411,14 @@ class DiskArgs:
 
     @property
     @pulumi.getter(name="purchasePlan")
-    def purchase_plan(self) -> Optional[pulumi.Input['PurchasePlanArgs']]:
+    def purchase_plan(self) -> Optional[pulumi.Input['DiskPurchasePlanArgs']]:
         """
         Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
         """
         return pulumi.get(self, "purchase_plan")
 
     @purchase_plan.setter
-    def purchase_plan(self, value: Optional[pulumi.Input['PurchasePlanArgs']]):
+    def purchase_plan(self, value: Optional[pulumi.Input['DiskPurchasePlanArgs']]):
         pulumi.set(self, "purchase_plan", value)
 
     @property
@@ -473,7 +473,7 @@ class DiskArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -533,7 +533,7 @@ class Disk(pulumi.CustomResource):
                  optimized_for_frequent_attach: Optional[pulumi.Input[builtins.bool]] = None,
                  os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
                  public_network_access: Optional[pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']]] = None,
-                 purchase_plan: Optional[pulumi.Input[Union['PurchasePlanArgs', 'PurchasePlanArgsDict']]] = None,
+                 purchase_plan: Optional[pulumi.Input[Union['DiskPurchasePlanArgs', 'DiskPurchasePlanArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  security_profile: Optional[pulumi.Input[Union['DiskSecurityProfileArgs', 'DiskSecurityProfileArgsDict']]] = None,
                  sku: Optional[pulumi.Input[Union['DiskSkuArgs', 'DiskSkuArgsDict']]] = None,
@@ -548,7 +548,7 @@ class Disk(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-02. In version 2.x of the Azure Native provider, it used API version 2022-07-02.
 
-        Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -567,19 +567,19 @@ class Disk(pulumi.CustomResource):
         :param pulumi.Input[Union['EncryptionSettingsCollectionArgs', 'EncryptionSettingsCollectionArgsDict']] encryption_settings_collection: Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location where the disk will be created. Extended location cannot be changed.
         :param pulumi.Input[Union[builtins.str, 'HyperVGeneration']] hyper_v_generation: The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
         :param pulumi.Input[Union[builtins.str, 'NetworkAccessPolicy']] network_access_policy: Policy for accessing the disk via network.
         :param pulumi.Input[builtins.bool] optimized_for_frequent_attach: Setting this property to true improves reliability and performance of data disks that are frequently (more than 5 times a day) by detached from one virtual machine and attached to another. This property should not be set for disks that are not detached and attached frequently as it causes the disks to not align with the fault domain of the virtual machine.
         :param pulumi.Input['OperatingSystemTypes'] os_type: The Operating System type.
         :param pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']] public_network_access: Policy for controlling export on the disk.
-        :param pulumi.Input[Union['PurchasePlanArgs', 'PurchasePlanArgsDict']] purchase_plan: Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Union['DiskPurchasePlanArgs', 'DiskPurchasePlanArgsDict']] purchase_plan: Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['DiskSecurityProfileArgs', 'DiskSecurityProfileArgsDict']] security_profile: Contains the security related information for the resource.
         :param pulumi.Input[Union['DiskSkuArgs', 'DiskSkuArgsDict']] sku: The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, StandardSSD_ZRS, or PremiumV2_LRS.
         :param pulumi.Input[Union['SupportedCapabilitiesArgs', 'SupportedCapabilitiesArgsDict']] supported_capabilities: List of supported capabilities for the image from which the OS disk was created.
         :param pulumi.Input[builtins.bool] supports_hibernation: Indicates the OS on a disk supports hibernation.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param pulumi.Input[builtins.str] tier: Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: The Logical zone list for Disk.
         """
@@ -594,7 +594,7 @@ class Disk(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-02. In version 2.x of the Azure Native provider, it used API version 2022-07-02.
 
-        Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param DiskArgs args: The arguments to use to populate this resource's properties.
@@ -632,7 +632,7 @@ class Disk(pulumi.CustomResource):
                  optimized_for_frequent_attach: Optional[pulumi.Input[builtins.bool]] = None,
                  os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
                  public_network_access: Optional[pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']]] = None,
-                 purchase_plan: Optional[pulumi.Input[Union['PurchasePlanArgs', 'PurchasePlanArgsDict']]] = None,
+                 purchase_plan: Optional[pulumi.Input[Union['DiskPurchasePlanArgs', 'DiskPurchasePlanArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  security_profile: Optional[pulumi.Input[Union['DiskSecurityProfileArgs', 'DiskSecurityProfileArgsDict']]] = None,
                  sku: Optional[pulumi.Input[Union['DiskSkuArgs', 'DiskSkuArgsDict']]] = None,
@@ -695,10 +695,11 @@ class Disk(pulumi.CustomResource):
             __props__.__dict__["property_updates_in_progress"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["share_info"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["time_created"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["unique_id"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20160430preview:Disk"), pulumi.Alias(type_="azure-native:compute/v20170330:Disk"), pulumi.Alias(type_="azure-native:compute/v20180401:Disk"), pulumi.Alias(type_="azure-native:compute/v20180601:Disk"), pulumi.Alias(type_="azure-native:compute/v20180930:Disk"), pulumi.Alias(type_="azure-native:compute/v20190301:Disk"), pulumi.Alias(type_="azure-native:compute/v20190701:Disk"), pulumi.Alias(type_="azure-native:compute/v20191101:Disk"), pulumi.Alias(type_="azure-native:compute/v20200501:Disk"), pulumi.Alias(type_="azure-native:compute/v20200630:Disk"), pulumi.Alias(type_="azure-native:compute/v20200930:Disk"), pulumi.Alias(type_="azure-native:compute/v20201201:Disk"), pulumi.Alias(type_="azure-native:compute/v20210401:Disk"), pulumi.Alias(type_="azure-native:compute/v20210801:Disk"), pulumi.Alias(type_="azure-native:compute/v20211201:Disk"), pulumi.Alias(type_="azure-native:compute/v20220302:Disk"), pulumi.Alias(type_="azure-native:compute/v20220702:Disk"), pulumi.Alias(type_="azure-native:compute/v20230102:Disk"), pulumi.Alias(type_="azure-native:compute/v20230402:Disk"), pulumi.Alias(type_="azure-native:compute/v20231002:Disk"), pulumi.Alias(type_="azure-native:compute/v20240302:Disk")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20160430preview:Disk"), pulumi.Alias(type_="azure-native:compute/v20170330:Disk"), pulumi.Alias(type_="azure-native:compute/v20180401:Disk"), pulumi.Alias(type_="azure-native:compute/v20180601:Disk"), pulumi.Alias(type_="azure-native:compute/v20180930:Disk"), pulumi.Alias(type_="azure-native:compute/v20190301:Disk"), pulumi.Alias(type_="azure-native:compute/v20190701:Disk"), pulumi.Alias(type_="azure-native:compute/v20191101:Disk"), pulumi.Alias(type_="azure-native:compute/v20200501:Disk"), pulumi.Alias(type_="azure-native:compute/v20200630:Disk"), pulumi.Alias(type_="azure-native:compute/v20200930:Disk"), pulumi.Alias(type_="azure-native:compute/v20201201:Disk"), pulumi.Alias(type_="azure-native:compute/v20210401:Disk"), pulumi.Alias(type_="azure-native:compute/v20210801:Disk"), pulumi.Alias(type_="azure-native:compute/v20211201:Disk"), pulumi.Alias(type_="azure-native:compute/v20220302:Disk"), pulumi.Alias(type_="azure-native:compute/v20220702:Disk"), pulumi.Alias(type_="azure-native:compute/v20230102:Disk"), pulumi.Alias(type_="azure-native:compute/v20230402:Disk"), pulumi.Alias(type_="azure-native:compute/v20231002:Disk"), pulumi.Alias(type_="azure-native:compute/v20240302:Disk"), pulumi.Alias(type_="azure-native:compute/v20250102:Disk")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Disk, __self__).__init__(
             'azure-native:compute:Disk',
@@ -758,6 +759,7 @@ class Disk(pulumi.CustomResource):
         __props__.__dict__["sku"] = None
         __props__.__dict__["supported_capabilities"] = None
         __props__.__dict__["supports_hibernation"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["tier"] = None
         __props__.__dict__["time_created"] = None
@@ -922,7 +924,7 @@ class Disk(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -954,7 +956,7 @@ class Disk(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -1008,7 +1010,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="purchasePlan")
-    def purchase_plan(self) -> pulumi.Output[Optional['outputs.PurchasePlanResponse']]:
+    def purchase_plan(self) -> pulumi.Output[Optional['outputs.DiskPurchasePlanResponse']]:
         """
         Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
         """
@@ -1055,10 +1057,18 @@ class Disk(pulumi.CustomResource):
         return pulumi.get(self, "supports_hibernation")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -1082,7 +1092,7 @@ class Disk(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

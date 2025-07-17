@@ -10,15 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Outputs
 {
 
+    /// <summary>
+    /// The request header options.
+    /// </summary>
     [OutputType]
     public sealed class ResourceProviderManifestPropertiesResponseRequestHeaderOptions
     {
+        /// <summary>
+        /// The opt in headers.
+        /// </summary>
         public readonly string? OptInHeaders;
+        /// <summary>
+        /// The opt out headers.
+        /// </summary>
+        public readonly string? OptOutHeaders;
 
         [OutputConstructor]
-        private ResourceProviderManifestPropertiesResponseRequestHeaderOptions(string? optInHeaders)
+        private ResourceProviderManifestPropertiesResponseRequestHeaderOptions(
+            string? optInHeaders,
+
+            string? optOutHeaders)
         {
             OptInHeaders = optInHeaders;
+            OptOutHeaders = optOutHeaders;
         }
     }
 }

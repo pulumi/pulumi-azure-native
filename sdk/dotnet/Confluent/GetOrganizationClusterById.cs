@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Confluent
     public static class GetOrganizationClusterById
     {
         /// <summary>
-        /// Details of cluster record
+        /// Get cluster by Id
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// </summary>
@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.Confluent
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationClusterByIdResult>("azure-native:confluent:getOrganizationClusterById", args ?? new GetOrganizationClusterByIdArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Details of cluster record
+        /// Get cluster by Id
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Confluent
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationClusterByIdResult>("azure-native:confluent:getOrganizationClusterById", args ?? new GetOrganizationClusterByIdInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Details of cluster record
+        /// Get cluster by Id
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// </summary>
@@ -110,9 +110,9 @@ namespace Pulumi.AzureNative.Confluent
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// Id of the cluster
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
-        public readonly string? Id;
+        public readonly string Id;
         /// <summary>
         /// Type of cluster
         /// </summary>
@@ -122,9 +122,9 @@ namespace Pulumi.AzureNative.Confluent
         /// </summary>
         public readonly Outputs.SCMetadataEntityResponse? Metadata;
         /// <summary>
-        /// Display name of the cluster
+        /// The name of the resource
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
         /// Specification of the cluster
         /// </summary>
@@ -134,27 +134,33 @@ namespace Pulumi.AzureNative.Confluent
         /// </summary>
         public readonly Outputs.ClusterStatusEntityResponse? Status;
         /// <summary>
-        /// Type of the resource
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly string? Type;
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// </summary>
+        public readonly string Type;
 
         [OutputConstructor]
         private GetOrganizationClusterByIdResult(
             string azureApiVersion,
 
-            string? id,
+            string id,
 
             string? kind,
 
             Outputs.SCMetadataEntityResponse? metadata,
 
-            string? name,
+            string name,
 
             Outputs.SCClusterSpecEntityResponse? spec,
 
             Outputs.ClusterStatusEntityResponse? status,
 
-            string? type)
+            Outputs.SystemDataResponse systemData,
+
+            string type)
         {
             AzureApiVersion = azureApiVersion;
             Id = id;
@@ -163,6 +169,7 @@ namespace Pulumi.AzureNative.Confluent
             Name = name;
             Spec = spec;
             Status = status;
+            SystemData = systemData;
             Type = type;
         }
     }

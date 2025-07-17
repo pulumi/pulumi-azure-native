@@ -35,11 +35,11 @@ class FormulaArgs:
         """
         The set of arguments for constructing a Formula resource.
         :param pulumi.Input[builtins.str] lab_name: The name of the lab.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] description: The description of the formula.
         :param pulumi.Input['LabVirtualMachineCreationParameterArgs'] formula_content: The content of the formula.
         :param pulumi.Input[builtins.str] location: The location of the resource.
-        :param pulumi.Input[builtins.str] name: The name of the formula.
+        :param pulumi.Input[builtins.str] name: The name of the Formula
         :param pulumi.Input[builtins.str] os_type: The OS type of the formula.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
         :param pulumi.Input['FormulaPropertiesFromVmArgs'] vm: Information about a VM from which a formula is to be created.
@@ -77,7 +77,7 @@ class FormulaArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -125,7 +125,7 @@ class FormulaArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the formula.
+        The name of the Formula
         """
         return pulumi.get(self, "name")
 
@@ -197,9 +197,9 @@ class Formula(pulumi.CustomResource):
         :param pulumi.Input[Union['LabVirtualMachineCreationParameterArgs', 'LabVirtualMachineCreationParameterArgsDict']] formula_content: The content of the formula.
         :param pulumi.Input[builtins.str] lab_name: The name of the lab.
         :param pulumi.Input[builtins.str] location: The location of the resource.
-        :param pulumi.Input[builtins.str] name: The name of the formula.
+        :param pulumi.Input[builtins.str] name: The name of the Formula
         :param pulumi.Input[builtins.str] os_type: The OS type of the formula.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
         :param pulumi.Input[Union['FormulaPropertiesFromVmArgs', 'FormulaPropertiesFromVmArgsDict']] vm: Information about a VM from which a formula is to be created.
         """

@@ -30,12 +30,12 @@ class CapacityReservationGroupArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a CapacityReservationGroup resource.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] capacity_reservation_group_name: The name of the capacity reservation group.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['ResourceSharingProfileArgs'] sharing_profile: Specifies the settings to enable sharing across subscriptions for the capacity reservation group resource. Pls. keep in mind the capacity reservation group resource generally can be shared across subscriptions belonging to a single azure AAD tenant or cross AAD tenant if there is a trust relationship established between the AAD tenants. **Note:** Minimum api-version: 2023-09-01. Please refer to https://aka.ms/computereservationsharing for more details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Availability Zones to use for this capacity reservation group. The zones can be assigned only during creation. If not provided, the group supports only regional resources in the region. If provided, enforces each capacity reservation in the group to be in one of the zones.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: The availability zones.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if capacity_reservation_group_name is not None:
@@ -53,7 +53,7 @@ class CapacityReservationGroupArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -77,7 +77,7 @@ class CapacityReservationGroupArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -101,7 +101,7 @@ class CapacityReservationGroupArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -113,7 +113,7 @@ class CapacityReservationGroupArgs:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Availability Zones to use for this capacity reservation group. The zones can be assigned only during creation. If not provided, the group supports only regional resources in the region. If provided, enforces each capacity reservation in the group to be in one of the zones.
+        The availability zones.
         """
         return pulumi.get(self, "zones")
 
@@ -145,11 +145,11 @@ class CapacityReservationGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] capacity_reservation_group_name: The name of the capacity reservation group.
-        :param pulumi.Input[builtins.str] location: Resource location
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['ResourceSharingProfileArgs', 'ResourceSharingProfileArgsDict']] sharing_profile: Specifies the settings to enable sharing across subscriptions for the capacity reservation group resource. Pls. keep in mind the capacity reservation group resource generally can be shared across subscriptions belonging to a single azure AAD tenant or cross AAD tenant if there is a trust relationship established between the AAD tenants. **Note:** Minimum api-version: 2023-09-01. Please refer to https://aka.ms/computereservationsharing for more details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Availability Zones to use for this capacity reservation group. The zones can be assigned only during creation. If not provided, the group supports only regional resources in the region. If provided, enforces each capacity reservation in the group to be in one of the zones.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: The availability zones.
         """
         ...
     @overload
@@ -206,6 +206,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
             __props__.__dict__["capacity_reservations"] = None
             __props__.__dict__["instance_view"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machines_associated"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20210401:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20210701:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20211101:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20220301:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20220801:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20221101:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20230301:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20230701:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20230901:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20240301:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20240701:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20241101:CapacityReservationGroup")])
@@ -238,6 +239,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["sharing_profile"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_machines_associated"] = None
@@ -272,7 +274,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -280,7 +282,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -293,10 +295,18 @@ class CapacityReservationGroup(pulumi.CustomResource):
         return pulumi.get(self, "sharing_profile")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -304,7 +314,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -320,7 +330,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
     @pulumi.getter
     def zones(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        Availability Zones to use for this capacity reservation group. The zones can be assigned only during creation. If not provided, the group supports only regional resources in the region. If provided, enforces each capacity reservation in the group to be in one of the zones.
+        The availability zones.
         """
         return pulumi.get(self, "zones")
 

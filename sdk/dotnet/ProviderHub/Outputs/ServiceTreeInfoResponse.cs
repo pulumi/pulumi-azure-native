@@ -13,8 +13,17 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     [OutputType]
     public sealed class ServiceTreeInfoResponse
     {
+        /// <summary>
+        /// The component id.
+        /// </summary>
         public readonly string? ComponentId;
+        /// <summary>
+        /// The readiness.
+        /// </summary>
         public readonly string? Readiness;
+        /// <summary>
+        /// The service id.
+        /// </summary>
         public readonly string? ServiceId;
 
         [OutputConstructor]

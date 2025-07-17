@@ -182,7 +182,7 @@ namespace Pulumi.AzureNative.DevTestLab
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the schedule.
+        /// The name of the Schedule
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -194,7 +194,7 @@ namespace Pulumi.AzureNative.DevTestLab
         public Input<Inputs.NotificationSettingsArgs>? NotificationSettings { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

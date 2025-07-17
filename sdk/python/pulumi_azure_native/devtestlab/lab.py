@@ -37,7 +37,7 @@ class LabArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Lab resource.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['LabAnnouncementPropertiesArgs'] announcement: The properties of any lab announcement associated with this lab
         :param pulumi.Input[Union[builtins.str, 'EnvironmentPermission']] environment_permission: The access rights to be granted to the user when provisioning an environment
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] extended_properties: Extended properties of the lab used for experimental features
@@ -82,7 +82,7 @@ class LabArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -262,7 +262,7 @@ class Lab(pulumi.CustomResource):
         :param pulumi.Input[Union[builtins.str, 'PremiumDataDisk']] premium_data_disks: The setting to enable usage of premium data disks.
                When its value is 'Enabled', creation of standard or premium data disks is allowed.
                When its value is 'Disabled', only creation of standard data disks is allowed.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['LabSupportPropertiesArgs', 'LabSupportPropertiesArgsDict']] support: The properties of any lab support message associated with this lab
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
         """

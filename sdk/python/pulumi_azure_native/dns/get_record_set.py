@@ -28,7 +28,7 @@ class GetRecordSetResult:
     """
     Describes a DNS record set (a collection of DNS records with the same name and type).
     """
-    def __init__(__self__, a_records=None, aaaa_records=None, azure_api_version=None, caa_records=None, cname_record=None, ds_records=None, etag=None, fqdn=None, id=None, metadata=None, mx_records=None, name=None, naptr_records=None, ns_records=None, provisioning_state=None, ptr_records=None, soa_record=None, srv_records=None, target_resource=None, tlsa_records=None, traffic_management_profile=None, ttl=None, txt_records=None, type=None):
+    def __init__(__self__, a_records=None, aaaa_records=None, azure_api_version=None, caa_records=None, cname_record=None, ds_records=None, etag=None, fqdn=None, id=None, metadata=None, mx_records=None, name=None, naptr_records=None, ns_records=None, provisioning_state=None, ptr_records=None, soa_record=None, srv_records=None, system_data=None, target_resource=None, tlsa_records=None, traffic_management_profile=None, ttl=None, txt_records=None, type=None):
         if a_records and not isinstance(a_records, list):
             raise TypeError("Expected argument 'a_records' to be a list")
         pulumi.set(__self__, "a_records", a_records)
@@ -83,6 +83,9 @@ class GetRecordSetResult:
         if srv_records and not isinstance(srv_records, list):
             raise TypeError("Expected argument 'srv_records' to be a list")
         pulumi.set(__self__, "srv_records", srv_records)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if target_resource and not isinstance(target_resource, dict):
             raise TypeError("Expected argument 'target_resource' to be a dict")
         pulumi.set(__self__, "target_resource", target_resource)
@@ -170,7 +173,7 @@ class GetRecordSetResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        The ID of the record set.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -194,7 +197,7 @@ class GetRecordSetResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the record set.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -247,6 +250,14 @@ class GetRecordSetResult:
         return pulumi.get(self, "srv_records")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter(name="targetResource")
     def target_resource(self) -> Optional['outputs.SubResourceResponse']:
         """
@@ -290,7 +301,7 @@ class GetRecordSetResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        The type of the record set.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -319,6 +330,7 @@ class AwaitableGetRecordSetResult(GetRecordSetResult):
             ptr_records=self.ptr_records,
             soa_record=self.soa_record,
             srv_records=self.srv_records,
+            system_data=self.system_data,
             target_resource=self.target_resource,
             tlsa_records=self.tlsa_records,
             traffic_management_profile=self.traffic_management_profile,
@@ -372,6 +384,7 @@ def get_record_set(record_type: Optional[builtins.str] = None,
         ptr_records=pulumi.get(__ret__, 'ptr_records'),
         soa_record=pulumi.get(__ret__, 'soa_record'),
         srv_records=pulumi.get(__ret__, 'srv_records'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         target_resource=pulumi.get(__ret__, 'target_resource'),
         tlsa_records=pulumi.get(__ret__, 'tlsa_records'),
         traffic_management_profile=pulumi.get(__ret__, 'traffic_management_profile'),
@@ -422,6 +435,7 @@ def get_record_set_output(record_type: Optional[pulumi.Input[builtins.str]] = No
         ptr_records=pulumi.get(__response__, 'ptr_records'),
         soa_record=pulumi.get(__response__, 'soa_record'),
         srv_records=pulumi.get(__response__, 'srv_records'),
+        system_data=pulumi.get(__response__, 'system_data'),
         target_resource=pulumi.get(__response__, 'target_resource'),
         tlsa_records=pulumi.get(__response__, 'tlsa_records'),
         traffic_management_profile=pulumi.get(__response__, 'traffic_management_profile'),

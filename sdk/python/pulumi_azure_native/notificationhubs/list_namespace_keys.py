@@ -104,7 +104,7 @@ def list_namespace_keys(authorization_rule_name: Optional[builtins.str] = None,
                         resource_group_name: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNamespaceKeysResult:
     """
-    Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
+    Gets the Primary and Secondary ConnectionStrings to the namespace.
 
     Uses Azure REST API version 2023-10-01-preview.
 
@@ -133,7 +133,7 @@ def list_namespace_keys_output(authorization_rule_name: Optional[pulumi.Input[bu
                                resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListNamespaceKeysResult]:
     """
-    Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
+    Gets the Primary and Secondary ConnectionStrings to the namespace.
 
     Uses Azure REST API version 2023-10-01-preview.
 

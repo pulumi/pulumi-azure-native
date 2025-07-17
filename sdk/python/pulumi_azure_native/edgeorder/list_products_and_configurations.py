@@ -42,7 +42,7 @@ class ListProductsAndConfigurationsResult:
     @pulumi.getter(name="nextLink")
     def next_link(self) -> Optional[builtins.str]:
         """
-        Link for the next set of configurations.
+        The link to the next page of items
         """
         return pulumi.get(self, "next_link")
 
@@ -50,7 +50,7 @@ class ListProductsAndConfigurationsResult:
     @pulumi.getter
     def value(self) -> Sequence['outputs.ConfigurationResponse']:
         """
-        List of configurations.
+        The Configuration items on this page
         """
         return pulumi.get(self, "value")
 

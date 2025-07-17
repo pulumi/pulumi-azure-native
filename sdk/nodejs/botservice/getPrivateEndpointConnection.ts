@@ -29,7 +29,7 @@ export interface GetPrivateEndpointConnectionArgs {
      */
     privateEndpointConnectionName: string;
     /**
-     * The name of the Bot resource group in the user subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -71,6 +71,10 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly provisioningState: string;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.botservice.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
@@ -97,7 +101,7 @@ export interface GetPrivateEndpointConnectionOutputArgs {
      */
     privateEndpointConnectionName: pulumi.Input<string>;
     /**
-     * The name of the Bot resource group in the user subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

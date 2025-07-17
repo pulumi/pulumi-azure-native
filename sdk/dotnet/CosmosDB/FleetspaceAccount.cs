@@ -18,22 +18,16 @@ namespace Pulumi.AzureNative.CosmosDB
     public partial class FleetspaceAccount : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The location of  global database account in the Fleetspace Account.
-        /// </summary>
-        [Output("accountLocation")]
-        public Output<string?> AccountLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource identifier of global database account in the Fleetspace Account.
-        /// </summary>
-        [Output("accountResourceIdentifier")]
-        public Output<string?> AccountResourceIdentifier { get; private set; } = null!;
-
-        /// <summary>
         /// The Azure API version of the resource.
         /// </summary>
         [Output("azureApiVersion")]
         public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration for fleetspace Account in the fleetspace.
+        /// </summary>
+        [Output("globalDatabaseAccountProperties")]
+        public Output<Outputs.FleetspaceAccountPropertiesResponseGlobalDatabaseAccountProperties?> GlobalDatabaseAccountProperties { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -109,18 +103,6 @@ namespace Pulumi.AzureNative.CosmosDB
     public sealed class FleetspaceAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The location of  global database account in the Fleetspace Account.
-        /// </summary>
-        [Input("accountLocation")]
-        public Input<string>? AccountLocation { get; set; }
-
-        /// <summary>
-        /// The resource identifier of global database account in the Fleetspace Account.
-        /// </summary>
-        [Input("accountResourceIdentifier")]
-        public Input<string>? AccountResourceIdentifier { get; set; }
-
-        /// <summary>
         /// Cosmos DB fleet name. Needs to be unique under a subscription.
         /// </summary>
         [Input("fleetName", required: true)]
@@ -137,6 +119,12 @@ namespace Pulumi.AzureNative.CosmosDB
         /// </summary>
         [Input("fleetspaceName", required: true)]
         public Input<string> FleetspaceName { get; set; } = null!;
+
+        /// <summary>
+        /// Configuration for fleetspace Account in the fleetspace.
+        /// </summary>
+        [Input("globalDatabaseAccountProperties")]
+        public Input<Inputs.FleetspaceAccountPropertiesGlobalDatabaseAccountPropertiesArgs>? GlobalDatabaseAccountProperties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

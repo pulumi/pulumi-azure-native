@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ConnectedCache.Inputs
     public sealed class CacheNodeEntityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Customer requested day of week for mcc install of auto update cycle
+        /// Customer requested day of week for mcc install of auto update cycle. 0 is default no selection. 1-7 are days of week, 1 is Sunday, 2 is Monday, etc.
         /// </summary>
         [Input("autoUpdateRequestedDay")]
         public Input<int>? AutoUpdateRequestedDay { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.ConnectedCache.Inputs
         public Input<string>? AutoUpdateRequestedTime { get; set; }
 
         /// <summary>
-        /// Customer requested week of month for mcc install of auto update cycle
+        /// Customer requested week of month for mcc install of auto update cycle. 0 is default no selection. 1-5 are valid weeks of month, 1 is first week, 2 is second week, etc.
         /// </summary>
         [Input("autoUpdateRequestedWeek")]
         public Input<int>? AutoUpdateRequestedWeek { get; set; }

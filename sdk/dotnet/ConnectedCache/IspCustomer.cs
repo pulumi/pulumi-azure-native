@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.ConnectedCache
     /// Represents the high level Nodes needed to provision isp customer resources
     /// 
     /// Uses Azure REST API version 2023-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
+    /// 
+    /// Other available API versions: 2024-11-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedcache:IspCustomer")]
     public partial class IspCustomer : global::Pulumi.CustomResource
@@ -85,6 +87,7 @@ namespace Pulumi.AzureNative.ConnectedCache
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:connectedcache/v20230501preview:IspCustomer" },
+                    new global::Pulumi.Alias { Type = "azure-native:connectedcache/v20241130preview:IspCustomer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

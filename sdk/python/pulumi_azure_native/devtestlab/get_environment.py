@@ -197,8 +197,8 @@ def get_environment(expand: Optional[builtins.str] = None,
 
     :param builtins.str expand: Specify the $expand query. Example: 'properties($select=deploymentProperties)'
     :param builtins.str lab_name: The name of the lab.
-    :param builtins.str name: The name of the environment.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str name: The name of the DtlEnvironment
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str user_name: The name of the user profile.
     """
     __args__ = dict()
@@ -237,8 +237,8 @@ def get_environment_output(expand: Optional[pulumi.Input[Optional[builtins.str]]
 
     :param builtins.str expand: Specify the $expand query. Example: 'properties($select=deploymentProperties)'
     :param builtins.str lab_name: The name of the lab.
-    :param builtins.str name: The name of the environment.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str name: The name of the DtlEnvironment
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str user_name: The name of the user profile.
     """
     __args__ = dict()

@@ -54,7 +54,7 @@ class VirtualMachineArgs:
         """
         The set of arguments for constructing a VirtualMachine resource.
         :param pulumi.Input[builtins.str] lab_name: The name of the lab.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.bool] allow_claim: Indicates whether another user can take ownership of the virtual machine
         :param pulumi.Input[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]] artifacts: The artifacts to be installed on the virtual machine.
         :param pulumi.Input[builtins.str] created_date: The creation date of the virtual machine.
@@ -68,7 +68,7 @@ class VirtualMachineArgs:
         :param pulumi.Input[builtins.str] lab_subnet_name: The lab subnet name of the virtual machine.
         :param pulumi.Input[builtins.str] lab_virtual_network_id: The lab virtual network identifier of the virtual machine.
         :param pulumi.Input[builtins.str] location: The location of the resource.
-        :param pulumi.Input[builtins.str] name: The name of the virtual machine.
+        :param pulumi.Input[builtins.str] name: The name of the LabVirtualMachine
         :param pulumi.Input['NetworkInterfacePropertiesArgs'] network_interface: The network interface properties.
         :param pulumi.Input[builtins.str] notes: The notes of the virtual machine.
         :param pulumi.Input[builtins.str] owner_object_id: The object identifier of the owner of the virtual machine.
@@ -161,7 +161,7 @@ class VirtualMachineArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -329,7 +329,7 @@ class VirtualMachineArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the virtual machine.
+        The name of the LabVirtualMachine
         """
         return pulumi.get(self, "name")
 
@@ -538,14 +538,14 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] lab_subnet_name: The lab subnet name of the virtual machine.
         :param pulumi.Input[builtins.str] lab_virtual_network_id: The lab virtual network identifier of the virtual machine.
         :param pulumi.Input[builtins.str] location: The location of the resource.
-        :param pulumi.Input[builtins.str] name: The name of the virtual machine.
+        :param pulumi.Input[builtins.str] name: The name of the LabVirtualMachine
         :param pulumi.Input[Union['NetworkInterfacePropertiesArgs', 'NetworkInterfacePropertiesArgsDict']] network_interface: The network interface properties.
         :param pulumi.Input[builtins.str] notes: The notes of the virtual machine.
         :param pulumi.Input[builtins.str] owner_object_id: The object identifier of the owner of the virtual machine.
         :param pulumi.Input[builtins.str] owner_user_principal_name: The user principal name of the virtual machine owner.
         :param pulumi.Input[builtins.str] password: The password of the virtual machine administrator.
         :param pulumi.Input[builtins.str] plan_id: The id of the plan associated with the virtual machine image
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduleCreationParameterArgs', 'ScheduleCreationParameterArgsDict']]]] schedule_parameters: Virtual Machine schedules to be created
         :param pulumi.Input[builtins.str] size: The size of the virtual machine.
         :param pulumi.Input[builtins.str] ssh_key: The SSH key of the virtual machine administrator.

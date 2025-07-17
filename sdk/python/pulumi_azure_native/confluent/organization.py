@@ -33,12 +33,12 @@ class OrganizationArgs:
         """
         The set of arguments for constructing a Organization resource.
         :param pulumi.Input['OfferDetailArgs'] offer_detail: Confluent offer detail
-        :param pulumi.Input[builtins.str] resource_group_name: Resource group name
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['UserDetailArgs'] user_detail: Subscriber detail
         :param pulumi.Input['LinkOrganizationArgs'] link_organization: Link an existing Confluent organization
-        :param pulumi.Input[builtins.str] location: Location of Organization resource
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.str] organization_name: Organization resource name
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Organization resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "offer_detail", offer_detail)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -68,7 +68,7 @@ class OrganizationArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        Resource group name
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -104,7 +104,7 @@ class OrganizationArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Location of Organization resource
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -128,7 +128,7 @@ class OrganizationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Organization resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -161,11 +161,11 @@ class Organization(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['LinkOrganizationArgs', 'LinkOrganizationArgsDict']] link_organization: Link an existing Confluent organization
-        :param pulumi.Input[builtins.str] location: Location of Organization resource
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['OfferDetailArgs', 'OfferDetailArgsDict']] offer_detail: Confluent offer detail
         :param pulumi.Input[builtins.str] organization_name: Organization resource name
-        :param pulumi.Input[builtins.str] resource_group_name: Resource group name
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Organization resource tags
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Union['UserDetailArgs', 'UserDetailArgsDict']] user_detail: Subscriber detail
         """
         ...
@@ -289,9 +289,9 @@ class Organization(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[builtins.str]]:
+    def location(self) -> pulumi.Output[builtins.str]:
         """
-        Location of Organization resource
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -299,7 +299,7 @@ class Organization(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -339,7 +339,7 @@ class Organization(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -347,7 +347,7 @@ class Organization(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Organization resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -355,7 +355,7 @@ class Organization(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

@@ -2,6 +2,100 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AdditionalOptionsAsyncOperation = {
+    ProtectedAsyncOperationPolling: "ProtectedAsyncOperationPolling",
+    ProtectedAsyncOperationPollingAuditOnly: "ProtectedAsyncOperationPollingAuditOnly",
+} as const;
+
+/**
+ * The additional options.
+ */
+export type AdditionalOptionsAsyncOperation = (typeof AdditionalOptionsAsyncOperation)[keyof typeof AdditionalOptionsAsyncOperation];
+
+export const AdditionalOptionsResourceTypeRegistration = {
+    ProtectedAsyncOperationPolling: "ProtectedAsyncOperationPolling",
+    ProtectedAsyncOperationPollingAuditOnly: "ProtectedAsyncOperationPollingAuditOnly",
+} as const;
+
+/**
+ * The additional options.
+ */
+export type AdditionalOptionsResourceTypeRegistration = (typeof AdditionalOptionsResourceTypeRegistration)[keyof typeof AdditionalOptionsResourceTypeRegistration];
+
+export const AuthenticationScheme = {
+    PoP: "PoP",
+    Bearer: "Bearer",
+} as const;
+
+/**
+ * The authentication scheme.
+ */
+export type AuthenticationScheme = (typeof AuthenticationScheme)[keyof typeof AuthenticationScheme];
+
+export const AvailabilityZonePolicy = {
+    NotSpecified: "NotSpecified",
+    SingleZoned: "SingleZoned",
+    MultiZoned: "MultiZoned",
+} as const;
+
+export type AvailabilityZonePolicy = (typeof AvailabilityZonePolicy)[keyof typeof AvailabilityZonePolicy];
+
+export const BlockActionVerb = {
+    NotSpecified: "NotSpecified",
+    Read: "Read",
+    Write: "Write",
+    Action: "Action",
+    Delete: "Delete",
+    Unrecognized: "Unrecognized",
+} as const;
+
+/**
+ * The action verb that will be blocked when the resource group is locked during move.
+ */
+export type BlockActionVerb = (typeof BlockActionVerb)[keyof typeof BlockActionVerb];
+
+export const CapacityPolicy = {
+    Default: "Default",
+    Restricted: "Restricted",
+} as const;
+
+/**
+ * Capacity policy.
+ */
+export type CapacityPolicy = (typeof CapacityPolicy)[keyof typeof CapacityPolicy];
+
+export const CommonApiVersionsMergeMode = {
+    Merge: "Merge",
+    Overwrite: "Overwrite",
+} as const;
+
+/**
+ * Common api versions merge mode.
+ */
+export type CommonApiVersionsMergeMode = (typeof CommonApiVersionsMergeMode)[keyof typeof CommonApiVersionsMergeMode];
+
+export const CrossTenantTokenValidation = {
+    EnsureSecureValidation: "EnsureSecureValidation",
+    PassthroughInsecureToken: "PassthroughInsecureToken",
+} as const;
+
+/**
+ * The cross tenant token validation.
+ */
+export type CrossTenantTokenValidation = (typeof CrossTenantTokenValidation)[keyof typeof CrossTenantTokenValidation];
+
+export const DataBoundary = {
+    NotDefined: "NotDefined",
+    Global: "Global",
+    EU: "EU",
+    US: "US",
+} as const;
+
+/**
+ * The data boundary.
+ */
+export type DataBoundary = (typeof DataBoundary)[keyof typeof DataBoundary];
+
 export const EndpointType = {
     NotSpecified: "NotSpecified",
     Canary: "Canary",
@@ -9,7 +103,56 @@ export const EndpointType = {
     TestInProduction: "TestInProduction",
 } as const;
 
+/**
+ * The endpoint type.
+ */
 export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
+
+export const EndpointTypeResourceType = {
+    NotSpecified: "NotSpecified",
+    Canary: "Canary",
+    Production: "Production",
+    TestInProduction: "TestInProduction",
+} as const;
+
+/**
+ * The endpoint type.
+ */
+export type EndpointTypeResourceType = (typeof EndpointTypeResourceType)[keyof typeof EndpointTypeResourceType];
+
+export const ExpeditedRolloutIntent = {
+    NotSpecified: "NotSpecified",
+    Hotfix: "Hotfix",
+} as const;
+
+/**
+ * Expedited rollout intent.
+ */
+export type ExpeditedRolloutIntent = (typeof ExpeditedRolloutIntent)[keyof typeof ExpeditedRolloutIntent];
+
+export const ExtendedLocationType = {
+    /**
+     * The extended location type is not specified.
+     */
+    NotSpecified: "NotSpecified",
+    /**
+     * The extended location type is custom location.
+     */
+    CustomLocation: "CustomLocation",
+    /**
+     * The extended location type is edge zone.
+     */
+    EdgeZone: "EdgeZone",
+    /**
+     * The extended location type is arc zone.
+     */
+    ArcZone: "ArcZone",
+} as const;
+
+/**
+ * The type.
+ */
+export type ExtendedLocationType = (typeof ExtendedLocationType)[keyof typeof ExtendedLocationType];
 
 export const ExtensionCategory = {
     NotSpecified: "NotSpecified",
@@ -28,6 +171,8 @@ export const ExtensionCategory = {
     ResourcePatchBegin: "ResourcePatchBegin",
     ResourceMoveBegin: "ResourceMoveBegin",
     ResourceMoveCompleted: "ResourceMoveCompleted",
+    BestMatchOperationBegin: "BestMatchOperationBegin",
+    SubscriptionLifecycleNotificationDeletion: "SubscriptionLifecycleNotificationDeletion",
 } as const;
 
 export type ExtensionCategory = (typeof ExtensionCategory)[keyof typeof ExtensionCategory];
@@ -45,7 +190,30 @@ export const FeaturesPolicy = {
     All: "All",
 } as const;
 
+/**
+ * The required feature policy.
+ */
 export type FeaturesPolicy = (typeof FeaturesPolicy)[keyof typeof FeaturesPolicy];
+
+export const FilterOption = {
+    NotSpecified: "NotSpecified",
+    EnableSubscriptionFilterOnTenant: "EnableSubscriptionFilterOnTenant",
+} as const;
+
+/**
+ * Filter option.
+ */
+export type FilterOption = (typeof FilterOption)[keyof typeof FilterOption];
+
+export const FrontdoorRequestMode = {
+    NotSpecified: "NotSpecified",
+    UseManifest: "UseManifest",
+} as const;
+
+/**
+ * The frontdoor request mode.
+ */
+export type FrontdoorRequestMode = (typeof FrontdoorRequestMode)[keyof typeof FrontdoorRequestMode];
 
 export const IdentityManagementTypes = {
     NotSpecified: "NotSpecified",
@@ -55,13 +223,81 @@ export const IdentityManagementTypes = {
     DelegatedResourceIdentity: "DelegatedResourceIdentity",
 } as const;
 
+/**
+ * The type.
+ */
 export type IdentityManagementTypes = (typeof IdentityManagementTypes)[keyof typeof IdentityManagementTypes];
+
+export const Intent = {
+    /**
+     * Default value.
+     */
+    NOT_SPECIFIED: "NOT_SPECIFIED",
+    /**
+     * Data is not sensitive and ok to access.
+     */
+    LOW_PRIVILEGE: "LOW_PRIVILEGE",
+    /**
+     * Used for RP's using a custom authorization check outside of ARM.
+     */
+    DEFERRED_ACCESS_CHECK: "DEFERRED_ACCESS_CHECK",
+    /**
+     * RP contract allows certain operations to be unauthorized action.
+     */
+    RP_CONTRACT: "RP_CONTRACT",
+} as const;
+
+/**
+ * The intent.
+ */
+export type Intent = (typeof Intent)[keyof typeof Intent];
+
+export const LegacyOperation = {
+    NotSpecified: "NotSpecified",
+    Create: "Create",
+    Delete: "Delete",
+    Waiting: "Waiting",
+    AzureAsyncOperationWaiting: "AzureAsyncOperationWaiting",
+    ResourceCacheWaiting: "ResourceCacheWaiting",
+    Action: "Action",
+    Read: "Read",
+    EvaluateDeploymentOutput: "EvaluateDeploymentOutput",
+    DeploymentCleanup: "DeploymentCleanup",
+} as const;
+
+export type LegacyOperation = (typeof LegacyOperation)[keyof typeof LegacyOperation];
+
+export const LinkedAction = {
+    NotSpecified: "NotSpecified",
+    Blocked: "Blocked",
+    Validate: "Validate",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * The linked action.
+ */
+export type LinkedAction = (typeof LinkedAction)[keyof typeof LinkedAction];
+
+export const LinkedOperation = {
+    None: "None",
+    CrossResourceGroupResourceMove: "CrossResourceGroupResourceMove",
+    CrossSubscriptionResourceMove: "CrossSubscriptionResourceMove",
+} as const;
+
+/**
+ * The linked operation.
+ */
+export type LinkedOperation = (typeof LinkedOperation)[keyof typeof LinkedOperation];
 
 export const LoggingDetails = {
     None: "None",
     Body: "Body",
 } as const;
 
+/**
+ * The detail level.
+ */
 export type LoggingDetails = (typeof LoggingDetails)[keyof typeof LoggingDetails];
 
 export const LoggingDirections = {
@@ -70,14 +306,42 @@ export const LoggingDirections = {
     Response: "Response",
 } as const;
 
+/**
+ * The direction.
+ */
 export type LoggingDirections = (typeof LoggingDirections)[keyof typeof LoggingDirections];
+
+export const MarketplaceType = {
+    NotSpecified: "NotSpecified",
+    AddOn: "AddOn",
+    Bypass: "Bypass",
+    Store: "Store",
+} as const;
+
+/**
+ * The marketplace type.
+ */
+export type MarketplaceType = (typeof MarketplaceType)[keyof typeof MarketplaceType];
 
 export const MessageScope = {
     NotSpecified: "NotSpecified",
     RegisteredSubscriptions: "RegisteredSubscriptions",
 } as const;
 
+/**
+ * The message scope.
+ */
 export type MessageScope = (typeof MessageScope)[keyof typeof MessageScope];
+
+export const NotificationEndpointType = {
+    Webhook: "Webhook",
+    Eventhub: "Eventhub",
+} as const;
+
+/**
+ * The endpoint type.
+ */
+export type NotificationEndpointType = (typeof NotificationEndpointType)[keyof typeof NotificationEndpointType];
 
 export const NotificationMode = {
     NotSpecified: "NotSpecified",
@@ -85,7 +349,31 @@ export const NotificationMode = {
     WebHook: "WebHook",
 } as const;
 
+/**
+ * The notification mode.
+ */
 export type NotificationMode = (typeof NotificationMode)[keyof typeof NotificationMode];
+
+export const NotificationOptions = {
+    NotSpecified: "NotSpecified",
+    None: "None",
+    EmitSpendingLimit: "EmitSpendingLimit",
+} as const;
+
+/**
+ * Notification options.
+ */
+export type NotificationOptions = (typeof NotificationOptions)[keyof typeof NotificationOptions];
+
+export const NotificationType = {
+    Unspecified: "Unspecified",
+    SubscriptionNotification: "SubscriptionNotification",
+} as const;
+
+/**
+ * The notification type.
+ */
+export type NotificationType = (typeof NotificationType)[keyof typeof NotificationType];
 
 export const OptInHeaderType = {
     NotSpecified: "NotSpecified",
@@ -93,16 +381,51 @@ export const OptInHeaderType = {
     ClientGroupMembership: "ClientGroupMembership",
     SignedAuxiliaryTokens: "SignedAuxiliaryTokens",
     UnboundedClientGroupMembership: "UnboundedClientGroupMembership",
+    PrivateLinkId: "PrivateLinkId",
+    PrivateLinkResourceId: "PrivateLinkResourceId",
+    ManagementGroupAncestorsEncoded: "ManagementGroupAncestorsEncoded",
+    PrivateLinkVnetTrafficTag: "PrivateLinkVnetTrafficTag",
+    ResourceGroupLocation: "ResourceGroupLocation",
+    ClientPrincipalNameEncoded: "ClientPrincipalNameEncoded",
+    MSIResourceIdEncoded: "MSIResourceIdEncoded",
 } as const;
 
+/**
+ * The opt in headers.
+ */
 export type OptInHeaderType = (typeof OptInHeaderType)[keyof typeof OptInHeaderType];
+
+export const OptOutHeaderType = {
+    NotSpecified: "NotSpecified",
+    SystemDataCreatedByLastModifiedBy: "SystemDataCreatedByLastModifiedBy",
+} as const;
+
+/**
+ * The opt out headers.
+ */
+export type OptOutHeaderType = (typeof OptOutHeaderType)[keyof typeof OptOutHeaderType];
 
 export const Policy = {
     NotSpecified: "NotSpecified",
     SynchronizeBeginExtension: "SynchronizeBeginExtension",
 } as const;
 
+/**
+ * The policy.
+ */
 export type Policy = (typeof Policy)[keyof typeof Policy];
+
+export const PolicyExecutionType = {
+    NotSpecified: "NotSpecified",
+    ExecutePolicies: "ExecutePolicies",
+    BypassPolicies: "BypassPolicies",
+    ExpectPartialPutRequests: "ExpectPartialPutRequests",
+} as const;
+
+/**
+ * The policy execution type.
+ */
+export type PolicyExecutionType = (typeof PolicyExecutionType)[keyof typeof PolicyExecutionType];
 
 export const PreflightOption = {
     None: "None",
@@ -112,26 +435,36 @@ export const PreflightOption = {
 
 export type PreflightOption = (typeof PreflightOption)[keyof typeof PreflightOption];
 
-export const ProvisioningState = {
-    NotSpecified: "NotSpecified",
-    Accepted: "Accepted",
-    Running: "Running",
-    Creating: "Creating",
-    Created: "Created",
-    Deleting: "Deleting",
-    Deleted: "Deleted",
-    Canceled: "Canceled",
-    Failed: "Failed",
-    Succeeded: "Succeeded",
-    MovingResources: "MovingResources",
-    TransientFailure: "TransientFailure",
-    RolloutInProgress: "RolloutInProgress",
+export const ProviderRegistrationKind = {
+    /**
+     * Resource Provider with all the resource types 'managed' by the ProviderHub service.
+     */
+    Managed: "Managed",
+    /**
+     * Resource Provider with a mix of 'managed' and 'direct' resource types.
+     */
+    Hybrid: "Hybrid",
+    /**
+     * Resource Provider with all the resource types 'managed' on by itself.
+     */
+    Direct: "Direct",
 } as const;
 
 /**
- * The provisioned state of the resource.
+ * Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
  */
-export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
+export type ProviderRegistrationKind = (typeof ProviderRegistrationKind)[keyof typeof ProviderRegistrationKind];
+
+export const QuotaPolicy = {
+    Default: "Default",
+    None: "None",
+    Restricted: "Restricted",
+} as const;
+
+/**
+ * The quota policy.
+ */
+export type QuotaPolicy = (typeof QuotaPolicy)[keyof typeof QuotaPolicy];
 
 export const Readiness = {
     ClosingDown: "ClosingDown",
@@ -145,6 +478,9 @@ export const Readiness = {
     Retired: "Retired",
 } as const;
 
+/**
+ * The readiness.
+ */
 export type Readiness = (typeof Readiness)[keyof typeof Readiness];
 
 export const Regionality = {
@@ -153,7 +489,21 @@ export const Regionality = {
     Regional: "Regional",
 } as const;
 
+/**
+ * The regionality.
+ */
 export type Regionality = (typeof Regionality)[keyof typeof Regionality];
+
+export const ResourceAccessPolicy = {
+    NotSpecified: "NotSpecified",
+    AcisReadAllowed: "AcisReadAllowed",
+    AcisActionAllowed: "AcisActionAllowed",
+} as const;
+
+/**
+ * The resource access policy.
+ */
+export type ResourceAccessPolicy = (typeof ResourceAccessPolicy)[keyof typeof ResourceAccessPolicy];
 
 export const ResourceDeletionPolicy = {
     NotSpecified: "NotSpecified",
@@ -161,6 +511,9 @@ export const ResourceDeletionPolicy = {
     CascadeDeleteProxyOnlyChildren: "CascadeDeleteProxyOnlyChildren",
 } as const;
 
+/**
+ * The resource deletion policy.
+ */
 export type ResourceDeletionPolicy = (typeof ResourceDeletionPolicy)[keyof typeof ResourceDeletionPolicy];
 
 export const ResourceProviderCapabilitiesEffect = {
@@ -169,6 +522,9 @@ export const ResourceProviderCapabilitiesEffect = {
     Disallow: "Disallow",
 } as const;
 
+/**
+ * The effect.
+ */
 export type ResourceProviderCapabilitiesEffect = (typeof ResourceProviderCapabilitiesEffect)[keyof typeof ResourceProviderCapabilitiesEffect];
 
 export const ResourceProviderType = {
@@ -182,21 +538,208 @@ export const ResourceProviderType = {
     AuthorizationFree: "AuthorizationFree",
 } as const;
 
+/**
+ * The provider type.
+ */
 export type ResourceProviderType = (typeof ResourceProviderType)[keyof typeof ResourceProviderType];
 
-export const RoutingType = {
-    Default: "Default",
-    ProxyOnly: "ProxyOnly",
-    HostBased: "HostBased",
-    Extension: "Extension",
-    Tenant: "Tenant",
-    Fanout: "Fanout",
-    LocationBased: "LocationBased",
-    Failover: "Failover",
-    CascadeExtension: "CascadeExtension",
+export const ResourceSubType = {
+    NotSpecified: "NotSpecified",
+    AsyncOperation: "AsyncOperation",
 } as const;
 
+/**
+ * The resource sub type.
+ */
+export type ResourceSubType = (typeof ResourceSubType)[keyof typeof ResourceSubType];
+
+export const ResourceTypeCategory = {
+    None: "None",
+    FreeForm: "FreeForm",
+    Internal: "Internal",
+    PureProxy: "PureProxy",
+} as const;
+
+/**
+ * The category.
+ */
+export type ResourceTypeCategory = (typeof ResourceTypeCategory)[keyof typeof ResourceTypeCategory];
+
+export const ResourceTypeEndpointKind = {
+    /**
+     * Endpoint served by ProviderHub service
+     */
+    Managed: "Managed",
+    /**
+     * Endpoint served by the onboarded Resource Provider Service.
+     */
+    Direct: "Direct",
+} as const;
+
+/**
+ * Resource type endpoint kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+ */
+export type ResourceTypeEndpointKind = (typeof ResourceTypeEndpointKind)[keyof typeof ResourceTypeEndpointKind];
+
+export const ResourceTypeExtendedLocationPolicy = {
+    NotSpecified: "NotSpecified",
+    All: "All",
+} as const;
+
+export type ResourceTypeExtendedLocationPolicy = (typeof ResourceTypeExtendedLocationPolicy)[keyof typeof ResourceTypeExtendedLocationPolicy];
+
+export const ResourceTypeRegistrationKind = {
+    /**
+     * Resource type served by the ProviderHub service.
+     */
+    Managed: "Managed",
+    /**
+     * Resource type served by both the ProviderHub & the onboarded Resource Provider Services (i.e. The type has a mix of managed and direct endpoints).
+     */
+    Hybrid: "Hybrid",
+    /**
+     * Resource type served by the onboarded Resource Provider Service.
+     */
+    Direct: "Direct",
+} as const;
+
+/**
+ * Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+ */
+export type ResourceTypeRegistrationKind = (typeof ResourceTypeRegistrationKind)[keyof typeof ResourceTypeRegistrationKind];
+
+export const ResourceValidation = {
+    NotSpecified: "NotSpecified",
+    ReservedWords: "ReservedWords",
+    ProfaneWords: "ProfaneWords",
+} as const;
+
+/**
+ * The resource validation.
+ */
+export type ResourceValidation = (typeof ResourceValidation)[keyof typeof ResourceValidation];
+
+export const Role = {
+    ServiceOwner: "ServiceOwner",
+    LimitedOwner: "LimitedOwner",
+} as const;
+
+/**
+ * The ownership role the application has on the resource types. The service owner role gives the application owner permissions. The limited owner role gives elevated permissions but does not allow all the permissions of a service owner, such as read/write on internal metadata.
+ */
+export type Role = (typeof Role)[keyof typeof Role];
+
+export const RoutingType = {
+    /**
+     * The resource routing type is default.
+     */
+    Default: "Default",
+    /**
+     * The resource routing type is proxy only.
+     */
+    ProxyOnly: "ProxyOnly",
+    /**
+     * The resource routing type is host based.
+     */
+    HostBased: "HostBased",
+    /**
+     * The resource routing type is extension.
+     */
+    Extension: "Extension",
+    /**
+     * The resource routing type is tenant.
+     */
+    Tenant: "Tenant",
+    /**
+     * The resource routing type is fanout.
+     */
+    Fanout: "Fanout",
+    /**
+     * The resource routing type is location based.
+     */
+    LocationBased: "LocationBased",
+    /**
+     * The resource routing type is failover.
+     */
+    Failover: "Failover",
+    /**
+     * The resource routing type is cascade extension.
+     */
+    CascadeExtension: "CascadeExtension",
+    /**
+     * The resource routing type is child fanout.
+     */
+    ChildFanout: "ChildFanout",
+    /**
+     * The resource routing type is cascade authorized extension.
+     */
+    CascadeAuthorizedExtension: "CascadeAuthorizedExtension",
+    /**
+     * The resource routing type is bypass endpoint selection optimization.
+     */
+    BypassEndpointSelectionOptimization: "BypassEndpointSelectionOptimization",
+    /**
+     * The resource routing type is location mapping.
+     */
+    LocationMapping: "LocationMapping",
+    /**
+     * The resource routing type is service fanout.
+     */
+    ServiceFanout: "ServiceFanout",
+} as const;
+
+/**
+ * The resource routing type.
+ */
 export type RoutingType = (typeof RoutingType)[keyof typeof RoutingType];
+
+export const ServerFailureResponseMessageType = {
+    NotSpecified: "NotSpecified",
+    OutageReporting: "OutageReporting",
+} as const;
+
+/**
+ * Type of server failure response message.
+ */
+export type ServerFailureResponseMessageType = (typeof ServerFailureResponseMessageType)[keyof typeof ServerFailureResponseMessageType];
+
+export const ServiceClientOptionsType = {
+    NotSpecified: "NotSpecified",
+    DisableAutomaticDecompression: "DisableAutomaticDecompression",
+} as const;
+
+export type ServiceClientOptionsType = (typeof ServiceClientOptionsType)[keyof typeof ServiceClientOptionsType];
+
+export const ServiceStatus = {
+    Active: "Active",
+    Inactive: "Inactive",
+} as const;
+
+/**
+ * The status.
+ */
+export type ServiceStatus = (typeof ServiceStatus)[keyof typeof ServiceStatus];
+
+export const SignedRequestScope = {
+    ResourceUri: "ResourceUri",
+    Endpoint: "Endpoint",
+} as const;
+
+/**
+ * The signed request scope.
+ */
+export type SignedRequestScope = (typeof SignedRequestScope)[keyof typeof SignedRequestScope];
+
+export const SkipNotifications = {
+    Unspecified: "Unspecified",
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether notifications should be skipped.
+ */
+export type SkipNotifications = (typeof SkipNotifications)[keyof typeof SkipNotifications];
 
 export const SkuScaleType = {
     None: "None",
@@ -204,6 +747,9 @@ export const SkuScaleType = {
     Automatic: "Automatic",
 } as const;
 
+/**
+ * The scale type.
+ */
 export type SkuScaleType = (typeof SkuScaleType)[keyof typeof SkuScaleType];
 
 export const SubscriptionNotificationOperation = {
@@ -215,6 +761,9 @@ export const SubscriptionNotificationOperation = {
     UndoSoftDelete: "UndoSoftDelete",
 } as const;
 
+/**
+ * The action.
+ */
 export type SubscriptionNotificationOperation = (typeof SubscriptionNotificationOperation)[keyof typeof SubscriptionNotificationOperation];
 
 export const SubscriptionReregistrationResult = {
@@ -224,6 +773,9 @@ export const SubscriptionReregistrationResult = {
     Failed: "Failed",
 } as const;
 
+/**
+ * The subscription reregistration result.
+ */
 export type SubscriptionReregistrationResult = (typeof SubscriptionReregistrationResult)[keyof typeof SubscriptionReregistrationResult];
 
 export const SubscriptionState = {
@@ -235,6 +787,9 @@ export const SubscriptionState = {
     Deleted: "Deleted",
 } as const;
 
+/**
+ * The subscription state.
+ */
 export type SubscriptionState = (typeof SubscriptionState)[keyof typeof SubscriptionState];
 
 export const SubscriptionTransitioningState = {
@@ -253,7 +808,54 @@ export const SubscriptionTransitioningState = {
     SuspendedToUnregistered: "SuspendedToUnregistered",
 } as const;
 
+/**
+ * The state.
+ */
 export type SubscriptionTransitioningState = (typeof SubscriptionTransitioningState)[keyof typeof SubscriptionTransitioningState];
+
+export const SupportedOperations = {
+    NotSpecified: "NotSpecified",
+    Get: "Get",
+    Delete: "Delete",
+} as const;
+
+/**
+ * Supported operations.
+ */
+export type SupportedOperations = (typeof SupportedOperations)[keyof typeof SupportedOperations];
+
+export const TemplateDeploymentCapabilities = {
+    Default: "Default",
+    Preflight: "Preflight",
+} as const;
+
+/**
+ * The capabilities.
+ */
+export type TemplateDeploymentCapabilities = (typeof TemplateDeploymentCapabilities)[keyof typeof TemplateDeploymentCapabilities];
+
+export const TemplateDeploymentPreflightNotifications = {
+    None: "None",
+    UnregisteredSubscriptions: "UnregisteredSubscriptions",
+} as const;
+
+/**
+ * The preflight notifications.
+ */
+export type TemplateDeploymentPreflightNotifications = (typeof TemplateDeploymentPreflightNotifications)[keyof typeof TemplateDeploymentPreflightNotifications];
+
+export const TemplateDeploymentPreflightOptions = {
+    None: "None",
+    ValidationRequests: "ValidationRequests",
+    DeploymentRequests: "DeploymentRequests",
+    TestOnly: "TestOnly",
+    RegisteredOnly: "RegisteredOnly",
+} as const;
+
+/**
+ * The preflight options.
+ */
+export type TemplateDeploymentPreflightOptions = (typeof TemplateDeploymentPreflightOptions)[keyof typeof TemplateDeploymentPreflightOptions];
 
 export const ThrottlingMetricType = {
     NotSpecified: "NotSpecified",
@@ -261,6 +863,9 @@ export const ThrottlingMetricType = {
     NumberOfResources: "NumberOfResources",
 } as const;
 
+/**
+ * The throttling metric type
+ */
 export type ThrottlingMetricType = (typeof ThrottlingMetricType)[keyof typeof ThrottlingMetricType];
 
 export const TrafficRegionCategory = {
@@ -274,4 +879,7 @@ export const TrafficRegionCategory = {
     RestOfTheWorldGroupTwo: "RestOfTheWorldGroupTwo",
 } as const;
 
+/**
+ * The next traffic region.
+ */
 export type TrafficRegionCategory = (typeof TrafficRegionCategory)[keyof typeof TrafficRegionCategory];

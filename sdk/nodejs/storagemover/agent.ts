@@ -65,7 +65,7 @@ export class Agent extends pulumi.CustomResource {
      * A description for the Agent.
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly errorDetails!: pulumi.Output<outputs.storagemover.AgentPropertiesResponseErrorDetails>;
+    public /*out*/ readonly errorDetails!: pulumi.Output<outputs.storagemover.AgentPropertiesErrorDetailsResponse>;
     /**
      * The last updated time of the Agent status.
      */

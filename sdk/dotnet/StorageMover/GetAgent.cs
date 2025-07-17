@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.StorageMover
         /// A description for the Agent.
         /// </summary>
         public readonly string? Description;
-        public readonly Outputs.AgentPropertiesResponseErrorDetails ErrorDetails;
+        public readonly Outputs.AgentPropertiesErrorDetailsResponse ErrorDetails;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -187,7 +187,7 @@ namespace Pulumi.AzureNative.StorageMover
 
             string? description,
 
-            Outputs.AgentPropertiesResponseErrorDetails errorDetails,
+            Outputs.AgentPropertiesErrorDetailsResponse errorDetails,
 
             string id,
 

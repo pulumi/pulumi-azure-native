@@ -10,10 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
+    /// <summary>
+    /// Resource creation begin.
+    /// </summary>
     public sealed class ResourceTypeExtensionOptionsResourceCreationBeginArgs : global::Pulumi.ResourceArgs
     {
         [Input("request")]
         private InputList<Union<string, Pulumi.AzureNative.ProviderHub.ExtensionOptionType>>? _request;
+
+        /// <summary>
+        /// The request.
+        /// </summary>
         public InputList<Union<string, Pulumi.AzureNative.ProviderHub.ExtensionOptionType>> Request
         {
             get => _request ?? (_request = new InputList<Union<string, Pulumi.AzureNative.ProviderHub.ExtensionOptionType>>());
@@ -22,6 +29,10 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
         [Input("response")]
         private InputList<Union<string, Pulumi.AzureNative.ProviderHub.ExtensionOptionType>>? _response;
+
+        /// <summary>
+        /// The response.
+        /// </summary>
         public InputList<Union<string, Pulumi.AzureNative.ProviderHub.ExtensionOptionType>> Response
         {
             get => _response ?? (_response = new InputList<Union<string, Pulumi.AzureNative.ProviderHub.ExtensionOptionType>>());

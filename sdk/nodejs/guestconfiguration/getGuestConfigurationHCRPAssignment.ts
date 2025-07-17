@@ -33,7 +33,7 @@ export interface GetGuestConfigurationHCRPAssignmentArgs {
      */
     machineName: string;
     /**
-     * The resource group name.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -55,9 +55,9 @@ export interface GetGuestConfigurationHCRPAssignmentResult {
      */
     readonly location?: string;
     /**
-     * Name of the guest configuration assignment.
+     * The guest configuration assignment name.
      */
-    readonly name?: string;
+    readonly name: string;
     /**
      * Properties of the Guest configuration assignment.
      */
@@ -97,7 +97,7 @@ export interface GetGuestConfigurationHCRPAssignmentOutputArgs {
      */
     machineName: pulumi.Input<string>;
     /**
-     * The resource group name.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

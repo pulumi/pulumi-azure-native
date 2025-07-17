@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Confluent
     public static class ListAccessServiceAccounts
     {
         /// <summary>
-        /// List service accounts success response
+        /// Organization service accounts details
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// 
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Confluent
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccessServiceAccountsResult>("azure-native:confluent:listAccessServiceAccounts", args ?? new ListAccessServiceAccountsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List service accounts success response
+        /// Organization service accounts details
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// 
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Confluent
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessServiceAccountsResult>("azure-native:confluent:listAccessServiceAccounts", args ?? new ListAccessServiceAccountsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List service accounts success response
+        /// Organization service accounts details
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// 
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Confluent
         public string OrganizationName { get; set; } = null!;
 
         /// <summary>
-        /// Resource group name
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Confluent
         public Input<string> OrganizationName { get; set; } = null!;
 
         /// <summary>
-        /// Resource group name
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

@@ -13,7 +13,13 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     [OutputType]
     public sealed class NotificationEndpointResponse
     {
+        /// <summary>
+        /// The locations.
+        /// </summary>
         public readonly ImmutableArray<string> Locations;
+        /// <summary>
+        /// The notification destination.
+        /// </summary>
         public readonly string? NotificationDestination;
 
         [OutputConstructor]

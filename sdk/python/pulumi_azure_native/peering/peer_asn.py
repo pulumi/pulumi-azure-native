@@ -108,6 +108,8 @@ class PeerAsn(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
+        Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.int] peer_asn: The Autonomous System Number (ASN) of the peer.
@@ -125,6 +127,8 @@ class PeerAsn(pulumi.CustomResource):
         The essential information related to the peer's ASN.
 
         Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+
+        Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param PeerAsnArgs args: The arguments to use to populate this resource's properties.
@@ -163,7 +167,7 @@ class PeerAsn(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["validation_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:peering/v20190801preview:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20190901preview:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20200101preview:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20200401:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20201001:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20210101:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20210601:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20220101:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20220601:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20221001:PeerAsn")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:peering/v20190801preview:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20190901preview:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20200101preview:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20200401:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20201001:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20210101:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20210601:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20220101:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20220601:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20221001:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20250501:PeerAsn")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PeerAsn, __self__).__init__(
             'azure-native:peering:PeerAsn',

@@ -160,8 +160,8 @@ def get_secret(expand: Optional[builtins.str] = None,
 
     :param builtins.str expand: Specify the $expand query. Example: 'properties($select=value)'
     :param builtins.str lab_name: The name of the lab.
-    :param builtins.str name: The name of the secret.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str name: The name of the Secret
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str user_name: The name of the user profile.
     """
     __args__ = dict()
@@ -197,8 +197,8 @@ def get_secret_output(expand: Optional[pulumi.Input[Optional[builtins.str]]] = N
 
     :param builtins.str expand: Specify the $expand query. Example: 'properties($select=value)'
     :param builtins.str lab_name: The name of the lab.
-    :param builtins.str name: The name of the secret.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str name: The name of the Secret
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str user_name: The name of the user profile.
     """
     __args__ = dict()

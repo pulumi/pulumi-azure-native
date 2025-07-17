@@ -117,7 +117,7 @@ class GetMaintenanceConfigurationResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Fully qualified identifier of the resource
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -131,9 +131,9 @@ class GetMaintenanceConfigurationResult:
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[builtins.str]:
+    def location(self) -> builtins.str:
         """
-        Gets or sets location of the resource
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -149,7 +149,7 @@ class GetMaintenanceConfigurationResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Name of the resource
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -189,7 +189,7 @@ class GetMaintenanceConfigurationResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Gets or sets tags of the resource
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -205,7 +205,7 @@ class GetMaintenanceConfigurationResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Type of the resource
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -247,15 +247,15 @@ def get_maintenance_configuration(resource_group_name: Optional[builtins.str] = 
                                   resource_name: Optional[builtins.str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMaintenanceConfigurationResult:
     """
-    Maintenance configuration record type
+    Get Configuration record
 
     Uses Azure REST API version 2023-10-01-preview.
 
     Other available API versions: 2022-11-01-preview, 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str resource_group_name: Resource Group Name
-    :param builtins.str resource_name: Maintenance Configuration Name
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param builtins.str resource_name: The name of the MaintenanceConfiguration
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -285,15 +285,15 @@ def get_maintenance_configuration_output(resource_group_name: Optional[pulumi.In
                                          resource_name: Optional[pulumi.Input[builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMaintenanceConfigurationResult]:
     """
-    Maintenance configuration record type
+    Get Configuration record
 
     Uses Azure REST API version 2023-10-01-preview.
 
     Other available API versions: 2022-11-01-preview, 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str resource_group_name: Resource Group Name
-    :param builtins.str resource_name: Maintenance Configuration Name
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param builtins.str resource_name: The name of the MaintenanceConfiguration
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name

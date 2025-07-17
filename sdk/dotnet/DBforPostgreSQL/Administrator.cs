@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     /// <summary>
-    /// Represents an Active Directory administrator.
+    /// Server administrator associated to a Microsoft Entra principal.
     /// 
     /// Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
     /// 
@@ -32,19 +32,19 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The objectId of the Active Directory administrator.
+        /// Object identifier of the Microsoft Entra principal.
         /// </summary>
         [Output("objectId")]
         public Output<string?> ObjectId { get; private set; } = null!;
 
         /// <summary>
-        /// Active Directory administrator principal name.
+        /// Name of the Microsoft Entra principal.
         /// </summary>
         [Output("principalName")]
         public Output<string?> PrincipalName { get; private set; } = null!;
 
         /// <summary>
-        /// The principal type used to represent the type of Active Directory Administrator.
+        /// Type of Microsoft Entra principal to which the server administrator is associated.
         /// </summary>
         [Output("principalType")]
         public Output<string?> PrincipalType { get; private set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// The tenantId of the Active Directory administrator.
+        /// Identifier of the tenant in which the Microsoft Entra principal exists.
         /// </summary>
         [Output("tenantId")]
         public Output<string?> TenantId { get; private set; } = null!;
@@ -125,19 +125,19 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class AdministratorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Guid of the objectId for the administrator.
+        /// Object identifier of the Microsoft Entra principal.
         /// </summary>
         [Input("objectId")]
         public Input<string>? ObjectId { get; set; }
 
         /// <summary>
-        /// Active Directory administrator principal name.
+        /// Name of the Microsoft Entra principal.
         /// </summary>
         [Input("principalName")]
         public Input<string>? PrincipalName { get; set; }
 
         /// <summary>
-        /// The principal type used to represent the type of Active Directory Administrator.
+        /// The type of Microsoft Entra principal to which the server administrator is associated.
         /// </summary>
         [Input("principalType")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.PrincipalType>? PrincipalType { get; set; }
@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
-        /// The tenantId of the Active Directory administrator.
+        /// Identifier of the tenant in which the Microsoft Entra principal exists.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }

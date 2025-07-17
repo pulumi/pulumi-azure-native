@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
+    /// <summary>
+    /// The expedited rollout definition.
+    /// </summary>
     public sealed class DefaultRolloutSpecificationExpeditedRolloutArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

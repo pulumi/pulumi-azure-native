@@ -129,9 +129,6 @@ class GetNamespaceAuthorizationRuleResult:
     @property
     @pulumi.getter
     def location(self) -> Optional[builtins.str]:
-        """
-        Deprecated - only for compatibility.
-        """
         return pulumi.get(self, "location")
 
     @property
@@ -195,9 +192,6 @@ class GetNamespaceAuthorizationRuleResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
-        """
-        Deprecated - only for compatibility.
-        """
         return pulumi.get(self, "tags")
 
     @property
@@ -238,7 +232,7 @@ def get_namespace_authorization_rule(authorization_rule_name: Optional[builtins.
                                      resource_group_name: Optional[builtins.str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceAuthorizationRuleResult:
     """
-    Response for POST requests that return single SharedAccessAuthorizationRule.
+    Gets an authorization rule for a namespace by name.
 
     Uses Azure REST API version 2023-10-01-preview.
 
@@ -278,7 +272,7 @@ def get_namespace_authorization_rule_output(authorization_rule_name: Optional[pu
                                             resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceAuthorizationRuleResult]:
     """
-    Response for POST requests that return single SharedAccessAuthorizationRule.
+    Gets an authorization rule for a namespace by name.
 
     Uses Azure REST API version 2023-10-01-preview.
 

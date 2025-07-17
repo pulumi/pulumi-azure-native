@@ -10,13 +10,35 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Outputs
 {
 
+    /// <summary>
+    /// The default rollout status.
+    /// </summary>
     [OutputType]
     public sealed class DefaultRolloutPropertiesResponseStatus
     {
+        /// <summary>
+        /// The completed regions.
+        /// </summary>
         public readonly ImmutableArray<string> CompletedRegions;
+        /// <summary>
+        /// The failed or skipped regions.
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ExtendedErrorInfoResponse>? FailedOrSkippedRegions;
+        /// <summary>
+        /// The manifest checkin status.
+        /// </summary>
+        public readonly Outputs.DefaultRolloutStatusResponseManifestCheckinStatus? ManifestCheckinStatus;
+        /// <summary>
+        /// The next traffic region.
+        /// </summary>
         public readonly string? NextTrafficRegion;
+        /// <summary>
+        /// The next traffic region scheduled time.
+        /// </summary>
         public readonly string? NextTrafficRegionScheduledTime;
+        /// <summary>
+        /// The subscription reregistration result.
+        /// </summary>
         public readonly string? SubscriptionReregistrationResult;
 
         [OutputConstructor]
@@ -24,6 +46,8 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
             ImmutableArray<string> completedRegions,
 
             ImmutableDictionary<string, Outputs.ExtendedErrorInfoResponse>? failedOrSkippedRegions,
+
+            Outputs.DefaultRolloutStatusResponseManifestCheckinStatus? manifestCheckinStatus,
 
             string? nextTrafficRegion,
 
@@ -33,6 +57,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         {
             CompletedRegions = completedRegions;
             FailedOrSkippedRegions = failedOrSkippedRegions;
+            ManifestCheckinStatus = manifestCheckinStatus;
             NextTrafficRegion = nextTrafficRegion;
             NextTrafficRegionScheduledTime = nextTrafficRegionScheduledTime;
             SubscriptionReregistrationResult = subscriptionReregistrationResult;

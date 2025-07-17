@@ -111,7 +111,6 @@ namespace Pulumi.AzureNative.LoadTestService
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:loadtestservice/v20211201preview:LoadTest" },
-                    new global::Pulumi.Alias { Type = "azure-native:loadtestservice/v20220415preview:LoadTest" },
                     new global::Pulumi.Alias { Type = "azure-native:loadtestservice/v20221201:LoadTest" },
                     new global::Pulumi.Alias { Type = "azure-native:loadtestservice/v20231201preview:LoadTest" },
                     new global::Pulumi.Alias { Type = "azure-native:loadtestservice/v20241201preview:LoadTest" },

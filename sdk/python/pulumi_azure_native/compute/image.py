@@ -33,14 +33,14 @@ class ImageArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Image resource.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the Image.
         :param pulumi.Input[Union[builtins.str, 'HyperVGenerationTypes']] hyper_v_generation: Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
         :param pulumi.Input[builtins.str] image_name: The name of the image.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['SubResourceArgs'] source_virtual_machine: The source virtual machine from which Image is created.
         :param pulumi.Input['ImageStorageProfileArgs'] storage_profile: Specifies the storage settings for the virtual machine disks.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if extended_location is not None:
@@ -62,7 +62,7 @@ class ImageArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -110,7 +110,7 @@ class ImageArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -146,7 +146,7 @@ class ImageArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -182,11 +182,11 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the Image.
         :param pulumi.Input[Union[builtins.str, 'HyperVGenerationTypes']] hyper_v_generation: Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
         :param pulumi.Input[builtins.str] image_name: The name of the image.
-        :param pulumi.Input[builtins.str] location: Resource location
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] source_virtual_machine: The source virtual machine from which Image is created.
         :param pulumi.Input[Union['ImageStorageProfileArgs', 'ImageStorageProfileArgsDict']] storage_profile: Specifies the storage settings for the virtual machine disks.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -246,6 +246,7 @@ class Image(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20160430preview:Image"), pulumi.Alias(type_="azure-native:compute/v20170330:Image"), pulumi.Alias(type_="azure-native:compute/v20171201:Image"), pulumi.Alias(type_="azure-native:compute/v20180401:Image"), pulumi.Alias(type_="azure-native:compute/v20180601:Image"), pulumi.Alias(type_="azure-native:compute/v20181001:Image"), pulumi.Alias(type_="azure-native:compute/v20190301:Image"), pulumi.Alias(type_="azure-native:compute/v20190701:Image"), pulumi.Alias(type_="azure-native:compute/v20191201:Image"), pulumi.Alias(type_="azure-native:compute/v20200601:Image"), pulumi.Alias(type_="azure-native:compute/v20201201:Image"), pulumi.Alias(type_="azure-native:compute/v20210301:Image"), pulumi.Alias(type_="azure-native:compute/v20210401:Image"), pulumi.Alias(type_="azure-native:compute/v20210701:Image"), pulumi.Alias(type_="azure-native:compute/v20211101:Image"), pulumi.Alias(type_="azure-native:compute/v20220301:Image"), pulumi.Alias(type_="azure-native:compute/v20220801:Image"), pulumi.Alias(type_="azure-native:compute/v20221101:Image"), pulumi.Alias(type_="azure-native:compute/v20230301:Image"), pulumi.Alias(type_="azure-native:compute/v20230701:Image"), pulumi.Alias(type_="azure-native:compute/v20230901:Image"), pulumi.Alias(type_="azure-native:compute/v20240301:Image"), pulumi.Alias(type_="azure-native:compute/v20240701:Image"), pulumi.Alias(type_="azure-native:compute/v20241101:Image")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -279,6 +280,7 @@ class Image(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["source_virtual_machine"] = None
         __props__.__dict__["storage_profile"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Image(resource_name, opts=opts, __props__=__props__)
@@ -311,7 +313,7 @@ class Image(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -319,7 +321,7 @@ class Image(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -348,10 +350,18 @@ class Image(pulumi.CustomResource):
         return pulumi.get(self, "storage_profile")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -359,7 +369,7 @@ class Image(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

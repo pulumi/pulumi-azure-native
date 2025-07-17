@@ -168,6 +168,8 @@ def get_dns_resolver_policy_virtual_network_link(dns_resolver_policy_name: Optio
 
     Uses Azure REST API version 2023-07-01-preview.
 
+    Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str dns_resolver_policy_name: The name of the DNS resolver policy.
     :param builtins.str dns_resolver_policy_virtual_network_link_name: The name of the DNS resolver policy virtual network link for the DNS resolver policy.
@@ -199,6 +201,8 @@ def get_dns_resolver_policy_virtual_network_link_output(dns_resolver_policy_name
     Gets properties of a DNS resolver policy virtual network link.
 
     Uses Azure REST API version 2023-07-01-preview.
+
+    Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str dns_resolver_policy_name: The name of the DNS resolver policy.

@@ -90,11 +90,11 @@ namespace Pulumi.AzureNative.Dns
         /// </summary>
         public readonly string? Etag;
         /// <summary>
-        /// The ID of the DNSSEC configuration.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the DNSSEC configuration.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -106,11 +106,11 @@ namespace Pulumi.AzureNative.Dns
         /// </summary>
         public readonly ImmutableArray<Outputs.SigningKeyResponse> SigningKeys;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// The type of the DNSSEC configuration.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

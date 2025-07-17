@@ -12,11 +12,30 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
     public sealed class ThrottlingRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action.
+        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
+        [Input("applicationId")]
+        private InputList<string>? _applicationId;
+
+        /// <summary>
+        /// The application id.
+        /// </summary>
+        public InputList<string> ApplicationId
+        {
+            get => _applicationId ?? (_applicationId = new InputList<string>());
+            set => _applicationId = value;
+        }
+
         [Input("metrics", required: true)]
         private InputList<Inputs.ThrottlingMetricArgs>? _metrics;
+
+        /// <summary>
+        /// The metrics.
+        /// </summary>
         public InputList<Inputs.ThrottlingMetricArgs> Metrics
         {
             get => _metrics ?? (_metrics = new InputList<Inputs.ThrottlingMetricArgs>());
@@ -25,6 +44,10 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
         [Input("requiredFeatures")]
         private InputList<string>? _requiredFeatures;
+
+        /// <summary>
+        /// The required features.
+        /// </summary>
         public InputList<string> RequiredFeatures
         {
             get => _requiredFeatures ?? (_requiredFeatures = new InputList<string>());

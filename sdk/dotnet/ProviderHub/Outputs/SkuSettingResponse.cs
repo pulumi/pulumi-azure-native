@@ -13,17 +13,53 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     [OutputType]
     public sealed class SkuSettingResponse
     {
+        /// <summary>
+        /// The capabilities.
+        /// </summary>
         public readonly ImmutableArray<Outputs.SkuCapabilityResponse> Capabilities;
+        /// <summary>
+        /// The capacity.
+        /// </summary>
         public readonly Outputs.SkuSettingResponseCapacity? Capacity;
+        /// <summary>
+        /// The costs.
+        /// </summary>
         public readonly ImmutableArray<Outputs.SkuCostResponse> Costs;
+        /// <summary>
+        /// The family.
+        /// </summary>
         public readonly string? Family;
+        /// <summary>
+        /// The kind.
+        /// </summary>
         public readonly string? Kind;
+        /// <summary>
+        /// The location info.
+        /// </summary>
         public readonly ImmutableArray<Outputs.SkuLocationInfoResponse> LocationInfo;
+        /// <summary>
+        /// The locations.
+        /// </summary>
         public readonly ImmutableArray<string> Locations;
+        /// <summary>
+        /// The name.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The required features.
+        /// </summary>
         public readonly ImmutableArray<string> RequiredFeatures;
+        /// <summary>
+        /// The required quota ids.
+        /// </summary>
         public readonly ImmutableArray<string> RequiredQuotaIds;
+        /// <summary>
+        /// The size.
+        /// </summary>
         public readonly string? Size;
+        /// <summary>
+        /// The tier.
+        /// </summary>
         public readonly string? Tier;
 
         [OutputConstructor]

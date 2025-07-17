@@ -12,6 +12,9 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
     public sealed class OpenApiConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The open api validation.
+        /// </summary>
         [Input("validation")]
         public Input<Inputs.OpenApiValidationArgs>? Validation { get; set; }
 

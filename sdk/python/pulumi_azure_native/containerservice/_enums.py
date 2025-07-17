@@ -15,6 +15,7 @@ __all__ = [
     'Code',
     'ConnectionStatus',
     'DeletePolicy',
+    'DeploymentSafeguardsLevel',
     'Expander',
     'ExtendedLocationTypes',
     'GPUInstanceProfile',
@@ -175,6 +176,21 @@ class DeletePolicy(builtins.str, Enum):
     DELETE = "Delete"
     """
     Delete both the ARM resource and the Kubernetes namespace together.
+    """
+
+
+@pulumi.type_token("azure-native:containerservice:DeploymentSafeguardsLevel")
+class DeploymentSafeguardsLevel(builtins.str, Enum):
+    """
+    The deployment safeguards level. Possible values are Warn and Enforce
+    """
+    WARN = "Warn"
+    """
+    Best practice violations will only show warnings
+    """
+    ENFORCE = "Enforce"
+    """
+    Best practice violations will be denied
     """
 
 

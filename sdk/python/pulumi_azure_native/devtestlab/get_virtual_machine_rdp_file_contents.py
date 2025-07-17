@@ -61,8 +61,8 @@ def get_virtual_machine_rdp_file_contents(lab_name: Optional[builtins.str] = Non
 
 
     :param builtins.str lab_name: The name of the lab.
-    :param builtins.str name: The name of the virtual machine.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str name: The name of the LabVirtualMachine
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['labName'] = lab_name
@@ -84,8 +84,8 @@ def get_virtual_machine_rdp_file_contents_output(lab_name: Optional[pulumi.Input
 
 
     :param builtins.str lab_name: The name of the lab.
-    :param builtins.str name: The name of the virtual machine.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str name: The name of the LabVirtualMachine
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['labName'] = lab_name

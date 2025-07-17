@@ -38,9 +38,9 @@ class PrivateRecordSetArgs:
                  txt_records: Optional[pulumi.Input[Sequence[pulumi.Input['TxtRecordArgs']]]] = None):
         """
         The set of arguments for constructing a PrivateRecordSet resource.
-        :param pulumi.Input[builtins.str] private_zone_name: The name of the Private DNS zone (without a terminating dot).
-        :param pulumi.Input[builtins.str] record_type: The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the Private DNS zone is created).
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] private_zone_name: The name of the DNS zone (without a terminating dot).
+        :param pulumi.Input[builtins.str] record_type: The type of DNS record in this record set.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['ARecordArgs']]] a_records: The list of A records in the record set.
         :param pulumi.Input[Sequence[pulumi.Input['AaaaRecordArgs']]] aaaa_records: The list of AAAA records in the record set.
         :param pulumi.Input['CnameRecordArgs'] cname_record: The CNAME record in the record set.
@@ -83,7 +83,7 @@ class PrivateRecordSetArgs:
     @pulumi.getter(name="privateZoneName")
     def private_zone_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the Private DNS zone (without a terminating dot).
+        The name of the DNS zone (without a terminating dot).
         """
         return pulumi.get(self, "private_zone_name")
 
@@ -95,7 +95,7 @@ class PrivateRecordSetArgs:
     @pulumi.getter(name="recordType")
     def record_type(self) -> pulumi.Input[builtins.str]:
         """
-        The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the Private DNS zone is created).
+        The type of DNS record in this record set.
         """
         return pulumi.get(self, "record_type")
 
@@ -107,7 +107,7 @@ class PrivateRecordSetArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -283,11 +283,11 @@ class PrivateRecordSet(pulumi.CustomResource):
         :param pulumi.Input[Union['CnameRecordArgs', 'CnameRecordArgsDict']] cname_record: The CNAME record in the record set.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] metadata: The metadata attached to the record set.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MxRecordArgs', 'MxRecordArgsDict']]]] mx_records: The list of MX records in the record set.
-        :param pulumi.Input[builtins.str] private_zone_name: The name of the Private DNS zone (without a terminating dot).
+        :param pulumi.Input[builtins.str] private_zone_name: The name of the DNS zone (without a terminating dot).
         :param pulumi.Input[Sequence[pulumi.Input[Union['PtrRecordArgs', 'PtrRecordArgsDict']]]] ptr_records: The list of PTR records in the record set.
-        :param pulumi.Input[builtins.str] record_type: The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the Private DNS zone is created).
+        :param pulumi.Input[builtins.str] record_type: The type of DNS record in this record set.
         :param pulumi.Input[builtins.str] relative_record_set_name: The name of the record set, relative to the name of the zone.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['SoaRecordArgs', 'SoaRecordArgsDict']] soa_record: The SOA record in the record set.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SrvRecordArgs', 'SrvRecordArgsDict']]]] srv_records: The list of SRV records in the record set.
         :param pulumi.Input[builtins.float] ttl: The TTL (time-to-live) of the records in the record set.
@@ -369,6 +369,7 @@ class PrivateRecordSet(pulumi.CustomResource):
             __props__.__dict__["fqdn"] = None
             __props__.__dict__["is_auto_registered"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200601:PrivateRecordSet"), pulumi.Alias(type_="azure-native:network/v20240601:PrivateRecordSet"), pulumi.Alias(type_="azure-native:network:PrivateRecordSet"), pulumi.Alias(type_="azure-native:privatedns/v20180901:PrivateRecordSet"), pulumi.Alias(type_="azure-native:privatedns/v20200101:PrivateRecordSet"), pulumi.Alias(type_="azure-native:privatedns/v20200601:PrivateRecordSet"), pulumi.Alias(type_="azure-native:privatedns/v20240601:PrivateRecordSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -407,6 +408,7 @@ class PrivateRecordSet(pulumi.CustomResource):
         __props__.__dict__["ptr_records"] = None
         __props__.__dict__["soa_record"] = None
         __props__.__dict__["srv_records"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["ttl"] = None
         __props__.__dict__["txt_records"] = None
         __props__.__dict__["type"] = None
@@ -517,6 +519,14 @@ class PrivateRecordSet(pulumi.CustomResource):
         return pulumi.get(self, "srv_records")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def ttl(self) -> pulumi.Output[Optional[builtins.float]]:
         """
@@ -536,7 +546,7 @@ class PrivateRecordSet(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

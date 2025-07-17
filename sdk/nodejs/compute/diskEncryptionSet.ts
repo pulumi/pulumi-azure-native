@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-03-02. In version 2.x of the Azure Native provider, it used API version 2022-07-02.
  *
- * Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class DiskEncryptionSet extends pulumi.CustomResource {
     /**
@@ -70,11 +70,11 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastKeyRotationTimestamp!: pulumi.Output<string>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -90,11 +90,15 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      */
     public readonly rotationToLatestKeyVersionEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -127,6 +131,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["previousKeys"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["activeKey"] = undefined /*out*/;
@@ -141,11 +146,12 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
             resourceInputs["previousKeys"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["rotationToLatestKeyVersionEnabled"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20190701:DiskEncryptionSet" }, { type: "azure-native:compute/v20191101:DiskEncryptionSet" }, { type: "azure-native:compute/v20200501:DiskEncryptionSet" }, { type: "azure-native:compute/v20200630:DiskEncryptionSet" }, { type: "azure-native:compute/v20200930:DiskEncryptionSet" }, { type: "azure-native:compute/v20201201:DiskEncryptionSet" }, { type: "azure-native:compute/v20210401:DiskEncryptionSet" }, { type: "azure-native:compute/v20210801:DiskEncryptionSet" }, { type: "azure-native:compute/v20211201:DiskEncryptionSet" }, { type: "azure-native:compute/v20220302:DiskEncryptionSet" }, { type: "azure-native:compute/v20220702:DiskEncryptionSet" }, { type: "azure-native:compute/v20230102:DiskEncryptionSet" }, { type: "azure-native:compute/v20230402:DiskEncryptionSet" }, { type: "azure-native:compute/v20231002:DiskEncryptionSet" }, { type: "azure-native:compute/v20240302:DiskEncryptionSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20190701:DiskEncryptionSet" }, { type: "azure-native:compute/v20191101:DiskEncryptionSet" }, { type: "azure-native:compute/v20200501:DiskEncryptionSet" }, { type: "azure-native:compute/v20200630:DiskEncryptionSet" }, { type: "azure-native:compute/v20200930:DiskEncryptionSet" }, { type: "azure-native:compute/v20201201:DiskEncryptionSet" }, { type: "azure-native:compute/v20210401:DiskEncryptionSet" }, { type: "azure-native:compute/v20210801:DiskEncryptionSet" }, { type: "azure-native:compute/v20211201:DiskEncryptionSet" }, { type: "azure-native:compute/v20220302:DiskEncryptionSet" }, { type: "azure-native:compute/v20220702:DiskEncryptionSet" }, { type: "azure-native:compute/v20230102:DiskEncryptionSet" }, { type: "azure-native:compute/v20230402:DiskEncryptionSet" }, { type: "azure-native:compute/v20231002:DiskEncryptionSet" }, { type: "azure-native:compute/v20240302:DiskEncryptionSet" }, { type: "azure-native:compute/v20250102:DiskEncryptionSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiskEncryptionSet.__pulumiType, name, resourceInputs, opts);
     }
@@ -176,11 +182,11 @@ export interface DiskEncryptionSetArgs {
      */
     identity?: pulumi.Input<inputs.compute.EncryptionSetIdentityArgs>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -188,7 +194,7 @@ export interface DiskEncryptionSetArgs {
      */
     rotationToLatestKeyVersionEnabled?: pulumi.Input<boolean>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

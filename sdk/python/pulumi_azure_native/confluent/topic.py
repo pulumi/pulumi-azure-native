@@ -363,6 +363,7 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["topic_name"] = topic_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:confluent/v20240701:Topic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -398,6 +399,7 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["partitions_count"] = None
         __props__.__dict__["partitions_reassignments"] = None
         __props__.__dict__["replication_factor"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["topic_id"] = None
         __props__.__dict__["type"] = None
         return Topic(resource_name, opts=opts, __props__=__props__)
@@ -446,7 +448,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Display name of the topic
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -483,6 +485,14 @@ class Topic(pulumi.CustomResource):
         return pulumi.get(self, "replication_factor")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter(name="topicId")
     def topic_id(self) -> pulumi.Output[Optional[builtins.str]]:
         """
@@ -494,7 +504,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

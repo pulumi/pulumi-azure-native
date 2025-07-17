@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Compute
         public string? Expand { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<string>? Expand { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly ImmutableArray<Outputs.ApiEntityReferenceResponse> ExcludeDisks;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.RestorePointInstanceViewResponse InstanceView;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -148,11 +148,15 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.ApiEntityReferenceResponse? SourceRestorePoint;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Gets the creation time of the restore point.
         /// </summary>
         public readonly string? TimeCreated;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -176,6 +180,8 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.ApiEntityReferenceResponse? sourceRestorePoint,
 
+            Outputs.SystemDataResponse systemData,
+
             string? timeCreated,
 
             string type)
@@ -189,6 +195,7 @@ namespace Pulumi.AzureNative.Compute
             ProvisioningState = provisioningState;
             SourceMetadata = sourceMetadata;
             SourceRestorePoint = sourceRestorePoint;
+            SystemData = systemData;
             TimeCreated = timeCreated;
             Type = type;
         }

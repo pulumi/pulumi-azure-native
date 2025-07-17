@@ -21,6 +21,18 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("action")]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.RuleAction>? Action { get; set; }
 
+        [Input("addressPrefixes")]
+        private InputList<string>? _addressPrefixes;
+
+        /// <summary>
+        /// Optional, if provided, the ServiceTag property will be ignored.
+        /// </summary>
+        public InputList<string> AddressPrefixes
+        {
+            get => _addressPrefixes ?? (_addressPrefixes = new InputList<string>());
+            set => _addressPrefixes = value;
+        }
+
         [Input("portRanges")]
         public Input<string>? PortRanges { get; set; }
 

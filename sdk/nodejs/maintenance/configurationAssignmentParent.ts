@@ -58,7 +58,7 @@ export class ConfigurationAssignmentParent extends pulumi.CustomResource {
      */
     public readonly maintenanceConfigurationId!: pulumi.Output<string | undefined>;
     /**
-     * Name of the resource
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -70,7 +70,7 @@ export class ConfigurationAssignmentParent extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.maintenance.SystemDataResponse>;
     /**
-     * Type of the resource
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -140,7 +140,7 @@ export class ConfigurationAssignmentParent extends pulumi.CustomResource {
  */
 export interface ConfigurationAssignmentParentArgs {
     /**
-     * Configuration assignment name
+     * The name of the ConfigurationAssignment
      */
     configurationAssignmentName?: pulumi.Input<string>;
     /**
@@ -160,7 +160,7 @@ export interface ConfigurationAssignmentParentArgs {
      */
     providerName: pulumi.Input<string>;
     /**
-     * Resource group name
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -168,11 +168,11 @@ export interface ConfigurationAssignmentParentArgs {
      */
     resourceId?: pulumi.Input<string>;
     /**
-     * Resource identifier
+     * Resource name
      */
     resourceName: pulumi.Input<string>;
     /**
-     * Resource parent identifier
+     * Resource parent name
      */
     resourceParentName: pulumi.Input<string>;
     /**

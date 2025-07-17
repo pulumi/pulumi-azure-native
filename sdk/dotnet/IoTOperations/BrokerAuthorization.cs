@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.IoTOperations
     /// 
     /// Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01-preview.
     /// 
-    /// Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperations:BrokerAuthorization")]
     public partial class BrokerAuthorization : global::Pulumi.CustomResource
@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.IoTOperations
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240915preview:BrokerAuthorization" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20241101:BrokerAuthorization" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20250401:BrokerAuthorization" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20250701preview:BrokerAuthorization" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Elastic
         /// 
         /// Uses Azure REST API version 2025-01-15-preview.
         /// 
-        /// Other available API versions: 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetMonitoredSubscriptionResult> InvokeAsync(GetMonitoredSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitoredSubscriptionResult>("azure-native:elastic:getMonitoredSubscription", args ?? new GetMonitoredSubscriptionArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Elastic
         /// 
         /// Uses Azure REST API version 2025-01-15-preview.
         /// 
-        /// Other available API versions: 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMonitoredSubscriptionResult> Invoke(GetMonitoredSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitoredSubscriptionResult>("azure-native:elastic:getMonitoredSubscription", args ?? new GetMonitoredSubscriptionInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Elastic
         /// 
         /// Uses Azure REST API version 2025-01-15-preview.
         /// 
-        /// Other available API versions: 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMonitoredSubscriptionResult> Invoke(GetMonitoredSubscriptionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitoredSubscriptionResult>("azure-native:elastic:getMonitoredSubscription", args ?? new GetMonitoredSubscriptionInvokeArgs(), options.WithDefaults());

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.NotificationHubs
     public static class GetNotificationHubAuthorizationRule
     {
         /// <summary>
-        /// Response for POST requests that return single SharedAccessAuthorizationRule.
+        /// Gets an authorization rule for a NotificationHub by name.
         /// 
         /// Uses Azure REST API version 2023-10-01-preview.
         /// 
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.NotificationHubs
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotificationHubAuthorizationRuleResult>("azure-native:notificationhubs:getNotificationHubAuthorizationRule", args ?? new GetNotificationHubAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Response for POST requests that return single SharedAccessAuthorizationRule.
+        /// Gets an authorization rule for a NotificationHub by name.
         /// 
         /// Uses Azure REST API version 2023-10-01-preview.
         /// 
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.NotificationHubs
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationHubAuthorizationRuleResult>("azure-native:notificationhubs:getNotificationHubAuthorizationRule", args ?? new GetNotificationHubAuthorizationRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Response for POST requests that return single SharedAccessAuthorizationRule.
+        /// Gets an authorization rule for a NotificationHub by name.
         /// 
         /// Uses Azure REST API version 2023-10-01-preview.
         /// 
@@ -135,9 +135,6 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// Gets a string that describes the authorization rule.
         /// </summary>
         public readonly string KeyName;
-        /// <summary>
-        /// Deprecated - only for compatibility.
-        /// </summary>
         public readonly string? Location;
         /// <summary>
         /// Gets the last modified time for this rule
@@ -169,9 +166,6 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
-        /// Deprecated - only for compatibility.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

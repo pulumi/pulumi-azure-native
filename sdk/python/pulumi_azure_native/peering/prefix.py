@@ -121,6 +121,8 @@ class Prefix(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
+        Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] peering_service_name: The name of the peering service.
@@ -139,6 +141,8 @@ class Prefix(pulumi.CustomResource):
         The peering service prefix class.
 
         Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+
+        Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param PrefixArgs args: The arguments to use to populate this resource's properties.
@@ -186,7 +190,7 @@ class Prefix(pulumi.CustomResource):
             __props__.__dict__["prefix_validation_state"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:peering/v20190801preview:Prefix"), pulumi.Alias(type_="azure-native:peering/v20190901preview:Prefix"), pulumi.Alias(type_="azure-native:peering/v20200101preview:Prefix"), pulumi.Alias(type_="azure-native:peering/v20200401:Prefix"), pulumi.Alias(type_="azure-native:peering/v20201001:Prefix"), pulumi.Alias(type_="azure-native:peering/v20210101:Prefix"), pulumi.Alias(type_="azure-native:peering/v20210601:Prefix"), pulumi.Alias(type_="azure-native:peering/v20220101:Prefix"), pulumi.Alias(type_="azure-native:peering/v20220601:Prefix"), pulumi.Alias(type_="azure-native:peering/v20221001:Prefix")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:peering/v20190801preview:Prefix"), pulumi.Alias(type_="azure-native:peering/v20190901preview:Prefix"), pulumi.Alias(type_="azure-native:peering/v20200101preview:Prefix"), pulumi.Alias(type_="azure-native:peering/v20200401:Prefix"), pulumi.Alias(type_="azure-native:peering/v20201001:Prefix"), pulumi.Alias(type_="azure-native:peering/v20210101:Prefix"), pulumi.Alias(type_="azure-native:peering/v20210601:Prefix"), pulumi.Alias(type_="azure-native:peering/v20220101:Prefix"), pulumi.Alias(type_="azure-native:peering/v20220601:Prefix"), pulumi.Alias(type_="azure-native:peering/v20221001:Prefix"), pulumi.Alias(type_="azure-native:peering/v20250501:Prefix")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Prefix, __self__).__init__(
             'azure-native:peering:Prefix',

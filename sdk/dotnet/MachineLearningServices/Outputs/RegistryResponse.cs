@@ -42,6 +42,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.RegistryRegionArmDetailsResponse> RegionDetails;
         /// <summary>
+        /// RegistryId Guid for this registry
+        /// </summary>
+        public readonly string? RegistryId;
+        /// <summary>
         /// Private endpoint connections info used for pending connections in private link portal
         /// </summary>
         public readonly ImmutableArray<Outputs.RegistryPrivateEndpointConnectionResponse> RegistryPrivateEndpointConnections;
@@ -60,6 +64,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             ImmutableArray<Outputs.RegistryRegionArmDetailsResponse> regionDetails,
 
+            string? registryId,
+
             ImmutableArray<Outputs.RegistryPrivateEndpointConnectionResponse> registryPrivateEndpointConnections)
         {
             DiscoveryUrl = discoveryUrl;
@@ -68,6 +74,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
             MlFlowRegistryUri = mlFlowRegistryUri;
             PublicNetworkAccess = publicNetworkAccess;
             RegionDetails = regionDetails;
+            RegistryId = registryId;
             RegistryPrivateEndpointConnections = registryPrivateEndpointConnections;
         }
     }

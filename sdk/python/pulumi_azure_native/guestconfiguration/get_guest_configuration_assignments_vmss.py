@@ -77,9 +77,9 @@ class GetGuestConfigurationAssignmentsVMSSResult:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[builtins.str]:
+    def name(self) -> builtins.str:
         """
-        Name of the guest configuration assignment.
+        The guest configuration assignment name.
         """
         return pulumi.get(self, "name")
 
@@ -136,7 +136,7 @@ def get_guest_configuration_assignments_vmss(name: Optional[builtins.str] = None
 
 
     :param builtins.str name: The guest configuration assignment name.
-    :param builtins.str resource_group_name: The resource group name.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str vmss_name: The name of the virtual machine scale set.
     """
     __args__ = dict()
@@ -167,7 +167,7 @@ def get_guest_configuration_assignments_vmss_output(name: Optional[pulumi.Input[
 
 
     :param builtins.str name: The guest configuration assignment name.
-    :param builtins.str resource_group_name: The resource group name.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str vmss_name: The name of the virtual machine scale set.
     """
     __args__ = dict()

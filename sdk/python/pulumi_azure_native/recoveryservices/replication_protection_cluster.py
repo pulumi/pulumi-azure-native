@@ -138,7 +138,7 @@ class ReplicationProtectionCluster(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2024-02-01.
 
-        Other available API versions: 2024-02-01, 2024-04-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-02-01, 2024-04-01, 2025-01-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,7 +160,7 @@ class ReplicationProtectionCluster(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2024-02-01.
 
-        Other available API versions: 2024-02-01, 2024-04-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-02-01, 2024-04-01, 2025-01-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ReplicationProtectionClusterArgs args: The arguments to use to populate this resource's properties.
@@ -209,7 +209,7 @@ class ReplicationProtectionCluster(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recoveryservices/v20240201:ReplicationProtectionCluster"), pulumi.Alias(type_="azure-native:recoveryservices/v20240401:ReplicationProtectionCluster"), pulumi.Alias(type_="azure-native:recoveryservices/v20241001:ReplicationProtectionCluster"), pulumi.Alias(type_="azure-native:recoveryservices/v20250101:ReplicationProtectionCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recoveryservices/v20240201:ReplicationProtectionCluster"), pulumi.Alias(type_="azure-native:recoveryservices/v20240401:ReplicationProtectionCluster"), pulumi.Alias(type_="azure-native:recoveryservices/v20241001:ReplicationProtectionCluster"), pulumi.Alias(type_="azure-native:recoveryservices/v20250101:ReplicationProtectionCluster"), pulumi.Alias(type_="azure-native:recoveryservices/v20250201:ReplicationProtectionCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReplicationProtectionCluster, __self__).__init__(
             'azure-native:recoveryservices:ReplicationProtectionCluster',

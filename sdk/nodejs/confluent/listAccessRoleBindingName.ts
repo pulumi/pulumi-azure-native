@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Details of the role binding names returned on successful response
+ * Organization role bindings
  *
  * Uses Azure REST API version 2024-07-01.
  *
@@ -56,7 +56,7 @@ export interface ListAccessRoleBindingNameResult {
     readonly metadata?: outputs.confluent.ConfluentListMetadataResponse;
 }
 /**
- * Details of the role binding names returned on successful response
+ * Organization role bindings
  *
  * Uses Azure REST API version 2024-07-01.
  *

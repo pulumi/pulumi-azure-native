@@ -26,7 +26,7 @@ __all__ = [
 @pulumi.output_type
 class GetMigrationResult:
     """
-    Represents a migration resource.
+    Migration.
     """
     def __init__(__self__, azure_api_version=None, cancel=None, current_status=None, dbs_to_cancel_migration_on=None, dbs_to_migrate=None, dbs_to_trigger_cutover_on=None, id=None, location=None, migrate_roles=None, migration_id=None, migration_instance_resource_id=None, migration_mode=None, migration_option=None, migration_window_end_time_in_utc=None, migration_window_start_time_in_utc=None, name=None, overwrite_dbs_in_target=None, setup_logical_replication_on_source_db_if_needed=None, source_db_server_fully_qualified_domain_name=None, source_db_server_metadata=None, source_db_server_resource_id=None, source_type=None, ssl_mode=None, start_data_migration=None, system_data=None, tags=None, target_db_server_fully_qualified_domain_name=None, target_db_server_metadata=None, target_db_server_resource_id=None, trigger_cutover=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
@@ -135,7 +135,7 @@ class GetMigrationResult:
     @pulumi.getter
     def cancel(self) -> Optional[builtins.str]:
         """
-        To trigger cancel for entire migration we need to send this flag as True
+        Indicates if cancel must be triggered for the entire migration.
         """
         return pulumi.get(self, "cancel")
 
@@ -143,7 +143,7 @@ class GetMigrationResult:
     @pulumi.getter(name="currentStatus")
     def current_status(self) -> 'outputs.MigrationStatusResponse':
         """
-        Current status of migration
+        Current status of a migration.
         """
         return pulumi.get(self, "current_status")
 
@@ -151,7 +151,7 @@ class GetMigrationResult:
     @pulumi.getter(name="dbsToCancelMigrationOn")
     def dbs_to_cancel_migration_on(self) -> Optional[Sequence[builtins.str]]:
         """
-        When you want to trigger cancel for specific databases send cancel flag as True and database names in this array
+        When you want to trigger cancel for specific databases set 'triggerCutover' to 'True' and the names of the specific databases in this array.
         """
         return pulumi.get(self, "dbs_to_cancel_migration_on")
 
@@ -159,7 +159,7 @@ class GetMigrationResult:
     @pulumi.getter(name="dbsToMigrate")
     def dbs_to_migrate(self) -> Optional[Sequence[builtins.str]]:
         """
-        Number of databases to migrate
+        Names of databases to migrate.
         """
         return pulumi.get(self, "dbs_to_migrate")
 
@@ -167,7 +167,7 @@ class GetMigrationResult:
     @pulumi.getter(name="dbsToTriggerCutoverOn")
     def dbs_to_trigger_cutover_on(self) -> Optional[Sequence[builtins.str]]:
         """
-        When you want to trigger cutover for specific databases send triggerCutover flag as True and database names in this array
+        When you want to trigger cutover for specific databases set 'triggerCutover' to 'True' and the names of the specific databases in this array.
         """
         return pulumi.get(self, "dbs_to_trigger_cutover_on")
 
@@ -191,7 +191,7 @@ class GetMigrationResult:
     @pulumi.getter(name="migrateRoles")
     def migrate_roles(self) -> Optional[builtins.str]:
         """
-        To migrate roles and permissions we need to send this flag as True
+        Indicates if roles and permissions must be migrated.
         """
         return pulumi.get(self, "migrate_roles")
 
@@ -199,7 +199,7 @@ class GetMigrationResult:
     @pulumi.getter(name="migrationId")
     def migration_id(self) -> builtins.str:
         """
-        ID for migration, a GUID.
+        Identifier of a migration.
         """
         return pulumi.get(self, "migration_id")
 
@@ -207,7 +207,7 @@ class GetMigrationResult:
     @pulumi.getter(name="migrationInstanceResourceId")
     def migration_instance_resource_id(self) -> Optional[builtins.str]:
         """
-        ResourceId of the private endpoint migration instance
+        Identifier of the private endpoint migration instance.
         """
         return pulumi.get(self, "migration_instance_resource_id")
 
@@ -215,7 +215,7 @@ class GetMigrationResult:
     @pulumi.getter(name="migrationMode")
     def migration_mode(self) -> Optional[builtins.str]:
         """
-        There are two types of migration modes Online and Offline
+        Mode used to perform the migration: Online or Offline.
         """
         return pulumi.get(self, "migration_mode")
 
@@ -223,7 +223,7 @@ class GetMigrationResult:
     @pulumi.getter(name="migrationOption")
     def migration_option(self) -> Optional[builtins.str]:
         """
-        This indicates the supported Migration option for the migration
+        Supported option for a migration.
         """
         return pulumi.get(self, "migration_option")
 
@@ -231,7 +231,7 @@ class GetMigrationResult:
     @pulumi.getter(name="migrationWindowEndTimeInUtc")
     def migration_window_end_time_in_utc(self) -> Optional[builtins.str]:
         """
-        End time in UTC for migration window
+        End time (UTC) for migration window.
         """
         return pulumi.get(self, "migration_window_end_time_in_utc")
 
@@ -239,7 +239,7 @@ class GetMigrationResult:
     @pulumi.getter(name="migrationWindowStartTimeInUtc")
     def migration_window_start_time_in_utc(self) -> Optional[builtins.str]:
         """
-        Start time in UTC for migration window
+        Start time (UTC) for migration window.
         """
         return pulumi.get(self, "migration_window_start_time_in_utc")
 
@@ -255,7 +255,7 @@ class GetMigrationResult:
     @pulumi.getter(name="overwriteDbsInTarget")
     def overwrite_dbs_in_target(self) -> Optional[builtins.str]:
         """
-        Indicates whether the databases on the target server can be overwritten, if already present. If set to False, the migration workflow will wait for a confirmation, if it detects that the database already exists.
+        Indicates if databases on the target server can be overwritten when already present. If set to 'False', when the migration workflow detects that the database already exists on the target server, it will wait for a confirmation.
         """
         return pulumi.get(self, "overwrite_dbs_in_target")
 
@@ -263,7 +263,7 @@ class GetMigrationResult:
     @pulumi.getter(name="setupLogicalReplicationOnSourceDbIfNeeded")
     def setup_logical_replication_on_source_db_if_needed(self) -> Optional[builtins.str]:
         """
-        Indicates whether to setup LogicalReplicationOnSourceDb, if needed
+        Indicates whether to setup LogicalReplicationOnSourceDb, if needed.
         """
         return pulumi.get(self, "setup_logical_replication_on_source_db_if_needed")
 
@@ -271,7 +271,7 @@ class GetMigrationResult:
     @pulumi.getter(name="sourceDbServerFullyQualifiedDomainName")
     def source_db_server_fully_qualified_domain_name(self) -> Optional[builtins.str]:
         """
-        Source server fully qualified domain name (FQDN) or IP address. It is a optional value, if customer provide it, migration service will always use it for connection
+        Fully qualified domain name (FQDN) or IP address of the source server. This property is optional. When provided, the migration service will always use it to connect to the source server.
         """
         return pulumi.get(self, "source_db_server_fully_qualified_domain_name")
 
@@ -279,7 +279,7 @@ class GetMigrationResult:
     @pulumi.getter(name="sourceDbServerMetadata")
     def source_db_server_metadata(self) -> 'outputs.DbServerMetadataResponse':
         """
-        Metadata of the source database server
+        Metadata of source database server.
         """
         return pulumi.get(self, "source_db_server_metadata")
 
@@ -287,7 +287,7 @@ class GetMigrationResult:
     @pulumi.getter(name="sourceDbServerResourceId")
     def source_db_server_resource_id(self) -> Optional[builtins.str]:
         """
-        ResourceId of the source database server in case the sourceType is PostgreSQLSingleServer. For other source types this should be ipaddress:port@username or hostname:port@username
+        Identifier of the source database server resource, when 'sourceType' is 'PostgreSQLSingleServer'. For other source types this must be set to ipaddress:port@username or hostname:port@username.
         """
         return pulumi.get(self, "source_db_server_resource_id")
 
@@ -295,7 +295,7 @@ class GetMigrationResult:
     @pulumi.getter(name="sourceType")
     def source_type(self) -> Optional[builtins.str]:
         """
-        migration source server type : OnPremises, AWS, GCP, AzureVM, PostgreSQLSingleServer, AWS_RDS, AWS_AURORA, AWS_EC2, GCP_CloudSQL, GCP_AlloyDB, GCP_Compute, or EDB
+        Source server type used for the migration: ApsaraDB_RDS, AWS, AWS_AURORA, AWS_EC2, AWS_RDS, AzureVM, Crunchy_PostgreSQL, Digital_Ocean_Droplets, Digital_Ocean_PostgreSQL, EDB, EDB_Oracle_Server, EDB_PostgreSQL, GCP, GCP_AlloyDB, GCP_CloudSQL, GCP_Compute, Heroku_PostgreSQL, Huawei_Compute, Huawei_RDS, OnPremises, PostgreSQLCosmosDB, PostgreSQLFlexibleServer, PostgreSQLSingleServer, or Supabase_PostgreSQL
         """
         return pulumi.get(self, "source_type")
 
@@ -303,7 +303,7 @@ class GetMigrationResult:
     @pulumi.getter(name="sslMode")
     def ssl_mode(self) -> Optional[builtins.str]:
         """
-        SSL modes for migration. Default SSL mode for PostgreSQLSingleServer is VerifyFull and Prefer for other source types
+        SSL mode used by a migration. Default SSL mode for 'PostgreSQLSingleServer' is 'VerifyFull'. Default SSL mode for other source types is 'Prefer'.
         """
         return pulumi.get(self, "ssl_mode")
 
@@ -311,7 +311,7 @@ class GetMigrationResult:
     @pulumi.getter(name="startDataMigration")
     def start_data_migration(self) -> Optional[builtins.str]:
         """
-        Indicates whether the data migration should start right away
+        Indicates if data migration must start right away.
         """
         return pulumi.get(self, "start_data_migration")
 
@@ -335,7 +335,7 @@ class GetMigrationResult:
     @pulumi.getter(name="targetDbServerFullyQualifiedDomainName")
     def target_db_server_fully_qualified_domain_name(self) -> Optional[builtins.str]:
         """
-        Target server fully qualified domain name (FQDN) or IP address. It is a optional value, if customer provide it, migration service will always use it for connection
+        Fully qualified domain name (FQDN) or IP address of the target server. This property is optional. When provided, the migration service will always use it to connect to the target server.
         """
         return pulumi.get(self, "target_db_server_fully_qualified_domain_name")
 
@@ -343,7 +343,7 @@ class GetMigrationResult:
     @pulumi.getter(name="targetDbServerMetadata")
     def target_db_server_metadata(self) -> 'outputs.DbServerMetadataResponse':
         """
-        Metadata of the target database server
+        Metadata of target database server.
         """
         return pulumi.get(self, "target_db_server_metadata")
 
@@ -351,7 +351,7 @@ class GetMigrationResult:
     @pulumi.getter(name="targetDbServerResourceId")
     def target_db_server_resource_id(self) -> builtins.str:
         """
-        ResourceId of the source database server
+        Identifier of the target database server resource.
         """
         return pulumi.get(self, "target_db_server_resource_id")
 
@@ -359,7 +359,7 @@ class GetMigrationResult:
     @pulumi.getter(name="triggerCutover")
     def trigger_cutover(self) -> Optional[builtins.str]:
         """
-        To trigger cutover for entire migration we need to send this flag as True
+        Indicates if cutover must be triggered for the entire migration.
         """
         return pulumi.get(self, "trigger_cutover")
 
@@ -417,17 +417,17 @@ def get_migration(migration_name: Optional[builtins.str] = None,
                   target_db_server_name: Optional[builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMigrationResult:
     """
-    Gets details of a migration.
+    Gets information about a migration.
 
     Uses Azure REST API version 2024-08-01.
 
     Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str migration_name: The name of the migration.
-    :param builtins.str resource_group_name: The resource group name of the target database server.
-    :param builtins.str subscription_id: The subscription ID of the target database server.
-    :param builtins.str target_db_server_name: The name of the target database server.
+    :param builtins.str migration_name: Name of migration.
+    :param builtins.str resource_group_name: Name of resource group of target database server.
+    :param builtins.str subscription_id: Identifier of subscription of target database server.
+    :param builtins.str target_db_server_name: Name of target database server.
     """
     __args__ = dict()
     __args__['migrationName'] = migration_name
@@ -475,17 +475,17 @@ def get_migration_output(migration_name: Optional[pulumi.Input[builtins.str]] = 
                          target_db_server_name: Optional[pulumi.Input[builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMigrationResult]:
     """
-    Gets details of a migration.
+    Gets information about a migration.
 
     Uses Azure REST API version 2024-08-01.
 
     Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str migration_name: The name of the migration.
-    :param builtins.str resource_group_name: The resource group name of the target database server.
-    :param builtins.str subscription_id: The subscription ID of the target database server.
-    :param builtins.str target_db_server_name: The name of the target database server.
+    :param builtins.str migration_name: Name of migration.
+    :param builtins.str resource_group_name: Name of resource group of target database server.
+    :param builtins.str subscription_id: Identifier of subscription of target database server.
+    :param builtins.str target_db_server_name: Name of target database server.
     """
     __args__ = dict()
     __args__['migrationName'] = migration_name

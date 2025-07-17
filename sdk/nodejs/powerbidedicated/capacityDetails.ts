@@ -52,7 +52,7 @@ export class CapacityDetails extends pulumi.CustomResource {
      */
     public /*out*/ readonly friendlyName!: pulumi.Output<string>;
     /**
-     * Location of the PowerBI Dedicated resource.
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -60,7 +60,7 @@ export class CapacityDetails extends pulumi.CustomResource {
      */
     public readonly mode!: pulumi.Output<string | undefined>;
     /**
-     * The name of the PowerBI Dedicated resource.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -76,11 +76,11 @@ export class CapacityDetails extends pulumi.CustomResource {
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public readonly systemData!: pulumi.Output<outputs.powerbidedicated.SystemDataResponse | undefined>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.powerbidedicated.SystemDataResponse>;
     /**
-     * Key-value pairs of additional resource provisioning properties.
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -88,7 +88,7 @@ export class CapacityDetails extends pulumi.CustomResource {
      */
     public /*out*/ readonly tenantId!: pulumi.Output<string>;
     /**
-     * The type of the PowerBI Dedicated resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -115,13 +115,13 @@ export class CapacityDetails extends pulumi.CustomResource {
             resourceInputs["mode"] = args ? args.mode : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["systemData"] = args ? args.systemData : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["friendlyName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -155,11 +155,11 @@ export interface CapacityDetailsArgs {
      */
     administration?: pulumi.Input<inputs.powerbidedicated.DedicatedCapacityAdministratorsArgs>;
     /**
-     * The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
+     * The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
      */
     dedicatedCapacityName?: pulumi.Input<string>;
     /**
-     * Location of the PowerBI Dedicated resource.
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -167,7 +167,7 @@ export interface CapacityDetailsArgs {
      */
     mode?: pulumi.Input<string | enums.powerbidedicated.Mode>;
     /**
-     * The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -175,11 +175,7 @@ export interface CapacityDetailsArgs {
      */
     sku: pulumi.Input<inputs.powerbidedicated.CapacitySkuArgs>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    systemData?: pulumi.Input<inputs.powerbidedicated.SystemDataArgs>;
-    /**
-     * Key-value pairs of additional resource provisioning properties.
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

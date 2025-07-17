@@ -80,7 +80,7 @@ def list_access_environments(organization_name: Optional[builtins.str] = None,
                              search_filters: Optional[Mapping[str, builtins.str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAccessEnvironmentsResult:
     """
-    Details of the environments returned on successful response
+    Environment list of an organization
 
     Uses Azure REST API version 2024-07-01.
 
@@ -107,7 +107,7 @@ def list_access_environments_output(organization_name: Optional[pulumi.Input[bui
                                     search_filters: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAccessEnvironmentsResult]:
     """
-    Details of the environments returned on successful response
+    Environment list of an organization
 
     Uses Azure REST API version 2024-07-01.
 
