@@ -593,9 +593,7 @@ ProfessionalService:
   expectTracking: preview
   notes: Only single preview version
 ProviderHub:
-  expectTracking: preview
-  notes: |
-    Can't find any docs
+  expectTracking: stable
 Purview:
 Quantum:
   expectTracking: preview
