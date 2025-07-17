@@ -594,18 +594,8 @@ ProfessionalService:
   notes: Only single preview version
 ProviderHub:
   expectTracking: preview
-  exclusions:
-    AuthorizedApplication: "2024-09-01"
-    CustomRollout: "2024-09-01"
-    DefaultRollout: "2024-09-01"
-    NewRegionFrontloadRelease: "2024-09-01"
-    NotificationRegistration: "2024-09-01"
-    OperationByProviderRegistration: "2024-09-01"
-    ProviderRegistration: "2024-09-01"
-    ResourceTypeRegistration: "2024-09-01"
-    Sku: "2024-09-01"
   notes: |
-    2024-09-01 stable is excluded due to incompatibilities with ResourceAccessRoles.
+    Can't find any docs
 Purview:
 Quantum:
   expectTracking: preview
