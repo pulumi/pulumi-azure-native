@@ -483,9 +483,6 @@ var typeNameOverridesV3 = map[string]string{
 	"Migrate.AssessmentProjectsAssessmentsOperation.AzureOfferCode":          "AssessmentProjectsAssessmentsOperationAzureOfferCode",
 	"Migrate.AssessmentProjectsAssessmentsOperation.AzureVmFamily":           "AssessmentProjectsAssessmentsOperationAzureVmFamily",
 	"Migrate.AssessmentProjectsAssessmentsOperation.AvsAssessmentProperties": "AssessmentProjectsAssessmentsOperationAvsAssessmentProperties",
-
-	"ProviderHub.DefaultRollout.ResourceProviderManifestPropertiesManagement":         "DefaultRolloutResourceProviderManagement",
-	"ProviderHub.DefaultRollout.ResourceProviderManifestPropertiesResponseManagement": "DefaultRolloutResourceProviderManagementResponse",
 }
 
 func (m *moduleGenerator) typeNameOverride(typeName string) string {
