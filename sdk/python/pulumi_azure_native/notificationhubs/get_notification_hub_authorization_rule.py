@@ -129,9 +129,6 @@ class GetNotificationHubAuthorizationRuleResult:
     @property
     @pulumi.getter
     def location(self) -> Optional[builtins.str]:
-        """
-        Deprecated - only for compatibility.
-        """
         return pulumi.get(self, "location")
 
     @property
@@ -195,9 +192,6 @@ class GetNotificationHubAuthorizationRuleResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
-        """
-        Deprecated - only for compatibility.
-        """
         return pulumi.get(self, "tags")
 
     @property
@@ -239,7 +233,7 @@ def get_notification_hub_authorization_rule(authorization_rule_name: Optional[bu
                                             resource_group_name: Optional[builtins.str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationHubAuthorizationRuleResult:
     """
-    Response for POST requests that return single SharedAccessAuthorizationRule.
+    Gets an authorization rule for a NotificationHub by name.
 
     Uses Azure REST API version 2023-10-01-preview.
 
@@ -282,7 +276,7 @@ def get_notification_hub_authorization_rule_output(authorization_rule_name: Opti
                                                    resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotificationHubAuthorizationRuleResult]:
     """
-    Response for POST requests that return single SharedAccessAuthorizationRule.
+    Gets an authorization rule for a NotificationHub by name.
 
     Uses Azure REST API version 2023-10-01-preview.
 

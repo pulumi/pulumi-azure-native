@@ -55,11 +55,11 @@ namespace Pulumi.AzureNative.BotService.Outputs
         /// <summary>
         /// Whether this site is enabled for Bot Framework V1 protocol.
         /// </summary>
-        public readonly bool IsV1Enabled;
+        public readonly bool? IsV1Enabled;
         /// <summary>
         /// Whether this site is enabled for Bot Framework V3 protocol.
         /// </summary>
-        public readonly bool IsV3Enabled;
+        public readonly bool? IsV3Enabled;
         /// <summary>
         /// Whether this site is enabled for Webchat Speech
         /// </summary>
@@ -113,9 +113,9 @@ namespace Pulumi.AzureNative.BotService.Outputs
 
             bool isTokenEnabled,
 
-            bool isV1Enabled,
+            bool? isV1Enabled,
 
-            bool isV3Enabled,
+            bool? isV3Enabled,
 
             bool? isWebChatSpeechEnabled,
 

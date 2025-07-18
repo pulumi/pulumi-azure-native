@@ -14,7 +14,9 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// Gets a resource type details in the given subscription and provider.
         /// 
-        /// Uses Azure REST API version 2021-09-01-preview.
+        /// Uses Azure REST API version 2024-09-01.
+        /// 
+        /// Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetResourceTypeRegistrationResult> InvokeAsync(GetResourceTypeRegistrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceTypeRegistrationResult>("azure-native:providerhub:getResourceTypeRegistration", args ?? new GetResourceTypeRegistrationArgs(), options.WithDefaults());
@@ -22,7 +24,9 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// Gets a resource type details in the given subscription and provider.
         /// 
-        /// Uses Azure REST API version 2021-09-01-preview.
+        /// Uses Azure REST API version 2024-09-01.
+        /// 
+        /// Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetResourceTypeRegistrationResult> Invoke(GetResourceTypeRegistrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceTypeRegistrationResult>("azure-native:providerhub:getResourceTypeRegistration", args ?? new GetResourceTypeRegistrationInvokeArgs(), options.WithDefaults());
@@ -30,7 +34,9 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// Gets a resource type details in the given subscription and provider.
         /// 
-        /// Uses Azure REST API version 2021-09-01-preview.
+        /// Uses Azure REST API version 2024-09-01.
+        /// 
+        /// Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetResourceTypeRegistrationResult> Invoke(GetResourceTypeRegistrationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceTypeRegistrationResult>("azure-native:providerhub:getResourceTypeRegistration", args ?? new GetResourceTypeRegistrationInvokeArgs(), options.WithDefaults());
@@ -86,16 +92,20 @@ namespace Pulumi.AzureNative.ProviderHub
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+        /// </summary>
+        public readonly string? Kind;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.ResourceTypeRegistrationResponseProperties Properties;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesResponse Properties;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -109,9 +119,11 @@ namespace Pulumi.AzureNative.ProviderHub
 
             string id,
 
+            string? kind,
+
             string name,
 
-            Outputs.ResourceTypeRegistrationResponseProperties properties,
+            Outputs.ResourceTypeRegistrationPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -119,6 +131,7 @@ namespace Pulumi.AzureNative.ProviderHub
         {
             AzureApiVersion = azureApiVersion;
             Id = id;
+            Kind = kind;
             Name = name;
             Properties = properties;
             SystemData = systemData;

@@ -30,23 +30,23 @@ export interface GetServiceFabricScheduleArgs {
      */
     expand?: string;
     /**
-     * The name of the lab.
+     * labs
      */
     labName: string;
     /**
-     * The name of the schedule.
+     * The name of the Schedule
      */
     name: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
-     * The name of the service fabric.
+     * servicefabrics
      */
     serviceFabricName: string;
     /**
-     * The name of the user profile.
+     * users
      */
     userName: string;
 }
@@ -147,23 +147,23 @@ export interface GetServiceFabricScheduleOutputArgs {
      */
     expand?: pulumi.Input<string>;
     /**
-     * The name of the lab.
+     * labs
      */
     labName: pulumi.Input<string>;
     /**
-     * The name of the schedule.
+     * The name of the Schedule
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the service fabric.
+     * servicefabrics
      */
     serviceFabricName: pulumi.Input<string>;
     /**
-     * The name of the user profile.
+     * users
      */
     userName: pulumi.Input<string>;
 }

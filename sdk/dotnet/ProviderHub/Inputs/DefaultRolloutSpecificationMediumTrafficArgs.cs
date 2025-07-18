@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
+    /// <summary>
+    /// The medium traffic region configuration.
+    /// </summary>
     public sealed class DefaultRolloutSpecificationMediumTrafficArgs : global::Pulumi.ResourceArgs
     {
         [Input("regions")]
@@ -20,6 +23,9 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
             set => _regions = value;
         }
 
+        /// <summary>
+        /// The wait duration.
+        /// </summary>
         [Input("waitDuration")]
         public Input<string>? WaitDuration { get; set; }
 

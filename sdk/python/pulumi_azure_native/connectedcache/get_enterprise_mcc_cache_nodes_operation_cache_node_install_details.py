@@ -132,6 +132,8 @@ def get_enterprise_mcc_cache_nodes_operation_cache_node_install_details(cache_no
 
     Uses Azure REST API version 2023-05-01-preview.
 
+    Other available API versions: 2024-11-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str cache_node_resource_name: Name of the ConnectedCache resource
     :param builtins.str customer_resource_name: Name of the Customer resource
@@ -160,6 +162,8 @@ def get_enterprise_mcc_cache_nodes_operation_cache_node_install_details_output(c
     This api gets secrets of the ispCacheNode resource install details
 
     Uses Azure REST API version 2023-05-01-preview.
+
+    Other available API versions: 2024-11-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str cache_node_resource_name: Name of the ConnectedCache resource

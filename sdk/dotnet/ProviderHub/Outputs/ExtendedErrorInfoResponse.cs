@@ -10,13 +10,31 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Outputs
 {
 
+    /// <summary>
+    /// Error information.
+    /// </summary>
     [OutputType]
     public sealed class ExtendedErrorInfoResponse
     {
+        /// <summary>
+        /// The additional error information.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TypedErrorInfoResponse> AdditionalInfo;
+        /// <summary>
+        /// The error code.
+        /// </summary>
         public readonly string? Code;
+        /// <summary>
+        /// The error details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ExtendedErrorInfoResponse> Details;
+        /// <summary>
+        /// The error message.
+        /// </summary>
         public readonly string? Message;
+        /// <summary>
+        /// The target of the error.
+        /// </summary>
         public readonly string? Target;
 
         [OutputConstructor]

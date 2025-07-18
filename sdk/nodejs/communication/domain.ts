@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-31.
  *
- * Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  *
  * Note: If `domainManagement` is set to `AzureManaged`, then `domainName` is required.
  */
@@ -154,7 +154,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["verificationStates"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:communication/v20211001preview:Domain" }, { type: "azure-native:communication/v20220701preview:Domain" }, { type: "azure-native:communication/v20230301preview:Domain" }, { type: "azure-native:communication/v20230331:Domain" }, { type: "azure-native:communication/v20230401:Domain" }, { type: "azure-native:communication/v20230401preview:Domain" }, { type: "azure-native:communication/v20230601preview:Domain" }, { type: "azure-native:communication/v20240901preview:Domain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:communication/v20211001preview:Domain" }, { type: "azure-native:communication/v20220701preview:Domain" }, { type: "azure-native:communication/v20230301preview:Domain" }, { type: "azure-native:communication/v20230331:Domain" }, { type: "azure-native:communication/v20230401:Domain" }, { type: "azure-native:communication/v20230401preview:Domain" }, { type: "azure-native:communication/v20230601preview:Domain" }, { type: "azure-native:communication/v20240901preview:Domain" }, { type: "azure-native:communication/v20250501:Domain" }, { type: "azure-native:communication/v20250501preview:Domain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Domain.__pulumiType, name, resourceInputs, opts);
     }

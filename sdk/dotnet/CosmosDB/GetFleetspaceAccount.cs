@@ -106,17 +106,13 @@ namespace Pulumi.AzureNative.CosmosDB
     public sealed class GetFleetspaceAccountResult
     {
         /// <summary>
-        /// The location of  global database account in the Fleetspace Account.
-        /// </summary>
-        public readonly string? AccountLocation;
-        /// <summary>
-        /// The resource identifier of global database account in the Fleetspace Account.
-        /// </summary>
-        public readonly string? AccountResourceIdentifier;
-        /// <summary>
         /// The Azure API version of the resource.
         /// </summary>
         public readonly string AzureApiVersion;
+        /// <summary>
+        /// Configuration for fleetspace Account in the fleetspace.
+        /// </summary>
+        public readonly Outputs.FleetspaceAccountPropertiesResponseGlobalDatabaseAccountProperties? GlobalDatabaseAccountProperties;
         /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
@@ -140,11 +136,9 @@ namespace Pulumi.AzureNative.CosmosDB
 
         [OutputConstructor]
         private GetFleetspaceAccountResult(
-            string? accountLocation,
-
-            string? accountResourceIdentifier,
-
             string azureApiVersion,
+
+            Outputs.FleetspaceAccountPropertiesResponseGlobalDatabaseAccountProperties? globalDatabaseAccountProperties,
 
             string id,
 
@@ -156,9 +150,8 @@ namespace Pulumi.AzureNative.CosmosDB
 
             string type)
         {
-            AccountLocation = accountLocation;
-            AccountResourceIdentifier = accountResourceIdentifier;
             AzureApiVersion = azureApiVersion;
+            GlobalDatabaseAccountProperties = globalDatabaseAccountProperties;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;

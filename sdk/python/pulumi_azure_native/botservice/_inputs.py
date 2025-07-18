@@ -1367,14 +1367,6 @@ if not MYPY:
         """
         Whether this site is enabled for DirectLine channel
         """
-        is_v1_enabled: pulumi.Input[builtins.bool]
-        """
-        Whether this site is enabled for Bot Framework V1 protocol.
-        """
-        is_v3_enabled: pulumi.Input[builtins.bool]
-        """
-        Whether this site is enabled for Bot Framework V3 protocol.
-        """
         site_name: pulumi.Input[builtins.str]
         """
         Site name
@@ -1407,6 +1399,14 @@ if not MYPY:
         """
         Whether this site is enabled for authentication with Bot Framework.
         """
+        is_v1_enabled: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Whether this site is enabled for Bot Framework V1 protocol.
+        """
+        is_v3_enabled: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Whether this site is enabled for Bot Framework V3 protocol.
+        """
         is_web_chat_speech_enabled: NotRequired[pulumi.Input[builtins.bool]]
         """
         Whether this site is enabled for Webchat Speech
@@ -1430,8 +1430,6 @@ elif False:
 class DirectLineSiteArgs:
     def __init__(__self__, *,
                  is_enabled: pulumi.Input[builtins.bool],
-                 is_v1_enabled: pulumi.Input[builtins.bool],
-                 is_v3_enabled: pulumi.Input[builtins.bool],
                  site_name: pulumi.Input[builtins.str],
                  app_id: Optional[pulumi.Input[builtins.str]] = None,
                  e_tag: Optional[pulumi.Input[builtins.str]] = None,
@@ -1440,6 +1438,8 @@ class DirectLineSiteArgs:
                  is_endpoint_parameters_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  is_no_storage_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  is_secure_site_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 is_v1_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 is_v3_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  is_web_chat_speech_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  is_webchat_preview_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tenant_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -1447,8 +1447,6 @@ class DirectLineSiteArgs:
         """
         A site for the Direct Line channel
         :param pulumi.Input[builtins.bool] is_enabled: Whether this site is enabled for DirectLine channel
-        :param pulumi.Input[builtins.bool] is_v1_enabled: Whether this site is enabled for Bot Framework V1 protocol.
-        :param pulumi.Input[builtins.bool] is_v3_enabled: Whether this site is enabled for Bot Framework V3 protocol.
         :param pulumi.Input[builtins.str] site_name: Site name
         :param pulumi.Input[builtins.str] app_id: DirectLine application id
         :param pulumi.Input[builtins.str] e_tag: Entity Tag
@@ -1457,14 +1455,14 @@ class DirectLineSiteArgs:
         :param pulumi.Input[builtins.bool] is_endpoint_parameters_enabled: Whether this site is EndpointParameters enabled for channel
         :param pulumi.Input[builtins.bool] is_no_storage_enabled: Whether this no-storage site is disabled detailed logging for
         :param pulumi.Input[builtins.bool] is_secure_site_enabled: Whether this site is enabled for authentication with Bot Framework.
+        :param pulumi.Input[builtins.bool] is_v1_enabled: Whether this site is enabled for Bot Framework V1 protocol.
+        :param pulumi.Input[builtins.bool] is_v3_enabled: Whether this site is enabled for Bot Framework V3 protocol.
         :param pulumi.Input[builtins.bool] is_web_chat_speech_enabled: Whether this site is enabled for Webchat Speech
         :param pulumi.Input[builtins.bool] is_webchat_preview_enabled: Whether this site is enabled for preview versions of Webchat
         :param pulumi.Input[builtins.str] tenant_id: Tenant Id
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] trusted_origins: List of Trusted Origin URLs for this site. This field is applicable only if isSecureSiteEnabled is True.
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "is_v1_enabled", is_v1_enabled)
-        pulumi.set(__self__, "is_v3_enabled", is_v3_enabled)
         pulumi.set(__self__, "site_name", site_name)
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
@@ -1480,6 +1478,10 @@ class DirectLineSiteArgs:
             pulumi.set(__self__, "is_no_storage_enabled", is_no_storage_enabled)
         if is_secure_site_enabled is not None:
             pulumi.set(__self__, "is_secure_site_enabled", is_secure_site_enabled)
+        if is_v1_enabled is not None:
+            pulumi.set(__self__, "is_v1_enabled", is_v1_enabled)
+        if is_v3_enabled is not None:
+            pulumi.set(__self__, "is_v3_enabled", is_v3_enabled)
         if is_web_chat_speech_enabled is None:
             is_web_chat_speech_enabled = False
         if is_web_chat_speech_enabled is not None:
@@ -1504,30 +1506,6 @@ class DirectLineSiteArgs:
     @is_enabled.setter
     def is_enabled(self, value: pulumi.Input[builtins.bool]):
         pulumi.set(self, "is_enabled", value)
-
-    @property
-    @pulumi.getter(name="isV1Enabled")
-    def is_v1_enabled(self) -> pulumi.Input[builtins.bool]:
-        """
-        Whether this site is enabled for Bot Framework V1 protocol.
-        """
-        return pulumi.get(self, "is_v1_enabled")
-
-    @is_v1_enabled.setter
-    def is_v1_enabled(self, value: pulumi.Input[builtins.bool]):
-        pulumi.set(self, "is_v1_enabled", value)
-
-    @property
-    @pulumi.getter(name="isV3Enabled")
-    def is_v3_enabled(self) -> pulumi.Input[builtins.bool]:
-        """
-        Whether this site is enabled for Bot Framework V3 protocol.
-        """
-        return pulumi.get(self, "is_v3_enabled")
-
-    @is_v3_enabled.setter
-    def is_v3_enabled(self, value: pulumi.Input[builtins.bool]):
-        pulumi.set(self, "is_v3_enabled", value)
 
     @property
     @pulumi.getter(name="siteName")
@@ -1624,6 +1602,30 @@ class DirectLineSiteArgs:
     @is_secure_site_enabled.setter
     def is_secure_site_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "is_secure_site_enabled", value)
+
+    @property
+    @pulumi.getter(name="isV1Enabled")
+    def is_v1_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether this site is enabled for Bot Framework V1 protocol.
+        """
+        return pulumi.get(self, "is_v1_enabled")
+
+    @is_v1_enabled.setter
+    def is_v1_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_v1_enabled", value)
+
+    @property
+    @pulumi.getter(name="isV3Enabled")
+    def is_v3_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether this site is enabled for Bot Framework V3 protocol.
+        """
+        return pulumi.get(self, "is_v3_enabled")
+
+    @is_v3_enabled.setter
+    def is_v3_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_v3_enabled", value)
 
     @property
     @pulumi.getter(name="isWebChatSpeechEnabled")
@@ -5181,10 +5183,6 @@ if not MYPY:
         """
         Whether this site is enabled for DirectLine channel
         """
-        is_webchat_preview_enabled: pulumi.Input[builtins.bool]
-        """
-        Whether this site is enabled for preview versions of Webchat
-        """
         site_name: pulumi.Input[builtins.str]
         """
         Site name
@@ -5229,6 +5227,10 @@ if not MYPY:
         """
         Whether this site is enabled for Webchat Speech
         """
+        is_webchat_preview_enabled: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Whether this site is enabled for preview versions of Webchat
+        """
         tenant_id: NotRequired[pulumi.Input[builtins.str]]
         """
         Tenant Id
@@ -5244,7 +5246,6 @@ elif False:
 class WebChatSiteArgs:
     def __init__(__self__, *,
                  is_enabled: pulumi.Input[builtins.bool],
-                 is_webchat_preview_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  site_name: pulumi.Input[builtins.str],
                  app_id: Optional[pulumi.Input[builtins.str]] = None,
                  e_tag: Optional[pulumi.Input[builtins.str]] = None,
@@ -5256,12 +5257,12 @@ class WebChatSiteArgs:
                  is_v1_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  is_v3_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  is_web_chat_speech_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 is_webchat_preview_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tenant_id: Optional[pulumi.Input[builtins.str]] = None,
                  trusted_origins: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         A site for the Webchat channel
         :param pulumi.Input[builtins.bool] is_enabled: Whether this site is enabled for DirectLine channel
-        :param pulumi.Input[builtins.bool] is_webchat_preview_enabled: Whether this site is enabled for preview versions of Webchat
         :param pulumi.Input[builtins.str] site_name: Site name
         :param pulumi.Input[builtins.str] app_id: DirectLine application id
         :param pulumi.Input[builtins.str] e_tag: Entity Tag
@@ -5273,13 +5274,11 @@ class WebChatSiteArgs:
         :param pulumi.Input[builtins.bool] is_v1_enabled: Whether this site is enabled for Bot Framework V1 protocol.
         :param pulumi.Input[builtins.bool] is_v3_enabled: Whether this site is enabled for Bot Framework V3 protocol.
         :param pulumi.Input[builtins.bool] is_web_chat_speech_enabled: Whether this site is enabled for Webchat Speech
+        :param pulumi.Input[builtins.bool] is_webchat_preview_enabled: Whether this site is enabled for preview versions of Webchat
         :param pulumi.Input[builtins.str] tenant_id: Tenant Id
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] trusted_origins: List of Trusted Origin URLs for this site. This field is applicable only if isSecureSiteEnabled is True.
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
-        if is_webchat_preview_enabled is None:
-            is_webchat_preview_enabled = False
-        pulumi.set(__self__, "is_webchat_preview_enabled", is_webchat_preview_enabled)
         pulumi.set(__self__, "site_name", site_name)
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
@@ -5303,6 +5302,10 @@ class WebChatSiteArgs:
             is_web_chat_speech_enabled = False
         if is_web_chat_speech_enabled is not None:
             pulumi.set(__self__, "is_web_chat_speech_enabled", is_web_chat_speech_enabled)
+        if is_webchat_preview_enabled is None:
+            is_webchat_preview_enabled = False
+        if is_webchat_preview_enabled is not None:
+            pulumi.set(__self__, "is_webchat_preview_enabled", is_webchat_preview_enabled)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
         if trusted_origins is not None:
@@ -5319,18 +5322,6 @@ class WebChatSiteArgs:
     @is_enabled.setter
     def is_enabled(self, value: pulumi.Input[builtins.bool]):
         pulumi.set(self, "is_enabled", value)
-
-    @property
-    @pulumi.getter(name="isWebchatPreviewEnabled")
-    def is_webchat_preview_enabled(self) -> pulumi.Input[builtins.bool]:
-        """
-        Whether this site is enabled for preview versions of Webchat
-        """
-        return pulumi.get(self, "is_webchat_preview_enabled")
-
-    @is_webchat_preview_enabled.setter
-    def is_webchat_preview_enabled(self, value: pulumi.Input[builtins.bool]):
-        pulumi.set(self, "is_webchat_preview_enabled", value)
 
     @property
     @pulumi.getter(name="siteName")
@@ -5463,6 +5454,18 @@ class WebChatSiteArgs:
     @is_web_chat_speech_enabled.setter
     def is_web_chat_speech_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "is_web_chat_speech_enabled", value)
+
+    @property
+    @pulumi.getter(name="isWebchatPreviewEnabled")
+    def is_webchat_preview_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether this site is enabled for preview versions of Webchat
+        """
+        return pulumi.get(self, "is_webchat_preview_enabled")
+
+    @is_webchat_preview_enabled.setter
+    def is_webchat_preview_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_webchat_preview_enabled", value)
 
     @property
     @pulumi.getter(name="tenantId")

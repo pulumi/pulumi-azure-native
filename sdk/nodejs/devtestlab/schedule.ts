@@ -177,7 +177,7 @@ export interface ScheduleArgs {
      */
     hourlyRecurrence?: pulumi.Input<inputs.devtestlab.HourDetailsArgs>;
     /**
-     * The name of the lab.
+     * labs
      */
     labName: pulumi.Input<string>;
     /**
@@ -185,7 +185,7 @@ export interface ScheduleArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the schedule.
+     * The name of the Schedule
      */
     name?: pulumi.Input<string>;
     /**
@@ -193,7 +193,7 @@ export interface ScheduleArgs {
      */
     notificationSettings?: pulumi.Input<inputs.devtestlab.NotificationSettingsArgs>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

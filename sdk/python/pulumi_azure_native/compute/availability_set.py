@@ -34,15 +34,15 @@ class AvailabilitySetArgs:
                  virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None):
         """
         The set of arguments for constructing a AvailabilitySet resource.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] availability_set_name: The name of the availability set.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.int] platform_fault_domain_count: Fault Domain count.
         :param pulumi.Input[builtins.int] platform_update_domain_count: Update Domain count.
         :param pulumi.Input['SubResourceArgs'] proximity_placement_group: Specifies information about the proximity placement group that the availability set should be assigned to. Minimum api-version: 2018-04-01.
         :param pulumi.Input['ScheduledEventsPolicyArgs'] scheduled_events_policy: Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the availability set.
         :param pulumi.Input['SkuArgs'] sku: Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] virtual_machines: A list of references to all virtual machines in the availability set.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -69,7 +69,7 @@ class AvailabilitySetArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -93,7 +93,7 @@ class AvailabilitySetArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -165,7 +165,7 @@ class AvailabilitySetArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -213,14 +213,14 @@ class AvailabilitySet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] availability_set_name: The name of the availability set.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.int] platform_fault_domain_count: Fault Domain count.
         :param pulumi.Input[builtins.int] platform_update_domain_count: Update Domain count.
         :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] proximity_placement_group: Specifies information about the proximity placement group that the availability set should be assigned to. Minimum api-version: 2018-04-01.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['ScheduledEventsPolicyArgs', 'ScheduledEventsPolicyArgsDict']] scheduled_events_policy: Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the availability set.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]] virtual_machines: A list of references to all virtual machines in the availability set.
         """
         ...
@@ -285,6 +285,7 @@ class AvailabilitySet(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["statuses"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machine_scale_set_migration_info"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20150615:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20160330:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20160430preview:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20170330:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20171201:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20180401:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20180601:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20181001:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20190301:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20190701:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20191201:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20200601:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20201201:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20210301:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20210401:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20210701:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20211101:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20220301:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20220801:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20221101:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20230301:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20230701:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20230901:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20240301:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20240701:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20241101:AvailabilitySet")])
@@ -320,6 +321,7 @@ class AvailabilitySet(pulumi.CustomResource):
         __props__.__dict__["scheduled_events_policy"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["statuses"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_machine_scale_set_migration_info"] = None
@@ -338,7 +340,7 @@ class AvailabilitySet(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -346,7 +348,7 @@ class AvailabilitySet(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -399,10 +401,18 @@ class AvailabilitySet(pulumi.CustomResource):
         return pulumi.get(self, "statuses")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -410,7 +420,7 @@ class AvailabilitySet(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

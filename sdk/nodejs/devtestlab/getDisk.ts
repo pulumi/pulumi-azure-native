@@ -30,11 +30,11 @@ export interface GetDiskArgs {
      */
     labName: string;
     /**
-     * The name of the disk.
+     * The name of the Disk
      */
     name: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -142,11 +142,11 @@ export interface GetDiskOutputArgs {
      */
     labName: pulumi.Input<string>;
     /**
-     * The name of the disk.
+     * The name of the Disk
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

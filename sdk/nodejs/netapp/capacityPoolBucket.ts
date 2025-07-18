@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Bucket resource
  *
  * Uses Azure REST API version 2025-01-01-preview.
+ *
+ * Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class CapacityPoolBucket extends pulumi.CustomResource {
     /**
@@ -129,7 +131,7 @@ export class CapacityPoolBucket extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20250101preview:CapacityPoolBucket" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20250101preview:CapacityPoolBucket" }, { type: "azure-native:netapp/v20250301preview:CapacityPoolBucket" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CapacityPoolBucket.__pulumiType, name, resourceInputs, opts);
     }

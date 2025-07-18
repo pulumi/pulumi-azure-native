@@ -209,7 +209,7 @@ class Project(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -235,7 +235,7 @@ class Project(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.
@@ -289,7 +289,7 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20230401:Project"), pulumi.Alias(type_="azure-native:devcenter/v20230801preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20231001preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20240201:Project"), pulumi.Alias(type_="azure-native:devcenter/v20240501preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20240601preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20240701preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20240801preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20241001preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20250201:Project"), pulumi.Alias(type_="azure-native:devcenter/v20250401preview:Project")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20230401:Project"), pulumi.Alias(type_="azure-native:devcenter/v20230801preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20231001preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20240201:Project"), pulumi.Alias(type_="azure-native:devcenter/v20240501preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20240601preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20240701preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20240801preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20241001preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20250201:Project"), pulumi.Alias(type_="azure-native:devcenter/v20250401preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20250701preview:Project")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Project, __self__).__init__(
             'azure-native:devcenter:Project',

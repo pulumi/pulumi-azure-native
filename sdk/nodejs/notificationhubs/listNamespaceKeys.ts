@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
+ * Gets the Primary and Secondary ConnectionStrings to the namespace.
  *
  * Uses Azure REST API version 2023-10-01-preview.
  *
@@ -62,7 +62,7 @@ export interface ListNamespaceKeysResult {
     readonly secondaryKey: string;
 }
 /**
- * Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
+ * Gets the Primary and Secondary ConnectionStrings to the namespace.
  *
  * Uses Azure REST API version 2023-10-01-preview.
  *

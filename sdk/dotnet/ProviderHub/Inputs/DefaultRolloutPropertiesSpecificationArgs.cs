@@ -10,37 +10,74 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
+    /// <summary>
+    /// The default rollout specification.
+    /// </summary>
     public sealed class DefaultRolloutPropertiesSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The auto provisioning config.
+        /// </summary>
+        [Input("autoProvisionConfig")]
+        public Input<Inputs.DefaultRolloutSpecificationAutoProvisionConfigArgs>? AutoProvisionConfig { get; set; }
+
+        /// <summary>
+        /// The canary traffic region configuration.
+        /// </summary>
         [Input("canary")]
         public Input<Inputs.DefaultRolloutSpecificationCanaryArgs>? Canary { get; set; }
 
+        /// <summary>
+        /// The expedited rollout definition.
+        /// </summary>
         [Input("expeditedRollout")]
         public Input<Inputs.DefaultRolloutSpecificationExpeditedRolloutArgs>? ExpeditedRollout { get; set; }
 
+        /// <summary>
+        /// The high traffic region configuration.
+        /// </summary>
         [Input("highTraffic")]
         public Input<Inputs.DefaultRolloutSpecificationHighTrafficArgs>? HighTraffic { get; set; }
 
+        /// <summary>
+        /// The low traffic region configuration.
+        /// </summary>
         [Input("lowTraffic")]
         public Input<Inputs.DefaultRolloutSpecificationLowTrafficArgs>? LowTraffic { get; set; }
 
+        /// <summary>
+        /// The medium traffic region configuration.
+        /// </summary>
         [Input("mediumTraffic")]
         public Input<Inputs.DefaultRolloutSpecificationMediumTrafficArgs>? MediumTraffic { get; set; }
 
+        /// <summary>
+        /// The provider registration.
+        /// </summary>
         [Input("providerRegistration")]
         public Input<Inputs.DefaultRolloutSpecificationProviderRegistrationArgs>? ProviderRegistration { get; set; }
 
         [Input("resourceTypeRegistrations")]
         private InputList<Inputs.ResourceTypeRegistrationArgs>? _resourceTypeRegistrations;
+
+        /// <summary>
+        /// The resource type registrations.
+        /// </summary>
         public InputList<Inputs.ResourceTypeRegistrationArgs> ResourceTypeRegistrations
         {
             get => _resourceTypeRegistrations ?? (_resourceTypeRegistrations = new InputList<Inputs.ResourceTypeRegistrationArgs>());
             set => _resourceTypeRegistrations = value;
         }
 
+        /// <summary>
+        /// The rest of the world group one region configuration.
+        /// </summary>
         [Input("restOfTheWorldGroupOne")]
         public Input<Inputs.DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs>? RestOfTheWorldGroupOne { get; set; }
 
+        /// <summary>
+        /// The rest of the world group two region configuration.
+        /// </summary>
         [Input("restOfTheWorldGroupTwo")]
         public Input<Inputs.DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs>? RestOfTheWorldGroupTwo { get; set; }
 

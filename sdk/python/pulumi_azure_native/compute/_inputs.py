@@ -93,6 +93,8 @@ __all__ = [
     'DiskEncryptionSetParametersArgsDict',
     'DiskEncryptionSettingsArgs',
     'DiskEncryptionSettingsArgsDict',
+    'DiskPurchasePlanArgs',
+    'DiskPurchasePlanArgsDict',
     'DiskRestorePointAttributesArgs',
     'DiskRestorePointAttributesArgsDict',
     'DiskSecurityProfileArgs',
@@ -229,8 +231,6 @@ __all__ = [
     'ProxyAgentSettingsArgsDict',
     'PublicIPAddressSkuArgs',
     'PublicIPAddressSkuArgsDict',
-    'PurchasePlanArgs',
-    'PurchasePlanArgsDict',
     'RecommendedMachineConfigurationArgs',
     'RecommendedMachineConfigurationArgsDict',
     'ResiliencyPolicyArgs',
@@ -913,7 +913,7 @@ if not MYPY:
         """
         Specifies additional XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup. Contents are defined by setting name, component name, and the pass in which the content is applied.
         """
-        component_name: NotRequired[pulumi.Input['ComponentNames']]
+        component_name: NotRequired[pulumi.Input['ComponentName']]
         """
         The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
         """
@@ -921,7 +921,7 @@ if not MYPY:
         """
         Specifies the XML formatted content that is added to the unattend.xml file for the specified path and component. The XML must be less than 4KB and must include the root element for the setting or feature that is being inserted.
         """
-        pass_name: NotRequired[pulumi.Input['PassNames']]
+        pass_name: NotRequired[pulumi.Input['PassName']]
         """
         The pass name. Currently, the only allowable value is OobeSystem.
         """
@@ -935,15 +935,15 @@ elif False:
 @pulumi.input_type
 class AdditionalUnattendContentArgs:
     def __init__(__self__, *,
-                 component_name: Optional[pulumi.Input['ComponentNames']] = None,
+                 component_name: Optional[pulumi.Input['ComponentName']] = None,
                  content: Optional[pulumi.Input[builtins.str]] = None,
-                 pass_name: Optional[pulumi.Input['PassNames']] = None,
+                 pass_name: Optional[pulumi.Input['PassName']] = None,
                  setting_name: Optional[pulumi.Input['SettingNames']] = None):
         """
         Specifies additional XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup. Contents are defined by setting name, component name, and the pass in which the content is applied.
-        :param pulumi.Input['ComponentNames'] component_name: The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
+        :param pulumi.Input['ComponentName'] component_name: The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
         :param pulumi.Input[builtins.str] content: Specifies the XML formatted content that is added to the unattend.xml file for the specified path and component. The XML must be less than 4KB and must include the root element for the setting or feature that is being inserted.
-        :param pulumi.Input['PassNames'] pass_name: The pass name. Currently, the only allowable value is OobeSystem.
+        :param pulumi.Input['PassName'] pass_name: The pass name. Currently, the only allowable value is OobeSystem.
         :param pulumi.Input['SettingNames'] setting_name: Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
         """
         if component_name is not None:
@@ -957,14 +957,14 @@ class AdditionalUnattendContentArgs:
 
     @property
     @pulumi.getter(name="componentName")
-    def component_name(self) -> Optional[pulumi.Input['ComponentNames']]:
+    def component_name(self) -> Optional[pulumi.Input['ComponentName']]:
         """
         The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
         """
         return pulumi.get(self, "component_name")
 
     @component_name.setter
-    def component_name(self, value: Optional[pulumi.Input['ComponentNames']]):
+    def component_name(self, value: Optional[pulumi.Input['ComponentName']]):
         pulumi.set(self, "component_name", value)
 
     @property
@@ -981,14 +981,14 @@ class AdditionalUnattendContentArgs:
 
     @property
     @pulumi.getter(name="passName")
-    def pass_name(self) -> Optional[pulumi.Input['PassNames']]:
+    def pass_name(self) -> Optional[pulumi.Input['PassName']]:
         """
         The pass name. Currently, the only allowable value is OobeSystem.
         """
         return pulumi.get(self, "pass_name")
 
     @pass_name.setter
-    def pass_name(self, value: Optional[pulumi.Input['PassNames']]):
+    def pass_name(self, value: Optional[pulumi.Input['PassName']]):
         pulumi.set(self, "pass_name", value)
 
     @property
@@ -2847,7 +2847,7 @@ if not MYPY:
         """
         detach_option: NotRequired[pulumi.Input[Union[builtins.str, 'DiskDetachOptionTypes']]]
         """
-        Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+        Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. **This feature is still in preview**. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
         """
         disk_size_gb: NotRequired[pulumi.Input[builtins.int]]
         """
@@ -2906,7 +2906,7 @@ class DataDiskArgs:
         :param pulumi.Input[builtins.int] lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
         :param pulumi.Input['CachingTypes'] caching: Specifies the caching requirements. Possible values are: **None,** **ReadOnly,** **ReadWrite.** The defaulting behavior is: **None for Standard storage. ReadOnly for Premium storage.**
         :param pulumi.Input[Union[builtins.str, 'DiskDeleteOptionTypes']] delete_option: Specifies whether data disk should be deleted or detached upon VM deletion. Possible values are: **Delete.** If this value is used, the data disk is deleted when VM is deleted. **Detach.** If this value is used, the data disk is retained after VM is deleted. The default value is set to **Detach**.
-        :param pulumi.Input[Union[builtins.str, 'DiskDetachOptionTypes']] detach_option: Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+        :param pulumi.Input[Union[builtins.str, 'DiskDetachOptionTypes']] detach_option: Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. **This feature is still in preview**. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
         :param pulumi.Input[builtins.int] disk_size_gb: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. The property 'diskSizeGB' is the number of bytes x 1024^3 for the disk and the value cannot be larger than 1023.
         :param pulumi.Input['VirtualHardDiskArgs'] image: The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
         :param pulumi.Input['ManagedDiskParametersArgs'] managed_disk: The managed disk parameters.
@@ -2993,7 +2993,7 @@ class DataDiskArgs:
     @pulumi.getter(name="detachOption")
     def detach_option(self) -> Optional[pulumi.Input[Union[builtins.str, 'DiskDetachOptionTypes']]]:
         """
-        Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+        Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. **This feature is still in preview**. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
         """
         return pulumi.get(self, "detach_option")
 
@@ -3372,6 +3372,99 @@ class DiskEncryptionSettingsArgs:
     @key_encryption_key.setter
     def key_encryption_key(self, value: Optional[pulumi.Input['KeyVaultKeyReferenceArgs']]):
         pulumi.set(self, "key_encryption_key", value)
+
+
+if not MYPY:
+    class DiskPurchasePlanArgsDict(TypedDict):
+        """
+        Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
+        """
+        name: pulumi.Input[builtins.str]
+        """
+        The plan ID.
+        """
+        product: pulumi.Input[builtins.str]
+        """
+        Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+        """
+        publisher: pulumi.Input[builtins.str]
+        """
+        The publisher ID.
+        """
+        promotion_code: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The Offer Promotion Code.
+        """
+elif False:
+    DiskPurchasePlanArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DiskPurchasePlanArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[builtins.str],
+                 product: pulumi.Input[builtins.str],
+                 publisher: pulumi.Input[builtins.str],
+                 promotion_code: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
+        :param pulumi.Input[builtins.str] name: The plan ID.
+        :param pulumi.Input[builtins.str] product: Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+        :param pulumi.Input[builtins.str] publisher: The publisher ID.
+        :param pulumi.Input[builtins.str] promotion_code: The Offer Promotion Code.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "product", product)
+        pulumi.set(__self__, "publisher", publisher)
+        if promotion_code is not None:
+            pulumi.set(__self__, "promotion_code", promotion_code)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        The plan ID.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def product(self) -> pulumi.Input[builtins.str]:
+        """
+        Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+        """
+        return pulumi.get(self, "product")
+
+    @product.setter
+    def product(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "product", value)
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> pulumi.Input[builtins.str]:
+        """
+        The publisher ID.
+        """
+        return pulumi.get(self, "publisher")
+
+    @publisher.setter
+    def publisher(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "publisher", value)
+
+    @property
+    @pulumi.getter(name="promotionCode")
+    def promotion_code(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Offer Promotion Code.
+        """
+        return pulumi.get(self, "promotion_code")
+
+    @promotion_code.setter
+    def promotion_code(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "promotion_code", value)
 
 
 if not MYPY:
@@ -6734,7 +6827,7 @@ class KeyVaultAndKeyReferenceArgs:
 if not MYPY:
     class KeyVaultAndSecretReferenceArgsDict(TypedDict):
         """
-        Key Vault Secret Url and vault id of the encryption key 
+        Key Vault Secret Url and vault id of the encryption key
         """
         secret_url: pulumi.Input[builtins.str]
         """
@@ -6753,7 +6846,7 @@ class KeyVaultAndSecretReferenceArgs:
                  secret_url: pulumi.Input[builtins.str],
                  source_vault: pulumi.Input['SourceVaultArgs']):
         """
-        Key Vault Secret Url and vault id of the encryption key 
+        Key Vault Secret Url and vault id of the encryption key
         :param pulumi.Input[builtins.str] secret_url: Url pointing to a key or secret in KeyVault
         :param pulumi.Input['SourceVaultArgs'] source_vault: Resource id of the KeyVault containing the key or secret
         """
@@ -8250,7 +8343,7 @@ if not MYPY:
         """
         assessment_mode: NotRequired[pulumi.Input[Union[builtins.str, 'WindowsPatchAssessmentMode']]]
         """
-        Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true. 
+        Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
         """
         automatic_by_platform_settings: NotRequired[pulumi.Input['WindowsVMGuestPatchAutomaticByPlatformSettingsArgsDict']]
         """
@@ -8262,7 +8355,7 @@ if not MYPY:
         """
         patch_mode: NotRequired[pulumi.Input[Union[builtins.str, 'WindowsVMGuestPatchMode']]]
         """
-        Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+        Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
         """
 elif False:
     PatchSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -8276,10 +8369,10 @@ class PatchSettingsArgs:
                  patch_mode: Optional[pulumi.Input[Union[builtins.str, 'WindowsVMGuestPatchMode']]] = None):
         """
         Specifies settings related to VM Guest Patching on Windows.
-        :param pulumi.Input[Union[builtins.str, 'WindowsPatchAssessmentMode']] assessment_mode: Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true. 
+        :param pulumi.Input[Union[builtins.str, 'WindowsPatchAssessmentMode']] assessment_mode: Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
         :param pulumi.Input['WindowsVMGuestPatchAutomaticByPlatformSettingsArgs'] automatic_by_platform_settings: Specifies additional settings for patch mode AutomaticByPlatform in VM Guest Patching on Windows.
         :param pulumi.Input[builtins.bool] enable_hotpatching: Enables customers to patch their Azure VMs without requiring a reboot. For enableHotpatching, the 'provisionVMAgent' must be set to true and 'patchMode' must be set to 'AutomaticByPlatform'.
-        :param pulumi.Input[Union[builtins.str, 'WindowsVMGuestPatchMode']] patch_mode: Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+        :param pulumi.Input[Union[builtins.str, 'WindowsVMGuestPatchMode']] patch_mode: Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
         """
         if assessment_mode is not None:
             pulumi.set(__self__, "assessment_mode", assessment_mode)
@@ -8294,7 +8387,7 @@ class PatchSettingsArgs:
     @pulumi.getter(name="assessmentMode")
     def assessment_mode(self) -> Optional[pulumi.Input[Union[builtins.str, 'WindowsPatchAssessmentMode']]]:
         """
-        Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true. 
+        Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
         """
         return pulumi.get(self, "assessment_mode")
 
@@ -8330,7 +8423,7 @@ class PatchSettingsArgs:
     @pulumi.getter(name="patchMode")
     def patch_mode(self) -> Optional[pulumi.Input[Union[builtins.str, 'WindowsVMGuestPatchMode']]]:
         """
-        Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+        Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
         """
         return pulumi.get(self, "patch_mode")
 
@@ -8849,99 +8942,6 @@ class PublicIPAddressSkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[Union[builtins.str, 'PublicIPAddressSkuTier']]]):
         pulumi.set(self, "tier", value)
-
-
-if not MYPY:
-    class PurchasePlanArgsDict(TypedDict):
-        """
-        Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
-        """
-        name: pulumi.Input[builtins.str]
-        """
-        The plan ID.
-        """
-        product: pulumi.Input[builtins.str]
-        """
-        Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
-        """
-        publisher: pulumi.Input[builtins.str]
-        """
-        The publisher ID.
-        """
-        promotion_code: NotRequired[pulumi.Input[builtins.str]]
-        """
-        The Offer Promotion Code.
-        """
-elif False:
-    PurchasePlanArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class PurchasePlanArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[builtins.str],
-                 product: pulumi.Input[builtins.str],
-                 publisher: pulumi.Input[builtins.str],
-                 promotion_code: Optional[pulumi.Input[builtins.str]] = None):
-        """
-        Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
-        :param pulumi.Input[builtins.str] name: The plan ID.
-        :param pulumi.Input[builtins.str] product: Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
-        :param pulumi.Input[builtins.str] publisher: The publisher ID.
-        :param pulumi.Input[builtins.str] promotion_code: The Offer Promotion Code.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "product", product)
-        pulumi.set(__self__, "publisher", publisher)
-        if promotion_code is not None:
-            pulumi.set(__self__, "promotion_code", promotion_code)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[builtins.str]:
-        """
-        The plan ID.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def product(self) -> pulumi.Input[builtins.str]:
-        """
-        Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
-        """
-        return pulumi.get(self, "product")
-
-    @product.setter
-    def product(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "product", value)
-
-    @property
-    @pulumi.getter
-    def publisher(self) -> pulumi.Input[builtins.str]:
-        """
-        The publisher ID.
-        """
-        return pulumi.get(self, "publisher")
-
-    @publisher.setter
-    def publisher(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "publisher", value)
-
-    @property
-    @pulumi.getter(name="promotionCode")
-    def promotion_code(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The Offer Promotion Code.
-        """
-        return pulumi.get(self, "promotion_code")
-
-    @promotion_code.setter
-    def promotion_code(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "promotion_code", value)
 
 
 if not MYPY:
@@ -9765,7 +9765,7 @@ class RunCommandInputParameterArgs:
 if not MYPY:
     class RunCommandManagedIdentityArgsDict(TypedDict):
         """
-         Contains clientId or objectId (use only one, not both) of a user-assigned managed identity that has access to storage blob used in Run Command. Use an empty RunCommandManagedIdentity object in case of system-assigned identity. Make sure the Azure storage blob exists in case of scriptUri, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment with scriptUri blob and 'Storage Blob Data Contributor' for Append blobs(outputBlobUri, errorBlobUri). In case of user assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
+        Contains clientId or objectId (use only one, not both) of a user-assigned managed identity that has access to storage blob used in Run Command. Use an empty RunCommandManagedIdentity object in case of system-assigned identity. Make sure the Azure storage blob exists in case of scriptUri, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment with scriptUri blob and 'Storage Blob Data Contributor' for Append blobs(outputBlobUri, errorBlobUri). In case of user assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
         """
         client_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -9784,7 +9784,7 @@ class RunCommandManagedIdentityArgs:
                  client_id: Optional[pulumi.Input[builtins.str]] = None,
                  object_id: Optional[pulumi.Input[builtins.str]] = None):
         """
-         Contains clientId or objectId (use only one, not both) of a user-assigned managed identity that has access to storage blob used in Run Command. Use an empty RunCommandManagedIdentity object in case of system-assigned identity. Make sure the Azure storage blob exists in case of scriptUri, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment with scriptUri blob and 'Storage Blob Data Contributor' for Append blobs(outputBlobUri, errorBlobUri). In case of user assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
+        Contains clientId or objectId (use only one, not both) of a user-assigned managed identity that has access to storage blob used in Run Command. Use an empty RunCommandManagedIdentity object in case of system-assigned identity. Make sure the Azure storage blob exists in case of scriptUri, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment with scriptUri blob and 'Storage Blob Data Contributor' for Append blobs(outputBlobUri, errorBlobUri). In case of user assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
         :param pulumi.Input[builtins.str] client_id: Client Id (GUID value) of the user-assigned managed identity. ObjectId should not be used if this is provided.
         :param pulumi.Input[builtins.str] object_id: Object Id (GUID value) of the user-assigned managed identity. ClientId should not be used if this is provided.
         """
@@ -13494,7 +13494,7 @@ if not MYPY:
         """
         name: NotRequired[pulumi.Input[builtins.str]]
         """
-        The name of the extension.
+        Resource name
         """
         protected_settings: NotRequired[Any]
         """
@@ -13551,7 +13551,7 @@ class VirtualMachineScaleSetExtensionArgs:
         :param pulumi.Input[builtins.bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param pulumi.Input[builtins.bool] enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
         :param pulumi.Input[builtins.str] force_update_tag: If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
-        :param pulumi.Input[builtins.str] name: The name of the extension.
+        :param pulumi.Input[builtins.str] name: Resource name
         :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param pulumi.Input['KeyVaultSecretReferenceArgs'] protected_settings_from_key_vault: The extensions protected settings that are passed by reference, and consumed from key vault
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
@@ -13626,7 +13626,7 @@ class VirtualMachineScaleSetExtensionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the extension.
+        Resource name
         """
         return pulumi.get(self, "name")
 
@@ -14451,7 +14451,7 @@ if not MYPY:
         """
         network_api_version: NotRequired[pulumi.Input[Union[builtins.str, 'NetworkApiVersion']]]
         """
-        Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set with orchestration mode 'Flexible'. For support of all network properties, use '2022-11-01'.
+        specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set with orchestration mode 'Flexible'
         """
         network_interface_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetNetworkConfigurationArgsDict']]]]
         """
@@ -14469,7 +14469,7 @@ class VirtualMachineScaleSetNetworkProfileArgs:
         """
         Describes a virtual machine scale set network profile.
         :param pulumi.Input['ApiEntityReferenceArgs'] health_probe: A reference to a load balancer probe used to determine the health of an instance in the virtual machine scale set. The reference will be in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/probes/{probeName}'.
-        :param pulumi.Input[Union[builtins.str, 'NetworkApiVersion']] network_api_version: Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set with orchestration mode 'Flexible'. For support of all network properties, use '2022-11-01'.
+        :param pulumi.Input[Union[builtins.str, 'NetworkApiVersion']] network_api_version: specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set with orchestration mode 'Flexible'
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetNetworkConfigurationArgs']]] network_interface_configurations: The list of network configurations.
         """
         if health_probe is not None:
@@ -14495,7 +14495,7 @@ class VirtualMachineScaleSetNetworkProfileArgs:
     @pulumi.getter(name="networkApiVersion")
     def network_api_version(self) -> Optional[pulumi.Input[Union[builtins.str, 'NetworkApiVersion']]]:
         """
-        Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set with orchestration mode 'Flexible'. For support of all network properties, use '2022-11-01'.
+        specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set with orchestration mode 'Flexible'
         """
         return pulumi.get(self, "network_api_version")
 
@@ -15186,7 +15186,10 @@ if not MYPY:
         """
         Specifies the parameters that are used to add data disks to the virtual machines in the scale set. For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
         """
-        disk_controller_type: NotRequired[pulumi.Input[builtins.str]]
+        disk_controller_type: NotRequired[pulumi.Input[Union[builtins.str, 'DiskControllerTypes']]]
+        """
+        Specifies the disk controller type configured for the virtual machines in the scale set. Minimum api-version: 2022-08-01
+        """
         image_reference: NotRequired[pulumi.Input['ImageReferenceArgsDict']]
         """
         Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
@@ -15202,12 +15205,13 @@ elif False:
 class VirtualMachineScaleSetStorageProfileArgs:
     def __init__(__self__, *,
                  data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetDataDiskArgs']]]] = None,
-                 disk_controller_type: Optional[pulumi.Input[builtins.str]] = None,
+                 disk_controller_type: Optional[pulumi.Input[Union[builtins.str, 'DiskControllerTypes']]] = None,
                  image_reference: Optional[pulumi.Input['ImageReferenceArgs']] = None,
                  os_disk: Optional[pulumi.Input['VirtualMachineScaleSetOSDiskArgs']] = None):
         """
         Describes a virtual machine scale set storage profile.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetDataDiskArgs']]] data_disks: Specifies the parameters that are used to add data disks to the virtual machines in the scale set. For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        :param pulumi.Input[Union[builtins.str, 'DiskControllerTypes']] disk_controller_type: Specifies the disk controller type configured for the virtual machines in the scale set. Minimum api-version: 2022-08-01
         :param pulumi.Input['ImageReferenceArgs'] image_reference: Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
         :param pulumi.Input['VirtualMachineScaleSetOSDiskArgs'] os_disk: Specifies information about the operating system disk used by the virtual machines in the scale set. For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
         """
@@ -15234,11 +15238,14 @@ class VirtualMachineScaleSetStorageProfileArgs:
 
     @property
     @pulumi.getter(name="diskControllerType")
-    def disk_controller_type(self) -> Optional[pulumi.Input[builtins.str]]:
+    def disk_controller_type(self) -> Optional[pulumi.Input[Union[builtins.str, 'DiskControllerTypes']]]:
+        """
+        Specifies the disk controller type configured for the virtual machines in the scale set. Minimum api-version: 2022-08-01
+        """
         return pulumi.get(self, "disk_controller_type")
 
     @disk_controller_type.setter
-    def disk_controller_type(self, value: Optional[pulumi.Input[builtins.str]]):
+    def disk_controller_type(self, value: Optional[pulumi.Input[Union[builtins.str, 'DiskControllerTypes']]]):
         pulumi.set(self, "disk_controller_type", value)
 
     @property

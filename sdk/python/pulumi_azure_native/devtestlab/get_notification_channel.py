@@ -220,8 +220,8 @@ def get_notification_channel(expand: Optional[builtins.str] = None,
 
     :param builtins.str expand: Specify the $expand query. Example: 'properties($select=webHookUrl)'
     :param builtins.str lab_name: The name of the lab.
-    :param builtins.str name: The name of the notification channel.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str name: The name of the NotificationChannel
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['expand'] = expand
@@ -259,8 +259,8 @@ def get_notification_channel_output(expand: Optional[pulumi.Input[Optional[built
 
     :param builtins.str expand: Specify the $expand query. Example: 'properties($select=webHookUrl)'
     :param builtins.str lab_name: The name of the lab.
-    :param builtins.str name: The name of the notification channel.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str name: The name of the NotificationChannel
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['expand'] = expand

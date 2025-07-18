@@ -17,35 +17,42 @@ namespace Pulumi.AzureNative.BotService.Outputs
     public sealed class NetworkSecurityPerimeterConfigurationResponse
     {
         /// <summary>
-        /// Fully qualified identifier of the resource
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
-        public readonly string? Id;
+        public readonly string Id;
         /// <summary>
-        /// Name of the resource
+        /// The name of the resource
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
         /// Properties of the Network Security Perimeter configuration
         /// </summary>
-        public readonly Outputs.NetworkSecurityPerimeterConfigurationPropertiesResponse Properties;
+        public readonly Outputs.NetworkSecurityPerimeterConfigurationPropertiesResponse? Properties;
         /// <summary>
-        /// Type of the resource
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly string? Type;
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// </summary>
+        public readonly string Type;
 
         [OutputConstructor]
         private NetworkSecurityPerimeterConfigurationResponse(
-            string? id,
+            string id,
 
-            string? name,
+            string name,
 
-            Outputs.NetworkSecurityPerimeterConfigurationPropertiesResponse properties,
+            Outputs.NetworkSecurityPerimeterConfigurationPropertiesResponse? properties,
 
-            string? type)
+            Outputs.SystemDataResponse systemData,
+
+            string type)
         {
             Id = id;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

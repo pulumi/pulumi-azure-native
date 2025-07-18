@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.ServiceBus
         public Output<string> UpdatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+        /// This property reflects if zone redundancy has been enabled for namespaces in regions that support availability zones.
         /// </summary>
         [Output("zoneRedundant")]
         public Output<bool?> ZoneRedundant { get; private set; } = null!;
@@ -302,7 +302,7 @@ namespace Pulumi.AzureNative.ServiceBus
         }
 
         /// <summary>
-        /// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+        /// This property reflects if zone redundancy has been enabled for namespaces in regions that support availability zones.
         /// </summary>
         [Input("zoneRedundant")]
         public Input<bool>? ZoneRedundant { get; set; }

@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Default rollout definition.
+ * Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
  *
- * Uses Azure REST API version 2021-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
+ * Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class DefaultRollout extends pulumi.CustomResource {
     /**
@@ -50,9 +50,9 @@ export class DefaultRollout extends pulumi.CustomResource {
     /**
      * Properties of the rollout.
      */
-    public readonly properties!: pulumi.Output<outputs.providerhub.DefaultRolloutResponseProperties>;
+    public readonly properties!: pulumi.Output<outputs.providerhub.DefaultRolloutPropertiesResponse>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.providerhub.SystemDataResponse>;
     /**
@@ -74,7 +74,7 @@ export class DefaultRollout extends pulumi.CustomResource {
             if ((!args || args.providerNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerNamespace'");
             }
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.providerhub.defaultRolloutPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["providerNamespace"] = args ? args.providerNamespace : undefined;
             resourceInputs["rolloutName"] = args ? args.rolloutName : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -89,7 +89,7 @@ export class DefaultRollout extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:providerhub/v20201120:DefaultRollout" }, { type: "azure-native:providerhub/v20210501preview:DefaultRollout" }, { type: "azure-native:providerhub/v20210601preview:DefaultRollout" }, { type: "azure-native:providerhub/v20210901preview:DefaultRollout" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:providerhub/v20201120:DefaultRollout" }, { type: "azure-native:providerhub/v20210501preview:DefaultRollout" }, { type: "azure-native:providerhub/v20210601preview:DefaultRollout" }, { type: "azure-native:providerhub/v20210901preview:DefaultRollout" }, { type: "azure-native:providerhub/v20240901:DefaultRollout" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DefaultRollout.__pulumiType, name, resourceInputs, opts);
     }

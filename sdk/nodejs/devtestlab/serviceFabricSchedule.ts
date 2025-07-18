@@ -185,7 +185,7 @@ export interface ServiceFabricScheduleArgs {
      */
     hourlyRecurrence?: pulumi.Input<inputs.devtestlab.HourDetailsArgs>;
     /**
-     * The name of the lab.
+     * labs
      */
     labName: pulumi.Input<string>;
     /**
@@ -193,7 +193,7 @@ export interface ServiceFabricScheduleArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the schedule.
+     * The name of the Schedule
      */
     name?: pulumi.Input<string>;
     /**
@@ -201,11 +201,11 @@ export interface ServiceFabricScheduleArgs {
      */
     notificationSettings?: pulumi.Input<inputs.devtestlab.NotificationSettingsArgs>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the service fabric.
+     * servicefabrics
      */
     serviceFabricName: pulumi.Input<string>;
     /**
@@ -229,7 +229,7 @@ export interface ServiceFabricScheduleArgs {
      */
     timeZoneId?: pulumi.Input<string>;
     /**
-     * The name of the user profile.
+     * users
      */
     userName: pulumi.Input<string>;
     /**

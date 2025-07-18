@@ -58,7 +58,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
      */
     public readonly forceUpdateTag!: pulumi.Output<string | undefined>;
     /**
-     * The name of the extension.
+     * Resource name
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
@@ -172,7 +172,7 @@ export interface VirtualMachineScaleSetExtensionArgs {
      */
     forceUpdateTag?: pulumi.Input<string>;
     /**
-     * The name of the extension.
+     * Resource name
      */
     name?: pulumi.Input<string>;
     /**
@@ -192,7 +192,7 @@ export interface VirtualMachineScaleSetExtensionArgs {
      */
     publisher?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -212,7 +212,7 @@ export interface VirtualMachineScaleSetExtensionArgs {
      */
     typeHandlerVersion?: pulumi.Input<string>;
     /**
-     * The name of the VM scale set where the extension should be create or updated.
+     * The name of the VM scale set.
      */
     vmScaleSetName: pulumi.Input<string>;
     /**

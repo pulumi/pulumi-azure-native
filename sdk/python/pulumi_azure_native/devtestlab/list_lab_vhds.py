@@ -40,15 +40,15 @@ class ListLabVhdsResult:
     @pulumi.getter(name="nextLink")
     def next_link(self) -> Optional[builtins.str]:
         """
-        Link for next set of results.
+        The link to the next page of items
         """
         return pulumi.get(self, "next_link")
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.LabVhdResponse']]:
+    def value(self) -> Sequence['outputs.LabVhdResponse']:
         """
-        Results of the list operation.
+        The LabVhd items on this page
         """
         return pulumi.get(self, "value")
 
@@ -73,7 +73,7 @@ def list_lab_vhds(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: The name of the lab.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -94,7 +94,7 @@ def list_lab_vhds_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: The name of the lab.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['name'] = name

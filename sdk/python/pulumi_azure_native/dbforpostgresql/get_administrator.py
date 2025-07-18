@@ -26,7 +26,7 @@ __all__ = [
 @pulumi.output_type
 class GetAdministratorResult:
     """
-    Represents an Active Directory administrator.
+    Server administrator associated to a Microsoft Entra principal.
     """
     def __init__(__self__, azure_api_version=None, id=None, name=None, object_id=None, principal_name=None, principal_type=None, system_data=None, tenant_id=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
@@ -85,7 +85,7 @@ class GetAdministratorResult:
     @pulumi.getter(name="objectId")
     def object_id(self) -> Optional[builtins.str]:
         """
-        The objectId of the Active Directory administrator.
+        Object identifier of the Microsoft Entra principal.
         """
         return pulumi.get(self, "object_id")
 
@@ -93,7 +93,7 @@ class GetAdministratorResult:
     @pulumi.getter(name="principalName")
     def principal_name(self) -> Optional[builtins.str]:
         """
-        Active Directory administrator principal name.
+        Name of the Microsoft Entra principal.
         """
         return pulumi.get(self, "principal_name")
 
@@ -101,7 +101,7 @@ class GetAdministratorResult:
     @pulumi.getter(name="principalType")
     def principal_type(self) -> Optional[builtins.str]:
         """
-        The principal type used to represent the type of Active Directory Administrator.
+        Type of Microsoft Entra principal to which the server administrator is associated.
         """
         return pulumi.get(self, "principal_type")
 
@@ -117,7 +117,7 @@ class GetAdministratorResult:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[builtins.str]:
         """
-        The tenantId of the Active Directory administrator.
+        Identifier of the tenant in which the Microsoft Entra principal exists.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -152,14 +152,14 @@ def get_administrator(object_id: Optional[builtins.str] = None,
                       server_name: Optional[builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAdministratorResult:
     """
-    Gets information about a server.
+    Gets information about a server administrator associated to a Microsoft Entra principal.
 
     Uses Azure REST API version 2024-08-01.
 
     Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str object_id: Guid of the objectId for the administrator.
+    :param builtins.str object_id: Object identifier of the Microsoft Entra principal.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str server_name: The name of the server.
     """
@@ -185,14 +185,14 @@ def get_administrator_output(object_id: Optional[pulumi.Input[builtins.str]] = N
                              server_name: Optional[pulumi.Input[builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAdministratorResult]:
     """
-    Gets information about a server.
+    Gets information about a server administrator associated to a Microsoft Entra principal.
 
     Uses Azure REST API version 2024-08-01.
 
     Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str object_id: Guid of the objectId for the administrator.
+    :param builtins.str object_id: Object identifier of the Microsoft Entra principal.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str server_name: The name of the server.
     """

@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Connection base resource schema.
  *
  * Uses Azure REST API version 2025-04-01-preview.
+ *
+ * Other available API versions: 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ProjectConnection extends pulumi.CustomResource {
     /**
@@ -94,7 +96,7 @@ export class ProjectConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20250401preview:ProjectConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20250401preview:ProjectConnection" }, { type: "azure-native:cognitiveservices/v20250601:ProjectConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProjectConnection.__pulumiType, name, resourceInputs, opts);
     }

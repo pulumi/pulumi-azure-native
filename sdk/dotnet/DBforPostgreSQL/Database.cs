@@ -26,13 +26,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The charset of the database.
+        /// Character set of the database.
         /// </summary>
         [Output("charset")]
         public Output<string?> Charset { get; private set; } = null!;
 
         /// <summary>
-        /// The collation of the database.
+        /// Collation of the database.
         /// </summary>
         [Output("collation")]
         public Output<string?> Collation { get; private set; } = null!;
@@ -118,19 +118,19 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class DatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The charset of the database.
+        /// Character set of the database.
         /// </summary>
         [Input("charset")]
         public Input<string>? Charset { get; set; }
 
         /// <summary>
-        /// The collation of the database.
+        /// Collation of the database.
         /// </summary>
         [Input("collation")]
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// The name of the database.
+        /// Name of the database.
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }

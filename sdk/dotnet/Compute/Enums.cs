@@ -205,25 +205,25 @@ namespace Pulumi.AzureNative.Compute
     /// The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
     /// </summary>
     [EnumType]
-    public readonly struct ComponentNames : IEquatable<ComponentNames>
+    public readonly struct ComponentName : IEquatable<ComponentName>
     {
         private readonly string _value;
 
-        private ComponentNames(string value)
+        private ComponentName(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ComponentNames Microsoft_Windows_Shell_Setup { get; } = new ComponentNames("Microsoft-Windows-Shell-Setup");
+        public static ComponentName Microsoft_Windows_Shell_Setup { get; } = new ComponentName("Microsoft-Windows-Shell-Setup");
 
-        public static bool operator ==(ComponentNames left, ComponentNames right) => left.Equals(right);
-        public static bool operator !=(ComponentNames left, ComponentNames right) => !left.Equals(right);
+        public static bool operator ==(ComponentName left, ComponentName right) => left.Equals(right);
+        public static bool operator !=(ComponentName left, ComponentName right) => !left.Equals(right);
 
-        public static explicit operator string(ComponentNames value) => value._value;
+        public static explicit operator string(ComponentName value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ComponentNames other && Equals(other);
-        public bool Equals(ComponentNames other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ComponentName other && Equals(other);
+        public bool Equals(ComponentName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -568,11 +568,11 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public static DiskCreateOption CopyStart { get; } = new DiskCreateOption("CopyStart");
         /// <summary>
-        /// Similar to Import create option. Create a new Trusted Launch VM or Confidential VM supported disk by importing additional blob for VM guest state specified by securityDataUri in storage account specified by storageAccountId
+        /// Similar to Import create option. Create a new Trusted Launch VM or Confidential VM supported disk by importing additional blobs for VM guest state specified by securityDataUri and VM metadata specified by securityMetadataUri in storage account specified by storageAccountId. The VM metadata is optional and only required for certain Confidential VM configurations and not required for Trusted Launch VM.
         /// </summary>
         public static DiskCreateOption ImportSecure { get; } = new DiskCreateOption("ImportSecure");
         /// <summary>
-        /// Similar to Upload create option. Create a new Trusted Launch VM or Confidential VM supported disk and upload using write token in both disk and VM guest state
+        /// Similar to Upload create option. Create a new Trusted Launch VM or Confidential VM supported disk and upload using write token in disk, VM guest state and VM metadata. The VM metadata is optional and only required for certain Confidential VM configurations and not required for Trusted Launch VM.
         /// </summary>
         public static DiskCreateOption UploadPreparedSecure { get; } = new DiskCreateOption("UploadPreparedSecure");
         /// <summary>
@@ -661,7 +661,7 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
-    /// Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+    /// Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. **This feature is still in preview**. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
     /// </summary>
     [EnumType]
     public readonly struct DiskDetachOptionTypes : IEquatable<DiskDetachOptionTypes>
@@ -1783,25 +1783,25 @@ namespace Pulumi.AzureNative.Compute
     /// The pass name. Currently, the only allowable value is OobeSystem.
     /// </summary>
     [EnumType]
-    public readonly struct PassNames : IEquatable<PassNames>
+    public readonly struct PassName : IEquatable<PassName>
     {
         private readonly string _value;
 
-        private PassNames(string value)
+        private PassName(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static PassNames OobeSystem { get; } = new PassNames("OobeSystem");
+        public static PassName OobeSystem { get; } = new PassName("OobeSystem");
 
-        public static bool operator ==(PassNames left, PassNames right) => left.Equals(right);
-        public static bool operator !=(PassNames left, PassNames right) => !left.Equals(right);
+        public static bool operator ==(PassName left, PassName right) => left.Equals(right);
+        public static bool operator !=(PassName left, PassName right) => !left.Equals(right);
 
-        public static explicit operator string(PassNames value) => value._value;
+        public static explicit operator string(PassName value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PassNames other && Equals(other);
-        public bool Equals(PassNames other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is PassName other && Equals(other);
+        public bool Equals(PassName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2267,7 +2267,7 @@ namespace Pulumi.AzureNative.Compute
         }
 
         /// <summary>
-        /// Disk Restore Point is encrypted at rest with Platform managed key. 
+        /// Disk Restore Point is encrypted at rest with Platform managed key.
         /// </summary>
         public static RestorePointEncryptionType EncryptionAtRestWithPlatformKey { get; } = new RestorePointEncryptionType("EncryptionAtRestWithPlatformKey");
         /// <summary>
@@ -2913,7 +2913,7 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
-    /// Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **ImageDefault** - You control the timing of patch assessments on a virtual machine.&lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true. 
+    /// Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **ImageDefault** - You control the timing of patch assessments on a virtual machine.&lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
     /// </summary>
     [EnumType]
     public readonly struct WindowsPatchAssessmentMode : IEquatable<WindowsPatchAssessmentMode>
@@ -2977,7 +2977,7 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
-    /// Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false&lt;br /&gt;&lt;br /&gt; **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. &lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+    /// Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false&lt;br /&gt;&lt;br /&gt; **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. &lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
     /// </summary>
     [EnumType]
     public readonly struct WindowsVMGuestPatchMode : IEquatable<WindowsVMGuestPatchMode>

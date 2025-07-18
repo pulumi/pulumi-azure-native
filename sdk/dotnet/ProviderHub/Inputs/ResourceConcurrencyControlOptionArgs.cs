@@ -12,6 +12,9 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
     public sealed class ResourceConcurrencyControlOptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The policy.
+        /// </summary>
         [Input("policy")]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.Policy>? Policy { get; set; }
 

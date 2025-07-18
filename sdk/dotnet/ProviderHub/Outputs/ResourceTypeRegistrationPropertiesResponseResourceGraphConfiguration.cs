@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Outputs
 {
 
+    /// <summary>
+    /// The resource graph configuration.
+    /// </summary>
     [OutputType]
     public sealed class ResourceTypeRegistrationPropertiesResponseResourceGraphConfiguration
     {
+        /// <summary>
+        /// The api version.
+        /// </summary>
         public readonly string? ApiVersion;
+        /// <summary>
+        /// Whether it's enabled.
+        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

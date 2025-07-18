@@ -29,11 +29,11 @@ class RestorePointCollectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a RestorePointCollection resource.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.str] restore_point_collection_name: The name of the restore point collection.
         :param pulumi.Input['RestorePointCollectionSourcePropertiesArgs'] source: The properties of the source resource that this restore point collection is created from.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
@@ -49,7 +49,7 @@ class RestorePointCollectionArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -61,7 +61,7 @@ class RestorePointCollectionArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -97,7 +97,7 @@ class RestorePointCollectionArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -127,11 +127,11 @@ class RestorePointCollection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] location: Resource location
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] restore_point_collection_name: The name of the restore point collection.
         :param pulumi.Input[Union['RestorePointCollectionSourcePropertiesArgs', 'RestorePointCollectionSourcePropertiesArgsDict']] source: The properties of the source resource that this restore point collection is created from.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -187,6 +187,7 @@ class RestorePointCollection(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["restore_point_collection_id"] = None
             __props__.__dict__["restore_points"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20210301:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20210401:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20210701:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20211101:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20220301:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20220801:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20221101:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20230301:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20230701:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20230901:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20240301:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20240701:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20241101:RestorePointCollection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -219,6 +220,7 @@ class RestorePointCollection(pulumi.CustomResource):
         __props__.__dict__["restore_point_collection_id"] = None
         __props__.__dict__["restore_points"] = None
         __props__.__dict__["source"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return RestorePointCollection(resource_name, opts=opts, __props__=__props__)
@@ -235,7 +237,7 @@ class RestorePointCollection(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -243,7 +245,7 @@ class RestorePointCollection(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -280,10 +282,18 @@ class RestorePointCollection(pulumi.CustomResource):
         return pulumi.get(self, "source")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -291,7 +301,7 @@ class RestorePointCollection(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

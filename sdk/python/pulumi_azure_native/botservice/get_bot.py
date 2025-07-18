@@ -28,7 +28,7 @@ class GetBotResult:
     """
     Bot resource definition
     """
-    def __init__(__self__, azure_api_version=None, etag=None, id=None, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, azure_api_version=None, etag=None, id=None, kind=None, location=None, name=None, properties=None, sku=None, system_data=None, tags=None, type=None, zones=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -53,6 +53,9 @@ class GetBotResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -83,7 +86,7 @@ class GetBotResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Specifies the resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -97,9 +100,9 @@ class GetBotResult:
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[builtins.str]:
+    def location(self) -> builtins.str:
         """
-        Specifies the location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -107,7 +110,7 @@ class GetBotResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Specifies the name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -128,10 +131,18 @@ class GetBotResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Contains resource tags defined as key/value pairs.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -139,7 +150,7 @@ class GetBotResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Specifies the type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -166,6 +177,7 @@ class AwaitableGetBotResult(GetBotResult):
             name=self.name,
             properties=self.properties,
             sku=self.sku,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             zones=self.zones)
@@ -182,7 +194,7 @@ def get_bot(resource_group_name: Optional[builtins.str] = None,
     Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str resource_group_name: The name of the Bot resource group in the user subscription.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str resource_name: The name of the Bot resource.
     """
     __args__ = dict()
@@ -200,6 +212,7 @@ def get_bot(resource_group_name: Optional[builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         sku=pulumi.get(__ret__, 'sku'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zones=pulumi.get(__ret__, 'zones'))
@@ -214,7 +227,7 @@ def get_bot_output(resource_group_name: Optional[pulumi.Input[builtins.str]] = N
     Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str resource_group_name: The name of the Bot resource group in the user subscription.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str resource_name: The name of the Bot resource.
     """
     __args__ = dict()
@@ -231,6 +244,7 @@ def get_bot_output(resource_group_name: Optional[pulumi.Input[builtins.str]] = N
         name=pulumi.get(__response__, 'name'),
         properties=pulumi.get(__response__, 'properties'),
         sku=pulumi.get(__response__, 'sku'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         zones=pulumi.get(__response__, 'zones')))

@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Outputs
 {
 
+    /// <summary>
+    /// Error information.
+    /// </summary>
     [OutputType]
     public sealed class TypedErrorInfoResponse
     {
+        /// <summary>
+        /// The error information.
+        /// </summary>
         public readonly object Info;
+        /// <summary>
+        /// The type of the error.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Aad
     /// Domain service.
     /// 
     /// Uses Azure REST API version 2022-12-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
+    /// 
+    /// Other available API versions: 2025-05-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native aad [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:aad:DomainService")]
     public partial class DomainService : global::Pulumi.CustomResource
@@ -199,6 +201,8 @@ namespace Pulumi.AzureNative.Aad
                     new global::Pulumi.Alias { Type = "azure-native:aad/v20210501:DomainService" },
                     new global::Pulumi.Alias { Type = "azure-native:aad/v20220901:DomainService" },
                     new global::Pulumi.Alias { Type = "azure-native:aad/v20221201:DomainService" },
+                    new global::Pulumi.Alias { Type = "azure-native:aad/v20250501:DomainService" },
+                    new global::Pulumi.Alias { Type = "azure-native:aad/v20250601:DomainService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

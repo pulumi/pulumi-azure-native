@@ -13,7 +13,13 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     [OutputType]
     public sealed class SwaggerSpecificationResponse
     {
+        /// <summary>
+        /// The api versions.
+        /// </summary>
         public readonly ImmutableArray<string> ApiVersions;
+        /// <summary>
+        /// The swagger spec folder uri.
+        /// </summary>
         public readonly string? SwaggerSpecFolderUri;
 
         [OutputConstructor]

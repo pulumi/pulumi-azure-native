@@ -405,7 +405,7 @@ namespace Pulumi.AzureNative.DevTestLab
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the virtual machine.
+        /// The name of the LabVirtualMachine
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -447,7 +447,7 @@ namespace Pulumi.AzureNative.DevTestLab
         public Input<string>? PlanId { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

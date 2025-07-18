@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Confluent
     public static class GetConnector
     {
         /// <summary>
-        /// Details of connector record
+        /// Get confluent connector by Name
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// </summary>
@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.Confluent
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("azure-native:confluent:getConnector", args ?? new GetConnectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Details of connector record
+        /// Get confluent connector by Name
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Confluent
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:confluent:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Details of connector record
+        /// Get confluent connector by Name
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// </summary>

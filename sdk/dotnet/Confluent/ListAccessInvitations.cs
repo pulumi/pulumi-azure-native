@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Confluent
     public static class ListAccessInvitations
     {
         /// <summary>
-        /// List invitations success response
+        /// Organization accounts invitation details
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// 
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Confluent
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccessInvitationsResult>("azure-native:confluent:listAccessInvitations", args ?? new ListAccessInvitationsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List invitations success response
+        /// Organization accounts invitation details
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// 
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Confluent
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessInvitationsResult>("azure-native:confluent:listAccessInvitations", args ?? new ListAccessInvitationsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List invitations success response
+        /// Organization accounts invitation details
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// 
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Confluent
         public string OrganizationName { get; set; } = null!;
 
         /// <summary>
-        /// Resource group name
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Confluent
         public Input<string> OrganizationName { get; set; } = null!;
 
         /// <summary>
-        /// Resource group name
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

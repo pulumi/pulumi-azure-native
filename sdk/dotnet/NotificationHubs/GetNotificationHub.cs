@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.NotificationHubs
     public static class GetNotificationHub
     {
         /// <summary>
-        /// Notification Hub Resource.
+        /// Gets the notification hub.
         /// 
         /// Uses Azure REST API version 2023-10-01-preview.
         /// 
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.NotificationHubs
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotificationHubResult>("azure-native:notificationhubs:getNotificationHub", args ?? new GetNotificationHubArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Notification Hub Resource.
+        /// Gets the notification hub.
         /// 
         /// Uses Azure REST API version 2023-10-01-preview.
         /// 
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.NotificationHubs
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationHubResult>("azure-native:notificationhubs:getNotificationHub", args ?? new GetNotificationHubInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Notification Hub Resource.
+        /// Gets the notification hub.
         /// 
         /// Uses Azure REST API version 2023-10-01-preview.
         /// 

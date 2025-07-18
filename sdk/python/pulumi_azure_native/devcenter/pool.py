@@ -272,7 +272,7 @@ class Pool(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -302,7 +302,7 @@ class Pool(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param PoolArgs args: The arguments to use to populate this resource's properties.
@@ -376,7 +376,7 @@ class Pool(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20230401:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20230801preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20231001preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20240201:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20240501preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20240601preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20240701preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20240801preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20241001preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20250201:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20250401preview:Pool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20230401:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20230801preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20231001preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20240201:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20240501preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20240601preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20240701preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20240801preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20241001preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20250201:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20250401preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20250701preview:Pool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Pool, __self__).__init__(
             'azure-native:devcenter:Pool',

@@ -8,7 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Uses Azure REST API version 2021-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
+ * Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
+ *
+ * Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ProviderRegistration extends pulumi.CustomResource {
     /**
@@ -42,12 +44,16 @@ export class ProviderRegistration extends pulumi.CustomResource {
      */
     public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
+     * Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+     */
+    public readonly kind!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly properties!: pulumi.Output<outputs.providerhub.ProviderRegistrationResponseProperties>;
+    public readonly properties!: pulumi.Output<outputs.providerhub.ProviderRegistrationPropertiesResponse>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.providerhub.SystemDataResponse>;
     /**
@@ -66,6 +72,7 @@ export class ProviderRegistration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["kind"] = (args ? args.kind : undefined) ?? "Managed";
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["providerNamespace"] = args ? args.providerNamespace : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -74,13 +81,14 @@ export class ProviderRegistration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:providerhub/v20201120:ProviderRegistration" }, { type: "azure-native:providerhub/v20210501preview:ProviderRegistration" }, { type: "azure-native:providerhub/v20210601preview:ProviderRegistration" }, { type: "azure-native:providerhub/v20210901preview:ProviderRegistration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:providerhub/v20201120:ProviderRegistration" }, { type: "azure-native:providerhub/v20210501preview:ProviderRegistration" }, { type: "azure-native:providerhub/v20210601preview:ProviderRegistration" }, { type: "azure-native:providerhub/v20210901preview:ProviderRegistration" }, { type: "azure-native:providerhub/v20240901:ProviderRegistration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProviderRegistration.__pulumiType, name, resourceInputs, opts);
     }
@@ -90,6 +98,10 @@ export class ProviderRegistration extends pulumi.CustomResource {
  * The set of arguments for constructing a ProviderRegistration resource.
  */
 export interface ProviderRegistrationArgs {
+    /**
+     * Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+     */
+    kind?: pulumi.Input<string | enums.providerhub.ProviderRegistrationKind>;
     properties?: pulumi.Input<inputs.providerhub.ProviderRegistrationPropertiesArgs>;
     /**
      * The name of the resource provider hosted within ProviderHub.

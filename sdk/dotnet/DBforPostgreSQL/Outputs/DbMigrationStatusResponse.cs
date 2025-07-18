@@ -11,73 +11,73 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     /// <summary>
-    /// Migration status of an individual database
+    /// Migration status of a database.
     /// </summary>
     [OutputType]
     public sealed class DbMigrationStatusResponse
     {
         /// <summary>
-        /// CDC applied changes counter
+        /// Change Data Capture applied changes counter.
         /// </summary>
         public readonly int? AppliedChanges;
         /// <summary>
-        /// CDC delete counter
+        /// Change Data Capture delete counter.
         /// </summary>
         public readonly int? CdcDeleteCounter;
         /// <summary>
-        /// CDC insert counter
+        /// Change Data Capture insert counter.
         /// </summary>
         public readonly int? CdcInsertCounter;
         /// <summary>
-        /// CDC update counter
+        /// Change Data Capture update counter.
         /// </summary>
         public readonly int? CdcUpdateCounter;
         /// <summary>
-        /// Name of the database
+        /// Name of database.
         /// </summary>
         public readonly string? DatabaseName;
         /// <summary>
-        /// End date-time of a migration state
+        /// End time of a migration state.
         /// </summary>
         public readonly string? EndedOn;
         /// <summary>
-        /// Number of tables loaded during the migration of a DB
+        /// Number of tables loaded during the migration of a database.
         /// </summary>
         public readonly int? FullLoadCompletedTables;
         /// <summary>
-        /// Number of tables errored out during the migration of a DB
+        /// Number of tables encountering errors during the migration of a database.
         /// </summary>
         public readonly int? FullLoadErroredTables;
         /// <summary>
-        /// Number of tables loading during the migration of a DB
+        /// Number of tables loading during the migration of a database.
         /// </summary>
         public readonly int? FullLoadLoadingTables;
         /// <summary>
-        /// Number of tables queued for the migration of a DB
+        /// Number of tables queued for the migration of a database.
         /// </summary>
         public readonly int? FullLoadQueuedTables;
         /// <summary>
-        /// CDC incoming changes counter
+        /// Change Data Capture incoming changes counter.
         /// </summary>
         public readonly int? IncomingChanges;
         /// <summary>
-        /// Lag in seconds between source and target during online phase
+        /// Lag in seconds between source and target during online phase.
         /// </summary>
         public readonly int? Latency;
         /// <summary>
-        /// Error message, if any, for the migration state
+        /// Error message, if any, for the migration state.
         /// </summary>
         public readonly string? Message;
         /// <summary>
-        /// Migration operation of an individual database
+        /// Migration operation of a database.
         /// </summary>
         public readonly string? MigrationOperation;
         /// <summary>
-        /// Migration db state of an individual database
+        /// Migration state of a database.
         /// </summary>
         public readonly string? MigrationState;
         /// <summary>
-        /// Start date-time of a migration state
+        /// Start time of a migration state.
         /// </summary>
         public readonly string? StartedOn;
 

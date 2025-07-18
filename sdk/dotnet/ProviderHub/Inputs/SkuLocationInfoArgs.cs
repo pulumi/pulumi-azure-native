@@ -14,20 +14,34 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
     {
         [Input("extendedLocations")]
         private InputList<string>? _extendedLocations;
+
+        /// <summary>
+        /// The extended locations.
+        /// </summary>
         public InputList<string> ExtendedLocations
         {
             get => _extendedLocations ?? (_extendedLocations = new InputList<string>());
             set => _extendedLocations = value;
         }
 
+        /// <summary>
+        /// The location.
+        /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
+        /// <summary>
+        /// The type.
+        /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.ExtendedLocationType>? Type { get; set; }
 
         [Input("zoneDetails")]
         private InputList<Inputs.SkuZoneDetailArgs>? _zoneDetails;
+
+        /// <summary>
+        /// The zone details.
+        /// </summary>
         public InputList<Inputs.SkuZoneDetailArgs> ZoneDetails
         {
             get => _zoneDetails ?? (_zoneDetails = new InputList<Inputs.SkuZoneDetailArgs>());
@@ -36,6 +50,10 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
         [Input("zones")]
         private InputList<string>? _zones;
+
+        /// <summary>
+        /// The zones.
+        /// </summary>
         public InputList<string> Zones
         {
             get => _zones ?? (_zones = new InputList<string>());

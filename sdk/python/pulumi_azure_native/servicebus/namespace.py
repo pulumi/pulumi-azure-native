@@ -53,7 +53,7 @@ class NamespaceArgs:
         :param pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled.
         :param pulumi.Input['SBSkuArgs'] sku: Properties of SKU
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
-        :param pulumi.Input[builtins.bool] zone_redundant: Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+        :param pulumi.Input[builtins.bool] zone_redundant: This property reflects if zone redundancy has been enabled for namespaces in regions that support availability zones.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if alternate_name is not None:
@@ -246,7 +246,7 @@ class NamespaceArgs:
     @pulumi.getter(name="zoneRedundant")
     def zone_redundant(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+        This property reflects if zone redundancy has been enabled for namespaces in regions that support availability zones.
         """
         return pulumi.get(self, "zone_redundant")
 
@@ -299,7 +299,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['SBSkuArgs', 'SBSkuArgsDict']] sku: Properties of SKU
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
-        :param pulumi.Input[builtins.bool] zone_redundant: Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+        :param pulumi.Input[builtins.bool] zone_redundant: This property reflects if zone redundancy has been enabled for namespaces in regions that support availability zones.
         """
         ...
     @overload
@@ -600,7 +600,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter(name="zoneRedundant")
     def zone_redundant(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+        This property reflects if zone redundancy has been enabled for namespaces in regions that support availability zones.
         """
         return pulumi.get(self, "zone_redundant")
 

@@ -30,9 +30,9 @@ class DatabaseArgs:
         The set of arguments for constructing a Database resource.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] server_name: The name of the server.
-        :param pulumi.Input[builtins.str] charset: The charset of the database.
-        :param pulumi.Input[builtins.str] collation: The collation of the database.
-        :param pulumi.Input[builtins.str] database_name: The name of the database.
+        :param pulumi.Input[builtins.str] charset: Character set of the database.
+        :param pulumi.Input[builtins.str] collation: Collation of the database.
+        :param pulumi.Input[builtins.str] database_name: Name of the database.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
@@ -71,7 +71,7 @@ class DatabaseArgs:
     @pulumi.getter
     def charset(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The charset of the database.
+        Character set of the database.
         """
         return pulumi.get(self, "charset")
 
@@ -83,7 +83,7 @@ class DatabaseArgs:
     @pulumi.getter
     def collation(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The collation of the database.
+        Collation of the database.
         """
         return pulumi.get(self, "collation")
 
@@ -95,7 +95,7 @@ class DatabaseArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the database.
+        Name of the database.
         """
         return pulumi.get(self, "database_name")
 
@@ -125,9 +125,9 @@ class Database(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] charset: The charset of the database.
-        :param pulumi.Input[builtins.str] collation: The collation of the database.
-        :param pulumi.Input[builtins.str] database_name: The name of the database.
+        :param pulumi.Input[builtins.str] charset: Character set of the database.
+        :param pulumi.Input[builtins.str] collation: Collation of the database.
+        :param pulumi.Input[builtins.str] database_name: Name of the database.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] server_name: The name of the server.
         """
@@ -230,7 +230,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter
     def charset(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The charset of the database.
+        Character set of the database.
         """
         return pulumi.get(self, "charset")
 
@@ -238,7 +238,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter
     def collation(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The collation of the database.
+        Collation of the database.
         """
         return pulumi.get(self, "collation")
 

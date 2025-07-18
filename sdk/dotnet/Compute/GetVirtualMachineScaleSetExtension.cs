@@ -52,13 +52,13 @@ namespace Pulumi.AzureNative.Compute
         public string? Expand { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the VM scale set containing the extension.
+        /// The name of the VM scale set.
         /// </summary>
         [Input("vmScaleSetName", required: true)]
         public string VmScaleSetName { get; set; } = null!;
@@ -84,13 +84,13 @@ namespace Pulumi.AzureNative.Compute
         public Input<string>? Expand { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the VM scale set containing the extension.
+        /// The name of the VM scale set.
         /// </summary>
         [Input("vmScaleSetName", required: true)]
         public Input<string> VmScaleSetName { get; set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the extension.
+        /// Resource name
         /// </summary>
         public readonly string? Name;
         /// <summary>

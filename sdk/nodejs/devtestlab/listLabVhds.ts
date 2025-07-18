@@ -26,7 +26,7 @@ export interface ListLabVhdsArgs {
      */
     name: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -36,13 +36,13 @@ export interface ListLabVhdsArgs {
  */
 export interface ListLabVhdsResult {
     /**
-     * Link for next set of results.
+     * The link to the next page of items
      */
     readonly nextLink?: string;
     /**
-     * Results of the list operation.
+     * The LabVhd items on this page
      */
-    readonly value?: outputs.devtestlab.LabVhdResponse[];
+    readonly value: outputs.devtestlab.LabVhdResponse[];
 }
 /**
  * List disk images available for custom image creation.
@@ -63,7 +63,7 @@ export interface ListLabVhdsOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

@@ -20,6 +20,11 @@ export type EdgeSite = import("./edgeSite").EdgeSite;
 export const EdgeSite: typeof import("./edgeSite").EdgeSite = null as any;
 utilities.lazyLoad(exports, ["EdgeSite"], () => require("./edgeSite"));
 
+export { GeoCatalogArgs } from "./geoCatalog";
+export type GeoCatalog = import("./geoCatalog").GeoCatalog;
+export const GeoCatalog: typeof import("./geoCatalog").GeoCatalog = null as any;
+utilities.lazyLoad(exports, ["GeoCatalog"], () => require("./geoCatalog"));
+
 export { GetContactArgs, GetContactResult, GetContactOutputArgs } from "./getContact";
 export const getContact: typeof import("./getContact").getContact = null as any;
 export const getContactOutput: typeof import("./getContact").getContactOutput = null as any;
@@ -34,6 +39,11 @@ export { GetEdgeSiteArgs, GetEdgeSiteResult, GetEdgeSiteOutputArgs } from "./get
 export const getEdgeSite: typeof import("./getEdgeSite").getEdgeSite = null as any;
 export const getEdgeSiteOutput: typeof import("./getEdgeSite").getEdgeSiteOutput = null as any;
 utilities.lazyLoad(exports, ["getEdgeSite","getEdgeSiteOutput"], () => require("./getEdgeSite"));
+
+export { GetGeoCatalogArgs, GetGeoCatalogResult, GetGeoCatalogOutputArgs } from "./getGeoCatalog";
+export const getGeoCatalog: typeof import("./getGeoCatalog").getGeoCatalog = null as any;
+export const getGeoCatalogOutput: typeof import("./getGeoCatalog").getGeoCatalogOutput = null as any;
+utilities.lazyLoad(exports, ["getGeoCatalog","getGeoCatalogOutput"], () => require("./getGeoCatalog"));
 
 export { GetGroundStationArgs, GetGroundStationResult, GetGroundStationOutputArgs } from "./getGroundStation";
 export const getGroundStation: typeof import("./getGroundStation").getGroundStation = null as any;
@@ -94,6 +104,8 @@ const _module = {
                 return new ContactProfile(name, <any>undefined, { urn })
             case "azure-native:orbital:EdgeSite":
                 return new EdgeSite(name, <any>undefined, { urn })
+            case "azure-native:orbital:GeoCatalog":
+                return new GeoCatalog(name, <any>undefined, { urn })
             case "azure-native:orbital:GroundStation":
                 return new GroundStation(name, <any>undefined, { urn })
             case "azure-native:orbital:L2Connection":

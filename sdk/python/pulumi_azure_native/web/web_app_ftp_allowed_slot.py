@@ -114,7 +114,7 @@ class WebAppFtpAllowedSlot(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
 
-        Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,7 +134,7 @@ class WebAppFtpAllowedSlot(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
 
-        Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param WebAppFtpAllowedSlotArgs args: The arguments to use to populate this resource's properties.
@@ -180,7 +180,7 @@ class WebAppFtpAllowedSlot(pulumi.CustomResource):
             __props__.__dict__["slot"] = slot
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20201201:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppFtpAllowedSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20201201:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20241101:WebAppFtpAllowedSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppFtpAllowedSlot, __self__).__init__(
             'azure-native:web:WebAppFtpAllowedSlot',

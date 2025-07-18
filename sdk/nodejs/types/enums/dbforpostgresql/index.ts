@@ -15,7 +15,7 @@ export const ActiveDirectoryAuthEnum = {
 } as const;
 
 /**
- * If Enabled, Azure Active Directory authentication is enabled.
+ * Indicates if the server supports Microsoft Entra authentication.
  */
 export type ActiveDirectoryAuthEnum = (typeof ActiveDirectoryAuthEnum)[keyof typeof ActiveDirectoryAuthEnum];
 
@@ -34,7 +34,7 @@ export const ArmServerKeyType = {
 } as const;
 
 /**
- * Data encryption type to depict if it is System Managed vs Azure Key vault.
+ * Data encryption type used by a flexible server.
  */
 export type ArmServerKeyType = (typeof ArmServerKeyType)[keyof typeof ArmServerKeyType];
 
@@ -56,7 +56,7 @@ export const AzureManagedDiskPerformanceTiers = {
 } as const;
 
 /**
- * Name of storage tier for IOPS.
+ * Storage tier of a flexible server.
  */
 export type AzureManagedDiskPerformanceTiers = (typeof AzureManagedDiskPerformanceTiers)[keyof typeof AzureManagedDiskPerformanceTiers];
 
@@ -66,7 +66,7 @@ export const CancelEnum = {
 } as const;
 
 /**
- * To trigger cancel for entire migration we need to send this flag as True
+ * Indicates if cancel must be triggered for the entire migration.
  */
 export type CancelEnum = (typeof CancelEnum)[keyof typeof CancelEnum];
 
@@ -81,7 +81,7 @@ export const CreateMode = {
 } as const;
 
 /**
- * The mode to create a new PostgreSQL server.
+ * Creation mode of a new flexible server.
  */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
@@ -108,7 +108,7 @@ export const GeoRedundantBackupEnum = {
 } as const;
 
 /**
- * A value indicating whether Geo-Redundant backup is enabled on the server.
+ * Indicates if the server is configured to create geographically redundant backups.
  */
 export type GeoRedundantBackupEnum = (typeof GeoRedundantBackupEnum)[keyof typeof GeoRedundantBackupEnum];
 
@@ -119,7 +119,7 @@ export const HighAvailabilityMode = {
 } as const;
 
 /**
- * The HA mode for the server.
+ * High availability mode for a flexible server.
  */
 export type HighAvailabilityMode = (typeof HighAvailabilityMode)[keyof typeof HighAvailabilityMode];
 
@@ -152,7 +152,7 @@ export const KeyStatusEnum = {
 } as const;
 
 /**
- * Primary encryption key status for Data encryption enabled server.
+ * Status of key used by a flexible server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
  */
 export type KeyStatusEnum = (typeof KeyStatusEnum)[keyof typeof KeyStatusEnum];
 
@@ -162,7 +162,7 @@ export const LogicalReplicationOnSourceDbEnum = {
 } as const;
 
 /**
- * Indicates whether to setup LogicalReplicationOnSourceDb, if needed
+ * Indicates whether to setup LogicalReplicationOnSourceDb, if needed.
  */
 export type LogicalReplicationOnSourceDbEnum = (typeof LogicalReplicationOnSourceDbEnum)[keyof typeof LogicalReplicationOnSourceDbEnum];
 
@@ -172,7 +172,7 @@ export const MigrateRolesEnum = {
 } as const;
 
 /**
- * To migrate roles and permissions we need to send this flag as True
+ * Indicates if roles and permissions must be migrated.
  */
 export type MigrateRolesEnum = (typeof MigrateRolesEnum)[keyof typeof MigrateRolesEnum];
 
@@ -182,7 +182,7 @@ export const MigrationMode = {
 } as const;
 
 /**
- * There are two types of migration modes Online and Offline
+ * Mode used to perform the migration: Online or Offline.
  */
 export type MigrationMode = (typeof MigrationMode)[keyof typeof MigrationMode];
 
@@ -193,7 +193,7 @@ export const MigrationOption = {
 } as const;
 
 /**
- * This indicates the supported Migration option for the migration
+ * Supported option for a migration.
  */
 export type MigrationOption = (typeof MigrationOption)[keyof typeof MigrationOption];
 
@@ -215,7 +215,7 @@ export const OverwriteDbsInTargetEnum = {
 } as const;
 
 /**
- * Indicates whether the databases on the target server can be overwritten, if already present. If set to False, the migration workflow will wait for a confirmation, if it detects that the database already exists.
+ * Indicates if databases on the target server can be overwritten when already present. If set to 'False', when the migration workflow detects that the database already exists on the target server, it will wait for a confirmation.
  */
 export type OverwriteDbsInTargetEnum = (typeof OverwriteDbsInTargetEnum)[keyof typeof OverwriteDbsInTargetEnum];
 
@@ -232,7 +232,7 @@ export const PasswordAuthEnum = {
 } as const;
 
 /**
- * If Enabled, Password authentication is enabled.
+ * Indicates if the server supports password based authentication.
  */
 export type PasswordAuthEnum = (typeof PasswordAuthEnum)[keyof typeof PasswordAuthEnum];
 
@@ -271,7 +271,7 @@ export const ReadReplicaPromoteMode = {
 } as const;
 
 /**
- * Sets the promote mode for a replica server. This is a write only property.
+ * Type of operation to apply on the read replica. This property is write only. Standalone means that the read replica will be promoted to a standalone server, and will become a completely independent entity from the replication set. Switchover means that the read replica will roles with the primary server.
  */
 export type ReadReplicaPromoteMode = (typeof ReadReplicaPromoteMode)[keyof typeof ReadReplicaPromoteMode];
 
@@ -281,7 +281,7 @@ export const ReplicationPromoteOption = {
 } as const;
 
 /**
- * Sets the promote options for a replica server. This is a write only property.
+ * Data synchronization option to use when processing the operation specified in the promoteMode property This property is write only. Planned means that the operation will wait for data in the read replica to be fully synchronized with its source server before it initiates the operation. Forced means that the operation will not wait for data in the read replica to be synchronized with its source server before it initiates the operation.
  */
 export type ReplicationPromoteOption = (typeof ReplicationPromoteOption)[keyof typeof ReplicationPromoteOption];
 
@@ -293,7 +293,7 @@ export const ReplicationRole = {
 } as const;
 
 /**
- * Replication role of the server
+ * Role of the server in a replication set.
  */
 export type ReplicationRole = (typeof ReplicationRole)[keyof typeof ReplicationRole];
 
@@ -310,7 +310,7 @@ export const ServerPublicNetworkAccessState = {
 } as const;
 
 /**
- * public network access is enabled or not
+ * Indicates if public network access is enabled or not.
  */
 export type ServerPublicNetworkAccessState = (typeof ServerPublicNetworkAccessState)[keyof typeof ServerPublicNetworkAccessState];
 
@@ -334,7 +334,7 @@ export const ServerVersion = {
 } as const;
 
 /**
- * PostgreSQL Server version.
+ * Major version of PostgreSQL database engine.
  */
 export type ServerVersion = (typeof ServerVersion)[keyof typeof ServerVersion];
 
@@ -391,7 +391,7 @@ export const SkuTier = {
 } as const;
 
 /**
- * The tier of the particular SKU, e.g. Burstable.
+ * Tier of the compute assigned to a flexible server.
  */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
 
@@ -411,7 +411,7 @@ export const SourceType = {
 } as const;
 
 /**
- * migration source server type : OnPremises, AWS, GCP, AzureVM, PostgreSQLSingleServer, AWS_RDS, AWS_AURORA, AWS_EC2, GCP_CloudSQL, GCP_AlloyDB, GCP_Compute, or EDB
+ * Source server type used for the migration: ApsaraDB_RDS, AWS, AWS_AURORA, AWS_EC2, AWS_RDS, AzureVM, Crunchy_PostgreSQL, Digital_Ocean_Droplets, Digital_Ocean_PostgreSQL, EDB, EDB_Oracle_Server, EDB_PostgreSQL, GCP, GCP_AlloyDB, GCP_CloudSQL, GCP_Compute, Heroku_PostgreSQL, Huawei_Compute, Huawei_RDS, OnPremises, PostgreSQLCosmosDB, PostgreSQLFlexibleServer, PostgreSQLSingleServer, or Supabase_PostgreSQL
  */
 export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
@@ -433,7 +433,7 @@ export const SslMode = {
 } as const;
 
 /**
- * SSL modes for migration. Default SSL mode for PostgreSQLSingleServer is VerifyFull and Prefer for other source types
+ * SSL mode used by a migration. Default SSL mode for 'PostgreSQLSingleServer' is 'VerifyFull'. Default SSL mode for other source types is 'Prefer'.
  */
 export type SslMode = (typeof SslMode)[keyof typeof SslMode];
 
@@ -443,7 +443,7 @@ export const StartDataMigrationEnum = {
 } as const;
 
 /**
- * Indicates whether the data migration should start right away
+ * Indicates if data migration must start right away.
  */
 export type StartDataMigrationEnum = (typeof StartDataMigrationEnum)[keyof typeof StartDataMigrationEnum];
 
@@ -453,7 +453,7 @@ export const StorageAutoGrow = {
 } as const;
 
 /**
- * Flag to enable / disable Storage Auto grow for flexible server.
+ * Flag to enable or disable the automatic growth of storage size of a flexible server when available space is nearing zero and conditions allow for automatically growing storage size.
  */
 export type StorageAutoGrow = (typeof StorageAutoGrow)[keyof typeof StorageAutoGrow];
 
@@ -473,7 +473,7 @@ export const StorageType = {
 } as const;
 
 /**
- * Storage type for the server. Allowed values are Premium_LRS and PremiumV2_LRS, and default is Premium_LRS if not specified
+ * Type of storage assigned to a flexible server. Allowed values are Premium_LRS or PremiumV2_LRS. If not specified, it defaults to Premium_LRS.
  */
 export type StorageType = (typeof StorageType)[keyof typeof StorageType];
 
@@ -483,7 +483,7 @@ export const TriggerCutoverEnum = {
 } as const;
 
 /**
- * To trigger cutover for entire migration we need to send this flag as True
+ * Indicates if cutover must be triggered for the entire migration.
  */
 export type TriggerCutoverEnum = (typeof TriggerCutoverEnum)[keyof typeof TriggerCutoverEnum];
 
@@ -492,6 +492,6 @@ export const VirtualEndpointType = {
 } as const;
 
 /**
- * The endpoint type for the virtual endpoint.
+ * Type of endpoint for the virtual endpoints.
  */
 export type VirtualEndpointType = (typeof VirtualEndpointType)[keyof typeof VirtualEndpointType];

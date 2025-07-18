@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Confluent.Inputs
         public Input<Inputs.SCClusterByokEntityArgs>? Byok { get; set; }
 
         /// <summary>
-        /// The cloud service provider 
+        /// The cloud service provider
         /// </summary>
         [Input("cloud")]
         public Input<string>? Cloud { get; set; }

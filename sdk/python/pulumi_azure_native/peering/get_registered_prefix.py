@@ -155,6 +155,8 @@ def get_registered_prefix(peering_name: Optional[builtins.str] = None,
 
     Uses Azure REST API version 2022-10-01.
 
+    Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str peering_name: The name of the peering.
     :param builtins.str registered_prefix_name: The name of the registered prefix.
@@ -185,6 +187,8 @@ def get_registered_prefix_output(peering_name: Optional[pulumi.Input[builtins.st
     Gets an existing registered prefix with the specified name under the given subscription, resource group and peering.
 
     Uses Azure REST API version 2022-10-01.
+
+    Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str peering_name: The name of the peering.

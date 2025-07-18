@@ -25,7 +25,7 @@ __all__ = [
 @pulumi.output_type
 class GetGetPrivateDnsZoneSuffixExecuteResult:
     """
-    Represents a resource name availability.
+    Private DNS suffix.
     """
     def __init__(__self__, value=None):
         if value and not isinstance(value, str):
@@ -49,7 +49,7 @@ class AwaitableGetGetPrivateDnsZoneSuffixExecuteResult(GetGetPrivateDnsZoneSuffi
 
 def get_get_private_dns_zone_suffix_execute(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGetPrivateDnsZoneSuffixExecuteResult:
     """
-    Get private DNS zone suffix in the cloud
+    Gets the private DNS zone suffix.
 
     Uses Azure REST API version 2024-08-01.
 
@@ -63,7 +63,7 @@ def get_get_private_dns_zone_suffix_execute(opts: Optional[pulumi.InvokeOptions]
         value=pulumi.get(__ret__, 'value'))
 def get_get_private_dns_zone_suffix_execute_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGetPrivateDnsZoneSuffixExecuteResult]:
     """
-    Get private DNS zone suffix in the cloud
+    Gets the private DNS zone suffix.
 
     Uses Azure REST API version 2024-08-01.
 

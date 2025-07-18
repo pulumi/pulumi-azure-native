@@ -53,6 +53,43 @@ namespace Pulumi.AzureNative.MongoCluster
     }
 
     /// <summary>
+    /// The principal type of the user.
+    /// </summary>
+    [EnumType]
+    public readonly struct EntraPrincipalType : IEquatable<EntraPrincipalType>
+    {
+        private readonly string _value;
+
+        private EntraPrincipalType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Entra user type.
+        /// </summary>
+        public static EntraPrincipalType User { get; } = new EntraPrincipalType("user");
+        /// <summary>
+        /// Entra service principal type.
+        /// </summary>
+        public static EntraPrincipalType ServicePrincipal { get; } = new EntraPrincipalType("servicePrincipal");
+
+        public static bool operator ==(EntraPrincipalType left, EntraPrincipalType right) => left.Equals(right);
+        public static bool operator !=(EntraPrincipalType left, EntraPrincipalType right) => !left.Equals(right);
+
+        public static explicit operator string(EntraPrincipalType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EntraPrincipalType other && Equals(other);
+        public bool Equals(EntraPrincipalType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The target high availability mode requested for the cluster.
     /// </summary>
     [EnumType]
@@ -86,6 +123,39 @@ namespace Pulumi.AzureNative.MongoCluster
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is HighAvailabilityMode other && Equals(other);
         public bool Equals(HighAvailabilityMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of identity provider that the user belongs to.
+    /// </summary>
+    [EnumType]
+    public readonly struct IdentityProviderType : IEquatable<IdentityProviderType>
+    {
+        private readonly string _value;
+
+        private IdentityProviderType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Microsoft Entra ID provider.
+        /// </summary>
+        public static IdentityProviderType MicrosoftEntraID { get; } = new IdentityProviderType("MicrosoftEntraID");
+
+        public static bool operator ==(IdentityProviderType left, IdentityProviderType right) => left.Equals(right);
+        public static bool operator !=(IdentityProviderType left, IdentityProviderType right) => !left.Equals(right);
+
+        public static explicit operator string(IdentityProviderType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdentityProviderType other && Equals(other);
+        public bool Equals(IdentityProviderType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -188,6 +258,39 @@ namespace Pulumi.AzureNative.MongoCluster
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
         public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The role that is assigned to the user on the database scope.
+    /// </summary>
+    [EnumType]
+    public readonly struct UserRole : IEquatable<UserRole>
+    {
+        private readonly string _value;
+
+        private UserRole(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Datbase owner role permissions on the target scope.
+        /// </summary>
+        public static UserRole DatabaseOwner { get; } = new UserRole("dbOwner");
+
+        public static bool operator ==(UserRole left, UserRole right) => left.Equals(right);
+        public static bool operator !=(UserRole left, UserRole right) => !left.Equals(right);
+
+        public static explicit operator string(UserRole value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserRole other && Equals(other);
+        public bool Equals(UserRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

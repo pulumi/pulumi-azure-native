@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         public Output<string> FriendlyName { get; private set; } = null!;
 
         /// <summary>
-        /// Location of the PowerBI Dedicated resource.
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         public Output<string?> Mode { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the PowerBI Dedicated resource.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -72,13 +72,13 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse?> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value pairs of additional resource provisioning properties.
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         public Output<string> TenantId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the PowerBI Dedicated resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -152,13 +152,13 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         public Input<Inputs.DedicatedCapacityAdministratorsArgs>? Administration { get; set; }
 
         /// <summary>
-        /// The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
+        /// The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
         /// </summary>
         [Input("dedicatedCapacityName")]
         public Input<string>? DedicatedCapacityName { get; set; }
 
         /// <summary>
-        /// Location of the PowerBI Dedicated resource.
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -170,7 +170,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         public InputUnion<string, Pulumi.AzureNative.PowerBIDedicated.Mode>? Mode { get; set; }
 
         /// <summary>
-        /// The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -181,17 +181,11 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         [Input("sku", required: true)]
         public Input<Inputs.CapacitySkuArgs> Sku { get; set; } = null!;
 
-        /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        [Input("systemData")]
-        public Input<Inputs.SystemDataArgs>? SystemData { get; set; }
-
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value pairs of additional resource provisioning properties.
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

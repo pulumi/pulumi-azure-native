@@ -11,42 +11,42 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
 {
 
     /// <summary>
-    /// Storage properties of a server
+    /// Storage properties of a flexible server.
     /// </summary>
     public sealed class StorageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Flag to enable / disable Storage Auto grow for flexible server.
+        /// Flag to enable or disable the automatic growth of storage size of a flexible server when available space is nearing zero and conditions allow for automatically growing storage size.
         /// </summary>
         [Input("autoGrow")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.StorageAutoGrow>? AutoGrow { get; set; }
 
         /// <summary>
-        /// Storage tier IOPS quantity. This property is required to be set for storage Type PremiumV2_LRS
+        /// Maximum IOPS supported for storage. Required when type of storage is PremiumV2_LRS.
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
 
         /// <summary>
-        /// Max storage allowed for a server.
+        /// Size of storage assigned to a flexible server.
         /// </summary>
         [Input("storageSizeGB")]
         public Input<int>? StorageSizeGB { get; set; }
 
         /// <summary>
-        /// Storage throughput for the server. This is required to be set for storage Type PremiumV2_LRS
+        /// Maximum throughput supported for storage. Required when type of storage is PremiumV2_LRS.
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
 
         /// <summary>
-        /// Name of storage tier for IOPS.
+        /// Storage tier of a flexible server.
         /// </summary>
         [Input("tier")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.AzureManagedDiskPerformanceTiers>? Tier { get; set; }
 
         /// <summary>
-        /// Storage type for the server. Allowed values are Premium_LRS and PremiumV2_LRS, and default is Premium_LRS if not specified
+        /// Type of storage assigned to a flexible server. Allowed values are Premium_LRS or PremiumV2_LRS. If not specified, it defaults to Premium_LRS.
         /// </summary>
         [Input("type")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.StorageType>? Type { get; set; }

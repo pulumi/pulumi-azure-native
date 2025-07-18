@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
 {
 
     /// <summary>
-    /// Key Vault Secret Url and vault id of the encryption key 
+    /// Key Vault Secret Url and vault id of the encryption key
     /// </summary>
     public sealed class KeyVaultAndSecretReferenceArgs : global::Pulumi.ResourceArgs
     {

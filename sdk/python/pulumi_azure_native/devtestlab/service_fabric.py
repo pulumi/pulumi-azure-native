@@ -32,12 +32,12 @@ class ServiceFabricArgs:
         """
         The set of arguments for constructing a ServiceFabric resource.
         :param pulumi.Input[builtins.str] lab_name: The name of the lab.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] user_name: The name of the user profile.
         :param pulumi.Input[builtins.str] environment_id: The resource id of the environment under which the service fabric resource is present
         :param pulumi.Input[builtins.str] external_service_fabric_id: The backing service fabric resource's id
         :param pulumi.Input[builtins.str] location: The location of the resource.
-        :param pulumi.Input[builtins.str] name: The name of the service fabric.
+        :param pulumi.Input[builtins.str] name: The name of the ServiceFabric
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
         """
         pulumi.set(__self__, "lab_name", lab_name)
@@ -70,7 +70,7 @@ class ServiceFabricArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -130,7 +130,7 @@ class ServiceFabricArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the service fabric.
+        The name of the ServiceFabric
         """
         return pulumi.get(self, "name")
 
@@ -177,8 +177,8 @@ class ServiceFabric(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] external_service_fabric_id: The backing service fabric resource's id
         :param pulumi.Input[builtins.str] lab_name: The name of the lab.
         :param pulumi.Input[builtins.str] location: The location of the resource.
-        :param pulumi.Input[builtins.str] name: The name of the service fabric.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] name: The name of the ServiceFabric
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
         :param pulumi.Input[builtins.str] user_name: The name of the user profile.
         """

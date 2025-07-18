@@ -44,11 +44,11 @@ export interface ListProductsAndConfigurationsArgs {
  */
 export interface ListProductsAndConfigurationsResult {
     /**
-     * Link for the next set of configurations.
+     * The link to the next page of items
      */
     readonly nextLink?: string;
     /**
-     * List of configurations.
+     * The Configuration items on this page
      */
     readonly value: outputs.edgeorder.ConfigurationResponse[];
 }

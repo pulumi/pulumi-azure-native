@@ -37,12 +37,12 @@ class ConfigurationAssignmentParentArgs:
         """
         The set of arguments for constructing a ConfigurationAssignmentParent resource.
         :param pulumi.Input[builtins.str] provider_name: Resource provider name
-        :param pulumi.Input[builtins.str] resource_group_name: Resource group name
-        :param pulumi.Input[builtins.str] resource_name: Resource identifier
-        :param pulumi.Input[builtins.str] resource_parent_name: Resource parent identifier
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[builtins.str] resource_name: Resource name
+        :param pulumi.Input[builtins.str] resource_parent_name: Resource parent name
         :param pulumi.Input[builtins.str] resource_parent_type: Resource parent type
         :param pulumi.Input[builtins.str] resource_type: Resource type
-        :param pulumi.Input[builtins.str] configuration_assignment_name: Configuration assignment name
+        :param pulumi.Input[builtins.str] configuration_assignment_name: The name of the ConfigurationAssignment
         :param pulumi.Input['ConfigurationAssignmentFilterPropertiesArgs'] filter: Properties of the configuration assignment
         :param pulumi.Input[builtins.str] location: Location of the resource
         :param pulumi.Input[builtins.str] maintenance_configuration_id: The maintenance configuration Id
@@ -81,7 +81,7 @@ class ConfigurationAssignmentParentArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        Resource group name
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -93,7 +93,7 @@ class ConfigurationAssignmentParentArgs:
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> pulumi.Input[builtins.str]:
         """
-        Resource identifier
+        Resource name
         """
         return pulumi.get(self, "resource_name")
 
@@ -105,7 +105,7 @@ class ConfigurationAssignmentParentArgs:
     @pulumi.getter(name="resourceParentName")
     def resource_parent_name(self) -> pulumi.Input[builtins.str]:
         """
-        Resource parent identifier
+        Resource parent name
         """
         return pulumi.get(self, "resource_parent_name")
 
@@ -141,7 +141,7 @@ class ConfigurationAssignmentParentArgs:
     @pulumi.getter(name="configurationAssignmentName")
     def configuration_assignment_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Configuration assignment name
+        The name of the ConfigurationAssignment
         """
         return pulumi.get(self, "configuration_assignment_name")
 
@@ -225,15 +225,15 @@ class ConfigurationAssignmentParent(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] configuration_assignment_name: Configuration assignment name
+        :param pulumi.Input[builtins.str] configuration_assignment_name: The name of the ConfigurationAssignment
         :param pulumi.Input[Union['ConfigurationAssignmentFilterPropertiesArgs', 'ConfigurationAssignmentFilterPropertiesArgsDict']] filter: Properties of the configuration assignment
         :param pulumi.Input[builtins.str] location: Location of the resource
         :param pulumi.Input[builtins.str] maintenance_configuration_id: The maintenance configuration Id
         :param pulumi.Input[builtins.str] provider_name: Resource provider name
-        :param pulumi.Input[builtins.str] resource_group_name: Resource group name
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] resource_id: The unique resourceId
-        :param pulumi.Input[builtins.str] resource_name_: Resource identifier
-        :param pulumi.Input[builtins.str] resource_parent_name: Resource parent identifier
+        :param pulumi.Input[builtins.str] resource_name_: Resource name
+        :param pulumi.Input[builtins.str] resource_parent_name: Resource parent name
         :param pulumi.Input[builtins.str] resource_parent_type: Resource parent type
         :param pulumi.Input[builtins.str] resource_type: Resource type
         """
@@ -382,7 +382,7 @@ class ConfigurationAssignmentParent(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Name of the resource
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -406,7 +406,7 @@ class ConfigurationAssignmentParent(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Type of the resource
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

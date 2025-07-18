@@ -28,7 +28,7 @@ class ListBotConnectionWithSecretsResult:
     """
     Bot channel resource definition
     """
-    def __init__(__self__, etag=None, id=None, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, etag=None, id=None, kind=None, location=None, name=None, properties=None, sku=None, system_data=None, tags=None, type=None, zones=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -50,6 +50,9 @@ class ListBotConnectionWithSecretsResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -72,7 +75,7 @@ class ListBotConnectionWithSecretsResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Specifies the resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -96,7 +99,7 @@ class ListBotConnectionWithSecretsResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Specifies the name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -117,6 +120,14 @@ class ListBotConnectionWithSecretsResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
@@ -128,7 +139,7 @@ class ListBotConnectionWithSecretsResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Specifies the type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -154,6 +165,7 @@ class AwaitableListBotConnectionWithSecretsResult(ListBotConnectionWithSecretsRe
             name=self.name,
             properties=self.properties,
             sku=self.sku,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             zones=self.zones)
@@ -172,7 +184,7 @@ def list_bot_connection_with_secrets(connection_name: Optional[builtins.str] = N
 
 
     :param builtins.str connection_name: The name of the Bot Service Connection Setting resource.
-    :param builtins.str resource_group_name: The name of the Bot resource group in the user subscription.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str resource_name: The name of the Bot resource.
     """
     __args__ = dict()
@@ -190,6 +202,7 @@ def list_bot_connection_with_secrets(connection_name: Optional[builtins.str] = N
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         sku=pulumi.get(__ret__, 'sku'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zones=pulumi.get(__ret__, 'zones'))
@@ -206,7 +219,7 @@ def list_bot_connection_with_secrets_output(connection_name: Optional[pulumi.Inp
 
 
     :param builtins.str connection_name: The name of the Bot Service Connection Setting resource.
-    :param builtins.str resource_group_name: The name of the Bot resource group in the user subscription.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str resource_name: The name of the Bot resource.
     """
     __args__ = dict()
@@ -223,6 +236,7 @@ def list_bot_connection_with_secrets_output(connection_name: Optional[pulumi.Inp
         name=pulumi.get(__response__, 'name'),
         properties=pulumi.get(__response__, 'properties'),
         sku=pulumi.get(__response__, 'sku'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         zones=pulumi.get(__response__, 'zones')))

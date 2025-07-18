@@ -24,11 +24,11 @@ export function getConfigurationAssignmentsForResourceGroup(args: GetConfigurati
 
 export interface GetConfigurationAssignmentsForResourceGroupArgs {
     /**
-     * Configuration assignment name
+     * The name of the ConfigurationAssignment
      */
     configurationAssignmentName: string;
     /**
-     * Resource group name
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -46,7 +46,7 @@ export interface GetConfigurationAssignmentsForResourceGroupResult {
      */
     readonly filter?: outputs.maintenance.ConfigurationAssignmentFilterPropertiesResponse;
     /**
-     * Fully qualified identifier of the resource
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -58,7 +58,7 @@ export interface GetConfigurationAssignmentsForResourceGroupResult {
      */
     readonly maintenanceConfigurationId?: string;
     /**
-     * Name of the resource
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -70,7 +70,7 @@ export interface GetConfigurationAssignmentsForResourceGroupResult {
      */
     readonly systemData: outputs.maintenance.SystemDataResponse;
     /**
-     * Type of the resource
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -91,11 +91,11 @@ export function getConfigurationAssignmentsForResourceGroupOutput(args: GetConfi
 
 export interface GetConfigurationAssignmentsForResourceGroupOutputArgs {
     /**
-     * Configuration assignment name
+     * The name of the ConfigurationAssignment
      */
     configurationAssignmentName: pulumi.Input<string>;
     /**
-     * Resource group name
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

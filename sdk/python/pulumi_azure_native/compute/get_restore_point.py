@@ -28,7 +28,7 @@ class GetRestorePointResult:
     """
     Restore Point details.
     """
-    def __init__(__self__, azure_api_version=None, consistency_mode=None, exclude_disks=None, id=None, instance_view=None, name=None, provisioning_state=None, source_metadata=None, source_restore_point=None, time_created=None, type=None):
+    def __init__(__self__, azure_api_version=None, consistency_mode=None, exclude_disks=None, id=None, instance_view=None, name=None, provisioning_state=None, source_metadata=None, source_restore_point=None, system_data=None, time_created=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -56,6 +56,9 @@ class GetRestorePointResult:
         if source_restore_point and not isinstance(source_restore_point, dict):
             raise TypeError("Expected argument 'source_restore_point' to be a dict")
         pulumi.set(__self__, "source_restore_point", source_restore_point)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if time_created and not isinstance(time_created, str):
             raise TypeError("Expected argument 'time_created' to be a str")
         pulumi.set(__self__, "time_created", time_created)
@@ -91,7 +94,7 @@ class GetRestorePointResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -107,7 +110,7 @@ class GetRestorePointResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -136,6 +139,14 @@ class GetRestorePointResult:
         return pulumi.get(self, "source_restore_point")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter(name="timeCreated")
     def time_created(self) -> Optional[builtins.str]:
         """
@@ -147,7 +158,7 @@ class GetRestorePointResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -167,6 +178,7 @@ class AwaitableGetRestorePointResult(GetRestorePointResult):
             provisioning_state=self.provisioning_state,
             source_metadata=self.source_metadata,
             source_restore_point=self.source_restore_point,
+            system_data=self.system_data,
             time_created=self.time_created,
             type=self.type)
 
@@ -185,7 +197,7 @@ def get_restore_point(expand: Optional[builtins.str] = None,
 
 
     :param builtins.str expand: The expand expression to apply on the operation. 'InstanceView' retrieves information about the run-time state of a restore point.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str restore_point_collection_name: The name of the restore point collection.
     :param builtins.str restore_point_name: The name of the restore point.
     """
@@ -207,6 +219,7 @@ def get_restore_point(expand: Optional[builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         source_metadata=pulumi.get(__ret__, 'source_metadata'),
         source_restore_point=pulumi.get(__ret__, 'source_restore_point'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         time_created=pulumi.get(__ret__, 'time_created'),
         type=pulumi.get(__ret__, 'type'))
 def get_restore_point_output(expand: Optional[pulumi.Input[Optional[builtins.str]]] = None,
@@ -223,7 +236,7 @@ def get_restore_point_output(expand: Optional[pulumi.Input[Optional[builtins.str
 
 
     :param builtins.str expand: The expand expression to apply on the operation. 'InstanceView' retrieves information about the run-time state of a restore point.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str restore_point_collection_name: The name of the restore point collection.
     :param builtins.str restore_point_name: The name of the restore point.
     """
@@ -244,5 +257,6 @@ def get_restore_point_output(expand: Optional[pulumi.Input[Optional[builtins.str
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         source_metadata=pulumi.get(__response__, 'source_metadata'),
         source_restore_point=pulumi.get(__response__, 'source_restore_point'),
+        system_data=pulumi.get(__response__, 'system_data'),
         time_created=pulumi.get(__response__, 'time_created'),
         type=pulumi.get(__response__, 'type')))

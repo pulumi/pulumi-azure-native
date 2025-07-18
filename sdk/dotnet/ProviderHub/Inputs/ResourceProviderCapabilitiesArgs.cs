@@ -12,14 +12,24 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
     public sealed class ResourceProviderCapabilitiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The effect.
+        /// </summary>
         [Input("effect", required: true)]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.ResourceProviderCapabilitiesEffect> Effect { get; set; } = null!;
 
+        /// <summary>
+        /// The quota id.
+        /// </summary>
         [Input("quotaId", required: true)]
         public Input<string> QuotaId { get; set; } = null!;
 
         [Input("requiredFeatures")]
         private InputList<string>? _requiredFeatures;
+
+        /// <summary>
+        /// The required features.
+        /// </summary>
         public InputList<string> RequiredFeatures
         {
             get => _requiredFeatures ?? (_requiredFeatures = new InputList<string>());

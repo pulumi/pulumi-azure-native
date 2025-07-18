@@ -98,6 +98,20 @@
     "DisambiguatedName": "SharedCommitmentPlan"
   },
   {
+    "FileLocation": "specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2025-06-01/cognitiveservices.json",
+    "OperationID": "CommitmentPlans_GetPlan",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/commitmentPlans/{commitmentPlanName}",
+    "GeneratedName": "CommitmentPlan",
+    "DisambiguatedName": "SharedCommitmentPlan"
+  },
+  {
+    "FileLocation": "specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2025-06-01/cognitiveservices.json",
+    "OperationID": "CommitmentPlans_GetPlan",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/commitmentPlans/{commitmentPlanName}",
+    "GeneratedName": "CommitmentPlan",
+    "DisambiguatedName": "SharedCommitmentPlan"
+  },
+  {
     "FileLocation": "specification/dnsresolver/resource-manager/Microsoft.Network/preview/2020-04-01-preview/dnsresolver.json",
     "OperationID": "VirtualNetworkLinks_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/virtualNetworkLinks/{virtualNetworkLinkName}",
@@ -134,6 +148,20 @@
   },
   {
     "FileLocation": "specification/dnsresolver/resource-manager/Microsoft.Network/stable/2022-07-01/dnsresolver.json",
+    "OperationID": "VirtualNetworkLinks_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/virtualNetworkLinks/{virtualNetworkLinkName}",
+    "GeneratedName": "VirtualNetworkLink",
+    "DisambiguatedName": "PrivateResolverVirtualNetworkLink"
+  },
+  {
+    "FileLocation": "specification/dnsresolver/resource-manager/Microsoft.Network/stable/2025-05-01/dnsresolver.json",
+    "OperationID": "VirtualNetworkLinks_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/virtualNetworkLinks/{virtualNetworkLinkName}",
+    "GeneratedName": "VirtualNetworkLink",
+    "DisambiguatedName": "PrivateResolverVirtualNetworkLink"
+  },
+  {
+    "FileLocation": "specification/dnsresolver/resource-manager/Microsoft.Network/stable/2025-05-01/dnsresolver.json",
     "OperationID": "VirtualNetworkLinks_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/virtualNetworkLinks/{virtualNetworkLinkName}",
     "GeneratedName": "VirtualNetworkLink",
@@ -1393,6 +1421,118 @@
     "DisambiguatedName": "CapacityPoolVolumeQuotaRule"
   },
   {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2025-03-01-preview/netapp.json",
+    "OperationID": "Pools_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
+    "GeneratedName": "Pool",
+    "DisambiguatedName": "CapacityPool"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2025-03-01-preview/netapp.json",
+    "OperationID": "Pools_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
+    "GeneratedName": "Pool",
+    "DisambiguatedName": "CapacityPool"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2025-03-01-preview/netapp.json",
+    "OperationID": "Volumes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}",
+    "GeneratedName": "Volume",
+    "DisambiguatedName": "CapacityPoolVolume"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2025-03-01-preview/netapp.json",
+    "OperationID": "Volumes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}",
+    "GeneratedName": "Volume",
+    "DisambiguatedName": "CapacityPoolVolume"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2025-03-01-preview/netapp.json",
+    "OperationID": "Buckets_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/buckets/{bucketName}",
+    "GeneratedName": "Bucket",
+    "DisambiguatedName": "CapacityPoolBucket"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2025-03-01-preview/netapp.json",
+    "OperationID": "Buckets_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/buckets/{bucketName}",
+    "GeneratedName": "Bucket",
+    "DisambiguatedName": "CapacityPoolBucket"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2025-03-01-preview/netapp.json",
+    "OperationID": "Volumes_ListGetGroupIdListForLdapUser",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/getGroupIdListForLdapUser",
+    "GeneratedName": "VolumeGroupIdForLdapUser",
+    "DisambiguatedName": "CapacityPoolVolumeGroupIdForLdapUser"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2025-03-01-preview/netapp.json",
+    "OperationID": "Volumes_ListQuotaReport",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/listQuotaReport",
+    "GeneratedName": "VolumeQuotaReport",
+    "DisambiguatedName": "CapacityPoolVolumeQuotaReport"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2025-03-01-preview/netapp.json",
+    "OperationID": "Volumes_ListReplications",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/listReplications",
+    "GeneratedName": "VolumeReplications",
+    "DisambiguatedName": "CapacityPoolVolumeReplications"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2025-03-01-preview/netapp.json",
+    "OperationID": "Snapshots_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/snapshots/{snapshotName}",
+    "GeneratedName": "Snapshot",
+    "DisambiguatedName": "CapacityPoolSnapshot"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2025-03-01-preview/netapp.json",
+    "OperationID": "Snapshots_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/snapshots/{snapshotName}",
+    "GeneratedName": "Snapshot",
+    "DisambiguatedName": "CapacityPoolSnapshot"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2025-03-01-preview/netapp.json",
+    "OperationID": "Subvolumes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/subvolumes/{subvolumeName}",
+    "GeneratedName": "Subvolume",
+    "DisambiguatedName": "CapacityPoolSubvolume"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2025-03-01-preview/netapp.json",
+    "OperationID": "Subvolumes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/subvolumes/{subvolumeName}",
+    "GeneratedName": "Subvolume",
+    "DisambiguatedName": "CapacityPoolSubvolume"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2025-03-01-preview/netapp.json",
+    "OperationID": "Subvolumes_GetMetadata",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/subvolumes/{subvolumeName}/getMetadata",
+    "GeneratedName": "SubvolumeMetadata",
+    "DisambiguatedName": "CapacityPoolSubvolumeMetadata"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2025-03-01-preview/netapp.json",
+    "OperationID": "VolumeQuotaRules_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/volumeQuotaRules/{volumeQuotaRuleName}",
+    "GeneratedName": "VolumeQuotaRule",
+    "DisambiguatedName": "CapacityPoolVolumeQuotaRule"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2025-03-01-preview/netapp.json",
+    "OperationID": "VolumeQuotaRules_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/volumeQuotaRules/{volumeQuotaRuleName}",
+    "GeneratedName": "VolumeQuotaRule",
+    "DisambiguatedName": "CapacityPoolVolumeQuotaRule"
+  },
+  {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2019-05-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
@@ -3732,6 +3872,97 @@
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-01-01/netapp.json",
+    "OperationID": "VolumeQuotaRules_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/volumeQuotaRules/{volumeQuotaRuleName}",
+    "GeneratedName": "VolumeQuotaRule",
+    "DisambiguatedName": "CapacityPoolVolumeQuotaRule"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-03-01/netapp.json",
+    "OperationID": "Pools_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
+    "GeneratedName": "Pool",
+    "DisambiguatedName": "CapacityPool"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-03-01/netapp.json",
+    "OperationID": "Pools_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
+    "GeneratedName": "Pool",
+    "DisambiguatedName": "CapacityPool"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-03-01/netapp.json",
+    "OperationID": "Volumes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}",
+    "GeneratedName": "Volume",
+    "DisambiguatedName": "CapacityPoolVolume"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-03-01/netapp.json",
+    "OperationID": "Volumes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}",
+    "GeneratedName": "Volume",
+    "DisambiguatedName": "CapacityPoolVolume"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-03-01/netapp.json",
+    "OperationID": "Volumes_ListGetGroupIdListForLdapUser",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/getGroupIdListForLdapUser",
+    "GeneratedName": "VolumeGroupIdForLdapUser",
+    "DisambiguatedName": "CapacityPoolVolumeGroupIdForLdapUser"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-03-01/netapp.json",
+    "OperationID": "Volumes_ListReplications",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/listReplications",
+    "GeneratedName": "VolumeReplications",
+    "DisambiguatedName": "CapacityPoolVolumeReplications"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-03-01/netapp.json",
+    "OperationID": "Snapshots_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/snapshots/{snapshotName}",
+    "GeneratedName": "Snapshot",
+    "DisambiguatedName": "CapacityPoolSnapshot"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-03-01/netapp.json",
+    "OperationID": "Snapshots_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/snapshots/{snapshotName}",
+    "GeneratedName": "Snapshot",
+    "DisambiguatedName": "CapacityPoolSnapshot"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-03-01/netapp.json",
+    "OperationID": "Subvolumes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/subvolumes/{subvolumeName}",
+    "GeneratedName": "Subvolume",
+    "DisambiguatedName": "CapacityPoolSubvolume"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-03-01/netapp.json",
+    "OperationID": "Subvolumes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/subvolumes/{subvolumeName}",
+    "GeneratedName": "Subvolume",
+    "DisambiguatedName": "CapacityPoolSubvolume"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-03-01/netapp.json",
+    "OperationID": "Subvolumes_GetMetadata",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/subvolumes/{subvolumeName}/getMetadata",
+    "GeneratedName": "SubvolumeMetadata",
+    "DisambiguatedName": "CapacityPoolSubvolumeMetadata"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-03-01/netapp.json",
+    "OperationID": "VolumeQuotaRules_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/volumeQuotaRules/{volumeQuotaRuleName}",
+    "GeneratedName": "VolumeQuotaRule",
+    "DisambiguatedName": "CapacityPoolVolumeQuotaRule"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2025-03-01/netapp.json",
     "OperationID": "VolumeQuotaRules_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/volumeQuotaRules/{volumeQuotaRuleName}",
     "GeneratedName": "VolumeQuotaRule",

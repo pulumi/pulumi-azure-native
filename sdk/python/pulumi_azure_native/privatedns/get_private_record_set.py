@@ -28,7 +28,7 @@ class GetPrivateRecordSetResult:
     """
     Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
     """
-    def __init__(__self__, a_records=None, aaaa_records=None, azure_api_version=None, cname_record=None, etag=None, fqdn=None, id=None, is_auto_registered=None, metadata=None, mx_records=None, name=None, ptr_records=None, soa_record=None, srv_records=None, ttl=None, txt_records=None, type=None):
+    def __init__(__self__, a_records=None, aaaa_records=None, azure_api_version=None, cname_record=None, etag=None, fqdn=None, id=None, is_auto_registered=None, metadata=None, mx_records=None, name=None, ptr_records=None, soa_record=None, srv_records=None, system_data=None, ttl=None, txt_records=None, type=None):
         if a_records and not isinstance(a_records, list):
             raise TypeError("Expected argument 'a_records' to be a list")
         pulumi.set(__self__, "a_records", a_records)
@@ -71,6 +71,9 @@ class GetPrivateRecordSetResult:
         if srv_records and not isinstance(srv_records, list):
             raise TypeError("Expected argument 'srv_records' to be a list")
         pulumi.set(__self__, "srv_records", srv_records)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if ttl and not isinstance(ttl, float):
             raise TypeError("Expected argument 'ttl' to be a float")
         pulumi.set(__self__, "ttl", ttl)
@@ -133,7 +136,7 @@ class GetPrivateRecordSetResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateDnsZoneName}'.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -194,6 +197,14 @@ class GetPrivateRecordSetResult:
         return pulumi.get(self, "srv_records")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def ttl(self) -> Optional[builtins.float]:
         """
@@ -213,7 +224,7 @@ class GetPrivateRecordSetResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -238,6 +249,7 @@ class AwaitableGetPrivateRecordSetResult(GetPrivateRecordSetResult):
             ptr_records=self.ptr_records,
             soa_record=self.soa_record,
             srv_records=self.srv_records,
+            system_data=self.system_data,
             ttl=self.ttl,
             txt_records=self.txt_records,
             type=self.type)
@@ -256,10 +268,10 @@ def get_private_record_set(private_zone_name: Optional[builtins.str] = None,
     Other available API versions: 2018-09-01, 2020-01-01, 2020-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native privatedns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str private_zone_name: The name of the Private DNS zone (without a terminating dot).
+    :param builtins.str private_zone_name: The name of the DNS zone (without a terminating dot).
     :param builtins.str record_type: The type of DNS record in this record set.
     :param builtins.str relative_record_set_name: The name of the record set, relative to the name of the zone.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['privateZoneName'] = private_zone_name
@@ -284,6 +296,7 @@ def get_private_record_set(private_zone_name: Optional[builtins.str] = None,
         ptr_records=pulumi.get(__ret__, 'ptr_records'),
         soa_record=pulumi.get(__ret__, 'soa_record'),
         srv_records=pulumi.get(__ret__, 'srv_records'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         ttl=pulumi.get(__ret__, 'ttl'),
         txt_records=pulumi.get(__ret__, 'txt_records'),
         type=pulumi.get(__ret__, 'type'))
@@ -300,10 +313,10 @@ def get_private_record_set_output(private_zone_name: Optional[pulumi.Input[built
     Other available API versions: 2018-09-01, 2020-01-01, 2020-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native privatedns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str private_zone_name: The name of the Private DNS zone (without a terminating dot).
+    :param builtins.str private_zone_name: The name of the DNS zone (without a terminating dot).
     :param builtins.str record_type: The type of DNS record in this record set.
     :param builtins.str relative_record_set_name: The name of the record set, relative to the name of the zone.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['privateZoneName'] = private_zone_name
@@ -327,6 +340,7 @@ def get_private_record_set_output(private_zone_name: Optional[pulumi.Input[built
         ptr_records=pulumi.get(__response__, 'ptr_records'),
         soa_record=pulumi.get(__response__, 'soa_record'),
         srv_records=pulumi.get(__response__, 'srv_records'),
+        system_data=pulumi.get(__response__, 'system_data'),
         ttl=pulumi.get(__response__, 'ttl'),
         txt_records=pulumi.get(__response__, 'txt_records'),
         type=pulumi.get(__response__, 'type')))

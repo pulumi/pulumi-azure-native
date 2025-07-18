@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Dns.Outputs
     public sealed class DnsResourceReferenceResponse
     {
         /// <summary>
-        /// A list of dns Records 
+        /// A list of dns Records
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> DnsResources;
         /// <summary>

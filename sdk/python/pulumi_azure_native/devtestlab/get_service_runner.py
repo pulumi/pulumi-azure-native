@@ -134,8 +134,8 @@ def get_service_runner(lab_name: Optional[builtins.str] = None,
 
 
     :param builtins.str lab_name: The name of the lab.
-    :param builtins.str name: The name of the service runner.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str name: The name of the ServiceRunner
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['labName'] = lab_name
@@ -163,8 +163,8 @@ def get_service_runner_output(lab_name: Optional[pulumi.Input[builtins.str]] = N
 
 
     :param builtins.str lab_name: The name of the lab.
-    :param builtins.str name: The name of the service runner.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str name: The name of the ServiceRunner
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['labName'] = lab_name

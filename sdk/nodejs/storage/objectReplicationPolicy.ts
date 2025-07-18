@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
- * Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ObjectReplicationPolicy extends pulumi.CustomResource {
     /**
@@ -125,7 +125,7 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20190601:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20200801preview:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20210101:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20210201:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20210401:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20210601:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20210801:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20210901:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20220501:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20220901:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20230101:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20230401:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20230501:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20240101:ObjectReplicationPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20190601:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20200801preview:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20210101:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20210201:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20210401:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20210601:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20210801:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20210901:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20220501:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20220901:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20230101:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20230401:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20230501:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20240101:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20250101:ObjectReplicationPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ObjectReplicationPolicy.__pulumiType, name, resourceInputs, opts);
     }

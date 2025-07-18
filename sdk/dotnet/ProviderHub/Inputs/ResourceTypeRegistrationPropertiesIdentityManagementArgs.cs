@@ -10,11 +10,44 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
+    /// <summary>
+    /// The identity management.
+    /// </summary>
     public sealed class ResourceTypeRegistrationPropertiesIdentityManagementArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The application id.
+        /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
+        [Input("applicationIds")]
+        private InputList<string>? _applicationIds;
+
+        /// <summary>
+        /// The application ids.
+        /// </summary>
+        public InputList<string> ApplicationIds
+        {
+            get => _applicationIds ?? (_applicationIds = new InputList<string>());
+            set => _applicationIds = value;
+        }
+
+        [Input("delegationAppIds")]
+        private InputList<string>? _delegationAppIds;
+
+        /// <summary>
+        /// The delegation app ids.
+        /// </summary>
+        public InputList<string> DelegationAppIds
+        {
+            get => _delegationAppIds ?? (_delegationAppIds = new InputList<string>());
+            set => _delegationAppIds = value;
+        }
+
+        /// <summary>
+        /// The type.
+        /// </summary>
         [Input("type")]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.IdentityManagementTypes>? Type { get; set; }
 

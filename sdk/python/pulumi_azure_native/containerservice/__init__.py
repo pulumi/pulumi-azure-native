@@ -9,11 +9,13 @@ import typing
 from ._enums import *
 from .agent_pool import *
 from .auto_upgrade_profile import *
+from .deployment_safeguard import *
 from .fleet import *
 from .fleet_member import *
 from .fleet_update_strategy import *
 from .get_agent_pool import *
 from .get_auto_upgrade_profile import *
+from .get_deployment_safeguard import *
 from .get_fleet import *
 from .get_fleet_member import *
 from .get_fleet_update_strategy import *
@@ -21,6 +23,7 @@ from .get_load_balancer import *
 from .get_maintenance_configuration import *
 from .get_managed_cluster import *
 from .get_managed_cluster_snapshot import *
+from .get_managed_namespace import *
 from .get_namespace import *
 from .get_private_endpoint_connection import *
 from .get_snapshot import *
@@ -31,11 +34,13 @@ from .list_managed_cluster_access_profile import *
 from .list_managed_cluster_admin_credentials import *
 from .list_managed_cluster_monitoring_user_credentials import *
 from .list_managed_cluster_user_credentials import *
+from .list_managed_namespace_credential import *
 from .list_namespace_credential import *
 from .load_balancer import *
 from .maintenance_configuration import *
 from .managed_cluster import *
 from .managed_cluster_snapshot import *
+from .managed_namespace import *
 from .namespace import *
 from .private_endpoint_connection import *
 from .snapshot import *

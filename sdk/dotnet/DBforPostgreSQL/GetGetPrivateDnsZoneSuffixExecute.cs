@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public static class GetGetPrivateDnsZoneSuffixExecute
     {
         /// <summary>
-        /// Get private DNS zone suffix in the cloud
+        /// Gets the private DNS zone suffix.
         /// 
         /// Uses Azure REST API version 2024-08-01.
         /// 
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGetPrivateDnsZoneSuffixExecuteResult>("azure-native:dbforpostgresql:getGetPrivateDnsZoneSuffixExecute", args ?? new GetGetPrivateDnsZoneSuffixExecuteArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get private DNS zone suffix in the cloud
+        /// Gets the private DNS zone suffix.
         /// 
         /// Uses Azure REST API version 2024-08-01.
         /// 
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             => global::Pulumi.Deployment.Instance.Invoke<GetGetPrivateDnsZoneSuffixExecuteResult>("azure-native:dbforpostgresql:getGetPrivateDnsZoneSuffixExecute", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
-        /// Get private DNS zone suffix in the cloud
+        /// Gets the private DNS zone suffix.
         /// 
         /// Uses Azure REST API version 2024-08-01.
         /// 

@@ -124,11 +124,11 @@ namespace Pulumi.AzureNative.EdgeOrder
     public sealed class ListProductsAndConfigurationProductFamiliesResult
     {
         /// <summary>
-        /// Link for the next set of product families.
+        /// The link to the next page of items
         /// </summary>
         public readonly string? NextLink;
         /// <summary>
-        /// List of product families.
+        /// The ProductFamily items on this page
         /// </summary>
         public readonly ImmutableArray<Outputs.ProductFamilyResponse> Value;
 

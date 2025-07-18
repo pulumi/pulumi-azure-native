@@ -304,6 +304,43 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
+    /// The deployment safeguards level. Possible values are Warn and Enforce
+    /// </summary>
+    [EnumType]
+    public readonly struct DeploymentSafeguardsLevel : IEquatable<DeploymentSafeguardsLevel>
+    {
+        private readonly string _value;
+
+        private DeploymentSafeguardsLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Best practice violations will only show warnings
+        /// </summary>
+        public static DeploymentSafeguardsLevel Warn { get; } = new DeploymentSafeguardsLevel("Warn");
+        /// <summary>
+        /// Best practice violations will be denied
+        /// </summary>
+        public static DeploymentSafeguardsLevel Enforce { get; } = new DeploymentSafeguardsLevel("Enforce");
+
+        public static bool operator ==(DeploymentSafeguardsLevel left, DeploymentSafeguardsLevel right) => left.Equals(right);
+        public static bool operator !=(DeploymentSafeguardsLevel left, DeploymentSafeguardsLevel right) => !left.Equals(right);
+
+        public static explicit operator string(DeploymentSafeguardsLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeploymentSafeguardsLevel other && Equals(other);
+        public bool Equals(DeploymentSafeguardsLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
     /// </summary>
     [EnumType]

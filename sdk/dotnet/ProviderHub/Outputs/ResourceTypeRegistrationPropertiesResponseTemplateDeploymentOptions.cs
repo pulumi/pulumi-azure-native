@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Outputs
 {
 
+    /// <summary>
+    /// The template deployment options.
+    /// </summary>
     [OutputType]
     public sealed class ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions
     {
+        /// <summary>
+        /// The preflight options.
+        /// </summary>
         public readonly ImmutableArray<string> PreflightOptions;
+        /// <summary>
+        /// Whether preflight is supported.
+        /// </summary>
         public readonly bool? PreflightSupported;
 
         [OutputConstructor]

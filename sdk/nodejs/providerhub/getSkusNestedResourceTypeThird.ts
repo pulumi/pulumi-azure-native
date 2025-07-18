@@ -10,7 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the sku details for the given resource type and sku name.
  *
- * Uses Azure REST API version 2021-09-01-preview.
+ * Uses Azure REST API version 2024-09-01.
+ *
+ * Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSkusNestedResourceTypeThird(args: GetSkusNestedResourceTypeThirdArgs, opts?: pulumi.InvokeOptions): Promise<GetSkusNestedResourceTypeThirdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -57,7 +59,7 @@ export interface GetSkusNestedResourceTypeThirdResult {
      */
     readonly azureApiVersion: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -66,7 +68,7 @@ export interface GetSkusNestedResourceTypeThirdResult {
     readonly name: string;
     readonly properties: outputs.providerhub.SkuResourceResponseProperties;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.providerhub.SystemDataResponse;
     /**
@@ -77,7 +79,9 @@ export interface GetSkusNestedResourceTypeThirdResult {
 /**
  * Gets the sku details for the given resource type and sku name.
  *
- * Uses Azure REST API version 2021-09-01-preview.
+ * Uses Azure REST API version 2024-09-01.
+ *
+ * Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSkusNestedResourceTypeThirdOutput(args: GetSkusNestedResourceTypeThirdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSkusNestedResourceTypeThirdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

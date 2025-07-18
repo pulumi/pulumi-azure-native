@@ -10,10 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Outputs
 {
 
+    /// <summary>
+    /// The rest of the world group two region configuration.
+    /// </summary>
     [OutputType]
     public sealed class DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo
     {
         public readonly ImmutableArray<string> Regions;
+        /// <summary>
+        /// The wait duration.
+        /// </summary>
         public readonly string? WaitDuration;
 
         [OutputConstructor]

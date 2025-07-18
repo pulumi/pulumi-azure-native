@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Gets an online experimentation workspace.
  *
  * Uses Azure REST API version 2025-05-31-preview.
+ *
+ * Other available API versions: 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native onlineexperimentation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getOnlineExperimentationWorkspace(args: GetOnlineExperimentationWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetOnlineExperimentationWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -80,6 +82,8 @@ export interface GetOnlineExperimentationWorkspaceResult {
  * Gets an online experimentation workspace.
  *
  * Uses Azure REST API version 2025-05-31-preview.
+ *
+ * Other available API versions: 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native onlineexperimentation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getOnlineExperimentationWorkspaceOutput(args: GetOnlineExperimentationWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOnlineExperimentationWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

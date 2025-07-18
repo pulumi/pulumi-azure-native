@@ -171,7 +171,7 @@ export interface NotificationChannelArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the notification channel.
+     * The name of the NotificationChannel
      */
     name?: pulumi.Input<string>;
     /**
@@ -179,7 +179,7 @@ export interface NotificationChannelArgs {
      */
     notificationLocale?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

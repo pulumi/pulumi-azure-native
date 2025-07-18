@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Peering
         /// Gets an existing registered prefix with the specified name under the given subscription, resource group and peering.
         /// 
         /// Uses Azure REST API version 2022-10-01.
+        /// 
+        /// Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetRegisteredPrefixResult> InvokeAsync(GetRegisteredPrefixArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredPrefixResult>("azure-native:peering:getRegisteredPrefix", args ?? new GetRegisteredPrefixArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Peering
         /// Gets an existing registered prefix with the specified name under the given subscription, resource group and peering.
         /// 
         /// Uses Azure REST API version 2022-10-01.
+        /// 
+        /// Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRegisteredPrefixResult> Invoke(GetRegisteredPrefixInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegisteredPrefixResult>("azure-native:peering:getRegisteredPrefix", args ?? new GetRegisteredPrefixInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Peering
         /// Gets an existing registered prefix with the specified name under the given subscription, resource group and peering.
         /// 
         /// Uses Azure REST API version 2022-10-01.
+        /// 
+        /// Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRegisteredPrefixResult> Invoke(GetRegisteredPrefixInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegisteredPrefixResult>("azure-native:peering:getRegisteredPrefix", args ?? new GetRegisteredPrefixInvokeArgs(), options.WithDefaults());

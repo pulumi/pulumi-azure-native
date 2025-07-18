@@ -13,7 +13,13 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     [OutputType]
     public sealed class SkuZoneDetailResponse
     {
+        /// <summary>
+        /// The capabilities.
+        /// </summary>
         public readonly ImmutableArray<Outputs.SkuCapabilityResponse> Capabilities;
+        /// <summary>
+        /// The name.
+        /// </summary>
         public readonly ImmutableArray<string> Name;
 
         [OutputConstructor]

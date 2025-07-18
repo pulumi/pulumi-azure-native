@@ -11,21 +11,21 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     /// <summary>
-    /// Validation summary object
+    /// Validation summary object.
     /// </summary>
     [OutputType]
     public sealed class ValidationSummaryItemResponse
     {
         /// <summary>
-        /// Validation messages
+        /// Validation messages.
         /// </summary>
         public readonly ImmutableArray<Outputs.ValidationMessageResponse> Messages;
         /// <summary>
-        /// Validation status for migration
+        /// Validation status for migration.
         /// </summary>
         public readonly string? State;
         /// <summary>
-        /// Validation type
+        /// Validation type.
         /// </summary>
         public readonly string? Type;
 

@@ -28,7 +28,7 @@ class GetOrganizationEnvironmentByIdResult:
     """
     Details about environment name, metadata and environment id of an environment
     """
-    def __init__(__self__, azure_api_version=None, id=None, kind=None, metadata=None, name=None, stream_governance_config=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, kind=None, metadata=None, name=None, stream_governance_config=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -47,6 +47,9 @@ class GetOrganizationEnvironmentByIdResult:
         if stream_governance_config and not isinstance(stream_governance_config, dict):
             raise TypeError("Expected argument 'stream_governance_config' to be a dict")
         pulumi.set(__self__, "stream_governance_config", stream_governance_config)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -61,9 +64,9 @@ class GetOrganizationEnvironmentByIdResult:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[builtins.str]:
+    def id(self) -> builtins.str:
         """
-        Id of the environment
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -85,9 +88,9 @@ class GetOrganizationEnvironmentByIdResult:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[builtins.str]:
+    def name(self) -> builtins.str:
         """
-        Display name of the environment
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -100,10 +103,18 @@ class GetOrganizationEnvironmentByIdResult:
         return pulumi.get(self, "stream_governance_config")
 
     @property
-    @pulumi.getter
-    def type(self) -> Optional[builtins.str]:
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Type of the resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -120,6 +131,7 @@ class AwaitableGetOrganizationEnvironmentByIdResult(GetOrganizationEnvironmentBy
             metadata=self.metadata,
             name=self.name,
             stream_governance_config=self.stream_governance_config,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -128,7 +140,7 @@ def get_organization_environment_by_id(environment_id: Optional[builtins.str] = 
                                        resource_group_name: Optional[builtins.str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationEnvironmentByIdResult:
     """
-    Details about environment name, metadata and environment id of an environment
+    Get Environment details by environment Id
 
     Uses Azure REST API version 2024-07-01.
 
@@ -151,13 +163,14 @@ def get_organization_environment_by_id(environment_id: Optional[builtins.str] = 
         metadata=pulumi.get(__ret__, 'metadata'),
         name=pulumi.get(__ret__, 'name'),
         stream_governance_config=pulumi.get(__ret__, 'stream_governance_config'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_organization_environment_by_id_output(environment_id: Optional[pulumi.Input[builtins.str]] = None,
                                               organization_name: Optional[pulumi.Input[builtins.str]] = None,
                                               resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationEnvironmentByIdResult]:
     """
-    Details about environment name, metadata and environment id of an environment
+    Get Environment details by environment Id
 
     Uses Azure REST API version 2024-07-01.
 
@@ -179,4 +192,5 @@ def get_organization_environment_by_id_output(environment_id: Optional[pulumi.In
         metadata=pulumi.get(__response__, 'metadata'),
         name=pulumi.get(__response__, 'name'),
         stream_governance_config=pulumi.get(__response__, 'stream_governance_config'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

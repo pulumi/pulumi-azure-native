@@ -8,7 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents a Private Endpoint Connection ARM resource - a sub-resource of Notification Hubs namespace.
+ * Returns a Private Endpoint Connection with a given name.
+ * This is a public API that can be called directly by Notification Hubs users.
  *
  * Uses Azure REST API version 2023-10-01-preview.
  *
@@ -68,7 +69,8 @@ export interface GetPrivateEndpointConnectionResult {
     readonly type: string;
 }
 /**
- * Represents a Private Endpoint Connection ARM resource - a sub-resource of Notification Hubs namespace.
+ * Returns a Private Endpoint Connection with a given name.
+ * This is a public API that can be called directly by Notification Hubs users.
  *
  * Uses Azure REST API version 2023-10-01-preview.
  *

@@ -38,7 +38,7 @@ class DiskArgs:
         """
         The set of arguments for constructing a Disk resource.
         :param pulumi.Input[builtins.str] lab_name: The name of the lab.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] user_name: The name of the user profile.
         :param pulumi.Input[builtins.str] disk_blob_name: When backed by a blob, the name of the VHD blob without extension.
         :param pulumi.Input[builtins.int] disk_size_gi_b: The size of the disk in Gibibytes.
@@ -48,7 +48,7 @@ class DiskArgs:
         :param pulumi.Input[builtins.str] leased_by_lab_vm_id: The resource ID of the VM to which this disk is leased.
         :param pulumi.Input[builtins.str] location: The location of the resource.
         :param pulumi.Input[builtins.str] managed_disk_id: When backed by managed disk, this is the ID of the compute disk resource.
-        :param pulumi.Input[builtins.str] name: The name of the disk.
+        :param pulumi.Input[builtins.str] name: The name of the Disk
         :param pulumi.Input[builtins.str] storage_account_id: When backed by a blob, the storage account where the blob is.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
         """
@@ -94,7 +94,7 @@ class DiskArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -214,7 +214,7 @@ class DiskArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the disk.
+        The name of the Disk
         """
         return pulumi.get(self, "name")
 
@@ -284,8 +284,8 @@ class Disk(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] leased_by_lab_vm_id: The resource ID of the VM to which this disk is leased.
         :param pulumi.Input[builtins.str] location: The location of the resource.
         :param pulumi.Input[builtins.str] managed_disk_id: When backed by managed disk, this is the ID of the compute disk resource.
-        :param pulumi.Input[builtins.str] name: The name of the disk.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] name: The name of the Disk
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] storage_account_id: When backed by a blob, the storage account where the blob is.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
         :param pulumi.Input[builtins.str] user_name: The name of the user profile.

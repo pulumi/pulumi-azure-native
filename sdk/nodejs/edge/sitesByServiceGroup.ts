@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Site as ARM Resource
  *
  * Uses Azure REST API version 2025-03-01-preview.
+ *
+ * Other available API versions: 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class SitesByServiceGroup extends pulumi.CustomResource {
     /**
@@ -89,7 +91,7 @@ export class SitesByServiceGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:edge/v20250301preview:SitesByServiceGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:edge/v20250301preview:SitesByServiceGroup" }, { type: "azure-native:edge/v20250601:SitesByServiceGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SitesByServiceGroup.__pulumiType, name, resourceInputs, opts);
     }

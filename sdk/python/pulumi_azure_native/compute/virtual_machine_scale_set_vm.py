@@ -45,8 +45,8 @@ class VirtualMachineScaleSetVMArgs:
                  user_data: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualMachineScaleSetVM resource.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[builtins.str] vm_scale_set_name: The name of the VM scale set where the extension should be create or updated.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[builtins.str] vm_scale_set_name: The name of the VM scale set.
         :param pulumi.Input['AdditionalCapabilitiesArgs'] additional_capabilities: Specifies additional capabilities enabled or disabled on the virtual machine in the scale set. For instance: whether the virtual machine has the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
         :param pulumi.Input['SubResourceArgs'] availability_set: Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
         :param pulumi.Input['DiagnosticsProfileArgs'] diagnostics_profile: Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
@@ -54,7 +54,7 @@ class VirtualMachineScaleSetVMArgs:
         :param pulumi.Input['VirtualMachineIdentityArgs'] identity: The identity of the virtual machine, if configured.
         :param pulumi.Input[builtins.str] instance_id: The instance ID of the virtual machine.
         :param pulumi.Input[builtins.str] license_type: Specifies that the image or disk that is being used was licensed on-premises. <br><br> Possible values for Windows Server operating system are: <br><br> Windows_Client <br><br> Windows_Server <br><br> Possible values for Linux Server operating system are: <br><br> RHEL_BYOS (for RHEL) <br><br> SLES_BYOS (for SUSE) <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) <br><br> [Azure Hybrid Use Benefit for Linux Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) <br><br> Minimum api-version: 2015-06-15
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['NetworkProfileArgs'] network_profile: Specifies the network interfaces of the virtual machine.
         :param pulumi.Input['VirtualMachineScaleSetVMNetworkProfileConfigurationArgs'] network_profile_configuration: Specifies the network profile configuration of the virtual machine.
         :param pulumi.Input['OSProfileArgs'] os_profile: Specifies the operating system settings for the virtual machine.
@@ -63,7 +63,7 @@ class VirtualMachineScaleSetVMArgs:
         :param pulumi.Input[Union[builtins.str, 'ResilientVMDeletionStatus']] resilient_vm_deletion_status: Specifies the resilient VM deletion status for the virtual machine.
         :param pulumi.Input['SecurityProfileArgs'] security_profile: Specifies the Security related profile settings for the virtual machine.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Specifies the storage settings for the virtual machine disks.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param pulumi.Input[builtins.str] user_data: UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -109,7 +109,7 @@ class VirtualMachineScaleSetVMArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -121,7 +121,7 @@ class VirtualMachineScaleSetVMArgs:
     @pulumi.getter(name="vmScaleSetName")
     def vm_scale_set_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the VM scale set where the extension should be create or updated.
+        The name of the VM scale set.
         """
         return pulumi.get(self, "vm_scale_set_name")
 
@@ -217,7 +217,7 @@ class VirtualMachineScaleSetVMArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -325,7 +325,7 @@ class VirtualMachineScaleSetVMArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -389,19 +389,19 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
         :param pulumi.Input[Union['VirtualMachineIdentityArgs', 'VirtualMachineIdentityArgsDict']] identity: The identity of the virtual machine, if configured.
         :param pulumi.Input[builtins.str] instance_id: The instance ID of the virtual machine.
         :param pulumi.Input[builtins.str] license_type: Specifies that the image or disk that is being used was licensed on-premises. <br><br> Possible values for Windows Server operating system are: <br><br> Windows_Client <br><br> Windows_Server <br><br> Possible values for Linux Server operating system are: <br><br> RHEL_BYOS (for RHEL) <br><br> SLES_BYOS (for SUSE) <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) <br><br> [Azure Hybrid Use Benefit for Linux Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) <br><br> Minimum api-version: 2015-06-15
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']] network_profile: Specifies the network interfaces of the virtual machine.
         :param pulumi.Input[Union['VirtualMachineScaleSetVMNetworkProfileConfigurationArgs', 'VirtualMachineScaleSetVMNetworkProfileConfigurationArgsDict']] network_profile_configuration: Specifies the network profile configuration of the virtual machine.
         :param pulumi.Input[Union['OSProfileArgs', 'OSProfileArgsDict']] os_profile: Specifies the operating system settings for the virtual machine.
         :param pulumi.Input[Union['PlanArgs', 'PlanArgsDict']] plan: Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
         :param pulumi.Input[Union['VirtualMachineScaleSetVMProtectionPolicyArgs', 'VirtualMachineScaleSetVMProtectionPolicyArgsDict']] protection_policy: Specifies the protection policy of the virtual machine.
         :param pulumi.Input[Union[builtins.str, 'ResilientVMDeletionStatus']] resilient_vm_deletion_status: Specifies the resilient VM deletion status for the virtual machine.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']] security_profile: Specifies the Security related profile settings for the virtual machine.
         :param pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']] storage_profile: Specifies the storage settings for the virtual machine disks.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param pulumi.Input[builtins.str] user_data: UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01
-        :param pulumi.Input[builtins.str] vm_scale_set_name: The name of the VM scale set where the extension should be create or updated.
+        :param pulumi.Input[builtins.str] vm_scale_set_name: The name of the VM scale set.
         """
         ...
     @overload
@@ -493,6 +493,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resources"] = None
             __props__.__dict__["sku"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["time_created"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["vm_id"] = None
@@ -546,6 +547,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
         __props__.__dict__["security_profile"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["storage_profile"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["time_created"] = None
         __props__.__dict__["type"] = None
@@ -646,7 +648,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -662,7 +664,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -755,10 +757,18 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
         return pulumi.get(self, "storage_profile")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -774,7 +784,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
         /// The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
         /// </summary>
         [Input("componentName")]
-        public Input<Pulumi.AzureNative.Compute.ComponentNames>? ComponentName { get; set; }
+        public Input<Pulumi.AzureNative.Compute.ComponentName>? ComponentName { get; set; }
 
         /// <summary>
         /// Specifies the XML formatted content that is added to the unattend.xml file for the specified path and component. The XML must be less than 4KB and must include the root element for the setting or feature that is being inserted.
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
         /// The pass name. Currently, the only allowable value is OobeSystem.
         /// </summary>
         [Input("passName")]
-        public Input<Pulumi.AzureNative.Compute.PassNames>? PassName { get; set; }
+        public Input<Pulumi.AzureNative.Compute.PassName>? PassName { get; set; }
 
         /// <summary>
         /// Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.

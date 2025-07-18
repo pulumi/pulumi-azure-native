@@ -77,9 +77,9 @@ class GetGuestConfigurationHCRPAssignmentResult:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[builtins.str]:
+    def name(self) -> builtins.str:
         """
-        Name of the guest configuration assignment.
+        The guest configuration assignment name.
         """
         return pulumi.get(self, "name")
 
@@ -137,7 +137,7 @@ def get_guest_configuration_hcrpassignment(guest_configuration_assignment_name: 
 
     :param builtins.str guest_configuration_assignment_name: The guest configuration assignment name.
     :param builtins.str machine_name: The name of the ARC machine.
-    :param builtins.str resource_group_name: The resource group name.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['guestConfigurationAssignmentName'] = guest_configuration_assignment_name
@@ -168,7 +168,7 @@ def get_guest_configuration_hcrpassignment_output(guest_configuration_assignment
 
     :param builtins.str guest_configuration_assignment_name: The guest configuration assignment name.
     :param builtins.str machine_name: The name of the ARC machine.
-    :param builtins.str resource_group_name: The resource group name.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['guestConfigurationAssignmentName'] = guest_configuration_assignment_name

@@ -10,7 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub
 {
     /// <summary>
-    /// Uses Azure REST API version 2021-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
+    /// Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
+    /// 
+    /// Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:providerhub:OperationByProviderRegistration")]
     public partial class OperationByProviderRegistration : global::Pulumi.CustomResource
@@ -26,6 +28,12 @@ namespace Pulumi.AzureNative.ProviderHub
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -62,6 +70,7 @@ namespace Pulumi.AzureNative.ProviderHub
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:OperationByProviderRegistration" },
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:OperationByProviderRegistration" },
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:OperationByProviderRegistration" },
+                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20240901:OperationByProviderRegistration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

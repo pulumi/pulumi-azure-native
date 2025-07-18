@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Details of connector record
+ * Get confluent connector by Name
  *
  * Uses Azure REST API version 2024-07-01.
  */
@@ -84,7 +84,7 @@ export interface GetConnectorResult {
     readonly type: string;
 }
 /**
- * Details of connector record
+ * Get confluent connector by Name
  *
  * Uses Azure REST API version 2024-07-01.
  */

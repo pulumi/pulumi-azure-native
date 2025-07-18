@@ -11,21 +11,21 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     /// <summary>
-    /// Backup properties of a server
+    /// Backup properties of a flexible server.
     /// </summary>
     [OutputType]
     public sealed class BackupResponse
     {
         /// <summary>
-        /// Backup retention days for the server.
+        /// Backup retention days for the flexible server.
         /// </summary>
         public readonly int? BackupRetentionDays;
         /// <summary>
-        /// The earliest restore point time (ISO8601 format) for server.
+        /// Earliest restore point time (ISO8601 format) for a flexible server.
         /// </summary>
         public readonly string EarliestRestoreDate;
         /// <summary>
-        /// A value indicating whether Geo-Redundant backup is enabled on the server.
+        /// Indicates if the server is configured to create geographically redundant backups.
         /// </summary>
         public readonly string? GeoRedundantBackup;
 

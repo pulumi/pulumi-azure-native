@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
     /// Schema registry definition.
     /// 
     /// Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
+    /// 
+    /// Other available API versions: 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceregistry:SchemaRegistry")]
     public partial class SchemaRegistry : global::Pulumi.CustomResource
@@ -121,6 +123,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20240901preview:SchemaRegistry" },
+                    new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20250701preview:SchemaRegistry" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

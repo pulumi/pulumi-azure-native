@@ -26,7 +26,7 @@ __all__ = [
 @pulumi.output_type
 class GetVirtualEndpointResult:
     """
-    Represents a virtual endpoint for a server.
+    Pair of virtual endpoints for a flexible server.
     """
     def __init__(__self__, azure_api_version=None, endpoint_type=None, id=None, members=None, name=None, system_data=None, type=None, virtual_endpoints=None):
         if azure_api_version and not isinstance(azure_api_version, str):
@@ -66,7 +66,7 @@ class GetVirtualEndpointResult:
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> Optional[builtins.str]:
         """
-        The endpoint type for the virtual endpoint.
+        Type of endpoint for the virtual endpoints.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -82,7 +82,7 @@ class GetVirtualEndpointResult:
     @pulumi.getter
     def members(self) -> Optional[Sequence[builtins.str]]:
         """
-        List of members for a virtual endpoint
+        List of flexible servers that one of the virtual endpoints can refer to.
         """
         return pulumi.get(self, "members")
 
@@ -114,7 +114,7 @@ class GetVirtualEndpointResult:
     @pulumi.getter(name="virtualEndpoints")
     def virtual_endpoints(self) -> Sequence[builtins.str]:
         """
-        List of virtual endpoints for a server
+        List of virtual endpoints for a flexible server.
         """
         return pulumi.get(self, "virtual_endpoints")
 
@@ -140,7 +140,7 @@ def get_virtual_endpoint(resource_group_name: Optional[builtins.str] = None,
                          virtual_endpoint_name: Optional[builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualEndpointResult:
     """
-    Gets information about a virtual endpoint.
+    Gets information about a pair of virtual endpoints.
 
     Uses Azure REST API version 2024-08-01.
 
@@ -149,7 +149,7 @@ def get_virtual_endpoint(resource_group_name: Optional[builtins.str] = None,
 
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str server_name: The name of the server.
-    :param builtins.str virtual_endpoint_name: The name of the virtual endpoint.
+    :param builtins.str virtual_endpoint_name: Base name of the virtual endpoints.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -172,7 +172,7 @@ def get_virtual_endpoint_output(resource_group_name: Optional[pulumi.Input[built
                                 virtual_endpoint_name: Optional[pulumi.Input[builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualEndpointResult]:
     """
-    Gets information about a virtual endpoint.
+    Gets information about a pair of virtual endpoints.
 
     Uses Azure REST API version 2024-08-01.
 
@@ -181,7 +181,7 @@ def get_virtual_endpoint_output(resource_group_name: Optional[pulumi.Input[built
 
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str server_name: The name of the server.
-    :param builtins.str virtual_endpoint_name: The name of the virtual endpoint.
+    :param builtins.str virtual_endpoint_name: Base name of the virtual endpoints.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name

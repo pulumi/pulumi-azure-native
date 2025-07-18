@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
     public sealed class GetSqlVirtualMachineGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
     public sealed class GetSqlVirtualMachineGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -100,15 +100,15 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// </summary>
         public readonly string ClusterManagerType;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource location.
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// </summary>
         public readonly string? SqlImageSku;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>

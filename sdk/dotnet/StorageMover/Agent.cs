@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.StorageMover
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("errorDetails")]
-        public Output<Outputs.AgentPropertiesResponseErrorDetails> ErrorDetails { get; private set; } = null!;
+        public Output<Outputs.AgentPropertiesErrorDetailsResponse> ErrorDetails { get; private set; } = null!;
 
         /// <summary>
         /// The last updated time of the Agent status.

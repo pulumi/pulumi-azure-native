@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Outputs
 {
 
+    /// <summary>
+    /// The hidden property paths.
+    /// </summary>
     [OutputType]
     public sealed class LoggingRuleResponseHiddenPropertyPaths
     {
+        /// <summary>
+        /// The hidden paths on request.
+        /// </summary>
         public readonly ImmutableArray<string> HiddenPathsOnRequest;
+        /// <summary>
+        /// The hidden paths on response.
+        /// </summary>
         public readonly ImmutableArray<string> HiddenPathsOnResponse;
 
         [OutputConstructor]

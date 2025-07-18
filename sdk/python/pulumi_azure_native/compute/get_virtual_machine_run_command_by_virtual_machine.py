@@ -28,7 +28,7 @@ class GetVirtualMachineRunCommandByVirtualMachineResult:
     """
     Describes a Virtual Machine run command.
     """
-    def __init__(__self__, async_execution=None, azure_api_version=None, error_blob_managed_identity=None, error_blob_uri=None, id=None, instance_view=None, location=None, name=None, output_blob_managed_identity=None, output_blob_uri=None, parameters=None, protected_parameters=None, provisioning_state=None, run_as_password=None, run_as_user=None, source=None, tags=None, timeout_in_seconds=None, treat_failure_as_deployment_failure=None, type=None):
+    def __init__(__self__, async_execution=None, azure_api_version=None, error_blob_managed_identity=None, error_blob_uri=None, id=None, instance_view=None, location=None, name=None, output_blob_managed_identity=None, output_blob_uri=None, parameters=None, protected_parameters=None, provisioning_state=None, run_as_password=None, run_as_user=None, source=None, system_data=None, tags=None, timeout_in_seconds=None, treat_failure_as_deployment_failure=None, type=None):
         if async_execution and not isinstance(async_execution, bool):
             raise TypeError("Expected argument 'async_execution' to be a bool")
         pulumi.set(__self__, "async_execution", async_execution)
@@ -77,6 +77,9 @@ class GetVirtualMachineRunCommandByVirtualMachineResult:
         if source and not isinstance(source, dict):
             raise TypeError("Expected argument 'source' to be a dict")
         pulumi.set(__self__, "source", source)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -110,7 +113,7 @@ class GetVirtualMachineRunCommandByVirtualMachineResult:
     @pulumi.getter(name="errorBlobManagedIdentity")
     def error_blob_managed_identity(self) -> Optional['outputs.RunCommandManagedIdentityResponse']:
         """
-        User-assigned managed identity that has access to errorBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
+        User-assigned managed identity that has access to errorBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged
         """
         return pulumi.get(self, "error_blob_managed_identity")
 
@@ -126,7 +129,7 @@ class GetVirtualMachineRunCommandByVirtualMachineResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -142,7 +145,7 @@ class GetVirtualMachineRunCommandByVirtualMachineResult:
     @pulumi.getter
     def location(self) -> builtins.str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -150,7 +153,7 @@ class GetVirtualMachineRunCommandByVirtualMachineResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -158,7 +161,7 @@ class GetVirtualMachineRunCommandByVirtualMachineResult:
     @pulumi.getter(name="outputBlobManagedIdentity")
     def output_blob_managed_identity(self) -> Optional['outputs.RunCommandManagedIdentityResponse']:
         """
-        User-assigned managed identity that has access to outputBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
+        User-assigned managed identity that has access to outputBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged
         """
         return pulumi.get(self, "output_blob_managed_identity")
 
@@ -166,7 +169,7 @@ class GetVirtualMachineRunCommandByVirtualMachineResult:
     @pulumi.getter(name="outputBlobUri")
     def output_blob_uri(self) -> Optional[builtins.str]:
         """
-        Specifies the Azure storage blob where script output stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer outputBlobManagedIdentity parameter. 
+        Specifies the Azure storage blob where script output stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer outputBlobManagedIdentity parameter.
         """
         return pulumi.get(self, "output_blob_uri")
 
@@ -190,7 +193,7 @@ class GetVirtualMachineRunCommandByVirtualMachineResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> builtins.str:
         """
-        The provisioning state, which only appears in the response. If treatFailureAsDeploymentFailure set to true, any failure in the script will fail the deployment and ProvisioningState will be marked as Failed. If treatFailureAsDeploymentFailure set to false, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. See instance view of run command in case of script failures to see executionMessage, output, error: https://aka.ms/runcommandmanaged#get-execution-status-and-results 
+        The provisioning state, which only appears in the response. If treatFailureAsDeploymentFailure set to true, any failure in the script will fail the deployment and ProvisioningState will be marked as Failed. If treatFailureAsDeploymentFailure set to false, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. See instance view of run command in case of script failures to see executionMessage, output, error: https://aka.ms/runcommandmanaged#get-execution-status-and-results
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -219,10 +222,18 @@ class GetVirtualMachineRunCommandByVirtualMachineResult:
         return pulumi.get(self, "source")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -238,7 +249,7 @@ class GetVirtualMachineRunCommandByVirtualMachineResult:
     @pulumi.getter(name="treatFailureAsDeploymentFailure")
     def treat_failure_as_deployment_failure(self) -> Optional[builtins.bool]:
         """
-        Optional. If set to true, any failure in the script will fail the deployment and ProvisioningState will be marked as Failed. If set to false, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. See instance view of run command in case of script failures to see executionMessage, output, error: https://aka.ms/runcommandmanaged#get-execution-status-and-results 
+        Optional. If set to true, any failure in the script will fail the deployment and ProvisioningState will be marked as Failed. If set to false, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. See instance view of run command in case of script failures to see executionMessage, output, error: https://aka.ms/runcommandmanaged#get-execution-status-and-results
         """
         return pulumi.get(self, "treat_failure_as_deployment_failure")
 
@@ -246,7 +257,7 @@ class GetVirtualMachineRunCommandByVirtualMachineResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -273,6 +284,7 @@ class AwaitableGetVirtualMachineRunCommandByVirtualMachineResult(GetVirtualMachi
             run_as_password=self.run_as_password,
             run_as_user=self.run_as_user,
             source=self.source,
+            system_data=self.system_data,
             tags=self.tags,
             timeout_in_seconds=self.timeout_in_seconds,
             treat_failure_as_deployment_failure=self.treat_failure_as_deployment_failure,
@@ -293,9 +305,9 @@ def get_virtual_machine_run_command_by_virtual_machine(expand: Optional[builtins
 
 
     :param builtins.str expand: The expand expression to apply on the operation.
-    :param builtins.str resource_group_name: The name of the resource group.
-    :param builtins.str run_command_name: The name of the virtual machine run command.
-    :param builtins.str vm_name: The name of the virtual machine containing the run command.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param builtins.str run_command_name: The name of the VirtualMachineRunCommand
+    :param builtins.str vm_name: The name of the VirtualMachine
     """
     __args__ = dict()
     __args__['expand'] = expand
@@ -322,6 +334,7 @@ def get_virtual_machine_run_command_by_virtual_machine(expand: Optional[builtins
         run_as_password=pulumi.get(__ret__, 'run_as_password'),
         run_as_user=pulumi.get(__ret__, 'run_as_user'),
         source=pulumi.get(__ret__, 'source'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         timeout_in_seconds=pulumi.get(__ret__, 'timeout_in_seconds'),
         treat_failure_as_deployment_failure=pulumi.get(__ret__, 'treat_failure_as_deployment_failure'),
@@ -340,9 +353,9 @@ def get_virtual_machine_run_command_by_virtual_machine_output(expand: Optional[p
 
 
     :param builtins.str expand: The expand expression to apply on the operation.
-    :param builtins.str resource_group_name: The name of the resource group.
-    :param builtins.str run_command_name: The name of the virtual machine run command.
-    :param builtins.str vm_name: The name of the virtual machine containing the run command.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param builtins.str run_command_name: The name of the VirtualMachineRunCommand
+    :param builtins.str vm_name: The name of the VirtualMachine
     """
     __args__ = dict()
     __args__['expand'] = expand
@@ -368,6 +381,7 @@ def get_virtual_machine_run_command_by_virtual_machine_output(expand: Optional[p
         run_as_password=pulumi.get(__response__, 'run_as_password'),
         run_as_user=pulumi.get(__response__, 'run_as_user'),
         source=pulumi.get(__response__, 'source'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         timeout_in_seconds=pulumi.get(__response__, 'timeout_in_seconds'),
         treat_failure_as_deployment_failure=pulumi.get(__response__, 'treat_failure_as_deployment_failure'),

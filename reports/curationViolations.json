@@ -80,6 +80,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "ModuleName": "CloudHealth",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "ModuleName": "Cloudngfw",
     "Detail": "expected tracking stable but found preview"
   },
@@ -96,6 +100,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "ModuleName": "ComputeSchedule",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "ModuleName": "ConfidentialLedger",
     "Detail": "expected tracking stable but found preview"
   },
@@ -106,6 +114,10 @@
   {
     "ModuleName": "ConnectedCache",
     "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "ModuleName": "ConnectedCache",
+    "Detail": "expected no additions but found some"
   },
   {
     "ModuleName": "ConnectedVMwarevSphere",
@@ -130,6 +142,10 @@
   {
     "ModuleName": "DBforMySQL",
     "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "ModuleName": "Dashboard",
+    "Detail": "expected no additions but found some"
   },
   {
     "ModuleName": "DataBox",
@@ -364,6 +380,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "ModuleName": "MongoCluster",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "ModuleName": "Monitor",
     "Detail": "expected tracking stable but found preview"
   },
@@ -478,6 +498,10 @@
   {
     "ModuleName": "StorageCache",
     "Detail": "expected no additions but found some"
+  },
+  {
+    "ModuleName": "StorageDiscovery",
+    "Detail": "expected tracking stable but found preview"
   },
   {
     "ModuleName": "Subscription",

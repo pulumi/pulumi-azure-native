@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Dns
         public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location.
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNative.Dns
         public Output<double> MaxNumberOfRecordsPerRecordSet { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.Dns
         public Output<ImmutableArray<Outputs.SigningKeyResponse>> SigningKeys { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.Dns
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.AzureNative.Dns
     public sealed class ZoneArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Resource location.
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

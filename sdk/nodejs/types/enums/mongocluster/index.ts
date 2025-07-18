@@ -26,6 +26,22 @@ export const CreateMode = {
  */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
+export const EntraPrincipalType = {
+    /**
+     * Entra user type.
+     */
+    User: "user",
+    /**
+     * Entra service principal type.
+     */
+    ServicePrincipal: "servicePrincipal",
+} as const;
+
+/**
+ * The principal type of the user.
+ */
+export type EntraPrincipalType = (typeof EntraPrincipalType)[keyof typeof EntraPrincipalType];
+
 export const HighAvailabilityMode = {
     /**
      * High availability mode is disabled. This mode is can see availability impact during faults or maintenance and is not recommended for production.
@@ -45,6 +61,18 @@ export const HighAvailabilityMode = {
  * The target high availability mode requested for the cluster.
  */
 export type HighAvailabilityMode = (typeof HighAvailabilityMode)[keyof typeof HighAvailabilityMode];
+
+export const IdentityProviderType = {
+    /**
+     * Microsoft Entra ID provider.
+     */
+    MicrosoftEntraID: "MicrosoftEntraID",
+} as const;
+
+/**
+ * The type of identity provider that the user belongs to.
+ */
+export type IdentityProviderType = (typeof IdentityProviderType)[keyof typeof IdentityProviderType];
 
 export const PreviewFeature = {
     /**
@@ -84,3 +112,15 @@ export const PublicNetworkAccess = {
  * Whether or not public endpoint access is allowed for this mongo cluster.
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
+export const UserRole = {
+    /**
+     * Datbase owner role permissions on the target scope.
+     */
+    DatabaseOwner: "dbOwner",
+} as const;
+
+/**
+ * The role that is assigned to the user on the database scope.
+ */
+export type UserRole = (typeof UserRole)[keyof typeof UserRole];

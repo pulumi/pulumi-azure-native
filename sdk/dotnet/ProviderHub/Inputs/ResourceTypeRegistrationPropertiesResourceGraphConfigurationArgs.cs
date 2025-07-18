@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
+    /// <summary>
+    /// The resource graph configuration.
+    /// </summary>
     public sealed class ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The api version.
+        /// </summary>
         [Input("apiVersion")]
         public Input<string>? ApiVersion { get; set; }
 
+        /// <summary>
+        /// Whether it's enabled.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

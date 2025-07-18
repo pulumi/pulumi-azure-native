@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Maintenance
     public static class GetMaintenanceConfiguration
     {
         /// <summary>
-        /// Maintenance configuration record type
+        /// Get Configuration record
         /// 
         /// Uses Azure REST API version 2023-10-01-preview.
         /// 
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Maintenance
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMaintenanceConfigurationResult>("azure-native:maintenance:getMaintenanceConfiguration", args ?? new GetMaintenanceConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Maintenance configuration record type
+        /// Get Configuration record
         /// 
         /// Uses Azure REST API version 2023-10-01-preview.
         /// 
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Maintenance
             => global::Pulumi.Deployment.Instance.Invoke<GetMaintenanceConfigurationResult>("azure-native:maintenance:getMaintenanceConfiguration", args ?? new GetMaintenanceConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Maintenance configuration record type
+        /// Get Configuration record
         /// 
         /// Uses Azure REST API version 2023-10-01-preview.
         /// 
@@ -46,13 +46,13 @@ namespace Pulumi.AzureNative.Maintenance
     public sealed class GetMaintenanceConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Resource Group Name
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Maintenance Configuration Name
+        /// The name of the MaintenanceConfiguration
         /// </summary>
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
@@ -66,13 +66,13 @@ namespace Pulumi.AzureNative.Maintenance
     public sealed class GetMaintenanceConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Resource Group Name
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Maintenance Configuration Name
+        /// The name of the MaintenanceConfiguration
         /// </summary>
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.Maintenance
         /// </summary>
         public readonly ImmutableDictionary<string, string>? ExtensionProperties;
         /// <summary>
-        /// Fully qualified identifier of the resource
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -112,15 +112,15 @@ namespace Pulumi.AzureNative.Maintenance
         /// </summary>
         public readonly Outputs.InputPatchConfigurationResponse? InstallPatches;
         /// <summary>
-        /// Gets or sets location of the resource
+        /// The geo-location where the resource lives
         /// </summary>
-        public readonly string? Location;
+        public readonly string Location;
         /// <summary>
         /// Gets or sets maintenanceScope of the configuration
         /// </summary>
         public readonly string? MaintenanceScope;
         /// <summary>
-        /// Name of the resource
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.Maintenance
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Gets or sets tags of the resource
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.Maintenance
         /// </summary>
         public readonly string? TimeZone;
         /// <summary>
-        /// Type of the resource
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -170,7 +170,7 @@ namespace Pulumi.AzureNative.Maintenance
 
             Outputs.InputPatchConfigurationResponse? installPatches,
 
-            string? location,
+            string location,
 
             string? maintenanceScope,
 

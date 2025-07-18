@@ -28,7 +28,7 @@ class GetVirtualNetworkLinkResult:
     """
     Describes a link to virtual network for a Private DNS zone.
     """
-    def __init__(__self__, azure_api_version=None, etag=None, id=None, location=None, name=None, provisioning_state=None, registration_enabled=None, resolution_policy=None, tags=None, type=None, virtual_network=None, virtual_network_link_state=None):
+    def __init__(__self__, azure_api_version=None, etag=None, id=None, location=None, name=None, provisioning_state=None, registration_enabled=None, resolution_policy=None, system_data=None, tags=None, type=None, virtual_network=None, virtual_network_link_state=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -53,6 +53,9 @@ class GetVirtualNetworkLinkResult:
         if resolution_policy and not isinstance(resolution_policy, str):
             raise TypeError("Expected argument 'resolution_policy' to be a str")
         pulumi.set(__self__, "resolution_policy", resolution_policy)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -86,7 +89,7 @@ class GetVirtualNetworkLinkResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateDnsZoneName}'.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -131,6 +134,14 @@ class GetVirtualNetworkLinkResult:
         return pulumi.get(self, "resolution_policy")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
@@ -142,7 +153,7 @@ class GetVirtualNetworkLinkResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -177,6 +188,7 @@ class AwaitableGetVirtualNetworkLinkResult(GetVirtualNetworkLinkResult):
             provisioning_state=self.provisioning_state,
             registration_enabled=self.registration_enabled,
             resolution_policy=self.resolution_policy,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             virtual_network=self.virtual_network,
@@ -196,7 +208,7 @@ def get_virtual_network_link(private_zone_name: Optional[builtins.str] = None,
 
 
     :param builtins.str private_zone_name: The name of the Private DNS zone (without a terminating dot).
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str virtual_network_link_name: The name of the virtual network link.
     """
     __args__ = dict()
@@ -215,6 +227,7 @@ def get_virtual_network_link(private_zone_name: Optional[builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         registration_enabled=pulumi.get(__ret__, 'registration_enabled'),
         resolution_policy=pulumi.get(__ret__, 'resolution_policy'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network=pulumi.get(__ret__, 'virtual_network'),
@@ -232,7 +245,7 @@ def get_virtual_network_link_output(private_zone_name: Optional[pulumi.Input[bui
 
 
     :param builtins.str private_zone_name: The name of the Private DNS zone (without a terminating dot).
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str virtual_network_link_name: The name of the virtual network link.
     """
     __args__ = dict()
@@ -250,6 +263,7 @@ def get_virtual_network_link_output(private_zone_name: Optional[pulumi.Input[bui
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         registration_enabled=pulumi.get(__response__, 'registration_enabled'),
         resolution_policy=pulumi.get(__response__, 'resolution_policy'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         virtual_network=pulumi.get(__response__, 'virtual_network'),

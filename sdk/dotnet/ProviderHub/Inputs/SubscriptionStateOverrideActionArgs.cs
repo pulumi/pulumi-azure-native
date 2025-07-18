@@ -12,9 +12,15 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
     public sealed class SubscriptionStateOverrideActionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action.
+        /// </summary>
         [Input("action", required: true)]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.SubscriptionNotificationOperation> Action { get; set; } = null!;
 
+        /// <summary>
+        /// The state.
+        /// </summary>
         [Input("state", required: true)]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.SubscriptionTransitioningState> State { get; set; } = null!;
 

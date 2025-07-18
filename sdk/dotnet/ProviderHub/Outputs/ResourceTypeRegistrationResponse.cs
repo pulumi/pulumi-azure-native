@@ -14,16 +14,20 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     public sealed class ResourceTypeRegistrationResponse
     {
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+        /// </summary>
+        public readonly string? Kind;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.ResourceTypeRegistrationResponseProperties? Properties;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesResponse? Properties;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -35,15 +39,18 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         private ResourceTypeRegistrationResponse(
             string id,
 
+            string? kind,
+
             string name,
 
-            Outputs.ResourceTypeRegistrationResponseProperties? properties,
+            Outputs.ResourceTypeRegistrationPropertiesResponse? properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
             Id = id;
+            Kind = kind;
             Name = name;
             Properties = properties;
             SystemData = systemData;

@@ -66,14 +66,14 @@ namespace Pulumi.AzureNative.BotService.Inputs
         /// <summary>
         /// Whether this site is enabled for Bot Framework V1 protocol.
         /// </summary>
-        [Input("isV1Enabled", required: true)]
-        public Input<bool> IsV1Enabled { get; set; } = null!;
+        [Input("isV1Enabled")]
+        public Input<bool>? IsV1Enabled { get; set; }
 
         /// <summary>
         /// Whether this site is enabled for Bot Framework V3 protocol.
         /// </summary>
-        [Input("isV3Enabled", required: true)]
-        public Input<bool> IsV3Enabled { get; set; } = null!;
+        [Input("isV3Enabled")]
+        public Input<bool>? IsV3Enabled { get; set; }
 
         /// <summary>
         /// Whether this site is enabled for Webchat Speech

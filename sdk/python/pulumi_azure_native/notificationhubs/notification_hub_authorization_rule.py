@@ -38,12 +38,10 @@ class NotificationHubAuthorizationRuleArgs:
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'AccessRights']]]] rights: Gets or sets the rights associated with the rule.
         :param pulumi.Input[builtins.str] authorization_rule_name: Authorization Rule Name
-        :param pulumi.Input[builtins.str] location: Deprecated - only for compatibility.
         :param pulumi.Input[builtins.str] primary_key: Gets a base64-encoded 256-bit primary key for signing and
                validating the SAS token.
         :param pulumi.Input[builtins.str] secondary_key: Gets a base64-encoded 256-bit primary key for signing and
                validating the SAS token.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Deprecated - only for compatibility.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "notification_hub_name", notification_hub_name)
@@ -123,9 +121,6 @@ class NotificationHubAuthorizationRuleArgs:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Deprecated - only for compatibility.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -161,9 +156,6 @@ class NotificationHubAuthorizationRuleArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        Deprecated - only for compatibility.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -197,7 +189,6 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] authorization_rule_name: Authorization Rule Name
-        :param pulumi.Input[builtins.str] location: Deprecated - only for compatibility.
         :param pulumi.Input[builtins.str] namespace_name: Namespace name
         :param pulumi.Input[builtins.str] notification_hub_name: Notification Hub name
         :param pulumi.Input[builtins.str] primary_key: Gets a base64-encoded 256-bit primary key for signing and
@@ -206,7 +197,6 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'AccessRights']]]] rights: Gets or sets the rights associated with the rule.
         :param pulumi.Input[builtins.str] secondary_key: Gets a base64-encoded 256-bit primary key for signing and
                validating the SAS token.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Deprecated - only for compatibility.
         """
         ...
     @overload
@@ -365,9 +355,6 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
     @property
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[builtins.str]]:
-        """
-        Deprecated - only for compatibility.
-        """
         return pulumi.get(self, "location")
 
     @property
@@ -431,9 +418,6 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
-        """
-        Deprecated - only for compatibility.
-        """
         return pulumi.get(self, "tags")
 
     @property

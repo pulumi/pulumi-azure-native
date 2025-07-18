@@ -32,10 +32,10 @@ class UserArgs:
         """
         The set of arguments for constructing a User resource.
         :param pulumi.Input[builtins.str] lab_name: The name of the lab.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['UserIdentityArgs'] identity: The identity of the user.
         :param pulumi.Input[builtins.str] location: The location of the resource.
-        :param pulumi.Input[builtins.str] name: The name of the user profile.
+        :param pulumi.Input[builtins.str] name: The name of the User
         :param pulumi.Input['UserSecretStoreArgs'] secret_store: The secret store of the user.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
         """
@@ -68,7 +68,7 @@ class UserArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -104,7 +104,7 @@ class UserArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the user profile.
+        The name of the User
         """
         return pulumi.get(self, "name")
 
@@ -161,8 +161,8 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[Union['UserIdentityArgs', 'UserIdentityArgsDict']] identity: The identity of the user.
         :param pulumi.Input[builtins.str] lab_name: The name of the lab.
         :param pulumi.Input[builtins.str] location: The location of the resource.
-        :param pulumi.Input[builtins.str] name: The name of the user profile.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] name: The name of the User
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['UserSecretStoreArgs', 'UserSecretStoreArgsDict']] secret_store: The secret store of the user.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
         """

@@ -72,6 +72,8 @@ class NamespaceArgs:
             pulumi.set(__self__, "pns_credentials", pns_credentials)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access is None:
+            public_network_access = 'Enabled'
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if replication_region is not None:
@@ -82,6 +84,8 @@ class NamespaceArgs:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zone_redundancy is None:
+            zone_redundancy = 'Disabled'
         if zone_redundancy is not None:
             pulumi.set(__self__, "zone_redundancy", zone_redundancy)
 
@@ -372,6 +376,8 @@ class Namespace(pulumi.CustomResource):
             __props__.__dict__["network_acls"] = network_acls
             __props__.__dict__["pns_credentials"] = pns_credentials
             __props__.__dict__["provisioning_state"] = provisioning_state
+            if public_network_access is None:
+                public_network_access = 'Enabled'
             __props__.__dict__["public_network_access"] = public_network_access
             __props__.__dict__["replication_region"] = replication_region
             if resource_group_name is None and not opts.urn:
@@ -383,6 +389,8 @@ class Namespace(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
+            if zone_redundancy is None:
+                zone_redundancy = 'Disabled'
             __props__.__dict__["zone_redundancy"] = zone_redundancy
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_at"] = None

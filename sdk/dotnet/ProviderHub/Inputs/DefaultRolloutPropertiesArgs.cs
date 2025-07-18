@@ -10,20 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
-    /// <summary>
-    /// Properties of the rollout.
-    /// </summary>
     public sealed class DefaultRolloutPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The provisioned state of the resource.
+        /// The default rollout specification.
         /// </summary>
-        [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNative.ProviderHub.ProvisioningState>? ProvisioningState { get; set; }
-
         [Input("specification")]
         public Input<Inputs.DefaultRolloutPropertiesSpecificationArgs>? Specification { get; set; }
 
+        /// <summary>
+        /// The default rollout status.
+        /// </summary>
         [Input("status")]
         public Input<Inputs.DefaultRolloutPropertiesStatusArgs>? Status { get; set; }
 

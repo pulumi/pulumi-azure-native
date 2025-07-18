@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// <summary>
     /// Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
     /// 
-    /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:BatchEndpoint")]
     public partial class BatchEndpoint : global::Pulumi.CustomResource
@@ -122,6 +122,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001:BatchEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:BatchEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250101preview:BatchEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250401:BatchEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250401preview:BatchEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250601:BatchEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250701preview:BatchEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

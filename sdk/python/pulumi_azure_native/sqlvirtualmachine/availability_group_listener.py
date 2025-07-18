@@ -34,7 +34,7 @@ class AvailabilityGroupListenerArgs:
                  port: Optional[pulumi.Input[builtins.int]] = None):
         """
         The set of arguments for constructing a AvailabilityGroupListener resource.
-        :param pulumi.Input[builtins.str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] sql_virtual_machine_group_name: Name of the SQL virtual machine group.
         :param pulumi.Input['AgConfigurationArgs'] availability_group_configuration: Availability Group configuration.
         :param pulumi.Input[builtins.str] availability_group_listener_name: Name of the availability group listener.
@@ -65,7 +65,7 @@ class AvailabilityGroupListenerArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -202,7 +202,7 @@ class AvailabilityGroupListener(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerConfigurationArgs', 'LoadBalancerConfigurationArgsDict']]]] load_balancer_configurations: List of load balancer configurations for an availability group listener.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MultiSubnetIpConfigurationArgs', 'MultiSubnetIpConfigurationArgsDict']]]] multi_subnet_ip_configurations: List of multi subnet IP configurations for an AG listener.
         :param pulumi.Input[builtins.int] port: Listener port.
-        :param pulumi.Input[builtins.str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] sql_virtual_machine_group_name: Name of the SQL virtual machine group.
         """
         ...
@@ -358,7 +358,7 @@ class AvailabilityGroupListener(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -382,7 +382,7 @@ class AvailabilityGroupListener(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -390,7 +390,7 @@ class AvailabilityGroupListener(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

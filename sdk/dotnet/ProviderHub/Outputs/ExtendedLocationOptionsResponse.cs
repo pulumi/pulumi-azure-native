@@ -14,6 +14,9 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     public sealed class ExtendedLocationOptionsResponse
     {
         public readonly string? SupportedPolicy;
+        /// <summary>
+        /// The type.
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

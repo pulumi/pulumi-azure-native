@@ -28,16 +28,13 @@ class GetFleetspaceAccountResult:
     """
     An Azure Cosmos DB Fleetspace Account
     """
-    def __init__(__self__, account_location=None, account_resource_identifier=None, azure_api_version=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
-        if account_location and not isinstance(account_location, str):
-            raise TypeError("Expected argument 'account_location' to be a str")
-        pulumi.set(__self__, "account_location", account_location)
-        if account_resource_identifier and not isinstance(account_resource_identifier, str):
-            raise TypeError("Expected argument 'account_resource_identifier' to be a str")
-        pulumi.set(__self__, "account_resource_identifier", account_resource_identifier)
+    def __init__(__self__, azure_api_version=None, global_database_account_properties=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if global_database_account_properties and not isinstance(global_database_account_properties, dict):
+            raise TypeError("Expected argument 'global_database_account_properties' to be a dict")
+        pulumi.set(__self__, "global_database_account_properties", global_database_account_properties)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -55,28 +52,20 @@ class GetFleetspaceAccountResult:
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="accountLocation")
-    def account_location(self) -> Optional[builtins.str]:
-        """
-        The location of  global database account in the Fleetspace Account.
-        """
-        return pulumi.get(self, "account_location")
-
-    @property
-    @pulumi.getter(name="accountResourceIdentifier")
-    def account_resource_identifier(self) -> Optional[builtins.str]:
-        """
-        The resource identifier of global database account in the Fleetspace Account.
-        """
-        return pulumi.get(self, "account_resource_identifier")
-
-    @property
     @pulumi.getter(name="azureApiVersion")
     def azure_api_version(self) -> builtins.str:
         """
         The Azure API version of the resource.
         """
         return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="globalDatabaseAccountProperties")
+    def global_database_account_properties(self) -> Optional['outputs.FleetspaceAccountPropertiesResponseGlobalDatabaseAccountProperties']:
+        """
+        Configuration for fleetspace Account in the fleetspace.
+        """
+        return pulumi.get(self, "global_database_account_properties")
 
     @property
     @pulumi.getter
@@ -125,9 +114,8 @@ class AwaitableGetFleetspaceAccountResult(GetFleetspaceAccountResult):
         if False:
             yield self
         return GetFleetspaceAccountResult(
-            account_location=self.account_location,
-            account_resource_identifier=self.account_resource_identifier,
             azure_api_version=self.azure_api_version,
+            global_database_account_properties=self.global_database_account_properties,
             id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -160,9 +148,8 @@ def get_fleetspace_account(fleet_name: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cosmosdb:getFleetspaceAccount', __args__, opts=opts, typ=GetFleetspaceAccountResult).value
 
     return AwaitableGetFleetspaceAccountResult(
-        account_location=pulumi.get(__ret__, 'account_location'),
-        account_resource_identifier=pulumi.get(__ret__, 'account_resource_identifier'),
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        global_database_account_properties=pulumi.get(__ret__, 'global_database_account_properties'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
@@ -192,9 +179,8 @@ def get_fleetspace_account_output(fleet_name: Optional[pulumi.Input[builtins.str
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cosmosdb:getFleetspaceAccount', __args__, opts=opts, typ=GetFleetspaceAccountResult)
     return __ret__.apply(lambda __response__: GetFleetspaceAccountResult(
-        account_location=pulumi.get(__response__, 'account_location'),
-        account_resource_identifier=pulumi.get(__response__, 'account_resource_identifier'),
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        global_database_account_properties=pulumi.get(__response__, 'global_database_account_properties'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),

@@ -122,7 +122,7 @@ class DataflowProfile(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-11-01.
 
-        Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,7 +143,7 @@ class DataflowProfile(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-11-01.
 
-        Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param DataflowProfileArgs args: The arguments to use to populate this resource's properties.
@@ -189,7 +189,7 @@ class DataflowProfile(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotoperations/v20240701preview:DataFlowProfile"), pulumi.Alias(type_="azure-native:iotoperations/v20240701preview:DataflowProfile"), pulumi.Alias(type_="azure-native:iotoperations/v20240815preview:DataflowProfile"), pulumi.Alias(type_="azure-native:iotoperations/v20240915preview:DataflowProfile"), pulumi.Alias(type_="azure-native:iotoperations/v20241101:DataflowProfile"), pulumi.Alias(type_="azure-native:iotoperations/v20250401:DataflowProfile"), pulumi.Alias(type_="azure-native:iotoperations:DataFlowProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotoperations/v20240701preview:DataFlowProfile"), pulumi.Alias(type_="azure-native:iotoperations/v20240701preview:DataflowProfile"), pulumi.Alias(type_="azure-native:iotoperations/v20240815preview:DataflowProfile"), pulumi.Alias(type_="azure-native:iotoperations/v20240915preview:DataflowProfile"), pulumi.Alias(type_="azure-native:iotoperations/v20241101:DataflowProfile"), pulumi.Alias(type_="azure-native:iotoperations/v20250401:DataflowProfile"), pulumi.Alias(type_="azure-native:iotoperations/v20250701preview:DataflowProfile"), pulumi.Alias(type_="azure-native:iotoperations:DataFlowProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataflowProfile, __self__).__init__(
             'azure-native:iotoperations:DataflowProfile',

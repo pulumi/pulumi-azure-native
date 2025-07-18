@@ -41,11 +41,11 @@ namespace Pulumi.AzureNative.GuestConfiguration.Outputs
         /// </summary>
         public readonly Outputs.AssignmentReportResponse? LatestAssignmentReport;
         /// <summary>
-        /// Id of the latest report for the guest configuration assignment. 
+        /// Id of the latest report for the guest configuration assignment.
         /// </summary>
         public readonly string LatestReportId;
         /// <summary>
-        /// parameter hash for the guest configuration assignment. 
+        /// parameter hash for the guest configuration assignment.
         /// </summary>
         public readonly string ParameterHash;
         /// <summary>

@@ -60,7 +60,7 @@ __all__ = [
 @pulumi.output_type
 class AuthConfigResponse(dict):
     """
-    Authentication configuration properties of a server
+    Authentication configuration properties of a flexible server.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -88,10 +88,10 @@ class AuthConfigResponse(dict):
                  password_auth: Optional[builtins.str] = None,
                  tenant_id: Optional[builtins.str] = None):
         """
-        Authentication configuration properties of a server
-        :param builtins.str active_directory_auth: If Enabled, Azure Active Directory authentication is enabled.
-        :param builtins.str password_auth: If Enabled, Password authentication is enabled.
-        :param builtins.str tenant_id: Tenant id of the server.
+        Authentication configuration properties of a flexible server.
+        :param builtins.str active_directory_auth: Indicates if the server supports Microsoft Entra authentication.
+        :param builtins.str password_auth: Indicates if the server supports password based authentication.
+        :param builtins.str tenant_id: Identifier of the tenant of the delegated resource.
         """
         if active_directory_auth is not None:
             pulumi.set(__self__, "active_directory_auth", active_directory_auth)
@@ -108,7 +108,7 @@ class AuthConfigResponse(dict):
     @pulumi.getter(name="activeDirectoryAuth")
     def active_directory_auth(self) -> Optional[builtins.str]:
         """
-        If Enabled, Azure Active Directory authentication is enabled.
+        Indicates if the server supports Microsoft Entra authentication.
         """
         return pulumi.get(self, "active_directory_auth")
 
@@ -116,7 +116,7 @@ class AuthConfigResponse(dict):
     @pulumi.getter(name="passwordAuth")
     def password_auth(self) -> Optional[builtins.str]:
         """
-        If Enabled, Password authentication is enabled.
+        Indicates if the server supports password based authentication.
         """
         return pulumi.get(self, "password_auth")
 
@@ -124,7 +124,7 @@ class AuthConfigResponse(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[builtins.str]:
         """
-        Tenant id of the server.
+        Identifier of the tenant of the delegated resource.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -132,7 +132,7 @@ class AuthConfigResponse(dict):
 @pulumi.output_type
 class BackupResponse(dict):
     """
-    Backup properties of a server
+    Backup properties of a flexible server.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -160,10 +160,10 @@ class BackupResponse(dict):
                  backup_retention_days: Optional[builtins.int] = None,
                  geo_redundant_backup: Optional[builtins.str] = None):
         """
-        Backup properties of a server
-        :param builtins.str earliest_restore_date: The earliest restore point time (ISO8601 format) for server.
-        :param builtins.int backup_retention_days: Backup retention days for the server.
-        :param builtins.str geo_redundant_backup: A value indicating whether Geo-Redundant backup is enabled on the server.
+        Backup properties of a flexible server.
+        :param builtins.str earliest_restore_date: Earliest restore point time (ISO8601 format) for a flexible server.
+        :param builtins.int backup_retention_days: Backup retention days for the flexible server.
+        :param builtins.str geo_redundant_backup: Indicates if the server is configured to create geographically redundant backups.
         """
         pulumi.set(__self__, "earliest_restore_date", earliest_restore_date)
         if backup_retention_days is None:
@@ -179,7 +179,7 @@ class BackupResponse(dict):
     @pulumi.getter(name="earliestRestoreDate")
     def earliest_restore_date(self) -> builtins.str:
         """
-        The earliest restore point time (ISO8601 format) for server.
+        Earliest restore point time (ISO8601 format) for a flexible server.
         """
         return pulumi.get(self, "earliest_restore_date")
 
@@ -187,7 +187,7 @@ class BackupResponse(dict):
     @pulumi.getter(name="backupRetentionDays")
     def backup_retention_days(self) -> Optional[builtins.int]:
         """
-        Backup retention days for the server.
+        Backup retention days for the flexible server.
         """
         return pulumi.get(self, "backup_retention_days")
 
@@ -195,7 +195,7 @@ class BackupResponse(dict):
     @pulumi.getter(name="geoRedundantBackup")
     def geo_redundant_backup(self) -> Optional[builtins.str]:
         """
-        A value indicating whether Geo-Redundant backup is enabled on the server.
+        Indicates if the server is configured to create geographically redundant backups.
         """
         return pulumi.get(self, "geo_redundant_backup")
 
@@ -203,7 +203,7 @@ class BackupResponse(dict):
 @pulumi.output_type
 class DataEncryptionResponse(dict):
     """
-    Data encryption properties of a server
+    Data encryption properties of a flexible server.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -241,14 +241,14 @@ class DataEncryptionResponse(dict):
                  primary_user_assigned_identity_id: Optional[builtins.str] = None,
                  type: Optional[builtins.str] = None):
         """
-        Data encryption properties of a server
-        :param builtins.str geo_backup_encryption_key_status: Geo-backup encryption key status for Data encryption enabled server.
-        :param builtins.str geo_backup_key_uri: URI for the key in keyvault for data encryption for geo-backup of server.
-        :param builtins.str geo_backup_user_assigned_identity_id: Resource Id for the User assigned identity to be used for data encryption for geo-backup of server.
-        :param builtins.str primary_encryption_key_status: Primary encryption key status for Data encryption enabled server.
-        :param builtins.str primary_key_uri: URI for the key in keyvault for data encryption of the primary server.
-        :param builtins.str primary_user_assigned_identity_id: Resource Id for the User assigned identity to be used for data encryption of the primary server.
-        :param builtins.str type: Data encryption type to depict if it is System Managed vs Azure Key vault.
+        Data encryption properties of a flexible server.
+        :param builtins.str geo_backup_encryption_key_status: Status of key used by a flexible server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
+        :param builtins.str geo_backup_key_uri: Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a flexible server that is configured to support geographically redundant backups.
+        :param builtins.str geo_backup_user_assigned_identity_id: Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a flexible server that is configured to support geographically redundant backups.
+        :param builtins.str primary_encryption_key_status: Status of key used by a flexible server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
+        :param builtins.str primary_key_uri: URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a flexible server.
+        :param builtins.str primary_user_assigned_identity_id: Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the primary storage associated to a flexible server.
+        :param builtins.str type: Data encryption type used by a flexible server.
         """
         if geo_backup_encryption_key_status is not None:
             pulumi.set(__self__, "geo_backup_encryption_key_status", geo_backup_encryption_key_status)
@@ -269,7 +269,7 @@ class DataEncryptionResponse(dict):
     @pulumi.getter(name="geoBackupEncryptionKeyStatus")
     def geo_backup_encryption_key_status(self) -> Optional[builtins.str]:
         """
-        Geo-backup encryption key status for Data encryption enabled server.
+        Status of key used by a flexible server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
         """
         return pulumi.get(self, "geo_backup_encryption_key_status")
 
@@ -277,7 +277,7 @@ class DataEncryptionResponse(dict):
     @pulumi.getter(name="geoBackupKeyURI")
     def geo_backup_key_uri(self) -> Optional[builtins.str]:
         """
-        URI for the key in keyvault for data encryption for geo-backup of server.
+        Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a flexible server that is configured to support geographically redundant backups.
         """
         return pulumi.get(self, "geo_backup_key_uri")
 
@@ -285,7 +285,7 @@ class DataEncryptionResponse(dict):
     @pulumi.getter(name="geoBackupUserAssignedIdentityId")
     def geo_backup_user_assigned_identity_id(self) -> Optional[builtins.str]:
         """
-        Resource Id for the User assigned identity to be used for data encryption for geo-backup of server.
+        Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a flexible server that is configured to support geographically redundant backups.
         """
         return pulumi.get(self, "geo_backup_user_assigned_identity_id")
 
@@ -293,7 +293,7 @@ class DataEncryptionResponse(dict):
     @pulumi.getter(name="primaryEncryptionKeyStatus")
     def primary_encryption_key_status(self) -> Optional[builtins.str]:
         """
-        Primary encryption key status for Data encryption enabled server.
+        Status of key used by a flexible server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
         """
         return pulumi.get(self, "primary_encryption_key_status")
 
@@ -301,7 +301,7 @@ class DataEncryptionResponse(dict):
     @pulumi.getter(name="primaryKeyURI")
     def primary_key_uri(self) -> Optional[builtins.str]:
         """
-        URI for the key in keyvault for data encryption of the primary server.
+        URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a flexible server.
         """
         return pulumi.get(self, "primary_key_uri")
 
@@ -309,7 +309,7 @@ class DataEncryptionResponse(dict):
     @pulumi.getter(name="primaryUserAssignedIdentityId")
     def primary_user_assigned_identity_id(self) -> Optional[builtins.str]:
         """
-        Resource Id for the User assigned identity to be used for data encryption of the primary server.
+        Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the primary storage associated to a flexible server.
         """
         return pulumi.get(self, "primary_user_assigned_identity_id")
 
@@ -317,7 +317,7 @@ class DataEncryptionResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[builtins.str]:
         """
-        Data encryption type to depict if it is System Managed vs Azure Key vault.
+        Data encryption type used by a flexible server.
         """
         return pulumi.get(self, "type")
 
@@ -325,7 +325,7 @@ class DataEncryptionResponse(dict):
 @pulumi.output_type
 class DbLevelValidationStatusResponse(dict):
     """
-    Validation status summary for an individual database
+    Validation status summary for a database.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -354,11 +354,11 @@ class DbLevelValidationStatusResponse(dict):
                  started_on: Optional[builtins.str] = None,
                  summary: Optional[Sequence['outputs.ValidationSummaryItemResponse']] = None):
         """
-        Validation status summary for an individual database
-        :param builtins.str database_name: Name of the database
-        :param builtins.str ended_on: End date-time of a database level validation
-        :param builtins.str started_on: Start date-time of a database level validation
-        :param Sequence['ValidationSummaryItemResponse'] summary: Summary of database level validations
+        Validation status summary for a database.
+        :param builtins.str database_name: Name of database.
+        :param builtins.str ended_on: End time of a database level validation.
+        :param builtins.str started_on: Start time of a database level validation.
+        :param Sequence['ValidationSummaryItemResponse'] summary: Summary of database level validations.
         """
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
@@ -373,7 +373,7 @@ class DbLevelValidationStatusResponse(dict):
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[builtins.str]:
         """
-        Name of the database
+        Name of database.
         """
         return pulumi.get(self, "database_name")
 
@@ -381,7 +381,7 @@ class DbLevelValidationStatusResponse(dict):
     @pulumi.getter(name="endedOn")
     def ended_on(self) -> Optional[builtins.str]:
         """
-        End date-time of a database level validation
+        End time of a database level validation.
         """
         return pulumi.get(self, "ended_on")
 
@@ -389,7 +389,7 @@ class DbLevelValidationStatusResponse(dict):
     @pulumi.getter(name="startedOn")
     def started_on(self) -> Optional[builtins.str]:
         """
-        Start date-time of a database level validation
+        Start time of a database level validation.
         """
         return pulumi.get(self, "started_on")
 
@@ -397,7 +397,7 @@ class DbLevelValidationStatusResponse(dict):
     @pulumi.getter
     def summary(self) -> Optional[Sequence['outputs.ValidationSummaryItemResponse']]:
         """
-        Summary of database level validations
+        Summary of database level validations.
         """
         return pulumi.get(self, "summary")
 
@@ -405,7 +405,7 @@ class DbLevelValidationStatusResponse(dict):
 @pulumi.output_type
 class DbMigrationStatusResponse(dict):
     """
-    Migration status of an individual database
+    Migration status of a database.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -468,23 +468,23 @@ class DbMigrationStatusResponse(dict):
                  migration_state: Optional[builtins.str] = None,
                  started_on: Optional[builtins.str] = None):
         """
-        Migration status of an individual database
-        :param builtins.int applied_changes: CDC applied changes counter
-        :param builtins.int cdc_delete_counter: CDC delete counter
-        :param builtins.int cdc_insert_counter: CDC insert counter
-        :param builtins.int cdc_update_counter: CDC update counter
-        :param builtins.str database_name: Name of the database
-        :param builtins.str ended_on: End date-time of a migration state
-        :param builtins.int full_load_completed_tables: Number of tables loaded during the migration of a DB
-        :param builtins.int full_load_errored_tables: Number of tables errored out during the migration of a DB
-        :param builtins.int full_load_loading_tables: Number of tables loading during the migration of a DB
-        :param builtins.int full_load_queued_tables: Number of tables queued for the migration of a DB
-        :param builtins.int incoming_changes: CDC incoming changes counter
-        :param builtins.int latency: Lag in seconds between source and target during online phase
-        :param builtins.str message: Error message, if any, for the migration state
-        :param builtins.str migration_operation: Migration operation of an individual database
-        :param builtins.str migration_state: Migration db state of an individual database
-        :param builtins.str started_on: Start date-time of a migration state
+        Migration status of a database.
+        :param builtins.int applied_changes: Change Data Capture applied changes counter.
+        :param builtins.int cdc_delete_counter: Change Data Capture delete counter.
+        :param builtins.int cdc_insert_counter: Change Data Capture insert counter.
+        :param builtins.int cdc_update_counter: Change Data Capture update counter.
+        :param builtins.str database_name: Name of database.
+        :param builtins.str ended_on: End time of a migration state.
+        :param builtins.int full_load_completed_tables: Number of tables loaded during the migration of a database.
+        :param builtins.int full_load_errored_tables: Number of tables encountering errors during the migration of a database.
+        :param builtins.int full_load_loading_tables: Number of tables loading during the migration of a database.
+        :param builtins.int full_load_queued_tables: Number of tables queued for the migration of a database.
+        :param builtins.int incoming_changes: Change Data Capture incoming changes counter.
+        :param builtins.int latency: Lag in seconds between source and target during online phase.
+        :param builtins.str message: Error message, if any, for the migration state.
+        :param builtins.str migration_operation: Migration operation of a database.
+        :param builtins.str migration_state: Migration state of a database.
+        :param builtins.str started_on: Start time of a migration state.
         """
         if applied_changes is not None:
             pulumi.set(__self__, "applied_changes", applied_changes)
@@ -523,7 +523,7 @@ class DbMigrationStatusResponse(dict):
     @pulumi.getter(name="appliedChanges")
     def applied_changes(self) -> Optional[builtins.int]:
         """
-        CDC applied changes counter
+        Change Data Capture applied changes counter.
         """
         return pulumi.get(self, "applied_changes")
 
@@ -531,7 +531,7 @@ class DbMigrationStatusResponse(dict):
     @pulumi.getter(name="cdcDeleteCounter")
     def cdc_delete_counter(self) -> Optional[builtins.int]:
         """
-        CDC delete counter
+        Change Data Capture delete counter.
         """
         return pulumi.get(self, "cdc_delete_counter")
 
@@ -539,7 +539,7 @@ class DbMigrationStatusResponse(dict):
     @pulumi.getter(name="cdcInsertCounter")
     def cdc_insert_counter(self) -> Optional[builtins.int]:
         """
-        CDC insert counter
+        Change Data Capture insert counter.
         """
         return pulumi.get(self, "cdc_insert_counter")
 
@@ -547,7 +547,7 @@ class DbMigrationStatusResponse(dict):
     @pulumi.getter(name="cdcUpdateCounter")
     def cdc_update_counter(self) -> Optional[builtins.int]:
         """
-        CDC update counter
+        Change Data Capture update counter.
         """
         return pulumi.get(self, "cdc_update_counter")
 
@@ -555,7 +555,7 @@ class DbMigrationStatusResponse(dict):
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[builtins.str]:
         """
-        Name of the database
+        Name of database.
         """
         return pulumi.get(self, "database_name")
 
@@ -563,7 +563,7 @@ class DbMigrationStatusResponse(dict):
     @pulumi.getter(name="endedOn")
     def ended_on(self) -> Optional[builtins.str]:
         """
-        End date-time of a migration state
+        End time of a migration state.
         """
         return pulumi.get(self, "ended_on")
 
@@ -571,7 +571,7 @@ class DbMigrationStatusResponse(dict):
     @pulumi.getter(name="fullLoadCompletedTables")
     def full_load_completed_tables(self) -> Optional[builtins.int]:
         """
-        Number of tables loaded during the migration of a DB
+        Number of tables loaded during the migration of a database.
         """
         return pulumi.get(self, "full_load_completed_tables")
 
@@ -579,7 +579,7 @@ class DbMigrationStatusResponse(dict):
     @pulumi.getter(name="fullLoadErroredTables")
     def full_load_errored_tables(self) -> Optional[builtins.int]:
         """
-        Number of tables errored out during the migration of a DB
+        Number of tables encountering errors during the migration of a database.
         """
         return pulumi.get(self, "full_load_errored_tables")
 
@@ -587,7 +587,7 @@ class DbMigrationStatusResponse(dict):
     @pulumi.getter(name="fullLoadLoadingTables")
     def full_load_loading_tables(self) -> Optional[builtins.int]:
         """
-        Number of tables loading during the migration of a DB
+        Number of tables loading during the migration of a database.
         """
         return pulumi.get(self, "full_load_loading_tables")
 
@@ -595,7 +595,7 @@ class DbMigrationStatusResponse(dict):
     @pulumi.getter(name="fullLoadQueuedTables")
     def full_load_queued_tables(self) -> Optional[builtins.int]:
         """
-        Number of tables queued for the migration of a DB
+        Number of tables queued for the migration of a database.
         """
         return pulumi.get(self, "full_load_queued_tables")
 
@@ -603,7 +603,7 @@ class DbMigrationStatusResponse(dict):
     @pulumi.getter(name="incomingChanges")
     def incoming_changes(self) -> Optional[builtins.int]:
         """
-        CDC incoming changes counter
+        Change Data Capture incoming changes counter.
         """
         return pulumi.get(self, "incoming_changes")
 
@@ -611,7 +611,7 @@ class DbMigrationStatusResponse(dict):
     @pulumi.getter
     def latency(self) -> Optional[builtins.int]:
         """
-        Lag in seconds between source and target during online phase
+        Lag in seconds between source and target during online phase.
         """
         return pulumi.get(self, "latency")
 
@@ -619,7 +619,7 @@ class DbMigrationStatusResponse(dict):
     @pulumi.getter
     def message(self) -> Optional[builtins.str]:
         """
-        Error message, if any, for the migration state
+        Error message, if any, for the migration state.
         """
         return pulumi.get(self, "message")
 
@@ -627,7 +627,7 @@ class DbMigrationStatusResponse(dict):
     @pulumi.getter(name="migrationOperation")
     def migration_operation(self) -> Optional[builtins.str]:
         """
-        Migration operation of an individual database
+        Migration operation of a database.
         """
         return pulumi.get(self, "migration_operation")
 
@@ -635,7 +635,7 @@ class DbMigrationStatusResponse(dict):
     @pulumi.getter(name="migrationState")
     def migration_state(self) -> Optional[builtins.str]:
         """
-        Migration db state of an individual database
+        Migration state of a database.
         """
         return pulumi.get(self, "migration_state")
 
@@ -643,7 +643,7 @@ class DbMigrationStatusResponse(dict):
     @pulumi.getter(name="startedOn")
     def started_on(self) -> Optional[builtins.str]:
         """
-        Start date-time of a migration state
+        Start time of a migration state.
         """
         return pulumi.get(self, "started_on")
 
@@ -677,10 +677,10 @@ class DbServerMetadataResponse(dict):
                  version: Optional[builtins.str] = None):
         """
         Database server metadata.
-        :param builtins.str location: Location of database server
-        :param 'ServerSkuResponse' sku: SKU for the database server. This object is empty for PG single server
-        :param builtins.int storage_mb: Storage size in MB for database server
-        :param builtins.str version: Version for database engine
+        :param builtins.str location: Location of database server.
+        :param 'ServerSkuResponse' sku: Compute tier and size of the database server. This object is empty for an Azure Database for PostgreSQL single server.
+        :param builtins.int storage_mb: Storage size (in MB) for database server.
+        :param builtins.str version: Major version of PostgreSQL database engine.
         """
         pulumi.set(__self__, "location", location)
         if sku is not None:
@@ -694,7 +694,7 @@ class DbServerMetadataResponse(dict):
     @pulumi.getter
     def location(self) -> builtins.str:
         """
-        Location of database server
+        Location of database server.
         """
         return pulumi.get(self, "location")
 
@@ -702,7 +702,7 @@ class DbServerMetadataResponse(dict):
     @pulumi.getter
     def sku(self) -> Optional['outputs.ServerSkuResponse']:
         """
-        SKU for the database server. This object is empty for PG single server
+        Compute tier and size of the database server. This object is empty for an Azure Database for PostgreSQL single server.
         """
         return pulumi.get(self, "sku")
 
@@ -710,7 +710,7 @@ class DbServerMetadataResponse(dict):
     @pulumi.getter(name="storageMb")
     def storage_mb(self) -> Optional[builtins.int]:
         """
-        Storage size in MB for database server
+        Storage size (in MB) for database server.
         """
         return pulumi.get(self, "storage_mb")
 
@@ -718,7 +718,7 @@ class DbServerMetadataResponse(dict):
     @pulumi.getter
     def version(self) -> Optional[builtins.str]:
         """
-        Version for database engine
+        Major version of PostgreSQL database engine.
         """
         return pulumi.get(self, "version")
 
@@ -726,7 +726,7 @@ class DbServerMetadataResponse(dict):
 @pulumi.output_type
 class HighAvailabilityResponse(dict):
     """
-    High availability properties of a server
+    High availability properties of a flexible server.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -750,10 +750,10 @@ class HighAvailabilityResponse(dict):
                  mode: Optional[builtins.str] = None,
                  standby_availability_zone: Optional[builtins.str] = None):
         """
-        High availability properties of a server
-        :param builtins.str state: A state of a HA server that is visible to user.
-        :param builtins.str mode: The HA mode for the server.
-        :param builtins.str standby_availability_zone: availability zone information of the standby.
+        High availability properties of a flexible server.
+        :param builtins.str state: Possible states of the standby server created when high availability is set to SameZone or ZoneRedundant.
+        :param builtins.str mode: High availability mode for a flexible server.
+        :param builtins.str standby_availability_zone: Availability zone associated to the standby server created when high availability is set to SameZone or ZoneRedundant.
         """
         pulumi.set(__self__, "state", state)
         if mode is None:
@@ -769,7 +769,7 @@ class HighAvailabilityResponse(dict):
     @pulumi.getter
     def state(self) -> builtins.str:
         """
-        A state of a HA server that is visible to user.
+        Possible states of the standby server created when high availability is set to SameZone or ZoneRedundant.
         """
         return pulumi.get(self, "state")
 
@@ -777,7 +777,7 @@ class HighAvailabilityResponse(dict):
     @pulumi.getter
     def mode(self) -> Optional[builtins.str]:
         """
-        The HA mode for the server.
+        High availability mode for a flexible server.
         """
         return pulumi.get(self, "mode")
 
@@ -785,7 +785,7 @@ class HighAvailabilityResponse(dict):
     @pulumi.getter(name="standbyAvailabilityZone")
     def standby_availability_zone(self) -> Optional[builtins.str]:
         """
-        availability zone information of the standby.
+        Availability zone associated to the standby server created when high availability is set to SameZone or ZoneRedundant.
         """
         return pulumi.get(self, "standby_availability_zone")
 
@@ -841,7 +841,7 @@ class IdentityPropertiesResponse(dict):
 @pulumi.output_type
 class MaintenanceWindowResponse(dict):
     """
-    Maintenance window properties of a server.
+    Maintenance window properties of a flexible server.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -872,11 +872,11 @@ class MaintenanceWindowResponse(dict):
                  start_hour: Optional[builtins.int] = None,
                  start_minute: Optional[builtins.int] = None):
         """
-        Maintenance window properties of a server.
-        :param builtins.str custom_window: indicates whether custom window is enabled or disabled
-        :param builtins.int day_of_week: day of week for maintenance window
-        :param builtins.int start_hour: start hour for maintenance window
-        :param builtins.int start_minute: start minute for maintenance window
+        Maintenance window properties of a flexible server.
+        :param builtins.str custom_window: Indicates whether custom window is enabled or disabled.
+        :param builtins.int day_of_week: Day of the week to be used for maintenance window.
+        :param builtins.int start_hour: Start hour to be used for maintenance window.
+        :param builtins.int start_minute: Start minute to be used for maintenance window.
         """
         if custom_window is None:
             custom_window = 'Disabled'
@@ -899,7 +899,7 @@ class MaintenanceWindowResponse(dict):
     @pulumi.getter(name="customWindow")
     def custom_window(self) -> Optional[builtins.str]:
         """
-        indicates whether custom window is enabled or disabled
+        Indicates whether custom window is enabled or disabled.
         """
         return pulumi.get(self, "custom_window")
 
@@ -907,7 +907,7 @@ class MaintenanceWindowResponse(dict):
     @pulumi.getter(name="dayOfWeek")
     def day_of_week(self) -> Optional[builtins.int]:
         """
-        day of week for maintenance window
+        Day of the week to be used for maintenance window.
         """
         return pulumi.get(self, "day_of_week")
 
@@ -915,7 +915,7 @@ class MaintenanceWindowResponse(dict):
     @pulumi.getter(name="startHour")
     def start_hour(self) -> Optional[builtins.int]:
         """
-        start hour for maintenance window
+        Start hour to be used for maintenance window.
         """
         return pulumi.get(self, "start_hour")
 
@@ -923,7 +923,7 @@ class MaintenanceWindowResponse(dict):
     @pulumi.getter(name="startMinute")
     def start_minute(self) -> Optional[builtins.int]:
         """
-        start minute for maintenance window
+        Start minute to be used for maintenance window.
         """
         return pulumi.get(self, "start_minute")
 
@@ -931,7 +931,7 @@ class MaintenanceWindowResponse(dict):
 @pulumi.output_type
 class MigrationStatusResponse(dict):
     """
-    Migration status.
+    State of migration.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -955,10 +955,10 @@ class MigrationStatusResponse(dict):
                  error: builtins.str,
                  state: builtins.str):
         """
-        Migration status.
-        :param 'MigrationSubStateDetailsResponse' current_sub_state_details: Current Migration sub state details.
-        :param builtins.str error: Error message, if any, for the migration state
-        :param builtins.str state: State of migration
+        State of migration.
+        :param 'MigrationSubStateDetailsResponse' current_sub_state_details: Current migration sub state details.
+        :param builtins.str error: Error message, if any, for the migration state.
+        :param builtins.str state: State of migration.
         """
         pulumi.set(__self__, "current_sub_state_details", current_sub_state_details)
         pulumi.set(__self__, "error", error)
@@ -968,7 +968,7 @@ class MigrationStatusResponse(dict):
     @pulumi.getter(name="currentSubStateDetails")
     def current_sub_state_details(self) -> 'outputs.MigrationSubStateDetailsResponse':
         """
-        Current Migration sub state details.
+        Current migration sub state details.
         """
         return pulumi.get(self, "current_sub_state_details")
 
@@ -976,7 +976,7 @@ class MigrationStatusResponse(dict):
     @pulumi.getter
     def error(self) -> builtins.str:
         """
-        Error message, if any, for the migration state
+        Error message, if any, for the migration state.
         """
         return pulumi.get(self, "error")
 
@@ -984,7 +984,7 @@ class MigrationStatusResponse(dict):
     @pulumi.getter
     def state(self) -> builtins.str:
         """
-        State of migration
+        State of migration.
         """
         return pulumi.get(self, "state")
 
@@ -992,7 +992,7 @@ class MigrationStatusResponse(dict):
 @pulumi.output_type
 class MigrationSubStateDetailsResponse(dict):
     """
-    Migration sub state details.
+    Details of migration substate.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1020,9 +1020,9 @@ class MigrationSubStateDetailsResponse(dict):
                  db_details: Optional[Mapping[str, 'outputs.DbMigrationStatusResponse']] = None,
                  validation_details: Optional['outputs.ValidationDetailsResponse'] = None):
         """
-        Migration sub state details.
-        :param builtins.str current_sub_state: Migration sub state.
-        :param 'ValidationDetailsResponse' validation_details: Details for the validation for migration
+        Details of migration substate.
+        :param builtins.str current_sub_state: Substate of migration.
+        :param 'ValidationDetailsResponse' validation_details: Details for the validation for migration.
         """
         pulumi.set(__self__, "current_sub_state", current_sub_state)
         if db_details is not None:
@@ -1034,7 +1034,7 @@ class MigrationSubStateDetailsResponse(dict):
     @pulumi.getter(name="currentSubState")
     def current_sub_state(self) -> builtins.str:
         """
-        Migration sub state.
+        Substate of migration.
         """
         return pulumi.get(self, "current_sub_state")
 
@@ -1047,7 +1047,7 @@ class MigrationSubStateDetailsResponse(dict):
     @pulumi.getter(name="validationDetails")
     def validation_details(self) -> Optional['outputs.ValidationDetailsResponse']:
         """
-        Details for the validation for migration
+        Details for the validation for migration.
         """
         return pulumi.get(self, "validation_details")
 
@@ -1055,7 +1055,7 @@ class MigrationSubStateDetailsResponse(dict):
 @pulumi.output_type
 class NetworkResponse(dict):
     """
-    Network properties of a server.
+    Network properties of a flexible server.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1083,10 +1083,10 @@ class NetworkResponse(dict):
                  private_dns_zone_arm_resource_id: Optional[builtins.str] = None,
                  public_network_access: Optional[builtins.str] = None):
         """
-        Network properties of a server.
-        :param builtins.str delegated_subnet_resource_id: Delegated subnet arm resource id. This is required to be passed during create, in case we want the server to be VNET injected, i.e. Private access server. During update, pass this only if we want to update the value for Private DNS zone.
-        :param builtins.str private_dns_zone_arm_resource_id: Private dns zone arm resource id. This is required to be passed during create, in case we want the server to be VNET injected, i.e. Private access server. During update, pass this only if we want to update the value for Private DNS zone.
-        :param builtins.str public_network_access: public network access is enabled or not
+        Network properties of a flexible server.
+        :param builtins.str delegated_subnet_resource_id: Resource identifier of the delegated subnet. Required during creation of a new server, in case you want the server to be integrated into your own virtual network. For an update operation, you only have to provide this property if you want to change the value assigned for the private DNS zone.
+        :param builtins.str private_dns_zone_arm_resource_id: Identifier of the private DNS zone. Required during creation of a new server, in case you want the server to be integrated into your own virtual network. For an update operation, you only have to provide this property if you want to change the value assigned for the private DNS zone.
+        :param builtins.str public_network_access: Indicates if public network access is enabled or not.
         """
         if delegated_subnet_resource_id is not None:
             pulumi.set(__self__, "delegated_subnet_resource_id", delegated_subnet_resource_id)
@@ -1099,7 +1099,7 @@ class NetworkResponse(dict):
     @pulumi.getter(name="delegatedSubnetResourceId")
     def delegated_subnet_resource_id(self) -> Optional[builtins.str]:
         """
-        Delegated subnet arm resource id. This is required to be passed during create, in case we want the server to be VNET injected, i.e. Private access server. During update, pass this only if we want to update the value for Private DNS zone.
+        Resource identifier of the delegated subnet. Required during creation of a new server, in case you want the server to be integrated into your own virtual network. For an update operation, you only have to provide this property if you want to change the value assigned for the private DNS zone.
         """
         return pulumi.get(self, "delegated_subnet_resource_id")
 
@@ -1107,7 +1107,7 @@ class NetworkResponse(dict):
     @pulumi.getter(name="privateDnsZoneArmResourceId")
     def private_dns_zone_arm_resource_id(self) -> Optional[builtins.str]:
         """
-        Private dns zone arm resource id. This is required to be passed during create, in case we want the server to be VNET injected, i.e. Private access server. During update, pass this only if we want to update the value for Private DNS zone.
+        Identifier of the private DNS zone. Required during creation of a new server, in case you want the server to be integrated into your own virtual network. For an update operation, you only have to provide this property if you want to change the value assigned for the private DNS zone.
         """
         return pulumi.get(self, "private_dns_zone_arm_resource_id")
 
@@ -1115,7 +1115,7 @@ class NetworkResponse(dict):
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[builtins.str]:
         """
-        public network access is enabled or not
+        Indicates if public network access is enabled or not.
         """
         return pulumi.get(self, "public_network_access")
 
@@ -1353,7 +1353,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 @pulumi.output_type
 class ReplicaResponse(dict):
     """
-    Replica properties of a server
+    Replica properties of a flexible server.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1377,10 +1377,10 @@ class ReplicaResponse(dict):
                  replication_state: builtins.str,
                  role: Optional[builtins.str] = None):
         """
-        Replica properties of a server
-        :param builtins.int capacity: Replicas allowed for a server.
-        :param builtins.str replication_state: Gets the replication state of a replica server. This property is returned only for replicas api call. Supported values are Active, Catchup, Provisioning, Updating, Broken, Reconfiguring
-        :param builtins.str role: Used to indicate role of the server in replication set.
+        Replica properties of a flexible server.
+        :param builtins.int capacity: Maximum number of read replicas allowed for a flexible server.
+        :param builtins.str replication_state: Indicates the replication state of a read replica. This property is returned only when the target flexible server is a read replica. Possible  values are Active, Broken, Catchup, Provisioning, Reconfiguring, and Updating
+        :param builtins.str role: Role of the server in a replication set.
         """
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "replication_state", replication_state)
@@ -1391,7 +1391,7 @@ class ReplicaResponse(dict):
     @pulumi.getter
     def capacity(self) -> builtins.int:
         """
-        Replicas allowed for a server.
+        Maximum number of read replicas allowed for a flexible server.
         """
         return pulumi.get(self, "capacity")
 
@@ -1399,7 +1399,7 @@ class ReplicaResponse(dict):
     @pulumi.getter(name="replicationState")
     def replication_state(self) -> builtins.str:
         """
-        Gets the replication state of a replica server. This property is returned only for replicas api call. Supported values are Active, Catchup, Provisioning, Updating, Broken, Reconfiguring
+        Indicates the replication state of a read replica. This property is returned only when the target flexible server is a read replica. Possible  values are Active, Broken, Catchup, Provisioning, Reconfiguring, and Updating
         """
         return pulumi.get(self, "replication_state")
 
@@ -1407,7 +1407,7 @@ class ReplicaResponse(dict):
     @pulumi.getter
     def role(self) -> Optional[builtins.str]:
         """
-        Used to indicate role of the server in replication set.
+        Role of the server in a replication set.
         """
         return pulumi.get(self, "role")
 
@@ -1877,15 +1877,15 @@ class ServerPrivateLinkServiceConnectionStatePropertyResponse(dict):
 @pulumi.output_type
 class ServerSkuResponse(dict):
     """
-    Sku information related properties of a server.
+    Compute information of a flexible server.
     """
     def __init__(__self__, *,
                  name: Optional[builtins.str] = None,
                  tier: Optional[builtins.str] = None):
         """
-        Sku information related properties of a server.
-        :param builtins.str name: The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
-        :param builtins.str tier: The tier of the particular SKU, e.g. Burstable.
+        Compute information of a flexible server.
+        :param builtins.str name: Compute tier and size of the database server. This object is empty for an Azure Database for PostgreSQL single server.
+        :param builtins.str tier: Tier of the compute assigned to a flexible server.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -1896,7 +1896,7 @@ class ServerSkuResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[builtins.str]:
         """
-        The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
+        Compute tier and size of the database server. This object is empty for an Azure Database for PostgreSQL single server.
         """
         return pulumi.get(self, "name")
 
@@ -1904,7 +1904,7 @@ class ServerSkuResponse(dict):
     @pulumi.getter
     def tier(self) -> Optional[builtins.str]:
         """
-        The tier of the particular SKU, e.g. Burstable.
+        Tier of the compute assigned to a flexible server.
         """
         return pulumi.get(self, "tier")
 
@@ -2096,15 +2096,15 @@ class SingleServerSkuResponse(dict):
 @pulumi.output_type
 class SkuResponse(dict):
     """
-    Sku information related properties of a server.
+    Compute information of a flexible server.
     """
     def __init__(__self__, *,
                  name: builtins.str,
                  tier: builtins.str):
         """
-        Sku information related properties of a server.
-        :param builtins.str name: The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
-        :param builtins.str tier: The tier of the particular SKU, e.g. Burstable.
+        Compute information of a flexible server.
+        :param builtins.str name: Name by which is known a given compute size assigned to a flexible server.
+        :param builtins.str tier: Tier of the compute assigned to a flexible server.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "tier", tier)
@@ -2113,7 +2113,7 @@ class SkuResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
+        Name by which is known a given compute size assigned to a flexible server.
         """
         return pulumi.get(self, "name")
 
@@ -2121,7 +2121,7 @@ class SkuResponse(dict):
     @pulumi.getter
     def tier(self) -> builtins.str:
         """
-        The tier of the particular SKU, e.g. Burstable.
+        Tier of the compute assigned to a flexible server.
         """
         return pulumi.get(self, "tier")
 
@@ -2211,7 +2211,7 @@ class StorageProfileResponse(dict):
 @pulumi.output_type
 class StorageResponse(dict):
     """
-    Storage properties of a server
+    Storage properties of a flexible server.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2240,13 +2240,13 @@ class StorageResponse(dict):
                  tier: Optional[builtins.str] = None,
                  type: Optional[builtins.str] = None):
         """
-        Storage properties of a server
-        :param builtins.str auto_grow: Flag to enable / disable Storage Auto grow for flexible server.
-        :param builtins.int iops: Storage tier IOPS quantity. This property is required to be set for storage Type PremiumV2_LRS
-        :param builtins.int storage_size_gb: Max storage allowed for a server.
-        :param builtins.int throughput: Storage throughput for the server. This is required to be set for storage Type PremiumV2_LRS
-        :param builtins.str tier: Name of storage tier for IOPS.
-        :param builtins.str type: Storage type for the server. Allowed values are Premium_LRS and PremiumV2_LRS, and default is Premium_LRS if not specified
+        Storage properties of a flexible server.
+        :param builtins.str auto_grow: Flag to enable or disable the automatic growth of storage size of a flexible server when available space is nearing zero and conditions allow for automatically growing storage size.
+        :param builtins.int iops: Maximum IOPS supported for storage. Required when type of storage is PremiumV2_LRS.
+        :param builtins.int storage_size_gb: Size of storage assigned to a flexible server.
+        :param builtins.int throughput: Maximum throughput supported for storage. Required when type of storage is PremiumV2_LRS.
+        :param builtins.str tier: Storage tier of a flexible server.
+        :param builtins.str type: Type of storage assigned to a flexible server. Allowed values are Premium_LRS or PremiumV2_LRS. If not specified, it defaults to Premium_LRS.
         """
         if auto_grow is not None:
             pulumi.set(__self__, "auto_grow", auto_grow)
@@ -2265,7 +2265,7 @@ class StorageResponse(dict):
     @pulumi.getter(name="autoGrow")
     def auto_grow(self) -> Optional[builtins.str]:
         """
-        Flag to enable / disable Storage Auto grow for flexible server.
+        Flag to enable or disable the automatic growth of storage size of a flexible server when available space is nearing zero and conditions allow for automatically growing storage size.
         """
         return pulumi.get(self, "auto_grow")
 
@@ -2273,7 +2273,7 @@ class StorageResponse(dict):
     @pulumi.getter
     def iops(self) -> Optional[builtins.int]:
         """
-        Storage tier IOPS quantity. This property is required to be set for storage Type PremiumV2_LRS
+        Maximum IOPS supported for storage. Required when type of storage is PremiumV2_LRS.
         """
         return pulumi.get(self, "iops")
 
@@ -2281,7 +2281,7 @@ class StorageResponse(dict):
     @pulumi.getter(name="storageSizeGB")
     def storage_size_gb(self) -> Optional[builtins.int]:
         """
-        Max storage allowed for a server.
+        Size of storage assigned to a flexible server.
         """
         return pulumi.get(self, "storage_size_gb")
 
@@ -2289,7 +2289,7 @@ class StorageResponse(dict):
     @pulumi.getter
     def throughput(self) -> Optional[builtins.int]:
         """
-        Storage throughput for the server. This is required to be set for storage Type PremiumV2_LRS
+        Maximum throughput supported for storage. Required when type of storage is PremiumV2_LRS.
         """
         return pulumi.get(self, "throughput")
 
@@ -2297,7 +2297,7 @@ class StorageResponse(dict):
     @pulumi.getter
     def tier(self) -> Optional[builtins.str]:
         """
-        Name of storage tier for IOPS.
+        Storage tier of a flexible server.
         """
         return pulumi.get(self, "tier")
 
@@ -2305,7 +2305,7 @@ class StorageResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[builtins.str]:
         """
-        Storage type for the server. Allowed values are Premium_LRS and PremiumV2_LRS, and default is Premium_LRS if not specified
+        Type of storage assigned to a flexible server. Allowed values are Premium_LRS or PremiumV2_LRS. If not specified, it defaults to Premium_LRS.
         """
         return pulumi.get(self, "type")
 
@@ -2458,9 +2458,9 @@ class UserAssignedIdentityResponse(dict):
         User assigned identity properties
         :param builtins.str client_id: The client ID of the assigned identity.
         :param builtins.str principal_id: The principal ID of the assigned identity.
-        :param builtins.str tenant_id: Tenant id of the server.
-        :param builtins.str type: the types of identities associated with this resource
-        :param Mapping[str, 'UserIdentityResponse'] user_assigned_identities: represents user assigned identities map.
+        :param builtins.str tenant_id: Identifier of the tenant of a flexible server.
+        :param builtins.str type: Types of identities associated with a flexible server.
+        :param Mapping[str, 'UserIdentityResponse'] user_assigned_identities: Map of user assigned managed identities.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "principal_id", principal_id)
@@ -2491,7 +2491,7 @@ class UserAssignedIdentityResponse(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[builtins.str]:
         """
-        Tenant id of the server.
+        Identifier of the tenant of a flexible server.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -2499,7 +2499,7 @@ class UserAssignedIdentityResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[builtins.str]:
         """
-        the types of identities associated with this resource
+        Types of identities associated with a flexible server.
         """
         return pulumi.get(self, "type")
 
@@ -2507,7 +2507,7 @@ class UserAssignedIdentityResponse(dict):
     @pulumi.getter(name="userAssignedIdentities")
     def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserIdentityResponse']]:
         """
-        represents user assigned identities map.
+        Map of user assigned managed identities.
         """
         return pulumi.get(self, "user_assigned_identities")
 
@@ -2515,7 +2515,7 @@ class UserAssignedIdentityResponse(dict):
 @pulumi.output_type
 class UserIdentityResponse(dict):
     """
-    Describes a single user-assigned identity associated with the application.
+    User assigned managed identity associated with a flexible server.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2540,9 +2540,9 @@ class UserIdentityResponse(dict):
                  client_id: Optional[builtins.str] = None,
                  principal_id: Optional[builtins.str] = None):
         """
-        Describes a single user-assigned identity associated with the application.
-        :param builtins.str client_id: the client identifier of the Service Principal which this identity represents.
-        :param builtins.str principal_id: the object identifier of the Service Principal which this identity represents.
+        User assigned managed identity associated with a flexible server.
+        :param builtins.str client_id: Identifier of the client of the service principal associated to the user assigned managed identity.
+        :param builtins.str principal_id: Identifier of the object of the service principal associated to the user assigned managed identity.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -2553,7 +2553,7 @@ class UserIdentityResponse(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[builtins.str]:
         """
-        the client identifier of the Service Principal which this identity represents.
+        Identifier of the client of the service principal associated to the user assigned managed identity.
         """
         return pulumi.get(self, "client_id")
 
@@ -2561,7 +2561,7 @@ class UserIdentityResponse(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[builtins.str]:
         """
-        the object identifier of the Service Principal which this identity represents.
+        Identifier of the object of the service principal associated to the user assigned managed identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -2569,7 +2569,7 @@ class UserIdentityResponse(dict):
 @pulumi.output_type
 class ValidationDetailsResponse(dict):
     """
-    Details for the validation for migration
+    Details for the validation for migration.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2601,12 +2601,12 @@ class ValidationDetailsResponse(dict):
                  validation_end_time_in_utc: Optional[builtins.str] = None,
                  validation_start_time_in_utc: Optional[builtins.str] = None):
         """
-        Details for the validation for migration
-        :param Sequence['DbLevelValidationStatusResponse'] db_level_validation_details: Details of server level validations
-        :param Sequence['ValidationSummaryItemResponse'] server_level_validation_details: Details of server level validations
-        :param builtins.str status: Validation status for migration
-        :param builtins.str validation_end_time_in_utc: Validation End date-time in UTC
-        :param builtins.str validation_start_time_in_utc: Validation Start date-time in UTC
+        Details for the validation for migration.
+        :param Sequence['DbLevelValidationStatusResponse'] db_level_validation_details: Details of server level validations.
+        :param Sequence['ValidationSummaryItemResponse'] server_level_validation_details: Details of server level validations.
+        :param builtins.str status: Validation status for migration.
+        :param builtins.str validation_end_time_in_utc: End time (UTC) for validation.
+        :param builtins.str validation_start_time_in_utc: Start time (UTC) for validation.
         """
         if db_level_validation_details is not None:
             pulumi.set(__self__, "db_level_validation_details", db_level_validation_details)
@@ -2623,7 +2623,7 @@ class ValidationDetailsResponse(dict):
     @pulumi.getter(name="dbLevelValidationDetails")
     def db_level_validation_details(self) -> Optional[Sequence['outputs.DbLevelValidationStatusResponse']]:
         """
-        Details of server level validations
+        Details of server level validations.
         """
         return pulumi.get(self, "db_level_validation_details")
 
@@ -2631,7 +2631,7 @@ class ValidationDetailsResponse(dict):
     @pulumi.getter(name="serverLevelValidationDetails")
     def server_level_validation_details(self) -> Optional[Sequence['outputs.ValidationSummaryItemResponse']]:
         """
-        Details of server level validations
+        Details of server level validations.
         """
         return pulumi.get(self, "server_level_validation_details")
 
@@ -2639,7 +2639,7 @@ class ValidationDetailsResponse(dict):
     @pulumi.getter
     def status(self) -> Optional[builtins.str]:
         """
-        Validation status for migration
+        Validation status for migration.
         """
         return pulumi.get(self, "status")
 
@@ -2647,7 +2647,7 @@ class ValidationDetailsResponse(dict):
     @pulumi.getter(name="validationEndTimeInUtc")
     def validation_end_time_in_utc(self) -> Optional[builtins.str]:
         """
-        Validation End date-time in UTC
+        End time (UTC) for validation.
         """
         return pulumi.get(self, "validation_end_time_in_utc")
 
@@ -2655,7 +2655,7 @@ class ValidationDetailsResponse(dict):
     @pulumi.getter(name="validationStartTimeInUtc")
     def validation_start_time_in_utc(self) -> Optional[builtins.str]:
         """
-        Validation Start date-time in UTC
+        Start time (UTC) for validation.
         """
         return pulumi.get(self, "validation_start_time_in_utc")
 
@@ -2663,15 +2663,15 @@ class ValidationDetailsResponse(dict):
 @pulumi.output_type
 class ValidationMessageResponse(dict):
     """
-    Validation message object
+    Validation message object.
     """
     def __init__(__self__, *,
                  message: Optional[builtins.str] = None,
                  state: Optional[builtins.str] = None):
         """
-        Validation message object
-        :param builtins.str message: Validation message string
-        :param builtins.str state: Severity of validation message
+        Validation message object.
+        :param builtins.str message: Validation message string.
+        :param builtins.str state: Severity of validation message.
         """
         if message is not None:
             pulumi.set(__self__, "message", message)
@@ -2682,7 +2682,7 @@ class ValidationMessageResponse(dict):
     @pulumi.getter
     def message(self) -> Optional[builtins.str]:
         """
-        Validation message string
+        Validation message string.
         """
         return pulumi.get(self, "message")
 
@@ -2690,7 +2690,7 @@ class ValidationMessageResponse(dict):
     @pulumi.getter
     def state(self) -> Optional[builtins.str]:
         """
-        Severity of validation message
+        Severity of validation message.
         """
         return pulumi.get(self, "state")
 
@@ -2698,17 +2698,17 @@ class ValidationMessageResponse(dict):
 @pulumi.output_type
 class ValidationSummaryItemResponse(dict):
     """
-    Validation summary object
+    Validation summary object.
     """
     def __init__(__self__, *,
                  messages: Optional[Sequence['outputs.ValidationMessageResponse']] = None,
                  state: Optional[builtins.str] = None,
                  type: Optional[builtins.str] = None):
         """
-        Validation summary object
-        :param Sequence['ValidationMessageResponse'] messages: Validation messages
-        :param builtins.str state: Validation status for migration
-        :param builtins.str type: Validation type
+        Validation summary object.
+        :param Sequence['ValidationMessageResponse'] messages: Validation messages.
+        :param builtins.str state: Validation status for migration.
+        :param builtins.str type: Validation type.
         """
         if messages is not None:
             pulumi.set(__self__, "messages", messages)
@@ -2721,7 +2721,7 @@ class ValidationSummaryItemResponse(dict):
     @pulumi.getter
     def messages(self) -> Optional[Sequence['outputs.ValidationMessageResponse']]:
         """
-        Validation messages
+        Validation messages.
         """
         return pulumi.get(self, "messages")
 
@@ -2729,7 +2729,7 @@ class ValidationSummaryItemResponse(dict):
     @pulumi.getter
     def state(self) -> Optional[builtins.str]:
         """
-        Validation status for migration
+        Validation status for migration.
         """
         return pulumi.get(self, "state")
 
@@ -2737,7 +2737,7 @@ class ValidationSummaryItemResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[builtins.str]:
         """
-        Validation type
+        Validation type.
         """
         return pulumi.get(self, "type")
 

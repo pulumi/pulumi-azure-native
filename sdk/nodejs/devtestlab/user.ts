@@ -145,11 +145,11 @@ export interface UserArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the user profile.
+     * The name of the User
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

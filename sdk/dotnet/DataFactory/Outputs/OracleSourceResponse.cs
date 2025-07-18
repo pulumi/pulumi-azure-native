@@ -29,6 +29,14 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? MaxConcurrentConnections;
         /// <summary>
+        /// The decimal precision used to represent Oracle NUMBER type without precision and scale. The range is 1 to 256 and default value is 256 if not specified. Type: integer (or Expression with resultType integer). Only used for Version 2.0.
+        /// </summary>
+        public readonly object? NumberPrecision;
+        /// <summary>
+        /// The decimal scale used to represent Oracle NUMBER type without precision and scale. The range is 0 to 130 and default value is 130 if not specified. Type: integer (or Expression with resultType integer). Only used for Version 2.0.
+        /// </summary>
+        public readonly object? NumberScale;
+        /// <summary>
         /// Oracle reader query. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? OracleReaderQuery;
@@ -66,6 +74,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? maxConcurrentConnections,
 
+            object? numberPrecision,
+
+            object? numberScale,
+
             object? oracleReaderQuery,
 
             object? partitionOption,
@@ -83,6 +95,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             AdditionalColumns = additionalColumns;
             DisableMetricsCollection = disableMetricsCollection;
             MaxConcurrentConnections = maxConcurrentConnections;
+            NumberPrecision = numberPrecision;
+            NumberScale = numberScale;
             OracleReaderQuery = oracleReaderQuery;
             PartitionOption = partitionOption;
             PartitionSettings = partitionSettings;

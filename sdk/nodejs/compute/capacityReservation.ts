@@ -50,11 +50,11 @@ export class CapacityReservation extends pulumi.CustomResource {
      */
     public /*out*/ readonly instanceView!: pulumi.Output<outputs.compute.CapacityReservationInstanceViewResponse>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -78,7 +78,11 @@ export class CapacityReservation extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.compute.SkuResponse>;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -86,7 +90,7 @@ export class CapacityReservation extends pulumi.CustomResource {
      */
     public /*out*/ readonly timeCreated!: pulumi.Output<string>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -94,7 +98,7 @@ export class CapacityReservation extends pulumi.CustomResource {
      */
     public /*out*/ readonly virtualMachinesAssociated!: pulumi.Output<outputs.compute.SubResourceReadOnlyResponse[]>;
     /**
-     * Availability Zone to use for this capacity reservation. The zone has to be single value and also should be part for the list of zones specified during the capacity reservation group creation. The zone can be assigned only during creation. If not provided, the reservation supports only non-zonal deployments. If provided, enforces VM/VMSS using this capacity reservation to be in same zone.
+     * The availability zones.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -132,6 +136,7 @@ export class CapacityReservation extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["provisioningTime"] = undefined /*out*/;
             resourceInputs["reservationId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualMachinesAssociated"] = undefined /*out*/;
@@ -145,6 +150,7 @@ export class CapacityReservation extends pulumi.CustomResource {
             resourceInputs["provisioningTime"] = undefined /*out*/;
             resourceInputs["reservationId"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -171,11 +177,11 @@ export interface CapacityReservationArgs {
      */
     capacityReservationName?: pulumi.Input<string>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -183,11 +189,11 @@ export interface CapacityReservationArgs {
      */
     sku: pulumi.Input<inputs.compute.SkuArgs>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Availability Zone to use for this capacity reservation. The zone has to be single value and also should be part for the list of zones specified during the capacity reservation group creation. The zone can be assigned only during creation. If not provided, the reservation supports only non-zonal deployments. If provided, enforces VM/VMSS using this capacity reservation to be in same zone.
+     * The availability zones.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -296,7 +296,7 @@ class Profile(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-04-01.
 
-        Other available API versions: 2015-11-01, 2017-03-01, 2017-05-01, 2018-02-01, 2018-03-01, 2018-04-01, 2018-08-01, 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native trafficmanager [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2015-11-01, 2017-03-01, 2017-05-01, 2018-02-01, 2018-03-01, 2018-04-01, 2018-08-01, 2022-04-01-preview, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native trafficmanager [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -328,7 +328,7 @@ class Profile(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-04-01.
 
-        Other available API versions: 2015-11-01, 2017-03-01, 2017-05-01, 2018-02-01, 2018-03-01, 2018-04-01, 2018-08-01, 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native trafficmanager [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2015-11-01, 2017-03-01, 2017-05-01, 2018-02-01, 2018-03-01, 2018-04-01, 2018-08-01, 2022-04-01-preview, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native trafficmanager [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.
@@ -387,7 +387,7 @@ class Profile(pulumi.CustomResource):
             __props__.__dict__["traffic_view_enrollment_status"] = traffic_view_enrollment_status
             __props__.__dict__["type"] = type
             __props__.__dict__["azure_api_version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20220401:Profile"), pulumi.Alias(type_="azure-native:network/v20220401preview:Profile"), pulumi.Alias(type_="azure-native:network:Profile"), pulumi.Alias(type_="azure-native:trafficmanager/v20151101:Profile"), pulumi.Alias(type_="azure-native:trafficmanager/v20170301:Profile"), pulumi.Alias(type_="azure-native:trafficmanager/v20170501:Profile"), pulumi.Alias(type_="azure-native:trafficmanager/v20180201:Profile"), pulumi.Alias(type_="azure-native:trafficmanager/v20180301:Profile"), pulumi.Alias(type_="azure-native:trafficmanager/v20180401:Profile"), pulumi.Alias(type_="azure-native:trafficmanager/v20180801:Profile"), pulumi.Alias(type_="azure-native:trafficmanager/v20220401:Profile"), pulumi.Alias(type_="azure-native:trafficmanager/v20220401preview:Profile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20220401:Profile"), pulumi.Alias(type_="azure-native:network/v20220401preview:Profile"), pulumi.Alias(type_="azure-native:network:Profile"), pulumi.Alias(type_="azure-native:trafficmanager/v20151101:Profile"), pulumi.Alias(type_="azure-native:trafficmanager/v20170301:Profile"), pulumi.Alias(type_="azure-native:trafficmanager/v20170501:Profile"), pulumi.Alias(type_="azure-native:trafficmanager/v20180201:Profile"), pulumi.Alias(type_="azure-native:trafficmanager/v20180301:Profile"), pulumi.Alias(type_="azure-native:trafficmanager/v20180401:Profile"), pulumi.Alias(type_="azure-native:trafficmanager/v20180801:Profile"), pulumi.Alias(type_="azure-native:trafficmanager/v20220401:Profile"), pulumi.Alias(type_="azure-native:trafficmanager/v20220401preview:Profile"), pulumi.Alias(type_="azure-native:trafficmanager/v20240401preview:Profile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Profile, __self__).__init__(
             'azure-native:trafficmanager:Profile',

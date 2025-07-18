@@ -10,12 +10,27 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Outputs
 {
 
+    /// <summary>
+    /// The capacity.
+    /// </summary>
     [OutputType]
     public sealed class SkuSettingResponseCapacity
     {
+        /// <summary>
+        /// The default.
+        /// </summary>
         public readonly int? Default;
+        /// <summary>
+        /// The maximum.
+        /// </summary>
         public readonly int? Maximum;
+        /// <summary>
+        /// The minimum.
+        /// </summary>
         public readonly int Minimum;
+        /// <summary>
+        /// The scale type.
+        /// </summary>
         public readonly string? ScaleType;
 
         [OutputConstructor]

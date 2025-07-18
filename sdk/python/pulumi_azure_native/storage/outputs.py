@@ -5442,7 +5442,7 @@ class TriggerParametersResponse(dict):
         :param builtins.int interval: Run interval of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
         :param builtins.str interval_unit: Run interval unit of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
         :param builtins.str start_from: When to start task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
-        :param builtins.str start_on: When to start task execution. This is an optional field when ExecutionTrigger.properties.type is 'RunOnce'; this property should not be present when ExecutionTrigger.properties.type is 'OnSchedule'
+        :param builtins.str start_on: When to start task execution. This is a required field when ExecutionTrigger.properties.type is 'RunOnce'; this property should not be present when ExecutionTrigger.properties.type is 'OnSchedule'
         """
         if end_by is not None:
             pulumi.set(__self__, "end_by", end_by)
@@ -5491,7 +5491,7 @@ class TriggerParametersResponse(dict):
     @pulumi.getter(name="startOn")
     def start_on(self) -> Optional[builtins.str]:
         """
-        When to start task execution. This is an optional field when ExecutionTrigger.properties.type is 'RunOnce'; this property should not be present when ExecutionTrigger.properties.type is 'OnSchedule'
+        When to start task execution. This is a required field when ExecutionTrigger.properties.type is 'RunOnce'; this property should not be present when ExecutionTrigger.properties.type is 'OnSchedule'
         """
         return pulumi.get(self, "start_on")
 

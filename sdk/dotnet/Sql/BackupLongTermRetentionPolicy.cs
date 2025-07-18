@@ -108,6 +108,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:LongTermRetentionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:BackupLongTermRetentionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:LongTermRetentionPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20241101preview:BackupLongTermRetentionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql:LongTermRetentionPolicy" },
                 },
             };

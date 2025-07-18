@@ -11,21 +11,21 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     /// <summary>
-    /// Authentication configuration properties of a server
+    /// Authentication configuration properties of a flexible server.
     /// </summary>
     [OutputType]
     public sealed class AuthConfigResponse
     {
         /// <summary>
-        /// If Enabled, Azure Active Directory authentication is enabled.
+        /// Indicates if the server supports Microsoft Entra authentication.
         /// </summary>
         public readonly string? ActiveDirectoryAuth;
         /// <summary>
-        /// If Enabled, Password authentication is enabled.
+        /// Indicates if the server supports password based authentication.
         /// </summary>
         public readonly string? PasswordAuth;
         /// <summary>
-        /// Tenant id of the server.
+        /// Identifier of the tenant of the delegated resource.
         /// </summary>
         public readonly string? TenantId;
 

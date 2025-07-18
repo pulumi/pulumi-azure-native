@@ -14,12 +14,19 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
     {
         [Input("locations")]
         private InputList<string>? _locations;
+
+        /// <summary>
+        /// The locations.
+        /// </summary>
         public InputList<string> Locations
         {
             get => _locations ?? (_locations = new InputList<string>());
             set => _locations = value;
         }
 
+        /// <summary>
+        /// The notification destination.
+        /// </summary>
         [Input("notificationDestination")]
         public Input<string>? NotificationDestination { get; set; }
 

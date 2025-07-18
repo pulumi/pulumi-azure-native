@@ -42,20 +42,20 @@ class VirtualMachineExtensionArgs:
                  vm_extension_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualMachineExtension resource.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[builtins.str] vm_name: The name of the virtual machine where the extension should be created or updated.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[builtins.str] vm_name: The name of the virtual machine.
         :param pulumi.Input[builtins.bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param pulumi.Input[builtins.bool] enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
         :param pulumi.Input[builtins.str] force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
         :param pulumi.Input['VirtualMachineExtensionInstanceViewArgs'] instance_view: The virtual machine extension instance view.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param pulumi.Input['KeyVaultSecretReferenceArgs'] protected_settings_from_key_vault: The extensions protected settings that are passed by reference, and consumed from key vault
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
         :param pulumi.Input[builtins.str] publisher: The name of the extension handler publisher.
         :param Any settings: Json formatted public settings for the extension.
         :param pulumi.Input[builtins.bool] suppress_failures: Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param pulumi.Input[builtins.str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param pulumi.Input[builtins.str] type_handler_version: Specifies the version of the script handler.
         :param pulumi.Input[builtins.str] vm_extension_name: The name of the virtual machine extension.
@@ -97,7 +97,7 @@ class VirtualMachineExtensionArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -109,7 +109,7 @@ class VirtualMachineExtensionArgs:
     @pulumi.getter(name="vmName")
     def vm_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the virtual machine where the extension should be created or updated.
+        The name of the virtual machine.
         """
         return pulumi.get(self, "vm_name")
 
@@ -169,7 +169,7 @@ class VirtualMachineExtensionArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -253,7 +253,7 @@ class VirtualMachineExtensionArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -335,19 +335,19 @@ class VirtualMachineExtension(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
         :param pulumi.Input[builtins.str] force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
         :param pulumi.Input[Union['VirtualMachineExtensionInstanceViewArgs', 'VirtualMachineExtensionInstanceViewArgsDict']] instance_view: The virtual machine extension instance view.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param pulumi.Input[Union['KeyVaultSecretReferenceArgs', 'KeyVaultSecretReferenceArgsDict']] protected_settings_from_key_vault: The extensions protected settings that are passed by reference, and consumed from key vault
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
         :param pulumi.Input[builtins.str] publisher: The name of the extension handler publisher.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param Any settings: Json formatted public settings for the extension.
         :param pulumi.Input[builtins.bool] suppress_failures: Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param pulumi.Input[builtins.str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param pulumi.Input[builtins.str] type_handler_version: Specifies the version of the script handler.
         :param pulumi.Input[builtins.str] vm_extension_name: The name of the virtual machine extension.
-        :param pulumi.Input[builtins.str] vm_name: The name of the virtual machine where the extension should be created or updated.
+        :param pulumi.Input[builtins.str] vm_name: The name of the virtual machine.
         """
         ...
     @overload
@@ -427,6 +427,7 @@ class VirtualMachineExtension(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20150615:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20160330:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20160430preview:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20170330:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20171201:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20180401:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20180601:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20181001:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20190301:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20190701:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20191201:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20200601:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20201201:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20210301:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20210401:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20210701:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20211101:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20220301:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20220801:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20221101:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20230301:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20230701:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20230901:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20240301:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20240701:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20241101:VirtualMachineExtension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineExtension, __self__).__init__(
@@ -465,6 +466,7 @@ class VirtualMachineExtension(pulumi.CustomResource):
         __props__.__dict__["publisher"] = None
         __props__.__dict__["settings"] = None
         __props__.__dict__["suppress_failures"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["type_handler_version"] = None
@@ -512,9 +514,9 @@ class VirtualMachineExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[builtins.str]]:
+    def location(self) -> pulumi.Output[builtins.str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -522,7 +524,7 @@ class VirtualMachineExtension(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -583,10 +585,18 @@ class VirtualMachineExtension(pulumi.CustomResource):
         return pulumi.get(self, "suppress_failures")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -594,7 +604,7 @@ class VirtualMachineExtension(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

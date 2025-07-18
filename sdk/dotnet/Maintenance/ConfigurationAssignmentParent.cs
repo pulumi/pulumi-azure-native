@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.Maintenance
         public Output<string?> MaintenanceConfigurationId { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the resource
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.Maintenance
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the resource
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.Maintenance
     public sealed class ConfigurationAssignmentParentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration assignment name
+        /// The name of the ConfigurationAssignment
         /// </summary>
         [Input("configurationAssignmentName")]
         public Input<string>? ConfigurationAssignmentName { get; set; }
@@ -153,7 +153,7 @@ namespace Pulumi.AzureNative.Maintenance
         public Input<string> ProviderName { get; set; } = null!;
 
         /// <summary>
-        /// Resource group name
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -165,13 +165,13 @@ namespace Pulumi.AzureNative.Maintenance
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
-        /// Resource identifier
+        /// Resource name
         /// </summary>
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
-        /// Resource parent identifier
+        /// Resource parent name
         /// </summary>
         [Input("resourceParentName", required: true)]
         public Input<string> ResourceParentName { get; set; } = null!;

@@ -27,6 +27,14 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("destination")]
         public Input<Inputs.PrivateEndpointDestinationArgs>? Destination { get; set; }
 
+        [Input("fqdns")]
+        private InputList<string>? _fqdns;
+        public InputList<string> Fqdns
+        {
+            get => _fqdns ?? (_fqdns = new InputList<string>());
+            set => _fqdns = value;
+        }
+
         /// <summary>
         /// Type of a managed network Outbound Rule of a machine learning workspace.
         /// </summary>

@@ -176,7 +176,7 @@ namespace Pulumi.AzureNative.DevTestLab
         public Input<Inputs.HourDetailsArgs>? HourlyRecurrence { get; set; }
 
         /// <summary>
-        /// The name of the lab.
+        /// labs
         /// </summary>
         [Input("labName", required: true)]
         public Input<string> LabName { get; set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.AzureNative.DevTestLab
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the schedule.
+        /// The name of the Schedule
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -200,7 +200,7 @@ namespace Pulumi.AzureNative.DevTestLab
         public Input<Inputs.NotificationSettingsArgs>? NotificationSettings { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.AzureNative.DevTestLab
         public Input<string>? TimeZoneId { get; set; }
 
         /// <summary>
-        /// The name of the virtual machine.
+        /// virtualmachines
         /// </summary>
         [Input("virtualMachineName", required: true)]
         public Input<string> VirtualMachineName { get; set; } = null!;

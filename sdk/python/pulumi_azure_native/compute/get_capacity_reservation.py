@@ -28,7 +28,7 @@ class GetCapacityReservationResult:
     """
     Specifies information about the capacity reservation.
     """
-    def __init__(__self__, azure_api_version=None, id=None, instance_view=None, location=None, name=None, platform_fault_domain_count=None, provisioning_state=None, provisioning_time=None, reservation_id=None, sku=None, tags=None, time_created=None, type=None, virtual_machines_associated=None, zones=None):
+    def __init__(__self__, azure_api_version=None, id=None, instance_view=None, location=None, name=None, platform_fault_domain_count=None, provisioning_state=None, provisioning_time=None, reservation_id=None, sku=None, system_data=None, tags=None, time_created=None, type=None, virtual_machines_associated=None, zones=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -59,6 +59,9 @@ class GetCapacityReservationResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -87,7 +90,7 @@ class GetCapacityReservationResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -103,7 +106,7 @@ class GetCapacityReservationResult:
     @pulumi.getter
     def location(self) -> builtins.str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -111,7 +114,7 @@ class GetCapacityReservationResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -156,10 +159,18 @@ class GetCapacityReservationResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -175,7 +186,7 @@ class GetCapacityReservationResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -191,7 +202,7 @@ class GetCapacityReservationResult:
     @pulumi.getter
     def zones(self) -> Optional[Sequence[builtins.str]]:
         """
-        Availability Zone to use for this capacity reservation. The zone has to be single value and also should be part for the list of zones specified during the capacity reservation group creation. The zone can be assigned only during creation. If not provided, the reservation supports only non-zonal deployments. If provided, enforces VM/VMSS using this capacity reservation to be in same zone.
+        The availability zones.
         """
         return pulumi.get(self, "zones")
 
@@ -212,6 +223,7 @@ class AwaitableGetCapacityReservationResult(GetCapacityReservationResult):
             provisioning_time=self.provisioning_time,
             reservation_id=self.reservation_id,
             sku=self.sku,
+            system_data=self.system_data,
             tags=self.tags,
             time_created=self.time_created,
             type=self.type,
@@ -235,7 +247,7 @@ def get_capacity_reservation(capacity_reservation_group_name: Optional[builtins.
     :param builtins.str capacity_reservation_group_name: The name of the capacity reservation group.
     :param builtins.str capacity_reservation_name: The name of the capacity reservation.
     :param builtins.str expand: The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['capacityReservationGroupName'] = capacity_reservation_group_name
@@ -256,6 +268,7 @@ def get_capacity_reservation(capacity_reservation_group_name: Optional[builtins.
         provisioning_time=pulumi.get(__ret__, 'provisioning_time'),
         reservation_id=pulumi.get(__ret__, 'reservation_id'),
         sku=pulumi.get(__ret__, 'sku'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         time_created=pulumi.get(__ret__, 'time_created'),
         type=pulumi.get(__ret__, 'type'),
@@ -277,7 +290,7 @@ def get_capacity_reservation_output(capacity_reservation_group_name: Optional[pu
     :param builtins.str capacity_reservation_group_name: The name of the capacity reservation group.
     :param builtins.str capacity_reservation_name: The name of the capacity reservation.
     :param builtins.str expand: The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['capacityReservationGroupName'] = capacity_reservation_group_name
@@ -297,6 +310,7 @@ def get_capacity_reservation_output(capacity_reservation_group_name: Optional[pu
         provisioning_time=pulumi.get(__response__, 'provisioning_time'),
         reservation_id=pulumi.get(__response__, 'reservation_id'),
         sku=pulumi.get(__response__, 'sku'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         time_created=pulumi.get(__response__, 'time_created'),
         type=pulumi.get(__response__, 'type'),

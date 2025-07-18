@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
 {
 
     /// <summary>
-    /// High availability properties of a server
+    /// High availability properties of a flexible server.
     /// </summary>
     public sealed class HighAvailabilityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The HA mode for the server.
+        /// High availability mode for a flexible server.
         /// </summary>
         [Input("mode")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.HighAvailabilityMode>? Mode { get; set; }
 
         /// <summary>
-        /// availability zone information of the standby.
+        /// Availability zone associated to the standby server created when high availability is set to SameZone or ZoneRedundant.
         /// </summary>
         [Input("standbyAvailabilityZone")]
         public Input<string>? StandbyAvailabilityZone { get; set; }

@@ -47,7 +47,7 @@ class SqlVirtualMachineArgs:
                  wsfc_static_ip: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a SqlVirtualMachine resource.
-        :param pulumi.Input[builtins.str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AssessmentSettingsArgs'] assessment_settings: SQL best practices Assessment Settings.
         :param pulumi.Input['AutoBackupSettingsArgs'] auto_backup_settings: Auto backup settings for SQL Server.
         :param pulumi.Input['AutoPatchingSettingsArgs'] auto_patching_settings: Auto patching settings for applying critical security updates to SQL virtual machine.
@@ -55,7 +55,7 @@ class SqlVirtualMachineArgs:
         :param pulumi.Input['ResourceIdentityArgs'] identity: DO NOT USE. This value will be deprecated. Azure Active Directory identity of the server.
         :param pulumi.Input['KeyVaultCredentialSettingsArgs'] key_vault_credential_settings: Key vault credential settings.
         :param pulumi.Input[Union[builtins.str, 'LeastPrivilegeMode']] least_privilege_mode: SQL IaaS Agent least privilege mode.
-        :param pulumi.Input[builtins.str] location: Resource location.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['ServerConfigurationsManagementSettingsArgs'] server_configurations_management_settings: SQL Server configuration management settings.
         :param pulumi.Input[builtins.str] sql_image_offer: SQL image offer. Examples include SQL2016-WS2016, SQL2017-WS2016.
         :param pulumi.Input[Union[builtins.str, 'SqlImageSku']] sql_image_sku: SQL Server edition type.
@@ -122,7 +122,7 @@ class SqlVirtualMachineArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -218,7 +218,7 @@ class SqlVirtualMachineArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Resource location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -428,8 +428,8 @@ class SqlVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']] identity: DO NOT USE. This value will be deprecated. Azure Active Directory identity of the server.
         :param pulumi.Input[Union['KeyVaultCredentialSettingsArgs', 'KeyVaultCredentialSettingsArgsDict']] key_vault_credential_settings: Key vault credential settings.
         :param pulumi.Input[Union[builtins.str, 'LeastPrivilegeMode']] least_privilege_mode: SQL IaaS Agent least privilege mode.
-        :param pulumi.Input[builtins.str] location: Resource location.
-        :param pulumi.Input[builtins.str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['ServerConfigurationsManagementSettingsArgs', 'ServerConfigurationsManagementSettingsArgsDict']] server_configurations_management_settings: SQL Server configuration management settings.
         :param pulumi.Input[builtins.str] sql_image_offer: SQL image offer. Examples include SQL2016-WS2016, SQL2017-WS2016.
         :param pulumi.Input[Union[builtins.str, 'SqlImageSku']] sql_image_sku: SQL Server edition type.
@@ -669,7 +669,7 @@ class SqlVirtualMachine(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        Resource location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -677,7 +677,7 @@ class SqlVirtualMachine(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -757,7 +757,7 @@ class SqlVirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -781,7 +781,7 @@ class SqlVirtualMachine(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

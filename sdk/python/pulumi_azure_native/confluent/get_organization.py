@@ -89,15 +89,15 @@ class GetOrganizationResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        The ARM id of the resource.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[builtins.str]:
+    def location(self) -> builtins.str:
         """
-        Location of Organization resource
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -105,7 +105,7 @@ class GetOrganizationResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -145,7 +145,7 @@ class GetOrganizationResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -153,7 +153,7 @@ class GetOrganizationResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Organization resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -161,7 +161,7 @@ class GetOrganizationResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -199,7 +199,7 @@ def get_organization(organization_name: Optional[builtins.str] = None,
                      resource_group_name: Optional[builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationResult:
     """
-    Organization resource.
+    Get the properties of a specific Organization resource.
 
     Uses Azure REST API version 2024-07-01.
 
@@ -207,7 +207,7 @@ def get_organization(organization_name: Optional[builtins.str] = None,
 
 
     :param builtins.str organization_name: Organization resource name
-    :param builtins.str resource_group_name: Resource group name
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['organizationName'] = organization_name
@@ -233,7 +233,7 @@ def get_organization_output(organization_name: Optional[pulumi.Input[builtins.st
                             resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationResult]:
     """
-    Organization resource.
+    Get the properties of a specific Organization resource.
 
     Uses Azure REST API version 2024-07-01.
 
@@ -241,7 +241,7 @@ def get_organization_output(organization_name: Optional[pulumi.Input[builtins.st
 
 
     :param builtins.str organization_name: Organization resource name
-    :param builtins.str resource_group_name: Resource group name
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['organizationName'] = organization_name

@@ -32,13 +32,13 @@ class BotArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Bot resource.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the Bot resource group in the user subscription.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[builtins.str, 'Kind']] kind: Required. Gets or sets the Kind of the resource.
-        :param pulumi.Input[builtins.str] location: Specifies the location of the resource.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['BotPropertiesArgs'] properties: The set of properties specific to bot resource
         :param pulumi.Input[builtins.str] resource_name: The name of the Bot resource.
         :param pulumi.Input['SkuArgs'] sku: Gets or sets the SKU of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Contains resource tags defined as key/value pairs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if kind is not None:
@@ -58,7 +58,7 @@ class BotArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the Bot resource group in the user subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -82,7 +82,7 @@ class BotArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -130,7 +130,7 @@ class BotArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Contains resource tags defined as key/value pairs.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -163,12 +163,12 @@ class Bot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[builtins.str, 'Kind']] kind: Required. Gets or sets the Kind of the resource.
-        :param pulumi.Input[builtins.str] location: Specifies the location of the resource.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['BotPropertiesArgs', 'BotPropertiesArgsDict']] properties: The set of properties specific to bot resource
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the Bot resource group in the user subscription.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] resource_name_: The name of the Bot resource.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: Gets or sets the SKU of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Contains resource tags defined as key/value pairs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -226,6 +226,7 @@ class Bot(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["zones"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:botservice/v20171201:Bot"), pulumi.Alias(type_="azure-native:botservice/v20180712:Bot"), pulumi.Alias(type_="azure-native:botservice/v20200602:Bot"), pulumi.Alias(type_="azure-native:botservice/v20210301:Bot"), pulumi.Alias(type_="azure-native:botservice/v20210501preview:Bot"), pulumi.Alias(type_="azure-native:botservice/v20220615preview:Bot"), pulumi.Alias(type_="azure-native:botservice/v20220915:Bot"), pulumi.Alias(type_="azure-native:botservice/v20230915preview:Bot")])
@@ -259,6 +260,7 @@ class Bot(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["zones"] = None
@@ -290,9 +292,9 @@ class Bot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[builtins.str]]:
+    def location(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -300,7 +302,7 @@ class Bot(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -321,10 +323,18 @@ class Bot(pulumi.CustomResource):
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Contains resource tags defined as key/value pairs.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -332,7 +342,7 @@ class Bot(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

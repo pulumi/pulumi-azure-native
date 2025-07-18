@@ -86,9 +86,9 @@ class DefaultRollout(pulumi.CustomResource):
                  rollout_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Default rollout definition.
+        Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
 
-        Uses Azure REST API version 2021-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
+        Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -103,9 +103,9 @@ class DefaultRollout(pulumi.CustomResource):
                  args: DefaultRolloutArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Default rollout definition.
+        Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
 
-        Uses Azure REST API version 2021-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
+        Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param DefaultRolloutArgs args: The arguments to use to populate this resource's properties.
@@ -143,7 +143,7 @@ class DefaultRollout(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:providerhub/v20201120:DefaultRollout"), pulumi.Alias(type_="azure-native:providerhub/v20210501preview:DefaultRollout"), pulumi.Alias(type_="azure-native:providerhub/v20210601preview:DefaultRollout"), pulumi.Alias(type_="azure-native:providerhub/v20210901preview:DefaultRollout")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:providerhub/v20201120:DefaultRollout"), pulumi.Alias(type_="azure-native:providerhub/v20210501preview:DefaultRollout"), pulumi.Alias(type_="azure-native:providerhub/v20210601preview:DefaultRollout"), pulumi.Alias(type_="azure-native:providerhub/v20210901preview:DefaultRollout"), pulumi.Alias(type_="azure-native:providerhub/v20240901:DefaultRollout")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DefaultRollout, __self__).__init__(
             'azure-native:providerhub:DefaultRollout',
@@ -192,7 +192,7 @@ class DefaultRollout(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.DefaultRolloutResponseProperties']:
+    def properties(self) -> pulumi.Output['outputs.DefaultRolloutPropertiesResponse']:
         """
         Properties of the rollout.
         """
@@ -202,7 +202,7 @@ class DefaultRollout(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

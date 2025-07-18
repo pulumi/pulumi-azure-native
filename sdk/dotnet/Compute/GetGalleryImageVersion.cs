@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Compute
         public string? Expand { get; set; }
 
         /// <summary>
-        /// The name of the gallery image definition in which the Image Version resides.
+        /// The name of the gallery image definition to be retrieved.
         /// </summary>
         [Input("galleryImageName", required: true)]
         public string GalleryImageName { get; set; } = null!;
@@ -64,13 +64,13 @@ namespace Pulumi.AzureNative.Compute
         public string GalleryImageVersionName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Shared Image Gallery in which the Image Definition resides.
+        /// The name of the Shared Image Gallery.
         /// </summary>
         [Input("galleryName", required: true)]
         public string GalleryName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<string>? Expand { get; set; }
 
         /// <summary>
-        /// The name of the gallery image definition in which the Image Version resides.
+        /// The name of the gallery image definition to be retrieved.
         /// </summary>
         [Input("galleryImageName", required: true)]
         public Input<string> GalleryImageName { get; set; } = null!;
@@ -102,13 +102,13 @@ namespace Pulumi.AzureNative.Compute
         public Input<string> GalleryImageVersionName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Shared Image Gallery in which the Image Definition resides.
+        /// The name of the Shared Image Gallery.
         /// </summary>
         [Input("galleryName", required: true)]
         public Input<string> GalleryName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -128,15 +128,15 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -168,11 +168,15 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.GalleryImageVersionStorageProfileResponse StorageProfile;
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -204,6 +208,8 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.GalleryImageVersionStorageProfileResponse storageProfile,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -221,6 +227,7 @@ namespace Pulumi.AzureNative.Compute
             SafetyProfile = safetyProfile;
             SecurityProfile = securityProfile;
             StorageProfile = storageProfile;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             ValidationsProfile = validationsProfile;

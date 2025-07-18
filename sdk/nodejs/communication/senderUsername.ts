@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-31.
  *
- * Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class SenderUsername extends pulumi.CustomResource {
     /**
@@ -120,7 +120,7 @@ export class SenderUsername extends pulumi.CustomResource {
             resourceInputs["username"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:communication/v20230301preview:SenderUsername" }, { type: "azure-native:communication/v20230331:SenderUsername" }, { type: "azure-native:communication/v20230401:SenderUsername" }, { type: "azure-native:communication/v20230401preview:SenderUsername" }, { type: "azure-native:communication/v20230601preview:SenderUsername" }, { type: "azure-native:communication/v20240901preview:SenderUsername" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:communication/v20230301preview:SenderUsername" }, { type: "azure-native:communication/v20230331:SenderUsername" }, { type: "azure-native:communication/v20230401:SenderUsername" }, { type: "azure-native:communication/v20230401preview:SenderUsername" }, { type: "azure-native:communication/v20230601preview:SenderUsername" }, { type: "azure-native:communication/v20240901preview:SenderUsername" }, { type: "azure-native:communication/v20250501:SenderUsername" }, { type: "azure-native:communication/v20250501preview:SenderUsername" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SenderUsername.__pulumiType, name, resourceInputs, opts);
     }

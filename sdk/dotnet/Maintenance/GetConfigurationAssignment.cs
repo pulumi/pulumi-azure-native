@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Maintenance
     public sealed class GetConfigurationAssignmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Configuration assignment name
+        /// The name of the ConfigurationAssignment
         /// </summary>
         [Input("configurationAssignmentName", required: true)]
         public string ConfigurationAssignmentName { get; set; } = null!;
@@ -58,19 +58,19 @@ namespace Pulumi.AzureNative.Maintenance
         public string ProviderName { get; set; } = null!;
 
         /// <summary>
-        /// Resource group name
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Resource identifier
+        /// Resource parent name
         /// </summary>
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// Resource parent type
         /// </summary>
         [Input("resourceType", required: true)]
         public string ResourceType { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Maintenance
     public sealed class GetConfigurationAssignmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Configuration assignment name
+        /// The name of the ConfigurationAssignment
         /// </summary>
         [Input("configurationAssignmentName", required: true)]
         public Input<string> ConfigurationAssignmentName { get; set; } = null!;
@@ -96,19 +96,19 @@ namespace Pulumi.AzureNative.Maintenance
         public Input<string> ProviderName { get; set; } = null!;
 
         /// <summary>
-        /// Resource group name
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Resource identifier
+        /// Resource parent name
         /// </summary>
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// Resource parent type
         /// </summary>
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.Maintenance
         /// </summary>
         public readonly Outputs.ConfigurationAssignmentFilterPropertiesResponse? Filter;
         /// <summary>
-        /// Fully qualified identifier of the resource
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.Maintenance
         /// </summary>
         public readonly string? MaintenanceConfigurationId;
         /// <summary>
-        /// Name of the resource
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.Maintenance
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Type of the resource
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

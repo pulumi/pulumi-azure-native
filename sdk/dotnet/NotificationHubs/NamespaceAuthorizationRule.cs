@@ -49,9 +49,6 @@ namespace Pulumi.AzureNative.NotificationHubs
         [Output("keyName")]
         public Output<string> KeyName { get; private set; } = null!;
 
-        /// <summary>
-        /// Deprecated - only for compatibility.
-        /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
 
@@ -99,9 +96,6 @@ namespace Pulumi.AzureNative.NotificationHubs
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
-        /// <summary>
-        /// Deprecated - only for compatibility.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -170,9 +164,6 @@ namespace Pulumi.AzureNative.NotificationHubs
         [Input("authorizationRuleName")]
         public Input<string>? AuthorizationRuleName { get; set; }
 
-        /// <summary>
-        /// Deprecated - only for compatibility.
-        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
@@ -216,10 +207,6 @@ namespace Pulumi.AzureNative.NotificationHubs
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Deprecated - only for compatibility.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

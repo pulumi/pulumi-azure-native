@@ -29,18 +29,16 @@ class CapacityDetailsArgs:
                  dedicated_capacity_name: Optional[pulumi.Input[builtins.str]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  mode: Optional[pulumi.Input[Union[builtins.str, 'Mode']]] = None,
-                 system_data: Optional[pulumi.Input['SystemDataArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a CapacityDetails resource.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['CapacitySkuArgs'] sku: The SKU of the PowerBI Dedicated capacity resource.
         :param pulumi.Input['DedicatedCapacityAdministratorsArgs'] administration: A collection of Dedicated capacity administrators
-        :param pulumi.Input[builtins.str] dedicated_capacity_name: The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
-        :param pulumi.Input[builtins.str] location: Location of the PowerBI Dedicated resource.
+        :param pulumi.Input[builtins.str] dedicated_capacity_name: The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[builtins.str, 'Mode']] mode: Specifies the generation of the Power BI Embedded capacity. If no value is specified, the default value 'Gen2' is used. [Learn More](https://docs.microsoft.com/power-bi/developer/embedded/power-bi-embedded-generation-2)
-        :param pulumi.Input['SystemDataArgs'] system_data: Metadata pertaining to creation and last modification of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of additional resource provisioning properties.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
@@ -52,8 +50,6 @@ class CapacityDetailsArgs:
             pulumi.set(__self__, "location", location)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
-        if system_data is not None:
-            pulumi.set(__self__, "system_data", system_data)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -61,7 +57,7 @@ class CapacityDetailsArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -97,7 +93,7 @@ class CapacityDetailsArgs:
     @pulumi.getter(name="dedicatedCapacityName")
     def dedicated_capacity_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
+        The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
         """
         return pulumi.get(self, "dedicated_capacity_name")
 
@@ -109,7 +105,7 @@ class CapacityDetailsArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Location of the PowerBI Dedicated resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -130,22 +126,10 @@ class CapacityDetailsArgs:
         pulumi.set(self, "mode", value)
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> Optional[pulumi.Input['SystemDataArgs']]:
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @system_data.setter
-    def system_data(self, value: Optional[pulumi.Input['SystemDataArgs']]):
-        pulumi.set(self, "system_data", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Key-value pairs of additional resource provisioning properties.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -166,7 +150,6 @@ class CapacityDetails(pulumi.CustomResource):
                  mode: Optional[pulumi.Input[Union[builtins.str, 'Mode']]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  sku: Optional[pulumi.Input[Union['CapacitySkuArgs', 'CapacitySkuArgsDict']]] = None,
-                 system_data: Optional[pulumi.Input[Union['SystemDataArgs', 'SystemDataArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -177,13 +160,12 @@ class CapacityDetails(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DedicatedCapacityAdministratorsArgs', 'DedicatedCapacityAdministratorsArgsDict']] administration: A collection of Dedicated capacity administrators
-        :param pulumi.Input[builtins.str] dedicated_capacity_name: The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
-        :param pulumi.Input[builtins.str] location: Location of the PowerBI Dedicated resource.
+        :param pulumi.Input[builtins.str] dedicated_capacity_name: The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[builtins.str, 'Mode']] mode: Specifies the generation of the Power BI Embedded capacity. If no value is specified, the default value 'Gen2' is used. [Learn More](https://docs.microsoft.com/power-bi/developer/embedded/power-bi-embedded-generation-2)
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['CapacitySkuArgs', 'CapacitySkuArgsDict']] sku: The SKU of the PowerBI Dedicated capacity resource.
-        :param pulumi.Input[Union['SystemDataArgs', 'SystemDataArgsDict']] system_data: Metadata pertaining to creation and last modification of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of additional resource provisioning properties.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -217,7 +199,6 @@ class CapacityDetails(pulumi.CustomResource):
                  mode: Optional[pulumi.Input[Union[builtins.str, 'Mode']]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  sku: Optional[pulumi.Input[Union['CapacitySkuArgs', 'CapacitySkuArgsDict']]] = None,
-                 system_data: Optional[pulumi.Input[Union['SystemDataArgs', 'SystemDataArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -238,13 +219,13 @@ class CapacityDetails(pulumi.CustomResource):
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
-            __props__.__dict__["system_data"] = system_data
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["friendly_name"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:powerbidedicated/v20171001:CapacityDetails"), pulumi.Alias(type_="azure-native:powerbidedicated/v20210101:CapacityDetails")])
@@ -314,7 +295,7 @@ class CapacityDetails(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        Location of the PowerBI Dedicated resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -330,7 +311,7 @@ class CapacityDetails(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        The name of the PowerBI Dedicated resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -360,9 +341,9 @@ class CapacityDetails(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output[Optional['outputs.SystemDataResponse']]:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -370,7 +351,7 @@ class CapacityDetails(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Key-value pairs of additional resource provisioning properties.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -386,7 +367,7 @@ class CapacityDetails(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        The type of the PowerBI Dedicated resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

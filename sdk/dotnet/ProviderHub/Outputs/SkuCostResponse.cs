@@ -13,8 +13,17 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     [OutputType]
     public sealed class SkuCostResponse
     {
+        /// <summary>
+        /// The extended unit.
+        /// </summary>
         public readonly string? ExtendedUnit;
+        /// <summary>
+        /// The meter id.
+        /// </summary>
         public readonly string MeterId;
+        /// <summary>
+        /// The quantity.
+        /// </summary>
         public readonly int? Quantity;
 
         [OutputConstructor]

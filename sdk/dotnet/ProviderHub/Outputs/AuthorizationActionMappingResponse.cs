@@ -13,7 +13,13 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     [OutputType]
     public sealed class AuthorizationActionMappingResponse
     {
+        /// <summary>
+        /// The desired action name.
+        /// </summary>
         public readonly string? Desired;
+        /// <summary>
+        /// The original action name.
+        /// </summary>
         public readonly string? Original;
 
         [OutputConstructor]

@@ -10,10 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
+    /// <summary>
+    /// The default rollout status.
+    /// </summary>
     public sealed class DefaultRolloutPropertiesStatusArgs : global::Pulumi.ResourceArgs
     {
         [Input("completedRegions")]
         private InputList<string>? _completedRegions;
+
+        /// <summary>
+        /// The completed regions.
+        /// </summary>
         public InputList<string> CompletedRegions
         {
             get => _completedRegions ?? (_completedRegions = new InputList<string>());
@@ -22,18 +29,37 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
         [Input("failedOrSkippedRegions")]
         private InputMap<Inputs.ExtendedErrorInfoArgs>? _failedOrSkippedRegions;
+
+        /// <summary>
+        /// The failed or skipped regions.
+        /// </summary>
         public InputMap<Inputs.ExtendedErrorInfoArgs> FailedOrSkippedRegions
         {
             get => _failedOrSkippedRegions ?? (_failedOrSkippedRegions = new InputMap<Inputs.ExtendedErrorInfoArgs>());
             set => _failedOrSkippedRegions = value;
         }
 
+        /// <summary>
+        /// The manifest checkin status.
+        /// </summary>
+        [Input("manifestCheckinStatus")]
+        public Input<Inputs.DefaultRolloutStatusManifestCheckinStatusArgs>? ManifestCheckinStatus { get; set; }
+
+        /// <summary>
+        /// The next traffic region.
+        /// </summary>
         [Input("nextTrafficRegion")]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.TrafficRegionCategory>? NextTrafficRegion { get; set; }
 
+        /// <summary>
+        /// The next traffic region scheduled time.
+        /// </summary>
         [Input("nextTrafficRegionScheduledTime")]
         public Input<string>? NextTrafficRegionScheduledTime { get; set; }
 
+        /// <summary>
+        /// The subscription reregistration result.
+        /// </summary>
         [Input("subscriptionReregistrationResult")]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.SubscriptionReregistrationResult>? SubscriptionReregistrationResult { get; set; }
 

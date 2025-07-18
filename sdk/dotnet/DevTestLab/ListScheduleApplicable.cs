@@ -40,19 +40,19 @@ namespace Pulumi.AzureNative.DevTestLab
     public sealed class ListScheduleApplicableArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the lab.
+        /// labs
         /// </summary>
         [Input("labName", required: true)]
         public string LabName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the schedule.
+        /// The name of the Schedule
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -66,19 +66,19 @@ namespace Pulumi.AzureNative.DevTestLab
     public sealed class ListScheduleApplicableInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the lab.
+        /// labs
         /// </summary>
         [Input("labName", required: true)]
         public Input<string> LabName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the schedule.
+        /// The name of the Schedule
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -94,11 +94,11 @@ namespace Pulumi.AzureNative.DevTestLab
     public sealed class ListScheduleApplicableResult
     {
         /// <summary>
-        /// Link for next set of results.
+        /// The link to the next page of items
         /// </summary>
         public readonly string? NextLink;
         /// <summary>
-        /// Results of the list operation.
+        /// The Schedule items on this page
         /// </summary>
         public readonly ImmutableArray<Outputs.ScheduleResponse> Value;
 

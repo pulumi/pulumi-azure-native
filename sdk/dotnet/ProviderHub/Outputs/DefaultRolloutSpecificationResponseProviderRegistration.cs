@@ -10,20 +10,27 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Outputs
 {
 
+    /// <summary>
+    /// The provider registration.
+    /// </summary>
     [OutputType]
     public sealed class DefaultRolloutSpecificationResponseProviderRegistration
     {
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+        /// </summary>
+        public readonly string? Kind;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.ProviderRegistrationResponseProperties? Properties;
+        public readonly Outputs.ProviderRegistrationPropertiesResponse? Properties;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -35,15 +42,18 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         private DefaultRolloutSpecificationResponseProviderRegistration(
             string id,
 
+            string? kind,
+
             string name,
 
-            Outputs.ProviderRegistrationResponseProperties? properties,
+            Outputs.ProviderRegistrationPropertiesResponse? properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
             Id = id;
+            Kind = kind;
             Name = name;
             Properties = properties;
             SystemData = systemData;

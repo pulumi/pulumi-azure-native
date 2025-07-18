@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Outputs
 {
 
+    /// <summary>
+    /// The features rule.
+    /// </summary>
     [OutputType]
     public sealed class ResourceTypeRegistrationPropertiesResponseFeaturesRule
     {
+        /// <summary>
+        /// The required feature policy.
+        /// </summary>
         public readonly string RequiredFeaturesPolicy;
 
         [OutputConstructor]

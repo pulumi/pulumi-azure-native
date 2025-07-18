@@ -23,13 +23,13 @@ namespace Pulumi.AzureNative.StorageMover.Outputs
         /// <summary>
         /// The minute element of the time. Allowed values are 0 and 30. If not specified, its value defaults to 0.
         /// </summary>
-        public readonly int? Minute;
+        public readonly double? Minute;
 
         [OutputConstructor]
         private TimeResponse(
             int hour,
 
-            int? minute)
+            double? minute)
         {
             Hour = hour;
             Minute = minute;

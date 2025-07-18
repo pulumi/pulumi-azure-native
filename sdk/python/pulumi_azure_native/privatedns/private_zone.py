@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = ['PrivateZoneArgs', 'PrivateZone']
 
@@ -26,7 +27,7 @@ class PrivateZoneArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a PrivateZone resource.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] location: The Azure Region where the resource lives
         :param pulumi.Input[builtins.str] private_zone_name: The name of the Private DNS zone (without a terminating dot).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
@@ -43,7 +44,7 @@ class PrivateZoneArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -110,7 +111,7 @@ class PrivateZone(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] location: The Azure Region where the resource lives
         :param pulumi.Input[builtins.str] private_zone_name: The name of the Private DNS zone (without a terminating dot).
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         ...
@@ -171,6 +172,7 @@ class PrivateZone(pulumi.CustomResource):
             __props__.__dict__["number_of_virtual_network_links"] = None
             __props__.__dict__["number_of_virtual_network_links_with_registration"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200601:PrivateZone"), pulumi.Alias(type_="azure-native:network/v20240601:PrivateZone"), pulumi.Alias(type_="azure-native:network:PrivateZone"), pulumi.Alias(type_="azure-native:privatedns/v20180901:PrivateZone"), pulumi.Alias(type_="azure-native:privatedns/v20200101:PrivateZone"), pulumi.Alias(type_="azure-native:privatedns/v20200601:PrivateZone"), pulumi.Alias(type_="azure-native:privatedns/v20240601:PrivateZone")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -208,6 +210,7 @@ class PrivateZone(pulumi.CustomResource):
         __props__.__dict__["number_of_virtual_network_links"] = None
         __props__.__dict__["number_of_virtual_network_links_with_registration"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return PrivateZone(resource_name, opts=opts, __props__=__props__)
@@ -309,6 +312,14 @@ class PrivateZone(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
@@ -320,7 +331,7 @@ class PrivateZone(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

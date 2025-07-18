@@ -18,7 +18,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'AgentPropertiesResponseErrorDetails',
+    'AgentPropertiesErrorDetailsResponse',
     'AzureKeyVaultSmbCredentialsResponse',
     'AzureStorageBlobContainerEndpointPropertiesResponse',
     'AzureStorageSmbFileShareEndpointPropertiesResponse',
@@ -31,7 +31,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AgentPropertiesResponseErrorDetails(dict):
+class AgentPropertiesErrorDetailsResponse(dict):
     def __init__(__self__, *,
                  code: Optional[builtins.str] = None,
                  message: Optional[builtins.str] = None):
@@ -633,11 +633,11 @@ class TimeResponse(dict):
     """
     def __init__(__self__, *,
                  hour: builtins.int,
-                 minute: Optional[builtins.int] = None):
+                 minute: Optional[builtins.float] = None):
         """
         The time of day.
         :param builtins.int hour: The hour element of the time. Allowed values range from 0 (start of the selected day) to 24 (end of the selected day). Hour value 24 cannot be combined with any other minute value but 0.
-        :param builtins.int minute: The minute element of the time. Allowed values are 0 and 30. If not specified, its value defaults to 0.
+        :param builtins.float minute: The minute element of the time. Allowed values are 0 and 30. If not specified, its value defaults to 0.
         """
         pulumi.set(__self__, "hour", hour)
         if minute is None:
@@ -655,7 +655,7 @@ class TimeResponse(dict):
 
     @property
     @pulumi.getter
-    def minute(self) -> Optional[builtins.int]:
+    def minute(self) -> Optional[builtins.float]:
         """
         The minute element of the time. Allowed values are 0 and 30. If not specified, its value defaults to 0.
         """

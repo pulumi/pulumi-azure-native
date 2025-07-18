@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Details of the environments returned on successful response
+ * Environment list of an organization
  *
  * Uses Azure REST API version 2024-07-01.
  *
@@ -56,7 +56,7 @@ export interface ListAccessEnvironmentsResult {
     readonly metadata?: outputs.confluent.ConfluentListMetadataResponse;
 }
 /**
- * Details of the environments returned on successful response
+ * Environment list of an organization
  *
  * Uses Azure REST API version 2024-07-01.
  *

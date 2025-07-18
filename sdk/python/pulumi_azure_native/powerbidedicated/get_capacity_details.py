@@ -100,7 +100,7 @@ class GetCapacityDetailsResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        An identifier that represents the PowerBI Dedicated resource.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -108,7 +108,7 @@ class GetCapacityDetailsResult:
     @pulumi.getter
     def location(self) -> builtins.str:
         """
-        Location of the PowerBI Dedicated resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -124,7 +124,7 @@ class GetCapacityDetailsResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the PowerBI Dedicated resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -154,9 +154,9 @@ class GetCapacityDetailsResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> Optional['outputs.SystemDataResponse']:
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -164,7 +164,7 @@ class GetCapacityDetailsResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Key-value pairs of additional resource provisioning properties.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -180,7 +180,7 @@ class GetCapacityDetailsResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        The type of the PowerBI Dedicated resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -217,7 +217,7 @@ def get_capacity_details(dedicated_capacity_name: Optional[builtins.str] = None,
 
 
     :param builtins.str dedicated_capacity_name: The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
-    :param builtins.str resource_group_name: The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['dedicatedCapacityName'] = dedicated_capacity_name
@@ -250,7 +250,7 @@ def get_capacity_details_output(dedicated_capacity_name: Optional[pulumi.Input[b
 
 
     :param builtins.str dedicated_capacity_name: The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
-    :param builtins.str resource_group_name: The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['dedicatedCapacityName'] = dedicated_capacity_name

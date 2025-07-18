@@ -7,6 +7,292 @@ using Pulumi;
 
 namespace Pulumi.AzureNative.ProviderHub
 {
+    /// <summary>
+    /// The additional options.
+    /// </summary>
+    [EnumType]
+    public readonly struct AdditionalOptionsAsyncOperation : IEquatable<AdditionalOptionsAsyncOperation>
+    {
+        private readonly string _value;
+
+        private AdditionalOptionsAsyncOperation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AdditionalOptionsAsyncOperation ProtectedAsyncOperationPolling { get; } = new AdditionalOptionsAsyncOperation("ProtectedAsyncOperationPolling");
+        public static AdditionalOptionsAsyncOperation ProtectedAsyncOperationPollingAuditOnly { get; } = new AdditionalOptionsAsyncOperation("ProtectedAsyncOperationPollingAuditOnly");
+
+        public static bool operator ==(AdditionalOptionsAsyncOperation left, AdditionalOptionsAsyncOperation right) => left.Equals(right);
+        public static bool operator !=(AdditionalOptionsAsyncOperation left, AdditionalOptionsAsyncOperation right) => !left.Equals(right);
+
+        public static explicit operator string(AdditionalOptionsAsyncOperation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AdditionalOptionsAsyncOperation other && Equals(other);
+        public bool Equals(AdditionalOptionsAsyncOperation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The additional options.
+    /// </summary>
+    [EnumType]
+    public readonly struct AdditionalOptionsResourceTypeRegistration : IEquatable<AdditionalOptionsResourceTypeRegistration>
+    {
+        private readonly string _value;
+
+        private AdditionalOptionsResourceTypeRegistration(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AdditionalOptionsResourceTypeRegistration ProtectedAsyncOperationPolling { get; } = new AdditionalOptionsResourceTypeRegistration("ProtectedAsyncOperationPolling");
+        public static AdditionalOptionsResourceTypeRegistration ProtectedAsyncOperationPollingAuditOnly { get; } = new AdditionalOptionsResourceTypeRegistration("ProtectedAsyncOperationPollingAuditOnly");
+
+        public static bool operator ==(AdditionalOptionsResourceTypeRegistration left, AdditionalOptionsResourceTypeRegistration right) => left.Equals(right);
+        public static bool operator !=(AdditionalOptionsResourceTypeRegistration left, AdditionalOptionsResourceTypeRegistration right) => !left.Equals(right);
+
+        public static explicit operator string(AdditionalOptionsResourceTypeRegistration value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AdditionalOptionsResourceTypeRegistration other && Equals(other);
+        public bool Equals(AdditionalOptionsResourceTypeRegistration other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The authentication scheme.
+    /// </summary>
+    [EnumType]
+    public readonly struct AuthenticationScheme : IEquatable<AuthenticationScheme>
+    {
+        private readonly string _value;
+
+        private AuthenticationScheme(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AuthenticationScheme PoP { get; } = new AuthenticationScheme("PoP");
+        public static AuthenticationScheme Bearer { get; } = new AuthenticationScheme("Bearer");
+
+        public static bool operator ==(AuthenticationScheme left, AuthenticationScheme right) => left.Equals(right);
+        public static bool operator !=(AuthenticationScheme left, AuthenticationScheme right) => !left.Equals(right);
+
+        public static explicit operator string(AuthenticationScheme value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AuthenticationScheme other && Equals(other);
+        public bool Equals(AuthenticationScheme other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AvailabilityZonePolicy : IEquatable<AvailabilityZonePolicy>
+    {
+        private readonly string _value;
+
+        private AvailabilityZonePolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AvailabilityZonePolicy NotSpecified { get; } = new AvailabilityZonePolicy("NotSpecified");
+        public static AvailabilityZonePolicy SingleZoned { get; } = new AvailabilityZonePolicy("SingleZoned");
+        public static AvailabilityZonePolicy MultiZoned { get; } = new AvailabilityZonePolicy("MultiZoned");
+
+        public static bool operator ==(AvailabilityZonePolicy left, AvailabilityZonePolicy right) => left.Equals(right);
+        public static bool operator !=(AvailabilityZonePolicy left, AvailabilityZonePolicy right) => !left.Equals(right);
+
+        public static explicit operator string(AvailabilityZonePolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AvailabilityZonePolicy other && Equals(other);
+        public bool Equals(AvailabilityZonePolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The action verb that will be blocked when the resource group is locked during move.
+    /// </summary>
+    [EnumType]
+    public readonly struct BlockActionVerb : IEquatable<BlockActionVerb>
+    {
+        private readonly string _value;
+
+        private BlockActionVerb(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BlockActionVerb NotSpecified { get; } = new BlockActionVerb("NotSpecified");
+        public static BlockActionVerb Read { get; } = new BlockActionVerb("Read");
+        public static BlockActionVerb Write { get; } = new BlockActionVerb("Write");
+        public static BlockActionVerb Action { get; } = new BlockActionVerb("Action");
+        public static BlockActionVerb Delete { get; } = new BlockActionVerb("Delete");
+        public static BlockActionVerb Unrecognized { get; } = new BlockActionVerb("Unrecognized");
+
+        public static bool operator ==(BlockActionVerb left, BlockActionVerb right) => left.Equals(right);
+        public static bool operator !=(BlockActionVerb left, BlockActionVerb right) => !left.Equals(right);
+
+        public static explicit operator string(BlockActionVerb value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BlockActionVerb other && Equals(other);
+        public bool Equals(BlockActionVerb other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Capacity policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct CapacityPolicy : IEquatable<CapacityPolicy>
+    {
+        private readonly string _value;
+
+        private CapacityPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityPolicy Default { get; } = new CapacityPolicy("Default");
+        public static CapacityPolicy Restricted { get; } = new CapacityPolicy("Restricted");
+
+        public static bool operator ==(CapacityPolicy left, CapacityPolicy right) => left.Equals(right);
+        public static bool operator !=(CapacityPolicy left, CapacityPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityPolicy other && Equals(other);
+        public bool Equals(CapacityPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Common api versions merge mode.
+    /// </summary>
+    [EnumType]
+    public readonly struct CommonApiVersionsMergeMode : IEquatable<CommonApiVersionsMergeMode>
+    {
+        private readonly string _value;
+
+        private CommonApiVersionsMergeMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CommonApiVersionsMergeMode Merge { get; } = new CommonApiVersionsMergeMode("Merge");
+        public static CommonApiVersionsMergeMode Overwrite { get; } = new CommonApiVersionsMergeMode("Overwrite");
+
+        public static bool operator ==(CommonApiVersionsMergeMode left, CommonApiVersionsMergeMode right) => left.Equals(right);
+        public static bool operator !=(CommonApiVersionsMergeMode left, CommonApiVersionsMergeMode right) => !left.Equals(right);
+
+        public static explicit operator string(CommonApiVersionsMergeMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CommonApiVersionsMergeMode other && Equals(other);
+        public bool Equals(CommonApiVersionsMergeMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The cross tenant token validation.
+    /// </summary>
+    [EnumType]
+    public readonly struct CrossTenantTokenValidation : IEquatable<CrossTenantTokenValidation>
+    {
+        private readonly string _value;
+
+        private CrossTenantTokenValidation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CrossTenantTokenValidation EnsureSecureValidation { get; } = new CrossTenantTokenValidation("EnsureSecureValidation");
+        public static CrossTenantTokenValidation PassthroughInsecureToken { get; } = new CrossTenantTokenValidation("PassthroughInsecureToken");
+
+        public static bool operator ==(CrossTenantTokenValidation left, CrossTenantTokenValidation right) => left.Equals(right);
+        public static bool operator !=(CrossTenantTokenValidation left, CrossTenantTokenValidation right) => !left.Equals(right);
+
+        public static explicit operator string(CrossTenantTokenValidation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CrossTenantTokenValidation other && Equals(other);
+        public bool Equals(CrossTenantTokenValidation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The data boundary.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataBoundary : IEquatable<DataBoundary>
+    {
+        private readonly string _value;
+
+        private DataBoundary(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataBoundary NotDefined { get; } = new DataBoundary("NotDefined");
+        public static DataBoundary Global { get; } = new DataBoundary("Global");
+        public static DataBoundary EU { get; } = new DataBoundary("EU");
+        public static DataBoundary US { get; } = new DataBoundary("US");
+
+        public static bool operator ==(DataBoundary left, DataBoundary right) => left.Equals(right);
+        public static bool operator !=(DataBoundary left, DataBoundary right) => !left.Equals(right);
+
+        public static explicit operator string(DataBoundary value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataBoundary other && Equals(other);
+        public bool Equals(DataBoundary other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The endpoint type.
+    /// </summary>
     [EnumType]
     public readonly struct EndpointType : IEquatable<EndpointType>
     {
@@ -30,6 +316,115 @@ namespace Pulumi.AzureNative.ProviderHub
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EndpointType other && Equals(other);
         public bool Equals(EndpointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The endpoint type.
+    /// </summary>
+    [EnumType]
+    public readonly struct EndpointTypeResourceType : IEquatable<EndpointTypeResourceType>
+    {
+        private readonly string _value;
+
+        private EndpointTypeResourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EndpointTypeResourceType NotSpecified { get; } = new EndpointTypeResourceType("NotSpecified");
+        public static EndpointTypeResourceType Canary { get; } = new EndpointTypeResourceType("Canary");
+        public static EndpointTypeResourceType Production { get; } = new EndpointTypeResourceType("Production");
+        public static EndpointTypeResourceType TestInProduction { get; } = new EndpointTypeResourceType("TestInProduction");
+
+        public static bool operator ==(EndpointTypeResourceType left, EndpointTypeResourceType right) => left.Equals(right);
+        public static bool operator !=(EndpointTypeResourceType left, EndpointTypeResourceType right) => !left.Equals(right);
+
+        public static explicit operator string(EndpointTypeResourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EndpointTypeResourceType other && Equals(other);
+        public bool Equals(EndpointTypeResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Expedited rollout intent.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExpeditedRolloutIntent : IEquatable<ExpeditedRolloutIntent>
+    {
+        private readonly string _value;
+
+        private ExpeditedRolloutIntent(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExpeditedRolloutIntent NotSpecified { get; } = new ExpeditedRolloutIntent("NotSpecified");
+        public static ExpeditedRolloutIntent Hotfix { get; } = new ExpeditedRolloutIntent("Hotfix");
+
+        public static bool operator ==(ExpeditedRolloutIntent left, ExpeditedRolloutIntent right) => left.Equals(right);
+        public static bool operator !=(ExpeditedRolloutIntent left, ExpeditedRolloutIntent right) => !left.Equals(right);
+
+        public static explicit operator string(ExpeditedRolloutIntent value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExpeditedRolloutIntent other && Equals(other);
+        public bool Equals(ExpeditedRolloutIntent other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExtendedLocationType : IEquatable<ExtendedLocationType>
+    {
+        private readonly string _value;
+
+        private ExtendedLocationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The extended location type is not specified.
+        /// </summary>
+        public static ExtendedLocationType NotSpecified { get; } = new ExtendedLocationType("NotSpecified");
+        /// <summary>
+        /// The extended location type is custom location.
+        /// </summary>
+        public static ExtendedLocationType CustomLocation { get; } = new ExtendedLocationType("CustomLocation");
+        /// <summary>
+        /// The extended location type is edge zone.
+        /// </summary>
+        public static ExtendedLocationType EdgeZone { get; } = new ExtendedLocationType("EdgeZone");
+        /// <summary>
+        /// The extended location type is arc zone.
+        /// </summary>
+        public static ExtendedLocationType ArcZone { get; } = new ExtendedLocationType("ArcZone");
+
+        public static bool operator ==(ExtendedLocationType left, ExtendedLocationType right) => left.Equals(right);
+        public static bool operator !=(ExtendedLocationType left, ExtendedLocationType right) => !left.Equals(right);
+
+        public static explicit operator string(ExtendedLocationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExtendedLocationType other && Equals(other);
+        public bool Equals(ExtendedLocationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -63,6 +458,8 @@ namespace Pulumi.AzureNative.ProviderHub
         public static ExtensionCategory ResourcePatchBegin { get; } = new ExtensionCategory("ResourcePatchBegin");
         public static ExtensionCategory ResourceMoveBegin { get; } = new ExtensionCategory("ResourceMoveBegin");
         public static ExtensionCategory ResourceMoveCompleted { get; } = new ExtensionCategory("ResourceMoveCompleted");
+        public static ExtensionCategory BestMatchOperationBegin { get; } = new ExtensionCategory("BestMatchOperationBegin");
+        public static ExtensionCategory SubscriptionLifecycleNotificationDeletion { get; } = new ExtensionCategory("SubscriptionLifecycleNotificationDeletion");
 
         public static bool operator ==(ExtensionCategory left, ExtensionCategory right) => left.Equals(right);
         public static bool operator !=(ExtensionCategory left, ExtensionCategory right) => !left.Equals(right);
@@ -108,6 +505,9 @@ namespace Pulumi.AzureNative.ProviderHub
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The required feature policy.
+    /// </summary>
     [EnumType]
     public readonly struct FeaturesPolicy : IEquatable<FeaturesPolicy>
     {
@@ -136,6 +536,71 @@ namespace Pulumi.AzureNative.ProviderHub
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Filter option.
+    /// </summary>
+    [EnumType]
+    public readonly struct FilterOption : IEquatable<FilterOption>
+    {
+        private readonly string _value;
+
+        private FilterOption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FilterOption NotSpecified { get; } = new FilterOption("NotSpecified");
+        public static FilterOption EnableSubscriptionFilterOnTenant { get; } = new FilterOption("EnableSubscriptionFilterOnTenant");
+
+        public static bool operator ==(FilterOption left, FilterOption right) => left.Equals(right);
+        public static bool operator !=(FilterOption left, FilterOption right) => !left.Equals(right);
+
+        public static explicit operator string(FilterOption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FilterOption other && Equals(other);
+        public bool Equals(FilterOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The frontdoor request mode.
+    /// </summary>
+    [EnumType]
+    public readonly struct FrontdoorRequestMode : IEquatable<FrontdoorRequestMode>
+    {
+        private readonly string _value;
+
+        private FrontdoorRequestMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FrontdoorRequestMode NotSpecified { get; } = new FrontdoorRequestMode("NotSpecified");
+        public static FrontdoorRequestMode UseManifest { get; } = new FrontdoorRequestMode("UseManifest");
+
+        public static bool operator ==(FrontdoorRequestMode left, FrontdoorRequestMode right) => left.Equals(right);
+        public static bool operator !=(FrontdoorRequestMode left, FrontdoorRequestMode right) => !left.Equals(right);
+
+        public static explicit operator string(FrontdoorRequestMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FrontdoorRequestMode other && Equals(other);
+        public bool Equals(FrontdoorRequestMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type.
+    /// </summary>
     [EnumType]
     public readonly struct IdentityManagementTypes : IEquatable<IdentityManagementTypes>
     {
@@ -167,6 +632,155 @@ namespace Pulumi.AzureNative.ProviderHub
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The intent.
+    /// </summary>
+    [EnumType]
+    public readonly struct Intent : IEquatable<Intent>
+    {
+        private readonly string _value;
+
+        private Intent(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Default value.
+        /// </summary>
+        public static Intent NOT_SPECIFIED { get; } = new Intent("NOT_SPECIFIED");
+        /// <summary>
+        /// Data is not sensitive and ok to access.
+        /// </summary>
+        public static Intent LOW_PRIVILEGE { get; } = new Intent("LOW_PRIVILEGE");
+        /// <summary>
+        /// Used for RP's using a custom authorization check outside of ARM.
+        /// </summary>
+        public static Intent DEFERRED_ACCESS_CHECK { get; } = new Intent("DEFERRED_ACCESS_CHECK");
+        /// <summary>
+        /// RP contract allows certain operations to be unauthorized action.
+        /// </summary>
+        public static Intent RP_CONTRACT { get; } = new Intent("RP_CONTRACT");
+
+        public static bool operator ==(Intent left, Intent right) => left.Equals(right);
+        public static bool operator !=(Intent left, Intent right) => !left.Equals(right);
+
+        public static explicit operator string(Intent value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Intent other && Equals(other);
+        public bool Equals(Intent other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct LegacyOperation : IEquatable<LegacyOperation>
+    {
+        private readonly string _value;
+
+        private LegacyOperation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LegacyOperation NotSpecified { get; } = new LegacyOperation("NotSpecified");
+        public static LegacyOperation Create { get; } = new LegacyOperation("Create");
+        public static LegacyOperation Delete { get; } = new LegacyOperation("Delete");
+        public static LegacyOperation Waiting { get; } = new LegacyOperation("Waiting");
+        public static LegacyOperation AzureAsyncOperationWaiting { get; } = new LegacyOperation("AzureAsyncOperationWaiting");
+        public static LegacyOperation ResourceCacheWaiting { get; } = new LegacyOperation("ResourceCacheWaiting");
+        public static LegacyOperation Action { get; } = new LegacyOperation("Action");
+        public static LegacyOperation Read { get; } = new LegacyOperation("Read");
+        public static LegacyOperation EvaluateDeploymentOutput { get; } = new LegacyOperation("EvaluateDeploymentOutput");
+        public static LegacyOperation DeploymentCleanup { get; } = new LegacyOperation("DeploymentCleanup");
+
+        public static bool operator ==(LegacyOperation left, LegacyOperation right) => left.Equals(right);
+        public static bool operator !=(LegacyOperation left, LegacyOperation right) => !left.Equals(right);
+
+        public static explicit operator string(LegacyOperation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LegacyOperation other && Equals(other);
+        public bool Equals(LegacyOperation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The linked action.
+    /// </summary>
+    [EnumType]
+    public readonly struct LinkedAction : IEquatable<LinkedAction>
+    {
+        private readonly string _value;
+
+        private LinkedAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LinkedAction NotSpecified { get; } = new LinkedAction("NotSpecified");
+        public static LinkedAction Blocked { get; } = new LinkedAction("Blocked");
+        public static LinkedAction Validate { get; } = new LinkedAction("Validate");
+        public static LinkedAction Enabled { get; } = new LinkedAction("Enabled");
+
+        public static bool operator ==(LinkedAction left, LinkedAction right) => left.Equals(right);
+        public static bool operator !=(LinkedAction left, LinkedAction right) => !left.Equals(right);
+
+        public static explicit operator string(LinkedAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LinkedAction other && Equals(other);
+        public bool Equals(LinkedAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The linked operation.
+    /// </summary>
+    [EnumType]
+    public readonly struct LinkedOperation : IEquatable<LinkedOperation>
+    {
+        private readonly string _value;
+
+        private LinkedOperation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LinkedOperation None { get; } = new LinkedOperation("None");
+        public static LinkedOperation CrossResourceGroupResourceMove { get; } = new LinkedOperation("CrossResourceGroupResourceMove");
+        public static LinkedOperation CrossSubscriptionResourceMove { get; } = new LinkedOperation("CrossSubscriptionResourceMove");
+
+        public static bool operator ==(LinkedOperation left, LinkedOperation right) => left.Equals(right);
+        public static bool operator !=(LinkedOperation left, LinkedOperation right) => !left.Equals(right);
+
+        public static explicit operator string(LinkedOperation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LinkedOperation other && Equals(other);
+        public bool Equals(LinkedOperation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The detail level.
+    /// </summary>
     [EnumType]
     public readonly struct LoggingDetails : IEquatable<LoggingDetails>
     {
@@ -195,6 +809,9 @@ namespace Pulumi.AzureNative.ProviderHub
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The direction.
+    /// </summary>
     [EnumType]
     public readonly struct LoggingDirections : IEquatable<LoggingDirections>
     {
@@ -224,6 +841,42 @@ namespace Pulumi.AzureNative.ProviderHub
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The marketplace type.
+    /// </summary>
+    [EnumType]
+    public readonly struct MarketplaceType : IEquatable<MarketplaceType>
+    {
+        private readonly string _value;
+
+        private MarketplaceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MarketplaceType NotSpecified { get; } = new MarketplaceType("NotSpecified");
+        public static MarketplaceType AddOn { get; } = new MarketplaceType("AddOn");
+        public static MarketplaceType Bypass { get; } = new MarketplaceType("Bypass");
+        public static MarketplaceType Store { get; } = new MarketplaceType("Store");
+
+        public static bool operator ==(MarketplaceType left, MarketplaceType right) => left.Equals(right);
+        public static bool operator !=(MarketplaceType left, MarketplaceType right) => !left.Equals(right);
+
+        public static explicit operator string(MarketplaceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MarketplaceType other && Equals(other);
+        public bool Equals(MarketplaceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The message scope.
+    /// </summary>
     [EnumType]
     public readonly struct MessageScope : IEquatable<MessageScope>
     {
@@ -252,6 +905,40 @@ namespace Pulumi.AzureNative.ProviderHub
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The endpoint type.
+    /// </summary>
+    [EnumType]
+    public readonly struct NotificationEndpointType : IEquatable<NotificationEndpointType>
+    {
+        private readonly string _value;
+
+        private NotificationEndpointType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NotificationEndpointType Webhook { get; } = new NotificationEndpointType("Webhook");
+        public static NotificationEndpointType Eventhub { get; } = new NotificationEndpointType("Eventhub");
+
+        public static bool operator ==(NotificationEndpointType left, NotificationEndpointType right) => left.Equals(right);
+        public static bool operator !=(NotificationEndpointType left, NotificationEndpointType right) => !left.Equals(right);
+
+        public static explicit operator string(NotificationEndpointType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NotificationEndpointType other && Equals(other);
+        public bool Equals(NotificationEndpointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The notification mode.
+    /// </summary>
     [EnumType]
     public readonly struct NotificationMode : IEquatable<NotificationMode>
     {
@@ -281,6 +968,72 @@ namespace Pulumi.AzureNative.ProviderHub
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Notification options.
+    /// </summary>
+    [EnumType]
+    public readonly struct NotificationOptions : IEquatable<NotificationOptions>
+    {
+        private readonly string _value;
+
+        private NotificationOptions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NotificationOptions NotSpecified { get; } = new NotificationOptions("NotSpecified");
+        public static NotificationOptions None { get; } = new NotificationOptions("None");
+        public static NotificationOptions EmitSpendingLimit { get; } = new NotificationOptions("EmitSpendingLimit");
+
+        public static bool operator ==(NotificationOptions left, NotificationOptions right) => left.Equals(right);
+        public static bool operator !=(NotificationOptions left, NotificationOptions right) => !left.Equals(right);
+
+        public static explicit operator string(NotificationOptions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NotificationOptions other && Equals(other);
+        public bool Equals(NotificationOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The notification type.
+    /// </summary>
+    [EnumType]
+    public readonly struct NotificationType : IEquatable<NotificationType>
+    {
+        private readonly string _value;
+
+        private NotificationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NotificationType Unspecified { get; } = new NotificationType("Unspecified");
+        public static NotificationType SubscriptionNotification { get; } = new NotificationType("SubscriptionNotification");
+
+        public static bool operator ==(NotificationType left, NotificationType right) => left.Equals(right);
+        public static bool operator !=(NotificationType left, NotificationType right) => !left.Equals(right);
+
+        public static explicit operator string(NotificationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NotificationType other && Equals(other);
+        public bool Equals(NotificationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The opt in headers.
+    /// </summary>
     [EnumType]
     public readonly struct OptInHeaderType : IEquatable<OptInHeaderType>
     {
@@ -296,6 +1049,13 @@ namespace Pulumi.AzureNative.ProviderHub
         public static OptInHeaderType ClientGroupMembership { get; } = new OptInHeaderType("ClientGroupMembership");
         public static OptInHeaderType SignedAuxiliaryTokens { get; } = new OptInHeaderType("SignedAuxiliaryTokens");
         public static OptInHeaderType UnboundedClientGroupMembership { get; } = new OptInHeaderType("UnboundedClientGroupMembership");
+        public static OptInHeaderType PrivateLinkId { get; } = new OptInHeaderType("PrivateLinkId");
+        public static OptInHeaderType PrivateLinkResourceId { get; } = new OptInHeaderType("PrivateLinkResourceId");
+        public static OptInHeaderType ManagementGroupAncestorsEncoded { get; } = new OptInHeaderType("ManagementGroupAncestorsEncoded");
+        public static OptInHeaderType PrivateLinkVnetTrafficTag { get; } = new OptInHeaderType("PrivateLinkVnetTrafficTag");
+        public static OptInHeaderType ResourceGroupLocation { get; } = new OptInHeaderType("ResourceGroupLocation");
+        public static OptInHeaderType ClientPrincipalNameEncoded { get; } = new OptInHeaderType("ClientPrincipalNameEncoded");
+        public static OptInHeaderType MSIResourceIdEncoded { get; } = new OptInHeaderType("MSIResourceIdEncoded");
 
         public static bool operator ==(OptInHeaderType left, OptInHeaderType right) => left.Equals(right);
         public static bool operator !=(OptInHeaderType left, OptInHeaderType right) => !left.Equals(right);
@@ -312,6 +1072,40 @@ namespace Pulumi.AzureNative.ProviderHub
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The opt out headers.
+    /// </summary>
+    [EnumType]
+    public readonly struct OptOutHeaderType : IEquatable<OptOutHeaderType>
+    {
+        private readonly string _value;
+
+        private OptOutHeaderType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OptOutHeaderType NotSpecified { get; } = new OptOutHeaderType("NotSpecified");
+        public static OptOutHeaderType SystemDataCreatedByLastModifiedBy { get; } = new OptOutHeaderType("SystemDataCreatedByLastModifiedBy");
+
+        public static bool operator ==(OptOutHeaderType left, OptOutHeaderType right) => left.Equals(right);
+        public static bool operator !=(OptOutHeaderType left, OptOutHeaderType right) => !left.Equals(right);
+
+        public static explicit operator string(OptOutHeaderType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OptOutHeaderType other && Equals(other);
+        public bool Equals(OptOutHeaderType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The policy.
+    /// </summary>
     [EnumType]
     public readonly struct Policy : IEquatable<Policy>
     {
@@ -333,6 +1127,39 @@ namespace Pulumi.AzureNative.ProviderHub
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Policy other && Equals(other);
         public bool Equals(Policy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The policy execution type.
+    /// </summary>
+    [EnumType]
+    public readonly struct PolicyExecutionType : IEquatable<PolicyExecutionType>
+    {
+        private readonly string _value;
+
+        private PolicyExecutionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PolicyExecutionType NotSpecified { get; } = new PolicyExecutionType("NotSpecified");
+        public static PolicyExecutionType ExecutePolicies { get; } = new PolicyExecutionType("ExecutePolicies");
+        public static PolicyExecutionType BypassPolicies { get; } = new PolicyExecutionType("BypassPolicies");
+        public static PolicyExecutionType ExpectPartialPutRequests { get; } = new PolicyExecutionType("ExpectPartialPutRequests");
+
+        public static bool operator ==(PolicyExecutionType left, PolicyExecutionType right) => left.Equals(right);
+        public static bool operator !=(PolicyExecutionType left, PolicyExecutionType right) => !left.Equals(right);
+
+        public static explicit operator string(PolicyExecutionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicyExecutionType other && Equals(other);
+        public bool Equals(PolicyExecutionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -370,40 +1197,39 @@ namespace Pulumi.AzureNative.ProviderHub
     }
 
     /// <summary>
-    /// The provisioned state of the resource.
+    /// Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
     /// </summary>
     [EnumType]
-    public readonly struct ProvisioningState : IEquatable<ProvisioningState>
+    public readonly struct ProviderRegistrationKind : IEquatable<ProviderRegistrationKind>
     {
         private readonly string _value;
 
-        private ProvisioningState(string value)
+        private ProviderRegistrationKind(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ProvisioningState NotSpecified { get; } = new ProvisioningState("NotSpecified");
-        public static ProvisioningState Accepted { get; } = new ProvisioningState("Accepted");
-        public static ProvisioningState Running { get; } = new ProvisioningState("Running");
-        public static ProvisioningState Creating { get; } = new ProvisioningState("Creating");
-        public static ProvisioningState Created { get; } = new ProvisioningState("Created");
-        public static ProvisioningState Deleting { get; } = new ProvisioningState("Deleting");
-        public static ProvisioningState Deleted { get; } = new ProvisioningState("Deleted");
-        public static ProvisioningState Canceled { get; } = new ProvisioningState("Canceled");
-        public static ProvisioningState Failed { get; } = new ProvisioningState("Failed");
-        public static ProvisioningState Succeeded { get; } = new ProvisioningState("Succeeded");
-        public static ProvisioningState MovingResources { get; } = new ProvisioningState("MovingResources");
-        public static ProvisioningState TransientFailure { get; } = new ProvisioningState("TransientFailure");
-        public static ProvisioningState RolloutInProgress { get; } = new ProvisioningState("RolloutInProgress");
+        /// <summary>
+        /// Resource Provider with all the resource types 'managed' by the ProviderHub service.
+        /// </summary>
+        public static ProviderRegistrationKind Managed { get; } = new ProviderRegistrationKind("Managed");
+        /// <summary>
+        /// Resource Provider with a mix of 'managed' and 'direct' resource types.
+        /// </summary>
+        public static ProviderRegistrationKind Hybrid { get; } = new ProviderRegistrationKind("Hybrid");
+        /// <summary>
+        /// Resource Provider with all the resource types 'managed' on by itself.
+        /// </summary>
+        public static ProviderRegistrationKind Direct { get; } = new ProviderRegistrationKind("Direct");
 
-        public static bool operator ==(ProvisioningState left, ProvisioningState right) => left.Equals(right);
-        public static bool operator !=(ProvisioningState left, ProvisioningState right) => !left.Equals(right);
+        public static bool operator ==(ProviderRegistrationKind left, ProviderRegistrationKind right) => left.Equals(right);
+        public static bool operator !=(ProviderRegistrationKind left, ProviderRegistrationKind right) => !left.Equals(right);
 
-        public static explicit operator string(ProvisioningState value) => value._value;
+        public static explicit operator string(ProviderRegistrationKind value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ProvisioningState other && Equals(other);
-        public bool Equals(ProvisioningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ProviderRegistrationKind other && Equals(other);
+        public bool Equals(ProviderRegistrationKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -411,6 +1237,41 @@ namespace Pulumi.AzureNative.ProviderHub
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The quota policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct QuotaPolicy : IEquatable<QuotaPolicy>
+    {
+        private readonly string _value;
+
+        private QuotaPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static QuotaPolicy Default { get; } = new QuotaPolicy("Default");
+        public static QuotaPolicy None { get; } = new QuotaPolicy("None");
+        public static QuotaPolicy Restricted { get; } = new QuotaPolicy("Restricted");
+
+        public static bool operator ==(QuotaPolicy left, QuotaPolicy right) => left.Equals(right);
+        public static bool operator !=(QuotaPolicy left, QuotaPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(QuotaPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is QuotaPolicy other && Equals(other);
+        public bool Equals(QuotaPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The readiness.
+    /// </summary>
     [EnumType]
     public readonly struct Readiness : IEquatable<Readiness>
     {
@@ -446,6 +1307,9 @@ namespace Pulumi.AzureNative.ProviderHub
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The regionality.
+    /// </summary>
     [EnumType]
     public readonly struct Regionality : IEquatable<Regionality>
     {
@@ -475,6 +1339,41 @@ namespace Pulumi.AzureNative.ProviderHub
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The resource access policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceAccessPolicy : IEquatable<ResourceAccessPolicy>
+    {
+        private readonly string _value;
+
+        private ResourceAccessPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceAccessPolicy NotSpecified { get; } = new ResourceAccessPolicy("NotSpecified");
+        public static ResourceAccessPolicy AcisReadAllowed { get; } = new ResourceAccessPolicy("AcisReadAllowed");
+        public static ResourceAccessPolicy AcisActionAllowed { get; } = new ResourceAccessPolicy("AcisActionAllowed");
+
+        public static bool operator ==(ResourceAccessPolicy left, ResourceAccessPolicy right) => left.Equals(right);
+        public static bool operator !=(ResourceAccessPolicy left, ResourceAccessPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceAccessPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceAccessPolicy other && Equals(other);
+        public bool Equals(ResourceAccessPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The resource deletion policy.
+    /// </summary>
     [EnumType]
     public readonly struct ResourceDeletionPolicy : IEquatable<ResourceDeletionPolicy>
     {
@@ -504,6 +1403,9 @@ namespace Pulumi.AzureNative.ProviderHub
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The effect.
+    /// </summary>
     [EnumType]
     public readonly struct ResourceProviderCapabilitiesEffect : IEquatable<ResourceProviderCapabilitiesEffect>
     {
@@ -533,6 +1435,9 @@ namespace Pulumi.AzureNative.ProviderHub
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The provider type.
+    /// </summary>
     [EnumType]
     public readonly struct ResourceProviderType : IEquatable<ResourceProviderType>
     {
@@ -567,6 +1472,242 @@ namespace Pulumi.AzureNative.ProviderHub
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The resource sub type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceSubType : IEquatable<ResourceSubType>
+    {
+        private readonly string _value;
+
+        private ResourceSubType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceSubType NotSpecified { get; } = new ResourceSubType("NotSpecified");
+        public static ResourceSubType AsyncOperation { get; } = new ResourceSubType("AsyncOperation");
+
+        public static bool operator ==(ResourceSubType left, ResourceSubType right) => left.Equals(right);
+        public static bool operator !=(ResourceSubType left, ResourceSubType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceSubType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceSubType other && Equals(other);
+        public bool Equals(ResourceSubType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The category.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceTypeCategory : IEquatable<ResourceTypeCategory>
+    {
+        private readonly string _value;
+
+        private ResourceTypeCategory(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceTypeCategory None { get; } = new ResourceTypeCategory("None");
+        public static ResourceTypeCategory FreeForm { get; } = new ResourceTypeCategory("FreeForm");
+        public static ResourceTypeCategory Internal { get; } = new ResourceTypeCategory("Internal");
+        public static ResourceTypeCategory PureProxy { get; } = new ResourceTypeCategory("PureProxy");
+
+        public static bool operator ==(ResourceTypeCategory left, ResourceTypeCategory right) => left.Equals(right);
+        public static bool operator !=(ResourceTypeCategory left, ResourceTypeCategory right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceTypeCategory value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceTypeCategory other && Equals(other);
+        public bool Equals(ResourceTypeCategory other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Resource type endpoint kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceTypeEndpointKind : IEquatable<ResourceTypeEndpointKind>
+    {
+        private readonly string _value;
+
+        private ResourceTypeEndpointKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Endpoint served by ProviderHub service
+        /// </summary>
+        public static ResourceTypeEndpointKind Managed { get; } = new ResourceTypeEndpointKind("Managed");
+        /// <summary>
+        /// Endpoint served by the onboarded Resource Provider Service.
+        /// </summary>
+        public static ResourceTypeEndpointKind Direct { get; } = new ResourceTypeEndpointKind("Direct");
+
+        public static bool operator ==(ResourceTypeEndpointKind left, ResourceTypeEndpointKind right) => left.Equals(right);
+        public static bool operator !=(ResourceTypeEndpointKind left, ResourceTypeEndpointKind right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceTypeEndpointKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceTypeEndpointKind other && Equals(other);
+        public bool Equals(ResourceTypeEndpointKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ResourceTypeExtendedLocationPolicy : IEquatable<ResourceTypeExtendedLocationPolicy>
+    {
+        private readonly string _value;
+
+        private ResourceTypeExtendedLocationPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceTypeExtendedLocationPolicy NotSpecified { get; } = new ResourceTypeExtendedLocationPolicy("NotSpecified");
+        public static ResourceTypeExtendedLocationPolicy All { get; } = new ResourceTypeExtendedLocationPolicy("All");
+
+        public static bool operator ==(ResourceTypeExtendedLocationPolicy left, ResourceTypeExtendedLocationPolicy right) => left.Equals(right);
+        public static bool operator !=(ResourceTypeExtendedLocationPolicy left, ResourceTypeExtendedLocationPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceTypeExtendedLocationPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceTypeExtendedLocationPolicy other && Equals(other);
+        public bool Equals(ResourceTypeExtendedLocationPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceTypeRegistrationKind : IEquatable<ResourceTypeRegistrationKind>
+    {
+        private readonly string _value;
+
+        private ResourceTypeRegistrationKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Resource type served by the ProviderHub service.
+        /// </summary>
+        public static ResourceTypeRegistrationKind Managed { get; } = new ResourceTypeRegistrationKind("Managed");
+        /// <summary>
+        /// Resource type served by both the ProviderHub &amp; the onboarded Resource Provider Services (i.e. The type has a mix of managed and direct endpoints).
+        /// </summary>
+        public static ResourceTypeRegistrationKind Hybrid { get; } = new ResourceTypeRegistrationKind("Hybrid");
+        /// <summary>
+        /// Resource type served by the onboarded Resource Provider Service.
+        /// </summary>
+        public static ResourceTypeRegistrationKind Direct { get; } = new ResourceTypeRegistrationKind("Direct");
+
+        public static bool operator ==(ResourceTypeRegistrationKind left, ResourceTypeRegistrationKind right) => left.Equals(right);
+        public static bool operator !=(ResourceTypeRegistrationKind left, ResourceTypeRegistrationKind right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceTypeRegistrationKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceTypeRegistrationKind other && Equals(other);
+        public bool Equals(ResourceTypeRegistrationKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The resource validation.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceValidation : IEquatable<ResourceValidation>
+    {
+        private readonly string _value;
+
+        private ResourceValidation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceValidation NotSpecified { get; } = new ResourceValidation("NotSpecified");
+        public static ResourceValidation ReservedWords { get; } = new ResourceValidation("ReservedWords");
+        public static ResourceValidation ProfaneWords { get; } = new ResourceValidation("ProfaneWords");
+
+        public static bool operator ==(ResourceValidation left, ResourceValidation right) => left.Equals(right);
+        public static bool operator !=(ResourceValidation left, ResourceValidation right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceValidation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceValidation other && Equals(other);
+        public bool Equals(ResourceValidation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The ownership role the application has on the resource types. The service owner role gives the application owner permissions. The limited owner role gives elevated permissions but does not allow all the permissions of a service owner, such as read/write on internal metadata.
+    /// </summary>
+    [EnumType]
+    public readonly struct Role : IEquatable<Role>
+    {
+        private readonly string _value;
+
+        private Role(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Role ServiceOwner { get; } = new Role("ServiceOwner");
+        public static Role LimitedOwner { get; } = new Role("LimitedOwner");
+
+        public static bool operator ==(Role left, Role right) => left.Equals(right);
+        public static bool operator !=(Role left, Role right) => !left.Equals(right);
+
+        public static explicit operator string(Role value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Role other && Equals(other);
+        public bool Equals(Role other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The resource routing type.
+    /// </summary>
     [EnumType]
     public readonly struct RoutingType : IEquatable<RoutingType>
     {
@@ -577,15 +1718,62 @@ namespace Pulumi.AzureNative.ProviderHub
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// The resource routing type is default.
+        /// </summary>
         public static RoutingType Default { get; } = new RoutingType("Default");
+        /// <summary>
+        /// The resource routing type is proxy only.
+        /// </summary>
         public static RoutingType ProxyOnly { get; } = new RoutingType("ProxyOnly");
+        /// <summary>
+        /// The resource routing type is host based.
+        /// </summary>
         public static RoutingType HostBased { get; } = new RoutingType("HostBased");
+        /// <summary>
+        /// The resource routing type is extension.
+        /// </summary>
         public static RoutingType Extension { get; } = new RoutingType("Extension");
+        /// <summary>
+        /// The resource routing type is tenant.
+        /// </summary>
         public static RoutingType Tenant { get; } = new RoutingType("Tenant");
+        /// <summary>
+        /// The resource routing type is fanout.
+        /// </summary>
         public static RoutingType Fanout { get; } = new RoutingType("Fanout");
+        /// <summary>
+        /// The resource routing type is location based.
+        /// </summary>
         public static RoutingType LocationBased { get; } = new RoutingType("LocationBased");
+        /// <summary>
+        /// The resource routing type is failover.
+        /// </summary>
         public static RoutingType Failover { get; } = new RoutingType("Failover");
+        /// <summary>
+        /// The resource routing type is cascade extension.
+        /// </summary>
         public static RoutingType CascadeExtension { get; } = new RoutingType("CascadeExtension");
+        /// <summary>
+        /// The resource routing type is child fanout.
+        /// </summary>
+        public static RoutingType ChildFanout { get; } = new RoutingType("ChildFanout");
+        /// <summary>
+        /// The resource routing type is cascade authorized extension.
+        /// </summary>
+        public static RoutingType CascadeAuthorizedExtension { get; } = new RoutingType("CascadeAuthorizedExtension");
+        /// <summary>
+        /// The resource routing type is bypass endpoint selection optimization.
+        /// </summary>
+        public static RoutingType BypassEndpointSelectionOptimization { get; } = new RoutingType("BypassEndpointSelectionOptimization");
+        /// <summary>
+        /// The resource routing type is location mapping.
+        /// </summary>
+        public static RoutingType LocationMapping { get; } = new RoutingType("LocationMapping");
+        /// <summary>
+        /// The resource routing type is service fanout.
+        /// </summary>
+        public static RoutingType ServiceFanout { get; } = new RoutingType("ServiceFanout");
 
         public static bool operator ==(RoutingType left, RoutingType right) => left.Equals(right);
         public static bool operator !=(RoutingType left, RoutingType right) => !left.Equals(right);
@@ -602,6 +1790,162 @@ namespace Pulumi.AzureNative.ProviderHub
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Type of server failure response message.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServerFailureResponseMessageType : IEquatable<ServerFailureResponseMessageType>
+    {
+        private readonly string _value;
+
+        private ServerFailureResponseMessageType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerFailureResponseMessageType NotSpecified { get; } = new ServerFailureResponseMessageType("NotSpecified");
+        public static ServerFailureResponseMessageType OutageReporting { get; } = new ServerFailureResponseMessageType("OutageReporting");
+
+        public static bool operator ==(ServerFailureResponseMessageType left, ServerFailureResponseMessageType right) => left.Equals(right);
+        public static bool operator !=(ServerFailureResponseMessageType left, ServerFailureResponseMessageType right) => !left.Equals(right);
+
+        public static explicit operator string(ServerFailureResponseMessageType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerFailureResponseMessageType other && Equals(other);
+        public bool Equals(ServerFailureResponseMessageType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ServiceClientOptionsType : IEquatable<ServiceClientOptionsType>
+    {
+        private readonly string _value;
+
+        private ServiceClientOptionsType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceClientOptionsType NotSpecified { get; } = new ServiceClientOptionsType("NotSpecified");
+        public static ServiceClientOptionsType DisableAutomaticDecompression { get; } = new ServiceClientOptionsType("DisableAutomaticDecompression");
+
+        public static bool operator ==(ServiceClientOptionsType left, ServiceClientOptionsType right) => left.Equals(right);
+        public static bool operator !=(ServiceClientOptionsType left, ServiceClientOptionsType right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceClientOptionsType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceClientOptionsType other && Equals(other);
+        public bool Equals(ServiceClientOptionsType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceStatus : IEquatable<ServiceStatus>
+    {
+        private readonly string _value;
+
+        private ServiceStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceStatus Active { get; } = new ServiceStatus("Active");
+        public static ServiceStatus Inactive { get; } = new ServiceStatus("Inactive");
+
+        public static bool operator ==(ServiceStatus left, ServiceStatus right) => left.Equals(right);
+        public static bool operator !=(ServiceStatus left, ServiceStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceStatus other && Equals(other);
+        public bool Equals(ServiceStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The signed request scope.
+    /// </summary>
+    [EnumType]
+    public readonly struct SignedRequestScope : IEquatable<SignedRequestScope>
+    {
+        private readonly string _value;
+
+        private SignedRequestScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SignedRequestScope ResourceUri { get; } = new SignedRequestScope("ResourceUri");
+        public static SignedRequestScope Endpoint { get; } = new SignedRequestScope("Endpoint");
+
+        public static bool operator ==(SignedRequestScope left, SignedRequestScope right) => left.Equals(right);
+        public static bool operator !=(SignedRequestScope left, SignedRequestScope right) => !left.Equals(right);
+
+        public static explicit operator string(SignedRequestScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SignedRequestScope other && Equals(other);
+        public bool Equals(SignedRequestScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether notifications should be skipped.
+    /// </summary>
+    [EnumType]
+    public readonly struct SkipNotifications : IEquatable<SkipNotifications>
+    {
+        private readonly string _value;
+
+        private SkipNotifications(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SkipNotifications Unspecified { get; } = new SkipNotifications("Unspecified");
+        public static SkipNotifications Enabled { get; } = new SkipNotifications("Enabled");
+        public static SkipNotifications Disabled { get; } = new SkipNotifications("Disabled");
+
+        public static bool operator ==(SkipNotifications left, SkipNotifications right) => left.Equals(right);
+        public static bool operator !=(SkipNotifications left, SkipNotifications right) => !left.Equals(right);
+
+        public static explicit operator string(SkipNotifications value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SkipNotifications other && Equals(other);
+        public bool Equals(SkipNotifications other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The scale type.
+    /// </summary>
     [EnumType]
     public readonly struct SkuScaleType : IEquatable<SkuScaleType>
     {
@@ -631,6 +1975,9 @@ namespace Pulumi.AzureNative.ProviderHub
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The action.
+    /// </summary>
     [EnumType]
     public readonly struct SubscriptionNotificationOperation : IEquatable<SubscriptionNotificationOperation>
     {
@@ -663,6 +2010,9 @@ namespace Pulumi.AzureNative.ProviderHub
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The subscription reregistration result.
+    /// </summary>
     [EnumType]
     public readonly struct SubscriptionReregistrationResult : IEquatable<SubscriptionReregistrationResult>
     {
@@ -693,6 +2043,9 @@ namespace Pulumi.AzureNative.ProviderHub
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The subscription state.
+    /// </summary>
     [EnumType]
     public readonly struct SubscriptionState : IEquatable<SubscriptionState>
     {
@@ -725,6 +2078,9 @@ namespace Pulumi.AzureNative.ProviderHub
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The state.
+    /// </summary>
     [EnumType]
     public readonly struct SubscriptionTransitioningState : IEquatable<SubscriptionTransitioningState>
     {
@@ -764,6 +2120,137 @@ namespace Pulumi.AzureNative.ProviderHub
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Supported operations.
+    /// </summary>
+    [EnumType]
+    public readonly struct SupportedOperations : IEquatable<SupportedOperations>
+    {
+        private readonly string _value;
+
+        private SupportedOperations(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SupportedOperations NotSpecified { get; } = new SupportedOperations("NotSpecified");
+        public static SupportedOperations Get { get; } = new SupportedOperations("Get");
+        public static SupportedOperations Delete { get; } = new SupportedOperations("Delete");
+
+        public static bool operator ==(SupportedOperations left, SupportedOperations right) => left.Equals(right);
+        public static bool operator !=(SupportedOperations left, SupportedOperations right) => !left.Equals(right);
+
+        public static explicit operator string(SupportedOperations value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SupportedOperations other && Equals(other);
+        public bool Equals(SupportedOperations other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The capabilities.
+    /// </summary>
+    [EnumType]
+    public readonly struct TemplateDeploymentCapabilities : IEquatable<TemplateDeploymentCapabilities>
+    {
+        private readonly string _value;
+
+        private TemplateDeploymentCapabilities(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateDeploymentCapabilities Default { get; } = new TemplateDeploymentCapabilities("Default");
+        public static TemplateDeploymentCapabilities Preflight { get; } = new TemplateDeploymentCapabilities("Preflight");
+
+        public static bool operator ==(TemplateDeploymentCapabilities left, TemplateDeploymentCapabilities right) => left.Equals(right);
+        public static bool operator !=(TemplateDeploymentCapabilities left, TemplateDeploymentCapabilities right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateDeploymentCapabilities value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateDeploymentCapabilities other && Equals(other);
+        public bool Equals(TemplateDeploymentCapabilities other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The preflight notifications.
+    /// </summary>
+    [EnumType]
+    public readonly struct TemplateDeploymentPreflightNotifications : IEquatable<TemplateDeploymentPreflightNotifications>
+    {
+        private readonly string _value;
+
+        private TemplateDeploymentPreflightNotifications(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateDeploymentPreflightNotifications None { get; } = new TemplateDeploymentPreflightNotifications("None");
+        public static TemplateDeploymentPreflightNotifications UnregisteredSubscriptions { get; } = new TemplateDeploymentPreflightNotifications("UnregisteredSubscriptions");
+
+        public static bool operator ==(TemplateDeploymentPreflightNotifications left, TemplateDeploymentPreflightNotifications right) => left.Equals(right);
+        public static bool operator !=(TemplateDeploymentPreflightNotifications left, TemplateDeploymentPreflightNotifications right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateDeploymentPreflightNotifications value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateDeploymentPreflightNotifications other && Equals(other);
+        public bool Equals(TemplateDeploymentPreflightNotifications other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The preflight options.
+    /// </summary>
+    [EnumType]
+    public readonly struct TemplateDeploymentPreflightOptions : IEquatable<TemplateDeploymentPreflightOptions>
+    {
+        private readonly string _value;
+
+        private TemplateDeploymentPreflightOptions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateDeploymentPreflightOptions None { get; } = new TemplateDeploymentPreflightOptions("None");
+        public static TemplateDeploymentPreflightOptions ValidationRequests { get; } = new TemplateDeploymentPreflightOptions("ValidationRequests");
+        public static TemplateDeploymentPreflightOptions DeploymentRequests { get; } = new TemplateDeploymentPreflightOptions("DeploymentRequests");
+        public static TemplateDeploymentPreflightOptions TestOnly { get; } = new TemplateDeploymentPreflightOptions("TestOnly");
+        public static TemplateDeploymentPreflightOptions RegisteredOnly { get; } = new TemplateDeploymentPreflightOptions("RegisteredOnly");
+
+        public static bool operator ==(TemplateDeploymentPreflightOptions left, TemplateDeploymentPreflightOptions right) => left.Equals(right);
+        public static bool operator !=(TemplateDeploymentPreflightOptions left, TemplateDeploymentPreflightOptions right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateDeploymentPreflightOptions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateDeploymentPreflightOptions other && Equals(other);
+        public bool Equals(TemplateDeploymentPreflightOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The throttling metric type
+    /// </summary>
     [EnumType]
     public readonly struct ThrottlingMetricType : IEquatable<ThrottlingMetricType>
     {
@@ -793,6 +2280,9 @@ namespace Pulumi.AzureNative.ProviderHub
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The next traffic region.
+    /// </summary>
     [EnumType]
     public readonly struct TrafficRegionCategory : IEquatable<TrafficRegionCategory>
     {

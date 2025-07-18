@@ -28,7 +28,7 @@ class GetAvailabilitySetResult:
     """
     Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to an availability set at creation time. An existing VM cannot be added to an availability set.
     """
-    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, platform_fault_domain_count=None, platform_update_domain_count=None, proximity_placement_group=None, scheduled_events_policy=None, sku=None, statuses=None, tags=None, type=None, virtual_machine_scale_set_migration_info=None, virtual_machines=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, platform_fault_domain_count=None, platform_update_domain_count=None, proximity_placement_group=None, scheduled_events_policy=None, sku=None, statuses=None, system_data=None, tags=None, type=None, virtual_machine_scale_set_migration_info=None, virtual_machines=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -59,6 +59,9 @@ class GetAvailabilitySetResult:
         if statuses and not isinstance(statuses, list):
             raise TypeError("Expected argument 'statuses' to be a list")
         pulumi.set(__self__, "statuses", statuses)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -84,7 +87,7 @@ class GetAvailabilitySetResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -92,7 +95,7 @@ class GetAvailabilitySetResult:
     @pulumi.getter
     def location(self) -> builtins.str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -100,7 +103,7 @@ class GetAvailabilitySetResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -153,10 +156,18 @@ class GetAvailabilitySetResult:
         return pulumi.get(self, "statuses")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -164,7 +175,7 @@ class GetAvailabilitySetResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -201,6 +212,7 @@ class AwaitableGetAvailabilitySetResult(GetAvailabilitySetResult):
             scheduled_events_policy=self.scheduled_events_policy,
             sku=self.sku,
             statuses=self.statuses,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             virtual_machine_scale_set_migration_info=self.virtual_machine_scale_set_migration_info,
@@ -219,7 +231,7 @@ def get_availability_set(availability_set_name: Optional[builtins.str] = None,
 
 
     :param builtins.str availability_set_name: The name of the availability set.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['availabilitySetName'] = availability_set_name
@@ -238,6 +250,7 @@ def get_availability_set(availability_set_name: Optional[builtins.str] = None,
         scheduled_events_policy=pulumi.get(__ret__, 'scheduled_events_policy'),
         sku=pulumi.get(__ret__, 'sku'),
         statuses=pulumi.get(__ret__, 'statuses'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_machine_scale_set_migration_info=pulumi.get(__ret__, 'virtual_machine_scale_set_migration_info'),
@@ -254,7 +267,7 @@ def get_availability_set_output(availability_set_name: Optional[pulumi.Input[bui
 
 
     :param builtins.str availability_set_name: The name of the availability set.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['availabilitySetName'] = availability_set_name
@@ -272,6 +285,7 @@ def get_availability_set_output(availability_set_name: Optional[pulumi.Input[bui
         scheduled_events_policy=pulumi.get(__response__, 'scheduled_events_policy'),
         sku=pulumi.get(__response__, 'sku'),
         statuses=pulumi.get(__response__, 'statuses'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         virtual_machine_scale_set_migration_info=pulumi.get(__response__, 'virtual_machine_scale_set_migration_info'),

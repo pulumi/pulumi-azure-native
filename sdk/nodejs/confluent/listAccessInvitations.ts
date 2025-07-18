@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * List invitations success response
+ * Organization accounts invitation details
  *
  * Uses Azure REST API version 2024-07-01.
  *
@@ -29,7 +29,7 @@ export interface ListAccessInvitationsArgs {
      */
     organizationName: string;
     /**
-     * Resource group name
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -56,7 +56,7 @@ export interface ListAccessInvitationsResult {
     readonly metadata?: outputs.confluent.ConfluentListMetadataResponse;
 }
 /**
- * List invitations success response
+ * Organization accounts invitation details
  *
  * Uses Azure REST API version 2024-07-01.
  *
@@ -77,7 +77,7 @@ export interface ListAccessInvitationsOutputArgs {
      */
     organizationName: pulumi.Input<string>;
     /**
-     * Resource group name
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
