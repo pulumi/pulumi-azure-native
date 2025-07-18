@@ -48,17 +48,15 @@ ApiManagement:
         listGatewayDebugCredentials: 2024-06-01-preview
         listGatewayTrace: 2024-06-01-preview
 App:
-    tracking: "2024-03-01"
+    tracking: "2025-01-01"
     additions:
         AppResiliency: 2024-10-02-preview
         Build: 2024-10-02-preview
         Builder: 2024-10-02-preview
-        ContainerAppsSessionPool: 2024-10-02-preview
         DaprComponentResiliencyPolicy: 2024-10-02-preview
         DaprSubscription: 2024-10-02-preview
         DotNetComponent: 2024-10-02-preview
         HttpRouteConfig: 2024-10-02-preview
-        JavaComponent: 2024-10-02-preview
         LogicApp: 2024-10-02-preview
         MaintenanceConfiguration: 2024-10-02-preview
         ManagedEnvironmentPrivateEndpointConnection: 2024-10-02-preview
