@@ -51,6 +51,8 @@ __all__ = [
     'BlobStorageTokenStoreArgsDict',
     'BuildConfigurationArgs',
     'BuildConfigurationArgsDict',
+    'CertificateKeyVaultPropertiesArgs',
+    'CertificateKeyVaultPropertiesArgsDict',
     'CertificatePropertiesArgs',
     'CertificatePropertiesArgsDict',
     'CircuitBreakerPolicyArgs',
@@ -167,6 +169,8 @@ __all__ = [
     'HttpSettingsArgsDict',
     'IdentityProvidersArgs',
     'IdentityProvidersArgsDict',
+    'IdentitySettingsArgs',
+    'IdentitySettingsArgsDict',
     'IngressPortMappingArgs',
     'IngressPortMappingArgsDict',
     'IngressStickySessionsArgs',
@@ -199,6 +203,8 @@ __all__ = [
     'JobTemplateArgsDict',
     'JwtClaimChecksArgs',
     'JwtClaimChecksArgsDict',
+    'LifecycleConfigurationArgs',
+    'LifecycleConfigurationArgsDict',
     'LogAnalyticsConfigurationArgs',
     'LogAnalyticsConfigurationArgsDict',
     'LoginRoutesArgs',
@@ -223,8 +229,8 @@ __all__ = [
     'ManagedServiceIdentityArgsDict',
     'MtlsArgs',
     'MtlsArgsDict',
-    'NacosComponentArgs',
-    'NacosComponentArgsDict',
+    'NfsAzureFilePropertiesArgs',
+    'NfsAzureFilePropertiesArgsDict',
     'NonceArgs',
     'NonceArgsDict',
     'OpenIdConnectClientCredentialArgs',
@@ -245,6 +251,10 @@ __all__ = [
     'RegistryCredentialsArgsDict',
     'RegistryInfoArgs',
     'RegistryInfoArgsDict',
+    'RuntimeJavaArgs',
+    'RuntimeJavaArgsDict',
+    'RuntimeArgs',
+    'RuntimeArgsDict',
     'ScaleConfigurationArgs',
     'ScaleConfigurationArgsDict',
     'ScaleRuleAuthArgs',
@@ -253,8 +263,6 @@ __all__ = [
     'ScaleRuleArgsDict',
     'ScaleArgs',
     'ScaleArgsDict',
-    'ScgRouteArgs',
-    'ScgRouteArgsDict',
     'ScheduledEntryArgs',
     'ScheduledEntryArgsDict',
     'SecretVolumeItemArgs',
@@ -283,8 +291,6 @@ __all__ = [
     'SpringCloudConfigComponentArgsDict',
     'SpringCloudEurekaComponentArgs',
     'SpringCloudEurekaComponentArgsDict',
-    'SpringCloudGatewayComponentArgs',
-    'SpringCloudGatewayComponentArgsDict',
     'TcpConnectionPoolArgs',
     'TcpConnectionPoolArgsDict',
     'TcpRetryPolicyArgs',
@@ -803,7 +809,7 @@ if not MYPY:
         open_id_issuer: NotRequired[pulumi.Input[builtins.str]]
         """
         The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
-        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`.
+        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
         This URI is a case-sensitive identifier for the token issuer.
         More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         """
@@ -833,7 +839,7 @@ class AzureActiveDirectoryRegistrationArgs:
                a replacement for the Client Secret. It is also optional.
         :param pulumi.Input[builtins.str] client_secret_setting_name: The app setting name that contains the client secret of the relying party application.
         :param pulumi.Input[builtins.str] open_id_issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
-               When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`.
+               When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
                This URI is a case-sensitive identifier for the token issuer.
                More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         """
@@ -921,7 +927,7 @@ class AzureActiveDirectoryRegistrationArgs:
     def open_id_issuer(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
-        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`.
+        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
         This URI is a case-sensitive identifier for the token issuer.
         More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         """
@@ -1586,9 +1592,69 @@ class BuildConfigurationArgs:
 
 
 if not MYPY:
+    class CertificateKeyVaultPropertiesArgsDict(TypedDict):
+        """
+        Properties for a certificate stored in a Key Vault.
+        """
+        identity: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Resource ID of a managed identity to authenticate with Azure Key Vault, or System to use a system-assigned identity.
+        """
+        key_vault_url: NotRequired[pulumi.Input[builtins.str]]
+        """
+        URL pointing to the Azure Key Vault secret that holds the certificate.
+        """
+elif False:
+    CertificateKeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CertificateKeyVaultPropertiesArgs:
+    def __init__(__self__, *,
+                 identity: Optional[pulumi.Input[builtins.str]] = None,
+                 key_vault_url: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Properties for a certificate stored in a Key Vault.
+        :param pulumi.Input[builtins.str] identity: Resource ID of a managed identity to authenticate with Azure Key Vault, or System to use a system-assigned identity.
+        :param pulumi.Input[builtins.str] key_vault_url: URL pointing to the Azure Key Vault secret that holds the certificate.
+        """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_vault_url is not None:
+            pulumi.set(__self__, "key_vault_url", key_vault_url)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Resource ID of a managed identity to authenticate with Azure Key Vault, or System to use a system-assigned identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="keyVaultUrl")
+    def key_vault_url(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        URL pointing to the Azure Key Vault secret that holds the certificate.
+        """
+        return pulumi.get(self, "key_vault_url")
+
+    @key_vault_url.setter
+    def key_vault_url(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "key_vault_url", value)
+
+
+if not MYPY:
     class CertificatePropertiesArgsDict(TypedDict):
         """
         Certificate resource specific properties
+        """
+        certificate_key_vault_properties: NotRequired[pulumi.Input['CertificateKeyVaultPropertiesArgsDict']]
+        """
+        Properties for a certificate stored in a Key Vault.
         """
         password: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -1604,17 +1670,33 @@ elif False:
 @pulumi.input_type
 class CertificatePropertiesArgs:
     def __init__(__self__, *,
+                 certificate_key_vault_properties: Optional[pulumi.Input['CertificateKeyVaultPropertiesArgs']] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
                  value: Optional[pulumi.Input[builtins.str]] = None):
         """
         Certificate resource specific properties
+        :param pulumi.Input['CertificateKeyVaultPropertiesArgs'] certificate_key_vault_properties: Properties for a certificate stored in a Key Vault.
         :param pulumi.Input[builtins.str] password: Certificate password.
         :param pulumi.Input[builtins.str] value: PFX or PEM blob
         """
+        if certificate_key_vault_properties is not None:
+            pulumi.set(__self__, "certificate_key_vault_properties", certificate_key_vault_properties)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if value is not None:
             pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="certificateKeyVaultProperties")
+    def certificate_key_vault_properties(self) -> Optional[pulumi.Input['CertificateKeyVaultPropertiesArgs']]:
+        """
+        Properties for a certificate stored in a Key Vault.
+        """
+        return pulumi.get(self, "certificate_key_vault_properties")
+
+    @certificate_key_vault_properties.setter
+    def certificate_key_vault_properties(self, value: Optional[pulumi.Input['CertificateKeyVaultPropertiesArgs']]):
+        pulumi.set(self, "certificate_key_vault_properties", value)
 
     @property
     @pulumi.getter
@@ -1787,6 +1869,10 @@ if not MYPY:
         """
         Dapr configuration for the Container App.
         """
+        identity_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['IdentitySettingsArgsDict']]]]
+        """
+        Optional settings for Managed Identities that are assigned to the Container App. If a Managed Identity is not specified here, default settings will be used.
+        """
         ingress: NotRequired[pulumi.Input['IngressArgsDict']]
         """
         Ingress configurations.
@@ -1798,6 +1884,10 @@ if not MYPY:
         registries: NotRequired[pulumi.Input[Sequence[pulumi.Input['RegistryCredentialsArgsDict']]]]
         """
         Collection of private container registry credentials for containers used by the Container app
+        """
+        runtime: NotRequired[pulumi.Input['RuntimeArgsDict']]
+        """
+        App runtime configuration for the Container App.
         """
         secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['SecretArgsDict']]]]
         """
@@ -1815,9 +1905,11 @@ class ConfigurationArgs:
     def __init__(__self__, *,
                  active_revisions_mode: Optional[pulumi.Input[Union[builtins.str, 'ActiveRevisionsMode']]] = None,
                  dapr: Optional[pulumi.Input['DaprArgs']] = None,
+                 identity_settings: Optional[pulumi.Input[Sequence[pulumi.Input['IdentitySettingsArgs']]]] = None,
                  ingress: Optional[pulumi.Input['IngressArgs']] = None,
                  max_inactive_revisions: Optional[pulumi.Input[builtins.int]] = None,
                  registries: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryCredentialsArgs']]]] = None,
+                 runtime: Optional[pulumi.Input['RuntimeArgs']] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['SecretArgs']]]] = None,
                  service: Optional[pulumi.Input['ServiceArgs']] = None):
         """
@@ -1825,9 +1917,11 @@ class ConfigurationArgs:
         :param pulumi.Input[Union[builtins.str, 'ActiveRevisionsMode']] active_revisions_mode: ActiveRevisionsMode controls how active revisions are handled for the Container app:
                <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
         :param pulumi.Input['DaprArgs'] dapr: Dapr configuration for the Container App.
+        :param pulumi.Input[Sequence[pulumi.Input['IdentitySettingsArgs']]] identity_settings: Optional settings for Managed Identities that are assigned to the Container App. If a Managed Identity is not specified here, default settings will be used.
         :param pulumi.Input['IngressArgs'] ingress: Ingress configurations.
         :param pulumi.Input[builtins.int] max_inactive_revisions: Optional. Max inactive revisions a Container App can have.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryCredentialsArgs']]] registries: Collection of private container registry credentials for containers used by the Container app
+        :param pulumi.Input['RuntimeArgs'] runtime: App runtime configuration for the Container App.
         :param pulumi.Input[Sequence[pulumi.Input['SecretArgs']]] secrets: Collection of secrets used by a Container app
         :param pulumi.Input['ServiceArgs'] service: Container App to be a dev Container App Service
         """
@@ -1837,12 +1931,16 @@ class ConfigurationArgs:
             pulumi.set(__self__, "active_revisions_mode", active_revisions_mode)
         if dapr is not None:
             pulumi.set(__self__, "dapr", dapr)
+        if identity_settings is not None:
+            pulumi.set(__self__, "identity_settings", identity_settings)
         if ingress is not None:
             pulumi.set(__self__, "ingress", ingress)
         if max_inactive_revisions is not None:
             pulumi.set(__self__, "max_inactive_revisions", max_inactive_revisions)
         if registries is not None:
             pulumi.set(__self__, "registries", registries)
+        if runtime is not None:
+            pulumi.set(__self__, "runtime", runtime)
         if secrets is not None:
             pulumi.set(__self__, "secrets", secrets)
         if service is not None:
@@ -1872,6 +1970,18 @@ class ConfigurationArgs:
     @dapr.setter
     def dapr(self, value: Optional[pulumi.Input['DaprArgs']]):
         pulumi.set(self, "dapr", value)
+
+    @property
+    @pulumi.getter(name="identitySettings")
+    def identity_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdentitySettingsArgs']]]]:
+        """
+        Optional settings for Managed Identities that are assigned to the Container App. If a Managed Identity is not specified here, default settings will be used.
+        """
+        return pulumi.get(self, "identity_settings")
+
+    @identity_settings.setter
+    def identity_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IdentitySettingsArgs']]]]):
+        pulumi.set(self, "identity_settings", value)
 
     @property
     @pulumi.getter
@@ -1908,6 +2018,18 @@ class ConfigurationArgs:
     @registries.setter
     def registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryCredentialsArgs']]]]):
         pulumi.set(self, "registries", value)
+
+    @property
+    @pulumi.getter
+    def runtime(self) -> Optional[pulumi.Input['RuntimeArgs']]:
+        """
+        App runtime configuration for the Container App.
+        """
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: Optional[pulumi.Input['RuntimeArgs']]):
+        pulumi.set(self, "runtime", value)
 
     @property
     @pulumi.getter
@@ -3003,6 +3125,10 @@ if not MYPY:
         """
         Configuration properties for apps environment custom domain
         """
+        certificate_key_vault_properties: NotRequired[pulumi.Input['CertificateKeyVaultPropertiesArgsDict']]
+        """
+        Certificate stored in Azure Key Vault.
+        """
         certificate_password: NotRequired[pulumi.Input[builtins.str]]
         """
         Certificate password
@@ -3021,21 +3147,37 @@ elif False:
 @pulumi.input_type
 class CustomDomainConfigurationArgs:
     def __init__(__self__, *,
+                 certificate_key_vault_properties: Optional[pulumi.Input['CertificateKeyVaultPropertiesArgs']] = None,
                  certificate_password: Optional[pulumi.Input[builtins.str]] = None,
                  certificate_value: Optional[pulumi.Input[builtins.str]] = None,
                  dns_suffix: Optional[pulumi.Input[builtins.str]] = None):
         """
         Configuration properties for apps environment custom domain
+        :param pulumi.Input['CertificateKeyVaultPropertiesArgs'] certificate_key_vault_properties: Certificate stored in Azure Key Vault.
         :param pulumi.Input[builtins.str] certificate_password: Certificate password
         :param pulumi.Input[builtins.str] certificate_value: PFX or PEM blob
         :param pulumi.Input[builtins.str] dns_suffix: Dns suffix for the environment domain
         """
+        if certificate_key_vault_properties is not None:
+            pulumi.set(__self__, "certificate_key_vault_properties", certificate_key_vault_properties)
         if certificate_password is not None:
             pulumi.set(__self__, "certificate_password", certificate_password)
         if certificate_value is not None:
             pulumi.set(__self__, "certificate_value", certificate_value)
         if dns_suffix is not None:
             pulumi.set(__self__, "dns_suffix", dns_suffix)
+
+    @property
+    @pulumi.getter(name="certificateKeyVaultProperties")
+    def certificate_key_vault_properties(self) -> Optional[pulumi.Input['CertificateKeyVaultPropertiesArgs']]:
+        """
+        Certificate stored in Azure Key Vault.
+        """
+        return pulumi.get(self, "certificate_key_vault_properties")
+
+    @certificate_key_vault_properties.setter
+    def certificate_key_vault_properties(self, value: Optional[pulumi.Input['CertificateKeyVaultPropertiesArgs']]):
+        pulumi.set(self, "certificate_key_vault_properties", value)
 
     @property
     @pulumi.getter(name="certificatePassword")
@@ -3234,6 +3376,10 @@ if not MYPY:
         """
         Authentication secrets for the custom scale rule.
         """
+        identity: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
+        """
         metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]
         """
         Metadata properties to describe custom scale rule.
@@ -3250,17 +3396,21 @@ elif False:
 class CustomScaleRuleArgs:
     def __init__(__self__, *,
                  auth: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]] = None,
+                 identity: Optional[pulumi.Input[builtins.str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
         Container App container Custom scaling rule.
         :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]] auth: Authentication secrets for the custom scale rule.
+        :param pulumi.Input[builtins.str] identity: The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] metadata: Metadata properties to describe custom scale rule.
         :param pulumi.Input[builtins.str] type: Type of the custom scale rule
                eg: azure-servicebus, redis etc.
         """
         if auth is not None:
             pulumi.set(__self__, "auth", auth)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if type is not None:
@@ -3277,6 +3427,18 @@ class CustomScaleRuleArgs:
     @auth.setter
     def auth(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]]):
         pulumi.set(self, "auth", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -4223,13 +4385,9 @@ if not MYPY:
         """
         Dynamic pool configuration.
         """
-        cooldown_period_in_seconds: NotRequired[pulumi.Input[builtins.int]]
+        lifecycle_configuration: NotRequired[pulumi.Input['LifecycleConfigurationArgsDict']]
         """
-        The cooldown period of a session in seconds.
-        """
-        execution_type: NotRequired[pulumi.Input[Union[builtins.str, 'ExecutionType']]]
-        """
-        The execution type of the session pool.
+        The lifecycle configuration of a session in the dynamic session pool
         """
 elif False:
     DynamicPoolConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -4237,41 +4395,25 @@ elif False:
 @pulumi.input_type
 class DynamicPoolConfigurationArgs:
     def __init__(__self__, *,
-                 cooldown_period_in_seconds: Optional[pulumi.Input[builtins.int]] = None,
-                 execution_type: Optional[pulumi.Input[Union[builtins.str, 'ExecutionType']]] = None):
+                 lifecycle_configuration: Optional[pulumi.Input['LifecycleConfigurationArgs']] = None):
         """
         Dynamic pool configuration.
-        :param pulumi.Input[builtins.int] cooldown_period_in_seconds: The cooldown period of a session in seconds.
-        :param pulumi.Input[Union[builtins.str, 'ExecutionType']] execution_type: The execution type of the session pool.
+        :param pulumi.Input['LifecycleConfigurationArgs'] lifecycle_configuration: The lifecycle configuration of a session in the dynamic session pool
         """
-        if cooldown_period_in_seconds is not None:
-            pulumi.set(__self__, "cooldown_period_in_seconds", cooldown_period_in_seconds)
-        if execution_type is not None:
-            pulumi.set(__self__, "execution_type", execution_type)
+        if lifecycle_configuration is not None:
+            pulumi.set(__self__, "lifecycle_configuration", lifecycle_configuration)
 
     @property
-    @pulumi.getter(name="cooldownPeriodInSeconds")
-    def cooldown_period_in_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
+    @pulumi.getter(name="lifecycleConfiguration")
+    def lifecycle_configuration(self) -> Optional[pulumi.Input['LifecycleConfigurationArgs']]:
         """
-        The cooldown period of a session in seconds.
+        The lifecycle configuration of a session in the dynamic session pool
         """
-        return pulumi.get(self, "cooldown_period_in_seconds")
+        return pulumi.get(self, "lifecycle_configuration")
 
-    @cooldown_period_in_seconds.setter
-    def cooldown_period_in_seconds(self, value: Optional[pulumi.Input[builtins.int]]):
-        pulumi.set(self, "cooldown_period_in_seconds", value)
-
-    @property
-    @pulumi.getter(name="executionType")
-    def execution_type(self) -> Optional[pulumi.Input[Union[builtins.str, 'ExecutionType']]]:
-        """
-        The execution type of the session pool.
-        """
-        return pulumi.get(self, "execution_type")
-
-    @execution_type.setter
-    def execution_type(self, value: Optional[pulumi.Input[Union[builtins.str, 'ExecutionType']]]):
-        pulumi.set(self, "execution_type", value)
+    @lifecycle_configuration.setter
+    def lifecycle_configuration(self, value: Optional[pulumi.Input['LifecycleConfigurationArgs']]):
+        pulumi.set(self, "lifecycle_configuration", value)
 
 
 if not MYPY:
@@ -5945,6 +6087,10 @@ if not MYPY:
         """
         Authentication secrets for the custom scale rule.
         """
+        identity: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
+        """
         metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]
         """
         Metadata properties to describe http scale rule.
@@ -5956,14 +6102,18 @@ elif False:
 class HttpScaleRuleArgs:
     def __init__(__self__, *,
                  auth: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]] = None,
+                 identity: Optional[pulumi.Input[builtins.str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         Container App container Http scaling rule.
         :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]] auth: Authentication secrets for the custom scale rule.
+        :param pulumi.Input[builtins.str] identity: The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] metadata: Metadata properties to describe http scale rule.
         """
         if auth is not None:
             pulumi.set(__self__, "auth", auth)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
 
@@ -5978,6 +6128,18 @@ class HttpScaleRuleArgs:
     @auth.setter
     def auth(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]]):
         pulumi.set(self, "auth", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -6281,6 +6443,63 @@ class IdentityProvidersArgs:
     @twitter.setter
     def twitter(self, value: Optional[pulumi.Input['TwitterArgs']]):
         pulumi.set(self, "twitter", value)
+
+
+if not MYPY:
+    class IdentitySettingsArgsDict(TypedDict):
+        """
+        Optional settings for a Managed Identity that is assigned to the Container App.
+        """
+        identity: pulumi.Input[builtins.str]
+        """
+        The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
+        """
+        lifecycle: NotRequired[pulumi.Input[Union[builtins.str, 'IdentitySettingsLifeCycle']]]
+        """
+        Use to select the lifecycle stages of a Container App during which the Managed Identity should be available.
+        """
+elif False:
+    IdentitySettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IdentitySettingsArgs:
+    def __init__(__self__, *,
+                 identity: pulumi.Input[builtins.str],
+                 lifecycle: Optional[pulumi.Input[Union[builtins.str, 'IdentitySettingsLifeCycle']]] = None):
+        """
+        Optional settings for a Managed Identity that is assigned to the Container App.
+        :param pulumi.Input[builtins.str] identity: The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
+        :param pulumi.Input[Union[builtins.str, 'IdentitySettingsLifeCycle']] lifecycle: Use to select the lifecycle stages of a Container App during which the Managed Identity should be available.
+        """
+        pulumi.set(__self__, "identity", identity)
+        if lifecycle is None:
+            lifecycle = 'All'
+        if lifecycle is not None:
+            pulumi.set(__self__, "lifecycle", lifecycle)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Input[builtins.str]:
+        """
+        The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def lifecycle(self) -> Optional[pulumi.Input[Union[builtins.str, 'IdentitySettingsLifeCycle']]]:
+        """
+        Use to select the lifecycle stages of a Container App during which the Managed Identity should be available.
+        """
+        return pulumi.get(self, "lifecycle")
+
+    @lifecycle.setter
+    def lifecycle(self, value: Optional[pulumi.Input[Union[builtins.str, 'IdentitySettingsLifeCycle']]]):
+        pulumi.set(self, "lifecycle", value)
 
 
 if not MYPY:
@@ -7296,6 +7515,10 @@ if not MYPY:
         """
         Trigger configuration of an event driven job.
         """
+        identity_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['IdentitySettingsArgsDict']]]]
+        """
+        Optional settings for Managed Identities that are assigned to the Container App Job. If a Managed Identity is not specified here, default settings will be used.
+        """
         manual_trigger_config: NotRequired[pulumi.Input['JobConfigurationManualTriggerConfigArgsDict']]
         """
         Manual trigger configuration for a single execution job. Properties replicaCompletionCount and parallelism would be set to 1 by default
@@ -7325,6 +7548,7 @@ class JobConfigurationArgs:
                  replica_timeout: pulumi.Input[builtins.int],
                  trigger_type: Optional[pulumi.Input[Union[builtins.str, 'TriggerType']]] = None,
                  event_trigger_config: Optional[pulumi.Input['JobConfigurationEventTriggerConfigArgs']] = None,
+                 identity_settings: Optional[pulumi.Input[Sequence[pulumi.Input['IdentitySettingsArgs']]]] = None,
                  manual_trigger_config: Optional[pulumi.Input['JobConfigurationManualTriggerConfigArgs']] = None,
                  registries: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryCredentialsArgs']]]] = None,
                  replica_retry_limit: Optional[pulumi.Input[builtins.int]] = None,
@@ -7335,6 +7559,7 @@ class JobConfigurationArgs:
         :param pulumi.Input[builtins.int] replica_timeout: Maximum number of seconds a replica is allowed to run.
         :param pulumi.Input[Union[builtins.str, 'TriggerType']] trigger_type: Trigger type of the job
         :param pulumi.Input['JobConfigurationEventTriggerConfigArgs'] event_trigger_config: Trigger configuration of an event driven job.
+        :param pulumi.Input[Sequence[pulumi.Input['IdentitySettingsArgs']]] identity_settings: Optional settings for Managed Identities that are assigned to the Container App Job. If a Managed Identity is not specified here, default settings will be used.
         :param pulumi.Input['JobConfigurationManualTriggerConfigArgs'] manual_trigger_config: Manual trigger configuration for a single execution job. Properties replicaCompletionCount and parallelism would be set to 1 by default
         :param pulumi.Input[Sequence[pulumi.Input['RegistryCredentialsArgs']]] registries: Collection of private container registry credentials used by a Container apps job
         :param pulumi.Input[builtins.int] replica_retry_limit: Maximum number of retries before failing the job.
@@ -7347,6 +7572,8 @@ class JobConfigurationArgs:
         pulumi.set(__self__, "trigger_type", trigger_type)
         if event_trigger_config is not None:
             pulumi.set(__self__, "event_trigger_config", event_trigger_config)
+        if identity_settings is not None:
+            pulumi.set(__self__, "identity_settings", identity_settings)
         if manual_trigger_config is not None:
             pulumi.set(__self__, "manual_trigger_config", manual_trigger_config)
         if registries is not None:
@@ -7393,6 +7620,18 @@ class JobConfigurationArgs:
     @event_trigger_config.setter
     def event_trigger_config(self, value: Optional[pulumi.Input['JobConfigurationEventTriggerConfigArgs']]):
         pulumi.set(self, "event_trigger_config", value)
+
+    @property
+    @pulumi.getter(name="identitySettings")
+    def identity_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdentitySettingsArgs']]]]:
+        """
+        Optional settings for Managed Identities that are assigned to the Container App Job. If a Managed Identity is not specified here, default settings will be used.
+        """
+        return pulumi.get(self, "identity_settings")
+
+    @identity_settings.setter
+    def identity_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IdentitySettingsArgs']]]]):
+        pulumi.set(self, "identity_settings", value)
 
     @property
     @pulumi.getter(name="manualTriggerConfig")
@@ -7464,6 +7703,10 @@ if not MYPY:
         """
         Authentication secrets for the scale rule.
         """
+        identity: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
+        """
         metadata: NotRequired[Any]
         """
         Metadata properties to describe the scale rule.
@@ -7484,12 +7727,14 @@ elif False:
 class JobScaleRuleArgs:
     def __init__(__self__, *,
                  auth: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]] = None,
+                 identity: Optional[pulumi.Input[builtins.str]] = None,
                  metadata: Optional[Any] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
         Scaling rule.
         :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]] auth: Authentication secrets for the scale rule.
+        :param pulumi.Input[builtins.str] identity: The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
         :param Any metadata: Metadata properties to describe the scale rule.
         :param pulumi.Input[builtins.str] name: Scale Rule Name
         :param pulumi.Input[builtins.str] type: Type of the scale rule
@@ -7497,6 +7742,8 @@ class JobScaleRuleArgs:
         """
         if auth is not None:
             pulumi.set(__self__, "auth", auth)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if name is not None:
@@ -7515,6 +7762,18 @@ class JobScaleRuleArgs:
     @auth.setter
     def auth(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]]):
         pulumi.set(self, "auth", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -7784,6 +8043,82 @@ class JwtClaimChecksArgs:
     @allowed_groups.setter
     def allowed_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "allowed_groups", value)
+
+
+if not MYPY:
+    class LifecycleConfigurationArgsDict(TypedDict):
+        """
+        The lifecycle configuration properties of a session in the dynamic session pool
+        """
+        cooldown_period_in_seconds: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The cooldown period of a session in seconds when the lifecycle type is 'Timed'.
+        """
+        lifecycle_type: NotRequired[pulumi.Input[Union[builtins.str, 'LifecycleType']]]
+        """
+        The lifecycle type of the session pool.
+        """
+        max_alive_period_in_seconds: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The maximum alive period of a session in seconds when the lifecycle type is 'OnContainerExit'.
+        """
+elif False:
+    LifecycleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LifecycleConfigurationArgs:
+    def __init__(__self__, *,
+                 cooldown_period_in_seconds: Optional[pulumi.Input[builtins.int]] = None,
+                 lifecycle_type: Optional[pulumi.Input[Union[builtins.str, 'LifecycleType']]] = None,
+                 max_alive_period_in_seconds: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        The lifecycle configuration properties of a session in the dynamic session pool
+        :param pulumi.Input[builtins.int] cooldown_period_in_seconds: The cooldown period of a session in seconds when the lifecycle type is 'Timed'.
+        :param pulumi.Input[Union[builtins.str, 'LifecycleType']] lifecycle_type: The lifecycle type of the session pool.
+        :param pulumi.Input[builtins.int] max_alive_period_in_seconds: The maximum alive period of a session in seconds when the lifecycle type is 'OnContainerExit'.
+        """
+        if cooldown_period_in_seconds is not None:
+            pulumi.set(__self__, "cooldown_period_in_seconds", cooldown_period_in_seconds)
+        if lifecycle_type is not None:
+            pulumi.set(__self__, "lifecycle_type", lifecycle_type)
+        if max_alive_period_in_seconds is not None:
+            pulumi.set(__self__, "max_alive_period_in_seconds", max_alive_period_in_seconds)
+
+    @property
+    @pulumi.getter(name="cooldownPeriodInSeconds")
+    def cooldown_period_in_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The cooldown period of a session in seconds when the lifecycle type is 'Timed'.
+        """
+        return pulumi.get(self, "cooldown_period_in_seconds")
+
+    @cooldown_period_in_seconds.setter
+    def cooldown_period_in_seconds(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "cooldown_period_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="lifecycleType")
+    def lifecycle_type(self) -> Optional[pulumi.Input[Union[builtins.str, 'LifecycleType']]]:
+        """
+        The lifecycle type of the session pool.
+        """
+        return pulumi.get(self, "lifecycle_type")
+
+    @lifecycle_type.setter
+    def lifecycle_type(self, value: Optional[pulumi.Input[Union[builtins.str, 'LifecycleType']]]):
+        pulumi.set(self, "lifecycle_type", value)
+
+    @property
+    @pulumi.getter(name="maxAlivePeriodInSeconds")
+    def max_alive_period_in_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The maximum alive period of a session in seconds when the lifecycle type is 'OnContainerExit'.
+        """
+        return pulumi.get(self, "max_alive_period_in_seconds")
+
+    @max_alive_period_in_seconds.setter
+    def max_alive_period_in_seconds(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_alive_period_in_seconds", value)
 
 
 if not MYPY:
@@ -8229,19 +8564,27 @@ if not MYPY:
         """
         Azure file properties
         """
+        nfs_azure_file: NotRequired[pulumi.Input['NfsAzureFilePropertiesArgsDict']]
+        """
+        NFS Azure file properties
+        """
 elif False:
     ManagedEnvironmentStoragePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedEnvironmentStoragePropertiesArgs:
     def __init__(__self__, *,
-                 azure_file: Optional[pulumi.Input['AzureFilePropertiesArgs']] = None):
+                 azure_file: Optional[pulumi.Input['AzureFilePropertiesArgs']] = None,
+                 nfs_azure_file: Optional[pulumi.Input['NfsAzureFilePropertiesArgs']] = None):
         """
         Storage properties
         :param pulumi.Input['AzureFilePropertiesArgs'] azure_file: Azure file properties
+        :param pulumi.Input['NfsAzureFilePropertiesArgs'] nfs_azure_file: NFS Azure file properties
         """
         if azure_file is not None:
             pulumi.set(__self__, "azure_file", azure_file)
+        if nfs_azure_file is not None:
+            pulumi.set(__self__, "nfs_azure_file", nfs_azure_file)
 
     @property
     @pulumi.getter(name="azureFile")
@@ -8254,6 +8597,18 @@ class ManagedEnvironmentStoragePropertiesArgs:
     @azure_file.setter
     def azure_file(self, value: Optional[pulumi.Input['AzureFilePropertiesArgs']]):
         pulumi.set(self, "azure_file", value)
+
+    @property
+    @pulumi.getter(name="nfsAzureFile")
+    def nfs_azure_file(self) -> Optional[pulumi.Input['NfsAzureFilePropertiesArgs']]:
+        """
+        NFS Azure file properties
+        """
+        return pulumi.get(self, "nfs_azure_file")
+
+    @nfs_azure_file.setter
+    def nfs_azure_file(self, value: Optional[pulumi.Input['NfsAzureFilePropertiesArgs']]):
+        pulumi.set(self, "nfs_azure_file", value)
 
 
 if not MYPY:
@@ -8405,101 +8760,79 @@ class MtlsArgs:
 
 
 if not MYPY:
-    class NacosComponentArgsDict(TypedDict):
+    class NfsAzureFilePropertiesArgsDict(TypedDict):
         """
-        Nacos properties.
+        NFS Azure File Properties.
         """
-        component_type: pulumi.Input[builtins.str]
+        access_mode: NotRequired[pulumi.Input[Union[builtins.str, 'AccessMode']]]
         """
-        Type of the Java Component.
-        Expected value is 'Nacos'.
+        Access mode for storage
         """
-        configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgsDict']]]]
+        server: NotRequired[pulumi.Input[builtins.str]]
         """
-        List of Java Components configuration properties
+        Server for NFS azure file. Specify the Azure storage account server address.
         """
-        scale: NotRequired[pulumi.Input['JavaComponentPropertiesScaleArgsDict']]
+        share_name: NotRequired[pulumi.Input[builtins.str]]
         """
-        Java component scaling configurations
-        """
-        service_binds: NotRequired[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgsDict']]]]
-        """
-        List of Java Components that are bound to the Java component
+        NFS Azure file share name.
         """
 elif False:
-    NacosComponentArgsDict: TypeAlias = Mapping[str, Any]
+    NfsAzureFilePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class NacosComponentArgs:
+class NfsAzureFilePropertiesArgs:
     def __init__(__self__, *,
-                 component_type: pulumi.Input[builtins.str],
-                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]] = None,
-                 scale: Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']] = None,
-                 service_binds: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]] = None):
+                 access_mode: Optional[pulumi.Input[Union[builtins.str, 'AccessMode']]] = None,
+                 server: Optional[pulumi.Input[builtins.str]] = None,
+                 share_name: Optional[pulumi.Input[builtins.str]] = None):
         """
-        Nacos properties.
-        :param pulumi.Input[builtins.str] component_type: Type of the Java Component.
-               Expected value is 'Nacos'.
-        :param pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]] configurations: List of Java Components configuration properties
-        :param pulumi.Input['JavaComponentPropertiesScaleArgs'] scale: Java component scaling configurations
-        :param pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]] service_binds: List of Java Components that are bound to the Java component
+        NFS Azure File Properties.
+        :param pulumi.Input[Union[builtins.str, 'AccessMode']] access_mode: Access mode for storage
+        :param pulumi.Input[builtins.str] server: Server for NFS azure file. Specify the Azure storage account server address.
+        :param pulumi.Input[builtins.str] share_name: NFS Azure file share name.
         """
-        pulumi.set(__self__, "component_type", 'Nacos')
-        if configurations is not None:
-            pulumi.set(__self__, "configurations", configurations)
-        if scale is not None:
-            pulumi.set(__self__, "scale", scale)
-        if service_binds is not None:
-            pulumi.set(__self__, "service_binds", service_binds)
+        if access_mode is not None:
+            pulumi.set(__self__, "access_mode", access_mode)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+        if share_name is not None:
+            pulumi.set(__self__, "share_name", share_name)
 
     @property
-    @pulumi.getter(name="componentType")
-    def component_type(self) -> pulumi.Input[builtins.str]:
+    @pulumi.getter(name="accessMode")
+    def access_mode(self) -> Optional[pulumi.Input[Union[builtins.str, 'AccessMode']]]:
         """
-        Type of the Java Component.
-        Expected value is 'Nacos'.
+        Access mode for storage
         """
-        return pulumi.get(self, "component_type")
+        return pulumi.get(self, "access_mode")
 
-    @component_type.setter
-    def component_type(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "component_type", value)
+    @access_mode.setter
+    def access_mode(self, value: Optional[pulumi.Input[Union[builtins.str, 'AccessMode']]]):
+        pulumi.set(self, "access_mode", value)
 
     @property
     @pulumi.getter
-    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]]:
+    def server(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        List of Java Components configuration properties
+        Server for NFS azure file. Specify the Azure storage account server address.
         """
-        return pulumi.get(self, "configurations")
+        return pulumi.get(self, "server")
 
-    @configurations.setter
-    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]]):
-        pulumi.set(self, "configurations", value)
-
-    @property
-    @pulumi.getter
-    def scale(self) -> Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']]:
-        """
-        Java component scaling configurations
-        """
-        return pulumi.get(self, "scale")
-
-    @scale.setter
-    def scale(self, value: Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']]):
-        pulumi.set(self, "scale", value)
+    @server.setter
+    def server(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "server", value)
 
     @property
-    @pulumi.getter(name="serviceBinds")
-    def service_binds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]]:
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        List of Java Components that are bound to the Java component
+        NFS Azure file share name.
         """
-        return pulumi.get(self, "service_binds")
+        return pulumi.get(self, "share_name")
 
-    @service_binds.setter
-    def service_binds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]]):
-        pulumi.set(self, "service_binds", value)
+    @share_name.setter
+    def share_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "share_name", value)
 
 
 if not MYPY:
@@ -9019,9 +9352,17 @@ if not MYPY:
         """
         Container App container Azure Queue based scaling rule.
         """
+        account_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Storage account name. required if using managed identity to authenticate
+        """
         auth: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgsDict']]]]
         """
         Authentication secrets for the queue scale rule.
+        """
+        identity: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
         """
         queue_length: NotRequired[pulumi.Input[builtins.int]]
         """
@@ -9037,21 +9378,41 @@ elif False:
 @pulumi.input_type
 class QueueScaleRuleArgs:
     def __init__(__self__, *,
+                 account_name: Optional[pulumi.Input[builtins.str]] = None,
                  auth: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]] = None,
+                 identity: Optional[pulumi.Input[builtins.str]] = None,
                  queue_length: Optional[pulumi.Input[builtins.int]] = None,
                  queue_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Container App container Azure Queue based scaling rule.
+        :param pulumi.Input[builtins.str] account_name: Storage account name. required if using managed identity to authenticate
         :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]] auth: Authentication secrets for the queue scale rule.
+        :param pulumi.Input[builtins.str] identity: The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
         :param pulumi.Input[builtins.int] queue_length: Queue length.
         :param pulumi.Input[builtins.str] queue_name: Queue name.
         """
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
         if auth is not None:
             pulumi.set(__self__, "auth", auth)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if queue_length is not None:
             pulumi.set(__self__, "queue_length", queue_length)
         if queue_name is not None:
             pulumi.set(__self__, "queue_name", queue_name)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Storage account name. required if using managed identity to authenticate
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "account_name", value)
 
     @property
     @pulumi.getter
@@ -9064,6 +9425,18 @@ class QueueScaleRuleArgs:
     @auth.setter
     def auth(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]]):
         pulumi.set(self, "auth", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="queueLength")
@@ -9260,6 +9633,78 @@ class RegistryInfoArgs:
     @registry_user_name.setter
     def registry_user_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "registry_user_name", value)
+
+
+if not MYPY:
+    class RuntimeJavaArgsDict(TypedDict):
+        """
+        Java app configuration
+        """
+        enable_metrics: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Enable jmx core metrics for the java app
+        """
+elif False:
+    RuntimeJavaArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuntimeJavaArgs:
+    def __init__(__self__, *,
+                 enable_metrics: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        Java app configuration
+        :param pulumi.Input[builtins.bool] enable_metrics: Enable jmx core metrics for the java app
+        """
+        if enable_metrics is not None:
+            pulumi.set(__self__, "enable_metrics", enable_metrics)
+
+    @property
+    @pulumi.getter(name="enableMetrics")
+    def enable_metrics(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Enable jmx core metrics for the java app
+        """
+        return pulumi.get(self, "enable_metrics")
+
+    @enable_metrics.setter
+    def enable_metrics(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enable_metrics", value)
+
+
+if not MYPY:
+    class RuntimeArgsDict(TypedDict):
+        """
+        Container App Runtime configuration.
+        """
+        java: NotRequired[pulumi.Input['RuntimeJavaArgsDict']]
+        """
+        Java app configuration
+        """
+elif False:
+    RuntimeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuntimeArgs:
+    def __init__(__self__, *,
+                 java: Optional[pulumi.Input['RuntimeJavaArgs']] = None):
+        """
+        Container App Runtime configuration.
+        :param pulumi.Input['RuntimeJavaArgs'] java: Java app configuration
+        """
+        if java is not None:
+            pulumi.set(__self__, "java", java)
+
+    @property
+    @pulumi.getter
+    def java(self) -> Optional[pulumi.Input['RuntimeJavaArgs']]:
+        """
+        Java app configuration
+        """
+        return pulumi.get(self, "java")
+
+    @java.setter
+    def java(self, value: Optional[pulumi.Input['RuntimeJavaArgs']]):
+        pulumi.set(self, "java", value)
 
 
 if not MYPY:
@@ -9495,6 +9940,10 @@ if not MYPY:
         """
         Container App scaling configurations.
         """
+        cooldown_period: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Optional. KEDA Cooldown Period in seconds. Defaults to 300 seconds if not set.
+        """
         max_replicas: NotRequired[pulumi.Input[builtins.int]]
         """
         Optional. Maximum number of container replicas. Defaults to 10 if not set.
@@ -9502,6 +9951,10 @@ if not MYPY:
         min_replicas: NotRequired[pulumi.Input[builtins.int]]
         """
         Optional. Minimum number of container replicas.
+        """
+        polling_interval: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Optional. KEDA Polling Interval in seconds. Defaults to 30 seconds if not set.
         """
         rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgsDict']]]]
         """
@@ -9513,23 +9966,43 @@ elif False:
 @pulumi.input_type
 class ScaleArgs:
     def __init__(__self__, *,
+                 cooldown_period: Optional[pulumi.Input[builtins.int]] = None,
                  max_replicas: Optional[pulumi.Input[builtins.int]] = None,
                  min_replicas: Optional[pulumi.Input[builtins.int]] = None,
+                 polling_interval: Optional[pulumi.Input[builtins.int]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]]] = None):
         """
         Container App scaling configurations.
+        :param pulumi.Input[builtins.int] cooldown_period: Optional. KEDA Cooldown Period in seconds. Defaults to 300 seconds if not set.
         :param pulumi.Input[builtins.int] max_replicas: Optional. Maximum number of container replicas. Defaults to 10 if not set.
         :param pulumi.Input[builtins.int] min_replicas: Optional. Minimum number of container replicas.
+        :param pulumi.Input[builtins.int] polling_interval: Optional. KEDA Polling Interval in seconds. Defaults to 30 seconds if not set.
         :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]] rules: Scaling rules.
         """
+        if cooldown_period is not None:
+            pulumi.set(__self__, "cooldown_period", cooldown_period)
         if max_replicas is None:
             max_replicas = 10
         if max_replicas is not None:
             pulumi.set(__self__, "max_replicas", max_replicas)
         if min_replicas is not None:
             pulumi.set(__self__, "min_replicas", min_replicas)
+        if polling_interval is not None:
+            pulumi.set(__self__, "polling_interval", polling_interval)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter(name="cooldownPeriod")
+    def cooldown_period(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Optional. KEDA Cooldown Period in seconds. Defaults to 300 seconds if not set.
+        """
+        return pulumi.get(self, "cooldown_period")
+
+    @cooldown_period.setter
+    def cooldown_period(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "cooldown_period", value)
 
     @property
     @pulumi.getter(name="maxReplicas")
@@ -9556,6 +10029,18 @@ class ScaleArgs:
         pulumi.set(self, "min_replicas", value)
 
     @property
+    @pulumi.getter(name="pollingInterval")
+    def polling_interval(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Optional. KEDA Polling Interval in seconds. Defaults to 30 seconds if not set.
+        """
+        return pulumi.get(self, "polling_interval")
+
+    @polling_interval.setter
+    def polling_interval(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "polling_interval", value)
+
+    @property
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]]]:
         """
@@ -9566,120 +10051,6 @@ class ScaleArgs:
     @rules.setter
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]]]):
         pulumi.set(self, "rules", value)
-
-
-if not MYPY:
-    class ScgRouteArgsDict(TypedDict):
-        """
-        Spring Cloud Gateway route definition
-        """
-        id: pulumi.Input[builtins.str]
-        """
-        Id of the route
-        """
-        uri: pulumi.Input[builtins.str]
-        """
-        Uri of the route
-        """
-        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
-        """
-        Filters of the route
-        """
-        order: NotRequired[pulumi.Input[builtins.float]]
-        """
-        Order of the route
-        """
-        predicates: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
-        """
-        Predicates of the route
-        """
-elif False:
-    ScgRouteArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ScgRouteArgs:
-    def __init__(__self__, *,
-                 id: pulumi.Input[builtins.str],
-                 uri: pulumi.Input[builtins.str],
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 order: Optional[pulumi.Input[builtins.float]] = None,
-                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
-        """
-        Spring Cloud Gateway route definition
-        :param pulumi.Input[builtins.str] id: Id of the route
-        :param pulumi.Input[builtins.str] uri: Uri of the route
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] filters: Filters of the route
-        :param pulumi.Input[builtins.float] order: Order of the route
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] predicates: Predicates of the route
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "uri", uri)
-        if filters is not None:
-            pulumi.set(__self__, "filters", filters)
-        if order is not None:
-            pulumi.set(__self__, "order", order)
-        if predicates is not None:
-            pulumi.set(__self__, "predicates", predicates)
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[builtins.str]:
-        """
-        Id of the route
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
-    def uri(self) -> pulumi.Input[builtins.str]:
-        """
-        Uri of the route
-        """
-        return pulumi.get(self, "uri")
-
-    @uri.setter
-    def uri(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "uri", value)
-
-    @property
-    @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
-        """
-        Filters of the route
-        """
-        return pulumi.get(self, "filters")
-
-    @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "filters", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[builtins.float]]:
-        """
-        Order of the route
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: Optional[pulumi.Input[builtins.float]]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def predicates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
-        """
-        Predicates of the route
-        """
-        return pulumi.get(self, "predicates")
-
-    @predicates.setter
-    def predicates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "predicates", value)
 
 
 if not MYPY:
@@ -10709,124 +11080,6 @@ class SpringCloudEurekaComponentArgs:
 
 
 if not MYPY:
-    class SpringCloudGatewayComponentArgsDict(TypedDict):
-        """
-        Spring Cloud Gateway properties.
-        """
-        component_type: pulumi.Input[builtins.str]
-        """
-        Type of the Java Component.
-        Expected value is 'SpringCloudGateway'.
-        """
-        configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgsDict']]]]
-        """
-        List of Java Components configuration properties
-        """
-        scale: NotRequired[pulumi.Input['JavaComponentPropertiesScaleArgsDict']]
-        """
-        Java component scaling configurations
-        """
-        service_binds: NotRequired[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgsDict']]]]
-        """
-        List of Java Components that are bound to the Java component
-        """
-        spring_cloud_gateway_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScgRouteArgsDict']]]]
-        """
-        Gateway route definition
-        """
-elif False:
-    SpringCloudGatewayComponentArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class SpringCloudGatewayComponentArgs:
-    def __init__(__self__, *,
-                 component_type: pulumi.Input[builtins.str],
-                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]] = None,
-                 scale: Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']] = None,
-                 service_binds: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]] = None,
-                 spring_cloud_gateway_routes: Optional[pulumi.Input[Sequence[pulumi.Input['ScgRouteArgs']]]] = None):
-        """
-        Spring Cloud Gateway properties.
-        :param pulumi.Input[builtins.str] component_type: Type of the Java Component.
-               Expected value is 'SpringCloudGateway'.
-        :param pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]] configurations: List of Java Components configuration properties
-        :param pulumi.Input['JavaComponentPropertiesScaleArgs'] scale: Java component scaling configurations
-        :param pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]] service_binds: List of Java Components that are bound to the Java component
-        :param pulumi.Input[Sequence[pulumi.Input['ScgRouteArgs']]] spring_cloud_gateway_routes: Gateway route definition
-        """
-        pulumi.set(__self__, "component_type", 'SpringCloudGateway')
-        if configurations is not None:
-            pulumi.set(__self__, "configurations", configurations)
-        if scale is not None:
-            pulumi.set(__self__, "scale", scale)
-        if service_binds is not None:
-            pulumi.set(__self__, "service_binds", service_binds)
-        if spring_cloud_gateway_routes is not None:
-            pulumi.set(__self__, "spring_cloud_gateway_routes", spring_cloud_gateway_routes)
-
-    @property
-    @pulumi.getter(name="componentType")
-    def component_type(self) -> pulumi.Input[builtins.str]:
-        """
-        Type of the Java Component.
-        Expected value is 'SpringCloudGateway'.
-        """
-        return pulumi.get(self, "component_type")
-
-    @component_type.setter
-    def component_type(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "component_type", value)
-
-    @property
-    @pulumi.getter
-    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]]:
-        """
-        List of Java Components configuration properties
-        """
-        return pulumi.get(self, "configurations")
-
-    @configurations.setter
-    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]]):
-        pulumi.set(self, "configurations", value)
-
-    @property
-    @pulumi.getter
-    def scale(self) -> Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']]:
-        """
-        Java component scaling configurations
-        """
-        return pulumi.get(self, "scale")
-
-    @scale.setter
-    def scale(self, value: Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']]):
-        pulumi.set(self, "scale", value)
-
-    @property
-    @pulumi.getter(name="serviceBinds")
-    def service_binds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]]:
-        """
-        List of Java Components that are bound to the Java component
-        """
-        return pulumi.get(self, "service_binds")
-
-    @service_binds.setter
-    def service_binds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]]):
-        pulumi.set(self, "service_binds", value)
-
-    @property
-    @pulumi.getter(name="springCloudGatewayRoutes")
-    def spring_cloud_gateway_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScgRouteArgs']]]]:
-        """
-        Gateway route definition
-        """
-        return pulumi.get(self, "spring_cloud_gateway_routes")
-
-    @spring_cloud_gateway_routes.setter
-    def spring_cloud_gateway_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScgRouteArgs']]]]):
-        pulumi.set(self, "spring_cloud_gateway_routes", value)
-
-
-if not MYPY:
     class TcpConnectionPoolArgsDict(TypedDict):
         """
         Defines parameters for tcp connection pooling
@@ -10907,6 +11160,10 @@ if not MYPY:
         """
         Authentication secrets for the tcp scale rule.
         """
+        identity: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
+        """
         metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]
         """
         Metadata properties to describe tcp scale rule.
@@ -10918,14 +11175,18 @@ elif False:
 class TcpScaleRuleArgs:
     def __init__(__self__, *,
                  auth: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]] = None,
+                 identity: Optional[pulumi.Input[builtins.str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         Container App container Tcp scaling rule.
         :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]] auth: Authentication secrets for the tcp scale rule.
+        :param pulumi.Input[builtins.str] identity: The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] metadata: Metadata properties to describe tcp scale rule.
         """
         if auth is not None:
             pulumi.set(__self__, "auth", auth)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
 
@@ -10940,6 +11201,18 @@ class TcpScaleRuleArgs:
     @auth.setter
     def auth(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]]):
         pulumi.set(self, "auth", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -11670,7 +11943,7 @@ if not MYPY:
         """
         mount_options: NotRequired[pulumi.Input[builtins.str]]
         """
-        Mount options used while mounting the AzureFile. Must be a comma-separated string.
+        Mount options used while mounting the Azure file share or NFS Azure file share. Must be a comma-separated string.
         """
         name: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -11701,7 +11974,7 @@ class VolumeArgs:
                  storage_type: Optional[pulumi.Input[Union[builtins.str, 'StorageType']]] = None):
         """
         Volume definitions for the Container App.
-        :param pulumi.Input[builtins.str] mount_options: Mount options used while mounting the AzureFile. Must be a comma-separated string.
+        :param pulumi.Input[builtins.str] mount_options: Mount options used while mounting the Azure file share or NFS Azure file share. Must be a comma-separated string.
         :param pulumi.Input[builtins.str] name: Volume name.
         :param pulumi.Input[Sequence[pulumi.Input['SecretVolumeItemArgs']]] secrets: List of secrets to be added in volume. If no secrets are provided, all secrets in collection will be added to volume.
         :param pulumi.Input[builtins.str] storage_name: Name of storage resource. No need to provide for EmptyDir and Secret.
@@ -11722,7 +11995,7 @@ class VolumeArgs:
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Mount options used while mounting the AzureFile. Must be a comma-separated string.
+        Mount options used while mounting the Azure file share or NFS Azure file share. Must be a comma-separated string.
         """
         return pulumi.get(self, "mount_options")
 

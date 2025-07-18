@@ -28,7 +28,7 @@ class GetManagedEnvironmentResult:
     """
     An environment for hosting container apps
     """
-    def __init__(__self__, app_logs_configuration=None, azure_api_version=None, custom_domain_configuration=None, dapr_ai_connection_string=None, dapr_ai_instrumentation_key=None, dapr_configuration=None, default_domain=None, deployment_errors=None, event_stream_endpoint=None, id=None, infrastructure_resource_group=None, keda_configuration=None, kind=None, location=None, name=None, peer_authentication=None, peer_traffic_configuration=None, provisioning_state=None, static_ip=None, system_data=None, tags=None, type=None, vnet_configuration=None, workload_profiles=None, zone_redundant=None):
+    def __init__(__self__, app_logs_configuration=None, azure_api_version=None, custom_domain_configuration=None, dapr_ai_connection_string=None, dapr_ai_instrumentation_key=None, dapr_configuration=None, default_domain=None, deployment_errors=None, event_stream_endpoint=None, id=None, identity=None, infrastructure_resource_group=None, keda_configuration=None, kind=None, location=None, name=None, peer_authentication=None, peer_traffic_configuration=None, provisioning_state=None, static_ip=None, system_data=None, tags=None, type=None, vnet_configuration=None, workload_profiles=None, zone_redundant=None):
         if app_logs_configuration and not isinstance(app_logs_configuration, dict):
             raise TypeError("Expected argument 'app_logs_configuration' to be a dict")
         pulumi.set(__self__, "app_logs_configuration", app_logs_configuration)
@@ -59,6 +59,9 @@ class GetManagedEnvironmentResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if infrastructure_resource_group and not isinstance(infrastructure_resource_group, str):
             raise TypeError("Expected argument 'infrastructure_resource_group' to be a str")
         pulumi.set(__self__, "infrastructure_resource_group", infrastructure_resource_group)
@@ -181,9 +184,17 @@ class GetManagedEnvironmentResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        Managed identities for the Managed Environment to interact with other Azure services without maintaining any secrets or credentials in code.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="infrastructureResourceGroup")
@@ -322,6 +333,7 @@ class AwaitableGetManagedEnvironmentResult(GetManagedEnvironmentResult):
             deployment_errors=self.deployment_errors,
             event_stream_endpoint=self.event_stream_endpoint,
             id=self.id,
+            identity=self.identity,
             infrastructure_resource_group=self.infrastructure_resource_group,
             keda_configuration=self.keda_configuration,
             kind=self.kind,
@@ -345,9 +357,9 @@ def get_managed_environment(environment_name: Optional[builtins.str] = None,
     """
     Get the properties of a Managed Environment used to host container apps.
 
-    Uses Azure REST API version 2024-03-01.
+    Uses Azure REST API version 2025-01-01.
 
-    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str environment_name: Name of the Environment.
@@ -370,6 +382,7 @@ def get_managed_environment(environment_name: Optional[builtins.str] = None,
         deployment_errors=pulumi.get(__ret__, 'deployment_errors'),
         event_stream_endpoint=pulumi.get(__ret__, 'event_stream_endpoint'),
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         infrastructure_resource_group=pulumi.get(__ret__, 'infrastructure_resource_group'),
         keda_configuration=pulumi.get(__ret__, 'keda_configuration'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -391,9 +404,9 @@ def get_managed_environment_output(environment_name: Optional[pulumi.Input[built
     """
     Get the properties of a Managed Environment used to host container apps.
 
-    Uses Azure REST API version 2024-03-01.
+    Uses Azure REST API version 2025-01-01.
 
-    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str environment_name: Name of the Environment.
@@ -415,6 +428,7 @@ def get_managed_environment_output(environment_name: Optional[pulumi.Input[built
         deployment_errors=pulumi.get(__response__, 'deployment_errors'),
         event_stream_endpoint=pulumi.get(__response__, 'event_stream_endpoint'),
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
         infrastructure_resource_group=pulumi.get(__response__, 'infrastructure_resource_group'),
         keda_configuration=pulumi.get(__response__, 'keda_configuration'),
         kind=pulumi.get(__response__, 'kind'),

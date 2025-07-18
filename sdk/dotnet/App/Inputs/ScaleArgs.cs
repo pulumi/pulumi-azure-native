@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.App.Inputs
     public sealed class ScaleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Optional. KEDA Cooldown Period in seconds. Defaults to 300 seconds if not set.
+        /// </summary>
+        [Input("cooldownPeriod")]
+        public Input<int>? CooldownPeriod { get; set; }
+
+        /// <summary>
         /// Optional. Maximum number of container replicas. Defaults to 10 if not set.
         /// </summary>
         [Input("maxReplicas")]
@@ -26,6 +32,12 @@ namespace Pulumi.AzureNative.App.Inputs
         /// </summary>
         [Input("minReplicas")]
         public Input<int>? MinReplicas { get; set; }
+
+        /// <summary>
+        /// Optional. KEDA Polling Interval in seconds. Defaults to 30 seconds if not set.
+        /// </summary>
+        [Input("pollingInterval")]
+        public Input<int>? PollingInterval { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.ScaleRuleArgs>? _rules;

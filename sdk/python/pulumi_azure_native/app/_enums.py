@@ -17,13 +17,13 @@ __all__ = [
     'ContainerType',
     'CookieExpirationConvention',
     'DotNetComponentType',
-    'ExecutionType',
     'ExtendedLocationTypes',
     'ForwardProxyConvention',
     'IdentitySettingsLifeCycle',
     'IngressClientCertificateMode',
     'IngressTransportMethod',
     'JavaComponentType',
+    'LifecycleType',
     'LogLevel',
     'ManagedCertificateDomainControlValidation',
     'ManagedServiceIdentityType',
@@ -129,14 +129,6 @@ class DotNetComponentType(builtins.str, Enum):
     ASPIRE_DASHBOARD = "AspireDashboard"
 
 
-@pulumi.type_token("azure-native:app:ExecutionType")
-class ExecutionType(builtins.str, Enum):
-    """
-    The execution type of the session pool.
-    """
-    TIMED = "Timed"
-
-
 @pulumi.type_token("azure-native:app:ExtendedLocationTypes")
 class ExtendedLocationTypes(builtins.str, Enum):
     """
@@ -158,10 +150,12 @@ class ForwardProxyConvention(builtins.str, Enum):
 @pulumi.type_token("azure-native:app:IdentitySettingsLifeCycle")
 class IdentitySettingsLifeCycle(builtins.str, Enum):
     """
-    Use to select the lifecycle stages of a Session Pool during which the Managed Identity should be available.
+    Use to select the lifecycle stages of a Container App during which the Managed Identity should be available.
     """
-    NONE = "None"
+    INIT = "Init"
     MAIN = "Main"
+    NONE = "None"
+    ALL = "All"
 
 
 @pulumi.type_token("azure-native:app:IngressClientCertificateMode")
@@ -193,8 +187,15 @@ class JavaComponentType(builtins.str, Enum):
     SPRING_BOOT_ADMIN = "SpringBootAdmin"
     SPRING_CLOUD_EUREKA = "SpringCloudEureka"
     SPRING_CLOUD_CONFIG = "SpringCloudConfig"
-    SPRING_CLOUD_GATEWAY = "SpringCloudGateway"
-    NACOS = "Nacos"
+
+
+@pulumi.type_token("azure-native:app:LifecycleType")
+class LifecycleType(builtins.str, Enum):
+    """
+    The lifecycle type of the session pool.
+    """
+    TIMED = "Timed"
+    ON_CONTAINER_EXIT = "OnContainerExit"
 
 
 @pulumi.type_token("azure-native:app:LogLevel")
@@ -275,6 +276,7 @@ class StorageType(builtins.str, Enum):
     AZURE_FILE = "AzureFile"
     EMPTY_DIR = "EmptyDir"
     SECRET = "Secret"
+    NFS_AZURE_FILE = "NfsAzureFile"
 
 
 @pulumi.type_token("azure-native:app:TriggerType")

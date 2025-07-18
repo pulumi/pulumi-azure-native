@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.App.Outputs
         /// Azure file properties
         /// </summary>
         public readonly Outputs.AzureFilePropertiesResponse? AzureFile;
+        /// <summary>
+        /// NFS Azure file properties
+        /// </summary>
+        public readonly Outputs.NfsAzureFilePropertiesResponse? NfsAzureFile;
 
         [OutputConstructor]
-        private ManagedEnvironmentStorageResponseProperties(Outputs.AzureFilePropertiesResponse? azureFile)
+        private ManagedEnvironmentStorageResponseProperties(
+            Outputs.AzureFilePropertiesResponse? azureFile,
+
+            Outputs.NfsAzureFilePropertiesResponse? nfsAzureFile)
         {
             AzureFile = azureFile;
+            NfsAzureFile = nfsAzureFile;
         }
     }
 }

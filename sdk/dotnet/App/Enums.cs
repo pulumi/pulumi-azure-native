@@ -318,36 +318,6 @@ namespace Pulumi.AzureNative.App
     }
 
     /// <summary>
-    /// The execution type of the session pool.
-    /// </summary>
-    [EnumType]
-    public readonly struct ExecutionType : IEquatable<ExecutionType>
-    {
-        private readonly string _value;
-
-        private ExecutionType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ExecutionType Timed { get; } = new ExecutionType("Timed");
-
-        public static bool operator ==(ExecutionType left, ExecutionType right) => left.Equals(right);
-        public static bool operator !=(ExecutionType left, ExecutionType right) => !left.Equals(right);
-
-        public static explicit operator string(ExecutionType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ExecutionType other && Equals(other);
-        public bool Equals(ExecutionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The type of the extended location.
     /// </summary>
     [EnumType]
@@ -410,7 +380,7 @@ namespace Pulumi.AzureNative.App
     }
 
     /// <summary>
-    /// Use to select the lifecycle stages of a Session Pool during which the Managed Identity should be available.
+    /// Use to select the lifecycle stages of a Container App during which the Managed Identity should be available.
     /// </summary>
     [EnumType]
     public readonly struct IdentitySettingsLifeCycle : IEquatable<IdentitySettingsLifeCycle>
@@ -422,8 +392,10 @@ namespace Pulumi.AzureNative.App
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static IdentitySettingsLifeCycle None { get; } = new IdentitySettingsLifeCycle("None");
+        public static IdentitySettingsLifeCycle Init { get; } = new IdentitySettingsLifeCycle("Init");
         public static IdentitySettingsLifeCycle Main { get; } = new IdentitySettingsLifeCycle("Main");
+        public static IdentitySettingsLifeCycle None { get; } = new IdentitySettingsLifeCycle("None");
+        public static IdentitySettingsLifeCycle All { get; } = new IdentitySettingsLifeCycle("All");
 
         public static bool operator ==(IdentitySettingsLifeCycle left, IdentitySettingsLifeCycle right) => left.Equals(right);
         public static bool operator !=(IdentitySettingsLifeCycle left, IdentitySettingsLifeCycle right) => !left.Equals(right);
@@ -521,8 +493,6 @@ namespace Pulumi.AzureNative.App
         public static JavaComponentType SpringBootAdmin { get; } = new JavaComponentType("SpringBootAdmin");
         public static JavaComponentType SpringCloudEureka { get; } = new JavaComponentType("SpringCloudEureka");
         public static JavaComponentType SpringCloudConfig { get; } = new JavaComponentType("SpringCloudConfig");
-        public static JavaComponentType SpringCloudGateway { get; } = new JavaComponentType("SpringCloudGateway");
-        public static JavaComponentType Nacos { get; } = new JavaComponentType("Nacos");
 
         public static bool operator ==(JavaComponentType left, JavaComponentType right) => left.Equals(right);
         public static bool operator !=(JavaComponentType left, JavaComponentType right) => !left.Equals(right);
@@ -532,6 +502,37 @@ namespace Pulumi.AzureNative.App
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is JavaComponentType other && Equals(other);
         public bool Equals(JavaComponentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The lifecycle type of the session pool.
+    /// </summary>
+    [EnumType]
+    public readonly struct LifecycleType : IEquatable<LifecycleType>
+    {
+        private readonly string _value;
+
+        private LifecycleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LifecycleType Timed { get; } = new LifecycleType("Timed");
+        public static LifecycleType OnContainerExit { get; } = new LifecycleType("OnContainerExit");
+
+        public static bool operator ==(LifecycleType left, LifecycleType right) => left.Equals(right);
+        public static bool operator !=(LifecycleType left, LifecycleType right) => !left.Equals(right);
+
+        public static explicit operator string(LifecycleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LifecycleType other && Equals(other);
+        public bool Equals(LifecycleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -779,6 +780,7 @@ namespace Pulumi.AzureNative.App
         public static StorageType AzureFile { get; } = new StorageType("AzureFile");
         public static StorageType EmptyDir { get; } = new StorageType("EmptyDir");
         public static StorageType Secret { get; } = new StorageType("Secret");
+        public static StorageType NfsAzureFile { get; } = new StorageType("NfsAzureFile");
 
         public static bool operator ==(StorageType left, StorageType right) => left.Equals(right);
         public static bool operator !=(StorageType left, StorageType right) => !left.Equals(right);

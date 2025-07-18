@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.App.Inputs
         [Input("azureFile")]
         public Input<Inputs.AzureFilePropertiesArgs>? AzureFile { get; set; }
 
+        /// <summary>
+        /// NFS Azure file properties
+        /// </summary>
+        [Input("nfsAzureFile")]
+        public Input<Inputs.NfsAzureFilePropertiesArgs>? NfsAzureFile { get; set; }
+
         public ManagedEnvironmentStoragePropertiesArgs()
         {
         }
