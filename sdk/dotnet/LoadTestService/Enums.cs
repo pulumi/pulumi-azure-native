@@ -8,6 +8,43 @@ using Pulumi;
 namespace Pulumi.AzureNative.LoadTestService
 {
     /// <summary>
+    /// This property sets the connection region for client workers to cloud-hosted browsers. If enabled, workers connect to browsers in the closest Azure region, ensuring lower latency. If disabled, workers connect to browsers in the Azure region in which the workspace was initially created.
+    /// </summary>
+    [EnumType]
+    public readonly struct EnablementStatus : IEquatable<EnablementStatus>
+    {
+        private readonly string _value;
+
+        private EnablementStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The feature is Enabled.
+        /// </summary>
+        public static EnablementStatus Enabled { get; } = new EnablementStatus("Enabled");
+        /// <summary>
+        /// The feature is Disabled.
+        /// </summary>
+        public static EnablementStatus Disabled { get; } = new EnablementStatus("Disabled");
+
+        public static bool operator ==(EnablementStatus left, EnablementStatus right) => left.Equals(right);
+        public static bool operator !=(EnablementStatus left, EnablementStatus right) => !left.Equals(right);
+
+        public static explicit operator string(EnablementStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EnablementStatus other && Equals(other);
+        public bool Equals(EnablementStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     /// </summary>
     [EnumType]

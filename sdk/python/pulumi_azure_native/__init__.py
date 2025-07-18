@@ -2289,6 +2289,11 @@ _utilities.register(
    "azure-native:deviceregistry:AssetEndpointProfile": "AssetEndpointProfile",
    "azure-native:deviceregistry:DiscoveredAsset": "DiscoveredAsset",
    "azure-native:deviceregistry:DiscoveredAssetEndpointProfile": "DiscoveredAssetEndpointProfile",
+   "azure-native:deviceregistry:Namespace": "Namespace",
+   "azure-native:deviceregistry:NamespaceAsset": "NamespaceAsset",
+   "azure-native:deviceregistry:NamespaceDevice": "NamespaceDevice",
+   "azure-native:deviceregistry:NamespaceDiscoveredAsset": "NamespaceDiscoveredAsset",
+   "azure-native:deviceregistry:NamespaceDiscoveredDevice": "NamespaceDiscoveredDevice",
    "azure-native:deviceregistry:Schema": "Schema",
    "azure-native:deviceregistry:SchemaRegistry": "SchemaRegistry",
    "azure-native:deviceregistry:SchemaVersion": "SchemaVersion"
@@ -2425,9 +2430,29 @@ _utilities.register(
   "mod": "edge",
   "fqn": "pulumi_azure_native.edge",
   "classes": {
+   "azure-native:edge:ConfigTemplate": "ConfigTemplate",
+   "azure-native:edge:Configuration": "Configuration",
+   "azure-native:edge:ConfigurationReference": "ConfigurationReference",
+   "azure-native:edge:Context": "Context",
+   "azure-native:edge:Diagnostic": "Diagnostic",
+   "azure-native:edge:DynamicConfiguration": "DynamicConfiguration",
+   "azure-native:edge:DynamicConfigurationVersion": "DynamicConfigurationVersion",
+   "azure-native:edge:DynamicSchema": "DynamicSchema",
+   "azure-native:edge:DynamicSchemaVersion": "DynamicSchemaVersion",
+   "azure-native:edge:Execution": "Execution",
+   "azure-native:edge:Instance": "Instance",
+   "azure-native:edge:Schema": "Schema",
+   "azure-native:edge:SchemaVersion": "SchemaVersion",
    "azure-native:edge:Site": "Site",
+   "azure-native:edge:SiteReference": "SiteReference",
    "azure-native:edge:SitesByServiceGroup": "SitesByServiceGroup",
-   "azure-native:edge:SitesBySubscription": "SitesBySubscription"
+   "azure-native:edge:SitesBySubscription": "SitesBySubscription",
+   "azure-native:edge:Solution": "Solution",
+   "azure-native:edge:SolutionTemplate": "SolutionTemplate",
+   "azure-native:edge:SolutionVersion": "SolutionVersion",
+   "azure-native:edge:Target": "Target",
+   "azure-native:edge:Workflow": "Workflow",
+   "azure-native:edge:WorkflowVersion": "WorkflowVersion"
   }
  },
  {
@@ -2948,7 +2973,8 @@ _utilities.register(
   "classes": {
    "azure-native:loadtestservice:LoadTest": "LoadTest",
    "azure-native:loadtestservice:LoadTestMapping": "LoadTestMapping",
-   "azure-native:loadtestservice:LoadTestProfileMapping": "LoadTestProfileMapping"
+   "azure-native:loadtestservice:LoadTestProfileMapping": "LoadTestProfileMapping",
+   "azure-native:loadtestservice:PlaywrightWorkspace": "PlaywrightWorkspace"
   }
  },
  {
@@ -3529,7 +3555,8 @@ _utilities.register(
   "mod": "onlineexperimentation",
   "fqn": "pulumi_azure_native.onlineexperimentation",
   "classes": {
-   "azure-native:onlineexperimentation:OnlineExperimentationWorkspace": "OnlineExperimentationWorkspace"
+   "azure-native:onlineexperimentation:OnlineExperimentationWorkspace": "OnlineExperimentationWorkspace",
+   "azure-native:onlineexperimentation:PrivateEndpointConnection": "PrivateEndpointConnection"
   }
  },
  {
@@ -4239,6 +4266,7 @@ _utilities.register(
    "azure-native:sql:SyncGroup": "SyncGroup",
    "azure-native:sql:SyncMember": "SyncMember",
    "azure-native:sql:TransparentDataEncryption": "TransparentDataEncryption",
+   "azure-native:sql:VirtualCluster": "VirtualCluster",
    "azure-native:sql:VirtualNetworkRule": "VirtualNetworkRule",
    "azure-native:sql:WorkloadClassifier": "WorkloadClassifier",
    "azure-native:sql:WorkloadGroup": "WorkloadGroup"

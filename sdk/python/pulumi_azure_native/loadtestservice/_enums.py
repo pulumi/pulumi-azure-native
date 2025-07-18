@@ -7,9 +7,25 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'EnablementStatus',
     'ManagedServiceIdentityType',
     'Type',
 ]
+
+
+@pulumi.type_token("azure-native:loadtestservice:EnablementStatus")
+class EnablementStatus(builtins.str, Enum):
+    """
+    This property sets the connection region for client workers to cloud-hosted browsers. If enabled, workers connect to browsers in the closest Azure region, ensuring lower latency. If disabled, workers connect to browsers in the Azure region in which the workspace was initially created.
+    """
+    ENABLED = "Enabled"
+    """
+    The feature is Enabled.
+    """
+    DISABLED = "Disabled"
+    """
+    The feature is Disabled.
+    """
 
 
 @pulumi.type_token("azure-native:loadtestservice:ManagedServiceIdentityType")

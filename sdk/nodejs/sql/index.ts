@@ -430,6 +430,11 @@ export const getTransparentDataEncryption: typeof import("./getTransparentDataEn
 export const getTransparentDataEncryptionOutput: typeof import("./getTransparentDataEncryption").getTransparentDataEncryptionOutput = null as any;
 utilities.lazyLoad(exports, ["getTransparentDataEncryption","getTransparentDataEncryptionOutput"], () => require("./getTransparentDataEncryption"));
 
+export { GetVirtualClusterArgs, GetVirtualClusterResult, GetVirtualClusterOutputArgs } from "./getVirtualCluster";
+export const getVirtualCluster: typeof import("./getVirtualCluster").getVirtualCluster = null as any;
+export const getVirtualClusterOutput: typeof import("./getVirtualCluster").getVirtualClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualCluster","getVirtualClusterOutput"], () => require("./getVirtualCluster"));
+
 export { GetVirtualNetworkRuleArgs, GetVirtualNetworkRuleResult, GetVirtualNetworkRuleOutputArgs } from "./getVirtualNetworkRule";
 export const getVirtualNetworkRule: typeof import("./getVirtualNetworkRule").getVirtualNetworkRule = null as any;
 export const getVirtualNetworkRuleOutput: typeof import("./getVirtualNetworkRule").getVirtualNetworkRuleOutput = null as any;
@@ -670,6 +675,11 @@ export type TransparentDataEncryption = import("./transparentDataEncryption").Tr
 export const TransparentDataEncryption: typeof import("./transparentDataEncryption").TransparentDataEncryption = null as any;
 utilities.lazyLoad(exports, ["TransparentDataEncryption"], () => require("./transparentDataEncryption"));
 
+export { VirtualClusterArgs } from "./virtualCluster";
+export type VirtualCluster = import("./virtualCluster").VirtualCluster;
+export const VirtualCluster: typeof import("./virtualCluster").VirtualCluster = null as any;
+utilities.lazyLoad(exports, ["VirtualCluster"], () => require("./virtualCluster"));
+
 export { VirtualNetworkRuleArgs } from "./virtualNetworkRule";
 export type VirtualNetworkRule = import("./virtualNetworkRule").VirtualNetworkRule;
 export const VirtualNetworkRule: typeof import("./virtualNetworkRule").VirtualNetworkRule = null as any;
@@ -823,6 +833,8 @@ const _module = {
                 return new SyncMember(name, <any>undefined, { urn })
             case "azure-native:sql:TransparentDataEncryption":
                 return new TransparentDataEncryption(name, <any>undefined, { urn })
+            case "azure-native:sql:VirtualCluster":
+                return new VirtualCluster(name, <any>undefined, { urn })
             case "azure-native:sql:VirtualNetworkRule":
                 return new VirtualNetworkRule(name, <any>undefined, { urn })
             case "azure-native:sql:WorkloadClassifier":

@@ -9,9 +9,15 @@ from enum import Enum
 __all__ = [
     'AuthenticationMethod',
     'DataPointObservabilityMode',
+    'DatasetDestinationTarget',
+    'EventDestinationTarget',
     'EventObservabilityMode',
     'Format',
+    'ManagementActionType',
+    'MqttDestinationQos',
+    'NamespaceDiscoveredManagementActionType',
     'SchemaType',
+    'StreamDestinationTarget',
     'SystemAssignedServiceIdentityType',
     'TopicRetainType',
 ]
@@ -63,6 +69,40 @@ class DataPointObservabilityMode(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:deviceregistry:DatasetDestinationTarget")
+class DatasetDestinationTarget(builtins.str, Enum):
+    """
+    Target destination.
+    """
+    MQTT = "Mqtt"
+    """
+    MQTT target.
+    """
+    BROKER_STATE_STORE = "BrokerStateStore"
+    """
+    Broker State Store target.
+    """
+    STORAGE = "Storage"
+    """
+    Storage target.
+    """
+
+
+@pulumi.type_token("azure-native:deviceregistry:EventDestinationTarget")
+class EventDestinationTarget(builtins.str, Enum):
+    """
+    Target destination.
+    """
+    MQTT = "Mqtt"
+    """
+    MQTT target.
+    """
+    STORAGE = "Storage"
+    """
+    Storage target.
+    """
+
+
 @pulumi.type_token("azure-native:deviceregistry:EventObservabilityMode")
 class EventObservabilityMode(builtins.str, Enum):
     """
@@ -93,6 +133,59 @@ class Format(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:deviceregistry:ManagementActionType")
+class ManagementActionType(builtins.str, Enum):
+    """
+    The type of the action.
+    """
+    CALL = "Call"
+    """
+    Call action type.
+    """
+    READ = "Read"
+    """
+    Read action type.
+    """
+    WRITE = "Write"
+    """
+    Write action type.
+    """
+
+
+@pulumi.type_token("azure-native:deviceregistry:MqttDestinationQos")
+class MqttDestinationQos(builtins.str, Enum):
+    """
+    The MQTT QoS setting. Defaults to QoS 1.
+    """
+    QOS0 = "Qos0"
+    """
+    QoS 0.
+    """
+    QOS1 = "Qos1"
+    """
+    QoS 1.
+    """
+
+
+@pulumi.type_token("azure-native:deviceregistry:NamespaceDiscoveredManagementActionType")
+class NamespaceDiscoveredManagementActionType(builtins.str, Enum):
+    """
+    The type of the action.
+    """
+    CALL = "Call"
+    """
+    Call action type.
+    """
+    READ = "Read"
+    """
+    Read action type.
+    """
+    WRITE = "Write"
+    """
+    Write action type.
+    """
+
+
 @pulumi.type_token("azure-native:deviceregistry:SchemaType")
 class SchemaType(builtins.str, Enum):
     """
@@ -101,6 +194,21 @@ class SchemaType(builtins.str, Enum):
     MESSAGE_SCHEMA = "MessageSchema"
     """
     Message Schema schema type
+    """
+
+
+@pulumi.type_token("azure-native:deviceregistry:StreamDestinationTarget")
+class StreamDestinationTarget(builtins.str, Enum):
+    """
+    Target destination.
+    """
+    MQTT = "Mqtt"
+    """
+    MQTT target.
+    """
+    STORAGE = "Storage"
+    """
+    Storage target.
     """
 
 

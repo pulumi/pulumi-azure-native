@@ -20,6 +20,11 @@ export const getLoadTestProfileMapping: typeof import("./getLoadTestProfileMappi
 export const getLoadTestProfileMappingOutput: typeof import("./getLoadTestProfileMapping").getLoadTestProfileMappingOutput = null as any;
 utilities.lazyLoad(exports, ["getLoadTestProfileMapping","getLoadTestProfileMappingOutput"], () => require("./getLoadTestProfileMapping"));
 
+export { GetPlaywrightWorkspaceArgs, GetPlaywrightWorkspaceResult, GetPlaywrightWorkspaceOutputArgs } from "./getPlaywrightWorkspace";
+export const getPlaywrightWorkspace: typeof import("./getPlaywrightWorkspace").getPlaywrightWorkspace = null as any;
+export const getPlaywrightWorkspaceOutput: typeof import("./getPlaywrightWorkspace").getPlaywrightWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getPlaywrightWorkspace","getPlaywrightWorkspaceOutput"], () => require("./getPlaywrightWorkspace"));
+
 export { LoadTestArgs } from "./loadTest";
 export type LoadTest = import("./loadTest").LoadTest;
 export const LoadTest: typeof import("./loadTest").LoadTest = null as any;
@@ -35,6 +40,11 @@ export type LoadTestProfileMapping = import("./loadTestProfileMapping").LoadTest
 export const LoadTestProfileMapping: typeof import("./loadTestProfileMapping").LoadTestProfileMapping = null as any;
 utilities.lazyLoad(exports, ["LoadTestProfileMapping"], () => require("./loadTestProfileMapping"));
 
+export { PlaywrightWorkspaceArgs } from "./playwrightWorkspace";
+export type PlaywrightWorkspace = import("./playwrightWorkspace").PlaywrightWorkspace;
+export const PlaywrightWorkspace: typeof import("./playwrightWorkspace").PlaywrightWorkspace = null as any;
+utilities.lazyLoad(exports, ["PlaywrightWorkspace"], () => require("./playwrightWorkspace"));
+
 
 // Export enums:
 export * from "../types/enums/loadtestservice";
@@ -49,6 +59,8 @@ const _module = {
                 return new LoadTestMapping(name, <any>undefined, { urn })
             case "azure-native:loadtestservice:LoadTestProfileMapping":
                 return new LoadTestProfileMapping(name, <any>undefined, { urn })
+            case "azure-native:loadtestservice:PlaywrightWorkspace":
+                return new PlaywrightWorkspace(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
