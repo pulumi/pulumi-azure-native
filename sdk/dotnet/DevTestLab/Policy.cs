@@ -177,7 +177,7 @@ namespace Pulumi.AzureNative.DevTestLab
         public InputUnion<string, Pulumi.AzureNative.DevTestLab.PolicyFactName>? FactName { get; set; }
 
         /// <summary>
-        /// The name of the lab.
+        /// labs
         /// </summary>
         [Input("labName", required: true)]
         public Input<string> LabName { get; set; } = null!;
@@ -189,19 +189,19 @@ namespace Pulumi.AzureNative.DevTestLab
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the policy.
+        /// The name of the Schedule
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the policy set.
+        /// policysets
         /// </summary>
         [Input("policySetName", required: true)]
         public Input<string> PolicySetName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

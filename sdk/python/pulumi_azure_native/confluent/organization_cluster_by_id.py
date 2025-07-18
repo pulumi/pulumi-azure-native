@@ -27,46 +27,34 @@ class OrganizationClusterByIdArgs:
                  organization_name: pulumi.Input[builtins.str],
                  resource_group_name: pulumi.Input[builtins.str],
                  cluster_id: Optional[pulumi.Input[builtins.str]] = None,
-                 id: Optional[pulumi.Input[builtins.str]] = None,
                  kind: Optional[pulumi.Input[builtins.str]] = None,
                  metadata: Optional[pulumi.Input['SCMetadataEntityArgs']] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
                  spec: Optional[pulumi.Input['SCClusterSpecEntityArgs']] = None,
-                 status: Optional[pulumi.Input['ClusterStatusEntityArgs']] = None,
-                 type: Optional[pulumi.Input[builtins.str]] = None):
+                 status: Optional[pulumi.Input['ClusterStatusEntityArgs']] = None):
         """
         The set of arguments for constructing a OrganizationClusterById resource.
         :param pulumi.Input[builtins.str] environment_id: Confluent environment id
         :param pulumi.Input[builtins.str] organization_name: Organization resource name
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] cluster_id: Confluent kafka or schema registry cluster id
-        :param pulumi.Input[builtins.str] id: Id of the cluster
         :param pulumi.Input[builtins.str] kind: Type of cluster
         :param pulumi.Input['SCMetadataEntityArgs'] metadata: Metadata of the record
-        :param pulumi.Input[builtins.str] name: Display name of the cluster
         :param pulumi.Input['SCClusterSpecEntityArgs'] spec: Specification of the cluster
         :param pulumi.Input['ClusterStatusEntityArgs'] status: Specification of the cluster status
-        :param pulumi.Input[builtins.str] type: Type of the resource
         """
         pulumi.set(__self__, "environment_id", environment_id)
         pulumi.set(__self__, "organization_name", organization_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if cluster_id is not None:
             pulumi.set(__self__, "cluster_id", cluster_id)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if spec is not None:
             pulumi.set(__self__, "spec", spec)
         if status is not None:
             pulumi.set(__self__, "status", status)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="environmentId")
@@ -118,18 +106,6 @@ class OrganizationClusterByIdArgs:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Id of the cluster
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Type of cluster
@@ -151,18 +127,6 @@ class OrganizationClusterByIdArgs:
     @metadata.setter
     def metadata(self, value: Optional[pulumi.Input['SCMetadataEntityArgs']]):
         pulumi.set(self, "metadata", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Display name of the cluster
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -188,18 +152,6 @@ class OrganizationClusterByIdArgs:
     def status(self, value: Optional[pulumi.Input['ClusterStatusEntityArgs']]):
         pulumi.set(self, "status", value)
 
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Type of the resource
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "type", value)
-
 
 @pulumi.type_token("azure-native:confluent:OrganizationClusterById")
 class OrganizationClusterById(pulumi.CustomResource):
@@ -209,15 +161,12 @@ class OrganizationClusterById(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_id: Optional[pulumi.Input[builtins.str]] = None,
                  environment_id: Optional[pulumi.Input[builtins.str]] = None,
-                 id: Optional[pulumi.Input[builtins.str]] = None,
                  kind: Optional[pulumi.Input[builtins.str]] = None,
                  metadata: Optional[pulumi.Input[Union['SCMetadataEntityArgs', 'SCMetadataEntityArgsDict']]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
                  organization_name: Optional[pulumi.Input[builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  spec: Optional[pulumi.Input[Union['SCClusterSpecEntityArgs', 'SCClusterSpecEntityArgsDict']]] = None,
                  status: Optional[pulumi.Input[Union['ClusterStatusEntityArgs', 'ClusterStatusEntityArgsDict']]] = None,
-                 type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Details of cluster record
@@ -228,15 +177,12 @@ class OrganizationClusterById(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] cluster_id: Confluent kafka or schema registry cluster id
         :param pulumi.Input[builtins.str] environment_id: Confluent environment id
-        :param pulumi.Input[builtins.str] id: Id of the cluster
         :param pulumi.Input[builtins.str] kind: Type of cluster
         :param pulumi.Input[Union['SCMetadataEntityArgs', 'SCMetadataEntityArgsDict']] metadata: Metadata of the record
-        :param pulumi.Input[builtins.str] name: Display name of the cluster
         :param pulumi.Input[builtins.str] organization_name: Organization resource name
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['SCClusterSpecEntityArgs', 'SCClusterSpecEntityArgsDict']] spec: Specification of the cluster
         :param pulumi.Input[Union['ClusterStatusEntityArgs', 'ClusterStatusEntityArgsDict']] status: Specification of the cluster status
-        :param pulumi.Input[builtins.str] type: Type of the resource
         """
         ...
     @overload
@@ -266,15 +212,12 @@ class OrganizationClusterById(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_id: Optional[pulumi.Input[builtins.str]] = None,
                  environment_id: Optional[pulumi.Input[builtins.str]] = None,
-                 id: Optional[pulumi.Input[builtins.str]] = None,
                  kind: Optional[pulumi.Input[builtins.str]] = None,
                  metadata: Optional[pulumi.Input[Union['SCMetadataEntityArgs', 'SCMetadataEntityArgsDict']]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
                  organization_name: Optional[pulumi.Input[builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  spec: Optional[pulumi.Input[Union['SCClusterSpecEntityArgs', 'SCClusterSpecEntityArgsDict']]] = None,
                  status: Optional[pulumi.Input[Union['ClusterStatusEntityArgs', 'ClusterStatusEntityArgsDict']]] = None,
-                 type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -288,10 +231,8 @@ class OrganizationClusterById(pulumi.CustomResource):
             if environment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_id'")
             __props__.__dict__["environment_id"] = environment_id
-            __props__.__dict__["id"] = id
             __props__.__dict__["kind"] = kind
             __props__.__dict__["metadata"] = metadata
-            __props__.__dict__["name"] = name
             if organization_name is None and not opts.urn:
                 raise TypeError("Missing required property 'organization_name'")
             __props__.__dict__["organization_name"] = organization_name
@@ -300,8 +241,10 @@ class OrganizationClusterById(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["spec"] = spec
             __props__.__dict__["status"] = status
-            __props__.__dict__["type"] = type
             __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:confluent/v20240701:OrganizationClusterById")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OrganizationClusterById, __self__).__init__(
@@ -332,6 +275,7 @@ class OrganizationClusterById(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["spec"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return OrganizationClusterById(resource_name, opts=opts, __props__=__props__)
 
@@ -361,9 +305,9 @@ class OrganizationClusterById(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[builtins.str]]:
+    def name(self) -> pulumi.Output[builtins.str]:
         """
-        Display name of the cluster
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -384,10 +328,18 @@ class OrganizationClusterById(pulumi.CustomResource):
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter
-    def type(self) -> pulumi.Output[Optional[builtins.str]]:
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Type of the resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Output[builtins.str]:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

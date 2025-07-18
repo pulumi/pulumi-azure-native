@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<string>? ForceUpdateTag { get; set; }
 
         /// <summary>
-        /// The name of the extension.
+        /// Resource name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

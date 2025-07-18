@@ -98,6 +98,12 @@ namespace Pulumi.AzureNative.PrivateDns
         public Output<ImmutableArray<Outputs.SrvRecordResponse>> SrvRecords { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The TTL (time-to-live) of the records in the record set.
         /// </summary>
         [Output("ttl")]
@@ -110,7 +116,7 @@ namespace Pulumi.AzureNative.PrivateDns
         public Output<ImmutableArray<Outputs.TxtRecordResponse>> TxtRecords { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -225,7 +231,7 @@ namespace Pulumi.AzureNative.PrivateDns
         }
 
         /// <summary>
-        /// The name of the Private DNS zone (without a terminating dot).
+        /// The name of the DNS zone (without a terminating dot).
         /// </summary>
         [Input("privateZoneName", required: true)]
         public Input<string> PrivateZoneName { get; set; } = null!;
@@ -243,7 +249,7 @@ namespace Pulumi.AzureNative.PrivateDns
         }
 
         /// <summary>
-        /// The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the Private DNS zone is created).
+        /// The type of DNS record in this record set.
         /// </summary>
         [Input("recordType", required: true)]
         public Input<string> RecordType { get; set; } = null!;
@@ -255,7 +261,7 @@ namespace Pulumi.AzureNative.PrivateDns
         public Input<string>? RelativeRecordSetName { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

@@ -40,14 +40,14 @@ class ServiceFabricScheduleArgs:
                  weekly_recurrence: Optional[pulumi.Input['WeekDetailsArgs']] = None):
         """
         The set of arguments for constructing a ServiceFabricSchedule resource.
-        :param pulumi.Input[builtins.str] lab_name: The name of the lab.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[builtins.str] service_fabric_name: The name of the service fabric.
-        :param pulumi.Input[builtins.str] user_name: The name of the user profile.
+        :param pulumi.Input[builtins.str] lab_name: labs
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[builtins.str] service_fabric_name: servicefabrics
+        :param pulumi.Input[builtins.str] user_name: users
         :param pulumi.Input['DayDetailsArgs'] daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
         :param pulumi.Input['HourDetailsArgs'] hourly_recurrence: If the schedule will occur multiple times a day, specify the hourly recurrence.
         :param pulumi.Input[builtins.str] location: The location of the resource.
-        :param pulumi.Input[builtins.str] name: The name of the schedule.
+        :param pulumi.Input[builtins.str] name: The name of the Schedule
         :param pulumi.Input['NotificationSettingsArgs'] notification_settings: Notification settings.
         :param pulumi.Input[Union[builtins.str, 'EnableStatus']] status: The status of the schedule (i.e. Enabled, Disabled)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
@@ -89,7 +89,7 @@ class ServiceFabricScheduleArgs:
     @pulumi.getter(name="labName")
     def lab_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the lab.
+        labs
         """
         return pulumi.get(self, "lab_name")
 
@@ -101,7 +101,7 @@ class ServiceFabricScheduleArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -113,7 +113,7 @@ class ServiceFabricScheduleArgs:
     @pulumi.getter(name="serviceFabricName")
     def service_fabric_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the service fabric.
+        servicefabrics
         """
         return pulumi.get(self, "service_fabric_name")
 
@@ -125,7 +125,7 @@ class ServiceFabricScheduleArgs:
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the user profile.
+        users
         """
         return pulumi.get(self, "user_name")
 
@@ -173,7 +173,7 @@ class ServiceFabricScheduleArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the schedule.
+        The name of the Schedule
         """
         return pulumi.get(self, "name")
 
@@ -297,18 +297,18 @@ class ServiceFabricSchedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DayDetailsArgs', 'DayDetailsArgsDict']] daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
         :param pulumi.Input[Union['HourDetailsArgs', 'HourDetailsArgsDict']] hourly_recurrence: If the schedule will occur multiple times a day, specify the hourly recurrence.
-        :param pulumi.Input[builtins.str] lab_name: The name of the lab.
+        :param pulumi.Input[builtins.str] lab_name: labs
         :param pulumi.Input[builtins.str] location: The location of the resource.
-        :param pulumi.Input[builtins.str] name: The name of the schedule.
+        :param pulumi.Input[builtins.str] name: The name of the Schedule
         :param pulumi.Input[Union['NotificationSettingsArgs', 'NotificationSettingsArgsDict']] notification_settings: Notification settings.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[builtins.str] service_fabric_name: The name of the service fabric.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[builtins.str] service_fabric_name: servicefabrics
         :param pulumi.Input[Union[builtins.str, 'EnableStatus']] status: The status of the schedule (i.e. Enabled, Disabled)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
         :param pulumi.Input[builtins.str] target_resource_id: The resource ID to which the schedule belongs
         :param pulumi.Input[builtins.str] task_type: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
         :param pulumi.Input[builtins.str] time_zone_id: The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
-        :param pulumi.Input[builtins.str] user_name: The name of the user profile.
+        :param pulumi.Input[builtins.str] user_name: users
         :param pulumi.Input[Union['WeekDetailsArgs', 'WeekDetailsArgsDict']] weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
         ...

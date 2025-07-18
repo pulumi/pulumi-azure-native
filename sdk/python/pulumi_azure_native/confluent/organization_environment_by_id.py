@@ -26,40 +26,28 @@ class OrganizationEnvironmentByIdArgs:
                  organization_name: pulumi.Input[builtins.str],
                  resource_group_name: pulumi.Input[builtins.str],
                  environment_id: Optional[pulumi.Input[builtins.str]] = None,
-                 id: Optional[pulumi.Input[builtins.str]] = None,
                  kind: Optional[pulumi.Input[builtins.str]] = None,
                  metadata: Optional[pulumi.Input['SCMetadataEntityArgs']] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
-                 stream_governance_config: Optional[pulumi.Input['StreamGovernanceConfigArgs']] = None,
-                 type: Optional[pulumi.Input[builtins.str]] = None):
+                 stream_governance_config: Optional[pulumi.Input['StreamGovernanceConfigArgs']] = None):
         """
         The set of arguments for constructing a OrganizationEnvironmentById resource.
         :param pulumi.Input[builtins.str] organization_name: Organization resource name
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] environment_id: Confluent environment id
-        :param pulumi.Input[builtins.str] id: Id of the environment
         :param pulumi.Input[builtins.str] kind: Type of environment
         :param pulumi.Input['SCMetadataEntityArgs'] metadata: Metadata of the record
-        :param pulumi.Input[builtins.str] name: Display name of the environment
         :param pulumi.Input['StreamGovernanceConfigArgs'] stream_governance_config: Stream governance configuration
-        :param pulumi.Input[builtins.str] type: Type of the resource
         """
         pulumi.set(__self__, "organization_name", organization_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if environment_id is not None:
             pulumi.set(__self__, "environment_id", environment_id)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if stream_governance_config is not None:
             pulumi.set(__self__, "stream_governance_config", stream_governance_config)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="organizationName")
@@ -99,18 +87,6 @@ class OrganizationEnvironmentByIdArgs:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Id of the environment
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Type of environment
@@ -134,18 +110,6 @@ class OrganizationEnvironmentByIdArgs:
         pulumi.set(self, "metadata", value)
 
     @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Display name of the environment
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="streamGovernanceConfig")
     def stream_governance_config(self) -> Optional[pulumi.Input['StreamGovernanceConfigArgs']]:
         """
@@ -157,18 +121,6 @@ class OrganizationEnvironmentByIdArgs:
     def stream_governance_config(self, value: Optional[pulumi.Input['StreamGovernanceConfigArgs']]):
         pulumi.set(self, "stream_governance_config", value)
 
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Type of the resource
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "type", value)
-
 
 @pulumi.type_token("azure-native:confluent:OrganizationEnvironmentById")
 class OrganizationEnvironmentById(pulumi.CustomResource):
@@ -177,14 +129,11 @@ class OrganizationEnvironmentById(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  environment_id: Optional[pulumi.Input[builtins.str]] = None,
-                 id: Optional[pulumi.Input[builtins.str]] = None,
                  kind: Optional[pulumi.Input[builtins.str]] = None,
                  metadata: Optional[pulumi.Input[Union['SCMetadataEntityArgs', 'SCMetadataEntityArgsDict']]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
                  organization_name: Optional[pulumi.Input[builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  stream_governance_config: Optional[pulumi.Input[Union['StreamGovernanceConfigArgs', 'StreamGovernanceConfigArgsDict']]] = None,
-                 type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Details about environment name, metadata and environment id of an environment
@@ -194,14 +143,11 @@ class OrganizationEnvironmentById(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] environment_id: Confluent environment id
-        :param pulumi.Input[builtins.str] id: Id of the environment
         :param pulumi.Input[builtins.str] kind: Type of environment
         :param pulumi.Input[Union['SCMetadataEntityArgs', 'SCMetadataEntityArgsDict']] metadata: Metadata of the record
-        :param pulumi.Input[builtins.str] name: Display name of the environment
         :param pulumi.Input[builtins.str] organization_name: Organization resource name
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['StreamGovernanceConfigArgs', 'StreamGovernanceConfigArgsDict']] stream_governance_config: Stream governance configuration
-        :param pulumi.Input[builtins.str] type: Type of the resource
         """
         ...
     @overload
@@ -230,14 +176,11 @@ class OrganizationEnvironmentById(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  environment_id: Optional[pulumi.Input[builtins.str]] = None,
-                 id: Optional[pulumi.Input[builtins.str]] = None,
                  kind: Optional[pulumi.Input[builtins.str]] = None,
                  metadata: Optional[pulumi.Input[Union['SCMetadataEntityArgs', 'SCMetadataEntityArgsDict']]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
                  organization_name: Optional[pulumi.Input[builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  stream_governance_config: Optional[pulumi.Input[Union['StreamGovernanceConfigArgs', 'StreamGovernanceConfigArgsDict']]] = None,
-                 type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -248,10 +191,8 @@ class OrganizationEnvironmentById(pulumi.CustomResource):
             __props__ = OrganizationEnvironmentByIdArgs.__new__(OrganizationEnvironmentByIdArgs)
 
             __props__.__dict__["environment_id"] = environment_id
-            __props__.__dict__["id"] = id
             __props__.__dict__["kind"] = kind
             __props__.__dict__["metadata"] = metadata
-            __props__.__dict__["name"] = name
             if organization_name is None and not opts.urn:
                 raise TypeError("Missing required property 'organization_name'")
             __props__.__dict__["organization_name"] = organization_name
@@ -259,8 +200,10 @@ class OrganizationEnvironmentById(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["stream_governance_config"] = stream_governance_config
-            __props__.__dict__["type"] = type
             __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:confluent/v20240701:OrganizationEnvironmentById")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OrganizationEnvironmentById, __self__).__init__(
@@ -290,6 +233,7 @@ class OrganizationEnvironmentById(pulumi.CustomResource):
         __props__.__dict__["metadata"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["stream_governance_config"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return OrganizationEnvironmentById(resource_name, opts=opts, __props__=__props__)
 
@@ -319,9 +263,9 @@ class OrganizationEnvironmentById(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[builtins.str]]:
+    def name(self) -> pulumi.Output[builtins.str]:
         """
-        Display name of the environment
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -334,10 +278,18 @@ class OrganizationEnvironmentById(pulumi.CustomResource):
         return pulumi.get(self, "stream_governance_config")
 
     @property
-    @pulumi.getter
-    def type(self) -> pulumi.Output[Optional[builtins.str]]:
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Type of the resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Output[builtins.str]:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

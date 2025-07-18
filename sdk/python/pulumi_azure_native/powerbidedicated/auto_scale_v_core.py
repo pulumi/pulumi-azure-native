@@ -28,18 +28,16 @@ class AutoScaleVCoreArgs:
                  capacity_limit: Optional[pulumi.Input[builtins.int]] = None,
                  capacity_object_id: Optional[pulumi.Input[builtins.str]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
-                 system_data: Optional[pulumi.Input['SystemDataArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vcore_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a AutoScaleVCore resource.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AutoScaleVCoreSkuArgs'] sku: The SKU of the auto scale v-core resource.
         :param pulumi.Input[builtins.int] capacity_limit: The maximum capacity of an auto scale v-core resource.
         :param pulumi.Input[builtins.str] capacity_object_id: The object ID of the capacity resource associated with the auto scale v-core resource.
-        :param pulumi.Input[builtins.str] location: Location of the PowerBI Dedicated resource.
-        :param pulumi.Input['SystemDataArgs'] system_data: Metadata pertaining to creation and last modification of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of additional resource provisioning properties.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param pulumi.Input[builtins.str] vcore_name: The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -50,8 +48,6 @@ class AutoScaleVCoreArgs:
             pulumi.set(__self__, "capacity_object_id", capacity_object_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if system_data is not None:
-            pulumi.set(__self__, "system_data", system_data)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if vcore_name is not None:
@@ -61,7 +57,7 @@ class AutoScaleVCoreArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -109,7 +105,7 @@ class AutoScaleVCoreArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Location of the PowerBI Dedicated resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -118,22 +114,10 @@ class AutoScaleVCoreArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> Optional[pulumi.Input['SystemDataArgs']]:
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @system_data.setter
-    def system_data(self, value: Optional[pulumi.Input['SystemDataArgs']]):
-        pulumi.set(self, "system_data", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Key-value pairs of additional resource provisioning properties.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -165,7 +149,6 @@ class AutoScaleVCore(pulumi.CustomResource):
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  sku: Optional[pulumi.Input[Union['AutoScaleVCoreSkuArgs', 'AutoScaleVCoreSkuArgsDict']]] = None,
-                 system_data: Optional[pulumi.Input[Union['SystemDataArgs', 'SystemDataArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vcore_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -178,11 +161,10 @@ class AutoScaleVCore(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.int] capacity_limit: The maximum capacity of an auto scale v-core resource.
         :param pulumi.Input[builtins.str] capacity_object_id: The object ID of the capacity resource associated with the auto scale v-core resource.
-        :param pulumi.Input[builtins.str] location: Location of the PowerBI Dedicated resource.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['AutoScaleVCoreSkuArgs', 'AutoScaleVCoreSkuArgsDict']] sku: The SKU of the auto scale v-core resource.
-        :param pulumi.Input[Union['SystemDataArgs', 'SystemDataArgsDict']] system_data: Metadata pertaining to creation and last modification of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of additional resource provisioning properties.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param pulumi.Input[builtins.str] vcore_name: The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
         """
         ...
@@ -216,7 +198,6 @@ class AutoScaleVCore(pulumi.CustomResource):
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  sku: Optional[pulumi.Input[Union['AutoScaleVCoreSkuArgs', 'AutoScaleVCoreSkuArgsDict']]] = None,
-                 system_data: Optional[pulumi.Input[Union['SystemDataArgs', 'SystemDataArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vcore_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -237,12 +218,12 @@ class AutoScaleVCore(pulumi.CustomResource):
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
-            __props__.__dict__["system_data"] = system_data
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vcore_name"] = vcore_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:powerbidedicated/v20210101:AutoScaleVCore")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -308,7 +289,7 @@ class AutoScaleVCore(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        Location of the PowerBI Dedicated resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -316,7 +297,7 @@ class AutoScaleVCore(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        The name of the PowerBI Dedicated resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -338,9 +319,9 @@ class AutoScaleVCore(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output[Optional['outputs.SystemDataResponse']]:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -348,7 +329,7 @@ class AutoScaleVCore(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Key-value pairs of additional resource provisioning properties.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -356,7 +337,7 @@ class AutoScaleVCore(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        The type of the PowerBI Dedicated resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

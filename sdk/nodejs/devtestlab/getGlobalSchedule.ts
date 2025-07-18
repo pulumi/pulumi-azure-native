@@ -27,11 +27,11 @@ export interface GetGlobalScheduleArgs {
      */
     expand?: string;
     /**
-     * The name of the schedule.
+     * The name of the Schedule
      */
     name: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -129,11 +129,11 @@ export interface GetGlobalScheduleOutputArgs {
      */
     expand?: pulumi.Input<string>;
     /**
-     * The name of the schedule.
+     * The name of the Schedule
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

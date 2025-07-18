@@ -13,10 +13,25 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     [OutputType]
     public sealed class LinkedAccessCheckResponse
     {
+        /// <summary>
+        /// The action name.
+        /// </summary>
         public readonly string? ActionName;
+        /// <summary>
+        /// The linked action.
+        /// </summary>
         public readonly string? LinkedAction;
+        /// <summary>
+        /// The linked action verb.
+        /// </summary>
         public readonly string? LinkedActionVerb;
+        /// <summary>
+        /// The linked property.
+        /// </summary>
         public readonly string? LinkedProperty;
+        /// <summary>
+        /// The linked type.
+        /// </summary>
         public readonly string? LinkedType;
 
         [OutputConstructor]

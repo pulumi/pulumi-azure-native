@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public static class GetBackup
     {
         /// <summary>
-        /// Get specific backup for a given server.
+        /// Gets information of an on demand backup, given its name.
         /// 
         /// Uses Azure REST API version 2024-08-01.
         /// 
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupResult>("azure-native:dbforpostgresql:getBackup", args ?? new GetBackupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get specific backup for a given server.
+        /// Gets information of an on demand backup, given its name.
         /// 
         /// Uses Azure REST API version 2024-08-01.
         /// 
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupResult>("azure-native:dbforpostgresql:getBackup", args ?? new GetBackupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get specific backup for a given server.
+        /// Gets information of an on demand backup, given its name.
         /// 
         /// Uses Azure REST API version 2024-08-01.
         /// 
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class GetBackupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the backup.
+        /// Name of the backup.
         /// </summary>
         [Input("backupName", required: true)]
         public string BackupName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class GetBackupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the backup.
+        /// Name of the backup.
         /// </summary>
         [Input("backupName", required: true)]
         public Input<string> BackupName { get; set; } = null!;
@@ -104,11 +104,11 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// Backup type.
+        /// Type of backup.
         /// </summary>
         public readonly string? BackupType;
         /// <summary>
-        /// Backup completed time (ISO8601 format).
+        /// Time(ISO8601 format) at which the backup was completed.
         /// </summary>
         public readonly string? CompletedTime;
         /// <summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Backup source
+        /// Source of the backup.
         /// </summary>
         public readonly string? Source;
         /// <summary>

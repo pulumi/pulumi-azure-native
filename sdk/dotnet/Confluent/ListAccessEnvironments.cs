@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Confluent
     public static class ListAccessEnvironments
     {
         /// <summary>
-        /// Details of the environments returned on successful response
+        /// Environment list of an organization
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// 
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Confluent
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccessEnvironmentsResult>("azure-native:confluent:listAccessEnvironments", args ?? new ListAccessEnvironmentsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Details of the environments returned on successful response
+        /// Environment list of an organization
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// 
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Confluent
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessEnvironmentsResult>("azure-native:confluent:listAccessEnvironments", args ?? new ListAccessEnvironmentsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Details of the environments returned on successful response
+        /// Environment list of an organization
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// 

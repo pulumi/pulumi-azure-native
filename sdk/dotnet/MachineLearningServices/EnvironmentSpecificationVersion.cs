@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:EnvironmentSpecificationVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:EnvironmentVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250101preview:EnvironmentSpecificationVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250401:EnvironmentSpecificationVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250401preview:EnvironmentSpecificationVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250601:EnvironmentSpecificationVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250701preview:EnvironmentSpecificationVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:EnvironmentVersion" },
                 },
             };

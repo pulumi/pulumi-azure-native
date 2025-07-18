@@ -16,19 +16,19 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
     public sealed class MigrationSecretParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Admin credentials for source and target servers
+        /// Credentials of administrator users for source and target servers.
         /// </summary>
         [Input("adminCredentials", required: true)]
         public Input<Inputs.AdminCredentialsArgs> AdminCredentials { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the username for the source server. This user need not be an admin.
+        /// Gets or sets the name of the user for the source server. This user doesn't need to be an administrator.
         /// </summary>
         [Input("sourceServerUsername")]
         public Input<string>? SourceServerUsername { get; set; }
 
         /// <summary>
-        /// Gets or sets the username for the target server. This user need not be an admin.
+        /// Gets or sets the name of the user for the target server. This user doesn't need to be an administrator.
         /// </summary>
         [Input("targetServerUsername")]
         public Input<string>? TargetServerUsername { get; set; }

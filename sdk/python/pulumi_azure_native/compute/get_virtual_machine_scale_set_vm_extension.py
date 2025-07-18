@@ -141,7 +141,7 @@ class GetVirtualMachineScaleSetVMExtensionResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the extension.
+        Resource name
         """
         return pulumi.get(self, "name")
 
@@ -259,7 +259,7 @@ def get_virtual_machine_scale_set_vm_extension(expand: Optional[builtins.str] = 
 
     :param builtins.str expand: The expand expression to apply on the operation.
     :param builtins.str instance_id: The instance ID of the virtual machine.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str vm_extension_name: The name of the virtual machine extension.
     :param builtins.str vm_scale_set_name: The name of the VM scale set.
     """
@@ -306,7 +306,7 @@ def get_virtual_machine_scale_set_vm_extension_output(expand: Optional[pulumi.In
 
     :param builtins.str expand: The expand expression to apply on the operation.
     :param builtins.str instance_id: The instance ID of the virtual machine.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str vm_extension_name: The name of the virtual machine extension.
     :param builtins.str vm_scale_set_name: The name of the VM scale set.
     """

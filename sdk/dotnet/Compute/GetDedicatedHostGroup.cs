@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.Compute
         public string HostGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<string> HostGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
         /// </summary>
-        public readonly Outputs.DedicatedHostGroupPropertiesResponseAdditionalCapabilities? AdditionalCapabilities;
+        public readonly Outputs.DedicatedHostGroupPropertiesAdditionalCapabilitiesResponse? AdditionalCapabilities;
         /// <summary>
         /// The Azure API version of the resource.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceReadOnlyResponse> Hosts;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -120,11 +120,11 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.DedicatedHostGroupInstanceViewResponse InstanceView;
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -136,21 +136,25 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly bool? SupportAutomaticPlacement;
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
+        /// The availability zones.
         /// </summary>
         public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
         private GetDedicatedHostGroupResult(
-            Outputs.DedicatedHostGroupPropertiesResponseAdditionalCapabilities? additionalCapabilities,
+            Outputs.DedicatedHostGroupPropertiesAdditionalCapabilitiesResponse? additionalCapabilities,
 
             string azureApiVersion,
 
@@ -168,6 +172,8 @@ namespace Pulumi.AzureNative.Compute
 
             bool? supportAutomaticPlacement,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -183,6 +189,7 @@ namespace Pulumi.AzureNative.Compute
             Name = name;
             PlatformFaultDomainCount = platformFaultDomainCount;
             SupportAutomaticPlacement = supportAutomaticPlacement;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             Zones = zones;

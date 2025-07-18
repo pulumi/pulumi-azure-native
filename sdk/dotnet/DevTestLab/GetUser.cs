@@ -52,13 +52,13 @@ namespace Pulumi.AzureNative.DevTestLab
         public string LabName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the user profile.
+        /// The name of the User
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -84,13 +84,13 @@ namespace Pulumi.AzureNative.DevTestLab
         public Input<string> LabName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the user profile.
+        /// The name of the User
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

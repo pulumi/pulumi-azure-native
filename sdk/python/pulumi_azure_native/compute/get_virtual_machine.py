@@ -28,7 +28,7 @@ class GetVirtualMachineResult:
     """
     Describes a Virtual Machine.
     """
-    def __init__(__self__, additional_capabilities=None, application_profile=None, availability_set=None, azure_api_version=None, billing_profile=None, capacity_reservation=None, diagnostics_profile=None, etag=None, eviction_policy=None, extended_location=None, extensions_time_budget=None, hardware_profile=None, host=None, host_group=None, id=None, identity=None, instance_view=None, license_type=None, location=None, managed_by=None, name=None, network_profile=None, os_profile=None, placement=None, plan=None, platform_fault_domain=None, priority=None, provisioning_state=None, proximity_placement_group=None, resources=None, scheduled_events_policy=None, scheduled_events_profile=None, security_profile=None, storage_profile=None, tags=None, time_created=None, type=None, user_data=None, virtual_machine_scale_set=None, vm_id=None, zones=None):
+    def __init__(__self__, additional_capabilities=None, application_profile=None, availability_set=None, azure_api_version=None, billing_profile=None, capacity_reservation=None, diagnostics_profile=None, etag=None, eviction_policy=None, extended_location=None, extensions_time_budget=None, hardware_profile=None, host=None, host_group=None, id=None, identity=None, instance_view=None, license_type=None, location=None, managed_by=None, name=None, network_profile=None, os_profile=None, placement=None, plan=None, platform_fault_domain=None, priority=None, provisioning_state=None, proximity_placement_group=None, resources=None, scheduled_events_policy=None, scheduled_events_profile=None, security_profile=None, storage_profile=None, system_data=None, tags=None, time_created=None, type=None, user_data=None, virtual_machine_scale_set=None, vm_id=None, zones=None):
         if additional_capabilities and not isinstance(additional_capabilities, dict):
             raise TypeError("Expected argument 'additional_capabilities' to be a dict")
         pulumi.set(__self__, "additional_capabilities", additional_capabilities)
@@ -131,6 +131,9 @@ class GetVirtualMachineResult:
         if storage_profile and not isinstance(storage_profile, dict):
             raise TypeError("Expected argument 'storage_profile' to be a dict")
         pulumi.set(__self__, "storage_profile", storage_profile)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -269,7 +272,7 @@ class GetVirtualMachineResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -301,7 +304,7 @@ class GetVirtualMachineResult:
     @pulumi.getter
     def location(self) -> builtins.str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -317,7 +320,7 @@ class GetVirtualMachineResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -426,10 +429,18 @@ class GetVirtualMachineResult:
         return pulumi.get(self, "storage_profile")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -445,7 +456,7 @@ class GetVirtualMachineResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -477,7 +488,7 @@ class GetVirtualMachineResult:
     @pulumi.getter
     def zones(self) -> Optional[Sequence[builtins.str]]:
         """
-        The virtual machine zones.
+        The availability zones.
         """
         return pulumi.get(self, "zones")
 
@@ -522,6 +533,7 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
             scheduled_events_profile=self.scheduled_events_profile,
             security_profile=self.security_profile,
             storage_profile=self.storage_profile,
+            system_data=self.system_data,
             tags=self.tags,
             time_created=self.time_created,
             type=self.type,
@@ -544,7 +556,7 @@ def get_virtual_machine(expand: Optional[builtins.str] = None,
 
 
     :param builtins.str expand: The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the virtual machine that is managed by the platform and can change outside of control plane operations. 'UserData' retrieves the UserData property as part of the VM model view that was provided by the user during the VM Create/Update operation.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str vm_name: The name of the virtual machine.
     """
     __args__ = dict()
@@ -589,6 +601,7 @@ def get_virtual_machine(expand: Optional[builtins.str] = None,
         scheduled_events_profile=pulumi.get(__ret__, 'scheduled_events_profile'),
         security_profile=pulumi.get(__ret__, 'security_profile'),
         storage_profile=pulumi.get(__ret__, 'storage_profile'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         time_created=pulumi.get(__ret__, 'time_created'),
         type=pulumi.get(__ret__, 'type'),
@@ -609,7 +622,7 @@ def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[builtins.s
 
 
     :param builtins.str expand: The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the virtual machine that is managed by the platform and can change outside of control plane operations. 'UserData' retrieves the UserData property as part of the VM model view that was provided by the user during the VM Create/Update operation.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str vm_name: The name of the virtual machine.
     """
     __args__ = dict()
@@ -653,6 +666,7 @@ def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[builtins.s
         scheduled_events_profile=pulumi.get(__response__, 'scheduled_events_profile'),
         security_profile=pulumi.get(__response__, 'security_profile'),
         storage_profile=pulumi.get(__response__, 'storage_profile'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         time_created=pulumi.get(__response__, 'time_created'),
         type=pulumi.get(__response__, 'type'),

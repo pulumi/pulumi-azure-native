@@ -28,7 +28,7 @@ class GetVirtualMachineScaleSetVMResult:
     """
     Describes a virtual machine scale set virtual machine.
     """
-    def __init__(__self__, additional_capabilities=None, availability_set=None, azure_api_version=None, diagnostics_profile=None, etag=None, hardware_profile=None, id=None, identity=None, instance_id=None, instance_view=None, latest_model_applied=None, license_type=None, location=None, model_definition_applied=None, name=None, network_profile=None, network_profile_configuration=None, os_profile=None, plan=None, protection_policy=None, provisioning_state=None, resilient_vm_deletion_status=None, resources=None, security_profile=None, sku=None, storage_profile=None, tags=None, time_created=None, type=None, user_data=None, vm_id=None, zones=None):
+    def __init__(__self__, additional_capabilities=None, availability_set=None, azure_api_version=None, diagnostics_profile=None, etag=None, hardware_profile=None, id=None, identity=None, instance_id=None, instance_view=None, latest_model_applied=None, license_type=None, location=None, model_definition_applied=None, name=None, network_profile=None, network_profile_configuration=None, os_profile=None, plan=None, protection_policy=None, provisioning_state=None, resilient_vm_deletion_status=None, resources=None, security_profile=None, sku=None, storage_profile=None, system_data=None, tags=None, time_created=None, type=None, user_data=None, vm_id=None, zones=None):
         if additional_capabilities and not isinstance(additional_capabilities, dict):
             raise TypeError("Expected argument 'additional_capabilities' to be a dict")
         pulumi.set(__self__, "additional_capabilities", additional_capabilities)
@@ -107,6 +107,9 @@ class GetVirtualMachineScaleSetVMResult:
         if storage_profile and not isinstance(storage_profile, dict):
             raise TypeError("Expected argument 'storage_profile' to be a dict")
         pulumi.set(__self__, "storage_profile", storage_profile)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -178,7 +181,7 @@ class GetVirtualMachineScaleSetVMResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -226,7 +229,7 @@ class GetVirtualMachineScaleSetVMResult:
     @pulumi.getter
     def location(self) -> builtins.str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -242,7 +245,7 @@ class GetVirtualMachineScaleSetVMResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -335,10 +338,18 @@ class GetVirtualMachineScaleSetVMResult:
         return pulumi.get(self, "storage_profile")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -354,7 +365,7 @@ class GetVirtualMachineScaleSetVMResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -415,6 +426,7 @@ class AwaitableGetVirtualMachineScaleSetVMResult(GetVirtualMachineScaleSetVMResu
             security_profile=self.security_profile,
             sku=self.sku,
             storage_profile=self.storage_profile,
+            system_data=self.system_data,
             tags=self.tags,
             time_created=self.time_created,
             type=self.type,
@@ -436,9 +448,9 @@ def get_virtual_machine_scale_set_vm(expand: Optional[builtins.str] = None,
     Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the instance view of the virtual machine. 'UserData' will retrieve the UserData of the virtual machine. 'resiliencyView' will retrieve the instance view of the Virtual machine (if applicable) and include 'resilientVMDeletionStatus' as part of it.
+    :param builtins.str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the instance view of the virtual machine. 'UserData' will retrieve the UserData of the virtual machine.
     :param builtins.str instance_id: The instance ID of the virtual machine.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str vm_scale_set_name: The name of the VM scale set.
     """
     __args__ = dict()
@@ -476,6 +488,7 @@ def get_virtual_machine_scale_set_vm(expand: Optional[builtins.str] = None,
         security_profile=pulumi.get(__ret__, 'security_profile'),
         sku=pulumi.get(__ret__, 'sku'),
         storage_profile=pulumi.get(__ret__, 'storage_profile'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         time_created=pulumi.get(__ret__, 'time_created'),
         type=pulumi.get(__ret__, 'type'),
@@ -495,9 +508,9 @@ def get_virtual_machine_scale_set_vm_output(expand: Optional[pulumi.Input[Option
     Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the instance view of the virtual machine. 'UserData' will retrieve the UserData of the virtual machine. 'resiliencyView' will retrieve the instance view of the Virtual machine (if applicable) and include 'resilientVMDeletionStatus' as part of it.
+    :param builtins.str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the instance view of the virtual machine. 'UserData' will retrieve the UserData of the virtual machine.
     :param builtins.str instance_id: The instance ID of the virtual machine.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str vm_scale_set_name: The name of the VM scale set.
     """
     __args__ = dict()
@@ -534,6 +547,7 @@ def get_virtual_machine_scale_set_vm_output(expand: Optional[pulumi.Input[Option
         security_profile=pulumi.get(__response__, 'security_profile'),
         sku=pulumi.get(__response__, 'sku'),
         storage_profile=pulumi.get(__response__, 'storage_profile'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         time_created=pulumi.get(__response__, 'time_created'),
         type=pulumi.get(__response__, 'type'),

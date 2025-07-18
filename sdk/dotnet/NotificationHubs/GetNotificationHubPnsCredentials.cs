@@ -12,8 +12,7 @@ namespace Pulumi.AzureNative.NotificationHubs
     public static class GetNotificationHubPnsCredentials
     {
         /// <summary>
-        /// Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
-        /// PNS credentials.
+        /// Lists the PNS Credentials associated with a notification hub.
         /// 
         /// Uses Azure REST API version 2023-10-01-preview.
         /// 
@@ -23,8 +22,7 @@ namespace Pulumi.AzureNative.NotificationHubs
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotificationHubPnsCredentialsResult>("azure-native:notificationhubs:getNotificationHubPnsCredentials", args ?? new GetNotificationHubPnsCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
-        /// PNS credentials.
+        /// Lists the PNS Credentials associated with a notification hub.
         /// 
         /// Uses Azure REST API version 2023-10-01-preview.
         /// 
@@ -34,8 +32,7 @@ namespace Pulumi.AzureNative.NotificationHubs
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationHubPnsCredentialsResult>("azure-native:notificationhubs:getNotificationHubPnsCredentials", args ?? new GetNotificationHubPnsCredentialsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
-        /// PNS credentials.
+        /// Lists the PNS Credentials associated with a notification hub.
         /// 
         /// Uses Azure REST API version 2023-10-01-preview.
         /// 

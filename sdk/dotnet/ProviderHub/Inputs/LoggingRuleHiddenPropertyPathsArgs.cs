@@ -10,10 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
+    /// <summary>
+    /// The hidden property paths.
+    /// </summary>
     public sealed class LoggingRuleHiddenPropertyPathsArgs : global::Pulumi.ResourceArgs
     {
         [Input("hiddenPathsOnRequest")]
         private InputList<string>? _hiddenPathsOnRequest;
+
+        /// <summary>
+        /// The hidden paths on request.
+        /// </summary>
         public InputList<string> HiddenPathsOnRequest
         {
             get => _hiddenPathsOnRequest ?? (_hiddenPathsOnRequest = new InputList<string>());
@@ -22,6 +29,10 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
         [Input("hiddenPathsOnResponse")]
         private InputList<string>? _hiddenPathsOnResponse;
+
+        /// <summary>
+        /// The hidden paths on response.
+        /// </summary>
         public InputList<string> HiddenPathsOnResponse
         {
             get => _hiddenPathsOnResponse ?? (_hiddenPathsOnResponse = new InputList<string>());

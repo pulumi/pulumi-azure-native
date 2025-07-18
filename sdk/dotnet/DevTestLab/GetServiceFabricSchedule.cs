@@ -46,31 +46,31 @@ namespace Pulumi.AzureNative.DevTestLab
         public string? Expand { get; set; }
 
         /// <summary>
-        /// The name of the lab.
+        /// labs
         /// </summary>
         [Input("labName", required: true)]
         public string LabName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the schedule.
+        /// The name of the Schedule
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the service fabric.
+        /// servicefabrics
         /// </summary>
         [Input("serviceFabricName", required: true)]
         public string ServiceFabricName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the user profile.
+        /// users
         /// </summary>
         [Input("userName", required: true)]
         public string UserName { get; set; } = null!;
@@ -90,31 +90,31 @@ namespace Pulumi.AzureNative.DevTestLab
         public Input<string>? Expand { get; set; }
 
         /// <summary>
-        /// The name of the lab.
+        /// labs
         /// </summary>
         [Input("labName", required: true)]
         public Input<string> LabName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the schedule.
+        /// The name of the Schedule
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the service fabric.
+        /// servicefabrics
         /// </summary>
         [Input("serviceFabricName", required: true)]
         public Input<string> ServiceFabricName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the user profile.
+        /// users
         /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;

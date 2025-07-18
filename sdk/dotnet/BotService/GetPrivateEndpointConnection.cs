@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.BotService
         public string PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Bot resource group in the user subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.BotService
         public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Bot resource group in the user subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -128,6 +128,10 @@ namespace Pulumi.AzureNative.BotService
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -148,6 +152,8 @@ namespace Pulumi.AzureNative.BotService
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             AzureApiVersion = azureApiVersion;
@@ -157,6 +163,7 @@ namespace Pulumi.AzureNative.BotService
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

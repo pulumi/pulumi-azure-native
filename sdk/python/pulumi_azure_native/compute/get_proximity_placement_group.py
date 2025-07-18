@@ -28,7 +28,7 @@ class GetProximityPlacementGroupResult:
     """
     Specifies information about the proximity placement group.
     """
-    def __init__(__self__, availability_sets=None, azure_api_version=None, colocation_status=None, id=None, intent=None, location=None, name=None, proximity_placement_group_type=None, tags=None, type=None, virtual_machine_scale_sets=None, virtual_machines=None, zones=None):
+    def __init__(__self__, availability_sets=None, azure_api_version=None, colocation_status=None, id=None, intent=None, location=None, name=None, proximity_placement_group_type=None, system_data=None, tags=None, type=None, virtual_machine_scale_sets=None, virtual_machines=None, zones=None):
         if availability_sets and not isinstance(availability_sets, list):
             raise TypeError("Expected argument 'availability_sets' to be a list")
         pulumi.set(__self__, "availability_sets", availability_sets)
@@ -53,6 +53,9 @@ class GetProximityPlacementGroupResult:
         if proximity_placement_group_type and not isinstance(proximity_placement_group_type, str):
             raise TypeError("Expected argument 'proximity_placement_group_type' to be a str")
         pulumi.set(__self__, "proximity_placement_group_type", proximity_placement_group_type)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -97,13 +100,13 @@ class GetProximityPlacementGroupResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def intent(self) -> Optional['outputs.ProximityPlacementGroupPropertiesResponseIntent']:
+    def intent(self) -> Optional['outputs.ProximityPlacementGroupPropertiesIntentResponse']:
         """
         Specifies the user intent of the proximity placement group.
         """
@@ -113,7 +116,7 @@ class GetProximityPlacementGroupResult:
     @pulumi.getter
     def location(self) -> builtins.str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -121,7 +124,7 @@ class GetProximityPlacementGroupResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -134,10 +137,18 @@ class GetProximityPlacementGroupResult:
         return pulumi.get(self, "proximity_placement_group_type")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -145,7 +156,7 @@ class GetProximityPlacementGroupResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -169,7 +180,7 @@ class GetProximityPlacementGroupResult:
     @pulumi.getter
     def zones(self) -> Optional[Sequence[builtins.str]]:
         """
-        Specifies the Availability Zone where virtual machine, virtual machine scale set or availability set associated with the  proximity placement group can be created.
+        The availability zones.
         """
         return pulumi.get(self, "zones")
 
@@ -188,6 +199,7 @@ class AwaitableGetProximityPlacementGroupResult(GetProximityPlacementGroupResult
             location=self.location,
             name=self.name,
             proximity_placement_group_type=self.proximity_placement_group_type,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             virtual_machine_scale_sets=self.virtual_machine_scale_sets,
@@ -209,7 +221,7 @@ def get_proximity_placement_group(include_colocation_status: Optional[builtins.s
 
     :param builtins.str include_colocation_status: includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.
     :param builtins.str proximity_placement_group_name: The name of the proximity placement group.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['includeColocationStatus'] = include_colocation_status
@@ -227,6 +239,7 @@ def get_proximity_placement_group(include_colocation_status: Optional[builtins.s
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         proximity_placement_group_type=pulumi.get(__ret__, 'proximity_placement_group_type'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_machine_scale_sets=pulumi.get(__ret__, 'virtual_machine_scale_sets'),
@@ -246,7 +259,7 @@ def get_proximity_placement_group_output(include_colocation_status: Optional[pul
 
     :param builtins.str include_colocation_status: includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.
     :param builtins.str proximity_placement_group_name: The name of the proximity placement group.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['includeColocationStatus'] = include_colocation_status
@@ -263,6 +276,7 @@ def get_proximity_placement_group_output(include_colocation_status: Optional[pul
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         proximity_placement_group_type=pulumi.get(__response__, 'proximity_placement_group_type'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         virtual_machine_scale_sets=pulumi.get(__response__, 'virtual_machine_scale_sets'),

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Response for POST requests that return single SharedAccessAuthorizationRule.
+ * Gets an authorization rule for a NotificationHub by name.
  *
  * Uses Azure REST API version 2023-10-01-preview.
  *
@@ -71,9 +71,6 @@ export interface GetNotificationHubAuthorizationRuleResult {
      * Gets a string that describes the authorization rule.
      */
     readonly keyName: string;
-    /**
-     * Deprecated - only for compatibility.
-     */
     readonly location?: string;
     /**
      * Gets the last modified time for this rule
@@ -105,9 +102,6 @@ export interface GetNotificationHubAuthorizationRuleResult {
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.notificationhubs.SystemDataResponse;
-    /**
-     * Deprecated - only for compatibility.
-     */
     readonly tags?: {[key: string]: string};
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -115,7 +109,7 @@ export interface GetNotificationHubAuthorizationRuleResult {
     readonly type: string;
 }
 /**
- * Response for POST requests that return single SharedAccessAuthorizationRule.
+ * Gets an authorization rule for a NotificationHub by name.
  *
  * Uses Azure REST API version 2023-10-01-preview.
  *

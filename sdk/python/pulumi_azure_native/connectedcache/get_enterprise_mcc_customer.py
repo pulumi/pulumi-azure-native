@@ -143,6 +143,8 @@ def get_enterprise_mcc_customer(customer_resource_name: Optional[builtins.str] =
 
     Uses Azure REST API version 2023-05-01-preview.
 
+    Other available API versions: 2024-11-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str customer_resource_name: Name of the Customer resource
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -169,6 +171,8 @@ def get_enterprise_mcc_customer_output(customer_resource_name: Optional[pulumi.I
     Gets the enterprise mcc customer resource information using this get call
 
     Uses Azure REST API version 2023-05-01-preview.
+
+    Other available API versions: 2024-11-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str customer_resource_name: Name of the Customer resource

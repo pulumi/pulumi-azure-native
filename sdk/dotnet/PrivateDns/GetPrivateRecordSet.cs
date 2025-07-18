@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.PrivateDns
     public sealed class GetPrivateRecordSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Private DNS zone (without a terminating dot).
+        /// The name of the DNS zone (without a terminating dot).
         /// </summary>
         [Input("privateZoneName", required: true)]
         public string PrivateZoneName { get; set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.PrivateDns
         public string RelativeRecordSetName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.PrivateDns
     public sealed class GetPrivateRecordSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Private DNS zone (without a terminating dot).
+        /// The name of the DNS zone (without a terminating dot).
         /// </summary>
         [Input("privateZoneName", required: true)]
         public Input<string> PrivateZoneName { get; set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.PrivateDns
         public Input<string> RelativeRecordSetName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.PrivateDns
         /// </summary>
         public readonly string Fqdn;
         /// <summary>
-        /// Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateDnsZoneName}'.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -168,6 +168,10 @@ namespace Pulumi.AzureNative.PrivateDns
         /// </summary>
         public readonly ImmutableArray<Outputs.SrvRecordResponse> SrvRecords;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The TTL (time-to-live) of the records in the record set.
         /// </summary>
         public readonly double? Ttl;
@@ -176,7 +180,7 @@ namespace Pulumi.AzureNative.PrivateDns
         /// </summary>
         public readonly ImmutableArray<Outputs.TxtRecordResponse> TxtRecords;
         /// <summary>
-        /// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -210,6 +214,8 @@ namespace Pulumi.AzureNative.PrivateDns
 
             ImmutableArray<Outputs.SrvRecordResponse> srvRecords,
 
+            Outputs.SystemDataResponse systemData,
+
             double? ttl,
 
             ImmutableArray<Outputs.TxtRecordResponse> txtRecords,
@@ -230,6 +236,7 @@ namespace Pulumi.AzureNative.PrivateDns
             PtrRecords = ptrRecords;
             SoaRecord = soaRecord;
             SrvRecords = srvRecords;
+            SystemData = systemData;
             Ttl = ttl;
             TxtRecords = txtRecords;
             Type = type;

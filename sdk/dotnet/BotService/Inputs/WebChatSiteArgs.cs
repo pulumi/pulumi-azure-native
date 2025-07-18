@@ -84,8 +84,8 @@ namespace Pulumi.AzureNative.BotService.Inputs
         /// <summary>
         /// Whether this site is enabled for preview versions of Webchat
         /// </summary>
-        [Input("isWebchatPreviewEnabled", required: true)]
-        public Input<bool> IsWebchatPreviewEnabled { get; set; } = null!;
+        [Input("isWebchatPreviewEnabled")]
+        public Input<bool>? IsWebchatPreviewEnabled { get; set; }
 
         /// <summary>
         /// Site name

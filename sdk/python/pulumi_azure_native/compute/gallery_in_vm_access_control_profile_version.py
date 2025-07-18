@@ -37,15 +37,15 @@ class GalleryInVMAccessControlProfileVersionArgs:
         """
         The set of arguments for constructing a GalleryInVMAccessControlProfileVersion resource.
         :param pulumi.Input[Union[builtins.str, 'EndpointAccess']] default_access: This property allows you to specify if the requests will be allowed to access the host endpoints. Possible values are: 'Allow', 'Deny'.
-        :param pulumi.Input[builtins.str] gallery_name: The name of the Shared Image Gallery in which the inVMAccessControlProfile resides.
-        :param pulumi.Input[builtins.str] in_vm_access_control_profile_name: The name of the gallery inVMAccessControlProfile in which the inVMAccessControlProfile version is to be created.
+        :param pulumi.Input[builtins.str] gallery_name: The name of the Shared Image Gallery.
+        :param pulumi.Input[builtins.str] in_vm_access_control_profile_name: The name of the gallery inVMAccessControlProfile to be retrieved.
         :param pulumi.Input[Union[builtins.str, 'AccessControlRulesMode']] mode: This property allows you to specify whether the access control rules are in Audit mode, in Enforce mode or Disabled. Possible values are: 'Audit', 'Enforce' or 'Disabled'.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.bool] exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Resource Profile won't use this Profile version.
-        :param pulumi.Input[builtins.str] in_vm_access_control_profile_version_name: The name of the gallery inVMAccessControlProfile version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] in_vm_access_control_profile_version_name: The name of the gallery inVMAccessControlProfile version to be retrieved.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['AccessControlRulesArgs'] rules: This is the Access Control Rules specification for an inVMAccessControlProfile version.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]] target_locations: The target regions where the Resource Profile version is going to be replicated to. This property is updatable.
         """
         pulumi.set(__self__, "default_access", default_access)
@@ -82,7 +82,7 @@ class GalleryInVMAccessControlProfileVersionArgs:
     @pulumi.getter(name="galleryName")
     def gallery_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the Shared Image Gallery in which the inVMAccessControlProfile resides.
+        The name of the Shared Image Gallery.
         """
         return pulumi.get(self, "gallery_name")
 
@@ -94,7 +94,7 @@ class GalleryInVMAccessControlProfileVersionArgs:
     @pulumi.getter(name="inVMAccessControlProfileName")
     def in_vm_access_control_profile_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the gallery inVMAccessControlProfile in which the inVMAccessControlProfile version is to be created.
+        The name of the gallery inVMAccessControlProfile to be retrieved.
         """
         return pulumi.get(self, "in_vm_access_control_profile_name")
 
@@ -118,7 +118,7 @@ class GalleryInVMAccessControlProfileVersionArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -142,7 +142,7 @@ class GalleryInVMAccessControlProfileVersionArgs:
     @pulumi.getter(name="inVMAccessControlProfileVersionName")
     def in_vm_access_control_profile_version_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the gallery inVMAccessControlProfile version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
+        The name of the gallery inVMAccessControlProfile version to be retrieved.
         """
         return pulumi.get(self, "in_vm_access_control_profile_version_name")
 
@@ -154,7 +154,7 @@ class GalleryInVMAccessControlProfileVersionArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -178,7 +178,7 @@ class GalleryInVMAccessControlProfileVersionArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -226,14 +226,14 @@ class GalleryInVMAccessControlProfileVersion(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[builtins.str, 'EndpointAccess']] default_access: This property allows you to specify if the requests will be allowed to access the host endpoints. Possible values are: 'Allow', 'Deny'.
         :param pulumi.Input[builtins.bool] exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Resource Profile won't use this Profile version.
-        :param pulumi.Input[builtins.str] gallery_name: The name of the Shared Image Gallery in which the inVMAccessControlProfile resides.
-        :param pulumi.Input[builtins.str] in_vm_access_control_profile_name: The name of the gallery inVMAccessControlProfile in which the inVMAccessControlProfile version is to be created.
-        :param pulumi.Input[builtins.str] in_vm_access_control_profile_version_name: The name of the gallery inVMAccessControlProfile version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] gallery_name: The name of the Shared Image Gallery.
+        :param pulumi.Input[builtins.str] in_vm_access_control_profile_name: The name of the gallery inVMAccessControlProfile to be retrieved.
+        :param pulumi.Input[builtins.str] in_vm_access_control_profile_version_name: The name of the gallery inVMAccessControlProfile version to be retrieved.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[builtins.str, 'AccessControlRulesMode']] mode: This property allows you to specify whether the access control rules are in Audit mode, in Enforce mode or Disabled. Possible values are: 'Audit', 'Enforce' or 'Disabled'.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['AccessControlRulesArgs', 'AccessControlRulesArgsDict']] rules: This is the Access Control Rules specification for an inVMAccessControlProfile version.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TargetRegionArgs', 'TargetRegionArgsDict']]]] target_locations: The target regions where the Resource Profile version is going to be replicated to. This property is updatable.
         """
         ...
@@ -308,6 +308,7 @@ class GalleryInVMAccessControlProfileVersion(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["published_date"] = None
             __props__.__dict__["replication_status"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20240303:GalleryInVMAccessControlProfileVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -343,6 +344,7 @@ class GalleryInVMAccessControlProfileVersion(pulumi.CustomResource):
         __props__.__dict__["published_date"] = None
         __props__.__dict__["replication_status"] = None
         __props__.__dict__["rules"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["target_locations"] = None
         __props__.__dict__["type"] = None
@@ -376,7 +378,7 @@ class GalleryInVMAccessControlProfileVersion(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -392,7 +394,7 @@ class GalleryInVMAccessControlProfileVersion(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -429,10 +431,18 @@ class GalleryInVMAccessControlProfileVersion(pulumi.CustomResource):
         return pulumi.get(self, "rules")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -448,7 +458,7 @@ class GalleryInVMAccessControlProfileVersion(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

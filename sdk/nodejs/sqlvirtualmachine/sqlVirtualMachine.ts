@@ -78,11 +78,11 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
      */
     public readonly leastPrivilegeMode!: pulumi.Output<string | undefined>;
     /**
-     * Resource location.
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -122,7 +122,7 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
      */
     public readonly storageConfigurationSettings!: pulumi.Output<outputs.sqlvirtualmachine.StorageConfigurationSettingsResponse | undefined>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.sqlvirtualmachine.SystemDataResponse>;
     /**
@@ -134,7 +134,7 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
      */
     public /*out*/ readonly troubleshootingStatus!: pulumi.Output<outputs.sqlvirtualmachine.TroubleshootingStatusResponse>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -268,11 +268,11 @@ export interface SqlVirtualMachineArgs {
      */
     leastPrivilegeMode?: pulumi.Input<string | enums.sqlvirtualmachine.LeastPrivilegeMode>;
     /**
-     * Resource location.
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

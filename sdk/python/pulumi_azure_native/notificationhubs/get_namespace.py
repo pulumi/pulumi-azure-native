@@ -369,7 +369,7 @@ def get_namespace(namespace_name: Optional[builtins.str] = None,
                   resource_group_name: Optional[builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceResult:
     """
-    Notification Hubs Namespace Resource.
+    Returns the given namespace.
 
     Uses Azure REST API version 2023-10-01-preview.
 
@@ -417,7 +417,7 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[builtins.str]] = 
                          resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceResult]:
     """
-    Notification Hubs Namespace Resource.
+    Returns the given namespace.
 
     Uses Azure REST API version 2023-10-01-preview.
 

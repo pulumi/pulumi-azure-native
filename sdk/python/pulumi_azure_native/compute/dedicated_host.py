@@ -35,14 +35,14 @@ class DedicatedHostArgs:
         """
         The set of arguments for constructing a DedicatedHost resource.
         :param pulumi.Input[builtins.str] host_group_name: The name of the dedicated host group.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
         :param pulumi.Input[builtins.bool] auto_replace_on_failure: Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
-        :param pulumi.Input[builtins.str] host_name: The name of the dedicated host .
+        :param pulumi.Input[builtins.str] host_name: The name of the dedicated host.
         :param pulumi.Input['DedicatedHostLicenseTypes'] license_type: Specifies the software license type that will be applied to the VMs deployed on the dedicated host. Possible values are: **None,** **Windows_Server_Hybrid,** **Windows_Server_Perpetual.** The default value is: **None.**
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.int] platform_fault_domain: Fault domain of the dedicated host within a dedicated host group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "host_group_name", host_group_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -76,7 +76,7 @@ class DedicatedHostArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -112,7 +112,7 @@ class DedicatedHostArgs:
     @pulumi.getter(name="hostName")
     def host_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the dedicated host .
+        The name of the dedicated host.
         """
         return pulumi.get(self, "host_name")
 
@@ -136,7 +136,7 @@ class DedicatedHostArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -160,7 +160,7 @@ class DedicatedHostArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -196,13 +196,13 @@ class DedicatedHost(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] auto_replace_on_failure: Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
         :param pulumi.Input[builtins.str] host_group_name: The name of the dedicated host group.
-        :param pulumi.Input[builtins.str] host_name: The name of the dedicated host .
+        :param pulumi.Input[builtins.str] host_name: The name of the dedicated host.
         :param pulumi.Input['DedicatedHostLicenseTypes'] license_type: Specifies the software license type that will be applied to the VMs deployed on the dedicated host. Possible values are: **None,** **Windows_Server_Hybrid,** **Windows_Server_Perpetual.** The default value is: **None.**
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.int] platform_fault_domain: Fault domain of the dedicated host within a dedicated host group.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -271,6 +271,7 @@ class DedicatedHost(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["provisioning_time"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["time_created"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machines"] = None
@@ -309,6 +310,7 @@ class DedicatedHost(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["provisioning_time"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["time_created"] = None
         __props__.__dict__["type"] = None
@@ -359,7 +361,7 @@ class DedicatedHost(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -367,7 +369,7 @@ class DedicatedHost(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -404,10 +406,18 @@ class DedicatedHost(pulumi.CustomResource):
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -423,7 +433,7 @@ class DedicatedHost(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

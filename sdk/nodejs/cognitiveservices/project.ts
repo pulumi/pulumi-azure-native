@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Cognitive Services project is an Azure resource representing the provisioned account's project, it's type, location and SKU.
  *
  * Uses Azure REST API version 2025-04-01-preview.
+ *
+ * Other available API versions: 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Project extends pulumi.CustomResource {
     /**
@@ -117,7 +119,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20250401preview:Project" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20250401preview:Project" }, { type: "azure-native:cognitiveservices/v20250601:Project" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Project.__pulumiType, name, resourceInputs, opts);
     }

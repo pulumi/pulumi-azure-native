@@ -155,7 +155,7 @@ class Domain(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-31.
 
-        Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         Note: If `domainManagement` is set to `AzureManaged`, then `domainName` is required.
 
@@ -180,7 +180,7 @@ class Domain(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-31.
 
-        Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         Note: If `domainManagement` is set to `AzureManaged`, then `domainName` is required.
 
@@ -238,7 +238,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["verification_records"] = None
             __props__.__dict__["verification_states"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:communication/v20211001preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20220701preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20230301preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20230331:Domain"), pulumi.Alias(type_="azure-native:communication/v20230401:Domain"), pulumi.Alias(type_="azure-native:communication/v20230401preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20230601preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20240901preview:Domain")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:communication/v20211001preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20220701preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20230301preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20230331:Domain"), pulumi.Alias(type_="azure-native:communication/v20230401:Domain"), pulumi.Alias(type_="azure-native:communication/v20230401preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20230601preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20240901preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20250501:Domain"), pulumi.Alias(type_="azure-native:communication/v20250501preview:Domain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Domain, __self__).__init__(
             'azure-native:communication:Domain',

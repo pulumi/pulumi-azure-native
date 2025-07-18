@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-10-01-preview.
  *
- * Other available API versions: 2025-02-01, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-02-01, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ProjectPolicy extends pulumi.CustomResource {
     /**
@@ -107,7 +107,7 @@ export class ProjectPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20241001preview:ProjectPolicy" }, { type: "azure-native:devcenter/v20250201:ProjectPolicy" }, { type: "azure-native:devcenter/v20250401preview:ProjectPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20241001preview:ProjectPolicy" }, { type: "azure-native:devcenter/v20250201:ProjectPolicy" }, { type: "azure-native:devcenter/v20250401preview:ProjectPolicy" }, { type: "azure-native:devcenter/v20250701preview:ProjectPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProjectPolicy.__pulumiType, name, resourceInputs, opts);
     }

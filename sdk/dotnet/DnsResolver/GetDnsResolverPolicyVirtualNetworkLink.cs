@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.DnsResolver
         /// Gets properties of a DNS resolver policy virtual network link.
         /// 
         /// Uses Azure REST API version 2023-07-01-preview.
+        /// 
+        /// Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDnsResolverPolicyVirtualNetworkLinkResult> InvokeAsync(GetDnsResolverPolicyVirtualNetworkLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDnsResolverPolicyVirtualNetworkLinkResult>("azure-native:dnsresolver:getDnsResolverPolicyVirtualNetworkLink", args ?? new GetDnsResolverPolicyVirtualNetworkLinkArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.DnsResolver
         /// Gets properties of a DNS resolver policy virtual network link.
         /// 
         /// Uses Azure REST API version 2023-07-01-preview.
+        /// 
+        /// Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDnsResolverPolicyVirtualNetworkLinkResult> Invoke(GetDnsResolverPolicyVirtualNetworkLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDnsResolverPolicyVirtualNetworkLinkResult>("azure-native:dnsresolver:getDnsResolverPolicyVirtualNetworkLink", args ?? new GetDnsResolverPolicyVirtualNetworkLinkInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.DnsResolver
         /// Gets properties of a DNS resolver policy virtual network link.
         /// 
         /// Uses Azure REST API version 2023-07-01-preview.
+        /// 
+        /// Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDnsResolverPolicyVirtualNetworkLinkResult> Invoke(GetDnsResolverPolicyVirtualNetworkLinkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDnsResolverPolicyVirtualNetworkLinkResult>("azure-native:dnsresolver:getDnsResolverPolicyVirtualNetworkLink", args ?? new GetDnsResolverPolicyVirtualNetworkLinkInvokeArgs(), options.WithDefaults());

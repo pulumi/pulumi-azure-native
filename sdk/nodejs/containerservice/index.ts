@@ -15,6 +15,11 @@ export type AutoUpgradeProfile = import("./autoUpgradeProfile").AutoUpgradeProfi
 export const AutoUpgradeProfile: typeof import("./autoUpgradeProfile").AutoUpgradeProfile = null as any;
 utilities.lazyLoad(exports, ["AutoUpgradeProfile"], () => require("./autoUpgradeProfile"));
 
+export { DeploymentSafeguardArgs } from "./deploymentSafeguard";
+export type DeploymentSafeguard = import("./deploymentSafeguard").DeploymentSafeguard;
+export const DeploymentSafeguard: typeof import("./deploymentSafeguard").DeploymentSafeguard = null as any;
+utilities.lazyLoad(exports, ["DeploymentSafeguard"], () => require("./deploymentSafeguard"));
+
 export { FleetArgs } from "./fleet";
 export type Fleet = import("./fleet").Fleet;
 export const Fleet: typeof import("./fleet").Fleet = null as any;
@@ -39,6 +44,11 @@ export { GetAutoUpgradeProfileArgs, GetAutoUpgradeProfileResult, GetAutoUpgradeP
 export const getAutoUpgradeProfile: typeof import("./getAutoUpgradeProfile").getAutoUpgradeProfile = null as any;
 export const getAutoUpgradeProfileOutput: typeof import("./getAutoUpgradeProfile").getAutoUpgradeProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getAutoUpgradeProfile","getAutoUpgradeProfileOutput"], () => require("./getAutoUpgradeProfile"));
+
+export { GetDeploymentSafeguardArgs, GetDeploymentSafeguardResult, GetDeploymentSafeguardOutputArgs } from "./getDeploymentSafeguard";
+export const getDeploymentSafeguard: typeof import("./getDeploymentSafeguard").getDeploymentSafeguard = null as any;
+export const getDeploymentSafeguardOutput: typeof import("./getDeploymentSafeguard").getDeploymentSafeguardOutput = null as any;
+utilities.lazyLoad(exports, ["getDeploymentSafeguard","getDeploymentSafeguardOutput"], () => require("./getDeploymentSafeguard"));
 
 export { GetFleetArgs, GetFleetResult, GetFleetOutputArgs } from "./getFleet";
 export const getFleet: typeof import("./getFleet").getFleet = null as any;
@@ -74,6 +84,11 @@ export { GetManagedClusterSnapshotArgs, GetManagedClusterSnapshotResult, GetMana
 export const getManagedClusterSnapshot: typeof import("./getManagedClusterSnapshot").getManagedClusterSnapshot = null as any;
 export const getManagedClusterSnapshotOutput: typeof import("./getManagedClusterSnapshot").getManagedClusterSnapshotOutput = null as any;
 utilities.lazyLoad(exports, ["getManagedClusterSnapshot","getManagedClusterSnapshotOutput"], () => require("./getManagedClusterSnapshot"));
+
+export { GetManagedNamespaceArgs, GetManagedNamespaceResult, GetManagedNamespaceOutputArgs } from "./getManagedNamespace";
+export const getManagedNamespace: typeof import("./getManagedNamespace").getManagedNamespace = null as any;
+export const getManagedNamespaceOutput: typeof import("./getManagedNamespace").getManagedNamespaceOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedNamespace","getManagedNamespaceOutput"], () => require("./getManagedNamespace"));
 
 export { GetNamespaceArgs, GetNamespaceResult, GetNamespaceOutputArgs } from "./getNamespace";
 export const getNamespace: typeof import("./getNamespace").getNamespace = null as any;
@@ -125,6 +140,11 @@ export const listManagedClusterUserCredentials: typeof import("./listManagedClus
 export const listManagedClusterUserCredentialsOutput: typeof import("./listManagedClusterUserCredentials").listManagedClusterUserCredentialsOutput = null as any;
 utilities.lazyLoad(exports, ["listManagedClusterUserCredentials","listManagedClusterUserCredentialsOutput"], () => require("./listManagedClusterUserCredentials"));
 
+export { ListManagedNamespaceCredentialArgs, ListManagedNamespaceCredentialResult, ListManagedNamespaceCredentialOutputArgs } from "./listManagedNamespaceCredential";
+export const listManagedNamespaceCredential: typeof import("./listManagedNamespaceCredential").listManagedNamespaceCredential = null as any;
+export const listManagedNamespaceCredentialOutput: typeof import("./listManagedNamespaceCredential").listManagedNamespaceCredentialOutput = null as any;
+utilities.lazyLoad(exports, ["listManagedNamespaceCredential","listManagedNamespaceCredentialOutput"], () => require("./listManagedNamespaceCredential"));
+
 export { ListNamespaceCredentialArgs, ListNamespaceCredentialResult, ListNamespaceCredentialOutputArgs } from "./listNamespaceCredential";
 export const listNamespaceCredential: typeof import("./listNamespaceCredential").listNamespaceCredential = null as any;
 export const listNamespaceCredentialOutput: typeof import("./listNamespaceCredential").listNamespaceCredentialOutput = null as any;
@@ -149,6 +169,11 @@ export { ManagedClusterSnapshotArgs } from "./managedClusterSnapshot";
 export type ManagedClusterSnapshot = import("./managedClusterSnapshot").ManagedClusterSnapshot;
 export const ManagedClusterSnapshot: typeof import("./managedClusterSnapshot").ManagedClusterSnapshot = null as any;
 utilities.lazyLoad(exports, ["ManagedClusterSnapshot"], () => require("./managedClusterSnapshot"));
+
+export { ManagedNamespaceArgs } from "./managedNamespace";
+export type ManagedNamespace = import("./managedNamespace").ManagedNamespace;
+export const ManagedNamespace: typeof import("./managedNamespace").ManagedNamespace = null as any;
+utilities.lazyLoad(exports, ["ManagedNamespace"], () => require("./managedNamespace"));
 
 export { NamespaceArgs } from "./namespace";
 export type Namespace = import("./namespace").Namespace;
@@ -187,6 +212,8 @@ const _module = {
                 return new AgentPool(name, <any>undefined, { urn })
             case "azure-native:containerservice:AutoUpgradeProfile":
                 return new AutoUpgradeProfile(name, <any>undefined, { urn })
+            case "azure-native:containerservice:DeploymentSafeguard":
+                return new DeploymentSafeguard(name, <any>undefined, { urn })
             case "azure-native:containerservice:Fleet":
                 return new Fleet(name, <any>undefined, { urn })
             case "azure-native:containerservice:FleetMember":
@@ -201,6 +228,8 @@ const _module = {
                 return new ManagedCluster(name, <any>undefined, { urn })
             case "azure-native:containerservice:ManagedClusterSnapshot":
                 return new ManagedClusterSnapshot(name, <any>undefined, { urn })
+            case "azure-native:containerservice:ManagedNamespace":
+                return new ManagedNamespace(name, <any>undefined, { urn })
             case "azure-native:containerservice:Namespace":
                 return new Namespace(name, <any>undefined, { urn })
             case "azure-native:containerservice:PrivateEndpointConnection":

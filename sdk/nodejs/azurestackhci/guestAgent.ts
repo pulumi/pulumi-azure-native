@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
  *
- * Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class GuestAgent extends pulumi.CustomResource {
     /**
@@ -108,7 +108,7 @@ export class GuestAgent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20221215preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20230701preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20230901preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20240101:GuestAgent" }, { type: "azure-native:azurestackhci/v20240201preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20240501preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20240715preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20240801preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20241001preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20250201preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20250401preview:GuestAgent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20221215preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20230701preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20230901preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20240101:GuestAgent" }, { type: "azure-native:azurestackhci/v20240201preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20240501preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20240715preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20240801preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20241001preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20250201preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20250401preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20250601preview:GuestAgent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GuestAgent.__pulumiType, name, resourceInputs, opts);
     }

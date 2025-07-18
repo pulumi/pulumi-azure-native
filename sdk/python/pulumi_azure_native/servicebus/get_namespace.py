@@ -279,7 +279,7 @@ class GetNamespaceResult:
     @pulumi.getter(name="zoneRedundant")
     def zone_redundant(self) -> Optional[builtins.bool]:
         """
-        Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+        This property reflects if zone redundancy has been enabled for namespaces in regions that support availability zones.
         """
         return pulumi.get(self, "zone_redundant")
 

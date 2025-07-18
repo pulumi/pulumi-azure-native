@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Uses Azure REST API version 2025-01-01-preview.
  *
- * Other available API versions: 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listConnectionAllModels(args: ListConnectionAllModelsArgs, opts?: pulumi.InvokeOptions): Promise<ListConnectionAllModelsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,7 +44,7 @@ export interface ListConnectionAllModelsResult {
 /**
  * Uses Azure REST API version 2025-01-01-preview.
  *
- * Other available API versions: 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listConnectionAllModelsOutput(args: ListConnectionAllModelsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListConnectionAllModelsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

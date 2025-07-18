@@ -61,9 +61,6 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      * Gets a string that describes the authorization rule.
      */
     public /*out*/ readonly keyName!: pulumi.Output<string>;
-    /**
-     * Deprecated - only for compatibility.
-     */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Gets the last modified time for this rule
@@ -95,9 +92,6 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.notificationhubs.SystemDataResponse>;
-    /**
-     * Deprecated - only for compatibility.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -174,9 +168,6 @@ export interface NamespaceAuthorizationRuleArgs {
      * Authorization Rule Name
      */
     authorizationRuleName?: pulumi.Input<string>;
-    /**
-     * Deprecated - only for compatibility.
-     */
     location?: pulumi.Input<string>;
     /**
      * Namespace name
@@ -200,8 +191,5 @@ export interface NamespaceAuthorizationRuleArgs {
      * validating the SAS token.
      */
     secondaryKey?: pulumi.Input<string>;
-    /**
-     * Deprecated - only for compatibility.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

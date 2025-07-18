@@ -30,10 +30,10 @@ class GuestConfigurationAssignmentsVMSSArgs:
                  properties: Optional[pulumi.Input['GuestConfigurationAssignmentPropertiesArgs']] = None):
         """
         The set of arguments for constructing a GuestConfigurationAssignmentsVMSS resource.
-        :param pulumi.Input[builtins.str] resource_group_name: The resource group name.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] vmss_name: The name of the virtual machine scale set.
         :param pulumi.Input[builtins.str] location: Region where the VM is located.
-        :param pulumi.Input[builtins.str] name: Name of the guest configuration assignment.
+        :param pulumi.Input[builtins.str] name: The guest configuration assignment name.
         :param pulumi.Input['GuestConfigurationAssignmentPropertiesArgs'] properties: Properties of the Guest configuration assignment.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -49,7 +49,7 @@ class GuestConfigurationAssignmentsVMSSArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The resource group name.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -85,7 +85,7 @@ class GuestConfigurationAssignmentsVMSSArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Name of the guest configuration assignment.
+        The guest configuration assignment name.
         """
         return pulumi.get(self, "name")
 
@@ -128,9 +128,9 @@ class GuestConfigurationAssignmentsVMSS(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] location: Region where the VM is located.
-        :param pulumi.Input[builtins.str] name: Name of the guest configuration assignment.
+        :param pulumi.Input[builtins.str] name: The guest configuration assignment name.
         :param pulumi.Input[Union['GuestConfigurationAssignmentPropertiesArgs', 'GuestConfigurationAssignmentPropertiesArgsDict']] properties: Properties of the Guest configuration assignment.
-        :param pulumi.Input[builtins.str] resource_group_name: The resource group name.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] vmss_name: The name of the virtual machine scale set.
         """
         ...
@@ -237,9 +237,9 @@ class GuestConfigurationAssignmentsVMSS(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[builtins.str]]:
+    def name(self) -> pulumi.Output[builtins.str]:
         """
-        Name of the guest configuration assignment.
+        The guest configuration assignment name.
         """
         return pulumi.get(self, "name")
 

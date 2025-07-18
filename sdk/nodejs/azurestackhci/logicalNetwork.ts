@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
  *
- * Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class LogicalNetwork extends pulumi.CustomResource {
     /**
@@ -133,7 +133,7 @@ export class LogicalNetwork extends pulumi.CustomResource {
             resourceInputs["vmSwitchName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20230901preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20240101:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20240201preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20240501preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20240715preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20240801preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20241001preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20250201preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20250401preview:LogicalNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20230901preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20240101:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20240201preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20240501preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20240715preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20240801preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20241001preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20250201preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20250401preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20250601preview:LogicalNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LogicalNetwork.__pulumiType, name, resourceInputs, opts);
     }

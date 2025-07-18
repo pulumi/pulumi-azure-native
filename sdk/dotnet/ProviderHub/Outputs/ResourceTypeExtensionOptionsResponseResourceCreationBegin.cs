@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Outputs
 {
 
+    /// <summary>
+    /// Resource creation begin.
+    /// </summary>
     [OutputType]
     public sealed class ResourceTypeExtensionOptionsResponseResourceCreationBegin
     {
+        /// <summary>
+        /// The request.
+        /// </summary>
         public readonly ImmutableArray<string> Request;
+        /// <summary>
+        /// The response.
+        /// </summary>
         public readonly ImmutableArray<string> Response;
 
         [OutputConstructor]

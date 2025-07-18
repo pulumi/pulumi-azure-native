@@ -185,8 +185,8 @@ def get_service_fabric(expand: Optional[builtins.str] = None,
 
     :param builtins.str expand: Specify the $expand query. Example: 'properties($expand=applicableSchedule)'
     :param builtins.str lab_name: The name of the lab.
-    :param builtins.str name: The name of the service fabric.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str name: The name of the ServiceFabric
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str user_name: The name of the user profile.
     """
     __args__ = dict()
@@ -224,8 +224,8 @@ def get_service_fabric_output(expand: Optional[pulumi.Input[Optional[builtins.st
 
     :param builtins.str expand: Specify the $expand query. Example: 'properties($expand=applicableSchedule)'
     :param builtins.str lab_name: The name of the lab.
-    :param builtins.str name: The name of the service fabric.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str name: The name of the ServiceFabric
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str user_name: The name of the user profile.
     """
     __args__ = dict()

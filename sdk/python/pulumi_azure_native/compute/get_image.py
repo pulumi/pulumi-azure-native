@@ -28,7 +28,7 @@ class GetImageResult:
     """
     The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
     """
-    def __init__(__self__, azure_api_version=None, extended_location=None, hyper_v_generation=None, id=None, location=None, name=None, provisioning_state=None, source_virtual_machine=None, storage_profile=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, extended_location=None, hyper_v_generation=None, id=None, location=None, name=None, provisioning_state=None, source_virtual_machine=None, storage_profile=None, system_data=None, tags=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -56,6 +56,9 @@ class GetImageResult:
         if storage_profile and not isinstance(storage_profile, dict):
             raise TypeError("Expected argument 'storage_profile' to be a dict")
         pulumi.set(__self__, "storage_profile", storage_profile)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -91,7 +94,7 @@ class GetImageResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -99,7 +102,7 @@ class GetImageResult:
     @pulumi.getter
     def location(self) -> builtins.str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -107,7 +110,7 @@ class GetImageResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -136,10 +139,18 @@ class GetImageResult:
         return pulumi.get(self, "storage_profile")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -147,7 +158,7 @@ class GetImageResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -167,6 +178,7 @@ class AwaitableGetImageResult(GetImageResult):
             provisioning_state=self.provisioning_state,
             source_virtual_machine=self.source_virtual_machine,
             storage_profile=self.storage_profile,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -185,7 +197,7 @@ def get_image(expand: Optional[builtins.str] = None,
 
     :param builtins.str expand: The expand expression to apply on the operation.
     :param builtins.str image_name: The name of the image.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['expand'] = expand
@@ -204,6 +216,7 @@ def get_image(expand: Optional[builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         source_virtual_machine=pulumi.get(__ret__, 'source_virtual_machine'),
         storage_profile=pulumi.get(__ret__, 'storage_profile'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_image_output(expand: Optional[pulumi.Input[Optional[builtins.str]]] = None,
@@ -220,7 +233,7 @@ def get_image_output(expand: Optional[pulumi.Input[Optional[builtins.str]]] = No
 
     :param builtins.str expand: The expand expression to apply on the operation.
     :param builtins.str image_name: The name of the image.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['expand'] = expand
@@ -238,5 +251,6 @@ def get_image_output(expand: Optional[pulumi.Input[Optional[builtins.str]]] = No
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         source_virtual_machine=pulumi.get(__response__, 'source_virtual_machine'),
         storage_profile=pulumi.get(__response__, 'storage_profile'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

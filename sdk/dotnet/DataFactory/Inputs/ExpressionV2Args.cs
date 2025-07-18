@@ -46,10 +46,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public InputUnion<string, Pulumi.AzureNative.DataFactory.ExpressionV2Type>? Type { get; set; }
 
         /// <summary>
-        /// Value for Constant/Field Type: string.
+        /// Value for Constant/Field Type: object.
         /// </summary>
         [Input("value")]
-        public Input<string>? Value { get; set; }
+        public Input<object>? Value { get; set; }
 
         public ExpressionV2Args()
         {

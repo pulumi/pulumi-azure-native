@@ -10,10 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
+    /// <summary>
+    /// The request header options.
+    /// </summary>
     public sealed class ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The opt in headers.
+        /// </summary>
         [Input("optInHeaders")]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.OptInHeaderType>? OptInHeaders { get; set; }
+
+        /// <summary>
+        /// The opt out headers.
+        /// </summary>
+        [Input("optOutHeaders")]
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.OptOutHeaderType>? OptOutHeaders { get; set; }
 
         public ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs()
         {

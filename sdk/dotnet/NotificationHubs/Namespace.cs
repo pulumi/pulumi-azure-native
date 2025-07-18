@@ -329,6 +329,8 @@ namespace Pulumi.AzureNative.NotificationHubs
 
         public NamespaceArgs()
         {
+            PublicNetworkAccess = "Enabled";
+            ZoneRedundancy = "Disabled";
         }
         public static new NamespaceArgs Empty => new NamespaceArgs();
     }

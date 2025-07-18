@@ -50,9 +50,9 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
-     * Name of the guest configuration assignment.
+     * The guest configuration assignment name.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Properties of the Guest configuration assignment.
      */
@@ -77,6 +77,9 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -112,7 +115,7 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
  */
 export interface GuestConfigurationAssignmentArgs {
     /**
-     * Name of the guest configuration assignment.
+     * The guest configuration assignment name.
      */
     guestConfigurationAssignmentName?: pulumi.Input<string>;
     /**
@@ -120,15 +123,15 @@ export interface GuestConfigurationAssignmentArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Name of the guest configuration assignment.
+     * The guest configuration assignment name.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Properties of the Guest configuration assignment.
      */
     properties?: pulumi.Input<inputs.guestconfiguration.GuestConfigurationAssignmentPropertiesArgs>;
     /**
-     * The resource group name.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

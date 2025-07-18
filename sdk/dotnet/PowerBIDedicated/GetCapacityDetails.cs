@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         public string DedicatedCapacityName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         public Input<string> DedicatedCapacityName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -94,11 +94,11 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         /// </summary>
         public readonly string FriendlyName;
         /// <summary>
-        /// An identifier that represents the PowerBI Dedicated resource.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Location of the PowerBI Dedicated resource.
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         /// </summary>
         public readonly string? Mode;
         /// <summary>
-        /// The name of the PowerBI Dedicated resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -122,11 +122,11 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         /// </summary>
         public readonly string State;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse? SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Key-value pairs of additional resource provisioning properties.
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The type of the PowerBI Dedicated resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated
 
             string state,
 
-            Outputs.SystemDataResponse? systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -10,19 +10,42 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Outputs
 {
 
+    /// <summary>
+    /// The identity management.
+    /// </summary>
     [OutputType]
     public sealed class ResourceTypeRegistrationPropertiesResponseIdentityManagement
     {
+        /// <summary>
+        /// The application id.
+        /// </summary>
         public readonly string? ApplicationId;
+        /// <summary>
+        /// The application ids.
+        /// </summary>
+        public readonly ImmutableArray<string> ApplicationIds;
+        /// <summary>
+        /// The delegation app ids.
+        /// </summary>
+        public readonly ImmutableArray<string> DelegationAppIds;
+        /// <summary>
+        /// The type.
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]
         private ResourceTypeRegistrationPropertiesResponseIdentityManagement(
             string? applicationId,
 
+            ImmutableArray<string> applicationIds,
+
+            ImmutableArray<string> delegationAppIds,
+
             string? type)
         {
             ApplicationId = applicationId;
+            ApplicationIds = applicationIds;
+            DelegationAppIds = delegationAppIds;
             Type = type;
         }
     }

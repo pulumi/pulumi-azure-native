@@ -142,7 +142,7 @@ def get_connector(cluster_id: Optional[builtins.str] = None,
                   resource_group_name: Optional[builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorResult:
     """
-    Details of connector record
+    Get confluent connector by Name
 
     Uses Azure REST API version 2024-07-01.
 
@@ -178,7 +178,7 @@ def get_connector_output(cluster_id: Optional[pulumi.Input[builtins.str]] = None
                          resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
-    Details of connector record
+    Get confluent connector by Name
 
     Uses Azure REST API version 2024-07-01.
 

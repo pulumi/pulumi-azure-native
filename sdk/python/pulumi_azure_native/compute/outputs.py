@@ -61,7 +61,7 @@ __all__ = [
     'DedicatedHostAllocatableVMResponse',
     'DedicatedHostAvailableCapacityResponse',
     'DedicatedHostGroupInstanceViewResponse',
-    'DedicatedHostGroupPropertiesResponseAdditionalCapabilities',
+    'DedicatedHostGroupPropertiesAdditionalCapabilitiesResponse',
     'DedicatedHostInstanceViewResponse',
     'DedicatedHostInstanceViewWithNameResponse',
     'DefaultVirtualMachineScaleSetInfoResponse',
@@ -71,6 +71,7 @@ __all__ = [
     'DiskEncryptionSetParametersResponse',
     'DiskEncryptionSettingsResponse',
     'DiskInstanceViewResponse',
+    'DiskPurchasePlanResponse',
     'DiskRestorePointAttributesResponse',
     'DiskRestorePointInstanceViewResponse',
     'DiskRestorePointReplicationStatusResponse',
@@ -149,10 +150,9 @@ __all__ = [
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'PropertyUpdatesInProgressResponse',
-    'ProximityPlacementGroupPropertiesResponseIntent',
+    'ProximityPlacementGroupPropertiesIntentResponse',
     'ProxyAgentSettingsResponse',
     'PublicIPAddressSkuResponse',
-    'PurchasePlanResponse',
     'RecommendedMachineConfigurationResponse',
     'RegionalReplicationStatusResponse',
     'RegionalSharingStatusResponse',
@@ -208,7 +208,7 @@ __all__ = [
     'UserArtifactManageResponse',
     'UserArtifactSettingsResponse',
     'UserArtifactSourceResponse',
-    'UserAssignedIdentitiesResponseUserAssignedIdentities',
+    'UserAssignedIdentitiesValueResponse',
     'UserInitiatedRebootResponse',
     'UserInitiatedRedeployResponse',
     'VMDiskSecurityProfileResponse',
@@ -2896,7 +2896,7 @@ class DataDiskResponse(dict):
         :param builtins.int lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
         :param builtins.str caching: Specifies the caching requirements. Possible values are: **None,** **ReadOnly,** **ReadWrite.** The defaulting behavior is: **None for Standard storage. ReadOnly for Premium storage.**
         :param builtins.str delete_option: Specifies whether data disk should be deleted or detached upon VM deletion. Possible values are: **Delete.** If this value is used, the data disk is deleted when VM is deleted. **Detach.** If this value is used, the data disk is retained after VM is deleted. The default value is set to **Detach**.
-        :param builtins.str detach_option: Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+        :param builtins.str detach_option: Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. **This feature is still in preview**. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
         :param builtins.int disk_size_gb: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. The property 'diskSizeGB' is the number of bytes x 1024^3 for the disk and the value cannot be larger than 1023.
         :param 'VirtualHardDiskResponse' image: The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
         :param 'ManagedDiskParametersResponse' managed_disk: The managed disk parameters.
@@ -2985,7 +2985,7 @@ class DataDiskResponse(dict):
     @pulumi.getter(name="detachOption")
     def detach_option(self) -> Optional[builtins.str]:
         """
-        Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+        Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. **This feature is still in preview**. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
         """
         return pulumi.get(self, "detach_option")
 
@@ -3166,7 +3166,7 @@ class DedicatedHostGroupInstanceViewResponse(dict):
 
 
 @pulumi.output_type
-class DedicatedHostGroupPropertiesResponseAdditionalCapabilities(dict):
+class DedicatedHostGroupPropertiesAdditionalCapabilitiesResponse(dict):
     """
     Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
     """
@@ -3177,14 +3177,14 @@ class DedicatedHostGroupPropertiesResponseAdditionalCapabilities(dict):
             suggest = "ultra_ssd_enabled"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DedicatedHostGroupPropertiesResponseAdditionalCapabilities. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DedicatedHostGroupPropertiesAdditionalCapabilitiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DedicatedHostGroupPropertiesResponseAdditionalCapabilities.__key_warning(key)
+        DedicatedHostGroupPropertiesAdditionalCapabilitiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DedicatedHostGroupPropertiesResponseAdditionalCapabilities.__key_warning(key)
+        DedicatedHostGroupPropertiesAdditionalCapabilitiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -3375,8 +3375,8 @@ class DefaultVirtualMachineScaleSetInfoResponse(dict):
                  default_virtual_machine_scale_set: 'outputs.SubResourceResponse'):
         """
         Indicates the target Virtual Machine ScaleSet properties upon triggering a seamless migration without downtime of the VMs via the ConvertToVirtualMachineScaleSet API.
-        :param builtins.bool constrained_maximum_capacity:  Indicates if the the maximum capacity of the default migrated Virtual Machine Scale Set after its migration will be constrained to a limited number of VMs.
-        :param 'SubResourceResponse' default_virtual_machine_scale_set:  The default Virtual Machine ScaleSet Uri that the Availability Set will be moved to upon triggering a seamless migration via the ConvertToVirtualMachineScaleSet API.
+        :param builtins.bool constrained_maximum_capacity: Indicates if the the maximum capacity of the default migrated Virtual Machine Scale Set after its migration will be constrained to a limited number of VMs.
+        :param 'SubResourceResponse' default_virtual_machine_scale_set: The default Virtual Machine ScaleSet Uri that the Availability Set will be moved to upon triggering a seamless migration via the ConvertToVirtualMachineScaleSet API.
         """
         pulumi.set(__self__, "constrained_maximum_capacity", constrained_maximum_capacity)
         pulumi.set(__self__, "default_virtual_machine_scale_set", default_virtual_machine_scale_set)
@@ -3385,7 +3385,7 @@ class DefaultVirtualMachineScaleSetInfoResponse(dict):
     @pulumi.getter(name="constrainedMaximumCapacity")
     def constrained_maximum_capacity(self) -> builtins.bool:
         """
-         Indicates if the the maximum capacity of the default migrated Virtual Machine Scale Set after its migration will be constrained to a limited number of VMs.
+        Indicates if the the maximum capacity of the default migrated Virtual Machine Scale Set after its migration will be constrained to a limited number of VMs.
         """
         return pulumi.get(self, "constrained_maximum_capacity")
 
@@ -3393,7 +3393,7 @@ class DefaultVirtualMachineScaleSetInfoResponse(dict):
     @pulumi.getter(name="defaultVirtualMachineScaleSet")
     def default_virtual_machine_scale_set(self) -> 'outputs.SubResourceResponse':
         """
-         The default Virtual Machine ScaleSet Uri that the Availability Set will be moved to upon triggering a seamless migration via the ConvertToVirtualMachineScaleSet API.
+        The default Virtual Machine ScaleSet Uri that the Availability Set will be moved to upon triggering a seamless migration via the ConvertToVirtualMachineScaleSet API.
         """
         return pulumi.get(self, "default_virtual_machine_scale_set")
 
@@ -3664,6 +3664,79 @@ class DiskInstanceViewResponse(dict):
         The resource status information.
         """
         return pulumi.get(self, "statuses")
+
+
+@pulumi.output_type
+class DiskPurchasePlanResponse(dict):
+    """
+    Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "promotionCode":
+            suggest = "promotion_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiskPurchasePlanResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiskPurchasePlanResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiskPurchasePlanResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 product: builtins.str,
+                 publisher: builtins.str,
+                 promotion_code: Optional[builtins.str] = None):
+        """
+        Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
+        :param builtins.str name: The plan ID.
+        :param builtins.str product: Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+        :param builtins.str publisher: The publisher ID.
+        :param builtins.str promotion_code: The Offer Promotion Code.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "product", product)
+        pulumi.set(__self__, "publisher", publisher)
+        if promotion_code is not None:
+            pulumi.set(__self__, "promotion_code", promotion_code)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The plan ID.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def product(self) -> builtins.str:
+        """
+        Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+        """
+        return pulumi.get(self, "product")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> builtins.str:
+        """
+        The publisher ID.
+        """
+        return pulumi.get(self, "publisher")
+
+    @property
+    @pulumi.getter(name="promotionCode")
+    def promotion_code(self) -> Optional[builtins.str]:
+        """
+        The Offer Promotion Code.
+        """
+        return pulumi.get(self, "promotion_code")
 
 
 @pulumi.output_type
@@ -4097,13 +4170,13 @@ class EncryptionSetIdentityResponse(dict):
                  principal_id: builtins.str,
                  tenant_id: builtins.str,
                  type: Optional[builtins.str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponseUserAssignedIdentities']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesValueResponse']] = None):
         """
         The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
         :param builtins.str principal_id: The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
         :param builtins.str tenant_id: The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity
         :param builtins.str type: The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
-        :param Mapping[str, 'UserAssignedIdentitiesResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the disk encryption set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'UserAssignedIdentitiesValueResponse'] user_assigned_identities: The list of user identities associated with the disk encryption set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -4138,7 +4211,7 @@ class EncryptionSetIdentityResponse(dict):
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponseUserAssignedIdentities']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentitiesValueResponse']]:
         """
         The list of user identities associated with the disk encryption set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -5135,13 +5208,13 @@ class GalleryIdentityResponse(dict):
                  principal_id: builtins.str,
                  tenant_id: builtins.str,
                  type: Optional[builtins.str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponseUserAssignedIdentities']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesValueResponse']] = None):
         """
         Identity for the virtual machine.
         :param builtins.str principal_id: The principal id of the gallery identity. This property will only be provided for a system assigned identity.
         :param builtins.str tenant_id: The AAD tenant id of the gallery identity. This property will only be provided for a system assigned identity.
         :param builtins.str type: The type of identity used for the gallery. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove all identities from the gallery.
-        :param Mapping[str, 'UserAssignedIdentitiesResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the gallery. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'UserAssignedIdentitiesValueResponse'] user_assigned_identities: The list of user identities associated with the gallery. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -5176,7 +5249,7 @@ class GalleryIdentityResponse(dict):
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponseUserAssignedIdentities']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentitiesValueResponse']]:
         """
         The list of user identities associated with the gallery. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -6832,7 +6905,7 @@ class KeyVaultAndKeyReferenceResponse(dict):
 @pulumi.output_type
 class KeyVaultAndSecretReferenceResponse(dict):
     """
-    Key Vault Secret Url and vault id of the encryption key 
+    Key Vault Secret Url and vault id of the encryption key
     """
     @staticmethod
     def __key_warning(key: str):
@@ -6857,7 +6930,7 @@ class KeyVaultAndSecretReferenceResponse(dict):
                  secret_url: builtins.str,
                  source_vault: 'outputs.SourceVaultResponse'):
         """
-        Key Vault Secret Url and vault id of the encryption key 
+        Key Vault Secret Url and vault id of the encryption key
         :param builtins.str secret_url: Url pointing to a key or secret in KeyVault
         :param 'SourceVaultResponse' source_vault: Resource id of the KeyVault containing the key or secret
         """
@@ -8433,10 +8506,10 @@ class PatchSettingsResponse(dict):
                  patch_mode: Optional[builtins.str] = None):
         """
         Specifies settings related to VM Guest Patching on Windows.
-        :param builtins.str assessment_mode: Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true. 
+        :param builtins.str assessment_mode: Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
         :param 'WindowsVMGuestPatchAutomaticByPlatformSettingsResponse' automatic_by_platform_settings: Specifies additional settings for patch mode AutomaticByPlatform in VM Guest Patching on Windows.
         :param builtins.bool enable_hotpatching: Enables customers to patch their Azure VMs without requiring a reboot. For enableHotpatching, the 'provisionVMAgent' must be set to true and 'patchMode' must be set to 'AutomaticByPlatform'.
-        :param builtins.str patch_mode: Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+        :param builtins.str patch_mode: Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
         """
         if assessment_mode is not None:
             pulumi.set(__self__, "assessment_mode", assessment_mode)
@@ -8451,7 +8524,7 @@ class PatchSettingsResponse(dict):
     @pulumi.getter(name="assessmentMode")
     def assessment_mode(self) -> Optional[builtins.str]:
         """
-        Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true. 
+        Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
         """
         return pulumi.get(self, "assessment_mode")
 
@@ -8475,7 +8548,7 @@ class PatchSettingsResponse(dict):
     @pulumi.getter(name="patchMode")
     def patch_mode(self) -> Optional[builtins.str]:
         """
-        Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+        Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
         """
         return pulumi.get(self, "patch_mode")
 
@@ -8760,6 +8833,8 @@ class PrivateEndpointConnectionResponse(dict):
             suggest = "private_link_service_connection_state"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
@@ -8778,28 +8853,31 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: 'outputs.PrivateEndpointResponse',
                  private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
                  provisioning_state: builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: builtins.str):
         """
         The Private Endpoint Connection resource.
-        :param builtins.str id: private endpoint connection Id
-        :param builtins.str name: private endpoint connection name
+        :param builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param builtins.str name: The name of the resource
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between DiskAccess and Virtual Network.
         :param builtins.str provisioning_state: The provisioning state of the private endpoint connection resource.
-        :param builtins.str type: private endpoint connection type
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "private_endpoint", private_endpoint)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        private endpoint connection Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -8807,7 +8885,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        private endpoint connection name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -8836,10 +8914,18 @@ class PrivateEndpointConnectionResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        private endpoint connection type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -8971,7 +9057,7 @@ class PropertyUpdatesInProgressResponse(dict):
 
 
 @pulumi.output_type
-class ProximityPlacementGroupPropertiesResponseIntent(dict):
+class ProximityPlacementGroupPropertiesIntentResponse(dict):
     """
     Specifies the user intent of the proximity placement group.
     """
@@ -8982,14 +9068,14 @@ class ProximityPlacementGroupPropertiesResponseIntent(dict):
             suggest = "vm_sizes"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProximityPlacementGroupPropertiesResponseIntent. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ProximityPlacementGroupPropertiesIntentResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ProximityPlacementGroupPropertiesResponseIntent.__key_warning(key)
+        ProximityPlacementGroupPropertiesIntentResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ProximityPlacementGroupPropertiesResponseIntent.__key_warning(key)
+        ProximityPlacementGroupPropertiesIntentResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -9133,79 +9219,6 @@ class PublicIPAddressSkuResponse(dict):
         Specify public IP sku tier
         """
         return pulumi.get(self, "tier")
-
-
-@pulumi.output_type
-class PurchasePlanResponse(dict):
-    """
-    Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "promotionCode":
-            suggest = "promotion_code"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PurchasePlanResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PurchasePlanResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PurchasePlanResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 name: builtins.str,
-                 product: builtins.str,
-                 publisher: builtins.str,
-                 promotion_code: Optional[builtins.str] = None):
-        """
-        Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
-        :param builtins.str name: The plan ID.
-        :param builtins.str product: Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
-        :param builtins.str publisher: The publisher ID.
-        :param builtins.str promotion_code: The Offer Promotion Code.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "product", product)
-        pulumi.set(__self__, "publisher", publisher)
-        if promotion_code is not None:
-            pulumi.set(__self__, "promotion_code", promotion_code)
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        The plan ID.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def product(self) -> builtins.str:
-        """
-        Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
-        """
-        return pulumi.get(self, "product")
-
-    @property
-    @pulumi.getter
-    def publisher(self) -> builtins.str:
-        """
-        The publisher ID.
-        """
-        return pulumi.get(self, "publisher")
-
-    @property
-    @pulumi.getter(name="promotionCode")
-    def promotion_code(self) -> Optional[builtins.str]:
-        """
-        The Offer Promotion Code.
-        """
-        return pulumi.get(self, "promotion_code")
 
 
 @pulumi.output_type
@@ -9746,6 +9759,8 @@ class RestorePointResponse(dict):
             suggest = "instance_view"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
         elif key == "consistencyMode":
             suggest = "consistency_mode"
         elif key == "excludeDisks":
@@ -9773,6 +9788,7 @@ class RestorePointResponse(dict):
                  instance_view: 'outputs.RestorePointInstanceViewResponse',
                  name: builtins.str,
                  provisioning_state: builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: builtins.str,
                  consistency_mode: Optional[builtins.str] = None,
                  exclude_disks: Optional[Sequence['outputs.ApiEntityReferenceResponse']] = None,
@@ -9781,11 +9797,12 @@ class RestorePointResponse(dict):
                  time_created: Optional[builtins.str] = None):
         """
         Restore Point details.
-        :param builtins.str id: Resource Id
+        :param builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param 'RestorePointInstanceViewResponse' instance_view: The restore point instance view.
-        :param builtins.str name: Resource name
+        :param builtins.str name: The name of the resource
         :param builtins.str provisioning_state: Gets the provisioning state of the restore point.
-        :param builtins.str type: Resource type
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param builtins.str consistency_mode: ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
         :param Sequence['ApiEntityReferenceResponse'] exclude_disks: List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
         :param 'RestorePointSourceMetadataResponse' source_metadata: Gets the details of the VM captured at the time of the restore point creation.
@@ -9796,6 +9813,7 @@ class RestorePointResponse(dict):
         pulumi.set(__self__, "instance_view", instance_view)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if consistency_mode is not None:
             pulumi.set(__self__, "consistency_mode", consistency_mode)
@@ -9812,7 +9830,7 @@ class RestorePointResponse(dict):
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -9828,7 +9846,7 @@ class RestorePointResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -9841,10 +9859,18 @@ class RestorePointResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -10526,7 +10552,7 @@ class RunCommandInputParameterResponse(dict):
 @pulumi.output_type
 class RunCommandManagedIdentityResponse(dict):
     """
-     Contains clientId or objectId (use only one, not both) of a user-assigned managed identity that has access to storage blob used in Run Command. Use an empty RunCommandManagedIdentity object in case of system-assigned identity. Make sure the Azure storage blob exists in case of scriptUri, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment with scriptUri blob and 'Storage Blob Data Contributor' for Append blobs(outputBlobUri, errorBlobUri). In case of user assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
+    Contains clientId or objectId (use only one, not both) of a user-assigned managed identity that has access to storage blob used in Run Command. Use an empty RunCommandManagedIdentity object in case of system-assigned identity. Make sure the Azure storage blob exists in case of scriptUri, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment with scriptUri blob and 'Storage Blob Data Contributor' for Append blobs(outputBlobUri, errorBlobUri). In case of user assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -10551,7 +10577,7 @@ class RunCommandManagedIdentityResponse(dict):
                  client_id: Optional[builtins.str] = None,
                  object_id: Optional[builtins.str] = None):
         """
-         Contains clientId or objectId (use only one, not both) of a user-assigned managed identity that has access to storage blob used in Run Command. Use an empty RunCommandManagedIdentity object in case of system-assigned identity. Make sure the Azure storage blob exists in case of scriptUri, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment with scriptUri blob and 'Storage Blob Data Contributor' for Append blobs(outputBlobUri, errorBlobUri). In case of user assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
+        Contains clientId or objectId (use only one, not both) of a user-assigned managed identity that has access to storage blob used in Run Command. Use an empty RunCommandManagedIdentity object in case of system-assigned identity. Make sure the Azure storage blob exists in case of scriptUri, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment with scriptUri blob and 'Storage Blob Data Contributor' for Append blobs(outputBlobUri, errorBlobUri). In case of user assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
         :param builtins.str client_id: Client Id (GUID value) of the user-assigned managed identity. ObjectId should not be used if this is provided.
         :param builtins.str object_id: Object Id (GUID value) of the user-assigned managed identity. ClientId should not be used if this is provided.
         """
@@ -11792,15 +11818,23 @@ class SupportedCapabilitiesResponse(dict):
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
-    The system meta data relating to this resource.
+    Metadata pertaining to creation and last modification of the resource.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "createdAt":
             suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
         elif key == "lastModifiedAt":
             suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
@@ -11814,31 +11848,81 @@ class SystemDataResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 created_at: builtins.str,
-                 last_modified_at: builtins.str):
+                 created_at: Optional[builtins.str] = None,
+                 created_by: Optional[builtins.str] = None,
+                 created_by_type: Optional[builtins.str] = None,
+                 last_modified_at: Optional[builtins.str] = None,
+                 last_modified_by: Optional[builtins.str] = None,
+                 last_modified_by_type: Optional[builtins.str] = None):
         """
-        The system meta data relating to this resource.
-        :param builtins.str created_at: Specifies the time in UTC at which the Cloud Service (extended support) resource was created. <br />Minimum api-version: 2022-04-04.
-        :param builtins.str last_modified_at: Specifies the time in UTC at which the Cloud Service (extended support) resource was last modified. <br />Minimum api-version: 2022-04-04.
+        Metadata pertaining to creation and last modification of the resource.
+        :param builtins.str created_at: The timestamp of resource creation (UTC).
+        :param builtins.str created_by: The identity that created the resource.
+        :param builtins.str created_by_type: The type of identity that created the resource.
+        :param builtins.str last_modified_at: The timestamp of resource last modification (UTC)
+        :param builtins.str last_modified_by: The identity that last modified the resource.
+        :param builtins.str last_modified_by_type: The type of identity that last modified the resource.
         """
-        pulumi.set(__self__, "created_at", created_at)
-        pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> builtins.str:
+    def created_at(self) -> Optional[builtins.str]:
         """
-        Specifies the time in UTC at which the Cloud Service (extended support) resource was created. <br />Minimum api-version: 2022-04-04.
+        The timestamp of resource creation (UTC).
         """
         return pulumi.get(self, "created_at")
 
     @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> builtins.str:
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[builtins.str]:
         """
-        Specifies the time in UTC at which the Cloud Service (extended support) resource was last modified. <br />Minimum api-version: 2022-04-04.
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[builtins.str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[builtins.str]:
+        """
+        The timestamp of resource last modification (UTC)
         """
         return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[builtins.str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[builtins.str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type
@@ -12371,7 +12455,7 @@ class UserArtifactSourceResponse(dict):
 
 
 @pulumi.output_type
-class UserAssignedIdentitiesResponseUserAssignedIdentities(dict):
+class UserAssignedIdentitiesValueResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12381,14 +12465,14 @@ class UserAssignedIdentitiesResponseUserAssignedIdentities(dict):
             suggest = "principal_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentitiesResponseUserAssignedIdentities. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentitiesValueResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        UserAssignedIdentitiesResponseUserAssignedIdentities.__key_warning(key)
+        UserAssignedIdentitiesValueResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        UserAssignedIdentitiesResponseUserAssignedIdentities.__key_warning(key)
+        UserAssignedIdentitiesValueResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -13134,6 +13218,8 @@ class VirtualMachineExtensionResponse(dict):
         suggest = None
         if key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
         elif key == "autoUpgradeMinorVersion":
             suggest = "auto_upgrade_minor_version"
         elif key == "enableAutomaticUpgrade":
@@ -13166,14 +13252,15 @@ class VirtualMachineExtensionResponse(dict):
 
     def __init__(__self__, *,
                  id: builtins.str,
+                 location: builtins.str,
                  name: builtins.str,
                  provisioning_state: builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: builtins.str,
                  auto_upgrade_minor_version: Optional[builtins.bool] = None,
                  enable_automatic_upgrade: Optional[builtins.bool] = None,
                  force_update_tag: Optional[builtins.str] = None,
                  instance_view: Optional['outputs.VirtualMachineExtensionInstanceViewResponse'] = None,
-                 location: Optional[builtins.str] = None,
                  protected_settings: Optional[Any] = None,
                  protected_settings_from_key_vault: Optional['outputs.KeyVaultSecretReferenceResponse'] = None,
                  provision_after_extensions: Optional[Sequence[builtins.str]] = None,
@@ -13184,27 +13271,30 @@ class VirtualMachineExtensionResponse(dict):
                  type_handler_version: Optional[builtins.str] = None):
         """
         Describes a Virtual Machine Extension.
-        :param builtins.str id: Resource Id
-        :param builtins.str name: Resource name
+        :param builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param builtins.str location: The geo-location where the resource lives
+        :param builtins.str name: The name of the resource
         :param builtins.str provisioning_state: The provisioning state, which only appears in the response.
-        :param builtins.str type: Resource type
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param builtins.bool auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param builtins.bool enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
         :param builtins.str force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
         :param 'VirtualMachineExtensionInstanceViewResponse' instance_view: The virtual machine extension instance view.
-        :param builtins.str location: Resource location
         :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param 'KeyVaultSecretReferenceResponse' protected_settings_from_key_vault: The extensions protected settings that are passed by reference, and consumed from key vault
         :param Sequence[builtins.str] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
         :param builtins.str publisher: The name of the extension handler publisher.
         :param Any settings: Json formatted public settings for the extension.
         :param builtins.bool suppress_failures: Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
-        :param Mapping[str, builtins.str] tags: Resource tags
+        :param Mapping[str, builtins.str] tags: Resource tags.
         :param builtins.str type_handler_version: Specifies the version of the script handler.
         """
         pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if auto_upgrade_minor_version is not None:
             pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
@@ -13214,8 +13304,6 @@ class VirtualMachineExtensionResponse(dict):
             pulumi.set(__self__, "force_update_tag", force_update_tag)
         if instance_view is not None:
             pulumi.set(__self__, "instance_view", instance_view)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
         if protected_settings is not None:
             pulumi.set(__self__, "protected_settings", protected_settings)
         if protected_settings_from_key_vault is not None:
@@ -13237,15 +13325,23 @@ class VirtualMachineExtensionResponse(dict):
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
+    def location(self) -> builtins.str:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -13258,10 +13354,18 @@ class VirtualMachineExtensionResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -13296,14 +13400,6 @@ class VirtualMachineExtensionResponse(dict):
         The virtual machine extension instance view.
         """
         return pulumi.get(self, "instance_view")
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[builtins.str]:
-        """
-        Resource location
-        """
-        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter(name="protectedSettings")
@@ -13357,7 +13453,7 @@ class VirtualMachineExtensionResponse(dict):
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -13422,13 +13518,13 @@ class VirtualMachineIdentityResponse(dict):
                  principal_id: builtins.str,
                  tenant_id: builtins.str,
                  type: Optional[builtins.str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponseUserAssignedIdentities']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesValueResponse']] = None):
         """
         Identity for the virtual machine.
         :param builtins.str principal_id: The principal id of virtual machine identity. This property will only be provided for a system assigned identity.
         :param builtins.str tenant_id: The tenant id associated with the virtual machine. This property will only be provided for a system assigned identity.
         :param builtins.str type: The type of identity used for the virtual machine. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
-        :param Mapping[str, 'UserAssignedIdentitiesResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the Virtual Machine. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'UserAssignedIdentitiesValueResponse'] user_assigned_identities: The list of user identities associated with the Virtual Machine. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -13463,7 +13559,7 @@ class VirtualMachineIdentityResponse(dict):
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponseUserAssignedIdentities']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentitiesValueResponse']]:
         """
         The list of user identities associated with the Virtual Machine. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -13540,7 +13636,7 @@ class VirtualMachineInstanceViewResponse(dict):
         The instance view of a virtual machine.
         :param builtins.str assigned_host: Resource id of the dedicated host, on which the virtual machine is allocated through automatic placement, when the virtual machine is associated with a dedicated host group that has automatic placement enabled. Minimum api-version: 2020-06-01.
         :param builtins.bool is_vm_in_standby_pool: [Preview Feature] Specifies whether the VM is currently in or out of the Standby Pool.
-        :param 'VirtualMachineHealthStatusResponse' vm_health: The application health status for the VM, provided through Application Health Extension.
+        :param 'VirtualMachineHealthStatusResponse' vm_health: The health status for the VM.
         :param 'BootDiagnosticsInstanceViewResponse' boot_diagnostics: Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. You can easily view the output of your console log. Azure also enables you to see a screenshot of the VM from the hypervisor.
         :param builtins.str computer_name: The computer name assigned to the virtual machine.
         :param Sequence['DiskInstanceViewResponse'] disks: The virtual machine disk information.
@@ -13608,7 +13704,7 @@ class VirtualMachineInstanceViewResponse(dict):
     @pulumi.getter(name="vmHealth")
     def vm_health(self) -> 'outputs.VirtualMachineHealthStatusResponse':
         """
-        The application health status for the VM, provided through Application Health Extension.
+        The health status for the VM.
         """
         return pulumi.get(self, "vm_health")
 
@@ -14896,7 +14992,7 @@ class VirtualMachineScaleSetExtensionResponse(dict):
         :param builtins.bool auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param builtins.bool enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
         :param builtins.str force_update_tag: If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
-        :param builtins.str name: The name of the extension.
+        :param builtins.str name: Resource name
         :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param 'KeyVaultSecretReferenceResponse' protected_settings_from_key_vault: The extensions protected settings that are passed by reference, and consumed from key vault
         :param Sequence[builtins.str] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
@@ -14983,7 +15079,7 @@ class VirtualMachineScaleSetExtensionResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[builtins.str]:
         """
-        The name of the extension.
+        Resource name
         """
         return pulumi.get(self, "name")
 
@@ -15259,13 +15355,13 @@ class VirtualMachineScaleSetIdentityResponse(dict):
                  principal_id: builtins.str,
                  tenant_id: builtins.str,
                  type: Optional[builtins.str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponseUserAssignedIdentities']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesValueResponse']] = None):
         """
         Identity for the virtual machine scale set.
         :param builtins.str principal_id: The principal id of virtual machine scale set identity. This property will only be provided for a system assigned identity.
         :param builtins.str tenant_id: The tenant id associated with the virtual machine scale set. This property will only be provided for a system assigned identity.
         :param builtins.str type: The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
-        :param Mapping[str, 'UserAssignedIdentitiesResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the virtual machine scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'UserAssignedIdentitiesValueResponse'] user_assigned_identities: The list of user identities associated with the virtual machine scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -15300,7 +15396,7 @@ class VirtualMachineScaleSetIdentityResponse(dict):
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponseUserAssignedIdentities']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentitiesValueResponse']]:
         """
         The list of user identities associated with the virtual machine scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -15740,7 +15836,7 @@ class VirtualMachineScaleSetNetworkProfileResponse(dict):
         """
         Describes a virtual machine scale set network profile.
         :param 'ApiEntityReferenceResponse' health_probe: A reference to a load balancer probe used to determine the health of an instance in the virtual machine scale set. The reference will be in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/probes/{probeName}'.
-        :param builtins.str network_api_version: Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set with orchestration mode 'Flexible'. For support of all network properties, use '2022-11-01'.
+        :param builtins.str network_api_version: specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set with orchestration mode 'Flexible'
         :param Sequence['VirtualMachineScaleSetNetworkConfigurationResponse'] network_interface_configurations: The list of network configurations.
         """
         if health_probe is not None:
@@ -15762,7 +15858,7 @@ class VirtualMachineScaleSetNetworkProfileResponse(dict):
     @pulumi.getter(name="networkApiVersion")
     def network_api_version(self) -> Optional[builtins.str]:
         """
-        Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set with orchestration mode 'Flexible'. For support of all network properties, use '2022-11-01'.
+        specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set with orchestration mode 'Flexible'
         """
         return pulumi.get(self, "network_api_version")
 
@@ -16320,6 +16416,7 @@ class VirtualMachineScaleSetStorageProfileResponse(dict):
         """
         Describes a virtual machine scale set storage profile.
         :param Sequence['VirtualMachineScaleSetDataDiskResponse'] data_disks: Specifies the parameters that are used to add data disks to the virtual machines in the scale set. For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        :param builtins.str disk_controller_type: Specifies the disk controller type configured for the virtual machines in the scale set. Minimum api-version: 2022-08-01
         :param 'ImageReferenceResponse' image_reference: Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
         :param 'VirtualMachineScaleSetOSDiskResponse' os_disk: Specifies information about the operating system disk used by the virtual machines in the scale set. For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
         """
@@ -16343,6 +16440,9 @@ class VirtualMachineScaleSetStorageProfileResponse(dict):
     @property
     @pulumi.getter(name="diskControllerType")
     def disk_controller_type(self) -> Optional[builtins.str]:
+        """
+        Specifies the disk controller type configured for the virtual machines in the scale set. Minimum api-version: 2022-08-01
+        """
         return pulumi.get(self, "disk_controller_type")
 
     @property
@@ -16428,7 +16528,7 @@ class VirtualMachineScaleSetVMInstanceViewResponse(dict):
         """
         The instance view of a virtual machine scale set VM.
         :param builtins.str assigned_host: Resource id of the dedicated host, on which the virtual machine is allocated through automatic placement, when the virtual machine is associated with a dedicated host group that has automatic placement enabled. Minimum api-version: 2020-06-01.
-        :param 'VirtualMachineHealthStatusResponse' vm_health: The application health status for the VM, provided through Application Health Extension or Load Balancer Health Probes.
+        :param 'VirtualMachineHealthStatusResponse' vm_health: The health status for the VM.
         :param 'BootDiagnosticsInstanceViewResponse' boot_diagnostics: Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. You can easily view the output of your console log. Azure also enables you to see a screenshot of the VM from the hypervisor.
         :param builtins.str computer_name: Specifies the host OS name of the virtual machine. <br><br> This name cannot be updated after the VM is created. <br><br> **Max-length (Windows):** 15 characters <br><br> **Max-length (Linux):** 64 characters. <br><br> For naming conventions and restrictions see [Azure infrastructure services implementation guidelines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-infrastructure-subscription-accounts-guidelines?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#1-naming-conventions).
         :param Sequence['DiskInstanceViewResponse'] disks: The disks information.
@@ -16487,7 +16587,7 @@ class VirtualMachineScaleSetVMInstanceViewResponse(dict):
     @pulumi.getter(name="vmHealth")
     def vm_health(self) -> 'outputs.VirtualMachineHealthStatusResponse':
         """
-        The application health status for the VM, provided through Application Health Extension or Load Balancer Health Probes.
+        The health status for the VM.
         """
         return pulumi.get(self, "vm_health")
 

@@ -25,6 +25,11 @@ export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointCo
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
+export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
+export const getUser: typeof import("./getUser").getUser = null as any;
+export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
+utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
+
 export { ListMongoClusterConnectionStringsArgs, ListMongoClusterConnectionStringsResult, ListMongoClusterConnectionStringsOutputArgs } from "./listMongoClusterConnectionStrings";
 export const listMongoClusterConnectionStrings: typeof import("./listMongoClusterConnectionStrings").listMongoClusterConnectionStrings = null as any;
 export const listMongoClusterConnectionStringsOutput: typeof import("./listMongoClusterConnectionStrings").listMongoClusterConnectionStringsOutput = null as any;
@@ -40,6 +45,11 @@ export type PrivateEndpointConnection = import("./privateEndpointConnection").Pr
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
 utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
+export { UserArgs } from "./user";
+export type User = import("./user").User;
+export const User: typeof import("./user").User = null as any;
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
+
 
 // Export enums:
 export * from "../types/enums/mongocluster";
@@ -54,6 +64,8 @@ const _module = {
                 return new MongoCluster(name, <any>undefined, { urn })
             case "azure-native:mongocluster:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:mongocluster:User":
+                return new User(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

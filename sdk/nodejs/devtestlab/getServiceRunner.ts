@@ -27,11 +27,11 @@ export interface GetServiceRunnerArgs {
      */
     labName: string;
     /**
-     * The name of the service runner.
+     * The name of the ServiceRunner
      */
     name: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -89,11 +89,11 @@ export interface GetServiceRunnerOutputArgs {
      */
     labName: pulumi.Input<string>;
     /**
-     * The name of the service runner.
+     * The name of the ServiceRunner
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

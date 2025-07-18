@@ -14,31 +14,52 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
     {
         [Input("capabilities")]
         private InputList<Inputs.SkuCapabilityArgs>? _capabilities;
+
+        /// <summary>
+        /// The capabilities.
+        /// </summary>
         public InputList<Inputs.SkuCapabilityArgs> Capabilities
         {
             get => _capabilities ?? (_capabilities = new InputList<Inputs.SkuCapabilityArgs>());
             set => _capabilities = value;
         }
 
+        /// <summary>
+        /// The capacity.
+        /// </summary>
         [Input("capacity")]
         public Input<Inputs.SkuSettingCapacityArgs>? Capacity { get; set; }
 
         [Input("costs")]
         private InputList<Inputs.SkuCostArgs>? _costs;
+
+        /// <summary>
+        /// The costs.
+        /// </summary>
         public InputList<Inputs.SkuCostArgs> Costs
         {
             get => _costs ?? (_costs = new InputList<Inputs.SkuCostArgs>());
             set => _costs = value;
         }
 
+        /// <summary>
+        /// The family.
+        /// </summary>
         [Input("family")]
         public Input<string>? Family { get; set; }
 
+        /// <summary>
+        /// The kind.
+        /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
         [Input("locationInfo")]
         private InputList<Inputs.SkuLocationInfoArgs>? _locationInfo;
+
+        /// <summary>
+        /// The location info.
+        /// </summary>
         public InputList<Inputs.SkuLocationInfoArgs> LocationInfo
         {
             get => _locationInfo ?? (_locationInfo = new InputList<Inputs.SkuLocationInfoArgs>());
@@ -47,17 +68,28 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
         [Input("locations")]
         private InputList<string>? _locations;
+
+        /// <summary>
+        /// The locations.
+        /// </summary>
         public InputList<string> Locations
         {
             get => _locations ?? (_locations = new InputList<string>());
             set => _locations = value;
         }
 
+        /// <summary>
+        /// The name.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("requiredFeatures")]
         private InputList<string>? _requiredFeatures;
+
+        /// <summary>
+        /// The required features.
+        /// </summary>
         public InputList<string> RequiredFeatures
         {
             get => _requiredFeatures ?? (_requiredFeatures = new InputList<string>());
@@ -66,15 +98,25 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
         [Input("requiredQuotaIds")]
         private InputList<string>? _requiredQuotaIds;
+
+        /// <summary>
+        /// The required quota ids.
+        /// </summary>
         public InputList<string> RequiredQuotaIds
         {
             get => _requiredQuotaIds ?? (_requiredQuotaIds = new InputList<string>());
             set => _requiredQuotaIds = value;
         }
 
+        /// <summary>
+        /// The size.
+        /// </summary>
         [Input("size")]
         public Input<string>? Size { get; set; }
 
+        /// <summary>
+        /// The tier.
+        /// </summary>
         [Input("tier")]
         public Input<string>? Tier { get; set; }
 

@@ -33,11 +33,11 @@ export interface GetServiceFabricArgs {
      */
     labName: string;
     /**
-     * The name of the service fabric.
+     * The name of the ServiceFabric
      */
     name: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -121,11 +121,11 @@ export interface GetServiceFabricOutputArgs {
      */
     labName: pulumi.Input<string>;
     /**
-     * The name of the service fabric.
+     * The name of the ServiceFabric
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

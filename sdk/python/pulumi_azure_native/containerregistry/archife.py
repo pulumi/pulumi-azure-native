@@ -152,7 +152,7 @@ class Archife(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
-        Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,7 +174,7 @@ class Archife(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
-        Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ArchifeArgs args: The arguments to use to populate this resource's properties.
@@ -226,7 +226,7 @@ class Archife(pulumi.CustomResource):
             __props__.__dict__["repository_endpoint"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry/v20230601preview:Archife"), pulumi.Alias(type_="azure-native:containerregistry/v20230801preview:Archife"), pulumi.Alias(type_="azure-native:containerregistry/v20231101preview:Archife"), pulumi.Alias(type_="azure-native:containerregistry/v20241101preview:Archife"), pulumi.Alias(type_="azure-native:containerregistry/v20250301preview:Archife")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry/v20230601preview:Archife"), pulumi.Alias(type_="azure-native:containerregistry/v20230801preview:Archife"), pulumi.Alias(type_="azure-native:containerregistry/v20231101preview:Archife"), pulumi.Alias(type_="azure-native:containerregistry/v20241101preview:Archife"), pulumi.Alias(type_="azure-native:containerregistry/v20250301preview:Archife"), pulumi.Alias(type_="azure-native:containerregistry/v20250501preview:Archife")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Archife, __self__).__init__(
             'azure-native:containerregistry:Archife',

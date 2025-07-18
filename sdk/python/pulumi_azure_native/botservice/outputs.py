@@ -46,22 +46,22 @@ __all__ = [
     'NetworkSecurityPerimeterConfigurationPropertiesResponse',
     'NetworkSecurityPerimeterConfigurationResponse',
     'NetworkSecurityPerimeterResponse',
+    'NspAccessRulePropertiesResponse',
+    'NspAccessRulePropertiesSubscriptionsItemResponse',
     'NspAccessRuleResponse',
-    'NspAccessRuleResponseProperties',
-    'NspAccessRuleResponseSubscriptions',
     'OmnichannelResponse',
     'OutlookChannelResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'ProfileResponse',
+    'ProvisioningIssuePropertiesResponse',
     'ProvisioningIssueResponse',
-    'ProvisioningIssueResponseProperties',
     'ResourceAssociationResponse',
     'SearchAssistantResponse',
+    'ServiceProviderParameterMetadataConstraintsResponse',
+    'ServiceProviderParameterMetadataResponse',
     'ServiceProviderParameterResponse',
-    'ServiceProviderParameterResponseConstraints',
-    'ServiceProviderParameterResponseMetadata',
     'ServiceProviderPropertiesResponse',
     'ServiceProviderResponse',
     'SiteResponse',
@@ -72,6 +72,7 @@ __all__ = [
     'SlackChannelResponse',
     'SmsChannelPropertiesResponse',
     'SmsChannelResponse',
+    'SystemDataResponse',
     'TelegramChannelPropertiesResponse',
     'TelegramChannelResponse',
     'TelephonyChannelPropertiesResponse',
@@ -1370,10 +1371,6 @@ class DirectLineSiteResponse(dict):
             suggest = "is_enabled"
         elif key == "isTokenEnabled":
             suggest = "is_token_enabled"
-        elif key == "isV1Enabled":
-            suggest = "is_v1_enabled"
-        elif key == "isV3Enabled":
-            suggest = "is_v3_enabled"
         elif key == "siteId":
             suggest = "site_id"
         elif key == "siteName":
@@ -1392,6 +1389,10 @@ class DirectLineSiteResponse(dict):
             suggest = "is_no_storage_enabled"
         elif key == "isSecureSiteEnabled":
             suggest = "is_secure_site_enabled"
+        elif key == "isV1Enabled":
+            suggest = "is_v1_enabled"
+        elif key == "isV3Enabled":
+            suggest = "is_v3_enabled"
         elif key == "isWebChatSpeechEnabled":
             suggest = "is_web_chat_speech_enabled"
         elif key == "isWebchatPreviewEnabled":
@@ -1415,8 +1416,6 @@ class DirectLineSiteResponse(dict):
     def __init__(__self__, *,
                  is_enabled: builtins.bool,
                  is_token_enabled: builtins.bool,
-                 is_v1_enabled: builtins.bool,
-                 is_v3_enabled: builtins.bool,
                  key: builtins.str,
                  key2: builtins.str,
                  site_id: builtins.str,
@@ -1428,6 +1427,8 @@ class DirectLineSiteResponse(dict):
                  is_endpoint_parameters_enabled: Optional[builtins.bool] = None,
                  is_no_storage_enabled: Optional[builtins.bool] = None,
                  is_secure_site_enabled: Optional[builtins.bool] = None,
+                 is_v1_enabled: Optional[builtins.bool] = None,
+                 is_v3_enabled: Optional[builtins.bool] = None,
                  is_web_chat_speech_enabled: Optional[builtins.bool] = None,
                  is_webchat_preview_enabled: Optional[builtins.bool] = None,
                  tenant_id: Optional[builtins.str] = None,
@@ -1436,8 +1437,6 @@ class DirectLineSiteResponse(dict):
         A site for the Direct Line channel
         :param builtins.bool is_enabled: Whether this site is enabled for DirectLine channel
         :param builtins.bool is_token_enabled: Whether this site is token enabled for channel
-        :param builtins.bool is_v1_enabled: Whether this site is enabled for Bot Framework V1 protocol.
-        :param builtins.bool is_v3_enabled: Whether this site is enabled for Bot Framework V3 protocol.
         :param builtins.str key: Primary key. Value only returned through POST to the action Channel List API, otherwise empty.
         :param builtins.str key2: Secondary key. Value only returned through POST to the action Channel List API, otherwise empty.
         :param builtins.str site_id: Site Id
@@ -1449,6 +1448,8 @@ class DirectLineSiteResponse(dict):
         :param builtins.bool is_endpoint_parameters_enabled: Whether this site is EndpointParameters enabled for channel
         :param builtins.bool is_no_storage_enabled: Whether this no-storage site is disabled detailed logging for
         :param builtins.bool is_secure_site_enabled: Whether this site is enabled for authentication with Bot Framework.
+        :param builtins.bool is_v1_enabled: Whether this site is enabled for Bot Framework V1 protocol.
+        :param builtins.bool is_v3_enabled: Whether this site is enabled for Bot Framework V3 protocol.
         :param builtins.bool is_web_chat_speech_enabled: Whether this site is enabled for Webchat Speech
         :param builtins.bool is_webchat_preview_enabled: Whether this site is enabled for preview versions of Webchat
         :param builtins.str tenant_id: Tenant Id
@@ -1456,8 +1457,6 @@ class DirectLineSiteResponse(dict):
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
         pulumi.set(__self__, "is_token_enabled", is_token_enabled)
-        pulumi.set(__self__, "is_v1_enabled", is_v1_enabled)
-        pulumi.set(__self__, "is_v3_enabled", is_v3_enabled)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "key2", key2)
         pulumi.set(__self__, "site_id", site_id)
@@ -1476,6 +1475,10 @@ class DirectLineSiteResponse(dict):
             pulumi.set(__self__, "is_no_storage_enabled", is_no_storage_enabled)
         if is_secure_site_enabled is not None:
             pulumi.set(__self__, "is_secure_site_enabled", is_secure_site_enabled)
+        if is_v1_enabled is not None:
+            pulumi.set(__self__, "is_v1_enabled", is_v1_enabled)
+        if is_v3_enabled is not None:
+            pulumi.set(__self__, "is_v3_enabled", is_v3_enabled)
         if is_web_chat_speech_enabled is None:
             is_web_chat_speech_enabled = False
         if is_web_chat_speech_enabled is not None:
@@ -1504,22 +1507,6 @@ class DirectLineSiteResponse(dict):
         Whether this site is token enabled for channel
         """
         return pulumi.get(self, "is_token_enabled")
-
-    @property
-    @pulumi.getter(name="isV1Enabled")
-    def is_v1_enabled(self) -> builtins.bool:
-        """
-        Whether this site is enabled for Bot Framework V1 protocol.
-        """
-        return pulumi.get(self, "is_v1_enabled")
-
-    @property
-    @pulumi.getter(name="isV3Enabled")
-    def is_v3_enabled(self) -> builtins.bool:
-        """
-        Whether this site is enabled for Bot Framework V3 protocol.
-        """
-        return pulumi.get(self, "is_v3_enabled")
 
     @property
     @pulumi.getter
@@ -1608,6 +1595,22 @@ class DirectLineSiteResponse(dict):
         Whether this site is enabled for authentication with Bot Framework.
         """
         return pulumi.get(self, "is_secure_site_enabled")
+
+    @property
+    @pulumi.getter(name="isV1Enabled")
+    def is_v1_enabled(self) -> Optional[builtins.bool]:
+        """
+        Whether this site is enabled for Bot Framework V1 protocol.
+        """
+        return pulumi.get(self, "is_v1_enabled")
+
+    @property
+    @pulumi.getter(name="isV3Enabled")
+    def is_v3_enabled(self) -> Optional[builtins.bool]:
+        """
+        Whether this site is enabled for Bot Framework V3 protocol.
+        """
+        return pulumi.get(self, "is_v3_enabled")
 
     @property
     @pulumi.getter(name="isWebChatSpeechEnabled")
@@ -3064,57 +3067,83 @@ class NetworkSecurityPerimeterConfigurationResponse(dict):
     """
     Network Security Perimeter configuration
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "systemData":
+            suggest = "system_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkSecurityPerimeterConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkSecurityPerimeterConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkSecurityPerimeterConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 properties: 'outputs.NetworkSecurityPerimeterConfigurationPropertiesResponse',
-                 id: Optional[builtins.str] = None,
-                 name: Optional[builtins.str] = None,
-                 type: Optional[builtins.str] = None):
+                 id: builtins.str,
+                 name: builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: builtins.str,
+                 properties: Optional['outputs.NetworkSecurityPerimeterConfigurationPropertiesResponse'] = None):
         """
         Network Security Perimeter configuration
+        :param builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param builtins.str name: The name of the resource
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'NetworkSecurityPerimeterConfigurationPropertiesResponse' properties: Properties of the Network Security Perimeter configuration
-        :param builtins.str id: Fully qualified identifier of the resource
-        :param builtins.str name: Name of the resource
-        :param builtins.str type: Type of the resource
         """
-        pulumi.set(__self__, "properties", properties)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.NetworkSecurityPerimeterConfigurationPropertiesResponse':
+    def id(self) -> builtins.str:
         """
-        Properties of the Network Security Perimeter configuration
-        """
-        return pulumi.get(self, "properties")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[builtins.str]:
-        """
-        Fully qualified identifier of the resource
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[builtins.str]:
+    def name(self) -> builtins.str:
         """
-        Name of the resource
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def type(self) -> Optional[builtins.str]:
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Type of the resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.NetworkSecurityPerimeterConfigurationPropertiesResponse']:
+        """
+        Properties of the Network Security Perimeter configuration
+        """
+        return pulumi.get(self, "properties")
 
 
 @pulumi.output_type
@@ -3181,41 +3210,7 @@ class NetworkSecurityPerimeterResponse(dict):
 
 
 @pulumi.output_type
-class NspAccessRuleResponse(dict):
-    """
-    Information of Access Rule in a profile
-    """
-    def __init__(__self__, *,
-                 properties: 'outputs.NspAccessRuleResponseProperties',
-                 name: Optional[builtins.str] = None):
-        """
-        Information of Access Rule in a profile
-        :param 'NspAccessRuleResponseProperties' properties: Properties of Access Rule
-        :param builtins.str name: Name of the access rule
-        """
-        pulumi.set(__self__, "properties", properties)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> 'outputs.NspAccessRuleResponseProperties':
-        """
-        Properties of Access Rule
-        """
-        return pulumi.get(self, "properties")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[builtins.str]:
-        """
-        Name of the access rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class NspAccessRuleResponseProperties(dict):
+class NspAccessRulePropertiesResponse(dict):
     """
     Properties of Access Rule
     """
@@ -3234,14 +3229,14 @@ class NspAccessRuleResponseProperties(dict):
             suggest = "address_prefixes"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NspAccessRuleResponseProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in NspAccessRulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        NspAccessRuleResponseProperties.__key_warning(key)
+        NspAccessRulePropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        NspAccessRuleResponseProperties.__key_warning(key)
+        NspAccessRulePropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -3251,7 +3246,7 @@ class NspAccessRuleResponseProperties(dict):
                  phone_numbers: Sequence[builtins.str],
                  address_prefixes: Optional[Sequence[builtins.str]] = None,
                  direction: Optional[builtins.str] = None,
-                 subscriptions: Optional[Sequence['outputs.NspAccessRuleResponseSubscriptions']] = None):
+                 subscriptions: Optional[Sequence['outputs.NspAccessRulePropertiesSubscriptionsItemResponse']] = None):
         """
         Properties of Access Rule
         :param Sequence[builtins.str] email_addresses: Email addresses for outbound rules
@@ -3260,7 +3255,7 @@ class NspAccessRuleResponseProperties(dict):
         :param Sequence[builtins.str] phone_numbers: Phone numbers for outbound rules
         :param Sequence[builtins.str] address_prefixes: Address prefixes in the CIDR format for inbound rules
         :param builtins.str direction: Direction of Access Rule
-        :param Sequence['NspAccessRuleResponseSubscriptions'] subscriptions: Subscriptions for inbound rules
+        :param Sequence['NspAccessRulePropertiesSubscriptionsItemResponse'] subscriptions: Subscriptions for inbound rules
         """
         pulumi.set(__self__, "email_addresses", email_addresses)
         pulumi.set(__self__, "fully_qualified_domain_names", fully_qualified_domain_names)
@@ -3323,7 +3318,7 @@ class NspAccessRuleResponseProperties(dict):
 
     @property
     @pulumi.getter
-    def subscriptions(self) -> Optional[Sequence['outputs.NspAccessRuleResponseSubscriptions']]:
+    def subscriptions(self) -> Optional[Sequence['outputs.NspAccessRulePropertiesSubscriptionsItemResponse']]:
         """
         Subscriptions for inbound rules
         """
@@ -3331,7 +3326,7 @@ class NspAccessRuleResponseProperties(dict):
 
 
 @pulumi.output_type
-class NspAccessRuleResponseSubscriptions(dict):
+class NspAccessRulePropertiesSubscriptionsItemResponse(dict):
     """
     Subscription for inbound rule
     """
@@ -3351,6 +3346,40 @@ class NspAccessRuleResponseSubscriptions(dict):
         Fully qualified identifier of subscription
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class NspAccessRuleResponse(dict):
+    """
+    Information of Access Rule in a profile
+    """
+    def __init__(__self__, *,
+                 properties: 'outputs.NspAccessRulePropertiesResponse',
+                 name: Optional[builtins.str] = None):
+        """
+        Information of Access Rule in a profile
+        :param 'NspAccessRulePropertiesResponse' properties: Properties of Access Rule
+        :param builtins.str name: Name of the access rule
+        """
+        pulumi.set(__self__, "properties", properties)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.NspAccessRulePropertiesResponse':
+        """
+        Properties of Access Rule
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the access rule
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -3525,6 +3554,8 @@ class PrivateEndpointConnectionResponse(dict):
             suggest = "private_link_service_connection_state"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
         elif key == "groupIds":
             suggest = "group_ids"
         elif key == "privateEndpoint":
@@ -3546,6 +3577,7 @@ class PrivateEndpointConnectionResponse(dict):
                  name: builtins.str,
                  private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
                  provisioning_state: builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: builtins.str,
                  group_ids: Optional[Sequence[builtins.str]] = None,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
@@ -3555,6 +3587,7 @@ class PrivateEndpointConnectionResponse(dict):
         :param builtins.str name: The name of the resource
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param builtins.str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
         :param builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param Sequence[builtins.str] group_ids: Group ids
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
@@ -3563,6 +3596,7 @@ class PrivateEndpointConnectionResponse(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if group_ids is not None:
             pulumi.set(__self__, "group_ids", group_ids)
@@ -3600,6 +3634,14 @@ class PrivateEndpointConnectionResponse(dict):
         The provisioning state of the private endpoint connection resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -3806,41 +3848,7 @@ class ProfileResponse(dict):
 
 
 @pulumi.output_type
-class ProvisioningIssueResponse(dict):
-    """
-    Describes Provisioning issue for given Network Security Perimeter configuration
-    """
-    def __init__(__self__, *,
-                 properties: 'outputs.ProvisioningIssueResponseProperties',
-                 name: Optional[builtins.str] = None):
-        """
-        Describes Provisioning issue for given Network Security Perimeter configuration
-        :param 'ProvisioningIssueResponseProperties' properties: Properties of Provisioning Issue
-        :param builtins.str name: Name of the issue
-        """
-        pulumi.set(__self__, "properties", properties)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> 'outputs.ProvisioningIssueResponseProperties':
-        """
-        Properties of Provisioning Issue
-        """
-        return pulumi.get(self, "properties")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[builtins.str]:
-        """
-        Name of the issue
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class ProvisioningIssueResponseProperties(dict):
+class ProvisioningIssuePropertiesResponse(dict):
     """
     Properties of Provisioning Issue
     """
@@ -3855,14 +3863,14 @@ class ProvisioningIssueResponseProperties(dict):
             suggest = "suggested_access_rules"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProvisioningIssueResponseProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ProvisioningIssuePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ProvisioningIssueResponseProperties.__key_warning(key)
+        ProvisioningIssuePropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ProvisioningIssueResponseProperties.__key_warning(key)
+        ProvisioningIssuePropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -3928,6 +3936,40 @@ class ProvisioningIssueResponseProperties(dict):
         Access rules that can be added to the same profile to remediate the issue.
         """
         return pulumi.get(self, "suggested_access_rules")
+
+
+@pulumi.output_type
+class ProvisioningIssueResponse(dict):
+    """
+    Describes Provisioning issue for given Network Security Perimeter configuration
+    """
+    def __init__(__self__, *,
+                 properties: 'outputs.ProvisioningIssuePropertiesResponse',
+                 name: Optional[builtins.str] = None):
+        """
+        Describes Provisioning issue for given Network Security Perimeter configuration
+        :param 'ProvisioningIssuePropertiesResponse' properties: Properties of Provisioning Issue
+        :param builtins.str name: Name of the issue
+        """
+        pulumi.set(__self__, "properties", properties)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.ProvisioningIssuePropertiesResponse':
+        """
+        Properties of Provisioning Issue
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the issue
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -4063,6 +4105,52 @@ class SearchAssistantResponse(dict):
 
 
 @pulumi.output_type
+class ServiceProviderParameterMetadataConstraintsResponse(dict):
+    """
+    the constraints of the bot meta data.
+    """
+    def __init__(__self__, *,
+                 required: Optional[builtins.bool] = None):
+        """
+        the constraints of the bot meta data.
+        :param builtins.bool required: Whether required the constraints of the bot meta data.
+        """
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @property
+    @pulumi.getter
+    def required(self) -> Optional[builtins.bool]:
+        """
+        Whether required the constraints of the bot meta data.
+        """
+        return pulumi.get(self, "required")
+
+
+@pulumi.output_type
+class ServiceProviderParameterMetadataResponse(dict):
+    """
+    Meta data for the Service Provider
+    """
+    def __init__(__self__, *,
+                 constraints: Optional['outputs.ServiceProviderParameterMetadataConstraintsResponse'] = None):
+        """
+        Meta data for the Service Provider
+        :param 'ServiceProviderParameterMetadataConstraintsResponse' constraints: the constraints of the bot meta data.
+        """
+        if constraints is not None:
+            pulumi.set(__self__, "constraints", constraints)
+
+    @property
+    @pulumi.getter
+    def constraints(self) -> Optional['outputs.ServiceProviderParameterMetadataConstraintsResponse']:
+        """
+        the constraints of the bot meta data.
+        """
+        return pulumi.get(self, "constraints")
+
+
+@pulumi.output_type
 class ServiceProviderParameterResponse(dict):
     """
     Extra Parameters specific to each Service Provider
@@ -4072,7 +4160,7 @@ class ServiceProviderParameterResponse(dict):
                  description: builtins.str,
                  display_name: builtins.str,
                  help_url: builtins.str,
-                 metadata: 'outputs.ServiceProviderParameterResponseMetadata',
+                 metadata: 'outputs.ServiceProviderParameterMetadataResponse',
                  name: builtins.str,
                  type: builtins.str):
         """
@@ -4081,7 +4169,7 @@ class ServiceProviderParameterResponse(dict):
         :param builtins.str description: Description of the Service Provider
         :param builtins.str display_name: Display Name of the Service Provider
         :param builtins.str help_url: Help Url for the  Service Provider
-        :param 'ServiceProviderParameterResponseMetadata' metadata: Meta data for the Service Provider
+        :param 'ServiceProviderParameterMetadataResponse' metadata: Meta data for the Service Provider
         :param builtins.str name: Name of the Service Provider
         :param builtins.str type: Type of the Service Provider
         """
@@ -4127,7 +4215,7 @@ class ServiceProviderParameterResponse(dict):
 
     @property
     @pulumi.getter
-    def metadata(self) -> 'outputs.ServiceProviderParameterResponseMetadata':
+    def metadata(self) -> 'outputs.ServiceProviderParameterMetadataResponse':
         """
         Meta data for the Service Provider
         """
@@ -4148,52 +4236,6 @@ class ServiceProviderParameterResponse(dict):
         Type of the Service Provider
         """
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class ServiceProviderParameterResponseConstraints(dict):
-    """
-    the constraints of the bot meta data.
-    """
-    def __init__(__self__, *,
-                 required: Optional[builtins.bool] = None):
-        """
-        the constraints of the bot meta data.
-        :param builtins.bool required: Whether required the constraints of the bot meta data.
-        """
-        if required is not None:
-            pulumi.set(__self__, "required", required)
-
-    @property
-    @pulumi.getter
-    def required(self) -> Optional[builtins.bool]:
-        """
-        Whether required the constraints of the bot meta data.
-        """
-        return pulumi.get(self, "required")
-
-
-@pulumi.output_type
-class ServiceProviderParameterResponseMetadata(dict):
-    """
-    Meta data for the Service Provider
-    """
-    def __init__(__self__, *,
-                 constraints: Optional['outputs.ServiceProviderParameterResponseConstraints'] = None):
-        """
-        Meta data for the Service Provider
-        :param 'ServiceProviderParameterResponseConstraints' constraints: the constraints of the bot meta data.
-        """
-        if constraints is not None:
-            pulumi.set(__self__, "constraints", constraints)
-
-    @property
-    @pulumi.getter
-    def constraints(self) -> Optional['outputs.ServiceProviderParameterResponseConstraints']:
-        """
-        the constraints of the bot meta data.
-        """
-        return pulumi.get(self, "constraints")
 
 
 @pulumi.output_type
@@ -5279,6 +5321,116 @@ class SmsChannelResponse(dict):
 
 
 @pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[builtins.str] = None,
+                 created_by: Optional[builtins.str] = None,
+                 created_by_type: Optional[builtins.str] = None,
+                 last_modified_at: Optional[builtins.str] = None,
+                 last_modified_by: Optional[builtins.str] = None,
+                 last_modified_by_type: Optional[builtins.str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param builtins.str created_at: The timestamp of resource creation (UTC).
+        :param builtins.str created_by: The identity that created the resource.
+        :param builtins.str created_by_type: The type of identity that created the resource.
+        :param builtins.str last_modified_at: The timestamp of resource last modification (UTC)
+        :param builtins.str last_modified_by: The identity that last modified the resource.
+        :param builtins.str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[builtins.str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[builtins.str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[builtins.str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[builtins.str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[builtins.str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[builtins.str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
 class TelegramChannelPropertiesResponse(dict):
     """
     The parameters to provide for the Telegram channel.
@@ -6080,8 +6232,6 @@ class WebChatSiteResponse(dict):
             suggest = "is_enabled"
         elif key == "isTokenEnabled":
             suggest = "is_token_enabled"
-        elif key == "isWebchatPreviewEnabled":
-            suggest = "is_webchat_preview_enabled"
         elif key == "siteId":
             suggest = "site_id"
         elif key == "siteName":
@@ -6106,6 +6256,8 @@ class WebChatSiteResponse(dict):
             suggest = "is_v3_enabled"
         elif key == "isWebChatSpeechEnabled":
             suggest = "is_web_chat_speech_enabled"
+        elif key == "isWebchatPreviewEnabled":
+            suggest = "is_webchat_preview_enabled"
         elif key == "tenantId":
             suggest = "tenant_id"
         elif key == "trustedOrigins":
@@ -6125,7 +6277,6 @@ class WebChatSiteResponse(dict):
     def __init__(__self__, *,
                  is_enabled: builtins.bool,
                  is_token_enabled: builtins.bool,
-                 is_webchat_preview_enabled: Optional[builtins.bool] = None,
                  key: builtins.str,
                  key2: builtins.str,
                  site_id: builtins.str,
@@ -6140,13 +6291,13 @@ class WebChatSiteResponse(dict):
                  is_v1_enabled: Optional[builtins.bool] = None,
                  is_v3_enabled: Optional[builtins.bool] = None,
                  is_web_chat_speech_enabled: Optional[builtins.bool] = None,
+                 is_webchat_preview_enabled: Optional[builtins.bool] = None,
                  tenant_id: Optional[builtins.str] = None,
                  trusted_origins: Optional[Sequence[builtins.str]] = None):
         """
         A site for the Webchat channel
         :param builtins.bool is_enabled: Whether this site is enabled for DirectLine channel
         :param builtins.bool is_token_enabled: Whether this site is token enabled for channel
-        :param builtins.bool is_webchat_preview_enabled: Whether this site is enabled for preview versions of Webchat
         :param builtins.str key: Primary key. Value only returned through POST to the action Channel List API, otherwise empty.
         :param builtins.str key2: Secondary key. Value only returned through POST to the action Channel List API, otherwise empty.
         :param builtins.str site_id: Site Id
@@ -6161,14 +6312,12 @@ class WebChatSiteResponse(dict):
         :param builtins.bool is_v1_enabled: Whether this site is enabled for Bot Framework V1 protocol.
         :param builtins.bool is_v3_enabled: Whether this site is enabled for Bot Framework V3 protocol.
         :param builtins.bool is_web_chat_speech_enabled: Whether this site is enabled for Webchat Speech
+        :param builtins.bool is_webchat_preview_enabled: Whether this site is enabled for preview versions of Webchat
         :param builtins.str tenant_id: Tenant Id
         :param Sequence[builtins.str] trusted_origins: List of Trusted Origin URLs for this site. This field is applicable only if isSecureSiteEnabled is True.
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
         pulumi.set(__self__, "is_token_enabled", is_token_enabled)
-        if is_webchat_preview_enabled is None:
-            is_webchat_preview_enabled = False
-        pulumi.set(__self__, "is_webchat_preview_enabled", is_webchat_preview_enabled)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "key2", key2)
         pulumi.set(__self__, "site_id", site_id)
@@ -6195,6 +6344,10 @@ class WebChatSiteResponse(dict):
             is_web_chat_speech_enabled = False
         if is_web_chat_speech_enabled is not None:
             pulumi.set(__self__, "is_web_chat_speech_enabled", is_web_chat_speech_enabled)
+        if is_webchat_preview_enabled is None:
+            is_webchat_preview_enabled = False
+        if is_webchat_preview_enabled is not None:
+            pulumi.set(__self__, "is_webchat_preview_enabled", is_webchat_preview_enabled)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
         if trusted_origins is not None:
@@ -6215,14 +6368,6 @@ class WebChatSiteResponse(dict):
         Whether this site is token enabled for channel
         """
         return pulumi.get(self, "is_token_enabled")
-
-    @property
-    @pulumi.getter(name="isWebchatPreviewEnabled")
-    def is_webchat_preview_enabled(self) -> builtins.bool:
-        """
-        Whether this site is enabled for preview versions of Webchat
-        """
-        return pulumi.get(self, "is_webchat_preview_enabled")
 
     @property
     @pulumi.getter
@@ -6335,6 +6480,14 @@ class WebChatSiteResponse(dict):
         Whether this site is enabled for Webchat Speech
         """
         return pulumi.get(self, "is_web_chat_speech_enabled")
+
+    @property
+    @pulumi.getter(name="isWebchatPreviewEnabled")
+    def is_webchat_preview_enabled(self) -> Optional[builtins.bool]:
+        """
+        Whether this site is enabled for preview versions of Webchat
+        """
+        return pulumi.get(self, "is_webchat_preview_enabled")
 
     @property
     @pulumi.getter(name="tenantId")

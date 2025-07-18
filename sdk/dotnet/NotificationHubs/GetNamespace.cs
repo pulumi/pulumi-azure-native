@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.NotificationHubs
     public static class GetNamespace
     {
         /// <summary>
-        /// Notification Hubs Namespace Resource.
+        /// Returns the given namespace.
         /// 
         /// Uses Azure REST API version 2023-10-01-preview.
         /// 
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.NotificationHubs
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-native:notificationhubs:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Notification Hubs Namespace Resource.
+        /// Returns the given namespace.
         /// 
         /// Uses Azure REST API version 2023-10-01-preview.
         /// 
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.NotificationHubs
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:notificationhubs:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Notification Hubs Namespace Resource.
+        /// Returns the given namespace.
         /// 
         /// Uses Azure REST API version 2023-10-01-preview.
         /// 

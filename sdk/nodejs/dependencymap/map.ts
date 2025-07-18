@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * A Maps resource
  *
  * Uses Azure REST API version 2025-01-31-preview. In version 2.x of the Azure Native provider, it used API version 2025-01-31-preview.
+ *
+ * Other available API versions: 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dependencymap [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Map extends pulumi.CustomResource {
     /**
@@ -101,7 +103,7 @@ export class Map extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dependencymap/v20250131preview:Map" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dependencymap/v20250131preview:Map" }, { type: "azure-native:dependencymap/v20250501preview:Map" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Map.__pulumiType, name, resourceInputs, opts);
     }

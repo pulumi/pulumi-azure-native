@@ -29,7 +29,7 @@ export interface ListBotConnectionWithSecretsArgs {
      */
     connectionName: string;
     /**
-     * The name of the Bot resource group in the user subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -47,7 +47,7 @@ export interface ListBotConnectionWithSecretsResult {
      */
     readonly etag?: string;
     /**
-     * Specifies the resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -59,7 +59,7 @@ export interface ListBotConnectionWithSecretsResult {
      */
     readonly location?: string;
     /**
-     * Specifies the name of the resource.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -71,11 +71,15 @@ export interface ListBotConnectionWithSecretsResult {
      */
     readonly sku?: outputs.botservice.SkuResponse;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.botservice.SystemDataResponse;
+    /**
      * Contains resource tags defined as key/value pairs.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Specifies the type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -105,7 +109,7 @@ export interface ListBotConnectionWithSecretsOutputArgs {
      */
     connectionName: pulumi.Input<string>;
     /**
-     * The name of the Bot resource group in the user subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

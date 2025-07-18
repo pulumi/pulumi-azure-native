@@ -74,7 +74,7 @@ class GetDnssecConfigResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        The ID of the DNSSEC configuration.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -82,7 +82,7 @@ class GetDnssecConfigResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the DNSSEC configuration.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -106,7 +106,7 @@ class GetDnssecConfigResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -114,7 +114,7 @@ class GetDnssecConfigResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        The type of the DNSSEC configuration.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

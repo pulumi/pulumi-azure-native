@@ -52,11 +52,11 @@ export class AutoScaleVCore extends pulumi.CustomResource {
      */
     public readonly capacityObjectId!: pulumi.Output<string | undefined>;
     /**
-     * Location of the PowerBI Dedicated resource.
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the PowerBI Dedicated resource.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -68,15 +68,15 @@ export class AutoScaleVCore extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.powerbidedicated.AutoScaleVCoreSkuResponse>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public readonly systemData!: pulumi.Output<outputs.powerbidedicated.SystemDataResponse | undefined>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.powerbidedicated.SystemDataResponse>;
     /**
-     * Key-value pairs of additional resource provisioning properties.
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the PowerBI Dedicated resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -102,12 +102,12 @@ export class AutoScaleVCore extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["systemData"] = args ? args.systemData : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vcoreName"] = args ? args.vcoreName : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -141,11 +141,11 @@ export interface AutoScaleVCoreArgs {
      */
     capacityObjectId?: pulumi.Input<string>;
     /**
-     * Location of the PowerBI Dedicated resource.
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -153,11 +153,7 @@ export interface AutoScaleVCoreArgs {
      */
     sku: pulumi.Input<inputs.powerbidedicated.AutoScaleVCoreSkuArgs>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    systemData?: pulumi.Input<inputs.powerbidedicated.SystemDataArgs>;
-    /**
-     * Key-value pairs of additional resource provisioning properties.
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

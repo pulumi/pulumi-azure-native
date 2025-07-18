@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = ['SshPublicKeyInitArgs', 'SshPublicKey']
 
@@ -27,11 +28,11 @@ class SshPublicKeyInitArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a SshPublicKey resource.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.str] public_key: SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
         :param pulumi.Input[builtins.str] ssh_public_key_name: The name of the SSH public key.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
@@ -47,7 +48,7 @@ class SshPublicKeyInitArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -59,7 +60,7 @@ class SshPublicKeyInitArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -95,7 +96,7 @@ class SshPublicKeyInitArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -125,11 +126,11 @@ class SshPublicKey(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.str] public_key: SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] ssh_public_key_name: The name of the SSH public key.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -182,6 +183,7 @@ class SshPublicKey(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20191201:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20200601:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20201201:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20210301:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20210401:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20210701:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20211101:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20220301:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20220801:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20221101:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20230301:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20230701:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20230901:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20240301:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20240701:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20241101:SshPublicKey")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -211,6 +213,7 @@ class SshPublicKey(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["public_key"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return SshPublicKey(resource_name, opts=opts, __props__=__props__)
@@ -227,7 +230,7 @@ class SshPublicKey(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -235,7 +238,7 @@ class SshPublicKey(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -248,10 +251,18 @@ class SshPublicKey(pulumi.CustomResource):
         return pulumi.get(self, "public_key")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -259,7 +270,7 @@ class SshPublicKey(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

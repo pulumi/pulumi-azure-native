@@ -24,14 +24,20 @@ __all__ = ['ResourceTypeRegistrationInitArgs', 'ResourceTypeRegistration']
 class ResourceTypeRegistrationInitArgs:
     def __init__(__self__, *,
                  provider_namespace: pulumi.Input[builtins.str],
+                 kind: Optional[pulumi.Input[Union[builtins.str, 'ResourceTypeRegistrationKind']]] = None,
                  properties: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesArgs']] = None,
                  resource_type: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceTypeRegistration resource.
         :param pulumi.Input[builtins.str] provider_namespace: The name of the resource provider hosted within ProviderHub.
+        :param pulumi.Input[Union[builtins.str, 'ResourceTypeRegistrationKind']] kind: Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[builtins.str] resource_type: The resource type.
         """
         pulumi.set(__self__, "provider_namespace", provider_namespace)
+        if kind is None:
+            kind = 'Managed'
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if resource_type is not None:
@@ -48,6 +54,18 @@ class ResourceTypeRegistrationInitArgs:
     @provider_namespace.setter
     def provider_namespace(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "provider_namespace", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[Union[builtins.str, 'ResourceTypeRegistrationKind']]]:
+        """
+        Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[Union[builtins.str, 'ResourceTypeRegistrationKind']]]):
+        pulumi.set(self, "kind", value)
 
     @property
     @pulumi.getter
@@ -77,15 +95,19 @@ class ResourceTypeRegistration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 kind: Optional[pulumi.Input[Union[builtins.str, 'ResourceTypeRegistrationKind']]] = None,
                  properties: Optional[pulumi.Input[Union['ResourceTypeRegistrationPropertiesArgs', 'ResourceTypeRegistrationPropertiesArgsDict']]] = None,
                  provider_namespace: Optional[pulumi.Input[builtins.str]] = None,
                  resource_type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Uses Azure REST API version 2021-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
+        Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
+
+        Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union[builtins.str, 'ResourceTypeRegistrationKind']] kind: Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[builtins.str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         :param pulumi.Input[builtins.str] resource_type: The resource type.
         """
@@ -96,7 +118,9 @@ class ResourceTypeRegistration(pulumi.CustomResource):
                  args: ResourceTypeRegistrationInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Uses Azure REST API version 2021-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
+        Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
+
+        Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ResourceTypeRegistrationInitArgs args: The arguments to use to populate this resource's properties.
@@ -113,6 +137,7 @@ class ResourceTypeRegistration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 kind: Optional[pulumi.Input[Union[builtins.str, 'ResourceTypeRegistrationKind']]] = None,
                  properties: Optional[pulumi.Input[Union['ResourceTypeRegistrationPropertiesArgs', 'ResourceTypeRegistrationPropertiesArgsDict']]] = None,
                  provider_namespace: Optional[pulumi.Input[builtins.str]] = None,
                  resource_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -125,6 +150,9 @@ class ResourceTypeRegistration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ResourceTypeRegistrationInitArgs.__new__(ResourceTypeRegistrationInitArgs)
 
+            if kind is None:
+                kind = 'Managed'
+            __props__.__dict__["kind"] = kind
             __props__.__dict__["properties"] = properties
             if provider_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_namespace'")
@@ -134,7 +162,7 @@ class ResourceTypeRegistration(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:providerhub/v20201120:ResourceTypeRegistration"), pulumi.Alias(type_="azure-native:providerhub/v20210501preview:ResourceTypeRegistration"), pulumi.Alias(type_="azure-native:providerhub/v20210601preview:ResourceTypeRegistration"), pulumi.Alias(type_="azure-native:providerhub/v20210901preview:ResourceTypeRegistration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:providerhub/v20201120:ResourceTypeRegistration"), pulumi.Alias(type_="azure-native:providerhub/v20210501preview:ResourceTypeRegistration"), pulumi.Alias(type_="azure-native:providerhub/v20210601preview:ResourceTypeRegistration"), pulumi.Alias(type_="azure-native:providerhub/v20210901preview:ResourceTypeRegistration"), pulumi.Alias(type_="azure-native:providerhub/v20240901:ResourceTypeRegistration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ResourceTypeRegistration, __self__).__init__(
             'azure-native:providerhub:ResourceTypeRegistration',
@@ -159,6 +187,7 @@ class ResourceTypeRegistration(pulumi.CustomResource):
         __props__ = ResourceTypeRegistrationInitArgs.__new__(ResourceTypeRegistrationInitArgs)
 
         __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
@@ -175,6 +204,14 @@ class ResourceTypeRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def kind(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
         The name of the resource
@@ -183,14 +220,14 @@ class ResourceTypeRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.ResourceTypeRegistrationResponseProperties']:
+    def properties(self) -> pulumi.Output['outputs.ResourceTypeRegistrationPropertiesResponse']:
         return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

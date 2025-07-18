@@ -35,12 +35,12 @@ class VirtualNetworkArgs:
         """
         The set of arguments for constructing a VirtualNetwork resource.
         :param pulumi.Input[builtins.str] lab_name: The name of the lab.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]] allowed_subnets: The allowed subnets of the virtual network.
         :param pulumi.Input[builtins.str] description: The description of the virtual network.
         :param pulumi.Input[builtins.str] external_provider_resource_id: The Microsoft.Network resource identifier of the virtual network.
         :param pulumi.Input[builtins.str] location: The location of the resource.
-        :param pulumi.Input[builtins.str] name: The name of the virtual network.
+        :param pulumi.Input[builtins.str] name: The name of the VirtualNetwork
         :param pulumi.Input[Sequence[pulumi.Input['SubnetOverrideArgs']]] subnet_overrides: The subnet overrides of the virtual network.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
         """
@@ -77,7 +77,7 @@ class VirtualNetworkArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -137,7 +137,7 @@ class VirtualNetworkArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the virtual network.
+        The name of the VirtualNetwork
         """
         return pulumi.get(self, "name")
 
@@ -198,8 +198,8 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] external_provider_resource_id: The Microsoft.Network resource identifier of the virtual network.
         :param pulumi.Input[builtins.str] lab_name: The name of the lab.
         :param pulumi.Input[builtins.str] location: The location of the resource.
-        :param pulumi.Input[builtins.str] name: The name of the virtual network.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] name: The name of the VirtualNetwork
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SubnetOverrideArgs', 'SubnetOverrideArgsDict']]]] subnet_overrides: The subnet overrides of the virtual network.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
         """

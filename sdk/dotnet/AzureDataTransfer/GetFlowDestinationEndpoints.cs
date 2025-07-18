@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// 
         /// Uses Azure REST API version 2024-09-27.
         /// 
-        /// Other available API versions: 2025-03-01-preview, 2025-04-11-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-03-01-preview, 2025-04-11-preview, 2025-05-21. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetFlowDestinationEndpointsResult> InvokeAsync(GetFlowDestinationEndpointsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFlowDestinationEndpointsResult>("azure-native:azuredatatransfer:getFlowDestinationEndpoints", args ?? new GetFlowDestinationEndpointsArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// 
         /// Uses Azure REST API version 2024-09-27.
         /// 
-        /// Other available API versions: 2025-03-01-preview, 2025-04-11-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-03-01-preview, 2025-04-11-preview, 2025-05-21. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetFlowDestinationEndpointsResult> Invoke(GetFlowDestinationEndpointsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowDestinationEndpointsResult>("azure-native:azuredatatransfer:getFlowDestinationEndpoints", args ?? new GetFlowDestinationEndpointsInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// 
         /// Uses Azure REST API version 2024-09-27.
         /// 
-        /// Other available API versions: 2025-03-01-preview, 2025-04-11-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-03-01-preview, 2025-04-11-preview, 2025-05-21. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetFlowDestinationEndpointsResult> Invoke(GetFlowDestinationEndpointsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowDestinationEndpointsResult>("azure-native:azuredatatransfer:getFlowDestinationEndpoints", args ?? new GetFlowDestinationEndpointsInvokeArgs(), options.WithDefaults());

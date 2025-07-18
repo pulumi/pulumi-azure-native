@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Confluent
     public static class ListOrganizationRegions
     {
         /// <summary>
-        /// Result of POST request to list regions supported by confluent
+        /// cloud provider regions available for creating Schema Registry clusters.
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// 
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Confluent
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListOrganizationRegionsResult>("azure-native:confluent:listOrganizationRegions", args ?? new ListOrganizationRegionsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Result of POST request to list regions supported by confluent
+        /// cloud provider regions available for creating Schema Registry clusters.
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// 
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Confluent
             => global::Pulumi.Deployment.Instance.Invoke<ListOrganizationRegionsResult>("azure-native:confluent:listOrganizationRegions", args ?? new ListOrganizationRegionsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Result of POST request to list regions supported by confluent
+        /// cloud provider regions available for creating Schema Registry clusters.
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// 

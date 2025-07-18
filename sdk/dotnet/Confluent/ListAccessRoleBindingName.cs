@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Confluent
     public static class ListAccessRoleBindingName
     {
         /// <summary>
-        /// Details of the role binding names returned on successful response
+        /// Organization role bindings
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// 
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Confluent
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccessRoleBindingNameResult>("azure-native:confluent:listAccessRoleBindingName", args ?? new ListAccessRoleBindingNameArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Details of the role binding names returned on successful response
+        /// Organization role bindings
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// 
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Confluent
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessRoleBindingNameResult>("azure-native:confluent:listAccessRoleBindingName", args ?? new ListAccessRoleBindingNameInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Details of the role binding names returned on successful response
+        /// Organization role bindings
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// 

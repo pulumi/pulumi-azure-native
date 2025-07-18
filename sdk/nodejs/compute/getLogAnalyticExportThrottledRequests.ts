@@ -59,7 +59,7 @@ export interface GetLogAnalyticExportThrottledRequestsArgs {
      */
     groupByUserAgent?: boolean;
     /**
-     * The location upon which virtual-machine-sizes is queried.
+     * The name of Azure region.
      */
     location: string;
     /**
@@ -129,7 +129,7 @@ export interface GetLogAnalyticExportThrottledRequestsOutputArgs {
      */
     groupByUserAgent?: pulumi.Input<boolean>;
     /**
-     * The location upon which virtual-machine-sizes is queried.
+     * The name of Azure region.
      */
     location: pulumi.Input<string>;
     /**

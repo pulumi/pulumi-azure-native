@@ -32,8 +32,8 @@ class SqlVirtualMachineGroupArgs:
                  wsfc_domain_profile: Optional[pulumi.Input['WsfcDomainProfileArgs']] = None):
         """
         The set of arguments for constructing a SqlVirtualMachineGroup resource.
-        :param pulumi.Input[builtins.str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[builtins.str] location: Resource location.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.str] sql_image_offer: SQL image offer. Examples may include SQL2016-WS2016, SQL2017-WS2016.
         :param pulumi.Input[Union[builtins.str, 'SqlVmGroupImageSku']] sql_image_sku: SQL image sku.
         :param pulumi.Input[builtins.str] sql_virtual_machine_group_name: Name of the SQL virtual machine group.
@@ -58,7 +58,7 @@ class SqlVirtualMachineGroupArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -70,7 +70,7 @@ class SqlVirtualMachineGroupArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Resource location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -162,8 +162,8 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] location: Resource location.
-        :param pulumi.Input[builtins.str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] sql_image_offer: SQL image offer. Examples may include SQL2016-WS2016, SQL2017-WS2016.
         :param pulumi.Input[Union[builtins.str, 'SqlVmGroupImageSku']] sql_image_sku: SQL image sku.
         :param pulumi.Input[builtins.str] sql_virtual_machine_group_name: Name of the SQL virtual machine group.
@@ -298,7 +298,7 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        Resource location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -306,7 +306,7 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -346,7 +346,7 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -362,7 +362,7 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

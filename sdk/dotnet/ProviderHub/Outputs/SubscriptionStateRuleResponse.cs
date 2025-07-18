@@ -13,7 +13,13 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     [OutputType]
     public sealed class SubscriptionStateRuleResponse
     {
+        /// <summary>
+        /// The allowed actions.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedActions;
+        /// <summary>
+        /// The subscription state.
+        /// </summary>
         public readonly string? State;
 
         [OutputConstructor]

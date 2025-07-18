@@ -14,12 +14,19 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
     {
         [Input("apiVersions")]
         private InputList<string>? _apiVersions;
+
+        /// <summary>
+        /// The api versions.
+        /// </summary>
         public InputList<string> ApiVersions
         {
             get => _apiVersions ?? (_apiVersions = new InputList<string>());
             set => _apiVersions = value;
         }
 
+        /// <summary>
+        /// The swagger spec folder uri.
+        /// </summary>
         [Input("swaggerSpecFolderUri")]
         public Input<string>? SwaggerSpecFolderUri { get; set; }
 

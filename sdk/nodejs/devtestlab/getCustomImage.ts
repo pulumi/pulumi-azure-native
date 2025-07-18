@@ -32,11 +32,11 @@ export interface GetCustomImageArgs {
      */
     labName: string;
     /**
-     * The name of the custom image.
+     * The name of the CustomImage
      */
     name: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -143,11 +143,11 @@ export interface GetCustomImageOutputArgs {
      */
     labName: pulumi.Input<string>;
     /**
-     * The name of the custom image.
+     * The name of the CustomImage
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

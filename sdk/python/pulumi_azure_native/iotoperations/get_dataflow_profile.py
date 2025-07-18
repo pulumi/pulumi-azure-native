@@ -132,7 +132,7 @@ def get_dataflow_profile(dataflow_profile_name: Optional[builtins.str] = None,
 
     Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str dataflow_profile_name: Name of Instance dataflowProfile resource
@@ -163,7 +163,7 @@ def get_dataflow_profile_output(dataflow_profile_name: Optional[pulumi.Input[bui
 
     Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str dataflow_profile_name: Name of Instance dataflowProfile resource

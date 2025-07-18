@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-03-02. In version 2.x of the Azure Native provider, it used API version 2022-07-02.
  *
- * Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Snapshot extends pulumi.CustomResource {
     /**
@@ -102,7 +102,7 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly incrementalSnapshotFamilyId!: pulumi.Output<string>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -110,7 +110,7 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly managedBy!: pulumi.Output<string>;
     /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -132,7 +132,7 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * Purchase plan information for the image from which the source disk for the snapshot was originally created.
      */
-    public readonly purchasePlan!: pulumi.Output<outputs.compute.PurchasePlanResponse | undefined>;
+    public readonly purchasePlan!: pulumi.Output<outputs.compute.DiskPurchasePlanResponse | undefined>;
     /**
      * Contains the security related information for the resource.
      */
@@ -150,7 +150,11 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public readonly supportsHibernation!: pulumi.Output<boolean | undefined>;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -158,7 +162,7 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly timeCreated!: pulumi.Output<string>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -213,6 +217,7 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uniqueId"] = undefined /*out*/;
@@ -244,13 +249,14 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["supportedCapabilities"] = undefined /*out*/;
             resourceInputs["supportsHibernation"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uniqueId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20160430preview:Snapshot" }, { type: "azure-native:compute/v20170330:Snapshot" }, { type: "azure-native:compute/v20180401:Snapshot" }, { type: "azure-native:compute/v20180601:Snapshot" }, { type: "azure-native:compute/v20180930:Snapshot" }, { type: "azure-native:compute/v20190301:Snapshot" }, { type: "azure-native:compute/v20190701:Snapshot" }, { type: "azure-native:compute/v20191101:Snapshot" }, { type: "azure-native:compute/v20200501:Snapshot" }, { type: "azure-native:compute/v20200630:Snapshot" }, { type: "azure-native:compute/v20200930:Snapshot" }, { type: "azure-native:compute/v20201201:Snapshot" }, { type: "azure-native:compute/v20210401:Snapshot" }, { type: "azure-native:compute/v20210801:Snapshot" }, { type: "azure-native:compute/v20211201:Snapshot" }, { type: "azure-native:compute/v20220302:Snapshot" }, { type: "azure-native:compute/v20220702:Snapshot" }, { type: "azure-native:compute/v20230102:Snapshot" }, { type: "azure-native:compute/v20230402:Snapshot" }, { type: "azure-native:compute/v20231002:Snapshot" }, { type: "azure-native:compute/v20240302:Snapshot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20160430preview:Snapshot" }, { type: "azure-native:compute/v20170330:Snapshot" }, { type: "azure-native:compute/v20180401:Snapshot" }, { type: "azure-native:compute/v20180601:Snapshot" }, { type: "azure-native:compute/v20180930:Snapshot" }, { type: "azure-native:compute/v20190301:Snapshot" }, { type: "azure-native:compute/v20190701:Snapshot" }, { type: "azure-native:compute/v20191101:Snapshot" }, { type: "azure-native:compute/v20200501:Snapshot" }, { type: "azure-native:compute/v20200630:Snapshot" }, { type: "azure-native:compute/v20200930:Snapshot" }, { type: "azure-native:compute/v20201201:Snapshot" }, { type: "azure-native:compute/v20210401:Snapshot" }, { type: "azure-native:compute/v20210801:Snapshot" }, { type: "azure-native:compute/v20211201:Snapshot" }, { type: "azure-native:compute/v20220302:Snapshot" }, { type: "azure-native:compute/v20220702:Snapshot" }, { type: "azure-native:compute/v20230102:Snapshot" }, { type: "azure-native:compute/v20230402:Snapshot" }, { type: "azure-native:compute/v20231002:Snapshot" }, { type: "azure-native:compute/v20240302:Snapshot" }, { type: "azure-native:compute/v20250102:Snapshot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Snapshot.__pulumiType, name, resourceInputs, opts);
     }
@@ -305,7 +311,7 @@ export interface SnapshotArgs {
      */
     incremental?: pulumi.Input<boolean>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -323,9 +329,9 @@ export interface SnapshotArgs {
     /**
      * Purchase plan information for the image from which the source disk for the snapshot was originally created.
      */
-    purchasePlan?: pulumi.Input<inputs.compute.PurchasePlanArgs>;
+    purchasePlan?: pulumi.Input<inputs.compute.DiskPurchasePlanArgs>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -349,7 +355,7 @@ export interface SnapshotArgs {
      */
     supportsHibernation?: pulumi.Input<boolean>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -13,9 +13,21 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     [OutputType]
     public sealed class LoggingRuleResponse
     {
+        /// <summary>
+        /// The action.
+        /// </summary>
         public readonly string Action;
+        /// <summary>
+        /// The detail level.
+        /// </summary>
         public readonly string DetailLevel;
+        /// <summary>
+        /// The direction.
+        /// </summary>
         public readonly string Direction;
+        /// <summary>
+        /// The hidden property paths.
+        /// </summary>
         public readonly Outputs.LoggingRuleResponseHiddenPropertyPaths? HiddenPropertyPaths;
 
         [OutputConstructor]

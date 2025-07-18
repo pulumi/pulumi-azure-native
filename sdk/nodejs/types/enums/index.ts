@@ -39,12 +39,14 @@ import * as cdn from "./cdn";
 import * as certificateregistration from "./certificateregistration";
 import * as changeanalysis from "./changeanalysis";
 import * as chaos from "./chaos";
+import * as cloudhealth from "./cloudhealth";
 import * as cloudngfw from "./cloudngfw";
 import * as codesigning from "./codesigning";
 import * as cognitiveservices from "./cognitiveservices";
 import * as communication from "./communication";
 import * as community from "./community";
 import * as compute from "./compute";
+import * as computeschedule from "./computeschedule";
 import * as confidentialledger from "./confidentialledger";
 import * as confluent from "./confluent";
 import * as connectedcache from "./connectedcache";
@@ -141,7 +143,6 @@ import * as managedservices from "./managedservices";
 import * as manufacturingplatform from "./manufacturingplatform";
 import * as maps from "./maps";
 import * as marketplace from "./marketplace";
-import * as media from "./media";
 import * as migrate from "./migrate";
 import * as mixedreality from "./mixedreality";
 import * as mobilenetwork from "./mobilenetwork";
@@ -201,6 +202,7 @@ import * as standbypool from "./standbypool";
 import * as storage from "./storage";
 import * as storageactions from "./storageactions";
 import * as storagecache from "./storagecache";
+import * as storagediscovery from "./storagediscovery";
 import * as storagemover from "./storagemover";
 import * as storagepool from "./storagepool";
 import * as storagesync from "./storagesync";
@@ -260,12 +262,14 @@ export {
     certificateregistration,
     changeanalysis,
     chaos,
+    cloudhealth,
     cloudngfw,
     codesigning,
     cognitiveservices,
     communication,
     community,
     compute,
+    computeschedule,
     confidentialledger,
     confluent,
     connectedcache,
@@ -362,7 +366,6 @@ export {
     manufacturingplatform,
     maps,
     marketplace,
-    media,
     migrate,
     mixedreality,
     mobilenetwork,
@@ -422,6 +425,7 @@ export {
     storage,
     storageactions,
     storagecache,
+    storagediscovery,
     storagemover,
     storagepool,
     storagesync,

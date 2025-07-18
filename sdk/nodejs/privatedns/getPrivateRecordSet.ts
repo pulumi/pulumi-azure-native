@@ -26,7 +26,7 @@ export function getPrivateRecordSet(args: GetPrivateRecordSetArgs, opts?: pulumi
 
 export interface GetPrivateRecordSetArgs {
     /**
-     * The name of the Private DNS zone (without a terminating dot).
+     * The name of the DNS zone (without a terminating dot).
      */
     privateZoneName: string;
     /**
@@ -38,7 +38,7 @@ export interface GetPrivateRecordSetArgs {
      */
     relativeRecordSetName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -72,7 +72,7 @@ export interface GetPrivateRecordSetResult {
      */
     readonly fqdn: string;
     /**
-     * Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateDnsZoneName}'.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -104,6 +104,10 @@ export interface GetPrivateRecordSetResult {
      */
     readonly srvRecords?: outputs.privatedns.SrvRecordResponse[];
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.privatedns.SystemDataResponse;
+    /**
      * The TTL (time-to-live) of the records in the record set.
      */
     readonly ttl?: number;
@@ -112,7 +116,7 @@ export interface GetPrivateRecordSetResult {
      */
     readonly txtRecords?: outputs.privatedns.TxtRecordResponse[];
     /**
-     * The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -135,7 +139,7 @@ export function getPrivateRecordSetOutput(args: GetPrivateRecordSetOutputArgs, o
 
 export interface GetPrivateRecordSetOutputArgs {
     /**
-     * The name of the Private DNS zone (without a terminating dot).
+     * The name of the DNS zone (without a terminating dot).
      */
     privateZoneName: pulumi.Input<string>;
     /**
@@ -147,7 +151,7 @@ export interface GetPrivateRecordSetOutputArgs {
      */
     relativeRecordSetName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

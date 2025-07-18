@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-03-02. In version 2.x of the Azure Native provider, it used API version 2022-07-02.
  *
- * Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class DiskAccess extends pulumi.CustomResource {
     /**
@@ -50,11 +50,11 @@ export class DiskAccess extends pulumi.CustomResource {
      */
     public readonly extendedLocation!: pulumi.Output<outputs.compute.ExtendedLocationResponse | undefined>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -66,7 +66,11 @@ export class DiskAccess extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -74,7 +78,7 @@ export class DiskAccess extends pulumi.CustomResource {
      */
     public /*out*/ readonly timeCreated!: pulumi.Output<string>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -101,6 +105,7 @@ export class DiskAccess extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -110,12 +115,13 @@ export class DiskAccess extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20200501:DiskAccess" }, { type: "azure-native:compute/v20200630:DiskAccess" }, { type: "azure-native:compute/v20200930:DiskAccess" }, { type: "azure-native:compute/v20201201:DiskAccess" }, { type: "azure-native:compute/v20210401:DiskAccess" }, { type: "azure-native:compute/v20210801:DiskAccess" }, { type: "azure-native:compute/v20211201:DiskAccess" }, { type: "azure-native:compute/v20220302:DiskAccess" }, { type: "azure-native:compute/v20220702:DiskAccess" }, { type: "azure-native:compute/v20230102:DiskAccess" }, { type: "azure-native:compute/v20230402:DiskAccess" }, { type: "azure-native:compute/v20231002:DiskAccess" }, { type: "azure-native:compute/v20240302:DiskAccess" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20200501:DiskAccess" }, { type: "azure-native:compute/v20200630:DiskAccess" }, { type: "azure-native:compute/v20200930:DiskAccess" }, { type: "azure-native:compute/v20201201:DiskAccess" }, { type: "azure-native:compute/v20210401:DiskAccess" }, { type: "azure-native:compute/v20210801:DiskAccess" }, { type: "azure-native:compute/v20211201:DiskAccess" }, { type: "azure-native:compute/v20220302:DiskAccess" }, { type: "azure-native:compute/v20220702:DiskAccess" }, { type: "azure-native:compute/v20230102:DiskAccess" }, { type: "azure-native:compute/v20230402:DiskAccess" }, { type: "azure-native:compute/v20231002:DiskAccess" }, { type: "azure-native:compute/v20240302:DiskAccess" }, { type: "azure-native:compute/v20250102:DiskAccess" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiskAccess.__pulumiType, name, resourceInputs, opts);
     }
@@ -134,15 +140,15 @@ export interface DiskAccessArgs {
      */
     extendedLocation?: pulumi.Input<inputs.compute.ExtendedLocationArgs>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

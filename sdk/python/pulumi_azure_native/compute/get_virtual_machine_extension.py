@@ -28,7 +28,7 @@ class GetVirtualMachineExtensionResult:
     """
     Describes a Virtual Machine Extension.
     """
-    def __init__(__self__, auto_upgrade_minor_version=None, azure_api_version=None, enable_automatic_upgrade=None, force_update_tag=None, id=None, instance_view=None, location=None, name=None, protected_settings=None, protected_settings_from_key_vault=None, provision_after_extensions=None, provisioning_state=None, publisher=None, settings=None, suppress_failures=None, tags=None, type=None, type_handler_version=None):
+    def __init__(__self__, auto_upgrade_minor_version=None, azure_api_version=None, enable_automatic_upgrade=None, force_update_tag=None, id=None, instance_view=None, location=None, name=None, protected_settings=None, protected_settings_from_key_vault=None, provision_after_extensions=None, provisioning_state=None, publisher=None, settings=None, suppress_failures=None, system_data=None, tags=None, type=None, type_handler_version=None):
         if auto_upgrade_minor_version and not isinstance(auto_upgrade_minor_version, bool):
             raise TypeError("Expected argument 'auto_upgrade_minor_version' to be a bool")
         pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
@@ -74,6 +74,9 @@ class GetVirtualMachineExtensionResult:
         if suppress_failures and not isinstance(suppress_failures, bool):
             raise TypeError("Expected argument 'suppress_failures' to be a bool")
         pulumi.set(__self__, "suppress_failures", suppress_failures)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -120,7 +123,7 @@ class GetVirtualMachineExtensionResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -134,9 +137,9 @@ class GetVirtualMachineExtensionResult:
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[builtins.str]:
+    def location(self) -> builtins.str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -144,7 +147,7 @@ class GetVirtualMachineExtensionResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -205,10 +208,18 @@ class GetVirtualMachineExtensionResult:
         return pulumi.get(self, "suppress_failures")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -216,7 +227,7 @@ class GetVirtualMachineExtensionResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -250,6 +261,7 @@ class AwaitableGetVirtualMachineExtensionResult(GetVirtualMachineExtensionResult
             publisher=self.publisher,
             settings=self.settings,
             suppress_failures=self.suppress_failures,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             type_handler_version=self.type_handler_version)
@@ -269,9 +281,9 @@ def get_virtual_machine_extension(expand: Optional[builtins.str] = None,
 
 
     :param builtins.str expand: The expand expression to apply on the operation.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str vm_extension_name: The name of the virtual machine extension.
-    :param builtins.str vm_name: The name of the virtual machine containing the extension.
+    :param builtins.str vm_name: The name of the virtual machine.
     """
     __args__ = dict()
     __args__['expand'] = expand
@@ -297,6 +309,7 @@ def get_virtual_machine_extension(expand: Optional[builtins.str] = None,
         publisher=pulumi.get(__ret__, 'publisher'),
         settings=pulumi.get(__ret__, 'settings'),
         suppress_failures=pulumi.get(__ret__, 'suppress_failures'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         type_handler_version=pulumi.get(__ret__, 'type_handler_version'))
@@ -314,9 +327,9 @@ def get_virtual_machine_extension_output(expand: Optional[pulumi.Input[Optional[
 
 
     :param builtins.str expand: The expand expression to apply on the operation.
-    :param builtins.str resource_group_name: The name of the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str vm_extension_name: The name of the virtual machine extension.
-    :param builtins.str vm_name: The name of the virtual machine containing the extension.
+    :param builtins.str vm_name: The name of the virtual machine.
     """
     __args__ = dict()
     __args__['expand'] = expand
@@ -341,6 +354,7 @@ def get_virtual_machine_extension_output(expand: Optional[pulumi.Input[Optional[
         publisher=pulumi.get(__response__, 'publisher'),
         settings=pulumi.get(__response__, 'settings'),
         suppress_failures=pulumi.get(__response__, 'suppress_failures'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         type_handler_version=pulumi.get(__response__, 'type_handler_version')))

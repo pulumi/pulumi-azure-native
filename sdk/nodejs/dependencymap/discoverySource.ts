@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * A Discovery Source resource
  *
  * Uses Azure REST API version 2025-01-31-preview. In version 2.x of the Azure Native provider, it used API version 2025-01-31-preview.
+ *
+ * Other available API versions: 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dependencymap [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class DiscoverySource extends pulumi.CustomResource {
     /**
@@ -123,7 +125,7 @@ export class DiscoverySource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dependencymap/v20250131preview:DiscoverySource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dependencymap/v20250131preview:DiscoverySource" }, { type: "azure-native:dependencymap/v20250501preview:DiscoverySource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiscoverySource.__pulumiType, name, resourceInputs, opts);
     }

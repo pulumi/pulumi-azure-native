@@ -66,7 +66,7 @@ export interface GetAgentResult {
      * A description for the Agent.
      */
     readonly description?: string;
-    readonly errorDetails: outputs.storagemover.AgentPropertiesResponseErrorDetails;
+    readonly errorDetails: outputs.storagemover.AgentPropertiesErrorDetailsResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */

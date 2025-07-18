@@ -36,12 +36,12 @@ class NotificationChannelArgs:
         """
         The set of arguments for constructing a NotificationChannel resource.
         :param pulumi.Input[builtins.str] lab_name: The name of the lab.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] description: Description of notification.
         :param pulumi.Input[builtins.str] email_recipient: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
         :param pulumi.Input[Sequence[pulumi.Input['EventArgs']]] events: The list of event for which this notification is enabled.
         :param pulumi.Input[builtins.str] location: The location of the resource.
-        :param pulumi.Input[builtins.str] name: The name of the notification channel.
+        :param pulumi.Input[builtins.str] name: The name of the NotificationChannel
         :param pulumi.Input[builtins.str] notification_locale: The locale to use when sending a notification (fallback for unsupported languages is EN).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
         :param pulumi.Input[builtins.str] web_hook_url: The webhook URL to send notifications to.
@@ -81,7 +81,7 @@ class NotificationChannelArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -141,7 +141,7 @@ class NotificationChannelArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the notification channel.
+        The name of the NotificationChannel
         """
         return pulumi.get(self, "name")
 
@@ -215,9 +215,9 @@ class NotificationChannel(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['EventArgs', 'EventArgsDict']]]] events: The list of event for which this notification is enabled.
         :param pulumi.Input[builtins.str] lab_name: The name of the lab.
         :param pulumi.Input[builtins.str] location: The location of the resource.
-        :param pulumi.Input[builtins.str] name: The name of the notification channel.
+        :param pulumi.Input[builtins.str] name: The name of the NotificationChannel
         :param pulumi.Input[builtins.str] notification_locale: The locale to use when sending a notification (fallback for unsupported languages is EN).
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
         :param pulumi.Input[builtins.str] web_hook_url: The webhook URL to send notifications to.
         """

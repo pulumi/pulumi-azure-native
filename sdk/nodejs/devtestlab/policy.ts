@@ -177,7 +177,7 @@ export interface PolicyArgs {
      */
     factName?: pulumi.Input<string | enums.devtestlab.PolicyFactName>;
     /**
-     * The name of the lab.
+     * labs
      */
     labName: pulumi.Input<string>;
     /**
@@ -185,15 +185,15 @@ export interface PolicyArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the policy.
+     * The name of the Schedule
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the policy set.
+     * policysets
      */
     policySetName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

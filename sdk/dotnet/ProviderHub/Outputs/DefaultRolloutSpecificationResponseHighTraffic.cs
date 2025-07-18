@@ -10,10 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Outputs
 {
 
+    /// <summary>
+    /// The high traffic region configuration.
+    /// </summary>
     [OutputType]
     public sealed class DefaultRolloutSpecificationResponseHighTraffic
     {
         public readonly ImmutableArray<string> Regions;
+        /// <summary>
+        /// The wait duration.
+        /// </summary>
         public readonly string? WaitDuration;
 
         [OutputConstructor]

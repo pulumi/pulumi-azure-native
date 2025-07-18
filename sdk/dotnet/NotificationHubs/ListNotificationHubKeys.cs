@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.NotificationHubs
     public static class ListNotificationHubKeys
     {
         /// <summary>
-        /// Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
+        /// Gets the Primary and Secondary ConnectionStrings to the NotificationHub
         /// 
         /// Uses Azure REST API version 2023-10-01-preview.
         /// 
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.NotificationHubs
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListNotificationHubKeysResult>("azure-native:notificationhubs:listNotificationHubKeys", args ?? new ListNotificationHubKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
+        /// Gets the Primary and Secondary ConnectionStrings to the NotificationHub
         /// 
         /// Uses Azure REST API version 2023-10-01-preview.
         /// 
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.NotificationHubs
             => global::Pulumi.Deployment.Instance.Invoke<ListNotificationHubKeysResult>("azure-native:notificationhubs:listNotificationHubKeys", args ?? new ListNotificationHubKeysInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
+        /// Gets the Primary and Secondary ConnectionStrings to the NotificationHub
         /// 
         /// Uses Azure REST API version 2023-10-01-preview.
         /// 

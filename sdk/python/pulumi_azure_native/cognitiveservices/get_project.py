@@ -168,6 +168,8 @@ def get_project(account_name: Optional[builtins.str] = None,
 
     Uses Azure REST API version 2025-04-01-preview.
 
+    Other available API versions: 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str account_name: The name of Cognitive Services account.
     :param builtins.str project_name: The name of Cognitive Services account's project.
@@ -199,6 +201,8 @@ def get_project_output(account_name: Optional[pulumi.Input[builtins.str]] = None
     Returns a Cognitive Services project specified by the parameters.
 
     Uses Azure REST API version 2025-04-01-preview.
+
+    Other available API versions: 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str account_name: The name of Cognitive Services account.

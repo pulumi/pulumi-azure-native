@@ -28,7 +28,7 @@ class GetTopicResult:
     """
     Details of topic record
     """
-    def __init__(__self__, azure_api_version=None, configs=None, id=None, input_configs=None, kind=None, metadata=None, name=None, partitions=None, partitions_count=None, partitions_reassignments=None, replication_factor=None, topic_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, configs=None, id=None, input_configs=None, kind=None, metadata=None, name=None, partitions=None, partitions_count=None, partitions_reassignments=None, replication_factor=None, system_data=None, topic_id=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -62,6 +62,9 @@ class GetTopicResult:
         if replication_factor and not isinstance(replication_factor, str):
             raise TypeError("Expected argument 'replication_factor' to be a str")
         pulumi.set(__self__, "replication_factor", replication_factor)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if topic_id and not isinstance(topic_id, str):
             raise TypeError("Expected argument 'topic_id' to be a str")
         pulumi.set(__self__, "topic_id", topic_id)
@@ -89,7 +92,7 @@ class GetTopicResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        The ARM Resource Id of the Topic
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -121,7 +124,7 @@ class GetTopicResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Display name of the topic
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -158,6 +161,14 @@ class GetTopicResult:
         return pulumi.get(self, "replication_factor")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter(name="topicId")
     def topic_id(self) -> Optional[builtins.str]:
         """
@@ -169,7 +180,7 @@ class GetTopicResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -191,6 +202,7 @@ class AwaitableGetTopicResult(GetTopicResult):
             partitions_count=self.partitions_count,
             partitions_reassignments=self.partitions_reassignments,
             replication_factor=self.replication_factor,
+            system_data=self.system_data,
             topic_id=self.topic_id,
             type=self.type)
 
@@ -202,7 +214,7 @@ def get_topic(cluster_id: Optional[builtins.str] = None,
               topic_name: Optional[builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicResult:
     """
-    Details of topic record
+    Get confluent topic by Name
 
     Uses Azure REST API version 2024-07-01.
 
@@ -234,6 +246,7 @@ def get_topic(cluster_id: Optional[builtins.str] = None,
         partitions_count=pulumi.get(__ret__, 'partitions_count'),
         partitions_reassignments=pulumi.get(__ret__, 'partitions_reassignments'),
         replication_factor=pulumi.get(__ret__, 'replication_factor'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         topic_id=pulumi.get(__ret__, 'topic_id'),
         type=pulumi.get(__ret__, 'type'))
 def get_topic_output(cluster_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -243,7 +256,7 @@ def get_topic_output(cluster_id: Optional[pulumi.Input[builtins.str]] = None,
                      topic_name: Optional[pulumi.Input[builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicResult]:
     """
-    Details of topic record
+    Get confluent topic by Name
 
     Uses Azure REST API version 2024-07-01.
 
@@ -274,5 +287,6 @@ def get_topic_output(cluster_id: Optional[pulumi.Input[builtins.str]] = None,
         partitions_count=pulumi.get(__response__, 'partitions_count'),
         partitions_reassignments=pulumi.get(__response__, 'partitions_reassignments'),
         replication_factor=pulumi.get(__response__, 'replication_factor'),
+        system_data=pulumi.get(__response__, 'system_data'),
         topic_id=pulumi.get(__response__, 'topic_id'),
         type=pulumi.get(__response__, 'type')))

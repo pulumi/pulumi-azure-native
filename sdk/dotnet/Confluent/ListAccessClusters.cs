@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Confluent
     public static class ListAccessClusters
     {
         /// <summary>
-        /// Details of the clusters returned on successful response
+        /// Cluster details
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// 
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Confluent
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccessClustersResult>("azure-native:confluent:listAccessClusters", args ?? new ListAccessClustersArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Details of the clusters returned on successful response
+        /// Cluster details
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// 
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Confluent
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessClustersResult>("azure-native:confluent:listAccessClusters", args ?? new ListAccessClustersInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Details of the clusters returned on successful response
+        /// Cluster details
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// 

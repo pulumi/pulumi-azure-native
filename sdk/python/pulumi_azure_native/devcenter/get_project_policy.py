@@ -144,7 +144,7 @@ def get_project_policy(dev_center_name: Optional[builtins.str] = None,
 
     Uses Azure REST API version 2024-10-01-preview.
 
-    Other available API versions: 2025-02-01, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-02-01, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str dev_center_name: The name of the devcenter.
@@ -176,7 +176,7 @@ def get_project_policy_output(dev_center_name: Optional[pulumi.Input[builtins.st
 
     Uses Azure REST API version 2024-10-01-preview.
 
-    Other available API versions: 2025-02-01, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-02-01, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str dev_center_name: The name of the devcenter.

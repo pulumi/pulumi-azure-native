@@ -314,7 +314,7 @@ class DnsResourceReferenceResponse(dict):
                  target_resource: Optional['outputs.SubResourceResponse'] = None):
         """
         Represents a single Azure resource and its referencing DNS records.
-        :param Sequence['SubResourceResponse'] dns_resources: A list of dns Records 
+        :param Sequence['SubResourceResponse'] dns_resources: A list of dns Records
         :param 'SubResourceResponse' target_resource: A reference to an azure resource from where the dns resource value is taken.
         """
         if dns_resources is not None:
@@ -326,7 +326,7 @@ class DnsResourceReferenceResponse(dict):
     @pulumi.getter(name="dnsResources")
     def dns_resources(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
         """
-        A list of dns Records 
+        A list of dns Records
         """
         return pulumi.get(self, "dns_resources")
 

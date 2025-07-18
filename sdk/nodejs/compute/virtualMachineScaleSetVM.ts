@@ -86,7 +86,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
      */
     public readonly licenseType!: pulumi.Output<string | undefined>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -94,7 +94,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
      */
     public /*out*/ readonly modelDefinitionApplied!: pulumi.Output<string>;
     /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -142,7 +142,11 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
      */
     public readonly storageProfile!: pulumi.Output<outputs.compute.StorageProfileResponse | undefined>;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -150,7 +154,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
      */
     public /*out*/ readonly timeCreated!: pulumi.Output<string>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -212,6 +216,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resources"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["vmId"] = undefined /*out*/;
@@ -242,6 +247,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
             resourceInputs["securityProfile"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["storageProfile"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -289,7 +295,7 @@ export interface VirtualMachineScaleSetVMArgs {
      */
     licenseType?: pulumi.Input<string>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -317,7 +323,7 @@ export interface VirtualMachineScaleSetVMArgs {
      */
     resilientVMDeletionStatus?: pulumi.Input<string | enums.compute.ResilientVMDeletionStatus>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -329,7 +335,7 @@ export interface VirtualMachineScaleSetVMArgs {
      */
     storageProfile?: pulumi.Input<inputs.compute.StorageProfileArgs>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -337,7 +343,7 @@ export interface VirtualMachineScaleSetVMArgs {
      */
     userData?: pulumi.Input<string>;
     /**
-     * The name of the VM scale set where the extension should be create or updated.
+     * The name of the VM scale set.
      */
     vmScaleSetName: pulumi.Input<string>;
 }

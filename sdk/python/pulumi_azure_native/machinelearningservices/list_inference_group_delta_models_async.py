@@ -75,7 +75,7 @@ def list_inference_group_delta_models_async(count: Optional[builtins.int] = None
 
     Uses Azure REST API version 2025-01-01-preview.
 
-    Other available API versions: 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.int count: Gets or sets number of delta models to return. Default: -1, means that all will be returned.
@@ -113,7 +113,7 @@ def list_inference_group_delta_models_async_output(count: Optional[pulumi.Input[
 
     Uses Azure REST API version 2025-01-01-preview.
 
-    Other available API versions: 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.int count: Gets or sets number of delta models to return. Default: -1, means that all will be returned.

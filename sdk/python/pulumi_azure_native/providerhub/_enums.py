@@ -7,41 +7,214 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'AdditionalOptionsAsyncOperation',
+    'AdditionalOptionsResourceTypeRegistration',
+    'AuthenticationScheme',
+    'AvailabilityZonePolicy',
+    'BlockActionVerb',
+    'CapacityPolicy',
+    'CommonApiVersionsMergeMode',
+    'CrossTenantTokenValidation',
+    'DataBoundary',
     'EndpointType',
+    'EndpointTypeResourceType',
+    'ExpeditedRolloutIntent',
+    'ExtendedLocationType',
     'ExtensionCategory',
     'ExtensionOptionType',
     'FeaturesPolicy',
+    'FilterOption',
+    'FrontdoorRequestMode',
     'IdentityManagementTypes',
+    'Intent',
+    'LegacyOperation',
+    'LinkedAction',
+    'LinkedOperation',
     'LoggingDetails',
     'LoggingDirections',
+    'MarketplaceType',
     'MessageScope',
+    'NotificationEndpointType',
     'NotificationMode',
+    'NotificationOptions',
+    'NotificationType',
     'OptInHeaderType',
+    'OptOutHeaderType',
     'Policy',
+    'PolicyExecutionType',
     'PreflightOption',
-    'ProvisioningState',
+    'ProviderRegistrationKind',
+    'QuotaPolicy',
     'Readiness',
     'Regionality',
+    'ResourceAccessPolicy',
     'ResourceDeletionPolicy',
     'ResourceProviderCapabilitiesEffect',
     'ResourceProviderType',
+    'ResourceSubType',
+    'ResourceTypeCategory',
+    'ResourceTypeEndpointKind',
+    'ResourceTypeExtendedLocationPolicy',
+    'ResourceTypeRegistrationKind',
+    'ResourceValidation',
+    'Role',
     'RoutingType',
+    'ServerFailureResponseMessageType',
+    'ServiceClientOptionsType',
+    'ServiceStatus',
+    'SignedRequestScope',
+    'SkipNotifications',
     'SkuScaleType',
     'SubscriptionNotificationOperation',
     'SubscriptionReregistrationResult',
     'SubscriptionState',
     'SubscriptionTransitioningState',
+    'SupportedOperations',
+    'TemplateDeploymentCapabilities',
+    'TemplateDeploymentPreflightNotifications',
+    'TemplateDeploymentPreflightOptions',
     'ThrottlingMetricType',
     'TrafficRegionCategory',
 ]
 
 
+@pulumi.type_token("azure-native:providerhub:AdditionalOptionsAsyncOperation")
+class AdditionalOptionsAsyncOperation(builtins.str, Enum):
+    """
+    The additional options.
+    """
+    PROTECTED_ASYNC_OPERATION_POLLING = "ProtectedAsyncOperationPolling"
+    PROTECTED_ASYNC_OPERATION_POLLING_AUDIT_ONLY = "ProtectedAsyncOperationPollingAuditOnly"
+
+
+@pulumi.type_token("azure-native:providerhub:AdditionalOptionsResourceTypeRegistration")
+class AdditionalOptionsResourceTypeRegistration(builtins.str, Enum):
+    """
+    The additional options.
+    """
+    PROTECTED_ASYNC_OPERATION_POLLING = "ProtectedAsyncOperationPolling"
+    PROTECTED_ASYNC_OPERATION_POLLING_AUDIT_ONLY = "ProtectedAsyncOperationPollingAuditOnly"
+
+
+@pulumi.type_token("azure-native:providerhub:AuthenticationScheme")
+class AuthenticationScheme(builtins.str, Enum):
+    """
+    The authentication scheme.
+    """
+    PO_P = "PoP"
+    BEARER = "Bearer"
+
+
+@pulumi.type_token("azure-native:providerhub:AvailabilityZonePolicy")
+class AvailabilityZonePolicy(builtins.str, Enum):
+    NOT_SPECIFIED = "NotSpecified"
+    SINGLE_ZONED = "SingleZoned"
+    MULTI_ZONED = "MultiZoned"
+
+
+@pulumi.type_token("azure-native:providerhub:BlockActionVerb")
+class BlockActionVerb(builtins.str, Enum):
+    """
+    The action verb that will be blocked when the resource group is locked during move.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    READ = "Read"
+    WRITE = "Write"
+    ACTION = "Action"
+    DELETE = "Delete"
+    UNRECOGNIZED = "Unrecognized"
+
+
+@pulumi.type_token("azure-native:providerhub:CapacityPolicy")
+class CapacityPolicy(builtins.str, Enum):
+    """
+    Capacity policy.
+    """
+    DEFAULT = "Default"
+    RESTRICTED = "Restricted"
+
+
+@pulumi.type_token("azure-native:providerhub:CommonApiVersionsMergeMode")
+class CommonApiVersionsMergeMode(builtins.str, Enum):
+    """
+    Common api versions merge mode.
+    """
+    MERGE = "Merge"
+    OVERWRITE = "Overwrite"
+
+
+@pulumi.type_token("azure-native:providerhub:CrossTenantTokenValidation")
+class CrossTenantTokenValidation(builtins.str, Enum):
+    """
+    The cross tenant token validation.
+    """
+    ENSURE_SECURE_VALIDATION = "EnsureSecureValidation"
+    PASSTHROUGH_INSECURE_TOKEN = "PassthroughInsecureToken"
+
+
+@pulumi.type_token("azure-native:providerhub:DataBoundary")
+class DataBoundary(builtins.str, Enum):
+    """
+    The data boundary.
+    """
+    NOT_DEFINED = "NotDefined"
+    GLOBAL_ = "Global"
+    EU = "EU"
+    US = "US"
+
+
 @pulumi.type_token("azure-native:providerhub:EndpointType")
 class EndpointType(builtins.str, Enum):
+    """
+    The endpoint type.
+    """
     NOT_SPECIFIED = "NotSpecified"
     CANARY = "Canary"
     PRODUCTION = "Production"
     TEST_IN_PRODUCTION = "TestInProduction"
+
+
+@pulumi.type_token("azure-native:providerhub:EndpointTypeResourceType")
+class EndpointTypeResourceType(builtins.str, Enum):
+    """
+    The endpoint type.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    CANARY = "Canary"
+    PRODUCTION = "Production"
+    TEST_IN_PRODUCTION = "TestInProduction"
+
+
+@pulumi.type_token("azure-native:providerhub:ExpeditedRolloutIntent")
+class ExpeditedRolloutIntent(builtins.str, Enum):
+    """
+    Expedited rollout intent.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    HOTFIX = "Hotfix"
+
+
+@pulumi.type_token("azure-native:providerhub:ExtendedLocationType")
+class ExtendedLocationType(builtins.str, Enum):
+    """
+    The type.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    """
+    The extended location type is not specified.
+    """
+    CUSTOM_LOCATION = "CustomLocation"
+    """
+    The extended location type is custom location.
+    """
+    EDGE_ZONE = "EdgeZone"
+    """
+    The extended location type is edge zone.
+    """
+    ARC_ZONE = "ArcZone"
+    """
+    The extended location type is arc zone.
+    """
 
 
 @pulumi.type_token("azure-native:providerhub:ExtensionCategory")
@@ -62,6 +235,8 @@ class ExtensionCategory(builtins.str, Enum):
     RESOURCE_PATCH_BEGIN = "ResourcePatchBegin"
     RESOURCE_MOVE_BEGIN = "ResourceMoveBegin"
     RESOURCE_MOVE_COMPLETED = "ResourceMoveCompleted"
+    BEST_MATCH_OPERATION_BEGIN = "BestMatchOperationBegin"
+    SUBSCRIPTION_LIFECYCLE_NOTIFICATION_DELETION = "SubscriptionLifecycleNotificationDeletion"
 
 
 @pulumi.type_token("azure-native:providerhub:ExtensionOptionType")
@@ -73,12 +248,36 @@ class ExtensionOptionType(builtins.str, Enum):
 
 @pulumi.type_token("azure-native:providerhub:FeaturesPolicy")
 class FeaturesPolicy(builtins.str, Enum):
+    """
+    The required feature policy.
+    """
     ANY = "Any"
     ALL = "All"
 
 
+@pulumi.type_token("azure-native:providerhub:FilterOption")
+class FilterOption(builtins.str, Enum):
+    """
+    Filter option.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    ENABLE_SUBSCRIPTION_FILTER_ON_TENANT = "EnableSubscriptionFilterOnTenant"
+
+
+@pulumi.type_token("azure-native:providerhub:FrontdoorRequestMode")
+class FrontdoorRequestMode(builtins.str, Enum):
+    """
+    The frontdoor request mode.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    USE_MANIFEST = "UseManifest"
+
+
 @pulumi.type_token("azure-native:providerhub:IdentityManagementTypes")
 class IdentityManagementTypes(builtins.str, Enum):
+    """
+    The type.
+    """
     NOT_SPECIFIED = "NotSpecified"
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
@@ -86,45 +285,187 @@ class IdentityManagementTypes(builtins.str, Enum):
     DELEGATED_RESOURCE_IDENTITY = "DelegatedResourceIdentity"
 
 
+@pulumi.type_token("azure-native:providerhub:Intent")
+class Intent(builtins.str, Enum):
+    """
+    The intent.
+    """
+    NO_T_SPECIFIED = "NOT_SPECIFIED"
+    """
+    Default value.
+    """
+    LO_W_PRIVILEGE = "LOW_PRIVILEGE"
+    """
+    Data is not sensitive and ok to access.
+    """
+    DEFERRE_D_ACCES_S_CHECK = "DEFERRED_ACCESS_CHECK"
+    """
+    Used for RP's using a custom authorization check outside of ARM.
+    """
+    R_P_CONTRACT = "RP_CONTRACT"
+    """
+    RP contract allows certain operations to be unauthorized action.
+    """
+
+
+@pulumi.type_token("azure-native:providerhub:LegacyOperation")
+class LegacyOperation(builtins.str, Enum):
+    NOT_SPECIFIED = "NotSpecified"
+    CREATE = "Create"
+    DELETE = "Delete"
+    WAITING = "Waiting"
+    AZURE_ASYNC_OPERATION_WAITING = "AzureAsyncOperationWaiting"
+    RESOURCE_CACHE_WAITING = "ResourceCacheWaiting"
+    ACTION = "Action"
+    READ = "Read"
+    EVALUATE_DEPLOYMENT_OUTPUT = "EvaluateDeploymentOutput"
+    DEPLOYMENT_CLEANUP = "DeploymentCleanup"
+
+
+@pulumi.type_token("azure-native:providerhub:LinkedAction")
+class LinkedAction(builtins.str, Enum):
+    """
+    The linked action.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    BLOCKED = "Blocked"
+    VALIDATE = "Validate"
+    ENABLED = "Enabled"
+
+
+@pulumi.type_token("azure-native:providerhub:LinkedOperation")
+class LinkedOperation(builtins.str, Enum):
+    """
+    The linked operation.
+    """
+    NONE = "None"
+    CROSS_RESOURCE_GROUP_RESOURCE_MOVE = "CrossResourceGroupResourceMove"
+    CROSS_SUBSCRIPTION_RESOURCE_MOVE = "CrossSubscriptionResourceMove"
+
+
 @pulumi.type_token("azure-native:providerhub:LoggingDetails")
 class LoggingDetails(builtins.str, Enum):
+    """
+    The detail level.
+    """
     NONE = "None"
     BODY = "Body"
 
 
 @pulumi.type_token("azure-native:providerhub:LoggingDirections")
 class LoggingDirections(builtins.str, Enum):
+    """
+    The direction.
+    """
     NONE = "None"
     REQUEST = "Request"
     RESPONSE = "Response"
 
 
+@pulumi.type_token("azure-native:providerhub:MarketplaceType")
+class MarketplaceType(builtins.str, Enum):
+    """
+    The marketplace type.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    ADD_ON = "AddOn"
+    BYPASS = "Bypass"
+    STORE = "Store"
+
+
 @pulumi.type_token("azure-native:providerhub:MessageScope")
 class MessageScope(builtins.str, Enum):
+    """
+    The message scope.
+    """
     NOT_SPECIFIED = "NotSpecified"
     REGISTERED_SUBSCRIPTIONS = "RegisteredSubscriptions"
 
 
+@pulumi.type_token("azure-native:providerhub:NotificationEndpointType")
+class NotificationEndpointType(builtins.str, Enum):
+    """
+    The endpoint type.
+    """
+    WEBHOOK = "Webhook"
+    EVENTHUB = "Eventhub"
+
+
 @pulumi.type_token("azure-native:providerhub:NotificationMode")
 class NotificationMode(builtins.str, Enum):
+    """
+    The notification mode.
+    """
     NOT_SPECIFIED = "NotSpecified"
     EVENT_HUB = "EventHub"
     WEB_HOOK = "WebHook"
 
 
+@pulumi.type_token("azure-native:providerhub:NotificationOptions")
+class NotificationOptions(builtins.str, Enum):
+    """
+    Notification options.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    NONE = "None"
+    EMIT_SPENDING_LIMIT = "EmitSpendingLimit"
+
+
+@pulumi.type_token("azure-native:providerhub:NotificationType")
+class NotificationType(builtins.str, Enum):
+    """
+    The notification type.
+    """
+    UNSPECIFIED = "Unspecified"
+    SUBSCRIPTION_NOTIFICATION = "SubscriptionNotification"
+
+
 @pulumi.type_token("azure-native:providerhub:OptInHeaderType")
 class OptInHeaderType(builtins.str, Enum):
+    """
+    The opt in headers.
+    """
     NOT_SPECIFIED = "NotSpecified"
     SIGNED_USER_TOKEN = "SignedUserToken"
     CLIENT_GROUP_MEMBERSHIP = "ClientGroupMembership"
     SIGNED_AUXILIARY_TOKENS = "SignedAuxiliaryTokens"
     UNBOUNDED_CLIENT_GROUP_MEMBERSHIP = "UnboundedClientGroupMembership"
+    PRIVATE_LINK_ID = "PrivateLinkId"
+    PRIVATE_LINK_RESOURCE_ID = "PrivateLinkResourceId"
+    MANAGEMENT_GROUP_ANCESTORS_ENCODED = "ManagementGroupAncestorsEncoded"
+    PRIVATE_LINK_VNET_TRAFFIC_TAG = "PrivateLinkVnetTrafficTag"
+    RESOURCE_GROUP_LOCATION = "ResourceGroupLocation"
+    CLIENT_PRINCIPAL_NAME_ENCODED = "ClientPrincipalNameEncoded"
+    MSI_RESOURCE_ID_ENCODED = "MSIResourceIdEncoded"
+
+
+@pulumi.type_token("azure-native:providerhub:OptOutHeaderType")
+class OptOutHeaderType(builtins.str, Enum):
+    """
+    The opt out headers.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    SYSTEM_DATA_CREATED_BY_LAST_MODIFIED_BY = "SystemDataCreatedByLastModifiedBy"
 
 
 @pulumi.type_token("azure-native:providerhub:Policy")
 class Policy(builtins.str, Enum):
+    """
+    The policy.
+    """
     NOT_SPECIFIED = "NotSpecified"
     SYNCHRONIZE_BEGIN_EXTENSION = "SynchronizeBeginExtension"
+
+
+@pulumi.type_token("azure-native:providerhub:PolicyExecutionType")
+class PolicyExecutionType(builtins.str, Enum):
+    """
+    The policy execution type.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    EXECUTE_POLICIES = "ExecutePolicies"
+    BYPASS_POLICIES = "BypassPolicies"
+    EXPECT_PARTIAL_PUT_REQUESTS = "ExpectPartialPutRequests"
 
 
 @pulumi.type_token("azure-native:providerhub:PreflightOption")
@@ -134,28 +475,40 @@ class PreflightOption(builtins.str, Enum):
     DEFAULT_VALIDATION_ONLY = "DefaultValidationOnly"
 
 
-@pulumi.type_token("azure-native:providerhub:ProvisioningState")
-class ProvisioningState(builtins.str, Enum):
+@pulumi.type_token("azure-native:providerhub:ProviderRegistrationKind")
+class ProviderRegistrationKind(builtins.str, Enum):
     """
-    The provisioned state of the resource.
+    Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
     """
-    NOT_SPECIFIED = "NotSpecified"
-    ACCEPTED = "Accepted"
-    RUNNING = "Running"
-    CREATING = "Creating"
-    CREATED = "Created"
-    DELETING = "Deleting"
-    DELETED = "Deleted"
-    CANCELED = "Canceled"
-    FAILED = "Failed"
-    SUCCEEDED = "Succeeded"
-    MOVING_RESOURCES = "MovingResources"
-    TRANSIENT_FAILURE = "TransientFailure"
-    ROLLOUT_IN_PROGRESS = "RolloutInProgress"
+    MANAGED = "Managed"
+    """
+    Resource Provider with all the resource types 'managed' by the ProviderHub service.
+    """
+    HYBRID = "Hybrid"
+    """
+    Resource Provider with a mix of 'managed' and 'direct' resource types.
+    """
+    DIRECT = "Direct"
+    """
+    Resource Provider with all the resource types 'managed' on by itself.
+    """
+
+
+@pulumi.type_token("azure-native:providerhub:QuotaPolicy")
+class QuotaPolicy(builtins.str, Enum):
+    """
+    The quota policy.
+    """
+    DEFAULT = "Default"
+    NONE = "None"
+    RESTRICTED = "Restricted"
 
 
 @pulumi.type_token("azure-native:providerhub:Readiness")
 class Readiness(builtins.str, Enum):
+    """
+    The readiness.
+    """
     CLOSING_DOWN = "ClosingDown"
     DEPRECATED = "Deprecated"
     GA = "GA"
@@ -169,13 +522,29 @@ class Readiness(builtins.str, Enum):
 
 @pulumi.type_token("azure-native:providerhub:Regionality")
 class Regionality(builtins.str, Enum):
+    """
+    The regionality.
+    """
     NOT_SPECIFIED = "NotSpecified"
     GLOBAL_ = "Global"
     REGIONAL = "Regional"
 
 
+@pulumi.type_token("azure-native:providerhub:ResourceAccessPolicy")
+class ResourceAccessPolicy(builtins.str, Enum):
+    """
+    The resource access policy.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    ACIS_READ_ALLOWED = "AcisReadAllowed"
+    ACIS_ACTION_ALLOWED = "AcisActionAllowed"
+
+
 @pulumi.type_token("azure-native:providerhub:ResourceDeletionPolicy")
 class ResourceDeletionPolicy(builtins.str, Enum):
+    """
+    The resource deletion policy.
+    """
     NOT_SPECIFIED = "NotSpecified"
     CASCADE_DELETE_ALL = "CascadeDeleteAll"
     CASCADE_DELETE_PROXY_ONLY_CHILDREN = "CascadeDeleteProxyOnlyChildren"
@@ -183,6 +552,9 @@ class ResourceDeletionPolicy(builtins.str, Enum):
 
 @pulumi.type_token("azure-native:providerhub:ResourceProviderCapabilitiesEffect")
 class ResourceProviderCapabilitiesEffect(builtins.str, Enum):
+    """
+    The effect.
+    """
     NOT_SPECIFIED = "NotSpecified"
     ALLOW = "Allow"
     DISALLOW = "Disallow"
@@ -190,6 +562,9 @@ class ResourceProviderCapabilitiesEffect(builtins.str, Enum):
 
 @pulumi.type_token("azure-native:providerhub:ResourceProviderType")
 class ResourceProviderType(builtins.str, Enum):
+    """
+    The provider type.
+    """
     NOT_SPECIFIED = "NotSpecified"
     INTERNAL = "Internal"
     EXTERNAL = "External"
@@ -200,21 +575,196 @@ class ResourceProviderType(builtins.str, Enum):
     AUTHORIZATION_FREE = "AuthorizationFree"
 
 
+@pulumi.type_token("azure-native:providerhub:ResourceSubType")
+class ResourceSubType(builtins.str, Enum):
+    """
+    The resource sub type.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    ASYNC_OPERATION = "AsyncOperation"
+
+
+@pulumi.type_token("azure-native:providerhub:ResourceTypeCategory")
+class ResourceTypeCategory(builtins.str, Enum):
+    """
+    The category.
+    """
+    NONE = "None"
+    FREE_FORM = "FreeForm"
+    INTERNAL = "Internal"
+    PURE_PROXY = "PureProxy"
+
+
+@pulumi.type_token("azure-native:providerhub:ResourceTypeEndpointKind")
+class ResourceTypeEndpointKind(builtins.str, Enum):
+    """
+    Resource type endpoint kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+    """
+    MANAGED = "Managed"
+    """
+    Endpoint served by ProviderHub service
+    """
+    DIRECT = "Direct"
+    """
+    Endpoint served by the onboarded Resource Provider Service.
+    """
+
+
+@pulumi.type_token("azure-native:providerhub:ResourceTypeExtendedLocationPolicy")
+class ResourceTypeExtendedLocationPolicy(builtins.str, Enum):
+    NOT_SPECIFIED = "NotSpecified"
+    ALL = "All"
+
+
+@pulumi.type_token("azure-native:providerhub:ResourceTypeRegistrationKind")
+class ResourceTypeRegistrationKind(builtins.str, Enum):
+    """
+    Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+    """
+    MANAGED = "Managed"
+    """
+    Resource type served by the ProviderHub service.
+    """
+    HYBRID = "Hybrid"
+    """
+    Resource type served by both the ProviderHub & the onboarded Resource Provider Services (i.e. The type has a mix of managed and direct endpoints).
+    """
+    DIRECT = "Direct"
+    """
+    Resource type served by the onboarded Resource Provider Service.
+    """
+
+
+@pulumi.type_token("azure-native:providerhub:ResourceValidation")
+class ResourceValidation(builtins.str, Enum):
+    """
+    The resource validation.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    RESERVED_WORDS = "ReservedWords"
+    PROFANE_WORDS = "ProfaneWords"
+
+
+@pulumi.type_token("azure-native:providerhub:Role")
+class Role(builtins.str, Enum):
+    """
+    The ownership role the application has on the resource types. The service owner role gives the application owner permissions. The limited owner role gives elevated permissions but does not allow all the permissions of a service owner, such as read/write on internal metadata.
+    """
+    SERVICE_OWNER = "ServiceOwner"
+    LIMITED_OWNER = "LimitedOwner"
+
+
 @pulumi.type_token("azure-native:providerhub:RoutingType")
 class RoutingType(builtins.str, Enum):
+    """
+    The resource routing type.
+    """
     DEFAULT = "Default"
+    """
+    The resource routing type is default.
+    """
     PROXY_ONLY = "ProxyOnly"
+    """
+    The resource routing type is proxy only.
+    """
     HOST_BASED = "HostBased"
+    """
+    The resource routing type is host based.
+    """
     EXTENSION = "Extension"
+    """
+    The resource routing type is extension.
+    """
     TENANT = "Tenant"
+    """
+    The resource routing type is tenant.
+    """
     FANOUT = "Fanout"
+    """
+    The resource routing type is fanout.
+    """
     LOCATION_BASED = "LocationBased"
+    """
+    The resource routing type is location based.
+    """
     FAILOVER = "Failover"
+    """
+    The resource routing type is failover.
+    """
     CASCADE_EXTENSION = "CascadeExtension"
+    """
+    The resource routing type is cascade extension.
+    """
+    CHILD_FANOUT = "ChildFanout"
+    """
+    The resource routing type is child fanout.
+    """
+    CASCADE_AUTHORIZED_EXTENSION = "CascadeAuthorizedExtension"
+    """
+    The resource routing type is cascade authorized extension.
+    """
+    BYPASS_ENDPOINT_SELECTION_OPTIMIZATION = "BypassEndpointSelectionOptimization"
+    """
+    The resource routing type is bypass endpoint selection optimization.
+    """
+    LOCATION_MAPPING = "LocationMapping"
+    """
+    The resource routing type is location mapping.
+    """
+    SERVICE_FANOUT = "ServiceFanout"
+    """
+    The resource routing type is service fanout.
+    """
+
+
+@pulumi.type_token("azure-native:providerhub:ServerFailureResponseMessageType")
+class ServerFailureResponseMessageType(builtins.str, Enum):
+    """
+    Type of server failure response message.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    OUTAGE_REPORTING = "OutageReporting"
+
+
+@pulumi.type_token("azure-native:providerhub:ServiceClientOptionsType")
+class ServiceClientOptionsType(builtins.str, Enum):
+    NOT_SPECIFIED = "NotSpecified"
+    DISABLE_AUTOMATIC_DECOMPRESSION = "DisableAutomaticDecompression"
+
+
+@pulumi.type_token("azure-native:providerhub:ServiceStatus")
+class ServiceStatus(builtins.str, Enum):
+    """
+    The status.
+    """
+    ACTIVE = "Active"
+    INACTIVE = "Inactive"
+
+
+@pulumi.type_token("azure-native:providerhub:SignedRequestScope")
+class SignedRequestScope(builtins.str, Enum):
+    """
+    The signed request scope.
+    """
+    RESOURCE_URI = "ResourceUri"
+    ENDPOINT = "Endpoint"
+
+
+@pulumi.type_token("azure-native:providerhub:SkipNotifications")
+class SkipNotifications(builtins.str, Enum):
+    """
+    Whether notifications should be skipped.
+    """
+    UNSPECIFIED = "Unspecified"
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 @pulumi.type_token("azure-native:providerhub:SkuScaleType")
 class SkuScaleType(builtins.str, Enum):
+    """
+    The scale type.
+    """
     NONE = "None"
     MANUAL = "Manual"
     AUTOMATIC = "Automatic"
@@ -222,6 +772,9 @@ class SkuScaleType(builtins.str, Enum):
 
 @pulumi.type_token("azure-native:providerhub:SubscriptionNotificationOperation")
 class SubscriptionNotificationOperation(builtins.str, Enum):
+    """
+    The action.
+    """
     NOT_DEFINED = "NotDefined"
     DELETE_ALL_RESOURCES = "DeleteAllResources"
     SOFT_DELETE_ALL_RESOURCES = "SoftDeleteAllResources"
@@ -232,6 +785,9 @@ class SubscriptionNotificationOperation(builtins.str, Enum):
 
 @pulumi.type_token("azure-native:providerhub:SubscriptionReregistrationResult")
 class SubscriptionReregistrationResult(builtins.str, Enum):
+    """
+    The subscription reregistration result.
+    """
     NOT_APPLICABLE = "NotApplicable"
     CONDITIONAL_UPDATE = "ConditionalUpdate"
     FORCED_UPDATE = "ForcedUpdate"
@@ -240,6 +796,9 @@ class SubscriptionReregistrationResult(builtins.str, Enum):
 
 @pulumi.type_token("azure-native:providerhub:SubscriptionState")
 class SubscriptionState(builtins.str, Enum):
+    """
+    The subscription state.
+    """
     NOT_DEFINED = "NotDefined"
     ENABLED = "Enabled"
     WARNED = "Warned"
@@ -250,6 +809,9 @@ class SubscriptionState(builtins.str, Enum):
 
 @pulumi.type_token("azure-native:providerhub:SubscriptionTransitioningState")
 class SubscriptionTransitioningState(builtins.str, Enum):
+    """
+    The state.
+    """
     REGISTERED = "Registered"
     UNREGISTERED = "Unregistered"
     WARNED = "Warned"
@@ -265,8 +827,51 @@ class SubscriptionTransitioningState(builtins.str, Enum):
     SUSPENDED_TO_UNREGISTERED = "SuspendedToUnregistered"
 
 
+@pulumi.type_token("azure-native:providerhub:SupportedOperations")
+class SupportedOperations(builtins.str, Enum):
+    """
+    Supported operations.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    GET = "Get"
+    DELETE = "Delete"
+
+
+@pulumi.type_token("azure-native:providerhub:TemplateDeploymentCapabilities")
+class TemplateDeploymentCapabilities(builtins.str, Enum):
+    """
+    The capabilities.
+    """
+    DEFAULT = "Default"
+    PREFLIGHT = "Preflight"
+
+
+@pulumi.type_token("azure-native:providerhub:TemplateDeploymentPreflightNotifications")
+class TemplateDeploymentPreflightNotifications(builtins.str, Enum):
+    """
+    The preflight notifications.
+    """
+    NONE = "None"
+    UNREGISTERED_SUBSCRIPTIONS = "UnregisteredSubscriptions"
+
+
+@pulumi.type_token("azure-native:providerhub:TemplateDeploymentPreflightOptions")
+class TemplateDeploymentPreflightOptions(builtins.str, Enum):
+    """
+    The preflight options.
+    """
+    NONE = "None"
+    VALIDATION_REQUESTS = "ValidationRequests"
+    DEPLOYMENT_REQUESTS = "DeploymentRequests"
+    TEST_ONLY = "TestOnly"
+    REGISTERED_ONLY = "RegisteredOnly"
+
+
 @pulumi.type_token("azure-native:providerhub:ThrottlingMetricType")
 class ThrottlingMetricType(builtins.str, Enum):
+    """
+    The throttling metric type
+    """
     NOT_SPECIFIED = "NotSpecified"
     NUMBER_OF_REQUESTS = "NumberOfRequests"
     NUMBER_OF_RESOURCES = "NumberOfResources"
@@ -274,6 +879,9 @@ class ThrottlingMetricType(builtins.str, Enum):
 
 @pulumi.type_token("azure-native:providerhub:TrafficRegionCategory")
 class TrafficRegionCategory(builtins.str, Enum):
+    """
+    The next traffic region.
+    """
     NOT_SPECIFIED = "NotSpecified"
     CANARY = "Canary"
     LOW_TRAFFIC = "LowTraffic"

@@ -23,15 +23,15 @@ export function listScheduleApplicable(args: ListScheduleApplicableArgs, opts?: 
 
 export interface ListScheduleApplicableArgs {
     /**
-     * The name of the lab.
+     * labs
      */
     labName: string;
     /**
-     * The name of the schedule.
+     * The name of the Schedule
      */
     name: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -41,13 +41,13 @@ export interface ListScheduleApplicableArgs {
  */
 export interface ListScheduleApplicableResult {
     /**
-     * Link for next set of results.
+     * The link to the next page of items
      */
     readonly nextLink?: string;
     /**
-     * Results of the list operation.
+     * The Schedule items on this page
      */
-    readonly value?: outputs.devtestlab.ScheduleResponse[];
+    readonly value: outputs.devtestlab.ScheduleResponse[];
 }
 /**
  * Lists all applicable schedules
@@ -65,15 +65,15 @@ export function listScheduleApplicableOutput(args: ListScheduleApplicableOutputA
 
 export interface ListScheduleApplicableOutputArgs {
     /**
-     * The name of the lab.
+     * labs
      */
     labName: pulumi.Input<string>;
     /**
-     * The name of the schedule.
+     * The name of the Schedule
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

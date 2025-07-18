@@ -31,9 +31,9 @@ class VirtualEndpointArgs:
         The set of arguments for constructing a VirtualEndpoint resource.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] server_name: The name of the server.
-        :param pulumi.Input[Union[builtins.str, 'VirtualEndpointType']] endpoint_type: The endpoint type for the virtual endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] members: List of members for a virtual endpoint
-        :param pulumi.Input[builtins.str] virtual_endpoint_name: The name of the virtual endpoint.
+        :param pulumi.Input[Union[builtins.str, 'VirtualEndpointType']] endpoint_type: Type of endpoint for the virtual endpoints.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] members: List of flexible servers that one of the virtual endpoints can refer to.
+        :param pulumi.Input[builtins.str] virtual_endpoint_name: Base name of the virtual endpoints.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
@@ -72,7 +72,7 @@ class VirtualEndpointArgs:
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> Optional[pulumi.Input[Union[builtins.str, 'VirtualEndpointType']]]:
         """
-        The endpoint type for the virtual endpoint.
+        Type of endpoint for the virtual endpoints.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -84,7 +84,7 @@ class VirtualEndpointArgs:
     @pulumi.getter
     def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        List of members for a virtual endpoint
+        List of flexible servers that one of the virtual endpoints can refer to.
         """
         return pulumi.get(self, "members")
 
@@ -96,7 +96,7 @@ class VirtualEndpointArgs:
     @pulumi.getter(name="virtualEndpointName")
     def virtual_endpoint_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the virtual endpoint.
+        Base name of the virtual endpoints.
         """
         return pulumi.get(self, "virtual_endpoint_name")
 
@@ -118,7 +118,7 @@ class VirtualEndpoint(pulumi.CustomResource):
                  virtual_endpoint_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Represents a virtual endpoint for a server.
+        Pair of virtual endpoints for a flexible server.
 
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
@@ -126,11 +126,11 @@ class VirtualEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[builtins.str, 'VirtualEndpointType']] endpoint_type: The endpoint type for the virtual endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] members: List of members for a virtual endpoint
+        :param pulumi.Input[Union[builtins.str, 'VirtualEndpointType']] endpoint_type: Type of endpoint for the virtual endpoints.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] members: List of flexible servers that one of the virtual endpoints can refer to.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] server_name: The name of the server.
-        :param pulumi.Input[builtins.str] virtual_endpoint_name: The name of the virtual endpoint.
+        :param pulumi.Input[builtins.str] virtual_endpoint_name: Base name of the virtual endpoints.
         """
         ...
     @overload
@@ -139,7 +139,7 @@ class VirtualEndpoint(pulumi.CustomResource):
                  args: VirtualEndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Represents a virtual endpoint for a server.
+        Pair of virtual endpoints for a flexible server.
 
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
@@ -233,7 +233,7 @@ class VirtualEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The endpoint type for the virtual endpoint.
+        Type of endpoint for the virtual endpoints.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -241,7 +241,7 @@ class VirtualEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def members(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        List of members for a virtual endpoint
+        List of flexible servers that one of the virtual endpoints can refer to.
         """
         return pulumi.get(self, "members")
 
@@ -273,7 +273,7 @@ class VirtualEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="virtualEndpoints")
     def virtual_endpoints(self) -> pulumi.Output[Sequence[builtins.str]]:
         """
-        List of virtual endpoints for a server
+        List of virtual endpoints for a flexible server.
         """
         return pulumi.get(self, "virtual_endpoints")
 

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Details of the clusters returned on successful response
+ * Cluster details
  *
  * Uses Azure REST API version 2024-07-01.
  *
@@ -56,7 +56,7 @@ export interface ListAccessClustersResult {
     readonly metadata?: outputs.confluent.ConfluentListMetadataResponse;
 }
 /**
- * Details of the clusters returned on successful response
+ * Cluster details
  *
  * Uses Azure REST API version 2024-07-01.
  *

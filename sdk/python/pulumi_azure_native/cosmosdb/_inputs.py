@@ -81,6 +81,8 @@ __all__ = [
     'DatabaseRestoreResourceArgsDict',
     'ExcludedPathArgs',
     'ExcludedPathArgsDict',
+    'FleetspaceAccountPropertiesGlobalDatabaseAccountPropertiesArgs',
+    'FleetspaceAccountPropertiesGlobalDatabaseAccountPropertiesArgsDict',
     'FleetspacePropertiesThroughputPoolConfigurationArgs',
     'FleetspacePropertiesThroughputPoolConfigurationArgsDict',
     'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs',
@@ -2732,6 +2734,62 @@ class ExcludedPathArgs:
     @path.setter
     def path(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "path", value)
+
+
+if not MYPY:
+    class FleetspaceAccountPropertiesGlobalDatabaseAccountPropertiesArgsDict(TypedDict):
+        """
+        Configuration for fleetspace Account in the fleetspace.
+        """
+        arm_location: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The location of  global database account in the Fleetspace Account.
+        """
+        resource_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The resource identifier of global database account in the Fleetspace Account.
+        """
+elif False:
+    FleetspaceAccountPropertiesGlobalDatabaseAccountPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FleetspaceAccountPropertiesGlobalDatabaseAccountPropertiesArgs:
+    def __init__(__self__, *,
+                 arm_location: Optional[pulumi.Input[builtins.str]] = None,
+                 resource_id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Configuration for fleetspace Account in the fleetspace.
+        :param pulumi.Input[builtins.str] arm_location: The location of  global database account in the Fleetspace Account.
+        :param pulumi.Input[builtins.str] resource_id: The resource identifier of global database account in the Fleetspace Account.
+        """
+        if arm_location is not None:
+            pulumi.set(__self__, "arm_location", arm_location)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="armLocation")
+    def arm_location(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The location of  global database account in the Fleetspace Account.
+        """
+        return pulumi.get(self, "arm_location")
+
+    @arm_location.setter
+    def arm_location(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "arm_location", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The resource identifier of global database account in the Fleetspace Account.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "resource_id", value)
 
 
 if not MYPY:

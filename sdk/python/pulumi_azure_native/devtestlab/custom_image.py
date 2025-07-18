@@ -40,7 +40,7 @@ class CustomImageArgs:
         """
         The set of arguments for constructing a CustomImage resource.
         :param pulumi.Input[builtins.str] lab_name: The name of the lab.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] author: The author of the custom image.
         :param pulumi.Input['CustomImagePropertiesFromPlanArgs'] custom_image_plan: Storage information about the plan related to this custom image
         :param pulumi.Input[Sequence[pulumi.Input['DataDiskStorageTypeInfoArgs']]] data_disk_storage_info: Storage information about the data disks present in the custom image
@@ -49,7 +49,7 @@ class CustomImageArgs:
         :param pulumi.Input[builtins.str] location: The location of the resource.
         :param pulumi.Input[builtins.str] managed_image_id: The Managed Image Id backing the custom image.
         :param pulumi.Input[builtins.str] managed_snapshot_id: The Managed Snapshot Id backing the custom image.
-        :param pulumi.Input[builtins.str] name: The name of the custom image.
+        :param pulumi.Input[builtins.str] name: The name of the CustomImage
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
         :param pulumi.Input['CustomImagePropertiesCustomArgs'] vhd: The VHD from which the image is to be created.
         :param pulumi.Input['CustomImagePropertiesFromVmArgs'] vm: The virtual machine from which the image is to be created.
@@ -97,7 +97,7 @@ class CustomImageArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -205,7 +205,7 @@ class CustomImageArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the custom image.
+        The name of the CustomImage
         """
         return pulumi.get(self, "name")
 
@@ -287,8 +287,8 @@ class CustomImage(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location: The location of the resource.
         :param pulumi.Input[builtins.str] managed_image_id: The Managed Image Id backing the custom image.
         :param pulumi.Input[builtins.str] managed_snapshot_id: The Managed Snapshot Id backing the custom image.
-        :param pulumi.Input[builtins.str] name: The name of the custom image.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] name: The name of the CustomImage
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
         :param pulumi.Input[Union['CustomImagePropertiesCustomArgs', 'CustomImagePropertiesCustomArgsDict']] vhd: The VHD from which the image is to be created.
         :param pulumi.Input[Union['CustomImagePropertiesFromVmArgs', 'CustomImagePropertiesFromVmArgsDict']] vm: The virtual machine from which the image is to be created.

@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Confluent.Outputs
     public sealed class ClusterStatusEntityResponse
     {
         /// <summary>
-        /// The number of Confluent Kafka Units 
+        /// The number of Confluent Kafka Units
         /// </summary>
         public readonly int? Cku;
         /// <summary>

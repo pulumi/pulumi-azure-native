@@ -100,11 +100,11 @@ namespace Pulumi.AzureNative.EdgeOrder
     public sealed class ListProductsAndConfigurationsResult
     {
         /// <summary>
-        /// Link for the next set of configurations.
+        /// The link to the next page of items
         /// </summary>
         public readonly string? NextLink;
         /// <summary>
-        /// List of configurations.
+        /// The Configuration items on this page
         /// </summary>
         public readonly ImmutableArray<Outputs.ConfigurationResponse> Value;
 

@@ -17,19 +17,19 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
     public sealed class DbServerMetadataResponse
     {
         /// <summary>
-        /// Location of database server
+        /// Location of database server.
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// SKU for the database server. This object is empty for PG single server
+        /// Compute tier and size of the database server. This object is empty for an Azure Database for PostgreSQL single server.
         /// </summary>
         public readonly Outputs.ServerSkuResponse? Sku;
         /// <summary>
-        /// Storage size in MB for database server
+        /// Storage size (in MB) for database server.
         /// </summary>
         public readonly int? StorageMb;
         /// <summary>
-        /// Version for database engine
+        /// Major version of PostgreSQL database engine.
         /// </summary>
         public readonly string? Version;
 

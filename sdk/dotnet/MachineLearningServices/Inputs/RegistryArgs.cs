@@ -58,6 +58,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
             set => _regionDetails = value;
         }
 
+        /// <summary>
+        /// RegistryId Guid for this registry
+        /// </summary>
+        [Input("registryId")]
+        public Input<string>? RegistryId { get; set; }
+
         [Input("registryPrivateEndpointConnections")]
         private InputList<Inputs.RegistryPrivateEndpointConnectionArgs>? _registryPrivateEndpointConnections;
 

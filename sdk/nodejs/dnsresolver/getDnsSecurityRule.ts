@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Gets properties of a DNS security rule for a DNS resolver policy.
  *
  * Uses Azure REST API version 2023-07-01-preview.
+ *
+ * Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDnsSecurityRule(args: GetDnsSecurityRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsSecurityRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -97,6 +99,8 @@ export interface GetDnsSecurityRuleResult {
  * Gets properties of a DNS security rule for a DNS resolver policy.
  *
  * Uses Azure REST API version 2023-07-01-preview.
+ *
+ * Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDnsSecurityRuleOutput(args: GetDnsSecurityRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDnsSecurityRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

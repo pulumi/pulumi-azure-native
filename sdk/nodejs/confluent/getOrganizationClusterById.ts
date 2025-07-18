@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Details of cluster record
+ * Get cluster by Id
  *
  * Uses Azure REST API version 2024-07-01.
  */
@@ -50,9 +50,9 @@ export interface GetOrganizationClusterByIdResult {
      */
     readonly azureApiVersion: string;
     /**
-     * Id of the cluster
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
-    readonly id?: string;
+    readonly id: string;
     /**
      * Type of cluster
      */
@@ -62,9 +62,9 @@ export interface GetOrganizationClusterByIdResult {
      */
     readonly metadata?: outputs.confluent.SCMetadataEntityResponse;
     /**
-     * Display name of the cluster
+     * The name of the resource
      */
-    readonly name?: string;
+    readonly name: string;
     /**
      * Specification of the cluster
      */
@@ -74,12 +74,16 @@ export interface GetOrganizationClusterByIdResult {
      */
     readonly status?: outputs.confluent.ClusterStatusEntityResponse;
     /**
-     * Type of the resource
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly type?: string;
+    readonly systemData: outputs.confluent.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     */
+    readonly type: string;
 }
 /**
- * Details of cluster record
+ * Get cluster by Id
  *
  * Uses Azure REST API version 2024-07-01.
  */

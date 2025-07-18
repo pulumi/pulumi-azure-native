@@ -10,10 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
+    /// <summary>
+    /// The provider authentication.
+    /// </summary>
     public sealed class ResourceProviderManifestPropertiesProviderAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedAudiences", required: true)]
         private InputList<string>? _allowedAudiences;
+
+        /// <summary>
+        /// The allowed audiences.
+        /// </summary>
         public InputList<string> AllowedAudiences
         {
             get => _allowedAudiences ?? (_allowedAudiences = new InputList<string>());

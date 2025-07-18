@@ -13,7 +13,7 @@ __all__ = [
     'CachingTypes',
     'CloudServiceSlotType',
     'CloudServiceUpgradeMode',
-    'ComponentNames',
+    'ComponentName',
     'ConfidentialVMEncryptionType',
     'ConsistencyModeTypes',
     'CopyCompletionErrorReason',
@@ -59,7 +59,7 @@ __all__ = [
     'OperatingSystemStateTypes',
     'OperatingSystemTypes',
     'OrchestrationMode',
-    'PassNames',
+    'PassName',
     'PrivateEndpointServiceConnectionStatus',
     'ProtocolTypes',
     'ProvisionedBandwidthCopyOption',
@@ -159,8 +159,8 @@ class CloudServiceUpgradeMode(builtins.str, Enum):
     SIMULTANEOUS = "Simultaneous"
 
 
-@pulumi.type_token("azure-native:compute:ComponentNames")
-class ComponentNames(builtins.str, Enum):
+@pulumi.type_token("azure-native:compute:ComponentName")
+class ComponentName(builtins.str, Enum):
     """
     The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
     """
@@ -299,11 +299,11 @@ class DiskCreateOption(builtins.str, Enum):
     """
     IMPORT_SECURE = "ImportSecure"
     """
-    Similar to Import create option. Create a new Trusted Launch VM or Confidential VM supported disk by importing additional blob for VM guest state specified by securityDataUri in storage account specified by storageAccountId
+    Similar to Import create option. Create a new Trusted Launch VM or Confidential VM supported disk by importing additional blobs for VM guest state specified by securityDataUri and VM metadata specified by securityMetadataUri in storage account specified by storageAccountId. The VM metadata is optional and only required for certain Confidential VM configurations and not required for Trusted Launch VM.
     """
     UPLOAD_PREPARED_SECURE = "UploadPreparedSecure"
     """
-    Similar to Upload create option. Create a new Trusted Launch VM or Confidential VM supported disk and upload using write token in both disk and VM guest state
+    Similar to Upload create option. Create a new Trusted Launch VM or Confidential VM supported disk and upload using write token in disk, VM guest state and VM metadata. The VM metadata is optional and only required for certain Confidential VM configurations and not required for Trusted Launch VM.
     """
     COPY_FROM_SAN_SNAPSHOT = "CopyFromSanSnapshot"
     """
@@ -335,7 +335,7 @@ class DiskDeleteOptionTypes(builtins.str, Enum):
 @pulumi.type_token("azure-native:compute:DiskDetachOptionTypes")
 class DiskDetachOptionTypes(builtins.str, Enum):
     """
-    Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+    Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. **This feature is still in preview**. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
     """
     FORCE_DETACH = "ForceDetach"
 
@@ -725,8 +725,8 @@ class OrchestrationMode(builtins.str, Enum):
     FLEXIBLE = "Flexible"
 
 
-@pulumi.type_token("azure-native:compute:PassNames")
-class PassNames(builtins.str, Enum):
+@pulumi.type_token("azure-native:compute:PassName")
+class PassName(builtins.str, Enum):
     """
     The pass name. Currently, the only allowable value is OobeSystem.
     """
@@ -876,7 +876,7 @@ class RestorePointEncryptionType(builtins.str, Enum):
     """
     ENCRYPTION_AT_REST_WITH_PLATFORM_KEY = "EncryptionAtRestWithPlatformKey"
     """
-    Disk Restore Point is encrypted at rest with Platform managed key. 
+    Disk Restore Point is encrypted at rest with Platform managed key.
     """
     ENCRYPTION_AT_REST_WITH_CUSTOMER_KEY = "EncryptionAtRestWithCustomerKey"
     """
@@ -1201,7 +1201,7 @@ class VirtualMachineSizeTypes(builtins.str, Enum):
 @pulumi.type_token("azure-native:compute:WindowsPatchAssessmentMode")
 class WindowsPatchAssessmentMode(builtins.str, Enum):
     """
-    Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true. 
+    Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
     """
     IMAGE_DEFAULT = "ImageDefault"
     AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
@@ -1221,7 +1221,7 @@ class WindowsVMGuestPatchAutomaticByPlatformRebootSetting(builtins.str, Enum):
 @pulumi.type_token("azure-native:compute:WindowsVMGuestPatchMode")
 class WindowsVMGuestPatchMode(builtins.str, Enum):
     """
-    Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+    Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
     """
     MANUAL = "Manual"
     AUTOMATIC_BY_OS = "AutomaticByOS"

@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Outputs
 {
 
+    /// <summary>
+    /// The check name availability specifications.
+    /// </summary>
     [OutputType]
     public sealed class ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications
     {
+        /// <summary>
+        /// Whether default validation is enabled.
+        /// </summary>
         public readonly bool? EnableDefaultValidation;
+        /// <summary>
+        /// The resource types with custom validation.
+        /// </summary>
         public readonly ImmutableArray<string> ResourceTypesWithCustomValidation;
 
         [OutputConstructor]

@@ -12,14 +12,12 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
     public sealed class SkuResourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The provisioned state of the resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNative.ProviderHub.ProvisioningState>? ProvisioningState { get; set; }
-
         [Input("skuSettings", required: true)]
         private InputList<Inputs.SkuSettingArgs>? _skuSettings;
+
+        /// <summary>
+        /// The sku settings.
+        /// </summary>
         public InputList<Inputs.SkuSettingArgs> SkuSettings
         {
             get => _skuSettings ?? (_skuSettings = new InputList<Inputs.SkuSettingArgs>());

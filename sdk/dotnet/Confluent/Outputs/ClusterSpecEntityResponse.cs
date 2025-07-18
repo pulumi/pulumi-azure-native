@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Confluent.Outputs
         /// </summary>
         public readonly Outputs.ClusterByokEntityResponse? Byok;
         /// <summary>
-        /// The cloud service provider 
+        /// The cloud service provider
         /// </summary>
         public readonly string? Cloud;
         /// <summary>

@@ -25,13 +25,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetProviderRegistrationResult:
-    def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, kind=None, name=None, properties=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -57,9 +60,17 @@ class GetProviderRegistrationResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[builtins.str]:
+        """
+        Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+        """
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
@@ -71,14 +82,14 @@ class GetProviderRegistrationResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ProviderRegistrationResponseProperties':
+    def properties(self) -> 'outputs.ProviderRegistrationPropertiesResponse':
         return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -99,6 +110,7 @@ class AwaitableGetProviderRegistrationResult(GetProviderRegistrationResult):
         return GetProviderRegistrationResult(
             azure_api_version=self.azure_api_version,
             id=self.id,
+            kind=self.kind,
             name=self.name,
             properties=self.properties,
             system_data=self.system_data,
@@ -110,7 +122,9 @@ def get_provider_registration(provider_namespace: Optional[builtins.str] = None,
     """
     Gets the provider registration details.
 
-    Uses Azure REST API version 2021-09-01-preview.
+    Uses Azure REST API version 2024-09-01.
+
+    Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str provider_namespace: The name of the resource provider hosted within ProviderHub.
@@ -123,6 +137,7 @@ def get_provider_registration(provider_namespace: Optional[builtins.str] = None,
     return AwaitableGetProviderRegistrationResult(
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
@@ -132,7 +147,9 @@ def get_provider_registration_output(provider_namespace: Optional[pulumi.Input[b
     """
     Gets the provider registration details.
 
-    Uses Azure REST API version 2021-09-01-preview.
+    Uses Azure REST API version 2024-09-01.
+
+    Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str provider_namespace: The name of the resource provider hosted within ProviderHub.
@@ -144,6 +161,7 @@ def get_provider_registration_output(provider_namespace: Optional[pulumi.Input[b
     return __ret__.apply(lambda __response__: GetProviderRegistrationResult(
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
         name=pulumi.get(__response__, 'name'),
         properties=pulumi.get(__response__, 'properties'),
         system_data=pulumi.get(__response__, 'system_data'),

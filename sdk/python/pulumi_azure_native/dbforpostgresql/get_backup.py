@@ -26,7 +26,7 @@ __all__ = [
 @pulumi.output_type
 class GetBackupResult:
     """
-    Server backup properties
+    Properties of a backup.
     """
     def __init__(__self__, azure_api_version=None, backup_type=None, completed_time=None, id=None, name=None, source=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
@@ -66,7 +66,7 @@ class GetBackupResult:
     @pulumi.getter(name="backupType")
     def backup_type(self) -> Optional[builtins.str]:
         """
-        Backup type.
+        Type of backup.
         """
         return pulumi.get(self, "backup_type")
 
@@ -74,7 +74,7 @@ class GetBackupResult:
     @pulumi.getter(name="completedTime")
     def completed_time(self) -> Optional[builtins.str]:
         """
-        Backup completed time (ISO8601 format).
+        Time(ISO8601 format) at which the backup was completed.
         """
         return pulumi.get(self, "completed_time")
 
@@ -98,7 +98,7 @@ class GetBackupResult:
     @pulumi.getter
     def source(self) -> Optional[builtins.str]:
         """
-        Backup source
+        Source of the backup.
         """
         return pulumi.get(self, "source")
 
@@ -140,14 +140,14 @@ def get_backup(backup_name: Optional[builtins.str] = None,
                server_name: Optional[builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupResult:
     """
-    Get specific backup for a given server.
+    Gets information of an on demand backup, given its name.
 
     Uses Azure REST API version 2024-08-01.
 
     Other available API versions: 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str backup_name: The name of the backup.
+    :param builtins.str backup_name: Name of the backup.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str server_name: The name of the server.
     """
@@ -172,14 +172,14 @@ def get_backup_output(backup_name: Optional[pulumi.Input[builtins.str]] = None,
                       server_name: Optional[pulumi.Input[builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupResult]:
     """
-    Get specific backup for a given server.
+    Gets information of an on demand backup, given its name.
 
     Uses Azure REST API version 2024-08-01.
 
     Other available API versions: 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str backup_name: The name of the backup.
+    :param builtins.str backup_name: Name of the backup.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str server_name: The name of the server.
     """

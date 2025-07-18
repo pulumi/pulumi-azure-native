@@ -13,19 +13,35 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     [OutputType]
     public sealed class ThrottlingRuleResponse
     {
+        /// <summary>
+        /// The action.
+        /// </summary>
         public readonly string Action;
+        /// <summary>
+        /// The application id.
+        /// </summary>
+        public readonly ImmutableArray<string> ApplicationId;
+        /// <summary>
+        /// The metrics.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ThrottlingMetricResponse> Metrics;
+        /// <summary>
+        /// The required features.
+        /// </summary>
         public readonly ImmutableArray<string> RequiredFeatures;
 
         [OutputConstructor]
         private ThrottlingRuleResponse(
             string action,
 
+            ImmutableArray<string> applicationId,
+
             ImmutableArray<Outputs.ThrottlingMetricResponse> metrics,
 
             ImmutableArray<string> requiredFeatures)
         {
             Action = action;
+            ApplicationId = applicationId;
             Metrics = metrics;
             RequiredFeatures = requiredFeatures;
         }

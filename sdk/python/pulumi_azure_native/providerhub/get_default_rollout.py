@@ -25,9 +25,6 @@ __all__ = [
 
 @pulumi.output_type
 class GetDefaultRolloutResult:
-    """
-    Default rollout definition.
-    """
     def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
@@ -60,7 +57,7 @@ class GetDefaultRolloutResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -74,7 +71,7 @@ class GetDefaultRolloutResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.DefaultRolloutResponseProperties':
+    def properties(self) -> 'outputs.DefaultRolloutPropertiesResponse':
         """
         Properties of the rollout.
         """
@@ -84,7 +81,7 @@ class GetDefaultRolloutResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -117,7 +114,9 @@ def get_default_rollout(provider_namespace: Optional[builtins.str] = None,
     """
     Gets the default rollout details.
 
-    Uses Azure REST API version 2021-09-01-preview.
+    Uses Azure REST API version 2024-09-01.
+
+    Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str provider_namespace: The name of the resource provider hosted within ProviderHub.
@@ -142,7 +141,9 @@ def get_default_rollout_output(provider_namespace: Optional[pulumi.Input[builtin
     """
     Gets the default rollout details.
 
-    Uses Azure REST API version 2021-09-01-preview.
+    Uses Azure REST API version 2024-09-01.
+
+    Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str provider_namespace: The name of the resource provider hosted within ProviderHub.

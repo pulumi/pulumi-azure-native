@@ -722,7 +722,7 @@ if not MYPY:
         """
         cku: NotRequired[pulumi.Input[builtins.int]]
         """
-        The number of Confluent Kafka Units 
+        The number of Confluent Kafka Units
         """
         phase: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -738,7 +738,7 @@ class ClusterStatusEntityArgs:
                  phase: Optional[pulumi.Input[builtins.str]] = None):
         """
         Status of the cluster record
-        :param pulumi.Input[builtins.int] cku: The number of Confluent Kafka Units 
+        :param pulumi.Input[builtins.int] cku: The number of Confluent Kafka Units
         :param pulumi.Input[builtins.str] phase: The lifecycle phase of the cluster
         """
         if cku is not None:
@@ -750,7 +750,7 @@ class ClusterStatusEntityArgs:
     @pulumi.getter
     def cku(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The number of Confluent Kafka Units 
+        The number of Confluent Kafka Units
         """
         return pulumi.get(self, "cku")
 
@@ -2514,7 +2514,7 @@ if not MYPY:
         """
         cloud: NotRequired[pulumi.Input[builtins.str]]
         """
-        The cloud service provider 
+        The cloud service provider
         """
         config: NotRequired[pulumi.Input['ClusterConfigEntityArgsDict']]
         """
@@ -2576,7 +2576,7 @@ class SCClusterSpecEntityArgs:
         :param pulumi.Input[builtins.str] api_endpoint: The Kafka API cluster endpoint
         :param pulumi.Input[builtins.str] availability: The availability zone configuration of the cluster
         :param pulumi.Input['SCClusterByokEntityArgs'] byok: Specification of the cluster byok
-        :param pulumi.Input[builtins.str] cloud: The cloud service provider 
+        :param pulumi.Input[builtins.str] cloud: The cloud service provider
         :param pulumi.Input['ClusterConfigEntityArgs'] config: Specification of the cluster configuration
         :param pulumi.Input['SCClusterNetworkEnvironmentEntityArgs'] environment: Specification of the cluster environment
         :param pulumi.Input[builtins.str] http_endpoint: The cluster HTTP request URL.
@@ -2654,7 +2654,7 @@ class SCClusterSpecEntityArgs:
     @pulumi.getter
     def cloud(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The cloud service provider 
+        The cloud service provider
         """
         return pulumi.get(self, "cloud")
 

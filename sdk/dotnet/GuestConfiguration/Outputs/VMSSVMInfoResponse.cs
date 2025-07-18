@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.GuestConfiguration.Outputs
         /// </summary>
         public readonly string LastComplianceChecked;
         /// <summary>
-        /// Id of the latest report for the guest configuration assignment. 
+        /// Id of the latest report for the guest configuration assignment.
         /// </summary>
         public readonly string LatestReportId;
         /// <summary>

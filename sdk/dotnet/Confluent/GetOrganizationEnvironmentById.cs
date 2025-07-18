@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Confluent
     public static class GetOrganizationEnvironmentById
     {
         /// <summary>
-        /// Details about environment name, metadata and environment id of an environment
+        /// Get Environment details by environment Id
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// </summary>
@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.Confluent
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationEnvironmentByIdResult>("azure-native:confluent:getOrganizationEnvironmentById", args ?? new GetOrganizationEnvironmentByIdArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Details about environment name, metadata and environment id of an environment
+        /// Get Environment details by environment Id
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Confluent
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationEnvironmentByIdResult>("azure-native:confluent:getOrganizationEnvironmentById", args ?? new GetOrganizationEnvironmentByIdInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Details about environment name, metadata and environment id of an environment
+        /// Get Environment details by environment Id
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// </summary>
@@ -98,9 +98,9 @@ namespace Pulumi.AzureNative.Confluent
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// Id of the environment
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
-        public readonly string? Id;
+        public readonly string Id;
         /// <summary>
         /// Type of environment
         /// </summary>
@@ -110,33 +110,39 @@ namespace Pulumi.AzureNative.Confluent
         /// </summary>
         public readonly Outputs.SCMetadataEntityResponse? Metadata;
         /// <summary>
-        /// Display name of the environment
+        /// The name of the resource
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
         /// Stream governance configuration
         /// </summary>
         public readonly Outputs.StreamGovernanceConfigResponse? StreamGovernanceConfig;
         /// <summary>
-        /// Type of the resource
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly string? Type;
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// </summary>
+        public readonly string Type;
 
         [OutputConstructor]
         private GetOrganizationEnvironmentByIdResult(
             string azureApiVersion,
 
-            string? id,
+            string id,
 
             string? kind,
 
             Outputs.SCMetadataEntityResponse? metadata,
 
-            string? name,
+            string name,
 
             Outputs.StreamGovernanceConfigResponse? streamGovernanceConfig,
 
-            string? type)
+            Outputs.SystemDataResponse systemData,
+
+            string type)
         {
             AzureApiVersion = azureApiVersion;
             Id = id;
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.Confluent
             Metadata = metadata;
             Name = name;
             StreamGovernanceConfig = streamGovernanceConfig;
+            SystemData = systemData;
             Type = type;
         }
     }

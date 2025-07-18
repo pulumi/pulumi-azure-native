@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
     {
         [Input("capabilities")]
         private InputList<Inputs.SkuCapabilityArgs>? _capabilities;
+
+        /// <summary>
+        /// The capabilities.
+        /// </summary>
         public InputList<Inputs.SkuCapabilityArgs> Capabilities
         {
             get => _capabilities ?? (_capabilities = new InputList<Inputs.SkuCapabilityArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
         [Input("name")]
         private InputList<string>? _name;
+
+        /// <summary>
+        /// The name.
+        /// </summary>
         public InputList<string> Name
         {
             get => _name ?? (_name = new InputList<string>());

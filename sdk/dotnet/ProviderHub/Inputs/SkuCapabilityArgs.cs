@@ -12,9 +12,15 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
     public sealed class SkuCapabilityArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The value.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

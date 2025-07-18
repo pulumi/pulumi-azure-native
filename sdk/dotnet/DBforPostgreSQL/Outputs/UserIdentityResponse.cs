@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     /// <summary>
-    /// Describes a single user-assigned identity associated with the application.
+    /// User assigned managed identity associated with a flexible server.
     /// </summary>
     [OutputType]
     public sealed class UserIdentityResponse
     {
         /// <summary>
-        /// the client identifier of the Service Principal which this identity represents.
+        /// Identifier of the client of the service principal associated to the user assigned managed identity.
         /// </summary>
         public readonly string? ClientId;
         /// <summary>
-        /// the object identifier of the Service Principal which this identity represents.
+        /// Identifier of the object of the service principal associated to the user assigned managed identity.
         /// </summary>
         public readonly string? PrincipalId;
 

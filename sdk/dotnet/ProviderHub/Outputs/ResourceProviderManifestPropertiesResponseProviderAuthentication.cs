@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Outputs
 {
 
+    /// <summary>
+    /// The provider authentication.
+    /// </summary>
     [OutputType]
     public sealed class ResourceProviderManifestPropertiesResponseProviderAuthentication
     {
+        /// <summary>
+        /// The allowed audiences.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedAudiences;
 
         [OutputConstructor]

@@ -31,6 +31,12 @@ __all__ = [
     'CustomerPropertyResponse',
     'ErrorAdditionalInfoResponse',
     'ErrorDetailResponse',
+    'MccCacheNodeAutoUpdateHistoryPropertiesResponse',
+    'MccCacheNodeAutoUpdateInfoResponse',
+    'MccCacheNodeIssueHistoryPropertiesResponse',
+    'MccCacheNodeTlsCertificatePropertiesResponse',
+    'MccCacheNodeTlsCertificateResponse',
+    'MccIssueResponse',
     'ProxyUrlConfigurationResponse',
     'SystemDataResponse',
 ]
@@ -1277,9 +1283,9 @@ class CacheNodeEntityResponse(dict):
         :param builtins.int worker_connections: Cache node resource Mcc container deployment worker connection count.
         :param builtins.str worker_connections_last_updated_date_time: Cache node resource last updated Mcc container deployment worker connection count timestamp.
         :param builtins.str x_cid: Cache node resource Azure XCid.
-        :param builtins.int auto_update_requested_day: Customer requested day of week for mcc install of auto update cycle
+        :param builtins.int auto_update_requested_day: Customer requested day of week for mcc install of auto update cycle. 0 is default no selection. 1-7 are days of week, 1 is Sunday, 2 is Monday, etc.
         :param builtins.str auto_update_requested_time: Customer requested time of the day for mcc install of auto update cycle, should be hh:mm
-        :param builtins.int auto_update_requested_week: Customer requested week of month for mcc install of auto update cycle
+        :param builtins.int auto_update_requested_week: Customer requested week of month for mcc install of auto update cycle. 0 is default no selection. 1-5 are valid weeks of month, 1 is first week, 2 is second week, etc.
         :param builtins.str auto_update_ring_type: Auto Update Ring Type which is slow or fast etc.
         :param builtins.str cache_node_id: Cache node resource identifier of the cache node
         :param builtins.str cache_node_name: Cache node resource name.
@@ -1643,7 +1649,7 @@ class CacheNodeEntityResponse(dict):
     @pulumi.getter(name="autoUpdateRequestedDay")
     def auto_update_requested_day(self) -> Optional[builtins.int]:
         """
-        Customer requested day of week for mcc install of auto update cycle
+        Customer requested day of week for mcc install of auto update cycle. 0 is default no selection. 1-7 are days of week, 1 is Sunday, 2 is Monday, etc.
         """
         return pulumi.get(self, "auto_update_requested_day")
 
@@ -1659,7 +1665,7 @@ class CacheNodeEntityResponse(dict):
     @pulumi.getter(name="autoUpdateRequestedWeek")
     def auto_update_requested_week(self) -> Optional[builtins.int]:
         """
-        Customer requested week of month for mcc install of auto update cycle
+        Customer requested week of month for mcc install of auto update cycle. 0 is default no selection. 1-5 are valid weeks of month, 1 is first week, 2 is second week, etc.
         """
         return pulumi.get(self, "auto_update_requested_week")
 
@@ -2587,6 +2593,504 @@ class ErrorDetailResponse(dict):
         The error target.
         """
         return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class MccCacheNodeAutoUpdateHistoryPropertiesResponse(dict):
+    """
+    Mcc cache node resource auto update history properties.
+    """
+    def __init__(__self__, *,
+                 cache_node_id: builtins.str,
+                 customer_id: builtins.str,
+                 auto_update_history: Optional[Sequence['outputs.MccCacheNodeAutoUpdateInfoResponse']] = None):
+        """
+        Mcc cache node resource auto update history properties.
+        :param builtins.str cache_node_id: Mcc cache node resource Id.
+        :param builtins.str customer_id: Mcc customer resource Id.
+        :param Sequence['MccCacheNodeAutoUpdateInfoResponse'] auto_update_history: Cache node resource auto update history information.
+        """
+        pulumi.set(__self__, "cache_node_id", cache_node_id)
+        pulumi.set(__self__, "customer_id", customer_id)
+        if auto_update_history is not None:
+            pulumi.set(__self__, "auto_update_history", auto_update_history)
+
+    @property
+    @pulumi.getter(name="cacheNodeId")
+    def cache_node_id(self) -> builtins.str:
+        """
+        Mcc cache node resource Id.
+        """
+        return pulumi.get(self, "cache_node_id")
+
+    @property
+    @pulumi.getter(name="customerId")
+    def customer_id(self) -> builtins.str:
+        """
+        Mcc customer resource Id.
+        """
+        return pulumi.get(self, "customer_id")
+
+    @property
+    @pulumi.getter(name="autoUpdateHistory")
+    def auto_update_history(self) -> Optional[Sequence['outputs.MccCacheNodeAutoUpdateInfoResponse']]:
+        """
+        Cache node resource auto update history information.
+        """
+        return pulumi.get(self, "auto_update_history")
+
+
+@pulumi.output_type
+class MccCacheNodeAutoUpdateInfoResponse(dict):
+    """
+    Mcc cache node resource auto update properties.
+    """
+    def __init__(__self__, *,
+                 auto_update_last_applied_status: builtins.int,
+                 auto_update_last_applied_status_detailed_text: builtins.str,
+                 auto_update_last_applied_status_text: builtins.str,
+                 auto_update_ring_type: builtins.int,
+                 created_date_time_utc: builtins.str,
+                 image_uri_before_update: builtins.str,
+                 image_uri_targeted: builtins.str,
+                 image_uri_terminal: builtins.str,
+                 moved_to_terminal_state_date_time: builtins.str,
+                 plan_change_log_text: builtins.str,
+                 plan_id: builtins.float,
+                 rule_requested_day: builtins.int,
+                 rule_requested_hour: builtins.str,
+                 rule_requested_minute: builtins.str,
+                 rule_requested_week: builtins.int,
+                 time_to_go_live_date_time: builtins.str,
+                 updated_registry_date_time_utc: builtins.str):
+        """
+        Mcc cache node resource auto update properties.
+        :param builtins.int auto_update_last_applied_status: Auto update last applied status.
+        :param builtins.str auto_update_last_applied_status_detailed_text: Auto update last applied detailed status text.
+        :param builtins.str auto_update_last_applied_status_text: Auto update last applied status text.
+        :param builtins.int auto_update_ring_type: Auto update Ring Type.
+        :param builtins.str created_date_time_utc: Auto update entity created datetime.
+        :param builtins.str image_uri_before_update: Auto update image uri before update.
+        :param builtins.str image_uri_targeted: Auto update image uri targetted to update.
+        :param builtins.str image_uri_terminal: Auto update image uri at Terminal.
+        :param builtins.str moved_to_terminal_state_date_time: Auto update image uri after update.
+        :param builtins.str plan_change_log_text: This text describing the purpose of the plan of auto update.
+        :param builtins.float plan_id: Auto update planId.
+        :param builtins.int rule_requested_day: Auto update image uri after update.
+        :param builtins.str rule_requested_hour: Auto update rule requested hour.
+        :param builtins.str rule_requested_minute: Auto update rule requested minute.
+        :param builtins.int rule_requested_week: Auto update image uri before update.
+        :param builtins.str time_to_go_live_date_time: Auto update time to go live date time.
+        :param builtins.str updated_registry_date_time_utc: Auto update entity last updated datetime.
+        """
+        pulumi.set(__self__, "auto_update_last_applied_status", auto_update_last_applied_status)
+        pulumi.set(__self__, "auto_update_last_applied_status_detailed_text", auto_update_last_applied_status_detailed_text)
+        pulumi.set(__self__, "auto_update_last_applied_status_text", auto_update_last_applied_status_text)
+        pulumi.set(__self__, "auto_update_ring_type", auto_update_ring_type)
+        pulumi.set(__self__, "created_date_time_utc", created_date_time_utc)
+        pulumi.set(__self__, "image_uri_before_update", image_uri_before_update)
+        pulumi.set(__self__, "image_uri_targeted", image_uri_targeted)
+        pulumi.set(__self__, "image_uri_terminal", image_uri_terminal)
+        pulumi.set(__self__, "moved_to_terminal_state_date_time", moved_to_terminal_state_date_time)
+        pulumi.set(__self__, "plan_change_log_text", plan_change_log_text)
+        pulumi.set(__self__, "plan_id", plan_id)
+        pulumi.set(__self__, "rule_requested_day", rule_requested_day)
+        pulumi.set(__self__, "rule_requested_hour", rule_requested_hour)
+        pulumi.set(__self__, "rule_requested_minute", rule_requested_minute)
+        pulumi.set(__self__, "rule_requested_week", rule_requested_week)
+        pulumi.set(__self__, "time_to_go_live_date_time", time_to_go_live_date_time)
+        pulumi.set(__self__, "updated_registry_date_time_utc", updated_registry_date_time_utc)
+
+    @property
+    @pulumi.getter(name="autoUpdateLastAppliedStatus")
+    def auto_update_last_applied_status(self) -> builtins.int:
+        """
+        Auto update last applied status.
+        """
+        return pulumi.get(self, "auto_update_last_applied_status")
+
+    @property
+    @pulumi.getter(name="autoUpdateLastAppliedStatusDetailedText")
+    def auto_update_last_applied_status_detailed_text(self) -> builtins.str:
+        """
+        Auto update last applied detailed status text.
+        """
+        return pulumi.get(self, "auto_update_last_applied_status_detailed_text")
+
+    @property
+    @pulumi.getter(name="autoUpdateLastAppliedStatusText")
+    def auto_update_last_applied_status_text(self) -> builtins.str:
+        """
+        Auto update last applied status text.
+        """
+        return pulumi.get(self, "auto_update_last_applied_status_text")
+
+    @property
+    @pulumi.getter(name="autoUpdateRingType")
+    def auto_update_ring_type(self) -> builtins.int:
+        """
+        Auto update Ring Type.
+        """
+        return pulumi.get(self, "auto_update_ring_type")
+
+    @property
+    @pulumi.getter(name="createdDateTimeUtc")
+    def created_date_time_utc(self) -> builtins.str:
+        """
+        Auto update entity created datetime.
+        """
+        return pulumi.get(self, "created_date_time_utc")
+
+    @property
+    @pulumi.getter(name="imageUriBeforeUpdate")
+    def image_uri_before_update(self) -> builtins.str:
+        """
+        Auto update image uri before update.
+        """
+        return pulumi.get(self, "image_uri_before_update")
+
+    @property
+    @pulumi.getter(name="imageUriTargeted")
+    def image_uri_targeted(self) -> builtins.str:
+        """
+        Auto update image uri targetted to update.
+        """
+        return pulumi.get(self, "image_uri_targeted")
+
+    @property
+    @pulumi.getter(name="imageUriTerminal")
+    def image_uri_terminal(self) -> builtins.str:
+        """
+        Auto update image uri at Terminal.
+        """
+        return pulumi.get(self, "image_uri_terminal")
+
+    @property
+    @pulumi.getter(name="movedToTerminalStateDateTime")
+    def moved_to_terminal_state_date_time(self) -> builtins.str:
+        """
+        Auto update image uri after update.
+        """
+        return pulumi.get(self, "moved_to_terminal_state_date_time")
+
+    @property
+    @pulumi.getter(name="planChangeLogText")
+    def plan_change_log_text(self) -> builtins.str:
+        """
+        This text describing the purpose of the plan of auto update.
+        """
+        return pulumi.get(self, "plan_change_log_text")
+
+    @property
+    @pulumi.getter(name="planId")
+    def plan_id(self) -> builtins.float:
+        """
+        Auto update planId.
+        """
+        return pulumi.get(self, "plan_id")
+
+    @property
+    @pulumi.getter(name="ruleRequestedDay")
+    def rule_requested_day(self) -> builtins.int:
+        """
+        Auto update image uri after update.
+        """
+        return pulumi.get(self, "rule_requested_day")
+
+    @property
+    @pulumi.getter(name="ruleRequestedHour")
+    def rule_requested_hour(self) -> builtins.str:
+        """
+        Auto update rule requested hour.
+        """
+        return pulumi.get(self, "rule_requested_hour")
+
+    @property
+    @pulumi.getter(name="ruleRequestedMinute")
+    def rule_requested_minute(self) -> builtins.str:
+        """
+        Auto update rule requested minute.
+        """
+        return pulumi.get(self, "rule_requested_minute")
+
+    @property
+    @pulumi.getter(name="ruleRequestedWeek")
+    def rule_requested_week(self) -> builtins.int:
+        """
+        Auto update image uri before update.
+        """
+        return pulumi.get(self, "rule_requested_week")
+
+    @property
+    @pulumi.getter(name="timeToGoLiveDateTime")
+    def time_to_go_live_date_time(self) -> builtins.str:
+        """
+        Auto update time to go live date time.
+        """
+        return pulumi.get(self, "time_to_go_live_date_time")
+
+    @property
+    @pulumi.getter(name="updatedRegistryDateTimeUtc")
+    def updated_registry_date_time_utc(self) -> builtins.str:
+        """
+        Auto update entity last updated datetime.
+        """
+        return pulumi.get(self, "updated_registry_date_time_utc")
+
+
+@pulumi.output_type
+class MccCacheNodeIssueHistoryPropertiesResponse(dict):
+    """
+    Mcc cache node resource issue history properties.
+    """
+    def __init__(__self__, *,
+                 cache_node_id: builtins.str,
+                 customer_id: builtins.str,
+                 mcc_issue_history: Optional[Sequence['outputs.MccIssueResponse']] = None):
+        """
+        Mcc cache node resource issue history properties.
+        :param builtins.str cache_node_id: Mcc cache node resource Id.
+        :param builtins.str customer_id: Mcc customer resource Id.
+        :param Sequence['MccIssueResponse'] mcc_issue_history: Cache node resource issue details history.
+        """
+        pulumi.set(__self__, "cache_node_id", cache_node_id)
+        pulumi.set(__self__, "customer_id", customer_id)
+        if mcc_issue_history is not None:
+            pulumi.set(__self__, "mcc_issue_history", mcc_issue_history)
+
+    @property
+    @pulumi.getter(name="cacheNodeId")
+    def cache_node_id(self) -> builtins.str:
+        """
+        Mcc cache node resource Id.
+        """
+        return pulumi.get(self, "cache_node_id")
+
+    @property
+    @pulumi.getter(name="customerId")
+    def customer_id(self) -> builtins.str:
+        """
+        Mcc customer resource Id.
+        """
+        return pulumi.get(self, "customer_id")
+
+    @property
+    @pulumi.getter(name="mccIssueHistory")
+    def mcc_issue_history(self) -> Optional[Sequence['outputs.MccIssueResponse']]:
+        """
+        Cache node resource issue details history.
+        """
+        return pulumi.get(self, "mcc_issue_history")
+
+
+@pulumi.output_type
+class MccCacheNodeTlsCertificatePropertiesResponse(dict):
+    """
+    Mcc cache node resource auto update properties.
+    """
+    def __init__(__self__, *,
+                 cache_node_id: builtins.str,
+                 customer_id: builtins.str,
+                 tls_certificate_history: Optional[Sequence['outputs.MccCacheNodeTlsCertificateResponse']] = None):
+        """
+        Mcc cache node resource auto update properties.
+        :param builtins.str cache_node_id: Mcc cache node resource Id.
+        :param builtins.str customer_id: Mcc customer resource Id.
+        :param Sequence['MccCacheNodeTlsCertificateResponse'] tls_certificate_history: Cache node resource tls certificate history details.
+        """
+        pulumi.set(__self__, "cache_node_id", cache_node_id)
+        pulumi.set(__self__, "customer_id", customer_id)
+        if tls_certificate_history is not None:
+            pulumi.set(__self__, "tls_certificate_history", tls_certificate_history)
+
+    @property
+    @pulumi.getter(name="cacheNodeId")
+    def cache_node_id(self) -> builtins.str:
+        """
+        Mcc cache node resource Id.
+        """
+        return pulumi.get(self, "cache_node_id")
+
+    @property
+    @pulumi.getter(name="customerId")
+    def customer_id(self) -> builtins.str:
+        """
+        Mcc customer resource Id.
+        """
+        return pulumi.get(self, "customer_id")
+
+    @property
+    @pulumi.getter(name="tlsCertificateHistory")
+    def tls_certificate_history(self) -> Optional[Sequence['outputs.MccCacheNodeTlsCertificateResponse']]:
+        """
+        Cache node resource tls certificate history details.
+        """
+        return pulumi.get(self, "tls_certificate_history")
+
+
+@pulumi.output_type
+class MccCacheNodeTlsCertificateResponse(dict):
+    """
+    Mcc cache node resource Tls certificate details.
+    """
+    def __init__(__self__, *,
+                 action_required: builtins.str,
+                 certificate_file_name: builtins.str,
+                 expiry_date: builtins.str,
+                 not_before_date: builtins.str,
+                 subject: builtins.str,
+                 subject_alt_name: builtins.str,
+                 thumbprint: builtins.str):
+        """
+        Mcc cache node resource Tls certificate details.
+        :param builtins.str action_required: Mcc cache node Tls certificate status.
+        :param builtins.str certificate_file_name: Mcc cache node Tls certificate file name.
+        :param builtins.str expiry_date: Mcc cache node Tls certificate expiry date.
+        :param builtins.str not_before_date: Mcc cache node Tls certificate not before date.
+        :param builtins.str subject: Mcc cache node Tls certificate subject name.
+        :param builtins.str subject_alt_name: Mcc cache node Tls certificate subject alternate name.
+        :param builtins.str thumbprint: Mcc cache node Tls certificate thumbprint.
+        """
+        pulumi.set(__self__, "action_required", action_required)
+        pulumi.set(__self__, "certificate_file_name", certificate_file_name)
+        pulumi.set(__self__, "expiry_date", expiry_date)
+        pulumi.set(__self__, "not_before_date", not_before_date)
+        pulumi.set(__self__, "subject", subject)
+        pulumi.set(__self__, "subject_alt_name", subject_alt_name)
+        pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @property
+    @pulumi.getter(name="actionRequired")
+    def action_required(self) -> builtins.str:
+        """
+        Mcc cache node Tls certificate status.
+        """
+        return pulumi.get(self, "action_required")
+
+    @property
+    @pulumi.getter(name="certificateFileName")
+    def certificate_file_name(self) -> builtins.str:
+        """
+        Mcc cache node Tls certificate file name.
+        """
+        return pulumi.get(self, "certificate_file_name")
+
+    @property
+    @pulumi.getter(name="expiryDate")
+    def expiry_date(self) -> builtins.str:
+        """
+        Mcc cache node Tls certificate expiry date.
+        """
+        return pulumi.get(self, "expiry_date")
+
+    @property
+    @pulumi.getter(name="notBeforeDate")
+    def not_before_date(self) -> builtins.str:
+        """
+        Mcc cache node Tls certificate not before date.
+        """
+        return pulumi.get(self, "not_before_date")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> builtins.str:
+        """
+        Mcc cache node Tls certificate subject name.
+        """
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter(name="subjectAltName")
+    def subject_alt_name(self) -> builtins.str:
+        """
+        Mcc cache node Tls certificate subject alternate name.
+        """
+        return pulumi.get(self, "subject_alt_name")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> builtins.str:
+        """
+        Mcc cache node Tls certificate thumbprint.
+        """
+        return pulumi.get(self, "thumbprint")
+
+
+@pulumi.output_type
+class MccIssueResponse(dict):
+    """
+    Mcc cache node resource issue properties.
+    """
+    def __init__(__self__, *,
+                 detail_string: builtins.str,
+                 help_link: builtins.str,
+                 issue_end_date: builtins.str,
+                 issue_start_date: builtins.str,
+                 mcc_issue_type: builtins.str,
+                 toast_string: builtins.str):
+        """
+        Mcc cache node resource issue properties.
+        :param builtins.str detail_string: Mcc cache node issue detail string.
+        :param builtins.str help_link: Mcc cache node issue related help link.
+        :param builtins.str issue_end_date: Mcc cache node issue end date.
+        :param builtins.str issue_start_date: Mcc cache node issue start date.
+        :param builtins.str mcc_issue_type: Mcc cache node issue type.
+        :param builtins.str toast_string: Mcc cache node issues toastString.
+        """
+        pulumi.set(__self__, "detail_string", detail_string)
+        pulumi.set(__self__, "help_link", help_link)
+        pulumi.set(__self__, "issue_end_date", issue_end_date)
+        pulumi.set(__self__, "issue_start_date", issue_start_date)
+        pulumi.set(__self__, "mcc_issue_type", mcc_issue_type)
+        pulumi.set(__self__, "toast_string", toast_string)
+
+    @property
+    @pulumi.getter(name="detailString")
+    def detail_string(self) -> builtins.str:
+        """
+        Mcc cache node issue detail string.
+        """
+        return pulumi.get(self, "detail_string")
+
+    @property
+    @pulumi.getter(name="helpLink")
+    def help_link(self) -> builtins.str:
+        """
+        Mcc cache node issue related help link.
+        """
+        return pulumi.get(self, "help_link")
+
+    @property
+    @pulumi.getter(name="issueEndDate")
+    def issue_end_date(self) -> builtins.str:
+        """
+        Mcc cache node issue end date.
+        """
+        return pulumi.get(self, "issue_end_date")
+
+    @property
+    @pulumi.getter(name="issueStartDate")
+    def issue_start_date(self) -> builtins.str:
+        """
+        Mcc cache node issue start date.
+        """
+        return pulumi.get(self, "issue_start_date")
+
+    @property
+    @pulumi.getter(name="mccIssueType")
+    def mcc_issue_type(self) -> builtins.str:
+        """
+        Mcc cache node issue type.
+        """
+        return pulumi.get(self, "mcc_issue_type")
+
+    @property
+    @pulumi.getter(name="toastString")
+    def toast_string(self) -> builtins.str:
+        """
+        Mcc cache node issues toastString.
+        """
+        return pulumi.get(self, "toast_string")
 
 
 @pulumi.output_type

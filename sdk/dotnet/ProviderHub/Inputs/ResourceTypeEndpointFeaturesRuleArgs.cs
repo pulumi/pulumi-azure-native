@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
+    /// <summary>
+    /// The features rule.
+    /// </summary>
     public sealed class ResourceTypeEndpointFeaturesRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The required feature policy.
+        /// </summary>
         [Input("requiredFeaturesPolicy", required: true)]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.FeaturesPolicy> RequiredFeaturesPolicy { get; set; } = null!;
 

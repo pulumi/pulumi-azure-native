@@ -13,6 +13,9 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     [OutputType]
     public sealed class OpenApiConfigurationResponse
     {
+        /// <summary>
+        /// The open api validation.
+        /// </summary>
         public readonly Outputs.OpenApiValidationResponse? Validation;
 
         [OutputConstructor]

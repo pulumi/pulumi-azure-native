@@ -32,10 +32,10 @@ class ServiceRunnerArgs:
         """
         The set of arguments for constructing a ServiceRunner resource.
         :param pulumi.Input[builtins.str] lab_name: The name of the lab.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['IdentityPropertiesArgs'] identity: The identity of the resource.
         :param pulumi.Input[builtins.str] location: The location of the resource.
-        :param pulumi.Input[builtins.str] name: The name of the service runner.
+        :param pulumi.Input[builtins.str] name: The name of the ServiceRunner
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
         """
         pulumi.set(__self__, "lab_name", lab_name)
@@ -65,7 +65,7 @@ class ServiceRunnerArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -101,7 +101,7 @@ class ServiceRunnerArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the service runner.
+        The name of the ServiceRunner
         """
         return pulumi.get(self, "name")
 
@@ -145,8 +145,8 @@ class ServiceRunner(pulumi.CustomResource):
         :param pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']] identity: The identity of the resource.
         :param pulumi.Input[builtins.str] lab_name: The name of the lab.
         :param pulumi.Input[builtins.str] location: The location of the resource.
-        :param pulumi.Input[builtins.str] name: The name of the service runner.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[builtins.str] name: The name of the ServiceRunner
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags of the resource.
         """
         ...

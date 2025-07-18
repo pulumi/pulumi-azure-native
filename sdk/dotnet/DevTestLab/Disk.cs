@@ -218,13 +218,13 @@ namespace Pulumi.AzureNative.DevTestLab
         public Input<string>? ManagedDiskId { get; set; }
 
         /// <summary>
-        /// The name of the disk.
+        /// The name of the Disk
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

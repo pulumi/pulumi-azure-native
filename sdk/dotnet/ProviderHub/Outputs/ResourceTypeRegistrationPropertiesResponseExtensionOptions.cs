@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Outputs
 {
 
+    /// <summary>
+    /// The extension options.
+    /// </summary>
     [OutputType]
     public sealed class ResourceTypeRegistrationPropertiesResponseExtensionOptions
     {
+        /// <summary>
+        /// Resource creation begin.
+        /// </summary>
         public readonly Outputs.ResourceTypeExtensionOptionsResponseResourceCreationBegin? ResourceCreationBegin;
 
         [OutputConstructor]

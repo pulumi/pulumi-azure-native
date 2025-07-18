@@ -13,7 +13,13 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     [OutputType]
     public sealed class SubscriptionStateOverrideActionResponse
     {
+        /// <summary>
+        /// The action.
+        /// </summary>
         public readonly string Action;
+        /// <summary>
+        /// The state.
+        /// </summary>
         public readonly string State;
 
         [OutputConstructor]

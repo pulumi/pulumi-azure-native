@@ -70,11 +70,15 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
      */
     public readonly resolutionPolicy!: pulumi.Output<string | undefined>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.privatedns.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -115,6 +119,7 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualNetworkLinkState"] = undefined /*out*/;
         } else {
@@ -125,6 +130,7 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["registrationEnabled"] = undefined /*out*/;
             resourceInputs["resolutionPolicy"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualNetwork"] = undefined /*out*/;
@@ -158,7 +164,7 @@ export interface VirtualNetworkLinkArgs {
      */
     resolutionPolicy?: pulumi.Input<string | enums.privatedns.ResolutionPolicy>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

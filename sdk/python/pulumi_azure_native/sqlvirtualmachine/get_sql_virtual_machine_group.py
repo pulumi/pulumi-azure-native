@@ -100,7 +100,7 @@ class GetSqlVirtualMachineGroupResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -108,7 +108,7 @@ class GetSqlVirtualMachineGroupResult:
     @pulumi.getter
     def location(self) -> builtins.str:
         """
-        Resource location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -116,7 +116,7 @@ class GetSqlVirtualMachineGroupResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -156,7 +156,7 @@ class GetSqlVirtualMachineGroupResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -172,7 +172,7 @@ class GetSqlVirtualMachineGroupResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -218,7 +218,7 @@ def get_sql_virtual_machine_group(resource_group_name: Optional[builtins.str] = 
     Other available API versions: 2022-02-01, 2022-07-01-preview, 2022-08-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sqlvirtualmachine [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str sql_virtual_machine_group_name: Name of the SQL virtual machine group.
     """
     __args__ = dict()
@@ -253,7 +253,7 @@ def get_sql_virtual_machine_group_output(resource_group_name: Optional[pulumi.In
     Other available API versions: 2022-02-01, 2022-07-01-preview, 2022-08-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sqlvirtualmachine [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str sql_virtual_machine_group_name: Name of the SQL virtual machine group.
     """
     __args__ = dict()

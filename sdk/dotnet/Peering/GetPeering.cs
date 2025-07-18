@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Peering
         /// Gets an existing peering with the specified name under the given subscription and resource group.
         /// 
         /// Uses Azure REST API version 2022-10-01.
+        /// 
+        /// Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPeeringResult> InvokeAsync(GetPeeringArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPeeringResult>("azure-native:peering:getPeering", args ?? new GetPeeringArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Peering
         /// Gets an existing peering with the specified name under the given subscription and resource group.
         /// 
         /// Uses Azure REST API version 2022-10-01.
+        /// 
+        /// Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPeeringResult> Invoke(GetPeeringInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPeeringResult>("azure-native:peering:getPeering", args ?? new GetPeeringInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Peering
         /// Gets an existing peering with the specified name under the given subscription and resource group.
         /// 
         /// Uses Azure REST API version 2022-10-01.
+        /// 
+        /// Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPeeringResult> Invoke(GetPeeringInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPeeringResult>("azure-native:peering:getPeering", args ?? new GetPeeringInvokeArgs(), options.WithDefaults());

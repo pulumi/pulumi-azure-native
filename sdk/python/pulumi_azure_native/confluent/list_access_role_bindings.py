@@ -80,7 +80,7 @@ def list_access_role_bindings(organization_name: Optional[builtins.str] = None,
                               search_filters: Optional[Mapping[str, builtins.str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAccessRoleBindingsResult:
     """
-    Details of the role bindings returned on successful response
+    Organization role bindings
 
     Uses Azure REST API version 2024-07-01.
 
@@ -107,7 +107,7 @@ def list_access_role_bindings_output(organization_name: Optional[pulumi.Input[bu
                                      search_filters: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAccessRoleBindingsResult]:
     """
-    Details of the role bindings returned on successful response
+    Organization role bindings
 
     Uses Azure REST API version 2024-07-01.
 

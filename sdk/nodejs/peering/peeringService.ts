@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Peering Service
  *
  * Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+ *
+ * Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class PeeringService extends pulumi.CustomResource {
     /**
@@ -131,7 +133,7 @@ export class PeeringService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:peering/v20190801preview:PeeringService" }, { type: "azure-native:peering/v20190901preview:PeeringService" }, { type: "azure-native:peering/v20200101preview:PeeringService" }, { type: "azure-native:peering/v20200401:PeeringService" }, { type: "azure-native:peering/v20201001:PeeringService" }, { type: "azure-native:peering/v20210101:PeeringService" }, { type: "azure-native:peering/v20210601:PeeringService" }, { type: "azure-native:peering/v20220101:PeeringService" }, { type: "azure-native:peering/v20220601:PeeringService" }, { type: "azure-native:peering/v20221001:PeeringService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:peering/v20190801preview:PeeringService" }, { type: "azure-native:peering/v20190901preview:PeeringService" }, { type: "azure-native:peering/v20200101preview:PeeringService" }, { type: "azure-native:peering/v20200401:PeeringService" }, { type: "azure-native:peering/v20201001:PeeringService" }, { type: "azure-native:peering/v20210101:PeeringService" }, { type: "azure-native:peering/v20210601:PeeringService" }, { type: "azure-native:peering/v20220101:PeeringService" }, { type: "azure-native:peering/v20220601:PeeringService" }, { type: "azure-native:peering/v20221001:PeeringService" }, { type: "azure-native:peering/v20250501:PeeringService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PeeringService.__pulumiType, name, resourceInputs, opts);
     }

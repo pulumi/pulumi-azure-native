@@ -198,6 +198,8 @@ ChangeAnalysis:
     tracking: 2020-04-01-preview
 Chaos:
     tracking: 2024-03-22-preview
+CloudHealth:
+    tracking: 2025-05-01-preview
 Cloudngfw:
     tracking: 2025-02-06-preview
 CodeSigning:
@@ -252,13 +254,20 @@ Compute:
         VirtualMachineScaleSetVMRunCommand: "2024-11-01"
         getLogAnalyticExportRequestRateByInterval: "2024-11-01"
         getLogAnalyticExportThrottledRequests: "2024-11-01"
-ComputeSchedule: {}
+ComputeSchedule:
+    tracking: 2025-04-15-preview
 ConfidentialLedger:
     tracking: 2023-06-28-preview
 Confluent:
     tracking: "2024-07-01"
 ConnectedCache:
     tracking: 2023-05-01-preview
+    additions:
+        getEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistory: 2024-11-30-preview
+        getEnterpriseMccCacheNodesOperationCacheNodeMccIssueDetailsHistory: 2024-11-30-preview
+        getEnterpriseMccCacheNodesOperationCacheNodeTlsCertificateHistory: 2024-11-30-preview
+        getIspCacheNodesOperationCacheNodeAutoUpdateHistory: 2024-11-30-preview
+        getIspCacheNodesOperationCacheNodeMccIssueDetailsHistory: 2024-11-30-preview
 ConnectedVMwarevSphere:
     tracking: "2023-12-01"
     additions:
@@ -303,15 +312,18 @@ ContainerService:
     tracking: "2024-10-01"
     additions:
         AutoUpgradeProfile: 2024-05-02-preview
+        DeploymentSafeguard: 2025-04-02-preview
         Fleet: 2024-05-02-preview
         FleetMember: 2024-05-02-preview
         FleetUpdateStrategy: 2024-05-02-preview
         LoadBalancer: 2024-10-02-preview
         ManagedClusterSnapshot: 2024-10-02-preview
+        ManagedNamespace: 2025-04-02-preview
         Namespace: 2025-02-02-preview
         UpdateRun: 2024-05-02-preview
         listFleetCredentials: 2024-05-02-preview
         listManagedClusterAccessProfile: "2020-03-01"
+        listManagedNamespaceCredential: 2025-04-02-preview
         listNamespaceCredential: 2025-02-02-preview
 ContainerStorage:
     tracking: 2023-07-01-preview
@@ -451,6 +463,21 @@ DBforMySQL:
         - modulename: DBforMySQL
           resourcename: Server
           detail: version 2024-10-01-preview is greater than 2017-12-01
+        - modulename: DBforMySQL
+          resourcename: Configuration
+          detail: version 2024-12-01-preview is greater than 2017-12-01
+        - modulename: DBforMySQL
+          resourcename: Database
+          detail: version 2024-12-01-preview is greater than 2017-12-01
+        - modulename: DBforMySQL
+          resourcename: FirewallRule
+          detail: version 2024-12-01-preview is greater than 2017-12-01
+        - modulename: DBforMySQL
+          resourcename: PrivateEndpointConnection
+          detail: version 2024-12-01-preview is greater than 2018-06-01
+        - modulename: DBforMySQL
+          resourcename: Server
+          detail: version 2024-12-01-preview is greater than 2017-12-01
 DBforPostgreSQL:
     tracking: "2024-08-01"
     additions:
@@ -567,6 +594,8 @@ DBforPostgreSQL:
           detail: version 2025-01-01-preview is greater than 2017-12-01
 Dashboard:
     tracking: "2024-10-01"
+    additions:
+        Dashboard: 2024-11-01-preview
 DataBox:
     tracking: 2024-03-01-preview
 DataBoxEdge:
@@ -848,6 +877,7 @@ MachineLearningServices:
         LinkedWorkspace: 2020-05-15-preview
         MachineLearningDataset: 2020-05-01-preview
         MachineLearningDatastore: 2020-05-01-preview
+        OutboundRule: 2025-04-01-preview
         RaiPolicy: 2025-01-01-preview
         getComputeAllowedResizeSizes: 2025-01-01-preview
         getFeaturesetVersionFeature: 2023-02-01-preview
@@ -902,33 +932,6 @@ Marketplace:
     tracking: "2023-01-01"
 MarketplaceNotifications: {}
 MarketplaceOrdering: {}
-Media:
-    additions:
-        AccountFilter: "2023-01-01"
-        Asset: "2023-01-01"
-        AssetFilter: "2023-01-01"
-        ContentKeyPolicy: "2023-01-01"
-        Job: "2022-07-01"
-        LiveEvent: "2022-11-01"
-        LiveOutput: "2022-11-01"
-        MediaService: "2023-01-01"
-        PrivateEndpointConnection: "2023-01-01"
-        StreamingEndpoint: "2022-11-01"
-        StreamingLocator: "2023-01-01"
-        StreamingPolicy: "2023-01-01"
-        Track: "2023-01-01"
-        Transform: "2022-07-01"
-        getAssetEncryptionKey: "2023-01-01"
-        getContentKeyPolicyPropertiesWithSecrets: "2023-01-01"
-        getLiveEventStatus: "2022-11-01"
-        getLiveEventStreamEvents: "2022-11-01"
-        getLiveEventTrackIngestHeartbeats: "2022-11-01"
-        listAssetContainerSas: "2023-01-01"
-        listAssetStreamingLocators: "2023-01-01"
-        listMediaServiceEdgePolicies: "2023-01-01"
-        listMediaServiceKeys: "2015-10-01"
-        listStreamingLocatorContentKeys: "2023-01-01"
-        listStreamingLocatorPaths: "2023-01-01"
 Migrate:
     additions:
         AksAssessmentOperation: 2024-01-01-preview
@@ -987,6 +990,9 @@ Migrate:
         - modulename: Migrate
           resourcename: AssessmentsOperation
           detail: version 2024-01-01-preview is greater than 2023-03-15
+        - modulename: Migrate
+          resourcename: AssessmentsOperation
+          detail: version 2024-01-15 is greater than 2023-03-15
 MixedReality:
     tracking: 2021-03-01-preview
 MobileNetwork:
@@ -995,6 +1001,8 @@ MobileNetwork:
         listMobileNetworkSimIds: 2022-04-01-preview
 MongoCluster:
     tracking: "2024-07-01"
+    additions:
+        User: 2025-04-01-preview
 Monitor:
     tracking: 2024-10-01-preview
     additions:
@@ -1255,6 +1263,7 @@ Orbital:
     additions:
         Contact: "2022-11-01"
         ContactProfile: "2022-11-01"
+        GeoCatalog: 2025-02-11-preview
         Spacecraft: "2022-11-01"
         listSpacecraftAvailableContacts: "2022-11-01"
 Peering:
@@ -1298,7 +1307,7 @@ ProfessionalService:
 ProgrammableConnectivity:
     tracking: 2024-01-15-preview
 ProviderHub:
-    tracking: 2021-09-01-preview
+    tracking: "2024-09-01"
 Purview:
     tracking: 2024-04-01-preview
 Quantum:
@@ -1505,6 +1514,8 @@ StorageCache:
     tracking: "2024-03-01"
     additions:
         AutoExportJob: "2024-07-01"
+StorageDiscovery:
+    tracking: 2025-06-01-preview
 StorageMover:
     tracking: "2024-07-01"
 StoragePool:
@@ -1560,6 +1571,8 @@ Web:
         Connection: "2016-06-01"
         ConnectionGateway: "2016-06-01"
         CustomApi: "2016-06-01"
+        SiteCertificate: "2024-11-01"
+        SiteCertificateSlot: "2024-11-01"
         WebAppAuthSettingsV2: "2021-02-01"
         WebAppAuthSettingsV2Slot: "2021-02-01"
         listConnectionConsentLinks: "2016-06-01"
@@ -1571,6 +1584,8 @@ WebPubSub:
     tracking: "2024-03-01"
 WeightsAndBiases:
     tracking: 2024-09-18-preview
+Widget:
+    tracking: "2021-11-01"
 WindowsESU:
     tracking: 2019-09-16-preview
 WindowsIoT:

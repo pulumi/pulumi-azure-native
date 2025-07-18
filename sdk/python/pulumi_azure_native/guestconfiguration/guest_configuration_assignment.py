@@ -23,37 +23,48 @@ __all__ = ['GuestConfigurationAssignmentArgs', 'GuestConfigurationAssignment']
 @pulumi.input_type
 class GuestConfigurationAssignmentArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[builtins.str],
                  resource_group_name: pulumi.Input[builtins.str],
                  vm_name: pulumi.Input[builtins.str],
                  guest_configuration_assignment_name: Optional[pulumi.Input[builtins.str]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
                  properties: Optional[pulumi.Input['GuestConfigurationAssignmentPropertiesArgs']] = None):
         """
         The set of arguments for constructing a GuestConfigurationAssignment resource.
-        :param pulumi.Input[builtins.str] resource_group_name: The resource group name.
+        :param pulumi.Input[builtins.str] name: The guest configuration assignment name.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] vm_name: The name of the virtual machine.
-        :param pulumi.Input[builtins.str] guest_configuration_assignment_name: Name of the guest configuration assignment.
+        :param pulumi.Input[builtins.str] guest_configuration_assignment_name: The guest configuration assignment name.
         :param pulumi.Input[builtins.str] location: Region where the VM is located.
-        :param pulumi.Input[builtins.str] name: Name of the guest configuration assignment.
         :param pulumi.Input['GuestConfigurationAssignmentPropertiesArgs'] properties: Properties of the Guest configuration assignment.
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vm_name", vm_name)
         if guest_configuration_assignment_name is not None:
             pulumi.set(__self__, "guest_configuration_assignment_name", guest_configuration_assignment_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        The guest configuration assignment name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The resource group name.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -77,7 +88,7 @@ class GuestConfigurationAssignmentArgs:
     @pulumi.getter(name="guestConfigurationAssignmentName")
     def guest_configuration_assignment_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Name of the guest configuration assignment.
+        The guest configuration assignment name.
         """
         return pulumi.get(self, "guest_configuration_assignment_name")
 
@@ -96,18 +107,6 @@ class GuestConfigurationAssignmentArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Name of the guest configuration assignment.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -144,11 +143,11 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] guest_configuration_assignment_name: Name of the guest configuration assignment.
+        :param pulumi.Input[builtins.str] guest_configuration_assignment_name: The guest configuration assignment name.
         :param pulumi.Input[builtins.str] location: Region where the VM is located.
-        :param pulumi.Input[builtins.str] name: Name of the guest configuration assignment.
+        :param pulumi.Input[builtins.str] name: The guest configuration assignment name.
         :param pulumi.Input[Union['GuestConfigurationAssignmentPropertiesArgs', 'GuestConfigurationAssignmentPropertiesArgsDict']] properties: Properties of the Guest configuration assignment.
-        :param pulumi.Input[builtins.str] resource_group_name: The resource group name.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] vm_name: The name of the virtual machine.
         """
         ...
@@ -196,6 +195,8 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
 
             __props__.__dict__["guest_configuration_assignment_name"] = guest_configuration_assignment_name
             __props__.__dict__["location"] = location
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
@@ -257,9 +258,9 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[builtins.str]]:
+    def name(self) -> pulumi.Output[builtins.str]:
         """
-        Name of the guest configuration assignment.
+        The guest configuration assignment name.
         """
         return pulumi.get(self, "name")
 

@@ -30,7 +30,7 @@ class ConfigurationAssignmentsForSubscriptionArgs:
                  resource_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ConfigurationAssignmentsForSubscription resource.
-        :param pulumi.Input[builtins.str] configuration_assignment_name: Configuration assignment name
+        :param pulumi.Input[builtins.str] configuration_assignment_name: The name of the ConfigurationAssignment
         :param pulumi.Input['ConfigurationAssignmentFilterPropertiesArgs'] filter: Properties of the configuration assignment
         :param pulumi.Input[builtins.str] location: Location of the resource
         :param pulumi.Input[builtins.str] maintenance_configuration_id: The maintenance configuration Id
@@ -51,7 +51,7 @@ class ConfigurationAssignmentsForSubscriptionArgs:
     @pulumi.getter(name="configurationAssignmentName")
     def configuration_assignment_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Configuration assignment name
+        The name of the ConfigurationAssignment
         """
         return pulumi.get(self, "configuration_assignment_name")
 
@@ -129,7 +129,7 @@ class ConfigurationAssignmentsForSubscription(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] configuration_assignment_name: Configuration assignment name
+        :param pulumi.Input[builtins.str] configuration_assignment_name: The name of the ConfigurationAssignment
         :param pulumi.Input[Union['ConfigurationAssignmentFilterPropertiesArgs', 'ConfigurationAssignmentFilterPropertiesArgsDict']] filter: Properties of the configuration assignment
         :param pulumi.Input[builtins.str] location: Location of the resource
         :param pulumi.Input[builtins.str] maintenance_configuration_id: The maintenance configuration Id
@@ -256,7 +256,7 @@ class ConfigurationAssignmentsForSubscription(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Name of the resource
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -280,7 +280,7 @@ class ConfigurationAssignmentsForSubscription(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Type of the resource
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

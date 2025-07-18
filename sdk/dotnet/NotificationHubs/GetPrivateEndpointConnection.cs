@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.NotificationHubs
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// Represents a Private Endpoint Connection ARM resource - a sub-resource of Notification Hubs namespace.
+        /// Returns a Private Endpoint Connection with a given name.
+        /// This is a public API that can be called directly by Notification Hubs users.
         /// 
         /// Uses Azure REST API version 2023-10-01-preview.
         /// 
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.NotificationHubs
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:notificationhubs:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a Private Endpoint Connection ARM resource - a sub-resource of Notification Hubs namespace.
+        /// Returns a Private Endpoint Connection with a given name.
+        /// This is a public API that can be called directly by Notification Hubs users.
         /// 
         /// Uses Azure REST API version 2023-10-01-preview.
         /// 
@@ -32,7 +34,8 @@ namespace Pulumi.AzureNative.NotificationHubs
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:notificationhubs:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a Private Endpoint Connection ARM resource - a sub-resource of Notification Hubs namespace.
+        /// Returns a Private Endpoint Connection with a given name.
+        /// This is a public API that can be called directly by Notification Hubs users.
         /// 
         /// Uses Azure REST API version 2023-10-01-preview.
         /// 

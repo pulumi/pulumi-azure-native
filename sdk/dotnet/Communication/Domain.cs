@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Communication
     /// 
     /// Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-31.
     /// 
-    /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// 
     /// Note: If `domainManagement` is set to `AzureManaged`, then `domainName` is required.
     /// </summary>
@@ -138,6 +138,8 @@ namespace Pulumi.AzureNative.Communication
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230401preview:Domain" },
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230601preview:Domain" },
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20240901preview:Domain" },
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20250501:Domain" },
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20250501preview:Domain" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

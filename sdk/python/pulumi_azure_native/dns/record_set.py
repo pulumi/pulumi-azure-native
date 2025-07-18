@@ -509,6 +509,7 @@ class RecordSet(pulumi.CustomResource):
             __props__.__dict__["fqdn"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dns/v20150504preview:RecordSet"), pulumi.Alias(type_="azure-native:dns/v20160401:RecordSet"), pulumi.Alias(type_="azure-native:dns/v20170901:RecordSet"), pulumi.Alias(type_="azure-native:dns/v20171001:RecordSet"), pulumi.Alias(type_="azure-native:dns/v20180301preview:RecordSet"), pulumi.Alias(type_="azure-native:dns/v20180501:RecordSet"), pulumi.Alias(type_="azure-native:dns/v20230701preview:RecordSet"), pulumi.Alias(type_="azure-native:network/v20180501:RecordSet"), pulumi.Alias(type_="azure-native:network/v20230701preview:RecordSet"), pulumi.Alias(type_="azure-native:network:RecordSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -551,6 +552,7 @@ class RecordSet(pulumi.CustomResource):
         __props__.__dict__["ptr_records"] = None
         __props__.__dict__["soa_record"] = None
         __props__.__dict__["srv_records"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["target_resource"] = None
         __props__.__dict__["tlsa_records"] = None
         __props__.__dict__["traffic_management_profile"] = None
@@ -643,7 +645,7 @@ class RecordSet(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        The name of the record set.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -696,6 +698,14 @@ class RecordSet(pulumi.CustomResource):
         return pulumi.get(self, "srv_records")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter(name="targetResource")
     def target_resource(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
@@ -739,7 +749,7 @@ class RecordSet(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        The type of the record set.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

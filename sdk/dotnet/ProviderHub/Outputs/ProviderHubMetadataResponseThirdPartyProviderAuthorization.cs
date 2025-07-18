@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Outputs
 {
 
+    /// <summary>
+    /// The third party provider authorization.
+    /// </summary>
     [OutputType]
     public sealed class ProviderHubMetadataResponseThirdPartyProviderAuthorization
     {
+        /// <summary>
+        /// The authorizations.
+        /// </summary>
         public readonly ImmutableArray<Outputs.LightHouseAuthorizationResponse> Authorizations;
+        /// <summary>
+        /// The managed by tenant id.
+        /// </summary>
         public readonly string? ManagedByTenantId;
 
         [OutputConstructor]

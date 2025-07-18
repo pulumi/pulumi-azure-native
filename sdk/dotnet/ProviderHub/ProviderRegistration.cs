@@ -10,7 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub
 {
     /// <summary>
-    /// Uses Azure REST API version 2021-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
+    /// Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
+    /// 
+    /// Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:providerhub:ProviderRegistration")]
     public partial class ProviderRegistration : global::Pulumi.CustomResource
@@ -22,16 +24,22 @@ namespace Pulumi.AzureNative.ProviderHub
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+        /// </summary>
+        [Output("kind")]
+        public Output<string?> Kind { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         [Output("properties")]
-        public Output<Outputs.ProviderRegistrationResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.ProviderRegistrationPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -71,6 +79,7 @@ namespace Pulumi.AzureNative.ProviderHub
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:ProviderRegistration" },
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:ProviderRegistration" },
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:ProviderRegistration" },
+                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20240901:ProviderRegistration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,6 +103,12 @@ namespace Pulumi.AzureNative.ProviderHub
 
     public sealed class ProviderRegistrationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+        /// </summary>
+        [Input("kind")]
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.ProviderRegistrationKind>? Kind { get; set; }
+
         [Input("properties")]
         public Input<Inputs.ProviderRegistrationPropertiesArgs>? Properties { get; set; }
 
@@ -105,6 +120,7 @@ namespace Pulumi.AzureNative.ProviderHub
 
         public ProviderRegistrationArgs()
         {
+            Kind = "Managed";
         }
         public static new ProviderRegistrationArgs Empty => new ProviderRegistrationArgs();
     }

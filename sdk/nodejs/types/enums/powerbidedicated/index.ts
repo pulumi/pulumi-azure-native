@@ -13,18 +13,6 @@ export const CapacitySkuTier = {
  */
 export type CapacitySkuTier = (typeof CapacitySkuTier)[keyof typeof CapacitySkuTier];
 
-export const IdentityType = {
-    User: "User",
-    Application: "Application",
-    ManagedIdentity: "ManagedIdentity",
-    Key: "Key",
-} as const;
-
-/**
- * The type of identity that last modified the resource
- */
-export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
-
 export const Mode = {
     Gen1: "Gen1",
     Gen2: "Gen2",

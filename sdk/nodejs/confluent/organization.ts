@@ -50,11 +50,11 @@ export class Organization extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
-     * Location of Organization resource
+     * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -74,15 +74,15 @@ export class Organization extends pulumi.CustomResource {
      */
     public /*out*/ readonly ssoUrl!: pulumi.Output<string>;
     /**
-     * Metadata pertaining to creation and last modification of the resource
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.confluent.SystemDataResponse>;
     /**
-     * Organization resource tags
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -155,7 +155,7 @@ export interface OrganizationArgs {
      */
     linkOrganization?: pulumi.Input<inputs.confluent.LinkOrganizationArgs>;
     /**
-     * Location of Organization resource
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -167,11 +167,11 @@ export interface OrganizationArgs {
      */
     organizationName?: pulumi.Input<string>;
     /**
-     * Resource group name
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Organization resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

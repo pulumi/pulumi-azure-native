@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Confluent
     public static class GetTopic
     {
         /// <summary>
-        /// Details of topic record
+        /// Get confluent topic by Name
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// </summary>
@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.Confluent
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure-native:confluent:getTopic", args ?? new GetTopicArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Details of topic record
+        /// Get confluent topic by Name
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Confluent
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure-native:confluent:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Details of topic record
+        /// Get confluent topic by Name
         /// 
         /// Uses Azure REST API version 2024-07-01.
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.Confluent
         /// </summary>
         public readonly Outputs.TopicsRelatedLinkResponse? Configs;
         /// <summary>
-        /// The ARM Resource Id of the Topic
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.Confluent
         /// </summary>
         public readonly Outputs.TopicMetadataEntityResponse? Metadata;
         /// <summary>
-        /// Display name of the topic
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -162,11 +162,15 @@ namespace Pulumi.AzureNative.Confluent
         /// </summary>
         public readonly string? ReplicationFactor;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Topic Id returned by Confluent
         /// </summary>
         public readonly string? TopicId;
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -194,6 +198,8 @@ namespace Pulumi.AzureNative.Confluent
 
             string? replicationFactor,
 
+            Outputs.SystemDataResponse systemData,
+
             string? topicId,
 
             string type)
@@ -209,6 +215,7 @@ namespace Pulumi.AzureNative.Confluent
             PartitionsCount = partitionsCount;
             PartitionsReassignments = partitionsReassignments;
             ReplicationFactor = replicationFactor;
+            SystemData = systemData;
             TopicId = topicId;
             Type = type;
         }

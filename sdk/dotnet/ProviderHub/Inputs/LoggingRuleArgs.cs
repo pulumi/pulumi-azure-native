@@ -12,15 +12,27 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
     public sealed class LoggingRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action.
+        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
+        /// <summary>
+        /// The detail level.
+        /// </summary>
         [Input("detailLevel", required: true)]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.LoggingDetails> DetailLevel { get; set; } = null!;
 
+        /// <summary>
+        /// The direction.
+        /// </summary>
         [Input("direction", required: true)]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.LoggingDirections> Direction { get; set; } = null!;
 
+        /// <summary>
+        /// The hidden property paths.
+        /// </summary>
         [Input("hiddenPropertyPaths")]
         public Input<Inputs.LoggingRuleHiddenPropertyPathsArgs>? HiddenPropertyPaths { get; set; }
 

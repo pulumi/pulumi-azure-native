@@ -31,12 +31,12 @@ class GalleryInVMAccessControlProfileArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a GalleryInVMAccessControlProfile resource.
-        :param pulumi.Input[builtins.str] gallery_name: The name of the Shared Image Gallery in which the InVMAccessControlProfile is to be created.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[builtins.str] in_vm_access_control_profile_name: The name of the gallery inVMAccessControlProfile to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] gallery_name: The name of the Shared Image Gallery.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[builtins.str] in_vm_access_control_profile_name: The name of the gallery inVMAccessControlProfile to be retrieved.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['GalleryInVMAccessControlProfilePropertiesArgs'] properties: Describes the properties of a gallery inVMAccessControlProfile.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "gallery_name", gallery_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -53,7 +53,7 @@ class GalleryInVMAccessControlProfileArgs:
     @pulumi.getter(name="galleryName")
     def gallery_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the Shared Image Gallery in which the InVMAccessControlProfile is to be created.
+        The name of the Shared Image Gallery.
         """
         return pulumi.get(self, "gallery_name")
 
@@ -65,7 +65,7 @@ class GalleryInVMAccessControlProfileArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -77,7 +77,7 @@ class GalleryInVMAccessControlProfileArgs:
     @pulumi.getter(name="inVMAccessControlProfileName")
     def in_vm_access_control_profile_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the gallery inVMAccessControlProfile to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
+        The name of the gallery inVMAccessControlProfile to be retrieved.
         """
         return pulumi.get(self, "in_vm_access_control_profile_name")
 
@@ -89,7 +89,7 @@ class GalleryInVMAccessControlProfileArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -113,7 +113,7 @@ class GalleryInVMAccessControlProfileArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -142,12 +142,12 @@ class GalleryInVMAccessControlProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] gallery_name: The name of the Shared Image Gallery in which the InVMAccessControlProfile is to be created.
-        :param pulumi.Input[builtins.str] in_vm_access_control_profile_name: The name of the gallery inVMAccessControlProfile to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
-        :param pulumi.Input[builtins.str] location: Resource location
+        :param pulumi.Input[builtins.str] gallery_name: The name of the Shared Image Gallery.
+        :param pulumi.Input[builtins.str] in_vm_access_control_profile_name: The name of the gallery inVMAccessControlProfile to be retrieved.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['GalleryInVMAccessControlProfilePropertiesArgs', 'GalleryInVMAccessControlProfilePropertiesArgsDict']] properties: Describes the properties of a gallery inVMAccessControlProfile.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -202,6 +202,7 @@ class GalleryInVMAccessControlProfile(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20240303:GalleryInVMAccessControlProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -231,6 +232,7 @@ class GalleryInVMAccessControlProfile(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return GalleryInVMAccessControlProfile(resource_name, opts=opts, __props__=__props__)
@@ -247,7 +249,7 @@ class GalleryInVMAccessControlProfile(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -255,7 +257,7 @@ class GalleryInVMAccessControlProfile(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -268,10 +270,18 @@ class GalleryInVMAccessControlProfile(pulumi.CustomResource):
         return pulumi.get(self, "properties")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -279,7 +289,7 @@ class GalleryInVMAccessControlProfile(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

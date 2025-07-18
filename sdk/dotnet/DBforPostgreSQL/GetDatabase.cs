@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public static class GetDatabase
     {
         /// <summary>
-        /// Gets information about a database.
+        /// Gets information about an existing database.
         /// 
         /// Uses Azure REST API version 2024-08-01.
         /// 
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-native:dbforpostgresql:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets information about a database.
+        /// Gets information about an existing database.
         /// 
         /// Uses Azure REST API version 2024-08-01.
         /// 
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("azure-native:dbforpostgresql:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets information about a database.
+        /// Gets information about an existing database.
         /// 
         /// Uses Azure REST API version 2024-08-01.
         /// 
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class GetDatabaseArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the database.
+        /// Name of the database.
         /// </summary>
         [Input("databaseName", required: true)]
         public string DatabaseName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class GetDatabaseInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the database.
+        /// Name of the database.
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
@@ -104,11 +104,11 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// The charset of the database.
+        /// Character set of the database.
         /// </summary>
         public readonly string? Charset;
         /// <summary>
-        /// The collation of the database.
+        /// Collation of the database.
         /// </summary>
         public readonly string? Collation;
         /// <summary>

@@ -28074,6 +28074,7 @@ if not MYPY:
         """
         Private Endpoint destination for a Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
         """
+        fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         status: NotRequired[pulumi.Input[Union[builtins.str, 'RuleStatus']]]
         """
         Type of a managed network Outbound Rule of a machine learning workspace.
@@ -28087,6 +28088,7 @@ class PrivateEndpointOutboundRuleArgs:
                  type: pulumi.Input[builtins.str],
                  category: Optional[pulumi.Input[Union[builtins.str, 'RuleCategory']]] = None,
                  destination: Optional[pulumi.Input['PrivateEndpointDestinationArgs']] = None,
+                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  status: Optional[pulumi.Input[Union[builtins.str, 'RuleStatus']]] = None):
         """
         Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
@@ -28101,6 +28103,8 @@ class PrivateEndpointOutboundRuleArgs:
             pulumi.set(__self__, "category", category)
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
+        if fqdns is not None:
+            pulumi.set(__self__, "fqdns", fqdns)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -28140,6 +28144,15 @@ class PrivateEndpointOutboundRuleArgs:
     @destination.setter
     def destination(self, value: Optional[pulumi.Input['PrivateEndpointDestinationArgs']]):
         pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter
+    def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "fqdns")
+
+    @fqdns.setter
+    def fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "fqdns", value)
 
     @property
     @pulumi.getter
@@ -29672,6 +29685,10 @@ if not MYPY:
         """
         Details of each region the registry is in
         """
+        registry_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        RegistryId Guid for this registry
+        """
         registry_private_endpoint_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['RegistryPrivateEndpointConnectionArgsDict']]]]
         """
         Private endpoint connections info used for pending connections in private link portal
@@ -29688,6 +29705,7 @@ class RegistryArgs:
                  ml_flow_registry_uri: Optional[pulumi.Input[builtins.str]] = None,
                  public_network_access: Optional[pulumi.Input[builtins.str]] = None,
                  region_details: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryRegionArmDetailsArgs']]]] = None,
+                 registry_id: Optional[pulumi.Input[builtins.str]] = None,
                  registry_private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryPrivateEndpointConnectionArgs']]]] = None):
         """
         Details of the Registry
@@ -29698,6 +29716,7 @@ class RegistryArgs:
         :param pulumi.Input[builtins.str] public_network_access: Is the Registry accessible from the internet?
                Possible values: "Enabled" or "Disabled"
         :param pulumi.Input[Sequence[pulumi.Input['RegistryRegionArmDetailsArgs']]] region_details: Details of each region the registry is in
+        :param pulumi.Input[builtins.str] registry_id: RegistryId Guid for this registry
         :param pulumi.Input[Sequence[pulumi.Input['RegistryPrivateEndpointConnectionArgs']]] registry_private_endpoint_connections: Private endpoint connections info used for pending connections in private link portal
         """
         if discovery_url is not None:
@@ -29712,6 +29731,8 @@ class RegistryArgs:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if region_details is not None:
             pulumi.set(__self__, "region_details", region_details)
+        if registry_id is not None:
+            pulumi.set(__self__, "registry_id", registry_id)
         if registry_private_endpoint_connections is not None:
             pulumi.set(__self__, "registry_private_endpoint_connections", registry_private_endpoint_connections)
 
@@ -29787,6 +29808,18 @@ class RegistryArgs:
     @region_details.setter
     def region_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryRegionArmDetailsArgs']]]]):
         pulumi.set(self, "region_details", value)
+
+    @property
+    @pulumi.getter(name="registryId")
+    def registry_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        RegistryId Guid for this registry
+        """
+        return pulumi.get(self, "registry_id")
+
+    @registry_id.setter
+    def registry_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "registry_id", value)
 
     @property
     @pulumi.getter(name="registryPrivateEndpointConnections")
@@ -32159,6 +32192,10 @@ if not MYPY:
         """
         The action enum for networking rule.
         """
+        address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        Optional, if provided, the ServiceTag property will be ignored.
+        """
         port_ranges: NotRequired[pulumi.Input[builtins.str]]
         protocol: NotRequired[pulumi.Input[builtins.str]]
         service_tag: NotRequired[pulumi.Input[builtins.str]]
@@ -32169,15 +32206,19 @@ elif False:
 class ServiceTagDestinationArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[Union[builtins.str, 'RuleAction']]] = None,
+                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  port_ranges: Optional[pulumi.Input[builtins.str]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
                  service_tag: Optional[pulumi.Input[builtins.str]] = None):
         """
         Service Tag destination for a Service Tag Outbound Rule for the managed network of a machine learning workspace.
         :param pulumi.Input[Union[builtins.str, 'RuleAction']] action: The action enum for networking rule.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] address_prefixes: Optional, if provided, the ServiceTag property will be ignored.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if address_prefixes is not None:
+            pulumi.set(__self__, "address_prefixes", address_prefixes)
         if port_ranges is not None:
             pulumi.set(__self__, "port_ranges", port_ranges)
         if protocol is not None:
@@ -32196,6 +32237,18 @@ class ServiceTagDestinationArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[Union[builtins.str, 'RuleAction']]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Optional, if provided, the ServiceTag property will be ignored.
+        """
+        return pulumi.get(self, "address_prefixes")
+
+    @address_prefixes.setter
+    def address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "address_prefixes", value)
 
     @property
     @pulumi.getter(name="portRanges")

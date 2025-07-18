@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// Cognitive Services project is an Azure resource representing the provisioned account's project, it's type, location and SKU.
     /// 
     /// Uses Azure REST API version 2025-04-01-preview.
+    /// 
+    /// Other available API versions: 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:Project")]
     public partial class Project : global::Pulumi.CustomResource
@@ -97,6 +99,7 @@ namespace Pulumi.AzureNative.CognitiveServices
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20250401preview:Project" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20250601:Project" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

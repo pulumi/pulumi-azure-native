@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Gets Image Definition error details
  *
  * Uses Azure REST API version 2025-04-01-preview.
+ *
+ * Other available API versions: 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDevCenterCatalogImageDefinitionErrorDetails(args: GetDevCenterCatalogImageDefinitionErrorDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetDevCenterCatalogImageDefinitionErrorDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -54,6 +56,8 @@ export interface GetDevCenterCatalogImageDefinitionErrorDetailsResult {
  * Gets Image Definition error details
  *
  * Uses Azure REST API version 2025-04-01-preview.
+ *
+ * Other available API versions: 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDevCenterCatalogImageDefinitionErrorDetailsOutput(args: GetDevCenterCatalogImageDefinitionErrorDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDevCenterCatalogImageDefinitionErrorDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
