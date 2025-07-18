@@ -33,15 +33,15 @@ require (
 	github.com/manicminer/hamilton-autorest v0.3.0
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/providertest v0.1.5
-	github.com/pulumi/pulumi-java/pkg v1.11.0
-	github.com/pulumi/pulumi-yaml v1.15.1
+	github.com/pulumi/pulumi-java/pkg v1.16.0
+	github.com/pulumi/pulumi-yaml v1.21.2
 	github.com/pulumi/pulumi/pkg/v3 v3.183.0
 	github.com/pulumi/pulumi/sdk/v3 v3.183.0
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/segmentio/encoding v0.3.5
 	github.com/stretchr/testify v1.10.0
 	github.com/tombuildsstuff/giovanni v0.15.1
-	github.com/zclconf/go-cty v1.16.2
+	github.com/zclconf/go-cty v1.16.3
 	golang.org/x/exp v0.0.0-20250305212735-054e65f0b394
 	google.golang.org/grpc v1.72.1
 	google.golang.org/protobuf v1.36.6
@@ -185,7 +185,7 @@ require (
 	github.com/ettle/strcase v0.1.1 // indirect
 	github.com/go-git/gcfg v1.5.1-0.20230307220236-3a3c6141e376 // indirect
 	github.com/go-git/go-billy/v5 v5.6.2 // indirect
-	github.com/go-git/go-git/v5 v5.14.0 // indirect
+	github.com/go-git/go-git/v5 v5.16.0 // indirect
 	github.com/go-openapi/jsonpointer v0.19.5 // indirect
 	github.com/gofrs/uuid v4.4.0+incompatible // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
