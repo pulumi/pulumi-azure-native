@@ -28,6 +28,18 @@ namespace Pulumi.AzureNative.App.Inputs
         [Input("dapr")]
         public Input<Inputs.DaprArgs>? Dapr { get; set; }
 
+        [Input("identitySettings")]
+        private InputList<Inputs.IdentitySettingsArgs>? _identitySettings;
+
+        /// <summary>
+        /// Optional settings for Managed Identities that are assigned to the Container App. If a Managed Identity is not specified here, default settings will be used.
+        /// </summary>
+        public InputList<Inputs.IdentitySettingsArgs> IdentitySettings
+        {
+            get => _identitySettings ?? (_identitySettings = new InputList<Inputs.IdentitySettingsArgs>());
+            set => _identitySettings = value;
+        }
+
         /// <summary>
         /// Ingress configurations.
         /// </summary>
@@ -51,6 +63,12 @@ namespace Pulumi.AzureNative.App.Inputs
             get => _registries ?? (_registries = new InputList<Inputs.RegistryCredentialsArgs>());
             set => _registries = value;
         }
+
+        /// <summary>
+        /// App runtime configuration for the Container App.
+        /// </summary>
+        [Input("runtime")]
+        public Input<Inputs.RuntimeArgs>? Runtime { get; set; }
 
         [Input("secrets")]
         private InputList<Inputs.SecretArgs>? _secrets;

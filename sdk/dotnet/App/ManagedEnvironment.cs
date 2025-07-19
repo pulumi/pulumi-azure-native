@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.App
     /// <summary>
     /// An environment for hosting container apps
     /// 
-    /// Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+    /// Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
     /// 
-    /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ManagedEnvironment")]
     public partial class ManagedEnvironment : global::Pulumi.CustomResource
@@ -72,6 +72,12 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Output("eventStreamEndpoint")]
         public Output<string> EventStreamEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Managed identities for the Managed Environment to interact with other Azure services without maintaining any secrets or credentials in code.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. If a subnet ID is provided, this resource group will be created in the same subscription as the subnet.
@@ -256,6 +262,12 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Input("environmentName")]
         public Input<string>? EnvironmentName { get; set; }
+
+        /// <summary>
+        /// Managed identities for the Managed Environment to interact with other Azure services without maintaining any secrets or credentials in code.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. If a subnet ID is provided, this resource group will be created in the same subscription as the subnet.

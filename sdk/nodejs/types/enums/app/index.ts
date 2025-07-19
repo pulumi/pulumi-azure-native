@@ -102,15 +102,6 @@ export const DotNetComponentType = {
  */
 export type DotNetComponentType = (typeof DotNetComponentType)[keyof typeof DotNetComponentType];
 
-export const ExecutionType = {
-    Timed: "Timed",
-} as const;
-
-/**
- * The execution type of the session pool.
- */
-export type ExecutionType = (typeof ExecutionType)[keyof typeof ExecutionType];
-
 export const ExtendedLocationTypes = {
     CustomLocation: "CustomLocation",
 } as const;
@@ -132,12 +123,14 @@ export const ForwardProxyConvention = {
 export type ForwardProxyConvention = (typeof ForwardProxyConvention)[keyof typeof ForwardProxyConvention];
 
 export const IdentitySettingsLifeCycle = {
-    None: "None",
+    Init: "Init",
     Main: "Main",
+    None: "None",
+    All: "All",
 } as const;
 
 /**
- * Use to select the lifecycle stages of a Session Pool during which the Managed Identity should be available.
+ * Use to select the lifecycle stages of a Container App during which the Managed Identity should be available.
  */
 export type IdentitySettingsLifeCycle = (typeof IdentitySettingsLifeCycle)[keyof typeof IdentitySettingsLifeCycle];
 
@@ -168,14 +161,22 @@ export const JavaComponentType = {
     SpringBootAdmin: "SpringBootAdmin",
     SpringCloudEureka: "SpringCloudEureka",
     SpringCloudConfig: "SpringCloudConfig",
-    SpringCloudGateway: "SpringCloudGateway",
-    Nacos: "Nacos",
 } as const;
 
 /**
  * Type of the Java Component.
  */
 export type JavaComponentType = (typeof JavaComponentType)[keyof typeof JavaComponentType];
+
+export const LifecycleType = {
+    Timed: "Timed",
+    OnContainerExit: "OnContainerExit",
+} as const;
+
+/**
+ * The lifecycle type of the session pool.
+ */
+export type LifecycleType = (typeof LifecycleType)[keyof typeof LifecycleType];
 
 export const LogLevel = {
     Info: "info",
@@ -258,6 +259,7 @@ export const StorageType = {
     AzureFile: "AzureFile",
     EmptyDir: "EmptyDir",
     Secret: "Secret",
+    NfsAzureFile: "NfsAzureFile",
 } as const;
 
 /**

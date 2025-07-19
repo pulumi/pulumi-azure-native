@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.App.Outputs
     public sealed class CustomDomainConfigurationResponse
     {
         /// <summary>
+        /// Certificate stored in Azure Key Vault.
+        /// </summary>
+        public readonly Outputs.CertificateKeyVaultPropertiesResponse? CertificateKeyVaultProperties;
+        /// <summary>
         /// Certificate password
         /// </summary>
         public readonly string? CertificatePassword;
@@ -47,6 +51,8 @@ namespace Pulumi.AzureNative.App.Outputs
 
         [OutputConstructor]
         private CustomDomainConfigurationResponse(
+            Outputs.CertificateKeyVaultPropertiesResponse? certificateKeyVaultProperties,
+
             string? certificatePassword,
 
             string? certificateValue,
@@ -61,6 +67,7 @@ namespace Pulumi.AzureNative.App.Outputs
 
             string thumbprint)
         {
+            CertificateKeyVaultProperties = certificateKeyVaultProperties;
             CertificatePassword = certificatePassword;
             CertificateValue = certificateValue;
             CustomDomainVerificationId = customDomainVerificationId;

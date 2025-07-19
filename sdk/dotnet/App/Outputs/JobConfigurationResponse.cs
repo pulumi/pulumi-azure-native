@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly Outputs.JobConfigurationResponseEventTriggerConfig? EventTriggerConfig;
         /// <summary>
+        /// Optional settings for Managed Identities that are assigned to the Container App Job. If a Managed Identity is not specified here, default settings will be used.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IdentitySettingsResponse> IdentitySettings;
+        /// <summary>
         /// Manual trigger configuration for a single execution job. Properties replicaCompletionCount and parallelism would be set to 1 by default
         /// </summary>
         public readonly Outputs.JobConfigurationResponseManualTriggerConfig? ManualTriggerConfig;
@@ -53,6 +57,8 @@ namespace Pulumi.AzureNative.App.Outputs
         private JobConfigurationResponse(
             Outputs.JobConfigurationResponseEventTriggerConfig? eventTriggerConfig,
 
+            ImmutableArray<Outputs.IdentitySettingsResponse> identitySettings,
+
             Outputs.JobConfigurationResponseManualTriggerConfig? manualTriggerConfig,
 
             ImmutableArray<Outputs.RegistryCredentialsResponse> registries,
@@ -68,6 +74,7 @@ namespace Pulumi.AzureNative.App.Outputs
             string triggerType)
         {
             EventTriggerConfig = eventTriggerConfig;
+            IdentitySettings = identitySettings;
             ManualTriggerConfig = manualTriggerConfig;
             Registries = registries;
             ReplicaRetryLimit = replicaRetryLimit;

@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ManagedEnvironmentArgs', 'ManagedEnvironment']
@@ -28,6 +29,7 @@ class ManagedEnvironmentArgs:
                  dapr_ai_connection_string: Optional[pulumi.Input[builtins.str]] = None,
                  dapr_ai_instrumentation_key: Optional[pulumi.Input[builtins.str]] = None,
                  environment_name: Optional[pulumi.Input[builtins.str]] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  infrastructure_resource_group: Optional[pulumi.Input[builtins.str]] = None,
                  kind: Optional[pulumi.Input[builtins.str]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
@@ -45,6 +47,7 @@ class ManagedEnvironmentArgs:
         :param pulumi.Input[builtins.str] dapr_ai_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry
         :param pulumi.Input[builtins.str] dapr_ai_instrumentation_key: Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
         :param pulumi.Input[builtins.str] environment_name: Name of the Environment.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed identities for the Managed Environment to interact with other Azure services without maintaining any secrets or credentials in code.
         :param pulumi.Input[builtins.str] infrastructure_resource_group: Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. If a subnet ID is provided, this resource group will be created in the same subscription as the subnet.
         :param pulumi.Input[builtins.str] kind: Kind of the Environment.
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
@@ -66,6 +69,8 @@ class ManagedEnvironmentArgs:
             pulumi.set(__self__, "dapr_ai_instrumentation_key", dapr_ai_instrumentation_key)
         if environment_name is not None:
             pulumi.set(__self__, "environment_name", environment_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if infrastructure_resource_group is not None:
             pulumi.set(__self__, "infrastructure_resource_group", infrastructure_resource_group)
         if kind is not None:
@@ -156,6 +161,18 @@ class ManagedEnvironmentArgs:
     @environment_name.setter
     def environment_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "environment_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+        """
+        Managed identities for the Managed Environment to interact with other Azure services without maintaining any secrets or credentials in code.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="infrastructureResourceGroup")
@@ -277,6 +294,7 @@ class ManagedEnvironment(pulumi.CustomResource):
                  dapr_ai_connection_string: Optional[pulumi.Input[builtins.str]] = None,
                  dapr_ai_instrumentation_key: Optional[pulumi.Input[builtins.str]] = None,
                  environment_name: Optional[pulumi.Input[builtins.str]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  infrastructure_resource_group: Optional[pulumi.Input[builtins.str]] = None,
                  kind: Optional[pulumi.Input[builtins.str]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
@@ -291,9 +309,9 @@ class ManagedEnvironment(pulumi.CustomResource):
         """
         An environment for hosting container apps
 
-        Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+        Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
-        Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -302,6 +320,7 @@ class ManagedEnvironment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] dapr_ai_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry
         :param pulumi.Input[builtins.str] dapr_ai_instrumentation_key: Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
         :param pulumi.Input[builtins.str] environment_name: Name of the Environment.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed identities for the Managed Environment to interact with other Azure services without maintaining any secrets or credentials in code.
         :param pulumi.Input[builtins.str] infrastructure_resource_group: Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. If a subnet ID is provided, this resource group will be created in the same subscription as the subnet.
         :param pulumi.Input[builtins.str] kind: Kind of the Environment.
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
@@ -322,9 +341,9 @@ class ManagedEnvironment(pulumi.CustomResource):
         """
         An environment for hosting container apps
 
-        Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+        Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
-        Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ManagedEnvironmentArgs args: The arguments to use to populate this resource's properties.
@@ -346,6 +365,7 @@ class ManagedEnvironment(pulumi.CustomResource):
                  dapr_ai_connection_string: Optional[pulumi.Input[builtins.str]] = None,
                  dapr_ai_instrumentation_key: Optional[pulumi.Input[builtins.str]] = None,
                  environment_name: Optional[pulumi.Input[builtins.str]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  infrastructure_resource_group: Optional[pulumi.Input[builtins.str]] = None,
                  kind: Optional[pulumi.Input[builtins.str]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
@@ -370,6 +390,7 @@ class ManagedEnvironment(pulumi.CustomResource):
             __props__.__dict__["dapr_ai_connection_string"] = dapr_ai_connection_string
             __props__.__dict__["dapr_ai_instrumentation_key"] = dapr_ai_instrumentation_key
             __props__.__dict__["environment_name"] = environment_name
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["infrastructure_resource_group"] = infrastructure_resource_group
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
@@ -426,6 +447,7 @@ class ManagedEnvironment(pulumi.CustomResource):
         __props__.__dict__["default_domain"] = None
         __props__.__dict__["deployment_errors"] = None
         __props__.__dict__["event_stream_endpoint"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["infrastructure_resource_group"] = None
         __props__.__dict__["keda_configuration"] = None
         __props__.__dict__["kind"] = None
@@ -514,6 +536,14 @@ class ManagedEnvironment(pulumi.CustomResource):
         The endpoint of the eventstream of the Environment.
         """
         return pulumi.get(self, "event_stream_endpoint")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        Managed identities for the Managed Environment to interact with other Azure services without maintaining any secrets or credentials in code.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="infrastructureResourceGroup")

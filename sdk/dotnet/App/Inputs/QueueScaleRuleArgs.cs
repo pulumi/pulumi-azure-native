@@ -15,6 +15,12 @@ namespace Pulumi.AzureNative.App.Inputs
     /// </summary>
     public sealed class QueueScaleRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Storage account name. required if using managed identity to authenticate
+        /// </summary>
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
+
         [Input("auth")]
         private InputList<Inputs.ScaleRuleAuthArgs>? _auth;
 
@@ -26,6 +32,12 @@ namespace Pulumi.AzureNative.App.Inputs
             get => _auth ?? (_auth = new InputList<Inputs.ScaleRuleAuthArgs>());
             set => _auth = value;
         }
+
+        /// <summary>
+        /// The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
+        /// </summary>
+        [Input("identity")]
+        public Input<string>? Identity { get; set; }
 
         /// <summary>
         /// Queue length.

@@ -17,22 +17,14 @@ namespace Pulumi.AzureNative.App.Outputs
     public sealed class DynamicPoolConfigurationResponse
     {
         /// <summary>
-        /// The cooldown period of a session in seconds.
+        /// The lifecycle configuration of a session in the dynamic session pool
         /// </summary>
-        public readonly int? CooldownPeriodInSeconds;
-        /// <summary>
-        /// The execution type of the session pool.
-        /// </summary>
-        public readonly string? ExecutionType;
+        public readonly Outputs.LifecycleConfigurationResponse? LifecycleConfiguration;
 
         [OutputConstructor]
-        private DynamicPoolConfigurationResponse(
-            int? cooldownPeriodInSeconds,
-
-            string? executionType)
+        private DynamicPoolConfigurationResponse(Outputs.LifecycleConfigurationResponse? lifecycleConfiguration)
         {
-            CooldownPeriodInSeconds = cooldownPeriodInSeconds;
-            ExecutionType = executionType;
+            LifecycleConfiguration = lifecycleConfiguration;
         }
     }
 }

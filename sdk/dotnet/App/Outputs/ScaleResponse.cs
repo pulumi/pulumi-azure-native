@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.App.Outputs
     public sealed class ScaleResponse
     {
         /// <summary>
+        /// Optional. KEDA Cooldown Period in seconds. Defaults to 300 seconds if not set.
+        /// </summary>
+        public readonly int? CooldownPeriod;
+        /// <summary>
         /// Optional. Maximum number of container replicas. Defaults to 10 if not set.
         /// </summary>
         public readonly int? MaxReplicas;
@@ -25,20 +29,30 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly int? MinReplicas;
         /// <summary>
+        /// Optional. KEDA Polling Interval in seconds. Defaults to 30 seconds if not set.
+        /// </summary>
+        public readonly int? PollingInterval;
+        /// <summary>
         /// Scaling rules.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScaleRuleResponse> Rules;
 
         [OutputConstructor]
         private ScaleResponse(
+            int? cooldownPeriod,
+
             int? maxReplicas,
 
             int? minReplicas,
 
+            int? pollingInterval,
+
             ImmutableArray<Outputs.ScaleRuleResponse> rules)
         {
+            CooldownPeriod = cooldownPeriod;
             MaxReplicas = maxReplicas;
             MinReplicas = minReplicas;
+            PollingInterval = pollingInterval;
             Rules = rules;
         }
     }

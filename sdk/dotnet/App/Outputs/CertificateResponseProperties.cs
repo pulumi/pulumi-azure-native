@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.App.Outputs
     public sealed class CertificateResponseProperties
     {
         /// <summary>
+        /// Properties for a certificate stored in a Key Vault.
+        /// </summary>
+        public readonly Outputs.CertificateKeyVaultPropertiesResponse? CertificateKeyVaultProperties;
+        /// <summary>
         /// Certificate expiration date.
         /// </summary>
         public readonly string ExpirationDate;
@@ -55,6 +59,8 @@ namespace Pulumi.AzureNative.App.Outputs
 
         [OutputConstructor]
         private CertificateResponseProperties(
+            Outputs.CertificateKeyVaultPropertiesResponse? certificateKeyVaultProperties,
+
             string expirationDate,
 
             string issueDate,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNative.App.Outputs
 
             bool valid)
         {
+            CertificateKeyVaultProperties = certificateKeyVaultProperties;
             ExpirationDate = expirationDate;
             IssueDate = issueDate;
             Issuer = issuer;

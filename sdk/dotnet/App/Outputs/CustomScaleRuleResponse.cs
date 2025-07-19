@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ScaleRuleAuthResponse> Auth;
         /// <summary>
+        /// The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
+        /// </summary>
+        public readonly string? Identity;
+        /// <summary>
         /// Metadata properties to describe custom scale rule.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Metadata;
@@ -34,11 +38,14 @@ namespace Pulumi.AzureNative.App.Outputs
         private CustomScaleRuleResponse(
             ImmutableArray<Outputs.ScaleRuleAuthResponse> auth,
 
+            string? identity,
+
             ImmutableDictionary<string, string>? metadata,
 
             string? type)
         {
             Auth = auth;
+            Identity = identity;
             Metadata = metadata;
             Type = type;
         }
