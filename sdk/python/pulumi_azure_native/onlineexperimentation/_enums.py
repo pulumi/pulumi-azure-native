@@ -10,6 +10,7 @@ __all__ = [
     'KeyEncryptionKeyIdentityType',
     'ManagedServiceIdentityType',
     'OnlineExperimentationWorkspaceSkuName',
+    'PrivateEndpointServiceConnectionStatus',
 ]
 
 
@@ -60,3 +61,13 @@ class OnlineExperimentationWorkspaceSkuName(builtins.str, Enum):
     """
     The Developer service sku name.
     """
+
+
+@pulumi.type_token("azure-native:onlineexperimentation:PrivateEndpointServiceConnectionStatus")
+class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"

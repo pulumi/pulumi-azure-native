@@ -98,6 +98,84 @@ namespace Pulumi.AzureNative.DeviceRegistry
     }
 
     /// <summary>
+    /// Target destination.
+    /// </summary>
+    [EnumType]
+    public readonly struct DatasetDestinationTarget : IEquatable<DatasetDestinationTarget>
+    {
+        private readonly string _value;
+
+        private DatasetDestinationTarget(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// MQTT target.
+        /// </summary>
+        public static DatasetDestinationTarget Mqtt { get; } = new DatasetDestinationTarget("Mqtt");
+        /// <summary>
+        /// Broker State Store target.
+        /// </summary>
+        public static DatasetDestinationTarget BrokerStateStore { get; } = new DatasetDestinationTarget("BrokerStateStore");
+        /// <summary>
+        /// Storage target.
+        /// </summary>
+        public static DatasetDestinationTarget Storage { get; } = new DatasetDestinationTarget("Storage");
+
+        public static bool operator ==(DatasetDestinationTarget left, DatasetDestinationTarget right) => left.Equals(right);
+        public static bool operator !=(DatasetDestinationTarget left, DatasetDestinationTarget right) => !left.Equals(right);
+
+        public static explicit operator string(DatasetDestinationTarget value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DatasetDestinationTarget other && Equals(other);
+        public bool Equals(DatasetDestinationTarget other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Target destination.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventDestinationTarget : IEquatable<EventDestinationTarget>
+    {
+        private readonly string _value;
+
+        private EventDestinationTarget(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// MQTT target.
+        /// </summary>
+        public static EventDestinationTarget Mqtt { get; } = new EventDestinationTarget("Mqtt");
+        /// <summary>
+        /// Storage target.
+        /// </summary>
+        public static EventDestinationTarget Storage { get; } = new EventDestinationTarget("Storage");
+
+        public static bool operator ==(EventDestinationTarget left, EventDestinationTarget right) => left.Equals(right);
+        public static bool operator !=(EventDestinationTarget left, EventDestinationTarget right) => !left.Equals(right);
+
+        public static explicit operator string(EventDestinationTarget value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventDestinationTarget other && Equals(other);
+        public bool Equals(EventDestinationTarget other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// An indication of how the event should be mapped to OpenTelemetry.
     /// </summary>
     [EnumType]
@@ -172,6 +250,125 @@ namespace Pulumi.AzureNative.DeviceRegistry
     }
 
     /// <summary>
+    /// The type of the action.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagementActionType : IEquatable<ManagementActionType>
+    {
+        private readonly string _value;
+
+        private ManagementActionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Call action type.
+        /// </summary>
+        public static ManagementActionType Call { get; } = new ManagementActionType("Call");
+        /// <summary>
+        /// Read action type.
+        /// </summary>
+        public static ManagementActionType Read { get; } = new ManagementActionType("Read");
+        /// <summary>
+        /// Write action type.
+        /// </summary>
+        public static ManagementActionType Write { get; } = new ManagementActionType("Write");
+
+        public static bool operator ==(ManagementActionType left, ManagementActionType right) => left.Equals(right);
+        public static bool operator !=(ManagementActionType left, ManagementActionType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagementActionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagementActionType other && Equals(other);
+        public bool Equals(ManagementActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The MQTT QoS setting. Defaults to QoS 1.
+    /// </summary>
+    [EnumType]
+    public readonly struct MqttDestinationQos : IEquatable<MqttDestinationQos>
+    {
+        private readonly string _value;
+
+        private MqttDestinationQos(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// QoS 0.
+        /// </summary>
+        public static MqttDestinationQos Qos0 { get; } = new MqttDestinationQos("Qos0");
+        /// <summary>
+        /// QoS 1.
+        /// </summary>
+        public static MqttDestinationQos Qos1 { get; } = new MqttDestinationQos("Qos1");
+
+        public static bool operator ==(MqttDestinationQos left, MqttDestinationQos right) => left.Equals(right);
+        public static bool operator !=(MqttDestinationQos left, MqttDestinationQos right) => !left.Equals(right);
+
+        public static explicit operator string(MqttDestinationQos value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MqttDestinationQos other && Equals(other);
+        public bool Equals(MqttDestinationQos other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the action.
+    /// </summary>
+    [EnumType]
+    public readonly struct NamespaceDiscoveredManagementActionType : IEquatable<NamespaceDiscoveredManagementActionType>
+    {
+        private readonly string _value;
+
+        private NamespaceDiscoveredManagementActionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Call action type.
+        /// </summary>
+        public static NamespaceDiscoveredManagementActionType Call { get; } = new NamespaceDiscoveredManagementActionType("Call");
+        /// <summary>
+        /// Read action type.
+        /// </summary>
+        public static NamespaceDiscoveredManagementActionType Read { get; } = new NamespaceDiscoveredManagementActionType("Read");
+        /// <summary>
+        /// Write action type.
+        /// </summary>
+        public static NamespaceDiscoveredManagementActionType Write { get; } = new NamespaceDiscoveredManagementActionType("Write");
+
+        public static bool operator ==(NamespaceDiscoveredManagementActionType left, NamespaceDiscoveredManagementActionType right) => left.Equals(right);
+        public static bool operator !=(NamespaceDiscoveredManagementActionType left, NamespaceDiscoveredManagementActionType right) => !left.Equals(right);
+
+        public static explicit operator string(NamespaceDiscoveredManagementActionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NamespaceDiscoveredManagementActionType other && Equals(other);
+        public bool Equals(NamespaceDiscoveredManagementActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of the schema.
     /// </summary>
     [EnumType]
@@ -197,6 +394,43 @@ namespace Pulumi.AzureNative.DeviceRegistry
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SchemaType other && Equals(other);
         public bool Equals(SchemaType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Target destination.
+    /// </summary>
+    [EnumType]
+    public readonly struct StreamDestinationTarget : IEquatable<StreamDestinationTarget>
+    {
+        private readonly string _value;
+
+        private StreamDestinationTarget(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// MQTT target.
+        /// </summary>
+        public static StreamDestinationTarget Mqtt { get; } = new StreamDestinationTarget("Mqtt");
+        /// <summary>
+        /// Storage target.
+        /// </summary>
+        public static StreamDestinationTarget Storage { get; } = new StreamDestinationTarget("Storage");
+
+        public static bool operator ==(StreamDestinationTarget left, StreamDestinationTarget right) => left.Equals(right);
+        public static bool operator !=(StreamDestinationTarget left, StreamDestinationTarget right) => !left.Equals(right);
+
+        public static explicit operator string(StreamDestinationTarget value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StreamDestinationTarget other && Equals(other);
+        public bool Equals(StreamDestinationTarget other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

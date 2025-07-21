@@ -45,6 +45,31 @@ export const getDiscoveredAssetEndpointProfile: typeof import("./getDiscoveredAs
 export const getDiscoveredAssetEndpointProfileOutput: typeof import("./getDiscoveredAssetEndpointProfile").getDiscoveredAssetEndpointProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getDiscoveredAssetEndpointProfile","getDiscoveredAssetEndpointProfileOutput"], () => require("./getDiscoveredAssetEndpointProfile"));
 
+export { GetNamespaceArgs, GetNamespaceResult, GetNamespaceOutputArgs } from "./getNamespace";
+export const getNamespace: typeof import("./getNamespace").getNamespace = null as any;
+export const getNamespaceOutput: typeof import("./getNamespace").getNamespaceOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
+
+export { GetNamespaceAssetArgs, GetNamespaceAssetResult, GetNamespaceAssetOutputArgs } from "./getNamespaceAsset";
+export const getNamespaceAsset: typeof import("./getNamespaceAsset").getNamespaceAsset = null as any;
+export const getNamespaceAssetOutput: typeof import("./getNamespaceAsset").getNamespaceAssetOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespaceAsset","getNamespaceAssetOutput"], () => require("./getNamespaceAsset"));
+
+export { GetNamespaceDeviceArgs, GetNamespaceDeviceResult, GetNamespaceDeviceOutputArgs } from "./getNamespaceDevice";
+export const getNamespaceDevice: typeof import("./getNamespaceDevice").getNamespaceDevice = null as any;
+export const getNamespaceDeviceOutput: typeof import("./getNamespaceDevice").getNamespaceDeviceOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespaceDevice","getNamespaceDeviceOutput"], () => require("./getNamespaceDevice"));
+
+export { GetNamespaceDiscoveredAssetArgs, GetNamespaceDiscoveredAssetResult, GetNamespaceDiscoveredAssetOutputArgs } from "./getNamespaceDiscoveredAsset";
+export const getNamespaceDiscoveredAsset: typeof import("./getNamespaceDiscoveredAsset").getNamespaceDiscoveredAsset = null as any;
+export const getNamespaceDiscoveredAssetOutput: typeof import("./getNamespaceDiscoveredAsset").getNamespaceDiscoveredAssetOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespaceDiscoveredAsset","getNamespaceDiscoveredAssetOutput"], () => require("./getNamespaceDiscoveredAsset"));
+
+export { GetNamespaceDiscoveredDeviceArgs, GetNamespaceDiscoveredDeviceResult, GetNamespaceDiscoveredDeviceOutputArgs } from "./getNamespaceDiscoveredDevice";
+export const getNamespaceDiscoveredDevice: typeof import("./getNamespaceDiscoveredDevice").getNamespaceDiscoveredDevice = null as any;
+export const getNamespaceDiscoveredDeviceOutput: typeof import("./getNamespaceDiscoveredDevice").getNamespaceDiscoveredDeviceOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespaceDiscoveredDevice","getNamespaceDiscoveredDeviceOutput"], () => require("./getNamespaceDiscoveredDevice"));
+
 export { GetSchemaArgs, GetSchemaResult, GetSchemaOutputArgs } from "./getSchema";
 export const getSchema: typeof import("./getSchema").getSchema = null as any;
 export const getSchemaOutput: typeof import("./getSchema").getSchemaOutput = null as any;
@@ -59,6 +84,31 @@ export { GetSchemaVersionArgs, GetSchemaVersionResult, GetSchemaVersionOutputArg
 export const getSchemaVersion: typeof import("./getSchemaVersion").getSchemaVersion = null as any;
 export const getSchemaVersionOutput: typeof import("./getSchemaVersion").getSchemaVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getSchemaVersion","getSchemaVersionOutput"], () => require("./getSchemaVersion"));
+
+export { NamespaceArgs } from "./namespace";
+export type Namespace = import("./namespace").Namespace;
+export const Namespace: typeof import("./namespace").Namespace = null as any;
+utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
+
+export { NamespaceAssetArgs } from "./namespaceAsset";
+export type NamespaceAsset = import("./namespaceAsset").NamespaceAsset;
+export const NamespaceAsset: typeof import("./namespaceAsset").NamespaceAsset = null as any;
+utilities.lazyLoad(exports, ["NamespaceAsset"], () => require("./namespaceAsset"));
+
+export { NamespaceDeviceArgs } from "./namespaceDevice";
+export type NamespaceDevice = import("./namespaceDevice").NamespaceDevice;
+export const NamespaceDevice: typeof import("./namespaceDevice").NamespaceDevice = null as any;
+utilities.lazyLoad(exports, ["NamespaceDevice"], () => require("./namespaceDevice"));
+
+export { NamespaceDiscoveredAssetArgs } from "./namespaceDiscoveredAsset";
+export type NamespaceDiscoveredAsset = import("./namespaceDiscoveredAsset").NamespaceDiscoveredAsset;
+export const NamespaceDiscoveredAsset: typeof import("./namespaceDiscoveredAsset").NamespaceDiscoveredAsset = null as any;
+utilities.lazyLoad(exports, ["NamespaceDiscoveredAsset"], () => require("./namespaceDiscoveredAsset"));
+
+export { NamespaceDiscoveredDeviceArgs } from "./namespaceDiscoveredDevice";
+export type NamespaceDiscoveredDevice = import("./namespaceDiscoveredDevice").NamespaceDiscoveredDevice;
+export const NamespaceDiscoveredDevice: typeof import("./namespaceDiscoveredDevice").NamespaceDiscoveredDevice = null as any;
+utilities.lazyLoad(exports, ["NamespaceDiscoveredDevice"], () => require("./namespaceDiscoveredDevice"));
 
 export { SchemaArgs } from "./schema";
 export type Schema = import("./schema").Schema;
@@ -91,6 +141,16 @@ const _module = {
                 return new DiscoveredAsset(name, <any>undefined, { urn })
             case "azure-native:deviceregistry:DiscoveredAssetEndpointProfile":
                 return new DiscoveredAssetEndpointProfile(name, <any>undefined, { urn })
+            case "azure-native:deviceregistry:Namespace":
+                return new Namespace(name, <any>undefined, { urn })
+            case "azure-native:deviceregistry:NamespaceAsset":
+                return new NamespaceAsset(name, <any>undefined, { urn })
+            case "azure-native:deviceregistry:NamespaceDevice":
+                return new NamespaceDevice(name, <any>undefined, { urn })
+            case "azure-native:deviceregistry:NamespaceDiscoveredAsset":
+                return new NamespaceDiscoveredAsset(name, <any>undefined, { urn })
+            case "azure-native:deviceregistry:NamespaceDiscoveredDevice":
+                return new NamespaceDiscoveredDevice(name, <any>undefined, { urn })
             case "azure-native:deviceregistry:Schema":
                 return new Schema(name, <any>undefined, { urn })
             case "azure-native:deviceregistry:SchemaRegistry":

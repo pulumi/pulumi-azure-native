@@ -17,15 +17,23 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
     public sealed class FlowPropertiesResponse
     {
         /// <summary>
+        /// The API Flow configuration options for Azure Data Transfer API Flow type.
+        /// </summary>
+        public readonly Outputs.ApiFlowOptionsResponse? ApiFlowOptions;
+        /// <summary>
         /// The connection associated with this flow
         /// </summary>
         public readonly Outputs.SelectedResourceResponse? Connection;
+        /// <summary>
+        /// Event Hub Consumer Group
+        /// </summary>
+        public readonly string? ConsumerGroup;
         /// <summary>
         /// The URI to the customer managed key for this flow
         /// </summary>
         public readonly string? CustomerManagedKeyVaultUri;
         /// <summary>
-        /// Transfer Storage Blobs or Tables
+        /// Type of data to transfer via the flow.
         /// </summary>
         public readonly string? DataType;
         /// <summary>
@@ -37,6 +45,10 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DestinationEndpoints;
         /// <summary>
+        /// Event Hub ID
+        /// </summary>
+        public readonly string? EventHubId;
+        /// <summary>
         /// Dataflow GUID associated with this flow
         /// </summary>
         public readonly string FlowId;
@@ -45,7 +57,11 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
         /// </summary>
         public readonly string? FlowType;
         /// <summary>
-        /// AME, PME, or TORUS only! AKV Chain Containing SAS Token
+        /// Force disablement status of the current flow
+        /// </summary>
+        public readonly ImmutableArray<string> ForceDisabledStatus;
+        /// <summary>
+        /// URI to a Key Vault Secret containing a SAS token.
         /// </summary>
         public readonly string? KeyVaultUri;
         /// <summary>
@@ -101,6 +117,10 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
         /// </summary>
         public readonly string? StorageContainerName;
         /// <summary>
+        /// Storage Table Name
+        /// </summary>
+        public readonly string? StorageTableName;
+        /// <summary>
         /// The flow stream identifier
         /// </summary>
         public readonly string? StreamId;
@@ -115,7 +135,11 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
 
         [OutputConstructor]
         private FlowPropertiesResponse(
+            Outputs.ApiFlowOptionsResponse? apiFlowOptions,
+
             Outputs.SelectedResourceResponse? connection,
+
+            string? consumerGroup,
 
             string? customerManagedKeyVaultUri,
 
@@ -125,9 +149,13 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
 
             ImmutableArray<string> destinationEndpoints,
 
+            string? eventHubId,
+
             string flowId,
 
             string? flowType,
+
+            ImmutableArray<string> forceDisabledStatus,
 
             string? keyVaultUri,
 
@@ -157,19 +185,25 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
 
             string? storageContainerName,
 
+            string? storageTableName,
+
             string? streamId,
 
             double? streamLatency,
 
             string? streamProtocol)
         {
+            ApiFlowOptions = apiFlowOptions;
             Connection = connection;
+            ConsumerGroup = consumerGroup;
             CustomerManagedKeyVaultUri = customerManagedKeyVaultUri;
             DataType = dataType;
             DestinationEndpointPorts = destinationEndpointPorts;
             DestinationEndpoints = destinationEndpoints;
+            EventHubId = eventHubId;
             FlowId = flowId;
             FlowType = flowType;
+            ForceDisabledStatus = forceDisabledStatus;
             KeyVaultUri = keyVaultUri;
             LinkStatus = linkStatus;
             LinkedFlowId = linkedFlowId;
@@ -184,6 +218,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
             StorageAccountId = storageAccountId;
             StorageAccountName = storageAccountName;
             StorageContainerName = storageContainerName;
+            StorageTableName = storageTableName;
             StreamId = streamId;
             StreamLatency = streamLatency;
             StreamProtocol = streamProtocol;

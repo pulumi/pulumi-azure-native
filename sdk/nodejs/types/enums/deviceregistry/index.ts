@@ -50,6 +50,42 @@ export const DataPointObservabilityMode = {
  */
 export type DataPointObservabilityMode = (typeof DataPointObservabilityMode)[keyof typeof DataPointObservabilityMode];
 
+export const DatasetDestinationTarget = {
+    /**
+     * MQTT target.
+     */
+    Mqtt: "Mqtt",
+    /**
+     * Broker State Store target.
+     */
+    BrokerStateStore: "BrokerStateStore",
+    /**
+     * Storage target.
+     */
+    Storage: "Storage",
+} as const;
+
+/**
+ * Target destination.
+ */
+export type DatasetDestinationTarget = (typeof DatasetDestinationTarget)[keyof typeof DatasetDestinationTarget];
+
+export const EventDestinationTarget = {
+    /**
+     * MQTT target.
+     */
+    Mqtt: "Mqtt",
+    /**
+     * Storage target.
+     */
+    Storage: "Storage",
+} as const;
+
+/**
+ * Target destination.
+ */
+export type EventDestinationTarget = (typeof EventDestinationTarget)[keyof typeof EventDestinationTarget];
+
 export const EventObservabilityMode = {
     /**
      * No mapping to OpenTelemetry.
@@ -82,6 +118,62 @@ export const Format = {
  */
 export type Format = (typeof Format)[keyof typeof Format];
 
+export const ManagementActionType = {
+    /**
+     * Call action type.
+     */
+    Call: "Call",
+    /**
+     * Read action type.
+     */
+    Read: "Read",
+    /**
+     * Write action type.
+     */
+    Write: "Write",
+} as const;
+
+/**
+ * The type of the action.
+ */
+export type ManagementActionType = (typeof ManagementActionType)[keyof typeof ManagementActionType];
+
+export const MqttDestinationQos = {
+    /**
+     * QoS 0.
+     */
+    Qos0: "Qos0",
+    /**
+     * QoS 1.
+     */
+    Qos1: "Qos1",
+} as const;
+
+/**
+ * The MQTT QoS setting. Defaults to QoS 1.
+ */
+export type MqttDestinationQos = (typeof MqttDestinationQos)[keyof typeof MqttDestinationQos];
+
+export const NamespaceDiscoveredManagementActionType = {
+    /**
+     * Call action type.
+     */
+    Call: "Call",
+    /**
+     * Read action type.
+     */
+    Read: "Read",
+    /**
+     * Write action type.
+     */
+    Write: "Write",
+} as const;
+
+/**
+ * The type of the action.
+ */
+export type NamespaceDiscoveredManagementActionType = (typeof NamespaceDiscoveredManagementActionType)[keyof typeof NamespaceDiscoveredManagementActionType];
+
 export const SchemaType = {
     /**
      * Message Schema schema type
@@ -93,6 +185,22 @@ export const SchemaType = {
  * Type of the schema.
  */
 export type SchemaType = (typeof SchemaType)[keyof typeof SchemaType];
+
+export const StreamDestinationTarget = {
+    /**
+     * MQTT target.
+     */
+    Mqtt: "Mqtt",
+    /**
+     * Storage target.
+     */
+    Storage: "Storage",
+} as const;
+
+/**
+ * Target destination.
+ */
+export type StreamDestinationTarget = (typeof StreamDestinationTarget)[keyof typeof StreamDestinationTarget];
 
 export const SystemAssignedServiceIdentityType = {
     None: "None",

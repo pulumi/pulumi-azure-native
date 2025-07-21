@@ -8,6 +8,331 @@ using Pulumi;
 namespace Pulumi.AzureNative.IoTOperations
 {
     /// <summary>
+    /// The allocation policy type.
+    /// </summary>
+    [EnumType]
+    public readonly struct AkriConnectorTemplateAllocationPolicy : IEquatable<AkriConnectorTemplateAllocationPolicy>
+    {
+        private readonly string _value;
+
+        private AkriConnectorTemplateAllocationPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Bucketized allocation policy.
+        /// </summary>
+        public static AkriConnectorTemplateAllocationPolicy Bucketized { get; } = new AkriConnectorTemplateAllocationPolicy("Bucketized");
+
+        public static bool operator ==(AkriConnectorTemplateAllocationPolicy left, AkriConnectorTemplateAllocationPolicy right) => left.Equals(right);
+        public static bool operator !=(AkriConnectorTemplateAllocationPolicy left, AkriConnectorTemplateAllocationPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(AkriConnectorTemplateAllocationPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AkriConnectorTemplateAllocationPolicy other && Equals(other);
+        public bool Equals(AkriConnectorTemplateAllocationPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// AkriConnectorTemplateHelmRegistrySettingsType values.
+    /// </summary>
+    [EnumType]
+    public readonly struct AkriConnectorTemplateHelmRegistrySettingsType : IEquatable<AkriConnectorTemplateHelmRegistrySettingsType>
+    {
+        private readonly string _value;
+
+        private AkriConnectorTemplateHelmRegistrySettingsType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// A Registry Endpoint reference.
+        /// </summary>
+        public static AkriConnectorTemplateHelmRegistrySettingsType RegistryEndpointRef { get; } = new AkriConnectorTemplateHelmRegistrySettingsType("RegistryEndpointRef");
+        /// <summary>
+        /// A Container Registry reference.
+        /// </summary>
+        public static AkriConnectorTemplateHelmRegistrySettingsType ContainerRegistry { get; } = new AkriConnectorTemplateHelmRegistrySettingsType("ContainerRegistry");
+
+        public static bool operator ==(AkriConnectorTemplateHelmRegistrySettingsType left, AkriConnectorTemplateHelmRegistrySettingsType right) => left.Equals(right);
+        public static bool operator !=(AkriConnectorTemplateHelmRegistrySettingsType left, AkriConnectorTemplateHelmRegistrySettingsType right) => !left.Equals(right);
+
+        public static explicit operator string(AkriConnectorTemplateHelmRegistrySettingsType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AkriConnectorTemplateHelmRegistrySettingsType other && Equals(other);
+        public bool Equals(AkriConnectorTemplateHelmRegistrySettingsType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the managed configuration.
+    /// </summary>
+    [EnumType]
+    public readonly struct AkriConnectorTemplateManagedConfigurationType : IEquatable<AkriConnectorTemplateManagedConfigurationType>
+    {
+        private readonly string _value;
+
+        private AkriConnectorTemplateManagedConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Image Configuration Type.
+        /// </summary>
+        public static AkriConnectorTemplateManagedConfigurationType ImageConfiguration { get; } = new AkriConnectorTemplateManagedConfigurationType("ImageConfiguration");
+        /// <summary>
+        /// StatefulSet Configuration Type.
+        /// </summary>
+        public static AkriConnectorTemplateManagedConfigurationType StatefulSetConfiguration { get; } = new AkriConnectorTemplateManagedConfigurationType("StatefulSetConfiguration");
+
+        public static bool operator ==(AkriConnectorTemplateManagedConfigurationType left, AkriConnectorTemplateManagedConfigurationType right) => left.Equals(right);
+        public static bool operator !=(AkriConnectorTemplateManagedConfigurationType left, AkriConnectorTemplateManagedConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(AkriConnectorTemplateManagedConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AkriConnectorTemplateManagedConfigurationType other && Equals(other);
+        public bool Equals(AkriConnectorTemplateManagedConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Runtime configuration type for the Connector template.
+    /// </summary>
+    [EnumType]
+    public readonly struct AkriConnectorTemplateRuntimeConfigurationType : IEquatable<AkriConnectorTemplateRuntimeConfigurationType>
+    {
+        private readonly string _value;
+
+        private AkriConnectorTemplateRuntimeConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Helm Configuration Type.
+        /// </summary>
+        public static AkriConnectorTemplateRuntimeConfigurationType HelmConfiguration { get; } = new AkriConnectorTemplateRuntimeConfigurationType("HelmConfiguration");
+        /// <summary>
+        /// Managed Configuration Type.
+        /// </summary>
+        public static AkriConnectorTemplateRuntimeConfigurationType ManagedConfiguration { get; } = new AkriConnectorTemplateRuntimeConfigurationType("ManagedConfiguration");
+
+        public static bool operator ==(AkriConnectorTemplateRuntimeConfigurationType left, AkriConnectorTemplateRuntimeConfigurationType right) => left.Equals(right);
+        public static bool operator !=(AkriConnectorTemplateRuntimeConfigurationType left, AkriConnectorTemplateRuntimeConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(AkriConnectorTemplateRuntimeConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AkriConnectorTemplateRuntimeConfigurationType other && Equals(other);
+        public bool Equals(AkriConnectorTemplateRuntimeConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The pull policy of the image.
+    /// </summary>
+    [EnumType]
+    public readonly struct AkriConnectorsImagePullPolicy : IEquatable<AkriConnectorsImagePullPolicy>
+    {
+        private readonly string _value;
+
+        private AkriConnectorsImagePullPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Always pull the image.
+        /// </summary>
+        public static AkriConnectorsImagePullPolicy Always { get; } = new AkriConnectorsImagePullPolicy("Always");
+        /// <summary>
+        /// IfNotPresent pull the image.
+        /// </summary>
+        public static AkriConnectorsImagePullPolicy IfNotPresent { get; } = new AkriConnectorsImagePullPolicy("IfNotPresent");
+        /// <summary>
+        /// Never pull the image.
+        /// </summary>
+        public static AkriConnectorsImagePullPolicy Never { get; } = new AkriConnectorsImagePullPolicy("Never");
+
+        public static bool operator ==(AkriConnectorsImagePullPolicy left, AkriConnectorsImagePullPolicy right) => left.Equals(right);
+        public static bool operator !=(AkriConnectorsImagePullPolicy left, AkriConnectorsImagePullPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(AkriConnectorsImagePullPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AkriConnectorsImagePullPolicy other && Equals(other);
+        public bool Equals(AkriConnectorsImagePullPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The authentication method for the MQTT connection.
+    /// </summary>
+    [EnumType]
+    public readonly struct AkriConnectorsMqttAuthenticationMethod : IEquatable<AkriConnectorsMqttAuthenticationMethod>
+    {
+        private readonly string _value;
+
+        private AkriConnectorsMqttAuthenticationMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Service Account Token authentication.
+        /// </summary>
+        public static AkriConnectorsMqttAuthenticationMethod ServiceAccountToken { get; } = new AkriConnectorsMqttAuthenticationMethod("ServiceAccountToken");
+
+        public static bool operator ==(AkriConnectorsMqttAuthenticationMethod left, AkriConnectorsMqttAuthenticationMethod right) => left.Equals(right);
+        public static bool operator !=(AkriConnectorsMqttAuthenticationMethod left, AkriConnectorsMqttAuthenticationMethod right) => !left.Equals(right);
+
+        public static explicit operator string(AkriConnectorsMqttAuthenticationMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AkriConnectorsMqttAuthenticationMethod other && Equals(other);
+        public bool Equals(AkriConnectorsMqttAuthenticationMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The protocol to use for the connection. Currently only `mqtt` is supported.
+    /// </summary>
+    [EnumType]
+    public readonly struct AkriConnectorsMqttProtocolType : IEquatable<AkriConnectorsMqttProtocolType>
+    {
+        private readonly string _value;
+
+        private AkriConnectorsMqttProtocolType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Mqtt protocol.
+        /// </summary>
+        public static AkriConnectorsMqttProtocolType Mqtt { get; } = new AkriConnectorsMqttProtocolType("Mqtt");
+
+        public static bool operator ==(AkriConnectorsMqttProtocolType left, AkriConnectorsMqttProtocolType right) => left.Equals(right);
+        public static bool operator !=(AkriConnectorsMqttProtocolType left, AkriConnectorsMqttProtocolType right) => !left.Equals(right);
+
+        public static explicit operator string(AkriConnectorsMqttProtocolType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AkriConnectorsMqttProtocolType other && Equals(other);
+        public bool Equals(AkriConnectorsMqttProtocolType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// AkriConnectorsRegistrySettings properties.
+    /// </summary>
+    [EnumType]
+    public readonly struct AkriConnectorsRegistrySettingsType : IEquatable<AkriConnectorsRegistrySettingsType>
+    {
+        private readonly string _value;
+
+        private AkriConnectorsRegistrySettingsType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// A Registry Endpoint reference.
+        /// </summary>
+        public static AkriConnectorsRegistrySettingsType RegistryEndpointRef { get; } = new AkriConnectorsRegistrySettingsType("RegistryEndpointRef");
+        /// <summary>
+        /// A Container Registry reference.
+        /// </summary>
+        public static AkriConnectorsRegistrySettingsType ContainerRegistry { get; } = new AkriConnectorsRegistrySettingsType("ContainerRegistry");
+
+        public static bool operator ==(AkriConnectorsRegistrySettingsType left, AkriConnectorsRegistrySettingsType right) => left.Equals(right);
+        public static bool operator !=(AkriConnectorsRegistrySettingsType left, AkriConnectorsRegistrySettingsType right) => !left.Equals(right);
+
+        public static explicit operator string(AkriConnectorsRegistrySettingsType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AkriConnectorsRegistrySettingsType other && Equals(other);
+        public bool Equals(AkriConnectorsRegistrySettingsType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The tag or digest type.
+    /// </summary>
+    [EnumType]
+    public readonly struct AkriConnectorsTagDigestType : IEquatable<AkriConnectorsTagDigestType>
+    {
+        private readonly string _value;
+
+        private AkriConnectorsTagDigestType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Indicates that a tag should be specified.
+        /// </summary>
+        public static AkriConnectorsTagDigestType Tag { get; } = new AkriConnectorsTagDigestType("Tag");
+        /// <summary>
+        /// Indicates that a digest should be specified.
+        /// </summary>
+        public static AkriConnectorsTagDigestType Digest { get; } = new AkriConnectorsTagDigestType("Digest");
+
+        public static bool operator ==(AkriConnectorsTagDigestType left, AkriConnectorsTagDigestType right) => left.Equals(right);
+        public static bool operator !=(AkriConnectorsTagDigestType left, AkriConnectorsTagDigestType right) => !left.Equals(right);
+
+        public static explicit operator string(AkriConnectorsTagDigestType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AkriConnectorsTagDigestType other && Equals(other);
+        public bool Equals(AkriConnectorsTagDigestType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Custom authentication configuration.
     /// </summary>
     [EnumType]
@@ -496,6 +821,129 @@ namespace Pulumi.AzureNative.IoTOperations
     }
 
     /// <summary>
+    /// Output serialization format.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataflowGraphConnectionSchemaSerializationFormat : IEquatable<DataflowGraphConnectionSchemaSerializationFormat>
+    {
+        private readonly string _value;
+
+        private DataflowGraphConnectionSchemaSerializationFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Delta Format
+        /// </summary>
+        public static DataflowGraphConnectionSchemaSerializationFormat Delta { get; } = new DataflowGraphConnectionSchemaSerializationFormat("Delta");
+        /// <summary>
+        /// JSON Format
+        /// </summary>
+        public static DataflowGraphConnectionSchemaSerializationFormat Json { get; } = new DataflowGraphConnectionSchemaSerializationFormat("Json");
+        /// <summary>
+        /// Parquet Format
+        /// </summary>
+        public static DataflowGraphConnectionSchemaSerializationFormat Parquet { get; } = new DataflowGraphConnectionSchemaSerializationFormat("Parquet");
+        /// <summary>
+        /// Avro serialization format.
+        /// </summary>
+        public static DataflowGraphConnectionSchemaSerializationFormat Avro { get; } = new DataflowGraphConnectionSchemaSerializationFormat("Avro");
+
+        public static bool operator ==(DataflowGraphConnectionSchemaSerializationFormat left, DataflowGraphConnectionSchemaSerializationFormat right) => left.Equals(right);
+        public static bool operator !=(DataflowGraphConnectionSchemaSerializationFormat left, DataflowGraphConnectionSchemaSerializationFormat right) => !left.Equals(right);
+
+        public static explicit operator string(DataflowGraphConnectionSchemaSerializationFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataflowGraphConnectionSchemaSerializationFormat other && Equals(other);
+        public bool Equals(DataflowGraphConnectionSchemaSerializationFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The format of the output data.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataflowGraphDestinationSchemaSerializationFormat : IEquatable<DataflowGraphDestinationSchemaSerializationFormat>
+    {
+        private readonly string _value;
+
+        private DataflowGraphDestinationSchemaSerializationFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Parquet serialization format.
+        /// </summary>
+        public static DataflowGraphDestinationSchemaSerializationFormat Parquet { get; } = new DataflowGraphDestinationSchemaSerializationFormat("Parquet");
+        /// <summary>
+        /// Delta serialization format.
+        /// </summary>
+        public static DataflowGraphDestinationSchemaSerializationFormat Delta { get; } = new DataflowGraphDestinationSchemaSerializationFormat("Delta");
+
+        public static bool operator ==(DataflowGraphDestinationSchemaSerializationFormat left, DataflowGraphDestinationSchemaSerializationFormat right) => left.Equals(right);
+        public static bool operator !=(DataflowGraphDestinationSchemaSerializationFormat left, DataflowGraphDestinationSchemaSerializationFormat right) => !left.Equals(right);
+
+        public static explicit operator string(DataflowGraphDestinationSchemaSerializationFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataflowGraphDestinationSchemaSerializationFormat other && Equals(other);
+        public bool Equals(DataflowGraphDestinationSchemaSerializationFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of the node.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataflowGraphNodeType : IEquatable<DataflowGraphNodeType>
+    {
+        private readonly string _value;
+
+        private DataflowGraphNodeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Dataflow source node.
+        /// </summary>
+        public static DataflowGraphNodeType Source { get; } = new DataflowGraphNodeType("Source");
+        /// <summary>
+        /// Dataflow graph node.
+        /// </summary>
+        public static DataflowGraphNodeType Graph { get; } = new DataflowGraphNodeType("Graph");
+        /// <summary>
+        /// Dataflow destination node.
+        /// </summary>
+        public static DataflowGraphNodeType Destination { get; } = new DataflowGraphNodeType("Destination");
+
+        public static bool operator ==(DataflowGraphNodeType left, DataflowGraphNodeType right) => left.Equals(right);
+        public static bool operator !=(DataflowGraphNodeType left, DataflowGraphNodeType right) => !left.Equals(right);
+
+        public static explicit operator string(DataflowGraphNodeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataflowGraphNodeType other && Equals(other);
+        public bool Equals(DataflowGraphNodeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of transformation.
     /// </summary>
     [EnumType]
@@ -873,7 +1321,7 @@ namespace Pulumi.AzureNative.IoTOperations
     }
 
     /// <summary>
-    /// Mode for TLS.
+    /// Disk persistence mode.
     /// </summary>
     [EnumType]
     public readonly struct OperationalMode : IEquatable<OperationalMode>
@@ -1041,6 +1489,88 @@ namespace Pulumi.AzureNative.IoTOperations
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PrivateKeyRotationPolicy other && Equals(other);
         public bool Equals(PrivateKeyRotationPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The authentication method.
+    /// </summary>
+    [EnumType]
+    public readonly struct RegistryEndpointAuthenticationMethod : IEquatable<RegistryEndpointAuthenticationMethod>
+    {
+        private readonly string _value;
+
+        private RegistryEndpointAuthenticationMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// SystemAssignedManagedIdentity type
+        /// </summary>
+        public static RegistryEndpointAuthenticationMethod SystemAssignedManagedIdentity { get; } = new RegistryEndpointAuthenticationMethod("SystemAssignedManagedIdentity");
+        /// <summary>
+        /// UserAssignedManagedIdentity type
+        /// </summary>
+        public static RegistryEndpointAuthenticationMethod UserAssignedManagedIdentity { get; } = new RegistryEndpointAuthenticationMethod("UserAssignedManagedIdentity");
+        /// <summary>
+        /// Anonymous Option
+        /// </summary>
+        public static RegistryEndpointAuthenticationMethod Anonymous { get; } = new RegistryEndpointAuthenticationMethod("Anonymous");
+        /// <summary>
+        /// Artifact Pull Secret authentication
+        /// </summary>
+        public static RegistryEndpointAuthenticationMethod ArtifactPullSecret { get; } = new RegistryEndpointAuthenticationMethod("ArtifactPullSecret");
+
+        public static bool operator ==(RegistryEndpointAuthenticationMethod left, RegistryEndpointAuthenticationMethod right) => left.Equals(right);
+        public static bool operator !=(RegistryEndpointAuthenticationMethod left, RegistryEndpointAuthenticationMethod right) => !left.Equals(right);
+
+        public static explicit operator string(RegistryEndpointAuthenticationMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RegistryEndpointAuthenticationMethod other && Equals(other);
+        public bool Equals(RegistryEndpointAuthenticationMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The trust type for the registry endpoint.
+    /// </summary>
+    [EnumType]
+    public readonly struct RegistryEndpointTrustedSigningKeyType : IEquatable<RegistryEndpointTrustedSigningKeyType>
+    {
+        private readonly string _value;
+
+        private RegistryEndpointTrustedSigningKeyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Trust settings stored in a Kubernetes Secret.
+        /// </summary>
+        public static RegistryEndpointTrustedSigningKeyType Secret { get; } = new RegistryEndpointTrustedSigningKeyType("Secret");
+        /// <summary>
+        /// Trust settings stored in a Kubernetes ConfigMap.
+        /// </summary>
+        public static RegistryEndpointTrustedSigningKeyType ConfigMap { get; } = new RegistryEndpointTrustedSigningKeyType("ConfigMap");
+
+        public static bool operator ==(RegistryEndpointTrustedSigningKeyType left, RegistryEndpointTrustedSigningKeyType right) => left.Equals(right);
+        public static bool operator !=(RegistryEndpointTrustedSigningKeyType left, RegistryEndpointTrustedSigningKeyType right) => !left.Equals(right);
+
+        public static explicit operator string(RegistryEndpointTrustedSigningKeyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RegistryEndpointTrustedSigningKeyType other && Equals(other);
+        public bool Equals(RegistryEndpointTrustedSigningKeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

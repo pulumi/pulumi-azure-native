@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AkriConnectorArgs } from "./akriConnector";
+export type AkriConnector = import("./akriConnector").AkriConnector;
+export const AkriConnector: typeof import("./akriConnector").AkriConnector = null as any;
+utilities.lazyLoad(exports, ["AkriConnector"], () => require("./akriConnector"));
+
+export { AkriConnectorTemplateArgs } from "./akriConnectorTemplate";
+export type AkriConnectorTemplate = import("./akriConnectorTemplate").AkriConnectorTemplate;
+export const AkriConnectorTemplate: typeof import("./akriConnectorTemplate").AkriConnectorTemplate = null as any;
+utilities.lazyLoad(exports, ["AkriConnectorTemplate"], () => require("./akriConnectorTemplate"));
+
 export { BrokerArgs } from "./broker";
 export type Broker = import("./broker").Broker;
 export const Broker: typeof import("./broker").Broker = null as any;
@@ -35,10 +45,25 @@ export type DataflowEndpoint = import("./dataflowEndpoint").DataflowEndpoint;
 export const DataflowEndpoint: typeof import("./dataflowEndpoint").DataflowEndpoint = null as any;
 utilities.lazyLoad(exports, ["DataflowEndpoint"], () => require("./dataflowEndpoint"));
 
+export { DataflowGraphArgs } from "./dataflowGraph";
+export type DataflowGraph = import("./dataflowGraph").DataflowGraph;
+export const DataflowGraph: typeof import("./dataflowGraph").DataflowGraph = null as any;
+utilities.lazyLoad(exports, ["DataflowGraph"], () => require("./dataflowGraph"));
+
 export { DataflowProfileArgs } from "./dataflowProfile";
 export type DataflowProfile = import("./dataflowProfile").DataflowProfile;
 export const DataflowProfile: typeof import("./dataflowProfile").DataflowProfile = null as any;
 utilities.lazyLoad(exports, ["DataflowProfile"], () => require("./dataflowProfile"));
+
+export { GetAkriConnectorArgs, GetAkriConnectorResult, GetAkriConnectorOutputArgs } from "./getAkriConnector";
+export const getAkriConnector: typeof import("./getAkriConnector").getAkriConnector = null as any;
+export const getAkriConnectorOutput: typeof import("./getAkriConnector").getAkriConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getAkriConnector","getAkriConnectorOutput"], () => require("./getAkriConnector"));
+
+export { GetAkriConnectorTemplateArgs, GetAkriConnectorTemplateResult, GetAkriConnectorTemplateOutputArgs } from "./getAkriConnectorTemplate";
+export const getAkriConnectorTemplate: typeof import("./getAkriConnectorTemplate").getAkriConnectorTemplate = null as any;
+export const getAkriConnectorTemplateOutput: typeof import("./getAkriConnectorTemplate").getAkriConnectorTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getAkriConnectorTemplate","getAkriConnectorTemplateOutput"], () => require("./getAkriConnectorTemplate"));
 
 export { GetBrokerArgs, GetBrokerResult, GetBrokerOutputArgs } from "./getBroker";
 export const getBroker: typeof import("./getBroker").getBroker = null as any;
@@ -70,6 +95,11 @@ export const getDataflowEndpoint: typeof import("./getDataflowEndpoint").getData
 export const getDataflowEndpointOutput: typeof import("./getDataflowEndpoint").getDataflowEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getDataflowEndpoint","getDataflowEndpointOutput"], () => require("./getDataflowEndpoint"));
 
+export { GetDataflowGraphArgs, GetDataflowGraphResult, GetDataflowGraphOutputArgs } from "./getDataflowGraph";
+export const getDataflowGraph: typeof import("./getDataflowGraph").getDataflowGraph = null as any;
+export const getDataflowGraphOutput: typeof import("./getDataflowGraph").getDataflowGraphOutput = null as any;
+utilities.lazyLoad(exports, ["getDataflowGraph","getDataflowGraphOutput"], () => require("./getDataflowGraph"));
+
 export { GetDataflowProfileArgs, GetDataflowProfileResult, GetDataflowProfileOutputArgs } from "./getDataflowProfile";
 export const getDataflowProfile: typeof import("./getDataflowProfile").getDataflowProfile = null as any;
 export const getDataflowProfileOutput: typeof import("./getDataflowProfile").getDataflowProfileOutput = null as any;
@@ -80,10 +110,20 @@ export const getInstance: typeof import("./getInstance").getInstance = null as a
 export const getInstanceOutput: typeof import("./getInstance").getInstanceOutput = null as any;
 utilities.lazyLoad(exports, ["getInstance","getInstanceOutput"], () => require("./getInstance"));
 
+export { GetRegistryEndpointArgs, GetRegistryEndpointResult, GetRegistryEndpointOutputArgs } from "./getRegistryEndpoint";
+export const getRegistryEndpoint: typeof import("./getRegistryEndpoint").getRegistryEndpoint = null as any;
+export const getRegistryEndpointOutput: typeof import("./getRegistryEndpoint").getRegistryEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistryEndpoint","getRegistryEndpointOutput"], () => require("./getRegistryEndpoint"));
+
 export { InstanceArgs } from "./instance";
 export type Instance = import("./instance").Instance;
 export const Instance: typeof import("./instance").Instance = null as any;
 utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
+
+export { RegistryEndpointArgs } from "./registryEndpoint";
+export type RegistryEndpoint = import("./registryEndpoint").RegistryEndpoint;
+export const RegistryEndpoint: typeof import("./registryEndpoint").RegistryEndpoint = null as any;
+utilities.lazyLoad(exports, ["RegistryEndpoint"], () => require("./registryEndpoint"));
 
 
 // Export enums:
@@ -93,6 +133,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:iotoperations:AkriConnector":
+                return new AkriConnector(name, <any>undefined, { urn })
+            case "azure-native:iotoperations:AkriConnectorTemplate":
+                return new AkriConnectorTemplate(name, <any>undefined, { urn })
             case "azure-native:iotoperations:Broker":
                 return new Broker(name, <any>undefined, { urn })
             case "azure-native:iotoperations:BrokerAuthentication":
@@ -105,10 +149,14 @@ const _module = {
                 return new Dataflow(name, <any>undefined, { urn })
             case "azure-native:iotoperations:DataflowEndpoint":
                 return new DataflowEndpoint(name, <any>undefined, { urn })
+            case "azure-native:iotoperations:DataflowGraph":
+                return new DataflowGraph(name, <any>undefined, { urn })
             case "azure-native:iotoperations:DataflowProfile":
                 return new DataflowProfile(name, <any>undefined, { urn })
             case "azure-native:iotoperations:Instance":
                 return new Instance(name, <any>undefined, { urn })
+            case "azure-native:iotoperations:RegistryEndpoint":
+                return new RegistryEndpoint(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

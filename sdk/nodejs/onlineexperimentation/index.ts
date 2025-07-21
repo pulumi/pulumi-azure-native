@@ -10,10 +10,20 @@ export const getOnlineExperimentationWorkspace: typeof import("./getOnlineExperi
 export const getOnlineExperimentationWorkspaceOutput: typeof import("./getOnlineExperimentationWorkspace").getOnlineExperimentationWorkspaceOutput = null as any;
 utilities.lazyLoad(exports, ["getOnlineExperimentationWorkspace","getOnlineExperimentationWorkspaceOutput"], () => require("./getOnlineExperimentationWorkspace"));
 
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
 export { OnlineExperimentationWorkspaceArgs } from "./onlineExperimentationWorkspace";
 export type OnlineExperimentationWorkspace = import("./onlineExperimentationWorkspace").OnlineExperimentationWorkspace;
 export const OnlineExperimentationWorkspace: typeof import("./onlineExperimentationWorkspace").OnlineExperimentationWorkspace = null as any;
 utilities.lazyLoad(exports, ["OnlineExperimentationWorkspace"], () => require("./onlineExperimentationWorkspace"));
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
 
 // Export enums:
@@ -25,6 +35,8 @@ const _module = {
         switch (type) {
             case "azure-native:onlineexperimentation:OnlineExperimentationWorkspace":
                 return new OnlineExperimentationWorkspace(name, <any>undefined, { urn })
+            case "azure-native:onlineexperimentation:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

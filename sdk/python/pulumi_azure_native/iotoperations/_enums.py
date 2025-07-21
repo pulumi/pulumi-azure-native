@@ -7,6 +7,15 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'AkriConnectorTemplateAllocationPolicy',
+    'AkriConnectorTemplateHelmRegistrySettingsType',
+    'AkriConnectorTemplateManagedConfigurationType',
+    'AkriConnectorTemplateRuntimeConfigurationType',
+    'AkriConnectorsImagePullPolicy',
+    'AkriConnectorsMqttAuthenticationMethod',
+    'AkriConnectorsMqttProtocolType',
+    'AkriConnectorsRegistrySettingsType',
+    'AkriConnectorsTagDigestType',
     'BrokerAuthenticationMethod',
     'BrokerMemoryProfile',
     'BrokerProtocolType',
@@ -19,6 +28,9 @@ __all__ = [
     'DataflowEndpointKafkaAcks',
     'DataflowEndpointKafkaCompression',
     'DataflowEndpointKafkaPartitionStrategy',
+    'DataflowGraphConnectionSchemaSerializationFormat',
+    'DataflowGraphDestinationSchemaSerializationFormat',
+    'DataflowGraphNodeType',
     'DataflowMappingType',
     'EndpointType',
     'ExtendedLocationType',
@@ -32,6 +44,8 @@ __all__ = [
     'OperatorValues',
     'PrivateKeyAlgorithm',
     'PrivateKeyRotationPolicy',
+    'RegistryEndpointAuthenticationMethod',
+    'RegistryEndpointTrustedSigningKeyType',
     'ServiceType',
     'SourceSerializationFormat',
     'StateStoreResourceDefinitionMethods',
@@ -40,6 +54,133 @@ __all__ = [
     'TlsCertMethodMode',
     'TransformationSerializationFormat',
 ]
+
+
+@pulumi.type_token("azure-native:iotoperations:AkriConnectorTemplateAllocationPolicy")
+class AkriConnectorTemplateAllocationPolicy(builtins.str, Enum):
+    """
+    The allocation policy type.
+    """
+    BUCKETIZED = "Bucketized"
+    """
+    Bucketized allocation policy.
+    """
+
+
+@pulumi.type_token("azure-native:iotoperations:AkriConnectorTemplateHelmRegistrySettingsType")
+class AkriConnectorTemplateHelmRegistrySettingsType(builtins.str, Enum):
+    """
+    AkriConnectorTemplateHelmRegistrySettingsType values.
+    """
+    REGISTRY_ENDPOINT_REF = "RegistryEndpointRef"
+    """
+    A Registry Endpoint reference.
+    """
+    CONTAINER_REGISTRY = "ContainerRegistry"
+    """
+    A Container Registry reference.
+    """
+
+
+@pulumi.type_token("azure-native:iotoperations:AkriConnectorTemplateManagedConfigurationType")
+class AkriConnectorTemplateManagedConfigurationType(builtins.str, Enum):
+    """
+    The type of the managed configuration.
+    """
+    IMAGE_CONFIGURATION = "ImageConfiguration"
+    """
+    Image Configuration Type.
+    """
+    STATEFUL_SET_CONFIGURATION = "StatefulSetConfiguration"
+    """
+    StatefulSet Configuration Type.
+    """
+
+
+@pulumi.type_token("azure-native:iotoperations:AkriConnectorTemplateRuntimeConfigurationType")
+class AkriConnectorTemplateRuntimeConfigurationType(builtins.str, Enum):
+    """
+    Runtime configuration type for the Connector template.
+    """
+    HELM_CONFIGURATION = "HelmConfiguration"
+    """
+    Helm Configuration Type.
+    """
+    MANAGED_CONFIGURATION = "ManagedConfiguration"
+    """
+    Managed Configuration Type.
+    """
+
+
+@pulumi.type_token("azure-native:iotoperations:AkriConnectorsImagePullPolicy")
+class AkriConnectorsImagePullPolicy(builtins.str, Enum):
+    """
+    The pull policy of the image.
+    """
+    ALWAYS = "Always"
+    """
+    Always pull the image.
+    """
+    IF_NOT_PRESENT = "IfNotPresent"
+    """
+    IfNotPresent pull the image.
+    """
+    NEVER = "Never"
+    """
+    Never pull the image.
+    """
+
+
+@pulumi.type_token("azure-native:iotoperations:AkriConnectorsMqttAuthenticationMethod")
+class AkriConnectorsMqttAuthenticationMethod(builtins.str, Enum):
+    """
+    The authentication method for the MQTT connection.
+    """
+    SERVICE_ACCOUNT_TOKEN = "ServiceAccountToken"
+    """
+    Service Account Token authentication.
+    """
+
+
+@pulumi.type_token("azure-native:iotoperations:AkriConnectorsMqttProtocolType")
+class AkriConnectorsMqttProtocolType(builtins.str, Enum):
+    """
+    The protocol to use for the connection. Currently only `mqtt` is supported.
+    """
+    MQTT = "Mqtt"
+    """
+    Mqtt protocol.
+    """
+
+
+@pulumi.type_token("azure-native:iotoperations:AkriConnectorsRegistrySettingsType")
+class AkriConnectorsRegistrySettingsType(builtins.str, Enum):
+    """
+    AkriConnectorsRegistrySettings properties.
+    """
+    REGISTRY_ENDPOINT_REF = "RegistryEndpointRef"
+    """
+    A Registry Endpoint reference.
+    """
+    CONTAINER_REGISTRY = "ContainerRegistry"
+    """
+    A Container Registry reference.
+    """
+
+
+@pulumi.type_token("azure-native:iotoperations:AkriConnectorsTagDigestType")
+class AkriConnectorsTagDigestType(builtins.str, Enum):
+    """
+    The tag or digest type.
+    """
+    TAG = "Tag"
+    """
+    Indicates that a tag should be specified.
+    """
+    DIGEST = "Digest"
+    """
+    Indicates that a digest should be specified.
+    """
 
 
 @pulumi.type_token("azure-native:iotoperations:BrokerAuthenticationMethod")
@@ -266,6 +407,63 @@ class DataflowEndpointKafkaPartitionStrategy(builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:iotoperations:DataflowGraphConnectionSchemaSerializationFormat")
+class DataflowGraphConnectionSchemaSerializationFormat(builtins.str, Enum):
+    """
+    Output serialization format.
+    """
+    DELTA = "Delta"
+    """
+    Delta Format
+    """
+    JSON = "Json"
+    """
+    JSON Format
+    """
+    PARQUET = "Parquet"
+    """
+    Parquet Format
+    """
+    AVRO = "Avro"
+    """
+    Avro serialization format.
+    """
+
+
+@pulumi.type_token("azure-native:iotoperations:DataflowGraphDestinationSchemaSerializationFormat")
+class DataflowGraphDestinationSchemaSerializationFormat(builtins.str, Enum):
+    """
+    The format of the output data.
+    """
+    PARQUET = "Parquet"
+    """
+    Parquet serialization format.
+    """
+    DELTA = "Delta"
+    """
+    Delta serialization format.
+    """
+
+
+@pulumi.type_token("azure-native:iotoperations:DataflowGraphNodeType")
+class DataflowGraphNodeType(builtins.str, Enum):
+    """
+    Type of the node.
+    """
+    SOURCE = "Source"
+    """
+    Dataflow source node.
+    """
+    GRAPH = "Graph"
+    """
+    Dataflow graph node.
+    """
+    DESTINATION = "Destination"
+    """
+    Dataflow destination node.
+    """
+
+
 @pulumi.type_token("azure-native:iotoperations:DataflowMappingType")
 class DataflowMappingType(builtins.str, Enum):
     """
@@ -448,7 +646,7 @@ class OperationType(builtins.str, Enum):
 @pulumi.type_token("azure-native:iotoperations:OperationalMode")
 class OperationalMode(builtins.str, Enum):
     """
-    Mode for TLS.
+    Disk persistence mode.
     """
     ENABLED = "Enabled"
     """
@@ -530,6 +728,44 @@ class PrivateKeyRotationPolicy(builtins.str, Enum):
     NEVER = "Never"
     """
     Rotation Policy - Never.
+    """
+
+
+@pulumi.type_token("azure-native:iotoperations:RegistryEndpointAuthenticationMethod")
+class RegistryEndpointAuthenticationMethod(builtins.str, Enum):
+    """
+    The authentication method.
+    """
+    SYSTEM_ASSIGNED_MANAGED_IDENTITY = "SystemAssignedManagedIdentity"
+    """
+    SystemAssignedManagedIdentity type
+    """
+    USER_ASSIGNED_MANAGED_IDENTITY = "UserAssignedManagedIdentity"
+    """
+    UserAssignedManagedIdentity type
+    """
+    ANONYMOUS = "Anonymous"
+    """
+    Anonymous Option
+    """
+    ARTIFACT_PULL_SECRET = "ArtifactPullSecret"
+    """
+    Artifact Pull Secret authentication
+    """
+
+
+@pulumi.type_token("azure-native:iotoperations:RegistryEndpointTrustedSigningKeyType")
+class RegistryEndpointTrustedSigningKeyType(builtins.str, Enum):
+    """
+    The trust type for the registry endpoint.
+    """
+    SECRET = "Secret"
+    """
+    Trust settings stored in a Kubernetes Secret.
+    """
+    CONFIG_MAP = "ConfigMap"
+    """
+    Trust settings stored in a Kubernetes ConfigMap.
     """
 
 

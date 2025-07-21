@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
  *
- * Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class EventHubAuthorizationRule extends pulumi.CustomResource {
     /**
@@ -108,7 +108,7 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20140901:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20150801:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20170401:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20180101preview:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20210101preview:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20210601preview:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20211101:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20220101preview:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20221001preview:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20230101preview:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20240101:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20240501preview:EventHubAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20140901:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20150801:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20170401:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20180101preview:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20210101preview:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20210601preview:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20211101:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20220101preview:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20221001preview:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20230101preview:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20240101:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20240501preview:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20250501preview:EventHubAuthorizationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventHubAuthorizationRule.__pulumiType, name, resourceInputs, opts);
     }

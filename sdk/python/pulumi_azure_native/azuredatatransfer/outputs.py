@@ -18,9 +18,12 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ApiFlowOptionsResponse',
     'ConnectionPropertiesResponse',
     'FlowPropertiesResponse',
+    'FlowResponse',
     'InternalMetadataPropertiesResponse',
+    'ListFlowsByPipelineConnectionResponse',
     'ManagedServiceIdentityResponse',
     'MessagingOptionsResponse',
     'OperationStatusPropertiesResponse',
@@ -37,6 +40,128 @@ __all__ = [
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
 ]
+
+@pulumi.output_type
+class ApiFlowOptionsResponse(dict):
+    """
+    Properties specific to API Flow Type
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiMode":
+            suggest = "api_mode"
+        elif key == "audienceOverride":
+            suggest = "audience_override"
+        elif key == "identityTranslation":
+            suggest = "identity_translation"
+        elif key == "remoteCallingModeClientId":
+            suggest = "remote_calling_mode_client_id"
+        elif key == "remoteEndpoint":
+            suggest = "remote_endpoint"
+        elif key == "senderClientId":
+            suggest = "sender_client_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiFlowOptionsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiFlowOptionsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiFlowOptionsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_mode: Optional[builtins.str] = None,
+                 audience_override: Optional[builtins.str] = None,
+                 cname: Optional[builtins.str] = None,
+                 identity_translation: Optional[builtins.str] = None,
+                 remote_calling_mode_client_id: Optional[builtins.str] = None,
+                 remote_endpoint: Optional[builtins.str] = None,
+                 sender_client_id: Optional[builtins.str] = None):
+        """
+        Properties specific to API Flow Type
+        :param builtins.str api_mode: Remote Calling Mode in the Azure Data Transfer API Flow, which describes how the API Flow will be invoked
+        :param builtins.str audience_override: Optional field to override the audience of the remote endpoint
+        :param builtins.str cname: Unique CNAME to represent the Azure Data Transfer API Flow instance
+        :param builtins.str identity_translation: Flag for if Azure Data Transfer API Flow should extract the user token
+        :param builtins.str remote_calling_mode_client_id: Remote stub app registration Client ID
+        :param builtins.str remote_endpoint: Remote host to which communication needs to be made
+        :param builtins.str sender_client_id: Sender's app user assigned Manage Identity client ID
+        """
+        if api_mode is not None:
+            pulumi.set(__self__, "api_mode", api_mode)
+        if audience_override is not None:
+            pulumi.set(__self__, "audience_override", audience_override)
+        if cname is not None:
+            pulumi.set(__self__, "cname", cname)
+        if identity_translation is not None:
+            pulumi.set(__self__, "identity_translation", identity_translation)
+        if remote_calling_mode_client_id is not None:
+            pulumi.set(__self__, "remote_calling_mode_client_id", remote_calling_mode_client_id)
+        if remote_endpoint is not None:
+            pulumi.set(__self__, "remote_endpoint", remote_endpoint)
+        if sender_client_id is not None:
+            pulumi.set(__self__, "sender_client_id", sender_client_id)
+
+    @property
+    @pulumi.getter(name="apiMode")
+    def api_mode(self) -> Optional[builtins.str]:
+        """
+        Remote Calling Mode in the Azure Data Transfer API Flow, which describes how the API Flow will be invoked
+        """
+        return pulumi.get(self, "api_mode")
+
+    @property
+    @pulumi.getter(name="audienceOverride")
+    def audience_override(self) -> Optional[builtins.str]:
+        """
+        Optional field to override the audience of the remote endpoint
+        """
+        return pulumi.get(self, "audience_override")
+
+    @property
+    @pulumi.getter
+    def cname(self) -> Optional[builtins.str]:
+        """
+        Unique CNAME to represent the Azure Data Transfer API Flow instance
+        """
+        return pulumi.get(self, "cname")
+
+    @property
+    @pulumi.getter(name="identityTranslation")
+    def identity_translation(self) -> Optional[builtins.str]:
+        """
+        Flag for if Azure Data Transfer API Flow should extract the user token
+        """
+        return pulumi.get(self, "identity_translation")
+
+    @property
+    @pulumi.getter(name="remoteCallingModeClientId")
+    def remote_calling_mode_client_id(self) -> Optional[builtins.str]:
+        """
+        Remote stub app registration Client ID
+        """
+        return pulumi.get(self, "remote_calling_mode_client_id")
+
+    @property
+    @pulumi.getter(name="remoteEndpoint")
+    def remote_endpoint(self) -> Optional[builtins.str]:
+        """
+        Remote host to which communication needs to be made
+        """
+        return pulumi.get(self, "remote_endpoint")
+
+    @property
+    @pulumi.getter(name="senderClientId")
+    def sender_client_id(self) -> Optional[builtins.str]:
+        """
+        Sender's app user assigned Manage Identity client ID
+        """
+        return pulumi.get(self, "sender_client_id")
+
 
 @pulumi.output_type
 class ConnectionPropertiesResponse(dict):
@@ -316,12 +441,18 @@ class FlowPropertiesResponse(dict):
         suggest = None
         if key == "flowId":
             suggest = "flow_id"
+        elif key == "forceDisabledStatus":
+            suggest = "force_disabled_status"
         elif key == "linkStatus":
             suggest = "link_status"
         elif key == "linkedFlowId":
             suggest = "linked_flow_id"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "apiFlowOptions":
+            suggest = "api_flow_options"
+        elif key == "consumerGroup":
+            suggest = "consumer_group"
         elif key == "customerManagedKeyVaultUri":
             suggest = "customer_managed_key_vault_uri"
         elif key == "dataType":
@@ -330,6 +461,8 @@ class FlowPropertiesResponse(dict):
             suggest = "destination_endpoint_ports"
         elif key == "destinationEndpoints":
             suggest = "destination_endpoints"
+        elif key == "eventHubId":
+            suggest = "event_hub_id"
         elif key == "flowType":
             suggest = "flow_type"
         elif key == "keyVaultUri":
@@ -346,6 +479,8 @@ class FlowPropertiesResponse(dict):
             suggest = "storage_account_name"
         elif key == "storageContainerName":
             suggest = "storage_container_name"
+        elif key == "storageTableName":
+            suggest = "storage_table_name"
         elif key == "streamId":
             suggest = "stream_id"
         elif key == "streamLatency":
@@ -366,14 +501,18 @@ class FlowPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  flow_id: builtins.str,
+                 force_disabled_status: Sequence[builtins.str],
                  link_status: builtins.str,
                  linked_flow_id: builtins.str,
                  provisioning_state: builtins.str,
+                 api_flow_options: Optional['outputs.ApiFlowOptionsResponse'] = None,
                  connection: Optional['outputs.SelectedResourceResponse'] = None,
+                 consumer_group: Optional[builtins.str] = None,
                  customer_managed_key_vault_uri: Optional[builtins.str] = None,
                  data_type: Optional[builtins.str] = None,
                  destination_endpoint_ports: Optional[Sequence[builtins.float]] = None,
                  destination_endpoints: Optional[Sequence[builtins.str]] = None,
+                 event_hub_id: Optional[builtins.str] = None,
                  flow_type: Optional[builtins.str] = None,
                  key_vault_uri: Optional[builtins.str] = None,
                  messaging_options: Optional['outputs.MessagingOptionsResponse'] = None,
@@ -386,22 +525,27 @@ class FlowPropertiesResponse(dict):
                  storage_account_id: Optional[builtins.str] = None,
                  storage_account_name: Optional[builtins.str] = None,
                  storage_container_name: Optional[builtins.str] = None,
+                 storage_table_name: Optional[builtins.str] = None,
                  stream_id: Optional[builtins.str] = None,
                  stream_latency: Optional[builtins.float] = None,
                  stream_protocol: Optional[builtins.str] = None):
         """
         Properties of flow
         :param builtins.str flow_id: Dataflow GUID associated with this flow
+        :param Sequence[builtins.str] force_disabled_status: Force disablement status of the current flow
         :param builtins.str link_status: Link status of the current flow
         :param builtins.str linked_flow_id: Resource ID of the linked flow
         :param builtins.str provisioning_state: Provisioning state of the flow
+        :param 'ApiFlowOptionsResponse' api_flow_options: The API Flow configuration options for Azure Data Transfer API Flow type.
         :param 'SelectedResourceResponse' connection: The connection associated with this flow
+        :param builtins.str consumer_group: Event Hub Consumer Group
         :param builtins.str customer_managed_key_vault_uri: The URI to the customer managed key for this flow
-        :param builtins.str data_type: Transfer Storage Blobs or Tables
+        :param builtins.str data_type: Type of data to transfer via the flow.
         :param Sequence[builtins.float] destination_endpoint_ports: The destination endpoint ports of the stream
         :param Sequence[builtins.str] destination_endpoints: The destination endpoints of the stream
+        :param builtins.str event_hub_id: Event Hub ID
         :param builtins.str flow_type: The flow type for this flow
-        :param builtins.str key_vault_uri: AME, PME, or TORUS only! AKV Chain Containing SAS Token
+        :param builtins.str key_vault_uri: URI to a Key Vault Secret containing a SAS token.
         :param 'MessagingOptionsResponse' messaging_options: The messaging options for this flow
         :param builtins.str passphrase: The passphrase used for SRT streams
         :param Sequence[builtins.str] policies: The policies for this flow
@@ -412,16 +556,22 @@ class FlowPropertiesResponse(dict):
         :param builtins.str storage_account_id: Storage Account ID
         :param builtins.str storage_account_name: Storage Account
         :param builtins.str storage_container_name: Storage Container Name
+        :param builtins.str storage_table_name: Storage Table Name
         :param builtins.str stream_id: The flow stream identifier
         :param builtins.float stream_latency: The latency of the stream in milliseconds
         :param builtins.str stream_protocol: The protocol of the stream
         """
         pulumi.set(__self__, "flow_id", flow_id)
+        pulumi.set(__self__, "force_disabled_status", force_disabled_status)
         pulumi.set(__self__, "link_status", link_status)
         pulumi.set(__self__, "linked_flow_id", linked_flow_id)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if api_flow_options is not None:
+            pulumi.set(__self__, "api_flow_options", api_flow_options)
         if connection is not None:
             pulumi.set(__self__, "connection", connection)
+        if consumer_group is not None:
+            pulumi.set(__self__, "consumer_group", consumer_group)
         if customer_managed_key_vault_uri is not None:
             pulumi.set(__self__, "customer_managed_key_vault_uri", customer_managed_key_vault_uri)
         if data_type is not None:
@@ -430,6 +580,8 @@ class FlowPropertiesResponse(dict):
             pulumi.set(__self__, "destination_endpoint_ports", destination_endpoint_ports)
         if destination_endpoints is not None:
             pulumi.set(__self__, "destination_endpoints", destination_endpoints)
+        if event_hub_id is not None:
+            pulumi.set(__self__, "event_hub_id", event_hub_id)
         if flow_type is not None:
             pulumi.set(__self__, "flow_type", flow_type)
         if key_vault_uri is not None:
@@ -454,6 +606,8 @@ class FlowPropertiesResponse(dict):
             pulumi.set(__self__, "storage_account_name", storage_account_name)
         if storage_container_name is not None:
             pulumi.set(__self__, "storage_container_name", storage_container_name)
+        if storage_table_name is not None:
+            pulumi.set(__self__, "storage_table_name", storage_table_name)
         if stream_id is not None:
             pulumi.set(__self__, "stream_id", stream_id)
         if stream_latency is not None:
@@ -468,6 +622,14 @@ class FlowPropertiesResponse(dict):
         Dataflow GUID associated with this flow
         """
         return pulumi.get(self, "flow_id")
+
+    @property
+    @pulumi.getter(name="forceDisabledStatus")
+    def force_disabled_status(self) -> Sequence[builtins.str]:
+        """
+        Force disablement status of the current flow
+        """
+        return pulumi.get(self, "force_disabled_status")
 
     @property
     @pulumi.getter(name="linkStatus")
@@ -494,12 +656,28 @@ class FlowPropertiesResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="apiFlowOptions")
+    def api_flow_options(self) -> Optional['outputs.ApiFlowOptionsResponse']:
+        """
+        The API Flow configuration options for Azure Data Transfer API Flow type.
+        """
+        return pulumi.get(self, "api_flow_options")
+
+    @property
     @pulumi.getter
     def connection(self) -> Optional['outputs.SelectedResourceResponse']:
         """
         The connection associated with this flow
         """
         return pulumi.get(self, "connection")
+
+    @property
+    @pulumi.getter(name="consumerGroup")
+    def consumer_group(self) -> Optional[builtins.str]:
+        """
+        Event Hub Consumer Group
+        """
+        return pulumi.get(self, "consumer_group")
 
     @property
     @pulumi.getter(name="customerManagedKeyVaultUri")
@@ -513,7 +691,7 @@ class FlowPropertiesResponse(dict):
     @pulumi.getter(name="dataType")
     def data_type(self) -> Optional[builtins.str]:
         """
-        Transfer Storage Blobs or Tables
+        Type of data to transfer via the flow.
         """
         return pulumi.get(self, "data_type")
 
@@ -534,6 +712,14 @@ class FlowPropertiesResponse(dict):
         return pulumi.get(self, "destination_endpoints")
 
     @property
+    @pulumi.getter(name="eventHubId")
+    def event_hub_id(self) -> Optional[builtins.str]:
+        """
+        Event Hub ID
+        """
+        return pulumi.get(self, "event_hub_id")
+
+    @property
     @pulumi.getter(name="flowType")
     def flow_type(self) -> Optional[builtins.str]:
         """
@@ -545,7 +731,7 @@ class FlowPropertiesResponse(dict):
     @pulumi.getter(name="keyVaultUri")
     def key_vault_uri(self) -> Optional[builtins.str]:
         """
-        AME, PME, or TORUS only! AKV Chain Containing SAS Token
+        URI to a Key Vault Secret containing a SAS token.
         """
         return pulumi.get(self, "key_vault_uri")
 
@@ -630,6 +816,14 @@ class FlowPropertiesResponse(dict):
         return pulumi.get(self, "storage_container_name")
 
     @property
+    @pulumi.getter(name="storageTableName")
+    def storage_table_name(self) -> Optional[builtins.str]:
+        """
+        Storage Table Name
+        """
+        return pulumi.get(self, "storage_table_name")
+
+    @property
     @pulumi.getter(name="streamId")
     def stream_id(self) -> Optional[builtins.str]:
         """
@@ -652,6 +846,120 @@ class FlowPropertiesResponse(dict):
         The protocol of the stream
         """
         return pulumi.get(self, "stream_protocol")
+
+
+@pulumi.output_type
+class FlowResponse(dict):
+    """
+    The flow resource definition.
+    """
+    def __init__(__self__, *,
+                 id: builtins.str,
+                 location: builtins.str,
+                 name: builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: builtins.str,
+                 identity: Optional['outputs.ManagedServiceIdentityResponse'] = None,
+                 plan: Optional['outputs.PlanResponse'] = None,
+                 properties: Optional['outputs.FlowPropertiesResponse'] = None,
+                 tags: Optional[Mapping[str, builtins.str]] = None):
+        """
+        The flow resource definition.
+        :param builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        :param builtins.str location: The geo-location where the resource lives
+        :param builtins.str name: The name of the resource
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'ManagedServiceIdentityResponse' identity: The managed service identities assigned to this resource.
+        :param 'PlanResponse' plan: Details of the resource plan.
+        :param 'FlowPropertiesResponse' properties: Properties of flow
+        :param Mapping[str, builtins.str] tags: Resource tags.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if plan is not None:
+            pulumi.set(__self__, "plan", plan)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> builtins.str:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        The managed service identities assigned to this resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional['outputs.PlanResponse']:
+        """
+        Details of the resource plan.
+        """
+        return pulumi.get(self, "plan")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.FlowPropertiesResponse']:
+        """
+        Properties of flow
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
@@ -705,6 +1013,41 @@ class InternalMetadataPropertiesResponse(dict):
         Operation status associated with the last patch request
         """
         return pulumi.get(self, "operation_status")
+
+
+@pulumi.output_type
+class ListFlowsByPipelineConnectionResponse(dict):
+    """
+    A connection resource id in addition to all child flow resources under this connection.
+    """
+    def __init__(__self__, *,
+                 flows: Optional[Sequence['outputs.FlowResponse']] = None,
+                 id: Optional[builtins.str] = None):
+        """
+        A connection resource id in addition to all child flow resources under this connection.
+        :param Sequence['FlowResponse'] flows: List of flows associated with the connection.
+        :param builtins.str id: ID of the connection.
+        """
+        if flows is not None:
+            pulumi.set(__self__, "flows", flows)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def flows(self) -> Optional[Sequence['outputs.FlowResponse']]:
+        """
+        List of flows associated with the connection.
+        """
+        return pulumi.get(self, "flows")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.str]:
+        """
+        ID of the connection.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type

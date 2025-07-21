@@ -70,7 +70,7 @@ class GroupQuotaSubscription(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-03-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
-        Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -88,7 +88,7 @@ class GroupQuotaSubscription(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-03-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
-        Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param GroupQuotaSubscriptionArgs args: The arguments to use to populate this resource's properties.
@@ -127,7 +127,7 @@ class GroupQuotaSubscription(pulumi.CustomResource):
             __props__.__dict__["properties"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:quota/v20230601preview:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native:quota/v20241015preview:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native:quota/v20241218preview:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native:quota/v20250301:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native:quota/v20250315preview:GroupQuotaSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:quota/v20230601preview:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native:quota/v20241015preview:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native:quota/v20241218preview:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native:quota/v20250301:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native:quota/v20250315preview:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native:quota/v20250715:GroupQuotaSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GroupQuotaSubscription, __self__).__init__(
             'azure-native:quota:GroupQuotaSubscription',

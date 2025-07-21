@@ -116,7 +116,7 @@ def get_group_quota(group_quota_name: Optional[builtins.str] = None,
 
     Uses Azure REST API version 2025-03-01.
 
-    Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
@@ -143,7 +143,7 @@ def get_group_quota_output(group_quota_name: Optional[pulumi.Input[builtins.str]
 
     Uses Azure REST API version 2025-03-01.
 
-    Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.

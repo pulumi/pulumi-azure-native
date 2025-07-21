@@ -2,6 +2,142 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AkriConnectorTemplateAllocationPolicy = {
+    /**
+     * Bucketized allocation policy.
+     */
+    Bucketized: "Bucketized",
+} as const;
+
+/**
+ * The allocation policy type.
+ */
+export type AkriConnectorTemplateAllocationPolicy = (typeof AkriConnectorTemplateAllocationPolicy)[keyof typeof AkriConnectorTemplateAllocationPolicy];
+
+export const AkriConnectorTemplateHelmRegistrySettingsType = {
+    /**
+     * A Registry Endpoint reference.
+     */
+    RegistryEndpointRef: "RegistryEndpointRef",
+    /**
+     * A Container Registry reference.
+     */
+    ContainerRegistry: "ContainerRegistry",
+} as const;
+
+/**
+ * AkriConnectorTemplateHelmRegistrySettingsType values.
+ */
+export type AkriConnectorTemplateHelmRegistrySettingsType = (typeof AkriConnectorTemplateHelmRegistrySettingsType)[keyof typeof AkriConnectorTemplateHelmRegistrySettingsType];
+
+export const AkriConnectorTemplateManagedConfigurationType = {
+    /**
+     * Image Configuration Type.
+     */
+    ImageConfiguration: "ImageConfiguration",
+    /**
+     * StatefulSet Configuration Type.
+     */
+    StatefulSetConfiguration: "StatefulSetConfiguration",
+} as const;
+
+/**
+ * The type of the managed configuration.
+ */
+export type AkriConnectorTemplateManagedConfigurationType = (typeof AkriConnectorTemplateManagedConfigurationType)[keyof typeof AkriConnectorTemplateManagedConfigurationType];
+
+export const AkriConnectorTemplateRuntimeConfigurationType = {
+    /**
+     * Helm Configuration Type.
+     */
+    HelmConfiguration: "HelmConfiguration",
+    /**
+     * Managed Configuration Type.
+     */
+    ManagedConfiguration: "ManagedConfiguration",
+} as const;
+
+/**
+ * Runtime configuration type for the Connector template.
+ */
+export type AkriConnectorTemplateRuntimeConfigurationType = (typeof AkriConnectorTemplateRuntimeConfigurationType)[keyof typeof AkriConnectorTemplateRuntimeConfigurationType];
+
+export const AkriConnectorsImagePullPolicy = {
+    /**
+     * Always pull the image.
+     */
+    Always: "Always",
+    /**
+     * IfNotPresent pull the image.
+     */
+    IfNotPresent: "IfNotPresent",
+    /**
+     * Never pull the image.
+     */
+    Never: "Never",
+} as const;
+
+/**
+ * The pull policy of the image.
+ */
+export type AkriConnectorsImagePullPolicy = (typeof AkriConnectorsImagePullPolicy)[keyof typeof AkriConnectorsImagePullPolicy];
+
+export const AkriConnectorsMqttAuthenticationMethod = {
+    /**
+     * Service Account Token authentication.
+     */
+    ServiceAccountToken: "ServiceAccountToken",
+} as const;
+
+/**
+ * The authentication method for the MQTT connection.
+ */
+export type AkriConnectorsMqttAuthenticationMethod = (typeof AkriConnectorsMqttAuthenticationMethod)[keyof typeof AkriConnectorsMqttAuthenticationMethod];
+
+export const AkriConnectorsMqttProtocolType = {
+    /**
+     * Mqtt protocol.
+     */
+    Mqtt: "Mqtt",
+} as const;
+
+/**
+ * The protocol to use for the connection. Currently only `mqtt` is supported.
+ */
+export type AkriConnectorsMqttProtocolType = (typeof AkriConnectorsMqttProtocolType)[keyof typeof AkriConnectorsMqttProtocolType];
+
+export const AkriConnectorsRegistrySettingsType = {
+    /**
+     * A Registry Endpoint reference.
+     */
+    RegistryEndpointRef: "RegistryEndpointRef",
+    /**
+     * A Container Registry reference.
+     */
+    ContainerRegistry: "ContainerRegistry",
+} as const;
+
+/**
+ * AkriConnectorsRegistrySettings properties.
+ */
+export type AkriConnectorsRegistrySettingsType = (typeof AkriConnectorsRegistrySettingsType)[keyof typeof AkriConnectorsRegistrySettingsType];
+
+export const AkriConnectorsTagDigestType = {
+    /**
+     * Indicates that a tag should be specified.
+     */
+    Tag: "Tag",
+    /**
+     * Indicates that a digest should be specified.
+     */
+    Digest: "Digest",
+} as const;
+
+/**
+ * The tag or digest type.
+ */
+export type AkriConnectorsTagDigestType = (typeof AkriConnectorsTagDigestType)[keyof typeof AkriConnectorsTagDigestType];
+
 export const BrokerAuthenticationMethod = {
     /**
      * Custom authentication configuration.
@@ -238,6 +374,66 @@ export const DataflowEndpointKafkaPartitionStrategy = {
  */
 export type DataflowEndpointKafkaPartitionStrategy = (typeof DataflowEndpointKafkaPartitionStrategy)[keyof typeof DataflowEndpointKafkaPartitionStrategy];
 
+export const DataflowGraphConnectionSchemaSerializationFormat = {
+    /**
+     * Delta Format
+     */
+    Delta: "Delta",
+    /**
+     * JSON Format
+     */
+    Json: "Json",
+    /**
+     * Parquet Format
+     */
+    Parquet: "Parquet",
+    /**
+     * Avro serialization format.
+     */
+    Avro: "Avro",
+} as const;
+
+/**
+ * Output serialization format.
+ */
+export type DataflowGraphConnectionSchemaSerializationFormat = (typeof DataflowGraphConnectionSchemaSerializationFormat)[keyof typeof DataflowGraphConnectionSchemaSerializationFormat];
+
+export const DataflowGraphDestinationSchemaSerializationFormat = {
+    /**
+     * Parquet serialization format.
+     */
+    Parquet: "Parquet",
+    /**
+     * Delta serialization format.
+     */
+    Delta: "Delta",
+} as const;
+
+/**
+ * The format of the output data.
+ */
+export type DataflowGraphDestinationSchemaSerializationFormat = (typeof DataflowGraphDestinationSchemaSerializationFormat)[keyof typeof DataflowGraphDestinationSchemaSerializationFormat];
+
+export const DataflowGraphNodeType = {
+    /**
+     * Dataflow source node.
+     */
+    Source: "Source",
+    /**
+     * Dataflow graph node.
+     */
+    Graph: "Graph",
+    /**
+     * Dataflow destination node.
+     */
+    Destination: "Destination",
+} as const;
+
+/**
+ * Type of the node.
+ */
+export type DataflowGraphNodeType = (typeof DataflowGraphNodeType)[keyof typeof DataflowGraphNodeType];
+
 export const DataflowMappingType = {
     /**
      * New Properties type
@@ -438,7 +634,7 @@ export const OperationalMode = {
 } as const;
 
 /**
- * Mode for TLS.
+ * Disk persistence mode.
  */
 export type OperationalMode = (typeof OperationalMode)[keyof typeof OperationalMode];
 
@@ -517,6 +713,46 @@ export const PrivateKeyRotationPolicy = {
  * cert-manager private key rotationPolicy.
  */
 export type PrivateKeyRotationPolicy = (typeof PrivateKeyRotationPolicy)[keyof typeof PrivateKeyRotationPolicy];
+
+export const RegistryEndpointAuthenticationMethod = {
+    /**
+     * SystemAssignedManagedIdentity type
+     */
+    SystemAssignedManagedIdentity: "SystemAssignedManagedIdentity",
+    /**
+     * UserAssignedManagedIdentity type
+     */
+    UserAssignedManagedIdentity: "UserAssignedManagedIdentity",
+    /**
+     * Anonymous Option
+     */
+    Anonymous: "Anonymous",
+    /**
+     * Artifact Pull Secret authentication
+     */
+    ArtifactPullSecret: "ArtifactPullSecret",
+} as const;
+
+/**
+ * The authentication method.
+ */
+export type RegistryEndpointAuthenticationMethod = (typeof RegistryEndpointAuthenticationMethod)[keyof typeof RegistryEndpointAuthenticationMethod];
+
+export const RegistryEndpointTrustedSigningKeyType = {
+    /**
+     * Trust settings stored in a Kubernetes Secret.
+     */
+    Secret: "Secret",
+    /**
+     * Trust settings stored in a Kubernetes ConfigMap.
+     */
+    ConfigMap: "ConfigMap",
+} as const;
+
+/**
+ * The trust type for the registry endpoint.
+ */
+export type RegistryEndpointTrustedSigningKeyType = (typeof RegistryEndpointTrustedSigningKeyType)[keyof typeof RegistryEndpointTrustedSigningKeyType];
 
 export const ServiceType = {
     /**

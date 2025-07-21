@@ -19,6 +19,72 @@ from ._enums import *
 __all__ = [
     'AdvancedSettingsArgs',
     'AdvancedSettingsArgsDict',
+    'AkriConnectorTemplateAioMetadataArgs',
+    'AkriConnectorTemplateAioMetadataArgsDict',
+    'AkriConnectorTemplateBucketizedAllocationArgs',
+    'AkriConnectorTemplateBucketizedAllocationArgsDict',
+    'AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefsArgs',
+    'AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefsArgsDict',
+    'AkriConnectorTemplateDeviceInboundEndpointTypeArgs',
+    'AkriConnectorTemplateDeviceInboundEndpointTypeArgsDict',
+    'AkriConnectorTemplateDiagnosticsArgs',
+    'AkriConnectorTemplateDiagnosticsArgsDict',
+    'AkriConnectorTemplateHelmAdvancedConfigurationArgs',
+    'AkriConnectorTemplateHelmAdvancedConfigurationArgsDict',
+    'AkriConnectorTemplateHelmAuthSecretRefArgs',
+    'AkriConnectorTemplateHelmAuthSecretRefArgsDict',
+    'AkriConnectorTemplateHelmConfigurationSettingsArgs',
+    'AkriConnectorTemplateHelmConfigurationSettingsArgsDict',
+    'AkriConnectorTemplateHelmConfigurationArgs',
+    'AkriConnectorTemplateHelmConfigurationArgsDict',
+    'AkriConnectorTemplateHelmContainerRegistrySettingsArgs',
+    'AkriConnectorTemplateHelmContainerRegistrySettingsArgsDict',
+    'AkriConnectorTemplateHelmContainerRegistryArgs',
+    'AkriConnectorTemplateHelmContainerRegistryArgsDict',
+    'AkriConnectorTemplateHelmDeleteConfigurationArgs',
+    'AkriConnectorTemplateHelmDeleteConfigurationArgsDict',
+    'AkriConnectorTemplateHelmInstallConfigurationArgs',
+    'AkriConnectorTemplateHelmInstallConfigurationArgsDict',
+    'AkriConnectorTemplateHelmRegistryEndpointRefArgs',
+    'AkriConnectorTemplateHelmRegistryEndpointRefArgsDict',
+    'AkriConnectorTemplateHelmUpgradeConfigurationArgs',
+    'AkriConnectorTemplateHelmUpgradeConfigurationArgsDict',
+    'AkriConnectorTemplateManagedConfigurationArgs',
+    'AkriConnectorTemplateManagedConfigurationArgsDict',
+    'AkriConnectorTemplatePersistentVolumeClaimArgs',
+    'AkriConnectorTemplatePersistentVolumeClaimArgsDict',
+    'AkriConnectorTemplatePropertiesArgs',
+    'AkriConnectorTemplatePropertiesArgsDict',
+    'AkriConnectorTemplateRuntimeImageConfigurationSettingsArgs',
+    'AkriConnectorTemplateRuntimeImageConfigurationSettingsArgsDict',
+    'AkriConnectorTemplateRuntimeImageConfigurationArgs',
+    'AkriConnectorTemplateRuntimeImageConfigurationArgsDict',
+    'AkriConnectorTemplateRuntimeStatefulSetConfigurationArgs',
+    'AkriConnectorTemplateRuntimeStatefulSetConfigurationArgsDict',
+    'AkriConnectorTemplateTrustListArgs',
+    'AkriConnectorTemplateTrustListArgsDict',
+    'AkriConnectorsContainerRegistrySettingsArgs',
+    'AkriConnectorsContainerRegistrySettingsArgsDict',
+    'AkriConnectorsContainerRegistryArgs',
+    'AkriConnectorsContainerRegistryArgsDict',
+    'AkriConnectorsDiagnosticsLogsArgs',
+    'AkriConnectorsDiagnosticsLogsArgsDict',
+    'AkriConnectorsDigestArgs',
+    'AkriConnectorsDigestArgsDict',
+    'AkriConnectorsImagePullSecretArgs',
+    'AkriConnectorsImagePullSecretArgsDict',
+    'AkriConnectorsMqttConnectionConfigurationArgs',
+    'AkriConnectorsMqttConnectionConfigurationArgsDict',
+    'AkriConnectorsRegistryEndpointRefArgs',
+    'AkriConnectorsRegistryEndpointRefArgsDict',
+    'AkriConnectorsSecretArgs',
+    'AkriConnectorsSecretArgsDict',
+    'AkriConnectorsServiceAccountAuthenticationArgs',
+    'AkriConnectorsServiceAccountAuthenticationArgsDict',
+    'AkriConnectorsServiceAccountTokenSettingsArgs',
+    'AkriConnectorsServiceAccountTokenSettingsArgsDict',
+    'AkriConnectorsTagArgs',
+    'AkriConnectorsTagArgsDict',
     'AuthorizationConfigArgs',
     'AuthorizationConfigArgsDict',
     'AuthorizationRuleArgs',
@@ -113,6 +179,32 @@ __all__ = [
     'DataflowEndpointMqttArgsDict',
     'DataflowEndpointPropertiesArgs',
     'DataflowEndpointPropertiesArgsDict',
+    'DataflowGraphConnectionInputArgs',
+    'DataflowGraphConnectionInputArgsDict',
+    'DataflowGraphConnectionOutputArgs',
+    'DataflowGraphConnectionOutputArgsDict',
+    'DataflowGraphConnectionSchemaSettingsArgs',
+    'DataflowGraphConnectionSchemaSettingsArgsDict',
+    'DataflowGraphDestinationNodeSettingsArgs',
+    'DataflowGraphDestinationNodeSettingsArgsDict',
+    'DataflowGraphDestinationNodeArgs',
+    'DataflowGraphDestinationNodeArgsDict',
+    'DataflowGraphDestinationSchemaSettingsArgs',
+    'DataflowGraphDestinationSchemaSettingsArgsDict',
+    'DataflowGraphGraphNodeConfigurationArgs',
+    'DataflowGraphGraphNodeConfigurationArgsDict',
+    'DataflowGraphGraphNodeArgs',
+    'DataflowGraphGraphNodeArgsDict',
+    'DataflowGraphNodeConnectionArgs',
+    'DataflowGraphNodeConnectionArgsDict',
+    'DataflowGraphNodeGraphSettingsArgs',
+    'DataflowGraphNodeGraphSettingsArgsDict',
+    'DataflowGraphPropertiesArgs',
+    'DataflowGraphPropertiesArgsDict',
+    'DataflowGraphSourceNodeArgs',
+    'DataflowGraphSourceNodeArgsDict',
+    'DataflowGraphSourceSettingsArgs',
+    'DataflowGraphSourceSettingsArgsDict',
     'DataflowOperationArgs',
     'DataflowOperationArgsDict',
     'DataflowProfilePropertiesArgs',
@@ -147,6 +239,28 @@ __all__ = [
     'PrincipalDefinitionArgsDict',
     'ProfileDiagnosticsArgs',
     'ProfileDiagnosticsArgsDict',
+    'RegistryEndpointAnonymousAuthenticationArgs',
+    'RegistryEndpointAnonymousAuthenticationArgsDict',
+    'RegistryEndpointArtifactPullSecretAuthenticationArgs',
+    'RegistryEndpointArtifactPullSecretAuthenticationArgsDict',
+    'RegistryEndpointArtifactPullSecretSettingsArgs',
+    'RegistryEndpointArtifactPullSecretSettingsArgsDict',
+    'RegistryEndpointPropertiesArgs',
+    'RegistryEndpointPropertiesArgsDict',
+    'RegistryEndpointSystemAssignedIdentityAuthenticationArgs',
+    'RegistryEndpointSystemAssignedIdentityAuthenticationArgsDict',
+    'RegistryEndpointSystemAssignedManagedIdentitySettingsArgs',
+    'RegistryEndpointSystemAssignedManagedIdentitySettingsArgsDict',
+    'RegistryEndpointTrustedSettingsArgs',
+    'RegistryEndpointTrustedSettingsArgsDict',
+    'RegistryEndpointTrustedSigningKeyConfigMapArgs',
+    'RegistryEndpointTrustedSigningKeyConfigMapArgsDict',
+    'RegistryEndpointTrustedSigningKeySecretArgs',
+    'RegistryEndpointTrustedSigningKeySecretArgsDict',
+    'RegistryEndpointUserAssignedIdentityAuthenticationArgs',
+    'RegistryEndpointUserAssignedIdentityAuthenticationArgsDict',
+    'RegistryEndpointUserAssignedManagedIdentitySettingsArgs',
+    'RegistryEndpointUserAssignedManagedIdentitySettingsArgsDict',
     'SanForCertArgs',
     'SanForCertArgsDict',
     'SchemaRegistryRefArgs',
@@ -255,6 +369,2639 @@ class AdvancedSettingsArgs:
     @internal_certs.setter
     def internal_certs(self, value: Optional[pulumi.Input['CertManagerCertOptionsArgs']]):
         pulumi.set(self, "internal_certs", value)
+
+
+if not MYPY:
+    class AkriConnectorTemplateAioMetadataArgsDict(TypedDict):
+        """
+        AkriConnectorTemplateAioMetadata properties.
+        """
+        aio_max_version: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The maximum version of AIO required for the connector.
+        """
+        aio_min_version: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The minimum version of AIO required for the connector.
+        """
+elif False:
+    AkriConnectorTemplateAioMetadataArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorTemplateAioMetadataArgs:
+    def __init__(__self__, *,
+                 aio_max_version: Optional[pulumi.Input[builtins.str]] = None,
+                 aio_min_version: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        AkriConnectorTemplateAioMetadata properties.
+        :param pulumi.Input[builtins.str] aio_max_version: The maximum version of AIO required for the connector.
+        :param pulumi.Input[builtins.str] aio_min_version: The minimum version of AIO required for the connector.
+        """
+        if aio_max_version is not None:
+            pulumi.set(__self__, "aio_max_version", aio_max_version)
+        if aio_min_version is not None:
+            pulumi.set(__self__, "aio_min_version", aio_min_version)
+
+    @property
+    @pulumi.getter(name="aioMaxVersion")
+    def aio_max_version(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The maximum version of AIO required for the connector.
+        """
+        return pulumi.get(self, "aio_max_version")
+
+    @aio_max_version.setter
+    def aio_max_version(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "aio_max_version", value)
+
+    @property
+    @pulumi.getter(name="aioMinVersion")
+    def aio_min_version(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The minimum version of AIO required for the connector.
+        """
+        return pulumi.get(self, "aio_min_version")
+
+    @aio_min_version.setter
+    def aio_min_version(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "aio_min_version", value)
+
+
+if not MYPY:
+    class AkriConnectorTemplateBucketizedAllocationArgsDict(TypedDict):
+        """
+        AkriConnectorTemplateBucketizedAllocation properties.
+        """
+        bucket_size: pulumi.Input[builtins.int]
+        """
+        The bucketized allocation of AEPs for connectors.
+        """
+        policy: pulumi.Input[builtins.str]
+        """
+        AkriConnectorTemplateAllocationPolicy properties.
+        Expected value is 'Bucketized'.
+        """
+elif False:
+    AkriConnectorTemplateBucketizedAllocationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorTemplateBucketizedAllocationArgs:
+    def __init__(__self__, *,
+                 bucket_size: pulumi.Input[builtins.int],
+                 policy: pulumi.Input[builtins.str]):
+        """
+        AkriConnectorTemplateBucketizedAllocation properties.
+        :param pulumi.Input[builtins.int] bucket_size: The bucketized allocation of AEPs for connectors.
+        :param pulumi.Input[builtins.str] policy: AkriConnectorTemplateAllocationPolicy properties.
+               Expected value is 'Bucketized'.
+        """
+        pulumi.set(__self__, "bucket_size", bucket_size)
+        pulumi.set(__self__, "policy", 'Bucketized')
+
+    @property
+    @pulumi.getter(name="bucketSize")
+    def bucket_size(self) -> pulumi.Input[builtins.int]:
+        """
+        The bucketized allocation of AEPs for connectors.
+        """
+        return pulumi.get(self, "bucket_size")
+
+    @bucket_size.setter
+    def bucket_size(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "bucket_size", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> pulumi.Input[builtins.str]:
+        """
+        AkriConnectorTemplateAllocationPolicy properties.
+        Expected value is 'Bucketized'.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "policy", value)
+
+
+if not MYPY:
+    class AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefsArgsDict(TypedDict):
+        """
+        AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefs properties.
+        """
+        additional_config_schema_ref: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The additional configuration schema reference.
+        """
+        default_dataset_config_schema_ref: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The default configuration schema reference for datasets.
+        """
+        default_events_config_schema_ref: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The default configuration schema reference for events.
+        """
+        default_process_control_config_schema_ref: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The default configuration schema reference for process control.
+        """
+        default_streams_config_schema_ref: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The default configuration schema reference for streams.
+        """
+elif False:
+    AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefsArgs:
+    def __init__(__self__, *,
+                 additional_config_schema_ref: Optional[pulumi.Input[builtins.str]] = None,
+                 default_dataset_config_schema_ref: Optional[pulumi.Input[builtins.str]] = None,
+                 default_events_config_schema_ref: Optional[pulumi.Input[builtins.str]] = None,
+                 default_process_control_config_schema_ref: Optional[pulumi.Input[builtins.str]] = None,
+                 default_streams_config_schema_ref: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefs properties.
+        :param pulumi.Input[builtins.str] additional_config_schema_ref: The additional configuration schema reference.
+        :param pulumi.Input[builtins.str] default_dataset_config_schema_ref: The default configuration schema reference for datasets.
+        :param pulumi.Input[builtins.str] default_events_config_schema_ref: The default configuration schema reference for events.
+        :param pulumi.Input[builtins.str] default_process_control_config_schema_ref: The default configuration schema reference for process control.
+        :param pulumi.Input[builtins.str] default_streams_config_schema_ref: The default configuration schema reference for streams.
+        """
+        if additional_config_schema_ref is not None:
+            pulumi.set(__self__, "additional_config_schema_ref", additional_config_schema_ref)
+        if default_dataset_config_schema_ref is not None:
+            pulumi.set(__self__, "default_dataset_config_schema_ref", default_dataset_config_schema_ref)
+        if default_events_config_schema_ref is not None:
+            pulumi.set(__self__, "default_events_config_schema_ref", default_events_config_schema_ref)
+        if default_process_control_config_schema_ref is not None:
+            pulumi.set(__self__, "default_process_control_config_schema_ref", default_process_control_config_schema_ref)
+        if default_streams_config_schema_ref is not None:
+            pulumi.set(__self__, "default_streams_config_schema_ref", default_streams_config_schema_ref)
+
+    @property
+    @pulumi.getter(name="additionalConfigSchemaRef")
+    def additional_config_schema_ref(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The additional configuration schema reference.
+        """
+        return pulumi.get(self, "additional_config_schema_ref")
+
+    @additional_config_schema_ref.setter
+    def additional_config_schema_ref(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "additional_config_schema_ref", value)
+
+    @property
+    @pulumi.getter(name="defaultDatasetConfigSchemaRef")
+    def default_dataset_config_schema_ref(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The default configuration schema reference for datasets.
+        """
+        return pulumi.get(self, "default_dataset_config_schema_ref")
+
+    @default_dataset_config_schema_ref.setter
+    def default_dataset_config_schema_ref(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "default_dataset_config_schema_ref", value)
+
+    @property
+    @pulumi.getter(name="defaultEventsConfigSchemaRef")
+    def default_events_config_schema_ref(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The default configuration schema reference for events.
+        """
+        return pulumi.get(self, "default_events_config_schema_ref")
+
+    @default_events_config_schema_ref.setter
+    def default_events_config_schema_ref(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "default_events_config_schema_ref", value)
+
+    @property
+    @pulumi.getter(name="defaultProcessControlConfigSchemaRef")
+    def default_process_control_config_schema_ref(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The default configuration schema reference for process control.
+        """
+        return pulumi.get(self, "default_process_control_config_schema_ref")
+
+    @default_process_control_config_schema_ref.setter
+    def default_process_control_config_schema_ref(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "default_process_control_config_schema_ref", value)
+
+    @property
+    @pulumi.getter(name="defaultStreamsConfigSchemaRef")
+    def default_streams_config_schema_ref(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The default configuration schema reference for streams.
+        """
+        return pulumi.get(self, "default_streams_config_schema_ref")
+
+    @default_streams_config_schema_ref.setter
+    def default_streams_config_schema_ref(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "default_streams_config_schema_ref", value)
+
+
+if not MYPY:
+    class AkriConnectorTemplateDeviceInboundEndpointTypeArgsDict(TypedDict):
+        """
+        AkriConnectorTemplateDeviceInboundEndpointType properties.
+        """
+        endpoint_type: pulumi.Input[builtins.str]
+        """
+        The type of the device inbound endpoint.
+        """
+        configuration_schema_refs: NotRequired[pulumi.Input['AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefsArgsDict']]
+        """
+        The configuration schema references for the device inbound endpoint.
+        """
+        description: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A description of the device inbound endpoint.
+        """
+        version: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The version of the device inbound endpoint.
+        """
+elif False:
+    AkriConnectorTemplateDeviceInboundEndpointTypeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorTemplateDeviceInboundEndpointTypeArgs:
+    def __init__(__self__, *,
+                 endpoint_type: pulumi.Input[builtins.str],
+                 configuration_schema_refs: Optional[pulumi.Input['AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefsArgs']] = None,
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 version: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        AkriConnectorTemplateDeviceInboundEndpointType properties.
+        :param pulumi.Input[builtins.str] endpoint_type: The type of the device inbound endpoint.
+        :param pulumi.Input['AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefsArgs'] configuration_schema_refs: The configuration schema references for the device inbound endpoint.
+        :param pulumi.Input[builtins.str] description: A description of the device inbound endpoint.
+        :param pulumi.Input[builtins.str] version: The version of the device inbound endpoint.
+        """
+        pulumi.set(__self__, "endpoint_type", endpoint_type)
+        if configuration_schema_refs is not None:
+            pulumi.set(__self__, "configuration_schema_refs", configuration_schema_refs)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> pulumi.Input[builtins.str]:
+        """
+        The type of the device inbound endpoint.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "endpoint_type", value)
+
+    @property
+    @pulumi.getter(name="configurationSchemaRefs")
+    def configuration_schema_refs(self) -> Optional[pulumi.Input['AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefsArgs']]:
+        """
+        The configuration schema references for the device inbound endpoint.
+        """
+        return pulumi.get(self, "configuration_schema_refs")
+
+    @configuration_schema_refs.setter
+    def configuration_schema_refs(self, value: Optional[pulumi.Input['AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefsArgs']]):
+        pulumi.set(self, "configuration_schema_refs", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A description of the device inbound endpoint.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The version of the device inbound endpoint.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "version", value)
+
+
+if not MYPY:
+    class AkriConnectorTemplateDiagnosticsArgsDict(TypedDict):
+        """
+        AkriConnectorTemplateDiagnostics properties.
+        """
+        logs: pulumi.Input['AkriConnectorsDiagnosticsLogsArgsDict']
+        """
+        The log settings for the Connector template.
+        """
+elif False:
+    AkriConnectorTemplateDiagnosticsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorTemplateDiagnosticsArgs:
+    def __init__(__self__, *,
+                 logs: pulumi.Input['AkriConnectorsDiagnosticsLogsArgs']):
+        """
+        AkriConnectorTemplateDiagnostics properties.
+        :param pulumi.Input['AkriConnectorsDiagnosticsLogsArgs'] logs: The log settings for the Connector template.
+        """
+        pulumi.set(__self__, "logs", logs)
+
+    @property
+    @pulumi.getter
+    def logs(self) -> pulumi.Input['AkriConnectorsDiagnosticsLogsArgs']:
+        """
+        The log settings for the Connector template.
+        """
+        return pulumi.get(self, "logs")
+
+    @logs.setter
+    def logs(self, value: pulumi.Input['AkriConnectorsDiagnosticsLogsArgs']):
+        pulumi.set(self, "logs", value)
+
+
+if not MYPY:
+    class AkriConnectorTemplateHelmAdvancedConfigurationArgsDict(TypedDict):
+        """
+        AkriConnectorTemplateHelmAdvancedConfiguration properties.
+        """
+        delete: NotRequired[pulumi.Input['AkriConnectorTemplateHelmDeleteConfigurationArgsDict']]
+        """
+        Delete operation configuration for the Helm chart.
+        """
+        install: NotRequired[pulumi.Input['AkriConnectorTemplateHelmInstallConfigurationArgsDict']]
+        """
+        Install operation configuration for the Helm chart.
+        """
+        upgrade: NotRequired[pulumi.Input['AkriConnectorTemplateHelmUpgradeConfigurationArgsDict']]
+        """
+        Upgrade operation configuration for the Helm chart.
+        """
+elif False:
+    AkriConnectorTemplateHelmAdvancedConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorTemplateHelmAdvancedConfigurationArgs:
+    def __init__(__self__, *,
+                 delete: Optional[pulumi.Input['AkriConnectorTemplateHelmDeleteConfigurationArgs']] = None,
+                 install: Optional[pulumi.Input['AkriConnectorTemplateHelmInstallConfigurationArgs']] = None,
+                 upgrade: Optional[pulumi.Input['AkriConnectorTemplateHelmUpgradeConfigurationArgs']] = None):
+        """
+        AkriConnectorTemplateHelmAdvancedConfiguration properties.
+        :param pulumi.Input['AkriConnectorTemplateHelmDeleteConfigurationArgs'] delete: Delete operation configuration for the Helm chart.
+        :param pulumi.Input['AkriConnectorTemplateHelmInstallConfigurationArgs'] install: Install operation configuration for the Helm chart.
+        :param pulumi.Input['AkriConnectorTemplateHelmUpgradeConfigurationArgs'] upgrade: Upgrade operation configuration for the Helm chart.
+        """
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if install is not None:
+            pulumi.set(__self__, "install", install)
+        if upgrade is not None:
+            pulumi.set(__self__, "upgrade", upgrade)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input['AkriConnectorTemplateHelmDeleteConfigurationArgs']]:
+        """
+        Delete operation configuration for the Helm chart.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input['AkriConnectorTemplateHelmDeleteConfigurationArgs']]):
+        pulumi.set(self, "delete", value)
+
+    @property
+    @pulumi.getter
+    def install(self) -> Optional[pulumi.Input['AkriConnectorTemplateHelmInstallConfigurationArgs']]:
+        """
+        Install operation configuration for the Helm chart.
+        """
+        return pulumi.get(self, "install")
+
+    @install.setter
+    def install(self, value: Optional[pulumi.Input['AkriConnectorTemplateHelmInstallConfigurationArgs']]):
+        pulumi.set(self, "install", value)
+
+    @property
+    @pulumi.getter
+    def upgrade(self) -> Optional[pulumi.Input['AkriConnectorTemplateHelmUpgradeConfigurationArgs']]:
+        """
+        Upgrade operation configuration for the Helm chart.
+        """
+        return pulumi.get(self, "upgrade")
+
+    @upgrade.setter
+    def upgrade(self, value: Optional[pulumi.Input['AkriConnectorTemplateHelmUpgradeConfigurationArgs']]):
+        pulumi.set(self, "upgrade", value)
+
+
+if not MYPY:
+    class AkriConnectorTemplateHelmAuthSecretRefArgsDict(TypedDict):
+        """
+        AkriConnectorTemplateHelmAuthSecretRef properties.
+        """
+        password_key: pulumi.Input[builtins.str]
+        """
+        The key of the password in the secret.
+        """
+        secret_ref: pulumi.Input[builtins.str]
+        """
+        The name of the secret.
+        """
+        username_key: pulumi.Input[builtins.str]
+        """
+        The key of the username in the secret.
+        """
+elif False:
+    AkriConnectorTemplateHelmAuthSecretRefArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorTemplateHelmAuthSecretRefArgs:
+    def __init__(__self__, *,
+                 password_key: pulumi.Input[builtins.str],
+                 secret_ref: pulumi.Input[builtins.str],
+                 username_key: pulumi.Input[builtins.str]):
+        """
+        AkriConnectorTemplateHelmAuthSecretRef properties.
+        :param pulumi.Input[builtins.str] password_key: The key of the password in the secret.
+        :param pulumi.Input[builtins.str] secret_ref: The name of the secret.
+        :param pulumi.Input[builtins.str] username_key: The key of the username in the secret.
+        """
+        pulumi.set(__self__, "password_key", password_key)
+        pulumi.set(__self__, "secret_ref", secret_ref)
+        pulumi.set(__self__, "username_key", username_key)
+
+    @property
+    @pulumi.getter(name="passwordKey")
+    def password_key(self) -> pulumi.Input[builtins.str]:
+        """
+        The key of the password in the secret.
+        """
+        return pulumi.get(self, "password_key")
+
+    @password_key.setter
+    def password_key(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "password_key", value)
+
+    @property
+    @pulumi.getter(name="secretRef")
+    def secret_ref(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the secret.
+        """
+        return pulumi.get(self, "secret_ref")
+
+    @secret_ref.setter
+    def secret_ref(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "secret_ref", value)
+
+    @property
+    @pulumi.getter(name="usernameKey")
+    def username_key(self) -> pulumi.Input[builtins.str]:
+        """
+        The key of the username in the secret.
+        """
+        return pulumi.get(self, "username_key")
+
+    @username_key.setter
+    def username_key(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "username_key", value)
+
+
+if not MYPY:
+    class AkriConnectorTemplateHelmConfigurationSettingsArgsDict(TypedDict):
+        """
+        AkriConnectorTemplateHelmConfiguration properties.
+        """
+        release_name: pulumi.Input[builtins.str]
+        """
+        The release name of the Helm chart.
+        """
+        repository_name: pulumi.Input[builtins.str]
+        """
+        The name of the repository
+        """
+        version: pulumi.Input[builtins.str]
+        """
+        The version of the Helm chart.
+        """
+        advanced_configuration: NotRequired[pulumi.Input['AkriConnectorTemplateHelmAdvancedConfigurationArgsDict']]
+        """
+        Advanced configuration for the Helm chart.
+        Install, upgrade, and uninstall options for the helm chart such as atomic, wait, timeout, `wait_for_jobs`, and `disable_hooks`.
+        """
+        registry_settings: NotRequired[pulumi.Input[Union['AkriConnectorTemplateHelmContainerRegistryArgsDict', 'AkriConnectorTemplateHelmRegistryEndpointRefArgsDict']]]
+        """
+        The registry settings for the helm chart to be used.
+        """
+        values: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]
+        """
+        A map of values to pass to the helm chart.
+        """
+elif False:
+    AkriConnectorTemplateHelmConfigurationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorTemplateHelmConfigurationSettingsArgs:
+    def __init__(__self__, *,
+                 release_name: pulumi.Input[builtins.str],
+                 repository_name: pulumi.Input[builtins.str],
+                 version: pulumi.Input[builtins.str],
+                 advanced_configuration: Optional[pulumi.Input['AkriConnectorTemplateHelmAdvancedConfigurationArgs']] = None,
+                 registry_settings: Optional[pulumi.Input[Union['AkriConnectorTemplateHelmContainerRegistryArgs', 'AkriConnectorTemplateHelmRegistryEndpointRefArgs']]] = None,
+                 values: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+        """
+        AkriConnectorTemplateHelmConfiguration properties.
+        :param pulumi.Input[builtins.str] release_name: The release name of the Helm chart.
+        :param pulumi.Input[builtins.str] repository_name: The name of the repository
+        :param pulumi.Input[builtins.str] version: The version of the Helm chart.
+        :param pulumi.Input['AkriConnectorTemplateHelmAdvancedConfigurationArgs'] advanced_configuration: Advanced configuration for the Helm chart.
+               Install, upgrade, and uninstall options for the helm chart such as atomic, wait, timeout, `wait_for_jobs`, and `disable_hooks`.
+        :param pulumi.Input[Union['AkriConnectorTemplateHelmContainerRegistryArgs', 'AkriConnectorTemplateHelmRegistryEndpointRefArgs']] registry_settings: The registry settings for the helm chart to be used.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] values: A map of values to pass to the helm chart.
+        """
+        pulumi.set(__self__, "release_name", release_name)
+        pulumi.set(__self__, "repository_name", repository_name)
+        pulumi.set(__self__, "version", version)
+        if advanced_configuration is not None:
+            pulumi.set(__self__, "advanced_configuration", advanced_configuration)
+        if registry_settings is not None:
+            pulumi.set(__self__, "registry_settings", registry_settings)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="releaseName")
+    def release_name(self) -> pulumi.Input[builtins.str]:
+        """
+        The release name of the Helm chart.
+        """
+        return pulumi.get(self, "release_name")
+
+    @release_name.setter
+    def release_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "release_name", value)
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the repository
+        """
+        return pulumi.get(self, "repository_name")
+
+    @repository_name.setter
+    def repository_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "repository_name", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[builtins.str]:
+        """
+        The version of the Helm chart.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "version", value)
+
+    @property
+    @pulumi.getter(name="advancedConfiguration")
+    def advanced_configuration(self) -> Optional[pulumi.Input['AkriConnectorTemplateHelmAdvancedConfigurationArgs']]:
+        """
+        Advanced configuration for the Helm chart.
+        Install, upgrade, and uninstall options for the helm chart such as atomic, wait, timeout, `wait_for_jobs`, and `disable_hooks`.
+        """
+        return pulumi.get(self, "advanced_configuration")
+
+    @advanced_configuration.setter
+    def advanced_configuration(self, value: Optional[pulumi.Input['AkriConnectorTemplateHelmAdvancedConfigurationArgs']]):
+        pulumi.set(self, "advanced_configuration", value)
+
+    @property
+    @pulumi.getter(name="registrySettings")
+    def registry_settings(self) -> Optional[pulumi.Input[Union['AkriConnectorTemplateHelmContainerRegistryArgs', 'AkriConnectorTemplateHelmRegistryEndpointRefArgs']]]:
+        """
+        The registry settings for the helm chart to be used.
+        """
+        return pulumi.get(self, "registry_settings")
+
+    @registry_settings.setter
+    def registry_settings(self, value: Optional[pulumi.Input[Union['AkriConnectorTemplateHelmContainerRegistryArgs', 'AkriConnectorTemplateHelmRegistryEndpointRefArgs']]]):
+        pulumi.set(self, "registry_settings", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of values to pass to the helm chart.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+if not MYPY:
+    class AkriConnectorTemplateHelmConfigurationArgsDict(TypedDict):
+        """
+        AkriConnectorTemplateHelmConfiguration properties.
+        """
+        helm_configuration_settings: pulumi.Input['AkriConnectorTemplateHelmConfigurationSettingsArgsDict']
+        """
+        The Helm configuration settings.
+        """
+        runtime_configuration_type: pulumi.Input[builtins.str]
+        """
+        Runtime configuration types.
+        Expected value is 'HelmConfiguration'.
+        """
+elif False:
+    AkriConnectorTemplateHelmConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorTemplateHelmConfigurationArgs:
+    def __init__(__self__, *,
+                 helm_configuration_settings: pulumi.Input['AkriConnectorTemplateHelmConfigurationSettingsArgs'],
+                 runtime_configuration_type: pulumi.Input[builtins.str]):
+        """
+        AkriConnectorTemplateHelmConfiguration properties.
+        :param pulumi.Input['AkriConnectorTemplateHelmConfigurationSettingsArgs'] helm_configuration_settings: The Helm configuration settings.
+        :param pulumi.Input[builtins.str] runtime_configuration_type: Runtime configuration types.
+               Expected value is 'HelmConfiguration'.
+        """
+        pulumi.set(__self__, "helm_configuration_settings", helm_configuration_settings)
+        pulumi.set(__self__, "runtime_configuration_type", 'HelmConfiguration')
+
+    @property
+    @pulumi.getter(name="helmConfigurationSettings")
+    def helm_configuration_settings(self) -> pulumi.Input['AkriConnectorTemplateHelmConfigurationSettingsArgs']:
+        """
+        The Helm configuration settings.
+        """
+        return pulumi.get(self, "helm_configuration_settings")
+
+    @helm_configuration_settings.setter
+    def helm_configuration_settings(self, value: pulumi.Input['AkriConnectorTemplateHelmConfigurationSettingsArgs']):
+        pulumi.set(self, "helm_configuration_settings", value)
+
+    @property
+    @pulumi.getter(name="runtimeConfigurationType")
+    def runtime_configuration_type(self) -> pulumi.Input[builtins.str]:
+        """
+        Runtime configuration types.
+        Expected value is 'HelmConfiguration'.
+        """
+        return pulumi.get(self, "runtime_configuration_type")
+
+    @runtime_configuration_type.setter
+    def runtime_configuration_type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "runtime_configuration_type", value)
+
+
+if not MYPY:
+    class AkriConnectorTemplateHelmContainerRegistrySettingsArgsDict(TypedDict):
+        """
+        AkriConnectorTemplateHelmContainerRegistrySettings properties.
+        """
+        registry: pulumi.Input[builtins.str]
+        """
+        The registry to use for the Helm chart.
+        """
+        auth_secret_ref: NotRequired[pulumi.Input['AkriConnectorTemplateHelmAuthSecretRefArgsDict']]
+        """
+        Optional reference to a secret in the same namespace to use for pulling the Helm chart.
+        """
+elif False:
+    AkriConnectorTemplateHelmContainerRegistrySettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorTemplateHelmContainerRegistrySettingsArgs:
+    def __init__(__self__, *,
+                 registry: pulumi.Input[builtins.str],
+                 auth_secret_ref: Optional[pulumi.Input['AkriConnectorTemplateHelmAuthSecretRefArgs']] = None):
+        """
+        AkriConnectorTemplateHelmContainerRegistrySettings properties.
+        :param pulumi.Input[builtins.str] registry: The registry to use for the Helm chart.
+        :param pulumi.Input['AkriConnectorTemplateHelmAuthSecretRefArgs'] auth_secret_ref: Optional reference to a secret in the same namespace to use for pulling the Helm chart.
+        """
+        pulumi.set(__self__, "registry", registry)
+        if auth_secret_ref is not None:
+            pulumi.set(__self__, "auth_secret_ref", auth_secret_ref)
+
+    @property
+    @pulumi.getter
+    def registry(self) -> pulumi.Input[builtins.str]:
+        """
+        The registry to use for the Helm chart.
+        """
+        return pulumi.get(self, "registry")
+
+    @registry.setter
+    def registry(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "registry", value)
+
+    @property
+    @pulumi.getter(name="authSecretRef")
+    def auth_secret_ref(self) -> Optional[pulumi.Input['AkriConnectorTemplateHelmAuthSecretRefArgs']]:
+        """
+        Optional reference to a secret in the same namespace to use for pulling the Helm chart.
+        """
+        return pulumi.get(self, "auth_secret_ref")
+
+    @auth_secret_ref.setter
+    def auth_secret_ref(self, value: Optional[pulumi.Input['AkriConnectorTemplateHelmAuthSecretRefArgs']]):
+        pulumi.set(self, "auth_secret_ref", value)
+
+
+if not MYPY:
+    class AkriConnectorTemplateHelmContainerRegistryArgsDict(TypedDict):
+        """
+        AkriConnectorTemplateHelmContainerRegistry properties.
+        """
+        container_registry_settings: pulumi.Input['AkriConnectorTemplateHelmContainerRegistrySettingsArgsDict']
+        """
+        The registry settings for the container registry.
+        """
+        registry_settings_type: pulumi.Input[builtins.str]
+        """
+        AkriConnectorTemplateHelmRegistrySettingsType values.
+        Expected value is 'ContainerRegistry'.
+        """
+elif False:
+    AkriConnectorTemplateHelmContainerRegistryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorTemplateHelmContainerRegistryArgs:
+    def __init__(__self__, *,
+                 container_registry_settings: pulumi.Input['AkriConnectorTemplateHelmContainerRegistrySettingsArgs'],
+                 registry_settings_type: pulumi.Input[builtins.str]):
+        """
+        AkriConnectorTemplateHelmContainerRegistry properties.
+        :param pulumi.Input['AkriConnectorTemplateHelmContainerRegistrySettingsArgs'] container_registry_settings: The registry settings for the container registry.
+        :param pulumi.Input[builtins.str] registry_settings_type: AkriConnectorTemplateHelmRegistrySettingsType values.
+               Expected value is 'ContainerRegistry'.
+        """
+        pulumi.set(__self__, "container_registry_settings", container_registry_settings)
+        pulumi.set(__self__, "registry_settings_type", 'ContainerRegistry')
+
+    @property
+    @pulumi.getter(name="containerRegistrySettings")
+    def container_registry_settings(self) -> pulumi.Input['AkriConnectorTemplateHelmContainerRegistrySettingsArgs']:
+        """
+        The registry settings for the container registry.
+        """
+        return pulumi.get(self, "container_registry_settings")
+
+    @container_registry_settings.setter
+    def container_registry_settings(self, value: pulumi.Input['AkriConnectorTemplateHelmContainerRegistrySettingsArgs']):
+        pulumi.set(self, "container_registry_settings", value)
+
+    @property
+    @pulumi.getter(name="registrySettingsType")
+    def registry_settings_type(self) -> pulumi.Input[builtins.str]:
+        """
+        AkriConnectorTemplateHelmRegistrySettingsType values.
+        Expected value is 'ContainerRegistry'.
+        """
+        return pulumi.get(self, "registry_settings_type")
+
+    @registry_settings_type.setter
+    def registry_settings_type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "registry_settings_type", value)
+
+
+if not MYPY:
+    class AkriConnectorTemplateHelmDeleteConfigurationArgsDict(TypedDict):
+        """
+        AkriConnectorTemplateHelmDeleteConfiguration properties.
+        """
+        atomic: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        If set, the operation will be atomic. If the operation fails, all changes will be rolled back.
+        """
+        disable_hooks: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Disable pre/post upgrade hooks for the operation.
+        """
+        timeout: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Time to wait for any individual Kubernetes operation (like `Jobs` for hooks).
+        """
+        wait: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        If set, the operation will wait until all Pods, PVCs, Services, and minimum number of Pods of a `Deployment`, `StatefulSet`, or `ReplicaSet` are in a ready state before marking the release as successful.
+        """
+        wait_for_jobs: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        If set, the operation will wait for jobs to complete before marking the release as successful.
+        """
+elif False:
+    AkriConnectorTemplateHelmDeleteConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorTemplateHelmDeleteConfigurationArgs:
+    def __init__(__self__, *,
+                 atomic: Optional[pulumi.Input[builtins.bool]] = None,
+                 disable_hooks: Optional[pulumi.Input[builtins.bool]] = None,
+                 timeout: Optional[pulumi.Input[builtins.int]] = None,
+                 wait: Optional[pulumi.Input[builtins.bool]] = None,
+                 wait_for_jobs: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        AkriConnectorTemplateHelmDeleteConfiguration properties.
+        :param pulumi.Input[builtins.bool] atomic: If set, the operation will be atomic. If the operation fails, all changes will be rolled back.
+        :param pulumi.Input[builtins.bool] disable_hooks: Disable pre/post upgrade hooks for the operation.
+        :param pulumi.Input[builtins.int] timeout: Time to wait for any individual Kubernetes operation (like `Jobs` for hooks).
+        :param pulumi.Input[builtins.bool] wait: If set, the operation will wait until all Pods, PVCs, Services, and minimum number of Pods of a `Deployment`, `StatefulSet`, or `ReplicaSet` are in a ready state before marking the release as successful.
+        :param pulumi.Input[builtins.bool] wait_for_jobs: If set, the operation will wait for jobs to complete before marking the release as successful.
+        """
+        if atomic is not None:
+            pulumi.set(__self__, "atomic", atomic)
+        if disable_hooks is not None:
+            pulumi.set(__self__, "disable_hooks", disable_hooks)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+        if wait is not None:
+            pulumi.set(__self__, "wait", wait)
+        if wait_for_jobs is not None:
+            pulumi.set(__self__, "wait_for_jobs", wait_for_jobs)
+
+    @property
+    @pulumi.getter
+    def atomic(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        If set, the operation will be atomic. If the operation fails, all changes will be rolled back.
+        """
+        return pulumi.get(self, "atomic")
+
+    @atomic.setter
+    def atomic(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "atomic", value)
+
+    @property
+    @pulumi.getter(name="disableHooks")
+    def disable_hooks(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Disable pre/post upgrade hooks for the operation.
+        """
+        return pulumi.get(self, "disable_hooks")
+
+    @disable_hooks.setter
+    def disable_hooks(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "disable_hooks", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Time to wait for any individual Kubernetes operation (like `Jobs` for hooks).
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "timeout", value)
+
+    @property
+    @pulumi.getter
+    def wait(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        If set, the operation will wait until all Pods, PVCs, Services, and minimum number of Pods of a `Deployment`, `StatefulSet`, or `ReplicaSet` are in a ready state before marking the release as successful.
+        """
+        return pulumi.get(self, "wait")
+
+    @wait.setter
+    def wait(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "wait", value)
+
+    @property
+    @pulumi.getter(name="waitForJobs")
+    def wait_for_jobs(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        If set, the operation will wait for jobs to complete before marking the release as successful.
+        """
+        return pulumi.get(self, "wait_for_jobs")
+
+    @wait_for_jobs.setter
+    def wait_for_jobs(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "wait_for_jobs", value)
+
+
+if not MYPY:
+    class AkriConnectorTemplateHelmInstallConfigurationArgsDict(TypedDict):
+        """
+        AkriConnectorTemplateHelmInstallConfiguration properties.
+        """
+        atomic: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        If set, the operation will be atomic. If the operation fails, all changes will be rolled back.
+        """
+        disable_hooks: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Disable pre/post upgrade hooks for the operation.
+        """
+        timeout: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Time to wait for any individual Kubernetes operation (like `Jobs` for hooks).
+        """
+        wait: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        If set, the operation will wait until all Pods, PVCs, Services, and minimum number of Pods of a `Deployment`, `StatefulSet`, or `ReplicaSet` are in a ready state before marking the release as successful.
+        """
+        wait_for_jobs: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        If set, the operation will wait for jobs to complete before marking the release as successful.
+        """
+elif False:
+    AkriConnectorTemplateHelmInstallConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorTemplateHelmInstallConfigurationArgs:
+    def __init__(__self__, *,
+                 atomic: Optional[pulumi.Input[builtins.bool]] = None,
+                 disable_hooks: Optional[pulumi.Input[builtins.bool]] = None,
+                 timeout: Optional[pulumi.Input[builtins.int]] = None,
+                 wait: Optional[pulumi.Input[builtins.bool]] = None,
+                 wait_for_jobs: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        AkriConnectorTemplateHelmInstallConfiguration properties.
+        :param pulumi.Input[builtins.bool] atomic: If set, the operation will be atomic. If the operation fails, all changes will be rolled back.
+        :param pulumi.Input[builtins.bool] disable_hooks: Disable pre/post upgrade hooks for the operation.
+        :param pulumi.Input[builtins.int] timeout: Time to wait for any individual Kubernetes operation (like `Jobs` for hooks).
+        :param pulumi.Input[builtins.bool] wait: If set, the operation will wait until all Pods, PVCs, Services, and minimum number of Pods of a `Deployment`, `StatefulSet`, or `ReplicaSet` are in a ready state before marking the release as successful.
+        :param pulumi.Input[builtins.bool] wait_for_jobs: If set, the operation will wait for jobs to complete before marking the release as successful.
+        """
+        if atomic is not None:
+            pulumi.set(__self__, "atomic", atomic)
+        if disable_hooks is not None:
+            pulumi.set(__self__, "disable_hooks", disable_hooks)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+        if wait is not None:
+            pulumi.set(__self__, "wait", wait)
+        if wait_for_jobs is not None:
+            pulumi.set(__self__, "wait_for_jobs", wait_for_jobs)
+
+    @property
+    @pulumi.getter
+    def atomic(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        If set, the operation will be atomic. If the operation fails, all changes will be rolled back.
+        """
+        return pulumi.get(self, "atomic")
+
+    @atomic.setter
+    def atomic(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "atomic", value)
+
+    @property
+    @pulumi.getter(name="disableHooks")
+    def disable_hooks(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Disable pre/post upgrade hooks for the operation.
+        """
+        return pulumi.get(self, "disable_hooks")
+
+    @disable_hooks.setter
+    def disable_hooks(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "disable_hooks", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Time to wait for any individual Kubernetes operation (like `Jobs` for hooks).
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "timeout", value)
+
+    @property
+    @pulumi.getter
+    def wait(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        If set, the operation will wait until all Pods, PVCs, Services, and minimum number of Pods of a `Deployment`, `StatefulSet`, or `ReplicaSet` are in a ready state before marking the release as successful.
+        """
+        return pulumi.get(self, "wait")
+
+    @wait.setter
+    def wait(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "wait", value)
+
+    @property
+    @pulumi.getter(name="waitForJobs")
+    def wait_for_jobs(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        If set, the operation will wait for jobs to complete before marking the release as successful.
+        """
+        return pulumi.get(self, "wait_for_jobs")
+
+    @wait_for_jobs.setter
+    def wait_for_jobs(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "wait_for_jobs", value)
+
+
+if not MYPY:
+    class AkriConnectorTemplateHelmRegistryEndpointRefArgsDict(TypedDict):
+        """
+        AkriConnectorTemplateHelmRegistryEndpointRef properties.
+        """
+        registry_endpoint_ref: pulumi.Input[builtins.str]
+        """
+        The name of the registry endpoint.
+        """
+        registry_settings_type: pulumi.Input[builtins.str]
+        """
+        AkriConnectorTemplateHelmRegistrySettingsType values.
+        Expected value is 'RegistryEndpointRef'.
+        """
+elif False:
+    AkriConnectorTemplateHelmRegistryEndpointRefArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorTemplateHelmRegistryEndpointRefArgs:
+    def __init__(__self__, *,
+                 registry_endpoint_ref: pulumi.Input[builtins.str],
+                 registry_settings_type: pulumi.Input[builtins.str]):
+        """
+        AkriConnectorTemplateHelmRegistryEndpointRef properties.
+        :param pulumi.Input[builtins.str] registry_endpoint_ref: The name of the registry endpoint.
+        :param pulumi.Input[builtins.str] registry_settings_type: AkriConnectorTemplateHelmRegistrySettingsType values.
+               Expected value is 'RegistryEndpointRef'.
+        """
+        pulumi.set(__self__, "registry_endpoint_ref", registry_endpoint_ref)
+        pulumi.set(__self__, "registry_settings_type", 'RegistryEndpointRef')
+
+    @property
+    @pulumi.getter(name="registryEndpointRef")
+    def registry_endpoint_ref(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the registry endpoint.
+        """
+        return pulumi.get(self, "registry_endpoint_ref")
+
+    @registry_endpoint_ref.setter
+    def registry_endpoint_ref(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "registry_endpoint_ref", value)
+
+    @property
+    @pulumi.getter(name="registrySettingsType")
+    def registry_settings_type(self) -> pulumi.Input[builtins.str]:
+        """
+        AkriConnectorTemplateHelmRegistrySettingsType values.
+        Expected value is 'RegistryEndpointRef'.
+        """
+        return pulumi.get(self, "registry_settings_type")
+
+    @registry_settings_type.setter
+    def registry_settings_type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "registry_settings_type", value)
+
+
+if not MYPY:
+    class AkriConnectorTemplateHelmUpgradeConfigurationArgsDict(TypedDict):
+        """
+        AkriConnectorTemplateHelmUpgradeConfiguration properties.
+        """
+        atomic: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        If set, the operation will be atomic. If the operation fails, all changes will be rolled back.
+        """
+        disable_hooks: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Disable pre/post upgrade hooks for the operation.
+        """
+        timeout: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Time to wait for any individual Kubernetes operation (like `Jobs` for hooks).
+        """
+        wait: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        If set, the operation will wait until all Pods, PVCs, Services, and minimum number of Pods of a `Deployment`, `StatefulSet`, or `ReplicaSet` are in a ready state before marking the release as successful.
+        """
+        wait_for_jobs: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        If set, the operation will wait for jobs to complete before marking the release as successful.
+        """
+elif False:
+    AkriConnectorTemplateHelmUpgradeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorTemplateHelmUpgradeConfigurationArgs:
+    def __init__(__self__, *,
+                 atomic: Optional[pulumi.Input[builtins.bool]] = None,
+                 disable_hooks: Optional[pulumi.Input[builtins.bool]] = None,
+                 timeout: Optional[pulumi.Input[builtins.int]] = None,
+                 wait: Optional[pulumi.Input[builtins.bool]] = None,
+                 wait_for_jobs: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        AkriConnectorTemplateHelmUpgradeConfiguration properties.
+        :param pulumi.Input[builtins.bool] atomic: If set, the operation will be atomic. If the operation fails, all changes will be rolled back.
+        :param pulumi.Input[builtins.bool] disable_hooks: Disable pre/post upgrade hooks for the operation.
+        :param pulumi.Input[builtins.int] timeout: Time to wait for any individual Kubernetes operation (like `Jobs` for hooks).
+        :param pulumi.Input[builtins.bool] wait: If set, the operation will wait until all Pods, PVCs, Services, and minimum number of Pods of a `Deployment`, `StatefulSet`, or `ReplicaSet` are in a ready state before marking the release as successful.
+        :param pulumi.Input[builtins.bool] wait_for_jobs: If set, the operation will wait for jobs to complete before marking the release as successful.
+        """
+        if atomic is not None:
+            pulumi.set(__self__, "atomic", atomic)
+        if disable_hooks is not None:
+            pulumi.set(__self__, "disable_hooks", disable_hooks)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+        if wait is not None:
+            pulumi.set(__self__, "wait", wait)
+        if wait_for_jobs is not None:
+            pulumi.set(__self__, "wait_for_jobs", wait_for_jobs)
+
+    @property
+    @pulumi.getter
+    def atomic(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        If set, the operation will be atomic. If the operation fails, all changes will be rolled back.
+        """
+        return pulumi.get(self, "atomic")
+
+    @atomic.setter
+    def atomic(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "atomic", value)
+
+    @property
+    @pulumi.getter(name="disableHooks")
+    def disable_hooks(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Disable pre/post upgrade hooks for the operation.
+        """
+        return pulumi.get(self, "disable_hooks")
+
+    @disable_hooks.setter
+    def disable_hooks(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "disable_hooks", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Time to wait for any individual Kubernetes operation (like `Jobs` for hooks).
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "timeout", value)
+
+    @property
+    @pulumi.getter
+    def wait(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        If set, the operation will wait until all Pods, PVCs, Services, and minimum number of Pods of a `Deployment`, `StatefulSet`, or `ReplicaSet` are in a ready state before marking the release as successful.
+        """
+        return pulumi.get(self, "wait")
+
+    @wait.setter
+    def wait(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "wait", value)
+
+    @property
+    @pulumi.getter(name="waitForJobs")
+    def wait_for_jobs(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        If set, the operation will wait for jobs to complete before marking the release as successful.
+        """
+        return pulumi.get(self, "wait_for_jobs")
+
+    @wait_for_jobs.setter
+    def wait_for_jobs(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "wait_for_jobs", value)
+
+
+if not MYPY:
+    class AkriConnectorTemplateManagedConfigurationArgsDict(TypedDict):
+        """
+        AkriConnectorTemplateManagedConfiguration properties.
+        """
+        managed_configuration_settings: pulumi.Input[Union['AkriConnectorTemplateRuntimeImageConfigurationArgsDict', 'AkriConnectorTemplateRuntimeStatefulSetConfigurationArgsDict']]
+        """
+        The managed configuration settings.
+        """
+        runtime_configuration_type: pulumi.Input[builtins.str]
+        """
+        Runtime configuration types.
+        Expected value is 'ManagedConfiguration'.
+        """
+elif False:
+    AkriConnectorTemplateManagedConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorTemplateManagedConfigurationArgs:
+    def __init__(__self__, *,
+                 managed_configuration_settings: pulumi.Input[Union['AkriConnectorTemplateRuntimeImageConfigurationArgs', 'AkriConnectorTemplateRuntimeStatefulSetConfigurationArgs']],
+                 runtime_configuration_type: pulumi.Input[builtins.str]):
+        """
+        AkriConnectorTemplateManagedConfiguration properties.
+        :param pulumi.Input[Union['AkriConnectorTemplateRuntimeImageConfigurationArgs', 'AkriConnectorTemplateRuntimeStatefulSetConfigurationArgs']] managed_configuration_settings: The managed configuration settings.
+        :param pulumi.Input[builtins.str] runtime_configuration_type: Runtime configuration types.
+               Expected value is 'ManagedConfiguration'.
+        """
+        pulumi.set(__self__, "managed_configuration_settings", managed_configuration_settings)
+        pulumi.set(__self__, "runtime_configuration_type", 'ManagedConfiguration')
+
+    @property
+    @pulumi.getter(name="managedConfigurationSettings")
+    def managed_configuration_settings(self) -> pulumi.Input[Union['AkriConnectorTemplateRuntimeImageConfigurationArgs', 'AkriConnectorTemplateRuntimeStatefulSetConfigurationArgs']]:
+        """
+        The managed configuration settings.
+        """
+        return pulumi.get(self, "managed_configuration_settings")
+
+    @managed_configuration_settings.setter
+    def managed_configuration_settings(self, value: pulumi.Input[Union['AkriConnectorTemplateRuntimeImageConfigurationArgs', 'AkriConnectorTemplateRuntimeStatefulSetConfigurationArgs']]):
+        pulumi.set(self, "managed_configuration_settings", value)
+
+    @property
+    @pulumi.getter(name="runtimeConfigurationType")
+    def runtime_configuration_type(self) -> pulumi.Input[builtins.str]:
+        """
+        Runtime configuration types.
+        Expected value is 'ManagedConfiguration'.
+        """
+        return pulumi.get(self, "runtime_configuration_type")
+
+    @runtime_configuration_type.setter
+    def runtime_configuration_type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "runtime_configuration_type", value)
+
+
+if not MYPY:
+    class AkriConnectorTemplatePersistentVolumeClaimArgsDict(TypedDict):
+        """
+        AkriConnectorTemplatePersistentVolumeClaim properties.
+        """
+        claim_name: pulumi.Input[builtins.str]
+        """
+        The name of the persistent volume claim.
+        """
+        mount_path: pulumi.Input[builtins.str]
+        """
+        The mount path for the persistent volume claim.
+        """
+elif False:
+    AkriConnectorTemplatePersistentVolumeClaimArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorTemplatePersistentVolumeClaimArgs:
+    def __init__(__self__, *,
+                 claim_name: pulumi.Input[builtins.str],
+                 mount_path: pulumi.Input[builtins.str]):
+        """
+        AkriConnectorTemplatePersistentVolumeClaim properties.
+        :param pulumi.Input[builtins.str] claim_name: The name of the persistent volume claim.
+        :param pulumi.Input[builtins.str] mount_path: The mount path for the persistent volume claim.
+        """
+        pulumi.set(__self__, "claim_name", claim_name)
+        pulumi.set(__self__, "mount_path", mount_path)
+
+    @property
+    @pulumi.getter(name="claimName")
+    def claim_name(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the persistent volume claim.
+        """
+        return pulumi.get(self, "claim_name")
+
+    @claim_name.setter
+    def claim_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "claim_name", value)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> pulumi.Input[builtins.str]:
+        """
+        The mount path for the persistent volume claim.
+        """
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "mount_path", value)
+
+
+if not MYPY:
+    class AkriConnectorTemplatePropertiesArgsDict(TypedDict):
+        """
+        AkriConnectorTemplate properties.
+        """
+        device_inbound_endpoint_types: pulumi.Input[Sequence[pulumi.Input['AkriConnectorTemplateDeviceInboundEndpointTypeArgsDict']]]
+        """
+        Device inbound endpoint types.
+        """
+        runtime_configuration: pulumi.Input[Union['AkriConnectorTemplateHelmConfigurationArgsDict', 'AkriConnectorTemplateManagedConfigurationArgsDict']]
+        """
+        The runtime configuration for the Connector template.
+        """
+        aio_metadata: NotRequired[pulumi.Input['AkriConnectorTemplateAioMetadataArgsDict']]
+        """
+        Metadata about AIO.
+        """
+        diagnostics: NotRequired[pulumi.Input['AkriConnectorTemplateDiagnosticsArgsDict']]
+        """
+        Diagnostics settings for the Connector template.
+        """
+        mqtt_connection_configuration: NotRequired[pulumi.Input['AkriConnectorsMqttConnectionConfigurationArgsDict']]
+        """
+        Mqtt connection configuration settings.
+        """
+elif False:
+    AkriConnectorTemplatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorTemplatePropertiesArgs:
+    def __init__(__self__, *,
+                 device_inbound_endpoint_types: pulumi.Input[Sequence[pulumi.Input['AkriConnectorTemplateDeviceInboundEndpointTypeArgs']]],
+                 runtime_configuration: pulumi.Input[Union['AkriConnectorTemplateHelmConfigurationArgs', 'AkriConnectorTemplateManagedConfigurationArgs']],
+                 aio_metadata: Optional[pulumi.Input['AkriConnectorTemplateAioMetadataArgs']] = None,
+                 diagnostics: Optional[pulumi.Input['AkriConnectorTemplateDiagnosticsArgs']] = None,
+                 mqtt_connection_configuration: Optional[pulumi.Input['AkriConnectorsMqttConnectionConfigurationArgs']] = None):
+        """
+        AkriConnectorTemplate properties.
+        :param pulumi.Input[Sequence[pulumi.Input['AkriConnectorTemplateDeviceInboundEndpointTypeArgs']]] device_inbound_endpoint_types: Device inbound endpoint types.
+        :param pulumi.Input[Union['AkriConnectorTemplateHelmConfigurationArgs', 'AkriConnectorTemplateManagedConfigurationArgs']] runtime_configuration: The runtime configuration for the Connector template.
+        :param pulumi.Input['AkriConnectorTemplateAioMetadataArgs'] aio_metadata: Metadata about AIO.
+        :param pulumi.Input['AkriConnectorTemplateDiagnosticsArgs'] diagnostics: Diagnostics settings for the Connector template.
+        :param pulumi.Input['AkriConnectorsMqttConnectionConfigurationArgs'] mqtt_connection_configuration: Mqtt connection configuration settings.
+        """
+        pulumi.set(__self__, "device_inbound_endpoint_types", device_inbound_endpoint_types)
+        pulumi.set(__self__, "runtime_configuration", runtime_configuration)
+        if aio_metadata is not None:
+            pulumi.set(__self__, "aio_metadata", aio_metadata)
+        if diagnostics is not None:
+            pulumi.set(__self__, "diagnostics", diagnostics)
+        if mqtt_connection_configuration is not None:
+            pulumi.set(__self__, "mqtt_connection_configuration", mqtt_connection_configuration)
+
+    @property
+    @pulumi.getter(name="deviceInboundEndpointTypes")
+    def device_inbound_endpoint_types(self) -> pulumi.Input[Sequence[pulumi.Input['AkriConnectorTemplateDeviceInboundEndpointTypeArgs']]]:
+        """
+        Device inbound endpoint types.
+        """
+        return pulumi.get(self, "device_inbound_endpoint_types")
+
+    @device_inbound_endpoint_types.setter
+    def device_inbound_endpoint_types(self, value: pulumi.Input[Sequence[pulumi.Input['AkriConnectorTemplateDeviceInboundEndpointTypeArgs']]]):
+        pulumi.set(self, "device_inbound_endpoint_types", value)
+
+    @property
+    @pulumi.getter(name="runtimeConfiguration")
+    def runtime_configuration(self) -> pulumi.Input[Union['AkriConnectorTemplateHelmConfigurationArgs', 'AkriConnectorTemplateManagedConfigurationArgs']]:
+        """
+        The runtime configuration for the Connector template.
+        """
+        return pulumi.get(self, "runtime_configuration")
+
+    @runtime_configuration.setter
+    def runtime_configuration(self, value: pulumi.Input[Union['AkriConnectorTemplateHelmConfigurationArgs', 'AkriConnectorTemplateManagedConfigurationArgs']]):
+        pulumi.set(self, "runtime_configuration", value)
+
+    @property
+    @pulumi.getter(name="aioMetadata")
+    def aio_metadata(self) -> Optional[pulumi.Input['AkriConnectorTemplateAioMetadataArgs']]:
+        """
+        Metadata about AIO.
+        """
+        return pulumi.get(self, "aio_metadata")
+
+    @aio_metadata.setter
+    def aio_metadata(self, value: Optional[pulumi.Input['AkriConnectorTemplateAioMetadataArgs']]):
+        pulumi.set(self, "aio_metadata", value)
+
+    @property
+    @pulumi.getter
+    def diagnostics(self) -> Optional[pulumi.Input['AkriConnectorTemplateDiagnosticsArgs']]:
+        """
+        Diagnostics settings for the Connector template.
+        """
+        return pulumi.get(self, "diagnostics")
+
+    @diagnostics.setter
+    def diagnostics(self, value: Optional[pulumi.Input['AkriConnectorTemplateDiagnosticsArgs']]):
+        pulumi.set(self, "diagnostics", value)
+
+    @property
+    @pulumi.getter(name="mqttConnectionConfiguration")
+    def mqtt_connection_configuration(self) -> Optional[pulumi.Input['AkriConnectorsMqttConnectionConfigurationArgs']]:
+        """
+        Mqtt connection configuration settings.
+        """
+        return pulumi.get(self, "mqtt_connection_configuration")
+
+    @mqtt_connection_configuration.setter
+    def mqtt_connection_configuration(self, value: Optional[pulumi.Input['AkriConnectorsMqttConnectionConfigurationArgs']]):
+        pulumi.set(self, "mqtt_connection_configuration", value)
+
+
+if not MYPY:
+    class AkriConnectorTemplateRuntimeImageConfigurationSettingsArgsDict(TypedDict):
+        """
+        AkriConnectorTemplateRuntimeImageConfiguration properties.
+        """
+        image_name: pulumi.Input[builtins.str]
+        """
+        The image name without any registry reference, tag or digest.
+        """
+        image_pull_policy: NotRequired[pulumi.Input[Union[builtins.str, 'AkriConnectorsImagePullPolicy']]]
+        """
+        The pull policy of the image.
+        """
+        registry_settings: NotRequired[pulumi.Input[Union['AkriConnectorsContainerRegistryArgsDict', 'AkriConnectorsRegistryEndpointRefArgsDict']]]
+        """
+        The registry settings for the image. You can omit this field if using the default docker hub repository or using a local image.
+        """
+        replicas: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The number of replicas to be set up.
+        """
+        tag_digest_settings: NotRequired[pulumi.Input[Union['AkriConnectorsDigestArgsDict', 'AkriConnectorsTagArgsDict']]]
+        """
+        Optional image tag or digest. If not specified, the default tag is `latest`.
+        """
+elif False:
+    AkriConnectorTemplateRuntimeImageConfigurationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorTemplateRuntimeImageConfigurationSettingsArgs:
+    def __init__(__self__, *,
+                 image_name: pulumi.Input[builtins.str],
+                 image_pull_policy: Optional[pulumi.Input[Union[builtins.str, 'AkriConnectorsImagePullPolicy']]] = None,
+                 registry_settings: Optional[pulumi.Input[Union['AkriConnectorsContainerRegistryArgs', 'AkriConnectorsRegistryEndpointRefArgs']]] = None,
+                 replicas: Optional[pulumi.Input[builtins.int]] = None,
+                 tag_digest_settings: Optional[pulumi.Input[Union['AkriConnectorsDigestArgs', 'AkriConnectorsTagArgs']]] = None):
+        """
+        AkriConnectorTemplateRuntimeImageConfiguration properties.
+        :param pulumi.Input[builtins.str] image_name: The image name without any registry reference, tag or digest.
+        :param pulumi.Input[Union[builtins.str, 'AkriConnectorsImagePullPolicy']] image_pull_policy: The pull policy of the image.
+        :param pulumi.Input[Union['AkriConnectorsContainerRegistryArgs', 'AkriConnectorsRegistryEndpointRefArgs']] registry_settings: The registry settings for the image. You can omit this field if using the default docker hub repository or using a local image.
+        :param pulumi.Input[builtins.int] replicas: The number of replicas to be set up.
+        :param pulumi.Input[Union['AkriConnectorsDigestArgs', 'AkriConnectorsTagArgs']] tag_digest_settings: Optional image tag or digest. If not specified, the default tag is `latest`.
+        """
+        pulumi.set(__self__, "image_name", image_name)
+        if image_pull_policy is not None:
+            pulumi.set(__self__, "image_pull_policy", image_pull_policy)
+        if registry_settings is not None:
+            pulumi.set(__self__, "registry_settings", registry_settings)
+        if replicas is not None:
+            pulumi.set(__self__, "replicas", replicas)
+        if tag_digest_settings is not None:
+            pulumi.set(__self__, "tag_digest_settings", tag_digest_settings)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> pulumi.Input[builtins.str]:
+        """
+        The image name without any registry reference, tag or digest.
+        """
+        return pulumi.get(self, "image_name")
+
+    @image_name.setter
+    def image_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "image_name", value)
+
+    @property
+    @pulumi.getter(name="imagePullPolicy")
+    def image_pull_policy(self) -> Optional[pulumi.Input[Union[builtins.str, 'AkriConnectorsImagePullPolicy']]]:
+        """
+        The pull policy of the image.
+        """
+        return pulumi.get(self, "image_pull_policy")
+
+    @image_pull_policy.setter
+    def image_pull_policy(self, value: Optional[pulumi.Input[Union[builtins.str, 'AkriConnectorsImagePullPolicy']]]):
+        pulumi.set(self, "image_pull_policy", value)
+
+    @property
+    @pulumi.getter(name="registrySettings")
+    def registry_settings(self) -> Optional[pulumi.Input[Union['AkriConnectorsContainerRegistryArgs', 'AkriConnectorsRegistryEndpointRefArgs']]]:
+        """
+        The registry settings for the image. You can omit this field if using the default docker hub repository or using a local image.
+        """
+        return pulumi.get(self, "registry_settings")
+
+    @registry_settings.setter
+    def registry_settings(self, value: Optional[pulumi.Input[Union['AkriConnectorsContainerRegistryArgs', 'AkriConnectorsRegistryEndpointRefArgs']]]):
+        pulumi.set(self, "registry_settings", value)
+
+    @property
+    @pulumi.getter
+    def replicas(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The number of replicas to be set up.
+        """
+        return pulumi.get(self, "replicas")
+
+    @replicas.setter
+    def replicas(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "replicas", value)
+
+    @property
+    @pulumi.getter(name="tagDigestSettings")
+    def tag_digest_settings(self) -> Optional[pulumi.Input[Union['AkriConnectorsDigestArgs', 'AkriConnectorsTagArgs']]]:
+        """
+        Optional image tag or digest. If not specified, the default tag is `latest`.
+        """
+        return pulumi.get(self, "tag_digest_settings")
+
+    @tag_digest_settings.setter
+    def tag_digest_settings(self, value: Optional[pulumi.Input[Union['AkriConnectorsDigestArgs', 'AkriConnectorsTagArgs']]]):
+        pulumi.set(self, "tag_digest_settings", value)
+
+
+if not MYPY:
+    class AkriConnectorTemplateRuntimeImageConfigurationArgsDict(TypedDict):
+        """
+        AkriConnectorTemplateRuntimeImageConfiguration properties.
+        """
+        image_configuration_settings: pulumi.Input['AkriConnectorTemplateRuntimeImageConfigurationSettingsArgsDict']
+        """
+        The image configuration settings.
+        """
+        managed_configuration_type: pulumi.Input[builtins.str]
+        """
+        Managed configuration types.
+        Expected value is 'ImageConfiguration'.
+        """
+        additional_configuration: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]
+        """
+        Additional configuration for the image of the managed configuration.
+        """
+        allocation: NotRequired[pulumi.Input['AkriConnectorTemplateBucketizedAllocationArgsDict']]
+        """
+        Allocation settings for the managed configuration.
+        """
+        persistent_volume_claim_templates: NotRequired[pulumi.Input[Sequence[Any]]]
+        """
+        The persistent volume claim templates for the managed configuration.
+        See https://raw.githubusercontent.com/kubernetes/kubernetes/refs/heads/master/api/openapi-spec/v3/apis__apps__v1_openapi.json.
+        """
+        persistent_volume_claims: NotRequired[pulumi.Input[Sequence[pulumi.Input['AkriConnectorTemplatePersistentVolumeClaimArgsDict']]]]
+        """
+        The persistent volume claims for the managed configuration.
+        """
+        secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['AkriConnectorsSecretArgsDict']]]]
+        """
+        Connector secrets that will be mounted onto all connector instances.
+        """
+        trust_settings: NotRequired[pulumi.Input['AkriConnectorTemplateTrustListArgsDict']]
+        """
+        Trust list for the connector. This is used to specify the certificates that all connector instances should trust.
+        """
+elif False:
+    AkriConnectorTemplateRuntimeImageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorTemplateRuntimeImageConfigurationArgs:
+    def __init__(__self__, *,
+                 image_configuration_settings: pulumi.Input['AkriConnectorTemplateRuntimeImageConfigurationSettingsArgs'],
+                 managed_configuration_type: pulumi.Input[builtins.str],
+                 additional_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 allocation: Optional[pulumi.Input['AkriConnectorTemplateBucketizedAllocationArgs']] = None,
+                 persistent_volume_claim_templates: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 persistent_volume_claims: Optional[pulumi.Input[Sequence[pulumi.Input['AkriConnectorTemplatePersistentVolumeClaimArgs']]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['AkriConnectorsSecretArgs']]]] = None,
+                 trust_settings: Optional[pulumi.Input['AkriConnectorTemplateTrustListArgs']] = None):
+        """
+        AkriConnectorTemplateRuntimeImageConfiguration properties.
+        :param pulumi.Input['AkriConnectorTemplateRuntimeImageConfigurationSettingsArgs'] image_configuration_settings: The image configuration settings.
+        :param pulumi.Input[builtins.str] managed_configuration_type: Managed configuration types.
+               Expected value is 'ImageConfiguration'.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] additional_configuration: Additional configuration for the image of the managed configuration.
+        :param pulumi.Input['AkriConnectorTemplateBucketizedAllocationArgs'] allocation: Allocation settings for the managed configuration.
+        :param pulumi.Input[Sequence[Any]] persistent_volume_claim_templates: The persistent volume claim templates for the managed configuration.
+               See https://raw.githubusercontent.com/kubernetes/kubernetes/refs/heads/master/api/openapi-spec/v3/apis__apps__v1_openapi.json.
+        :param pulumi.Input[Sequence[pulumi.Input['AkriConnectorTemplatePersistentVolumeClaimArgs']]] persistent_volume_claims: The persistent volume claims for the managed configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['AkriConnectorsSecretArgs']]] secrets: Connector secrets that will be mounted onto all connector instances.
+        :param pulumi.Input['AkriConnectorTemplateTrustListArgs'] trust_settings: Trust list for the connector. This is used to specify the certificates that all connector instances should trust.
+        """
+        pulumi.set(__self__, "image_configuration_settings", image_configuration_settings)
+        pulumi.set(__self__, "managed_configuration_type", 'ImageConfiguration')
+        if additional_configuration is not None:
+            pulumi.set(__self__, "additional_configuration", additional_configuration)
+        if allocation is not None:
+            pulumi.set(__self__, "allocation", allocation)
+        if persistent_volume_claim_templates is not None:
+            pulumi.set(__self__, "persistent_volume_claim_templates", persistent_volume_claim_templates)
+        if persistent_volume_claims is not None:
+            pulumi.set(__self__, "persistent_volume_claims", persistent_volume_claims)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+        if trust_settings is not None:
+            pulumi.set(__self__, "trust_settings", trust_settings)
+
+    @property
+    @pulumi.getter(name="imageConfigurationSettings")
+    def image_configuration_settings(self) -> pulumi.Input['AkriConnectorTemplateRuntimeImageConfigurationSettingsArgs']:
+        """
+        The image configuration settings.
+        """
+        return pulumi.get(self, "image_configuration_settings")
+
+    @image_configuration_settings.setter
+    def image_configuration_settings(self, value: pulumi.Input['AkriConnectorTemplateRuntimeImageConfigurationSettingsArgs']):
+        pulumi.set(self, "image_configuration_settings", value)
+
+    @property
+    @pulumi.getter(name="managedConfigurationType")
+    def managed_configuration_type(self) -> pulumi.Input[builtins.str]:
+        """
+        Managed configuration types.
+        Expected value is 'ImageConfiguration'.
+        """
+        return pulumi.get(self, "managed_configuration_type")
+
+    @managed_configuration_type.setter
+    def managed_configuration_type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "managed_configuration_type", value)
+
+    @property
+    @pulumi.getter(name="additionalConfiguration")
+    def additional_configuration(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Additional configuration for the image of the managed configuration.
+        """
+        return pulumi.get(self, "additional_configuration")
+
+    @additional_configuration.setter
+    def additional_configuration(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "additional_configuration", value)
+
+    @property
+    @pulumi.getter
+    def allocation(self) -> Optional[pulumi.Input['AkriConnectorTemplateBucketizedAllocationArgs']]:
+        """
+        Allocation settings for the managed configuration.
+        """
+        return pulumi.get(self, "allocation")
+
+    @allocation.setter
+    def allocation(self, value: Optional[pulumi.Input['AkriConnectorTemplateBucketizedAllocationArgs']]):
+        pulumi.set(self, "allocation", value)
+
+    @property
+    @pulumi.getter(name="persistentVolumeClaimTemplates")
+    def persistent_volume_claim_templates(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        The persistent volume claim templates for the managed configuration.
+        See https://raw.githubusercontent.com/kubernetes/kubernetes/refs/heads/master/api/openapi-spec/v3/apis__apps__v1_openapi.json.
+        """
+        return pulumi.get(self, "persistent_volume_claim_templates")
+
+    @persistent_volume_claim_templates.setter
+    def persistent_volume_claim_templates(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "persistent_volume_claim_templates", value)
+
+    @property
+    @pulumi.getter(name="persistentVolumeClaims")
+    def persistent_volume_claims(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AkriConnectorTemplatePersistentVolumeClaimArgs']]]]:
+        """
+        The persistent volume claims for the managed configuration.
+        """
+        return pulumi.get(self, "persistent_volume_claims")
+
+    @persistent_volume_claims.setter
+    def persistent_volume_claims(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AkriConnectorTemplatePersistentVolumeClaimArgs']]]]):
+        pulumi.set(self, "persistent_volume_claims", value)
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AkriConnectorsSecretArgs']]]]:
+        """
+        Connector secrets that will be mounted onto all connector instances.
+        """
+        return pulumi.get(self, "secrets")
+
+    @secrets.setter
+    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AkriConnectorsSecretArgs']]]]):
+        pulumi.set(self, "secrets", value)
+
+    @property
+    @pulumi.getter(name="trustSettings")
+    def trust_settings(self) -> Optional[pulumi.Input['AkriConnectorTemplateTrustListArgs']]:
+        """
+        Trust list for the connector. This is used to specify the certificates that all connector instances should trust.
+        """
+        return pulumi.get(self, "trust_settings")
+
+    @trust_settings.setter
+    def trust_settings(self, value: Optional[pulumi.Input['AkriConnectorTemplateTrustListArgs']]):
+        pulumi.set(self, "trust_settings", value)
+
+
+if not MYPY:
+    class AkriConnectorTemplateRuntimeStatefulSetConfigurationArgsDict(TypedDict):
+        """
+        AkriConnectorTemplateRuntimeStatefulSetConfiguration properties.
+        """
+        managed_configuration_type: pulumi.Input[builtins.str]
+        """
+        Managed configuration types.
+        Expected value is 'StatefulSetConfiguration'.
+        """
+        stateful_set_configuration_settings: Any
+        """
+        The stateful set configuration settings. This corresponds to the Kubernetes StatefulSet resource.
+        See https://raw.githubusercontent.com/kubernetes/kubernetes/refs/heads/master/api/openapi-spec/v3/apis__apps__v1_openapi.json#/components/schemas/io.k8s.api.apps.v1.StatefulSetSpec
+        """
+        additional_configuration: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]
+        """
+        Additional configuration for the image of the managed configuration.
+        """
+        allocation: NotRequired[pulumi.Input['AkriConnectorTemplateBucketizedAllocationArgsDict']]
+        """
+        Allocation settings for the managed configuration.
+        """
+        persistent_volume_claim_templates: NotRequired[pulumi.Input[Sequence[Any]]]
+        """
+        The persistent volume claim templates for the managed configuration.
+        See https://raw.githubusercontent.com/kubernetes/kubernetes/refs/heads/master/api/openapi-spec/v3/apis__apps__v1_openapi.json.
+        """
+        persistent_volume_claims: NotRequired[pulumi.Input[Sequence[pulumi.Input['AkriConnectorTemplatePersistentVolumeClaimArgsDict']]]]
+        """
+        The persistent volume claims for the managed configuration.
+        """
+        secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['AkriConnectorsSecretArgsDict']]]]
+        """
+        Connector secrets that will be mounted onto all connector instances.
+        """
+        trust_settings: NotRequired[pulumi.Input['AkriConnectorTemplateTrustListArgsDict']]
+        """
+        Trust list for the connector. This is used to specify the certificates that all connector instances should trust.
+        """
+elif False:
+    AkriConnectorTemplateRuntimeStatefulSetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorTemplateRuntimeStatefulSetConfigurationArgs:
+    def __init__(__self__, *,
+                 managed_configuration_type: pulumi.Input[builtins.str],
+                 stateful_set_configuration_settings: Any,
+                 additional_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 allocation: Optional[pulumi.Input['AkriConnectorTemplateBucketizedAllocationArgs']] = None,
+                 persistent_volume_claim_templates: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 persistent_volume_claims: Optional[pulumi.Input[Sequence[pulumi.Input['AkriConnectorTemplatePersistentVolumeClaimArgs']]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['AkriConnectorsSecretArgs']]]] = None,
+                 trust_settings: Optional[pulumi.Input['AkriConnectorTemplateTrustListArgs']] = None):
+        """
+        AkriConnectorTemplateRuntimeStatefulSetConfiguration properties.
+        :param pulumi.Input[builtins.str] managed_configuration_type: Managed configuration types.
+               Expected value is 'StatefulSetConfiguration'.
+        :param Any stateful_set_configuration_settings: The stateful set configuration settings. This corresponds to the Kubernetes StatefulSet resource.
+               See https://raw.githubusercontent.com/kubernetes/kubernetes/refs/heads/master/api/openapi-spec/v3/apis__apps__v1_openapi.json#/components/schemas/io.k8s.api.apps.v1.StatefulSetSpec
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] additional_configuration: Additional configuration for the image of the managed configuration.
+        :param pulumi.Input['AkriConnectorTemplateBucketizedAllocationArgs'] allocation: Allocation settings for the managed configuration.
+        :param pulumi.Input[Sequence[Any]] persistent_volume_claim_templates: The persistent volume claim templates for the managed configuration.
+               See https://raw.githubusercontent.com/kubernetes/kubernetes/refs/heads/master/api/openapi-spec/v3/apis__apps__v1_openapi.json.
+        :param pulumi.Input[Sequence[pulumi.Input['AkriConnectorTemplatePersistentVolumeClaimArgs']]] persistent_volume_claims: The persistent volume claims for the managed configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['AkriConnectorsSecretArgs']]] secrets: Connector secrets that will be mounted onto all connector instances.
+        :param pulumi.Input['AkriConnectorTemplateTrustListArgs'] trust_settings: Trust list for the connector. This is used to specify the certificates that all connector instances should trust.
+        """
+        pulumi.set(__self__, "managed_configuration_type", 'StatefulSetConfiguration')
+        pulumi.set(__self__, "stateful_set_configuration_settings", stateful_set_configuration_settings)
+        if additional_configuration is not None:
+            pulumi.set(__self__, "additional_configuration", additional_configuration)
+        if allocation is not None:
+            pulumi.set(__self__, "allocation", allocation)
+        if persistent_volume_claim_templates is not None:
+            pulumi.set(__self__, "persistent_volume_claim_templates", persistent_volume_claim_templates)
+        if persistent_volume_claims is not None:
+            pulumi.set(__self__, "persistent_volume_claims", persistent_volume_claims)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+        if trust_settings is not None:
+            pulumi.set(__self__, "trust_settings", trust_settings)
+
+    @property
+    @pulumi.getter(name="managedConfigurationType")
+    def managed_configuration_type(self) -> pulumi.Input[builtins.str]:
+        """
+        Managed configuration types.
+        Expected value is 'StatefulSetConfiguration'.
+        """
+        return pulumi.get(self, "managed_configuration_type")
+
+    @managed_configuration_type.setter
+    def managed_configuration_type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "managed_configuration_type", value)
+
+    @property
+    @pulumi.getter(name="statefulSetConfigurationSettings")
+    def stateful_set_configuration_settings(self) -> Any:
+        """
+        The stateful set configuration settings. This corresponds to the Kubernetes StatefulSet resource.
+        See https://raw.githubusercontent.com/kubernetes/kubernetes/refs/heads/master/api/openapi-spec/v3/apis__apps__v1_openapi.json#/components/schemas/io.k8s.api.apps.v1.StatefulSetSpec
+        """
+        return pulumi.get(self, "stateful_set_configuration_settings")
+
+    @stateful_set_configuration_settings.setter
+    def stateful_set_configuration_settings(self, value: Any):
+        pulumi.set(self, "stateful_set_configuration_settings", value)
+
+    @property
+    @pulumi.getter(name="additionalConfiguration")
+    def additional_configuration(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Additional configuration for the image of the managed configuration.
+        """
+        return pulumi.get(self, "additional_configuration")
+
+    @additional_configuration.setter
+    def additional_configuration(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "additional_configuration", value)
+
+    @property
+    @pulumi.getter
+    def allocation(self) -> Optional[pulumi.Input['AkriConnectorTemplateBucketizedAllocationArgs']]:
+        """
+        Allocation settings for the managed configuration.
+        """
+        return pulumi.get(self, "allocation")
+
+    @allocation.setter
+    def allocation(self, value: Optional[pulumi.Input['AkriConnectorTemplateBucketizedAllocationArgs']]):
+        pulumi.set(self, "allocation", value)
+
+    @property
+    @pulumi.getter(name="persistentVolumeClaimTemplates")
+    def persistent_volume_claim_templates(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        The persistent volume claim templates for the managed configuration.
+        See https://raw.githubusercontent.com/kubernetes/kubernetes/refs/heads/master/api/openapi-spec/v3/apis__apps__v1_openapi.json.
+        """
+        return pulumi.get(self, "persistent_volume_claim_templates")
+
+    @persistent_volume_claim_templates.setter
+    def persistent_volume_claim_templates(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "persistent_volume_claim_templates", value)
+
+    @property
+    @pulumi.getter(name="persistentVolumeClaims")
+    def persistent_volume_claims(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AkriConnectorTemplatePersistentVolumeClaimArgs']]]]:
+        """
+        The persistent volume claims for the managed configuration.
+        """
+        return pulumi.get(self, "persistent_volume_claims")
+
+    @persistent_volume_claims.setter
+    def persistent_volume_claims(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AkriConnectorTemplatePersistentVolumeClaimArgs']]]]):
+        pulumi.set(self, "persistent_volume_claims", value)
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AkriConnectorsSecretArgs']]]]:
+        """
+        Connector secrets that will be mounted onto all connector instances.
+        """
+        return pulumi.get(self, "secrets")
+
+    @secrets.setter
+    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AkriConnectorsSecretArgs']]]]):
+        pulumi.set(self, "secrets", value)
+
+    @property
+    @pulumi.getter(name="trustSettings")
+    def trust_settings(self) -> Optional[pulumi.Input['AkriConnectorTemplateTrustListArgs']]:
+        """
+        Trust list for the connector. This is used to specify the certificates that all connector instances should trust.
+        """
+        return pulumi.get(self, "trust_settings")
+
+    @trust_settings.setter
+    def trust_settings(self, value: Optional[pulumi.Input['AkriConnectorTemplateTrustListArgs']]):
+        pulumi.set(self, "trust_settings", value)
+
+
+if not MYPY:
+    class AkriConnectorTemplateTrustListArgsDict(TypedDict):
+        """
+        AkriConnectorTemplateTrustList properties.
+        """
+        trust_list_secret_ref: pulumi.Input[builtins.str]
+        """
+        The secret reference for certificates to trust.
+        """
+elif False:
+    AkriConnectorTemplateTrustListArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorTemplateTrustListArgs:
+    def __init__(__self__, *,
+                 trust_list_secret_ref: pulumi.Input[builtins.str]):
+        """
+        AkriConnectorTemplateTrustList properties.
+        :param pulumi.Input[builtins.str] trust_list_secret_ref: The secret reference for certificates to trust.
+        """
+        pulumi.set(__self__, "trust_list_secret_ref", trust_list_secret_ref)
+
+    @property
+    @pulumi.getter(name="trustListSecretRef")
+    def trust_list_secret_ref(self) -> pulumi.Input[builtins.str]:
+        """
+        The secret reference for certificates to trust.
+        """
+        return pulumi.get(self, "trust_list_secret_ref")
+
+    @trust_list_secret_ref.setter
+    def trust_list_secret_ref(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "trust_list_secret_ref", value)
+
+
+if not MYPY:
+    class AkriConnectorsContainerRegistrySettingsArgsDict(TypedDict):
+        """
+        AkriConnectorsContainerRegistry properties.
+        """
+        registry: pulumi.Input[builtins.str]
+        """
+        The container registry to use for the artifact.
+        """
+        image_pull_secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['AkriConnectorsImagePullSecretArgsDict']]]]
+        """
+        Optional list of references to secrets in the same namespace to use for pulling the connector image.
+        """
+elif False:
+    AkriConnectorsContainerRegistrySettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorsContainerRegistrySettingsArgs:
+    def __init__(__self__, *,
+                 registry: pulumi.Input[builtins.str],
+                 image_pull_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['AkriConnectorsImagePullSecretArgs']]]] = None):
+        """
+        AkriConnectorsContainerRegistry properties.
+        :param pulumi.Input[builtins.str] registry: The container registry to use for the artifact.
+        :param pulumi.Input[Sequence[pulumi.Input['AkriConnectorsImagePullSecretArgs']]] image_pull_secrets: Optional list of references to secrets in the same namespace to use for pulling the connector image.
+        """
+        pulumi.set(__self__, "registry", registry)
+        if image_pull_secrets is not None:
+            pulumi.set(__self__, "image_pull_secrets", image_pull_secrets)
+
+    @property
+    @pulumi.getter
+    def registry(self) -> pulumi.Input[builtins.str]:
+        """
+        The container registry to use for the artifact.
+        """
+        return pulumi.get(self, "registry")
+
+    @registry.setter
+    def registry(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "registry", value)
+
+    @property
+    @pulumi.getter(name="imagePullSecrets")
+    def image_pull_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AkriConnectorsImagePullSecretArgs']]]]:
+        """
+        Optional list of references to secrets in the same namespace to use for pulling the connector image.
+        """
+        return pulumi.get(self, "image_pull_secrets")
+
+    @image_pull_secrets.setter
+    def image_pull_secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AkriConnectorsImagePullSecretArgs']]]]):
+        pulumi.set(self, "image_pull_secrets", value)
+
+
+if not MYPY:
+    class AkriConnectorsContainerRegistryArgsDict(TypedDict):
+        """
+        AkriConnectorsContainerRegistry properties.
+        """
+        container_registry_settings: pulumi.Input['AkriConnectorsContainerRegistrySettingsArgsDict']
+        """
+        The registry settings for the container registry.
+        """
+        registry_settings_type: pulumi.Input[builtins.str]
+        """
+        AkriConnectorsRegistrySettings properties.
+        Expected value is 'ContainerRegistry'.
+        """
+elif False:
+    AkriConnectorsContainerRegistryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorsContainerRegistryArgs:
+    def __init__(__self__, *,
+                 container_registry_settings: pulumi.Input['AkriConnectorsContainerRegistrySettingsArgs'],
+                 registry_settings_type: pulumi.Input[builtins.str]):
+        """
+        AkriConnectorsContainerRegistry properties.
+        :param pulumi.Input['AkriConnectorsContainerRegistrySettingsArgs'] container_registry_settings: The registry settings for the container registry.
+        :param pulumi.Input[builtins.str] registry_settings_type: AkriConnectorsRegistrySettings properties.
+               Expected value is 'ContainerRegistry'.
+        """
+        pulumi.set(__self__, "container_registry_settings", container_registry_settings)
+        pulumi.set(__self__, "registry_settings_type", 'ContainerRegistry')
+
+    @property
+    @pulumi.getter(name="containerRegistrySettings")
+    def container_registry_settings(self) -> pulumi.Input['AkriConnectorsContainerRegistrySettingsArgs']:
+        """
+        The registry settings for the container registry.
+        """
+        return pulumi.get(self, "container_registry_settings")
+
+    @container_registry_settings.setter
+    def container_registry_settings(self, value: pulumi.Input['AkriConnectorsContainerRegistrySettingsArgs']):
+        pulumi.set(self, "container_registry_settings", value)
+
+    @property
+    @pulumi.getter(name="registrySettingsType")
+    def registry_settings_type(self) -> pulumi.Input[builtins.str]:
+        """
+        AkriConnectorsRegistrySettings properties.
+        Expected value is 'ContainerRegistry'.
+        """
+        return pulumi.get(self, "registry_settings_type")
+
+    @registry_settings_type.setter
+    def registry_settings_type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "registry_settings_type", value)
+
+
+if not MYPY:
+    class AkriConnectorsDiagnosticsLogsArgsDict(TypedDict):
+        """
+        AkriConnectorsDiagnostic Log properties.
+        """
+        level: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The log level. Examples - 'debug', 'info', 'warn', 'error', 'trace'.
+        """
+elif False:
+    AkriConnectorsDiagnosticsLogsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorsDiagnosticsLogsArgs:
+    def __init__(__self__, *,
+                 level: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        AkriConnectorsDiagnostic Log properties.
+        :param pulumi.Input[builtins.str] level: The log level. Examples - 'debug', 'info', 'warn', 'error', 'trace'.
+        """
+        if level is None:
+            level = 'info'
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The log level. Examples - 'debug', 'info', 'warn', 'error', 'trace'.
+        """
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "level", value)
+
+
+if not MYPY:
+    class AkriConnectorsDigestArgsDict(TypedDict):
+        """
+        AkriConnectorsDigest properties.
+        """
+        digest: pulumi.Input[builtins.str]
+        """
+        The digest of the image.
+        """
+        tag_digest_type: pulumi.Input[builtins.str]
+        """
+        AkriConnectorsTagDigestType values.
+        Expected value is 'Digest'.
+        """
+elif False:
+    AkriConnectorsDigestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorsDigestArgs:
+    def __init__(__self__, *,
+                 digest: pulumi.Input[builtins.str],
+                 tag_digest_type: pulumi.Input[builtins.str]):
+        """
+        AkriConnectorsDigest properties.
+        :param pulumi.Input[builtins.str] digest: The digest of the image.
+        :param pulumi.Input[builtins.str] tag_digest_type: AkriConnectorsTagDigestType values.
+               Expected value is 'Digest'.
+        """
+        pulumi.set(__self__, "digest", digest)
+        pulumi.set(__self__, "tag_digest_type", 'Digest')
+
+    @property
+    @pulumi.getter
+    def digest(self) -> pulumi.Input[builtins.str]:
+        """
+        The digest of the image.
+        """
+        return pulumi.get(self, "digest")
+
+    @digest.setter
+    def digest(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "digest", value)
+
+    @property
+    @pulumi.getter(name="tagDigestType")
+    def tag_digest_type(self) -> pulumi.Input[builtins.str]:
+        """
+        AkriConnectorsTagDigestType values.
+        Expected value is 'Digest'.
+        """
+        return pulumi.get(self, "tag_digest_type")
+
+    @tag_digest_type.setter
+    def tag_digest_type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "tag_digest_type", value)
+
+
+if not MYPY:
+    class AkriConnectorsImagePullSecretArgsDict(TypedDict):
+        """
+        AkriConnectorsImagePullSecret properties.
+        """
+        secret_ref: pulumi.Input[builtins.str]
+        """
+        The name of the image pull secret.
+        """
+elif False:
+    AkriConnectorsImagePullSecretArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorsImagePullSecretArgs:
+    def __init__(__self__, *,
+                 secret_ref: pulumi.Input[builtins.str]):
+        """
+        AkriConnectorsImagePullSecret properties.
+        :param pulumi.Input[builtins.str] secret_ref: The name of the image pull secret.
+        """
+        pulumi.set(__self__, "secret_ref", secret_ref)
+
+    @property
+    @pulumi.getter(name="secretRef")
+    def secret_ref(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the image pull secret.
+        """
+        return pulumi.get(self, "secret_ref")
+
+    @secret_ref.setter
+    def secret_ref(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "secret_ref", value)
+
+
+if not MYPY:
+    class AkriConnectorsMqttConnectionConfigurationArgsDict(TypedDict):
+        """
+        AkriConnectorsMqttConnectionConfiguration properties.
+        """
+        authentication: NotRequired[pulumi.Input['AkriConnectorsServiceAccountAuthenticationArgsDict']]
+        """
+        Authentication properties.
+        """
+        host: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Host of the Broker in the form of <hostname>:<port>.
+        """
+        keep_alive_seconds: NotRequired[pulumi.Input[builtins.int]]
+        """
+        KeepAlive for connection in seconds.
+        """
+        max_inflight_messages: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The max number of messages to keep in flight. For subscribe, this is the receive maximum. For publish, this is the maximum number of messages to send before waiting for an ack.
+        """
+        protocol: NotRequired[pulumi.Input[Union[builtins.str, 'AkriConnectorsMqttProtocolType']]]
+        """
+        The protocol to use for the connection. Currently only `mqtt` is supported.
+        """
+        session_expiry_seconds: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Session expiry in seconds.
+        """
+        tls: NotRequired[pulumi.Input['TlsPropertiesArgsDict']]
+        """
+        TLS configuration.
+        """
+elif False:
+    AkriConnectorsMqttConnectionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorsMqttConnectionConfigurationArgs:
+    def __init__(__self__, *,
+                 authentication: Optional[pulumi.Input['AkriConnectorsServiceAccountAuthenticationArgs']] = None,
+                 host: Optional[pulumi.Input[builtins.str]] = None,
+                 keep_alive_seconds: Optional[pulumi.Input[builtins.int]] = None,
+                 max_inflight_messages: Optional[pulumi.Input[builtins.int]] = None,
+                 protocol: Optional[pulumi.Input[Union[builtins.str, 'AkriConnectorsMqttProtocolType']]] = None,
+                 session_expiry_seconds: Optional[pulumi.Input[builtins.int]] = None,
+                 tls: Optional[pulumi.Input['TlsPropertiesArgs']] = None):
+        """
+        AkriConnectorsMqttConnectionConfiguration properties.
+        :param pulumi.Input['AkriConnectorsServiceAccountAuthenticationArgs'] authentication: Authentication properties.
+        :param pulumi.Input[builtins.str] host: Host of the Broker in the form of <hostname>:<port>.
+        :param pulumi.Input[builtins.int] keep_alive_seconds: KeepAlive for connection in seconds.
+        :param pulumi.Input[builtins.int] max_inflight_messages: The max number of messages to keep in flight. For subscribe, this is the receive maximum. For publish, this is the maximum number of messages to send before waiting for an ack.
+        :param pulumi.Input[Union[builtins.str, 'AkriConnectorsMqttProtocolType']] protocol: The protocol to use for the connection. Currently only `mqtt` is supported.
+        :param pulumi.Input[builtins.int] session_expiry_seconds: Session expiry in seconds.
+        :param pulumi.Input['TlsPropertiesArgs'] tls: TLS configuration.
+        """
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if keep_alive_seconds is not None:
+            pulumi.set(__self__, "keep_alive_seconds", keep_alive_seconds)
+        if max_inflight_messages is not None:
+            pulumi.set(__self__, "max_inflight_messages", max_inflight_messages)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if session_expiry_seconds is not None:
+            pulumi.set(__self__, "session_expiry_seconds", session_expiry_seconds)
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional[pulumi.Input['AkriConnectorsServiceAccountAuthenticationArgs']]:
+        """
+        Authentication properties.
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: Optional[pulumi.Input['AkriConnectorsServiceAccountAuthenticationArgs']]):
+        pulumi.set(self, "authentication", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Host of the Broker in the form of <hostname>:<port>.
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter(name="keepAliveSeconds")
+    def keep_alive_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        KeepAlive for connection in seconds.
+        """
+        return pulumi.get(self, "keep_alive_seconds")
+
+    @keep_alive_seconds.setter
+    def keep_alive_seconds(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "keep_alive_seconds", value)
+
+    @property
+    @pulumi.getter(name="maxInflightMessages")
+    def max_inflight_messages(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The max number of messages to keep in flight. For subscribe, this is the receive maximum. For publish, this is the maximum number of messages to send before waiting for an ack.
+        """
+        return pulumi.get(self, "max_inflight_messages")
+
+    @max_inflight_messages.setter
+    def max_inflight_messages(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_inflight_messages", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[Union[builtins.str, 'AkriConnectorsMqttProtocolType']]]:
+        """
+        The protocol to use for the connection. Currently only `mqtt` is supported.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[Union[builtins.str, 'AkriConnectorsMqttProtocolType']]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="sessionExpirySeconds")
+    def session_expiry_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Session expiry in seconds.
+        """
+        return pulumi.get(self, "session_expiry_seconds")
+
+    @session_expiry_seconds.setter
+    def session_expiry_seconds(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "session_expiry_seconds", value)
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional[pulumi.Input['TlsPropertiesArgs']]:
+        """
+        TLS configuration.
+        """
+        return pulumi.get(self, "tls")
+
+    @tls.setter
+    def tls(self, value: Optional[pulumi.Input['TlsPropertiesArgs']]):
+        pulumi.set(self, "tls", value)
+
+
+if not MYPY:
+    class AkriConnectorsRegistryEndpointRefArgsDict(TypedDict):
+        """
+        AkriConnectorsRegistryEndpointRef properties.
+        """
+        registry_endpoint_ref: pulumi.Input[builtins.str]
+        """
+        The name of the registry endpoint.
+        """
+        registry_settings_type: pulumi.Input[builtins.str]
+        """
+        AkriConnectorsRegistrySettings properties.
+        Expected value is 'RegistryEndpointRef'.
+        """
+elif False:
+    AkriConnectorsRegistryEndpointRefArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorsRegistryEndpointRefArgs:
+    def __init__(__self__, *,
+                 registry_endpoint_ref: pulumi.Input[builtins.str],
+                 registry_settings_type: pulumi.Input[builtins.str]):
+        """
+        AkriConnectorsRegistryEndpointRef properties.
+        :param pulumi.Input[builtins.str] registry_endpoint_ref: The name of the registry endpoint.
+        :param pulumi.Input[builtins.str] registry_settings_type: AkriConnectorsRegistrySettings properties.
+               Expected value is 'RegistryEndpointRef'.
+        """
+        pulumi.set(__self__, "registry_endpoint_ref", registry_endpoint_ref)
+        pulumi.set(__self__, "registry_settings_type", 'RegistryEndpointRef')
+
+    @property
+    @pulumi.getter(name="registryEndpointRef")
+    def registry_endpoint_ref(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the registry endpoint.
+        """
+        return pulumi.get(self, "registry_endpoint_ref")
+
+    @registry_endpoint_ref.setter
+    def registry_endpoint_ref(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "registry_endpoint_ref", value)
+
+    @property
+    @pulumi.getter(name="registrySettingsType")
+    def registry_settings_type(self) -> pulumi.Input[builtins.str]:
+        """
+        AkriConnectorsRegistrySettings properties.
+        Expected value is 'RegistryEndpointRef'.
+        """
+        return pulumi.get(self, "registry_settings_type")
+
+    @registry_settings_type.setter
+    def registry_settings_type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "registry_settings_type", value)
+
+
+if not MYPY:
+    class AkriConnectorsSecretArgsDict(TypedDict):
+        """
+        AkriConnectorsSecret properties.
+        """
+        secret_alias: pulumi.Input[builtins.str]
+        """
+        The application-defined alias for the secret.
+        """
+        secret_key: pulumi.Input[builtins.str]
+        """
+        The key in the secret to be mounted.
+        """
+        secret_ref: pulumi.Input[builtins.str]
+        """
+        The name of the secret to be mounted.
+        """
+elif False:
+    AkriConnectorsSecretArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorsSecretArgs:
+    def __init__(__self__, *,
+                 secret_alias: pulumi.Input[builtins.str],
+                 secret_key: pulumi.Input[builtins.str],
+                 secret_ref: pulumi.Input[builtins.str]):
+        """
+        AkriConnectorsSecret properties.
+        :param pulumi.Input[builtins.str] secret_alias: The application-defined alias for the secret.
+        :param pulumi.Input[builtins.str] secret_key: The key in the secret to be mounted.
+        :param pulumi.Input[builtins.str] secret_ref: The name of the secret to be mounted.
+        """
+        pulumi.set(__self__, "secret_alias", secret_alias)
+        pulumi.set(__self__, "secret_key", secret_key)
+        pulumi.set(__self__, "secret_ref", secret_ref)
+
+    @property
+    @pulumi.getter(name="secretAlias")
+    def secret_alias(self) -> pulumi.Input[builtins.str]:
+        """
+        The application-defined alias for the secret.
+        """
+        return pulumi.get(self, "secret_alias")
+
+    @secret_alias.setter
+    def secret_alias(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "secret_alias", value)
+
+    @property
+    @pulumi.getter(name="secretKey")
+    def secret_key(self) -> pulumi.Input[builtins.str]:
+        """
+        The key in the secret to be mounted.
+        """
+        return pulumi.get(self, "secret_key")
+
+    @secret_key.setter
+    def secret_key(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "secret_key", value)
+
+    @property
+    @pulumi.getter(name="secretRef")
+    def secret_ref(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the secret to be mounted.
+        """
+        return pulumi.get(self, "secret_ref")
+
+    @secret_ref.setter
+    def secret_ref(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "secret_ref", value)
+
+
+if not MYPY:
+    class AkriConnectorsServiceAccountAuthenticationArgsDict(TypedDict):
+        """
+        AkriConnectorsServiceAccountAuthentication properties.
+        """
+        method: pulumi.Input[builtins.str]
+        """
+        AkriConnectorsMqttAuthenticationMethod properties.
+        Expected value is 'ServiceAccountToken'.
+        """
+        service_account_token_settings: pulumi.Input['AkriConnectorsServiceAccountTokenSettingsArgsDict']
+        """
+        The service account token for the MQTT connection.
+        """
+elif False:
+    AkriConnectorsServiceAccountAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorsServiceAccountAuthenticationArgs:
+    def __init__(__self__, *,
+                 method: pulumi.Input[builtins.str],
+                 service_account_token_settings: pulumi.Input['AkriConnectorsServiceAccountTokenSettingsArgs']):
+        """
+        AkriConnectorsServiceAccountAuthentication properties.
+        :param pulumi.Input[builtins.str] method: AkriConnectorsMqttAuthenticationMethod properties.
+               Expected value is 'ServiceAccountToken'.
+        :param pulumi.Input['AkriConnectorsServiceAccountTokenSettingsArgs'] service_account_token_settings: The service account token for the MQTT connection.
+        """
+        pulumi.set(__self__, "method", 'ServiceAccountToken')
+        pulumi.set(__self__, "service_account_token_settings", service_account_token_settings)
+
+    @property
+    @pulumi.getter
+    def method(self) -> pulumi.Input[builtins.str]:
+        """
+        AkriConnectorsMqttAuthenticationMethod properties.
+        Expected value is 'ServiceAccountToken'.
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "method", value)
+
+    @property
+    @pulumi.getter(name="serviceAccountTokenSettings")
+    def service_account_token_settings(self) -> pulumi.Input['AkriConnectorsServiceAccountTokenSettingsArgs']:
+        """
+        The service account token for the MQTT connection.
+        """
+        return pulumi.get(self, "service_account_token_settings")
+
+    @service_account_token_settings.setter
+    def service_account_token_settings(self, value: pulumi.Input['AkriConnectorsServiceAccountTokenSettingsArgs']):
+        pulumi.set(self, "service_account_token_settings", value)
+
+
+if not MYPY:
+    class AkriConnectorsServiceAccountTokenSettingsArgsDict(TypedDict):
+        """
+        AkriConnectorsServiceAccountTokenSettings properties.
+        """
+        audience: pulumi.Input[builtins.str]
+        """
+        The audience for the service account token.
+        """
+elif False:
+    AkriConnectorsServiceAccountTokenSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorsServiceAccountTokenSettingsArgs:
+    def __init__(__self__, *,
+                 audience: pulumi.Input[builtins.str]):
+        """
+        AkriConnectorsServiceAccountTokenSettings properties.
+        :param pulumi.Input[builtins.str] audience: The audience for the service account token.
+        """
+        pulumi.set(__self__, "audience", audience)
+
+    @property
+    @pulumi.getter
+    def audience(self) -> pulumi.Input[builtins.str]:
+        """
+        The audience for the service account token.
+        """
+        return pulumi.get(self, "audience")
+
+    @audience.setter
+    def audience(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "audience", value)
+
+
+if not MYPY:
+    class AkriConnectorsTagArgsDict(TypedDict):
+        """
+        AkriConnectorsTag properties.
+        """
+        tag: pulumi.Input[builtins.str]
+        """
+        The tag of the image.
+        """
+        tag_digest_type: pulumi.Input[builtins.str]
+        """
+        AkriConnectorsTagDigestType values.
+        Expected value is 'Tag'.
+        """
+elif False:
+    AkriConnectorsTagArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkriConnectorsTagArgs:
+    def __init__(__self__, *,
+                 tag: pulumi.Input[builtins.str],
+                 tag_digest_type: pulumi.Input[builtins.str]):
+        """
+        AkriConnectorsTag properties.
+        :param pulumi.Input[builtins.str] tag: The tag of the image.
+        :param pulumi.Input[builtins.str] tag_digest_type: AkriConnectorsTagDigestType values.
+               Expected value is 'Tag'.
+        """
+        pulumi.set(__self__, "tag", tag)
+        pulumi.set(__self__, "tag_digest_type", 'Tag')
+
+    @property
+    @pulumi.getter
+    def tag(self) -> pulumi.Input[builtins.str]:
+        """
+        The tag of the image.
+        """
+        return pulumi.get(self, "tag")
+
+    @tag.setter
+    def tag(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "tag", value)
+
+    @property
+    @pulumi.getter(name="tagDigestType")
+    def tag_digest_type(self) -> pulumi.Input[builtins.str]:
+        """
+        AkriConnectorsTagDigestType values.
+        Expected value is 'Tag'.
+        """
+        return pulumi.get(self, "tag_digest_type")
+
+    @tag_digest_type.setter
+    def tag_digest_type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "tag_digest_type", value)
 
 
 if not MYPY:
@@ -4215,6 +6962,861 @@ class DataflowEndpointPropertiesArgs:
 
 
 if not MYPY:
+    class DataflowGraphConnectionInputArgsDict(TypedDict):
+        """
+        DataflowGraph DataflowGraphNode Connection Input.
+        """
+        name: pulumi.Input[builtins.str]
+        """
+        Name of the input node.
+        """
+        schema: NotRequired[pulumi.Input['DataflowGraphConnectionSchemaSettingsArgsDict']]
+        """
+        Schema settings for the input node.
+        """
+elif False:
+    DataflowGraphConnectionInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowGraphConnectionInputArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[builtins.str],
+                 schema: Optional[pulumi.Input['DataflowGraphConnectionSchemaSettingsArgs']] = None):
+        """
+        DataflowGraph DataflowGraphNode Connection Input.
+        :param pulumi.Input[builtins.str] name: Name of the input node.
+        :param pulumi.Input['DataflowGraphConnectionSchemaSettingsArgs'] schema: Schema settings for the input node.
+        """
+        pulumi.set(__self__, "name", name)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        Name of the input node.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[pulumi.Input['DataflowGraphConnectionSchemaSettingsArgs']]:
+        """
+        Schema settings for the input node.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[pulumi.Input['DataflowGraphConnectionSchemaSettingsArgs']]):
+        pulumi.set(self, "schema", value)
+
+
+if not MYPY:
+    class DataflowGraphConnectionOutputArgsDict(TypedDict):
+        """
+        DataflowGraph DataflowGraphNode Connection Output.
+        """
+        name: pulumi.Input[builtins.str]
+        """
+        Name of the destination node.
+        """
+elif False:
+    DataflowGraphConnectionOutputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowGraphConnectionOutputArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[builtins.str]):
+        """
+        DataflowGraph DataflowGraphNode Connection Output.
+        :param pulumi.Input[builtins.str] name: Name of the destination node.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        Name of the destination node.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class DataflowGraphConnectionSchemaSettingsArgsDict(TypedDict):
+        """
+        DataflowGraph connection node output schema settings.
+        """
+        schema_ref: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Reference to the schema that describes the output of the transformation.
+        """
+        serialization_format: NotRequired[pulumi.Input[Union[builtins.str, 'DataflowGraphConnectionSchemaSerializationFormat']]]
+        """
+        Output serialization format.
+        """
+elif False:
+    DataflowGraphConnectionSchemaSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowGraphConnectionSchemaSettingsArgs:
+    def __init__(__self__, *,
+                 schema_ref: Optional[pulumi.Input[builtins.str]] = None,
+                 serialization_format: Optional[pulumi.Input[Union[builtins.str, 'DataflowGraphConnectionSchemaSerializationFormat']]] = None):
+        """
+        DataflowGraph connection node output schema settings.
+        :param pulumi.Input[builtins.str] schema_ref: Reference to the schema that describes the output of the transformation.
+        :param pulumi.Input[Union[builtins.str, 'DataflowGraphConnectionSchemaSerializationFormat']] serialization_format: Output serialization format.
+        """
+        if schema_ref is not None:
+            pulumi.set(__self__, "schema_ref", schema_ref)
+        if serialization_format is not None:
+            pulumi.set(__self__, "serialization_format", serialization_format)
+
+    @property
+    @pulumi.getter(name="schemaRef")
+    def schema_ref(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Reference to the schema that describes the output of the transformation.
+        """
+        return pulumi.get(self, "schema_ref")
+
+    @schema_ref.setter
+    def schema_ref(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "schema_ref", value)
+
+    @property
+    @pulumi.getter(name="serializationFormat")
+    def serialization_format(self) -> Optional[pulumi.Input[Union[builtins.str, 'DataflowGraphConnectionSchemaSerializationFormat']]]:
+        """
+        Output serialization format.
+        """
+        return pulumi.get(self, "serialization_format")
+
+    @serialization_format.setter
+    def serialization_format(self, value: Optional[pulumi.Input[Union[builtins.str, 'DataflowGraphConnectionSchemaSerializationFormat']]]):
+        pulumi.set(self, "serialization_format", value)
+
+
+if not MYPY:
+    class DataflowGraphDestinationNodeSettingsArgsDict(TypedDict):
+        """
+        DataflowGraph destination node settings.
+        """
+        data_destination: pulumi.Input[builtins.str]
+        """
+        Data destination at the endpoint.
+        """
+        endpoint_ref: pulumi.Input[builtins.str]
+        """
+        The name of the DataflowEndpoint resource .
+        """
+        output_schema_settings: NotRequired[pulumi.Input['DataflowGraphDestinationSchemaSettingsArgsDict']]
+        """
+        Output schema settings.
+        """
+elif False:
+    DataflowGraphDestinationNodeSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowGraphDestinationNodeSettingsArgs:
+    def __init__(__self__, *,
+                 data_destination: pulumi.Input[builtins.str],
+                 endpoint_ref: pulumi.Input[builtins.str],
+                 output_schema_settings: Optional[pulumi.Input['DataflowGraphDestinationSchemaSettingsArgs']] = None):
+        """
+        DataflowGraph destination node settings.
+        :param pulumi.Input[builtins.str] data_destination: Data destination at the endpoint.
+        :param pulumi.Input[builtins.str] endpoint_ref: The name of the DataflowEndpoint resource .
+        :param pulumi.Input['DataflowGraphDestinationSchemaSettingsArgs'] output_schema_settings: Output schema settings.
+        """
+        pulumi.set(__self__, "data_destination", data_destination)
+        pulumi.set(__self__, "endpoint_ref", endpoint_ref)
+        if output_schema_settings is not None:
+            pulumi.set(__self__, "output_schema_settings", output_schema_settings)
+
+    @property
+    @pulumi.getter(name="dataDestination")
+    def data_destination(self) -> pulumi.Input[builtins.str]:
+        """
+        Data destination at the endpoint.
+        """
+        return pulumi.get(self, "data_destination")
+
+    @data_destination.setter
+    def data_destination(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "data_destination", value)
+
+    @property
+    @pulumi.getter(name="endpointRef")
+    def endpoint_ref(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the DataflowEndpoint resource .
+        """
+        return pulumi.get(self, "endpoint_ref")
+
+    @endpoint_ref.setter
+    def endpoint_ref(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "endpoint_ref", value)
+
+    @property
+    @pulumi.getter(name="outputSchemaSettings")
+    def output_schema_settings(self) -> Optional[pulumi.Input['DataflowGraphDestinationSchemaSettingsArgs']]:
+        """
+        Output schema settings.
+        """
+        return pulumi.get(self, "output_schema_settings")
+
+    @output_schema_settings.setter
+    def output_schema_settings(self, value: Optional[pulumi.Input['DataflowGraphDestinationSchemaSettingsArgs']]):
+        pulumi.set(self, "output_schema_settings", value)
+
+
+if not MYPY:
+    class DataflowGraphDestinationNodeArgsDict(TypedDict):
+        """
+        DataflowGraph destination node properties.
+        """
+        destination_settings: pulumi.Input['DataflowGraphDestinationNodeSettingsArgsDict']
+        """
+        Destination configuration.
+        """
+        name: pulumi.Input[builtins.str]
+        """
+        Name of the node.
+        """
+        node_type: pulumi.Input[builtins.str]
+        """
+        DataflowGraph node types.
+        Expected value is 'Destination'.
+        """
+elif False:
+    DataflowGraphDestinationNodeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowGraphDestinationNodeArgs:
+    def __init__(__self__, *,
+                 destination_settings: pulumi.Input['DataflowGraphDestinationNodeSettingsArgs'],
+                 name: pulumi.Input[builtins.str],
+                 node_type: pulumi.Input[builtins.str]):
+        """
+        DataflowGraph destination node properties.
+        :param pulumi.Input['DataflowGraphDestinationNodeSettingsArgs'] destination_settings: Destination configuration.
+        :param pulumi.Input[builtins.str] name: Name of the node.
+        :param pulumi.Input[builtins.str] node_type: DataflowGraph node types.
+               Expected value is 'Destination'.
+        """
+        pulumi.set(__self__, "destination_settings", destination_settings)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "node_type", 'Destination')
+
+    @property
+    @pulumi.getter(name="destinationSettings")
+    def destination_settings(self) -> pulumi.Input['DataflowGraphDestinationNodeSettingsArgs']:
+        """
+        Destination configuration.
+        """
+        return pulumi.get(self, "destination_settings")
+
+    @destination_settings.setter
+    def destination_settings(self, value: pulumi.Input['DataflowGraphDestinationNodeSettingsArgs']):
+        pulumi.set(self, "destination_settings", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        Name of the node.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="nodeType")
+    def node_type(self) -> pulumi.Input[builtins.str]:
+        """
+        DataflowGraph node types.
+        Expected value is 'Destination'.
+        """
+        return pulumi.get(self, "node_type")
+
+    @node_type.setter
+    def node_type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "node_type", value)
+
+
+if not MYPY:
+    class DataflowGraphDestinationSchemaSettingsArgsDict(TypedDict):
+        """
+        DataflowGraph destination node output schema settings.
+        """
+        serialization_format: pulumi.Input[Union[builtins.str, 'DataflowGraphDestinationSchemaSerializationFormat']]
+        """
+        The format of the output data.
+        """
+        schema_ref: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Reference to the schema that describes the output of the transformation.
+        """
+elif False:
+    DataflowGraphDestinationSchemaSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowGraphDestinationSchemaSettingsArgs:
+    def __init__(__self__, *,
+                 serialization_format: pulumi.Input[Union[builtins.str, 'DataflowGraphDestinationSchemaSerializationFormat']],
+                 schema_ref: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        DataflowGraph destination node output schema settings.
+        :param pulumi.Input[Union[builtins.str, 'DataflowGraphDestinationSchemaSerializationFormat']] serialization_format: The format of the output data.
+        :param pulumi.Input[builtins.str] schema_ref: Reference to the schema that describes the output of the transformation.
+        """
+        pulumi.set(__self__, "serialization_format", serialization_format)
+        if schema_ref is not None:
+            pulumi.set(__self__, "schema_ref", schema_ref)
+
+    @property
+    @pulumi.getter(name="serializationFormat")
+    def serialization_format(self) -> pulumi.Input[Union[builtins.str, 'DataflowGraphDestinationSchemaSerializationFormat']]:
+        """
+        The format of the output data.
+        """
+        return pulumi.get(self, "serialization_format")
+
+    @serialization_format.setter
+    def serialization_format(self, value: pulumi.Input[Union[builtins.str, 'DataflowGraphDestinationSchemaSerializationFormat']]):
+        pulumi.set(self, "serialization_format", value)
+
+    @property
+    @pulumi.getter(name="schemaRef")
+    def schema_ref(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Reference to the schema that describes the output of the transformation.
+        """
+        return pulumi.get(self, "schema_ref")
+
+    @schema_ref.setter
+    def schema_ref(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "schema_ref", value)
+
+
+if not MYPY:
+    class DataflowGraphGraphNodeConfigurationArgsDict(TypedDict):
+        """
+        DataflowGraph graph node configuration.
+        """
+        key: pulumi.Input[builtins.str]
+        """
+        Key of the configuration.
+        """
+        value: pulumi.Input[builtins.str]
+        """
+        Value of the configuration.
+        """
+elif False:
+    DataflowGraphGraphNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowGraphGraphNodeConfigurationArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[builtins.str],
+                 value: pulumi.Input[builtins.str]):
+        """
+        DataflowGraph graph node configuration.
+        :param pulumi.Input[builtins.str] key: Key of the configuration.
+        :param pulumi.Input[builtins.str] value: Value of the configuration.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[builtins.str]:
+        """
+        Key of the configuration.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[builtins.str]:
+        """
+        Value of the configuration.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class DataflowGraphGraphNodeArgsDict(TypedDict):
+        """
+        DataflowGraph graph node properties.
+        """
+        graph_settings: pulumi.Input['DataflowGraphNodeGraphSettingsArgsDict']
+        """
+        Graph configuration.
+        """
+        name: pulumi.Input[builtins.str]
+        """
+        Name of the node.
+        """
+        node_type: pulumi.Input[builtins.str]
+        """
+        DataflowGraph node types.
+        Expected value is 'Graph'.
+        """
+elif False:
+    DataflowGraphGraphNodeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowGraphGraphNodeArgs:
+    def __init__(__self__, *,
+                 graph_settings: pulumi.Input['DataflowGraphNodeGraphSettingsArgs'],
+                 name: pulumi.Input[builtins.str],
+                 node_type: pulumi.Input[builtins.str]):
+        """
+        DataflowGraph graph node properties.
+        :param pulumi.Input['DataflowGraphNodeGraphSettingsArgs'] graph_settings: Graph configuration.
+        :param pulumi.Input[builtins.str] name: Name of the node.
+        :param pulumi.Input[builtins.str] node_type: DataflowGraph node types.
+               Expected value is 'Graph'.
+        """
+        pulumi.set(__self__, "graph_settings", graph_settings)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "node_type", 'Graph')
+
+    @property
+    @pulumi.getter(name="graphSettings")
+    def graph_settings(self) -> pulumi.Input['DataflowGraphNodeGraphSettingsArgs']:
+        """
+        Graph configuration.
+        """
+        return pulumi.get(self, "graph_settings")
+
+    @graph_settings.setter
+    def graph_settings(self, value: pulumi.Input['DataflowGraphNodeGraphSettingsArgs']):
+        pulumi.set(self, "graph_settings", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        Name of the node.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="nodeType")
+    def node_type(self) -> pulumi.Input[builtins.str]:
+        """
+        DataflowGraph node types.
+        Expected value is 'Graph'.
+        """
+        return pulumi.get(self, "node_type")
+
+    @node_type.setter
+    def node_type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "node_type", value)
+
+
+if not MYPY:
+    class DataflowGraphNodeConnectionArgsDict(TypedDict):
+        """
+        DataflowGraph DataflowGraphNode Connection.
+        """
+        from_: pulumi.Input['DataflowGraphConnectionInputArgsDict']
+        """
+        Information about the source node.
+        """
+        to: pulumi.Input['DataflowGraphConnectionOutputArgsDict']
+        """
+        Information about the destination node.
+        """
+elif False:
+    DataflowGraphNodeConnectionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowGraphNodeConnectionArgs:
+    def __init__(__self__, *,
+                 from_: pulumi.Input['DataflowGraphConnectionInputArgs'],
+                 to: pulumi.Input['DataflowGraphConnectionOutputArgs']):
+        """
+        DataflowGraph DataflowGraphNode Connection.
+        :param pulumi.Input['DataflowGraphConnectionInputArgs'] from_: Information about the source node.
+        :param pulumi.Input['DataflowGraphConnectionOutputArgs'] to: Information about the destination node.
+        """
+        pulumi.set(__self__, "from_", from_)
+        pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> pulumi.Input['DataflowGraphConnectionInputArgs']:
+        """
+        Information about the source node.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: pulumi.Input['DataflowGraphConnectionInputArgs']):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> pulumi.Input['DataflowGraphConnectionOutputArgs']:
+        """
+        Information about the destination node.
+        """
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: pulumi.Input['DataflowGraphConnectionOutputArgs']):
+        pulumi.set(self, "to", value)
+
+
+if not MYPY:
+    class DataflowGraphNodeGraphSettingsArgsDict(TypedDict):
+        """
+        DataflowGraph graph node settings.
+        """
+        artifact: pulumi.Input[builtins.str]
+        """
+        The artifact name and version to pull. This should be in the format `<artifact-name>:<version>`.
+        """
+        registry_endpoint_ref: pulumi.Input[builtins.str]
+        """
+        Reference to the registry endpoint for pulling the artifact.
+        """
+        configuration: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataflowGraphGraphNodeConfigurationArgsDict']]]]
+        """
+        Configuration key-value pairs.
+        """
+elif False:
+    DataflowGraphNodeGraphSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowGraphNodeGraphSettingsArgs:
+    def __init__(__self__, *,
+                 artifact: pulumi.Input[builtins.str],
+                 registry_endpoint_ref: pulumi.Input[builtins.str],
+                 configuration: Optional[pulumi.Input[Sequence[pulumi.Input['DataflowGraphGraphNodeConfigurationArgs']]]] = None):
+        """
+        DataflowGraph graph node settings.
+        :param pulumi.Input[builtins.str] artifact: The artifact name and version to pull. This should be in the format `<artifact-name>:<version>`.
+        :param pulumi.Input[builtins.str] registry_endpoint_ref: Reference to the registry endpoint for pulling the artifact.
+        :param pulumi.Input[Sequence[pulumi.Input['DataflowGraphGraphNodeConfigurationArgs']]] configuration: Configuration key-value pairs.
+        """
+        pulumi.set(__self__, "artifact", artifact)
+        pulumi.set(__self__, "registry_endpoint_ref", registry_endpoint_ref)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+
+    @property
+    @pulumi.getter
+    def artifact(self) -> pulumi.Input[builtins.str]:
+        """
+        The artifact name and version to pull. This should be in the format `<artifact-name>:<version>`.
+        """
+        return pulumi.get(self, "artifact")
+
+    @artifact.setter
+    def artifact(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "artifact", value)
+
+    @property
+    @pulumi.getter(name="registryEndpointRef")
+    def registry_endpoint_ref(self) -> pulumi.Input[builtins.str]:
+        """
+        Reference to the registry endpoint for pulling the artifact.
+        """
+        return pulumi.get(self, "registry_endpoint_ref")
+
+    @registry_endpoint_ref.setter
+    def registry_endpoint_ref(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "registry_endpoint_ref", value)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataflowGraphGraphNodeConfigurationArgs']]]]:
+        """
+        Configuration key-value pairs.
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataflowGraphGraphNodeConfigurationArgs']]]]):
+        pulumi.set(self, "configuration", value)
+
+
+if not MYPY:
+    class DataflowGraphPropertiesArgsDict(TypedDict):
+        """
+        DataflowGraph properties.
+        """
+        node_connections: pulumi.Input[Sequence[pulumi.Input['DataflowGraphNodeConnectionArgsDict']]]
+        """
+        List of connections between nodes in the dataflow graph.
+        """
+        nodes: pulumi.Input[Sequence[pulumi.Input[Union['DataflowGraphDestinationNodeArgsDict', 'DataflowGraphGraphNodeArgsDict', 'DataflowGraphSourceNodeArgsDict']]]]
+        """
+        List of nodes in the dataflow graph.
+        """
+        mode: NotRequired[pulumi.Input[Union[builtins.str, 'OperationalMode']]]
+        """
+        The mode of the dataflow graph.
+        """
+        request_disk_persistence: NotRequired[pulumi.Input[Union[builtins.str, 'OperationalMode']]]
+        """
+        Disk persistence mode.
+        """
+elif False:
+    DataflowGraphPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowGraphPropertiesArgs:
+    def __init__(__self__, *,
+                 node_connections: pulumi.Input[Sequence[pulumi.Input['DataflowGraphNodeConnectionArgs']]],
+                 nodes: pulumi.Input[Sequence[pulumi.Input[Union['DataflowGraphDestinationNodeArgs', 'DataflowGraphGraphNodeArgs', 'DataflowGraphSourceNodeArgs']]]],
+                 mode: Optional[pulumi.Input[Union[builtins.str, 'OperationalMode']]] = None,
+                 request_disk_persistence: Optional[pulumi.Input[Union[builtins.str, 'OperationalMode']]] = None):
+        """
+        DataflowGraph properties.
+        :param pulumi.Input[Sequence[pulumi.Input['DataflowGraphNodeConnectionArgs']]] node_connections: List of connections between nodes in the dataflow graph.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataflowGraphDestinationNodeArgs', 'DataflowGraphGraphNodeArgs', 'DataflowGraphSourceNodeArgs']]]] nodes: List of nodes in the dataflow graph.
+        :param pulumi.Input[Union[builtins.str, 'OperationalMode']] mode: The mode of the dataflow graph.
+        :param pulumi.Input[Union[builtins.str, 'OperationalMode']] request_disk_persistence: Disk persistence mode.
+        """
+        pulumi.set(__self__, "node_connections", node_connections)
+        pulumi.set(__self__, "nodes", nodes)
+        if mode is None:
+            mode = 'Enabled'
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if request_disk_persistence is not None:
+            pulumi.set(__self__, "request_disk_persistence", request_disk_persistence)
+
+    @property
+    @pulumi.getter(name="nodeConnections")
+    def node_connections(self) -> pulumi.Input[Sequence[pulumi.Input['DataflowGraphNodeConnectionArgs']]]:
+        """
+        List of connections between nodes in the dataflow graph.
+        """
+        return pulumi.get(self, "node_connections")
+
+    @node_connections.setter
+    def node_connections(self, value: pulumi.Input[Sequence[pulumi.Input['DataflowGraphNodeConnectionArgs']]]):
+        pulumi.set(self, "node_connections", value)
+
+    @property
+    @pulumi.getter
+    def nodes(self) -> pulumi.Input[Sequence[pulumi.Input[Union['DataflowGraphDestinationNodeArgs', 'DataflowGraphGraphNodeArgs', 'DataflowGraphSourceNodeArgs']]]]:
+        """
+        List of nodes in the dataflow graph.
+        """
+        return pulumi.get(self, "nodes")
+
+    @nodes.setter
+    def nodes(self, value: pulumi.Input[Sequence[pulumi.Input[Union['DataflowGraphDestinationNodeArgs', 'DataflowGraphGraphNodeArgs', 'DataflowGraphSourceNodeArgs']]]]):
+        pulumi.set(self, "nodes", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[Union[builtins.str, 'OperationalMode']]]:
+        """
+        The mode of the dataflow graph.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[Union[builtins.str, 'OperationalMode']]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="requestDiskPersistence")
+    def request_disk_persistence(self) -> Optional[pulumi.Input[Union[builtins.str, 'OperationalMode']]]:
+        """
+        Disk persistence mode.
+        """
+        return pulumi.get(self, "request_disk_persistence")
+
+    @request_disk_persistence.setter
+    def request_disk_persistence(self, value: Optional[pulumi.Input[Union[builtins.str, 'OperationalMode']]]):
+        pulumi.set(self, "request_disk_persistence", value)
+
+
+if not MYPY:
+    class DataflowGraphSourceNodeArgsDict(TypedDict):
+        """
+        DataflowGraph source node properties.
+        """
+        name: pulumi.Input[builtins.str]
+        """
+        Name of the node.
+        """
+        node_type: pulumi.Input[builtins.str]
+        """
+        DataflowGraph node types.
+        Expected value is 'Source'.
+        """
+        source_settings: pulumi.Input['DataflowGraphSourceSettingsArgsDict']
+        """
+        Source configuration.
+        """
+elif False:
+    DataflowGraphSourceNodeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowGraphSourceNodeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[builtins.str],
+                 node_type: pulumi.Input[builtins.str],
+                 source_settings: pulumi.Input['DataflowGraphSourceSettingsArgs']):
+        """
+        DataflowGraph source node properties.
+        :param pulumi.Input[builtins.str] name: Name of the node.
+        :param pulumi.Input[builtins.str] node_type: DataflowGraph node types.
+               Expected value is 'Source'.
+        :param pulumi.Input['DataflowGraphSourceSettingsArgs'] source_settings: Source configuration.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "node_type", 'Source')
+        pulumi.set(__self__, "source_settings", source_settings)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        Name of the node.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="nodeType")
+    def node_type(self) -> pulumi.Input[builtins.str]:
+        """
+        DataflowGraph node types.
+        Expected value is 'Source'.
+        """
+        return pulumi.get(self, "node_type")
+
+    @node_type.setter
+    def node_type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "node_type", value)
+
+    @property
+    @pulumi.getter(name="sourceSettings")
+    def source_settings(self) -> pulumi.Input['DataflowGraphSourceSettingsArgs']:
+        """
+        Source configuration.
+        """
+        return pulumi.get(self, "source_settings")
+
+    @source_settings.setter
+    def source_settings(self, value: pulumi.Input['DataflowGraphSourceSettingsArgs']):
+        pulumi.set(self, "source_settings", value)
+
+
+if not MYPY:
+    class DataflowGraphSourceSettingsArgsDict(TypedDict):
+        """
+        DataflowGraph source node settings.
+        """
+        data_sources: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
+        """
+        List of data sources.
+        """
+        endpoint_ref: pulumi.Input[builtins.str]
+        """
+        The endpoint reference for the source.
+        """
+        asset_ref: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Reference to the resource in Azure Device Registry where the data in the endpoint originates from.
+        """
+elif False:
+    DataflowGraphSourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowGraphSourceSettingsArgs:
+    def __init__(__self__, *,
+                 data_sources: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
+                 endpoint_ref: pulumi.Input[builtins.str],
+                 asset_ref: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        DataflowGraph source node settings.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] data_sources: List of data sources.
+        :param pulumi.Input[builtins.str] endpoint_ref: The endpoint reference for the source.
+        :param pulumi.Input[builtins.str] asset_ref: Reference to the resource in Azure Device Registry where the data in the endpoint originates from.
+        """
+        pulumi.set(__self__, "data_sources", data_sources)
+        pulumi.set(__self__, "endpoint_ref", endpoint_ref)
+        if asset_ref is not None:
+            pulumi.set(__self__, "asset_ref", asset_ref)
+
+    @property
+    @pulumi.getter(name="dataSources")
+    def data_sources(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        """
+        List of data sources.
+        """
+        return pulumi.get(self, "data_sources")
+
+    @data_sources.setter
+    def data_sources(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        pulumi.set(self, "data_sources", value)
+
+    @property
+    @pulumi.getter(name="endpointRef")
+    def endpoint_ref(self) -> pulumi.Input[builtins.str]:
+        """
+        The endpoint reference for the source.
+        """
+        return pulumi.get(self, "endpoint_ref")
+
+    @endpoint_ref.setter
+    def endpoint_ref(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "endpoint_ref", value)
+
+    @property
+    @pulumi.getter(name="assetRef")
+    def asset_ref(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Reference to the resource in Azure Device Registry where the data in the endpoint originates from.
+        """
+        return pulumi.get(self, "asset_ref")
+
+    @asset_ref.setter
+    def asset_ref(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "asset_ref", value)
+
+
+if not MYPY:
     class DataflowOperationArgsDict(TypedDict):
         """
         Dataflow Operation properties. NOTE - One only method is allowed to be used for one entry.
@@ -5405,6 +9007,602 @@ class ProfileDiagnosticsArgs:
     @metrics.setter
     def metrics(self, value: Optional[pulumi.Input['MetricsArgs']]):
         pulumi.set(self, "metrics", value)
+
+
+if not MYPY:
+    class RegistryEndpointAnonymousAuthenticationArgsDict(TypedDict):
+        """
+        Anonymous authentication
+        """
+        anonymous_settings: Any
+        """
+        Anonymous authentication properties
+        """
+        method: pulumi.Input[builtins.str]
+        """
+        The authentication method.
+        Expected value is 'Anonymous'.
+        """
+elif False:
+    RegistryEndpointAnonymousAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RegistryEndpointAnonymousAuthenticationArgs:
+    def __init__(__self__, *,
+                 anonymous_settings: Any,
+                 method: pulumi.Input[builtins.str]):
+        """
+        Anonymous authentication
+        :param Any anonymous_settings: Anonymous authentication properties
+        :param pulumi.Input[builtins.str] method: The authentication method.
+               Expected value is 'Anonymous'.
+        """
+        pulumi.set(__self__, "anonymous_settings", anonymous_settings)
+        pulumi.set(__self__, "method", 'Anonymous')
+
+    @property
+    @pulumi.getter(name="anonymousSettings")
+    def anonymous_settings(self) -> Any:
+        """
+        Anonymous authentication properties
+        """
+        return pulumi.get(self, "anonymous_settings")
+
+    @anonymous_settings.setter
+    def anonymous_settings(self, value: Any):
+        pulumi.set(self, "anonymous_settings", value)
+
+    @property
+    @pulumi.getter
+    def method(self) -> pulumi.Input[builtins.str]:
+        """
+        The authentication method.
+        Expected value is 'Anonymous'.
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "method", value)
+
+
+if not MYPY:
+    class RegistryEndpointArtifactPullSecretAuthenticationArgsDict(TypedDict):
+        """
+        Artifact Pull Secret authentication
+        """
+        artifact_pull_secret_settings: pulumi.Input['RegistryEndpointArtifactPullSecretSettingsArgsDict']
+        """
+        Artifact Pull Secret authentication properties
+        """
+        method: pulumi.Input[builtins.str]
+        """
+        The authentication method.
+        Expected value is 'ArtifactPullSecret'.
+        """
+elif False:
+    RegistryEndpointArtifactPullSecretAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RegistryEndpointArtifactPullSecretAuthenticationArgs:
+    def __init__(__self__, *,
+                 artifact_pull_secret_settings: pulumi.Input['RegistryEndpointArtifactPullSecretSettingsArgs'],
+                 method: pulumi.Input[builtins.str]):
+        """
+        Artifact Pull Secret authentication
+        :param pulumi.Input['RegistryEndpointArtifactPullSecretSettingsArgs'] artifact_pull_secret_settings: Artifact Pull Secret authentication properties
+        :param pulumi.Input[builtins.str] method: The authentication method.
+               Expected value is 'ArtifactPullSecret'.
+        """
+        pulumi.set(__self__, "artifact_pull_secret_settings", artifact_pull_secret_settings)
+        pulumi.set(__self__, "method", 'ArtifactPullSecret')
+
+    @property
+    @pulumi.getter(name="artifactPullSecretSettings")
+    def artifact_pull_secret_settings(self) -> pulumi.Input['RegistryEndpointArtifactPullSecretSettingsArgs']:
+        """
+        Artifact Pull Secret authentication properties
+        """
+        return pulumi.get(self, "artifact_pull_secret_settings")
+
+    @artifact_pull_secret_settings.setter
+    def artifact_pull_secret_settings(self, value: pulumi.Input['RegistryEndpointArtifactPullSecretSettingsArgs']):
+        pulumi.set(self, "artifact_pull_secret_settings", value)
+
+    @property
+    @pulumi.getter
+    def method(self) -> pulumi.Input[builtins.str]:
+        """
+        The authentication method.
+        Expected value is 'ArtifactPullSecret'.
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "method", value)
+
+
+if not MYPY:
+    class RegistryEndpointArtifactPullSecretSettingsArgsDict(TypedDict):
+        """
+        RegistryEndpoint Artifact Pull Secret authentication properties
+        """
+        secret_ref: pulumi.Input[builtins.str]
+        """
+        The name of the kubernetes secret that contains the artifact pull secret.
+        """
+elif False:
+    RegistryEndpointArtifactPullSecretSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RegistryEndpointArtifactPullSecretSettingsArgs:
+    def __init__(__self__, *,
+                 secret_ref: pulumi.Input[builtins.str]):
+        """
+        RegistryEndpoint Artifact Pull Secret authentication properties
+        :param pulumi.Input[builtins.str] secret_ref: The name of the kubernetes secret that contains the artifact pull secret.
+        """
+        pulumi.set(__self__, "secret_ref", secret_ref)
+
+    @property
+    @pulumi.getter(name="secretRef")
+    def secret_ref(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the kubernetes secret that contains the artifact pull secret.
+        """
+        return pulumi.get(self, "secret_ref")
+
+    @secret_ref.setter
+    def secret_ref(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "secret_ref", value)
+
+
+if not MYPY:
+    class RegistryEndpointPropertiesArgsDict(TypedDict):
+        """
+        RegistryEndpoint properties
+        """
+        authentication: pulumi.Input[Union['RegistryEndpointAnonymousAuthenticationArgsDict', 'RegistryEndpointArtifactPullSecretAuthenticationArgsDict', 'RegistryEndpointSystemAssignedIdentityAuthenticationArgsDict', 'RegistryEndpointUserAssignedIdentityAuthenticationArgsDict']]
+        """
+        The authentication settings for the Azure Container Registry.
+        """
+        host: pulumi.Input[builtins.str]
+        """
+        The Container Registry endpoint hostname.
+        """
+        trust_settings: NotRequired[pulumi.Input['RegistryEndpointTrustedSettingsArgsDict']]
+        """
+        Trust settings for the registry endpoint
+        """
+elif False:
+    RegistryEndpointPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RegistryEndpointPropertiesArgs:
+    def __init__(__self__, *,
+                 authentication: pulumi.Input[Union['RegistryEndpointAnonymousAuthenticationArgs', 'RegistryEndpointArtifactPullSecretAuthenticationArgs', 'RegistryEndpointSystemAssignedIdentityAuthenticationArgs', 'RegistryEndpointUserAssignedIdentityAuthenticationArgs']],
+                 host: pulumi.Input[builtins.str],
+                 trust_settings: Optional[pulumi.Input['RegistryEndpointTrustedSettingsArgs']] = None):
+        """
+        RegistryEndpoint properties
+        :param pulumi.Input[Union['RegistryEndpointAnonymousAuthenticationArgs', 'RegistryEndpointArtifactPullSecretAuthenticationArgs', 'RegistryEndpointSystemAssignedIdentityAuthenticationArgs', 'RegistryEndpointUserAssignedIdentityAuthenticationArgs']] authentication: The authentication settings for the Azure Container Registry.
+        :param pulumi.Input[builtins.str] host: The Container Registry endpoint hostname.
+        :param pulumi.Input['RegistryEndpointTrustedSettingsArgs'] trust_settings: Trust settings for the registry endpoint
+        """
+        pulumi.set(__self__, "authentication", authentication)
+        pulumi.set(__self__, "host", host)
+        if trust_settings is not None:
+            pulumi.set(__self__, "trust_settings", trust_settings)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> pulumi.Input[Union['RegistryEndpointAnonymousAuthenticationArgs', 'RegistryEndpointArtifactPullSecretAuthenticationArgs', 'RegistryEndpointSystemAssignedIdentityAuthenticationArgs', 'RegistryEndpointUserAssignedIdentityAuthenticationArgs']]:
+        """
+        The authentication settings for the Azure Container Registry.
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: pulumi.Input[Union['RegistryEndpointAnonymousAuthenticationArgs', 'RegistryEndpointArtifactPullSecretAuthenticationArgs', 'RegistryEndpointSystemAssignedIdentityAuthenticationArgs', 'RegistryEndpointUserAssignedIdentityAuthenticationArgs']]):
+        pulumi.set(self, "authentication", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> pulumi.Input[builtins.str]:
+        """
+        The Container Registry endpoint hostname.
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter(name="trustSettings")
+    def trust_settings(self) -> Optional[pulumi.Input['RegistryEndpointTrustedSettingsArgs']]:
+        """
+        Trust settings for the registry endpoint
+        """
+        return pulumi.get(self, "trust_settings")
+
+    @trust_settings.setter
+    def trust_settings(self, value: Optional[pulumi.Input['RegistryEndpointTrustedSettingsArgs']]):
+        pulumi.set(self, "trust_settings", value)
+
+
+if not MYPY:
+    class RegistryEndpointSystemAssignedIdentityAuthenticationArgsDict(TypedDict):
+        """
+        System assigned identity authentication
+        """
+        method: pulumi.Input[builtins.str]
+        """
+        The authentication method.
+        Expected value is 'SystemAssignedManagedIdentity'.
+        """
+        system_assigned_managed_identity_settings: pulumi.Input['RegistryEndpointSystemAssignedManagedIdentitySettingsArgsDict']
+        """
+        System assigned managed identity properties
+        """
+elif False:
+    RegistryEndpointSystemAssignedIdentityAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RegistryEndpointSystemAssignedIdentityAuthenticationArgs:
+    def __init__(__self__, *,
+                 method: pulumi.Input[builtins.str],
+                 system_assigned_managed_identity_settings: pulumi.Input['RegistryEndpointSystemAssignedManagedIdentitySettingsArgs']):
+        """
+        System assigned identity authentication
+        :param pulumi.Input[builtins.str] method: The authentication method.
+               Expected value is 'SystemAssignedManagedIdentity'.
+        :param pulumi.Input['RegistryEndpointSystemAssignedManagedIdentitySettingsArgs'] system_assigned_managed_identity_settings: System assigned managed identity properties
+        """
+        pulumi.set(__self__, "method", 'SystemAssignedManagedIdentity')
+        pulumi.set(__self__, "system_assigned_managed_identity_settings", system_assigned_managed_identity_settings)
+
+    @property
+    @pulumi.getter
+    def method(self) -> pulumi.Input[builtins.str]:
+        """
+        The authentication method.
+        Expected value is 'SystemAssignedManagedIdentity'.
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "method", value)
+
+    @property
+    @pulumi.getter(name="systemAssignedManagedIdentitySettings")
+    def system_assigned_managed_identity_settings(self) -> pulumi.Input['RegistryEndpointSystemAssignedManagedIdentitySettingsArgs']:
+        """
+        System assigned managed identity properties
+        """
+        return pulumi.get(self, "system_assigned_managed_identity_settings")
+
+    @system_assigned_managed_identity_settings.setter
+    def system_assigned_managed_identity_settings(self, value: pulumi.Input['RegistryEndpointSystemAssignedManagedIdentitySettingsArgs']):
+        pulumi.set(self, "system_assigned_managed_identity_settings", value)
+
+
+if not MYPY:
+    class RegistryEndpointSystemAssignedManagedIdentitySettingsArgsDict(TypedDict):
+        """
+        System assigned managed identity properties
+        """
+        audience: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Audience of the service to authenticate against. Optional; defaults to the audience for Service host configuration.
+        """
+elif False:
+    RegistryEndpointSystemAssignedManagedIdentitySettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RegistryEndpointSystemAssignedManagedIdentitySettingsArgs:
+    def __init__(__self__, *,
+                 audience: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        System assigned managed identity properties
+        :param pulumi.Input[builtins.str] audience: Audience of the service to authenticate against. Optional; defaults to the audience for Service host configuration.
+        """
+        if audience is not None:
+            pulumi.set(__self__, "audience", audience)
+
+    @property
+    @pulumi.getter
+    def audience(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Audience of the service to authenticate against. Optional; defaults to the audience for Service host configuration.
+        """
+        return pulumi.get(self, "audience")
+
+    @audience.setter
+    def audience(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "audience", value)
+
+
+if not MYPY:
+    class RegistryEndpointTrustedSettingsArgsDict(TypedDict):
+        """
+        RegistryEndpointTrustedSettings properties
+        """
+        trusted_signing_keys: pulumi.Input[Union['RegistryEndpointTrustedSigningKeyConfigMapArgsDict', 'RegistryEndpointTrustedSigningKeySecretArgsDict']]
+        """
+        The trust properties for the registry endpoint.
+        """
+elif False:
+    RegistryEndpointTrustedSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RegistryEndpointTrustedSettingsArgs:
+    def __init__(__self__, *,
+                 trusted_signing_keys: pulumi.Input[Union['RegistryEndpointTrustedSigningKeyConfigMapArgs', 'RegistryEndpointTrustedSigningKeySecretArgs']]):
+        """
+        RegistryEndpointTrustedSettings properties
+        :param pulumi.Input[Union['RegistryEndpointTrustedSigningKeyConfigMapArgs', 'RegistryEndpointTrustedSigningKeySecretArgs']] trusted_signing_keys: The trust properties for the registry endpoint.
+        """
+        pulumi.set(__self__, "trusted_signing_keys", trusted_signing_keys)
+
+    @property
+    @pulumi.getter(name="trustedSigningKeys")
+    def trusted_signing_keys(self) -> pulumi.Input[Union['RegistryEndpointTrustedSigningKeyConfigMapArgs', 'RegistryEndpointTrustedSigningKeySecretArgs']]:
+        """
+        The trust properties for the registry endpoint.
+        """
+        return pulumi.get(self, "trusted_signing_keys")
+
+    @trusted_signing_keys.setter
+    def trusted_signing_keys(self, value: pulumi.Input[Union['RegistryEndpointTrustedSigningKeyConfigMapArgs', 'RegistryEndpointTrustedSigningKeySecretArgs']]):
+        pulumi.set(self, "trusted_signing_keys", value)
+
+
+if not MYPY:
+    class RegistryEndpointTrustedSigningKeyConfigMapArgsDict(TypedDict):
+        """
+        Settings for RegistryEndpoint trust provided through a configmap.
+        """
+        config_map_ref: pulumi.Input[builtins.str]
+        """
+        The name of the configmap.
+        """
+        type: pulumi.Input[builtins.str]
+        """
+        RegistryEndpointTrustedSigningKeyType values
+        Expected value is 'ConfigMap'.
+        """
+elif False:
+    RegistryEndpointTrustedSigningKeyConfigMapArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RegistryEndpointTrustedSigningKeyConfigMapArgs:
+    def __init__(__self__, *,
+                 config_map_ref: pulumi.Input[builtins.str],
+                 type: pulumi.Input[builtins.str]):
+        """
+        Settings for RegistryEndpoint trust provided through a configmap.
+        :param pulumi.Input[builtins.str] config_map_ref: The name of the configmap.
+        :param pulumi.Input[builtins.str] type: RegistryEndpointTrustedSigningKeyType values
+               Expected value is 'ConfigMap'.
+        """
+        pulumi.set(__self__, "config_map_ref", config_map_ref)
+        pulumi.set(__self__, "type", 'ConfigMap')
+
+    @property
+    @pulumi.getter(name="configMapRef")
+    def config_map_ref(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the configmap.
+        """
+        return pulumi.get(self, "config_map_ref")
+
+    @config_map_ref.setter
+    def config_map_ref(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "config_map_ref", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[builtins.str]:
+        """
+        RegistryEndpointTrustedSigningKeyType values
+        Expected value is 'ConfigMap'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class RegistryEndpointTrustedSigningKeySecretArgsDict(TypedDict):
+        """
+        Settings for RegistryEndpoint trust provided through a secret.
+        """
+        secret_ref: pulumi.Input[builtins.str]
+        """
+        The name of the secret.
+        """
+        type: pulumi.Input[builtins.str]
+        """
+        RegistryEndpointTrustedSigningKeyType values
+        Expected value is 'Secret'.
+        """
+elif False:
+    RegistryEndpointTrustedSigningKeySecretArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RegistryEndpointTrustedSigningKeySecretArgs:
+    def __init__(__self__, *,
+                 secret_ref: pulumi.Input[builtins.str],
+                 type: pulumi.Input[builtins.str]):
+        """
+        Settings for RegistryEndpoint trust provided through a secret.
+        :param pulumi.Input[builtins.str] secret_ref: The name of the secret.
+        :param pulumi.Input[builtins.str] type: RegistryEndpointTrustedSigningKeyType values
+               Expected value is 'Secret'.
+        """
+        pulumi.set(__self__, "secret_ref", secret_ref)
+        pulumi.set(__self__, "type", 'Secret')
+
+    @property
+    @pulumi.getter(name="secretRef")
+    def secret_ref(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the secret.
+        """
+        return pulumi.get(self, "secret_ref")
+
+    @secret_ref.setter
+    def secret_ref(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "secret_ref", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[builtins.str]:
+        """
+        RegistryEndpointTrustedSigningKeyType values
+        Expected value is 'Secret'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class RegistryEndpointUserAssignedIdentityAuthenticationArgsDict(TypedDict):
+        """
+        User assigned identity authentication
+        """
+        method: pulumi.Input[builtins.str]
+        """
+        The authentication method.
+        Expected value is 'UserAssignedManagedIdentity'.
+        """
+        user_assigned_managed_identity_settings: pulumi.Input['RegistryEndpointUserAssignedManagedIdentitySettingsArgsDict']
+        """
+        User assigned managed identity properties
+        """
+elif False:
+    RegistryEndpointUserAssignedIdentityAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RegistryEndpointUserAssignedIdentityAuthenticationArgs:
+    def __init__(__self__, *,
+                 method: pulumi.Input[builtins.str],
+                 user_assigned_managed_identity_settings: pulumi.Input['RegistryEndpointUserAssignedManagedIdentitySettingsArgs']):
+        """
+        User assigned identity authentication
+        :param pulumi.Input[builtins.str] method: The authentication method.
+               Expected value is 'UserAssignedManagedIdentity'.
+        :param pulumi.Input['RegistryEndpointUserAssignedManagedIdentitySettingsArgs'] user_assigned_managed_identity_settings: User assigned managed identity properties
+        """
+        pulumi.set(__self__, "method", 'UserAssignedManagedIdentity')
+        pulumi.set(__self__, "user_assigned_managed_identity_settings", user_assigned_managed_identity_settings)
+
+    @property
+    @pulumi.getter
+    def method(self) -> pulumi.Input[builtins.str]:
+        """
+        The authentication method.
+        Expected value is 'UserAssignedManagedIdentity'.
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "method", value)
+
+    @property
+    @pulumi.getter(name="userAssignedManagedIdentitySettings")
+    def user_assigned_managed_identity_settings(self) -> pulumi.Input['RegistryEndpointUserAssignedManagedIdentitySettingsArgs']:
+        """
+        User assigned managed identity properties
+        """
+        return pulumi.get(self, "user_assigned_managed_identity_settings")
+
+    @user_assigned_managed_identity_settings.setter
+    def user_assigned_managed_identity_settings(self, value: pulumi.Input['RegistryEndpointUserAssignedManagedIdentitySettingsArgs']):
+        pulumi.set(self, "user_assigned_managed_identity_settings", value)
+
+
+if not MYPY:
+    class RegistryEndpointUserAssignedManagedIdentitySettingsArgsDict(TypedDict):
+        """
+        User assigned managed identity properties
+        """
+        client_id: pulumi.Input[builtins.str]
+        """
+        Client ID for the user-assigned managed identity.
+        """
+        tenant_id: pulumi.Input[builtins.str]
+        """
+        Tenant ID.
+        """
+        scope: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Resource identifier (application ID URI) of the resource, affixed with the .default suffix.
+        """
+elif False:
+    RegistryEndpointUserAssignedManagedIdentitySettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RegistryEndpointUserAssignedManagedIdentitySettingsArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[builtins.str],
+                 tenant_id: pulumi.Input[builtins.str],
+                 scope: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        User assigned managed identity properties
+        :param pulumi.Input[builtins.str] client_id: Client ID for the user-assigned managed identity.
+        :param pulumi.Input[builtins.str] tenant_id: Tenant ID.
+        :param pulumi.Input[builtins.str] scope: Resource identifier (application ID URI) of the resource, affixed with the .default suffix.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[builtins.str]:
+        """
+        Client ID for the user-assigned managed identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[builtins.str]:
+        """
+        Tenant ID.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "tenant_id", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Resource identifier (application ID URI) of the resource, affixed with the .default suffix.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "scope", value)
 
 
 if not MYPY:

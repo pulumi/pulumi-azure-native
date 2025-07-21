@@ -599,7 +599,8 @@
     "2022-10-01-preview",
     "2023-01-01-preview",
     "2024-01-01",
-    "2024-05-01-preview"
+    "2024-05-01-preview",
+    "2025-05-01-preview"
   ],
   "ExtendedLocation": [],
   "Fabric": [
@@ -1023,7 +1024,8 @@
     "2025-01-01-preview"
   ],
   "Quota": [
-    "2025-03-15-preview"
+    "2025-03-15-preview",
+    "2025-07-15"
   ],
   "RecommendationsService": [],
   "RecoveryServices": [

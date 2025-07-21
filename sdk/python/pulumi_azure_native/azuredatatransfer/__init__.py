@@ -17,6 +17,7 @@ from .get_flow_source_addresses import *
 from .get_flow_stream_connection_string import *
 from .get_pipeline import *
 from .list_azure_data_transfer_approved_schemas import *
+from .list_list_flows_by_pipeline import *
 from .list_list_pending_connection import *
 from .list_list_pending_flow import *
 from .list_list_schema import *

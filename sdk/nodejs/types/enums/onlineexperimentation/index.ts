@@ -53,3 +53,14 @@ export const OnlineExperimentationWorkspaceSkuName = {
  * The name of the SKU. Ex - F0, P0. It is typically a letter+number code
  */
 export type OnlineExperimentationWorkspaceSkuName = (typeof OnlineExperimentationWorkspaceSkuName)[keyof typeof OnlineExperimentationWorkspaceSkuName];
+
+export const PrivateEndpointServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+} as const;
+
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
+export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];

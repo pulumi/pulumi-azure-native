@@ -19,6 +19,40 @@ from ._enums import *
 
 __all__ = [
     'AdvancedSettingsResponse',
+    'AkriConnectorPropertiesResponse',
+    'AkriConnectorTemplateAioMetadataResponse',
+    'AkriConnectorTemplateBucketizedAllocationResponse',
+    'AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefsResponse',
+    'AkriConnectorTemplateDeviceInboundEndpointTypeResponse',
+    'AkriConnectorTemplateDiagnosticsResponse',
+    'AkriConnectorTemplateHelmAdvancedConfigurationResponse',
+    'AkriConnectorTemplateHelmAuthSecretRefResponse',
+    'AkriConnectorTemplateHelmConfigurationResponse',
+    'AkriConnectorTemplateHelmConfigurationSettingsResponse',
+    'AkriConnectorTemplateHelmContainerRegistryResponse',
+    'AkriConnectorTemplateHelmContainerRegistrySettingsResponse',
+    'AkriConnectorTemplateHelmDeleteConfigurationResponse',
+    'AkriConnectorTemplateHelmInstallConfigurationResponse',
+    'AkriConnectorTemplateHelmRegistryEndpointRefResponse',
+    'AkriConnectorTemplateHelmUpgradeConfigurationResponse',
+    'AkriConnectorTemplateManagedConfigurationResponse',
+    'AkriConnectorTemplatePersistentVolumeClaimResponse',
+    'AkriConnectorTemplatePropertiesResponse',
+    'AkriConnectorTemplateRuntimeImageConfigurationResponse',
+    'AkriConnectorTemplateRuntimeImageConfigurationSettingsResponse',
+    'AkriConnectorTemplateRuntimeStatefulSetConfigurationResponse',
+    'AkriConnectorTemplateTrustListResponse',
+    'AkriConnectorsContainerRegistryResponse',
+    'AkriConnectorsContainerRegistrySettingsResponse',
+    'AkriConnectorsDiagnosticsLogsResponse',
+    'AkriConnectorsDigestResponse',
+    'AkriConnectorsImagePullSecretResponse',
+    'AkriConnectorsMqttConnectionConfigurationResponse',
+    'AkriConnectorsRegistryEndpointRefResponse',
+    'AkriConnectorsSecretResponse',
+    'AkriConnectorsServiceAccountAuthenticationResponse',
+    'AkriConnectorsServiceAccountTokenSettingsResponse',
+    'AkriConnectorsTagResponse',
     'AuthorizationConfigResponse',
     'AuthorizationRuleResponse',
     'BackendChainResponse',
@@ -66,6 +100,19 @@ __all__ = [
     'DataflowEndpointMqttAuthenticationResponse',
     'DataflowEndpointMqttResponse',
     'DataflowEndpointPropertiesResponse',
+    'DataflowGraphConnectionInputResponse',
+    'DataflowGraphConnectionOutputResponse',
+    'DataflowGraphConnectionSchemaSettingsResponse',
+    'DataflowGraphDestinationNodeResponse',
+    'DataflowGraphDestinationNodeSettingsResponse',
+    'DataflowGraphDestinationSchemaSettingsResponse',
+    'DataflowGraphGraphNodeConfigurationResponse',
+    'DataflowGraphGraphNodeResponse',
+    'DataflowGraphNodeConnectionResponse',
+    'DataflowGraphNodeGraphSettingsResponse',
+    'DataflowGraphPropertiesResponse',
+    'DataflowGraphSourceNodeResponse',
+    'DataflowGraphSourceSettingsResponse',
     'DataflowOperationResponse',
     'DataflowProfilePropertiesResponse',
     'DataflowPropertiesResponse',
@@ -83,6 +130,17 @@ __all__ = [
     'MetricsResponse',
     'PrincipalDefinitionResponse',
     'ProfileDiagnosticsResponse',
+    'RegistryEndpointAnonymousAuthenticationResponse',
+    'RegistryEndpointArtifactPullSecretAuthenticationResponse',
+    'RegistryEndpointArtifactPullSecretSettingsResponse',
+    'RegistryEndpointPropertiesResponse',
+    'RegistryEndpointSystemAssignedIdentityAuthenticationResponse',
+    'RegistryEndpointSystemAssignedManagedIdentitySettingsResponse',
+    'RegistryEndpointTrustedSettingsResponse',
+    'RegistryEndpointTrustedSigningKeyConfigMapResponse',
+    'RegistryEndpointTrustedSigningKeySecretResponse',
+    'RegistryEndpointUserAssignedIdentityAuthenticationResponse',
+    'RegistryEndpointUserAssignedManagedIdentitySettingsResponse',
     'SanForCertResponse',
     'SchemaRegistryRefResponse',
     'SelfCheckResponse',
@@ -167,6 +225,2245 @@ class AdvancedSettingsResponse(dict):
         Certificate rotation and private key configuration.
         """
         return pulumi.get(self, "internal_certs")
+
+
+@pulumi.output_type
+class AkriConnectorPropertiesResponse(dict):
+    """
+    AkriConnector properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: builtins.str):
+        """
+        AkriConnector properties.
+        :param builtins.str provisioning_state: The status of the last operation.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class AkriConnectorTemplateAioMetadataResponse(dict):
+    """
+    AkriConnectorTemplateAioMetadata properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aioMaxVersion":
+            suggest = "aio_max_version"
+        elif key == "aioMinVersion":
+            suggest = "aio_min_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorTemplateAioMetadataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorTemplateAioMetadataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorTemplateAioMetadataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aio_max_version: Optional[builtins.str] = None,
+                 aio_min_version: Optional[builtins.str] = None):
+        """
+        AkriConnectorTemplateAioMetadata properties.
+        :param builtins.str aio_max_version: The maximum version of AIO required for the connector.
+        :param builtins.str aio_min_version: The minimum version of AIO required for the connector.
+        """
+        if aio_max_version is not None:
+            pulumi.set(__self__, "aio_max_version", aio_max_version)
+        if aio_min_version is not None:
+            pulumi.set(__self__, "aio_min_version", aio_min_version)
+
+    @property
+    @pulumi.getter(name="aioMaxVersion")
+    def aio_max_version(self) -> Optional[builtins.str]:
+        """
+        The maximum version of AIO required for the connector.
+        """
+        return pulumi.get(self, "aio_max_version")
+
+    @property
+    @pulumi.getter(name="aioMinVersion")
+    def aio_min_version(self) -> Optional[builtins.str]:
+        """
+        The minimum version of AIO required for the connector.
+        """
+        return pulumi.get(self, "aio_min_version")
+
+
+@pulumi.output_type
+class AkriConnectorTemplateBucketizedAllocationResponse(dict):
+    """
+    AkriConnectorTemplateBucketizedAllocation properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketSize":
+            suggest = "bucket_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorTemplateBucketizedAllocationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorTemplateBucketizedAllocationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorTemplateBucketizedAllocationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_size: builtins.int,
+                 policy: builtins.str):
+        """
+        AkriConnectorTemplateBucketizedAllocation properties.
+        :param builtins.int bucket_size: The bucketized allocation of AEPs for connectors.
+        :param builtins.str policy: AkriConnectorTemplateAllocationPolicy properties.
+               Expected value is 'Bucketized'.
+        """
+        pulumi.set(__self__, "bucket_size", bucket_size)
+        pulumi.set(__self__, "policy", 'Bucketized')
+
+    @property
+    @pulumi.getter(name="bucketSize")
+    def bucket_size(self) -> builtins.int:
+        """
+        The bucketized allocation of AEPs for connectors.
+        """
+        return pulumi.get(self, "bucket_size")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> builtins.str:
+        """
+        AkriConnectorTemplateAllocationPolicy properties.
+        Expected value is 'Bucketized'.
+        """
+        return pulumi.get(self, "policy")
+
+
+@pulumi.output_type
+class AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefsResponse(dict):
+    """
+    AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefs properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalConfigSchemaRef":
+            suggest = "additional_config_schema_ref"
+        elif key == "defaultDatasetConfigSchemaRef":
+            suggest = "default_dataset_config_schema_ref"
+        elif key == "defaultEventsConfigSchemaRef":
+            suggest = "default_events_config_schema_ref"
+        elif key == "defaultProcessControlConfigSchemaRef":
+            suggest = "default_process_control_config_schema_ref"
+        elif key == "defaultStreamsConfigSchemaRef":
+            suggest = "default_streams_config_schema_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_config_schema_ref: Optional[builtins.str] = None,
+                 default_dataset_config_schema_ref: Optional[builtins.str] = None,
+                 default_events_config_schema_ref: Optional[builtins.str] = None,
+                 default_process_control_config_schema_ref: Optional[builtins.str] = None,
+                 default_streams_config_schema_ref: Optional[builtins.str] = None):
+        """
+        AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefs properties.
+        :param builtins.str additional_config_schema_ref: The additional configuration schema reference.
+        :param builtins.str default_dataset_config_schema_ref: The default configuration schema reference for datasets.
+        :param builtins.str default_events_config_schema_ref: The default configuration schema reference for events.
+        :param builtins.str default_process_control_config_schema_ref: The default configuration schema reference for process control.
+        :param builtins.str default_streams_config_schema_ref: The default configuration schema reference for streams.
+        """
+        if additional_config_schema_ref is not None:
+            pulumi.set(__self__, "additional_config_schema_ref", additional_config_schema_ref)
+        if default_dataset_config_schema_ref is not None:
+            pulumi.set(__self__, "default_dataset_config_schema_ref", default_dataset_config_schema_ref)
+        if default_events_config_schema_ref is not None:
+            pulumi.set(__self__, "default_events_config_schema_ref", default_events_config_schema_ref)
+        if default_process_control_config_schema_ref is not None:
+            pulumi.set(__self__, "default_process_control_config_schema_ref", default_process_control_config_schema_ref)
+        if default_streams_config_schema_ref is not None:
+            pulumi.set(__self__, "default_streams_config_schema_ref", default_streams_config_schema_ref)
+
+    @property
+    @pulumi.getter(name="additionalConfigSchemaRef")
+    def additional_config_schema_ref(self) -> Optional[builtins.str]:
+        """
+        The additional configuration schema reference.
+        """
+        return pulumi.get(self, "additional_config_schema_ref")
+
+    @property
+    @pulumi.getter(name="defaultDatasetConfigSchemaRef")
+    def default_dataset_config_schema_ref(self) -> Optional[builtins.str]:
+        """
+        The default configuration schema reference for datasets.
+        """
+        return pulumi.get(self, "default_dataset_config_schema_ref")
+
+    @property
+    @pulumi.getter(name="defaultEventsConfigSchemaRef")
+    def default_events_config_schema_ref(self) -> Optional[builtins.str]:
+        """
+        The default configuration schema reference for events.
+        """
+        return pulumi.get(self, "default_events_config_schema_ref")
+
+    @property
+    @pulumi.getter(name="defaultProcessControlConfigSchemaRef")
+    def default_process_control_config_schema_ref(self) -> Optional[builtins.str]:
+        """
+        The default configuration schema reference for process control.
+        """
+        return pulumi.get(self, "default_process_control_config_schema_ref")
+
+    @property
+    @pulumi.getter(name="defaultStreamsConfigSchemaRef")
+    def default_streams_config_schema_ref(self) -> Optional[builtins.str]:
+        """
+        The default configuration schema reference for streams.
+        """
+        return pulumi.get(self, "default_streams_config_schema_ref")
+
+
+@pulumi.output_type
+class AkriConnectorTemplateDeviceInboundEndpointTypeResponse(dict):
+    """
+    AkriConnectorTemplateDeviceInboundEndpointType properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointType":
+            suggest = "endpoint_type"
+        elif key == "configurationSchemaRefs":
+            suggest = "configuration_schema_refs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorTemplateDeviceInboundEndpointTypeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorTemplateDeviceInboundEndpointTypeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorTemplateDeviceInboundEndpointTypeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_type: builtins.str,
+                 configuration_schema_refs: Optional['outputs.AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefsResponse'] = None,
+                 description: Optional[builtins.str] = None,
+                 version: Optional[builtins.str] = None):
+        """
+        AkriConnectorTemplateDeviceInboundEndpointType properties.
+        :param builtins.str endpoint_type: The type of the device inbound endpoint.
+        :param 'AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefsResponse' configuration_schema_refs: The configuration schema references for the device inbound endpoint.
+        :param builtins.str description: A description of the device inbound endpoint.
+        :param builtins.str version: The version of the device inbound endpoint.
+        """
+        pulumi.set(__self__, "endpoint_type", endpoint_type)
+        if configuration_schema_refs is not None:
+            pulumi.set(__self__, "configuration_schema_refs", configuration_schema_refs)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> builtins.str:
+        """
+        The type of the device inbound endpoint.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="configurationSchemaRefs")
+    def configuration_schema_refs(self) -> Optional['outputs.AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefsResponse']:
+        """
+        The configuration schema references for the device inbound endpoint.
+        """
+        return pulumi.get(self, "configuration_schema_refs")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[builtins.str]:
+        """
+        A description of the device inbound endpoint.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[builtins.str]:
+        """
+        The version of the device inbound endpoint.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class AkriConnectorTemplateDiagnosticsResponse(dict):
+    """
+    AkriConnectorTemplateDiagnostics properties.
+    """
+    def __init__(__self__, *,
+                 logs: 'outputs.AkriConnectorsDiagnosticsLogsResponse'):
+        """
+        AkriConnectorTemplateDiagnostics properties.
+        :param 'AkriConnectorsDiagnosticsLogsResponse' logs: The log settings for the Connector template.
+        """
+        pulumi.set(__self__, "logs", logs)
+
+    @property
+    @pulumi.getter
+    def logs(self) -> 'outputs.AkriConnectorsDiagnosticsLogsResponse':
+        """
+        The log settings for the Connector template.
+        """
+        return pulumi.get(self, "logs")
+
+
+@pulumi.output_type
+class AkriConnectorTemplateHelmAdvancedConfigurationResponse(dict):
+    """
+    AkriConnectorTemplateHelmAdvancedConfiguration properties.
+    """
+    def __init__(__self__, *,
+                 delete: Optional['outputs.AkriConnectorTemplateHelmDeleteConfigurationResponse'] = None,
+                 install: Optional['outputs.AkriConnectorTemplateHelmInstallConfigurationResponse'] = None,
+                 upgrade: Optional['outputs.AkriConnectorTemplateHelmUpgradeConfigurationResponse'] = None):
+        """
+        AkriConnectorTemplateHelmAdvancedConfiguration properties.
+        :param 'AkriConnectorTemplateHelmDeleteConfigurationResponse' delete: Delete operation configuration for the Helm chart.
+        :param 'AkriConnectorTemplateHelmInstallConfigurationResponse' install: Install operation configuration for the Helm chart.
+        :param 'AkriConnectorTemplateHelmUpgradeConfigurationResponse' upgrade: Upgrade operation configuration for the Helm chart.
+        """
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if install is not None:
+            pulumi.set(__self__, "install", install)
+        if upgrade is not None:
+            pulumi.set(__self__, "upgrade", upgrade)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional['outputs.AkriConnectorTemplateHelmDeleteConfigurationResponse']:
+        """
+        Delete operation configuration for the Helm chart.
+        """
+        return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter
+    def install(self) -> Optional['outputs.AkriConnectorTemplateHelmInstallConfigurationResponse']:
+        """
+        Install operation configuration for the Helm chart.
+        """
+        return pulumi.get(self, "install")
+
+    @property
+    @pulumi.getter
+    def upgrade(self) -> Optional['outputs.AkriConnectorTemplateHelmUpgradeConfigurationResponse']:
+        """
+        Upgrade operation configuration for the Helm chart.
+        """
+        return pulumi.get(self, "upgrade")
+
+
+@pulumi.output_type
+class AkriConnectorTemplateHelmAuthSecretRefResponse(dict):
+    """
+    AkriConnectorTemplateHelmAuthSecretRef properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "passwordKey":
+            suggest = "password_key"
+        elif key == "secretRef":
+            suggest = "secret_ref"
+        elif key == "usernameKey":
+            suggest = "username_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorTemplateHelmAuthSecretRefResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorTemplateHelmAuthSecretRefResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorTemplateHelmAuthSecretRefResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 password_key: builtins.str,
+                 secret_ref: builtins.str,
+                 username_key: builtins.str):
+        """
+        AkriConnectorTemplateHelmAuthSecretRef properties.
+        :param builtins.str password_key: The key of the password in the secret.
+        :param builtins.str secret_ref: The name of the secret.
+        :param builtins.str username_key: The key of the username in the secret.
+        """
+        pulumi.set(__self__, "password_key", password_key)
+        pulumi.set(__self__, "secret_ref", secret_ref)
+        pulumi.set(__self__, "username_key", username_key)
+
+    @property
+    @pulumi.getter(name="passwordKey")
+    def password_key(self) -> builtins.str:
+        """
+        The key of the password in the secret.
+        """
+        return pulumi.get(self, "password_key")
+
+    @property
+    @pulumi.getter(name="secretRef")
+    def secret_ref(self) -> builtins.str:
+        """
+        The name of the secret.
+        """
+        return pulumi.get(self, "secret_ref")
+
+    @property
+    @pulumi.getter(name="usernameKey")
+    def username_key(self) -> builtins.str:
+        """
+        The key of the username in the secret.
+        """
+        return pulumi.get(self, "username_key")
+
+
+@pulumi.output_type
+class AkriConnectorTemplateHelmConfigurationResponse(dict):
+    """
+    AkriConnectorTemplateHelmConfiguration properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "helmConfigurationSettings":
+            suggest = "helm_configuration_settings"
+        elif key == "runtimeConfigurationType":
+            suggest = "runtime_configuration_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorTemplateHelmConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorTemplateHelmConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorTemplateHelmConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 helm_configuration_settings: 'outputs.AkriConnectorTemplateHelmConfigurationSettingsResponse',
+                 runtime_configuration_type: builtins.str):
+        """
+        AkriConnectorTemplateHelmConfiguration properties.
+        :param 'AkriConnectorTemplateHelmConfigurationSettingsResponse' helm_configuration_settings: The Helm configuration settings.
+        :param builtins.str runtime_configuration_type: Runtime configuration types.
+               Expected value is 'HelmConfiguration'.
+        """
+        pulumi.set(__self__, "helm_configuration_settings", helm_configuration_settings)
+        pulumi.set(__self__, "runtime_configuration_type", 'HelmConfiguration')
+
+    @property
+    @pulumi.getter(name="helmConfigurationSettings")
+    def helm_configuration_settings(self) -> 'outputs.AkriConnectorTemplateHelmConfigurationSettingsResponse':
+        """
+        The Helm configuration settings.
+        """
+        return pulumi.get(self, "helm_configuration_settings")
+
+    @property
+    @pulumi.getter(name="runtimeConfigurationType")
+    def runtime_configuration_type(self) -> builtins.str:
+        """
+        Runtime configuration types.
+        Expected value is 'HelmConfiguration'.
+        """
+        return pulumi.get(self, "runtime_configuration_type")
+
+
+@pulumi.output_type
+class AkriConnectorTemplateHelmConfigurationSettingsResponse(dict):
+    """
+    AkriConnectorTemplateHelmConfiguration properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "releaseName":
+            suggest = "release_name"
+        elif key == "repositoryName":
+            suggest = "repository_name"
+        elif key == "advancedConfiguration":
+            suggest = "advanced_configuration"
+        elif key == "registrySettings":
+            suggest = "registry_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorTemplateHelmConfigurationSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorTemplateHelmConfigurationSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorTemplateHelmConfigurationSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 release_name: builtins.str,
+                 repository_name: builtins.str,
+                 version: builtins.str,
+                 advanced_configuration: Optional['outputs.AkriConnectorTemplateHelmAdvancedConfigurationResponse'] = None,
+                 registry_settings: Optional[Any] = None,
+                 values: Optional[Mapping[str, builtins.str]] = None):
+        """
+        AkriConnectorTemplateHelmConfiguration properties.
+        :param builtins.str release_name: The release name of the Helm chart.
+        :param builtins.str repository_name: The name of the repository
+        :param builtins.str version: The version of the Helm chart.
+        :param 'AkriConnectorTemplateHelmAdvancedConfigurationResponse' advanced_configuration: Advanced configuration for the Helm chart.
+               Install, upgrade, and uninstall options for the helm chart such as atomic, wait, timeout, `wait_for_jobs`, and `disable_hooks`.
+        :param Union['AkriConnectorTemplateHelmContainerRegistryResponse', 'AkriConnectorTemplateHelmRegistryEndpointRefResponse'] registry_settings: The registry settings for the helm chart to be used.
+        :param Mapping[str, builtins.str] values: A map of values to pass to the helm chart.
+        """
+        pulumi.set(__self__, "release_name", release_name)
+        pulumi.set(__self__, "repository_name", repository_name)
+        pulumi.set(__self__, "version", version)
+        if advanced_configuration is not None:
+            pulumi.set(__self__, "advanced_configuration", advanced_configuration)
+        if registry_settings is not None:
+            pulumi.set(__self__, "registry_settings", registry_settings)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="releaseName")
+    def release_name(self) -> builtins.str:
+        """
+        The release name of the Helm chart.
+        """
+        return pulumi.get(self, "release_name")
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> builtins.str:
+        """
+        The name of the repository
+        """
+        return pulumi.get(self, "repository_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> builtins.str:
+        """
+        The version of the Helm chart.
+        """
+        return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="advancedConfiguration")
+    def advanced_configuration(self) -> Optional['outputs.AkriConnectorTemplateHelmAdvancedConfigurationResponse']:
+        """
+        Advanced configuration for the Helm chart.
+        Install, upgrade, and uninstall options for the helm chart such as atomic, wait, timeout, `wait_for_jobs`, and `disable_hooks`.
+        """
+        return pulumi.get(self, "advanced_configuration")
+
+    @property
+    @pulumi.getter(name="registrySettings")
+    def registry_settings(self) -> Optional[Any]:
+        """
+        The registry settings for the helm chart to be used.
+        """
+        return pulumi.get(self, "registry_settings")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        A map of values to pass to the helm chart.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class AkriConnectorTemplateHelmContainerRegistryResponse(dict):
+    """
+    AkriConnectorTemplateHelmContainerRegistry properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerRegistrySettings":
+            suggest = "container_registry_settings"
+        elif key == "registrySettingsType":
+            suggest = "registry_settings_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorTemplateHelmContainerRegistryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorTemplateHelmContainerRegistryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorTemplateHelmContainerRegistryResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_registry_settings: 'outputs.AkriConnectorTemplateHelmContainerRegistrySettingsResponse',
+                 registry_settings_type: builtins.str):
+        """
+        AkriConnectorTemplateHelmContainerRegistry properties.
+        :param 'AkriConnectorTemplateHelmContainerRegistrySettingsResponse' container_registry_settings: The registry settings for the container registry.
+        :param builtins.str registry_settings_type: AkriConnectorTemplateHelmRegistrySettingsType values.
+               Expected value is 'ContainerRegistry'.
+        """
+        pulumi.set(__self__, "container_registry_settings", container_registry_settings)
+        pulumi.set(__self__, "registry_settings_type", 'ContainerRegistry')
+
+    @property
+    @pulumi.getter(name="containerRegistrySettings")
+    def container_registry_settings(self) -> 'outputs.AkriConnectorTemplateHelmContainerRegistrySettingsResponse':
+        """
+        The registry settings for the container registry.
+        """
+        return pulumi.get(self, "container_registry_settings")
+
+    @property
+    @pulumi.getter(name="registrySettingsType")
+    def registry_settings_type(self) -> builtins.str:
+        """
+        AkriConnectorTemplateHelmRegistrySettingsType values.
+        Expected value is 'ContainerRegistry'.
+        """
+        return pulumi.get(self, "registry_settings_type")
+
+
+@pulumi.output_type
+class AkriConnectorTemplateHelmContainerRegistrySettingsResponse(dict):
+    """
+    AkriConnectorTemplateHelmContainerRegistrySettings properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authSecretRef":
+            suggest = "auth_secret_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorTemplateHelmContainerRegistrySettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorTemplateHelmContainerRegistrySettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorTemplateHelmContainerRegistrySettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 registry: builtins.str,
+                 auth_secret_ref: Optional['outputs.AkriConnectorTemplateHelmAuthSecretRefResponse'] = None):
+        """
+        AkriConnectorTemplateHelmContainerRegistrySettings properties.
+        :param builtins.str registry: The registry to use for the Helm chart.
+        :param 'AkriConnectorTemplateHelmAuthSecretRefResponse' auth_secret_ref: Optional reference to a secret in the same namespace to use for pulling the Helm chart.
+        """
+        pulumi.set(__self__, "registry", registry)
+        if auth_secret_ref is not None:
+            pulumi.set(__self__, "auth_secret_ref", auth_secret_ref)
+
+    @property
+    @pulumi.getter
+    def registry(self) -> builtins.str:
+        """
+        The registry to use for the Helm chart.
+        """
+        return pulumi.get(self, "registry")
+
+    @property
+    @pulumi.getter(name="authSecretRef")
+    def auth_secret_ref(self) -> Optional['outputs.AkriConnectorTemplateHelmAuthSecretRefResponse']:
+        """
+        Optional reference to a secret in the same namespace to use for pulling the Helm chart.
+        """
+        return pulumi.get(self, "auth_secret_ref")
+
+
+@pulumi.output_type
+class AkriConnectorTemplateHelmDeleteConfigurationResponse(dict):
+    """
+    AkriConnectorTemplateHelmDeleteConfiguration properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableHooks":
+            suggest = "disable_hooks"
+        elif key == "waitForJobs":
+            suggest = "wait_for_jobs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorTemplateHelmDeleteConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorTemplateHelmDeleteConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorTemplateHelmDeleteConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 atomic: Optional[builtins.bool] = None,
+                 disable_hooks: Optional[builtins.bool] = None,
+                 timeout: Optional[builtins.int] = None,
+                 wait: Optional[builtins.bool] = None,
+                 wait_for_jobs: Optional[builtins.bool] = None):
+        """
+        AkriConnectorTemplateHelmDeleteConfiguration properties.
+        :param builtins.bool atomic: If set, the operation will be atomic. If the operation fails, all changes will be rolled back.
+        :param builtins.bool disable_hooks: Disable pre/post upgrade hooks for the operation.
+        :param builtins.int timeout: Time to wait for any individual Kubernetes operation (like `Jobs` for hooks).
+        :param builtins.bool wait: If set, the operation will wait until all Pods, PVCs, Services, and minimum number of Pods of a `Deployment`, `StatefulSet`, or `ReplicaSet` are in a ready state before marking the release as successful.
+        :param builtins.bool wait_for_jobs: If set, the operation will wait for jobs to complete before marking the release as successful.
+        """
+        if atomic is not None:
+            pulumi.set(__self__, "atomic", atomic)
+        if disable_hooks is not None:
+            pulumi.set(__self__, "disable_hooks", disable_hooks)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+        if wait is not None:
+            pulumi.set(__self__, "wait", wait)
+        if wait_for_jobs is not None:
+            pulumi.set(__self__, "wait_for_jobs", wait_for_jobs)
+
+    @property
+    @pulumi.getter
+    def atomic(self) -> Optional[builtins.bool]:
+        """
+        If set, the operation will be atomic. If the operation fails, all changes will be rolled back.
+        """
+        return pulumi.get(self, "atomic")
+
+    @property
+    @pulumi.getter(name="disableHooks")
+    def disable_hooks(self) -> Optional[builtins.bool]:
+        """
+        Disable pre/post upgrade hooks for the operation.
+        """
+        return pulumi.get(self, "disable_hooks")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[builtins.int]:
+        """
+        Time to wait for any individual Kubernetes operation (like `Jobs` for hooks).
+        """
+        return pulumi.get(self, "timeout")
+
+    @property
+    @pulumi.getter
+    def wait(self) -> Optional[builtins.bool]:
+        """
+        If set, the operation will wait until all Pods, PVCs, Services, and minimum number of Pods of a `Deployment`, `StatefulSet`, or `ReplicaSet` are in a ready state before marking the release as successful.
+        """
+        return pulumi.get(self, "wait")
+
+    @property
+    @pulumi.getter(name="waitForJobs")
+    def wait_for_jobs(self) -> Optional[builtins.bool]:
+        """
+        If set, the operation will wait for jobs to complete before marking the release as successful.
+        """
+        return pulumi.get(self, "wait_for_jobs")
+
+
+@pulumi.output_type
+class AkriConnectorTemplateHelmInstallConfigurationResponse(dict):
+    """
+    AkriConnectorTemplateHelmInstallConfiguration properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableHooks":
+            suggest = "disable_hooks"
+        elif key == "waitForJobs":
+            suggest = "wait_for_jobs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorTemplateHelmInstallConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorTemplateHelmInstallConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorTemplateHelmInstallConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 atomic: Optional[builtins.bool] = None,
+                 disable_hooks: Optional[builtins.bool] = None,
+                 timeout: Optional[builtins.int] = None,
+                 wait: Optional[builtins.bool] = None,
+                 wait_for_jobs: Optional[builtins.bool] = None):
+        """
+        AkriConnectorTemplateHelmInstallConfiguration properties.
+        :param builtins.bool atomic: If set, the operation will be atomic. If the operation fails, all changes will be rolled back.
+        :param builtins.bool disable_hooks: Disable pre/post upgrade hooks for the operation.
+        :param builtins.int timeout: Time to wait for any individual Kubernetes operation (like `Jobs` for hooks).
+        :param builtins.bool wait: If set, the operation will wait until all Pods, PVCs, Services, and minimum number of Pods of a `Deployment`, `StatefulSet`, or `ReplicaSet` are in a ready state before marking the release as successful.
+        :param builtins.bool wait_for_jobs: If set, the operation will wait for jobs to complete before marking the release as successful.
+        """
+        if atomic is not None:
+            pulumi.set(__self__, "atomic", atomic)
+        if disable_hooks is not None:
+            pulumi.set(__self__, "disable_hooks", disable_hooks)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+        if wait is not None:
+            pulumi.set(__self__, "wait", wait)
+        if wait_for_jobs is not None:
+            pulumi.set(__self__, "wait_for_jobs", wait_for_jobs)
+
+    @property
+    @pulumi.getter
+    def atomic(self) -> Optional[builtins.bool]:
+        """
+        If set, the operation will be atomic. If the operation fails, all changes will be rolled back.
+        """
+        return pulumi.get(self, "atomic")
+
+    @property
+    @pulumi.getter(name="disableHooks")
+    def disable_hooks(self) -> Optional[builtins.bool]:
+        """
+        Disable pre/post upgrade hooks for the operation.
+        """
+        return pulumi.get(self, "disable_hooks")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[builtins.int]:
+        """
+        Time to wait for any individual Kubernetes operation (like `Jobs` for hooks).
+        """
+        return pulumi.get(self, "timeout")
+
+    @property
+    @pulumi.getter
+    def wait(self) -> Optional[builtins.bool]:
+        """
+        If set, the operation will wait until all Pods, PVCs, Services, and minimum number of Pods of a `Deployment`, `StatefulSet`, or `ReplicaSet` are in a ready state before marking the release as successful.
+        """
+        return pulumi.get(self, "wait")
+
+    @property
+    @pulumi.getter(name="waitForJobs")
+    def wait_for_jobs(self) -> Optional[builtins.bool]:
+        """
+        If set, the operation will wait for jobs to complete before marking the release as successful.
+        """
+        return pulumi.get(self, "wait_for_jobs")
+
+
+@pulumi.output_type
+class AkriConnectorTemplateHelmRegistryEndpointRefResponse(dict):
+    """
+    AkriConnectorTemplateHelmRegistryEndpointRef properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "registryEndpointRef":
+            suggest = "registry_endpoint_ref"
+        elif key == "registrySettingsType":
+            suggest = "registry_settings_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorTemplateHelmRegistryEndpointRefResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorTemplateHelmRegistryEndpointRefResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorTemplateHelmRegistryEndpointRefResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 registry_endpoint_ref: builtins.str,
+                 registry_settings_type: builtins.str):
+        """
+        AkriConnectorTemplateHelmRegistryEndpointRef properties.
+        :param builtins.str registry_endpoint_ref: The name of the registry endpoint.
+        :param builtins.str registry_settings_type: AkriConnectorTemplateHelmRegistrySettingsType values.
+               Expected value is 'RegistryEndpointRef'.
+        """
+        pulumi.set(__self__, "registry_endpoint_ref", registry_endpoint_ref)
+        pulumi.set(__self__, "registry_settings_type", 'RegistryEndpointRef')
+
+    @property
+    @pulumi.getter(name="registryEndpointRef")
+    def registry_endpoint_ref(self) -> builtins.str:
+        """
+        The name of the registry endpoint.
+        """
+        return pulumi.get(self, "registry_endpoint_ref")
+
+    @property
+    @pulumi.getter(name="registrySettingsType")
+    def registry_settings_type(self) -> builtins.str:
+        """
+        AkriConnectorTemplateHelmRegistrySettingsType values.
+        Expected value is 'RegistryEndpointRef'.
+        """
+        return pulumi.get(self, "registry_settings_type")
+
+
+@pulumi.output_type
+class AkriConnectorTemplateHelmUpgradeConfigurationResponse(dict):
+    """
+    AkriConnectorTemplateHelmUpgradeConfiguration properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableHooks":
+            suggest = "disable_hooks"
+        elif key == "waitForJobs":
+            suggest = "wait_for_jobs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorTemplateHelmUpgradeConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorTemplateHelmUpgradeConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorTemplateHelmUpgradeConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 atomic: Optional[builtins.bool] = None,
+                 disable_hooks: Optional[builtins.bool] = None,
+                 timeout: Optional[builtins.int] = None,
+                 wait: Optional[builtins.bool] = None,
+                 wait_for_jobs: Optional[builtins.bool] = None):
+        """
+        AkriConnectorTemplateHelmUpgradeConfiguration properties.
+        :param builtins.bool atomic: If set, the operation will be atomic. If the operation fails, all changes will be rolled back.
+        :param builtins.bool disable_hooks: Disable pre/post upgrade hooks for the operation.
+        :param builtins.int timeout: Time to wait for any individual Kubernetes operation (like `Jobs` for hooks).
+        :param builtins.bool wait: If set, the operation will wait until all Pods, PVCs, Services, and minimum number of Pods of a `Deployment`, `StatefulSet`, or `ReplicaSet` are in a ready state before marking the release as successful.
+        :param builtins.bool wait_for_jobs: If set, the operation will wait for jobs to complete before marking the release as successful.
+        """
+        if atomic is not None:
+            pulumi.set(__self__, "atomic", atomic)
+        if disable_hooks is not None:
+            pulumi.set(__self__, "disable_hooks", disable_hooks)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+        if wait is not None:
+            pulumi.set(__self__, "wait", wait)
+        if wait_for_jobs is not None:
+            pulumi.set(__self__, "wait_for_jobs", wait_for_jobs)
+
+    @property
+    @pulumi.getter
+    def atomic(self) -> Optional[builtins.bool]:
+        """
+        If set, the operation will be atomic. If the operation fails, all changes will be rolled back.
+        """
+        return pulumi.get(self, "atomic")
+
+    @property
+    @pulumi.getter(name="disableHooks")
+    def disable_hooks(self) -> Optional[builtins.bool]:
+        """
+        Disable pre/post upgrade hooks for the operation.
+        """
+        return pulumi.get(self, "disable_hooks")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[builtins.int]:
+        """
+        Time to wait for any individual Kubernetes operation (like `Jobs` for hooks).
+        """
+        return pulumi.get(self, "timeout")
+
+    @property
+    @pulumi.getter
+    def wait(self) -> Optional[builtins.bool]:
+        """
+        If set, the operation will wait until all Pods, PVCs, Services, and minimum number of Pods of a `Deployment`, `StatefulSet`, or `ReplicaSet` are in a ready state before marking the release as successful.
+        """
+        return pulumi.get(self, "wait")
+
+    @property
+    @pulumi.getter(name="waitForJobs")
+    def wait_for_jobs(self) -> Optional[builtins.bool]:
+        """
+        If set, the operation will wait for jobs to complete before marking the release as successful.
+        """
+        return pulumi.get(self, "wait_for_jobs")
+
+
+@pulumi.output_type
+class AkriConnectorTemplateManagedConfigurationResponse(dict):
+    """
+    AkriConnectorTemplateManagedConfiguration properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedConfigurationSettings":
+            suggest = "managed_configuration_settings"
+        elif key == "runtimeConfigurationType":
+            suggest = "runtime_configuration_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorTemplateManagedConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorTemplateManagedConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorTemplateManagedConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_configuration_settings: Any,
+                 runtime_configuration_type: builtins.str):
+        """
+        AkriConnectorTemplateManagedConfiguration properties.
+        :param Union['AkriConnectorTemplateRuntimeImageConfigurationResponse', 'AkriConnectorTemplateRuntimeStatefulSetConfigurationResponse'] managed_configuration_settings: The managed configuration settings.
+        :param builtins.str runtime_configuration_type: Runtime configuration types.
+               Expected value is 'ManagedConfiguration'.
+        """
+        pulumi.set(__self__, "managed_configuration_settings", managed_configuration_settings)
+        pulumi.set(__self__, "runtime_configuration_type", 'ManagedConfiguration')
+
+    @property
+    @pulumi.getter(name="managedConfigurationSettings")
+    def managed_configuration_settings(self) -> Any:
+        """
+        The managed configuration settings.
+        """
+        return pulumi.get(self, "managed_configuration_settings")
+
+    @property
+    @pulumi.getter(name="runtimeConfigurationType")
+    def runtime_configuration_type(self) -> builtins.str:
+        """
+        Runtime configuration types.
+        Expected value is 'ManagedConfiguration'.
+        """
+        return pulumi.get(self, "runtime_configuration_type")
+
+
+@pulumi.output_type
+class AkriConnectorTemplatePersistentVolumeClaimResponse(dict):
+    """
+    AkriConnectorTemplatePersistentVolumeClaim properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "claimName":
+            suggest = "claim_name"
+        elif key == "mountPath":
+            suggest = "mount_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorTemplatePersistentVolumeClaimResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorTemplatePersistentVolumeClaimResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorTemplatePersistentVolumeClaimResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 claim_name: builtins.str,
+                 mount_path: builtins.str):
+        """
+        AkriConnectorTemplatePersistentVolumeClaim properties.
+        :param builtins.str claim_name: The name of the persistent volume claim.
+        :param builtins.str mount_path: The mount path for the persistent volume claim.
+        """
+        pulumi.set(__self__, "claim_name", claim_name)
+        pulumi.set(__self__, "mount_path", mount_path)
+
+    @property
+    @pulumi.getter(name="claimName")
+    def claim_name(self) -> builtins.str:
+        """
+        The name of the persistent volume claim.
+        """
+        return pulumi.get(self, "claim_name")
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> builtins.str:
+        """
+        The mount path for the persistent volume claim.
+        """
+        return pulumi.get(self, "mount_path")
+
+
+@pulumi.output_type
+class AkriConnectorTemplatePropertiesResponse(dict):
+    """
+    AkriConnectorTemplate properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceInboundEndpointTypes":
+            suggest = "device_inbound_endpoint_types"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "runtimeConfiguration":
+            suggest = "runtime_configuration"
+        elif key == "aioMetadata":
+            suggest = "aio_metadata"
+        elif key == "mqttConnectionConfiguration":
+            suggest = "mqtt_connection_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorTemplatePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorTemplatePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorTemplatePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 device_inbound_endpoint_types: Sequence['outputs.AkriConnectorTemplateDeviceInboundEndpointTypeResponse'],
+                 provisioning_state: builtins.str,
+                 runtime_configuration: Any,
+                 aio_metadata: Optional['outputs.AkriConnectorTemplateAioMetadataResponse'] = None,
+                 diagnostics: Optional['outputs.AkriConnectorTemplateDiagnosticsResponse'] = None,
+                 mqtt_connection_configuration: Optional['outputs.AkriConnectorsMqttConnectionConfigurationResponse'] = None):
+        """
+        AkriConnectorTemplate properties.
+        :param Sequence['AkriConnectorTemplateDeviceInboundEndpointTypeResponse'] device_inbound_endpoint_types: Device inbound endpoint types.
+        :param builtins.str provisioning_state: The status of the last operation.
+        :param Union['AkriConnectorTemplateHelmConfigurationResponse', 'AkriConnectorTemplateManagedConfigurationResponse'] runtime_configuration: The runtime configuration for the Connector template.
+        :param 'AkriConnectorTemplateAioMetadataResponse' aio_metadata: Metadata about AIO.
+        :param 'AkriConnectorTemplateDiagnosticsResponse' diagnostics: Diagnostics settings for the Connector template.
+        :param 'AkriConnectorsMqttConnectionConfigurationResponse' mqtt_connection_configuration: Mqtt connection configuration settings.
+        """
+        pulumi.set(__self__, "device_inbound_endpoint_types", device_inbound_endpoint_types)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "runtime_configuration", runtime_configuration)
+        if aio_metadata is not None:
+            pulumi.set(__self__, "aio_metadata", aio_metadata)
+        if diagnostics is not None:
+            pulumi.set(__self__, "diagnostics", diagnostics)
+        if mqtt_connection_configuration is not None:
+            pulumi.set(__self__, "mqtt_connection_configuration", mqtt_connection_configuration)
+
+    @property
+    @pulumi.getter(name="deviceInboundEndpointTypes")
+    def device_inbound_endpoint_types(self) -> Sequence['outputs.AkriConnectorTemplateDeviceInboundEndpointTypeResponse']:
+        """
+        Device inbound endpoint types.
+        """
+        return pulumi.get(self, "device_inbound_endpoint_types")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="runtimeConfiguration")
+    def runtime_configuration(self) -> Any:
+        """
+        The runtime configuration for the Connector template.
+        """
+        return pulumi.get(self, "runtime_configuration")
+
+    @property
+    @pulumi.getter(name="aioMetadata")
+    def aio_metadata(self) -> Optional['outputs.AkriConnectorTemplateAioMetadataResponse']:
+        """
+        Metadata about AIO.
+        """
+        return pulumi.get(self, "aio_metadata")
+
+    @property
+    @pulumi.getter
+    def diagnostics(self) -> Optional['outputs.AkriConnectorTemplateDiagnosticsResponse']:
+        """
+        Diagnostics settings for the Connector template.
+        """
+        return pulumi.get(self, "diagnostics")
+
+    @property
+    @pulumi.getter(name="mqttConnectionConfiguration")
+    def mqtt_connection_configuration(self) -> Optional['outputs.AkriConnectorsMqttConnectionConfigurationResponse']:
+        """
+        Mqtt connection configuration settings.
+        """
+        return pulumi.get(self, "mqtt_connection_configuration")
+
+
+@pulumi.output_type
+class AkriConnectorTemplateRuntimeImageConfigurationResponse(dict):
+    """
+    AkriConnectorTemplateRuntimeImageConfiguration properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageConfigurationSettings":
+            suggest = "image_configuration_settings"
+        elif key == "managedConfigurationType":
+            suggest = "managed_configuration_type"
+        elif key == "additionalConfiguration":
+            suggest = "additional_configuration"
+        elif key == "persistentVolumeClaimTemplates":
+            suggest = "persistent_volume_claim_templates"
+        elif key == "persistentVolumeClaims":
+            suggest = "persistent_volume_claims"
+        elif key == "trustSettings":
+            suggest = "trust_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorTemplateRuntimeImageConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorTemplateRuntimeImageConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorTemplateRuntimeImageConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_configuration_settings: 'outputs.AkriConnectorTemplateRuntimeImageConfigurationSettingsResponse',
+                 managed_configuration_type: builtins.str,
+                 additional_configuration: Optional[Mapping[str, builtins.str]] = None,
+                 allocation: Optional['outputs.AkriConnectorTemplateBucketizedAllocationResponse'] = None,
+                 persistent_volume_claim_templates: Optional[Sequence[Any]] = None,
+                 persistent_volume_claims: Optional[Sequence['outputs.AkriConnectorTemplatePersistentVolumeClaimResponse']] = None,
+                 secrets: Optional[Sequence['outputs.AkriConnectorsSecretResponse']] = None,
+                 trust_settings: Optional['outputs.AkriConnectorTemplateTrustListResponse'] = None):
+        """
+        AkriConnectorTemplateRuntimeImageConfiguration properties.
+        :param 'AkriConnectorTemplateRuntimeImageConfigurationSettingsResponse' image_configuration_settings: The image configuration settings.
+        :param builtins.str managed_configuration_type: Managed configuration types.
+               Expected value is 'ImageConfiguration'.
+        :param Mapping[str, builtins.str] additional_configuration: Additional configuration for the image of the managed configuration.
+        :param 'AkriConnectorTemplateBucketizedAllocationResponse' allocation: Allocation settings for the managed configuration.
+        :param Sequence[Any] persistent_volume_claim_templates: The persistent volume claim templates for the managed configuration.
+               See https://raw.githubusercontent.com/kubernetes/kubernetes/refs/heads/master/api/openapi-spec/v3/apis__apps__v1_openapi.json.
+        :param Sequence['AkriConnectorTemplatePersistentVolumeClaimResponse'] persistent_volume_claims: The persistent volume claims for the managed configuration.
+        :param Sequence['AkriConnectorsSecretResponse'] secrets: Connector secrets that will be mounted onto all connector instances.
+        :param 'AkriConnectorTemplateTrustListResponse' trust_settings: Trust list for the connector. This is used to specify the certificates that all connector instances should trust.
+        """
+        pulumi.set(__self__, "image_configuration_settings", image_configuration_settings)
+        pulumi.set(__self__, "managed_configuration_type", 'ImageConfiguration')
+        if additional_configuration is not None:
+            pulumi.set(__self__, "additional_configuration", additional_configuration)
+        if allocation is not None:
+            pulumi.set(__self__, "allocation", allocation)
+        if persistent_volume_claim_templates is not None:
+            pulumi.set(__self__, "persistent_volume_claim_templates", persistent_volume_claim_templates)
+        if persistent_volume_claims is not None:
+            pulumi.set(__self__, "persistent_volume_claims", persistent_volume_claims)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+        if trust_settings is not None:
+            pulumi.set(__self__, "trust_settings", trust_settings)
+
+    @property
+    @pulumi.getter(name="imageConfigurationSettings")
+    def image_configuration_settings(self) -> 'outputs.AkriConnectorTemplateRuntimeImageConfigurationSettingsResponse':
+        """
+        The image configuration settings.
+        """
+        return pulumi.get(self, "image_configuration_settings")
+
+    @property
+    @pulumi.getter(name="managedConfigurationType")
+    def managed_configuration_type(self) -> builtins.str:
+        """
+        Managed configuration types.
+        Expected value is 'ImageConfiguration'.
+        """
+        return pulumi.get(self, "managed_configuration_type")
+
+    @property
+    @pulumi.getter(name="additionalConfiguration")
+    def additional_configuration(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Additional configuration for the image of the managed configuration.
+        """
+        return pulumi.get(self, "additional_configuration")
+
+    @property
+    @pulumi.getter
+    def allocation(self) -> Optional['outputs.AkriConnectorTemplateBucketizedAllocationResponse']:
+        """
+        Allocation settings for the managed configuration.
+        """
+        return pulumi.get(self, "allocation")
+
+    @property
+    @pulumi.getter(name="persistentVolumeClaimTemplates")
+    def persistent_volume_claim_templates(self) -> Optional[Sequence[Any]]:
+        """
+        The persistent volume claim templates for the managed configuration.
+        See https://raw.githubusercontent.com/kubernetes/kubernetes/refs/heads/master/api/openapi-spec/v3/apis__apps__v1_openapi.json.
+        """
+        return pulumi.get(self, "persistent_volume_claim_templates")
+
+    @property
+    @pulumi.getter(name="persistentVolumeClaims")
+    def persistent_volume_claims(self) -> Optional[Sequence['outputs.AkriConnectorTemplatePersistentVolumeClaimResponse']]:
+        """
+        The persistent volume claims for the managed configuration.
+        """
+        return pulumi.get(self, "persistent_volume_claims")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[Sequence['outputs.AkriConnectorsSecretResponse']]:
+        """
+        Connector secrets that will be mounted onto all connector instances.
+        """
+        return pulumi.get(self, "secrets")
+
+    @property
+    @pulumi.getter(name="trustSettings")
+    def trust_settings(self) -> Optional['outputs.AkriConnectorTemplateTrustListResponse']:
+        """
+        Trust list for the connector. This is used to specify the certificates that all connector instances should trust.
+        """
+        return pulumi.get(self, "trust_settings")
+
+
+@pulumi.output_type
+class AkriConnectorTemplateRuntimeImageConfigurationSettingsResponse(dict):
+    """
+    AkriConnectorTemplateRuntimeImageConfiguration properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageName":
+            suggest = "image_name"
+        elif key == "imagePullPolicy":
+            suggest = "image_pull_policy"
+        elif key == "registrySettings":
+            suggest = "registry_settings"
+        elif key == "tagDigestSettings":
+            suggest = "tag_digest_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorTemplateRuntimeImageConfigurationSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorTemplateRuntimeImageConfigurationSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorTemplateRuntimeImageConfigurationSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_name: builtins.str,
+                 image_pull_policy: Optional[builtins.str] = None,
+                 registry_settings: Optional[Any] = None,
+                 replicas: Optional[builtins.int] = None,
+                 tag_digest_settings: Optional[Any] = None):
+        """
+        AkriConnectorTemplateRuntimeImageConfiguration properties.
+        :param builtins.str image_name: The image name without any registry reference, tag or digest.
+        :param builtins.str image_pull_policy: The pull policy of the image.
+        :param Union['AkriConnectorsContainerRegistryResponse', 'AkriConnectorsRegistryEndpointRefResponse'] registry_settings: The registry settings for the image. You can omit this field if using the default docker hub repository or using a local image.
+        :param builtins.int replicas: The number of replicas to be set up.
+        :param Union['AkriConnectorsDigestResponse', 'AkriConnectorsTagResponse'] tag_digest_settings: Optional image tag or digest. If not specified, the default tag is `latest`.
+        """
+        pulumi.set(__self__, "image_name", image_name)
+        if image_pull_policy is not None:
+            pulumi.set(__self__, "image_pull_policy", image_pull_policy)
+        if registry_settings is not None:
+            pulumi.set(__self__, "registry_settings", registry_settings)
+        if replicas is not None:
+            pulumi.set(__self__, "replicas", replicas)
+        if tag_digest_settings is not None:
+            pulumi.set(__self__, "tag_digest_settings", tag_digest_settings)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> builtins.str:
+        """
+        The image name without any registry reference, tag or digest.
+        """
+        return pulumi.get(self, "image_name")
+
+    @property
+    @pulumi.getter(name="imagePullPolicy")
+    def image_pull_policy(self) -> Optional[builtins.str]:
+        """
+        The pull policy of the image.
+        """
+        return pulumi.get(self, "image_pull_policy")
+
+    @property
+    @pulumi.getter(name="registrySettings")
+    def registry_settings(self) -> Optional[Any]:
+        """
+        The registry settings for the image. You can omit this field if using the default docker hub repository or using a local image.
+        """
+        return pulumi.get(self, "registry_settings")
+
+    @property
+    @pulumi.getter
+    def replicas(self) -> Optional[builtins.int]:
+        """
+        The number of replicas to be set up.
+        """
+        return pulumi.get(self, "replicas")
+
+    @property
+    @pulumi.getter(name="tagDigestSettings")
+    def tag_digest_settings(self) -> Optional[Any]:
+        """
+        Optional image tag or digest. If not specified, the default tag is `latest`.
+        """
+        return pulumi.get(self, "tag_digest_settings")
+
+
+@pulumi.output_type
+class AkriConnectorTemplateRuntimeStatefulSetConfigurationResponse(dict):
+    """
+    AkriConnectorTemplateRuntimeStatefulSetConfiguration properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedConfigurationType":
+            suggest = "managed_configuration_type"
+        elif key == "statefulSetConfigurationSettings":
+            suggest = "stateful_set_configuration_settings"
+        elif key == "additionalConfiguration":
+            suggest = "additional_configuration"
+        elif key == "persistentVolumeClaimTemplates":
+            suggest = "persistent_volume_claim_templates"
+        elif key == "persistentVolumeClaims":
+            suggest = "persistent_volume_claims"
+        elif key == "trustSettings":
+            suggest = "trust_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorTemplateRuntimeStatefulSetConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorTemplateRuntimeStatefulSetConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorTemplateRuntimeStatefulSetConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_configuration_type: builtins.str,
+                 stateful_set_configuration_settings: Any,
+                 additional_configuration: Optional[Mapping[str, builtins.str]] = None,
+                 allocation: Optional['outputs.AkriConnectorTemplateBucketizedAllocationResponse'] = None,
+                 persistent_volume_claim_templates: Optional[Sequence[Any]] = None,
+                 persistent_volume_claims: Optional[Sequence['outputs.AkriConnectorTemplatePersistentVolumeClaimResponse']] = None,
+                 secrets: Optional[Sequence['outputs.AkriConnectorsSecretResponse']] = None,
+                 trust_settings: Optional['outputs.AkriConnectorTemplateTrustListResponse'] = None):
+        """
+        AkriConnectorTemplateRuntimeStatefulSetConfiguration properties.
+        :param builtins.str managed_configuration_type: Managed configuration types.
+               Expected value is 'StatefulSetConfiguration'.
+        :param Any stateful_set_configuration_settings: The stateful set configuration settings. This corresponds to the Kubernetes StatefulSet resource.
+               See https://raw.githubusercontent.com/kubernetes/kubernetes/refs/heads/master/api/openapi-spec/v3/apis__apps__v1_openapi.json#/components/schemas/io.k8s.api.apps.v1.StatefulSetSpec
+        :param Mapping[str, builtins.str] additional_configuration: Additional configuration for the image of the managed configuration.
+        :param 'AkriConnectorTemplateBucketizedAllocationResponse' allocation: Allocation settings for the managed configuration.
+        :param Sequence[Any] persistent_volume_claim_templates: The persistent volume claim templates for the managed configuration.
+               See https://raw.githubusercontent.com/kubernetes/kubernetes/refs/heads/master/api/openapi-spec/v3/apis__apps__v1_openapi.json.
+        :param Sequence['AkriConnectorTemplatePersistentVolumeClaimResponse'] persistent_volume_claims: The persistent volume claims for the managed configuration.
+        :param Sequence['AkriConnectorsSecretResponse'] secrets: Connector secrets that will be mounted onto all connector instances.
+        :param 'AkriConnectorTemplateTrustListResponse' trust_settings: Trust list for the connector. This is used to specify the certificates that all connector instances should trust.
+        """
+        pulumi.set(__self__, "managed_configuration_type", 'StatefulSetConfiguration')
+        pulumi.set(__self__, "stateful_set_configuration_settings", stateful_set_configuration_settings)
+        if additional_configuration is not None:
+            pulumi.set(__self__, "additional_configuration", additional_configuration)
+        if allocation is not None:
+            pulumi.set(__self__, "allocation", allocation)
+        if persistent_volume_claim_templates is not None:
+            pulumi.set(__self__, "persistent_volume_claim_templates", persistent_volume_claim_templates)
+        if persistent_volume_claims is not None:
+            pulumi.set(__self__, "persistent_volume_claims", persistent_volume_claims)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+        if trust_settings is not None:
+            pulumi.set(__self__, "trust_settings", trust_settings)
+
+    @property
+    @pulumi.getter(name="managedConfigurationType")
+    def managed_configuration_type(self) -> builtins.str:
+        """
+        Managed configuration types.
+        Expected value is 'StatefulSetConfiguration'.
+        """
+        return pulumi.get(self, "managed_configuration_type")
+
+    @property
+    @pulumi.getter(name="statefulSetConfigurationSettings")
+    def stateful_set_configuration_settings(self) -> Any:
+        """
+        The stateful set configuration settings. This corresponds to the Kubernetes StatefulSet resource.
+        See https://raw.githubusercontent.com/kubernetes/kubernetes/refs/heads/master/api/openapi-spec/v3/apis__apps__v1_openapi.json#/components/schemas/io.k8s.api.apps.v1.StatefulSetSpec
+        """
+        return pulumi.get(self, "stateful_set_configuration_settings")
+
+    @property
+    @pulumi.getter(name="additionalConfiguration")
+    def additional_configuration(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Additional configuration for the image of the managed configuration.
+        """
+        return pulumi.get(self, "additional_configuration")
+
+    @property
+    @pulumi.getter
+    def allocation(self) -> Optional['outputs.AkriConnectorTemplateBucketizedAllocationResponse']:
+        """
+        Allocation settings for the managed configuration.
+        """
+        return pulumi.get(self, "allocation")
+
+    @property
+    @pulumi.getter(name="persistentVolumeClaimTemplates")
+    def persistent_volume_claim_templates(self) -> Optional[Sequence[Any]]:
+        """
+        The persistent volume claim templates for the managed configuration.
+        See https://raw.githubusercontent.com/kubernetes/kubernetes/refs/heads/master/api/openapi-spec/v3/apis__apps__v1_openapi.json.
+        """
+        return pulumi.get(self, "persistent_volume_claim_templates")
+
+    @property
+    @pulumi.getter(name="persistentVolumeClaims")
+    def persistent_volume_claims(self) -> Optional[Sequence['outputs.AkriConnectorTemplatePersistentVolumeClaimResponse']]:
+        """
+        The persistent volume claims for the managed configuration.
+        """
+        return pulumi.get(self, "persistent_volume_claims")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[Sequence['outputs.AkriConnectorsSecretResponse']]:
+        """
+        Connector secrets that will be mounted onto all connector instances.
+        """
+        return pulumi.get(self, "secrets")
+
+    @property
+    @pulumi.getter(name="trustSettings")
+    def trust_settings(self) -> Optional['outputs.AkriConnectorTemplateTrustListResponse']:
+        """
+        Trust list for the connector. This is used to specify the certificates that all connector instances should trust.
+        """
+        return pulumi.get(self, "trust_settings")
+
+
+@pulumi.output_type
+class AkriConnectorTemplateTrustListResponse(dict):
+    """
+    AkriConnectorTemplateTrustList properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trustListSecretRef":
+            suggest = "trust_list_secret_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorTemplateTrustListResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorTemplateTrustListResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorTemplateTrustListResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 trust_list_secret_ref: builtins.str):
+        """
+        AkriConnectorTemplateTrustList properties.
+        :param builtins.str trust_list_secret_ref: The secret reference for certificates to trust.
+        """
+        pulumi.set(__self__, "trust_list_secret_ref", trust_list_secret_ref)
+
+    @property
+    @pulumi.getter(name="trustListSecretRef")
+    def trust_list_secret_ref(self) -> builtins.str:
+        """
+        The secret reference for certificates to trust.
+        """
+        return pulumi.get(self, "trust_list_secret_ref")
+
+
+@pulumi.output_type
+class AkriConnectorsContainerRegistryResponse(dict):
+    """
+    AkriConnectorsContainerRegistry properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerRegistrySettings":
+            suggest = "container_registry_settings"
+        elif key == "registrySettingsType":
+            suggest = "registry_settings_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorsContainerRegistryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorsContainerRegistryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorsContainerRegistryResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_registry_settings: 'outputs.AkriConnectorsContainerRegistrySettingsResponse',
+                 registry_settings_type: builtins.str):
+        """
+        AkriConnectorsContainerRegistry properties.
+        :param 'AkriConnectorsContainerRegistrySettingsResponse' container_registry_settings: The registry settings for the container registry.
+        :param builtins.str registry_settings_type: AkriConnectorsRegistrySettings properties.
+               Expected value is 'ContainerRegistry'.
+        """
+        pulumi.set(__self__, "container_registry_settings", container_registry_settings)
+        pulumi.set(__self__, "registry_settings_type", 'ContainerRegistry')
+
+    @property
+    @pulumi.getter(name="containerRegistrySettings")
+    def container_registry_settings(self) -> 'outputs.AkriConnectorsContainerRegistrySettingsResponse':
+        """
+        The registry settings for the container registry.
+        """
+        return pulumi.get(self, "container_registry_settings")
+
+    @property
+    @pulumi.getter(name="registrySettingsType")
+    def registry_settings_type(self) -> builtins.str:
+        """
+        AkriConnectorsRegistrySettings properties.
+        Expected value is 'ContainerRegistry'.
+        """
+        return pulumi.get(self, "registry_settings_type")
+
+
+@pulumi.output_type
+class AkriConnectorsContainerRegistrySettingsResponse(dict):
+    """
+    AkriConnectorsContainerRegistry properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imagePullSecrets":
+            suggest = "image_pull_secrets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorsContainerRegistrySettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorsContainerRegistrySettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorsContainerRegistrySettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 registry: builtins.str,
+                 image_pull_secrets: Optional[Sequence['outputs.AkriConnectorsImagePullSecretResponse']] = None):
+        """
+        AkriConnectorsContainerRegistry properties.
+        :param builtins.str registry: The container registry to use for the artifact.
+        :param Sequence['AkriConnectorsImagePullSecretResponse'] image_pull_secrets: Optional list of references to secrets in the same namespace to use for pulling the connector image.
+        """
+        pulumi.set(__self__, "registry", registry)
+        if image_pull_secrets is not None:
+            pulumi.set(__self__, "image_pull_secrets", image_pull_secrets)
+
+    @property
+    @pulumi.getter
+    def registry(self) -> builtins.str:
+        """
+        The container registry to use for the artifact.
+        """
+        return pulumi.get(self, "registry")
+
+    @property
+    @pulumi.getter(name="imagePullSecrets")
+    def image_pull_secrets(self) -> Optional[Sequence['outputs.AkriConnectorsImagePullSecretResponse']]:
+        """
+        Optional list of references to secrets in the same namespace to use for pulling the connector image.
+        """
+        return pulumi.get(self, "image_pull_secrets")
+
+
+@pulumi.output_type
+class AkriConnectorsDiagnosticsLogsResponse(dict):
+    """
+    AkriConnectorsDiagnostic Log properties.
+    """
+    def __init__(__self__, *,
+                 level: Optional[builtins.str] = None):
+        """
+        AkriConnectorsDiagnostic Log properties.
+        :param builtins.str level: The log level. Examples - 'debug', 'info', 'warn', 'error', 'trace'.
+        """
+        if level is None:
+            level = 'info'
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[builtins.str]:
+        """
+        The log level. Examples - 'debug', 'info', 'warn', 'error', 'trace'.
+        """
+        return pulumi.get(self, "level")
+
+
+@pulumi.output_type
+class AkriConnectorsDigestResponse(dict):
+    """
+    AkriConnectorsDigest properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagDigestType":
+            suggest = "tag_digest_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorsDigestResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorsDigestResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorsDigestResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 digest: builtins.str,
+                 tag_digest_type: builtins.str):
+        """
+        AkriConnectorsDigest properties.
+        :param builtins.str digest: The digest of the image.
+        :param builtins.str tag_digest_type: AkriConnectorsTagDigestType values.
+               Expected value is 'Digest'.
+        """
+        pulumi.set(__self__, "digest", digest)
+        pulumi.set(__self__, "tag_digest_type", 'Digest')
+
+    @property
+    @pulumi.getter
+    def digest(self) -> builtins.str:
+        """
+        The digest of the image.
+        """
+        return pulumi.get(self, "digest")
+
+    @property
+    @pulumi.getter(name="tagDigestType")
+    def tag_digest_type(self) -> builtins.str:
+        """
+        AkriConnectorsTagDigestType values.
+        Expected value is 'Digest'.
+        """
+        return pulumi.get(self, "tag_digest_type")
+
+
+@pulumi.output_type
+class AkriConnectorsImagePullSecretResponse(dict):
+    """
+    AkriConnectorsImagePullSecret properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretRef":
+            suggest = "secret_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorsImagePullSecretResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorsImagePullSecretResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorsImagePullSecretResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_ref: builtins.str):
+        """
+        AkriConnectorsImagePullSecret properties.
+        :param builtins.str secret_ref: The name of the image pull secret.
+        """
+        pulumi.set(__self__, "secret_ref", secret_ref)
+
+    @property
+    @pulumi.getter(name="secretRef")
+    def secret_ref(self) -> builtins.str:
+        """
+        The name of the image pull secret.
+        """
+        return pulumi.get(self, "secret_ref")
+
+
+@pulumi.output_type
+class AkriConnectorsMqttConnectionConfigurationResponse(dict):
+    """
+    AkriConnectorsMqttConnectionConfiguration properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keepAliveSeconds":
+            suggest = "keep_alive_seconds"
+        elif key == "maxInflightMessages":
+            suggest = "max_inflight_messages"
+        elif key == "sessionExpirySeconds":
+            suggest = "session_expiry_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorsMqttConnectionConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorsMqttConnectionConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorsMqttConnectionConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication: Optional['outputs.AkriConnectorsServiceAccountAuthenticationResponse'] = None,
+                 host: Optional[builtins.str] = None,
+                 keep_alive_seconds: Optional[builtins.int] = None,
+                 max_inflight_messages: Optional[builtins.int] = None,
+                 protocol: Optional[builtins.str] = None,
+                 session_expiry_seconds: Optional[builtins.int] = None,
+                 tls: Optional['outputs.TlsPropertiesResponse'] = None):
+        """
+        AkriConnectorsMqttConnectionConfiguration properties.
+        :param 'AkriConnectorsServiceAccountAuthenticationResponse' authentication: Authentication properties.
+        :param builtins.str host: Host of the Broker in the form of <hostname>:<port>.
+        :param builtins.int keep_alive_seconds: KeepAlive for connection in seconds.
+        :param builtins.int max_inflight_messages: The max number of messages to keep in flight. For subscribe, this is the receive maximum. For publish, this is the maximum number of messages to send before waiting for an ack.
+        :param builtins.str protocol: The protocol to use for the connection. Currently only `mqtt` is supported.
+        :param builtins.int session_expiry_seconds: Session expiry in seconds.
+        :param 'TlsPropertiesResponse' tls: TLS configuration.
+        """
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if keep_alive_seconds is not None:
+            pulumi.set(__self__, "keep_alive_seconds", keep_alive_seconds)
+        if max_inflight_messages is not None:
+            pulumi.set(__self__, "max_inflight_messages", max_inflight_messages)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if session_expiry_seconds is not None:
+            pulumi.set(__self__, "session_expiry_seconds", session_expiry_seconds)
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional['outputs.AkriConnectorsServiceAccountAuthenticationResponse']:
+        """
+        Authentication properties.
+        """
+        return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[builtins.str]:
+        """
+        Host of the Broker in the form of <hostname>:<port>.
+        """
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter(name="keepAliveSeconds")
+    def keep_alive_seconds(self) -> Optional[builtins.int]:
+        """
+        KeepAlive for connection in seconds.
+        """
+        return pulumi.get(self, "keep_alive_seconds")
+
+    @property
+    @pulumi.getter(name="maxInflightMessages")
+    def max_inflight_messages(self) -> Optional[builtins.int]:
+        """
+        The max number of messages to keep in flight. For subscribe, this is the receive maximum. For publish, this is the maximum number of messages to send before waiting for an ack.
+        """
+        return pulumi.get(self, "max_inflight_messages")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[builtins.str]:
+        """
+        The protocol to use for the connection. Currently only `mqtt` is supported.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="sessionExpirySeconds")
+    def session_expiry_seconds(self) -> Optional[builtins.int]:
+        """
+        Session expiry in seconds.
+        """
+        return pulumi.get(self, "session_expiry_seconds")
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional['outputs.TlsPropertiesResponse']:
+        """
+        TLS configuration.
+        """
+        return pulumi.get(self, "tls")
+
+
+@pulumi.output_type
+class AkriConnectorsRegistryEndpointRefResponse(dict):
+    """
+    AkriConnectorsRegistryEndpointRef properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "registryEndpointRef":
+            suggest = "registry_endpoint_ref"
+        elif key == "registrySettingsType":
+            suggest = "registry_settings_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorsRegistryEndpointRefResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorsRegistryEndpointRefResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorsRegistryEndpointRefResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 registry_endpoint_ref: builtins.str,
+                 registry_settings_type: builtins.str):
+        """
+        AkriConnectorsRegistryEndpointRef properties.
+        :param builtins.str registry_endpoint_ref: The name of the registry endpoint.
+        :param builtins.str registry_settings_type: AkriConnectorsRegistrySettings properties.
+               Expected value is 'RegistryEndpointRef'.
+        """
+        pulumi.set(__self__, "registry_endpoint_ref", registry_endpoint_ref)
+        pulumi.set(__self__, "registry_settings_type", 'RegistryEndpointRef')
+
+    @property
+    @pulumi.getter(name="registryEndpointRef")
+    def registry_endpoint_ref(self) -> builtins.str:
+        """
+        The name of the registry endpoint.
+        """
+        return pulumi.get(self, "registry_endpoint_ref")
+
+    @property
+    @pulumi.getter(name="registrySettingsType")
+    def registry_settings_type(self) -> builtins.str:
+        """
+        AkriConnectorsRegistrySettings properties.
+        Expected value is 'RegistryEndpointRef'.
+        """
+        return pulumi.get(self, "registry_settings_type")
+
+
+@pulumi.output_type
+class AkriConnectorsSecretResponse(dict):
+    """
+    AkriConnectorsSecret properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretAlias":
+            suggest = "secret_alias"
+        elif key == "secretKey":
+            suggest = "secret_key"
+        elif key == "secretRef":
+            suggest = "secret_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorsSecretResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorsSecretResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorsSecretResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_alias: builtins.str,
+                 secret_key: builtins.str,
+                 secret_ref: builtins.str):
+        """
+        AkriConnectorsSecret properties.
+        :param builtins.str secret_alias: The application-defined alias for the secret.
+        :param builtins.str secret_key: The key in the secret to be mounted.
+        :param builtins.str secret_ref: The name of the secret to be mounted.
+        """
+        pulumi.set(__self__, "secret_alias", secret_alias)
+        pulumi.set(__self__, "secret_key", secret_key)
+        pulumi.set(__self__, "secret_ref", secret_ref)
+
+    @property
+    @pulumi.getter(name="secretAlias")
+    def secret_alias(self) -> builtins.str:
+        """
+        The application-defined alias for the secret.
+        """
+        return pulumi.get(self, "secret_alias")
+
+    @property
+    @pulumi.getter(name="secretKey")
+    def secret_key(self) -> builtins.str:
+        """
+        The key in the secret to be mounted.
+        """
+        return pulumi.get(self, "secret_key")
+
+    @property
+    @pulumi.getter(name="secretRef")
+    def secret_ref(self) -> builtins.str:
+        """
+        The name of the secret to be mounted.
+        """
+        return pulumi.get(self, "secret_ref")
+
+
+@pulumi.output_type
+class AkriConnectorsServiceAccountAuthenticationResponse(dict):
+    """
+    AkriConnectorsServiceAccountAuthentication properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceAccountTokenSettings":
+            suggest = "service_account_token_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorsServiceAccountAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorsServiceAccountAuthenticationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorsServiceAccountAuthenticationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 method: builtins.str,
+                 service_account_token_settings: 'outputs.AkriConnectorsServiceAccountTokenSettingsResponse'):
+        """
+        AkriConnectorsServiceAccountAuthentication properties.
+        :param builtins.str method: AkriConnectorsMqttAuthenticationMethod properties.
+               Expected value is 'ServiceAccountToken'.
+        :param 'AkriConnectorsServiceAccountTokenSettingsResponse' service_account_token_settings: The service account token for the MQTT connection.
+        """
+        pulumi.set(__self__, "method", 'ServiceAccountToken')
+        pulumi.set(__self__, "service_account_token_settings", service_account_token_settings)
+
+    @property
+    @pulumi.getter
+    def method(self) -> builtins.str:
+        """
+        AkriConnectorsMqttAuthenticationMethod properties.
+        Expected value is 'ServiceAccountToken'.
+        """
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter(name="serviceAccountTokenSettings")
+    def service_account_token_settings(self) -> 'outputs.AkriConnectorsServiceAccountTokenSettingsResponse':
+        """
+        The service account token for the MQTT connection.
+        """
+        return pulumi.get(self, "service_account_token_settings")
+
+
+@pulumi.output_type
+class AkriConnectorsServiceAccountTokenSettingsResponse(dict):
+    """
+    AkriConnectorsServiceAccountTokenSettings properties.
+    """
+    def __init__(__self__, *,
+                 audience: builtins.str):
+        """
+        AkriConnectorsServiceAccountTokenSettings properties.
+        :param builtins.str audience: The audience for the service account token.
+        """
+        pulumi.set(__self__, "audience", audience)
+
+    @property
+    @pulumi.getter
+    def audience(self) -> builtins.str:
+        """
+        The audience for the service account token.
+        """
+        return pulumi.get(self, "audience")
+
+
+@pulumi.output_type
+class AkriConnectorsTagResponse(dict):
+    """
+    AkriConnectorsTag properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagDigestType":
+            suggest = "tag_digest_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriConnectorsTagResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriConnectorsTagResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriConnectorsTagResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tag: builtins.str,
+                 tag_digest_type: builtins.str):
+        """
+        AkriConnectorsTag properties.
+        :param builtins.str tag: The tag of the image.
+        :param builtins.str tag_digest_type: AkriConnectorsTagDigestType values.
+               Expected value is 'Tag'.
+        """
+        pulumi.set(__self__, "tag", tag)
+        pulumi.set(__self__, "tag_digest_type", 'Tag')
+
+    @property
+    @pulumi.getter
+    def tag(self) -> builtins.str:
+        """
+        The tag of the image.
+        """
+        return pulumi.get(self, "tag")
+
+    @property
+    @pulumi.getter(name="tagDigestType")
+    def tag_digest_type(self) -> builtins.str:
+        """
+        AkriConnectorsTagDigestType values.
+        Expected value is 'Tag'.
+        """
+        return pulumi.get(self, "tag_digest_type")
 
 
 @pulumi.output_type
@@ -3377,6 +5674,732 @@ class DataflowEndpointPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class DataflowGraphConnectionInputResponse(dict):
+    """
+    DataflowGraph DataflowGraphNode Connection Input.
+    """
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 schema: Optional['outputs.DataflowGraphConnectionSchemaSettingsResponse'] = None):
+        """
+        DataflowGraph DataflowGraphNode Connection Input.
+        :param builtins.str name: Name of the input node.
+        :param 'DataflowGraphConnectionSchemaSettingsResponse' schema: Schema settings for the input node.
+        """
+        pulumi.set(__self__, "name", name)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the input node.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional['outputs.DataflowGraphConnectionSchemaSettingsResponse']:
+        """
+        Schema settings for the input node.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class DataflowGraphConnectionOutputResponse(dict):
+    """
+    DataflowGraph DataflowGraphNode Connection Output.
+    """
+    def __init__(__self__, *,
+                 name: builtins.str):
+        """
+        DataflowGraph DataflowGraphNode Connection Output.
+        :param builtins.str name: Name of the destination node.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the destination node.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class DataflowGraphConnectionSchemaSettingsResponse(dict):
+    """
+    DataflowGraph connection node output schema settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "schemaRef":
+            suggest = "schema_ref"
+        elif key == "serializationFormat":
+            suggest = "serialization_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowGraphConnectionSchemaSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowGraphConnectionSchemaSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowGraphConnectionSchemaSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 schema_ref: Optional[builtins.str] = None,
+                 serialization_format: Optional[builtins.str] = None):
+        """
+        DataflowGraph connection node output schema settings.
+        :param builtins.str schema_ref: Reference to the schema that describes the output of the transformation.
+        :param builtins.str serialization_format: Output serialization format.
+        """
+        if schema_ref is not None:
+            pulumi.set(__self__, "schema_ref", schema_ref)
+        if serialization_format is not None:
+            pulumi.set(__self__, "serialization_format", serialization_format)
+
+    @property
+    @pulumi.getter(name="schemaRef")
+    def schema_ref(self) -> Optional[builtins.str]:
+        """
+        Reference to the schema that describes the output of the transformation.
+        """
+        return pulumi.get(self, "schema_ref")
+
+    @property
+    @pulumi.getter(name="serializationFormat")
+    def serialization_format(self) -> Optional[builtins.str]:
+        """
+        Output serialization format.
+        """
+        return pulumi.get(self, "serialization_format")
+
+
+@pulumi.output_type
+class DataflowGraphDestinationNodeResponse(dict):
+    """
+    DataflowGraph destination node properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationSettings":
+            suggest = "destination_settings"
+        elif key == "nodeType":
+            suggest = "node_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowGraphDestinationNodeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowGraphDestinationNodeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowGraphDestinationNodeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_settings: 'outputs.DataflowGraphDestinationNodeSettingsResponse',
+                 name: builtins.str,
+                 node_type: builtins.str):
+        """
+        DataflowGraph destination node properties.
+        :param 'DataflowGraphDestinationNodeSettingsResponse' destination_settings: Destination configuration.
+        :param builtins.str name: Name of the node.
+        :param builtins.str node_type: DataflowGraph node types.
+               Expected value is 'Destination'.
+        """
+        pulumi.set(__self__, "destination_settings", destination_settings)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "node_type", 'Destination')
+
+    @property
+    @pulumi.getter(name="destinationSettings")
+    def destination_settings(self) -> 'outputs.DataflowGraphDestinationNodeSettingsResponse':
+        """
+        Destination configuration.
+        """
+        return pulumi.get(self, "destination_settings")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the node.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nodeType")
+    def node_type(self) -> builtins.str:
+        """
+        DataflowGraph node types.
+        Expected value is 'Destination'.
+        """
+        return pulumi.get(self, "node_type")
+
+
+@pulumi.output_type
+class DataflowGraphDestinationNodeSettingsResponse(dict):
+    """
+    DataflowGraph destination node settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataDestination":
+            suggest = "data_destination"
+        elif key == "endpointRef":
+            suggest = "endpoint_ref"
+        elif key == "outputSchemaSettings":
+            suggest = "output_schema_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowGraphDestinationNodeSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowGraphDestinationNodeSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowGraphDestinationNodeSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_destination: builtins.str,
+                 endpoint_ref: builtins.str,
+                 output_schema_settings: Optional['outputs.DataflowGraphDestinationSchemaSettingsResponse'] = None):
+        """
+        DataflowGraph destination node settings.
+        :param builtins.str data_destination: Data destination at the endpoint.
+        :param builtins.str endpoint_ref: The name of the DataflowEndpoint resource .
+        :param 'DataflowGraphDestinationSchemaSettingsResponse' output_schema_settings: Output schema settings.
+        """
+        pulumi.set(__self__, "data_destination", data_destination)
+        pulumi.set(__self__, "endpoint_ref", endpoint_ref)
+        if output_schema_settings is not None:
+            pulumi.set(__self__, "output_schema_settings", output_schema_settings)
+
+    @property
+    @pulumi.getter(name="dataDestination")
+    def data_destination(self) -> builtins.str:
+        """
+        Data destination at the endpoint.
+        """
+        return pulumi.get(self, "data_destination")
+
+    @property
+    @pulumi.getter(name="endpointRef")
+    def endpoint_ref(self) -> builtins.str:
+        """
+        The name of the DataflowEndpoint resource .
+        """
+        return pulumi.get(self, "endpoint_ref")
+
+    @property
+    @pulumi.getter(name="outputSchemaSettings")
+    def output_schema_settings(self) -> Optional['outputs.DataflowGraphDestinationSchemaSettingsResponse']:
+        """
+        Output schema settings.
+        """
+        return pulumi.get(self, "output_schema_settings")
+
+
+@pulumi.output_type
+class DataflowGraphDestinationSchemaSettingsResponse(dict):
+    """
+    DataflowGraph destination node output schema settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serializationFormat":
+            suggest = "serialization_format"
+        elif key == "schemaRef":
+            suggest = "schema_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowGraphDestinationSchemaSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowGraphDestinationSchemaSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowGraphDestinationSchemaSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 serialization_format: builtins.str,
+                 schema_ref: Optional[builtins.str] = None):
+        """
+        DataflowGraph destination node output schema settings.
+        :param builtins.str serialization_format: The format of the output data.
+        :param builtins.str schema_ref: Reference to the schema that describes the output of the transformation.
+        """
+        pulumi.set(__self__, "serialization_format", serialization_format)
+        if schema_ref is not None:
+            pulumi.set(__self__, "schema_ref", schema_ref)
+
+    @property
+    @pulumi.getter(name="serializationFormat")
+    def serialization_format(self) -> builtins.str:
+        """
+        The format of the output data.
+        """
+        return pulumi.get(self, "serialization_format")
+
+    @property
+    @pulumi.getter(name="schemaRef")
+    def schema_ref(self) -> Optional[builtins.str]:
+        """
+        Reference to the schema that describes the output of the transformation.
+        """
+        return pulumi.get(self, "schema_ref")
+
+
+@pulumi.output_type
+class DataflowGraphGraphNodeConfigurationResponse(dict):
+    """
+    DataflowGraph graph node configuration.
+    """
+    def __init__(__self__, *,
+                 key: builtins.str,
+                 value: builtins.str):
+        """
+        DataflowGraph graph node configuration.
+        :param builtins.str key: Key of the configuration.
+        :param builtins.str value: Value of the configuration.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> builtins.str:
+        """
+        Key of the configuration.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        Value of the configuration.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DataflowGraphGraphNodeResponse(dict):
+    """
+    DataflowGraph graph node properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "graphSettings":
+            suggest = "graph_settings"
+        elif key == "nodeType":
+            suggest = "node_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowGraphGraphNodeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowGraphGraphNodeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowGraphGraphNodeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 graph_settings: 'outputs.DataflowGraphNodeGraphSettingsResponse',
+                 name: builtins.str,
+                 node_type: builtins.str):
+        """
+        DataflowGraph graph node properties.
+        :param 'DataflowGraphNodeGraphSettingsResponse' graph_settings: Graph configuration.
+        :param builtins.str name: Name of the node.
+        :param builtins.str node_type: DataflowGraph node types.
+               Expected value is 'Graph'.
+        """
+        pulumi.set(__self__, "graph_settings", graph_settings)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "node_type", 'Graph')
+
+    @property
+    @pulumi.getter(name="graphSettings")
+    def graph_settings(self) -> 'outputs.DataflowGraphNodeGraphSettingsResponse':
+        """
+        Graph configuration.
+        """
+        return pulumi.get(self, "graph_settings")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the node.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nodeType")
+    def node_type(self) -> builtins.str:
+        """
+        DataflowGraph node types.
+        Expected value is 'Graph'.
+        """
+        return pulumi.get(self, "node_type")
+
+
+@pulumi.output_type
+class DataflowGraphNodeConnectionResponse(dict):
+    """
+    DataflowGraph DataflowGraphNode Connection.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "from":
+            suggest = "from_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowGraphNodeConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowGraphNodeConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowGraphNodeConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_: 'outputs.DataflowGraphConnectionInputResponse',
+                 to: 'outputs.DataflowGraphConnectionOutputResponse'):
+        """
+        DataflowGraph DataflowGraphNode Connection.
+        :param 'DataflowGraphConnectionInputResponse' from_: Information about the source node.
+        :param 'DataflowGraphConnectionOutputResponse' to: Information about the destination node.
+        """
+        pulumi.set(__self__, "from_", from_)
+        pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> 'outputs.DataflowGraphConnectionInputResponse':
+        """
+        Information about the source node.
+        """
+        return pulumi.get(self, "from_")
+
+    @property
+    @pulumi.getter
+    def to(self) -> 'outputs.DataflowGraphConnectionOutputResponse':
+        """
+        Information about the destination node.
+        """
+        return pulumi.get(self, "to")
+
+
+@pulumi.output_type
+class DataflowGraphNodeGraphSettingsResponse(dict):
+    """
+    DataflowGraph graph node settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "registryEndpointRef":
+            suggest = "registry_endpoint_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowGraphNodeGraphSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowGraphNodeGraphSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowGraphNodeGraphSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 artifact: builtins.str,
+                 registry_endpoint_ref: builtins.str,
+                 configuration: Optional[Sequence['outputs.DataflowGraphGraphNodeConfigurationResponse']] = None):
+        """
+        DataflowGraph graph node settings.
+        :param builtins.str artifact: The artifact name and version to pull. This should be in the format `<artifact-name>:<version>`.
+        :param builtins.str registry_endpoint_ref: Reference to the registry endpoint for pulling the artifact.
+        :param Sequence['DataflowGraphGraphNodeConfigurationResponse'] configuration: Configuration key-value pairs.
+        """
+        pulumi.set(__self__, "artifact", artifact)
+        pulumi.set(__self__, "registry_endpoint_ref", registry_endpoint_ref)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+
+    @property
+    @pulumi.getter
+    def artifact(self) -> builtins.str:
+        """
+        The artifact name and version to pull. This should be in the format `<artifact-name>:<version>`.
+        """
+        return pulumi.get(self, "artifact")
+
+    @property
+    @pulumi.getter(name="registryEndpointRef")
+    def registry_endpoint_ref(self) -> builtins.str:
+        """
+        Reference to the registry endpoint for pulling the artifact.
+        """
+        return pulumi.get(self, "registry_endpoint_ref")
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[Sequence['outputs.DataflowGraphGraphNodeConfigurationResponse']]:
+        """
+        Configuration key-value pairs.
+        """
+        return pulumi.get(self, "configuration")
+
+
+@pulumi.output_type
+class DataflowGraphPropertiesResponse(dict):
+    """
+    DataflowGraph properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nodeConnections":
+            suggest = "node_connections"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "requestDiskPersistence":
+            suggest = "request_disk_persistence"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowGraphPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowGraphPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowGraphPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 node_connections: Sequence['outputs.DataflowGraphNodeConnectionResponse'],
+                 nodes: Sequence[Any],
+                 provisioning_state: builtins.str,
+                 mode: Optional[builtins.str] = None,
+                 request_disk_persistence: Optional[builtins.str] = None):
+        """
+        DataflowGraph properties.
+        :param Sequence['DataflowGraphNodeConnectionResponse'] node_connections: List of connections between nodes in the dataflow graph.
+        :param Sequence[Union['DataflowGraphDestinationNodeResponse', 'DataflowGraphGraphNodeResponse', 'DataflowGraphSourceNodeResponse']] nodes: List of nodes in the dataflow graph.
+        :param builtins.str provisioning_state: The provisioning state of the dataflow graph.
+        :param builtins.str mode: The mode of the dataflow graph.
+        :param builtins.str request_disk_persistence: Disk persistence mode.
+        """
+        pulumi.set(__self__, "node_connections", node_connections)
+        pulumi.set(__self__, "nodes", nodes)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if mode is None:
+            mode = 'Enabled'
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if request_disk_persistence is not None:
+            pulumi.set(__self__, "request_disk_persistence", request_disk_persistence)
+
+    @property
+    @pulumi.getter(name="nodeConnections")
+    def node_connections(self) -> Sequence['outputs.DataflowGraphNodeConnectionResponse']:
+        """
+        List of connections between nodes in the dataflow graph.
+        """
+        return pulumi.get(self, "node_connections")
+
+    @property
+    @pulumi.getter
+    def nodes(self) -> Sequence[Any]:
+        """
+        List of nodes in the dataflow graph.
+        """
+        return pulumi.get(self, "nodes")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        The provisioning state of the dataflow graph.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[builtins.str]:
+        """
+        The mode of the dataflow graph.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="requestDiskPersistence")
+    def request_disk_persistence(self) -> Optional[builtins.str]:
+        """
+        Disk persistence mode.
+        """
+        return pulumi.get(self, "request_disk_persistence")
+
+
+@pulumi.output_type
+class DataflowGraphSourceNodeResponse(dict):
+    """
+    DataflowGraph source node properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nodeType":
+            suggest = "node_type"
+        elif key == "sourceSettings":
+            suggest = "source_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowGraphSourceNodeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowGraphSourceNodeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowGraphSourceNodeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 node_type: builtins.str,
+                 source_settings: 'outputs.DataflowGraphSourceSettingsResponse'):
+        """
+        DataflowGraph source node properties.
+        :param builtins.str name: Name of the node.
+        :param builtins.str node_type: DataflowGraph node types.
+               Expected value is 'Source'.
+        :param 'DataflowGraphSourceSettingsResponse' source_settings: Source configuration.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "node_type", 'Source')
+        pulumi.set(__self__, "source_settings", source_settings)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the node.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nodeType")
+    def node_type(self) -> builtins.str:
+        """
+        DataflowGraph node types.
+        Expected value is 'Source'.
+        """
+        return pulumi.get(self, "node_type")
+
+    @property
+    @pulumi.getter(name="sourceSettings")
+    def source_settings(self) -> 'outputs.DataflowGraphSourceSettingsResponse':
+        """
+        Source configuration.
+        """
+        return pulumi.get(self, "source_settings")
+
+
+@pulumi.output_type
+class DataflowGraphSourceSettingsResponse(dict):
+    """
+    DataflowGraph source node settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSources":
+            suggest = "data_sources"
+        elif key == "endpointRef":
+            suggest = "endpoint_ref"
+        elif key == "assetRef":
+            suggest = "asset_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowGraphSourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowGraphSourceSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowGraphSourceSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_sources: Sequence[builtins.str],
+                 endpoint_ref: builtins.str,
+                 asset_ref: Optional[builtins.str] = None):
+        """
+        DataflowGraph source node settings.
+        :param Sequence[builtins.str] data_sources: List of data sources.
+        :param builtins.str endpoint_ref: The endpoint reference for the source.
+        :param builtins.str asset_ref: Reference to the resource in Azure Device Registry where the data in the endpoint originates from.
+        """
+        pulumi.set(__self__, "data_sources", data_sources)
+        pulumi.set(__self__, "endpoint_ref", endpoint_ref)
+        if asset_ref is not None:
+            pulumi.set(__self__, "asset_ref", asset_ref)
+
+    @property
+    @pulumi.getter(name="dataSources")
+    def data_sources(self) -> Sequence[builtins.str]:
+        """
+        List of data sources.
+        """
+        return pulumi.get(self, "data_sources")
+
+    @property
+    @pulumi.getter(name="endpointRef")
+    def endpoint_ref(self) -> builtins.str:
+        """
+        The endpoint reference for the source.
+        """
+        return pulumi.get(self, "endpoint_ref")
+
+    @property
+    @pulumi.getter(name="assetRef")
+    def asset_ref(self) -> Optional[builtins.str]:
+        """
+        Reference to the resource in Azure Device Registry where the data in the endpoint originates from.
+        """
+        return pulumi.get(self, "asset_ref")
+
+
+@pulumi.output_type
 class DataflowOperationResponse(dict):
     """
     Dataflow Operation properties. NOTE - One only method is allowed to be used for one entry.
@@ -4414,6 +7437,558 @@ class ProfileDiagnosticsResponse(dict):
         The metrics settings for the resource.
         """
         return pulumi.get(self, "metrics")
+
+
+@pulumi.output_type
+class RegistryEndpointAnonymousAuthenticationResponse(dict):
+    """
+    Anonymous authentication
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "anonymousSettings":
+            suggest = "anonymous_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryEndpointAnonymousAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryEndpointAnonymousAuthenticationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryEndpointAnonymousAuthenticationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 anonymous_settings: Any,
+                 method: builtins.str):
+        """
+        Anonymous authentication
+        :param Any anonymous_settings: Anonymous authentication properties
+        :param builtins.str method: The authentication method.
+               Expected value is 'Anonymous'.
+        """
+        pulumi.set(__self__, "anonymous_settings", anonymous_settings)
+        pulumi.set(__self__, "method", 'Anonymous')
+
+    @property
+    @pulumi.getter(name="anonymousSettings")
+    def anonymous_settings(self) -> Any:
+        """
+        Anonymous authentication properties
+        """
+        return pulumi.get(self, "anonymous_settings")
+
+    @property
+    @pulumi.getter
+    def method(self) -> builtins.str:
+        """
+        The authentication method.
+        Expected value is 'Anonymous'.
+        """
+        return pulumi.get(self, "method")
+
+
+@pulumi.output_type
+class RegistryEndpointArtifactPullSecretAuthenticationResponse(dict):
+    """
+    Artifact Pull Secret authentication
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "artifactPullSecretSettings":
+            suggest = "artifact_pull_secret_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryEndpointArtifactPullSecretAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryEndpointArtifactPullSecretAuthenticationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryEndpointArtifactPullSecretAuthenticationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 artifact_pull_secret_settings: 'outputs.RegistryEndpointArtifactPullSecretSettingsResponse',
+                 method: builtins.str):
+        """
+        Artifact Pull Secret authentication
+        :param 'RegistryEndpointArtifactPullSecretSettingsResponse' artifact_pull_secret_settings: Artifact Pull Secret authentication properties
+        :param builtins.str method: The authentication method.
+               Expected value is 'ArtifactPullSecret'.
+        """
+        pulumi.set(__self__, "artifact_pull_secret_settings", artifact_pull_secret_settings)
+        pulumi.set(__self__, "method", 'ArtifactPullSecret')
+
+    @property
+    @pulumi.getter(name="artifactPullSecretSettings")
+    def artifact_pull_secret_settings(self) -> 'outputs.RegistryEndpointArtifactPullSecretSettingsResponse':
+        """
+        Artifact Pull Secret authentication properties
+        """
+        return pulumi.get(self, "artifact_pull_secret_settings")
+
+    @property
+    @pulumi.getter
+    def method(self) -> builtins.str:
+        """
+        The authentication method.
+        Expected value is 'ArtifactPullSecret'.
+        """
+        return pulumi.get(self, "method")
+
+
+@pulumi.output_type
+class RegistryEndpointArtifactPullSecretSettingsResponse(dict):
+    """
+    RegistryEndpoint Artifact Pull Secret authentication properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretRef":
+            suggest = "secret_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryEndpointArtifactPullSecretSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryEndpointArtifactPullSecretSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryEndpointArtifactPullSecretSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_ref: builtins.str):
+        """
+        RegistryEndpoint Artifact Pull Secret authentication properties
+        :param builtins.str secret_ref: The name of the kubernetes secret that contains the artifact pull secret.
+        """
+        pulumi.set(__self__, "secret_ref", secret_ref)
+
+    @property
+    @pulumi.getter(name="secretRef")
+    def secret_ref(self) -> builtins.str:
+        """
+        The name of the kubernetes secret that contains the artifact pull secret.
+        """
+        return pulumi.get(self, "secret_ref")
+
+
+@pulumi.output_type
+class RegistryEndpointPropertiesResponse(dict):
+    """
+    RegistryEndpoint properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "trustSettings":
+            suggest = "trust_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryEndpointPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryEndpointPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryEndpointPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication: Any,
+                 host: builtins.str,
+                 provisioning_state: builtins.str,
+                 trust_settings: Optional['outputs.RegistryEndpointTrustedSettingsResponse'] = None):
+        """
+        RegistryEndpoint properties
+        :param Union['RegistryEndpointAnonymousAuthenticationResponse', 'RegistryEndpointArtifactPullSecretAuthenticationResponse', 'RegistryEndpointSystemAssignedIdentityAuthenticationResponse', 'RegistryEndpointUserAssignedIdentityAuthenticationResponse'] authentication: The authentication settings for the Azure Container Registry.
+        :param builtins.str host: The Container Registry endpoint hostname.
+        :param builtins.str provisioning_state: The status of the last operation.
+        :param 'RegistryEndpointTrustedSettingsResponse' trust_settings: Trust settings for the registry endpoint
+        """
+        pulumi.set(__self__, "authentication", authentication)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if trust_settings is not None:
+            pulumi.set(__self__, "trust_settings", trust_settings)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Any:
+        """
+        The authentication settings for the Azure Container Registry.
+        """
+        return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter
+    def host(self) -> builtins.str:
+        """
+        The Container Registry endpoint hostname.
+        """
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="trustSettings")
+    def trust_settings(self) -> Optional['outputs.RegistryEndpointTrustedSettingsResponse']:
+        """
+        Trust settings for the registry endpoint
+        """
+        return pulumi.get(self, "trust_settings")
+
+
+@pulumi.output_type
+class RegistryEndpointSystemAssignedIdentityAuthenticationResponse(dict):
+    """
+    System assigned identity authentication
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "systemAssignedManagedIdentitySettings":
+            suggest = "system_assigned_managed_identity_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryEndpointSystemAssignedIdentityAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryEndpointSystemAssignedIdentityAuthenticationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryEndpointSystemAssignedIdentityAuthenticationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 method: builtins.str,
+                 system_assigned_managed_identity_settings: 'outputs.RegistryEndpointSystemAssignedManagedIdentitySettingsResponse'):
+        """
+        System assigned identity authentication
+        :param builtins.str method: The authentication method.
+               Expected value is 'SystemAssignedManagedIdentity'.
+        :param 'RegistryEndpointSystemAssignedManagedIdentitySettingsResponse' system_assigned_managed_identity_settings: System assigned managed identity properties
+        """
+        pulumi.set(__self__, "method", 'SystemAssignedManagedIdentity')
+        pulumi.set(__self__, "system_assigned_managed_identity_settings", system_assigned_managed_identity_settings)
+
+    @property
+    @pulumi.getter
+    def method(self) -> builtins.str:
+        """
+        The authentication method.
+        Expected value is 'SystemAssignedManagedIdentity'.
+        """
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter(name="systemAssignedManagedIdentitySettings")
+    def system_assigned_managed_identity_settings(self) -> 'outputs.RegistryEndpointSystemAssignedManagedIdentitySettingsResponse':
+        """
+        System assigned managed identity properties
+        """
+        return pulumi.get(self, "system_assigned_managed_identity_settings")
+
+
+@pulumi.output_type
+class RegistryEndpointSystemAssignedManagedIdentitySettingsResponse(dict):
+    """
+    System assigned managed identity properties
+    """
+    def __init__(__self__, *,
+                 audience: Optional[builtins.str] = None):
+        """
+        System assigned managed identity properties
+        :param builtins.str audience: Audience of the service to authenticate against. Optional; defaults to the audience for Service host configuration.
+        """
+        if audience is not None:
+            pulumi.set(__self__, "audience", audience)
+
+    @property
+    @pulumi.getter
+    def audience(self) -> Optional[builtins.str]:
+        """
+        Audience of the service to authenticate against. Optional; defaults to the audience for Service host configuration.
+        """
+        return pulumi.get(self, "audience")
+
+
+@pulumi.output_type
+class RegistryEndpointTrustedSettingsResponse(dict):
+    """
+    RegistryEndpointTrustedSettings properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trustedSigningKeys":
+            suggest = "trusted_signing_keys"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryEndpointTrustedSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryEndpointTrustedSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryEndpointTrustedSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 trusted_signing_keys: Any):
+        """
+        RegistryEndpointTrustedSettings properties
+        :param Union['RegistryEndpointTrustedSigningKeyConfigMapResponse', 'RegistryEndpointTrustedSigningKeySecretResponse'] trusted_signing_keys: The trust properties for the registry endpoint.
+        """
+        pulumi.set(__self__, "trusted_signing_keys", trusted_signing_keys)
+
+    @property
+    @pulumi.getter(name="trustedSigningKeys")
+    def trusted_signing_keys(self) -> Any:
+        """
+        The trust properties for the registry endpoint.
+        """
+        return pulumi.get(self, "trusted_signing_keys")
+
+
+@pulumi.output_type
+class RegistryEndpointTrustedSigningKeyConfigMapResponse(dict):
+    """
+    Settings for RegistryEndpoint trust provided through a configmap.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configMapRef":
+            suggest = "config_map_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryEndpointTrustedSigningKeyConfigMapResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryEndpointTrustedSigningKeyConfigMapResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryEndpointTrustedSigningKeyConfigMapResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 config_map_ref: builtins.str,
+                 type: builtins.str):
+        """
+        Settings for RegistryEndpoint trust provided through a configmap.
+        :param builtins.str config_map_ref: The name of the configmap.
+        :param builtins.str type: RegistryEndpointTrustedSigningKeyType values
+               Expected value is 'ConfigMap'.
+        """
+        pulumi.set(__self__, "config_map_ref", config_map_ref)
+        pulumi.set(__self__, "type", 'ConfigMap')
+
+    @property
+    @pulumi.getter(name="configMapRef")
+    def config_map_ref(self) -> builtins.str:
+        """
+        The name of the configmap.
+        """
+        return pulumi.get(self, "config_map_ref")
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        RegistryEndpointTrustedSigningKeyType values
+        Expected value is 'ConfigMap'.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class RegistryEndpointTrustedSigningKeySecretResponse(dict):
+    """
+    Settings for RegistryEndpoint trust provided through a secret.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretRef":
+            suggest = "secret_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryEndpointTrustedSigningKeySecretResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryEndpointTrustedSigningKeySecretResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryEndpointTrustedSigningKeySecretResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_ref: builtins.str,
+                 type: builtins.str):
+        """
+        Settings for RegistryEndpoint trust provided through a secret.
+        :param builtins.str secret_ref: The name of the secret.
+        :param builtins.str type: RegistryEndpointTrustedSigningKeyType values
+               Expected value is 'Secret'.
+        """
+        pulumi.set(__self__, "secret_ref", secret_ref)
+        pulumi.set(__self__, "type", 'Secret')
+
+    @property
+    @pulumi.getter(name="secretRef")
+    def secret_ref(self) -> builtins.str:
+        """
+        The name of the secret.
+        """
+        return pulumi.get(self, "secret_ref")
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        RegistryEndpointTrustedSigningKeyType values
+        Expected value is 'Secret'.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class RegistryEndpointUserAssignedIdentityAuthenticationResponse(dict):
+    """
+    User assigned identity authentication
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userAssignedManagedIdentitySettings":
+            suggest = "user_assigned_managed_identity_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryEndpointUserAssignedIdentityAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryEndpointUserAssignedIdentityAuthenticationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryEndpointUserAssignedIdentityAuthenticationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 method: builtins.str,
+                 user_assigned_managed_identity_settings: 'outputs.RegistryEndpointUserAssignedManagedIdentitySettingsResponse'):
+        """
+        User assigned identity authentication
+        :param builtins.str method: The authentication method.
+               Expected value is 'UserAssignedManagedIdentity'.
+        :param 'RegistryEndpointUserAssignedManagedIdentitySettingsResponse' user_assigned_managed_identity_settings: User assigned managed identity properties
+        """
+        pulumi.set(__self__, "method", 'UserAssignedManagedIdentity')
+        pulumi.set(__self__, "user_assigned_managed_identity_settings", user_assigned_managed_identity_settings)
+
+    @property
+    @pulumi.getter
+    def method(self) -> builtins.str:
+        """
+        The authentication method.
+        Expected value is 'UserAssignedManagedIdentity'.
+        """
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter(name="userAssignedManagedIdentitySettings")
+    def user_assigned_managed_identity_settings(self) -> 'outputs.RegistryEndpointUserAssignedManagedIdentitySettingsResponse':
+        """
+        User assigned managed identity properties
+        """
+        return pulumi.get(self, "user_assigned_managed_identity_settings")
+
+
+@pulumi.output_type
+class RegistryEndpointUserAssignedManagedIdentitySettingsResponse(dict):
+    """
+    User assigned managed identity properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryEndpointUserAssignedManagedIdentitySettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryEndpointUserAssignedManagedIdentitySettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryEndpointUserAssignedManagedIdentitySettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: builtins.str,
+                 tenant_id: builtins.str,
+                 scope: Optional[builtins.str] = None):
+        """
+        User assigned managed identity properties
+        :param builtins.str client_id: Client ID for the user-assigned managed identity.
+        :param builtins.str tenant_id: Tenant ID.
+        :param builtins.str scope: Resource identifier (application ID URI) of the resource, affixed with the .default suffix.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> builtins.str:
+        """
+        Client ID for the user-assigned managed identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> builtins.str:
+        """
+        Tenant ID.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[builtins.str]:
+        """
+        Resource identifier (application ID URI) of the resource, affixed with the .default suffix.
+        """
+        return pulumi.get(self, "scope")
 
 
 @pulumi.output_type

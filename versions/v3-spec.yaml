@@ -139,6 +139,8 @@ AzureData:
     tracking: 2019-07-24-preview
 AzureDataTransfer:
     tracking: "2024-09-27"
+    additions:
+        listListFlowsByPipeline: "2025-05-21"
 AzureFleet:
     tracking: "2024-11-01"
 AzureLargeInstance:
@@ -667,6 +669,11 @@ DeviceRegistry:
     additions:
         DiscoveredAsset: 2024-09-01-preview
         DiscoveredAssetEndpointProfile: 2024-09-01-preview
+        Namespace: 2025-07-01-preview
+        NamespaceAsset: 2025-07-01-preview
+        NamespaceDevice: 2025-07-01-preview
+        NamespaceDiscoveredAsset: 2025-07-01-preview
+        NamespaceDiscoveredDevice: 2025-07-01-preview
         Schema: 2024-09-01-preview
         SchemaRegistry: 2024-09-01-preview
         SchemaVersion: 2024-09-01-preview
@@ -692,7 +699,27 @@ Easm:
 Edge:
     tracking: 2024-02-01-preview
     additions:
+        ConfigTemplate: "2025-06-01"
+        Configuration: "2025-06-01"
+        ConfigurationReference: "2025-06-01"
+        Context: "2025-06-01"
+        Diagnostic: "2025-06-01"
+        DynamicConfiguration: "2025-06-01"
+        DynamicConfigurationVersion: "2025-06-01"
+        DynamicSchema: "2025-06-01"
+        DynamicSchemaVersion: "2025-06-01"
+        Execution: "2025-06-01"
+        Instance: "2025-06-01"
+        Schema: "2025-06-01"
+        SchemaVersion: "2025-06-01"
+        SiteReference: "2025-06-01"
         SitesByServiceGroup: 2025-03-01-preview
+        Solution: "2025-06-01"
+        SolutionTemplate: "2025-06-01"
+        SolutionVersion: "2025-06-01"
+        Target: "2025-06-01"
+        Workflow: "2025-06-01"
+        WorkflowVersion: "2025-06-01"
 EdgeMarketplace:
     tracking: "2023-08-01"
 EdgeOrder:
@@ -799,6 +826,11 @@ IoTHub:
     tracking: "2023-06-30"
 IoTOperations:
     tracking: "2024-11-01"
+    additions:
+        AkriConnector: 2025-07-01-preview
+        AkriConnectorTemplate: 2025-07-01-preview
+        DataflowGraph: 2025-07-01-preview
+        RegistryEndpoint: 2025-07-01-preview
 IoTOperationsDataProcessor:
     tracking: 2023-10-04-preview
 IoTOperationsMQ:
@@ -845,6 +877,8 @@ LabServices:
           detail: version 2022-08-01 is greater than 2018-10-15
 LoadTestService:
     tracking: 2023-12-01-preview
+    additions:
+        PlaywrightWorkspace: 2025-07-01-preview
 Logic:
     tracking: "2019-05-01"
     additions:
@@ -1236,6 +1270,8 @@ OffAzureSpringBoot:
     tracking: 2024-04-01-preview
 OnlineExperimentation:
     tracking: 2025-05-31-preview
+    additions:
+        PrivateEndpointConnection: 2025-08-01-preview
 OpenEnergyPlatform:
     tracking: 2022-04-04-preview
 OperationalInsights:
@@ -1498,6 +1534,7 @@ Sql:
         DatabaseThreatDetectionPolicy: "2014-04-01"
         DisasterRecoveryConfiguration: "2014-04-01"
         ServerCommunicationLink: "2014-04-01"
+        VirtualCluster: 2024-11-01-preview
 SqlVirtualMachine:
     tracking: "2023-10-01"
 StandbyPool:

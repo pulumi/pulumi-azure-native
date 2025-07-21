@@ -23,6 +23,9 @@ __all__ = [
     'ManagedServiceIdentityResponse',
     'OnlineExperimentationWorkspacePropertiesResponse',
     'OnlineExperimentationWorkspaceSkuResponse',
+    'PrivateEndpointConnectionPropertiesResponse',
+    'PrivateEndpointResponse',
+    'PrivateLinkServiceConnectionStateResponse',
     'ResourceEncryptionConfigurationResponse',
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
@@ -372,6 +375,171 @@ class OnlineExperimentationWorkspaceSkuResponse(dict):
         The name of the SKU tier
         """
         return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionPropertiesResponse(dict):
+    """
+    Properties of the private endpoint connection.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_ids: Sequence[builtins.str],
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: builtins.str,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
+        """
+        Properties of the private endpoint connection.
+        :param Sequence[builtins.str] group_ids: The group ids for the private endpoint resource.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param builtins.str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint resource.
+        """
+        pulumi.set(__self__, "group_ids", group_ids)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Sequence[builtins.str]:
+        """
+        The group ids for the private endpoint resource.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        The provisioning state of the private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The private endpoint resource.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+
+@pulumi.output_type
+class PrivateEndpointResponse(dict):
+    """
+    The private endpoint resource.
+    """
+    def __init__(__self__, *,
+                 id: builtins.str):
+        """
+        The private endpoint resource.
+        :param builtins.str id: The ARM identifier for private endpoint.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The ARM identifier for private endpoint.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class PrivateLinkServiceConnectionStateResponse(dict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actions_required: Optional[builtins.str] = None,
+                 description: Optional[builtins.str] = None,
+                 status: Optional[builtins.str] = None):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        :param builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param builtins.str description: The reason for approval/rejection of the connection.
+        :param builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[builtins.str]:
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[builtins.str]:
+        """
+        The reason for approval/rejection of the connection.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[builtins.str]:
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

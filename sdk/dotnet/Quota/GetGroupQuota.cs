@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Quota
         /// 
         /// Uses Azure REST API version 2025-03-01.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetGroupQuotaResult> InvokeAsync(GetGroupQuotaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupQuotaResult>("azure-native:quota:getGroupQuota", args ?? new GetGroupQuotaArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Quota
         /// 
         /// Uses Azure REST API version 2025-03-01.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetGroupQuotaResult> Invoke(GetGroupQuotaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupQuotaResult>("azure-native:quota:getGroupQuota", args ?? new GetGroupQuotaInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Quota
         /// 
         /// Uses Azure REST API version 2025-03-01.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetGroupQuotaResult> Invoke(GetGroupQuotaInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupQuotaResult>("azure-native:quota:getGroupQuota", args ?? new GetGroupQuotaInvokeArgs(), options.WithDefaults());
