@@ -21,6 +21,18 @@ namespace Pulumi.AzureNative.App.Inputs
         [Input("eventTriggerConfig")]
         public Input<Inputs.JobConfigurationEventTriggerConfigArgs>? EventTriggerConfig { get; set; }
 
+        [Input("identitySettings")]
+        private InputList<Inputs.IdentitySettingsArgs>? _identitySettings;
+
+        /// <summary>
+        /// Optional settings for Managed Identities that are assigned to the Container App Job. If a Managed Identity is not specified here, default settings will be used.
+        /// </summary>
+        public InputList<Inputs.IdentitySettingsArgs> IdentitySettings
+        {
+            get => _identitySettings ?? (_identitySettings = new InputList<Inputs.IdentitySettingsArgs>());
+            set => _identitySettings = value;
+        }
+
         /// <summary>
         /// Manual trigger configuration for a single execution job. Properties replicaCompletionCount and parallelism would be set to 1 by default
         /// </summary>

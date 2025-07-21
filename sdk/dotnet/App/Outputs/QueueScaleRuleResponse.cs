@@ -17,9 +17,17 @@ namespace Pulumi.AzureNative.App.Outputs
     public sealed class QueueScaleRuleResponse
     {
         /// <summary>
+        /// Storage account name. required if using managed identity to authenticate
+        /// </summary>
+        public readonly string? AccountName;
+        /// <summary>
         /// Authentication secrets for the queue scale rule.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScaleRuleAuthResponse> Auth;
+        /// <summary>
+        /// The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
+        /// </summary>
+        public readonly string? Identity;
         /// <summary>
         /// Queue length.
         /// </summary>
@@ -31,13 +39,19 @@ namespace Pulumi.AzureNative.App.Outputs
 
         [OutputConstructor]
         private QueueScaleRuleResponse(
+            string? accountName,
+
             ImmutableArray<Outputs.ScaleRuleAuthResponse> auth,
+
+            string? identity,
 
             int? queueLength,
 
             string? queueName)
         {
+            AccountName = accountName;
             Auth = auth;
+            Identity = identity;
             QueueLength = queueLength;
             QueueName = queueName;
         }

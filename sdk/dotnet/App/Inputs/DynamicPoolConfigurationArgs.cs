@@ -16,16 +16,10 @@ namespace Pulumi.AzureNative.App.Inputs
     public sealed class DynamicPoolConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The cooldown period of a session in seconds.
+        /// The lifecycle configuration of a session in the dynamic session pool
         /// </summary>
-        [Input("cooldownPeriodInSeconds")]
-        public Input<int>? CooldownPeriodInSeconds { get; set; }
-
-        /// <summary>
-        /// The execution type of the session pool.
-        /// </summary>
-        [Input("executionType")]
-        public InputUnion<string, Pulumi.AzureNative.App.ExecutionType>? ExecutionType { get; set; }
+        [Input("lifecycleConfiguration")]
+        public Input<Inputs.LifecycleConfigurationArgs>? LifecycleConfiguration { get; set; }
 
         public DynamicPoolConfigurationArgs()
         {

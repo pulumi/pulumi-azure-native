@@ -26,6 +26,10 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly Outputs.DaprResponse? Dapr;
         /// <summary>
+        /// Optional settings for Managed Identities that are assigned to the Container App. If a Managed Identity is not specified here, default settings will be used.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IdentitySettingsResponse> IdentitySettings;
+        /// <summary>
         /// Ingress configurations.
         /// </summary>
         public readonly Outputs.IngressResponse? Ingress;
@@ -37,6 +41,10 @@ namespace Pulumi.AzureNative.App.Outputs
         /// Collection of private container registry credentials for containers used by the Container app
         /// </summary>
         public readonly ImmutableArray<Outputs.RegistryCredentialsResponse> Registries;
+        /// <summary>
+        /// App runtime configuration for the Container App.
+        /// </summary>
+        public readonly Outputs.RuntimeResponse? Runtime;
         /// <summary>
         /// Collection of secrets used by a Container app
         /// </summary>
@@ -52,11 +60,15 @@ namespace Pulumi.AzureNative.App.Outputs
 
             Outputs.DaprResponse? dapr,
 
+            ImmutableArray<Outputs.IdentitySettingsResponse> identitySettings,
+
             Outputs.IngressResponse? ingress,
 
             int? maxInactiveRevisions,
 
             ImmutableArray<Outputs.RegistryCredentialsResponse> registries,
+
+            Outputs.RuntimeResponse? runtime,
 
             ImmutableArray<Outputs.SecretResponse> secrets,
 
@@ -64,9 +76,11 @@ namespace Pulumi.AzureNative.App.Outputs
         {
             ActiveRevisionsMode = activeRevisionsMode;
             Dapr = dapr;
+            IdentitySettings = identitySettings;
             Ingress = ingress;
             MaxInactiveRevisions = maxInactiveRevisions;
             Registries = registries;
+            Runtime = runtime;
             Secrets = secrets;
             Service = service;
         }

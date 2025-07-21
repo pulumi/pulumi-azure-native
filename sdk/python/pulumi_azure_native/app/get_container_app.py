@@ -28,7 +28,7 @@ class GetContainerAppResult:
     """
     Container App.
     """
-    def __init__(__self__, azure_api_version=None, configuration=None, custom_domain_verification_id=None, environment_id=None, event_stream_endpoint=None, extended_location=None, id=None, identity=None, latest_ready_revision_name=None, latest_revision_fqdn=None, latest_revision_name=None, location=None, managed_by=None, managed_environment_id=None, name=None, outbound_ip_addresses=None, provisioning_state=None, system_data=None, tags=None, template=None, type=None, workload_profile_name=None):
+    def __init__(__self__, azure_api_version=None, configuration=None, custom_domain_verification_id=None, environment_id=None, event_stream_endpoint=None, extended_location=None, id=None, identity=None, latest_ready_revision_name=None, latest_revision_fqdn=None, latest_revision_name=None, location=None, managed_by=None, managed_environment_id=None, name=None, outbound_ip_addresses=None, provisioning_state=None, running_status=None, system_data=None, tags=None, template=None, type=None, workload_profile_name=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -80,6 +80,9 @@ class GetContainerAppResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if running_status and not isinstance(running_status, str):
+            raise TypeError("Expected argument 'running_status' to be a str")
+        pulumi.set(__self__, "running_status", running_status)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -148,7 +151,7 @@ class GetContainerAppResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -233,6 +236,14 @@ class GetContainerAppResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="runningStatus")
+    def running_status(self) -> builtins.str:
+        """
+        Running status of the Container App.
+        """
+        return pulumi.get(self, "running_status")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -296,6 +307,7 @@ class AwaitableGetContainerAppResult(GetContainerAppResult):
             name=self.name,
             outbound_ip_addresses=self.outbound_ip_addresses,
             provisioning_state=self.provisioning_state,
+            running_status=self.running_status,
             system_data=self.system_data,
             tags=self.tags,
             template=self.template,
@@ -309,9 +321,9 @@ def get_container_app(container_app_name: Optional[builtins.str] = None,
     """
     Container App.
 
-    Uses Azure REST API version 2024-03-01.
+    Uses Azure REST API version 2025-01-01.
 
-    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str container_app_name: Name of the Container App.
@@ -341,6 +353,7 @@ def get_container_app(container_app_name: Optional[builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         outbound_ip_addresses=pulumi.get(__ret__, 'outbound_ip_addresses'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        running_status=pulumi.get(__ret__, 'running_status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         template=pulumi.get(__ret__, 'template'),
@@ -352,9 +365,9 @@ def get_container_app_output(container_app_name: Optional[pulumi.Input[builtins.
     """
     Container App.
 
-    Uses Azure REST API version 2024-03-01.
+    Uses Azure REST API version 2025-01-01.
 
-    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str container_app_name: Name of the Container App.
@@ -383,6 +396,7 @@ def get_container_app_output(container_app_name: Optional[pulumi.Input[builtins.
         name=pulumi.get(__response__, 'name'),
         outbound_ip_addresses=pulumi.get(__response__, 'outbound_ip_addresses'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        running_status=pulumi.get(__response__, 'running_status'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         template=pulumi.get(__response__, 'template'),
