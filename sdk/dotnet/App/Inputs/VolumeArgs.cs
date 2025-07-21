@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.App.Inputs
     public sealed class VolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Mount options used while mounting the AzureFile. Must be a comma-separated string.
+        /// Mount options used while mounting the Azure file share or NFS Azure file share. Must be a comma-separated string.
         /// </summary>
         [Input("mountOptions")]
         public Input<string>? MountOptions { get; set; }

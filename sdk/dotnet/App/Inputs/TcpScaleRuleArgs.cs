@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.App.Inputs
             set => _auth = value;
         }
 
+        /// <summary>
+        /// The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
+        /// </summary>
+        [Input("identity")]
+        public Input<string>? Identity { get; set; }
+
         [Input("metadata")]
         private InputMap<string>? _metadata;
 

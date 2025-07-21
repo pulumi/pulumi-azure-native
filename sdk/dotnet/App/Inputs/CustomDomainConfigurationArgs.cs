@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.App.Inputs
     public sealed class CustomDomainConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Certificate stored in Azure Key Vault.
+        /// </summary>
+        [Input("certificateKeyVaultProperties")]
+        public Input<Inputs.CertificateKeyVaultPropertiesArgs>? CertificateKeyVaultProperties { get; set; }
+
+        /// <summary>
         /// Certificate password
         /// </summary>
         [Input("certificatePassword")]
