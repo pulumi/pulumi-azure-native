@@ -2391,6 +2391,11 @@ AzureDataTransfer:
         SpecFilePath: specification/azuredatatransfer/resource-manager/Microsoft.AzureDataTransfer/stable/2024-09-27/azuredatatransfer.json
         ResourceUri: /providers/Microsoft.AzureDataTransfer/listApprovedSchemas
         RpNamespace: Microsoft.AzureDataTransfer
+    listListFlowsByPipeline:
+        ApiVersion: "2025-05-21"
+        SpecFilePath: specification/azuredatatransfer/resource-manager/Microsoft.AzureDataTransfer/stable/2025-05-21/azuredatatransfer.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataTransfer/pipelines/{pipelineName}/listFlows
+        RpNamespace: Microsoft.AzureDataTransfer
     listListPendingConnection:
         ApiVersion: "2024-09-27"
         SpecFilePath: specification/azuredatatransfer/resource-manager/Microsoft.AzureDataTransfer/stable/2024-09-27/azuredatatransfer.json
@@ -5638,6 +5643,31 @@ DeviceRegistry:
         SpecFilePath: specification/deviceregistry/resource-manager/Microsoft.DeviceRegistry/preview/2024-09-01-preview/deviceregistry.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/discoveredAssetEndpointProfiles/{discoveredAssetEndpointProfileName}
         RpNamespace: Microsoft.DeviceRegistry
+    Namespace:
+        ApiVersion: 2025-07-01-preview
+        SpecFilePath: specification/deviceregistry/resource-manager/Microsoft.DeviceRegistry/preview/2025-07-01-preview/deviceregistry.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}
+        RpNamespace: Microsoft.DeviceRegistry
+    NamespaceAsset:
+        ApiVersion: 2025-07-01-preview
+        SpecFilePath: specification/deviceregistry/resource-manager/Microsoft.DeviceRegistry/preview/2025-07-01-preview/deviceregistry.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/assets/{assetName}
+        RpNamespace: Microsoft.DeviceRegistry
+    NamespaceDevice:
+        ApiVersion: 2025-07-01-preview
+        SpecFilePath: specification/deviceregistry/resource-manager/Microsoft.DeviceRegistry/preview/2025-07-01-preview/deviceregistry.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/devices/{deviceName}
+        RpNamespace: Microsoft.DeviceRegistry
+    NamespaceDiscoveredAsset:
+        ApiVersion: 2025-07-01-preview
+        SpecFilePath: specification/deviceregistry/resource-manager/Microsoft.DeviceRegistry/preview/2025-07-01-preview/deviceregistry.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredAssets/{discoveredAssetName}
+        RpNamespace: Microsoft.DeviceRegistry
+    NamespaceDiscoveredDevice:
+        ApiVersion: 2025-07-01-preview
+        SpecFilePath: specification/deviceregistry/resource-manager/Microsoft.DeviceRegistry/preview/2025-07-01-preview/deviceregistry.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredDevices/{discoveredDeviceName}
+        RpNamespace: Microsoft.DeviceRegistry
     Schema:
         ApiVersion: 2024-09-01-preview
         SpecFilePath: specification/deviceregistry/resource-manager/Microsoft.DeviceRegistry/preview/2024-09-01-preview/deviceregistry.json
@@ -5838,10 +5868,80 @@ Easm:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Easm/workspaces/{workspaceName}
         RpNamespace: Microsoft.Easm
 Edge:
+    ConfigTemplate:
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/stable/2025-06-01/configurationmanager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/configTemplates/{configTemplateName}
+        RpNamespace: Microsoft.Edge
+    Configuration:
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurations/stable/2025-06-01/configurations.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/configurations/{configurationName}
+        RpNamespace: Microsoft.Edge
+    ConfigurationReference:
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurations/stable/2025-06-01/configurations.json
+        ResourceUri: /{resourceUri}/providers/Microsoft.Edge/configurationReferences/{configurationReferenceName}
+        RpNamespace: Microsoft.Edge
+    Context:
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/stable/2025-06-01/configurationmanager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/contexts/{contextName}
+        RpNamespace: Microsoft.Edge
+    Diagnostic:
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/stable/2025-06-01/configurationmanager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/diagnostics/{diagnosticName}
+        RpNamespace: Microsoft.Edge
+    DynamicConfiguration:
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurations/stable/2025-06-01/configurations.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/configurations/{configurationName}/dynamicConfigurations/{dynamicConfigurationName}
+        RpNamespace: Microsoft.Edge
+    DynamicConfigurationVersion:
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurations/stable/2025-06-01/configurations.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/configurations/{configurationName}/dynamicConfigurations/{dynamicConfigurationName}/versions/{dynamicConfigurationVersionName}
+        RpNamespace: Microsoft.Edge
+    DynamicSchema:
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/stable/2025-06-01/configurationmanager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/schemas/{schemaName}/dynamicSchemas/{dynamicSchemaName}
+        RpNamespace: Microsoft.Edge
+    DynamicSchemaVersion:
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/stable/2025-06-01/configurationmanager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/schemas/{schemaName}/dynamicSchemas/{dynamicSchemaName}/versions/{schemaVersionName}
+        RpNamespace: Microsoft.Edge
+    Execution:
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/stable/2025-06-01/configurationmanager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/contexts/{contextName}/workflows/{workflowName}/versions/{versionName}/executions/{executionName}
+        RpNamespace: Microsoft.Edge
+    Instance:
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/stable/2025-06-01/configurationmanager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/targets/{targetName}/solutions/{solutionName}/instances/{instanceName}
+        RpNamespace: Microsoft.Edge
+    Schema:
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/stable/2025-06-01/configurationmanager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/schemas/{schemaName}
+        RpNamespace: Microsoft.Edge
+    SchemaVersion:
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/stable/2025-06-01/configurationmanager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/schemas/{schemaName}/versions/{schemaVersionName}
+        RpNamespace: Microsoft.Edge
     Site:
         ApiVersion: 2024-02-01-preview
         SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/sites/preview/2024-02-01-preview/sites.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/sites/{siteName}
+        RpNamespace: Microsoft.Edge
+    SiteReference:
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/stable/2025-06-01/configurationmanager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/contexts/{contextName}/siteReferences/{siteReferenceName}
         RpNamespace: Microsoft.Edge
     SitesByServiceGroup:
         ApiVersion: 2025-03-01-preview
@@ -5852,6 +5952,36 @@ Edge:
         ApiVersion: 2024-02-01-preview
         SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/sites/preview/2024-02-01-preview/sites.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Edge/sites/{siteName}
+        RpNamespace: Microsoft.Edge
+    Solution:
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/stable/2025-06-01/configurationmanager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/targets/{targetName}/solutions/{solutionName}
+        RpNamespace: Microsoft.Edge
+    SolutionTemplate:
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/stable/2025-06-01/configurationmanager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/solutionTemplates/{solutionTemplateName}
+        RpNamespace: Microsoft.Edge
+    SolutionVersion:
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/stable/2025-06-01/configurationmanager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/targets/{targetName}/solutions/{solutionName}/versions/{solutionVersionName}
+        RpNamespace: Microsoft.Edge
+    Target:
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/stable/2025-06-01/configurationmanager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/targets/{targetName}
+        RpNamespace: Microsoft.Edge
+    Workflow:
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/stable/2025-06-01/configurationmanager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/contexts/{contextName}/workflows/{workflowName}
+        RpNamespace: Microsoft.Edge
+    WorkflowVersion:
+        ApiVersion: "2025-06-01"
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/stable/2025-06-01/configurationmanager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/contexts/{contextName}/workflows/{workflowName}/versions/{versionName}
         RpNamespace: Microsoft.Edge
 EdgeMarketplace:
     getOfferAccessToken:
@@ -6942,6 +7072,16 @@ IoTHub:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}/IotHubKeys/{keyName}/listkeys
         RpNamespace: Microsoft.Devices
 IoTOperations:
+    AkriConnector:
+        ApiVersion: 2025-07-01-preview
+        SpecFilePath: specification/iotoperations/resource-manager/Microsoft.IoTOperations/preview/2025-07-01-preview/iotoperations.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/akriConnectorTemplates/{akriConnectorTemplateName}/connectors/{connectorName}
+        RpNamespace: Microsoft.IoTOperations
+    AkriConnectorTemplate:
+        ApiVersion: 2025-07-01-preview
+        SpecFilePath: specification/iotoperations/resource-manager/Microsoft.IoTOperations/preview/2025-07-01-preview/iotoperations.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/akriConnectorTemplates/{akriConnectorTemplateName}
+        RpNamespace: Microsoft.IoTOperations
     Broker:
         ApiVersion: "2024-11-01"
         SpecFilePath: specification/iotoperations/resource-manager/Microsoft.IoTOperations/stable/2024-11-01/iotoperations.json
@@ -6972,6 +7112,11 @@ IoTOperations:
         SpecFilePath: specification/iotoperations/resource-manager/Microsoft.IoTOperations/stable/2024-11-01/iotoperations.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/dataflowEndpoints/{dataflowEndpointName}
         RpNamespace: Microsoft.IoTOperations
+    DataflowGraph:
+        ApiVersion: 2025-07-01-preview
+        SpecFilePath: specification/iotoperations/resource-manager/Microsoft.IoTOperations/preview/2025-07-01-preview/iotoperations.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/dataflowProfiles/{dataflowProfileName}/dataflowGraphs/{dataflowGraphName}
+        RpNamespace: Microsoft.IoTOperations
     DataflowProfile:
         ApiVersion: "2024-11-01"
         SpecFilePath: specification/iotoperations/resource-manager/Microsoft.IoTOperations/stable/2024-11-01/iotoperations.json
@@ -6981,6 +7126,11 @@ IoTOperations:
         ApiVersion: "2024-11-01"
         SpecFilePath: specification/iotoperations/resource-manager/Microsoft.IoTOperations/stable/2024-11-01/iotoperations.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}
+        RpNamespace: Microsoft.IoTOperations
+    RegistryEndpoint:
+        ApiVersion: 2025-07-01-preview
+        SpecFilePath: specification/iotoperations/resource-manager/Microsoft.IoTOperations/preview/2025-07-01-preview/iotoperations.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/registryEndpoints/{registryEndpointName}
         RpNamespace: Microsoft.IoTOperations
 IoTOperationsDataProcessor:
     Dataset:
@@ -7281,6 +7431,11 @@ LoadTestService:
         ApiVersion: 2023-12-01-preview
         SpecFilePath: specification/loadtestservice/resource-manager/Microsoft.LoadTestService/loadtesting/preview/2023-12-01-preview/loadtestservice.json
         ResourceUri: /{resourceUri}/providers/Microsoft.LoadTestService/loadTestProfileMappings/{loadTestProfileMappingName}
+        RpNamespace: Microsoft.LoadTestService
+    PlaywrightWorkspace:
+        ApiVersion: 2025-07-01-preview
+        SpecFilePath: specification/loadtestservice/resource-manager/Microsoft.LoadTestService/playwright/preview/2025-07-01-preview/playwright.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LoadTestService/playwrightWorkspaces/{playwrightWorkspaceName}
         RpNamespace: Microsoft.LoadTestService
 Logic:
     IntegrationAccount:
@@ -9817,6 +9972,11 @@ OnlineExperimentation:
         SpecFilePath: specification/onlineexperimentation/resource-manager/Microsoft.OnlineExperimentation/preview/2025-05-31-preview/OnlineExperimentationWorkspace.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OnlineExperimentation/workspaces/{workspaceName}
         RpNamespace: Microsoft.OnlineExperimentation
+    PrivateEndpointConnection:
+        ApiVersion: 2025-08-01-preview
+        SpecFilePath: specification/onlineexperimentation/resource-manager/Microsoft.OnlineExperimentation/preview/2025-08-01-preview/OnlineExperimentationWorkspace.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OnlineExperimentation/workspaces/{workspaceName}/privateEndpointConnections/{privateEndpointConnectionName}
+        RpNamespace: Microsoft.OnlineExperimentation
 OpenEnergyPlatform:
     EnergyService:
         ApiVersion: 2022-04-04-preview
@@ -11945,6 +12105,11 @@ Sql:
         ApiVersion: "2023-08-01"
         SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/stable/2023-08-01/TransparentDataEncryptions.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/transparentDataEncryption/{tdeName}
+        RpNamespace: Microsoft.Sql
+    VirtualCluster:
+        ApiVersion: 2024-11-01-preview
+        SpecFilePath: specification/sql/resource-manager/Microsoft.Sql/preview/2024-11-01-preview/VirtualClusters.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/virtualClusters/{virtualClusterName}
         RpNamespace: Microsoft.Sql
     VirtualNetworkRule:
         ApiVersion: "2023-08-01"

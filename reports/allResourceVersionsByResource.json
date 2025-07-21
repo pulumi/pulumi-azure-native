@@ -13177,7 +13177,8 @@
       "2022-10-01-preview",
       "2023-01-01-preview",
       "2024-01-01",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2025-05-01-preview"
     ],
     "Cluster": [
       "2018-01-01-preview",
@@ -13187,7 +13188,8 @@
       "2022-10-01-preview",
       "2023-01-01-preview",
       "2024-01-01",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2025-05-01-preview"
     ],
     "ConsumerGroup": [
       "2014-09-01",
@@ -13201,7 +13203,8 @@
       "2022-10-01-preview",
       "2023-01-01-preview",
       "2024-01-01",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2025-05-01-preview"
     ],
     "DisasterRecoveryConfig": [
       "2017-04-01",
@@ -13213,7 +13216,8 @@
       "2022-10-01-preview",
       "2023-01-01-preview",
       "2024-01-01",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2025-05-01-preview"
     ],
     "EventHub": [
       "2014-09-01",
@@ -13227,7 +13231,8 @@
       "2022-10-01-preview",
       "2023-01-01-preview",
       "2024-01-01",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2025-05-01-preview"
     ],
     "EventHubAuthorizationRule": [
       "2014-09-01",
@@ -13241,7 +13246,8 @@
       "2022-10-01-preview",
       "2023-01-01-preview",
       "2024-01-01",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2025-05-01-preview"
     ],
     "Namespace": [
       "2014-09-01",
@@ -13255,7 +13261,8 @@
       "2022-10-01-preview",
       "2023-01-01-preview",
       "2024-01-01",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2025-05-01-preview"
     ],
     "NamespaceAuthorizationRule": [
       "2014-09-01",
@@ -13269,7 +13276,8 @@
       "2022-10-01-preview",
       "2023-01-01-preview",
       "2024-01-01",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2025-05-01-preview"
     ],
     "NamespaceIpFilterRule": [
       "2018-01-01-preview"
@@ -13284,7 +13292,8 @@
       "2022-10-01-preview",
       "2023-01-01-preview",
       "2024-01-01",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2025-05-01-preview"
     ],
     "NamespaceVirtualNetworkRule": [
       "2018-01-01-preview"
@@ -13298,7 +13307,8 @@
       "2022-10-01-preview",
       "2023-01-01-preview",
       "2024-01-01",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2025-05-01-preview"
     ],
     "SchemaRegistry": [
       "2021-11-01",
@@ -13306,7 +13316,8 @@
       "2022-10-01-preview",
       "2023-01-01-preview",
       "2024-01-01",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2025-05-01-preview"
     ],
     "listDisasterRecoveryConfigKeys": [
       "2017-04-01",
@@ -13318,7 +13329,8 @@
       "2022-10-01-preview",
       "2023-01-01-preview",
       "2024-01-01",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2025-05-01-preview"
     ],
     "listEventHubKeys": [
       "2015-08-01",
@@ -13331,7 +13343,8 @@
       "2022-10-01-preview",
       "2023-01-01-preview",
       "2024-01-01",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2025-05-01-preview"
     ],
     "listNamespaceKeys": [
       "2015-08-01",
@@ -13344,7 +13357,8 @@
       "2022-10-01-preview",
       "2023-01-01-preview",
       "2024-01-01",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2025-05-01-preview"
     ]
   },
   "ExtendedLocation": {
@@ -23199,14 +23213,16 @@
       "2024-10-15-preview",
       "2024-12-18-preview",
       "2025-03-01",
-      "2025-03-15-preview"
+      "2025-03-15-preview",
+      "2025-07-15"
     ],
     "GroupQuotaSubscription": [
       "2023-06-01-preview",
       "2024-10-15-preview",
       "2024-12-18-preview",
       "2025-03-01",
-      "2025-03-15-preview"
+      "2025-03-15-preview",
+      "2025-07-15"
     ]
   },
   "RecommendationsService": {

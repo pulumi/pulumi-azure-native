@@ -2,9 +2,6 @@
   "AzureData": [
     "2019-07-24-preview"
   ],
-  "CloudHealth": [
-    "2025-05-01-preview"
-  ],
   "Cloudngfw": [
     "2025-02-06-preview"
   ],
@@ -22,6 +19,9 @@
   ],
   "DataCatalog": [
     "2016-03-30"
+  ],
+  "DelegatedNetwork": [
+    "2023-06-27-preview"
   ],
   "DevSpaces": [
     "2019-04-01"

@@ -52,6 +52,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "ModuleName": "AzureDataTransfer",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "ModuleName": "AzureLargeInstance",
     "Detail": "expected tracking stable but found preview"
   },
@@ -316,6 +320,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "ModuleName": "IoTOperations",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "ModuleName": "IoTOperationsDataProcessor",
     "Detail": "expected tracking stable but found preview"
   },
@@ -346,6 +354,10 @@
   {
     "ModuleName": "LoadTestService",
     "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "ModuleName": "LoadTestService",
+    "Detail": "expected no additions but found some"
   },
   {
     "ModuleName": "MachineLearning",
@@ -418,6 +430,10 @@
   {
     "ModuleName": "OnlineExperimentation",
     "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "ModuleName": "OnlineExperimentation",
+    "Detail": "expected no additions but found some"
   },
   {
     "ModuleName": "Orbital",
