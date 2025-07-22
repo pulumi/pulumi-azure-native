@@ -6328,6 +6328,20 @@
     "Property": "sharePassword"
   },
   {
+    "VersionedModule": "databox/v20250701",
+    "Module": "DataBox",
+    "ResourceName": "Job",
+    "ReferenceName": "DataAccountDetails",
+    "Property": "sharePassword"
+  },
+  {
+    "VersionedModule": "databox/v20250701",
+    "Module": "DataBox",
+    "ResourceName": "Job",
+    "ReferenceName": "DataAccountDetails",
+    "Property": "sharePassword"
+  },
+  {
     "VersionedModule": "datamigration",
     "Module": "DataMigration",
     "ResourceName": "DatabaseMigrationsSqlDb",
