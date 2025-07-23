@@ -10057,7 +10057,8 @@
       "2023-12-01",
       "2024-02-01-preview",
       "2024-03-01-preview",
-      "2025-02-01"
+      "2025-02-01",
+      "2025-07-01"
     ],
     "listJobCredentials": [
       "2018-01-01",
@@ -10076,7 +10077,8 @@
       "2023-12-01",
       "2024-02-01-preview",
       "2024-03-01-preview",
-      "2025-02-01"
+      "2025-02-01",
+      "2025-07-01"
     ]
   },
   "DataBoxEdge": {
@@ -17512,31 +17514,36 @@
       "2024-06-01-preview",
       "2024-07-01",
       "2024-10-01-preview",
-      "2025-04-01-preview"
+      "2025-04-01-preview",
+      "2025-07-01-preview"
     ],
     "MongoCluster": [
       "2024-03-01-preview",
       "2024-06-01-preview",
       "2024-07-01",
       "2024-10-01-preview",
-      "2025-04-01-preview"
+      "2025-04-01-preview",
+      "2025-07-01-preview"
     ],
     "PrivateEndpointConnection": [
       "2024-03-01-preview",
       "2024-06-01-preview",
       "2024-07-01",
       "2024-10-01-preview",
-      "2025-04-01-preview"
+      "2025-04-01-preview",
+      "2025-07-01-preview"
     ],
     "User": [
-      "2025-04-01-preview"
+      "2025-04-01-preview",
+      "2025-07-01-preview"
     ],
     "listMongoClusterConnectionStrings": [
       "2024-03-01-preview",
       "2024-06-01-preview",
       "2024-07-01",
       "2024-10-01-preview",
-      "2025-04-01-preview"
+      "2025-04-01-preview",
+      "2025-07-01-preview"
     ]
   },
   "Monitor": {
@@ -24713,6 +24720,12 @@
     ],
     "Pricing": [
       "2024-01-01"
+    ],
+    "PrivateEndpointConnection": [
+      "2025-09-01-preview"
+    ],
+    "PrivateLink": [
+      "2025-09-01-preview"
     ],
     "SecurityConnector": [
       "2021-07-01-preview",
