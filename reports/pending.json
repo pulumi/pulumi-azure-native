@@ -184,7 +184,8 @@
   ],
   "CloudHealth": [],
   "Cloudngfw": [
-    "2025-05-23"
+    "2025-05-23",
+    "2025-07-07-preview"
   ],
   "CodeSigning": [],
   "CognitiveServices": [
@@ -482,7 +483,8 @@
     "2024-11-01-preview"
   ],
   "DataBox": [
-    "2025-02-01"
+    "2025-02-01",
+    "2025-07-01"
   ],
   "DataBoxEdge": [
     "2023-12-01"
@@ -852,7 +854,8 @@
   ],
   "MongoCluster": [
     "2024-10-01-preview",
-    "2025-04-01-preview"
+    "2025-04-01-preview",
+    "2025-07-01-preview"
   ],
   "Monitor": [
     "2018-04-16",
@@ -1144,7 +1147,8 @@
     "2025-01-01",
     "2025-02-01-preview",
     "2025-03-01",
-    "2025-05-04-preview"
+    "2025-05-04-preview",
+    "2025-09-01-preview"
   ],
   "SecurityAndCompliance": [],
   "SecurityInsights": [
