@@ -1,3 +1,4 @@
+permissions: write-all # Equivalent to default permissions plus id-token: write
 # This workflow runs the standard (full) CI test suite once a day or on demand,
 # using the legacy autorest backend.
 name: autorest-scheduled
