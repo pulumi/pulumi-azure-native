@@ -1025,6 +1025,8 @@ Migrate:
         - modulename: Migrate
           resourcename: AssessmentsOperation
           detail: version 2024-01-15 is greater than 2023-03-15
+Mission:
+    tracking: 2024-12-01-preview
 MixedReality:
     tracking: 2021-03-01-preview
 MobileNetwork:

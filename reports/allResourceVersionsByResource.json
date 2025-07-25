@@ -5460,7 +5460,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "CertificateObjectLocalRulestack": [
       "2022-08-29",
@@ -5471,7 +5472,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "Firewall": [
       "2022-08-29",
@@ -5482,7 +5484,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "FqdnListGlobalRulestack": [
       "2022-08-29",
@@ -5493,7 +5496,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "FqdnListLocalRulestack": [
       "2022-08-29",
@@ -5504,7 +5508,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "GlobalRulestack": [
       "2022-08-29",
@@ -5515,7 +5520,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "LocalRule": [
       "2022-08-29",
@@ -5526,7 +5532,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "LocalRulestack": [
       "2022-08-29",
@@ -5537,7 +5544,11 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
+    ],
+    "MetricsObjectFirewall": [
+      "2025-07-07-preview"
     ],
     "PostRule": [
       "2022-08-29",
@@ -5548,7 +5559,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "PreRule": [
       "2022-08-29",
@@ -5559,7 +5571,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "PrefixListGlobalRulestack": [
       "2022-08-29",
@@ -5570,7 +5583,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "PrefixListLocalRulestack": [
       "2022-08-29",
@@ -5581,7 +5595,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "getFirewallGlobalRulestack": [
       "2022-08-29",
@@ -5592,7 +5607,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "getFirewallLogProfile": [
       "2022-08-29",
@@ -5603,7 +5619,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "getFirewallSupportInfo": [
       "2022-08-29",
@@ -5614,7 +5631,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "getGlobalRulestackChangeLog": [
       "2022-08-29",
@@ -5625,7 +5643,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "getLocalRuleCounters": [
       "2022-08-29",
@@ -5636,7 +5655,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "getLocalRulestackChangeLog": [
       "2022-08-29",
@@ -5647,7 +5667,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "getLocalRulestackSupportInfo": [
       "2022-08-29",
@@ -5658,7 +5679,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "getPostRuleCounters": [
       "2022-08-29",
@@ -5669,7 +5691,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "getPreRuleCounters": [
       "2022-08-29",
@@ -5680,7 +5703,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "listGlobalRulestackAdvancedSecurityObjects": [
       "2022-08-29",
@@ -5691,7 +5715,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "listGlobalRulestackAppIds": [
       "2022-08-29",
@@ -5702,7 +5727,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "listGlobalRulestackCountries": [
       "2022-08-29",
@@ -5713,7 +5739,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "listGlobalRulestackFirewalls": [
       "2022-08-29",
@@ -5724,7 +5751,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "listGlobalRulestackPredefinedUrlCategories": [
       "2022-08-29",
@@ -5735,7 +5763,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "listGlobalRulestackSecurityServices": [
       "2022-08-29",
@@ -5746,7 +5775,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "listLocalRulestackAdvancedSecurityObjects": [
       "2022-08-29",
@@ -5757,7 +5787,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "listLocalRulestackAppIds": [
       "2022-08-29",
@@ -5768,7 +5799,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "listLocalRulestackCountries": [
       "2022-08-29",
@@ -5779,7 +5811,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "listLocalRulestackFirewalls": [
       "2022-08-29",
@@ -5790,7 +5823,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "listLocalRulestackPredefinedUrlCategories": [
       "2022-08-29",
@@ -5801,7 +5835,8 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "listLocalRulestackSecurityServices": [
       "2022-08-29",
@@ -5812,20 +5847,24 @@
       "2024-01-19-preview",
       "2024-02-07-preview",
       "2025-02-06-preview",
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "listPaloAltoNetworksCloudngfwCloudManagerTenants": [
       "2024-02-07-preview",
       "2025-02-06-preview"
     ],
     "listPaloAltoNetworksCloudngfwOperationCloudManagerTenants": [
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "listPaloAltoNetworksCloudngfwOperationProductSerialNumberStatus": [
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "listPaloAltoNetworksCloudngfwOperationSupportInfo": [
-      "2025-05-23"
+      "2025-05-23",
+      "2025-07-07-preview"
     ],
     "listPaloAltoNetworksCloudngfwProductSerialNumberStatus": [
       "2024-02-07-preview",
@@ -10057,7 +10096,8 @@
       "2023-12-01",
       "2024-02-01-preview",
       "2024-03-01-preview",
-      "2025-02-01"
+      "2025-02-01",
+      "2025-07-01"
     ],
     "listJobCredentials": [
       "2018-01-01",
@@ -10076,7 +10116,8 @@
       "2023-12-01",
       "2024-02-01-preview",
       "2024-03-01-preview",
-      "2025-02-01"
+      "2025-02-01",
+      "2025-07-01"
     ]
   },
   "DataBoxEdge": {
@@ -17354,6 +17395,48 @@
       "2022-05-01-preview"
     ]
   },
+  "Mission": {
+    "Approval": [
+      "2024-06-01-preview",
+      "2024-12-01-preview",
+      "2025-05-01-preview"
+    ],
+    "Community": [
+      "2024-06-01-preview",
+      "2024-12-01-preview",
+      "2025-05-01-preview"
+    ],
+    "CommunityEndpoint": [
+      "2024-06-01-preview",
+      "2024-12-01-preview",
+      "2025-05-01-preview"
+    ],
+    "EnclaveConnection": [
+      "2024-06-01-preview",
+      "2024-12-01-preview",
+      "2025-05-01-preview"
+    ],
+    "EnclaveEndpoint": [
+      "2024-06-01-preview",
+      "2024-12-01-preview",
+      "2025-05-01-preview"
+    ],
+    "TransitHub": [
+      "2024-06-01-preview",
+      "2024-12-01-preview",
+      "2025-05-01-preview"
+    ],
+    "VirtualEnclave": [
+      "2024-06-01-preview",
+      "2024-12-01-preview",
+      "2025-05-01-preview"
+    ],
+    "Workload": [
+      "2024-06-01-preview",
+      "2024-12-01-preview",
+      "2025-05-01-preview"
+    ]
+  },
   "MixedReality": {
     "ObjectAnchorsAccount": [
       "2021-03-01-preview"
@@ -17512,31 +17595,36 @@
       "2024-06-01-preview",
       "2024-07-01",
       "2024-10-01-preview",
-      "2025-04-01-preview"
+      "2025-04-01-preview",
+      "2025-07-01-preview"
     ],
     "MongoCluster": [
       "2024-03-01-preview",
       "2024-06-01-preview",
       "2024-07-01",
       "2024-10-01-preview",
-      "2025-04-01-preview"
+      "2025-04-01-preview",
+      "2025-07-01-preview"
     ],
     "PrivateEndpointConnection": [
       "2024-03-01-preview",
       "2024-06-01-preview",
       "2024-07-01",
       "2024-10-01-preview",
-      "2025-04-01-preview"
+      "2025-04-01-preview",
+      "2025-07-01-preview"
     ],
     "User": [
-      "2025-04-01-preview"
+      "2025-04-01-preview",
+      "2025-07-01-preview"
     ],
     "listMongoClusterConnectionStrings": [
       "2024-03-01-preview",
       "2024-06-01-preview",
       "2024-07-01",
       "2024-10-01-preview",
-      "2025-04-01-preview"
+      "2025-04-01-preview",
+      "2025-07-01-preview"
     ]
   },
   "Monitor": {
@@ -24713,6 +24801,12 @@
     ],
     "Pricing": [
       "2024-01-01"
+    ],
+    "PrivateEndpointConnection": [
+      "2025-09-01-preview"
+    ],
+    "PrivateLink": [
+      "2025-09-01-preview"
     ],
     "SecurityConnector": [
       "2021-07-01-preview",

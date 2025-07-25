@@ -388,6 +388,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "ModuleName": "Mission",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "ModuleName": "MixedReality",
     "Detail": "expected tracking stable but found preview"
   },
