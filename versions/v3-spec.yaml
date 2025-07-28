@@ -592,6 +592,21 @@ DBforPostgreSQL:
         - modulename: DBforPostgreSQL
           resourcename: Server
           detail: version 2025-01-01-preview is greater than 2017-12-01
+        - modulename: DBforPostgreSQL
+          resourcename: Configuration
+          detail: version 2025-06-01-preview is greater than 2017-12-01
+        - modulename: DBforPostgreSQL
+          resourcename: Database
+          detail: version 2025-06-01-preview is greater than 2017-12-01
+        - modulename: DBforPostgreSQL
+          resourcename: FirewallRule
+          detail: version 2025-06-01-preview is greater than 2017-12-01
+        - modulename: DBforPostgreSQL
+          resourcename: PrivateEndpointConnection
+          detail: version 2025-06-01-preview is greater than 2018-06-01
+        - modulename: DBforPostgreSQL
+          resourcename: Server
+          detail: version 2025-06-01-preview is greater than 2017-12-01
 Dashboard:
     tracking: "2024-10-01"
     additions:
@@ -1025,6 +1040,8 @@ Migrate:
         - modulename: Migrate
           resourcename: AssessmentsOperation
           detail: version 2024-01-15 is greater than 2023-03-15
+Mission:
+    tracking: 2024-12-01-preview
 MixedReality:
     tracking: 2021-03-01-preview
 MobileNetwork:
@@ -1430,6 +1447,8 @@ Security:
         IotSecuritySolution: "2019-08-01"
         JitNetworkAccessPolicy: "2020-01-01"
         Pricing: "2024-01-01"
+        PrivateEndpointConnection: 2025-09-01-preview
+        PrivateLink: 2025-09-01-preview
         SecurityConnector: 2024-08-01-preview
         SecurityConnectorApplication: 2022-07-01-preview
         SecurityContact: 2023-12-01-preview
