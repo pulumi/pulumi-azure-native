@@ -3857,6 +3857,11 @@ ContainerService:
         SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/preview/2024-05-02-preview/fleets.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateStrategies/{updateStrategyName}
         RpNamespace: Microsoft.ContainerService
+    IdentityBinding:
+        ApiVersion: 2025-06-02-preview
+        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/preview/2025-06-02-preview/managedClusters.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/identityBindings/{identityBindingName}
+        RpNamespace: Microsoft.ContainerService
     LoadBalancer:
         ApiVersion: 2024-10-02-preview
         SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/preview/2024-10-02-preview/managedClusters.json
@@ -8599,6 +8604,47 @@ Migrate:
         SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/MordernizeProjects/preview/2022-05-01-preview/migrateEngine.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/modernizeProjects/{modernizeProjectName}/workloadDeployments/{workloadDeploymentName}/getSecrets
         RpNamespace: Microsoft.Migrate
+Mission:
+    Approval:
+        ApiVersion: 2024-12-01-preview
+        SpecFilePath: specification/mission/resource-manager/Microsoft.Mission/preview/2024-12-01-preview/openapi.json
+        ResourceUri: /{resourceUri}/providers/Microsoft.Mission/approvals/{approvalName}
+        RpNamespace: Microsoft.Mission
+    Community:
+        ApiVersion: 2024-12-01-preview
+        SpecFilePath: specification/mission/resource-manager/Microsoft.Mission/preview/2024-12-01-preview/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/communities/{communityName}
+        RpNamespace: Microsoft.Mission
+    CommunityEndpoint:
+        ApiVersion: 2024-12-01-preview
+        SpecFilePath: specification/mission/resource-manager/Microsoft.Mission/preview/2024-12-01-preview/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/communities/{communityName}/communityEndpoints/{communityEndpointName}
+        RpNamespace: Microsoft.Mission
+    EnclaveConnection:
+        ApiVersion: 2024-12-01-preview
+        SpecFilePath: specification/mission/resource-manager/Microsoft.Mission/preview/2024-12-01-preview/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/enclaveConnections/{enclaveConnectionName}
+        RpNamespace: Microsoft.Mission
+    EnclaveEndpoint:
+        ApiVersion: 2024-12-01-preview
+        SpecFilePath: specification/mission/resource-manager/Microsoft.Mission/preview/2024-12-01-preview/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/virtualEnclaves/{virtualEnclaveName}/enclaveEndpoints/{enclaveEndpointName}
+        RpNamespace: Microsoft.Mission
+    TransitHub:
+        ApiVersion: 2024-12-01-preview
+        SpecFilePath: specification/mission/resource-manager/Microsoft.Mission/preview/2024-12-01-preview/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/communities/{communityName}/transitHubs/{transitHubName}
+        RpNamespace: Microsoft.Mission
+    VirtualEnclave:
+        ApiVersion: 2024-12-01-preview
+        SpecFilePath: specification/mission/resource-manager/Microsoft.Mission/preview/2024-12-01-preview/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/virtualEnclaves/{virtualEnclaveName}
+        RpNamespace: Microsoft.Mission
+    Workload:
+        ApiVersion: 2024-12-01-preview
+        SpecFilePath: specification/mission/resource-manager/Microsoft.Mission/preview/2024-12-01-preview/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/virtualEnclaves/{virtualEnclaveName}/workloads/{workloadName}
+        RpNamespace: Microsoft.Mission
 MixedReality:
     ObjectAnchorsAccount:
         ApiVersion: 2021-03-01-preview
@@ -11107,6 +11153,16 @@ Security:
         ApiVersion: "2024-01-01"
         SpecFilePath: specification/security/resource-manager/Microsoft.Security/stable/2024-01-01/pricings.json
         ResourceUri: /{scopeId}/providers/Microsoft.Security/pricings/{pricingName}
+        RpNamespace: Microsoft.Security
+    PrivateEndpointConnection:
+        ApiVersion: 2025-09-01-preview
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/preview/2025-09-01-preview/privateLinks.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/privateLinks/{privateLinkName}/privateEndpointConnections/{privateEndpointConnectionName}
+        RpNamespace: Microsoft.Security
+    PrivateLink:
+        ApiVersion: 2025-09-01-preview
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/preview/2025-09-01-preview/privateLinks.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/privateLinks/{privateLinkName}
         RpNamespace: Microsoft.Security
     SecurityConnector:
         ApiVersion: 2024-08-01-preview
