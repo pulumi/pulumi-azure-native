@@ -99,6 +99,77 @@ func TestPathParamsErrorHandling(t *testing.T) {
 	})
 }
 
+func TestPathParamEncoding(t *testing.T) {
+
+	t.Run("path encoding", func(t *testing.T) {
+		tests := []struct {
+			p1       string
+			expected string
+		}{
+			{
+				p1:       "my-value",
+				expected: "/path/my-value",
+			},
+			{
+				p1:       "my-value with space and /",
+				expected: "/path/my-value%20with%20space%20and%20%2F",
+			},
+		}
+
+		for _, tt := range tests {
+			t.Run(tt.p1, func(t *testing.T) {
+				id, _, err := PrepareAzureRESTIdAndQuery("/path/{p1}",
+					[]resources.AzureAPIParameter{
+						{
+							Name:            "p1",
+							Location:        "path",
+							Value:           &resources.AzureAPIProperty{Type: "string"},
+							SkipUrlEncoding: false,
+						},
+					}, map[string]any{
+						"p1": tt.p1,
+					}, nil)
+				require.NoError(t, err)
+				assert.Equal(t, tt.expected, id)
+			})
+		}
+	})
+
+	t.Run("skip url encoding", func(t *testing.T) {
+		tests := []struct {
+			scope    string
+			expected string
+		}{
+			{
+				scope:    "subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group",
+				expected: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/path",
+			},
+			{
+				scope:    "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group",
+				expected: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/path",
+			},
+		}
+
+		for _, tt := range tests {
+			t.Run(tt.scope, func(t *testing.T) {
+				id, _, err := PrepareAzureRESTIdAndQuery("/{scope}/path",
+					[]resources.AzureAPIParameter{
+						{
+							Name:            "scope",
+							Location:        "path",
+							Value:           &resources.AzureAPIProperty{Type: "string"},
+							SkipUrlEncoding: true,
+						},
+					}, map[string]any{
+						"scope": tt.scope,
+					}, nil)
+				require.NoError(t, err)
+				assert.Equal(t, tt.expected, id)
+			})
+		}
+	})
+}
+
 func TestCanCreate_RequestUrls(t *testing.T) {
 	const resourceId = "/subscriptions/123/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm"
 

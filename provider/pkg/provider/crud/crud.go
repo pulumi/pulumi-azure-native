@@ -164,6 +164,25 @@ func PrepareAzureRESTIdAndQuery(path string, parameters []resources.AzureAPIPara
 		if !has {
 			val, has = clientInputs[sdkName]
 		}
+		if !has {
+			continue
+		}
+		if param.Location == "path" {
+			encodedVal, isString := val.(string)
+			if !isString {
+				return "", nil, errors.Errorf("expected string value for path parameter '%s', got %T", sdkName, val)
+			}
+			// Most path parameters correspond to a path component, and must be path-encoded.
+			// Parameters that are marked as SkipUrlEncoding represent sub-paths (containing slashes) and need not be encoded.
+			if !param.SkipUrlEncoding {
+				encodedVal = url.PathEscape(encodedVal)
+			} else {
+				// Trim leading and trailing slashes, to fit well into paths like "/{scope}/" or "/{resourceUri}/".
+				// This allows the caller to pass a resource ID (likely containing a leading slash) as the scope.
+				encodedVal = strings.Trim(encodedVal, "/")
+			}
+			val = encodedVal
+		}
 		if has {
 			params[param.Location][param.Name] = val
 		}
@@ -172,12 +191,8 @@ func PrepareAzureRESTIdAndQuery(path string, parameters []resources.AzureAPIPara
 	// Calculate resource ID based on path parameter values.
 	id := path
 	for key, value := range params["path"] {
-		strVal, isString := value.(string)
-		if !isString {
-			return "", nil, errors.Errorf("expected string value for path parameter '%s', got %T", key, value)
-		}
-		encodedVal := strings.Replace(url.QueryEscape(strVal), "+", "%20", -1)
-		id = strings.Replace(id, "{"+key+"}", encodedVal, -1)
+		strVal, _ := value.(string)
+		id = strings.ReplaceAll(id, "{"+key+"}", strVal)
 	}
 
 	return id, params["query"], nil
