@@ -22,12 +22,7 @@ import (
 
 // newTokenCredential is the main entry to the new azcore/azidentity-based authenticattion stack. It returns a
 // TokenCredential which can be passed into various Azure Go SDKs.
-func (k *azureNativeProvider) newTokenCredential() (azcore.TokenCredential, error) {
-	authConf, err := k.readAuthConfig()
-	if err != nil {
-		return nil, err
-	}
-
+func (k *azureNativeProvider) newTokenCredential(authConf *authConfiguration) (azcore.TokenCredential, error) {
 	return newSingleMethodAuthCredential(authConf)
 }
 
@@ -255,6 +250,8 @@ type authConfiguration struct {
 	// automatically:
 	// https://github.com/Azure/azure-sdk-for-go/blob/sdk/azidentity/v1.8.0/sdk/azidentity/managed_identity_client.go#L143
 	useMsi bool
+
+	subscriptionID string
 }
 
 // getAuthConfig collects auth-related configuration from Pulumi config and environment variables
@@ -268,11 +265,13 @@ func (k *azureNativeProvider) readAuthConfig() (*authConfiguration, error) {
 		}
 	}
 
+	cloud := azcloud.AzurePublic // TODO
+
 	return &authConfiguration{
 		clientId:   k.getConfig("clientId", "ARM_CLIENT_ID"),
 		tenantId:   k.getConfig("tenantId", "ARM_TENANT_ID"),
 		auxTenants: auxTenants,
-		cloud:      k.cloud,
+		cloud:      cloud,
 
 		clientSecret:       k.getConfig("clientSecret", "ARM_CLIENT_SECRET"),
 		clientCertPath:     k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH"),
@@ -286,5 +285,7 @@ func (k *azureNativeProvider) readAuthConfig() (*authConfiguration, error) {
 		oidcTokenFilePath:     k.getConfig("oidcTokenFilePath", "ARM_OIDC_TOKEN_FILE_PATH"),
 		oidcTokenRequestToken: k.getConfig("oidcRequestToken", "ACTIONS_ID_TOKEN_REQUEST_TOKEN"),
 		oidcTokenRequestUrl:   k.getConfig("oidcRequestUrl", "ACTIONS_ID_TOKEN_REQUEST_URL"),
+
+		subscriptionID: k.getConfig("subscriptionId", "ARM_SUBSCRIPTION_ID"),
 	}, nil
 }

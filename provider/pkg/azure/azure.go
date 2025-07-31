@@ -14,23 +14,31 @@ import (
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/azure"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
 // BuildUserAgent composes a User Agent string with the provided partner ID.
+// see: https://azure.github.io/azure-sdk/general_azurecore.html#telemetry-policy
 func BuildUserAgent(partnerID string) (userAgent string) {
-	userAgent = strings.TrimSpace(fmt.Sprintf("%s pulumi-azure-native/%s",
-		autorest.UserAgent(), version.Version))
+	if util.EnableAzcoreBackend() {
+		// azure-sdk-for-go sets a user agent string as per the telemetry policy.
+		// e.g. pulumi-azure-native/3.0.0 azsdk-go-azcore/1.0.0 go/1.16.5 (darwin; amd64)
+		// Anything we add here will be appended to that.
+	} else {
+		userAgent = strings.TrimSpace(fmt.Sprintf("%s pulumi-azure-native/%s",
+			autorest.UserAgent(), version.Version))
+	}
 
 	// append the CloudShell version to the user agent if it exists
 	if azureAgent := os.Getenv("AZURE_HTTP_USER_AGENT"); azureAgent != "" {
-		userAgent = fmt.Sprintf("%s %s", userAgent, azureAgent)
+		userAgent = strings.TrimSpace(fmt.Sprintf("%s %s", userAgent, azureAgent))
 	}
 
 	// Append partner ID, if it's defined.
 	if partnerID != "" {
-		userAgent = fmt.Sprintf("%s pid-%s", userAgent, partnerID)
+		userAgent = strings.TrimSpace(fmt.Sprintf("%s pid-%s", userAgent, partnerID))
 	}
 
 	logging.V(9).Infof("AzureNative User Agent: %s", userAgent)

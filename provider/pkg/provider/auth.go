@@ -32,16 +32,16 @@ type authConfig struct {
 	useCli bool
 }
 
-func (a *authConfig) autorestEnvironment() (azureEnv.Environment, error) {
+func (a *authConfig) autorestEnvironment() (*azureEnv.Environment, error) {
 	envName := a.Environment
 	env, err := azureEnv.EnvironmentFromName(envName)
 	if err != nil {
 		env, err = azureEnv.EnvironmentFromName(fmt.Sprintf("AZURE%sCLOUD", envName))
 		if err != nil {
-			return azureEnv.Environment{}, errors.Wrapf(err, "environment %q was not found", envName)
+			return nil, errors.Wrapf(err, "environment %q was not found", envName)
 		}
 	}
-	return env, nil
+	return &env, nil
 }
 
 func (a *authConfig) cloud() azcloud.Configuration {
@@ -321,7 +321,12 @@ func (k *azureNativeProvider) getOAuthToken(ctx context.Context, auth *authConfi
 		return "", err
 	}
 
-	api := k.autorestEnvToHamiltonEnv().ResourceManager
+	environment, err := auth.autorestEnvironment()
+	if err != nil {
+		return "", err
+	}
+
+	api := autorestEnvToHamiltonEnv(environment).ResourceManager
 
 	var authorizer autorest.Authorizer
 	if auth.useCli {
