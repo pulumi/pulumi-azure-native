@@ -2,7 +2,7 @@
 
 ## Notice (2023-04-12)
 
-*As of this notice, using CHANGELOG.md is DEPRECATED. We will be using [GitHub Releases](https://github.com/pulumi/pulumi-aws/releases) for this repository.*
+*As of this notice, using CHANGELOG.md is DEPRECATED. We will be using [GitHub Releases](https://github.com/pulumi/pulumi-azure-native/releases) for this repository.*
 
 ## 1.96.0 (2023-02-24)
 
