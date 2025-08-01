@@ -11,6 +11,7 @@ func TestIsDefaultResponseTrue(t *testing.T) {
 	c := getMockConverter()
 	response := map[string]interface{}{
 		"p1":             true,
+		"p2":             false, // false bools are always considered default
 		"name":           "foo",
 		"irrelevantBool": false,
 		"untypedDict": map[string]interface{}{
