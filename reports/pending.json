@@ -184,7 +184,8 @@
   ],
   "CloudHealth": [],
   "Cloudngfw": [
-    "2025-05-23"
+    "2025-05-23",
+    "2025-07-07-preview"
   ],
   "CodeSigning": [],
   "CognitiveServices": [
@@ -221,7 +222,9 @@
     "2024-09-19-preview",
     "2025-06-10-preview"
   ],
-  "Confluent": [],
+  "Confluent": [
+    "2025-07-17-preview"
+  ],
   "ConnectedCache": [
     "2024-11-30-preview"
   ],
@@ -339,9 +342,11 @@
     "2025-03-01",
     "2025-03-02-preview",
     "2025-04-01",
+    "2025-04-01-preview",
     "2025-04-02-preview",
     "2025-05-01",
-    "2025-05-02-preview"
+    "2025-05-02-preview",
+    "2025-06-02-preview"
   ],
   "ContainerStorage": [],
   "Contoso": [],
@@ -476,13 +481,15 @@
     "2024-03-01-preview",
     "2024-08-01",
     "2024-11-01-preview",
-    "2025-01-01-preview"
+    "2025-01-01-preview",
+    "2025-06-01-preview"
   ],
   "Dashboard": [
     "2024-11-01-preview"
   ],
   "DataBox": [
-    "2025-02-01"
+    "2025-02-01",
+    "2025-07-01"
   ],
   "DataBoxEdge": [
     "2023-12-01"
@@ -607,6 +614,7 @@
     "2025-01-15-preview"
   ],
   "Features": [],
+  "FileShares": [],
   "FluidRelay": [],
   "FrontDoor": [
     "2020-01-01",
@@ -714,7 +722,8 @@
     "2024-06-01-preview",
     "2024-07-01-preview",
     "2024-07-15-preview",
-    "2024-12-01-preview"
+    "2024-12-01-preview",
+    "2025-08-01-preview"
   ],
   "KubernetesConfiguration": [
     "2022-07-01",
@@ -840,6 +849,7 @@
     "2024-01-15",
     "2024-03-03-preview"
   ],
+  "Mission": [],
   "MixedReality": [
     "2025-01-01"
   ],
@@ -852,7 +862,8 @@
   ],
   "MongoCluster": [
     "2024-10-01-preview",
-    "2025-04-01-preview"
+    "2025-04-01-preview",
+    "2025-07-01-preview"
   ],
   "Monitor": [
     "2018-04-16",
@@ -891,7 +902,8 @@
     "2023-12-01",
     "2024-01-01-preview",
     "2024-10-01-preview",
-    "2025-01-01-preview"
+    "2025-01-01-preview",
+    "2025-05-03-preview"
   ],
   "MySQLDiscovery": [],
   "NetApp": [
@@ -1144,7 +1156,8 @@
     "2025-01-01",
     "2025-02-01-preview",
     "2025-03-01",
-    "2025-05-04-preview"
+    "2025-05-04-preview",
+    "2025-09-01-preview"
   ],
   "SecurityAndCompliance": [],
   "SecurityInsights": [
@@ -1163,7 +1176,8 @@
     "2025-01-01-preview",
     "2025-03-01",
     "2025-04-01-preview",
-    "2025-06-01"
+    "2025-06-01",
+    "2025-07-01-preview"
   ],
   "SerialConsole": [],
   "ServiceBus": [
@@ -1173,7 +1187,8 @@
     "2022-01-01-preview",
     "2022-10-01-preview",
     "2023-01-01-preview",
-    "2024-01-01"
+    "2024-01-01",
+    "2025-05-01-preview"
   ],
   "ServiceFabric": [
     "2024-06-01-preview",
