@@ -18,7 +18,8 @@ func (k *SdkShapeConverter) IsDefaultResponse(putParameters []resources.AzureAPI
 	for _, param := range putParameters {
 		if param.Location == body {
 			for key, value := range k.ResponseBodyToSdkOutputs(param.Body.Properties, response) {
-				if !isDefaultValue(value, defaultBody, key) {
+				defaultValue, _ := defaultBody[key]
+				if !isDefaultValue(value, defaultValue) {
 					return false
 				}
 			}
@@ -27,7 +28,7 @@ func (k *SdkShapeConverter) IsDefaultResponse(putParameters []resources.AzureAPI
 	return true
 }
 
-func isDefaultValue(value any, defaultBody map[string]interface{}, key string) bool {
+func isDefaultValue(value any, defaultValue any) bool {
 	switch reflect.TypeOf(value).Kind() {
 	case reflect.Slice, reflect.Array:
 		collection := reflect.ValueOf(value)
@@ -40,24 +41,24 @@ func isDefaultValue(value any, defaultBody map[string]interface{}, key string) b
 		for iter.Next() {
 			mk := iter.Key().String()
 			mv := iter.Value().Interface()
-			defaultMap, ok := defaultBody[key].(map[string]interface{})
+			defaultMap, ok := defaultValue.(map[string]interface{})
 			if !ok {
 				return false
 			}
-			_, has := defaultMap[mk]
-			if !has || !isDefaultValue(mv, defaultMap, mk) {
+			defaultValue, has := defaultMap[mk]
+			if !has || !isDefaultValue(mv, defaultValue) {
 				return false
 			}
 		}
 	case reflect.Bool:
 		b := value.(bool)
-		if b && defaultBody[key] != value {
+		if b && defaultValue != value {
 			return false
 		}
 	default:
 		// `*` default body means that we want to accept any value there.
 		// It's used for values that are determined dynamically by Azure API.
-		if defaultBody[key] != value && defaultBody[key] != "*" {
+		if defaultValue != value && defaultValue != "*" {
 			return false
 		}
 	}
