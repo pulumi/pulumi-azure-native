@@ -18,8 +18,8 @@ func (k *SdkShapeConverter) IsDefaultResponse(putParameters []resources.AzureAPI
 	for _, param := range putParameters {
 		if param.Location == body {
 			for key, value := range k.ResponseBodyToSdkOutputs(param.Body.Properties, response) {
-				defaultValue, ok := defaultBody[key]
-				if !ok || !isDefaultValue(value, defaultValue) {
+				defaultValue, _ := defaultBody[key]
+				if !isDefaultValue(value, defaultValue) {
 					return false
 				}
 			}
