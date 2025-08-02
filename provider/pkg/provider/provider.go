@@ -56,6 +56,9 @@ const (
 type azureNativeProvider struct {
 	rpc.UnimplementedResourceProviderServer
 
+	authConfig authConfiguration
+	credential *azAccount
+
 	azureClient    azure.AzureClient
 	host           *provider.HostClient
 	name           string
@@ -206,22 +209,24 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	if util.EnableAzcoreBackend() {
 		logging.V(9).Infof("Using azcore authentication")
 
-		authConfig, err := k.readAuthConfig()
+		authConfig, err := readAuthConfig(k.getConfig)
 		if err != nil {
 			return nil, err
 		}
+		k.authConfig = *authConfig
 
-		k.cloud = authConfig.cloud
-
-		k.subscriptionID = authConfig.subscriptionID
-
-		credential, err := k.newTokenCredential(authConfig)
+		clientOpts := azcore.ClientOptions{}
+		credential, err := NewAzCoreIdentity(ctx, authConfig, clientOpts)
 		if err != nil {
-			return nil, fmt.Errorf("creating Pulumi auth credential: %w", err)
+			return nil, err
 		}
+		k.credential = credential
+		k.cloud = credential.Cloud
+		k.subscriptionID = credential.SubscriptionId
+
 		k.azureClient, err = azure.NewAzCoreClient(credential, userAgent, k.cloud, nil)
 		if err != nil {
-			return nil, fmt.Errorf("creating Azure client: %w", err)
+			return nil, err
 		}
 
 		// When the provider is parameterized, resources and types that custom resources are built on will probably not be available.
@@ -246,9 +251,8 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 		if err != nil {
 			return nil, err
 		}
-
+		k.environment = environment
 		k.cloud = authConfig.cloud()
-
 		k.subscriptionID = authConfig.SubscriptionID
 
 		hamiltonEnv := autorestEnvToHamiltonEnv(environment)
@@ -313,24 +317,13 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 	var outputs map[string]interface{}
 	switch req.Tok {
 	case "azure-native:authorization:getClientConfig":
-		auth, err := k.getAuthConfig()
+		auth, err := k.getClientConfig(ctx)
 		if err != nil {
-			return nil, fmt.Errorf("getting auth config: %w", err)
-		}
-		objectId := ""
-		if auth.GetAuthenticatedObjectID != nil {
-			objectIdPtr, err := auth.GetAuthenticatedObjectID(ctx)
-			if err != nil {
-				return nil, fmt.Errorf("getting authenticated object ID: %w", err)
-			}
-			if objectIdPtr == nil {
-				return nil, fmt.Errorf("getting authenticated object ID")
-			}
-			objectId = *objectIdPtr
+			return nil, fmt.Errorf("getting client config: %w", err)
 		}
 		outputs = map[string]interface{}{
 			"clientId":       auth.ClientID,
-			"objectId":       objectId,
+			"objectId":       auth.ObjectID,
 			"subscriptionId": auth.SubscriptionID,
 			"tenantId":       auth.TenantID,
 		}
@@ -403,19 +396,16 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 	return &rpc.InvokeResponse{Return: result}, nil
 }
 
+func (k *azureNativeProvider) getClientConfig(ctx context.Context) (*ClientConfig, error) {
+	return GetClientConfig(ctx, &k.authConfig, k.credential)
+}
+
 func (k *azureNativeProvider) getClientToken(ctx context.Context, endpointArg resource.PropertyValue) (string, error) {
 	endpoint := k.tokenEndpoint(endpointArg)
+	logging.V(9).Infof("getting a token credential for %s", endpoint)
 
 	if util.EnableAzcoreBackend() {
-		authConf, err := k.readAuthConfig()
-		if err != nil {
-			return "", err
-		}
-		cred, err := k.newTokenCredential(authConf)
-		if err != nil {
-			return "", err
-		}
-		t, err := cred.GetToken(ctx, tokenRequestOpts(endpoint))
+		t, err := k.credential.GetToken(ctx, tokenRequestOpts(endpoint))
 		if err != nil {
 			return "", err
 		}
@@ -430,8 +420,8 @@ func (k *azureNativeProvider) getClientToken(ctx context.Context, endpointArg re
 	return k.getOAuthToken(ctx, authConfig, endpoint)
 }
 
-// Returns the Azure endpoint where tokens can be requested. If the argument is not null or empty,
-// it will be used verbatim.
+// Returns the endpoint to be used as the resource (scope) of the token request.
+// If the argument is not null or empty, it will be used verbatim.
 func (k *azureNativeProvider) tokenEndpoint(endpointArg resource.PropertyValue) string {
 	if endpointArg.HasValue() && endpointArg.IsString() && endpointArg.StringValue() != "" {
 		return endpointArg.StringValue()
