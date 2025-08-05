@@ -256,6 +256,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "ModuleName": "FileShares",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "ModuleName": "FrontDoor",
     "Detail": "expected no additions but found some"
   },
@@ -386,6 +390,10 @@
   {
     "ModuleName": "Maps",
     "Detail": "expected no additions but found some"
+  },
+  {
+    "ModuleName": "Mission",
+    "Detail": "expected tracking stable but found preview"
   },
   {
     "ModuleName": "MixedReality",

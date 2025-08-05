@@ -32,6 +32,7 @@
   },
   "AlertsManagement": {
     "Alerts_ChangeState": "/{scope}/providers/Microsoft.AlertsManagement/alerts/{alertId}/changestate",
+    "Alerts_ChangeStateTenant": "/providers/Microsoft.AlertsManagement/alerts/{alertId}/changestate",
     "Issue_AddOrUpdateAlerts": "/{resourceUri}/providers/Microsoft.AlertsManagement/issues/{issueName}/addOrUpdateAlerts",
     "Issue_AddOrUpdateResources": "/{resourceUri}/providers/Microsoft.AlertsManagement/issues/{issueName}/addOrUpdateResources",
     "Issue_FetchInvestigationResult": "/{resourceUri}/providers/Microsoft.AlertsManagement/issues/{issueName}/fetchInvestigationResult",
@@ -841,7 +842,7 @@
     "BackupAndExport_Create": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}/backupAndExport",
     "BackupAndExport_ValidateBackup": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}/validateBackup",
     "CheckNameAvailabilityWithoutLocation_Execute": "/subscriptions/{subscriptionId}/providers/Microsoft.DBforMySQL/checkNameAvailability",
-    "CheckNameAvailability_Execute": "/subscriptions/{subscriptionId}/providers/Microsoft.DBforMySQL/locations/{locationName}/checkNameAvailability",
+    "CheckNameAvailability_Execute": "/subscriptions/{subscriptionId}/providers/Microsoft.DBforMySQL/checkNameAvailability",
     "CheckVirtualNetworkSubnetUsage_Execute": "/subscriptions/{subscriptionId}/providers/Microsoft.DBforMySQL/locations/{locationName}/checkVirtualNetworkSubnetUsage",
     "Configurations_BatchUpdate": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}/updateConfigurations",
     "CreateRecommendedActionSession": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/advisors/{advisorName}/createRecommendedActionSession",
@@ -852,14 +853,16 @@
     "Servers_DetachVNet": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}/detachVNet",
     "Servers_Failover": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}/failover",
     "Servers_ResetGtid": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}/resetGtid",
-    "Servers_Restart": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}/restart",
-    "Servers_Start": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}/start",
-    "Servers_Stop": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}/stop",
+    "Servers_Restart": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/restart",
+    "Servers_Start": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/start",
+    "Servers_Stop": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/stop",
     "Servers_Upgrade": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/upgrade",
     "Servers_ValidateEstimateHighAvailability": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}/validateEstimateHighAvailability"
   },
   "DBforPostgreSQL": {
     "Advisors_StartRecommendedActionSession": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/advisors/{advisorName}/recommendedActionSessions",
+    "BackupsLongTermRetention_CheckPrerequisites": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/ltrPreBackup",
+    "BackupsLongTermRetention_Start": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/startLtrBackup",
     "CheckMigrationNameAvailability": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{targetDbServerName}/checkMigrationNameAvailability",
     "CheckNameAvailabilityWithLocation_Execute": "/subscriptions/{subscriptionId}/providers/Microsoft.DBforPostgreSQL/locations/{locationName}/checkNameAvailability",
     "CheckNameAvailability_Execute": "/subscriptions/{subscriptionId}/providers/Microsoft.DBforPostgreSQL/checkNameAvailability",
@@ -870,6 +873,9 @@
     "Clusters_Stop": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/{clusterName}/stop",
     "FlexibleServer_StartLtrBackup": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/startLtrBackup",
     "FlexibleServer_TriggerLtrPreBackup": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/ltrPreBackup",
+    "Migrations_CheckNameAvailability": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/checkMigrationNameAvailability",
+    "NameAvailability_CheckGlobally": "/subscriptions/{subscriptionId}/providers/Microsoft.DBforPostgreSQL/checkNameAvailability",
+    "NameAvailability_CheckWithLocation": "/subscriptions/{subscriptionId}/providers/Microsoft.DBforPostgreSQL/locations/{locationName}/checkNameAvailability",
     "QueryPerformanceInsightData_Reset": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/resetQueryPerformanceInsightData",
     "ResetQueryPerformanceInsightData": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/resetQueryPerformanceInsightData",
     "ServerGroups_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.DBForPostgreSql/checkNameAvailability",
@@ -884,7 +890,8 @@
     "TuningConfiguration_Enable": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/tuningOptions/{tuningOption}/enable",
     "TuningConfiguration_StartSession": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/tuningOptions/{tuningOption}/startSession",
     "TuningConfiguration_StopSession": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/tuningOptions/{tuningOption}/stopSession",
-    "VirtualNetworkSubnetUsage_Execute": "/subscriptions/{subscriptionId}/providers/Microsoft.DBforPostgreSQL/locations/{locationName}/checkVirtualNetworkSubnetUsage"
+    "VirtualNetworkSubnetUsage_Execute": "/subscriptions/{subscriptionId}/providers/Microsoft.DBforPostgreSQL/locations/{locationName}/checkVirtualNetworkSubnetUsage",
+    "VirtualNetworkSubnetUsage_List": "/subscriptions/{subscriptionId}/providers/Microsoft.DBforPostgreSQL/locations/{locationName}/checkVirtualNetworkSubnetUsage"
   },
   "Dashboard": {
     "Grafana_CheckEnterpriseDetails": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Dashboard/grafana/{workspaceName}/checkEnterpriseDetails",
@@ -1257,6 +1264,9 @@
   "Features": {
     "Features_Register": "/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/{resourceProviderNamespace}/features/{featureName}/register",
     "Features_Unregister": "/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/{resourceProviderNamespace}/features/{featureName}/unregister"
+  },
+  "FileShares": {
+    "FileShares_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.FileShares/locations/{location}/checkNameAvailability"
   },
   "FluidRelay": {
     "FluidRelayServers_RegenerateKey": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.FluidRelay/fluidRelayServers/{fluidRelayServerName}/regenerateKey"
@@ -1680,6 +1690,27 @@
     "WorkloadDeployment_TestMigrateCleanup": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/modernizeProjects/{modernizeProjectName}/workloadDeployments/{workloadDeploymentName}/testMigrateCleanup",
     "WorkloadInstance_MigrateComplete": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/modernizeProjects/{modernizeProjectName}/workloadInstances/{workloadInstanceName}/completeMigration",
     "WorkloadInstance_StopReplicate": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/modernizeProjects/{modernizeProjectName}/workloadInstances/{workloadInstanceName}/disableReplication"
+  },
+  "Mission": {
+    "Approval_InitiatorCallback": "/{resourceUri}/providers/Microsoft.Mission/approvals/{approvalName}/initiatorCallback",
+    "Approval_NotifyInitiator": "/{resourceUri}/providers/Microsoft.Mission/approvals/{approvalName}/notifyInitiator",
+    "CommunityEndpoints_ApprovalCallback": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/communities/{communityName}/communityEndpoints/{communityEndpointName}/approvalCallback",
+    "CommunityEndpoints_ApprovalDeletionCallback": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/communities/{communityName}/communityEndpoints/{communityEndpointName}/approvalDeletionCallback",
+    "CommunityEndpoints_HandleApprovalCreation": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/communities/{communityName}/communityEndpoints/{communityEndpointName}/handleApprovalCreation",
+    "CommunityEndpoints_HandleApprovalDeletion": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/communities/{communityName}/communityEndpoints/{communityEndpointName}/handleApprovalDeletion",
+    "Community_CheckAddressSpaceAvailability": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/communities/{communityName}/checkAddressSpaceAvailability",
+    "EnclaveConnection_ApprovalCallback": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/enclaveConnections/{enclaveConnectionName}/approvalCallback",
+    "EnclaveConnection_ApprovalDeletionCallback": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/enclaveConnections/{enclaveConnectionName}/approvalDeletionCallback",
+    "EnclaveConnection_HandleApprovalCreation": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/enclaveConnections/{enclaveConnectionName}/handleApprovalCreation",
+    "EnclaveConnection_HandleApprovalDeletion": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/enclaveConnections/{enclaveConnectionName}/handleApprovalDeletion",
+    "EnclaveEndpoints_ApprovalCallback": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/virtualEnclaves/{virtualEnclaveName}/enclaveEndpoints/{enclaveEndpointName}/approvalCallback",
+    "EnclaveEndpoints_ApprovalDeletionCallback": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/virtualEnclaves/{virtualEnclaveName}/enclaveEndpoints/{enclaveEndpointName}/approvalDeletionCallback",
+    "EnclaveEndpoints_HandleApprovalCreation": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/virtualEnclaves/{virtualEnclaveName}/enclaveEndpoints/{enclaveEndpointName}/handleApprovalCreation",
+    "EnclaveEndpoints_HandleApprovalDeletion": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/virtualEnclaves/{virtualEnclaveName}/enclaveEndpoints/{enclaveEndpointName}/handleApprovalDeletion",
+    "VirtualEnclave_ApprovalCallback": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/virtualEnclaves/{virtualEnclaveName}/approvalCallback",
+    "VirtualEnclave_ApprovalDeletionCallback": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/virtualEnclaves/{virtualEnclaveName}/approvalDeletionCallback",
+    "VirtualEnclave_HandleApprovalCreation": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/virtualEnclaves/{virtualEnclaveName}/handleApprovalCreation",
+    "VirtualEnclave_HandleApprovalDeletion": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/virtualEnclaves/{virtualEnclaveName}/handleApprovalDeletion"
   },
   "MixedReality": {
     "CheckNameAvailabilityLocal": "/subscriptions/{subscriptionId}/providers/Microsoft.MixedReality/locations/{location}/checkNameAvailability",
@@ -2343,6 +2374,7 @@
     "Namespaces_Migrate": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/migrate",
     "Namespaces_PostAuthorizationRule": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/AuthorizationRules/{authorizationRuleName}",
     "Namespaces_RegenerateKeys": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/AuthorizationRules/{authorizationRuleName}/regenerateKeys",
+    "NetworkSecurityPerimeterConfigurations_Reconcile": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/networkSecurityPerimeterConfigurations/{resourceAssociationName}/reconcile",
     "Queues_PostAuthorizationRule": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/queues/{queueName}/authorizationRules/{authorizationRuleName}",
     "Queues_RegenerateKeys": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/queues/{queueName}/authorizationRules/{authorizationRuleName}/regenerateKeys",
     "Topics_PostAuthorizationRule": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}/authorizationRules/{authorizationRuleName}",
