@@ -38,10 +38,10 @@ namespace Pulumi.AzureNative.BotService
         public Output<string?> Kind { get; private set; } = null!;
 
         /// <summary>
-        /// The geo-location where the resource lives
+        /// Specifies the location of the resource.
         /// </summary>
         [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
+        public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.BotService
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags.
+        /// Contains resource tags defined as key/value pairs.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.BotService
         public InputUnion<string, Pulumi.AzureNative.BotService.Kind>? Kind { get; set; }
 
         /// <summary>
-        /// The geo-location where the resource lives
+        /// Specifies the location of the resource.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -181,7 +181,7 @@ namespace Pulumi.AzureNative.BotService
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags.
+        /// Contains resource tags defined as key/value pairs.
         /// </summary>
         public InputMap<string> Tags
         {

@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get Environment details by environment Id
  *
  * Uses Azure REST API version 2024-07-01.
+ *
+ * Other available API versions: 2025-07-17-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getOrganizationEnvironmentById(args: GetOrganizationEnvironmentByIdArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationEnvironmentByIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -77,6 +79,8 @@ export interface GetOrganizationEnvironmentByIdResult {
  * Get Environment details by environment Id
  *
  * Uses Azure REST API version 2024-07-01.
+ *
+ * Other available API versions: 2025-07-17-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getOrganizationEnvironmentByIdOutput(args: GetOrganizationEnvironmentByIdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationEnvironmentByIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

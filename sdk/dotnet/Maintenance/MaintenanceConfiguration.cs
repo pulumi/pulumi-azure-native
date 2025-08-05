@@ -50,10 +50,10 @@ namespace Pulumi.AzureNative.Maintenance
         public Output<Outputs.InputPatchConfigurationResponse?> InstallPatches { get; private set; } = null!;
 
         /// <summary>
-        /// The geo-location where the resource lives
+        /// Gets or sets location of the resource
         /// </summary>
         [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
+        public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets maintenanceScope of the configuration
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Maintenance
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags.
+        /// Gets or sets tags of the resource
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.AzureNative.Maintenance
         public Input<Inputs.InputPatchConfigurationArgs>? InstallPatches { get; set; }
 
         /// <summary>
-        /// The geo-location where the resource lives
+        /// Gets or sets location of the resource
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -250,7 +250,7 @@ namespace Pulumi.AzureNative.Maintenance
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags.
+        /// Gets or sets tags of the resource
         /// </summary>
         public InputMap<string> Tags
         {

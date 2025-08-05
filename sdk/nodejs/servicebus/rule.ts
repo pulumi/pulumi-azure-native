@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
  *
- * Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Rule extends pulumi.CustomResource {
     /**
@@ -127,7 +127,7 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20170401:Rule" }, { type: "azure-native:servicebus/v20180101preview:Rule" }, { type: "azure-native:servicebus/v20210101preview:Rule" }, { type: "azure-native:servicebus/v20210601preview:Rule" }, { type: "azure-native:servicebus/v20211101:Rule" }, { type: "azure-native:servicebus/v20220101preview:Rule" }, { type: "azure-native:servicebus/v20221001preview:Rule" }, { type: "azure-native:servicebus/v20230101preview:Rule" }, { type: "azure-native:servicebus/v20240101:Rule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20170401:Rule" }, { type: "azure-native:servicebus/v20180101preview:Rule" }, { type: "azure-native:servicebus/v20210101preview:Rule" }, { type: "azure-native:servicebus/v20210601preview:Rule" }, { type: "azure-native:servicebus/v20211101:Rule" }, { type: "azure-native:servicebus/v20220101preview:Rule" }, { type: "azure-native:servicebus/v20221001preview:Rule" }, { type: "azure-native:servicebus/v20230101preview:Rule" }, { type: "azure-native:servicebus/v20240101:Rule" }, { type: "azure-native:servicebus/v20250501preview:Rule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Rule.__pulumiType, name, resourceInputs, opts);
     }

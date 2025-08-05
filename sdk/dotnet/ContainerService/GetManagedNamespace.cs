@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ContainerService
         /// 
         /// Uses Azure REST API version 2025-04-02-preview.
         /// 
-        /// Other available API versions: 2025-03-02-preview, 2025-05-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-03-02-preview, 2025-05-02-preview, 2025-06-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetManagedNamespaceResult> InvokeAsync(GetManagedNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedNamespaceResult>("azure-native:containerservice:getManagedNamespace", args ?? new GetManagedNamespaceArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.ContainerService
         /// 
         /// Uses Azure REST API version 2025-04-02-preview.
         /// 
-        /// Other available API versions: 2025-03-02-preview, 2025-05-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-03-02-preview, 2025-05-02-preview, 2025-06-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetManagedNamespaceResult> Invoke(GetManagedNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedNamespaceResult>("azure-native:containerservice:getManagedNamespace", args ?? new GetManagedNamespaceInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.ContainerService
         /// 
         /// Uses Azure REST API version 2025-04-02-preview.
         /// 
-        /// Other available API versions: 2025-03-02-preview, 2025-05-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-03-02-preview, 2025-05-02-preview, 2025-06-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetManagedNamespaceResult> Invoke(GetManagedNamespaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedNamespaceResult>("azure-native:containerservice:getManagedNamespace", args ?? new GetManagedNamespaceInvokeArgs(), options.WithDefaults());

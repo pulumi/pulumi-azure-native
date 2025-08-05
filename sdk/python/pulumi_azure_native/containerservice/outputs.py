@@ -46,6 +46,9 @@ __all__ = [
     'FleetCredentialResultResponse',
     'FleetHubProfileResponse',
     'IPTagResponse',
+    'IdentityBindingManagedIdentityProfileResponse',
+    'IdentityBindingOidcIssuerProfileResponse',
+    'IdentityBindingPropertiesResponse',
     'IstioCertificateAuthorityResponse',
     'IstioComponentsResponse',
     'IstioEgressGatewayResponse',
@@ -1734,6 +1737,188 @@ class IPTagResponse(dict):
         The value of the IP tag associated with the public IP. Example: Internet.
         """
         return pulumi.get(self, "tag")
+
+
+@pulumi.output_type
+class IdentityBindingManagedIdentityProfileResponse(dict):
+    """
+    Managed identity profile for the identity binding.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "objectId":
+            suggest = "object_id"
+        elif key == "resourceId":
+            suggest = "resource_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityBindingManagedIdentityProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityBindingManagedIdentityProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityBindingManagedIdentityProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: builtins.str,
+                 object_id: builtins.str,
+                 resource_id: builtins.str,
+                 tenant_id: builtins.str):
+        """
+        Managed identity profile for the identity binding.
+        :param builtins.str client_id: The client ID of the managed identity.
+        :param builtins.str object_id: The object ID of the managed identity.
+        :param builtins.str resource_id: The resource ID of the managed identity.
+        :param builtins.str tenant_id: The tenant ID of the managed identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "object_id", object_id)
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> builtins.str:
+        """
+        The client ID of the managed identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> builtins.str:
+        """
+        The object ID of the managed identity.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> builtins.str:
+        """
+        The resource ID of the managed identity.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> builtins.str:
+        """
+        The tenant ID of the managed identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class IdentityBindingOidcIssuerProfileResponse(dict):
+    """
+    IdentityBinding OIDC issuer profile.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oidcIssuerUrl":
+            suggest = "oidc_issuer_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityBindingOidcIssuerProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityBindingOidcIssuerProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityBindingOidcIssuerProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oidc_issuer_url: builtins.str):
+        """
+        IdentityBinding OIDC issuer profile.
+        :param builtins.str oidc_issuer_url: The OIDC issuer URL of the IdentityBinding.
+        """
+        pulumi.set(__self__, "oidc_issuer_url", oidc_issuer_url)
+
+    @property
+    @pulumi.getter(name="oidcIssuerUrl")
+    def oidc_issuer_url(self) -> builtins.str:
+        """
+        The OIDC issuer URL of the IdentityBinding.
+        """
+        return pulumi.get(self, "oidc_issuer_url")
+
+
+@pulumi.output_type
+class IdentityBindingPropertiesResponse(dict):
+    """
+    IdentityBinding properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedIdentity":
+            suggest = "managed_identity"
+        elif key == "oidcIssuer":
+            suggest = "oidc_issuer"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityBindingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityBindingPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityBindingPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_identity: 'outputs.IdentityBindingManagedIdentityProfileResponse',
+                 oidc_issuer: 'outputs.IdentityBindingOidcIssuerProfileResponse',
+                 provisioning_state: builtins.str):
+        """
+        IdentityBinding properties.
+        :param 'IdentityBindingManagedIdentityProfileResponse' managed_identity: Managed identity profile for the identity binding.
+        :param 'IdentityBindingOidcIssuerProfileResponse' oidc_issuer: The OIDC issuer URL of the IdentityBinding.
+        :param builtins.str provisioning_state: The status of the last operation.
+        """
+        pulumi.set(__self__, "managed_identity", managed_identity)
+        pulumi.set(__self__, "oidc_issuer", oidc_issuer)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> 'outputs.IdentityBindingManagedIdentityProfileResponse':
+        """
+        Managed identity profile for the identity binding.
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @property
+    @pulumi.getter(name="oidcIssuer")
+    def oidc_issuer(self) -> 'outputs.IdentityBindingOidcIssuerProfileResponse':
+        """
+        The OIDC issuer URL of the IdentityBinding.
+        """
+        return pulumi.get(self, "oidc_issuer")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
 
 
 @pulumi.output_type

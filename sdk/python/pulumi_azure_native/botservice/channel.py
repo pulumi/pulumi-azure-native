@@ -37,10 +37,10 @@ class ChannelArgs:
         :param pulumi.Input[builtins.str] resource_name: The name of the Bot resource.
         :param pulumi.Input[builtins.str] channel_name: The name of the Channel resource.
         :param pulumi.Input[Union[builtins.str, 'Kind']] kind: Required. Gets or sets the Kind of the resource.
-        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[builtins.str] location: Specifies the location of the resource.
         :param pulumi.Input[Union['AcsChatChannelArgs', 'AlexaChannelArgs', 'DirectLineChannelArgs', 'DirectLineSpeechChannelArgs', 'EmailChannelArgs', 'FacebookChannelArgs', 'KikChannelArgs', 'LineChannelArgs', 'M365ExtensionsArgs', 'MsTeamsChannelArgs', 'OmnichannelArgs', 'OutlookChannelArgs', 'SearchAssistantArgs', 'SkypeChannelArgs', 'SlackChannelArgs', 'SmsChannelArgs', 'TelegramChannelArgs', 'TelephonyChannelArgs', 'WebChatChannelArgs']] properties: The set of properties specific to bot channel resource
         :param pulumi.Input['SkuArgs'] sku: Gets or sets the SKU of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Contains resource tags defined as key/value pairs.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
@@ -109,7 +109,7 @@ class ChannelArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The geo-location where the resource lives
+        Specifies the location of the resource.
         """
         return pulumi.get(self, "location")
 
@@ -145,7 +145,7 @@ class ChannelArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Resource tags.
+        Contains resource tags defined as key/value pairs.
         """
         return pulumi.get(self, "tags")
 
@@ -180,12 +180,12 @@ class Channel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] channel_name: The name of the Channel resource.
         :param pulumi.Input[Union[builtins.str, 'Kind']] kind: Required. Gets or sets the Kind of the resource.
-        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[builtins.str] location: Specifies the location of the resource.
         :param pulumi.Input[Union[Union['AcsChatChannelArgs', 'AcsChatChannelArgsDict'], Union['AlexaChannelArgs', 'AlexaChannelArgsDict'], Union['DirectLineChannelArgs', 'DirectLineChannelArgsDict'], Union['DirectLineSpeechChannelArgs', 'DirectLineSpeechChannelArgsDict'], Union['EmailChannelArgs', 'EmailChannelArgsDict'], Union['FacebookChannelArgs', 'FacebookChannelArgsDict'], Union['KikChannelArgs', 'KikChannelArgsDict'], Union['LineChannelArgs', 'LineChannelArgsDict'], Union['M365ExtensionsArgs', 'M365ExtensionsArgsDict'], Union['MsTeamsChannelArgs', 'MsTeamsChannelArgsDict'], Union['OmnichannelArgs', 'OmnichannelArgsDict'], Union['OutlookChannelArgs', 'OutlookChannelArgsDict'], Union['SearchAssistantArgs', 'SearchAssistantArgsDict'], Union['SkypeChannelArgs', 'SkypeChannelArgsDict'], Union['SlackChannelArgs', 'SlackChannelArgsDict'], Union['SmsChannelArgs', 'SmsChannelArgsDict'], Union['TelegramChannelArgs', 'TelegramChannelArgsDict'], Union['TelephonyChannelArgs', 'TelephonyChannelArgsDict'], Union['WebChatChannelArgs', 'WebChatChannelArgsDict']]] properties: The set of properties specific to bot channel resource
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] resource_name_: The name of the Bot resource.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: Gets or sets the SKU of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Contains resource tags defined as key/value pairs.
         """
         ...
     @overload
@@ -313,9 +313,9 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[builtins.str]:
+    def location(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The geo-location where the resource lives
+        Specifies the location of the resource.
         """
         return pulumi.get(self, "location")
 
@@ -355,7 +355,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Resource tags.
+        Contains resource tags defined as key/value pairs.
         """
         return pulumi.get(self, "tags")
 

@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Confluent
         /// Get Environment details by environment Id
         /// 
         /// Uses Azure REST API version 2024-07-01.
+        /// 
+        /// Other available API versions: 2025-07-17-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetOrganizationEnvironmentByIdResult> InvokeAsync(GetOrganizationEnvironmentByIdArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationEnvironmentByIdResult>("azure-native:confluent:getOrganizationEnvironmentById", args ?? new GetOrganizationEnvironmentByIdArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Confluent
         /// Get Environment details by environment Id
         /// 
         /// Uses Azure REST API version 2024-07-01.
+        /// 
+        /// Other available API versions: 2025-07-17-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetOrganizationEnvironmentByIdResult> Invoke(GetOrganizationEnvironmentByIdInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationEnvironmentByIdResult>("azure-native:confluent:getOrganizationEnvironmentById", args ?? new GetOrganizationEnvironmentByIdInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Confluent
         /// Get Environment details by environment Id
         /// 
         /// Uses Azure REST API version 2024-07-01.
+        /// 
+        /// Other available API versions: 2025-07-17-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetOrganizationEnvironmentByIdResult> Invoke(GetOrganizationEnvironmentByIdInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationEnvironmentByIdResult>("azure-native:confluent:getOrganizationEnvironmentById", args ?? new GetOrganizationEnvironmentByIdInvokeArgs(), options.WithDefaults());

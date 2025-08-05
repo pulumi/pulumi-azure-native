@@ -34,11 +34,11 @@ class BotArgs:
         The set of arguments for constructing a Bot resource.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[builtins.str, 'Kind']] kind: Required. Gets or sets the Kind of the resource.
-        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[builtins.str] location: Specifies the location of the resource.
         :param pulumi.Input['BotPropertiesArgs'] properties: The set of properties specific to bot resource
         :param pulumi.Input[builtins.str] resource_name: The name of the Bot resource.
         :param pulumi.Input['SkuArgs'] sku: Gets or sets the SKU of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Contains resource tags defined as key/value pairs.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if kind is not None:
@@ -82,7 +82,7 @@ class BotArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The geo-location where the resource lives
+        Specifies the location of the resource.
         """
         return pulumi.get(self, "location")
 
@@ -130,7 +130,7 @@ class BotArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Resource tags.
+        Contains resource tags defined as key/value pairs.
         """
         return pulumi.get(self, "tags")
 
@@ -163,12 +163,12 @@ class Bot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[builtins.str, 'Kind']] kind: Required. Gets or sets the Kind of the resource.
-        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[builtins.str] location: Specifies the location of the resource.
         :param pulumi.Input[Union['BotPropertiesArgs', 'BotPropertiesArgsDict']] properties: The set of properties specific to bot resource
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] resource_name_: The name of the Bot resource.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: Gets or sets the SKU of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Contains resource tags defined as key/value pairs.
         """
         ...
     @overload
@@ -292,9 +292,9 @@ class Bot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[builtins.str]:
+    def location(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The geo-location where the resource lives
+        Specifies the location of the resource.
         """
         return pulumi.get(self, "location")
 
@@ -334,7 +334,7 @@ class Bot(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Resource tags.
+        Contains resource tags defined as key/value pairs.
         """
         return pulumi.get(self, "tags")
 

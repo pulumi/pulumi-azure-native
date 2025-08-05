@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Monitor
     /// 
     /// Uses Azure REST API version 2023-04-03. In version 2.x of the Azure Native provider, it used API version 2023-04-03.
     /// 
-    /// Other available API versions: 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-10-01-preview, 2025-05-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor:AzureMonitorWorkspace")]
     public partial class AzureMonitorWorkspace : global::Pulumi.CustomResource
@@ -125,6 +125,7 @@ namespace Pulumi.AzureNative.Monitor
                     new global::Pulumi.Alias { Type = "azure-native:monitor/v20210603preview:AzureMonitorWorkspace" },
                     new global::Pulumi.Alias { Type = "azure-native:monitor/v20230403:AzureMonitorWorkspace" },
                     new global::Pulumi.Alias { Type = "azure-native:monitor/v20231001preview:AzureMonitorWorkspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20250503preview:AzureMonitorWorkspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -140,6 +140,8 @@ class OrganizationEnvironmentById(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01.
 
+        Other available API versions: 2025-07-17-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] environment_id: Confluent environment id
@@ -159,6 +161,8 @@ class OrganizationEnvironmentById(pulumi.CustomResource):
         Details about environment name, metadata and environment id of an environment
 
         Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01.
+
+        Other available API versions: 2025-07-17-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param OrganizationEnvironmentByIdArgs args: The arguments to use to populate this resource's properties.
@@ -204,7 +208,7 @@ class OrganizationEnvironmentById(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:confluent/v20240701:OrganizationEnvironmentById")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:confluent/v20240701:OrganizationEnvironmentById"), pulumi.Alias(type_="azure-native:confluent/v20250717preview:OrganizationEnvironmentById")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OrganizationEnvironmentById, __self__).__init__(
             'azure-native:confluent:OrganizationEnvironmentById',

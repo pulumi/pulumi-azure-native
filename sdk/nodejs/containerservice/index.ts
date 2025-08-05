@@ -65,6 +65,11 @@ export const getFleetUpdateStrategy: typeof import("./getFleetUpdateStrategy").g
 export const getFleetUpdateStrategyOutput: typeof import("./getFleetUpdateStrategy").getFleetUpdateStrategyOutput = null as any;
 utilities.lazyLoad(exports, ["getFleetUpdateStrategy","getFleetUpdateStrategyOutput"], () => require("./getFleetUpdateStrategy"));
 
+export { GetIdentityBindingArgs, GetIdentityBindingResult, GetIdentityBindingOutputArgs } from "./getIdentityBinding";
+export const getIdentityBinding: typeof import("./getIdentityBinding").getIdentityBinding = null as any;
+export const getIdentityBindingOutput: typeof import("./getIdentityBinding").getIdentityBindingOutput = null as any;
+utilities.lazyLoad(exports, ["getIdentityBinding","getIdentityBindingOutput"], () => require("./getIdentityBinding"));
+
 export { GetLoadBalancerArgs, GetLoadBalancerResult, GetLoadBalancerOutputArgs } from "./getLoadBalancer";
 export const getLoadBalancer: typeof import("./getLoadBalancer").getLoadBalancer = null as any;
 export const getLoadBalancerOutput: typeof import("./getLoadBalancer").getLoadBalancerOutput = null as any;
@@ -114,6 +119,11 @@ export { GetUpdateRunArgs, GetUpdateRunResult, GetUpdateRunOutputArgs } from "./
 export const getUpdateRun: typeof import("./getUpdateRun").getUpdateRun = null as any;
 export const getUpdateRunOutput: typeof import("./getUpdateRun").getUpdateRunOutput = null as any;
 utilities.lazyLoad(exports, ["getUpdateRun","getUpdateRunOutput"], () => require("./getUpdateRun"));
+
+export { IdentityBindingArgs } from "./identityBinding";
+export type IdentityBinding = import("./identityBinding").IdentityBinding;
+export const IdentityBinding: typeof import("./identityBinding").IdentityBinding = null as any;
+utilities.lazyLoad(exports, ["IdentityBinding"], () => require("./identityBinding"));
 
 export { ListFleetCredentialsArgs, ListFleetCredentialsResult, ListFleetCredentialsOutputArgs } from "./listFleetCredentials";
 export const listFleetCredentials: typeof import("./listFleetCredentials").listFleetCredentials = null as any;
@@ -220,6 +230,8 @@ const _module = {
                 return new FleetMember(name, <any>undefined, { urn })
             case "azure-native:containerservice:FleetUpdateStrategy":
                 return new FleetUpdateStrategy(name, <any>undefined, { urn })
+            case "azure-native:containerservice:IdentityBinding":
+                return new IdentityBinding(name, <any>undefined, { urn })
             case "azure-native:containerservice:LoadBalancer":
                 return new LoadBalancer(name, <any>undefined, { urn })
             case "azure-native:containerservice:MaintenanceConfiguration":

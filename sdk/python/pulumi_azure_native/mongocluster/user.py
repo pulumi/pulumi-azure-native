@@ -106,6 +106,8 @@ class User(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-04-01-preview.
 
+        Other available API versions: 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mongocluster [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] mongo_cluster_name: The name of the mongo cluster.
@@ -123,6 +125,8 @@ class User(pulumi.CustomResource):
         Represents a Mongo cluster user.
 
         Uses Azure REST API version 2025-04-01-preview.
+
+        Other available API versions: 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mongocluster [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
@@ -164,7 +168,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mongocluster/v20250401preview:User")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mongocluster/v20250401preview:User"), pulumi.Alias(type_="azure-native:mongocluster/v20250701preview:User")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(User, __self__).__init__(
             'azure-native:mongocluster:User',

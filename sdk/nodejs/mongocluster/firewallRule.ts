@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-07-01.
  *
- * Other available API versions: 2024-03-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mongocluster [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-03-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mongocluster [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**
@@ -95,7 +95,7 @@ export class FirewallRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20230315preview:MongoClusterFirewallRule" }, { type: "azure-native:documentdb/v20230915preview:MongoClusterFirewallRule" }, { type: "azure-native:documentdb/v20231115preview:MongoClusterFirewallRule" }, { type: "azure-native:documentdb/v20240215preview:MongoClusterFirewallRule" }, { type: "azure-native:documentdb/v20240301preview:FirewallRule" }, { type: "azure-native:documentdb/v20240601preview:FirewallRule" }, { type: "azure-native:documentdb/v20240701:FirewallRule" }, { type: "azure-native:documentdb/v20241001preview:FirewallRule" }, { type: "azure-native:documentdb:FirewallRule" }, { type: "azure-native:documentdb:MongoClusterFirewallRule" }, { type: "azure-native:mongocluster/v20240301preview:FirewallRule" }, { type: "azure-native:mongocluster/v20240601preview:FirewallRule" }, { type: "azure-native:mongocluster/v20240701:FirewallRule" }, { type: "azure-native:mongocluster/v20241001preview:FirewallRule" }, { type: "azure-native:mongocluster/v20250401preview:FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20230315preview:MongoClusterFirewallRule" }, { type: "azure-native:documentdb/v20230915preview:MongoClusterFirewallRule" }, { type: "azure-native:documentdb/v20231115preview:MongoClusterFirewallRule" }, { type: "azure-native:documentdb/v20240215preview:MongoClusterFirewallRule" }, { type: "azure-native:documentdb/v20240301preview:FirewallRule" }, { type: "azure-native:documentdb/v20240601preview:FirewallRule" }, { type: "azure-native:documentdb/v20240701:FirewallRule" }, { type: "azure-native:documentdb/v20241001preview:FirewallRule" }, { type: "azure-native:documentdb:FirewallRule" }, { type: "azure-native:documentdb:MongoClusterFirewallRule" }, { type: "azure-native:mongocluster/v20240301preview:FirewallRule" }, { type: "azure-native:mongocluster/v20240601preview:FirewallRule" }, { type: "azure-native:mongocluster/v20240701:FirewallRule" }, { type: "azure-native:mongocluster/v20241001preview:FirewallRule" }, { type: "azure-native:mongocluster/v20250401preview:FirewallRule" }, { type: "azure-native:mongocluster/v20250701preview:FirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallRule.__pulumiType, name, resourceInputs, opts);
     }

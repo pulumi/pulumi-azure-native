@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Confluent
     /// Details about environment name, metadata and environment id of an environment
     /// 
     /// Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01.
+    /// 
+    /// Other available API versions: 2025-07-17-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:confluent:OrganizationEnvironmentById")]
     public partial class OrganizationEnvironmentById : global::Pulumi.CustomResource
@@ -85,6 +87,7 @@ namespace Pulumi.AzureNative.Confluent
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:confluent/v20240701:OrganizationEnvironmentById" },
+                    new global::Pulumi.Alias { Type = "azure-native:confluent/v20250717preview:OrganizationEnvironmentById" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
