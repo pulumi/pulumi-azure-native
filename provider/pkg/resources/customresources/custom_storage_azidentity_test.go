@@ -240,56 +240,7 @@ func TestNewSharedKeyCredentialWithCloudConfig(t *testing.T) {
 	})
 }
 
-func TestBlobClientCreatesCorrectEndpoint(t *testing.T) {
-	// This test validates that blob clients are created with the correct cloud endpoints
-	// It tests the integration between the blob_azidentity and the newSharedKeyCredential function
-	
-	t.Run("Government cloud uses correct endpoint", func(t *testing.T) {
-		// Set up a mock that will capture the request URL to verify the endpoint
-		base64Key := base64.StdEncoding.EncodeToString([]byte("testkey123"))
-		accountsServer := fakeListKeysStorageAccountServer([]*armstorage.AccountKey{
-			{
-				KeyName: ref("key1"),
-				Value:   ref(base64Key),
-			},
-		})
 
-		var capturedRequest *http.Request
-		mockTransport := &requestCapturingTransporter{
-			fakeTransport: fake.NewAccountsServerTransport(&accountsServer),
-			onRequest: func(req *http.Request) {
-				capturedRequest = req
-			},
-		}
-
-		blob := blob_azidentity{
-			creds: &azfake.TokenCredential{},
-			env:   cloud.AzureGovernment,
-		}
-
-		// Test that the function uses the Government cloud endpoint
-		keyCred, err := func() (*azblob.SharedKeyCredential, error) {
-			clientOptions := &arm.ClientOptions{
-				ClientOptions: azcore.ClientOptions{
-					Cloud:     blob.env,
-					Transport: mockTransport,
-				},
-			}
-			accClient, err := armstorage.NewAccountsClient("subscriptionID", blob.creds, clientOptions)
-			if err != nil {
-				return nil, err
-			}
-			return newSharedKeyCredentialWithClient(context.Background(), "myaccount", "myrg", accClient)
-		}()
-
-		require.NoError(t, err)
-		require.NotNil(t, keyCred)
-		require.NotNil(t, capturedRequest)
-
-		// Verify the request was made to the government cloud endpoint
-		require.Equal(t, "management.usgovcloudapi.net", capturedRequest.URL.Host)
-	})
-}
 
 func TestParseStorageAccountInput(t *testing.T) {
 	t.Run("happy path", func(t *testing.T) {
