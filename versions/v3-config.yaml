@@ -65,6 +65,8 @@ ApiManagement:
     listTenantAccessGitSecrets: "2019-12-01" # superceded by https://learn.microsoft.com/en-us/rest/api/apimanagement/current-ga/tenant-access/list-secrets?tabs=HTTP
 App:
   expectAdditions: true
+  preview: prefer
+  expectTracking: preview
 AppComplianceAutomation:
   expectTracking: preview
   notes: Only one preview version
