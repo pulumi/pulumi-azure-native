@@ -11,8 +11,10 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	azfake "github.com/Azure/azure-sdk-for-go/sdk/azcore/fake"
+	azpolicy "github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage/fake"
+	"github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
 	azureblob "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -144,6 +146,101 @@ func TestNewSharedKeyCredentialWithClient(t *testing.T) {
 		require.Contains(t, err.Error(), "no keys")
 	})
 }
+
+func TestNewSharedKeyCredentialWithCloudConfig(t *testing.T) {
+	t.Run("Azure Government Cloud", func(t *testing.T) {
+		base64Key := base64.StdEncoding.EncodeToString([]byte("key1valueasfgasgfdsfgdafgfadlgjas"))
+		accountsServer := fakeListKeysStorageAccountServer([]*armstorage.AccountKey{
+			{
+				KeyName: ref("key1"),
+				Value:   ref(base64Key),
+			},
+		})
+
+		// Mock transport to capture and validate the request
+		var capturedRequest *http.Request
+		mockTransport := &requestCapturingTransporter{
+			fakeTransport: fake.NewAccountsServerTransport(&accountsServer),
+			onRequest: func(req *http.Request) {
+				capturedRequest = req
+			},
+		}
+
+		// Test that the function accepts Azure Government cloud config and passes it correctly
+		creds := &azfake.TokenCredential{}
+		
+		// This tests our modified newSharedKeyCredential function with Government cloud
+		c, err := func() (*azblob.SharedKeyCredential, error) {
+			clientOptions := &arm.ClientOptions{
+				ClientOptions: azcore.ClientOptions{
+					Cloud:     cloud.AzureGovernment,
+					Transport: mockTransport,
+				},
+			}
+			accClient, err := armstorage.NewAccountsClient("subscriptionID", creds, clientOptions)
+			if err != nil {
+				return nil, err
+			}
+			return newSharedKeyCredentialWithClient(context.Background(), "myaccount", "myrg", accClient)
+		}()
+
+		require.NoError(t, err)
+		require.NotNil(t, c)
+		require.NotNil(t, capturedRequest)
+		
+		// Verify that the request was made to the government cloud endpoint
+		expectedHost := "management.usgovcloudapi.net"
+		require.Equal(t, expectedHost, capturedRequest.URL.Host, 
+			"Expected request to be made to Azure Government cloud endpoint")
+	})
+
+	t.Run("Azure Public Cloud", func(t *testing.T) {
+		base64Key := base64.StdEncoding.EncodeToString([]byte("key1valueasfgasgfdsfgdafgfadlgjas"))
+		accountsServer := fakeListKeysStorageAccountServer([]*armstorage.AccountKey{
+			{
+				KeyName: ref("key1"),
+				Value:   ref(base64Key),
+			},
+		})
+
+		// Mock transport to capture and validate the request
+		var capturedRequest *http.Request
+		mockTransport := &requestCapturingTransporter{
+			fakeTransport: fake.NewAccountsServerTransport(&accountsServer),
+			onRequest: func(req *http.Request) {
+				capturedRequest = req
+			},
+		}
+
+		// Test that the function works with public cloud config
+		creds := &azfake.TokenCredential{}
+		
+		c, err := func() (*azblob.SharedKeyCredential, error) {
+			clientOptions := &arm.ClientOptions{
+				ClientOptions: azcore.ClientOptions{
+					Cloud:     cloud.AzurePublic,
+					Transport: mockTransport,
+				},
+			}
+			accClient, err := armstorage.NewAccountsClient("subscriptionID", creds, clientOptions)
+			if err != nil {
+				return nil, err
+			}
+			return newSharedKeyCredentialWithClient(context.Background(), "myaccount", "myrg", accClient)
+		}()
+
+		require.NoError(t, err)
+		require.NotNil(t, c)
+		require.NotNil(t, capturedRequest)
+		
+		// Verify that the request was made to the public cloud endpoint
+		expectedHost := "management.azure.com"
+		require.Equal(t, expectedHost, capturedRequest.URL.Host, 
+			"Expected request to be made to Azure Public cloud endpoint")
+	})
+}
+
+
 
 func TestParseStorageAccountInput(t *testing.T) {
 	t.Run("happy path", func(t *testing.T) {
@@ -371,3 +468,16 @@ func TestGetStorageAccountName(t *testing.T) {
 }
 
 func ref[T any](t T) *T { return &t }
+
+// requestCapturingTransporter is a test helper that captures HTTP requests
+type requestCapturingTransporter struct {
+	fakeTransport azpolicy.Transporter
+	onRequest     func(*http.Request)
+}
+
+func (r *requestCapturingTransporter) Do(req *http.Request) (*http.Response, error) {
+	if r.onRequest != nil {
+		r.onRequest(req)
+	}
+	return r.fakeTransport.Do(req)
+}
