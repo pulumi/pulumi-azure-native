@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.App
     /// <summary>
     /// Container App.
     /// 
-    /// Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+    /// Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
     /// 
-    /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ContainerApp")]
     public partial class ContainerApp : global::Pulumi.CustomResource
@@ -36,6 +36,12 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Output("customDomainVerificationId")]
         public Output<string> CustomDomainVerificationId { get; private set; } = null!;
+
+        /// <summary>
+        /// Any errors that occurred during deployment
+        /// </summary>
+        [Output("deploymentErrors")]
+        public Output<string> DeploymentErrors { get; private set; } = null!;
 
         /// <summary>
         /// Resource ID of environment.
@@ -60,6 +66,12 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata used to render different experiences for resources of the same type; e.g. WorkflowApp is a kind of Microsoft.App/ContainerApps type. If supported, the resource provider must validate and persist this value.
+        /// </summary>
+        [Output("kind")]
+        public Output<string?> Kind { get; private set; } = null!;
 
         /// <summary>
         /// Name of the latest ready revision of the Container App.
@@ -108,6 +120,12 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Output("outboundIpAddresses")]
         public Output<ImmutableArray<string>> OutboundIpAddresses { get; private set; } = null!;
+
+        /// <summary>
+        /// Container App auto patch configuration.
+        /// </summary>
+        [Output("patchingConfiguration")]
+        public Output<Outputs.ContainerAppResponsePatchingConfiguration?> PatchingConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state of the Container App.
@@ -246,6 +264,12 @@ namespace Pulumi.AzureNative.App
         public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
+        /// Metadata used to render different experiences for resources of the same type; e.g. WorkflowApp is a kind of Microsoft.App/ContainerApps type. If supported, the resource provider must validate and persist this value.
+        /// </summary>
+        [Input("kind")]
+        public InputUnion<string, Pulumi.AzureNative.App.Kind>? Kind { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
@@ -262,6 +286,12 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Input("managedEnvironmentId")]
         public Input<string>? ManagedEnvironmentId { get; set; }
+
+        /// <summary>
+        /// Container App auto patch configuration.
+        /// </summary>
+        [Input("patchingConfiguration")]
+        public Input<Inputs.ContainerAppPatchingConfigurationArgs>? PatchingConfiguration { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

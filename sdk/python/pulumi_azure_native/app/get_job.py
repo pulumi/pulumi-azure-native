@@ -28,7 +28,7 @@ class GetJobResult:
     """
     Container App Job
     """
-    def __init__(__self__, azure_api_version=None, configuration=None, environment_id=None, event_stream_endpoint=None, id=None, identity=None, location=None, name=None, outbound_ip_addresses=None, provisioning_state=None, system_data=None, tags=None, template=None, type=None, workload_profile_name=None):
+    def __init__(__self__, azure_api_version=None, configuration=None, environment_id=None, event_stream_endpoint=None, extended_location=None, id=None, identity=None, location=None, name=None, outbound_ip_addresses=None, provisioning_state=None, running_state=None, system_data=None, tags=None, template=None, type=None, workload_profile_name=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -41,6 +41,9 @@ class GetJobResult:
         if event_stream_endpoint and not isinstance(event_stream_endpoint, str):
             raise TypeError("Expected argument 'event_stream_endpoint' to be a str")
         pulumi.set(__self__, "event_stream_endpoint", event_stream_endpoint)
+        if extended_location and not isinstance(extended_location, dict):
+            raise TypeError("Expected argument 'extended_location' to be a dict")
+        pulumi.set(__self__, "extended_location", extended_location)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -59,6 +62,9 @@ class GetJobResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if running_state and not isinstance(running_state, str):
+            raise TypeError("Expected argument 'running_state' to be a str")
+        pulumi.set(__self__, "running_state", running_state)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -108,6 +114,14 @@ class GetJobResult:
         return pulumi.get(self, "event_stream_endpoint")
 
     @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The complex type of the extended location.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @property
     @pulumi.getter
     def id(self) -> builtins.str:
         """
@@ -154,6 +168,14 @@ class GetJobResult:
         Provisioning state of the Container Apps Job.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="runningState")
+    def running_state(self) -> builtins.str:
+        """
+        Current running state of the job
+        """
+        return pulumi.get(self, "running_state")
 
     @property
     @pulumi.getter(name="systemData")
@@ -206,12 +228,14 @@ class AwaitableGetJobResult(GetJobResult):
             configuration=self.configuration,
             environment_id=self.environment_id,
             event_stream_endpoint=self.event_stream_endpoint,
+            extended_location=self.extended_location,
             id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
             outbound_ip_addresses=self.outbound_ip_addresses,
             provisioning_state=self.provisioning_state,
+            running_state=self.running_state,
             system_data=self.system_data,
             tags=self.tags,
             template=self.template,
@@ -225,9 +249,9 @@ def get_job(job_name: Optional[builtins.str] = None,
     """
     Container App Job
 
-    Uses Azure REST API version 2025-01-01.
+    Uses Azure REST API version 2025-02-02-preview.
 
-    Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str job_name: Job Name
@@ -244,12 +268,14 @@ def get_job(job_name: Optional[builtins.str] = None,
         configuration=pulumi.get(__ret__, 'configuration'),
         environment_id=pulumi.get(__ret__, 'environment_id'),
         event_stream_endpoint=pulumi.get(__ret__, 'event_stream_endpoint'),
+        extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         outbound_ip_addresses=pulumi.get(__ret__, 'outbound_ip_addresses'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        running_state=pulumi.get(__ret__, 'running_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         template=pulumi.get(__ret__, 'template'),
@@ -261,9 +287,9 @@ def get_job_output(job_name: Optional[pulumi.Input[builtins.str]] = None,
     """
     Container App Job
 
-    Uses Azure REST API version 2025-01-01.
+    Uses Azure REST API version 2025-02-02-preview.
 
-    Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str job_name: Job Name
@@ -279,12 +305,14 @@ def get_job_output(job_name: Optional[pulumi.Input[builtins.str]] = None,
         configuration=pulumi.get(__response__, 'configuration'),
         environment_id=pulumi.get(__response__, 'environment_id'),
         event_stream_endpoint=pulumi.get(__response__, 'event_stream_endpoint'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         outbound_ip_addresses=pulumi.get(__response__, 'outbound_ip_addresses'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        running_state=pulumi.get(__response__, 'running_state'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         template=pulumi.get(__response__, 'template'),

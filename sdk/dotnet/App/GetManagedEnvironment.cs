@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Get the properties of a Managed Environment used to host container apps.
         /// 
-        /// Uses Azure REST API version 2025-01-01.
+        /// Uses Azure REST API version 2025-02-02-preview.
         /// 
-        /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetManagedEnvironmentResult> InvokeAsync(GetManagedEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedEnvironmentResult>("azure-native:app:getManagedEnvironment", args ?? new GetManagedEnvironmentArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Get the properties of a Managed Environment used to host container apps.
         /// 
-        /// Uses Azure REST API version 2025-01-01.
+        /// Uses Azure REST API version 2025-02-02-preview.
         /// 
-        /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetManagedEnvironmentResult> Invoke(GetManagedEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedEnvironmentResult>("azure-native:app:getManagedEnvironment", args ?? new GetManagedEnvironmentInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Get the properties of a Managed Environment used to host container apps.
         /// 
-        /// Uses Azure REST API version 2025-01-01.
+        /// Uses Azure REST API version 2025-02-02-preview.
         /// 
-        /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetManagedEnvironmentResult> Invoke(GetManagedEnvironmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedEnvironmentResult>("azure-native:app:getManagedEnvironment", args ?? new GetManagedEnvironmentInvokeArgs(), options.WithDefaults());
@@ -88,9 +88,17 @@ namespace Pulumi.AzureNative.App
     public sealed class GetManagedEnvironmentResult
     {
         /// <summary>
-        /// Cluster configuration which enables the log daemon to export app logs to configured destination.
+        /// Environment level Application Insights configuration
+        /// </summary>
+        public readonly Outputs.AppInsightsConfigurationResponse? AppInsightsConfiguration;
+        /// <summary>
+        /// Cluster configuration which enables the log daemon to export app logs to configured destination
         /// </summary>
         public readonly Outputs.AppLogsConfigurationResponse? AppLogsConfiguration;
+        /// <summary>
+        /// The list of availability zones to use for managed environment
+        /// </summary>
+        public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>
         /// The Azure API version of the resource.
         /// </summary>
@@ -120,6 +128,10 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public readonly string DeploymentErrors;
         /// <summary>
+        /// Disk encryption configuration for the Managed Environment.
+        /// </summary>
+        public readonly Outputs.DiskEncryptionConfigurationResponse? DiskEncryptionConfiguration;
+        /// <summary>
         /// The endpoint of the eventstream of the Environment.
         /// </summary>
         public readonly string EventStreamEndpoint;
@@ -135,6 +147,10 @@ namespace Pulumi.AzureNative.App
         /// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. If a subnet ID is provided, this resource group will be created in the same subscription as the subnet.
         /// </summary>
         public readonly string? InfrastructureResourceGroup;
+        /// <summary>
+        /// Ingress configuration for the Managed Environment.
+        /// </summary>
+        public readonly Outputs.IngressConfigurationResponse? IngressConfiguration;
         /// <summary>
         /// The configuration of Keda component.
         /// </summary>
@@ -152,6 +168,10 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Environment Open Telemetry configuration
+        /// </summary>
+        public readonly Outputs.OpenTelemetryConfigurationResponse? OpenTelemetryConfiguration;
+        /// <summary>
         /// Peer authentication settings for the Managed Environment
         /// </summary>
         public readonly Outputs.ManagedEnvironmentResponsePeerAuthentication? PeerAuthentication;
@@ -160,9 +180,21 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public readonly Outputs.ManagedEnvironmentResponsePeerTrafficConfiguration? PeerTrafficConfiguration;
         /// <summary>
+        /// Private endpoint connections to the resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
+        /// Private Link Default Domain Name for the environment
+        /// </summary>
+        public readonly string PrivateLinkDefaultDomain;
+        /// <summary>
         /// Provisioning state of the Environment.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled'.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// Static IP of the Environment
         /// </summary>
@@ -194,7 +226,11 @@ namespace Pulumi.AzureNative.App
 
         [OutputConstructor]
         private GetManagedEnvironmentResult(
+            Outputs.AppInsightsConfigurationResponse? appInsightsConfiguration,
+
             Outputs.AppLogsConfigurationResponse? appLogsConfiguration,
+
+            ImmutableArray<string> availabilityZones,
 
             string azureApiVersion,
 
@@ -210,6 +246,8 @@ namespace Pulumi.AzureNative.App
 
             string deploymentErrors,
 
+            Outputs.DiskEncryptionConfigurationResponse? diskEncryptionConfiguration,
+
             string eventStreamEndpoint,
 
             string id,
@@ -217,6 +255,8 @@ namespace Pulumi.AzureNative.App
             Outputs.ManagedServiceIdentityResponse? identity,
 
             string? infrastructureResourceGroup,
+
+            Outputs.IngressConfigurationResponse? ingressConfiguration,
 
             Outputs.KedaConfigurationResponse? kedaConfiguration,
 
@@ -226,11 +266,19 @@ namespace Pulumi.AzureNative.App
 
             string name,
 
+            Outputs.OpenTelemetryConfigurationResponse? openTelemetryConfiguration,
+
             Outputs.ManagedEnvironmentResponsePeerAuthentication? peerAuthentication,
 
             Outputs.ManagedEnvironmentResponsePeerTrafficConfiguration? peerTrafficConfiguration,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
+            string privateLinkDefaultDomain,
+
             string provisioningState,
+
+            string? publicNetworkAccess,
 
             string staticIp,
 
@@ -246,7 +294,9 @@ namespace Pulumi.AzureNative.App
 
             bool? zoneRedundant)
         {
+            AppInsightsConfiguration = appInsightsConfiguration;
             AppLogsConfiguration = appLogsConfiguration;
+            AvailabilityZones = availabilityZones;
             AzureApiVersion = azureApiVersion;
             CustomDomainConfiguration = customDomainConfiguration;
             DaprAIConnectionString = daprAIConnectionString;
@@ -254,17 +304,23 @@ namespace Pulumi.AzureNative.App
             DaprConfiguration = daprConfiguration;
             DefaultDomain = defaultDomain;
             DeploymentErrors = deploymentErrors;
+            DiskEncryptionConfiguration = diskEncryptionConfiguration;
             EventStreamEndpoint = eventStreamEndpoint;
             Id = id;
             Identity = identity;
             InfrastructureResourceGroup = infrastructureResourceGroup;
+            IngressConfiguration = ingressConfiguration;
             KedaConfiguration = kedaConfiguration;
             Kind = kind;
             Location = location;
             Name = name;
+            OpenTelemetryConfiguration = openTelemetryConfiguration;
             PeerAuthentication = peerAuthentication;
             PeerTrafficConfiguration = peerTrafficConfiguration;
+            PrivateEndpointConnections = privateEndpointConnections;
+            PrivateLinkDefaultDomain = privateLinkDefaultDomain;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             StaticIp = staticIp;
             SystemData = systemData;
             Tags = tags;

@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
+        /// List of probes for the container.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SessionProbeResponse> Probes;
+        /// <summary>
         /// Container resource requirements.
         /// </summary>
         public readonly Outputs.SessionContainerResourcesResponse? Resources;
@@ -53,6 +57,8 @@ namespace Pulumi.AzureNative.App.Outputs
 
             string? name,
 
+            ImmutableArray<Outputs.SessionProbeResponse> probes,
+
             Outputs.SessionContainerResourcesResponse? resources)
         {
             Args = args;
@@ -60,6 +66,7 @@ namespace Pulumi.AzureNative.App.Outputs
             Env = env;
             Image = image;
             Name = name;
+            Probes = probes;
             Resources = resources;
         }
     }

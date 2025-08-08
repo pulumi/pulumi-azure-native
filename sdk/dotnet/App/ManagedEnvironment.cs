@@ -12,18 +12,30 @@ namespace Pulumi.AzureNative.App
     /// <summary>
     /// An environment for hosting container apps
     /// 
-    /// Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+    /// Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
     /// 
-    /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ManagedEnvironment")]
     public partial class ManagedEnvironment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Cluster configuration which enables the log daemon to export app logs to configured destination.
+        /// Environment level Application Insights configuration
+        /// </summary>
+        [Output("appInsightsConfiguration")]
+        public Output<Outputs.AppInsightsConfigurationResponse?> AppInsightsConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Cluster configuration which enables the log daemon to export app logs to configured destination
         /// </summary>
         [Output("appLogsConfiguration")]
         public Output<Outputs.AppLogsConfigurationResponse?> AppLogsConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of availability zones to use for managed environment
+        /// </summary>
+        [Output("availabilityZones")]
+        public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
 
         /// <summary>
         /// The Azure API version of the resource.
@@ -68,6 +80,12 @@ namespace Pulumi.AzureNative.App
         public Output<string> DeploymentErrors { get; private set; } = null!;
 
         /// <summary>
+        /// Disk encryption configuration for the Managed Environment.
+        /// </summary>
+        [Output("diskEncryptionConfiguration")]
+        public Output<Outputs.DiskEncryptionConfigurationResponse?> DiskEncryptionConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The endpoint of the eventstream of the Environment.
         /// </summary>
         [Output("eventStreamEndpoint")]
@@ -84,6 +102,12 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Output("infrastructureResourceGroup")]
         public Output<string?> InfrastructureResourceGroup { get; private set; } = null!;
+
+        /// <summary>
+        /// Ingress configuration for the Managed Environment.
+        /// </summary>
+        [Output("ingressConfiguration")]
+        public Output<Outputs.IngressConfigurationResponse?> IngressConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The configuration of Keda component.
@@ -110,6 +134,12 @@ namespace Pulumi.AzureNative.App
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Environment Open Telemetry configuration
+        /// </summary>
+        [Output("openTelemetryConfiguration")]
+        public Output<Outputs.OpenTelemetryConfigurationResponse?> OpenTelemetryConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Peer authentication settings for the Managed Environment
         /// </summary>
         [Output("peerAuthentication")]
@@ -122,10 +152,28 @@ namespace Pulumi.AzureNative.App
         public Output<Outputs.ManagedEnvironmentResponsePeerTrafficConfiguration?> PeerTrafficConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Private endpoint connections to the resource.
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// Private Link Default Domain Name for the environment
+        /// </summary>
+        [Output("privateLinkDefaultDomain")]
+        public Output<string> PrivateLinkDefaultDomain { get; private set; } = null!;
+
+        /// <summary>
         /// Provisioning state of the Environment.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled'.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// Static IP of the Environment
@@ -234,10 +282,28 @@ namespace Pulumi.AzureNative.App
     public sealed class ManagedEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Cluster configuration which enables the log daemon to export app logs to configured destination.
+        /// Environment level Application Insights configuration
+        /// </summary>
+        [Input("appInsightsConfiguration")]
+        public Input<Inputs.AppInsightsConfigurationArgs>? AppInsightsConfiguration { get; set; }
+
+        /// <summary>
+        /// Cluster configuration which enables the log daemon to export app logs to configured destination
         /// </summary>
         [Input("appLogsConfiguration")]
         public Input<Inputs.AppLogsConfigurationArgs>? AppLogsConfiguration { get; set; }
+
+        [Input("availabilityZones")]
+        private InputList<string>? _availabilityZones;
+
+        /// <summary>
+        /// The list of availability zones to use for managed environment
+        /// </summary>
+        public InputList<string> AvailabilityZones
+        {
+            get => _availabilityZones ?? (_availabilityZones = new InputList<string>());
+            set => _availabilityZones = value;
+        }
 
         /// <summary>
         /// Custom domain configuration for the environment
@@ -258,6 +324,12 @@ namespace Pulumi.AzureNative.App
         public Input<string>? DaprAIInstrumentationKey { get; set; }
 
         /// <summary>
+        /// Disk encryption configuration for the Managed Environment.
+        /// </summary>
+        [Input("diskEncryptionConfiguration")]
+        public Input<Inputs.DiskEncryptionConfigurationArgs>? DiskEncryptionConfiguration { get; set; }
+
+        /// <summary>
         /// Name of the Environment.
         /// </summary>
         [Input("environmentName")]
@@ -276,6 +348,12 @@ namespace Pulumi.AzureNative.App
         public Input<string>? InfrastructureResourceGroup { get; set; }
 
         /// <summary>
+        /// Ingress configuration for the Managed Environment.
+        /// </summary>
+        [Input("ingressConfiguration")]
+        public Input<Inputs.IngressConfigurationArgs>? IngressConfiguration { get; set; }
+
+        /// <summary>
         /// Kind of the Environment.
         /// </summary>
         [Input("kind")]
@@ -288,6 +366,12 @@ namespace Pulumi.AzureNative.App
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Environment Open Telemetry configuration
+        /// </summary>
+        [Input("openTelemetryConfiguration")]
+        public Input<Inputs.OpenTelemetryConfigurationArgs>? OpenTelemetryConfiguration { get; set; }
+
+        /// <summary>
         /// Peer authentication settings for the Managed Environment
         /// </summary>
         [Input("peerAuthentication")]
@@ -298,6 +382,12 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Input("peerTrafficConfiguration")]
         public Input<Inputs.ManagedEnvironmentPeerTrafficConfigurationArgs>? PeerTrafficConfiguration { get; set; }
+
+        /// <summary>
+        /// Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled'.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.App.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

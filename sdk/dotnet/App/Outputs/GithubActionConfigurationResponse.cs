@@ -21,9 +21,17 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly Outputs.AzureCredentialsResponse? AzureCredentials;
         /// <summary>
+        /// List of environment variables to be passed to the build.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EnvironmentVariableResponse> BuildEnvironmentVariables;
+        /// <summary>
         /// Context path
         /// </summary>
         public readonly string? ContextPath;
+        /// <summary>
+        /// Dockerfile path
+        /// </summary>
+        public readonly string? DockerfilePath;
         /// <summary>
         /// Image name
         /// </summary>
@@ -53,7 +61,11 @@ namespace Pulumi.AzureNative.App.Outputs
         private GithubActionConfigurationResponse(
             Outputs.AzureCredentialsResponse? azureCredentials,
 
+            ImmutableArray<Outputs.EnvironmentVariableResponse> buildEnvironmentVariables,
+
             string? contextPath,
+
+            string? dockerfilePath,
 
             string? image,
 
@@ -68,7 +80,9 @@ namespace Pulumi.AzureNative.App.Outputs
             string? runtimeVersion)
         {
             AzureCredentials = azureCredentials;
+            BuildEnvironmentVariables = buildEnvironmentVariables;
             ContextPath = contextPath;
+            DockerfilePath = dockerfilePath;
             Image = image;
             Os = os;
             PublishType = publishType;

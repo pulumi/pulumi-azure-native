@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Dapr Component.
  *
- * Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+ * Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
  *
- * Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class DaprComponent extends pulumi.CustomResource {
     /**
@@ -78,6 +78,10 @@ export class DaprComponent extends pulumi.CustomResource {
      */
     public readonly secrets!: pulumi.Output<outputs.app.SecretResponse[] | undefined>;
     /**
+     * List of container app services that are bound to the Dapr component
+     */
+    public readonly serviceComponentBind!: pulumi.Output<outputs.app.DaprComponentServiceBindingResponse[] | undefined>;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.app.SystemDataResponse>;
@@ -117,6 +121,7 @@ export class DaprComponent extends pulumi.CustomResource {
             resourceInputs["scopes"] = args ? args.scopes : undefined;
             resourceInputs["secretStoreComponent"] = args ? args.secretStoreComponent : undefined;
             resourceInputs["secrets"] = args ? args.secrets : undefined;
+            resourceInputs["serviceComponentBind"] = args ? args.serviceComponentBind : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -132,6 +137,7 @@ export class DaprComponent extends pulumi.CustomResource {
             resourceInputs["scopes"] = undefined /*out*/;
             resourceInputs["secretStoreComponent"] = undefined /*out*/;
             resourceInputs["secrets"] = undefined /*out*/;
+            resourceInputs["serviceComponentBind"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
@@ -187,6 +193,10 @@ export interface DaprComponentArgs {
      * Collection of secrets used by a Dapr component
      */
     secrets?: pulumi.Input<pulumi.Input<inputs.app.SecretArgs>[]>;
+    /**
+     * List of container app services that are bound to the Dapr component
+     */
+    serviceComponentBind?: pulumi.Input<pulumi.Input<inputs.app.DaprComponentServiceBindingArgs>[]>;
     /**
      * Component version
      */

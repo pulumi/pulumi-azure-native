@@ -21,6 +21,14 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly Outputs.CertificateKeyVaultPropertiesResponse? CertificateKeyVaultProperties;
         /// <summary>
+        /// The type of the certificate. Allowed values are `ServerSSLCertificate` and `ImagePullTrustedCA`
+        /// </summary>
+        public readonly string? CertificateType;
+        /// <summary>
+        /// Any errors that occurred during deployment or deployment validation
+        /// </summary>
+        public readonly string DeploymentErrors;
+        /// <summary>
         /// Certificate expiration date.
         /// </summary>
         public readonly string ExpirationDate;
@@ -61,6 +69,10 @@ namespace Pulumi.AzureNative.App.Outputs
         private CertificateResponseProperties(
             Outputs.CertificateKeyVaultPropertiesResponse? certificateKeyVaultProperties,
 
+            string? certificateType,
+
+            string deploymentErrors,
+
             string expirationDate,
 
             string issueDate,
@@ -80,6 +92,8 @@ namespace Pulumi.AzureNative.App.Outputs
             bool valid)
         {
             CertificateKeyVaultProperties = certificateKeyVaultProperties;
+            CertificateType = certificateType;
+            DeploymentErrors = deploymentErrors;
             ExpirationDate = expirationDate;
             IssueDate = issueDate;
             Issuer = issuer;

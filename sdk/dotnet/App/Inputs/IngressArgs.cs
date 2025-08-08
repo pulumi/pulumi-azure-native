@@ -93,6 +93,12 @@ namespace Pulumi.AzureNative.App.Inputs
         [Input("targetPort")]
         public Input<int>? TargetPort { get; set; }
 
+        /// <summary>
+        /// Whether an http app listens on http or https
+        /// </summary>
+        [Input("targetPortHttpScheme")]
+        public InputUnion<string, Pulumi.AzureNative.App.IngressTargetPortHttpScheme>? TargetPortHttpScheme { get; set; }
+
         [Input("traffic")]
         private InputList<Inputs.TrafficWeightArgs>? _traffic;
 

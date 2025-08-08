@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.App.Outputs
         /// Log analytics customer id
         /// </summary>
         public readonly string? CustomerId;
+        /// <summary>
+        /// Boolean indicating whether to parse json string log into dynamic json columns
+        /// </summary>
+        public readonly bool? DynamicJsonColumns;
 
         [OutputConstructor]
-        private LogAnalyticsConfigurationResponse(string? customerId)
+        private LogAnalyticsConfigurationResponse(
+            string? customerId,
+
+            bool? dynamicJsonColumns)
         {
             CustomerId = customerId;
+            DynamicJsonColumns = dynamicJsonColumns;
         }
     }
 }

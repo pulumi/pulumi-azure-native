@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.App.Inputs
     public sealed class DaprArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Dapr application health check configuration
+        /// </summary>
+        [Input("appHealth")]
+        public Input<Inputs.DaprAppHealthArgs>? AppHealth { get; set; }
+
+        /// <summary>
         /// Dapr application identifier
         /// </summary>
         [Input("appId")]
@@ -62,6 +68,12 @@ namespace Pulumi.AzureNative.App.Inputs
         /// </summary>
         [Input("logLevel")]
         public InputUnion<string, Pulumi.AzureNative.App.LogLevel>? LogLevel { get; set; }
+
+        /// <summary>
+        /// Maximum number of concurrent requests, events handled by the Dapr sidecar
+        /// </summary>
+        [Input("maxConcurrency")]
+        public Input<int>? MaxConcurrency { get; set; }
 
         public DaprArgs()
         {

@@ -24,17 +24,23 @@ __all__ = ['ManagedEnvironmentArgs', 'ManagedEnvironment']
 class ManagedEnvironmentArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[builtins.str],
+                 app_insights_configuration: Optional[pulumi.Input['AppInsightsConfigurationArgs']] = None,
                  app_logs_configuration: Optional[pulumi.Input['AppLogsConfigurationArgs']] = None,
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  custom_domain_configuration: Optional[pulumi.Input['CustomDomainConfigurationArgs']] = None,
                  dapr_ai_connection_string: Optional[pulumi.Input[builtins.str]] = None,
                  dapr_ai_instrumentation_key: Optional[pulumi.Input[builtins.str]] = None,
+                 disk_encryption_configuration: Optional[pulumi.Input['DiskEncryptionConfigurationArgs']] = None,
                  environment_name: Optional[pulumi.Input[builtins.str]] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  infrastructure_resource_group: Optional[pulumi.Input[builtins.str]] = None,
+                 ingress_configuration: Optional[pulumi.Input['IngressConfigurationArgs']] = None,
                  kind: Optional[pulumi.Input[builtins.str]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
+                 open_telemetry_configuration: Optional[pulumi.Input['OpenTelemetryConfigurationArgs']] = None,
                  peer_authentication: Optional[pulumi.Input['ManagedEnvironmentPeerAuthenticationArgs']] = None,
                  peer_traffic_configuration: Optional[pulumi.Input['ManagedEnvironmentPeerTrafficConfigurationArgs']] = None,
+                 public_network_access: Optional[pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vnet_configuration: Optional[pulumi.Input['VnetConfigurationArgs']] = None,
                  workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadProfileArgs']]]] = None,
@@ -42,45 +48,63 @@ class ManagedEnvironmentArgs:
         """
         The set of arguments for constructing a ManagedEnvironment resource.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['AppLogsConfigurationArgs'] app_logs_configuration: Cluster configuration which enables the log daemon to export app logs to configured destination.
+        :param pulumi.Input['AppInsightsConfigurationArgs'] app_insights_configuration: Environment level Application Insights configuration
+        :param pulumi.Input['AppLogsConfigurationArgs'] app_logs_configuration: Cluster configuration which enables the log daemon to export app logs to configured destination
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] availability_zones: The list of availability zones to use for managed environment
         :param pulumi.Input['CustomDomainConfigurationArgs'] custom_domain_configuration: Custom domain configuration for the environment
         :param pulumi.Input[builtins.str] dapr_ai_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry
         :param pulumi.Input[builtins.str] dapr_ai_instrumentation_key: Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
+        :param pulumi.Input['DiskEncryptionConfigurationArgs'] disk_encryption_configuration: Disk encryption configuration for the Managed Environment.
         :param pulumi.Input[builtins.str] environment_name: Name of the Environment.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed identities for the Managed Environment to interact with other Azure services without maintaining any secrets or credentials in code.
         :param pulumi.Input[builtins.str] infrastructure_resource_group: Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. If a subnet ID is provided, this resource group will be created in the same subscription as the subnet.
+        :param pulumi.Input['IngressConfigurationArgs'] ingress_configuration: Ingress configuration for the Managed Environment.
         :param pulumi.Input[builtins.str] kind: Kind of the Environment.
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input['OpenTelemetryConfigurationArgs'] open_telemetry_configuration: Environment Open Telemetry configuration
         :param pulumi.Input['ManagedEnvironmentPeerAuthenticationArgs'] peer_authentication: Peer authentication settings for the Managed Environment
         :param pulumi.Input['ManagedEnvironmentPeerTrafficConfigurationArgs'] peer_traffic_configuration: Peer traffic settings for the Managed Environment
+        :param pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']] public_network_access: Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled'.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param pulumi.Input['VnetConfigurationArgs'] vnet_configuration: Vnet configuration for the environment
         :param pulumi.Input[Sequence[pulumi.Input['WorkloadProfileArgs']]] workload_profiles: Workload profiles configured for the Managed Environment.
         :param pulumi.Input[builtins.bool] zone_redundant: Whether or not this Managed Environment is zone-redundant.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if app_insights_configuration is not None:
+            pulumi.set(__self__, "app_insights_configuration", app_insights_configuration)
         if app_logs_configuration is not None:
             pulumi.set(__self__, "app_logs_configuration", app_logs_configuration)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
         if custom_domain_configuration is not None:
             pulumi.set(__self__, "custom_domain_configuration", custom_domain_configuration)
         if dapr_ai_connection_string is not None:
             pulumi.set(__self__, "dapr_ai_connection_string", dapr_ai_connection_string)
         if dapr_ai_instrumentation_key is not None:
             pulumi.set(__self__, "dapr_ai_instrumentation_key", dapr_ai_instrumentation_key)
+        if disk_encryption_configuration is not None:
+            pulumi.set(__self__, "disk_encryption_configuration", disk_encryption_configuration)
         if environment_name is not None:
             pulumi.set(__self__, "environment_name", environment_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if infrastructure_resource_group is not None:
             pulumi.set(__self__, "infrastructure_resource_group", infrastructure_resource_group)
+        if ingress_configuration is not None:
+            pulumi.set(__self__, "ingress_configuration", ingress_configuration)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if open_telemetry_configuration is not None:
+            pulumi.set(__self__, "open_telemetry_configuration", open_telemetry_configuration)
         if peer_authentication is not None:
             pulumi.set(__self__, "peer_authentication", peer_authentication)
         if peer_traffic_configuration is not None:
             pulumi.set(__self__, "peer_traffic_configuration", peer_traffic_configuration)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if vnet_configuration is not None:
@@ -103,16 +127,40 @@ class ManagedEnvironmentArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="appInsightsConfiguration")
+    def app_insights_configuration(self) -> Optional[pulumi.Input['AppInsightsConfigurationArgs']]:
+        """
+        Environment level Application Insights configuration
+        """
+        return pulumi.get(self, "app_insights_configuration")
+
+    @app_insights_configuration.setter
+    def app_insights_configuration(self, value: Optional[pulumi.Input['AppInsightsConfigurationArgs']]):
+        pulumi.set(self, "app_insights_configuration", value)
+
+    @property
     @pulumi.getter(name="appLogsConfiguration")
     def app_logs_configuration(self) -> Optional[pulumi.Input['AppLogsConfigurationArgs']]:
         """
-        Cluster configuration which enables the log daemon to export app logs to configured destination.
+        Cluster configuration which enables the log daemon to export app logs to configured destination
         """
         return pulumi.get(self, "app_logs_configuration")
 
     @app_logs_configuration.setter
     def app_logs_configuration(self, value: Optional[pulumi.Input['AppLogsConfigurationArgs']]):
         pulumi.set(self, "app_logs_configuration", value)
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        The list of availability zones to use for managed environment
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @availability_zones.setter
+    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "availability_zones", value)
 
     @property
     @pulumi.getter(name="customDomainConfiguration")
@@ -151,6 +199,18 @@ class ManagedEnvironmentArgs:
         pulumi.set(self, "dapr_ai_instrumentation_key", value)
 
     @property
+    @pulumi.getter(name="diskEncryptionConfiguration")
+    def disk_encryption_configuration(self) -> Optional[pulumi.Input['DiskEncryptionConfigurationArgs']]:
+        """
+        Disk encryption configuration for the Managed Environment.
+        """
+        return pulumi.get(self, "disk_encryption_configuration")
+
+    @disk_encryption_configuration.setter
+    def disk_encryption_configuration(self, value: Optional[pulumi.Input['DiskEncryptionConfigurationArgs']]):
+        pulumi.set(self, "disk_encryption_configuration", value)
+
+    @property
     @pulumi.getter(name="environmentName")
     def environment_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -187,6 +247,18 @@ class ManagedEnvironmentArgs:
         pulumi.set(self, "infrastructure_resource_group", value)
 
     @property
+    @pulumi.getter(name="ingressConfiguration")
+    def ingress_configuration(self) -> Optional[pulumi.Input['IngressConfigurationArgs']]:
+        """
+        Ingress configuration for the Managed Environment.
+        """
+        return pulumi.get(self, "ingress_configuration")
+
+    @ingress_configuration.setter
+    def ingress_configuration(self, value: Optional[pulumi.Input['IngressConfigurationArgs']]):
+        pulumi.set(self, "ingress_configuration", value)
+
+    @property
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -211,6 +283,18 @@ class ManagedEnvironmentArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="openTelemetryConfiguration")
+    def open_telemetry_configuration(self) -> Optional[pulumi.Input['OpenTelemetryConfigurationArgs']]:
+        """
+        Environment Open Telemetry configuration
+        """
+        return pulumi.get(self, "open_telemetry_configuration")
+
+    @open_telemetry_configuration.setter
+    def open_telemetry_configuration(self, value: Optional[pulumi.Input['OpenTelemetryConfigurationArgs']]):
+        pulumi.set(self, "open_telemetry_configuration", value)
+
+    @property
     @pulumi.getter(name="peerAuthentication")
     def peer_authentication(self) -> Optional[pulumi.Input['ManagedEnvironmentPeerAuthenticationArgs']]:
         """
@@ -233,6 +317,18 @@ class ManagedEnvironmentArgs:
     @peer_traffic_configuration.setter
     def peer_traffic_configuration(self, value: Optional[pulumi.Input['ManagedEnvironmentPeerTrafficConfigurationArgs']]):
         pulumi.set(self, "peer_traffic_configuration", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']]]:
+        """
+        Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled'.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
 
     @property
     @pulumi.getter
@@ -289,17 +385,23 @@ class ManagedEnvironment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_insights_configuration: Optional[pulumi.Input[Union['AppInsightsConfigurationArgs', 'AppInsightsConfigurationArgsDict']]] = None,
                  app_logs_configuration: Optional[pulumi.Input[Union['AppLogsConfigurationArgs', 'AppLogsConfigurationArgsDict']]] = None,
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  custom_domain_configuration: Optional[pulumi.Input[Union['CustomDomainConfigurationArgs', 'CustomDomainConfigurationArgsDict']]] = None,
                  dapr_ai_connection_string: Optional[pulumi.Input[builtins.str]] = None,
                  dapr_ai_instrumentation_key: Optional[pulumi.Input[builtins.str]] = None,
+                 disk_encryption_configuration: Optional[pulumi.Input[Union['DiskEncryptionConfigurationArgs', 'DiskEncryptionConfigurationArgsDict']]] = None,
                  environment_name: Optional[pulumi.Input[builtins.str]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  infrastructure_resource_group: Optional[pulumi.Input[builtins.str]] = None,
+                 ingress_configuration: Optional[pulumi.Input[Union['IngressConfigurationArgs', 'IngressConfigurationArgsDict']]] = None,
                  kind: Optional[pulumi.Input[builtins.str]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
+                 open_telemetry_configuration: Optional[pulumi.Input[Union['OpenTelemetryConfigurationArgs', 'OpenTelemetryConfigurationArgsDict']]] = None,
                  peer_authentication: Optional[pulumi.Input[Union['ManagedEnvironmentPeerAuthenticationArgs', 'ManagedEnvironmentPeerAuthenticationArgsDict']]] = None,
                  peer_traffic_configuration: Optional[pulumi.Input[Union['ManagedEnvironmentPeerTrafficConfigurationArgs', 'ManagedEnvironmentPeerTrafficConfigurationArgsDict']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vnet_configuration: Optional[pulumi.Input[Union['VnetConfigurationArgs', 'VnetConfigurationArgsDict']]] = None,
@@ -309,23 +411,29 @@ class ManagedEnvironment(pulumi.CustomResource):
         """
         An environment for hosting container apps
 
-        Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+        Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
-        Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AppLogsConfigurationArgs', 'AppLogsConfigurationArgsDict']] app_logs_configuration: Cluster configuration which enables the log daemon to export app logs to configured destination.
+        :param pulumi.Input[Union['AppInsightsConfigurationArgs', 'AppInsightsConfigurationArgsDict']] app_insights_configuration: Environment level Application Insights configuration
+        :param pulumi.Input[Union['AppLogsConfigurationArgs', 'AppLogsConfigurationArgsDict']] app_logs_configuration: Cluster configuration which enables the log daemon to export app logs to configured destination
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] availability_zones: The list of availability zones to use for managed environment
         :param pulumi.Input[Union['CustomDomainConfigurationArgs', 'CustomDomainConfigurationArgsDict']] custom_domain_configuration: Custom domain configuration for the environment
         :param pulumi.Input[builtins.str] dapr_ai_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry
         :param pulumi.Input[builtins.str] dapr_ai_instrumentation_key: Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
+        :param pulumi.Input[Union['DiskEncryptionConfigurationArgs', 'DiskEncryptionConfigurationArgsDict']] disk_encryption_configuration: Disk encryption configuration for the Managed Environment.
         :param pulumi.Input[builtins.str] environment_name: Name of the Environment.
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed identities for the Managed Environment to interact with other Azure services without maintaining any secrets or credentials in code.
         :param pulumi.Input[builtins.str] infrastructure_resource_group: Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. If a subnet ID is provided, this resource group will be created in the same subscription as the subnet.
+        :param pulumi.Input[Union['IngressConfigurationArgs', 'IngressConfigurationArgsDict']] ingress_configuration: Ingress configuration for the Managed Environment.
         :param pulumi.Input[builtins.str] kind: Kind of the Environment.
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[Union['OpenTelemetryConfigurationArgs', 'OpenTelemetryConfigurationArgsDict']] open_telemetry_configuration: Environment Open Telemetry configuration
         :param pulumi.Input[Union['ManagedEnvironmentPeerAuthenticationArgs', 'ManagedEnvironmentPeerAuthenticationArgsDict']] peer_authentication: Peer authentication settings for the Managed Environment
         :param pulumi.Input[Union['ManagedEnvironmentPeerTrafficConfigurationArgs', 'ManagedEnvironmentPeerTrafficConfigurationArgsDict']] peer_traffic_configuration: Peer traffic settings for the Managed Environment
+        :param pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']] public_network_access: Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled'.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Union['VnetConfigurationArgs', 'VnetConfigurationArgsDict']] vnet_configuration: Vnet configuration for the environment
@@ -341,9 +449,9 @@ class ManagedEnvironment(pulumi.CustomResource):
         """
         An environment for hosting container apps
 
-        Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+        Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
-        Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ManagedEnvironmentArgs args: The arguments to use to populate this resource's properties.
@@ -360,17 +468,23 @@ class ManagedEnvironment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_insights_configuration: Optional[pulumi.Input[Union['AppInsightsConfigurationArgs', 'AppInsightsConfigurationArgsDict']]] = None,
                  app_logs_configuration: Optional[pulumi.Input[Union['AppLogsConfigurationArgs', 'AppLogsConfigurationArgsDict']]] = None,
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  custom_domain_configuration: Optional[pulumi.Input[Union['CustomDomainConfigurationArgs', 'CustomDomainConfigurationArgsDict']]] = None,
                  dapr_ai_connection_string: Optional[pulumi.Input[builtins.str]] = None,
                  dapr_ai_instrumentation_key: Optional[pulumi.Input[builtins.str]] = None,
+                 disk_encryption_configuration: Optional[pulumi.Input[Union['DiskEncryptionConfigurationArgs', 'DiskEncryptionConfigurationArgsDict']]] = None,
                  environment_name: Optional[pulumi.Input[builtins.str]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  infrastructure_resource_group: Optional[pulumi.Input[builtins.str]] = None,
+                 ingress_configuration: Optional[pulumi.Input[Union['IngressConfigurationArgs', 'IngressConfigurationArgsDict']]] = None,
                  kind: Optional[pulumi.Input[builtins.str]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
+                 open_telemetry_configuration: Optional[pulumi.Input[Union['OpenTelemetryConfigurationArgs', 'OpenTelemetryConfigurationArgsDict']]] = None,
                  peer_authentication: Optional[pulumi.Input[Union['ManagedEnvironmentPeerAuthenticationArgs', 'ManagedEnvironmentPeerAuthenticationArgsDict']]] = None,
                  peer_traffic_configuration: Optional[pulumi.Input[Union['ManagedEnvironmentPeerTrafficConfigurationArgs', 'ManagedEnvironmentPeerTrafficConfigurationArgsDict']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vnet_configuration: Optional[pulumi.Input[Union['VnetConfigurationArgs', 'VnetConfigurationArgsDict']]] = None,
@@ -385,17 +499,23 @@ class ManagedEnvironment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ManagedEnvironmentArgs.__new__(ManagedEnvironmentArgs)
 
+            __props__.__dict__["app_insights_configuration"] = app_insights_configuration
             __props__.__dict__["app_logs_configuration"] = app_logs_configuration
+            __props__.__dict__["availability_zones"] = availability_zones
             __props__.__dict__["custom_domain_configuration"] = custom_domain_configuration
             __props__.__dict__["dapr_ai_connection_string"] = dapr_ai_connection_string
             __props__.__dict__["dapr_ai_instrumentation_key"] = dapr_ai_instrumentation_key
+            __props__.__dict__["disk_encryption_configuration"] = disk_encryption_configuration
             __props__.__dict__["environment_name"] = environment_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["infrastructure_resource_group"] = infrastructure_resource_group
+            __props__.__dict__["ingress_configuration"] = ingress_configuration
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
+            __props__.__dict__["open_telemetry_configuration"] = open_telemetry_configuration
             __props__.__dict__["peer_authentication"] = peer_authentication
             __props__.__dict__["peer_traffic_configuration"] = peer_traffic_configuration
+            __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -410,6 +530,8 @@ class ManagedEnvironment(pulumi.CustomResource):
             __props__.__dict__["event_stream_endpoint"] = None
             __props__.__dict__["keda_configuration"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["private_endpoint_connections"] = None
+            __props__.__dict__["private_link_default_domain"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["static_ip"] = None
             __props__.__dict__["system_data"] = None
@@ -438,7 +560,9 @@ class ManagedEnvironment(pulumi.CustomResource):
 
         __props__ = ManagedEnvironmentArgs.__new__(ManagedEnvironmentArgs)
 
+        __props__.__dict__["app_insights_configuration"] = None
         __props__.__dict__["app_logs_configuration"] = None
+        __props__.__dict__["availability_zones"] = None
         __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["custom_domain_configuration"] = None
         __props__.__dict__["dapr_ai_connection_string"] = None
@@ -446,16 +570,22 @@ class ManagedEnvironment(pulumi.CustomResource):
         __props__.__dict__["dapr_configuration"] = None
         __props__.__dict__["default_domain"] = None
         __props__.__dict__["deployment_errors"] = None
+        __props__.__dict__["disk_encryption_configuration"] = None
         __props__.__dict__["event_stream_endpoint"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["infrastructure_resource_group"] = None
+        __props__.__dict__["ingress_configuration"] = None
         __props__.__dict__["keda_configuration"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["open_telemetry_configuration"] = None
         __props__.__dict__["peer_authentication"] = None
         __props__.__dict__["peer_traffic_configuration"] = None
+        __props__.__dict__["private_endpoint_connections"] = None
+        __props__.__dict__["private_link_default_domain"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_network_access"] = None
         __props__.__dict__["static_ip"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
@@ -466,12 +596,28 @@ class ManagedEnvironment(pulumi.CustomResource):
         return ManagedEnvironment(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="appInsightsConfiguration")
+    def app_insights_configuration(self) -> pulumi.Output[Optional['outputs.AppInsightsConfigurationResponse']]:
+        """
+        Environment level Application Insights configuration
+        """
+        return pulumi.get(self, "app_insights_configuration")
+
+    @property
     @pulumi.getter(name="appLogsConfiguration")
     def app_logs_configuration(self) -> pulumi.Output[Optional['outputs.AppLogsConfigurationResponse']]:
         """
-        Cluster configuration which enables the log daemon to export app logs to configured destination.
+        Cluster configuration which enables the log daemon to export app logs to configured destination
         """
         return pulumi.get(self, "app_logs_configuration")
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
+        """
+        The list of availability zones to use for managed environment
+        """
+        return pulumi.get(self, "availability_zones")
 
     @property
     @pulumi.getter(name="azureApiVersion")
@@ -530,6 +676,14 @@ class ManagedEnvironment(pulumi.CustomResource):
         return pulumi.get(self, "deployment_errors")
 
     @property
+    @pulumi.getter(name="diskEncryptionConfiguration")
+    def disk_encryption_configuration(self) -> pulumi.Output[Optional['outputs.DiskEncryptionConfigurationResponse']]:
+        """
+        Disk encryption configuration for the Managed Environment.
+        """
+        return pulumi.get(self, "disk_encryption_configuration")
+
+    @property
     @pulumi.getter(name="eventStreamEndpoint")
     def event_stream_endpoint(self) -> pulumi.Output[builtins.str]:
         """
@@ -552,6 +706,14 @@ class ManagedEnvironment(pulumi.CustomResource):
         Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. If a subnet ID is provided, this resource group will be created in the same subscription as the subnet.
         """
         return pulumi.get(self, "infrastructure_resource_group")
+
+    @property
+    @pulumi.getter(name="ingressConfiguration")
+    def ingress_configuration(self) -> pulumi.Output[Optional['outputs.IngressConfigurationResponse']]:
+        """
+        Ingress configuration for the Managed Environment.
+        """
+        return pulumi.get(self, "ingress_configuration")
 
     @property
     @pulumi.getter(name="kedaConfiguration")
@@ -586,6 +748,14 @@ class ManagedEnvironment(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="openTelemetryConfiguration")
+    def open_telemetry_configuration(self) -> pulumi.Output[Optional['outputs.OpenTelemetryConfigurationResponse']]:
+        """
+        Environment Open Telemetry configuration
+        """
+        return pulumi.get(self, "open_telemetry_configuration")
+
+    @property
     @pulumi.getter(name="peerAuthentication")
     def peer_authentication(self) -> pulumi.Output[Optional['outputs.ManagedEnvironmentResponsePeerAuthentication']]:
         """
@@ -602,12 +772,36 @@ class ManagedEnvironment(pulumi.CustomResource):
         return pulumi.get(self, "peer_traffic_configuration")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+        """
+        Private endpoint connections to the resource.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="privateLinkDefaultDomain")
+    def private_link_default_domain(self) -> pulumi.Output[builtins.str]:
+        """
+        Private Link Default Domain Name for the environment
+        """
+        return pulumi.get(self, "private_link_default_domain")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[builtins.str]:
         """
         Provisioning state of the Environment.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled'.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="staticIp")

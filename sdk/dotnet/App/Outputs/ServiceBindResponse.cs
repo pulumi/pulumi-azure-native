@@ -17,6 +17,14 @@ namespace Pulumi.AzureNative.App.Outputs
     public sealed class ServiceBindResponse
     {
         /// <summary>
+        /// Type of the client to be used to connect to the service
+        /// </summary>
+        public readonly string? ClientType;
+        /// <summary>
+        /// Customized keys for customizing injected values to the app
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? CustomizedKeys;
+        /// <summary>
         /// Name of the service bind
         /// </summary>
         public readonly string? Name;
@@ -27,10 +35,16 @@ namespace Pulumi.AzureNative.App.Outputs
 
         [OutputConstructor]
         private ServiceBindResponse(
+            string? clientType,
+
+            ImmutableDictionary<string, string>? customizedKeys,
+
             string? name,
 
             string? serviceId)
         {
+            ClientType = clientType;
+            CustomizedKeys = customizedKeys;
             Name = name;
             ServiceId = serviceId;
         }

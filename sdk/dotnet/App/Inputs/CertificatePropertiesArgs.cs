@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.Inputs
         public Input<Inputs.CertificateKeyVaultPropertiesArgs>? CertificateKeyVaultProperties { get; set; }
 
         /// <summary>
+        /// The type of the certificate. Allowed values are `ServerSSLCertificate` and `ImagePullTrustedCA`
+        /// </summary>
+        [Input("certificateType")]
+        public InputUnion<string, Pulumi.AzureNative.App.CertificateType>? CertificateType { get; set; }
+
+        /// <summary>
         /// Certificate password.
         /// </summary>
         [Input("password")]

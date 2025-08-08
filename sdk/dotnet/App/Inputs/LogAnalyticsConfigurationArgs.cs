@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.Inputs
         public Input<string>? CustomerId { get; set; }
 
         /// <summary>
+        /// Boolean indicating whether to parse json string log into dynamic json columns
+        /// </summary>
+        [Input("dynamicJsonColumns")]
+        public Input<bool>? DynamicJsonColumns { get; set; }
+
+        /// <summary>
         /// Log analytics customer key
         /// </summary>
         [Input("sharedKey")]

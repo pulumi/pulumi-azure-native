@@ -13,6 +13,7 @@ __all__ = [
     'Affinity',
     'AppProtocol',
     'BindingType',
+    'CertificateType',
     'ClientCredentialMethod',
     'ContainerType',
     'CookieExpirationConvention',
@@ -20,17 +21,24 @@ __all__ = [
     'ExtendedLocationTypes',
     'ForwardProxyConvention',
     'IdentitySettingsLifeCycle',
+    'ImageType',
     'IngressClientCertificateMode',
+    'IngressTargetPortHttpScheme',
     'IngressTransportMethod',
     'JavaComponentType',
+    'Kind',
+    'Level',
     'LifecycleType',
     'LogLevel',
     'ManagedCertificateDomainControlValidation',
     'ManagedServiceIdentityType',
+    'PatchingMode',
     'PoolManagementType',
     'PrivateEndpointServiceConnectionStatus',
+    'PublicNetworkAccess',
     'Scheme',
     'SessionNetworkStatus',
+    'SessionProbeType',
     'StorageType',
     'TriggerType',
     'Type',
@@ -61,10 +69,11 @@ class Action(builtins.str, Enum):
 class ActiveRevisionsMode(builtins.str, Enum):
     """
     ActiveRevisionsMode controls how active revisions are handled for the Container app:
-    <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
+    <list><item>Single: Only one revision can be active at a time. Traffic weights cannot be used. This is the default.</item><item>Multiple: Multiple revisions can be active, including optional traffic weights and labels.</item><item>Labels: Only revisions with labels are active. Traffic weights can be applied to labels.</item></list>
     """
     MULTIPLE = "Multiple"
     SINGLE = "Single"
+    LABELS = "Labels"
 
 
 @pulumi.type_token("azure-native:app:Affinity")
@@ -93,6 +102,15 @@ class BindingType(builtins.str, Enum):
     DISABLED = "Disabled"
     SNI_ENABLED = "SniEnabled"
     AUTO = "Auto"
+
+
+@pulumi.type_token("azure-native:app:CertificateType")
+class CertificateType(builtins.str, Enum):
+    """
+    The type of the certificate. Allowed values are `ServerSSLCertificate` and `ImagePullTrustedCA`
+    """
+    SERVER_SSL_CERTIFICATE = "ServerSSLCertificate"
+    IMAGE_PULL_TRUSTED_CA = "ImagePullTrustedCA"
 
 
 @pulumi.type_token("azure-native:app:ClientCredentialMethod")
@@ -158,6 +176,15 @@ class IdentitySettingsLifeCycle(builtins.str, Enum):
     ALL = "All"
 
 
+@pulumi.type_token("azure-native:app:ImageType")
+class ImageType(builtins.str, Enum):
+    """
+    The type of the image. Set to CloudBuild to let the system manages the image, where user will not be able to update image through image field. Set to ContainerImage for user provided image.
+    """
+    CLOUD_BUILD = "CloudBuild"
+    CONTAINER_IMAGE = "ContainerImage"
+
+
 @pulumi.type_token("azure-native:app:IngressClientCertificateMode")
 class IngressClientCertificateMode(builtins.str, Enum):
     """
@@ -166,6 +193,15 @@ class IngressClientCertificateMode(builtins.str, Enum):
     IGNORE = "ignore"
     ACCEPT = "accept"
     REQUIRE = "require"
+
+
+@pulumi.type_token("azure-native:app:IngressTargetPortHttpScheme")
+class IngressTargetPortHttpScheme(builtins.str, Enum):
+    """
+    Whether an http app listens on http or https
+    """
+    HTTP = "http"
+    HTTPS = "https"
 
 
 @pulumi.type_token("azure-native:app:IngressTransportMethod")
@@ -187,6 +223,29 @@ class JavaComponentType(builtins.str, Enum):
     SPRING_BOOT_ADMIN = "SpringBootAdmin"
     SPRING_CLOUD_EUREKA = "SpringCloudEureka"
     SPRING_CLOUD_CONFIG = "SpringCloudConfig"
+    SPRING_CLOUD_GATEWAY = "SpringCloudGateway"
+    NACOS = "Nacos"
+
+
+@pulumi.type_token("azure-native:app:Kind")
+class Kind(builtins.str, Enum):
+    """
+    Metadata used to render different experiences for resources of the same type; e.g. WorkflowApp is a kind of Microsoft.App/ContainerApps type. If supported, the resource provider must validate and persist this value.
+    """
+    WORKFLOWAPP = "workflowapp"
+
+
+@pulumi.type_token("azure-native:app:Level")
+class Level(builtins.str, Enum):
+    """
+    The specified logger's log level.
+    """
+    OFF = "off"
+    ERROR = "error"
+    INFO = "info"
+    DEBUG = "debug"
+    TRACE = "trace"
+    WARN = "warn"
 
 
 @pulumi.type_token("azure-native:app:LifecycleType")
@@ -230,6 +289,16 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:app:PatchingMode")
+class PatchingMode(builtins.str, Enum):
+    """
+    Patching mode for the container app. Null or default in this field will be interpreted as Automatic by RP. Automatic mode will automatically apply available patches. Manual mode will require the user to manually apply patches. Disabled mode will stop patch detection and auto patching.
+    """
+    AUTOMATIC = "Automatic"
+    MANUAL = "Manual"
+    DISABLED = "Disabled"
+
+
 @pulumi.type_token("azure-native:app:PoolManagementType")
 class PoolManagementType(builtins.str, Enum):
     """
@@ -250,6 +319,15 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+@pulumi.type_token("azure-native:app:PublicNetworkAccess")
+class PublicNetworkAccess(builtins.str, Enum):
+    """
+    Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled'.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
 @pulumi.type_token("azure-native:app:Scheme")
 class Scheme(builtins.str, Enum):
     """
@@ -268,6 +346,15 @@ class SessionNetworkStatus(builtins.str, Enum):
     EGRESS_DISABLED = "EgressDisabled"
 
 
+@pulumi.type_token("azure-native:app:SessionProbeType")
+class SessionProbeType(builtins.str, Enum):
+    """
+    Denotes the type of probe. Can be Liveness or Startup, Readiness probe is not supported in sessions. Type must be unique for each probe within the context of a list of probes (SessionProbes).
+    """
+    LIVENESS = "Liveness"
+    STARTUP = "Startup"
+
+
 @pulumi.type_token("azure-native:app:StorageType")
 class StorageType(builtins.str, Enum):
     """
@@ -277,6 +364,7 @@ class StorageType(builtins.str, Enum):
     EMPTY_DIR = "EmptyDir"
     SECRET = "Secret"
     NFS_AZURE_FILE = "NfsAzureFile"
+    SMB = "Smb"
 
 
 @pulumi.type_token("azure-native:app:TriggerType")

@@ -28,7 +28,7 @@ class GetContainerAppResult:
     """
     Container App.
     """
-    def __init__(__self__, azure_api_version=None, configuration=None, custom_domain_verification_id=None, environment_id=None, event_stream_endpoint=None, extended_location=None, id=None, identity=None, latest_ready_revision_name=None, latest_revision_fqdn=None, latest_revision_name=None, location=None, managed_by=None, managed_environment_id=None, name=None, outbound_ip_addresses=None, provisioning_state=None, running_status=None, system_data=None, tags=None, template=None, type=None, workload_profile_name=None):
+    def __init__(__self__, azure_api_version=None, configuration=None, custom_domain_verification_id=None, deployment_errors=None, environment_id=None, event_stream_endpoint=None, extended_location=None, id=None, identity=None, kind=None, latest_ready_revision_name=None, latest_revision_fqdn=None, latest_revision_name=None, location=None, managed_by=None, managed_environment_id=None, name=None, outbound_ip_addresses=None, patching_configuration=None, provisioning_state=None, running_status=None, system_data=None, tags=None, template=None, type=None, workload_profile_name=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -38,6 +38,9 @@ class GetContainerAppResult:
         if custom_domain_verification_id and not isinstance(custom_domain_verification_id, str):
             raise TypeError("Expected argument 'custom_domain_verification_id' to be a str")
         pulumi.set(__self__, "custom_domain_verification_id", custom_domain_verification_id)
+        if deployment_errors and not isinstance(deployment_errors, str):
+            raise TypeError("Expected argument 'deployment_errors' to be a str")
+        pulumi.set(__self__, "deployment_errors", deployment_errors)
         if environment_id and not isinstance(environment_id, str):
             raise TypeError("Expected argument 'environment_id' to be a str")
         pulumi.set(__self__, "environment_id", environment_id)
@@ -53,6 +56,9 @@ class GetContainerAppResult:
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
         if latest_ready_revision_name and not isinstance(latest_ready_revision_name, str):
             raise TypeError("Expected argument 'latest_ready_revision_name' to be a str")
         pulumi.set(__self__, "latest_ready_revision_name", latest_ready_revision_name)
@@ -77,6 +83,9 @@ class GetContainerAppResult:
         if outbound_ip_addresses and not isinstance(outbound_ip_addresses, list):
             raise TypeError("Expected argument 'outbound_ip_addresses' to be a list")
         pulumi.set(__self__, "outbound_ip_addresses", outbound_ip_addresses)
+        if patching_configuration and not isinstance(patching_configuration, dict):
+            raise TypeError("Expected argument 'patching_configuration' to be a dict")
+        pulumi.set(__self__, "patching_configuration", patching_configuration)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -124,6 +133,14 @@ class GetContainerAppResult:
         return pulumi.get(self, "custom_domain_verification_id")
 
     @property
+    @pulumi.getter(name="deploymentErrors")
+    def deployment_errors(self) -> builtins.str:
+        """
+        Any errors that occurred during deployment
+        """
+        return pulumi.get(self, "deployment_errors")
+
+    @property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> Optional[builtins.str]:
         """
@@ -162,6 +179,14 @@ class GetContainerAppResult:
         managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[builtins.str]:
+        """
+        Metadata used to render different experiences for resources of the same type; e.g. WorkflowApp is a kind of Microsoft.App/ContainerApps type. If supported, the resource provider must validate and persist this value.
+        """
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter(name="latestReadyRevisionName")
@@ -226,6 +251,14 @@ class GetContainerAppResult:
         Outbound IP Addresses for container app.
         """
         return pulumi.get(self, "outbound_ip_addresses")
+
+    @property
+    @pulumi.getter(name="patchingConfiguration")
+    def patching_configuration(self) -> Optional['outputs.ContainerAppResponsePatchingConfiguration']:
+        """
+        Container App auto patch configuration.
+        """
+        return pulumi.get(self, "patching_configuration")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -293,11 +326,13 @@ class AwaitableGetContainerAppResult(GetContainerAppResult):
             azure_api_version=self.azure_api_version,
             configuration=self.configuration,
             custom_domain_verification_id=self.custom_domain_verification_id,
+            deployment_errors=self.deployment_errors,
             environment_id=self.environment_id,
             event_stream_endpoint=self.event_stream_endpoint,
             extended_location=self.extended_location,
             id=self.id,
             identity=self.identity,
+            kind=self.kind,
             latest_ready_revision_name=self.latest_ready_revision_name,
             latest_revision_fqdn=self.latest_revision_fqdn,
             latest_revision_name=self.latest_revision_name,
@@ -306,6 +341,7 @@ class AwaitableGetContainerAppResult(GetContainerAppResult):
             managed_environment_id=self.managed_environment_id,
             name=self.name,
             outbound_ip_addresses=self.outbound_ip_addresses,
+            patching_configuration=self.patching_configuration,
             provisioning_state=self.provisioning_state,
             running_status=self.running_status,
             system_data=self.system_data,
@@ -321,9 +357,9 @@ def get_container_app(container_app_name: Optional[builtins.str] = None,
     """
     Container App.
 
-    Uses Azure REST API version 2025-01-01.
+    Uses Azure REST API version 2025-02-02-preview.
 
-    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str container_app_name: Name of the Container App.
@@ -339,11 +375,13 @@ def get_container_app(container_app_name: Optional[builtins.str] = None,
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         configuration=pulumi.get(__ret__, 'configuration'),
         custom_domain_verification_id=pulumi.get(__ret__, 'custom_domain_verification_id'),
+        deployment_errors=pulumi.get(__ret__, 'deployment_errors'),
         environment_id=pulumi.get(__ret__, 'environment_id'),
         event_stream_endpoint=pulumi.get(__ret__, 'event_stream_endpoint'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
+        kind=pulumi.get(__ret__, 'kind'),
         latest_ready_revision_name=pulumi.get(__ret__, 'latest_ready_revision_name'),
         latest_revision_fqdn=pulumi.get(__ret__, 'latest_revision_fqdn'),
         latest_revision_name=pulumi.get(__ret__, 'latest_revision_name'),
@@ -352,6 +390,7 @@ def get_container_app(container_app_name: Optional[builtins.str] = None,
         managed_environment_id=pulumi.get(__ret__, 'managed_environment_id'),
         name=pulumi.get(__ret__, 'name'),
         outbound_ip_addresses=pulumi.get(__ret__, 'outbound_ip_addresses'),
+        patching_configuration=pulumi.get(__ret__, 'patching_configuration'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         running_status=pulumi.get(__ret__, 'running_status'),
         system_data=pulumi.get(__ret__, 'system_data'),
@@ -365,9 +404,9 @@ def get_container_app_output(container_app_name: Optional[pulumi.Input[builtins.
     """
     Container App.
 
-    Uses Azure REST API version 2025-01-01.
+    Uses Azure REST API version 2025-02-02-preview.
 
-    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str container_app_name: Name of the Container App.
@@ -382,11 +421,13 @@ def get_container_app_output(container_app_name: Optional[pulumi.Input[builtins.
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         configuration=pulumi.get(__response__, 'configuration'),
         custom_domain_verification_id=pulumi.get(__response__, 'custom_domain_verification_id'),
+        deployment_errors=pulumi.get(__response__, 'deployment_errors'),
         environment_id=pulumi.get(__response__, 'environment_id'),
         event_stream_endpoint=pulumi.get(__response__, 'event_stream_endpoint'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
+        kind=pulumi.get(__response__, 'kind'),
         latest_ready_revision_name=pulumi.get(__response__, 'latest_ready_revision_name'),
         latest_revision_fqdn=pulumi.get(__response__, 'latest_revision_fqdn'),
         latest_revision_name=pulumi.get(__response__, 'latest_revision_name'),
@@ -395,6 +436,7 @@ def get_container_app_output(container_app_name: Optional[pulumi.Input[builtins.
         managed_environment_id=pulumi.get(__response__, 'managed_environment_id'),
         name=pulumi.get(__response__, 'name'),
         outbound_ip_addresses=pulumi.get(__response__, 'outbound_ip_addresses'),
+        patching_configuration=pulumi.get(__response__, 'patching_configuration'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         running_status=pulumi.get(__response__, 'running_status'),
         system_data=pulumi.get(__response__, 'system_data'),

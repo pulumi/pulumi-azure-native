@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.Inputs
         public Input<double>? Cpu { get; set; }
 
         /// <summary>
+        /// Required GPU in cores for GPU based app, e.g. 1.0
+        /// </summary>
+        [Input("gpu")]
+        public Input<double>? Gpu { get; set; }
+
+        /// <summary>
         /// Required memory, e.g. "250Mb"
         /// </summary>
         [Input("memory")]

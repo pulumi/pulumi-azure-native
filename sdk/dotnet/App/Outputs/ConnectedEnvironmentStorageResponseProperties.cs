@@ -20,11 +20,33 @@ namespace Pulumi.AzureNative.App.Outputs
         /// Azure file properties
         /// </summary>
         public readonly Outputs.AzureFilePropertiesResponse? AzureFile;
+        /// <summary>
+        /// Any errors that occurred during deployment or deployment validation
+        /// </summary>
+        public readonly string DeploymentErrors;
+        /// <summary>
+        /// Provisioning state of the storage.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// SMB storage properties
+        /// </summary>
+        public readonly Outputs.SmbStorageResponse? Smb;
 
         [OutputConstructor]
-        private ConnectedEnvironmentStorageResponseProperties(Outputs.AzureFilePropertiesResponse? azureFile)
+        private ConnectedEnvironmentStorageResponseProperties(
+            Outputs.AzureFilePropertiesResponse? azureFile,
+
+            string deploymentErrors,
+
+            string provisioningState,
+
+            Outputs.SmbStorageResponse? smb)
         {
             AzureFile = azureFile;
+            DeploymentErrors = deploymentErrors;
+            ProvisioningState = provisioningState;
+            Smb = smb;
         }
     }
 }

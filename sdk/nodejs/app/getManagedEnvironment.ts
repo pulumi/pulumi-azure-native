@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get the properties of a Managed Environment used to host container apps.
  *
- * Uses Azure REST API version 2025-01-01.
+ * Uses Azure REST API version 2025-02-02-preview.
  *
- * Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getManagedEnvironment(args: GetManagedEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,9 +38,17 @@ export interface GetManagedEnvironmentArgs {
  */
 export interface GetManagedEnvironmentResult {
     /**
-     * Cluster configuration which enables the log daemon to export app logs to configured destination.
+     * Environment level Application Insights configuration
+     */
+    readonly appInsightsConfiguration?: outputs.app.AppInsightsConfigurationResponse;
+    /**
+     * Cluster configuration which enables the log daemon to export app logs to configured destination
      */
     readonly appLogsConfiguration?: outputs.app.AppLogsConfigurationResponse;
+    /**
+     * The list of availability zones to use for managed environment
+     */
+    readonly availabilityZones?: string[];
     /**
      * The Azure API version of the resource.
      */
@@ -70,6 +78,10 @@ export interface GetManagedEnvironmentResult {
      */
     readonly deploymentErrors: string;
     /**
+     * Disk encryption configuration for the Managed Environment.
+     */
+    readonly diskEncryptionConfiguration?: outputs.app.DiskEncryptionConfigurationResponse;
+    /**
      * The endpoint of the eventstream of the Environment.
      */
     readonly eventStreamEndpoint: string;
@@ -85,6 +97,10 @@ export interface GetManagedEnvironmentResult {
      * Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. If a subnet ID is provided, this resource group will be created in the same subscription as the subnet.
      */
     readonly infrastructureResourceGroup?: string;
+    /**
+     * Ingress configuration for the Managed Environment.
+     */
+    readonly ingressConfiguration?: outputs.app.IngressConfigurationResponse;
     /**
      * The configuration of Keda component.
      */
@@ -102,6 +118,10 @@ export interface GetManagedEnvironmentResult {
      */
     readonly name: string;
     /**
+     * Environment Open Telemetry configuration
+     */
+    readonly openTelemetryConfiguration?: outputs.app.OpenTelemetryConfigurationResponse;
+    /**
      * Peer authentication settings for the Managed Environment
      */
     readonly peerAuthentication?: outputs.app.ManagedEnvironmentResponsePeerAuthentication;
@@ -110,9 +130,21 @@ export interface GetManagedEnvironmentResult {
      */
     readonly peerTrafficConfiguration?: outputs.app.ManagedEnvironmentResponsePeerTrafficConfiguration;
     /**
+     * Private endpoint connections to the resource.
+     */
+    readonly privateEndpointConnections: outputs.app.PrivateEndpointConnectionResponse[];
+    /**
+     * Private Link Default Domain Name for the environment
+     */
+    readonly privateLinkDefaultDomain: string;
+    /**
      * Provisioning state of the Environment.
      */
     readonly provisioningState: string;
+    /**
+     * Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled'.
+     */
+    readonly publicNetworkAccess?: string;
     /**
      * Static IP of the Environment
      */
@@ -145,9 +177,9 @@ export interface GetManagedEnvironmentResult {
 /**
  * Get the properties of a Managed Environment used to host container apps.
  *
- * Uses Azure REST API version 2025-01-01.
+ * Uses Azure REST API version 2025-02-02-preview.
  *
- * Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getManagedEnvironmentOutput(args: GetManagedEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

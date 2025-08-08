@@ -21,11 +21,29 @@ namespace Pulumi.AzureNative.App.Inputs
         [Input("azureCredentials")]
         public Input<Inputs.AzureCredentialsArgs>? AzureCredentials { get; set; }
 
+        [Input("buildEnvironmentVariables")]
+        private InputList<Inputs.EnvironmentVariableArgs>? _buildEnvironmentVariables;
+
+        /// <summary>
+        /// List of environment variables to be passed to the build.
+        /// </summary>
+        public InputList<Inputs.EnvironmentVariableArgs> BuildEnvironmentVariables
+        {
+            get => _buildEnvironmentVariables ?? (_buildEnvironmentVariables = new InputList<Inputs.EnvironmentVariableArgs>());
+            set => _buildEnvironmentVariables = value;
+        }
+
         /// <summary>
         /// Context path
         /// </summary>
         [Input("contextPath")]
         public Input<string>? ContextPath { get; set; }
+
+        /// <summary>
+        /// Dockerfile path
+        /// </summary>
+        [Input("dockerfilePath")]
+        public Input<string>? DockerfilePath { get; set; }
 
         /// <summary>
         /// One time Github PAT to configure github environment

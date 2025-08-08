@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly string? AccountKey;
         /// <summary>
+        /// Storage account key stored as an Azure Key Vault secret.
+        /// </summary>
+        public readonly Outputs.SecretKeyVaultPropertiesResponse? AccountKeyVaultProperties;
+        /// <summary>
         /// Storage account name for azure file.
         /// </summary>
         public readonly string? AccountName;
@@ -39,12 +43,15 @@ namespace Pulumi.AzureNative.App.Outputs
 
             string? accountKey,
 
+            Outputs.SecretKeyVaultPropertiesResponse? accountKeyVaultProperties,
+
             string? accountName,
 
             string? shareName)
         {
             AccessMode = accessMode;
             AccountKey = accountKey;
+            AccountKeyVaultProperties = accountKeyVaultProperties;
             AccountName = accountName;
             ShareName = shareName;
         }

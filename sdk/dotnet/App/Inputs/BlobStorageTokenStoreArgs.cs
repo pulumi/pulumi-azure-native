@@ -16,10 +16,28 @@ namespace Pulumi.AzureNative.App.Inputs
     public sealed class BlobStorageTokenStoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the app secrets containing the SAS URL of the blob storage containing the tokens.
+        /// The URI of the blob storage containing the tokens. Should not be used along with sasUrlSettingName.
         /// </summary>
-        [Input("sasUrlSettingName", required: true)]
-        public Input<string> SasUrlSettingName { get; set; } = null!;
+        [Input("blobContainerUri")]
+        public Input<string>? BlobContainerUri { get; set; }
+
+        /// <summary>
+        /// The Client ID of a User-Assigned Managed Identity. Should not be used along with managedIdentityResourceId.
+        /// </summary>
+        [Input("clientId")]
+        public Input<string>? ClientId { get; set; }
+
+        /// <summary>
+        /// The Resource ID of a User-Assigned Managed Identity. Should not be used along with clientId.
+        /// </summary>
+        [Input("managedIdentityResourceId")]
+        public Input<string>? ManagedIdentityResourceId { get; set; }
+
+        /// <summary>
+        /// The name of the app secrets containing the SAS URL of the blob storage containing the tokens. Should not be used along with blobContainerUri.
+        /// </summary>
+        [Input("sasUrlSettingName")]
+        public Input<string>? SasUrlSettingName { get; set; }
 
         public BlobStorageTokenStoreArgs()
         {

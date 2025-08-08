@@ -16,6 +16,24 @@ namespace Pulumi.AzureNative.App.Inputs
     public sealed class ServiceBindArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Type of the client to be used to connect to the service
+        /// </summary>
+        [Input("clientType")]
+        public Input<string>? ClientType { get; set; }
+
+        [Input("customizedKeys")]
+        private InputMap<string>? _customizedKeys;
+
+        /// <summary>
+        /// Customized keys for customizing injected values to the app
+        /// </summary>
+        public InputMap<string> CustomizedKeys
+        {
+            get => _customizedKeys ?? (_customizedKeys = new InputMap<string>());
+            set => _customizedKeys = value;
+        }
+
+        /// <summary>
         /// Name of the service bind
         /// </summary>
         [Input("name")]

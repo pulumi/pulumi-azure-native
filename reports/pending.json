@@ -49,10 +49,7 @@
     "2024-05-01",
     "2024-06-01-preview"
   ],
-  "App": [
-    "2025-01-01",
-    "2025-02-02-preview"
-  ],
+  "App": [],
   "AppComplianceAutomation": [],
   "AppConfiguration": [
     "2024-06-01",

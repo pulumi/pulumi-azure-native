@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Container App Job
  *
- * Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
+ * Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
  *
- * Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Job extends pulumi.CustomResource {
     /**
@@ -58,6 +58,10 @@ export class Job extends pulumi.CustomResource {
      */
     public /*out*/ readonly eventStreamEndpoint!: pulumi.Output<string>;
     /**
+     * The complex type of the extended location.
+     */
+    public readonly extendedLocation!: pulumi.Output<outputs.app.ExtendedLocationResponse | undefined>;
+    /**
      * Managed identities needed by a container app job to interact with other Azure services to not maintain any secrets or credentials in code.
      */
     public readonly identity!: pulumi.Output<outputs.app.ManagedServiceIdentityResponse | undefined>;
@@ -77,6 +81,10 @@ export class Job extends pulumi.CustomResource {
      * Provisioning state of the Container Apps Job.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Current running state of the job
+     */
+    public /*out*/ readonly runningState!: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -114,6 +122,7 @@ export class Job extends pulumi.CustomResource {
             }
             resourceInputs["configuration"] = args ? (args.configuration ? pulumi.output(args.configuration).apply(inputs.app.jobConfigurationArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["environmentId"] = args ? args.environmentId : undefined;
+            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["jobName"] = args ? args.jobName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -126,6 +135,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["outboundIpAddresses"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["runningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -133,11 +143,13 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["configuration"] = undefined /*out*/;
             resourceInputs["environmentId"] = undefined /*out*/;
             resourceInputs["eventStreamEndpoint"] = undefined /*out*/;
+            resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["outboundIpAddresses"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["runningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["template"] = undefined /*out*/;
@@ -163,6 +175,10 @@ export interface JobArgs {
      * Resource ID of environment.
      */
     environmentId?: pulumi.Input<string>;
+    /**
+     * The complex type of the extended location.
+     */
+    extendedLocation?: pulumi.Input<inputs.app.ExtendedLocationArgs>;
     /**
      * Managed identities needed by a container app job to interact with other Azure services to not maintain any secrets or credentials in code.
      */

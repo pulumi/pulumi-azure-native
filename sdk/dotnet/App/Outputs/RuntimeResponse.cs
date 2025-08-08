@@ -17,13 +17,21 @@ namespace Pulumi.AzureNative.App.Outputs
     public sealed class RuntimeResponse
     {
         /// <summary>
+        /// .NET app configuration
+        /// </summary>
+        public readonly Outputs.RuntimeResponseDotnet? Dotnet;
+        /// <summary>
         /// Java app configuration
         /// </summary>
         public readonly Outputs.RuntimeResponseJava? Java;
 
         [OutputConstructor]
-        private RuntimeResponse(Outputs.RuntimeResponseJava? java)
+        private RuntimeResponse(
+            Outputs.RuntimeResponseDotnet? dotnet,
+
+            Outputs.RuntimeResponseJava? java)
         {
+            Dotnet = dotnet;
             Java = java;
         }
     }

@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.App.Inputs
         [Input("azureFile")]
         public Input<Inputs.AzureFilePropertiesArgs>? AzureFile { get; set; }
 
+        /// <summary>
+        /// SMB storage properties
+        /// </summary>
+        [Input("smb")]
+        public Input<Inputs.SmbStorageArgs>? Smb { get; set; }
+
         public ConnectedEnvironmentStoragePropertiesArgs()
         {
         }

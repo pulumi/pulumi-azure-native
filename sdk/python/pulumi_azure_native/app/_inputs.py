@@ -21,6 +21,8 @@ __all__ = [
     'AllowedAudiencesValidationArgsDict',
     'AllowedPrincipalsArgs',
     'AllowedPrincipalsArgsDict',
+    'AppInsightsConfigurationArgs',
+    'AppInsightsConfigurationArgsDict',
     'AppLogsConfigurationArgs',
     'AppLogsConfigurationArgsDict',
     'AppRegistrationArgs',
@@ -63,6 +65,8 @@ __all__ = [
     'ConfigurationArgsDict',
     'ConnectedEnvironmentStoragePropertiesArgs',
     'ConnectedEnvironmentStoragePropertiesArgsDict',
+    'ContainerAppPatchingConfigurationArgs',
+    'ContainerAppPatchingConfigurationArgsDict',
     'ContainerAppProbeHttpGetArgs',
     'ContainerAppProbeHttpGetArgsDict',
     'ContainerAppProbeHttpHeadersArgs',
@@ -93,6 +97,8 @@ __all__ = [
     'CustomOpenIdConnectProviderArgsDict',
     'CustomScaleRuleArgs',
     'CustomScaleRuleArgsDict',
+    'DaprAppHealthArgs',
+    'DaprAppHealthArgsDict',
     'DaprComponentResiliencyPolicyCircuitBreakerPolicyConfigurationArgs',
     'DaprComponentResiliencyPolicyCircuitBreakerPolicyConfigurationArgsDict',
     'DaprComponentResiliencyPolicyConfigurationArgs',
@@ -103,8 +109,12 @@ __all__ = [
     'DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationArgsDict',
     'DaprComponentResiliencyPolicyTimeoutPolicyConfigurationArgs',
     'DaprComponentResiliencyPolicyTimeoutPolicyConfigurationArgsDict',
+    'DaprComponentServiceBindingArgs',
+    'DaprComponentServiceBindingArgsDict',
     'DaprMetadataArgs',
     'DaprMetadataArgsDict',
+    'DaprServiceBindMetadataArgs',
+    'DaprServiceBindMetadataArgsDict',
     'DaprSubscriptionBulkSubscribeOptionsArgs',
     'DaprSubscriptionBulkSubscribeOptionsArgsDict',
     'DaprSubscriptionRouteRuleArgs',
@@ -113,8 +123,18 @@ __all__ = [
     'DaprSubscriptionRoutesArgsDict',
     'DaprArgs',
     'DaprArgsDict',
+    'DataDogConfigurationArgs',
+    'DataDogConfigurationArgsDict',
     'DefaultAuthorizationPolicyArgs',
     'DefaultAuthorizationPolicyArgsDict',
+    'DestinationsConfigurationArgs',
+    'DestinationsConfigurationArgsDict',
+    'DiskEncryptionConfigurationAuthArgs',
+    'DiskEncryptionConfigurationAuthArgsDict',
+    'DiskEncryptionConfigurationKeyVaultConfigurationArgs',
+    'DiskEncryptionConfigurationKeyVaultConfigurationArgsDict',
+    'DiskEncryptionConfigurationArgs',
+    'DiskEncryptionConfigurationArgsDict',
     'DotNetComponentConfigurationPropertyArgs',
     'DotNetComponentConfigurationPropertyArgsDict',
     'DotNetComponentServiceBindArgs',
@@ -143,6 +163,8 @@ __all__ = [
     'GoogleArgsDict',
     'HeaderMatchArgs',
     'HeaderMatchArgsDict',
+    'HeaderArgs',
+    'HeaderArgsDict',
     'HttpConnectionPoolArgs',
     'HttpConnectionPoolArgsDict',
     'HttpGetArgs',
@@ -171,6 +193,10 @@ __all__ = [
     'IdentityProvidersArgsDict',
     'IdentitySettingsArgs',
     'IdentitySettingsArgsDict',
+    'IngressConfigurationScaleArgs',
+    'IngressConfigurationScaleArgsDict',
+    'IngressConfigurationArgs',
+    'IngressConfigurationArgsDict',
     'IngressPortMappingArgs',
     'IngressPortMappingArgsDict',
     'IngressStickySessionsArgs',
@@ -207,12 +233,16 @@ __all__ = [
     'LifecycleConfigurationArgsDict',
     'LogAnalyticsConfigurationArgs',
     'LogAnalyticsConfigurationArgsDict',
+    'LoggerSettingArgs',
+    'LoggerSettingArgsDict',
     'LoginRoutesArgs',
     'LoginRoutesArgsDict',
     'LoginScopesArgs',
     'LoginScopesArgsDict',
     'LoginArgs',
     'LoginArgsDict',
+    'LogsConfigurationArgs',
+    'LogsConfigurationArgsDict',
     'ManagedCertificatePropertiesArgs',
     'ManagedCertificatePropertiesArgsDict',
     'ManagedEnvironmentEncryptionArgs',
@@ -227,8 +257,12 @@ __all__ = [
     'ManagedIdentitySettingArgsDict',
     'ManagedServiceIdentityArgs',
     'ManagedServiceIdentityArgsDict',
+    'MetricsConfigurationArgs',
+    'MetricsConfigurationArgsDict',
     'MtlsArgs',
     'MtlsArgsDict',
+    'NacosComponentArgs',
+    'NacosComponentArgsDict',
     'NfsAzureFilePropertiesArgs',
     'NfsAzureFilePropertiesArgsDict',
     'NonceArgs',
@@ -241,6 +275,10 @@ __all__ = [
     'OpenIdConnectLoginArgsDict',
     'OpenIdConnectRegistrationArgs',
     'OpenIdConnectRegistrationArgsDict',
+    'OpenTelemetryConfigurationArgs',
+    'OpenTelemetryConfigurationArgsDict',
+    'OtlpConfigurationArgs',
+    'OtlpConfigurationArgsDict',
     'PreBuildStepArgs',
     'PreBuildStepArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
@@ -251,8 +289,14 @@ __all__ = [
     'RegistryCredentialsArgsDict',
     'RegistryInfoArgs',
     'RegistryInfoArgsDict',
+    'RuntimeDotnetArgs',
+    'RuntimeDotnetArgsDict',
+    'RuntimeJavaAgentArgs',
+    'RuntimeJavaAgentArgsDict',
     'RuntimeJavaArgs',
     'RuntimeJavaArgsDict',
+    'RuntimeLoggingArgs',
+    'RuntimeLoggingArgsDict',
     'RuntimeArgs',
     'RuntimeArgsDict',
     'ScaleConfigurationArgs',
@@ -263,8 +307,12 @@ __all__ = [
     'ScaleRuleArgsDict',
     'ScaleArgs',
     'ScaleArgsDict',
+    'ScgRouteArgs',
+    'ScgRouteArgsDict',
     'ScheduledEntryArgs',
     'ScheduledEntryArgsDict',
+    'SecretKeyVaultPropertiesArgs',
+    'SecretKeyVaultPropertiesArgsDict',
     'SecretVolumeItemArgs',
     'SecretVolumeItemArgsDict',
     'SecretArgs',
@@ -283,14 +331,26 @@ __all__ = [
     'SessionNetworkConfigurationArgsDict',
     'SessionPoolSecretArgs',
     'SessionPoolSecretArgsDict',
+    'SessionProbeHttpGetArgs',
+    'SessionProbeHttpGetArgsDict',
+    'SessionProbeHttpHeadersArgs',
+    'SessionProbeHttpHeadersArgsDict',
+    'SessionProbeTcpSocketArgs',
+    'SessionProbeTcpSocketArgsDict',
+    'SessionProbeArgs',
+    'SessionProbeArgsDict',
     'SessionRegistryCredentialsArgs',
     'SessionRegistryCredentialsArgsDict',
+    'SmbStorageArgs',
+    'SmbStorageArgsDict',
     'SpringBootAdminComponentArgs',
     'SpringBootAdminComponentArgsDict',
     'SpringCloudConfigComponentArgs',
     'SpringCloudConfigComponentArgsDict',
     'SpringCloudEurekaComponentArgs',
     'SpringCloudEurekaComponentArgsDict',
+    'SpringCloudGatewayComponentArgs',
+    'SpringCloudGatewayComponentArgsDict',
     'TcpConnectionPoolArgs',
     'TcpConnectionPoolArgsDict',
     'TcpRetryPolicyArgs',
@@ -303,6 +363,8 @@ __all__ = [
     'TimeoutPolicyArgsDict',
     'TokenStoreArgs',
     'TokenStoreArgsDict',
+    'TracesConfigurationArgs',
+    'TracesConfigurationArgsDict',
     'TrafficWeightArgs',
     'TrafficWeightArgsDict',
     'TwitterRegistrationArgs',
@@ -411,6 +473,42 @@ class AllowedPrincipalsArgs:
     @identities.setter
     def identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "identities", value)
+
+
+if not MYPY:
+    class AppInsightsConfigurationArgsDict(TypedDict):
+        """
+        Configuration of Application Insights 
+        """
+        connection_string: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Application Insights connection string
+        """
+elif False:
+    AppInsightsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppInsightsConfigurationArgs:
+    def __init__(__self__, *,
+                 connection_string: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Configuration of Application Insights 
+        :param pulumi.Input[builtins.str] connection_string: Application Insights connection string
+        """
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Application Insights connection string
+        """
+        return pulumi.get(self, "connection_string")
+
+    @connection_string.setter
+    def connection_string(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "connection_string", value)
 
 
 if not MYPY:
@@ -1265,6 +1363,10 @@ if not MYPY:
         """
         Storage account key for azure file.
         """
+        account_key_vault_properties: NotRequired[pulumi.Input['SecretKeyVaultPropertiesArgsDict']]
+        """
+        Storage account key stored as an Azure Key Vault secret.
+        """
         account_name: NotRequired[pulumi.Input[builtins.str]]
         """
         Storage account name for azure file.
@@ -1281,12 +1383,14 @@ class AzureFilePropertiesArgs:
     def __init__(__self__, *,
                  access_mode: Optional[pulumi.Input[Union[builtins.str, 'AccessMode']]] = None,
                  account_key: Optional[pulumi.Input[builtins.str]] = None,
+                 account_key_vault_properties: Optional[pulumi.Input['SecretKeyVaultPropertiesArgs']] = None,
                  account_name: Optional[pulumi.Input[builtins.str]] = None,
                  share_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Azure File Properties.
         :param pulumi.Input[Union[builtins.str, 'AccessMode']] access_mode: Access mode for storage
         :param pulumi.Input[builtins.str] account_key: Storage account key for azure file.
+        :param pulumi.Input['SecretKeyVaultPropertiesArgs'] account_key_vault_properties: Storage account key stored as an Azure Key Vault secret.
         :param pulumi.Input[builtins.str] account_name: Storage account name for azure file.
         :param pulumi.Input[builtins.str] share_name: Azure file share name.
         """
@@ -1294,6 +1398,8 @@ class AzureFilePropertiesArgs:
             pulumi.set(__self__, "access_mode", access_mode)
         if account_key is not None:
             pulumi.set(__self__, "account_key", account_key)
+        if account_key_vault_properties is not None:
+            pulumi.set(__self__, "account_key_vault_properties", account_key_vault_properties)
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
         if share_name is not None:
@@ -1322,6 +1428,18 @@ class AzureFilePropertiesArgs:
     @account_key.setter
     def account_key(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "account_key", value)
+
+    @property
+    @pulumi.getter(name="accountKeyVaultProperties")
+    def account_key_vault_properties(self) -> Optional[pulumi.Input['SecretKeyVaultPropertiesArgs']]:
+        """
+        Storage account key stored as an Azure Key Vault secret.
+        """
+        return pulumi.get(self, "account_key_vault_properties")
+
+    @account_key_vault_properties.setter
+    def account_key_vault_properties(self, value: Optional[pulumi.Input['SecretKeyVaultPropertiesArgs']]):
+        pulumi.set(self, "account_key_vault_properties", value)
 
     @property
     @pulumi.getter(name="accountName")
@@ -1445,9 +1563,21 @@ if not MYPY:
         """
         The configuration settings of the storage of the tokens if blob storage is used.
         """
-        sas_url_setting_name: pulumi.Input[builtins.str]
+        blob_container_uri: NotRequired[pulumi.Input[builtins.str]]
         """
-        The name of the app secrets containing the SAS URL of the blob storage containing the tokens.
+        The URI of the blob storage containing the tokens. Should not be used along with sasUrlSettingName.
+        """
+        client_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The Client ID of a User-Assigned Managed Identity. Should not be used along with managedIdentityResourceId.
+        """
+        managed_identity_resource_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The Resource ID of a User-Assigned Managed Identity. Should not be used along with clientId.
+        """
+        sas_url_setting_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The name of the app secrets containing the SAS URL of the blob storage containing the tokens. Should not be used along with blobContainerUri.
         """
 elif False:
     BlobStorageTokenStoreArgsDict: TypeAlias = Mapping[str, Any]
@@ -1455,23 +1585,72 @@ elif False:
 @pulumi.input_type
 class BlobStorageTokenStoreArgs:
     def __init__(__self__, *,
-                 sas_url_setting_name: pulumi.Input[builtins.str]):
+                 blob_container_uri: Optional[pulumi.Input[builtins.str]] = None,
+                 client_id: Optional[pulumi.Input[builtins.str]] = None,
+                 managed_identity_resource_id: Optional[pulumi.Input[builtins.str]] = None,
+                 sas_url_setting_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The configuration settings of the storage of the tokens if blob storage is used.
-        :param pulumi.Input[builtins.str] sas_url_setting_name: The name of the app secrets containing the SAS URL of the blob storage containing the tokens.
+        :param pulumi.Input[builtins.str] blob_container_uri: The URI of the blob storage containing the tokens. Should not be used along with sasUrlSettingName.
+        :param pulumi.Input[builtins.str] client_id: The Client ID of a User-Assigned Managed Identity. Should not be used along with managedIdentityResourceId.
+        :param pulumi.Input[builtins.str] managed_identity_resource_id: The Resource ID of a User-Assigned Managed Identity. Should not be used along with clientId.
+        :param pulumi.Input[builtins.str] sas_url_setting_name: The name of the app secrets containing the SAS URL of the blob storage containing the tokens. Should not be used along with blobContainerUri.
         """
-        pulumi.set(__self__, "sas_url_setting_name", sas_url_setting_name)
+        if blob_container_uri is not None:
+            pulumi.set(__self__, "blob_container_uri", blob_container_uri)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if managed_identity_resource_id is not None:
+            pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
+        if sas_url_setting_name is not None:
+            pulumi.set(__self__, "sas_url_setting_name", sas_url_setting_name)
+
+    @property
+    @pulumi.getter(name="blobContainerUri")
+    def blob_container_uri(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The URI of the blob storage containing the tokens. Should not be used along with sasUrlSettingName.
+        """
+        return pulumi.get(self, "blob_container_uri")
+
+    @blob_container_uri.setter
+    def blob_container_uri(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "blob_container_uri", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Client ID of a User-Assigned Managed Identity. Should not be used along with managedIdentityResourceId.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="managedIdentityResourceId")
+    def managed_identity_resource_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Resource ID of a User-Assigned Managed Identity. Should not be used along with clientId.
+        """
+        return pulumi.get(self, "managed_identity_resource_id")
+
+    @managed_identity_resource_id.setter
+    def managed_identity_resource_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "managed_identity_resource_id", value)
 
     @property
     @pulumi.getter(name="sasUrlSettingName")
-    def sas_url_setting_name(self) -> pulumi.Input[builtins.str]:
+    def sas_url_setting_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the app secrets containing the SAS URL of the blob storage containing the tokens.
+        The name of the app secrets containing the SAS URL of the blob storage containing the tokens. Should not be used along with blobContainerUri.
         """
         return pulumi.get(self, "sas_url_setting_name")
 
     @sas_url_setting_name.setter
-    def sas_url_setting_name(self, value: pulumi.Input[builtins.str]):
+    def sas_url_setting_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "sas_url_setting_name", value)
 
 
@@ -1656,6 +1835,10 @@ if not MYPY:
         """
         Properties for a certificate stored in a Key Vault.
         """
+        certificate_type: NotRequired[pulumi.Input[Union[builtins.str, 'CertificateType']]]
+        """
+        The type of the certificate. Allowed values are `ServerSSLCertificate` and `ImagePullTrustedCA`
+        """
         password: NotRequired[pulumi.Input[builtins.str]]
         """
         Certificate password.
@@ -1671,16 +1854,20 @@ elif False:
 class CertificatePropertiesArgs:
     def __init__(__self__, *,
                  certificate_key_vault_properties: Optional[pulumi.Input['CertificateKeyVaultPropertiesArgs']] = None,
+                 certificate_type: Optional[pulumi.Input[Union[builtins.str, 'CertificateType']]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
                  value: Optional[pulumi.Input[builtins.str]] = None):
         """
         Certificate resource specific properties
         :param pulumi.Input['CertificateKeyVaultPropertiesArgs'] certificate_key_vault_properties: Properties for a certificate stored in a Key Vault.
+        :param pulumi.Input[Union[builtins.str, 'CertificateType']] certificate_type: The type of the certificate. Allowed values are `ServerSSLCertificate` and `ImagePullTrustedCA`
         :param pulumi.Input[builtins.str] password: Certificate password.
         :param pulumi.Input[builtins.str] value: PFX or PEM blob
         """
         if certificate_key_vault_properties is not None:
             pulumi.set(__self__, "certificate_key_vault_properties", certificate_key_vault_properties)
+        if certificate_type is not None:
+            pulumi.set(__self__, "certificate_type", certificate_type)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if value is not None:
@@ -1697,6 +1884,18 @@ class CertificatePropertiesArgs:
     @certificate_key_vault_properties.setter
     def certificate_key_vault_properties(self, value: Optional[pulumi.Input['CertificateKeyVaultPropertiesArgs']]):
         pulumi.set(self, "certificate_key_vault_properties", value)
+
+    @property
+    @pulumi.getter(name="certificateType")
+    def certificate_type(self) -> Optional[pulumi.Input[Union[builtins.str, 'CertificateType']]]:
+        """
+        The type of the certificate. Allowed values are `ServerSSLCertificate` and `ImagePullTrustedCA`
+        """
+        return pulumi.get(self, "certificate_type")
+
+    @certificate_type.setter
+    def certificate_type(self, value: Optional[pulumi.Input[Union[builtins.str, 'CertificateType']]]):
+        pulumi.set(self, "certificate_type", value)
 
     @property
     @pulumi.getter
@@ -1863,7 +2062,7 @@ if not MYPY:
         active_revisions_mode: NotRequired[pulumi.Input[Union[builtins.str, 'ActiveRevisionsMode']]]
         """
         ActiveRevisionsMode controls how active revisions are handled for the Container app:
-        <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
+        <list><item>Single: Only one revision can be active at a time. Traffic weights cannot be used. This is the default.</item><item>Multiple: Multiple revisions can be active, including optional traffic weights and labels.</item><item>Labels: Only revisions with labels are active. Traffic weights can be applied to labels.</item></list>
         """
         dapr: NotRequired[pulumi.Input['DaprArgsDict']]
         """
@@ -1885,6 +2084,10 @@ if not MYPY:
         """
         Collection of private container registry credentials for containers used by the Container app
         """
+        revision_transition_threshold: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Optional. The percent of the total number of replicas that must be brought up before revision transition occurs. Defaults to 100 when none is given. Value must be greater than 0 and less than or equal to 100.
+        """
         runtime: NotRequired[pulumi.Input['RuntimeArgsDict']]
         """
         App runtime configuration for the Container App.
@@ -1896,6 +2099,10 @@ if not MYPY:
         service: NotRequired[pulumi.Input['ServiceArgsDict']]
         """
         Container App to be a dev Container App Service
+        """
+        target_label: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Required in labels revisions mode. Label to apply to newly created revision.
         """
 elif False:
     ConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -1909,21 +2116,25 @@ class ConfigurationArgs:
                  ingress: Optional[pulumi.Input['IngressArgs']] = None,
                  max_inactive_revisions: Optional[pulumi.Input[builtins.int]] = None,
                  registries: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryCredentialsArgs']]]] = None,
+                 revision_transition_threshold: Optional[pulumi.Input[builtins.int]] = None,
                  runtime: Optional[pulumi.Input['RuntimeArgs']] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['SecretArgs']]]] = None,
-                 service: Optional[pulumi.Input['ServiceArgs']] = None):
+                 service: Optional[pulumi.Input['ServiceArgs']] = None,
+                 target_label: Optional[pulumi.Input[builtins.str]] = None):
         """
         Non versioned Container App configuration properties that define the mutable settings of a Container app
         :param pulumi.Input[Union[builtins.str, 'ActiveRevisionsMode']] active_revisions_mode: ActiveRevisionsMode controls how active revisions are handled for the Container app:
-               <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
+               <list><item>Single: Only one revision can be active at a time. Traffic weights cannot be used. This is the default.</item><item>Multiple: Multiple revisions can be active, including optional traffic weights and labels.</item><item>Labels: Only revisions with labels are active. Traffic weights can be applied to labels.</item></list>
         :param pulumi.Input['DaprArgs'] dapr: Dapr configuration for the Container App.
         :param pulumi.Input[Sequence[pulumi.Input['IdentitySettingsArgs']]] identity_settings: Optional settings for Managed Identities that are assigned to the Container App. If a Managed Identity is not specified here, default settings will be used.
         :param pulumi.Input['IngressArgs'] ingress: Ingress configurations.
         :param pulumi.Input[builtins.int] max_inactive_revisions: Optional. Max inactive revisions a Container App can have.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryCredentialsArgs']]] registries: Collection of private container registry credentials for containers used by the Container app
+        :param pulumi.Input[builtins.int] revision_transition_threshold: Optional. The percent of the total number of replicas that must be brought up before revision transition occurs. Defaults to 100 when none is given. Value must be greater than 0 and less than or equal to 100.
         :param pulumi.Input['RuntimeArgs'] runtime: App runtime configuration for the Container App.
         :param pulumi.Input[Sequence[pulumi.Input['SecretArgs']]] secrets: Collection of secrets used by a Container app
         :param pulumi.Input['ServiceArgs'] service: Container App to be a dev Container App Service
+        :param pulumi.Input[builtins.str] target_label: Required in labels revisions mode. Label to apply to newly created revision.
         """
         if active_revisions_mode is None:
             active_revisions_mode = 'Single'
@@ -1939,19 +2150,23 @@ class ConfigurationArgs:
             pulumi.set(__self__, "max_inactive_revisions", max_inactive_revisions)
         if registries is not None:
             pulumi.set(__self__, "registries", registries)
+        if revision_transition_threshold is not None:
+            pulumi.set(__self__, "revision_transition_threshold", revision_transition_threshold)
         if runtime is not None:
             pulumi.set(__self__, "runtime", runtime)
         if secrets is not None:
             pulumi.set(__self__, "secrets", secrets)
         if service is not None:
             pulumi.set(__self__, "service", service)
+        if target_label is not None:
+            pulumi.set(__self__, "target_label", target_label)
 
     @property
     @pulumi.getter(name="activeRevisionsMode")
     def active_revisions_mode(self) -> Optional[pulumi.Input[Union[builtins.str, 'ActiveRevisionsMode']]]:
         """
         ActiveRevisionsMode controls how active revisions are handled for the Container app:
-        <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
+        <list><item>Single: Only one revision can be active at a time. Traffic weights cannot be used. This is the default.</item><item>Multiple: Multiple revisions can be active, including optional traffic weights and labels.</item><item>Labels: Only revisions with labels are active. Traffic weights can be applied to labels.</item></list>
         """
         return pulumi.get(self, "active_revisions_mode")
 
@@ -2020,6 +2235,18 @@ class ConfigurationArgs:
         pulumi.set(self, "registries", value)
 
     @property
+    @pulumi.getter(name="revisionTransitionThreshold")
+    def revision_transition_threshold(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Optional. The percent of the total number of replicas that must be brought up before revision transition occurs. Defaults to 100 when none is given. Value must be greater than 0 and less than or equal to 100.
+        """
+        return pulumi.get(self, "revision_transition_threshold")
+
+    @revision_transition_threshold.setter
+    def revision_transition_threshold(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "revision_transition_threshold", value)
+
+    @property
     @pulumi.getter
     def runtime(self) -> Optional[pulumi.Input['RuntimeArgs']]:
         """
@@ -2055,6 +2282,18 @@ class ConfigurationArgs:
     def service(self, value: Optional[pulumi.Input['ServiceArgs']]):
         pulumi.set(self, "service", value)
 
+    @property
+    @pulumi.getter(name="targetLabel")
+    def target_label(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Required in labels revisions mode. Label to apply to newly created revision.
+        """
+        return pulumi.get(self, "target_label")
+
+    @target_label.setter
+    def target_label(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "target_label", value)
+
 
 if not MYPY:
     class ConnectedEnvironmentStoragePropertiesArgsDict(TypedDict):
@@ -2065,19 +2304,27 @@ if not MYPY:
         """
         Azure file properties
         """
+        smb: NotRequired[pulumi.Input['SmbStorageArgsDict']]
+        """
+        SMB storage properties
+        """
 elif False:
     ConnectedEnvironmentStoragePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectedEnvironmentStoragePropertiesArgs:
     def __init__(__self__, *,
-                 azure_file: Optional[pulumi.Input['AzureFilePropertiesArgs']] = None):
+                 azure_file: Optional[pulumi.Input['AzureFilePropertiesArgs']] = None,
+                 smb: Optional[pulumi.Input['SmbStorageArgs']] = None):
         """
         Storage properties
         :param pulumi.Input['AzureFilePropertiesArgs'] azure_file: Azure file properties
+        :param pulumi.Input['SmbStorageArgs'] smb: SMB storage properties
         """
         if azure_file is not None:
             pulumi.set(__self__, "azure_file", azure_file)
+        if smb is not None:
+            pulumi.set(__self__, "smb", smb)
 
     @property
     @pulumi.getter(name="azureFile")
@@ -2090,6 +2337,54 @@ class ConnectedEnvironmentStoragePropertiesArgs:
     @azure_file.setter
     def azure_file(self, value: Optional[pulumi.Input['AzureFilePropertiesArgs']]):
         pulumi.set(self, "azure_file", value)
+
+    @property
+    @pulumi.getter
+    def smb(self) -> Optional[pulumi.Input['SmbStorageArgs']]:
+        """
+        SMB storage properties
+        """
+        return pulumi.get(self, "smb")
+
+    @smb.setter
+    def smb(self, value: Optional[pulumi.Input['SmbStorageArgs']]):
+        pulumi.set(self, "smb", value)
+
+
+if not MYPY:
+    class ContainerAppPatchingConfigurationArgsDict(TypedDict):
+        """
+        Container App auto patch configuration.
+        """
+        patching_mode: NotRequired[pulumi.Input[Union[builtins.str, 'PatchingMode']]]
+        """
+        Patching mode for the container app. Null or default in this field will be interpreted as Automatic by RP. Automatic mode will automatically apply available patches. Manual mode will require the user to manually apply patches. Disabled mode will stop patch detection and auto patching.
+        """
+elif False:
+    ContainerAppPatchingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ContainerAppPatchingConfigurationArgs:
+    def __init__(__self__, *,
+                 patching_mode: Optional[pulumi.Input[Union[builtins.str, 'PatchingMode']]] = None):
+        """
+        Container App auto patch configuration.
+        :param pulumi.Input[Union[builtins.str, 'PatchingMode']] patching_mode: Patching mode for the container app. Null or default in this field will be interpreted as Automatic by RP. Automatic mode will automatically apply available patches. Manual mode will require the user to manually apply patches. Disabled mode will stop patch detection and auto patching.
+        """
+        if patching_mode is not None:
+            pulumi.set(__self__, "patching_mode", patching_mode)
+
+    @property
+    @pulumi.getter(name="patchingMode")
+    def patching_mode(self) -> Optional[pulumi.Input[Union[builtins.str, 'PatchingMode']]]:
+        """
+        Patching mode for the container app. Null or default in this field will be interpreted as Automatic by RP. Automatic mode will automatically apply available patches. Manual mode will require the user to manually apply patches. Disabled mode will stop patch detection and auto patching.
+        """
+        return pulumi.get(self, "patching_mode")
+
+    @patching_mode.setter
+    def patching_mode(self, value: Optional[pulumi.Input[Union[builtins.str, 'PatchingMode']]]):
+        pulumi.set(self, "patching_mode", value)
 
 
 if not MYPY:
@@ -2630,6 +2925,10 @@ if not MYPY:
         """
         Required CPU in cores, e.g. 0.5
         """
+        gpu: NotRequired[pulumi.Input[builtins.float]]
+        """
+        Required GPU in cores for GPU based app, e.g. 1.0
+        """
         memory: NotRequired[pulumi.Input[builtins.str]]
         """
         Required memory, e.g. "250Mb"
@@ -2641,14 +2940,18 @@ elif False:
 class ContainerResourcesArgs:
     def __init__(__self__, *,
                  cpu: Optional[pulumi.Input[builtins.float]] = None,
+                 gpu: Optional[pulumi.Input[builtins.float]] = None,
                  memory: Optional[pulumi.Input[builtins.str]] = None):
         """
         Container App container resource requirements.
         :param pulumi.Input[builtins.float] cpu: Required CPU in cores, e.g. 0.5
+        :param pulumi.Input[builtins.float] gpu: Required GPU in cores for GPU based app, e.g. 1.0
         :param pulumi.Input[builtins.str] memory: Required memory, e.g. "250Mb"
         """
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
+        if gpu is not None:
+            pulumi.set(__self__, "gpu", gpu)
         if memory is not None:
             pulumi.set(__self__, "memory", memory)
 
@@ -2663,6 +2966,18 @@ class ContainerResourcesArgs:
     @cpu.setter
     def cpu(self, value: Optional[pulumi.Input[builtins.float]]):
         pulumi.set(self, "cpu", value)
+
+    @property
+    @pulumi.getter
+    def gpu(self) -> Optional[pulumi.Input[builtins.float]]:
+        """
+        Required GPU in cores for GPU based app, e.g. 1.0
+        """
+        return pulumi.get(self, "gpu")
+
+    @gpu.setter
+    def gpu(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "gpu", value)
 
     @property
     @pulumi.getter
@@ -2698,6 +3013,10 @@ if not MYPY:
         """
         Container image tag.
         """
+        image_type: NotRequired[pulumi.Input[Union[builtins.str, 'ImageType']]]
+        """
+        The type of the image. Set to CloudBuild to let the system manages the image, where user will not be able to update image through image field. Set to ContainerImage for user provided image.
+        """
         name: NotRequired[pulumi.Input[builtins.str]]
         """
         Custom container name.
@@ -2724,6 +3043,7 @@ class ContainerArgs:
                  command: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  env: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVarArgs']]]] = None,
                  image: Optional[pulumi.Input[builtins.str]] = None,
+                 image_type: Optional[pulumi.Input[Union[builtins.str, 'ImageType']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  probes: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerAppProbeArgs']]]] = None,
                  resources: Optional[pulumi.Input['ContainerResourcesArgs']] = None,
@@ -2734,6 +3054,7 @@ class ContainerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] command: Container start command.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVarArgs']]] env: Container environment variables.
         :param pulumi.Input[builtins.str] image: Container image tag.
+        :param pulumi.Input[Union[builtins.str, 'ImageType']] image_type: The type of the image. Set to CloudBuild to let the system manages the image, where user will not be able to update image through image field. Set to ContainerImage for user provided image.
         :param pulumi.Input[builtins.str] name: Custom container name.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerAppProbeArgs']]] probes: List of probes for the container.
         :param pulumi.Input['ContainerResourcesArgs'] resources: Container resource requirements.
@@ -2747,6 +3068,8 @@ class ContainerArgs:
             pulumi.set(__self__, "env", env)
         if image is not None:
             pulumi.set(__self__, "image", image)
+        if image_type is not None:
+            pulumi.set(__self__, "image_type", image_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if probes is not None:
@@ -2803,6 +3126,18 @@ class ContainerArgs:
     @image.setter
     def image(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter(name="imageType")
+    def image_type(self) -> Optional[pulumi.Input[Union[builtins.str, 'ImageType']]]:
+        """
+        The type of the image. Set to CloudBuild to let the system manages the image, where user will not be able to update image through image field. Set to ContainerImage for user provided image.
+        """
+        return pulumi.get(self, "image_type")
+
+    @image_type.setter
+    def image_type(self, value: Optional[pulumi.Input[Union[builtins.str, 'ImageType']]]):
+        pulumi.set(self, "image_type", value)
 
     @property
     @pulumi.getter
@@ -3467,6 +3802,122 @@ class CustomScaleRuleArgs:
 
 
 if not MYPY:
+    class DaprAppHealthArgsDict(TypedDict):
+        """
+        Dapr application health check configuration
+        """
+        enabled: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Boolean indicating if the health probe is enabled
+        """
+        path: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Path for the health probe
+        """
+        probe_interval_seconds: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Interval for the health probe in seconds
+        """
+        probe_timeout_milliseconds: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Timeout for the health probe in milliseconds
+        """
+        threshold: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Threshold for the health probe
+        """
+elif False:
+    DaprAppHealthArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DaprAppHealthArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 path: Optional[pulumi.Input[builtins.str]] = None,
+                 probe_interval_seconds: Optional[pulumi.Input[builtins.int]] = None,
+                 probe_timeout_milliseconds: Optional[pulumi.Input[builtins.int]] = None,
+                 threshold: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        Dapr application health check configuration
+        :param pulumi.Input[builtins.bool] enabled: Boolean indicating if the health probe is enabled
+        :param pulumi.Input[builtins.str] path: Path for the health probe
+        :param pulumi.Input[builtins.int] probe_interval_seconds: Interval for the health probe in seconds
+        :param pulumi.Input[builtins.int] probe_timeout_milliseconds: Timeout for the health probe in milliseconds
+        :param pulumi.Input[builtins.int] threshold: Threshold for the health probe
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if probe_interval_seconds is not None:
+            pulumi.set(__self__, "probe_interval_seconds", probe_interval_seconds)
+        if probe_timeout_milliseconds is not None:
+            pulumi.set(__self__, "probe_timeout_milliseconds", probe_timeout_milliseconds)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Boolean indicating if the health probe is enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Path for the health probe
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="probeIntervalSeconds")
+    def probe_interval_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Interval for the health probe in seconds
+        """
+        return pulumi.get(self, "probe_interval_seconds")
+
+    @probe_interval_seconds.setter
+    def probe_interval_seconds(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "probe_interval_seconds", value)
+
+    @property
+    @pulumi.getter(name="probeTimeoutMilliseconds")
+    def probe_timeout_milliseconds(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Timeout for the health probe in milliseconds
+        """
+        return pulumi.get(self, "probe_timeout_milliseconds")
+
+    @probe_timeout_milliseconds.setter
+    def probe_timeout_milliseconds(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "probe_timeout_milliseconds", value)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Threshold for the health probe
+        """
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "threshold", value)
+
+
+if not MYPY:
     class DaprComponentResiliencyPolicyCircuitBreakerPolicyConfigurationArgsDict(TypedDict):
         """
         Dapr Component Resiliency Policy Circuit Breaker Policy Configuration.
@@ -3767,6 +4218,82 @@ class DaprComponentResiliencyPolicyTimeoutPolicyConfigurationArgs:
 
 
 if not MYPY:
+    class DaprComponentServiceBindingArgsDict(TypedDict):
+        """
+        Configuration to bind a Dapr Component to a dev ContainerApp Service
+        """
+        metadata: NotRequired[pulumi.Input['DaprServiceBindMetadataArgsDict']]
+        """
+        Service bind metadata
+        """
+        name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Name of the service bind
+        """
+        service_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Resource id of the target service
+        """
+elif False:
+    DaprComponentServiceBindingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DaprComponentServiceBindingArgs:
+    def __init__(__self__, *,
+                 metadata: Optional[pulumi.Input['DaprServiceBindMetadataArgs']] = None,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 service_id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Configuration to bind a Dapr Component to a dev ContainerApp Service
+        :param pulumi.Input['DaprServiceBindMetadataArgs'] metadata: Service bind metadata
+        :param pulumi.Input[builtins.str] name: Name of the service bind
+        :param pulumi.Input[builtins.str] service_id: Resource id of the target service
+        """
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if service_id is not None:
+            pulumi.set(__self__, "service_id", service_id)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input['DaprServiceBindMetadataArgs']]:
+        """
+        Service bind metadata
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input['DaprServiceBindMetadataArgs']]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Name of the service bind
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="serviceId")
+    def service_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Resource id of the target service
+        """
+        return pulumi.get(self, "service_id")
+
+    @service_id.setter
+    def service_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "service_id", value)
+
+
+if not MYPY:
     class DaprMetadataArgsDict(TypedDict):
         """
         Dapr component metadata.
@@ -3834,6 +4361,62 @@ class DaprMetadataArgs:
     def value(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Metadata property value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class DaprServiceBindMetadataArgsDict(TypedDict):
+        """
+        Dapr component metadata.
+        """
+        name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Service bind metadata property name.
+        """
+        value: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Service bind metadata property value.
+        """
+elif False:
+    DaprServiceBindMetadataArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DaprServiceBindMetadataArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 value: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Dapr component metadata.
+        :param pulumi.Input[builtins.str] name: Service bind metadata property name.
+        :param pulumi.Input[builtins.str] value: Service bind metadata property value.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Service bind metadata property name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Service bind metadata property value.
         """
         return pulumi.get(self, "value")
 
@@ -4037,6 +4620,10 @@ if not MYPY:
         """
         Container App Dapr configuration.
         """
+        app_health: NotRequired[pulumi.Input['DaprAppHealthArgsDict']]
+        """
+        Dapr application health check configuration
+        """
         app_id: NotRequired[pulumi.Input[builtins.str]]
         """
         Dapr application identifier
@@ -4069,12 +4656,17 @@ if not MYPY:
         """
         Sets the log level for the Dapr sidecar. Allowed values are debug, info, warn, error. Default is info.
         """
+        max_concurrency: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Maximum number of concurrent requests, events handled by the Dapr sidecar
+        """
 elif False:
     DaprArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DaprArgs:
     def __init__(__self__, *,
+                 app_health: Optional[pulumi.Input['DaprAppHealthArgs']] = None,
                  app_id: Optional[pulumi.Input[builtins.str]] = None,
                  app_port: Optional[pulumi.Input[builtins.int]] = None,
                  app_protocol: Optional[pulumi.Input[Union[builtins.str, 'AppProtocol']]] = None,
@@ -4082,9 +4674,11 @@ class DaprArgs:
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  http_max_request_size: Optional[pulumi.Input[builtins.int]] = None,
                  http_read_buffer_size: Optional[pulumi.Input[builtins.int]] = None,
-                 log_level: Optional[pulumi.Input[Union[builtins.str, 'LogLevel']]] = None):
+                 log_level: Optional[pulumi.Input[Union[builtins.str, 'LogLevel']]] = None,
+                 max_concurrency: Optional[pulumi.Input[builtins.int]] = None):
         """
         Container App Dapr configuration.
+        :param pulumi.Input['DaprAppHealthArgs'] app_health: Dapr application health check configuration
         :param pulumi.Input[builtins.str] app_id: Dapr application identifier
         :param pulumi.Input[builtins.int] app_port: Tells Dapr which port your application is listening on
         :param pulumi.Input[Union[builtins.str, 'AppProtocol']] app_protocol: Tells Dapr which protocol your application is using. Valid options are http and grpc. Default is http
@@ -4093,7 +4687,10 @@ class DaprArgs:
         :param pulumi.Input[builtins.int] http_max_request_size: Increasing max size of request body http and grpc servers parameter in MB to handle uploading of big files. Default is 4 MB.
         :param pulumi.Input[builtins.int] http_read_buffer_size: Dapr max size of http header read buffer in KB to handle when sending multi-KB headers. Default is 65KB.
         :param pulumi.Input[Union[builtins.str, 'LogLevel']] log_level: Sets the log level for the Dapr sidecar. Allowed values are debug, info, warn, error. Default is info.
+        :param pulumi.Input[builtins.int] max_concurrency: Maximum number of concurrent requests, events handled by the Dapr sidecar
         """
+        if app_health is not None:
+            pulumi.set(__self__, "app_health", app_health)
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
         if app_port is not None:
@@ -4114,6 +4711,20 @@ class DaprArgs:
             pulumi.set(__self__, "http_read_buffer_size", http_read_buffer_size)
         if log_level is not None:
             pulumi.set(__self__, "log_level", log_level)
+        if max_concurrency is not None:
+            pulumi.set(__self__, "max_concurrency", max_concurrency)
+
+    @property
+    @pulumi.getter(name="appHealth")
+    def app_health(self) -> Optional[pulumi.Input['DaprAppHealthArgs']]:
+        """
+        Dapr application health check configuration
+        """
+        return pulumi.get(self, "app_health")
+
+    @app_health.setter
+    def app_health(self, value: Optional[pulumi.Input['DaprAppHealthArgs']]):
+        pulumi.set(self, "app_health", value)
 
     @property
     @pulumi.getter(name="appId")
@@ -4211,6 +4822,74 @@ class DaprArgs:
     def log_level(self, value: Optional[pulumi.Input[Union[builtins.str, 'LogLevel']]]):
         pulumi.set(self, "log_level", value)
 
+    @property
+    @pulumi.getter(name="maxConcurrency")
+    def max_concurrency(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Maximum number of concurrent requests, events handled by the Dapr sidecar
+        """
+        return pulumi.get(self, "max_concurrency")
+
+    @max_concurrency.setter
+    def max_concurrency(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_concurrency", value)
+
+
+if not MYPY:
+    class DataDogConfigurationArgsDict(TypedDict):
+        """
+        Configuration of datadog 
+        """
+        key: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The data dog api key
+        """
+        site: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The data dog site
+        """
+elif False:
+    DataDogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataDogConfigurationArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[builtins.str]] = None,
+                 site: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Configuration of datadog 
+        :param pulumi.Input[builtins.str] key: The data dog api key
+        :param pulumi.Input[builtins.str] site: The data dog site
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if site is not None:
+            pulumi.set(__self__, "site", site)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The data dog api key
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def site(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The data dog site
+        """
+        return pulumi.get(self, "site")
+
+    @site.setter
+    def site(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "site", value)
+
 
 if not MYPY:
     class DefaultAuthorizationPolicyArgsDict(TypedDict):
@@ -4266,6 +4945,190 @@ class DefaultAuthorizationPolicyArgs:
     @allowed_principals.setter
     def allowed_principals(self, value: Optional[pulumi.Input['AllowedPrincipalsArgs']]):
         pulumi.set(self, "allowed_principals", value)
+
+
+if not MYPY:
+    class DestinationsConfigurationArgsDict(TypedDict):
+        """
+        Configuration of Open Telemetry destinations
+        """
+        data_dog_configuration: NotRequired[pulumi.Input['DataDogConfigurationArgsDict']]
+        """
+        Open telemetry datadog destination configuration
+        """
+        otlp_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['OtlpConfigurationArgsDict']]]]
+        """
+        Open telemetry otlp configurations
+        """
+elif False:
+    DestinationsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DestinationsConfigurationArgs:
+    def __init__(__self__, *,
+                 data_dog_configuration: Optional[pulumi.Input['DataDogConfigurationArgs']] = None,
+                 otlp_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['OtlpConfigurationArgs']]]] = None):
+        """
+        Configuration of Open Telemetry destinations
+        :param pulumi.Input['DataDogConfigurationArgs'] data_dog_configuration: Open telemetry datadog destination configuration
+        :param pulumi.Input[Sequence[pulumi.Input['OtlpConfigurationArgs']]] otlp_configurations: Open telemetry otlp configurations
+        """
+        if data_dog_configuration is not None:
+            pulumi.set(__self__, "data_dog_configuration", data_dog_configuration)
+        if otlp_configurations is not None:
+            pulumi.set(__self__, "otlp_configurations", otlp_configurations)
+
+    @property
+    @pulumi.getter(name="dataDogConfiguration")
+    def data_dog_configuration(self) -> Optional[pulumi.Input['DataDogConfigurationArgs']]:
+        """
+        Open telemetry datadog destination configuration
+        """
+        return pulumi.get(self, "data_dog_configuration")
+
+    @data_dog_configuration.setter
+    def data_dog_configuration(self, value: Optional[pulumi.Input['DataDogConfigurationArgs']]):
+        pulumi.set(self, "data_dog_configuration", value)
+
+    @property
+    @pulumi.getter(name="otlpConfigurations")
+    def otlp_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OtlpConfigurationArgs']]]]:
+        """
+        Open telemetry otlp configurations
+        """
+        return pulumi.get(self, "otlp_configurations")
+
+    @otlp_configurations.setter
+    def otlp_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OtlpConfigurationArgs']]]]):
+        pulumi.set(self, "otlp_configurations", value)
+
+
+if not MYPY:
+    class DiskEncryptionConfigurationAuthArgsDict(TypedDict):
+        """
+        Configuration properties for the authentication to the Key Vault
+        """
+        identity: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Resource ID of a user-assigned managed identity to authenticate to the Key Vault. The identity must be assigned to the managed environment, in the same tenant as the Key Vault, and it must have the following key permissions on the Key Vault: wrapkey, unwrapkey, get.
+        """
+elif False:
+    DiskEncryptionConfigurationAuthArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DiskEncryptionConfigurationAuthArgs:
+    def __init__(__self__, *,
+                 identity: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Configuration properties for the authentication to the Key Vault
+        :param pulumi.Input[builtins.str] identity: Resource ID of a user-assigned managed identity to authenticate to the Key Vault. The identity must be assigned to the managed environment, in the same tenant as the Key Vault, and it must have the following key permissions on the Key Vault: wrapkey, unwrapkey, get.
+        """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Resource ID of a user-assigned managed identity to authenticate to the Key Vault. The identity must be assigned to the managed environment, in the same tenant as the Key Vault, and it must have the following key permissions on the Key Vault: wrapkey, unwrapkey, get.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "identity", value)
+
+
+if not MYPY:
+    class DiskEncryptionConfigurationKeyVaultConfigurationArgsDict(TypedDict):
+        """
+        The Key Vault that contains your key to use for disk encryption. The Key Vault must be in the same region as the Managed Environment.
+        """
+        auth: NotRequired[pulumi.Input['DiskEncryptionConfigurationAuthArgsDict']]
+        """
+        Configuration properties for the authentication to the Key Vault
+        """
+        key_url: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Key URL pointing to a key in KeyVault. Version segment of the Url is required.
+        """
+elif False:
+    DiskEncryptionConfigurationKeyVaultConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DiskEncryptionConfigurationKeyVaultConfigurationArgs:
+    def __init__(__self__, *,
+                 auth: Optional[pulumi.Input['DiskEncryptionConfigurationAuthArgs']] = None,
+                 key_url: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        The Key Vault that contains your key to use for disk encryption. The Key Vault must be in the same region as the Managed Environment.
+        :param pulumi.Input['DiskEncryptionConfigurationAuthArgs'] auth: Configuration properties for the authentication to the Key Vault
+        :param pulumi.Input[builtins.str] key_url: Key URL pointing to a key in KeyVault. Version segment of the Url is required.
+        """
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
+        if key_url is not None:
+            pulumi.set(__self__, "key_url", key_url)
+
+    @property
+    @pulumi.getter
+    def auth(self) -> Optional[pulumi.Input['DiskEncryptionConfigurationAuthArgs']]:
+        """
+        Configuration properties for the authentication to the Key Vault
+        """
+        return pulumi.get(self, "auth")
+
+    @auth.setter
+    def auth(self, value: Optional[pulumi.Input['DiskEncryptionConfigurationAuthArgs']]):
+        pulumi.set(self, "auth", value)
+
+    @property
+    @pulumi.getter(name="keyUrl")
+    def key_url(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Key URL pointing to a key in KeyVault. Version segment of the Url is required.
+        """
+        return pulumi.get(self, "key_url")
+
+    @key_url.setter
+    def key_url(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "key_url", value)
+
+
+if not MYPY:
+    class DiskEncryptionConfigurationArgsDict(TypedDict):
+        """
+        Configuration properties for disk encryption
+        """
+        key_vault_configuration: NotRequired[pulumi.Input['DiskEncryptionConfigurationKeyVaultConfigurationArgsDict']]
+        """
+        The Key Vault that contains your key to use for disk encryption. The Key Vault must be in the same region as the Managed Environment.
+        """
+elif False:
+    DiskEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DiskEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 key_vault_configuration: Optional[pulumi.Input['DiskEncryptionConfigurationKeyVaultConfigurationArgs']] = None):
+        """
+        Configuration properties for disk encryption
+        :param pulumi.Input['DiskEncryptionConfigurationKeyVaultConfigurationArgs'] key_vault_configuration: The Key Vault that contains your key to use for disk encryption. The Key Vault must be in the same region as the Managed Environment.
+        """
+        if key_vault_configuration is not None:
+            pulumi.set(__self__, "key_vault_configuration", key_vault_configuration)
+
+    @property
+    @pulumi.getter(name="keyVaultConfiguration")
+    def key_vault_configuration(self) -> Optional[pulumi.Input['DiskEncryptionConfigurationKeyVaultConfigurationArgs']]:
+        """
+        The Key Vault that contains your key to use for disk encryption. The Key Vault must be in the same region as the Managed Environment.
+        """
+        return pulumi.get(self, "key_vault_configuration")
+
+    @key_vault_configuration.setter
+    def key_vault_configuration(self, value: Optional[pulumi.Input['DiskEncryptionConfigurationKeyVaultConfigurationArgs']]):
+        pulumi.set(self, "key_vault_configuration", value)
 
 
 if not MYPY:
@@ -4915,9 +5778,17 @@ if not MYPY:
         """
         AzureCredentials configurations.
         """
+        build_environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgsDict']]]]
+        """
+        List of environment variables to be passed to the build.
+        """
         context_path: NotRequired[pulumi.Input[builtins.str]]
         """
         Context path
+        """
+        dockerfile_path: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Dockerfile path
         """
         github_personal_access_token: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -4954,7 +5825,9 @@ elif False:
 class GithubActionConfigurationArgs:
     def __init__(__self__, *,
                  azure_credentials: Optional[pulumi.Input['AzureCredentialsArgs']] = None,
+                 build_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
                  context_path: Optional[pulumi.Input[builtins.str]] = None,
+                 dockerfile_path: Optional[pulumi.Input[builtins.str]] = None,
                  github_personal_access_token: Optional[pulumi.Input[builtins.str]] = None,
                  image: Optional[pulumi.Input[builtins.str]] = None,
                  os: Optional[pulumi.Input[builtins.str]] = None,
@@ -4965,7 +5838,9 @@ class GithubActionConfigurationArgs:
         """
         Configuration properties that define the mutable settings of a Container App SourceControl
         :param pulumi.Input['AzureCredentialsArgs'] azure_credentials: AzureCredentials configurations.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]] build_environment_variables: List of environment variables to be passed to the build.
         :param pulumi.Input[builtins.str] context_path: Context path
+        :param pulumi.Input[builtins.str] dockerfile_path: Dockerfile path
         :param pulumi.Input[builtins.str] github_personal_access_token: One time Github PAT to configure github environment
         :param pulumi.Input[builtins.str] image: Image name
         :param pulumi.Input[builtins.str] os: Operation system
@@ -4976,8 +5851,12 @@ class GithubActionConfigurationArgs:
         """
         if azure_credentials is not None:
             pulumi.set(__self__, "azure_credentials", azure_credentials)
+        if build_environment_variables is not None:
+            pulumi.set(__self__, "build_environment_variables", build_environment_variables)
         if context_path is not None:
             pulumi.set(__self__, "context_path", context_path)
+        if dockerfile_path is not None:
+            pulumi.set(__self__, "dockerfile_path", dockerfile_path)
         if github_personal_access_token is not None:
             pulumi.set(__self__, "github_personal_access_token", github_personal_access_token)
         if image is not None:
@@ -5006,6 +5885,18 @@ class GithubActionConfigurationArgs:
         pulumi.set(self, "azure_credentials", value)
 
     @property
+    @pulumi.getter(name="buildEnvironmentVariables")
+    def build_environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]:
+        """
+        List of environment variables to be passed to the build.
+        """
+        return pulumi.get(self, "build_environment_variables")
+
+    @build_environment_variables.setter
+    def build_environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]):
+        pulumi.set(self, "build_environment_variables", value)
+
+    @property
     @pulumi.getter(name="contextPath")
     def context_path(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -5016,6 +5907,18 @@ class GithubActionConfigurationArgs:
     @context_path.setter
     def context_path(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "context_path", value)
+
+    @property
+    @pulumi.getter(name="dockerfilePath")
+    def dockerfile_path(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Dockerfile path
+        """
+        return pulumi.get(self, "dockerfile_path")
+
+    @dockerfile_path.setter
+    def dockerfile_path(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "dockerfile_path", value)
 
     @property
     @pulumi.getter(name="githubPersonalAccessToken")
@@ -5394,6 +6297,62 @@ class HeaderMatchArgs:
     @suffix_match.setter
     def suffix_match(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "suffix_match", value)
+
+
+if not MYPY:
+    class HeaderArgsDict(TypedDict):
+        """
+        Header of otlp configuration
+        """
+        key: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The key of otlp configuration header
+        """
+        value: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The value of otlp configuration header
+        """
+elif False:
+    HeaderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HeaderArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[builtins.str]] = None,
+                 value: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Header of otlp configuration
+        :param pulumi.Input[builtins.str] key: The key of otlp configuration header
+        :param pulumi.Input[builtins.str] value: The value of otlp configuration header
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The key of otlp configuration header
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The value of otlp configuration header
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "value", value)
 
 
 if not MYPY:
@@ -6503,6 +7462,178 @@ class IdentitySettingsArgs:
 
 
 if not MYPY:
+    class IngressConfigurationScaleArgsDict(TypedDict):
+        """
+        Scaling configuration for the ingress component. Required.
+        """
+        max_replicas: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Maximum number of ingress replicas. Must be greater than or equal to minReplicas.
+        """
+        min_replicas: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Minimum number of ingress replicas. Must be at least 2. Required.
+        """
+elif False:
+    IngressConfigurationScaleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IngressConfigurationScaleArgs:
+    def __init__(__self__, *,
+                 max_replicas: Optional[pulumi.Input[builtins.int]] = None,
+                 min_replicas: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        Scaling configuration for the ingress component. Required.
+        :param pulumi.Input[builtins.int] max_replicas: Maximum number of ingress replicas. Must be greater than or equal to minReplicas.
+        :param pulumi.Input[builtins.int] min_replicas: Minimum number of ingress replicas. Must be at least 2. Required.
+        """
+        if max_replicas is not None:
+            pulumi.set(__self__, "max_replicas", max_replicas)
+        if min_replicas is not None:
+            pulumi.set(__self__, "min_replicas", min_replicas)
+
+    @property
+    @pulumi.getter(name="maxReplicas")
+    def max_replicas(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Maximum number of ingress replicas. Must be greater than or equal to minReplicas.
+        """
+        return pulumi.get(self, "max_replicas")
+
+    @max_replicas.setter
+    def max_replicas(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_replicas", value)
+
+    @property
+    @pulumi.getter(name="minReplicas")
+    def min_replicas(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Minimum number of ingress replicas. Must be at least 2. Required.
+        """
+        return pulumi.get(self, "min_replicas")
+
+    @min_replicas.setter
+    def min_replicas(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "min_replicas", value)
+
+
+if not MYPY:
+    class IngressConfigurationArgsDict(TypedDict):
+        """
+        Settings for the ingress component, including workload profile, scaling, and connection handling.
+        """
+        header_count_limit: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Maximum number of headers per request allowed by the ingress. Must be at least 1. Defaults to 100.
+        """
+        request_idle_timeout: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Duration (in minutes) before idle requests are timed out. Must be at least 1 minute. Defaults to 4 minutes.
+        """
+        scale: NotRequired[pulumi.Input['IngressConfigurationScaleArgsDict']]
+        """
+        Scaling configuration for the ingress component. Required.
+        """
+        termination_grace_period_seconds: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Time (in seconds) to allow active connections to complete on termination. Must be between 0 and 3600. Defaults to 480 seconds.
+        """
+        workload_profile_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Name of the workload profile used by the ingress component. Required.
+        """
+elif False:
+    IngressConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IngressConfigurationArgs:
+    def __init__(__self__, *,
+                 header_count_limit: Optional[pulumi.Input[builtins.int]] = None,
+                 request_idle_timeout: Optional[pulumi.Input[builtins.int]] = None,
+                 scale: Optional[pulumi.Input['IngressConfigurationScaleArgs']] = None,
+                 termination_grace_period_seconds: Optional[pulumi.Input[builtins.int]] = None,
+                 workload_profile_name: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Settings for the ingress component, including workload profile, scaling, and connection handling.
+        :param pulumi.Input[builtins.int] header_count_limit: Maximum number of headers per request allowed by the ingress. Must be at least 1. Defaults to 100.
+        :param pulumi.Input[builtins.int] request_idle_timeout: Duration (in minutes) before idle requests are timed out. Must be at least 1 minute. Defaults to 4 minutes.
+        :param pulumi.Input['IngressConfigurationScaleArgs'] scale: Scaling configuration for the ingress component. Required.
+        :param pulumi.Input[builtins.int] termination_grace_period_seconds: Time (in seconds) to allow active connections to complete on termination. Must be between 0 and 3600. Defaults to 480 seconds.
+        :param pulumi.Input[builtins.str] workload_profile_name: Name of the workload profile used by the ingress component. Required.
+        """
+        if header_count_limit is not None:
+            pulumi.set(__self__, "header_count_limit", header_count_limit)
+        if request_idle_timeout is not None:
+            pulumi.set(__self__, "request_idle_timeout", request_idle_timeout)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+        if termination_grace_period_seconds is not None:
+            pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
+        if workload_profile_name is not None:
+            pulumi.set(__self__, "workload_profile_name", workload_profile_name)
+
+    @property
+    @pulumi.getter(name="headerCountLimit")
+    def header_count_limit(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Maximum number of headers per request allowed by the ingress. Must be at least 1. Defaults to 100.
+        """
+        return pulumi.get(self, "header_count_limit")
+
+    @header_count_limit.setter
+    def header_count_limit(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "header_count_limit", value)
+
+    @property
+    @pulumi.getter(name="requestIdleTimeout")
+    def request_idle_timeout(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Duration (in minutes) before idle requests are timed out. Must be at least 1 minute. Defaults to 4 minutes.
+        """
+        return pulumi.get(self, "request_idle_timeout")
+
+    @request_idle_timeout.setter
+    def request_idle_timeout(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "request_idle_timeout", value)
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional[pulumi.Input['IngressConfigurationScaleArgs']]:
+        """
+        Scaling configuration for the ingress component. Required.
+        """
+        return pulumi.get(self, "scale")
+
+    @scale.setter
+    def scale(self, value: Optional[pulumi.Input['IngressConfigurationScaleArgs']]):
+        pulumi.set(self, "scale", value)
+
+    @property
+    @pulumi.getter(name="terminationGracePeriodSeconds")
+    def termination_grace_period_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Time (in seconds) to allow active connections to complete on termination. Must be between 0 and 3600. Defaults to 480 seconds.
+        """
+        return pulumi.get(self, "termination_grace_period_seconds")
+
+    @termination_grace_period_seconds.setter
+    def termination_grace_period_seconds(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "termination_grace_period_seconds", value)
+
+    @property
+    @pulumi.getter(name="workloadProfileName")
+    def workload_profile_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Name of the workload profile used by the ingress component. Required.
+        """
+        return pulumi.get(self, "workload_profile_name")
+
+    @workload_profile_name.setter
+    def workload_profile_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "workload_profile_name", value)
+
+
+if not MYPY:
     class IngressPortMappingArgsDict(TypedDict):
         """
         Port mappings of container app ingress
@@ -6657,6 +7788,10 @@ if not MYPY:
         """
         Target Port in containers for traffic from ingress
         """
+        target_port_http_scheme: NotRequired[pulumi.Input[Union[builtins.str, 'IngressTargetPortHttpScheme']]]
+        """
+        Whether an http app listens on http or https
+        """
         traffic: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrafficWeightArgsDict']]]]
         """
         Traffic weights for app's revisions
@@ -6681,6 +7816,7 @@ class IngressArgs:
                  ip_security_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionRuleArgs']]]] = None,
                  sticky_sessions: Optional[pulumi.Input['IngressStickySessionsArgs']] = None,
                  target_port: Optional[pulumi.Input[builtins.int]] = None,
+                 target_port_http_scheme: Optional[pulumi.Input[Union[builtins.str, 'IngressTargetPortHttpScheme']]] = None,
                  traffic: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficWeightArgs']]]] = None,
                  transport: Optional[pulumi.Input[Union[builtins.str, 'IngressTransportMethod']]] = None):
         """
@@ -6695,6 +7831,7 @@ class IngressArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionRuleArgs']]] ip_security_restrictions: Rules to restrict incoming IP address.
         :param pulumi.Input['IngressStickySessionsArgs'] sticky_sessions: Sticky Sessions for Single Revision Mode
         :param pulumi.Input[builtins.int] target_port: Target Port in containers for traffic from ingress
+        :param pulumi.Input[Union[builtins.str, 'IngressTargetPortHttpScheme']] target_port_http_scheme: Whether an http app listens on http or https
         :param pulumi.Input[Sequence[pulumi.Input['TrafficWeightArgs']]] traffic: Traffic weights for app's revisions
         :param pulumi.Input[Union[builtins.str, 'IngressTransportMethod']] transport: Ingress transport protocol
         """
@@ -6722,6 +7859,8 @@ class IngressArgs:
             pulumi.set(__self__, "sticky_sessions", sticky_sessions)
         if target_port is not None:
             pulumi.set(__self__, "target_port", target_port)
+        if target_port_http_scheme is not None:
+            pulumi.set(__self__, "target_port_http_scheme", target_port_http_scheme)
         if traffic is not None:
             pulumi.set(__self__, "traffic", traffic)
         if transport is None:
@@ -6850,6 +7989,18 @@ class IngressArgs:
         pulumi.set(self, "target_port", value)
 
     @property
+    @pulumi.getter(name="targetPortHttpScheme")
+    def target_port_http_scheme(self) -> Optional[pulumi.Input[Union[builtins.str, 'IngressTargetPortHttpScheme']]]:
+        """
+        Whether an http app listens on http or https
+        """
+        return pulumi.get(self, "target_port_http_scheme")
+
+    @target_port_http_scheme.setter
+    def target_port_http_scheme(self, value: Optional[pulumi.Input[Union[builtins.str, 'IngressTargetPortHttpScheme']]]):
+        pulumi.set(self, "target_port_http_scheme", value)
+
+    @property
     @pulumi.getter
     def traffic(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficWeightArgs']]]]:
         """
@@ -6895,6 +8046,10 @@ if not MYPY:
         """
         Container image tag.
         """
+        image_type: NotRequired[pulumi.Input[Union[builtins.str, 'ImageType']]]
+        """
+        The type of the image. Set to CloudBuild to let the system manages the image, where user will not be able to update image through image field. Set to ContainerImage for user provided image.
+        """
         name: NotRequired[pulumi.Input[builtins.str]]
         """
         Custom container name.
@@ -6917,6 +8072,7 @@ class InitContainerArgs:
                  command: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  env: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVarArgs']]]] = None,
                  image: Optional[pulumi.Input[builtins.str]] = None,
+                 image_type: Optional[pulumi.Input[Union[builtins.str, 'ImageType']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  resources: Optional[pulumi.Input['ContainerResourcesArgs']] = None,
                  volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]] = None):
@@ -6926,6 +8082,7 @@ class InitContainerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] command: Container start command.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVarArgs']]] env: Container environment variables.
         :param pulumi.Input[builtins.str] image: Container image tag.
+        :param pulumi.Input[Union[builtins.str, 'ImageType']] image_type: The type of the image. Set to CloudBuild to let the system manages the image, where user will not be able to update image through image field. Set to ContainerImage for user provided image.
         :param pulumi.Input[builtins.str] name: Custom container name.
         :param pulumi.Input['ContainerResourcesArgs'] resources: Container resource requirements.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]] volume_mounts: Container volume mounts.
@@ -6938,6 +8095,8 @@ class InitContainerArgs:
             pulumi.set(__self__, "env", env)
         if image is not None:
             pulumi.set(__self__, "image", image)
+        if image_type is not None:
+            pulumi.set(__self__, "image_type", image_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if resources is not None:
@@ -6992,6 +8151,18 @@ class InitContainerArgs:
     @image.setter
     def image(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter(name="imageType")
+    def image_type(self) -> Optional[pulumi.Input[Union[builtins.str, 'ImageType']]]:
+        """
+        The type of the image. Set to CloudBuild to let the system manages the image, where user will not be able to update image through image field. Set to ContainerImage for user provided image.
+        """
+        return pulumi.get(self, "image_type")
+
+    @image_type.setter
+    def image_type(self, value: Optional[pulumi.Input[Union[builtins.str, 'ImageType']]]):
+        pulumi.set(self, "image_type", value)
 
     @property
     @pulumi.getter
@@ -7705,7 +8876,7 @@ if not MYPY:
         """
         identity: NotRequired[pulumi.Input[builtins.str]]
         """
-        The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
+        The resource ID of a user-assigned managed identity that is assigned to the job, or 'system' for system-assigned identity.
         """
         metadata: NotRequired[Any]
         """
@@ -7734,7 +8905,7 @@ class JobScaleRuleArgs:
         """
         Scaling rule.
         :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]] auth: Authentication secrets for the scale rule.
-        :param pulumi.Input[builtins.str] identity: The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
+        :param pulumi.Input[builtins.str] identity: The resource ID of a user-assigned managed identity that is assigned to the job, or 'system' for system-assigned identity.
         :param Any metadata: Metadata properties to describe the scale rule.
         :param pulumi.Input[builtins.str] name: Scale Rule Name
         :param pulumi.Input[builtins.str] type: Type of the scale rule
@@ -7767,7 +8938,7 @@ class JobScaleRuleArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.
+        The resource ID of a user-assigned managed identity that is assigned to the job, or 'system' for system-assigned identity.
         """
         return pulumi.get(self, "identity")
 
@@ -8130,6 +9301,10 @@ if not MYPY:
         """
         Log analytics customer id
         """
+        dynamic_json_columns: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Boolean indicating whether to parse json string log into dynamic json columns
+        """
         shared_key: NotRequired[pulumi.Input[builtins.str]]
         """
         Log analytics customer key
@@ -8141,14 +9316,18 @@ elif False:
 class LogAnalyticsConfigurationArgs:
     def __init__(__self__, *,
                  customer_id: Optional[pulumi.Input[builtins.str]] = None,
+                 dynamic_json_columns: Optional[pulumi.Input[builtins.bool]] = None,
                  shared_key: Optional[pulumi.Input[builtins.str]] = None):
         """
         Log Analytics configuration, must only be provided when destination is configured as 'log-analytics'
         :param pulumi.Input[builtins.str] customer_id: Log analytics customer id
+        :param pulumi.Input[builtins.bool] dynamic_json_columns: Boolean indicating whether to parse json string log into dynamic json columns
         :param pulumi.Input[builtins.str] shared_key: Log analytics customer key
         """
         if customer_id is not None:
             pulumi.set(__self__, "customer_id", customer_id)
+        if dynamic_json_columns is not None:
+            pulumi.set(__self__, "dynamic_json_columns", dynamic_json_columns)
         if shared_key is not None:
             pulumi.set(__self__, "shared_key", shared_key)
 
@@ -8165,6 +9344,18 @@ class LogAnalyticsConfigurationArgs:
         pulumi.set(self, "customer_id", value)
 
     @property
+    @pulumi.getter(name="dynamicJsonColumns")
+    def dynamic_json_columns(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Boolean indicating whether to parse json string log into dynamic json columns
+        """
+        return pulumi.get(self, "dynamic_json_columns")
+
+    @dynamic_json_columns.setter
+    def dynamic_json_columns(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "dynamic_json_columns", value)
+
+    @property
     @pulumi.getter(name="sharedKey")
     def shared_key(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -8175,6 +9366,60 @@ class LogAnalyticsConfigurationArgs:
     @shared_key.setter
     def shared_key(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "shared_key", value)
+
+
+if not MYPY:
+    class LoggerSettingArgsDict(TypedDict):
+        """
+        Logger settings for java workloads.
+        """
+        level: pulumi.Input[Union[builtins.str, 'Level']]
+        """
+        The specified logger's log level.
+        """
+        logger: pulumi.Input[builtins.str]
+        """
+        Logger name.
+        """
+elif False:
+    LoggerSettingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LoggerSettingArgs:
+    def __init__(__self__, *,
+                 level: pulumi.Input[Union[builtins.str, 'Level']],
+                 logger: pulumi.Input[builtins.str]):
+        """
+        Logger settings for java workloads.
+        :param pulumi.Input[Union[builtins.str, 'Level']] level: The specified logger's log level.
+        :param pulumi.Input[builtins.str] logger: Logger name.
+        """
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "logger", logger)
+
+    @property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Union[builtins.str, 'Level']]:
+        """
+        The specified logger's log level.
+        """
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Union[builtins.str, 'Level']]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def logger(self) -> pulumi.Input[builtins.str]:
+        """
+        Logger name.
+        """
+        return pulumi.get(self, "logger")
+
+    @logger.setter
+    def logger(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "logger", value)
 
 
 if not MYPY:
@@ -8389,6 +9634,42 @@ class LoginArgs:
     @token_store.setter
     def token_store(self, value: Optional[pulumi.Input['TokenStoreArgs']]):
         pulumi.set(self, "token_store", value)
+
+
+if not MYPY:
+    class LogsConfigurationArgsDict(TypedDict):
+        """
+        Configuration of Open Telemetry logs
+        """
+        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        Open telemetry logs destinations
+        """
+elif False:
+    LogsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogsConfigurationArgs:
+    def __init__(__self__, *,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+        """
+        Configuration of Open Telemetry logs
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] destinations: Open telemetry logs destinations
+        """
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Open telemetry logs destinations
+        """
+        return pulumi.get(self, "destinations")
+
+    @destinations.setter
+    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "destinations", value)
 
 
 if not MYPY:
@@ -8724,6 +10005,62 @@ class ManagedServiceIdentityArgs:
 
 
 if not MYPY:
+    class MetricsConfigurationArgsDict(TypedDict):
+        """
+        Configuration of Open Telemetry metrics
+        """
+        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        Open telemetry metrics destinations
+        """
+        include_keda: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Boolean indicating if including keda metrics
+        """
+elif False:
+    MetricsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MetricsConfigurationArgs:
+    def __init__(__self__, *,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 include_keda: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        Configuration of Open Telemetry metrics
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] destinations: Open telemetry metrics destinations
+        :param pulumi.Input[builtins.bool] include_keda: Boolean indicating if including keda metrics
+        """
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+        if include_keda is not None:
+            pulumi.set(__self__, "include_keda", include_keda)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Open telemetry metrics destinations
+        """
+        return pulumi.get(self, "destinations")
+
+    @destinations.setter
+    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "destinations", value)
+
+    @property
+    @pulumi.getter(name="includeKeda")
+    def include_keda(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Boolean indicating if including keda metrics
+        """
+        return pulumi.get(self, "include_keda")
+
+    @include_keda.setter
+    def include_keda(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "include_keda", value)
+
+
+if not MYPY:
     class MtlsArgsDict(TypedDict):
         """
         Configuration properties for mutual TLS authentication
@@ -8760,6 +10097,104 @@ class MtlsArgs:
 
 
 if not MYPY:
+    class NacosComponentArgsDict(TypedDict):
+        """
+        Nacos properties.
+        """
+        component_type: pulumi.Input[builtins.str]
+        """
+        Type of the Java Component.
+        Expected value is 'Nacos'.
+        """
+        configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgsDict']]]]
+        """
+        List of Java Components configuration properties
+        """
+        scale: NotRequired[pulumi.Input['JavaComponentPropertiesScaleArgsDict']]
+        """
+        Java component scaling configurations
+        """
+        service_binds: NotRequired[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgsDict']]]]
+        """
+        List of Java Components that are bound to the Java component
+        """
+elif False:
+    NacosComponentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NacosComponentArgs:
+    def __init__(__self__, *,
+                 component_type: pulumi.Input[builtins.str],
+                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]] = None,
+                 scale: Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']] = None,
+                 service_binds: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]] = None):
+        """
+        Nacos properties.
+        :param pulumi.Input[builtins.str] component_type: Type of the Java Component.
+               Expected value is 'Nacos'.
+        :param pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]] configurations: List of Java Components configuration properties
+        :param pulumi.Input['JavaComponentPropertiesScaleArgs'] scale: Java component scaling configurations
+        :param pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]] service_binds: List of Java Components that are bound to the Java component
+        """
+        pulumi.set(__self__, "component_type", 'Nacos')
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+        if service_binds is not None:
+            pulumi.set(__self__, "service_binds", service_binds)
+
+    @property
+    @pulumi.getter(name="componentType")
+    def component_type(self) -> pulumi.Input[builtins.str]:
+        """
+        Type of the Java Component.
+        Expected value is 'Nacos'.
+        """
+        return pulumi.get(self, "component_type")
+
+    @component_type.setter
+    def component_type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "component_type", value)
+
+    @property
+    @pulumi.getter
+    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]]:
+        """
+        List of Java Components configuration properties
+        """
+        return pulumi.get(self, "configurations")
+
+    @configurations.setter
+    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]]):
+        pulumi.set(self, "configurations", value)
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']]:
+        """
+        Java component scaling configurations
+        """
+        return pulumi.get(self, "scale")
+
+    @scale.setter
+    def scale(self, value: Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']]):
+        pulumi.set(self, "scale", value)
+
+    @property
+    @pulumi.getter(name="serviceBinds")
+    def service_binds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]]:
+        """
+        List of Java Components that are bound to the Java component
+        """
+        return pulumi.get(self, "service_binds")
+
+    @service_binds.setter
+    def service_binds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]]):
+        pulumi.set(self, "service_binds", value)
+
+
+if not MYPY:
     class NfsAzureFilePropertiesArgsDict(TypedDict):
         """
         NFS Azure File Properties.
@@ -8770,7 +10205,7 @@ if not MYPY:
         """
         server: NotRequired[pulumi.Input[builtins.str]]
         """
-        Server for NFS azure file. Specify the Azure storage account server address.
+        Server for NFS azure file.
         """
         share_name: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -8788,7 +10223,7 @@ class NfsAzureFilePropertiesArgs:
         """
         NFS Azure File Properties.
         :param pulumi.Input[Union[builtins.str, 'AccessMode']] access_mode: Access mode for storage
-        :param pulumi.Input[builtins.str] server: Server for NFS azure file. Specify the Azure storage account server address.
+        :param pulumi.Input[builtins.str] server: Server for NFS azure file.
         :param pulumi.Input[builtins.str] share_name: NFS Azure file share name.
         """
         if access_mode is not None:
@@ -8814,7 +10249,7 @@ class NfsAzureFilePropertiesArgs:
     @pulumi.getter
     def server(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Server for NFS azure file. Specify the Azure storage account server address.
+        Server for NFS azure file.
         """
         return pulumi.get(self, "server")
 
@@ -9193,6 +10628,198 @@ class OpenIdConnectRegistrationArgs:
     @open_id_connect_configuration.setter
     def open_id_connect_configuration(self, value: Optional[pulumi.Input['OpenIdConnectConfigArgs']]):
         pulumi.set(self, "open_id_connect_configuration", value)
+
+
+if not MYPY:
+    class OpenTelemetryConfigurationArgsDict(TypedDict):
+        """
+        Configuration of Open Telemetry
+        """
+        destinations_configuration: NotRequired[pulumi.Input['DestinationsConfigurationArgsDict']]
+        """
+        Open telemetry destinations configuration
+        """
+        logs_configuration: NotRequired[pulumi.Input['LogsConfigurationArgsDict']]
+        """
+        Open telemetry logs configuration
+        """
+        metrics_configuration: NotRequired[pulumi.Input['MetricsConfigurationArgsDict']]
+        """
+        Open telemetry metrics configuration
+        """
+        traces_configuration: NotRequired[pulumi.Input['TracesConfigurationArgsDict']]
+        """
+        Open telemetry trace configuration
+        """
+elif False:
+    OpenTelemetryConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OpenTelemetryConfigurationArgs:
+    def __init__(__self__, *,
+                 destinations_configuration: Optional[pulumi.Input['DestinationsConfigurationArgs']] = None,
+                 logs_configuration: Optional[pulumi.Input['LogsConfigurationArgs']] = None,
+                 metrics_configuration: Optional[pulumi.Input['MetricsConfigurationArgs']] = None,
+                 traces_configuration: Optional[pulumi.Input['TracesConfigurationArgs']] = None):
+        """
+        Configuration of Open Telemetry
+        :param pulumi.Input['DestinationsConfigurationArgs'] destinations_configuration: Open telemetry destinations configuration
+        :param pulumi.Input['LogsConfigurationArgs'] logs_configuration: Open telemetry logs configuration
+        :param pulumi.Input['MetricsConfigurationArgs'] metrics_configuration: Open telemetry metrics configuration
+        :param pulumi.Input['TracesConfigurationArgs'] traces_configuration: Open telemetry trace configuration
+        """
+        if destinations_configuration is not None:
+            pulumi.set(__self__, "destinations_configuration", destinations_configuration)
+        if logs_configuration is not None:
+            pulumi.set(__self__, "logs_configuration", logs_configuration)
+        if metrics_configuration is not None:
+            pulumi.set(__self__, "metrics_configuration", metrics_configuration)
+        if traces_configuration is not None:
+            pulumi.set(__self__, "traces_configuration", traces_configuration)
+
+    @property
+    @pulumi.getter(name="destinationsConfiguration")
+    def destinations_configuration(self) -> Optional[pulumi.Input['DestinationsConfigurationArgs']]:
+        """
+        Open telemetry destinations configuration
+        """
+        return pulumi.get(self, "destinations_configuration")
+
+    @destinations_configuration.setter
+    def destinations_configuration(self, value: Optional[pulumi.Input['DestinationsConfigurationArgs']]):
+        pulumi.set(self, "destinations_configuration", value)
+
+    @property
+    @pulumi.getter(name="logsConfiguration")
+    def logs_configuration(self) -> Optional[pulumi.Input['LogsConfigurationArgs']]:
+        """
+        Open telemetry logs configuration
+        """
+        return pulumi.get(self, "logs_configuration")
+
+    @logs_configuration.setter
+    def logs_configuration(self, value: Optional[pulumi.Input['LogsConfigurationArgs']]):
+        pulumi.set(self, "logs_configuration", value)
+
+    @property
+    @pulumi.getter(name="metricsConfiguration")
+    def metrics_configuration(self) -> Optional[pulumi.Input['MetricsConfigurationArgs']]:
+        """
+        Open telemetry metrics configuration
+        """
+        return pulumi.get(self, "metrics_configuration")
+
+    @metrics_configuration.setter
+    def metrics_configuration(self, value: Optional[pulumi.Input['MetricsConfigurationArgs']]):
+        pulumi.set(self, "metrics_configuration", value)
+
+    @property
+    @pulumi.getter(name="tracesConfiguration")
+    def traces_configuration(self) -> Optional[pulumi.Input['TracesConfigurationArgs']]:
+        """
+        Open telemetry trace configuration
+        """
+        return pulumi.get(self, "traces_configuration")
+
+    @traces_configuration.setter
+    def traces_configuration(self, value: Optional[pulumi.Input['TracesConfigurationArgs']]):
+        pulumi.set(self, "traces_configuration", value)
+
+
+if not MYPY:
+    class OtlpConfigurationArgsDict(TypedDict):
+        """
+        Configuration of otlp 
+        """
+        endpoint: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The endpoint of otlp configuration
+        """
+        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['HeaderArgsDict']]]]
+        """
+        Headers of otlp configurations
+        """
+        insecure: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Boolean indicating if otlp configuration is insecure
+        """
+        name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The name of otlp configuration
+        """
+elif False:
+    OtlpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OtlpConfigurationArgs:
+    def __init__(__self__, *,
+                 endpoint: Optional[pulumi.Input[builtins.str]] = None,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['HeaderArgs']]]] = None,
+                 insecure: Optional[pulumi.Input[builtins.bool]] = None,
+                 name: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Configuration of otlp 
+        :param pulumi.Input[builtins.str] endpoint: The endpoint of otlp configuration
+        :param pulumi.Input[Sequence[pulumi.Input['HeaderArgs']]] headers: Headers of otlp configurations
+        :param pulumi.Input[builtins.bool] insecure: Boolean indicating if otlp configuration is insecure
+        :param pulumi.Input[builtins.str] name: The name of otlp configuration
+        """
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if insecure is not None:
+            pulumi.set(__self__, "insecure", insecure)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The endpoint of otlp configuration
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HeaderArgs']]]]:
+        """
+        Headers of otlp configurations
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HeaderArgs']]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter
+    def insecure(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Boolean indicating if otlp configuration is insecure
+        """
+        return pulumi.get(self, "insecure")
+
+    @insecure.setter
+    def insecure(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "insecure", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name of otlp configuration
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
 
 
 if not MYPY:
@@ -9636,6 +11263,98 @@ class RegistryInfoArgs:
 
 
 if not MYPY:
+    class RuntimeDotnetArgsDict(TypedDict):
+        """
+        .NET app configuration
+        """
+        auto_configure_data_protection: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Auto configure the ASP.NET Core Data Protection feature
+        """
+elif False:
+    RuntimeDotnetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuntimeDotnetArgs:
+    def __init__(__self__, *,
+                 auto_configure_data_protection: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        .NET app configuration
+        :param pulumi.Input[builtins.bool] auto_configure_data_protection: Auto configure the ASP.NET Core Data Protection feature
+        """
+        if auto_configure_data_protection is not None:
+            pulumi.set(__self__, "auto_configure_data_protection", auto_configure_data_protection)
+
+    @property
+    @pulumi.getter(name="autoConfigureDataProtection")
+    def auto_configure_data_protection(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Auto configure the ASP.NET Core Data Protection feature
+        """
+        return pulumi.get(self, "auto_configure_data_protection")
+
+    @auto_configure_data_protection.setter
+    def auto_configure_data_protection(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "auto_configure_data_protection", value)
+
+
+if not MYPY:
+    class RuntimeJavaAgentArgsDict(TypedDict):
+        """
+        Diagnostic capabilities achieved by java agent
+        """
+        enabled: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Enable java agent injection for the java app.
+        """
+        logging: NotRequired[pulumi.Input['RuntimeLoggingArgsDict']]
+        """
+        Capabilities on the java logging scenario.
+        """
+elif False:
+    RuntimeJavaAgentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuntimeJavaAgentArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 logging: Optional[pulumi.Input['RuntimeLoggingArgs']] = None):
+        """
+        Diagnostic capabilities achieved by java agent
+        :param pulumi.Input[builtins.bool] enabled: Enable java agent injection for the java app.
+        :param pulumi.Input['RuntimeLoggingArgs'] logging: Capabilities on the java logging scenario.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if logging is not None:
+            pulumi.set(__self__, "logging", logging)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Enable java agent injection for the java app.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def logging(self) -> Optional[pulumi.Input['RuntimeLoggingArgs']]:
+        """
+        Capabilities on the java logging scenario.
+        """
+        return pulumi.get(self, "logging")
+
+    @logging.setter
+    def logging(self, value: Optional[pulumi.Input['RuntimeLoggingArgs']]):
+        pulumi.set(self, "logging", value)
+
+
+if not MYPY:
     class RuntimeJavaArgsDict(TypedDict):
         """
         Java app configuration
@@ -9644,19 +11363,27 @@ if not MYPY:
         """
         Enable jmx core metrics for the java app
         """
+        java_agent: NotRequired[pulumi.Input['RuntimeJavaAgentArgsDict']]
+        """
+        Diagnostic capabilities achieved by java agent
+        """
 elif False:
     RuntimeJavaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuntimeJavaArgs:
     def __init__(__self__, *,
-                 enable_metrics: Optional[pulumi.Input[builtins.bool]] = None):
+                 enable_metrics: Optional[pulumi.Input[builtins.bool]] = None,
+                 java_agent: Optional[pulumi.Input['RuntimeJavaAgentArgs']] = None):
         """
         Java app configuration
         :param pulumi.Input[builtins.bool] enable_metrics: Enable jmx core metrics for the java app
+        :param pulumi.Input['RuntimeJavaAgentArgs'] java_agent: Diagnostic capabilities achieved by java agent
         """
         if enable_metrics is not None:
             pulumi.set(__self__, "enable_metrics", enable_metrics)
+        if java_agent is not None:
+            pulumi.set(__self__, "java_agent", java_agent)
 
     @property
     @pulumi.getter(name="enableMetrics")
@@ -9670,11 +11397,63 @@ class RuntimeJavaArgs:
     def enable_metrics(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "enable_metrics", value)
 
+    @property
+    @pulumi.getter(name="javaAgent")
+    def java_agent(self) -> Optional[pulumi.Input['RuntimeJavaAgentArgs']]:
+        """
+        Diagnostic capabilities achieved by java agent
+        """
+        return pulumi.get(self, "java_agent")
+
+    @java_agent.setter
+    def java_agent(self, value: Optional[pulumi.Input['RuntimeJavaAgentArgs']]):
+        pulumi.set(self, "java_agent", value)
+
+
+if not MYPY:
+    class RuntimeLoggingArgsDict(TypedDict):
+        """
+        Capabilities on the java logging scenario.
+        """
+        logger_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoggerSettingArgsDict']]]]
+        """
+        Settings of the logger for the java app.
+        """
+elif False:
+    RuntimeLoggingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuntimeLoggingArgs:
+    def __init__(__self__, *,
+                 logger_settings: Optional[pulumi.Input[Sequence[pulumi.Input['LoggerSettingArgs']]]] = None):
+        """
+        Capabilities on the java logging scenario.
+        :param pulumi.Input[Sequence[pulumi.Input['LoggerSettingArgs']]] logger_settings: Settings of the logger for the java app.
+        """
+        if logger_settings is not None:
+            pulumi.set(__self__, "logger_settings", logger_settings)
+
+    @property
+    @pulumi.getter(name="loggerSettings")
+    def logger_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoggerSettingArgs']]]]:
+        """
+        Settings of the logger for the java app.
+        """
+        return pulumi.get(self, "logger_settings")
+
+    @logger_settings.setter
+    def logger_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoggerSettingArgs']]]]):
+        pulumi.set(self, "logger_settings", value)
+
 
 if not MYPY:
     class RuntimeArgsDict(TypedDict):
         """
         Container App Runtime configuration.
+        """
+        dotnet: NotRequired[pulumi.Input['RuntimeDotnetArgsDict']]
+        """
+        .NET app configuration
         """
         java: NotRequired[pulumi.Input['RuntimeJavaArgsDict']]
         """
@@ -9686,13 +11465,29 @@ elif False:
 @pulumi.input_type
 class RuntimeArgs:
     def __init__(__self__, *,
+                 dotnet: Optional[pulumi.Input['RuntimeDotnetArgs']] = None,
                  java: Optional[pulumi.Input['RuntimeJavaArgs']] = None):
         """
         Container App Runtime configuration.
+        :param pulumi.Input['RuntimeDotnetArgs'] dotnet: .NET app configuration
         :param pulumi.Input['RuntimeJavaArgs'] java: Java app configuration
         """
+        if dotnet is not None:
+            pulumi.set(__self__, "dotnet", dotnet)
         if java is not None:
             pulumi.set(__self__, "java", java)
+
+    @property
+    @pulumi.getter
+    def dotnet(self) -> Optional[pulumi.Input['RuntimeDotnetArgs']]:
+        """
+        .NET app configuration
+        """
+        return pulumi.get(self, "dotnet")
+
+    @dotnet.setter
+    def dotnet(self, value: Optional[pulumi.Input['RuntimeDotnetArgs']]):
+        pulumi.set(self, "dotnet", value)
 
     @property
     @pulumi.getter
@@ -9942,7 +11737,7 @@ if not MYPY:
         """
         cooldown_period: NotRequired[pulumi.Input[builtins.int]]
         """
-        Optional. KEDA Cooldown Period in seconds. Defaults to 300 seconds if not set.
+        Optional. KEDA Cooldown Period. Defaults to 300 seconds if not set.
         """
         max_replicas: NotRequired[pulumi.Input[builtins.int]]
         """
@@ -9954,7 +11749,7 @@ if not MYPY:
         """
         polling_interval: NotRequired[pulumi.Input[builtins.int]]
         """
-        Optional. KEDA Polling Interval in seconds. Defaults to 30 seconds if not set.
+        Optional. KEDA Polling Interval. Defaults to 30 seconds if not set.
         """
         rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgsDict']]]]
         """
@@ -9973,10 +11768,10 @@ class ScaleArgs:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]]] = None):
         """
         Container App scaling configurations.
-        :param pulumi.Input[builtins.int] cooldown_period: Optional. KEDA Cooldown Period in seconds. Defaults to 300 seconds if not set.
+        :param pulumi.Input[builtins.int] cooldown_period: Optional. KEDA Cooldown Period. Defaults to 300 seconds if not set.
         :param pulumi.Input[builtins.int] max_replicas: Optional. Maximum number of container replicas. Defaults to 10 if not set.
         :param pulumi.Input[builtins.int] min_replicas: Optional. Minimum number of container replicas.
-        :param pulumi.Input[builtins.int] polling_interval: Optional. KEDA Polling Interval in seconds. Defaults to 30 seconds if not set.
+        :param pulumi.Input[builtins.int] polling_interval: Optional. KEDA Polling Interval. Defaults to 30 seconds if not set.
         :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]] rules: Scaling rules.
         """
         if cooldown_period is not None:
@@ -9996,7 +11791,7 @@ class ScaleArgs:
     @pulumi.getter(name="cooldownPeriod")
     def cooldown_period(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Optional. KEDA Cooldown Period in seconds. Defaults to 300 seconds if not set.
+        Optional. KEDA Cooldown Period. Defaults to 300 seconds if not set.
         """
         return pulumi.get(self, "cooldown_period")
 
@@ -10032,7 +11827,7 @@ class ScaleArgs:
     @pulumi.getter(name="pollingInterval")
     def polling_interval(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Optional. KEDA Polling Interval in seconds. Defaults to 30 seconds if not set.
+        Optional. KEDA Polling Interval. Defaults to 30 seconds if not set.
         """
         return pulumi.get(self, "polling_interval")
 
@@ -10051,6 +11846,120 @@ class ScaleArgs:
     @rules.setter
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]]]):
         pulumi.set(self, "rules", value)
+
+
+if not MYPY:
+    class ScgRouteArgsDict(TypedDict):
+        """
+        Spring Cloud Gateway route definition
+        """
+        id: pulumi.Input[builtins.str]
+        """
+        Id of the route
+        """
+        uri: pulumi.Input[builtins.str]
+        """
+        Uri of the route
+        """
+        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        Filters of the route
+        """
+        order: NotRequired[pulumi.Input[builtins.float]]
+        """
+        Order of the route
+        """
+        predicates: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        Predicates of the route
+        """
+elif False:
+    ScgRouteArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScgRouteArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[builtins.str],
+                 uri: pulumi.Input[builtins.str],
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 order: Optional[pulumi.Input[builtins.float]] = None,
+                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+        """
+        Spring Cloud Gateway route definition
+        :param pulumi.Input[builtins.str] id: Id of the route
+        :param pulumi.Input[builtins.str] uri: Uri of the route
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] filters: Filters of the route
+        :param pulumi.Input[builtins.float] order: Order of the route
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] predicates: Predicates of the route
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "uri", uri)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+        if predicates is not None:
+            pulumi.set(__self__, "predicates", predicates)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[builtins.str]:
+        """
+        Id of the route
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[builtins.str]:
+        """
+        Uri of the route
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Filters of the route
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[pulumi.Input[builtins.float]]:
+        """
+        Order of the route
+        """
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "order", value)
+
+    @property
+    @pulumi.getter
+    def predicates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Predicates of the route
+        """
+        return pulumi.get(self, "predicates")
+
+    @predicates.setter
+    def predicates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "predicates", value)
 
 
 if not MYPY:
@@ -10124,6 +12033,62 @@ class ScheduledEntryArgs:
     @week_day.setter
     def week_day(self, value: pulumi.Input['WeekDay']):
         pulumi.set(self, "week_day", value)
+
+
+if not MYPY:
+    class SecretKeyVaultPropertiesArgsDict(TypedDict):
+        """
+        Properties for a secret stored in a Key Vault.
+        """
+        identity: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Resource ID of a managed identity to authenticate with Azure Key Vault, or System to use a system-assigned identity.
+        """
+        key_vault_url: NotRequired[pulumi.Input[builtins.str]]
+        """
+        URL pointing to the Azure Key Vault secret.
+        """
+elif False:
+    SecretKeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SecretKeyVaultPropertiesArgs:
+    def __init__(__self__, *,
+                 identity: Optional[pulumi.Input[builtins.str]] = None,
+                 key_vault_url: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Properties for a secret stored in a Key Vault.
+        :param pulumi.Input[builtins.str] identity: Resource ID of a managed identity to authenticate with Azure Key Vault, or System to use a system-assigned identity.
+        :param pulumi.Input[builtins.str] key_vault_url: URL pointing to the Azure Key Vault secret.
+        """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_vault_url is not None:
+            pulumi.set(__self__, "key_vault_url", key_vault_url)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Resource ID of a managed identity to authenticate with Azure Key Vault, or System to use a system-assigned identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="keyVaultUrl")
+    def key_vault_url(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        URL pointing to the Azure Key Vault secret.
+        """
+        return pulumi.get(self, "key_vault_url")
+
+    @key_vault_url.setter
+    def key_vault_url(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "key_vault_url", value)
 
 
 if not MYPY:
@@ -10283,6 +12248,14 @@ if not MYPY:
         """
         Configuration to bind a ContainerApp to a dev ContainerApp Service
         """
+        client_type: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Type of the client to be used to connect to the service
+        """
+        customized_keys: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]
+        """
+        Customized keys for customizing injected values to the app
+        """
         name: NotRequired[pulumi.Input[builtins.str]]
         """
         Name of the service bind
@@ -10297,17 +12270,49 @@ elif False:
 @pulumi.input_type
 class ServiceBindArgs:
     def __init__(__self__, *,
+                 client_type: Optional[pulumi.Input[builtins.str]] = None,
+                 customized_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  service_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Configuration to bind a ContainerApp to a dev ContainerApp Service
+        :param pulumi.Input[builtins.str] client_type: Type of the client to be used to connect to the service
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] customized_keys: Customized keys for customizing injected values to the app
         :param pulumi.Input[builtins.str] name: Name of the service bind
         :param pulumi.Input[builtins.str] service_id: Resource id of the target service
         """
+        if client_type is not None:
+            pulumi.set(__self__, "client_type", client_type)
+        if customized_keys is not None:
+            pulumi.set(__self__, "customized_keys", customized_keys)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if service_id is not None:
             pulumi.set(__self__, "service_id", service_id)
+
+    @property
+    @pulumi.getter(name="clientType")
+    def client_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Type of the client to be used to connect to the service
+        """
+        return pulumi.get(self, "client_type")
+
+    @client_type.setter
+    def client_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "client_type", value)
+
+    @property
+    @pulumi.getter(name="customizedKeys")
+    def customized_keys(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Customized keys for customizing injected values to the app
+        """
+        return pulumi.get(self, "customized_keys")
+
+    @customized_keys.setter
+    def customized_keys(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "customized_keys", value)
 
     @property
     @pulumi.getter
@@ -10450,6 +12455,10 @@ if not MYPY:
         """
         Custom container name.
         """
+        probes: NotRequired[pulumi.Input[Sequence[pulumi.Input['SessionProbeArgsDict']]]]
+        """
+        List of probes for the container.
+        """
         resources: NotRequired[pulumi.Input['SessionContainerResourcesArgsDict']]
         """
         Container resource requirements.
@@ -10465,6 +12474,7 @@ class SessionContainerArgs:
                  env: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVarArgs']]]] = None,
                  image: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 probes: Optional[pulumi.Input[Sequence[pulumi.Input['SessionProbeArgs']]]] = None,
                  resources: Optional[pulumi.Input['SessionContainerResourcesArgs']] = None):
         """
         Container definitions for the sessions of the session pool.
@@ -10473,6 +12483,7 @@ class SessionContainerArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVarArgs']]] env: Container environment variables.
         :param pulumi.Input[builtins.str] image: Container image tag.
         :param pulumi.Input[builtins.str] name: Custom container name.
+        :param pulumi.Input[Sequence[pulumi.Input['SessionProbeArgs']]] probes: List of probes for the container.
         :param pulumi.Input['SessionContainerResourcesArgs'] resources: Container resource requirements.
         """
         if args is not None:
@@ -10485,6 +12496,8 @@ class SessionContainerArgs:
             pulumi.set(__self__, "image", image)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if probes is not None:
+            pulumi.set(__self__, "probes", probes)
         if resources is not None:
             pulumi.set(__self__, "resources", resources)
 
@@ -10547,6 +12560,18 @@ class SessionContainerArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def probes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SessionProbeArgs']]]]:
+        """
+        List of probes for the container.
+        """
+        return pulumi.get(self, "probes")
+
+    @probes.setter
+    def probes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SessionProbeArgs']]]]):
+        pulumi.set(self, "probes", value)
 
     @property
     @pulumi.getter
@@ -10690,6 +12715,426 @@ class SessionPoolSecretArgs:
 
 
 if not MYPY:
+    class SessionProbeHttpGetArgsDict(TypedDict):
+        """
+        HTTPGet specifies the http request to perform.
+        """
+        port: pulumi.Input[builtins.int]
+        """
+        Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+        """
+        host: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+        """
+        http_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['SessionProbeHttpHeadersArgsDict']]]]
+        """
+        Custom headers to set in the request. HTTP allows repeated headers.
+        """
+        path: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Path to access on the HTTP server.
+        """
+        scheme: NotRequired[pulumi.Input[Union[builtins.str, 'Scheme']]]
+        """
+        Scheme to use for connecting to the host. Defaults to HTTP.
+        """
+elif False:
+    SessionProbeHttpGetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SessionProbeHttpGetArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[builtins.int],
+                 host: Optional[pulumi.Input[builtins.str]] = None,
+                 http_headers: Optional[pulumi.Input[Sequence[pulumi.Input['SessionProbeHttpHeadersArgs']]]] = None,
+                 path: Optional[pulumi.Input[builtins.str]] = None,
+                 scheme: Optional[pulumi.Input[Union[builtins.str, 'Scheme']]] = None):
+        """
+        HTTPGet specifies the http request to perform.
+        :param pulumi.Input[builtins.int] port: Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+        :param pulumi.Input[builtins.str] host: Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+        :param pulumi.Input[Sequence[pulumi.Input['SessionProbeHttpHeadersArgs']]] http_headers: Custom headers to set in the request. HTTP allows repeated headers.
+        :param pulumi.Input[builtins.str] path: Path to access on the HTTP server.
+        :param pulumi.Input[Union[builtins.str, 'Scheme']] scheme: Scheme to use for connecting to the host. Defaults to HTTP.
+        """
+        pulumi.set(__self__, "port", port)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if http_headers is not None:
+            pulumi.set(__self__, "http_headers", http_headers)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if scheme is not None:
+            pulumi.set(__self__, "scheme", scheme)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[builtins.int]:
+        """
+        Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter(name="httpHeaders")
+    def http_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SessionProbeHttpHeadersArgs']]]]:
+        """
+        Custom headers to set in the request. HTTP allows repeated headers.
+        """
+        return pulumi.get(self, "http_headers")
+
+    @http_headers.setter
+    def http_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SessionProbeHttpHeadersArgs']]]]):
+        pulumi.set(self, "http_headers", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Path to access on the HTTP server.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> Optional[pulumi.Input[Union[builtins.str, 'Scheme']]]:
+        """
+        Scheme to use for connecting to the host. Defaults to HTTP.
+        """
+        return pulumi.get(self, "scheme")
+
+    @scheme.setter
+    def scheme(self, value: Optional[pulumi.Input[Union[builtins.str, 'Scheme']]]):
+        pulumi.set(self, "scheme", value)
+
+
+if not MYPY:
+    class SessionProbeHttpHeadersArgsDict(TypedDict):
+        """
+        HTTPHeader describes a custom header to be used in HTTP probes
+        """
+        name: pulumi.Input[builtins.str]
+        """
+        The header field name
+        """
+        value: pulumi.Input[builtins.str]
+        """
+        The header field value
+        """
+elif False:
+    SessionProbeHttpHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SessionProbeHttpHeadersArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[builtins.str],
+                 value: pulumi.Input[builtins.str]):
+        """
+        HTTPHeader describes a custom header to be used in HTTP probes
+        :param pulumi.Input[builtins.str] name: The header field name
+        :param pulumi.Input[builtins.str] value: The header field value
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        The header field name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[builtins.str]:
+        """
+        The header field value
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class SessionProbeTcpSocketArgsDict(TypedDict):
+        """
+        TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported.
+        """
+        port: pulumi.Input[builtins.int]
+        """
+        Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+        """
+        host: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Optional: Host name to connect to, defaults to the pod IP.
+        """
+elif False:
+    SessionProbeTcpSocketArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SessionProbeTcpSocketArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[builtins.int],
+                 host: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported.
+        :param pulumi.Input[builtins.int] port: Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+        :param pulumi.Input[builtins.str] host: Optional: Host name to connect to, defaults to the pod IP.
+        """
+        pulumi.set(__self__, "port", port)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[builtins.int]:
+        """
+        Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Optional: Host name to connect to, defaults to the pod IP.
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "host", value)
+
+
+if not MYPY:
+    class SessionProbeArgsDict(TypedDict):
+        """
+        Session probe configuration.
+        """
+        failure_threshold: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1. Maximum value is 10.
+        """
+        http_get: NotRequired[pulumi.Input['SessionProbeHttpGetArgsDict']]
+        """
+        HTTPGet specifies the http request to perform.
+        """
+        initial_delay_seconds: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Number of seconds after the container has started before liveness probes are initiated. Minimum value is 1. Maximum value is 60.
+        """
+        period_seconds: NotRequired[pulumi.Input[builtins.int]]
+        """
+        How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1. Maximum value is 240.
+        """
+        success_threshold: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1. Maximum value is 10.
+        """
+        tcp_socket: NotRequired[pulumi.Input['SessionProbeTcpSocketArgsDict']]
+        """
+        TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported.
+        """
+        termination_grace_period_seconds: NotRequired[pulumi.Input[builtins.float]]
+        """
+        Optional duration in seconds the pod needs to terminate gracefully upon probe failure. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. If this value is nil, the pod's terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value provided by the pod spec. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). This is an alpha field and requires enabling ProbeTerminationGracePeriod feature gate. Maximum value is 3600 seconds (1 hour)
+        """
+        timeout_seconds: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. Maximum value is 240.
+        """
+        type: NotRequired[pulumi.Input[Union[builtins.str, 'SessionProbeType']]]
+        """
+        Denotes the type of probe. Can be Liveness or Startup, Readiness probe is not supported in sessions. Type must be unique for each probe within the context of a list of probes (SessionProbes).
+        """
+elif False:
+    SessionProbeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SessionProbeArgs:
+    def __init__(__self__, *,
+                 failure_threshold: Optional[pulumi.Input[builtins.int]] = None,
+                 http_get: Optional[pulumi.Input['SessionProbeHttpGetArgs']] = None,
+                 initial_delay_seconds: Optional[pulumi.Input[builtins.int]] = None,
+                 period_seconds: Optional[pulumi.Input[builtins.int]] = None,
+                 success_threshold: Optional[pulumi.Input[builtins.int]] = None,
+                 tcp_socket: Optional[pulumi.Input['SessionProbeTcpSocketArgs']] = None,
+                 termination_grace_period_seconds: Optional[pulumi.Input[builtins.float]] = None,
+                 timeout_seconds: Optional[pulumi.Input[builtins.int]] = None,
+                 type: Optional[pulumi.Input[Union[builtins.str, 'SessionProbeType']]] = None):
+        """
+        Session probe configuration.
+        :param pulumi.Input[builtins.int] failure_threshold: Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1. Maximum value is 10.
+        :param pulumi.Input['SessionProbeHttpGetArgs'] http_get: HTTPGet specifies the http request to perform.
+        :param pulumi.Input[builtins.int] initial_delay_seconds: Number of seconds after the container has started before liveness probes are initiated. Minimum value is 1. Maximum value is 60.
+        :param pulumi.Input[builtins.int] period_seconds: How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1. Maximum value is 240.
+        :param pulumi.Input[builtins.int] success_threshold: Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1. Maximum value is 10.
+        :param pulumi.Input['SessionProbeTcpSocketArgs'] tcp_socket: TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported.
+        :param pulumi.Input[builtins.float] termination_grace_period_seconds: Optional duration in seconds the pod needs to terminate gracefully upon probe failure. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. If this value is nil, the pod's terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value provided by the pod spec. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). This is an alpha field and requires enabling ProbeTerminationGracePeriod feature gate. Maximum value is 3600 seconds (1 hour)
+        :param pulumi.Input[builtins.int] timeout_seconds: Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. Maximum value is 240.
+        :param pulumi.Input[Union[builtins.str, 'SessionProbeType']] type: Denotes the type of probe. Can be Liveness or Startup, Readiness probe is not supported in sessions. Type must be unique for each probe within the context of a list of probes (SessionProbes).
+        """
+        if failure_threshold is not None:
+            pulumi.set(__self__, "failure_threshold", failure_threshold)
+        if http_get is not None:
+            pulumi.set(__self__, "http_get", http_get)
+        if initial_delay_seconds is not None:
+            pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
+        if period_seconds is not None:
+            pulumi.set(__self__, "period_seconds", period_seconds)
+        if success_threshold is not None:
+            pulumi.set(__self__, "success_threshold", success_threshold)
+        if tcp_socket is not None:
+            pulumi.set(__self__, "tcp_socket", tcp_socket)
+        if termination_grace_period_seconds is not None:
+            pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
+        if timeout_seconds is not None:
+            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="failureThreshold")
+    def failure_threshold(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1. Maximum value is 10.
+        """
+        return pulumi.get(self, "failure_threshold")
+
+    @failure_threshold.setter
+    def failure_threshold(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "failure_threshold", value)
+
+    @property
+    @pulumi.getter(name="httpGet")
+    def http_get(self) -> Optional[pulumi.Input['SessionProbeHttpGetArgs']]:
+        """
+        HTTPGet specifies the http request to perform.
+        """
+        return pulumi.get(self, "http_get")
+
+    @http_get.setter
+    def http_get(self, value: Optional[pulumi.Input['SessionProbeHttpGetArgs']]):
+        pulumi.set(self, "http_get", value)
+
+    @property
+    @pulumi.getter(name="initialDelaySeconds")
+    def initial_delay_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Number of seconds after the container has started before liveness probes are initiated. Minimum value is 1. Maximum value is 60.
+        """
+        return pulumi.get(self, "initial_delay_seconds")
+
+    @initial_delay_seconds.setter
+    def initial_delay_seconds(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "initial_delay_seconds", value)
+
+    @property
+    @pulumi.getter(name="periodSeconds")
+    def period_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1. Maximum value is 240.
+        """
+        return pulumi.get(self, "period_seconds")
+
+    @period_seconds.setter
+    def period_seconds(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "period_seconds", value)
+
+    @property
+    @pulumi.getter(name="successThreshold")
+    def success_threshold(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1. Maximum value is 10.
+        """
+        return pulumi.get(self, "success_threshold")
+
+    @success_threshold.setter
+    def success_threshold(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "success_threshold", value)
+
+    @property
+    @pulumi.getter(name="tcpSocket")
+    def tcp_socket(self) -> Optional[pulumi.Input['SessionProbeTcpSocketArgs']]:
+        """
+        TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported.
+        """
+        return pulumi.get(self, "tcp_socket")
+
+    @tcp_socket.setter
+    def tcp_socket(self, value: Optional[pulumi.Input['SessionProbeTcpSocketArgs']]):
+        pulumi.set(self, "tcp_socket", value)
+
+    @property
+    @pulumi.getter(name="terminationGracePeriodSeconds")
+    def termination_grace_period_seconds(self) -> Optional[pulumi.Input[builtins.float]]:
+        """
+        Optional duration in seconds the pod needs to terminate gracefully upon probe failure. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. If this value is nil, the pod's terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value provided by the pod spec. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). This is an alpha field and requires enabling ProbeTerminationGracePeriod feature gate. Maximum value is 3600 seconds (1 hour)
+        """
+        return pulumi.get(self, "termination_grace_period_seconds")
+
+    @termination_grace_period_seconds.setter
+    def termination_grace_period_seconds(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "termination_grace_period_seconds", value)
+
+    @property
+    @pulumi.getter(name="timeoutSeconds")
+    def timeout_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. Maximum value is 240.
+        """
+        return pulumi.get(self, "timeout_seconds")
+
+    @timeout_seconds.setter
+    def timeout_seconds(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "timeout_seconds", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[builtins.str, 'SessionProbeType']]]:
+        """
+        Denotes the type of probe. Can be Liveness or Startup, Readiness probe is not supported in sessions. Type must be unique for each probe within the context of a list of probes (SessionProbes).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[builtins.str, 'SessionProbeType']]]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
     class SessionRegistryCredentialsArgsDict(TypedDict):
         """
         Session pool private registry credentials.
@@ -10777,6 +13222,142 @@ class SessionRegistryCredentialsArgs:
     def username(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Container registry username.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "username", value)
+
+
+if not MYPY:
+    class SmbStorageArgsDict(TypedDict):
+        """
+        SMB storage properties
+        """
+        access_mode: NotRequired[pulumi.Input[Union[builtins.str, 'AccessMode']]]
+        """
+        Access mode for storage
+        """
+        domain: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The domain name for the user.
+        """
+        host: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The host name or IP address of the SMB server.
+        """
+        password: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The password for the user.
+        """
+        share_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The path to the SMB shared folder.
+        """
+        username: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The user to log on to the SMB server.
+        """
+elif False:
+    SmbStorageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SmbStorageArgs:
+    def __init__(__self__, *,
+                 access_mode: Optional[pulumi.Input[Union[builtins.str, 'AccessMode']]] = None,
+                 domain: Optional[pulumi.Input[builtins.str]] = None,
+                 host: Optional[pulumi.Input[builtins.str]] = None,
+                 password: Optional[pulumi.Input[builtins.str]] = None,
+                 share_name: Optional[pulumi.Input[builtins.str]] = None,
+                 username: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        SMB storage properties
+        :param pulumi.Input[Union[builtins.str, 'AccessMode']] access_mode: Access mode for storage
+        :param pulumi.Input[builtins.str] domain: The domain name for the user.
+        :param pulumi.Input[builtins.str] host: The host name or IP address of the SMB server.
+        :param pulumi.Input[builtins.str] password: The password for the user.
+        :param pulumi.Input[builtins.str] share_name: The path to the SMB shared folder.
+        :param pulumi.Input[builtins.str] username: The user to log on to the SMB server.
+        """
+        if access_mode is not None:
+            pulumi.set(__self__, "access_mode", access_mode)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if share_name is not None:
+            pulumi.set(__self__, "share_name", share_name)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="accessMode")
+    def access_mode(self) -> Optional[pulumi.Input[Union[builtins.str, 'AccessMode']]]:
+        """
+        Access mode for storage
+        """
+        return pulumi.get(self, "access_mode")
+
+    @access_mode.setter
+    def access_mode(self, value: Optional[pulumi.Input[Union[builtins.str, 'AccessMode']]]):
+        pulumi.set(self, "access_mode", value)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The domain name for the user.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The host name or IP address of the SMB server.
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The password for the user.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The path to the SMB shared folder.
+        """
+        return pulumi.get(self, "share_name")
+
+    @share_name.setter
+    def share_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "share_name", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The user to log on to the SMB server.
         """
         return pulumi.get(self, "username")
 
@@ -11077,6 +13658,124 @@ class SpringCloudEurekaComponentArgs:
     @service_binds.setter
     def service_binds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]]):
         pulumi.set(self, "service_binds", value)
+
+
+if not MYPY:
+    class SpringCloudGatewayComponentArgsDict(TypedDict):
+        """
+        Spring Cloud Gateway properties.
+        """
+        component_type: pulumi.Input[builtins.str]
+        """
+        Type of the Java Component.
+        Expected value is 'SpringCloudGateway'.
+        """
+        configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgsDict']]]]
+        """
+        List of Java Components configuration properties
+        """
+        scale: NotRequired[pulumi.Input['JavaComponentPropertiesScaleArgsDict']]
+        """
+        Java component scaling configurations
+        """
+        service_binds: NotRequired[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgsDict']]]]
+        """
+        List of Java Components that are bound to the Java component
+        """
+        spring_cloud_gateway_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScgRouteArgsDict']]]]
+        """
+        Gateway route definition
+        """
+elif False:
+    SpringCloudGatewayComponentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SpringCloudGatewayComponentArgs:
+    def __init__(__self__, *,
+                 component_type: pulumi.Input[builtins.str],
+                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]] = None,
+                 scale: Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']] = None,
+                 service_binds: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]] = None,
+                 spring_cloud_gateway_routes: Optional[pulumi.Input[Sequence[pulumi.Input['ScgRouteArgs']]]] = None):
+        """
+        Spring Cloud Gateway properties.
+        :param pulumi.Input[builtins.str] component_type: Type of the Java Component.
+               Expected value is 'SpringCloudGateway'.
+        :param pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]] configurations: List of Java Components configuration properties
+        :param pulumi.Input['JavaComponentPropertiesScaleArgs'] scale: Java component scaling configurations
+        :param pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]] service_binds: List of Java Components that are bound to the Java component
+        :param pulumi.Input[Sequence[pulumi.Input['ScgRouteArgs']]] spring_cloud_gateway_routes: Gateway route definition
+        """
+        pulumi.set(__self__, "component_type", 'SpringCloudGateway')
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+        if service_binds is not None:
+            pulumi.set(__self__, "service_binds", service_binds)
+        if spring_cloud_gateway_routes is not None:
+            pulumi.set(__self__, "spring_cloud_gateway_routes", spring_cloud_gateway_routes)
+
+    @property
+    @pulumi.getter(name="componentType")
+    def component_type(self) -> pulumi.Input[builtins.str]:
+        """
+        Type of the Java Component.
+        Expected value is 'SpringCloudGateway'.
+        """
+        return pulumi.get(self, "component_type")
+
+    @component_type.setter
+    def component_type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "component_type", value)
+
+    @property
+    @pulumi.getter
+    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]]:
+        """
+        List of Java Components configuration properties
+        """
+        return pulumi.get(self, "configurations")
+
+    @configurations.setter
+    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]]):
+        pulumi.set(self, "configurations", value)
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']]:
+        """
+        Java component scaling configurations
+        """
+        return pulumi.get(self, "scale")
+
+    @scale.setter
+    def scale(self, value: Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']]):
+        pulumi.set(self, "scale", value)
+
+    @property
+    @pulumi.getter(name="serviceBinds")
+    def service_binds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]]:
+        """
+        List of Java Components that are bound to the Java component
+        """
+        return pulumi.get(self, "service_binds")
+
+    @service_binds.setter
+    def service_binds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]]):
+        pulumi.set(self, "service_binds", value)
+
+    @property
+    @pulumi.getter(name="springCloudGatewayRoutes")
+    def spring_cloud_gateway_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScgRouteArgs']]]]:
+        """
+        Gateway route definition
+        """
+        return pulumi.get(self, "spring_cloud_gateway_routes")
+
+    @spring_cloud_gateway_routes.setter
+    def spring_cloud_gateway_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScgRouteArgs']]]]):
+        pulumi.set(self, "spring_cloud_gateway_routes", value)
 
 
 if not MYPY:
@@ -11523,6 +14222,62 @@ class TokenStoreArgs:
     @token_refresh_extension_hours.setter
     def token_refresh_extension_hours(self, value: Optional[pulumi.Input[builtins.float]]):
         pulumi.set(self, "token_refresh_extension_hours", value)
+
+
+if not MYPY:
+    class TracesConfigurationArgsDict(TypedDict):
+        """
+        Configuration of Open Telemetry traces
+        """
+        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        Open telemetry traces destinations
+        """
+        include_dapr: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Boolean indicating if including dapr traces
+        """
+elif False:
+    TracesConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TracesConfigurationArgs:
+    def __init__(__self__, *,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 include_dapr: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        Configuration of Open Telemetry traces
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] destinations: Open telemetry traces destinations
+        :param pulumi.Input[builtins.bool] include_dapr: Boolean indicating if including dapr traces
+        """
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+        if include_dapr is not None:
+            pulumi.set(__self__, "include_dapr", include_dapr)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Open telemetry traces destinations
+        """
+        return pulumi.get(self, "destinations")
+
+    @destinations.setter
+    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "destinations", value)
+
+    @property
+    @pulumi.getter(name="includeDapr")
+    def include_dapr(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Boolean indicating if including dapr traces
+        """
+        return pulumi.get(self, "include_dapr")
+
+    @include_dapr.setter
+    def include_dapr(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "include_dapr", value)
 
 
 if not MYPY:
@@ -12065,6 +14820,10 @@ if not MYPY:
         """
         Workload profile type for the workloads to run on.
         """
+        enable_fips: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Whether to use a FIPS-enabled OS. Supported only for dedicated workload profiles.
+        """
         maximum_count: NotRequired[pulumi.Input[builtins.int]]
         """
         The maximum capacity.
@@ -12081,17 +14840,23 @@ class WorkloadProfileArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[builtins.str],
                  workload_profile_type: pulumi.Input[builtins.str],
+                 enable_fips: Optional[pulumi.Input[builtins.bool]] = None,
                  maximum_count: Optional[pulumi.Input[builtins.int]] = None,
                  minimum_count: Optional[pulumi.Input[builtins.int]] = None):
         """
         Workload profile to scope container app execution.
         :param pulumi.Input[builtins.str] name: Workload profile type for the workloads to run on.
         :param pulumi.Input[builtins.str] workload_profile_type: Workload profile type for the workloads to run on.
+        :param pulumi.Input[builtins.bool] enable_fips: Whether to use a FIPS-enabled OS. Supported only for dedicated workload profiles.
         :param pulumi.Input[builtins.int] maximum_count: The maximum capacity.
         :param pulumi.Input[builtins.int] minimum_count: The minimum capacity.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "workload_profile_type", workload_profile_type)
+        if enable_fips is None:
+            enable_fips = False
+        if enable_fips is not None:
+            pulumi.set(__self__, "enable_fips", enable_fips)
         if maximum_count is not None:
             pulumi.set(__self__, "maximum_count", maximum_count)
         if minimum_count is not None:
@@ -12120,6 +14885,18 @@ class WorkloadProfileArgs:
     @workload_profile_type.setter
     def workload_profile_type(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "workload_profile_type", value)
+
+    @property
+    @pulumi.getter(name="enableFips")
+    def enable_fips(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether to use a FIPS-enabled OS. Supported only for dedicated workload profiles.
+        """
+        return pulumi.get(self, "enable_fips")
+
+    @enable_fips.setter
+    def enable_fips(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enable_fips", value)
 
     @property
     @pulumi.getter(name="maximumCount")

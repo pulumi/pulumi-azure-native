@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Container App.
         /// 
-        /// Uses Azure REST API version 2025-01-01.
+        /// Uses Azure REST API version 2025-02-02-preview.
         /// 
-        /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetContainerAppResult> InvokeAsync(GetContainerAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerAppResult>("azure-native:app:getContainerApp", args ?? new GetContainerAppArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Container App.
         /// 
-        /// Uses Azure REST API version 2025-01-01.
+        /// Uses Azure REST API version 2025-02-02-preview.
         /// 
-        /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetContainerAppResult> Invoke(GetContainerAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppResult>("azure-native:app:getContainerApp", args ?? new GetContainerAppInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Container App.
         /// 
-        /// Uses Azure REST API version 2025-01-01.
+        /// Uses Azure REST API version 2025-02-02-preview.
         /// 
-        /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetContainerAppResult> Invoke(GetContainerAppInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppResult>("azure-native:app:getContainerApp", args ?? new GetContainerAppInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public readonly string CustomDomainVerificationId;
         /// <summary>
+        /// Any errors that occurred during deployment
+        /// </summary>
+        public readonly string DeploymentErrors;
+        /// <summary>
         /// Resource ID of environment.
         /// </summary>
         public readonly string? EnvironmentId;
@@ -119,6 +123,10 @@ namespace Pulumi.AzureNative.App
         /// managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        /// <summary>
+        /// Metadata used to render different experiences for resources of the same type; e.g. WorkflowApp is a kind of Microsoft.App/ContainerApps type. If supported, the resource provider must validate and persist this value.
+        /// </summary>
+        public readonly string? Kind;
         /// <summary>
         /// Name of the latest ready revision of the Container App.
         /// </summary>
@@ -151,6 +159,10 @@ namespace Pulumi.AzureNative.App
         /// Outbound IP Addresses for container app.
         /// </summary>
         public readonly ImmutableArray<string> OutboundIpAddresses;
+        /// <summary>
+        /// Container App auto patch configuration.
+        /// </summary>
+        public readonly Outputs.ContainerAppResponsePatchingConfiguration? PatchingConfiguration;
         /// <summary>
         /// Provisioning state of the Container App.
         /// </summary>
@@ -188,6 +200,8 @@ namespace Pulumi.AzureNative.App
 
             string customDomainVerificationId,
 
+            string deploymentErrors,
+
             string? environmentId,
 
             string eventStreamEndpoint,
@@ -197,6 +211,8 @@ namespace Pulumi.AzureNative.App
             string id,
 
             Outputs.ManagedServiceIdentityResponse? identity,
+
+            string? kind,
 
             string latestReadyRevisionName,
 
@@ -213,6 +229,8 @@ namespace Pulumi.AzureNative.App
             string name,
 
             ImmutableArray<string> outboundIpAddresses,
+
+            Outputs.ContainerAppResponsePatchingConfiguration? patchingConfiguration,
 
             string provisioningState,
 
@@ -231,11 +249,13 @@ namespace Pulumi.AzureNative.App
             AzureApiVersion = azureApiVersion;
             Configuration = configuration;
             CustomDomainVerificationId = customDomainVerificationId;
+            DeploymentErrors = deploymentErrors;
             EnvironmentId = environmentId;
             EventStreamEndpoint = eventStreamEndpoint;
             ExtendedLocation = extendedLocation;
             Id = id;
             Identity = identity;
+            Kind = kind;
             LatestReadyRevisionName = latestReadyRevisionName;
             LatestRevisionFqdn = latestRevisionFqdn;
             LatestRevisionName = latestRevisionName;
@@ -244,6 +264,7 @@ namespace Pulumi.AzureNative.App
             ManagedEnvironmentId = managedEnvironmentId;
             Name = name;
             OutboundIpAddresses = outboundIpAddresses;
+            PatchingConfiguration = patchingConfiguration;
             ProvisioningState = provisioningState;
             RunningStatus = runningStatus;
             SystemData = systemData;

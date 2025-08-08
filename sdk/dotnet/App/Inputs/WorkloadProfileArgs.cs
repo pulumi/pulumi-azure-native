@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.App.Inputs
     public sealed class WorkloadProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether to use a FIPS-enabled OS. Supported only for dedicated workload profiles.
+        /// </summary>
+        [Input("enableFips")]
+        public Input<bool>? EnableFips { get; set; }
+
+        /// <summary>
         /// The maximum capacity.
         /// </summary>
         [Input("maximumCount")]
@@ -41,6 +47,7 @@ namespace Pulumi.AzureNative.App.Inputs
 
         public WorkloadProfileArgs()
         {
+            EnableFips = false;
         }
         public static new WorkloadProfileArgs Empty => new WorkloadProfileArgs();
     }

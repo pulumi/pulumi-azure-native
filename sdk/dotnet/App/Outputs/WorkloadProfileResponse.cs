@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.App.Outputs
     public sealed class WorkloadProfileResponse
     {
         /// <summary>
+        /// Whether to use a FIPS-enabled OS. Supported only for dedicated workload profiles.
+        /// </summary>
+        public readonly bool? EnableFips;
+        /// <summary>
         /// The maximum capacity.
         /// </summary>
         public readonly int? MaximumCount;
@@ -35,6 +39,8 @@ namespace Pulumi.AzureNative.App.Outputs
 
         [OutputConstructor]
         private WorkloadProfileResponse(
+            bool? enableFips,
+
             int? maximumCount,
 
             int? minimumCount,
@@ -43,6 +49,7 @@ namespace Pulumi.AzureNative.App.Outputs
 
             string workloadProfileType)
         {
+            EnableFips = enableFips;
             MaximumCount = maximumCount;
             MinimumCount = minimumCount;
             Name = name;

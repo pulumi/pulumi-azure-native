@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.App
     /// <summary>
     /// Dapr Component.
     /// 
-    /// Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+    /// Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
     /// 
-    /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ConnectedEnvironmentsDaprComponent")]
     public partial class ConnectedEnvironmentsDaprComponent : global::Pulumi.CustomResource
@@ -30,6 +30,12 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Output("componentType")]
         public Output<string?> ComponentType { get; private set; } = null!;
+
+        /// <summary>
+        /// Any errors that occurred during deployment or deployment validation
+        /// </summary>
+        [Output("deploymentErrors")]
+        public Output<string> DeploymentErrors { get; private set; } = null!;
 
         /// <summary>
         /// Boolean describing if the component errors are ignores
@@ -56,6 +62,12 @@ namespace Pulumi.AzureNative.App
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Provisioning state of the Connected Environment Dapr Component.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
         /// Names of container apps that can use this Dapr component
         /// </summary>
         [Output("scopes")]
@@ -72,6 +84,12 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Output("secrets")]
         public Output<ImmutableArray<Outputs.SecretResponse>> Secrets { get; private set; } = null!;
+
+        /// <summary>
+        /// List of container app services that are bound to the Dapr component
+        /// </summary>
+        [Output("serviceComponentBind")]
+        public Output<ImmutableArray<Outputs.DaprComponentServiceBindingResponse>> ServiceComponentBind { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -229,6 +247,18 @@ namespace Pulumi.AzureNative.App
         {
             get => _secrets ?? (_secrets = new InputList<Inputs.SecretArgs>());
             set => _secrets = value;
+        }
+
+        [Input("serviceComponentBind")]
+        private InputList<Inputs.DaprComponentServiceBindingArgs>? _serviceComponentBind;
+
+        /// <summary>
+        /// List of container app services that are bound to the Dapr component
+        /// </summary>
+        public InputList<Inputs.DaprComponentServiceBindingArgs> ServiceComponentBind
+        {
+            get => _serviceComponentBind ?? (_serviceComponentBind = new InputList<Inputs.DaprComponentServiceBindingArgs>());
+            set => _serviceComponentBind = value;
         }
 
         /// <summary>

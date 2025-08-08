@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.App
     /// <summary>
     /// Container App Job
     /// 
-    /// Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
+    /// Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
     /// 
-    /// Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:Job")]
     public partial class Job : global::Pulumi.CustomResource
@@ -42,6 +42,12 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Output("eventStreamEndpoint")]
         public Output<string> EventStreamEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The complex type of the extended location.
+        /// </summary>
+        [Output("extendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
         /// Managed identities needed by a container app job to interact with other Azure services to not maintain any secrets or credentials in code.
@@ -72,6 +78,12 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Current running state of the job
+        /// </summary>
+        [Output("runningState")]
+        public Output<string> RunningState { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -174,6 +186,12 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Input("environmentId")]
         public Input<string>? EnvironmentId { get; set; }
+
+        /// <summary>
+        /// The complex type of the extended location.
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
 
         /// <summary>
         /// Managed identities needed by a container app job to interact with other Azure services to not maintain any secrets or credentials in code.

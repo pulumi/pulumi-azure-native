@@ -61,6 +61,10 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly int? TargetPort;
         /// <summary>
+        /// Whether an http app listens on http or https
+        /// </summary>
+        public readonly string? TargetPortHttpScheme;
+        /// <summary>
         /// Traffic weights for app's revisions
         /// </summary>
         public readonly ImmutableArray<Outputs.TrafficWeightResponse> Traffic;
@@ -93,6 +97,8 @@ namespace Pulumi.AzureNative.App.Outputs
 
             int? targetPort,
 
+            string? targetPortHttpScheme,
+
             ImmutableArray<Outputs.TrafficWeightResponse> traffic,
 
             string? transport)
@@ -108,6 +114,7 @@ namespace Pulumi.AzureNative.App.Outputs
             IpSecurityRestrictions = ipSecurityRestrictions;
             StickySessions = stickySessions;
             TargetPort = targetPort;
+            TargetPortHttpScheme = targetPortHttpScheme;
             Traffic = traffic;
             Transport = transport;
         }
