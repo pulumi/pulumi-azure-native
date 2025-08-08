@@ -5997,22 +5997,22 @@ EdgeMarketplace:
 EdgeOrder:
     Address:
         ApiVersion: "2024-02-01"
-        SpecFilePath: specification/edgeorder/resource-manager/Microsoft.EdgeOrder/stable/2024-02-01/edgeorder.json
+        SpecFilePath: specification/edgeorder/resource-manager/Microsoft.EdgeOrder/EdgeOrder/stable/2024-02-01/edgeorder.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EdgeOrder/addresses/{addressName}
         RpNamespace: Microsoft.EdgeOrder
     OrderItem:
         ApiVersion: "2024-02-01"
-        SpecFilePath: specification/edgeorder/resource-manager/Microsoft.EdgeOrder/stable/2024-02-01/edgeorder.json
+        SpecFilePath: specification/edgeorder/resource-manager/Microsoft.EdgeOrder/EdgeOrder/stable/2024-02-01/edgeorder.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EdgeOrder/orderItems/{orderItemName}
         RpNamespace: Microsoft.EdgeOrder
     listProductsAndConfigurationProductFamilies:
         ApiVersion: "2024-02-01"
-        SpecFilePath: specification/edgeorder/resource-manager/Microsoft.EdgeOrder/stable/2024-02-01/edgeorder.json
+        SpecFilePath: specification/edgeorder/resource-manager/Microsoft.EdgeOrder/EdgeOrder/stable/2024-02-01/edgeorder.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.EdgeOrder/listProductFamilies
         RpNamespace: Microsoft.EdgeOrder
     listProductsAndConfigurations:
         ApiVersion: "2024-02-01"
-        SpecFilePath: specification/edgeorder/resource-manager/Microsoft.EdgeOrder/stable/2024-02-01/edgeorder.json
+        SpecFilePath: specification/edgeorder/resource-manager/Microsoft.EdgeOrder/EdgeOrder/stable/2024-02-01/edgeorder.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.EdgeOrder/listConfigurations
         RpNamespace: Microsoft.EdgeOrder
 EdgeOrderPartner: {}
