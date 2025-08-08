@@ -14,6 +14,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage"
 	"github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
@@ -523,7 +524,7 @@ func blobClientDependencies(ctx context.Context, properties resource.PropertyMap
 		return blobUrl, nil, err
 	}
 
-	keyCred, err := newSharedKeyCredential(ctx, subId, accName, rgName, creds)
+	keyCred, err := newSharedKeyCredential(ctx, subId, accName, rgName, creds, env)
 	if err != nil {
 		return blobUrl, nil, err
 	}
@@ -564,8 +565,13 @@ func getStorageAccountKey(ctx context.Context, accClient *armstorage.AccountsCli
 }
 
 // newSharedKeyCredential creates a credential for the given storage account using the primary storage account key.
-func newSharedKeyCredential(ctx context.Context, subId, accName, rgName string, creds azcore.TokenCredential) (*azblob.SharedKeyCredential, error) {
-	accClient, err := armstorage.NewAccountsClient(subId, creds, nil)
+func newSharedKeyCredential(ctx context.Context, subId, accName, rgName string, creds azcore.TokenCredential, env cloud.Configuration) (*azblob.SharedKeyCredential, error) {
+	clientOptions := &arm.ClientOptions{
+		ClientOptions: azcore.ClientOptions{
+			Cloud: env,
+		},
+	}
+	accClient, err := armstorage.NewAccountsClient(subId, creds, clientOptions)
 	if err != nil {
 		return nil, err
 	}
