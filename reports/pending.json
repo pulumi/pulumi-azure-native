@@ -346,7 +346,8 @@
     "2025-04-02-preview",
     "2025-05-01",
     "2025-05-02-preview",
-    "2025-06-02-preview"
+    "2025-06-02-preview",
+    "2025-07-01"
   ],
   "ContainerStorage": [],
   "Contoso": [],
@@ -1194,7 +1195,8 @@
     "2024-06-01-preview",
     "2024-09-01-preview",
     "2024-11-01-preview",
-    "2025-03-01-preview"
+    "2025-03-01-preview",
+    "2025-06-01-preview"
   ],
   "ServiceFabricMesh": [],
   "ServiceLinker": [

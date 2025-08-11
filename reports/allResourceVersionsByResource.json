@@ -7490,7 +7490,8 @@
     "DeploymentSafeguard": [
       "2025-04-01",
       "2025-04-02-preview",
-      "2025-05-02-preview"
+      "2025-05-02-preview",
+      "2025-07-01"
     ],
     "Fleet": [
       "2022-06-02-preview",
@@ -13715,11 +13716,9 @@
   },
   "HealthDataAIServices": {
     "DeidService": [
-      "2024-02-28-preview",
       "2024-09-20"
     ],
     "PrivateEndpointConnection": [
-      "2024-02-28-preview",
       "2024-09-20"
     ]
   },
@@ -26260,7 +26259,8 @@
       "2020-12-01-preview",
       "2021-06-01",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "ApplicationType": [
       "2017-07-01-preview",
@@ -26272,7 +26272,8 @@
       "2020-12-01-preview",
       "2021-06-01",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "ApplicationTypeVersion": [
       "2017-07-01-preview",
@@ -26284,7 +26285,8 @@
       "2020-12-01-preview",
       "2021-06-01",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "Cluster": [
       "2016-09-01",
@@ -26321,7 +26323,8 @@
       "2024-06-01-preview",
       "2024-09-01-preview",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "ManagedClusterApplication": [
       "2021-01-01-preview",
@@ -26434,7 +26437,8 @@
       "2024-06-01-preview",
       "2024-09-01-preview",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "Service": [
       "2017-07-01-preview",
@@ -26446,7 +26450,8 @@
       "2020-12-01-preview",
       "2021-06-01",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "getManagedAzResiliencyStatus": [
       "2022-02-01-preview",
@@ -26464,11 +26469,13 @@
       "2024-06-01-preview",
       "2024-09-01-preview",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "getManagedClusterFaultSimulation": [
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "getManagedMaintenanceWindowStatus": [
       "2023-07-01-preview",
@@ -26480,11 +26487,13 @@
       "2024-06-01-preview",
       "2024-09-01-preview",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "getNodeTypeFaultSimulation": [
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "listClusterUpgradableVersions": [
       "2021-06-01"
@@ -26494,11 +26503,13 @@
     ],
     "listManagedClusterFaultSimulation": [
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "listNodeTypeFaultSimulation": [
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ]
   },
   "ServiceFabricMesh": {
