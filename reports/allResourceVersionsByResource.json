@@ -4317,7 +4317,8 @@
     "Fleet": [
       "2023-11-01-preview",
       "2024-05-01-preview",
-      "2024-11-01"
+      "2024-11-01",
+      "2025-07-01-preview"
     ]
   },
   "AzureLargeInstance": {
@@ -7490,7 +7491,8 @@
     "DeploymentSafeguard": [
       "2025-04-01",
       "2025-04-02-preview",
-      "2025-05-02-preview"
+      "2025-05-02-preview",
+      "2025-07-01"
     ],
     "Fleet": [
       "2022-06-02-preview",
@@ -13715,11 +13717,9 @@
   },
   "HealthDataAIServices": {
     "DeidService": [
-      "2024-02-28-preview",
       "2024-09-20"
     ],
     "PrivateEndpointConnection": [
-      "2024-02-28-preview",
       "2024-09-20"
     ]
   },
@@ -17871,7 +17871,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "Backup": [
       "2022-11-01-preview",
@@ -17891,7 +17892,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "BackupPolicy": [
       "2020-05-01",
@@ -17931,7 +17933,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "BackupVault": [
       "2022-11-01-preview",
@@ -17951,7 +17954,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "CapacityPool": [
       "2017-08-15",
@@ -18000,7 +18004,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "CapacityPoolBackup": [
       "2020-05-01",
@@ -18073,7 +18078,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "CapacityPoolSubvolume": [
       "2021-10-01",
@@ -18101,7 +18107,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "CapacityPoolVolume": [
       "2017-08-15",
@@ -18150,7 +18157,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "CapacityPoolVolumeQuotaRule": [
       "2022-01-01",
@@ -18177,7 +18185,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "SnapshotPolicy": [
       "2020-05-01",
@@ -18217,7 +18226,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "VolumeGroup": [
       "2021-08-01",
@@ -18246,7 +18256,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "getAccountChangeKeyVaultInformation": [
       "2023-11-01-preview",
@@ -18257,7 +18268,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "getAccountKeyVaultStatus": [
       "2024-09-01-preview"
@@ -18288,7 +18300,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "getCapacityPoolVolumeGroupIdForLdapUser": [
       "2022-11-01",
@@ -18311,7 +18324,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "listCapacityPoolVolumeQuotaReport": [
       "2024-03-01-preview",
@@ -18346,7 +18360,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ]
   },
   "Network": {
@@ -26260,7 +26275,8 @@
       "2020-12-01-preview",
       "2021-06-01",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "ApplicationType": [
       "2017-07-01-preview",
@@ -26272,7 +26288,8 @@
       "2020-12-01-preview",
       "2021-06-01",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "ApplicationTypeVersion": [
       "2017-07-01-preview",
@@ -26284,7 +26301,8 @@
       "2020-12-01-preview",
       "2021-06-01",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "Cluster": [
       "2016-09-01",
@@ -26321,7 +26339,8 @@
       "2024-06-01-preview",
       "2024-09-01-preview",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "ManagedClusterApplication": [
       "2021-01-01-preview",
@@ -26434,7 +26453,8 @@
       "2024-06-01-preview",
       "2024-09-01-preview",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "Service": [
       "2017-07-01-preview",
@@ -26446,7 +26466,8 @@
       "2020-12-01-preview",
       "2021-06-01",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "getManagedAzResiliencyStatus": [
       "2022-02-01-preview",
@@ -26464,11 +26485,13 @@
       "2024-06-01-preview",
       "2024-09-01-preview",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "getManagedClusterFaultSimulation": [
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "getManagedMaintenanceWindowStatus": [
       "2023-07-01-preview",
@@ -26480,11 +26503,13 @@
       "2024-06-01-preview",
       "2024-09-01-preview",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "getNodeTypeFaultSimulation": [
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "listClusterUpgradableVersions": [
       "2021-06-01"
@@ -26494,11 +26519,13 @@
     ],
     "listManagedClusterFaultSimulation": [
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "listNodeTypeFaultSimulation": [
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ]
   },
   "ServiceFabricMesh": {

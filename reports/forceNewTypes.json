@@ -95326,6 +95326,104 @@
     "Property": "zones"
   },
   {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "CapacityPoolVolume",
+    "ReferenceName": "remotePath",
+    "Property": "remotePath"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "acceptGrowCapacityPoolForShortTermCloneSplit"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "avsDataStore"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "backupId"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "creationToken"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "remotePath",
+    "Property": "remotePath"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "isLargeVolume"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "kerberosEnabled"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "ldapEnabled"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "networkFeatures",
+    "Property": "networkFeatures"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "securityStyle"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "snapshotId"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "volumeType"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeGroupVolumeProperties",
+    "Property": "zones"
+  },
+  {
     "VersionedModule": "networkcloud",
     "Module": "NetworkCloud",
     "ResourceName": "AgentPool",

@@ -128,7 +128,9 @@
     "2025-04-11-preview",
     "2025-05-21"
   ],
-  "AzureFleet": [],
+  "AzureFleet": [
+    "2025-07-01-preview"
+  ],
   "AzureLargeInstance": [],
   "AzurePlaywrightService": [],
   "AzureSphere": [],
@@ -346,7 +348,8 @@
     "2025-04-02-preview",
     "2025-05-01",
     "2025-05-02-preview",
-    "2025-06-02-preview"
+    "2025-06-02-preview",
+    "2025-07-01"
   ],
   "ContainerStorage": [],
   "Contoso": [],
@@ -926,7 +929,8 @@
     "2025-01-01",
     "2025-01-01-preview",
     "2025-03-01",
-    "2025-03-01-preview"
+    "2025-03-01-preview",
+    "2025-06-01"
   ],
   "Network": [
     "2019-04-01",
@@ -1194,7 +1198,8 @@
     "2024-06-01-preview",
     "2024-09-01-preview",
     "2024-11-01-preview",
-    "2025-03-01-preview"
+    "2025-03-01-preview",
+    "2025-06-01-preview"
   ],
   "ServiceFabricMesh": [],
   "ServiceLinker": [
