@@ -24,14 +24,6 @@
     "Detail": "expected no additions but found some"
   },
   {
-    "ModuleName": "App",
-    "Detail": "expected tracking stable but found preview"
-  },
-  {
-    "ModuleName": "App",
-    "Detail": "expected additions but found none"
-  },
-  {
     "ModuleName": "AppComplianceAutomation",
     "Detail": "expected tracking preview but found stable"
   },
