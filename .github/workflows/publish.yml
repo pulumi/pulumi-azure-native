@@ -291,7 +291,7 @@ jobs:
         # Therefore we can't publish prereleases without risking breaking customers.
         # All other ecosystems handle prereleases correctly, Maven is the exception.
         if: inputs.prerelease == false
-        run: gradle -p ./sdk/java build publishToSonatype closeAndReleaseSonatypeStagingRepository
+        run: gradle -p ./sdk/java publishToSonatype closeAndReleaseSonatypeStagingRepository
 
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
