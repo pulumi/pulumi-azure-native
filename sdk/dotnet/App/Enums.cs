@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.App
 
     /// <summary>
     /// ActiveRevisionsMode controls how active revisions are handled for the Container app:
-    /// &lt;list&gt;&lt;item&gt;Multiple: multiple revisions can be active.&lt;/item&gt;&lt;item&gt;Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.&lt;/item&gt;&lt;/list&gt;
+    /// &lt;list&gt;&lt;item&gt;Single: Only one revision can be active at a time. Traffic weights cannot be used. This is the default.&lt;/item&gt;&lt;item&gt;Multiple: Multiple revisions can be active, including optional traffic weights and labels.&lt;/item&gt;&lt;item&gt;Labels: Only revisions with labels are active. Traffic weights can be applied to labels.&lt;/item&gt;&lt;/list&gt;
     /// </summary>
     [EnumType]
     public readonly struct ActiveRevisionsMode : IEquatable<ActiveRevisionsMode>
@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.App
 
         public static ActiveRevisionsMode Multiple { get; } = new ActiveRevisionsMode("Multiple");
         public static ActiveRevisionsMode Single { get; } = new ActiveRevisionsMode("Single");
+        public static ActiveRevisionsMode Labels { get; } = new ActiveRevisionsMode("Labels");
 
         public static bool operator ==(ActiveRevisionsMode left, ActiveRevisionsMode right) => left.Equals(right);
         public static bool operator !=(ActiveRevisionsMode left, ActiveRevisionsMode right) => !left.Equals(right);
@@ -188,6 +189,37 @@ namespace Pulumi.AzureNative.App
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is BindingType other && Equals(other);
         public bool Equals(BindingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the certificate. Allowed values are `ServerSSLCertificate` and `ImagePullTrustedCA`
+    /// </summary>
+    [EnumType]
+    public readonly struct CertificateType : IEquatable<CertificateType>
+    {
+        private readonly string _value;
+
+        private CertificateType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CertificateType ServerSSLCertificate { get; } = new CertificateType("ServerSSLCertificate");
+        public static CertificateType ImagePullTrustedCA { get; } = new CertificateType("ImagePullTrustedCA");
+
+        public static bool operator ==(CertificateType left, CertificateType right) => left.Equals(right);
+        public static bool operator !=(CertificateType left, CertificateType right) => !left.Equals(right);
+
+        public static explicit operator string(CertificateType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CertificateType other && Equals(other);
+        public bool Equals(CertificateType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -413,6 +445,37 @@ namespace Pulumi.AzureNative.App
     }
 
     /// <summary>
+    /// The type of the image. Set to CloudBuild to let the system manages the image, where user will not be able to update image through image field. Set to ContainerImage for user provided image.
+    /// </summary>
+    [EnumType]
+    public readonly struct ImageType : IEquatable<ImageType>
+    {
+        private readonly string _value;
+
+        private ImageType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ImageType CloudBuild { get; } = new ImageType("CloudBuild");
+        public static ImageType ContainerImage { get; } = new ImageType("ContainerImage");
+
+        public static bool operator ==(ImageType left, ImageType right) => left.Equals(right);
+        public static bool operator !=(ImageType left, ImageType right) => !left.Equals(right);
+
+        public static explicit operator string(ImageType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ImageType other && Equals(other);
+        public bool Equals(ImageType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Client certificate mode for mTLS authentication. Ignore indicates server drops client certificate on forwarding. Accept indicates server forwards client certificate but does not require a client certificate. Require indicates server requires a client certificate.
     /// </summary>
     [EnumType]
@@ -437,6 +500,37 @@ namespace Pulumi.AzureNative.App
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IngressClientCertificateMode other && Equals(other);
         public bool Equals(IngressClientCertificateMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether an http app listens on http or https
+    /// </summary>
+    [EnumType]
+    public readonly struct IngressTargetPortHttpScheme : IEquatable<IngressTargetPortHttpScheme>
+    {
+        private readonly string _value;
+
+        private IngressTargetPortHttpScheme(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IngressTargetPortHttpScheme Http { get; } = new IngressTargetPortHttpScheme("http");
+        public static IngressTargetPortHttpScheme Https { get; } = new IngressTargetPortHttpScheme("https");
+
+        public static bool operator ==(IngressTargetPortHttpScheme left, IngressTargetPortHttpScheme right) => left.Equals(right);
+        public static bool operator !=(IngressTargetPortHttpScheme left, IngressTargetPortHttpScheme right) => !left.Equals(right);
+
+        public static explicit operator string(IngressTargetPortHttpScheme value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IngressTargetPortHttpScheme other && Equals(other);
+        public bool Equals(IngressTargetPortHttpScheme other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -493,6 +587,8 @@ namespace Pulumi.AzureNative.App
         public static JavaComponentType SpringBootAdmin { get; } = new JavaComponentType("SpringBootAdmin");
         public static JavaComponentType SpringCloudEureka { get; } = new JavaComponentType("SpringCloudEureka");
         public static JavaComponentType SpringCloudConfig { get; } = new JavaComponentType("SpringCloudConfig");
+        public static JavaComponentType SpringCloudGateway { get; } = new JavaComponentType("SpringCloudGateway");
+        public static JavaComponentType Nacos { get; } = new JavaComponentType("Nacos");
 
         public static bool operator ==(JavaComponentType left, JavaComponentType right) => left.Equals(right);
         public static bool operator !=(JavaComponentType left, JavaComponentType right) => !left.Equals(right);
@@ -502,6 +598,71 @@ namespace Pulumi.AzureNative.App
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is JavaComponentType other && Equals(other);
         public bool Equals(JavaComponentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Metadata used to render different experiences for resources of the same type; e.g. WorkflowApp is a kind of Microsoft.App/ContainerApps type. If supported, the resource provider must validate and persist this value.
+    /// </summary>
+    [EnumType]
+    public readonly struct Kind : IEquatable<Kind>
+    {
+        private readonly string _value;
+
+        private Kind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Kind Workflowapp { get; } = new Kind("workflowapp");
+
+        public static bool operator ==(Kind left, Kind right) => left.Equals(right);
+        public static bool operator !=(Kind left, Kind right) => !left.Equals(right);
+
+        public static explicit operator string(Kind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Kind other && Equals(other);
+        public bool Equals(Kind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The specified logger's log level.
+    /// </summary>
+    [EnumType]
+    public readonly struct Level : IEquatable<Level>
+    {
+        private readonly string _value;
+
+        private Level(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Level Off { get; } = new Level("off");
+        public static Level Error { get; } = new Level("error");
+        public static Level Info { get; } = new Level("info");
+        public static Level Debug { get; } = new Level("debug");
+        public static Level Trace { get; } = new Level("trace");
+        public static Level Warn { get; } = new Level("warn");
+
+        public static bool operator ==(Level left, Level right) => left.Equals(right);
+        public static bool operator !=(Level left, Level right) => !left.Equals(right);
+
+        public static explicit operator string(Level value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Level other && Equals(other);
+        public bool Equals(Level other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -639,6 +800,38 @@ namespace Pulumi.AzureNative.App
     }
 
     /// <summary>
+    /// Patching mode for the container app. Null or default in this field will be interpreted as Automatic by RP. Automatic mode will automatically apply available patches. Manual mode will require the user to manually apply patches. Disabled mode will stop patch detection and auto patching.
+    /// </summary>
+    [EnumType]
+    public readonly struct PatchingMode : IEquatable<PatchingMode>
+    {
+        private readonly string _value;
+
+        private PatchingMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PatchingMode Automatic { get; } = new PatchingMode("Automatic");
+        public static PatchingMode Manual { get; } = new PatchingMode("Manual");
+        public static PatchingMode Disabled { get; } = new PatchingMode("Disabled");
+
+        public static bool operator ==(PatchingMode left, PatchingMode right) => left.Equals(right);
+        public static bool operator !=(PatchingMode left, PatchingMode right) => !left.Equals(right);
+
+        public static explicit operator string(PatchingMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PatchingMode other && Equals(other);
+        public bool Equals(PatchingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The pool management type of the session pool.
     /// </summary>
     [EnumType]
@@ -695,6 +888,37 @@ namespace Pulumi.AzureNative.App
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PrivateEndpointServiceConnectionStatus other && Equals(other);
         public bool Equals(PrivateEndpointServiceConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled'.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
+        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
+
+        public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
+        public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -765,6 +989,37 @@ namespace Pulumi.AzureNative.App
     }
 
     /// <summary>
+    /// Denotes the type of probe. Can be Liveness or Startup, Readiness probe is not supported in sessions. Type must be unique for each probe within the context of a list of probes (SessionProbes).
+    /// </summary>
+    [EnumType]
+    public readonly struct SessionProbeType : IEquatable<SessionProbeType>
+    {
+        private readonly string _value;
+
+        private SessionProbeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SessionProbeType Liveness { get; } = new SessionProbeType("Liveness");
+        public static SessionProbeType Startup { get; } = new SessionProbeType("Startup");
+
+        public static bool operator ==(SessionProbeType left, SessionProbeType right) => left.Equals(right);
+        public static bool operator !=(SessionProbeType left, SessionProbeType right) => !left.Equals(right);
+
+        public static explicit operator string(SessionProbeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SessionProbeType other && Equals(other);
+        public bool Equals(SessionProbeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Storage type for the volume. If not provided, use EmptyDir.
     /// </summary>
     [EnumType]
@@ -781,6 +1036,7 @@ namespace Pulumi.AzureNative.App
         public static StorageType EmptyDir { get; } = new StorageType("EmptyDir");
         public static StorageType Secret { get; } = new StorageType("Secret");
         public static StorageType NfsAzureFile { get; } = new StorageType("NfsAzureFile");
+        public static StorageType Smb { get; } = new StorageType("Smb");
 
         public static bool operator ==(StorageType left, StorageType right) => left.Equals(right);
         public static bool operator !=(StorageType left, StorageType right) => !left.Equals(right);

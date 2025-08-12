@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.App.Outputs
         /// Enable jmx core metrics for the java app
         /// </summary>
         public readonly bool? EnableMetrics;
+        /// <summary>
+        /// Diagnostic capabilities achieved by java agent
+        /// </summary>
+        public readonly Outputs.RuntimeResponseJavaAgent? JavaAgent;
 
         [OutputConstructor]
-        private RuntimeResponseJava(bool? enableMetrics)
+        private RuntimeResponseJava(
+            bool? enableMetrics,
+
+            Outputs.RuntimeResponseJavaAgent? javaAgent)
         {
             EnableMetrics = enableMetrics;
+            JavaAgent = javaAgent;
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.App.Outputs
     {
         /// <summary>
         /// ActiveRevisionsMode controls how active revisions are handled for the Container app:
-        /// &lt;list&gt;&lt;item&gt;Multiple: multiple revisions can be active.&lt;/item&gt;&lt;item&gt;Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.&lt;/item&gt;&lt;/list&gt;
+        /// &lt;list&gt;&lt;item&gt;Single: Only one revision can be active at a time. Traffic weights cannot be used. This is the default.&lt;/item&gt;&lt;item&gt;Multiple: Multiple revisions can be active, including optional traffic weights and labels.&lt;/item&gt;&lt;item&gt;Labels: Only revisions with labels are active. Traffic weights can be applied to labels.&lt;/item&gt;&lt;/list&gt;
         /// </summary>
         public readonly string? ActiveRevisionsMode;
         /// <summary>
@@ -42,6 +42,10 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.RegistryCredentialsResponse> Registries;
         /// <summary>
+        /// Optional. The percent of the total number of replicas that must be brought up before revision transition occurs. Defaults to 100 when none is given. Value must be greater than 0 and less than or equal to 100.
+        /// </summary>
+        public readonly int? RevisionTransitionThreshold;
+        /// <summary>
         /// App runtime configuration for the Container App.
         /// </summary>
         public readonly Outputs.RuntimeResponse? Runtime;
@@ -53,6 +57,10 @@ namespace Pulumi.AzureNative.App.Outputs
         /// Container App to be a dev Container App Service
         /// </summary>
         public readonly Outputs.ServiceResponse? Service;
+        /// <summary>
+        /// Required in labels revisions mode. Label to apply to newly created revision.
+        /// </summary>
+        public readonly string? TargetLabel;
 
         [OutputConstructor]
         private ConfigurationResponse(
@@ -68,11 +76,15 @@ namespace Pulumi.AzureNative.App.Outputs
 
             ImmutableArray<Outputs.RegistryCredentialsResponse> registries,
 
+            int? revisionTransitionThreshold,
+
             Outputs.RuntimeResponse? runtime,
 
             ImmutableArray<Outputs.SecretResponse> secrets,
 
-            Outputs.ServiceResponse? service)
+            Outputs.ServiceResponse? service,
+
+            string? targetLabel)
         {
             ActiveRevisionsMode = activeRevisionsMode;
             Dapr = dapr;
@@ -80,9 +92,11 @@ namespace Pulumi.AzureNative.App.Outputs
             Ingress = ingress;
             MaxInactiveRevisions = maxInactiveRevisions;
             Registries = registries;
+            RevisionTransitionThreshold = revisionTransitionThreshold;
             Runtime = runtime;
             Secrets = secrets;
             Service = service;
+            TargetLabel = targetLabel;
         }
     }
 }

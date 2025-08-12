@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.App.Inputs
     public sealed class RuntimeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// .NET app configuration
+        /// </summary>
+        [Input("dotnet")]
+        public Input<Inputs.RuntimeDotnetArgs>? Dotnet { get; set; }
+
+        /// <summary>
         /// Java app configuration
         /// </summary>
         [Input("java")]

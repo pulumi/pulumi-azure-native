@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly string? AccessMode;
         /// <summary>
-        /// Server for NFS azure file. Specify the Azure storage account server address.
+        /// Server for NFS azure file.
         /// </summary>
         public readonly string? Server;
         /// <summary>

@@ -25,13 +25,13 @@ class JavaComponentArgs:
                  environment_name: pulumi.Input[builtins.str],
                  resource_group_name: pulumi.Input[builtins.str],
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['SpringBootAdminComponentArgs', 'SpringCloudConfigComponentArgs', 'SpringCloudEurekaComponentArgs']]] = None):
+                 properties: Optional[pulumi.Input[Union['NacosComponentArgs', 'SpringBootAdminComponentArgs', 'SpringCloudConfigComponentArgs', 'SpringCloudEurekaComponentArgs', 'SpringCloudGatewayComponentArgs']]] = None):
         """
         The set of arguments for constructing a JavaComponent resource.
         :param pulumi.Input[builtins.str] environment_name: Name of the Managed Environment.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] name: Name of the Java Component.
-        :param pulumi.Input[Union['SpringBootAdminComponentArgs', 'SpringCloudConfigComponentArgs', 'SpringCloudEurekaComponentArgs']] properties: Java Component resource specific properties
+        :param pulumi.Input[Union['NacosComponentArgs', 'SpringBootAdminComponentArgs', 'SpringCloudConfigComponentArgs', 'SpringCloudEurekaComponentArgs', 'SpringCloudGatewayComponentArgs']] properties: Java Component resource specific properties
         """
         pulumi.set(__self__, "environment_name", environment_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -78,14 +78,14 @@ class JavaComponentArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Union['SpringBootAdminComponentArgs', 'SpringCloudConfigComponentArgs', 'SpringCloudEurekaComponentArgs']]]:
+    def properties(self) -> Optional[pulumi.Input[Union['NacosComponentArgs', 'SpringBootAdminComponentArgs', 'SpringCloudConfigComponentArgs', 'SpringCloudEurekaComponentArgs', 'SpringCloudGatewayComponentArgs']]]:
         """
         Java Component resource specific properties
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Union['SpringBootAdminComponentArgs', 'SpringCloudConfigComponentArgs', 'SpringCloudEurekaComponentArgs']]]):
+    def properties(self, value: Optional[pulumi.Input[Union['NacosComponentArgs', 'SpringBootAdminComponentArgs', 'SpringCloudConfigComponentArgs', 'SpringCloudEurekaComponentArgs', 'SpringCloudGatewayComponentArgs']]]):
         pulumi.set(self, "properties", value)
 
 
@@ -97,21 +97,21 @@ class JavaComponent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  environment_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['SpringBootAdminComponentArgs', 'SpringBootAdminComponentArgsDict'], Union['SpringCloudConfigComponentArgs', 'SpringCloudConfigComponentArgsDict'], Union['SpringCloudEurekaComponentArgs', 'SpringCloudEurekaComponentArgsDict']]]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['NacosComponentArgs', 'NacosComponentArgsDict'], Union['SpringBootAdminComponentArgs', 'SpringBootAdminComponentArgsDict'], Union['SpringCloudConfigComponentArgs', 'SpringCloudConfigComponentArgsDict'], Union['SpringCloudEurekaComponentArgs', 'SpringCloudEurekaComponentArgsDict'], Union['SpringCloudGatewayComponentArgs', 'SpringCloudGatewayComponentArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Java Component.
 
-        Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2023-11-02-preview.
+        Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-02-preview.
 
-        Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] environment_name: Name of the Managed Environment.
         :param pulumi.Input[builtins.str] name: Name of the Java Component.
-        :param pulumi.Input[Union[Union['SpringBootAdminComponentArgs', 'SpringBootAdminComponentArgsDict'], Union['SpringCloudConfigComponentArgs', 'SpringCloudConfigComponentArgsDict'], Union['SpringCloudEurekaComponentArgs', 'SpringCloudEurekaComponentArgsDict']]] properties: Java Component resource specific properties
+        :param pulumi.Input[Union[Union['NacosComponentArgs', 'NacosComponentArgsDict'], Union['SpringBootAdminComponentArgs', 'SpringBootAdminComponentArgsDict'], Union['SpringCloudConfigComponentArgs', 'SpringCloudConfigComponentArgsDict'], Union['SpringCloudEurekaComponentArgs', 'SpringCloudEurekaComponentArgsDict'], Union['SpringCloudGatewayComponentArgs', 'SpringCloudGatewayComponentArgsDict']]] properties: Java Component resource specific properties
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -123,9 +123,9 @@ class JavaComponent(pulumi.CustomResource):
         """
         Java Component.
 
-        Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2023-11-02-preview.
+        Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-02-preview.
 
-        Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param JavaComponentArgs args: The arguments to use to populate this resource's properties.
@@ -144,7 +144,7 @@ class JavaComponent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  environment_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['SpringBootAdminComponentArgs', 'SpringBootAdminComponentArgsDict'], Union['SpringCloudConfigComponentArgs', 'SpringCloudConfigComponentArgsDict'], Union['SpringCloudEurekaComponentArgs', 'SpringCloudEurekaComponentArgsDict']]]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['NacosComponentArgs', 'NacosComponentArgsDict'], Union['SpringBootAdminComponentArgs', 'SpringBootAdminComponentArgsDict'], Union['SpringCloudConfigComponentArgs', 'SpringCloudConfigComponentArgsDict'], Union['SpringCloudEurekaComponentArgs', 'SpringCloudEurekaComponentArgsDict'], Union['SpringCloudGatewayComponentArgs', 'SpringCloudGatewayComponentArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

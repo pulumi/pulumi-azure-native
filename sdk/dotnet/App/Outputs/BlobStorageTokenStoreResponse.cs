@@ -17,13 +17,35 @@ namespace Pulumi.AzureNative.App.Outputs
     public sealed class BlobStorageTokenStoreResponse
     {
         /// <summary>
-        /// The name of the app secrets containing the SAS URL of the blob storage containing the tokens.
+        /// The URI of the blob storage containing the tokens. Should not be used along with sasUrlSettingName.
         /// </summary>
-        public readonly string SasUrlSettingName;
+        public readonly string? BlobContainerUri;
+        /// <summary>
+        /// The Client ID of a User-Assigned Managed Identity. Should not be used along with managedIdentityResourceId.
+        /// </summary>
+        public readonly string? ClientId;
+        /// <summary>
+        /// The Resource ID of a User-Assigned Managed Identity. Should not be used along with clientId.
+        /// </summary>
+        public readonly string? ManagedIdentityResourceId;
+        /// <summary>
+        /// The name of the app secrets containing the SAS URL of the blob storage containing the tokens. Should not be used along with blobContainerUri.
+        /// </summary>
+        public readonly string? SasUrlSettingName;
 
         [OutputConstructor]
-        private BlobStorageTokenStoreResponse(string sasUrlSettingName)
+        private BlobStorageTokenStoreResponse(
+            string? blobContainerUri,
+
+            string? clientId,
+
+            string? managedIdentityResourceId,
+
+            string? sasUrlSettingName)
         {
+            BlobContainerUri = blobContainerUri;
+            ClientId = clientId;
+            ManagedIdentityResourceId = managedIdentityResourceId;
             SasUrlSettingName = sasUrlSettingName;
         }
     }

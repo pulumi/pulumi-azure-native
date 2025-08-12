@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.App.Outputs
     public sealed class DaprResponse
     {
         /// <summary>
+        /// Dapr application health check configuration
+        /// </summary>
+        public readonly Outputs.DaprResponseAppHealth? AppHealth;
+        /// <summary>
         /// Dapr application identifier
         /// </summary>
         public readonly string? AppId;
@@ -48,9 +52,15 @@ namespace Pulumi.AzureNative.App.Outputs
         /// Sets the log level for the Dapr sidecar. Allowed values are debug, info, warn, error. Default is info.
         /// </summary>
         public readonly string? LogLevel;
+        /// <summary>
+        /// Maximum number of concurrent requests, events handled by the Dapr sidecar
+        /// </summary>
+        public readonly int? MaxConcurrency;
 
         [OutputConstructor]
         private DaprResponse(
+            Outputs.DaprResponseAppHealth? appHealth,
+
             string? appId,
 
             int? appPort,
@@ -65,8 +75,11 @@ namespace Pulumi.AzureNative.App.Outputs
 
             int? httpReadBufferSize,
 
-            string? logLevel)
+            string? logLevel,
+
+            int? maxConcurrency)
         {
+            AppHealth = appHealth;
             AppId = appId;
             AppPort = appPort;
             AppProtocol = appProtocol;
@@ -75,6 +88,7 @@ namespace Pulumi.AzureNative.App.Outputs
             HttpMaxRequestSize = httpMaxRequestSize;
             HttpReadBufferSize = httpReadBufferSize;
             LogLevel = logLevel;
+            MaxConcurrency = maxConcurrency;
         }
     }
 }

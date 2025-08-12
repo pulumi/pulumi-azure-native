@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly string EphemeralStorage;
         /// <summary>
+        /// Required GPU in cores for GPU based app, e.g. 1.0
+        /// </summary>
+        public readonly double? Gpu;
+        /// <summary>
         /// Required memory, e.g. "250Mb"
         /// </summary>
         public readonly string? Memory;
@@ -35,10 +39,13 @@ namespace Pulumi.AzureNative.App.Outputs
 
             string ephemeralStorage,
 
+            double? gpu,
+
             string? memory)
         {
             Cpu = cpu;
             EphemeralStorage = ephemeralStorage;
+            Gpu = gpu;
             Memory = memory;
         }
     }
