@@ -24,14 +24,14 @@ import (
 // BuildUserAgent composes a User Agent string with the provided partner ID.
 // see: https://azure.github.io/azure-sdk/general_azurecore.html#telemetry-policy
 func BuildUserAgent(partnerID string) (userAgent string) {
-	if util.EnableAzcoreBackend() {
-		// azure-sdk-for-go sets a user agent string as per the telemetry policy.
-		// e.g. pulumi-azure-native/3.0.0 azsdk-go-azcore/1.0.0 go/1.16.5 (darwin; amd64)
-		// Anything we add here will be appended to that.
-	} else {
+	if !util.EnableAzcoreBackend() {
 		userAgent = strings.TrimSpace(fmt.Sprintf("%s pulumi-azure-native/%s",
 			autorest.UserAgent(), version.Version))
 	}
+
+	// azure-sdk-for-go sets a user agent string as per the telemetry policy, resembling:
+	//   pulumi-azure-native/3.0.0 azsdk-go-azcore/1.0.0 go/1.16.5 (darwin; amd64)
+	// Anything we add here will be appended to that.
 
 	// append the CloudShell version to the user agent if it exists
 	if azureAgent := os.Getenv("AZURE_HTTP_USER_AGENT"); azureAgent != "" {
