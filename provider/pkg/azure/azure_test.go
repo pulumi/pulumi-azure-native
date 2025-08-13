@@ -3,6 +3,8 @@
 package azure
 
 import (
+	"encoding/base64"
+	"encoding/json"
 	"net/http"
 	"os"
 	"regexp"
@@ -130,4 +132,53 @@ func TestIsNotFound(t *testing.T) {
 			ErrorCode:  "Unauthorized",
 		}))
 	})
+}
+
+func TestParseClaims(t *testing.T) {
+	// Create a Claims struct and marshal it to JSON
+	expectedClaims := Claims{
+		Audience:          "audience",
+		Issuer:            "issuer",
+		IdentityProvider:  "idp",
+		ObjectId:          "objectid",
+		Roles:             []string{"role1", "role2"},
+		Scopes:            "scope",
+		Subject:           "subject",
+		TenantRegionScope: "region",
+		TenantId:          "tenantid",
+		Version:           "1.0",
+		AppDisplayName:    "appdisplayname",
+		AppId:             "appid",
+		IdType:            "idtype",
+	}
+	payload, err := json.Marshal(expectedClaims)
+	assert.NoError(t, err)
+
+	// JWT: header.payload.signature (all base64url, but only payload matters)
+	header := base64.RawURLEncoding.EncodeToString([]byte(`{"alg":"none"}`))
+	payloadEnc := base64.RawURLEncoding.EncodeToString(payload)
+	tokenStr := header + "." + payloadEnc + ".signature"
+	token := azcore.AccessToken{Token: tokenStr}
+
+	claims, err := ParseClaims(token)
+	assert.NoError(t, err)
+	assert.Equal(t, expectedClaims, claims)
+}
+
+func TestParseClaims_InvalidToken(t *testing.T) {
+	// Token with not enough segments
+	token := azcore.AccessToken{Token: "invalidtoken"}
+	_, err := ParseClaims(token)
+	assert.Error(t, err)
+
+	// Token with invalid base64 payload
+	token = azcore.AccessToken{Token: "a.b@d!.c"}
+	_, err = ParseClaims(token)
+	assert.Error(t, err)
+
+	// Token with invalid JSON in payload
+	badPayload := base64.RawURLEncoding.EncodeToString([]byte("notjson"))
+	token = azcore.AccessToken{Token: "a." + badPayload + ".c"}
+	_, err = ParseClaims(token)
+	assert.Error(t, err)
 }

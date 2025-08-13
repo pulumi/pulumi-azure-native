@@ -137,12 +137,18 @@ type Claims struct {
 }
 
 // ParseClaims retrieves and parses the claims from a JWT issued by the Microsoft Identity Platform.
-func ParseClaims(token azcore.AccessToken) (claims Claims, err error) {
+func ParseClaims(token azcore.AccessToken) (Claims, error) {
 	jwt := strings.Split(token.Token, ".")
+	if len(jwt) != 3 {
+		return Claims{}, errors.New("unexpected token format: does not have 3 parts")
+	}
+
 	payload, err := base64.RawURLEncoding.DecodeString(jwt[1])
 	if err != nil {
-		return
+		return Claims{}, err
 	}
+
+	var claims Claims
 	err = json.Unmarshal(payload, &claims)
-	return
+	return claims, err
 }
