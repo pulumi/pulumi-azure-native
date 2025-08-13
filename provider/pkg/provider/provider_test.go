@@ -508,7 +508,7 @@ func TestAzcoreAzureClientUsesCorrectCloud(t *testing.T) {
 		"https://management.chinacloudapi.cn":  cloud.AzureChina,
 		"https://management.usgovcloudapi.net": cloud.AzureGovernment,
 	} {
-		client, err := azure.NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloudInstance, nil)
+		client, err := azure.NewAzCoreClient(&fake.TokenCredential{}, "", cloudInstance, nil)
 		require.NoError(t, err)
 		require.NotNil(t, client)
 
