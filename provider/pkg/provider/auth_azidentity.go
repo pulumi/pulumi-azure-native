@@ -97,6 +97,18 @@ func newSingleMethodAuthCredential(authConf *authConfiguration) (azcore.TokenCre
 		logging.V(9).Infof("Managed Identity (MSI) credential is not enabled, skipping")
 	}
 
+	if authConf.useDefault {
+		logging.V(9).Infof("[auth] Using default Azure credential")
+		options := &azidentity.DefaultAzureCredentialOptions{
+			AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
+			ClientOptions:              baseClientOpts,
+		}
+		cli, err := azidentity.NewDefaultAzureCredential(options)
+		if err == nil {
+			return cli, nil
+		}
+	}
+
 	logging.V(9).Infof("[auth] Using Azure CLI credential")
 	options := &azidentity.AzureCLICredentialOptions{
 		AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
@@ -255,6 +267,11 @@ type authConfiguration struct {
 	// automatically:
 	// https://github.com/Azure/azure-sdk-for-go/blob/sdk/azidentity/v1.8.0/sdk/azidentity/managed_identity_client.go#L143
 	useMsi bool
+
+	// Enables the use of azcore's DefaultAzureCredential strategy.
+	// DefaultAzureCredential simplifies authentication while developing applications that deploy to Azure by
+	// combining credentials used in Azure hosting environments and credentials used in local development.
+	useDefault bool
 }
 
 // getAuthConfig collects auth-related configuration from Pulumi config and environment variables
@@ -286,5 +303,7 @@ func (k *azureNativeProvider) readAuthConfig() (*authConfiguration, error) {
 		oidcTokenFilePath:     k.getConfig("oidcTokenFilePath", "ARM_OIDC_TOKEN_FILE_PATH"),
 		oidcTokenRequestToken: k.getConfig("oidcRequestToken", "ACTIONS_ID_TOKEN_REQUEST_TOKEN"),
 		oidcTokenRequestUrl:   k.getConfig("oidcRequestUrl", "ACTIONS_ID_TOKEN_REQUEST_URL"),
+
+		useDefault: k.getConfig("useDefaultAzureCredential", "PULUMI_USE_DEFAULT_AZURE_CREDENTIAL") == "true",
 	}, nil
 }
