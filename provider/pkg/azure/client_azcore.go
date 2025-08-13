@@ -523,7 +523,7 @@ func CreateTestClient(t *testing.T, assertions func(t *testing.T, req *http.Requ
 		},
 		DisableRPRegistration: true,
 	}
-	return NewAzCoreClient(&fake.TokenCredential{}, "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", cloud.AzurePublic, &opts)
+	return NewAzCoreClient(&fake.TokenCredential{}, "pid-12345", cloud.AzurePublic, &opts)
 }
 
 type requestAssertingTransporter struct {
