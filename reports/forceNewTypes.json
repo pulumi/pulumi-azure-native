@@ -1995,6 +1995,13 @@
     "Property": "location"
   },
   {
+    "VersionedModule": "azuredatatransfer/v20250530preview",
+    "Module": "AzureDataTransfer",
+    "ResourceName": "Flow",
+    "ReferenceName": "SelectedResource",
+    "Property": "location"
+  },
+  {
     "VersionedModule": "azuresphere",
     "Module": "AzureSphere",
     "ResourceName": "Deployment",
@@ -6478,6 +6485,27 @@
     "VersionedModule": "datamigration/v20250315preview",
     "Module": "DataMigration",
     "ResourceName": "DatabaseMigrationsSqlDb",
+    "ReferenceName": "DatabaseMigrationBaseProperties",
+    "Property": "scope"
+  },
+  {
+    "VersionedModule": "datamigration/v20250630",
+    "Module": "DataMigration",
+    "ResourceName": "DatabaseMigrationsSqlDb",
+    "ReferenceName": "DatabaseMigrationBaseProperties",
+    "Property": "scope"
+  },
+  {
+    "VersionedModule": "datamigration/v20250630",
+    "Module": "DataMigration",
+    "ResourceName": "DatabaseMigrationsSqlMi",
+    "ReferenceName": "DatabaseMigrationBaseProperties",
+    "Property": "scope"
+  },
+  {
+    "VersionedModule": "datamigration/v20250630",
+    "Module": "DataMigration",
+    "ResourceName": "DatabaseMigrationsSqlVm",
     "ReferenceName": "DatabaseMigrationBaseProperties",
     "Property": "scope"
   },
@@ -95320,6 +95348,104 @@
   },
   {
     "VersionedModule": "netapp/v20250301preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeGroupVolumeProperties",
+    "Property": "zones"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "CapacityPoolVolume",
+    "ReferenceName": "remotePath",
+    "Property": "remotePath"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "acceptGrowCapacityPoolForShortTermCloneSplit"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "avsDataStore"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "backupId"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "creationToken"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "remotePath",
+    "Property": "remotePath"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "isLargeVolume"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "kerberosEnabled"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "ldapEnabled"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "networkFeatures",
+    "Property": "networkFeatures"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "securityStyle"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "snapshotId"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "volumeType"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
     "Module": "NetApp",
     "ResourceName": "VolumeGroup",
     "ReferenceName": "volumeGroupVolumeProperties",
