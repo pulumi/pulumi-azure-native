@@ -26,6 +26,7 @@ class JobArgs:
                  resource_group_name: pulumi.Input[builtins.str],
                  configuration: Optional[pulumi.Input['JobConfigurationArgs']] = None,
                  environment_id: Optional[pulumi.Input[builtins.str]] = None,
+                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  job_name: Optional[pulumi.Input[builtins.str]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
@@ -37,6 +38,7 @@ class JobArgs:
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['JobConfigurationArgs'] configuration: Container Apps Job configuration properties.
         :param pulumi.Input[builtins.str] environment_id: Resource ID of environment.
+        :param pulumi.Input['ExtendedLocationArgs'] extended_location: The complex type of the extended location.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed identities needed by a container app job to interact with other Azure services to not maintain any secrets or credentials in code.
         :param pulumi.Input[builtins.str] job_name: Job Name
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
@@ -49,6 +51,8 @@ class JobArgs:
             pulumi.set(__self__, "configuration", configuration)
         if environment_id is not None:
             pulumi.set(__self__, "environment_id", environment_id)
+        if extended_location is not None:
+            pulumi.set(__self__, "extended_location", extended_location)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if job_name is not None:
@@ -97,6 +101,18 @@ class JobArgs:
     @environment_id.setter
     def environment_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "environment_id", value)
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+        """
+        The complex type of the extended location.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @extended_location.setter
+    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+        pulumi.set(self, "extended_location", value)
 
     @property
     @pulumi.getter
@@ -179,6 +195,7 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration: Optional[pulumi.Input[Union['JobConfigurationArgs', 'JobConfigurationArgsDict']]] = None,
                  environment_id: Optional[pulumi.Input[builtins.str]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  job_name: Optional[pulumi.Input[builtins.str]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
@@ -190,14 +207,15 @@ class Job(pulumi.CustomResource):
         """
         Container App Job
 
-        Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
+        Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
-        Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['JobConfigurationArgs', 'JobConfigurationArgsDict']] configuration: Container Apps Job configuration properties.
         :param pulumi.Input[builtins.str] environment_id: Resource ID of environment.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The complex type of the extended location.
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed identities needed by a container app job to interact with other Azure services to not maintain any secrets or credentials in code.
         :param pulumi.Input[builtins.str] job_name: Job Name
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
@@ -215,9 +233,9 @@ class Job(pulumi.CustomResource):
         """
         Container App Job
 
-        Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
+        Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
-        Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.
@@ -236,6 +254,7 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration: Optional[pulumi.Input[Union['JobConfigurationArgs', 'JobConfigurationArgsDict']]] = None,
                  environment_id: Optional[pulumi.Input[builtins.str]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  job_name: Optional[pulumi.Input[builtins.str]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
@@ -254,6 +273,7 @@ class Job(pulumi.CustomResource):
 
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["environment_id"] = environment_id
+            __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["identity"] = identity
             __props__.__dict__["job_name"] = job_name
             __props__.__dict__["location"] = location
@@ -268,6 +288,7 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["outbound_ip_addresses"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["running_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20221101preview:Job"), pulumi.Alias(type_="azure-native:app/v20230401preview:Job"), pulumi.Alias(type_="azure-native:app/v20230501:Job"), pulumi.Alias(type_="azure-native:app/v20230502preview:Job"), pulumi.Alias(type_="azure-native:app/v20230801preview:Job"), pulumi.Alias(type_="azure-native:app/v20231102preview:Job"), pulumi.Alias(type_="azure-native:app/v20240202preview:Job"), pulumi.Alias(type_="azure-native:app/v20240301:Job"), pulumi.Alias(type_="azure-native:app/v20240802preview:Job"), pulumi.Alias(type_="azure-native:app/v20241002preview:Job"), pulumi.Alias(type_="azure-native:app/v20250101:Job"), pulumi.Alias(type_="azure-native:app/v20250202preview:Job")])
@@ -298,11 +319,13 @@ class Job(pulumi.CustomResource):
         __props__.__dict__["configuration"] = None
         __props__.__dict__["environment_id"] = None
         __props__.__dict__["event_stream_endpoint"] = None
+        __props__.__dict__["extended_location"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["outbound_ip_addresses"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["running_state"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["template"] = None
@@ -343,6 +366,14 @@ class Job(pulumi.CustomResource):
         return pulumi.get(self, "event_stream_endpoint")
 
     @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
+        """
+        The complex type of the extended location.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @property
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
@@ -381,6 +412,14 @@ class Job(pulumi.CustomResource):
         Provisioning state of the Container Apps Job.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="runningState")
+    def running_state(self) -> pulumi.Output[builtins.str]:
+        """
+        Current running state of the job
+        """
+        return pulumi.get(self, "running_state")
 
     @property
     @pulumi.getter(name="systemData")

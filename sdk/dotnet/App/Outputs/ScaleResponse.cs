@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.App.Outputs
     public sealed class ScaleResponse
     {
         /// <summary>
-        /// Optional. KEDA Cooldown Period in seconds. Defaults to 300 seconds if not set.
+        /// Optional. KEDA Cooldown Period. Defaults to 300 seconds if not set.
         /// </summary>
         public readonly int? CooldownPeriod;
         /// <summary>
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly int? MinReplicas;
         /// <summary>
-        /// Optional. KEDA Polling Interval in seconds. Defaults to 30 seconds if not set.
+        /// Optional. KEDA Polling Interval. Defaults to 30 seconds if not set.
         /// </summary>
         public readonly int? PollingInterval;
         /// <summary>

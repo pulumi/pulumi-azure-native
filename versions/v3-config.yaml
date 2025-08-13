@@ -64,7 +64,8 @@ ApiManagement:
     TenantPolicy: "2016-10-10" # obsolete
     listTenantAccessGitSecrets: "2019-12-01" # superceded by https://learn.microsoft.com/en-us/rest/api/apimanagement/current-ga/tenant-access/list-secrets?tabs=HTTP
 App:
-  expectAdditions: true
+  expectAdditions: false
+  expectTracking: preview
 AppComplianceAutomation:
   expectTracking: preview
   notes: Only one preview version

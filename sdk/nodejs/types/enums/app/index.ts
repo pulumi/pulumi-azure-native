@@ -25,11 +25,12 @@ export type Action = (typeof Action)[keyof typeof Action];
 export const ActiveRevisionsMode = {
     Multiple: "Multiple",
     Single: "Single",
+    Labels: "Labels",
 } as const;
 
 /**
  * ActiveRevisionsMode controls how active revisions are handled for the Container app:
- * <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
+ * <list><item>Single: Only one revision can be active at a time. Traffic weights cannot be used. This is the default.</item><item>Multiple: Multiple revisions can be active, including optional traffic weights and labels.</item><item>Labels: Only revisions with labels are active. Traffic weights can be applied to labels.</item></list>
  */
 export type ActiveRevisionsMode = (typeof ActiveRevisionsMode)[keyof typeof ActiveRevisionsMode];
 
@@ -63,6 +64,16 @@ export const BindingType = {
  * Custom Domain binding type.
  */
 export type BindingType = (typeof BindingType)[keyof typeof BindingType];
+
+export const CertificateType = {
+    ServerSSLCertificate: "ServerSSLCertificate",
+    ImagePullTrustedCA: "ImagePullTrustedCA",
+} as const;
+
+/**
+ * The type of the certificate. Allowed values are `ServerSSLCertificate` and `ImagePullTrustedCA`
+ */
+export type CertificateType = (typeof CertificateType)[keyof typeof CertificateType];
 
 export const ClientCredentialMethod = {
     ClientSecretPost: "ClientSecretPost",
@@ -134,6 +145,16 @@ export const IdentitySettingsLifeCycle = {
  */
 export type IdentitySettingsLifeCycle = (typeof IdentitySettingsLifeCycle)[keyof typeof IdentitySettingsLifeCycle];
 
+export const ImageType = {
+    CloudBuild: "CloudBuild",
+    ContainerImage: "ContainerImage",
+} as const;
+
+/**
+ * The type of the image. Set to CloudBuild to let the system manages the image, where user will not be able to update image through image field. Set to ContainerImage for user provided image.
+ */
+export type ImageType = (typeof ImageType)[keyof typeof ImageType];
+
 export const IngressClientCertificateMode = {
     Ignore: "ignore",
     Accept: "accept",
@@ -144,6 +165,16 @@ export const IngressClientCertificateMode = {
  * Client certificate mode for mTLS authentication. Ignore indicates server drops client certificate on forwarding. Accept indicates server forwards client certificate but does not require a client certificate. Require indicates server requires a client certificate.
  */
 export type IngressClientCertificateMode = (typeof IngressClientCertificateMode)[keyof typeof IngressClientCertificateMode];
+
+export const IngressTargetPortHttpScheme = {
+    Http: "http",
+    Https: "https",
+} as const;
+
+/**
+ * Whether an http app listens on http or https
+ */
+export type IngressTargetPortHttpScheme = (typeof IngressTargetPortHttpScheme)[keyof typeof IngressTargetPortHttpScheme];
 
 export const IngressTransportMethod = {
     Auto: "auto",
@@ -161,12 +192,37 @@ export const JavaComponentType = {
     SpringBootAdmin: "SpringBootAdmin",
     SpringCloudEureka: "SpringCloudEureka",
     SpringCloudConfig: "SpringCloudConfig",
+    SpringCloudGateway: "SpringCloudGateway",
+    Nacos: "Nacos",
 } as const;
 
 /**
  * Type of the Java Component.
  */
 export type JavaComponentType = (typeof JavaComponentType)[keyof typeof JavaComponentType];
+
+export const Kind = {
+    Workflowapp: "workflowapp",
+} as const;
+
+/**
+ * Metadata used to render different experiences for resources of the same type; e.g. WorkflowApp is a kind of Microsoft.App/ContainerApps type. If supported, the resource provider must validate and persist this value.
+ */
+export type Kind = (typeof Kind)[keyof typeof Kind];
+
+export const Level = {
+    Off: "off",
+    Error: "error",
+    Info: "info",
+    Debug: "debug",
+    Trace: "trace",
+    Warn: "warn",
+} as const;
+
+/**
+ * The specified logger's log level.
+ */
+export type Level = (typeof Level)[keyof typeof Level];
 
 export const LifecycleType = {
     Timed: "Timed",
@@ -213,6 +269,17 @@ export const ManagedServiceIdentityType = {
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
+export const PatchingMode = {
+    Automatic: "Automatic",
+    Manual: "Manual",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Patching mode for the container app. Null or default in this field will be interpreted as Automatic by RP. Automatic mode will automatically apply available patches. Manual mode will require the user to manually apply patches. Disabled mode will stop patch detection and auto patching.
+ */
+export type PatchingMode = (typeof PatchingMode)[keyof typeof PatchingMode];
+
 export const PoolManagementType = {
     Manual: "Manual",
     Dynamic: "Dynamic",
@@ -235,6 +302,16 @@ export const PrivateEndpointServiceConnectionStatus = {
  */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled'.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
 export const Scheme = {
     HTTP: "HTTP",
     HTTPS: "HTTPS",
@@ -255,11 +332,22 @@ export const SessionNetworkStatus = {
  */
 export type SessionNetworkStatus = (typeof SessionNetworkStatus)[keyof typeof SessionNetworkStatus];
 
+export const SessionProbeType = {
+    Liveness: "Liveness",
+    Startup: "Startup",
+} as const;
+
+/**
+ * Denotes the type of probe. Can be Liveness or Startup, Readiness probe is not supported in sessions. Type must be unique for each probe within the context of a list of probes (SessionProbes).
+ */
+export type SessionProbeType = (typeof SessionProbeType)[keyof typeof SessionProbeType];
+
 export const StorageType = {
     AzureFile: "AzureFile",
     EmptyDir: "EmptyDir",
     Secret: "Secret",
     NfsAzureFile: "NfsAzureFile",
+    Smb: "Smb",
 } as const;
 
 /**

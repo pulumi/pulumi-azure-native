@@ -28,13 +28,16 @@ class GetConnectedEnvironmentsDaprComponentResult:
     """
     Dapr Component.
     """
-    def __init__(__self__, azure_api_version=None, component_type=None, id=None, ignore_errors=None, init_timeout=None, metadata=None, name=None, scopes=None, secret_store_component=None, secrets=None, system_data=None, type=None, version=None):
+    def __init__(__self__, azure_api_version=None, component_type=None, deployment_errors=None, id=None, ignore_errors=None, init_timeout=None, metadata=None, name=None, provisioning_state=None, scopes=None, secret_store_component=None, secrets=None, service_component_bind=None, system_data=None, type=None, version=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
         if component_type and not isinstance(component_type, str):
             raise TypeError("Expected argument 'component_type' to be a str")
         pulumi.set(__self__, "component_type", component_type)
+        if deployment_errors and not isinstance(deployment_errors, str):
+            raise TypeError("Expected argument 'deployment_errors' to be a str")
+        pulumi.set(__self__, "deployment_errors", deployment_errors)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -50,6 +53,9 @@ class GetConnectedEnvironmentsDaprComponentResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if scopes and not isinstance(scopes, list):
             raise TypeError("Expected argument 'scopes' to be a list")
         pulumi.set(__self__, "scopes", scopes)
@@ -59,6 +65,9 @@ class GetConnectedEnvironmentsDaprComponentResult:
         if secrets and not isinstance(secrets, list):
             raise TypeError("Expected argument 'secrets' to be a list")
         pulumi.set(__self__, "secrets", secrets)
+        if service_component_bind and not isinstance(service_component_bind, list):
+            raise TypeError("Expected argument 'service_component_bind' to be a list")
+        pulumi.set(__self__, "service_component_bind", service_component_bind)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -84,6 +93,14 @@ class GetConnectedEnvironmentsDaprComponentResult:
         Component type
         """
         return pulumi.get(self, "component_type")
+
+    @property
+    @pulumi.getter(name="deploymentErrors")
+    def deployment_errors(self) -> builtins.str:
+        """
+        Any errors that occurred during deployment or deployment validation
+        """
+        return pulumi.get(self, "deployment_errors")
 
     @property
     @pulumi.getter
@@ -126,6 +143,14 @@ class GetConnectedEnvironmentsDaprComponentResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        Provisioning state of the Connected Environment Dapr Component.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
     @pulumi.getter
     def scopes(self) -> Optional[Sequence[builtins.str]]:
         """
@@ -148,6 +173,14 @@ class GetConnectedEnvironmentsDaprComponentResult:
         Collection of secrets used by a Dapr component
         """
         return pulumi.get(self, "secrets")
+
+    @property
+    @pulumi.getter(name="serviceComponentBind")
+    def service_component_bind(self) -> Optional[Sequence['outputs.DaprComponentServiceBindingResponse']]:
+        """
+        List of container app services that are bound to the Dapr component
+        """
+        return pulumi.get(self, "service_component_bind")
 
     @property
     @pulumi.getter(name="systemData")
@@ -182,14 +215,17 @@ class AwaitableGetConnectedEnvironmentsDaprComponentResult(GetConnectedEnvironme
         return GetConnectedEnvironmentsDaprComponentResult(
             azure_api_version=self.azure_api_version,
             component_type=self.component_type,
+            deployment_errors=self.deployment_errors,
             id=self.id,
             ignore_errors=self.ignore_errors,
             init_timeout=self.init_timeout,
             metadata=self.metadata,
             name=self.name,
+            provisioning_state=self.provisioning_state,
             scopes=self.scopes,
             secret_store_component=self.secret_store_component,
             secrets=self.secrets,
+            service_component_bind=self.service_component_bind,
             system_data=self.system_data,
             type=self.type,
             version=self.version)
@@ -202,9 +238,9 @@ def get_connected_environments_dapr_component(component_name: Optional[builtins.
     """
     Dapr Component.
 
-    Uses Azure REST API version 2025-01-01.
+    Uses Azure REST API version 2025-02-02-preview.
 
-    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str component_name: Name of the Dapr Component.
@@ -221,14 +257,17 @@ def get_connected_environments_dapr_component(component_name: Optional[builtins.
     return AwaitableGetConnectedEnvironmentsDaprComponentResult(
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         component_type=pulumi.get(__ret__, 'component_type'),
+        deployment_errors=pulumi.get(__ret__, 'deployment_errors'),
         id=pulumi.get(__ret__, 'id'),
         ignore_errors=pulumi.get(__ret__, 'ignore_errors'),
         init_timeout=pulumi.get(__ret__, 'init_timeout'),
         metadata=pulumi.get(__ret__, 'metadata'),
         name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         scopes=pulumi.get(__ret__, 'scopes'),
         secret_store_component=pulumi.get(__ret__, 'secret_store_component'),
         secrets=pulumi.get(__ret__, 'secrets'),
+        service_component_bind=pulumi.get(__ret__, 'service_component_bind'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
@@ -239,9 +278,9 @@ def get_connected_environments_dapr_component_output(component_name: Optional[pu
     """
     Dapr Component.
 
-    Uses Azure REST API version 2025-01-01.
+    Uses Azure REST API version 2025-02-02-preview.
 
-    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str component_name: Name of the Dapr Component.
@@ -257,14 +296,17 @@ def get_connected_environments_dapr_component_output(component_name: Optional[pu
     return __ret__.apply(lambda __response__: GetConnectedEnvironmentsDaprComponentResult(
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         component_type=pulumi.get(__response__, 'component_type'),
+        deployment_errors=pulumi.get(__response__, 'deployment_errors'),
         id=pulumi.get(__response__, 'id'),
         ignore_errors=pulumi.get(__response__, 'ignore_errors'),
         init_timeout=pulumi.get(__response__, 'init_timeout'),
         metadata=pulumi.get(__response__, 'metadata'),
         name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         scopes=pulumi.get(__response__, 'scopes'),
         secret_store_component=pulumi.get(__response__, 'secret_store_component'),
         secrets=pulumi.get(__response__, 'secrets'),
+        service_component_bind=pulumi.get(__response__, 'service_component_bind'),
         system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type'),
         version=pulumi.get(__response__, 'version')))

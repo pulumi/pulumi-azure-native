@@ -28,10 +28,16 @@ class GetManagedEnvironmentResult:
     """
     An environment for hosting container apps
     """
-    def __init__(__self__, app_logs_configuration=None, azure_api_version=None, custom_domain_configuration=None, dapr_ai_connection_string=None, dapr_ai_instrumentation_key=None, dapr_configuration=None, default_domain=None, deployment_errors=None, event_stream_endpoint=None, id=None, identity=None, infrastructure_resource_group=None, keda_configuration=None, kind=None, location=None, name=None, peer_authentication=None, peer_traffic_configuration=None, provisioning_state=None, static_ip=None, system_data=None, tags=None, type=None, vnet_configuration=None, workload_profiles=None, zone_redundant=None):
+    def __init__(__self__, app_insights_configuration=None, app_logs_configuration=None, availability_zones=None, azure_api_version=None, custom_domain_configuration=None, dapr_ai_connection_string=None, dapr_ai_instrumentation_key=None, dapr_configuration=None, default_domain=None, deployment_errors=None, disk_encryption_configuration=None, event_stream_endpoint=None, id=None, identity=None, infrastructure_resource_group=None, ingress_configuration=None, keda_configuration=None, kind=None, location=None, name=None, open_telemetry_configuration=None, peer_authentication=None, peer_traffic_configuration=None, private_endpoint_connections=None, private_link_default_domain=None, provisioning_state=None, public_network_access=None, static_ip=None, system_data=None, tags=None, type=None, vnet_configuration=None, workload_profiles=None, zone_redundant=None):
+        if app_insights_configuration and not isinstance(app_insights_configuration, dict):
+            raise TypeError("Expected argument 'app_insights_configuration' to be a dict")
+        pulumi.set(__self__, "app_insights_configuration", app_insights_configuration)
         if app_logs_configuration and not isinstance(app_logs_configuration, dict):
             raise TypeError("Expected argument 'app_logs_configuration' to be a dict")
         pulumi.set(__self__, "app_logs_configuration", app_logs_configuration)
+        if availability_zones and not isinstance(availability_zones, list):
+            raise TypeError("Expected argument 'availability_zones' to be a list")
+        pulumi.set(__self__, "availability_zones", availability_zones)
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -53,6 +59,9 @@ class GetManagedEnvironmentResult:
         if deployment_errors and not isinstance(deployment_errors, str):
             raise TypeError("Expected argument 'deployment_errors' to be a str")
         pulumi.set(__self__, "deployment_errors", deployment_errors)
+        if disk_encryption_configuration and not isinstance(disk_encryption_configuration, dict):
+            raise TypeError("Expected argument 'disk_encryption_configuration' to be a dict")
+        pulumi.set(__self__, "disk_encryption_configuration", disk_encryption_configuration)
         if event_stream_endpoint and not isinstance(event_stream_endpoint, str):
             raise TypeError("Expected argument 'event_stream_endpoint' to be a str")
         pulumi.set(__self__, "event_stream_endpoint", event_stream_endpoint)
@@ -65,6 +74,9 @@ class GetManagedEnvironmentResult:
         if infrastructure_resource_group and not isinstance(infrastructure_resource_group, str):
             raise TypeError("Expected argument 'infrastructure_resource_group' to be a str")
         pulumi.set(__self__, "infrastructure_resource_group", infrastructure_resource_group)
+        if ingress_configuration and not isinstance(ingress_configuration, dict):
+            raise TypeError("Expected argument 'ingress_configuration' to be a dict")
+        pulumi.set(__self__, "ingress_configuration", ingress_configuration)
         if keda_configuration and not isinstance(keda_configuration, dict):
             raise TypeError("Expected argument 'keda_configuration' to be a dict")
         pulumi.set(__self__, "keda_configuration", keda_configuration)
@@ -77,15 +89,27 @@ class GetManagedEnvironmentResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if open_telemetry_configuration and not isinstance(open_telemetry_configuration, dict):
+            raise TypeError("Expected argument 'open_telemetry_configuration' to be a dict")
+        pulumi.set(__self__, "open_telemetry_configuration", open_telemetry_configuration)
         if peer_authentication and not isinstance(peer_authentication, dict):
             raise TypeError("Expected argument 'peer_authentication' to be a dict")
         pulumi.set(__self__, "peer_authentication", peer_authentication)
         if peer_traffic_configuration and not isinstance(peer_traffic_configuration, dict):
             raise TypeError("Expected argument 'peer_traffic_configuration' to be a dict")
         pulumi.set(__self__, "peer_traffic_configuration", peer_traffic_configuration)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        if private_link_default_domain and not isinstance(private_link_default_domain, str):
+            raise TypeError("Expected argument 'private_link_default_domain' to be a str")
+        pulumi.set(__self__, "private_link_default_domain", private_link_default_domain)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if static_ip and not isinstance(static_ip, str):
             raise TypeError("Expected argument 'static_ip' to be a str")
         pulumi.set(__self__, "static_ip", static_ip)
@@ -109,12 +133,28 @@ class GetManagedEnvironmentResult:
         pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
+    @pulumi.getter(name="appInsightsConfiguration")
+    def app_insights_configuration(self) -> Optional['outputs.AppInsightsConfigurationResponse']:
+        """
+        Environment level Application Insights configuration
+        """
+        return pulumi.get(self, "app_insights_configuration")
+
+    @property
     @pulumi.getter(name="appLogsConfiguration")
     def app_logs_configuration(self) -> Optional['outputs.AppLogsConfigurationResponse']:
         """
-        Cluster configuration which enables the log daemon to export app logs to configured destination.
+        Cluster configuration which enables the log daemon to export app logs to configured destination
         """
         return pulumi.get(self, "app_logs_configuration")
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[Sequence[builtins.str]]:
+        """
+        The list of availability zones to use for managed environment
+        """
+        return pulumi.get(self, "availability_zones")
 
     @property
     @pulumi.getter(name="azureApiVersion")
@@ -173,6 +213,14 @@ class GetManagedEnvironmentResult:
         return pulumi.get(self, "deployment_errors")
 
     @property
+    @pulumi.getter(name="diskEncryptionConfiguration")
+    def disk_encryption_configuration(self) -> Optional['outputs.DiskEncryptionConfigurationResponse']:
+        """
+        Disk encryption configuration for the Managed Environment.
+        """
+        return pulumi.get(self, "disk_encryption_configuration")
+
+    @property
     @pulumi.getter(name="eventStreamEndpoint")
     def event_stream_endpoint(self) -> builtins.str:
         """
@@ -203,6 +251,14 @@ class GetManagedEnvironmentResult:
         Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. If a subnet ID is provided, this resource group will be created in the same subscription as the subnet.
         """
         return pulumi.get(self, "infrastructure_resource_group")
+
+    @property
+    @pulumi.getter(name="ingressConfiguration")
+    def ingress_configuration(self) -> Optional['outputs.IngressConfigurationResponse']:
+        """
+        Ingress configuration for the Managed Environment.
+        """
+        return pulumi.get(self, "ingress_configuration")
 
     @property
     @pulumi.getter(name="kedaConfiguration")
@@ -237,6 +293,14 @@ class GetManagedEnvironmentResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="openTelemetryConfiguration")
+    def open_telemetry_configuration(self) -> Optional['outputs.OpenTelemetryConfigurationResponse']:
+        """
+        Environment Open Telemetry configuration
+        """
+        return pulumi.get(self, "open_telemetry_configuration")
+
+    @property
     @pulumi.getter(name="peerAuthentication")
     def peer_authentication(self) -> Optional['outputs.ManagedEnvironmentResponsePeerAuthentication']:
         """
@@ -253,12 +317,36 @@ class GetManagedEnvironmentResult:
         return pulumi.get(self, "peer_traffic_configuration")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        Private endpoint connections to the resource.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="privateLinkDefaultDomain")
+    def private_link_default_domain(self) -> builtins.str:
+        """
+        Private Link Default Domain Name for the environment
+        """
+        return pulumi.get(self, "private_link_default_domain")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> builtins.str:
         """
         Provisioning state of the Environment.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[builtins.str]:
+        """
+        Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled'.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="staticIp")
@@ -323,7 +411,9 @@ class AwaitableGetManagedEnvironmentResult(GetManagedEnvironmentResult):
         if False:
             yield self
         return GetManagedEnvironmentResult(
+            app_insights_configuration=self.app_insights_configuration,
             app_logs_configuration=self.app_logs_configuration,
+            availability_zones=self.availability_zones,
             azure_api_version=self.azure_api_version,
             custom_domain_configuration=self.custom_domain_configuration,
             dapr_ai_connection_string=self.dapr_ai_connection_string,
@@ -331,17 +421,23 @@ class AwaitableGetManagedEnvironmentResult(GetManagedEnvironmentResult):
             dapr_configuration=self.dapr_configuration,
             default_domain=self.default_domain,
             deployment_errors=self.deployment_errors,
+            disk_encryption_configuration=self.disk_encryption_configuration,
             event_stream_endpoint=self.event_stream_endpoint,
             id=self.id,
             identity=self.identity,
             infrastructure_resource_group=self.infrastructure_resource_group,
+            ingress_configuration=self.ingress_configuration,
             keda_configuration=self.keda_configuration,
             kind=self.kind,
             location=self.location,
             name=self.name,
+            open_telemetry_configuration=self.open_telemetry_configuration,
             peer_authentication=self.peer_authentication,
             peer_traffic_configuration=self.peer_traffic_configuration,
+            private_endpoint_connections=self.private_endpoint_connections,
+            private_link_default_domain=self.private_link_default_domain,
             provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             static_ip=self.static_ip,
             system_data=self.system_data,
             tags=self.tags,
@@ -357,9 +453,9 @@ def get_managed_environment(environment_name: Optional[builtins.str] = None,
     """
     Get the properties of a Managed Environment used to host container apps.
 
-    Uses Azure REST API version 2025-01-01.
+    Uses Azure REST API version 2025-02-02-preview.
 
-    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str environment_name: Name of the Environment.
@@ -372,7 +468,9 @@ def get_managed_environment(environment_name: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app:getManagedEnvironment', __args__, opts=opts, typ=GetManagedEnvironmentResult).value
 
     return AwaitableGetManagedEnvironmentResult(
+        app_insights_configuration=pulumi.get(__ret__, 'app_insights_configuration'),
         app_logs_configuration=pulumi.get(__ret__, 'app_logs_configuration'),
+        availability_zones=pulumi.get(__ret__, 'availability_zones'),
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         custom_domain_configuration=pulumi.get(__ret__, 'custom_domain_configuration'),
         dapr_ai_connection_string=pulumi.get(__ret__, 'dapr_ai_connection_string'),
@@ -380,17 +478,23 @@ def get_managed_environment(environment_name: Optional[builtins.str] = None,
         dapr_configuration=pulumi.get(__ret__, 'dapr_configuration'),
         default_domain=pulumi.get(__ret__, 'default_domain'),
         deployment_errors=pulumi.get(__ret__, 'deployment_errors'),
+        disk_encryption_configuration=pulumi.get(__ret__, 'disk_encryption_configuration'),
         event_stream_endpoint=pulumi.get(__ret__, 'event_stream_endpoint'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         infrastructure_resource_group=pulumi.get(__ret__, 'infrastructure_resource_group'),
+        ingress_configuration=pulumi.get(__ret__, 'ingress_configuration'),
         keda_configuration=pulumi.get(__ret__, 'keda_configuration'),
         kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
+        open_telemetry_configuration=pulumi.get(__ret__, 'open_telemetry_configuration'),
         peer_authentication=pulumi.get(__ret__, 'peer_authentication'),
         peer_traffic_configuration=pulumi.get(__ret__, 'peer_traffic_configuration'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        private_link_default_domain=pulumi.get(__ret__, 'private_link_default_domain'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
         static_ip=pulumi.get(__ret__, 'static_ip'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -404,9 +508,9 @@ def get_managed_environment_output(environment_name: Optional[pulumi.Input[built
     """
     Get the properties of a Managed Environment used to host container apps.
 
-    Uses Azure REST API version 2025-01-01.
+    Uses Azure REST API version 2025-02-02-preview.
 
-    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str environment_name: Name of the Environment.
@@ -418,7 +522,9 @@ def get_managed_environment_output(environment_name: Optional[pulumi.Input[built
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app:getManagedEnvironment', __args__, opts=opts, typ=GetManagedEnvironmentResult)
     return __ret__.apply(lambda __response__: GetManagedEnvironmentResult(
+        app_insights_configuration=pulumi.get(__response__, 'app_insights_configuration'),
         app_logs_configuration=pulumi.get(__response__, 'app_logs_configuration'),
+        availability_zones=pulumi.get(__response__, 'availability_zones'),
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         custom_domain_configuration=pulumi.get(__response__, 'custom_domain_configuration'),
         dapr_ai_connection_string=pulumi.get(__response__, 'dapr_ai_connection_string'),
@@ -426,17 +532,23 @@ def get_managed_environment_output(environment_name: Optional[pulumi.Input[built
         dapr_configuration=pulumi.get(__response__, 'dapr_configuration'),
         default_domain=pulumi.get(__response__, 'default_domain'),
         deployment_errors=pulumi.get(__response__, 'deployment_errors'),
+        disk_encryption_configuration=pulumi.get(__response__, 'disk_encryption_configuration'),
         event_stream_endpoint=pulumi.get(__response__, 'event_stream_endpoint'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         infrastructure_resource_group=pulumi.get(__response__, 'infrastructure_resource_group'),
+        ingress_configuration=pulumi.get(__response__, 'ingress_configuration'),
         keda_configuration=pulumi.get(__response__, 'keda_configuration'),
         kind=pulumi.get(__response__, 'kind'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
+        open_telemetry_configuration=pulumi.get(__response__, 'open_telemetry_configuration'),
         peer_authentication=pulumi.get(__response__, 'peer_authentication'),
         peer_traffic_configuration=pulumi.get(__response__, 'peer_traffic_configuration'),
+        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
+        private_link_default_domain=pulumi.get(__response__, 'private_link_default_domain'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
         static_ip=pulumi.get(__response__, 'static_ip'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
