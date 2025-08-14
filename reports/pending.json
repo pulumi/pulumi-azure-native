@@ -123,9 +123,12 @@
   "AzureDataTransfer": [
     "2025-03-01-preview",
     "2025-04-11-preview",
-    "2025-05-21"
+    "2025-05-21",
+    "2025-05-30-preview"
   ],
-  "AzureFleet": [],
+  "AzureFleet": [
+    "2025-07-01-preview"
+  ],
   "AzureLargeInstance": [],
   "AzurePlaywrightService": [],
   "AzureSphere": [],
@@ -343,7 +346,8 @@
     "2025-04-02-preview",
     "2025-05-01",
     "2025-05-02-preview",
-    "2025-06-02-preview"
+    "2025-06-02-preview",
+    "2025-07-01"
   ],
   "ContainerStorage": [],
   "Contoso": [],
@@ -496,7 +500,8 @@
   "DataLakeAnalytics": [],
   "DataLakeStore": [],
   "DataMigration": [
-    "2025-03-15-preview"
+    "2025-03-15-preview",
+    "2025-06-30"
   ],
   "DataProtection": [
     "2025-02-01",
@@ -753,7 +758,8 @@
   "LabServices": [],
   "LoadTestService": [
     "2024-12-01-preview",
-    "2025-07-01-preview"
+    "2025-07-01-preview",
+    "2025-09-01"
   ],
   "Logic": [
     "2015-08-01-preview",
@@ -923,7 +929,8 @@
     "2025-01-01",
     "2025-01-01-preview",
     "2025-03-01",
-    "2025-03-01-preview"
+    "2025-03-01-preview",
+    "2025-06-01"
   ],
   "Network": [
     "2019-04-01",
@@ -1191,7 +1198,8 @@
     "2024-06-01-preview",
     "2024-09-01-preview",
     "2024-11-01-preview",
-    "2025-03-01-preview"
+    "2025-03-01-preview",
+    "2025-06-01-preview"
   ],
   "ServiceFabricMesh": [],
   "ServiceLinker": [

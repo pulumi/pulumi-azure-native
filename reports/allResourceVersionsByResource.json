@@ -4222,7 +4222,8 @@
       "2024-09-27",
       "2025-03-01-preview",
       "2025-04-11-preview",
-      "2025-05-21"
+      "2025-05-21",
+      "2025-05-30-preview"
     ],
     "Flow": [
       "2023-10-11-preview",
@@ -4232,7 +4233,11 @@
       "2024-09-27",
       "2025-03-01-preview",
       "2025-04-11-preview",
-      "2025-05-21"
+      "2025-05-21",
+      "2025-05-30-preview"
+    ],
+    "FlowProfile": [
+      "2025-05-30-preview"
     ],
     "Pipeline": [
       "2023-10-11-preview",
@@ -4242,31 +4247,36 @@
       "2024-09-27",
       "2025-03-01-preview",
       "2025-04-11-preview",
-      "2025-05-21"
+      "2025-05-21",
+      "2025-05-30-preview"
     ],
     "getFlowDestinationEndpointPorts": [
       "2024-09-27",
       "2025-03-01-preview",
       "2025-04-11-preview",
-      "2025-05-21"
+      "2025-05-21",
+      "2025-05-30-preview"
     ],
     "getFlowDestinationEndpoints": [
       "2024-09-27",
       "2025-03-01-preview",
       "2025-04-11-preview",
-      "2025-05-21"
+      "2025-05-21",
+      "2025-05-30-preview"
     ],
     "getFlowSourceAddresses": [
       "2024-09-27",
       "2025-03-01-preview",
       "2025-04-11-preview",
-      "2025-05-21"
+      "2025-05-21",
+      "2025-05-30-preview"
     ],
     "getFlowStreamConnectionString": [
       "2024-09-27",
       "2025-03-01-preview",
       "2025-04-11-preview",
-      "2025-05-21"
+      "2025-05-21",
+      "2025-05-30-preview"
     ],
     "listAzureDataTransferApprovedSchemas": [
       "2023-10-11-preview",
@@ -4276,11 +4286,16 @@
       "2024-09-27",
       "2025-03-01-preview",
       "2025-04-11-preview",
-      "2025-05-21"
+      "2025-05-21",
+      "2025-05-30-preview"
+    ],
+    "listAzureDataTransferFlowProfiles": [
+      "2025-05-30-preview"
     ],
     "listListFlowsByPipeline": [
       "2025-04-11-preview",
-      "2025-05-21"
+      "2025-05-21",
+      "2025-05-30-preview"
     ],
     "listListPendingConnection": [
       "2023-10-11-preview",
@@ -4290,7 +4305,8 @@
       "2024-09-27",
       "2025-03-01-preview",
       "2025-04-11-preview",
-      "2025-05-21"
+      "2025-05-21",
+      "2025-05-30-preview"
     ],
     "listListPendingFlow": [
       "2023-10-11-preview",
@@ -4300,7 +4316,8 @@
       "2024-09-27",
       "2025-03-01-preview",
       "2025-04-11-preview",
-      "2025-05-21"
+      "2025-05-21",
+      "2025-05-30-preview"
     ],
     "listListSchema": [
       "2023-10-11-preview",
@@ -4310,14 +4327,16 @@
       "2024-09-27",
       "2025-03-01-preview",
       "2025-04-11-preview",
-      "2025-05-21"
+      "2025-05-21",
+      "2025-05-30-preview"
     ]
   },
   "AzureFleet": {
     "Fleet": [
       "2023-11-01-preview",
       "2024-05-01-preview",
-      "2024-11-01"
+      "2024-11-01",
+      "2025-07-01-preview"
     ]
   },
   "AzureLargeInstance": {
@@ -7490,7 +7509,8 @@
     "DeploymentSafeguard": [
       "2025-04-01",
       "2025-04-02-preview",
-      "2025-05-02-preview"
+      "2025-05-02-preview",
+      "2025-07-01"
     ],
     "Fleet": [
       "2022-06-02-preview",
@@ -10561,16 +10581,25 @@
   "DataMigration": {
     "DatabaseMigrationsMongoToCosmosDbRUMongo": [
       "2023-07-15-preview",
-      "2025-03-15-preview"
+      "2025-03-15-preview",
+      "2025-06-30"
     ],
     "DatabaseMigrationsMongoToCosmosDbvCoreMongo": [
       "2023-07-15-preview",
-      "2025-03-15-preview"
+      "2025-03-15-preview",
+      "2025-06-30"
     ],
     "DatabaseMigrationsSqlDb": [
       "2022-03-30-preview",
       "2023-07-15-preview",
-      "2025-03-15-preview"
+      "2025-03-15-preview",
+      "2025-06-30"
+    ],
+    "DatabaseMigrationsSqlMi": [
+      "2025-06-30"
+    ],
+    "DatabaseMigrationsSqlVm": [
+      "2025-06-30"
     ],
     "File": [
       "2018-07-15-preview",
@@ -10579,11 +10608,13 @@
       "2022-01-30-preview",
       "2022-03-30-preview",
       "2023-07-15-preview",
-      "2025-03-15-preview"
+      "2025-03-15-preview",
+      "2025-06-30"
     ],
     "MigrationService": [
       "2023-07-15-preview",
-      "2025-03-15-preview"
+      "2025-03-15-preview",
+      "2025-06-30"
     ],
     "Project": [
       "2017-11-15-preview",
@@ -10596,7 +10627,8 @@
       "2022-01-30-preview",
       "2022-03-30-preview",
       "2023-07-15-preview",
-      "2025-03-15-preview"
+      "2025-03-15-preview",
+      "2025-06-30"
     ],
     "Service": [
       "2017-11-15-preview",
@@ -10609,7 +10641,8 @@
       "2022-01-30-preview",
       "2022-03-30-preview",
       "2023-07-15-preview",
-      "2025-03-15-preview"
+      "2025-03-15-preview",
+      "2025-06-30"
     ],
     "ServiceTask": [
       "2018-07-15-preview",
@@ -10618,14 +10651,16 @@
       "2022-01-30-preview",
       "2022-03-30-preview",
       "2023-07-15-preview",
-      "2025-03-15-preview"
+      "2025-03-15-preview",
+      "2025-06-30"
     ],
     "SqlMigrationService": [
       "2021-10-30-preview",
       "2022-01-30-preview",
       "2022-03-30-preview",
       "2023-07-15-preview",
-      "2025-03-15-preview"
+      "2025-03-15-preview",
+      "2025-06-30"
     ],
     "Task": [
       "2017-11-15-preview",
@@ -10638,21 +10673,24 @@
       "2022-01-30-preview",
       "2022-03-30-preview",
       "2023-07-15-preview",
-      "2025-03-15-preview"
+      "2025-03-15-preview",
+      "2025-06-30"
     ],
     "listSqlMigrationServiceAuthKeys": [
       "2021-10-30-preview",
       "2022-01-30-preview",
       "2022-03-30-preview",
       "2023-07-15-preview",
-      "2025-03-15-preview"
+      "2025-03-15-preview",
+      "2025-06-30"
     ],
     "listSqlMigrationServiceMonitoringData": [
       "2021-10-30-preview",
       "2022-01-30-preview",
       "2022-03-30-preview",
       "2023-07-15-preview",
-      "2025-03-15-preview"
+      "2025-03-15-preview",
+      "2025-06-30"
     ]
   },
   "DataProtection": {
@@ -13715,11 +13753,9 @@
   },
   "HealthDataAIServices": {
     "DeidService": [
-      "2024-02-28-preview",
       "2024-09-20"
     ],
     "PrivateEndpointConnection": [
-      "2024-02-28-preview",
       "2024-09-20"
     ]
   },
@@ -15103,7 +15139,8 @@
       "2024-12-01-preview"
     ],
     "PlaywrightWorkspace": [
-      "2025-07-01-preview"
+      "2025-07-01-preview",
+      "2025-09-01"
     ]
   },
   "Logic": {
@@ -17871,7 +17908,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "Backup": [
       "2022-11-01-preview",
@@ -17891,7 +17929,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "BackupPolicy": [
       "2020-05-01",
@@ -17931,7 +17970,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "BackupVault": [
       "2022-11-01-preview",
@@ -17951,7 +17991,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "CapacityPool": [
       "2017-08-15",
@@ -18000,7 +18041,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "CapacityPoolBackup": [
       "2020-05-01",
@@ -18073,7 +18115,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "CapacityPoolSubvolume": [
       "2021-10-01",
@@ -18101,7 +18144,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "CapacityPoolVolume": [
       "2017-08-15",
@@ -18150,7 +18194,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "CapacityPoolVolumeQuotaRule": [
       "2022-01-01",
@@ -18177,7 +18222,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "SnapshotPolicy": [
       "2020-05-01",
@@ -18217,7 +18263,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "VolumeGroup": [
       "2021-08-01",
@@ -18246,7 +18293,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "getAccountChangeKeyVaultInformation": [
       "2023-11-01-preview",
@@ -18257,7 +18305,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "getAccountKeyVaultStatus": [
       "2024-09-01-preview"
@@ -18288,7 +18337,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "getCapacityPoolVolumeGroupIdForLdapUser": [
       "2022-11-01",
@@ -18311,7 +18361,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ],
     "listCapacityPoolVolumeQuotaReport": [
       "2024-03-01-preview",
@@ -18346,7 +18397,8 @@
       "2025-01-01",
       "2025-01-01-preview",
       "2025-03-01",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01"
     ]
   },
   "Network": {
@@ -26260,7 +26312,8 @@
       "2020-12-01-preview",
       "2021-06-01",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "ApplicationType": [
       "2017-07-01-preview",
@@ -26272,7 +26325,8 @@
       "2020-12-01-preview",
       "2021-06-01",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "ApplicationTypeVersion": [
       "2017-07-01-preview",
@@ -26284,7 +26338,8 @@
       "2020-12-01-preview",
       "2021-06-01",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "Cluster": [
       "2016-09-01",
@@ -26321,7 +26376,8 @@
       "2024-06-01-preview",
       "2024-09-01-preview",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "ManagedClusterApplication": [
       "2021-01-01-preview",
@@ -26434,7 +26490,8 @@
       "2024-06-01-preview",
       "2024-09-01-preview",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "Service": [
       "2017-07-01-preview",
@@ -26446,7 +26503,8 @@
       "2020-12-01-preview",
       "2021-06-01",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "getManagedAzResiliencyStatus": [
       "2022-02-01-preview",
@@ -26464,11 +26522,13 @@
       "2024-06-01-preview",
       "2024-09-01-preview",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "getManagedClusterFaultSimulation": [
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "getManagedMaintenanceWindowStatus": [
       "2023-07-01-preview",
@@ -26480,11 +26540,13 @@
       "2024-06-01-preview",
       "2024-09-01-preview",
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "getNodeTypeFaultSimulation": [
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "listClusterUpgradableVersions": [
       "2021-06-01"
@@ -26494,11 +26556,13 @@
     ],
     "listManagedClusterFaultSimulation": [
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ],
     "listNodeTypeFaultSimulation": [
       "2024-11-01-preview",
-      "2025-03-01-preview"
+      "2025-03-01-preview",
+      "2025-06-01-preview"
     ]
   },
   "ServiceFabricMesh": {
