@@ -184,6 +184,9 @@ func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts a
 	options := &azidentity.AzureCLICredentialOptions{
 		AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
 	}
+	if authConf.tenantId != "" {
+		options.TenantID = authConf.tenantId
+	}
 	if authConf.subscriptionId != "" {
 		options.Subscription = authConf.subscriptionId
 	}
