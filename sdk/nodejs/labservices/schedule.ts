@@ -97,26 +97,26 @@ export class Schedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.labName === undefined) && !opts.urn) {
+            if (args?.labName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.stopAt === undefined) && !opts.urn) {
+            if (args?.stopAt === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stopAt'");
             }
-            if ((!args || args.timeZoneId === undefined) && !opts.urn) {
+            if (args?.timeZoneId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeZoneId'");
             }
-            resourceInputs["labName"] = args ? args.labName : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
-            resourceInputs["recurrencePattern"] = args ? args.recurrencePattern : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scheduleName"] = args ? args.scheduleName : undefined;
-            resourceInputs["startAt"] = args ? args.startAt : undefined;
-            resourceInputs["stopAt"] = args ? args.stopAt : undefined;
-            resourceInputs["timeZoneId"] = args ? args.timeZoneId : undefined;
+            resourceInputs["labName"] = args?.labName;
+            resourceInputs["notes"] = args?.notes;
+            resourceInputs["recurrencePattern"] = args?.recurrencePattern;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scheduleName"] = args?.scheduleName;
+            resourceInputs["startAt"] = args?.startAt;
+            resourceInputs["stopAt"] = args?.stopAt;
+            resourceInputs["timeZoneId"] = args?.timeZoneId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -115,24 +115,24 @@ export class ServerDetails extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["asAdministrators"] = args ? args.asAdministrators : undefined;
-            resourceInputs["backupBlobContainerUri"] = args ? args.backupBlobContainerUri : undefined;
-            resourceInputs["gatewayDetails"] = args ? args.gatewayDetails : undefined;
-            resourceInputs["ipV4FirewallSettings"] = args ? args.ipV4FirewallSettings : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedMode"] = (args ? args.managedMode : undefined) ?? 1;
-            resourceInputs["querypoolConnectionMode"] = (args ? args.querypoolConnectionMode : undefined) ?? "All";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverMonitorMode"] = (args ? args.serverMonitorMode : undefined) ?? 1;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["asAdministrators"] = args?.asAdministrators;
+            resourceInputs["backupBlobContainerUri"] = args?.backupBlobContainerUri;
+            resourceInputs["gatewayDetails"] = args?.gatewayDetails;
+            resourceInputs["ipV4FirewallSettings"] = args?.ipV4FirewallSettings;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedMode"] = (args?.managedMode) ?? 1;
+            resourceInputs["querypoolConnectionMode"] = (args?.querypoolConnectionMode) ?? "All";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverMonitorMode"] = (args?.serverMonitorMode) ?? 1;
+            resourceInputs["serverName"] = args?.serverName;
             resourceInputs["sku"] = args ? (args.sku ? pulumi.output(args.sku).apply(inputs.analysisservices.resourceSkuArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

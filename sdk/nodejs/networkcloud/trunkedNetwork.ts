@@ -127,27 +127,27 @@ export class TrunkedNetwork extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.isolationDomainIds === undefined) && !opts.urn) {
+            if (args?.isolationDomainIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'isolationDomainIds'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vlans === undefined) && !opts.urn) {
+            if (args?.vlans === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vlans'");
             }
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["hybridAksPluginType"] = (args ? args.hybridAksPluginType : undefined) ?? "SRIOV";
-            resourceInputs["interfaceName"] = args ? args.interfaceName : undefined;
-            resourceInputs["isolationDomainIds"] = args ? args.isolationDomainIds : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trunkedNetworkName"] = args ? args.trunkedNetworkName : undefined;
-            resourceInputs["vlans"] = args ? args.vlans : undefined;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["hybridAksPluginType"] = (args?.hybridAksPluginType) ?? "SRIOV";
+            resourceInputs["interfaceName"] = args?.interfaceName;
+            resourceInputs["isolationDomainIds"] = args?.isolationDomainIds;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trunkedNetworkName"] = args?.trunkedNetworkName;
+            resourceInputs["vlans"] = args?.vlans;
             resourceInputs["associatedResourceIds"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;

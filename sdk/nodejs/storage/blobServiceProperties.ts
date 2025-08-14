@@ -105,24 +105,24 @@ export class BlobServiceProperties extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["automaticSnapshotPolicyEnabled"] = args ? args.automaticSnapshotPolicyEnabled : undefined;
-            resourceInputs["blobServicesName"] = args ? args.blobServicesName : undefined;
-            resourceInputs["changeFeed"] = args ? args.changeFeed : undefined;
-            resourceInputs["containerDeleteRetentionPolicy"] = args ? args.containerDeleteRetentionPolicy : undefined;
-            resourceInputs["cors"] = args ? args.cors : undefined;
-            resourceInputs["defaultServiceVersion"] = args ? args.defaultServiceVersion : undefined;
-            resourceInputs["deleteRetentionPolicy"] = args ? args.deleteRetentionPolicy : undefined;
-            resourceInputs["isVersioningEnabled"] = args ? args.isVersioningEnabled : undefined;
-            resourceInputs["lastAccessTimeTrackingPolicy"] = args ? args.lastAccessTimeTrackingPolicy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restorePolicy"] = args ? args.restorePolicy : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["automaticSnapshotPolicyEnabled"] = args?.automaticSnapshotPolicyEnabled;
+            resourceInputs["blobServicesName"] = args?.blobServicesName;
+            resourceInputs["changeFeed"] = args?.changeFeed;
+            resourceInputs["containerDeleteRetentionPolicy"] = args?.containerDeleteRetentionPolicy;
+            resourceInputs["cors"] = args?.cors;
+            resourceInputs["defaultServiceVersion"] = args?.defaultServiceVersion;
+            resourceInputs["deleteRetentionPolicy"] = args?.deleteRetentionPolicy;
+            resourceInputs["isVersioningEnabled"] = args?.isVersioningEnabled;
+            resourceInputs["lastAccessTimeTrackingPolicy"] = args?.lastAccessTimeTrackingPolicy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restorePolicy"] = args?.restorePolicy;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;

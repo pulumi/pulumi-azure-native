@@ -137,34 +137,34 @@ export class Extension extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.clusterResourceName === undefined) && !opts.urn) {
+            if (args?.clusterResourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterResourceName'");
             }
-            if ((!args || args.clusterRp === undefined) && !opts.urn) {
+            if (args?.clusterRp === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterRp'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["aksAssignedIdentity"] = args ? args.aksAssignedIdentity : undefined;
-            resourceInputs["autoUpgradeMinorVersion"] = (args ? args.autoUpgradeMinorVersion : undefined) ?? true;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["clusterResourceName"] = args ? args.clusterResourceName : undefined;
-            resourceInputs["clusterRp"] = args ? args.clusterRp : undefined;
-            resourceInputs["configurationProtectedSettings"] = args ? args.configurationProtectedSettings : undefined;
-            resourceInputs["configurationSettings"] = args ? args.configurationSettings : undefined;
-            resourceInputs["extensionName"] = args ? args.extensionName : undefined;
-            resourceInputs["extensionType"] = args ? args.extensionType : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["releaseTrain"] = (args ? args.releaseTrain : undefined) ?? "Stable";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["statuses"] = args ? args.statuses : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["aksAssignedIdentity"] = args?.aksAssignedIdentity;
+            resourceInputs["autoUpgradeMinorVersion"] = (args?.autoUpgradeMinorVersion) ?? true;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["clusterResourceName"] = args?.clusterResourceName;
+            resourceInputs["clusterRp"] = args?.clusterRp;
+            resourceInputs["configurationProtectedSettings"] = args?.configurationProtectedSettings;
+            resourceInputs["configurationSettings"] = args?.configurationSettings;
+            resourceInputs["extensionName"] = args?.extensionName;
+            resourceInputs["extensionType"] = args?.extensionType;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["releaseTrain"] = (args?.releaseTrain) ?? "Stable";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["statuses"] = args?.statuses;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["currentVersion"] = undefined /*out*/;
             resourceInputs["customLocationSettings"] = undefined /*out*/;

@@ -157,29 +157,29 @@ export class Workspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["azureADOnlyAuthentication"] = args ? args.azureADOnlyAuthentication : undefined;
-            resourceInputs["cspWorkspaceAdminProperties"] = args ? args.cspWorkspaceAdminProperties : undefined;
-            resourceInputs["defaultDataLakeStorage"] = args ? args.defaultDataLakeStorage : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
-            resourceInputs["managedVirtualNetwork"] = args ? args.managedVirtualNetwork : undefined;
-            resourceInputs["managedVirtualNetworkSettings"] = args ? args.managedVirtualNetworkSettings : undefined;
-            resourceInputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
-            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
-            resourceInputs["purviewConfiguration"] = args ? args.purviewConfiguration : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sqlAdministratorLogin"] = args ? args.sqlAdministratorLogin : undefined;
-            resourceInputs["sqlAdministratorLoginPassword"] = args ? args.sqlAdministratorLoginPassword : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trustedServiceBypassEnabled"] = (args ? args.trustedServiceBypassEnabled : undefined) ?? false;
-            resourceInputs["virtualNetworkProfile"] = args ? args.virtualNetworkProfile : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
-            resourceInputs["workspaceRepositoryConfiguration"] = args ? args.workspaceRepositoryConfiguration : undefined;
+            resourceInputs["azureADOnlyAuthentication"] = args?.azureADOnlyAuthentication;
+            resourceInputs["cspWorkspaceAdminProperties"] = args?.cspWorkspaceAdminProperties;
+            resourceInputs["defaultDataLakeStorage"] = args?.defaultDataLakeStorage;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedResourceGroupName"] = args?.managedResourceGroupName;
+            resourceInputs["managedVirtualNetwork"] = args?.managedVirtualNetwork;
+            resourceInputs["managedVirtualNetworkSettings"] = args?.managedVirtualNetworkSettings;
+            resourceInputs["privateEndpointConnections"] = args?.privateEndpointConnections;
+            resourceInputs["publicNetworkAccess"] = (args?.publicNetworkAccess) ?? "Enabled";
+            resourceInputs["purviewConfiguration"] = args?.purviewConfiguration;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sqlAdministratorLogin"] = args?.sqlAdministratorLogin;
+            resourceInputs["sqlAdministratorLoginPassword"] = args?.sqlAdministratorLoginPassword;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trustedServiceBypassEnabled"] = (args?.trustedServiceBypassEnabled) ?? false;
+            resourceInputs["virtualNetworkProfile"] = args?.virtualNetworkProfile;
+            resourceInputs["workspaceName"] = args?.workspaceName;
+            resourceInputs["workspaceRepositoryConfiguration"] = args?.workspaceRepositoryConfiguration;
             resourceInputs["adlaResourceId"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectivityEndpoints"] = undefined /*out*/;

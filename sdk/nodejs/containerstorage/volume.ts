@@ -87,23 +87,23 @@ export class Volume extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.capacityGiB === undefined) && !opts.urn) {
+            if (args?.capacityGiB === undefined && !opts.urn) {
                 throw new Error("Missing required property 'capacityGiB'");
             }
-            if ((!args || args.labels === undefined) && !opts.urn) {
+            if (args?.labels === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labels'");
             }
-            if ((!args || args.poolName === undefined) && !opts.urn) {
+            if (args?.poolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'poolName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["capacityGiB"] = args ? args.capacityGiB : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["poolName"] = args ? args.poolName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["volumeName"] = args ? args.volumeName : undefined;
+            resourceInputs["capacityGiB"] = args?.capacityGiB;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["poolName"] = args?.poolName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["volumeName"] = args?.volumeName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

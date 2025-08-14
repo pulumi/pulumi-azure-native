@@ -71,8 +71,8 @@ export class Connector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["connectorName"] = args ? args.connectorName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["connectorName"] = args?.connectorName;
+            resourceInputs["properties"] = args?.properties;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

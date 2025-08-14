@@ -225,42 +225,42 @@ export class Disk extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.creationData === undefined) && !opts.urn) {
+            if (args?.creationData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'creationData'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["burstingEnabled"] = args ? args.burstingEnabled : undefined;
-            resourceInputs["completionPercent"] = args ? args.completionPercent : undefined;
-            resourceInputs["creationData"] = args ? args.creationData : undefined;
-            resourceInputs["dataAccessAuthMode"] = args ? args.dataAccessAuthMode : undefined;
-            resourceInputs["diskAccessId"] = args ? args.diskAccessId : undefined;
-            resourceInputs["diskIOPSReadOnly"] = args ? args.diskIOPSReadOnly : undefined;
-            resourceInputs["diskIOPSReadWrite"] = args ? args.diskIOPSReadWrite : undefined;
-            resourceInputs["diskMBpsReadOnly"] = args ? args.diskMBpsReadOnly : undefined;
-            resourceInputs["diskMBpsReadWrite"] = args ? args.diskMBpsReadWrite : undefined;
-            resourceInputs["diskName"] = args ? args.diskName : undefined;
-            resourceInputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["encryptionSettingsCollection"] = args ? args.encryptionSettingsCollection : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maxShares"] = args ? args.maxShares : undefined;
-            resourceInputs["networkAccessPolicy"] = args ? args.networkAccessPolicy : undefined;
-            resourceInputs["optimizedForFrequentAttach"] = args ? args.optimizedForFrequentAttach : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["purchasePlan"] = args ? args.purchasePlan : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["supportedCapabilities"] = args ? args.supportedCapabilities : undefined;
-            resourceInputs["supportsHibernation"] = args ? args.supportsHibernation : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tier"] = args ? args.tier : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["burstingEnabled"] = args?.burstingEnabled;
+            resourceInputs["completionPercent"] = args?.completionPercent;
+            resourceInputs["creationData"] = args?.creationData;
+            resourceInputs["dataAccessAuthMode"] = args?.dataAccessAuthMode;
+            resourceInputs["diskAccessId"] = args?.diskAccessId;
+            resourceInputs["diskIOPSReadOnly"] = args?.diskIOPSReadOnly;
+            resourceInputs["diskIOPSReadWrite"] = args?.diskIOPSReadWrite;
+            resourceInputs["diskMBpsReadOnly"] = args?.diskMBpsReadOnly;
+            resourceInputs["diskMBpsReadWrite"] = args?.diskMBpsReadWrite;
+            resourceInputs["diskName"] = args?.diskName;
+            resourceInputs["diskSizeGB"] = args?.diskSizeGB;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["encryptionSettingsCollection"] = args?.encryptionSettingsCollection;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["hyperVGeneration"] = args?.hyperVGeneration;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maxShares"] = args?.maxShares;
+            resourceInputs["networkAccessPolicy"] = args?.networkAccessPolicy;
+            resourceInputs["optimizedForFrequentAttach"] = args?.optimizedForFrequentAttach;
+            resourceInputs["osType"] = args?.osType;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["purchasePlan"] = args?.purchasePlan;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["securityProfile"] = args?.securityProfile;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["supportedCapabilities"] = args?.supportedCapabilities;
+            resourceInputs["supportsHibernation"] = args?.supportsHibernation;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tier"] = args?.tier;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["burstingEnabledTime"] = undefined /*out*/;
             resourceInputs["diskSizeBytes"] = undefined /*out*/;

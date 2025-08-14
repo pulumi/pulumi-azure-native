@@ -85,10 +85,10 @@ export class PeerAsn extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["peerAsn"] = args ? args.peerAsn : undefined;
-            resourceInputs["peerAsnName"] = args ? args.peerAsnName : undefined;
-            resourceInputs["peerContactDetail"] = args ? args.peerContactDetail : undefined;
-            resourceInputs["peerName"] = args ? args.peerName : undefined;
+            resourceInputs["peerAsn"] = args?.peerAsn;
+            resourceInputs["peerAsnName"] = args?.peerAsnName;
+            resourceInputs["peerContactDetail"] = args?.peerContactDetail;
+            resourceInputs["peerName"] = args?.peerName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errorMessage"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

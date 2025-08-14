@@ -71,11 +71,11 @@ export class Ec2Instance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
             resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.awsconnector.ec2InstancePropertiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
+            resourceInputs["resourceUri"] = args?.resourceUri;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

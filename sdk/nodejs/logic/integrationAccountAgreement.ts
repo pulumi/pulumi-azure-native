@@ -109,42 +109,42 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.agreementType === undefined) && !opts.urn) {
+            if (args?.agreementType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agreementType'");
             }
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.guestIdentity === undefined) && !opts.urn) {
+            if (args?.guestIdentity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'guestIdentity'");
             }
-            if ((!args || args.guestPartner === undefined) && !opts.urn) {
+            if (args?.guestPartner === undefined && !opts.urn) {
                 throw new Error("Missing required property 'guestPartner'");
             }
-            if ((!args || args.hostIdentity === undefined) && !opts.urn) {
+            if (args?.hostIdentity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostIdentity'");
             }
-            if ((!args || args.hostPartner === undefined) && !opts.urn) {
+            if (args?.hostPartner === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostPartner'");
             }
-            if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
+            if (args?.integrationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["agreementName"] = args ? args.agreementName : undefined;
-            resourceInputs["agreementType"] = args ? args.agreementType : undefined;
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["guestIdentity"] = args ? args.guestIdentity : undefined;
-            resourceInputs["guestPartner"] = args ? args.guestPartner : undefined;
-            resourceInputs["hostIdentity"] = args ? args.hostIdentity : undefined;
-            resourceInputs["hostPartner"] = args ? args.hostPartner : undefined;
-            resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["agreementName"] = args?.agreementName;
+            resourceInputs["agreementType"] = args?.agreementType;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["guestIdentity"] = args?.guestIdentity;
+            resourceInputs["guestPartner"] = args?.guestPartner;
+            resourceInputs["hostIdentity"] = args?.hostIdentity;
+            resourceInputs["hostPartner"] = args?.hostPartner;
+            resourceInputs["integrationAccountName"] = args?.integrationAccountName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["changedTime"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;

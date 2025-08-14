@@ -97,26 +97,26 @@ export class Schema extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.format === undefined) && !opts.urn) {
+            if (args?.format === undefined && !opts.urn) {
                 throw new Error("Missing required property 'format'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.schemaRegistryName === undefined) && !opts.urn) {
+            if (args?.schemaRegistryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaRegistryName'");
             }
-            if ((!args || args.schemaType === undefined) && !opts.urn) {
+            if (args?.schemaType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaType'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["format"] = args ? args.format : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
-            resourceInputs["schemaRegistryName"] = args ? args.schemaRegistryName : undefined;
-            resourceInputs["schemaType"] = args ? args.schemaType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["format"] = args?.format;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["schemaName"] = args?.schemaName;
+            resourceInputs["schemaRegistryName"] = args?.schemaRegistryName;
+            resourceInputs["schemaType"] = args?.schemaType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

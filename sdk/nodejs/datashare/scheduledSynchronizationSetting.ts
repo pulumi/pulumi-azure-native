@@ -92,31 +92,31 @@ export class ScheduledSynchronizationSetting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.recurrenceInterval === undefined) && !opts.urn) {
+            if (args?.recurrenceInterval === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recurrenceInterval'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.shareName === undefined) && !opts.urn) {
+            if (args?.shareName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shareName'");
             }
-            if ((!args || args.synchronizationTime === undefined) && !opts.urn) {
+            if (args?.synchronizationTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'synchronizationTime'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
             resourceInputs["kind"] = "ScheduleBased";
-            resourceInputs["recurrenceInterval"] = args ? args.recurrenceInterval : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["shareName"] = args ? args.shareName : undefined;
-            resourceInputs["synchronizationSettingName"] = args ? args.synchronizationSettingName : undefined;
-            resourceInputs["synchronizationTime"] = args ? args.synchronizationTime : undefined;
+            resourceInputs["recurrenceInterval"] = args?.recurrenceInterval;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["shareName"] = args?.shareName;
+            resourceInputs["synchronizationSettingName"] = args?.synchronizationSettingName;
+            resourceInputs["synchronizationTime"] = args?.synchronizationTime;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

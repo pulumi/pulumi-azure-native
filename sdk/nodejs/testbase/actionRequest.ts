@@ -73,20 +73,20 @@ export class ActionRequest extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.requestType === undefined) && !opts.urn) {
+            if (args?.requestType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'requestType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.testBaseAccountName === undefined) && !opts.urn) {
+            if (args?.testBaseAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'testBaseAccountName'");
             }
-            resourceInputs["actionRequestName"] = args ? args.actionRequestName : undefined;
-            resourceInputs["preReleaseAccessRequestSpec"] = args ? args.preReleaseAccessRequestSpec : undefined;
-            resourceInputs["requestType"] = args ? args.requestType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["testBaseAccountName"] = args ? args.testBaseAccountName : undefined;
+            resourceInputs["actionRequestName"] = args?.actionRequestName;
+            resourceInputs["preReleaseAccessRequestSpec"] = args?.preReleaseAccessRequestSpec;
+            resourceInputs["requestType"] = args?.requestType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["testBaseAccountName"] = args?.testBaseAccountName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

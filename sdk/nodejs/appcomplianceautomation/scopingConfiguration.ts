@@ -75,12 +75,12 @@ export class ScopingConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.reportName === undefined) && !opts.urn) {
+            if (args?.reportName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reportName'");
             }
-            resourceInputs["answers"] = args ? args.answers : undefined;
-            resourceInputs["reportName"] = args ? args.reportName : undefined;
-            resourceInputs["scopingConfigurationName"] = args ? args.scopingConfigurationName : undefined;
+            resourceInputs["answers"] = args?.answers;
+            resourceInputs["reportName"] = args?.reportName;
+            resourceInputs["scopingConfigurationName"] = args?.scopingConfigurationName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -149,43 +149,43 @@ export class Api extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.path === undefined) && !opts.urn) {
+            if (args?.path === undefined && !opts.urn) {
                 throw new Error("Missing required property 'path'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["apiRevision"] = args ? args.apiRevision : undefined;
-            resourceInputs["apiRevisionDescription"] = args ? args.apiRevisionDescription : undefined;
-            resourceInputs["apiType"] = args ? args.apiType : undefined;
-            resourceInputs["apiVersion"] = args ? args.apiVersion : undefined;
-            resourceInputs["apiVersionDescription"] = args ? args.apiVersionDescription : undefined;
-            resourceInputs["apiVersionSet"] = args ? args.apiVersionSet : undefined;
-            resourceInputs["apiVersionSetId"] = args ? args.apiVersionSetId : undefined;
-            resourceInputs["authenticationSettings"] = args ? args.authenticationSettings : undefined;
-            resourceInputs["contact"] = args ? args.contact : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["format"] = args ? args.format : undefined;
-            resourceInputs["isCurrent"] = args ? args.isCurrent : undefined;
-            resourceInputs["license"] = args ? args.license : undefined;
-            resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["protocols"] = args ? args.protocols : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["serviceUrl"] = args ? args.serviceUrl : undefined;
-            resourceInputs["soapApiType"] = args ? args.soapApiType : undefined;
-            resourceInputs["sourceApiId"] = args ? args.sourceApiId : undefined;
-            resourceInputs["subscriptionKeyParameterNames"] = args ? args.subscriptionKeyParameterNames : undefined;
-            resourceInputs["subscriptionRequired"] = args ? args.subscriptionRequired : undefined;
-            resourceInputs["termsOfServiceUrl"] = args ? args.termsOfServiceUrl : undefined;
-            resourceInputs["translateRequiredQueryParametersConduct"] = args ? args.translateRequiredQueryParametersConduct : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
-            resourceInputs["wsdlSelector"] = args ? args.wsdlSelector : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["apiRevision"] = args?.apiRevision;
+            resourceInputs["apiRevisionDescription"] = args?.apiRevisionDescription;
+            resourceInputs["apiType"] = args?.apiType;
+            resourceInputs["apiVersion"] = args?.apiVersion;
+            resourceInputs["apiVersionDescription"] = args?.apiVersionDescription;
+            resourceInputs["apiVersionSet"] = args?.apiVersionSet;
+            resourceInputs["apiVersionSetId"] = args?.apiVersionSetId;
+            resourceInputs["authenticationSettings"] = args?.authenticationSettings;
+            resourceInputs["contact"] = args?.contact;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["format"] = args?.format;
+            resourceInputs["isCurrent"] = args?.isCurrent;
+            resourceInputs["license"] = args?.license;
+            resourceInputs["path"] = args?.path;
+            resourceInputs["protocols"] = args?.protocols;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["serviceUrl"] = args?.serviceUrl;
+            resourceInputs["soapApiType"] = args?.soapApiType;
+            resourceInputs["sourceApiId"] = args?.sourceApiId;
+            resourceInputs["subscriptionKeyParameterNames"] = args?.subscriptionKeyParameterNames;
+            resourceInputs["subscriptionRequired"] = args?.subscriptionRequired;
+            resourceInputs["termsOfServiceUrl"] = args?.termsOfServiceUrl;
+            resourceInputs["translateRequiredQueryParametersConduct"] = args?.translateRequiredQueryParametersConduct;
+            resourceInputs["value"] = args?.value;
+            resourceInputs["wsdlSelector"] = args?.wsdlSelector;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["isOnline"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

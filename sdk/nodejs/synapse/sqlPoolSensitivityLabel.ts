@@ -102,36 +102,36 @@ export class SqlPoolSensitivityLabel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.columnName === undefined) && !opts.urn) {
+            if (args?.columnName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'columnName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.schemaName === undefined) && !opts.urn) {
+            if (args?.schemaName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaName'");
             }
-            if ((!args || args.sqlPoolName === undefined) && !opts.urn) {
+            if (args?.sqlPoolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sqlPoolName'");
             }
-            if ((!args || args.tableName === undefined) && !opts.urn) {
+            if (args?.tableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["columnName"] = args ? args.columnName : undefined;
-            resourceInputs["informationType"] = args ? args.informationType : undefined;
-            resourceInputs["informationTypeId"] = args ? args.informationTypeId : undefined;
-            resourceInputs["labelId"] = args ? args.labelId : undefined;
-            resourceInputs["labelName"] = args ? args.labelName : undefined;
-            resourceInputs["rank"] = args ? args.rank : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
-            resourceInputs["sensitivityLabelSource"] = args ? args.sensitivityLabelSource : undefined;
-            resourceInputs["sqlPoolName"] = args ? args.sqlPoolName : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["columnName"] = args?.columnName;
+            resourceInputs["informationType"] = args?.informationType;
+            resourceInputs["informationTypeId"] = args?.informationTypeId;
+            resourceInputs["labelId"] = args?.labelId;
+            resourceInputs["labelName"] = args?.labelName;
+            resourceInputs["rank"] = args?.rank;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["schemaName"] = args?.schemaName;
+            resourceInputs["sensitivityLabelSource"] = args?.sensitivityLabelSource;
+            resourceInputs["sqlPoolName"] = args?.sqlPoolName;
+            resourceInputs["tableName"] = args?.tableName;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["isDisabled"] = undefined /*out*/;
             resourceInputs["managedBy"] = undefined /*out*/;

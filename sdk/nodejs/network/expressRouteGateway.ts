@@ -97,21 +97,21 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualHub === undefined) && !opts.urn) {
+            if (args?.virtualHub === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualHub'");
             }
-            resourceInputs["allowNonVirtualWanTraffic"] = args ? args.allowNonVirtualWanTraffic : undefined;
-            resourceInputs["autoScaleConfiguration"] = args ? args.autoScaleConfiguration : undefined;
-            resourceInputs["expressRouteConnections"] = args ? args.expressRouteConnections : undefined;
-            resourceInputs["expressRouteGatewayName"] = args ? args.expressRouteGatewayName : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualHub"] = args ? args.virtualHub : undefined;
+            resourceInputs["allowNonVirtualWanTraffic"] = args?.allowNonVirtualWanTraffic;
+            resourceInputs["autoScaleConfiguration"] = args?.autoScaleConfiguration;
+            resourceInputs["expressRouteConnections"] = args?.expressRouteConnections;
+            resourceInputs["expressRouteGatewayName"] = args?.expressRouteGatewayName;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualHub"] = args?.virtualHub;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -93,21 +93,21 @@ export class ContainerAppsAuthConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.containerAppName === undefined) && !opts.urn) {
+            if (args?.containerAppName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerAppName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authConfigName"] = args ? args.authConfigName : undefined;
-            resourceInputs["containerAppName"] = args ? args.containerAppName : undefined;
-            resourceInputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
-            resourceInputs["globalValidation"] = args ? args.globalValidation : undefined;
-            resourceInputs["httpSettings"] = args ? args.httpSettings : undefined;
-            resourceInputs["identityProviders"] = args ? args.identityProviders : undefined;
-            resourceInputs["login"] = args ? args.login : undefined;
-            resourceInputs["platform"] = args ? args.platform : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["authConfigName"] = args?.authConfigName;
+            resourceInputs["containerAppName"] = args?.containerAppName;
+            resourceInputs["encryptionSettings"] = args?.encryptionSettings;
+            resourceInputs["globalValidation"] = args?.globalValidation;
+            resourceInputs["httpSettings"] = args?.httpSettings;
+            resourceInputs["identityProviders"] = args?.identityProviders;
+            resourceInputs["login"] = args?.login;
+            resourceInputs["platform"] = args?.platform;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

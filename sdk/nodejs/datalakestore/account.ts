@@ -147,24 +147,24 @@ export class Account extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["defaultGroup"] = args ? args.defaultGroup : undefined;
-            resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
-            resourceInputs["encryptionState"] = args ? args.encryptionState : undefined;
-            resourceInputs["firewallAllowAzureIps"] = args ? args.firewallAllowAzureIps : undefined;
-            resourceInputs["firewallRules"] = args ? args.firewallRules : undefined;
-            resourceInputs["firewallState"] = args ? args.firewallState : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["newTier"] = args ? args.newTier : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trustedIdProviderState"] = args ? args.trustedIdProviderState : undefined;
-            resourceInputs["trustedIdProviders"] = args ? args.trustedIdProviders : undefined;
-            resourceInputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["defaultGroup"] = args?.defaultGroup;
+            resourceInputs["encryptionConfig"] = args?.encryptionConfig;
+            resourceInputs["encryptionState"] = args?.encryptionState;
+            resourceInputs["firewallAllowAzureIps"] = args?.firewallAllowAzureIps;
+            resourceInputs["firewallRules"] = args?.firewallRules;
+            resourceInputs["firewallState"] = args?.firewallState;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["newTier"] = args?.newTier;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trustedIdProviderState"] = args?.trustedIdProviderState;
+            resourceInputs["trustedIdProviders"] = args?.trustedIdProviders;
+            resourceInputs["virtualNetworkRules"] = args?.virtualNetworkRules;
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;

@@ -173,25 +173,25 @@ export class FileShare extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accessTier"] = args ? args.accessTier : undefined;
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["enabledProtocols"] = args ? args.enabledProtocols : undefined;
-            resourceInputs["expand"] = args ? args.expand : undefined;
-            resourceInputs["fileSharePaidBursting"] = args ? args.fileSharePaidBursting : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["provisionedBandwidthMibps"] = args ? args.provisionedBandwidthMibps : undefined;
-            resourceInputs["provisionedIops"] = args ? args.provisionedIops : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rootSquash"] = args ? args.rootSquash : undefined;
-            resourceInputs["shareName"] = args ? args.shareName : undefined;
-            resourceInputs["shareQuota"] = args ? args.shareQuota : undefined;
-            resourceInputs["signedIdentifiers"] = args ? args.signedIdentifiers : undefined;
+            resourceInputs["accessTier"] = args?.accessTier;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["enabledProtocols"] = args?.enabledProtocols;
+            resourceInputs["expand"] = args?.expand;
+            resourceInputs["fileSharePaidBursting"] = args?.fileSharePaidBursting;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["provisionedBandwidthMibps"] = args?.provisionedBandwidthMibps;
+            resourceInputs["provisionedIops"] = args?.provisionedIops;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["rootSquash"] = args?.rootSquash;
+            resourceInputs["shareName"] = args?.shareName;
+            resourceInputs["shareQuota"] = args?.shareQuota;
+            resourceInputs["signedIdentifiers"] = args?.signedIdentifiers;
             resourceInputs["accessTierChangeTime"] = undefined /*out*/;
             resourceInputs["accessTierStatus"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

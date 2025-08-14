@@ -145,22 +145,22 @@ export class BlobContainer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["containerName"] = args ? args.containerName : undefined;
-            resourceInputs["defaultEncryptionScope"] = args ? args.defaultEncryptionScope : undefined;
-            resourceInputs["denyEncryptionScopeOverride"] = args ? args.denyEncryptionScopeOverride : undefined;
-            resourceInputs["enableNfsV3AllSquash"] = args ? args.enableNfsV3AllSquash : undefined;
-            resourceInputs["enableNfsV3RootSquash"] = args ? args.enableNfsV3RootSquash : undefined;
-            resourceInputs["immutableStorageWithVersioning"] = args ? args.immutableStorageWithVersioning : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["publicAccess"] = args ? args.publicAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["containerName"] = args?.containerName;
+            resourceInputs["defaultEncryptionScope"] = args?.defaultEncryptionScope;
+            resourceInputs["denyEncryptionScopeOverride"] = args?.denyEncryptionScopeOverride;
+            resourceInputs["enableNfsV3AllSquash"] = args?.enableNfsV3AllSquash;
+            resourceInputs["enableNfsV3RootSquash"] = args?.enableNfsV3RootSquash;
+            resourceInputs["immutableStorageWithVersioning"] = args?.immutableStorageWithVersioning;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["publicAccess"] = args?.publicAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deleted"] = undefined /*out*/;
             resourceInputs["deletedTime"] = undefined /*out*/;

@@ -97,26 +97,26 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.circuitName === undefined) && !opts.urn) {
+            if (args?.circuitName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'circuitName'");
             }
-            if ((!args || args.peeringName === undefined) && !opts.urn) {
+            if (args?.peeringName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peeringName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
-            resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
-            resourceInputs["circuitName"] = args ? args.circuitName : undefined;
-            resourceInputs["connectionName"] = args ? args.connectionName : undefined;
-            resourceInputs["expressRouteCircuitPeering"] = args ? args.expressRouteCircuitPeering : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ipv6CircuitConnectionConfig"] = args ? args.ipv6CircuitConnectionConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["peerExpressRouteCircuitPeering"] = args ? args.peerExpressRouteCircuitPeering : undefined;
-            resourceInputs["peeringName"] = args ? args.peeringName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["addressPrefix"] = args?.addressPrefix;
+            resourceInputs["authorizationKey"] = args?.authorizationKey;
+            resourceInputs["circuitName"] = args?.circuitName;
+            resourceInputs["connectionName"] = args?.connectionName;
+            resourceInputs["expressRouteCircuitPeering"] = args?.expressRouteCircuitPeering;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["ipv6CircuitConnectionConfig"] = args?.ipv6CircuitConnectionConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["peerExpressRouteCircuitPeering"] = args?.peerExpressRouteCircuitPeering;
+            resourceInputs["peeringName"] = args?.peeringName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["circuitConnectionStatus"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

@@ -93,32 +93,32 @@ export class RoutingRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configurationName === undefined) && !opts.urn) {
+            if (args?.configurationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationName'");
             }
-            if ((!args || args.destination === undefined) && !opts.urn) {
+            if (args?.destination === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destination'");
             }
-            if ((!args || args.networkManagerName === undefined) && !opts.urn) {
+            if (args?.networkManagerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkManagerName'");
             }
-            if ((!args || args.nextHop === undefined) && !opts.urn) {
+            if (args?.nextHop === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nextHop'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.ruleCollectionName === undefined) && !opts.urn) {
+            if (args?.ruleCollectionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleCollectionName'");
             }
-            resourceInputs["configurationName"] = args ? args.configurationName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["networkManagerName"] = args ? args.networkManagerName : undefined;
-            resourceInputs["nextHop"] = args ? args.nextHop : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ruleCollectionName"] = args ? args.ruleCollectionName : undefined;
-            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["configurationName"] = args?.configurationName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["networkManagerName"] = args?.networkManagerName;
+            resourceInputs["nextHop"] = args?.nextHop;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["ruleCollectionName"] = args?.ruleCollectionName;
+            resourceInputs["ruleName"] = args?.ruleName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

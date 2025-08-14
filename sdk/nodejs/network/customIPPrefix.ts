@@ -145,26 +145,26 @@ export class CustomIPPrefix extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["asn"] = args ? args.asn : undefined;
-            resourceInputs["authorizationMessage"] = args ? args.authorizationMessage : undefined;
-            resourceInputs["cidr"] = args ? args.cidr : undefined;
-            resourceInputs["commissionedState"] = args ? args.commissionedState : undefined;
-            resourceInputs["customIpPrefixName"] = args ? args.customIpPrefixName : undefined;
-            resourceInputs["customIpPrefixParent"] = args ? args.customIpPrefixParent : undefined;
-            resourceInputs["expressRouteAdvertise"] = args ? args.expressRouteAdvertise : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["geo"] = args ? args.geo : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["noInternetAdvertise"] = args ? args.noInternetAdvertise : undefined;
-            resourceInputs["prefixType"] = args ? args.prefixType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["signedMessage"] = args ? args.signedMessage : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["asn"] = args?.asn;
+            resourceInputs["authorizationMessage"] = args?.authorizationMessage;
+            resourceInputs["cidr"] = args?.cidr;
+            resourceInputs["commissionedState"] = args?.commissionedState;
+            resourceInputs["customIpPrefixName"] = args?.customIpPrefixName;
+            resourceInputs["customIpPrefixParent"] = args?.customIpPrefixParent;
+            resourceInputs["expressRouteAdvertise"] = args?.expressRouteAdvertise;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["geo"] = args?.geo;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["noInternetAdvertise"] = args?.noInternetAdvertise;
+            resourceInputs["prefixType"] = args?.prefixType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["signedMessage"] = args?.signedMessage;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["childCustomIpPrefixes"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

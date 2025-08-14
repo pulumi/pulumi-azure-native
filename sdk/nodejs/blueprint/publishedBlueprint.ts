@@ -95,21 +95,21 @@ export class PublishedBlueprint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.blueprintName === undefined) && !opts.urn) {
+            if (args?.blueprintName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'blueprintName'");
             }
-            if ((!args || args.resourceScope === undefined) && !opts.urn) {
+            if (args?.resourceScope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceScope'");
             }
-            resourceInputs["blueprintName"] = args ? args.blueprintName : undefined;
-            resourceInputs["changeNotes"] = args ? args.changeNotes : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroups"] = args ? args.resourceGroups : undefined;
-            resourceInputs["resourceScope"] = args ? args.resourceScope : undefined;
-            resourceInputs["targetScope"] = args ? args.targetScope : undefined;
-            resourceInputs["versionId"] = args ? args.versionId : undefined;
+            resourceInputs["blueprintName"] = args?.blueprintName;
+            resourceInputs["changeNotes"] = args?.changeNotes;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["resourceGroups"] = args?.resourceGroups;
+            resourceInputs["resourceScope"] = args?.resourceScope;
+            resourceInputs["targetScope"] = args?.targetScope;
+            resourceInputs["versionId"] = args?.versionId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

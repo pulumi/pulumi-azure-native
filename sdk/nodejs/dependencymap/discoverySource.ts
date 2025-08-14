@@ -89,25 +89,25 @@ export class DiscoverySource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.mapName === undefined) && !opts.urn) {
+            if (args?.mapName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mapName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceId === undefined) && !opts.urn) {
+            if (args?.sourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceId'");
             }
-            if ((!args || args.sourceType === undefined) && !opts.urn) {
+            if (args?.sourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceType'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mapName"] = args ? args.mapName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceId"] = args ? args.sourceId : undefined;
-            resourceInputs["sourceName"] = args ? args.sourceName : undefined;
-            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mapName"] = args?.mapName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceId"] = args?.sourceId;
+            resourceInputs["sourceName"] = args?.sourceName;
+            resourceInputs["sourceType"] = args?.sourceType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -105,20 +105,20 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["availabilitySets"] = args ? args.availabilitySets : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["hardwareProfile"] = args ? args.hardwareProfile : undefined;
-            resourceInputs["infrastructureProfile"] = args ? args.infrastructureProfile : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["osProfile"] = args ? args.osProfile : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
-            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
+            resourceInputs["availabilitySets"] = args?.availabilitySets;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["hardwareProfile"] = args?.hardwareProfile;
+            resourceInputs["infrastructureProfile"] = args?.infrastructureProfile;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["osProfile"] = args?.osProfile;
+            resourceInputs["resourceUri"] = args?.resourceUri;
+            resourceInputs["storageProfile"] = args?.storageProfile;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["powerState"] = undefined /*out*/;

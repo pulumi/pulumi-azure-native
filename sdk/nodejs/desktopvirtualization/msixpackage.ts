@@ -113,26 +113,26 @@ export class MSIXPackage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.hostPoolName === undefined) && !opts.urn) {
+            if (args?.hostPoolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostPoolName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["hostPoolName"] = args ? args.hostPoolName : undefined;
-            resourceInputs["imagePath"] = args ? args.imagePath : undefined;
-            resourceInputs["isActive"] = args ? args.isActive : undefined;
-            resourceInputs["isRegularRegistration"] = args ? args.isRegularRegistration : undefined;
-            resourceInputs["lastUpdated"] = args ? args.lastUpdated : undefined;
-            resourceInputs["msixPackageFullName"] = args ? args.msixPackageFullName : undefined;
-            resourceInputs["packageApplications"] = args ? args.packageApplications : undefined;
-            resourceInputs["packageDependencies"] = args ? args.packageDependencies : undefined;
-            resourceInputs["packageFamilyName"] = args ? args.packageFamilyName : undefined;
-            resourceInputs["packageName"] = args ? args.packageName : undefined;
-            resourceInputs["packageRelativePath"] = args ? args.packageRelativePath : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["hostPoolName"] = args?.hostPoolName;
+            resourceInputs["imagePath"] = args?.imagePath;
+            resourceInputs["isActive"] = args?.isActive;
+            resourceInputs["isRegularRegistration"] = args?.isRegularRegistration;
+            resourceInputs["lastUpdated"] = args?.lastUpdated;
+            resourceInputs["msixPackageFullName"] = args?.msixPackageFullName;
+            resourceInputs["packageApplications"] = args?.packageApplications;
+            resourceInputs["packageDependencies"] = args?.packageDependencies;
+            resourceInputs["packageFamilyName"] = args?.packageFamilyName;
+            resourceInputs["packageName"] = args?.packageName;
+            resourceInputs["packageRelativePath"] = args?.packageRelativePath;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

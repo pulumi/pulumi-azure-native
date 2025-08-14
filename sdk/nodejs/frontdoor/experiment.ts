@@ -99,21 +99,21 @@ export class Experiment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.profileName === undefined) && !opts.urn) {
+            if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabledState"] = args ? args.enabledState : undefined;
-            resourceInputs["endpointA"] = args ? args.endpointA : undefined;
-            resourceInputs["endpointB"] = args ? args.endpointB : undefined;
-            resourceInputs["experimentName"] = args ? args.experimentName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabledState"] = args?.enabledState;
+            resourceInputs["endpointA"] = args?.endpointA;
+            resourceInputs["endpointB"] = args?.endpointB;
+            resourceInputs["experimentName"] = args?.experimentName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["resourceState"] = undefined /*out*/;

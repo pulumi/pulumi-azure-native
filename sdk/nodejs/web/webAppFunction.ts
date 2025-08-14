@@ -118,29 +118,29 @@ export class WebAppFunction extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["config"] = args ? args.config : undefined;
-            resourceInputs["configHref"] = args ? args.configHref : undefined;
-            resourceInputs["files"] = args ? args.files : undefined;
-            resourceInputs["functionAppId"] = args ? args.functionAppId : undefined;
-            resourceInputs["functionName"] = args ? args.functionName : undefined;
-            resourceInputs["href"] = args ? args.href : undefined;
-            resourceInputs["invokeUrlTemplate"] = args ? args.invokeUrlTemplate : undefined;
-            resourceInputs["isDisabled"] = args ? args.isDisabled : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["language"] = args ? args.language : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scriptHref"] = args ? args.scriptHref : undefined;
-            resourceInputs["scriptRootPathHref"] = args ? args.scriptRootPathHref : undefined;
-            resourceInputs["secretsFileHref"] = args ? args.secretsFileHref : undefined;
-            resourceInputs["testData"] = args ? args.testData : undefined;
-            resourceInputs["testDataHref"] = args ? args.testDataHref : undefined;
+            resourceInputs["config"] = args?.config;
+            resourceInputs["configHref"] = args?.configHref;
+            resourceInputs["files"] = args?.files;
+            resourceInputs["functionAppId"] = args?.functionAppId;
+            resourceInputs["functionName"] = args?.functionName;
+            resourceInputs["href"] = args?.href;
+            resourceInputs["invokeUrlTemplate"] = args?.invokeUrlTemplate;
+            resourceInputs["isDisabled"] = args?.isDisabled;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["language"] = args?.language;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scriptHref"] = args?.scriptHref;
+            resourceInputs["scriptRootPathHref"] = args?.scriptRootPathHref;
+            resourceInputs["secretsFileHref"] = args?.secretsFileHref;
+            resourceInputs["testData"] = args?.testData;
+            resourceInputs["testDataHref"] = args?.testDataHref;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

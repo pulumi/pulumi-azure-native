@@ -149,45 +149,45 @@ export class NetworkFabric extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fabricASN === undefined) && !opts.urn) {
+            if (args?.fabricASN === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fabricASN'");
             }
-            if ((!args || args.ipv4Prefix === undefined) && !opts.urn) {
+            if (args?.ipv4Prefix === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipv4Prefix'");
             }
-            if ((!args || args.managementNetworkConfiguration === undefined) && !opts.urn) {
+            if (args?.managementNetworkConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementNetworkConfiguration'");
             }
-            if ((!args || args.networkFabricControllerId === undefined) && !opts.urn) {
+            if (args?.networkFabricControllerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkFabricControllerId'");
             }
-            if ((!args || args.networkFabricSku === undefined) && !opts.urn) {
+            if (args?.networkFabricSku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkFabricSku'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverCountPerRack === undefined) && !opts.urn) {
+            if (args?.serverCountPerRack === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverCountPerRack'");
             }
-            if ((!args || args.terminalServerConfiguration === undefined) && !opts.urn) {
+            if (args?.terminalServerConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'terminalServerConfiguration'");
             }
-            resourceInputs["annotation"] = args ? args.annotation : undefined;
-            resourceInputs["fabricASN"] = args ? args.fabricASN : undefined;
-            resourceInputs["fabricVersion"] = args ? args.fabricVersion : undefined;
-            resourceInputs["ipv4Prefix"] = args ? args.ipv4Prefix : undefined;
-            resourceInputs["ipv6Prefix"] = args ? args.ipv6Prefix : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["annotation"] = args?.annotation;
+            resourceInputs["fabricASN"] = args?.fabricASN;
+            resourceInputs["fabricVersion"] = args?.fabricVersion;
+            resourceInputs["ipv4Prefix"] = args?.ipv4Prefix;
+            resourceInputs["ipv6Prefix"] = args?.ipv6Prefix;
+            resourceInputs["location"] = args?.location;
             resourceInputs["managementNetworkConfiguration"] = args ? (args.managementNetworkConfiguration ? pulumi.output(args.managementNetworkConfiguration).apply(inputs.managednetworkfabric.managementNetworkConfigurationPropertiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["networkFabricControllerId"] = args ? args.networkFabricControllerId : undefined;
-            resourceInputs["networkFabricName"] = args ? args.networkFabricName : undefined;
-            resourceInputs["networkFabricSku"] = args ? args.networkFabricSku : undefined;
-            resourceInputs["rackCount"] = args ? args.rackCount : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverCountPerRack"] = args ? args.serverCountPerRack : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["terminalServerConfiguration"] = args ? args.terminalServerConfiguration : undefined;
+            resourceInputs["networkFabricControllerId"] = args?.networkFabricControllerId;
+            resourceInputs["networkFabricName"] = args?.networkFabricName;
+            resourceInputs["networkFabricSku"] = args?.networkFabricSku;
+            resourceInputs["rackCount"] = args?.rackCount;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverCountPerRack"] = args?.serverCountPerRack;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["terminalServerConfiguration"] = args?.terminalServerConfiguration;
             resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationState"] = undefined /*out*/;

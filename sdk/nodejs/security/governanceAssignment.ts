@@ -87,24 +87,24 @@ export class GovernanceAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.assessmentName === undefined) && !opts.urn) {
+            if (args?.assessmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assessmentName'");
             }
-            if ((!args || args.remediationDueDate === undefined) && !opts.urn) {
+            if (args?.remediationDueDate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'remediationDueDate'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["additionalData"] = args ? args.additionalData : undefined;
-            resourceInputs["assessmentName"] = args ? args.assessmentName : undefined;
-            resourceInputs["assignmentKey"] = args ? args.assignmentKey : undefined;
-            resourceInputs["governanceEmailNotification"] = args ? args.governanceEmailNotification : undefined;
-            resourceInputs["isGracePeriod"] = args ? args.isGracePeriod : undefined;
-            resourceInputs["owner"] = args ? args.owner : undefined;
-            resourceInputs["remediationDueDate"] = args ? args.remediationDueDate : undefined;
-            resourceInputs["remediationEta"] = args ? args.remediationEta : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["additionalData"] = args?.additionalData;
+            resourceInputs["assessmentName"] = args?.assessmentName;
+            resourceInputs["assignmentKey"] = args?.assignmentKey;
+            resourceInputs["governanceEmailNotification"] = args?.governanceEmailNotification;
+            resourceInputs["isGracePeriod"] = args?.isGracePeriod;
+            resourceInputs["owner"] = args?.owner;
+            resourceInputs["remediationDueDate"] = args?.remediationDueDate;
+            resourceInputs["remediationEta"] = args?.remediationEta;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

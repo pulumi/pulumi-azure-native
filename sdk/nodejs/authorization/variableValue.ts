@@ -73,15 +73,15 @@ export class VariableValue extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.values === undefined) && !opts.urn) {
+            if (args?.values === undefined && !opts.urn) {
                 throw new Error("Missing required property 'values'");
             }
-            if ((!args || args.variableName === undefined) && !opts.urn) {
+            if (args?.variableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'variableName'");
             }
-            resourceInputs["values"] = args ? args.values : undefined;
-            resourceInputs["variableName"] = args ? args.variableName : undefined;
-            resourceInputs["variableValueName"] = args ? args.variableValueName : undefined;
+            resourceInputs["values"] = args?.values;
+            resourceInputs["variableName"] = args?.variableName;
+            resourceInputs["variableValueName"] = args?.variableValueName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

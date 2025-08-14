@@ -253,47 +253,47 @@ export class StorageAccount extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["accessTier"] = args ? args.accessTier : undefined;
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["allowBlobPublicAccess"] = args ? args.allowBlobPublicAccess : undefined;
-            resourceInputs["allowCrossTenantReplication"] = args ? args.allowCrossTenantReplication : undefined;
-            resourceInputs["allowSharedKeyAccess"] = args ? args.allowSharedKeyAccess : undefined;
-            resourceInputs["allowedCopyScope"] = args ? args.allowedCopyScope : undefined;
-            resourceInputs["azureFilesIdentityBasedAuthentication"] = args ? args.azureFilesIdentityBasedAuthentication : undefined;
-            resourceInputs["customDomain"] = args ? args.customDomain : undefined;
-            resourceInputs["defaultToOAuthAuthentication"] = args ? args.defaultToOAuthAuthentication : undefined;
-            resourceInputs["dnsEndpointType"] = args ? args.dnsEndpointType : undefined;
-            resourceInputs["enableExtendedGroups"] = args ? args.enableExtendedGroups : undefined;
-            resourceInputs["enableHttpsTrafficOnly"] = args ? args.enableHttpsTrafficOnly : undefined;
-            resourceInputs["enableNfsV3"] = args ? args.enableNfsV3 : undefined;
+            resourceInputs["accessTier"] = args?.accessTier;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["allowBlobPublicAccess"] = args?.allowBlobPublicAccess;
+            resourceInputs["allowCrossTenantReplication"] = args?.allowCrossTenantReplication;
+            resourceInputs["allowSharedKeyAccess"] = args?.allowSharedKeyAccess;
+            resourceInputs["allowedCopyScope"] = args?.allowedCopyScope;
+            resourceInputs["azureFilesIdentityBasedAuthentication"] = args?.azureFilesIdentityBasedAuthentication;
+            resourceInputs["customDomain"] = args?.customDomain;
+            resourceInputs["defaultToOAuthAuthentication"] = args?.defaultToOAuthAuthentication;
+            resourceInputs["dnsEndpointType"] = args?.dnsEndpointType;
+            resourceInputs["enableExtendedGroups"] = args?.enableExtendedGroups;
+            resourceInputs["enableHttpsTrafficOnly"] = args?.enableHttpsTrafficOnly;
+            resourceInputs["enableNfsV3"] = args?.enableNfsV3;
             resourceInputs["encryption"] = args ? (args.encryption ? pulumi.output(args.encryption).apply(inputs.storage.encryptionArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["immutableStorageWithVersioning"] = args ? args.immutableStorageWithVersioning : undefined;
-            resourceInputs["isHnsEnabled"] = args ? args.isHnsEnabled : undefined;
-            resourceInputs["isLocalUserEnabled"] = args ? args.isLocalUserEnabled : undefined;
-            resourceInputs["isSftpEnabled"] = args ? args.isSftpEnabled : undefined;
-            resourceInputs["keyPolicy"] = args ? args.keyPolicy : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["largeFileSharesState"] = args ? args.largeFileSharesState : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["immutableStorageWithVersioning"] = args?.immutableStorageWithVersioning;
+            resourceInputs["isHnsEnabled"] = args?.isHnsEnabled;
+            resourceInputs["isLocalUserEnabled"] = args?.isLocalUserEnabled;
+            resourceInputs["isSftpEnabled"] = args?.isSftpEnabled;
+            resourceInputs["keyPolicy"] = args?.keyPolicy;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["largeFileSharesState"] = args?.largeFileSharesState;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["minimumTlsVersion"] = args?.minimumTlsVersion;
             resourceInputs["networkRuleSet"] = args ? (args.networkRuleSet ? pulumi.output(args.networkRuleSet).apply(inputs.storage.networkRuleSetArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routingPreference"] = args ? args.routingPreference : undefined;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routingPreference"] = args?.routingPreference;
             resourceInputs["sasPolicy"] = args ? (args.sasPolicy ? pulumi.output(args.sasPolicy).apply(inputs.storage.sasPolicyArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["accountMigrationInProgress"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["blobRestoreStatus"] = undefined /*out*/;

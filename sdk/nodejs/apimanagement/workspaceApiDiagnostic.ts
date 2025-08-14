@@ -109,37 +109,37 @@ export class WorkspaceApiDiagnostic extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.loggerId === undefined) && !opts.urn) {
+            if (args?.loggerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loggerId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["alwaysLog"] = args ? args.alwaysLog : undefined;
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["backend"] = args ? args.backend : undefined;
-            resourceInputs["diagnosticId"] = args ? args.diagnosticId : undefined;
-            resourceInputs["frontend"] = args ? args.frontend : undefined;
-            resourceInputs["httpCorrelationProtocol"] = args ? args.httpCorrelationProtocol : undefined;
-            resourceInputs["largeLanguageModel"] = args ? args.largeLanguageModel : undefined;
-            resourceInputs["logClientIp"] = args ? args.logClientIp : undefined;
-            resourceInputs["loggerId"] = args ? args.loggerId : undefined;
-            resourceInputs["metrics"] = args ? args.metrics : undefined;
-            resourceInputs["operationNameFormat"] = args ? args.operationNameFormat : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sampling"] = args ? args.sampling : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["verbosity"] = args ? args.verbosity : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["alwaysLog"] = args?.alwaysLog;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["backend"] = args?.backend;
+            resourceInputs["diagnosticId"] = args?.diagnosticId;
+            resourceInputs["frontend"] = args?.frontend;
+            resourceInputs["httpCorrelationProtocol"] = args?.httpCorrelationProtocol;
+            resourceInputs["largeLanguageModel"] = args?.largeLanguageModel;
+            resourceInputs["logClientIp"] = args?.logClientIp;
+            resourceInputs["loggerId"] = args?.loggerId;
+            resourceInputs["metrics"] = args?.metrics;
+            resourceInputs["operationNameFormat"] = args?.operationNameFormat;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sampling"] = args?.sampling;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["verbosity"] = args?.verbosity;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

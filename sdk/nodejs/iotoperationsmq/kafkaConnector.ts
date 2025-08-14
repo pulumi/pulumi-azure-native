@@ -111,31 +111,31 @@ export class KafkaConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.kafkaConnection === undefined) && !opts.urn) {
+            if (args?.kafkaConnection === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaConnection'");
             }
-            if ((!args || args.mqName === undefined) && !opts.urn) {
+            if (args?.mqName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mqName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clientIdPrefix"] = args ? args.clientIdPrefix : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["image"] = args ? args.image : undefined;
-            resourceInputs["instances"] = args ? args.instances : undefined;
-            resourceInputs["kafkaConnection"] = args ? args.kafkaConnection : undefined;
-            resourceInputs["kafkaConnectorName"] = args ? args.kafkaConnectorName : undefined;
+            resourceInputs["clientIdPrefix"] = args?.clientIdPrefix;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["image"] = args?.image;
+            resourceInputs["instances"] = args?.instances;
+            resourceInputs["kafkaConnection"] = args?.kafkaConnection;
+            resourceInputs["kafkaConnectorName"] = args?.kafkaConnectorName;
             resourceInputs["localBrokerConnection"] = args ? (args.localBrokerConnection ? pulumi.output(args.localBrokerConnection).apply(inputs.iotoperationsmq.localBrokerConnectionSpecArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logLevel"] = (args ? args.logLevel : undefined) ?? "info";
-            resourceInputs["mqName"] = args ? args.mqName : undefined;
-            resourceInputs["nodeTolerations"] = args ? args.nodeTolerations : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logLevel"] = (args?.logLevel) ?? "info";
+            resourceInputs["mqName"] = args?.mqName;
+            resourceInputs["nodeTolerations"] = args?.nodeTolerations;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

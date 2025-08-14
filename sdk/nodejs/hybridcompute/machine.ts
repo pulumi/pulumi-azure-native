@@ -213,28 +213,28 @@ export class Machine extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["agentUpgrade"] = args ? args.agentUpgrade : undefined;
-            resourceInputs["clientPublicKey"] = args ? args.clientPublicKey : undefined;
-            resourceInputs["expand"] = args ? args.expand : undefined;
-            resourceInputs["extensions"] = args ? args.extensions : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["licenseProfile"] = args ? args.licenseProfile : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["locationData"] = args ? args.locationData : undefined;
-            resourceInputs["machineName"] = args ? args.machineName : undefined;
-            resourceInputs["mssqlDiscovered"] = args ? args.mssqlDiscovered : undefined;
-            resourceInputs["osProfile"] = args ? args.osProfile : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
-            resourceInputs["parentClusterResourceId"] = args ? args.parentClusterResourceId : undefined;
-            resourceInputs["privateLinkScopeResourceId"] = args ? args.privateLinkScopeResourceId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceStatuses"] = args ? args.serviceStatuses : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vmId"] = args ? args.vmId : undefined;
+            resourceInputs["agentUpgrade"] = args?.agentUpgrade;
+            resourceInputs["clientPublicKey"] = args?.clientPublicKey;
+            resourceInputs["expand"] = args?.expand;
+            resourceInputs["extensions"] = args?.extensions;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["licenseProfile"] = args?.licenseProfile;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["locationData"] = args?.locationData;
+            resourceInputs["machineName"] = args?.machineName;
+            resourceInputs["mssqlDiscovered"] = args?.mssqlDiscovered;
+            resourceInputs["osProfile"] = args?.osProfile;
+            resourceInputs["osType"] = args?.osType;
+            resourceInputs["parentClusterResourceId"] = args?.parentClusterResourceId;
+            resourceInputs["privateLinkScopeResourceId"] = args?.privateLinkScopeResourceId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceStatuses"] = args?.serviceStatuses;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vmId"] = args?.vmId;
             resourceInputs["adFqdn"] = undefined /*out*/;
             resourceInputs["agentConfiguration"] = undefined /*out*/;
             resourceInputs["agentVersion"] = undefined /*out*/;

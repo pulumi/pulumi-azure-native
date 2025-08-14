@@ -105,24 +105,24 @@ export class Profile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allowedEndpointRecordTypes"] = args ? args.allowedEndpointRecordTypes : undefined;
-            resourceInputs["dnsConfig"] = args ? args.dnsConfig : undefined;
-            resourceInputs["endpoints"] = args ? args.endpoints : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maxReturn"] = args ? args.maxReturn : undefined;
-            resourceInputs["monitorConfig"] = args ? args.monitorConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["profileStatus"] = args ? args.profileStatus : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trafficRoutingMethod"] = args ? args.trafficRoutingMethod : undefined;
-            resourceInputs["trafficViewEnrollmentStatus"] = args ? args.trafficViewEnrollmentStatus : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["allowedEndpointRecordTypes"] = args?.allowedEndpointRecordTypes;
+            resourceInputs["dnsConfig"] = args?.dnsConfig;
+            resourceInputs["endpoints"] = args?.endpoints;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maxReturn"] = args?.maxReturn;
+            resourceInputs["monitorConfig"] = args?.monitorConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["profileStatus"] = args?.profileStatus;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trafficRoutingMethod"] = args?.trafficRoutingMethod;
+            resourceInputs["trafficViewEnrollmentStatus"] = args?.trafficViewEnrollmentStatus;
+            resourceInputs["type"] = args?.type;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
         } else {
             resourceInputs["allowedEndpointRecordTypes"] = undefined /*out*/;

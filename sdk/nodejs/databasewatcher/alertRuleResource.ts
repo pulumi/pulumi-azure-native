@@ -93,35 +93,35 @@ export class AlertRuleResource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.alertRuleResourceId === undefined) && !opts.urn) {
+            if (args?.alertRuleResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alertRuleResourceId'");
             }
-            if ((!args || args.alertRuleTemplateId === undefined) && !opts.urn) {
+            if (args?.alertRuleTemplateId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alertRuleTemplateId'");
             }
-            if ((!args || args.alertRuleTemplateVersion === undefined) && !opts.urn) {
+            if (args?.alertRuleTemplateVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alertRuleTemplateVersion'");
             }
-            if ((!args || args.createdWithProperties === undefined) && !opts.urn) {
+            if (args?.createdWithProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'createdWithProperties'");
             }
-            if ((!args || args.creationTime === undefined) && !opts.urn) {
+            if (args?.creationTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'creationTime'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.watcherName === undefined) && !opts.urn) {
+            if (args?.watcherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'watcherName'");
             }
-            resourceInputs["alertRuleResourceId"] = args ? args.alertRuleResourceId : undefined;
-            resourceInputs["alertRuleResourceName"] = args ? args.alertRuleResourceName : undefined;
-            resourceInputs["alertRuleTemplateId"] = args ? args.alertRuleTemplateId : undefined;
-            resourceInputs["alertRuleTemplateVersion"] = args ? args.alertRuleTemplateVersion : undefined;
-            resourceInputs["createdWithProperties"] = args ? args.createdWithProperties : undefined;
-            resourceInputs["creationTime"] = args ? args.creationTime : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["watcherName"] = args ? args.watcherName : undefined;
+            resourceInputs["alertRuleResourceId"] = args?.alertRuleResourceId;
+            resourceInputs["alertRuleResourceName"] = args?.alertRuleResourceName;
+            resourceInputs["alertRuleTemplateId"] = args?.alertRuleTemplateId;
+            resourceInputs["alertRuleTemplateVersion"] = args?.alertRuleTemplateVersion;
+            resourceInputs["createdWithProperties"] = args?.createdWithProperties;
+            resourceInputs["creationTime"] = args?.creationTime;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["watcherName"] = args?.watcherName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

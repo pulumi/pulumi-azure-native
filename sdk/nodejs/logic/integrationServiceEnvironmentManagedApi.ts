@@ -123,19 +123,19 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.integrationServiceEnvironmentName === undefined) && !opts.urn) {
+            if (args?.integrationServiceEnvironmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationServiceEnvironmentName'");
             }
-            if ((!args || args.resourceGroup === undefined) && !opts.urn) {
+            if (args?.resourceGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
-            resourceInputs["apiName"] = args ? args.apiName : undefined;
-            resourceInputs["deploymentParameters"] = args ? args.deploymentParameters : undefined;
-            resourceInputs["integrationServiceEnvironment"] = args ? args.integrationServiceEnvironment : undefined;
-            resourceInputs["integrationServiceEnvironmentName"] = args ? args.integrationServiceEnvironmentName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["apiName"] = args?.apiName;
+            resourceInputs["deploymentParameters"] = args?.deploymentParameters;
+            resourceInputs["integrationServiceEnvironment"] = args?.integrationServiceEnvironment;
+            resourceInputs["integrationServiceEnvironmentName"] = args?.integrationServiceEnvironmentName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroup"] = args?.resourceGroup;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["apiDefinitionUrl"] = undefined /*out*/;
             resourceInputs["apiDefinitions"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

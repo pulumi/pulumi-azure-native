@@ -113,26 +113,26 @@ export class Backup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.backupVaultName === undefined) && !opts.urn) {
+            if (args?.backupVaultName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backupVaultName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.volumeResourceId === undefined) && !opts.urn) {
+            if (args?.volumeResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeResourceId'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["backupName"] = args ? args.backupName : undefined;
-            resourceInputs["backupVaultName"] = args ? args.backupVaultName : undefined;
-            resourceInputs["label"] = args ? args.label : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
-            resourceInputs["useExistingSnapshot"] = (args ? args.useExistingSnapshot : undefined) ?? false;
-            resourceInputs["volumeResourceId"] = args ? args.volumeResourceId : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["backupName"] = args?.backupName;
+            resourceInputs["backupVaultName"] = args?.backupVaultName;
+            resourceInputs["label"] = args?.label;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["snapshotName"] = args?.snapshotName;
+            resourceInputs["useExistingSnapshot"] = (args?.useExistingSnapshot) ?? false;
+            resourceInputs["volumeResourceId"] = args?.volumeResourceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["backupId"] = undefined /*out*/;
             resourceInputs["backupPolicyResourceId"] = undefined /*out*/;

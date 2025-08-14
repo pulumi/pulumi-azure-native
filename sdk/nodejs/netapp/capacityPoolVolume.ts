@@ -309,70 +309,70 @@ export class CapacityPoolVolume extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.creationToken === undefined) && !opts.urn) {
+            if (args?.creationToken === undefined && !opts.urn) {
                 throw new Error("Missing required property 'creationToken'");
             }
-            if ((!args || args.poolName === undefined) && !opts.urn) {
+            if (args?.poolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'poolName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            if ((!args || args.usageThreshold === undefined) && !opts.urn) {
+            if (args?.usageThreshold === undefined && !opts.urn) {
                 throw new Error("Missing required property 'usageThreshold'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["avsDataStore"] = (args ? args.avsDataStore : undefined) ?? "Disabled";
-            resourceInputs["backupId"] = args ? args.backupId : undefined;
-            resourceInputs["capacityPoolResourceId"] = args ? args.capacityPoolResourceId : undefined;
-            resourceInputs["coolAccess"] = (args ? args.coolAccess : undefined) ?? false;
-            resourceInputs["coolAccessRetrievalPolicy"] = args ? args.coolAccessRetrievalPolicy : undefined;
-            resourceInputs["coolAccessTieringPolicy"] = args ? args.coolAccessTieringPolicy : undefined;
-            resourceInputs["coolnessPeriod"] = args ? args.coolnessPeriod : undefined;
-            resourceInputs["creationToken"] = args ? args.creationToken : undefined;
-            resourceInputs["dataProtection"] = args ? args.dataProtection : undefined;
-            resourceInputs["defaultGroupQuotaInKiBs"] = (args ? args.defaultGroupQuotaInKiBs : undefined) ?? 0;
-            resourceInputs["defaultUserQuotaInKiBs"] = (args ? args.defaultUserQuotaInKiBs : undefined) ?? 0;
-            resourceInputs["deleteBaseSnapshot"] = args ? args.deleteBaseSnapshot : undefined;
-            resourceInputs["enableSubvolumes"] = (args ? args.enableSubvolumes : undefined) ?? "Disabled";
-            resourceInputs["encryptionKeySource"] = (args ? args.encryptionKeySource : undefined) ?? "Microsoft.NetApp";
-            resourceInputs["exportPolicy"] = args ? args.exportPolicy : undefined;
-            resourceInputs["isDefaultQuotaEnabled"] = (args ? args.isDefaultQuotaEnabled : undefined) ?? false;
-            resourceInputs["isLargeVolume"] = (args ? args.isLargeVolume : undefined) ?? false;
-            resourceInputs["isRestoring"] = args ? args.isRestoring : undefined;
-            resourceInputs["kerberosEnabled"] = (args ? args.kerberosEnabled : undefined) ?? false;
-            resourceInputs["keyVaultPrivateEndpointResourceId"] = args ? args.keyVaultPrivateEndpointResourceId : undefined;
-            resourceInputs["ldapEnabled"] = (args ? args.ldapEnabled : undefined) ?? false;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkFeatures"] = args ? args.networkFeatures : undefined;
-            resourceInputs["placementRules"] = args ? args.placementRules : undefined;
-            resourceInputs["poolName"] = args ? args.poolName : undefined;
-            resourceInputs["protocolTypes"] = args ? args.protocolTypes : undefined;
-            resourceInputs["proximityPlacementGroup"] = args ? args.proximityPlacementGroup : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securityStyle"] = (args ? args.securityStyle : undefined) ?? "unix";
-            resourceInputs["serviceLevel"] = args ? args.serviceLevel : undefined;
-            resourceInputs["smbAccessBasedEnumeration"] = args ? args.smbAccessBasedEnumeration : undefined;
-            resourceInputs["smbContinuouslyAvailable"] = (args ? args.smbContinuouslyAvailable : undefined) ?? false;
-            resourceInputs["smbEncryption"] = (args ? args.smbEncryption : undefined) ?? false;
-            resourceInputs["smbNonBrowsable"] = args ? args.smbNonBrowsable : undefined;
-            resourceInputs["snapshotDirectoryVisible"] = (args ? args.snapshotDirectoryVisible : undefined) ?? true;
-            resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["throughputMibps"] = args ? args.throughputMibps : undefined;
-            resourceInputs["unixPermissions"] = args ? args.unixPermissions : undefined;
-            resourceInputs["usageThreshold"] = (args ? args.usageThreshold : undefined) ?? 107374182400;
-            resourceInputs["volumeName"] = args ? args.volumeName : undefined;
-            resourceInputs["volumeSpecName"] = args ? args.volumeSpecName : undefined;
-            resourceInputs["volumeType"] = args ? args.volumeType : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["avsDataStore"] = (args?.avsDataStore) ?? "Disabled";
+            resourceInputs["backupId"] = args?.backupId;
+            resourceInputs["capacityPoolResourceId"] = args?.capacityPoolResourceId;
+            resourceInputs["coolAccess"] = (args?.coolAccess) ?? false;
+            resourceInputs["coolAccessRetrievalPolicy"] = args?.coolAccessRetrievalPolicy;
+            resourceInputs["coolAccessTieringPolicy"] = args?.coolAccessTieringPolicy;
+            resourceInputs["coolnessPeriod"] = args?.coolnessPeriod;
+            resourceInputs["creationToken"] = args?.creationToken;
+            resourceInputs["dataProtection"] = args?.dataProtection;
+            resourceInputs["defaultGroupQuotaInKiBs"] = (args?.defaultGroupQuotaInKiBs) ?? 0;
+            resourceInputs["defaultUserQuotaInKiBs"] = (args?.defaultUserQuotaInKiBs) ?? 0;
+            resourceInputs["deleteBaseSnapshot"] = args?.deleteBaseSnapshot;
+            resourceInputs["enableSubvolumes"] = (args?.enableSubvolumes) ?? "Disabled";
+            resourceInputs["encryptionKeySource"] = (args?.encryptionKeySource) ?? "Microsoft.NetApp";
+            resourceInputs["exportPolicy"] = args?.exportPolicy;
+            resourceInputs["isDefaultQuotaEnabled"] = (args?.isDefaultQuotaEnabled) ?? false;
+            resourceInputs["isLargeVolume"] = (args?.isLargeVolume) ?? false;
+            resourceInputs["isRestoring"] = args?.isRestoring;
+            resourceInputs["kerberosEnabled"] = (args?.kerberosEnabled) ?? false;
+            resourceInputs["keyVaultPrivateEndpointResourceId"] = args?.keyVaultPrivateEndpointResourceId;
+            resourceInputs["ldapEnabled"] = (args?.ldapEnabled) ?? false;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkFeatures"] = args?.networkFeatures;
+            resourceInputs["placementRules"] = args?.placementRules;
+            resourceInputs["poolName"] = args?.poolName;
+            resourceInputs["protocolTypes"] = args?.protocolTypes;
+            resourceInputs["proximityPlacementGroup"] = args?.proximityPlacementGroup;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["securityStyle"] = (args?.securityStyle) ?? "unix";
+            resourceInputs["serviceLevel"] = args?.serviceLevel;
+            resourceInputs["smbAccessBasedEnumeration"] = args?.smbAccessBasedEnumeration;
+            resourceInputs["smbContinuouslyAvailable"] = (args?.smbContinuouslyAvailable) ?? false;
+            resourceInputs["smbEncryption"] = (args?.smbEncryption) ?? false;
+            resourceInputs["smbNonBrowsable"] = args?.smbNonBrowsable;
+            resourceInputs["snapshotDirectoryVisible"] = (args?.snapshotDirectoryVisible) ?? true;
+            resourceInputs["snapshotId"] = args?.snapshotId;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["throughputMibps"] = args?.throughputMibps;
+            resourceInputs["unixPermissions"] = args?.unixPermissions;
+            resourceInputs["usageThreshold"] = (args?.usageThreshold) ?? 107374182400;
+            resourceInputs["volumeName"] = args?.volumeName;
+            resourceInputs["volumeSpecName"] = args?.volumeSpecName;
+            resourceInputs["volumeType"] = args?.volumeType;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["actualThroughputMibps"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["baremetalTenantId"] = undefined /*out*/;

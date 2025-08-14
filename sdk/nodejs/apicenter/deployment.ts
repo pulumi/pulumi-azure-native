@@ -97,30 +97,30 @@ export class Deployment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiName === undefined) && !opts.urn) {
+            if (args?.apiName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["apiName"] = args ? args.apiName : undefined;
-            resourceInputs["customProperties"] = args ? args.customProperties : undefined;
-            resourceInputs["definitionId"] = args ? args.definitionId : undefined;
-            resourceInputs["deploymentName"] = args ? args.deploymentName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["server"] = args ? args.server : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["apiName"] = args?.apiName;
+            resourceInputs["customProperties"] = args?.customProperties;
+            resourceInputs["definitionId"] = args?.definitionId;
+            resourceInputs["deploymentName"] = args?.deploymentName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["environmentId"] = args?.environmentId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["server"] = args?.server;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["title"] = args?.title;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

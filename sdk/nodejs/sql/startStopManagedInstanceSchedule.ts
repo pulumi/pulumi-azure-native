@@ -89,21 +89,21 @@ export class StartStopManagedInstanceSchedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managedInstanceName === undefined) && !opts.urn) {
+            if (args?.managedInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scheduleList === undefined) && !opts.urn) {
+            if (args?.scheduleList === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduleList'");
             }
-            resourceInputs["description"] = (args ? args.description : undefined) ?? "";
-            resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scheduleList"] = args ? args.scheduleList : undefined;
-            resourceInputs["startStopScheduleName"] = args ? args.startStopScheduleName : undefined;
-            resourceInputs["timeZoneId"] = (args ? args.timeZoneId : undefined) ?? "UTC";
+            resourceInputs["description"] = (args?.description) ?? "";
+            resourceInputs["managedInstanceName"] = args?.managedInstanceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scheduleList"] = args?.scheduleList;
+            resourceInputs["startStopScheduleName"] = args?.startStopScheduleName;
+            resourceInputs["timeZoneId"] = (args?.timeZoneId) ?? "UTC";
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nextExecutionTime"] = undefined /*out*/;

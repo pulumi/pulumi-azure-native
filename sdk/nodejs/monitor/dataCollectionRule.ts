@@ -124,21 +124,21 @@ export class DataCollectionRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dataCollectionEndpointId"] = args ? args.dataCollectionEndpointId : undefined;
-            resourceInputs["dataCollectionRuleName"] = args ? args.dataCollectionRuleName : undefined;
-            resourceInputs["dataFlows"] = args ? args.dataFlows : undefined;
-            resourceInputs["dataSources"] = args ? args.dataSources : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destinations"] = args ? args.destinations : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["streamDeclarations"] = args ? args.streamDeclarations : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataCollectionEndpointId"] = args?.dataCollectionEndpointId;
+            resourceInputs["dataCollectionRuleName"] = args?.dataCollectionRuleName;
+            resourceInputs["dataFlows"] = args?.dataFlows;
+            resourceInputs["dataSources"] = args?.dataSources;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destinations"] = args?.destinations;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["streamDeclarations"] = args?.streamDeclarations;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["immutableId"] = undefined /*out*/;

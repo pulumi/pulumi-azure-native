@@ -67,24 +67,24 @@ export class SerialPort extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.parentResource === undefined) && !opts.urn) {
+            if (args?.parentResource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentResource'");
             }
-            if ((!args || args.parentResourceType === undefined) && !opts.urn) {
+            if (args?.parentResourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentResourceType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceProviderNamespace === undefined) && !opts.urn) {
+            if (args?.resourceProviderNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceProviderNamespace'");
             }
-            resourceInputs["parentResource"] = args ? args.parentResource : undefined;
-            resourceInputs["parentResourceType"] = args ? args.parentResourceType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceProviderNamespace"] = args ? args.resourceProviderNamespace : undefined;
-            resourceInputs["serialPort"] = args ? args.serialPort : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["parentResource"] = args?.parentResource;
+            resourceInputs["parentResourceType"] = args?.parentResourceType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceProviderNamespace"] = args?.resourceProviderNamespace;
+            resourceInputs["serialPort"] = args?.serialPort;
+            resourceInputs["state"] = args?.state;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

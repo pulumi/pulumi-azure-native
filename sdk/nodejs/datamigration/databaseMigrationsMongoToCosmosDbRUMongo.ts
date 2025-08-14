@@ -122,26 +122,26 @@ export class DatabaseMigrationsMongoToCosmosDbRUMongo extends pulumi.CustomResou
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.targetResourceName === undefined) && !opts.urn) {
+            if (args?.targetResourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceName'");
             }
-            resourceInputs["collectionList"] = args ? args.collectionList : undefined;
+            resourceInputs["collectionList"] = args?.collectionList;
             resourceInputs["kind"] = "MongoToCosmosDbMongo";
-            resourceInputs["migrationName"] = args ? args.migrationName : undefined;
-            resourceInputs["migrationOperationId"] = args ? args.migrationOperationId : undefined;
-            resourceInputs["migrationService"] = args ? args.migrationService : undefined;
-            resourceInputs["provisioningError"] = args ? args.provisioningError : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["sourceMongoConnection"] = args ? args.sourceMongoConnection : undefined;
-            resourceInputs["targetMongoConnection"] = args ? args.targetMongoConnection : undefined;
-            resourceInputs["targetResourceName"] = args ? args.targetResourceName : undefined;
+            resourceInputs["migrationName"] = args?.migrationName;
+            resourceInputs["migrationOperationId"] = args?.migrationOperationId;
+            resourceInputs["migrationService"] = args?.migrationService;
+            resourceInputs["provisioningError"] = args?.provisioningError;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["sourceMongoConnection"] = args?.sourceMongoConnection;
+            resourceInputs["targetMongoConnection"] = args?.targetMongoConnection;
+            resourceInputs["targetResourceName"] = args?.targetResourceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["endedOn"] = undefined /*out*/;
             resourceInputs["migrationFailureError"] = undefined /*out*/;

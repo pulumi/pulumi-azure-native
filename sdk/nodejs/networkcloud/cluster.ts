@@ -208,45 +208,45 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.aggregatorOrSingleRackDefinition === undefined) && !opts.urn) {
+            if (args?.aggregatorOrSingleRackDefinition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'aggregatorOrSingleRackDefinition'");
             }
-            if ((!args || args.clusterType === undefined) && !opts.urn) {
+            if (args?.clusterType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterType'");
             }
-            if ((!args || args.clusterVersion === undefined) && !opts.urn) {
+            if (args?.clusterVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterVersion'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.networkFabricId === undefined) && !opts.urn) {
+            if (args?.networkFabricId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkFabricId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["aggregatorOrSingleRackDefinition"] = args ? args.aggregatorOrSingleRackDefinition : undefined;
-            resourceInputs["analyticsOutputSettings"] = args ? args.analyticsOutputSettings : undefined;
-            resourceInputs["analyticsWorkspaceId"] = args ? args.analyticsWorkspaceId : undefined;
-            resourceInputs["clusterLocation"] = args ? args.clusterLocation : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["clusterServicePrincipal"] = args ? args.clusterServicePrincipal : undefined;
-            resourceInputs["clusterType"] = args ? args.clusterType : undefined;
-            resourceInputs["clusterVersion"] = args ? args.clusterVersion : undefined;
-            resourceInputs["commandOutputSettings"] = args ? args.commandOutputSettings : undefined;
-            resourceInputs["computeDeploymentThreshold"] = args ? args.computeDeploymentThreshold : undefined;
-            resourceInputs["computeRackDefinitions"] = args ? args.computeRackDefinitions : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedResourceGroupConfiguration"] = args ? args.managedResourceGroupConfiguration : undefined;
-            resourceInputs["networkFabricId"] = args ? args.networkFabricId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["aggregatorOrSingleRackDefinition"] = args?.aggregatorOrSingleRackDefinition;
+            resourceInputs["analyticsOutputSettings"] = args?.analyticsOutputSettings;
+            resourceInputs["analyticsWorkspaceId"] = args?.analyticsWorkspaceId;
+            resourceInputs["clusterLocation"] = args?.clusterLocation;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["clusterServicePrincipal"] = args?.clusterServicePrincipal;
+            resourceInputs["clusterType"] = args?.clusterType;
+            resourceInputs["clusterVersion"] = args?.clusterVersion;
+            resourceInputs["commandOutputSettings"] = args?.commandOutputSettings;
+            resourceInputs["computeDeploymentThreshold"] = args?.computeDeploymentThreshold;
+            resourceInputs["computeRackDefinitions"] = args?.computeRackDefinitions;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedResourceGroupConfiguration"] = args?.managedResourceGroupConfiguration;
+            resourceInputs["networkFabricId"] = args?.networkFabricId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["runtimeProtectionConfiguration"] = args ? (args.runtimeProtectionConfiguration ? pulumi.output(args.runtimeProtectionConfiguration).apply(inputs.networkcloud.runtimeProtectionConfigurationArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["secretArchive"] = args ? (args.secretArchive ? pulumi.output(args.secretArchive).apply(inputs.networkcloud.clusterSecretArchiveArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["secretArchiveSettings"] = args ? args.secretArchiveSettings : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["secretArchiveSettings"] = args?.secretArchiveSettings;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["updateStrategy"] = args ? (args.updateStrategy ? pulumi.output(args.updateStrategy).apply(inputs.networkcloud.clusterUpdateStrategyArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["vulnerabilityScanningSettings"] = args ? (args.vulnerabilityScanningSettings ? pulumi.output(args.vulnerabilityScanningSettings).apply(inputs.networkcloud.vulnerabilityScanningSettingsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["availableUpgradeVersions"] = undefined /*out*/;

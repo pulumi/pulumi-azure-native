@@ -119,38 +119,38 @@ export class GovernanceRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.ownerSource === undefined) && !opts.urn) {
+            if (args?.ownerSource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ownerSource'");
             }
-            if ((!args || args.rulePriority === undefined) && !opts.urn) {
+            if (args?.rulePriority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rulePriority'");
             }
-            if ((!args || args.ruleType === undefined) && !opts.urn) {
+            if (args?.ruleType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleType'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.sourceResourceType === undefined) && !opts.urn) {
+            if (args?.sourceResourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceResourceType'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["excludedScopes"] = args ? args.excludedScopes : undefined;
-            resourceInputs["governanceEmailNotification"] = args ? args.governanceEmailNotification : undefined;
-            resourceInputs["includeMemberScopes"] = args ? args.includeMemberScopes : undefined;
-            resourceInputs["isDisabled"] = args ? args.isDisabled : undefined;
-            resourceInputs["isGracePeriod"] = args ? args.isGracePeriod : undefined;
-            resourceInputs["ownerSource"] = args ? args.ownerSource : undefined;
-            resourceInputs["remediationTimeframe"] = args ? args.remediationTimeframe : undefined;
-            resourceInputs["ruleId"] = args ? args.ruleId : undefined;
-            resourceInputs["rulePriority"] = args ? args.rulePriority : undefined;
-            resourceInputs["ruleType"] = args ? args.ruleType : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["sourceResourceType"] = args ? args.sourceResourceType : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["excludedScopes"] = args?.excludedScopes;
+            resourceInputs["governanceEmailNotification"] = args?.governanceEmailNotification;
+            resourceInputs["includeMemberScopes"] = args?.includeMemberScopes;
+            resourceInputs["isDisabled"] = args?.isDisabled;
+            resourceInputs["isGracePeriod"] = args?.isGracePeriod;
+            resourceInputs["ownerSource"] = args?.ownerSource;
+            resourceInputs["remediationTimeframe"] = args?.remediationTimeframe;
+            resourceInputs["ruleId"] = args?.ruleId;
+            resourceInputs["rulePriority"] = args?.rulePriority;
+            resourceInputs["ruleType"] = args?.ruleType;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["sourceResourceType"] = args?.sourceResourceType;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

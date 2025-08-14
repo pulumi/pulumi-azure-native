@@ -179,31 +179,31 @@ export class AppServicePlan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["elasticScaleEnabled"] = args ? args.elasticScaleEnabled : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["freeOfferExpirationTime"] = args ? args.freeOfferExpirationTime : undefined;
-            resourceInputs["hostingEnvironmentProfile"] = args ? args.hostingEnvironmentProfile : undefined;
-            resourceInputs["hyperV"] = (args ? args.hyperV : undefined) ?? false;
-            resourceInputs["isSpot"] = args ? args.isSpot : undefined;
-            resourceInputs["isXenon"] = (args ? args.isXenon : undefined) ?? false;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["kubeEnvironmentProfile"] = args ? args.kubeEnvironmentProfile : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maximumElasticWorkerCount"] = args ? args.maximumElasticWorkerCount : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["perSiteScaling"] = (args ? args.perSiteScaling : undefined) ?? false;
-            resourceInputs["reserved"] = (args ? args.reserved : undefined) ?? false;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["spotExpirationTime"] = args ? args.spotExpirationTime : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetWorkerCount"] = args ? args.targetWorkerCount : undefined;
-            resourceInputs["targetWorkerSizeId"] = args ? args.targetWorkerSizeId : undefined;
-            resourceInputs["workerTierName"] = args ? args.workerTierName : undefined;
-            resourceInputs["zoneRedundant"] = (args ? args.zoneRedundant : undefined) ?? false;
+            resourceInputs["elasticScaleEnabled"] = args?.elasticScaleEnabled;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["freeOfferExpirationTime"] = args?.freeOfferExpirationTime;
+            resourceInputs["hostingEnvironmentProfile"] = args?.hostingEnvironmentProfile;
+            resourceInputs["hyperV"] = (args?.hyperV) ?? false;
+            resourceInputs["isSpot"] = args?.isSpot;
+            resourceInputs["isXenon"] = (args?.isXenon) ?? false;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["kubeEnvironmentProfile"] = args?.kubeEnvironmentProfile;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maximumElasticWorkerCount"] = args?.maximumElasticWorkerCount;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["perSiteScaling"] = (args?.perSiteScaling) ?? false;
+            resourceInputs["reserved"] = (args?.reserved) ?? false;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["spotExpirationTime"] = args?.spotExpirationTime;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetWorkerCount"] = args?.targetWorkerCount;
+            resourceInputs["targetWorkerSizeId"] = args?.targetWorkerSizeId;
+            resourceInputs["workerTierName"] = args?.workerTierName;
+            resourceInputs["zoneRedundant"] = (args?.zoneRedundant) ?? false;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["geoRegion"] = undefined /*out*/;
             resourceInputs["maximumNumberOfWorkers"] = undefined /*out*/;

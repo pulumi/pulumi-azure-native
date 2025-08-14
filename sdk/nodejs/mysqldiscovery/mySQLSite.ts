@@ -91,26 +91,26 @@ export class MySQLSite extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.masterSiteId === undefined) && !opts.urn) {
+            if (args?.masterSiteId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'masterSiteId'");
             }
-            if ((!args || args.migrateProjectId === undefined) && !opts.urn) {
+            if (args?.migrateProjectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'migrateProjectId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["masterSiteId"] = args ? args.masterSiteId : undefined;
-            resourceInputs["migrateProjectId"] = args ? args.migrateProjectId : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["siteName"] = args ? args.siteName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["masterSiteId"] = args?.masterSiteId;
+            resourceInputs["migrateProjectId"] = args?.migrateProjectId;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["siteName"] = args?.siteName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

@@ -139,17 +139,17 @@ export class SapApplicationServerInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sapVirtualInstanceName === undefined) && !opts.urn) {
+            if (args?.sapVirtualInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sapVirtualInstanceName'");
             }
-            resourceInputs["applicationInstanceName"] = args ? args.applicationInstanceName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sapVirtualInstanceName"] = args ? args.sapVirtualInstanceName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationInstanceName"] = args?.applicationInstanceName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sapVirtualInstanceName"] = args?.sapVirtualInstanceName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dispatcherStatus"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;

@@ -109,21 +109,21 @@ export class EventHub extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["captureDescription"] = args ? args.captureDescription : undefined;
-            resourceInputs["eventHubName"] = args ? args.eventHubName : undefined;
-            resourceInputs["messageRetentionInDays"] = args ? args.messageRetentionInDays : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["partitionCount"] = args ? args.partitionCount : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retentionDescription"] = args ? args.retentionDescription : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["userMetadata"] = args ? args.userMetadata : undefined;
+            resourceInputs["captureDescription"] = args?.captureDescription;
+            resourceInputs["eventHubName"] = args?.eventHubName;
+            resourceInputs["messageRetentionInDays"] = args?.messageRetentionInDays;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["partitionCount"] = args?.partitionCount;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retentionDescription"] = args?.retentionDescription;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["userMetadata"] = args?.userMetadata;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

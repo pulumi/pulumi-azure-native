@@ -89,21 +89,21 @@ export class FqdnListLocalRulestack extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fqdnList === undefined) && !opts.urn) {
+            if (args?.fqdnList === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fqdnList'");
             }
-            if ((!args || args.localRulestackName === undefined) && !opts.urn) {
+            if (args?.localRulestackName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localRulestackName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["auditComment"] = args ? args.auditComment : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["fqdnList"] = args ? args.fqdnList : undefined;
-            resourceInputs["localRulestackName"] = args ? args.localRulestackName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["auditComment"] = args?.auditComment;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["fqdnList"] = args?.fqdnList;
+            resourceInputs["localRulestackName"] = args?.localRulestackName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

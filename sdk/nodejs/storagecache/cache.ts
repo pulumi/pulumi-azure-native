@@ -141,23 +141,23 @@ export class Cache extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["cacheName"] = args ? args.cacheName : undefined;
-            resourceInputs["cacheSizeGB"] = args ? args.cacheSizeGB : undefined;
+            resourceInputs["cacheName"] = args?.cacheName;
+            resourceInputs["cacheSizeGB"] = args?.cacheSizeGB;
             resourceInputs["directoryServicesSettings"] = args ? (args.directoryServicesSettings ? pulumi.output(args.directoryServicesSettings).apply(inputs.storagecache.cacheDirectorySettingsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["encryptionSettings"] = args?.encryptionSettings;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
             resourceInputs["networkSettings"] = args ? (args.networkSettings ? pulumi.output(args.networkSettings).apply(inputs.storagecache.cacheNetworkSettingsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securitySettings"] = args ? args.securitySettings : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["subnet"] = args ? args.subnet : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["upgradeSettings"] = args ? args.upgradeSettings : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["securitySettings"] = args?.securitySettings;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["subnet"] = args?.subnet;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["upgradeSettings"] = args?.upgradeSettings;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["health"] = undefined /*out*/;
             resourceInputs["mountAddresses"] = undefined /*out*/;

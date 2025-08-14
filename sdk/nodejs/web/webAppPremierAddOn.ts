@@ -94,23 +94,23 @@ export class WebAppPremierAddOn extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["marketplaceOffer"] = args ? args.marketplaceOffer : undefined;
-            resourceInputs["marketplacePublisher"] = args ? args.marketplacePublisher : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["premierAddOnName"] = args ? args.premierAddOnName : undefined;
-            resourceInputs["product"] = args ? args.product : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vendor"] = args ? args.vendor : undefined;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["marketplaceOffer"] = args?.marketplaceOffer;
+            resourceInputs["marketplacePublisher"] = args?.marketplacePublisher;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["premierAddOnName"] = args?.premierAddOnName;
+            resourceInputs["product"] = args?.product;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vendor"] = args?.vendor;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

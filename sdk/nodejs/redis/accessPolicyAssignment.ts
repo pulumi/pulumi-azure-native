@@ -78,27 +78,27 @@ export class AccessPolicyAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accessPolicyName === undefined) && !opts.urn) {
+            if (args?.accessPolicyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessPolicyName'");
             }
-            if ((!args || args.cacheName === undefined) && !opts.urn) {
+            if (args?.cacheName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cacheName'");
             }
-            if ((!args || args.objectId === undefined) && !opts.urn) {
+            if (args?.objectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectId'");
             }
-            if ((!args || args.objectIdAlias === undefined) && !opts.urn) {
+            if (args?.objectIdAlias === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectIdAlias'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accessPolicyAssignmentName"] = args ? args.accessPolicyAssignmentName : undefined;
-            resourceInputs["accessPolicyName"] = args ? args.accessPolicyName : undefined;
-            resourceInputs["cacheName"] = args ? args.cacheName : undefined;
-            resourceInputs["objectId"] = args ? args.objectId : undefined;
-            resourceInputs["objectIdAlias"] = args ? args.objectIdAlias : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["accessPolicyAssignmentName"] = args?.accessPolicyAssignmentName;
+            resourceInputs["accessPolicyName"] = args?.accessPolicyName;
+            resourceInputs["cacheName"] = args?.cacheName;
+            resourceInputs["objectId"] = args?.objectId;
+            resourceInputs["objectIdAlias"] = args?.objectIdAlias;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

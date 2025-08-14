@@ -115,30 +115,30 @@ export class Console extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sshPublicKey === undefined) && !opts.urn) {
+            if (args?.sshPublicKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sshPublicKey'");
             }
-            if ((!args || args.virtualMachineName === undefined) && !opts.urn) {
+            if (args?.virtualMachineName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineName'");
             }
-            resourceInputs["consoleName"] = args ? args.consoleName : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["expiration"] = args ? args.expiration : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sshPublicKey"] = args ? args.sshPublicKey : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
+            resourceInputs["consoleName"] = args?.consoleName;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["expiration"] = args?.expiration;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sshPublicKey"] = args?.sshPublicKey;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualMachineName"] = args?.virtualMachineName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;

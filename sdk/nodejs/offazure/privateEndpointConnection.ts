@@ -75,15 +75,15 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.siteName === undefined) && !opts.urn) {
+            if (args?.siteName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'siteName'");
             }
-            resourceInputs["peConnectionName"] = args ? args.peConnectionName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["siteName"] = args ? args.siteName : undefined;
+            resourceInputs["peConnectionName"] = args?.peConnectionName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["siteName"] = args?.siteName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

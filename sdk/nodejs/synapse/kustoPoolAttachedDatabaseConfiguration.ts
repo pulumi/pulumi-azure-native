@@ -95,33 +95,33 @@ export class KustoPoolAttachedDatabaseConfiguration extends pulumi.CustomResourc
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.defaultPrincipalsModificationKind === undefined) && !opts.urn) {
+            if (args?.defaultPrincipalsModificationKind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultPrincipalsModificationKind'");
             }
-            if ((!args || args.kustoPoolName === undefined) && !opts.urn) {
+            if (args?.kustoPoolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kustoPoolName'");
             }
-            if ((!args || args.kustoPoolResourceId === undefined) && !opts.urn) {
+            if (args?.kustoPoolResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kustoPoolResourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["attachedDatabaseConfigurationName"] = args ? args.attachedDatabaseConfigurationName : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["defaultPrincipalsModificationKind"] = args ? args.defaultPrincipalsModificationKind : undefined;
-            resourceInputs["kustoPoolName"] = args ? args.kustoPoolName : undefined;
-            resourceInputs["kustoPoolResourceId"] = args ? args.kustoPoolResourceId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tableLevelSharingProperties"] = args ? args.tableLevelSharingProperties : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["attachedDatabaseConfigurationName"] = args?.attachedDatabaseConfigurationName;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["defaultPrincipalsModificationKind"] = args?.defaultPrincipalsModificationKind;
+            resourceInputs["kustoPoolName"] = args?.kustoPoolName;
+            resourceInputs["kustoPoolResourceId"] = args?.kustoPoolResourceId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tableLevelSharingProperties"] = args?.tableLevelSharingProperties;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["attachedDatabaseNames"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

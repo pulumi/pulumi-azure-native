@@ -89,21 +89,21 @@ export class PrefixListLocalRulestack extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.localRulestackName === undefined) && !opts.urn) {
+            if (args?.localRulestackName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localRulestackName'");
             }
-            if ((!args || args.prefixList === undefined) && !opts.urn) {
+            if (args?.prefixList === undefined && !opts.urn) {
                 throw new Error("Missing required property 'prefixList'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["auditComment"] = args ? args.auditComment : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["localRulestackName"] = args ? args.localRulestackName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["prefixList"] = args ? args.prefixList : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["auditComment"] = args?.auditComment;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["localRulestackName"] = args?.localRulestackName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["prefixList"] = args?.prefixList;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

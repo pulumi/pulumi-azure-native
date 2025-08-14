@@ -124,28 +124,28 @@ export class ScalingPlan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.timeZone === undefined) && !opts.urn) {
+            if (args?.timeZone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeZone'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["exclusionTag"] = args ? args.exclusionTag : undefined;
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["hostPoolReferences"] = args ? args.hostPoolReferences : undefined;
-            resourceInputs["hostPoolType"] = (args ? args.hostPoolType : undefined) ?? "Pooled";
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scalingPlanName"] = args ? args.scalingPlanName : undefined;
-            resourceInputs["schedules"] = args ? args.schedules : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["exclusionTag"] = args?.exclusionTag;
+            resourceInputs["friendlyName"] = args?.friendlyName;
+            resourceInputs["hostPoolReferences"] = args?.hostPoolReferences;
+            resourceInputs["hostPoolType"] = (args?.hostPoolType) ?? "Pooled";
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedBy"] = args?.managedBy;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scalingPlanName"] = args?.scalingPlanName;
+            resourceInputs["schedules"] = args?.schedules;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeZone"] = args?.timeZone;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

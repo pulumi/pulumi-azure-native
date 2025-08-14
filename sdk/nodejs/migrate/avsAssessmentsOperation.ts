@@ -279,43 +279,43 @@ export class AvsAssessmentsOperation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupName === undefined) && !opts.urn) {
+            if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.projectName === undefined) && !opts.urn) {
+            if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["assessmentName"] = args ? args.assessmentName : undefined;
-            resourceInputs["avsAssessmentScenario"] = args ? args.avsAssessmentScenario : undefined;
-            resourceInputs["azureLocation"] = args ? args.azureLocation : undefined;
-            resourceInputs["azureOfferCode"] = args ? args.azureOfferCode : undefined;
-            resourceInputs["cpuHeadroom"] = args ? args.cpuHeadroom : undefined;
-            resourceInputs["currency"] = args ? args.currency : undefined;
-            resourceInputs["dedupeCompression"] = args ? args.dedupeCompression : undefined;
-            resourceInputs["discountPercentage"] = args ? args.discountPercentage : undefined;
-            resourceInputs["externalStorageTypes"] = args ? args.externalStorageTypes : undefined;
-            resourceInputs["failuresToTolerateAndRaidLevel"] = args ? args.failuresToTolerateAndRaidLevel : undefined;
-            resourceInputs["failuresToTolerateAndRaidLevelList"] = args ? args.failuresToTolerateAndRaidLevelList : undefined;
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["isStretchClusterEnabled"] = args ? args.isStretchClusterEnabled : undefined;
-            resourceInputs["isVcfByolEnabled"] = args ? args.isVcfByolEnabled : undefined;
-            resourceInputs["memOvercommit"] = args ? args.memOvercommit : undefined;
-            resourceInputs["nodeType"] = args ? args.nodeType : undefined;
-            resourceInputs["nodeTypes"] = args ? args.nodeTypes : undefined;
-            resourceInputs["percentile"] = args ? args.percentile : undefined;
-            resourceInputs["perfDataEndTime"] = args ? args.perfDataEndTime : undefined;
-            resourceInputs["perfDataStartTime"] = args ? args.perfDataStartTime : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["reservedInstance"] = args ? args.reservedInstance : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scalingFactor"] = args ? args.scalingFactor : undefined;
-            resourceInputs["sizingCriterion"] = args ? args.sizingCriterion : undefined;
-            resourceInputs["timeRange"] = args ? args.timeRange : undefined;
-            resourceInputs["vcpuOversubscription"] = args ? args.vcpuOversubscription : undefined;
+            resourceInputs["assessmentName"] = args?.assessmentName;
+            resourceInputs["avsAssessmentScenario"] = args?.avsAssessmentScenario;
+            resourceInputs["azureLocation"] = args?.azureLocation;
+            resourceInputs["azureOfferCode"] = args?.azureOfferCode;
+            resourceInputs["cpuHeadroom"] = args?.cpuHeadroom;
+            resourceInputs["currency"] = args?.currency;
+            resourceInputs["dedupeCompression"] = args?.dedupeCompression;
+            resourceInputs["discountPercentage"] = args?.discountPercentage;
+            resourceInputs["externalStorageTypes"] = args?.externalStorageTypes;
+            resourceInputs["failuresToTolerateAndRaidLevel"] = args?.failuresToTolerateAndRaidLevel;
+            resourceInputs["failuresToTolerateAndRaidLevelList"] = args?.failuresToTolerateAndRaidLevelList;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["isStretchClusterEnabled"] = args?.isStretchClusterEnabled;
+            resourceInputs["isVcfByolEnabled"] = args?.isVcfByolEnabled;
+            resourceInputs["memOvercommit"] = args?.memOvercommit;
+            resourceInputs["nodeType"] = args?.nodeType;
+            resourceInputs["nodeTypes"] = args?.nodeTypes;
+            resourceInputs["percentile"] = args?.percentile;
+            resourceInputs["perfDataEndTime"] = args?.perfDataEndTime;
+            resourceInputs["perfDataStartTime"] = args?.perfDataStartTime;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["reservedInstance"] = args?.reservedInstance;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scalingFactor"] = args?.scalingFactor;
+            resourceInputs["sizingCriterion"] = args?.sizingCriterion;
+            resourceInputs["timeRange"] = args?.timeRange;
+            resourceInputs["vcpuOversubscription"] = args?.vcpuOversubscription;
             resourceInputs["assessmentErrorSummary"] = undefined /*out*/;
             resourceInputs["assessmentType"] = undefined /*out*/;
             resourceInputs["avsEstimatedExternalStorages"] = undefined /*out*/;

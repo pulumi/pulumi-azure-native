@@ -97,23 +97,23 @@ export class DatabaseAdvisor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.autoExecuteStatus === undefined) && !opts.urn) {
+            if (args?.autoExecuteStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoExecuteStatus'");
             }
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            resourceInputs["advisorName"] = args ? args.advisorName : undefined;
-            resourceInputs["autoExecuteStatus"] = args ? args.autoExecuteStatus : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["advisorName"] = args?.advisorName;
+            resourceInputs["autoExecuteStatus"] = args?.autoExecuteStatus;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
             resourceInputs["advisorStatus"] = undefined /*out*/;
             resourceInputs["autoExecuteStatusInheritedFrom"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

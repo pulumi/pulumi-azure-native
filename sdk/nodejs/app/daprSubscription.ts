@@ -97,22 +97,22 @@ export class DaprSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.environmentName === undefined) && !opts.urn) {
+            if (args?.environmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["bulkSubscribe"] = args ? (args.bulkSubscribe ? pulumi.output(args.bulkSubscribe).apply(inputs.app.daprSubscriptionBulkSubscribeOptionsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["deadLetterTopic"] = args ? args.deadLetterTopic : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["pubsubName"] = args ? args.pubsubName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routes"] = args ? args.routes : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
-            resourceInputs["topic"] = args ? args.topic : undefined;
+            resourceInputs["deadLetterTopic"] = args?.deadLetterTopic;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["pubsubName"] = args?.pubsubName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routes"] = args?.routes;
+            resourceInputs["scopes"] = args?.scopes;
+            resourceInputs["topic"] = args?.topic;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

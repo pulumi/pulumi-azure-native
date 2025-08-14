@@ -95,27 +95,27 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.algorithm === undefined) && !opts.urn) {
+            if (args?.algorithm === undefined && !opts.urn) {
                 throw new Error("Missing required property 'algorithm'");
             }
-            if ((!args || args.integrityKey === undefined) && !opts.urn) {
+            if (args?.integrityKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrityKey'");
             }
-            if ((!args || args.managerName === undefined) && !opts.urn) {
+            if (args?.managerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["algorithm"] = args ? args.algorithm : undefined;
-            resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
-            resourceInputs["encryptionKeyThumbprint"] = args ? args.encryptionKeyThumbprint : undefined;
-            resourceInputs["integrityKey"] = args ? args.integrityKey : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["managerName"] = args ? args.managerName : undefined;
-            resourceInputs["portalCertificateThumbprint"] = args ? args.portalCertificateThumbprint : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["algorithm"] = args?.algorithm;
+            resourceInputs["encryptionKey"] = args?.encryptionKey;
+            resourceInputs["encryptionKeyThumbprint"] = args?.encryptionKeyThumbprint;
+            resourceInputs["integrityKey"] = args?.integrityKey;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["managerName"] = args?.managerName;
+            resourceInputs["portalCertificateThumbprint"] = args?.portalCertificateThumbprint;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

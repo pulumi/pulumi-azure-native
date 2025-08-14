@@ -113,31 +113,31 @@ export class WatchlistItem extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.itemsKeyValue === undefined) && !opts.urn) {
+            if (args?.itemsKeyValue === undefined && !opts.urn) {
                 throw new Error("Missing required property 'itemsKeyValue'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.watchlistAlias === undefined) && !opts.urn) {
+            if (args?.watchlistAlias === undefined && !opts.urn) {
                 throw new Error("Missing required property 'watchlistAlias'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["created"] = args ? args.created : undefined;
-            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
-            resourceInputs["entityMapping"] = args ? args.entityMapping : undefined;
-            resourceInputs["isDeleted"] = args ? args.isDeleted : undefined;
-            resourceInputs["itemsKeyValue"] = args ? args.itemsKeyValue : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
-            resourceInputs["updated"] = args ? args.updated : undefined;
-            resourceInputs["updatedBy"] = args ? args.updatedBy : undefined;
-            resourceInputs["watchlistAlias"] = args ? args.watchlistAlias : undefined;
-            resourceInputs["watchlistItemId"] = args ? args.watchlistItemId : undefined;
-            resourceInputs["watchlistItemType"] = args ? args.watchlistItemType : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["created"] = args?.created;
+            resourceInputs["createdBy"] = args?.createdBy;
+            resourceInputs["entityMapping"] = args?.entityMapping;
+            resourceInputs["isDeleted"] = args?.isDeleted;
+            resourceInputs["itemsKeyValue"] = args?.itemsKeyValue;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tenantId"] = args?.tenantId;
+            resourceInputs["updated"] = args?.updated;
+            resourceInputs["updatedBy"] = args?.updatedBy;
+            resourceInputs["watchlistAlias"] = args?.watchlistAlias;
+            resourceInputs["watchlistItemId"] = args?.watchlistItemId;
+            resourceInputs["watchlistItemType"] = args?.watchlistItemType;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

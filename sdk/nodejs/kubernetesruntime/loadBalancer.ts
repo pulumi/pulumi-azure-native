@@ -87,21 +87,21 @@ export class LoadBalancer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.addresses === undefined) && !opts.urn) {
+            if (args?.addresses === undefined && !opts.urn) {
                 throw new Error("Missing required property 'addresses'");
             }
-            if ((!args || args.advertiseMode === undefined) && !opts.urn) {
+            if (args?.advertiseMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'advertiseMode'");
             }
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["addresses"] = args ? args.addresses : undefined;
-            resourceInputs["advertiseMode"] = args ? args.advertiseMode : undefined;
-            resourceInputs["bgpPeers"] = args ? args.bgpPeers : undefined;
-            resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
-            resourceInputs["serviceSelector"] = args ? args.serviceSelector : undefined;
+            resourceInputs["addresses"] = args?.addresses;
+            resourceInputs["advertiseMode"] = args?.advertiseMode;
+            resourceInputs["bgpPeers"] = args?.bgpPeers;
+            resourceInputs["loadBalancerName"] = args?.loadBalancerName;
+            resourceInputs["resourceUri"] = args?.resourceUri;
+            resourceInputs["serviceSelector"] = args?.serviceSelector;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

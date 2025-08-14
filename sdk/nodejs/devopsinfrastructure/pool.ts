@@ -105,35 +105,35 @@ export class Pool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.agentProfile === undefined) && !opts.urn) {
+            if (args?.agentProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentProfile'");
             }
-            if ((!args || args.devCenterProjectResourceId === undefined) && !opts.urn) {
+            if (args?.devCenterProjectResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devCenterProjectResourceId'");
             }
-            if ((!args || args.fabricProfile === undefined) && !opts.urn) {
+            if (args?.fabricProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fabricProfile'");
             }
-            if ((!args || args.maximumConcurrency === undefined) && !opts.urn) {
+            if (args?.maximumConcurrency === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maximumConcurrency'");
             }
-            if ((!args || args.organizationProfile === undefined) && !opts.urn) {
+            if (args?.organizationProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'organizationProfile'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["agentProfile"] = args ? args.agentProfile : undefined;
-            resourceInputs["devCenterProjectResourceId"] = args ? args.devCenterProjectResourceId : undefined;
-            resourceInputs["fabricProfile"] = args ? args.fabricProfile : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maximumConcurrency"] = args ? args.maximumConcurrency : undefined;
-            resourceInputs["organizationProfile"] = args ? args.organizationProfile : undefined;
-            resourceInputs["poolName"] = args ? args.poolName : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["agentProfile"] = args?.agentProfile;
+            resourceInputs["devCenterProjectResourceId"] = args?.devCenterProjectResourceId;
+            resourceInputs["fabricProfile"] = args?.fabricProfile;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maximumConcurrency"] = args?.maximumConcurrency;
+            resourceInputs["organizationProfile"] = args?.organizationProfile;
+            resourceInputs["poolName"] = args?.poolName;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

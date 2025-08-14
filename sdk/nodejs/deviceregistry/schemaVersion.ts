@@ -89,24 +89,24 @@ export class SchemaVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.schemaContent === undefined) && !opts.urn) {
+            if (args?.schemaContent === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaContent'");
             }
-            if ((!args || args.schemaName === undefined) && !opts.urn) {
+            if (args?.schemaName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaName'");
             }
-            if ((!args || args.schemaRegistryName === undefined) && !opts.urn) {
+            if (args?.schemaRegistryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaRegistryName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schemaContent"] = args ? args.schemaContent : undefined;
-            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
-            resourceInputs["schemaRegistryName"] = args ? args.schemaRegistryName : undefined;
-            resourceInputs["schemaVersionName"] = args ? args.schemaVersionName : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["schemaContent"] = args?.schemaContent;
+            resourceInputs["schemaName"] = args?.schemaName;
+            resourceInputs["schemaRegistryName"] = args?.schemaRegistryName;
+            resourceInputs["schemaVersionName"] = args?.schemaVersionName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hash"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

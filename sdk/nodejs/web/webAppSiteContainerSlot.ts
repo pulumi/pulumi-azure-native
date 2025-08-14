@@ -117,36 +117,36 @@ export class WebAppSiteContainerSlot extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.image === undefined) && !opts.urn) {
+            if (args?.image === undefined && !opts.urn) {
                 throw new Error("Missing required property 'image'");
             }
-            if ((!args || args.isMain === undefined) && !opts.urn) {
+            if (args?.isMain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'isMain'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.slot === undefined) && !opts.urn) {
+            if (args?.slot === undefined && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            resourceInputs["authType"] = args ? args.authType : undefined;
-            resourceInputs["containerName"] = args ? args.containerName : undefined;
-            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
-            resourceInputs["image"] = args ? args.image : undefined;
-            resourceInputs["isMain"] = args ? args.isMain : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["passwordSecret"] = args ? args.passwordSecret : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["slot"] = args ? args.slot : undefined;
-            resourceInputs["startUpCommand"] = args ? args.startUpCommand : undefined;
-            resourceInputs["targetPort"] = args ? args.targetPort : undefined;
-            resourceInputs["userManagedIdentityClientId"] = args ? args.userManagedIdentityClientId : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
-            resourceInputs["volumeMounts"] = args ? args.volumeMounts : undefined;
+            resourceInputs["authType"] = args?.authType;
+            resourceInputs["containerName"] = args?.containerName;
+            resourceInputs["environmentVariables"] = args?.environmentVariables;
+            resourceInputs["image"] = args?.image;
+            resourceInputs["isMain"] = args?.isMain;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["passwordSecret"] = args?.passwordSecret;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["slot"] = args?.slot;
+            resourceInputs["startUpCommand"] = args?.startUpCommand;
+            resourceInputs["targetPort"] = args?.targetPort;
+            resourceInputs["userManagedIdentityClientId"] = args?.userManagedIdentityClientId;
+            resourceInputs["userName"] = args?.userName;
+            resourceInputs["volumeMounts"] = args?.volumeMounts;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;

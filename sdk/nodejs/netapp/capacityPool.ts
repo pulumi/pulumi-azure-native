@@ -117,28 +117,28 @@ export class CapacityPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceLevel === undefined) && !opts.urn) {
+            if (args?.serviceLevel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceLevel'");
             }
-            if ((!args || args.size === undefined) && !opts.urn) {
+            if (args?.size === undefined && !opts.urn) {
                 throw new Error("Missing required property 'size'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["coolAccess"] = (args ? args.coolAccess : undefined) ?? false;
-            resourceInputs["encryptionType"] = (args ? args.encryptionType : undefined) ?? "Single";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["poolName"] = args ? args.poolName : undefined;
-            resourceInputs["qosType"] = (args ? args.qosType : undefined) ?? "Auto";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceLevel"] = args ? args.serviceLevel : undefined;
-            resourceInputs["size"] = (args ? args.size : undefined) ?? 4398046511104;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["coolAccess"] = (args?.coolAccess) ?? false;
+            resourceInputs["encryptionType"] = (args?.encryptionType) ?? "Single";
+            resourceInputs["location"] = args?.location;
+            resourceInputs["poolName"] = args?.poolName;
+            resourceInputs["qosType"] = (args?.qosType) ?? "Auto";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceLevel"] = args?.serviceLevel;
+            resourceInputs["size"] = (args?.size) ?? 4398046511104;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

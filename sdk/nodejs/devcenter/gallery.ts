@@ -77,19 +77,19 @@ export class Gallery extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.devCenterName === undefined) && !opts.urn) {
+            if (args?.devCenterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devCenterName'");
             }
-            if ((!args || args.galleryResourceId === undefined) && !opts.urn) {
+            if (args?.galleryResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryResourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["devCenterName"] = args ? args.devCenterName : undefined;
-            resourceInputs["galleryName"] = args ? args.galleryName : undefined;
-            resourceInputs["galleryResourceId"] = args ? args.galleryResourceId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["devCenterName"] = args?.devCenterName;
+            resourceInputs["galleryName"] = args?.galleryName;
+            resourceInputs["galleryResourceId"] = args?.galleryResourceId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

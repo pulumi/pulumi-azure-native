@@ -74,35 +74,35 @@ export class ApiIssueAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.contentFormat === undefined) && !opts.urn) {
+            if (args?.contentFormat === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentFormat'");
             }
-            if ((!args || args.issueId === undefined) && !opts.urn) {
+            if (args?.issueId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'issueId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.title === undefined) && !opts.urn) {
+            if (args?.title === undefined && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["attachmentId"] = args ? args.attachmentId : undefined;
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["contentFormat"] = args ? args.contentFormat : undefined;
-            resourceInputs["issueId"] = args ? args.issueId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["attachmentId"] = args?.attachmentId;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["contentFormat"] = args?.contentFormat;
+            resourceInputs["issueId"] = args?.issueId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["title"] = args?.title;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

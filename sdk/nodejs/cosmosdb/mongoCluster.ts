@@ -105,19 +105,19 @@ export class MongoCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
-            resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
-            resourceInputs["createMode"] = (args ? args.createMode : undefined) ?? "Default";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mongoClusterName"] = args ? args.mongoClusterName : undefined;
-            resourceInputs["nodeGroupSpecs"] = args ? args.nodeGroupSpecs : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restoreParameters"] = args ? args.restoreParameters : undefined;
-            resourceInputs["serverVersion"] = args ? args.serverVersion : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["administratorLogin"] = args?.administratorLogin;
+            resourceInputs["administratorLoginPassword"] = args?.administratorLoginPassword;
+            resourceInputs["createMode"] = (args?.createMode) ?? "Default";
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mongoClusterName"] = args?.mongoClusterName;
+            resourceInputs["nodeGroupSpecs"] = args?.nodeGroupSpecs;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restoreParameters"] = args?.restoreParameters;
+            resourceInputs["serverVersion"] = args?.serverVersion;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterStatus"] = undefined /*out*/;
             resourceInputs["connectionString"] = undefined /*out*/;

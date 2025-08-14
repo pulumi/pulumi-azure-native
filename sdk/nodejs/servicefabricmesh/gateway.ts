@@ -107,24 +107,24 @@ export class Gateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destinationNetwork === undefined) && !opts.urn) {
+            if (args?.destinationNetwork === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationNetwork'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceNetwork === undefined) && !opts.urn) {
+            if (args?.sourceNetwork === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceNetwork'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destinationNetwork"] = args ? args.destinationNetwork : undefined;
-            resourceInputs["gatewayResourceName"] = args ? args.gatewayResourceName : undefined;
-            resourceInputs["http"] = args ? args.http : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceNetwork"] = args ? args.sourceNetwork : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tcp"] = args ? args.tcp : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destinationNetwork"] = args?.destinationNetwork;
+            resourceInputs["gatewayResourceName"] = args?.gatewayResourceName;
+            resourceInputs["http"] = args?.http;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceNetwork"] = args?.sourceNetwork;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tcp"] = args?.tcp;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -97,18 +97,18 @@ export class HypervHostController extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.siteName === undefined) && !opts.urn) {
+            if (args?.siteName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'siteName'");
             }
-            resourceInputs["fqdn"] = args ? args.fqdn : undefined;
-            resourceInputs["hostName"] = args ? args.hostName : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["runAsAccountId"] = args ? args.runAsAccountId : undefined;
-            resourceInputs["siteName"] = args ? args.siteName : undefined;
+            resourceInputs["fqdn"] = args?.fqdn;
+            resourceInputs["hostName"] = args?.hostName;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["runAsAccountId"] = args?.runAsAccountId;
+            resourceInputs["siteName"] = args?.siteName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;

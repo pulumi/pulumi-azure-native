@@ -91,21 +91,21 @@ export class PublicCloudConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.awsCloudProfile === undefined) && !opts.urn) {
+            if (args?.awsCloudProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsCloudProfile'");
             }
-            if ((!args || args.hostType === undefined) && !opts.urn) {
+            if (args?.hostType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["awsCloudProfile"] = args ? (args.awsCloudProfile ? pulumi.output(args.awsCloudProfile).apply(inputs.hybridconnectivity.awsCloudProfileArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["hostType"] = args ? args.hostType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["publicCloudConnector"] = args ? args.publicCloudConnector : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["hostType"] = args?.hostType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["publicCloudConnector"] = args?.publicCloudConnector;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectorPrimaryIdentifier"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -129,37 +129,37 @@ export class Firewall extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dnsSettings === undefined) && !opts.urn) {
+            if (args?.dnsSettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsSettings'");
             }
-            if ((!args || args.marketplaceDetails === undefined) && !opts.urn) {
+            if (args?.marketplaceDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'marketplaceDetails'");
             }
-            if ((!args || args.networkProfile === undefined) && !opts.urn) {
+            if (args?.networkProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkProfile'");
             }
-            if ((!args || args.planData === undefined) && !opts.urn) {
+            if (args?.planData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'planData'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["associatedRulestack"] = args ? args.associatedRulestack : undefined;
-            resourceInputs["dnsSettings"] = args ? args.dnsSettings : undefined;
-            resourceInputs["firewallName"] = args ? args.firewallName : undefined;
-            resourceInputs["frontEndSettings"] = args ? args.frontEndSettings : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["isPanoramaManaged"] = args ? args.isPanoramaManaged : undefined;
-            resourceInputs["isStrataCloudManaged"] = args ? args.isStrataCloudManaged : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["marketplaceDetails"] = args ? args.marketplaceDetails : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["panEtag"] = args ? args.panEtag : undefined;
-            resourceInputs["panoramaConfig"] = args ? args.panoramaConfig : undefined;
-            resourceInputs["planData"] = args ? args.planData : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["strataCloudManagerConfig"] = args ? args.strataCloudManagerConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["associatedRulestack"] = args?.associatedRulestack;
+            resourceInputs["dnsSettings"] = args?.dnsSettings;
+            resourceInputs["firewallName"] = args?.firewallName;
+            resourceInputs["frontEndSettings"] = args?.frontEndSettings;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["isPanoramaManaged"] = args?.isPanoramaManaged;
+            resourceInputs["isStrataCloudManaged"] = args?.isStrataCloudManaged;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["marketplaceDetails"] = args?.marketplaceDetails;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["panEtag"] = args?.panEtag;
+            resourceInputs["panoramaConfig"] = args?.panoramaConfig;
+            resourceInputs["planData"] = args?.planData;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["strataCloudManagerConfig"] = args?.strataCloudManagerConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

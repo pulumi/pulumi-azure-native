@@ -89,23 +89,23 @@ export class WorkspaceManagerAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.items === undefined) && !opts.urn) {
+            if (args?.items === undefined && !opts.urn) {
                 throw new Error("Missing required property 'items'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.targetResourceName === undefined) && !opts.urn) {
+            if (args?.targetResourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["items"] = args ? args.items : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["targetResourceName"] = args ? args.targetResourceName : undefined;
-            resourceInputs["workspaceManagerAssignmentName"] = args ? args.workspaceManagerAssignmentName : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["items"] = args?.items;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["targetResourceName"] = args?.targetResourceName;
+            resourceInputs["workspaceManagerAssignmentName"] = args?.workspaceManagerAssignmentName;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastJobEndTime"] = undefined /*out*/;

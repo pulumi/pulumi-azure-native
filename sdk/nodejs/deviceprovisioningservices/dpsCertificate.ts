@@ -77,16 +77,16 @@ export class DpsCertificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.provisioningServiceName === undefined) && !opts.urn) {
+            if (args?.provisioningServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'provisioningServiceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["provisioningServiceName"] = args ? args.provisioningServiceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["certificateName"] = args?.certificateName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["provisioningServiceName"] = args?.provisioningServiceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

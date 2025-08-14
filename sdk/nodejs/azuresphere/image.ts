@@ -105,18 +105,18 @@ export class Image extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.catalogName === undefined) && !opts.urn) {
+            if (args?.catalogName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'catalogName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["catalogName"] = args ? args.catalogName : undefined;
-            resourceInputs["image"] = args ? args.image : undefined;
-            resourceInputs["imageId"] = args ? args.imageId : undefined;
-            resourceInputs["imageName"] = args ? args.imageName : undefined;
-            resourceInputs["regionalDataBoundary"] = args ? args.regionalDataBoundary : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["catalogName"] = args?.catalogName;
+            resourceInputs["image"] = args?.image;
+            resourceInputs["imageId"] = args?.imageId;
+            resourceInputs["imageName"] = args?.imageName;
+            resourceInputs["regionalDataBoundary"] = args?.regionalDataBoundary;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["componentId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

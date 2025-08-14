@@ -89,20 +89,20 @@ export class WebAppAuthSettingsV2 extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["globalValidation"] = args ? args.globalValidation : undefined;
-            resourceInputs["httpSettings"] = args ? args.httpSettings : undefined;
-            resourceInputs["identityProviders"] = args ? args.identityProviders : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["login"] = args ? args.login : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["platform"] = args ? args.platform : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["globalValidation"] = args?.globalValidation;
+            resourceInputs["httpSettings"] = args?.httpSettings;
+            resourceInputs["identityProviders"] = args?.identityProviders;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["login"] = args?.login;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["platform"] = args?.platform;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

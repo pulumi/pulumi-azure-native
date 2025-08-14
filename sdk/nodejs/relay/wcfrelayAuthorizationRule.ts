@@ -77,23 +77,23 @@ export class WCFRelayAuthorizationRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.relayName === undefined) && !opts.urn) {
+            if (args?.relayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'relayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.rights === undefined) && !opts.urn) {
+            if (args?.rights === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rights'");
             }
-            resourceInputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["relayName"] = args ? args.relayName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rights"] = args ? args.rights : undefined;
+            resourceInputs["authorizationRuleName"] = args?.authorizationRuleName;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["relayName"] = args?.relayName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["rights"] = args?.rights;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -89,22 +89,22 @@ export class PacketCoreDataPlane extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.packetCoreControlPlaneName === undefined) && !opts.urn) {
+            if (args?.packetCoreControlPlaneName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packetCoreControlPlaneName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.userPlaneAccessInterface === undefined) && !opts.urn) {
+            if (args?.userPlaneAccessInterface === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPlaneAccessInterface'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["packetCoreControlPlaneName"] = args ? args.packetCoreControlPlaneName : undefined;
-            resourceInputs["packetCoreDataPlaneName"] = args ? args.packetCoreDataPlaneName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userPlaneAccessInterface"] = args ? args.userPlaneAccessInterface : undefined;
-            resourceInputs["userPlaneAccessVirtualIpv4Addresses"] = args ? args.userPlaneAccessVirtualIpv4Addresses : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["packetCoreControlPlaneName"] = args?.packetCoreControlPlaneName;
+            resourceInputs["packetCoreDataPlaneName"] = args?.packetCoreDataPlaneName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userPlaneAccessInterface"] = args?.userPlaneAccessInterface;
+            resourceInputs["userPlaneAccessVirtualIpv4Addresses"] = args?.userPlaneAccessVirtualIpv4Addresses;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

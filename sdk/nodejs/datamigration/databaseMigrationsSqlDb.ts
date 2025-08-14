@@ -67,16 +67,16 @@ export class DatabaseMigrationsSqlDb extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sqlDbInstanceName === undefined) && !opts.urn) {
+            if (args?.sqlDbInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sqlDbInstanceName'");
             }
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sqlDbInstanceName"] = args ? args.sqlDbInstanceName : undefined;
-            resourceInputs["targetDbName"] = args ? args.targetDbName : undefined;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sqlDbInstanceName"] = args?.sqlDbInstanceName;
+            resourceInputs["targetDbName"] = args?.targetDbName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

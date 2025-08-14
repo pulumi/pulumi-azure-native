@@ -113,24 +113,24 @@ export class UpdateSummary extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["currentOemVersion"] = args ? args.currentOemVersion : undefined;
-            resourceInputs["currentSbeVersion"] = args ? args.currentSbeVersion : undefined;
-            resourceInputs["currentVersion"] = args ? args.currentVersion : undefined;
-            resourceInputs["hardwareModel"] = args ? args.hardwareModel : undefined;
-            resourceInputs["healthCheckDate"] = args ? args.healthCheckDate : undefined;
-            resourceInputs["lastChecked"] = args ? args.lastChecked : undefined;
-            resourceInputs["lastUpdated"] = args ? args.lastUpdated : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["oemFamily"] = args ? args.oemFamily : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["currentOemVersion"] = args?.currentOemVersion;
+            resourceInputs["currentSbeVersion"] = args?.currentSbeVersion;
+            resourceInputs["currentVersion"] = args?.currentVersion;
+            resourceInputs["hardwareModel"] = args?.hardwareModel;
+            resourceInputs["healthCheckDate"] = args?.healthCheckDate;
+            resourceInputs["lastChecked"] = args?.lastChecked;
+            resourceInputs["lastUpdated"] = args?.lastUpdated;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["oemFamily"] = args?.oemFamily;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["state"] = args?.state;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

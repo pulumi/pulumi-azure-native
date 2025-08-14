@@ -109,33 +109,33 @@ export class Share extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accessProtocol === undefined) && !opts.urn) {
+            if (args?.accessProtocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessProtocol'");
             }
-            if ((!args || args.deviceName === undefined) && !opts.urn) {
+            if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.monitoringStatus === undefined) && !opts.urn) {
+            if (args?.monitoringStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'monitoringStatus'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.shareStatus === undefined) && !opts.urn) {
+            if (args?.shareStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shareStatus'");
             }
-            resourceInputs["accessProtocol"] = args ? args.accessProtocol : undefined;
-            resourceInputs["azureContainerInfo"] = args ? args.azureContainerInfo : undefined;
-            resourceInputs["clientAccessRights"] = args ? args.clientAccessRights : undefined;
-            resourceInputs["dataPolicy"] = args ? args.dataPolicy : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["monitoringStatus"] = args ? args.monitoringStatus : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["refreshDetails"] = args ? args.refreshDetails : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["shareStatus"] = args ? args.shareStatus : undefined;
-            resourceInputs["userAccessRights"] = args ? args.userAccessRights : undefined;
+            resourceInputs["accessProtocol"] = args?.accessProtocol;
+            resourceInputs["azureContainerInfo"] = args?.azureContainerInfo;
+            resourceInputs["clientAccessRights"] = args?.clientAccessRights;
+            resourceInputs["dataPolicy"] = args?.dataPolicy;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["monitoringStatus"] = args?.monitoringStatus;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["refreshDetails"] = args?.refreshDetails;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["shareStatus"] = args?.shareStatus;
+            resourceInputs["userAccessRights"] = args?.userAccessRights;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["shareMappings"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

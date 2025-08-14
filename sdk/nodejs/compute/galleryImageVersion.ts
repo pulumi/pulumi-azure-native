@@ -109,29 +109,29 @@ export class GalleryImageVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.galleryImageName === undefined) && !opts.urn) {
+            if (args?.galleryImageName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryImageName'");
             }
-            if ((!args || args.galleryName === undefined) && !opts.urn) {
+            if (args?.galleryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageProfile === undefined) && !opts.urn) {
+            if (args?.storageProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageProfile'");
             }
-            resourceInputs["galleryImageName"] = args ? args.galleryImageName : undefined;
-            resourceInputs["galleryImageVersionName"] = args ? args.galleryImageVersionName : undefined;
-            resourceInputs["galleryName"] = args ? args.galleryName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["publishingProfile"] = args ? args.publishingProfile : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restore"] = args ? args.restore : undefined;
-            resourceInputs["safetyProfile"] = args ? args.safetyProfile : undefined;
-            resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
-            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["galleryImageName"] = args?.galleryImageName;
+            resourceInputs["galleryImageVersionName"] = args?.galleryImageVersionName;
+            resourceInputs["galleryName"] = args?.galleryName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["publishingProfile"] = args?.publishingProfile;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restore"] = args?.restore;
+            resourceInputs["safetyProfile"] = args?.safetyProfile;
+            resourceInputs["securityProfile"] = args?.securityProfile;
+            resourceInputs["storageProfile"] = args?.storageProfile;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

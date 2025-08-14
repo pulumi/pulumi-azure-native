@@ -89,21 +89,21 @@ export class WorkloadNetworkDhcp extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dhcpType === undefined) && !opts.urn) {
+            if (args?.dhcpType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dhcpType'");
             }
-            if ((!args || args.privateCloudName === undefined) && !opts.urn) {
+            if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dhcpId"] = args ? args.dhcpId : undefined;
-            resourceInputs["dhcpType"] = args ? args.dhcpType : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["revision"] = args ? args.revision : undefined;
+            resourceInputs["dhcpId"] = args?.dhcpId;
+            resourceInputs["dhcpType"] = args?.dhcpType;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["privateCloudName"] = args?.privateCloudName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["revision"] = args?.revision;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

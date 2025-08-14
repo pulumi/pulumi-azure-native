@@ -73,8 +73,8 @@ export class Alias extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["aliasName"] = args ? args.aliasName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["aliasName"] = args?.aliasName;
+            resourceInputs["properties"] = args?.properties;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

@@ -109,26 +109,26 @@ export class FirewallPolicyDraft extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.firewallPolicyName === undefined) && !opts.urn) {
+            if (args?.firewallPolicyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firewallPolicyName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["basePolicy"] = args ? args.basePolicy : undefined;
-            resourceInputs["dnsSettings"] = args ? args.dnsSettings : undefined;
-            resourceInputs["explicitProxy"] = args ? args.explicitProxy : undefined;
-            resourceInputs["firewallPolicyName"] = args ? args.firewallPolicyName : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["insights"] = args ? args.insights : undefined;
-            resourceInputs["intrusionDetection"] = args ? args.intrusionDetection : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["snat"] = args ? args.snat : undefined;
-            resourceInputs["sql"] = args ? args.sql : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["threatIntelMode"] = args ? args.threatIntelMode : undefined;
-            resourceInputs["threatIntelWhitelist"] = args ? args.threatIntelWhitelist : undefined;
+            resourceInputs["basePolicy"] = args?.basePolicy;
+            resourceInputs["dnsSettings"] = args?.dnsSettings;
+            resourceInputs["explicitProxy"] = args?.explicitProxy;
+            resourceInputs["firewallPolicyName"] = args?.firewallPolicyName;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["insights"] = args?.insights;
+            resourceInputs["intrusionDetection"] = args?.intrusionDetection;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["snat"] = args?.snat;
+            resourceInputs["sql"] = args?.sql;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["threatIntelMode"] = args?.threatIntelMode;
+            resourceInputs["threatIntelWhitelist"] = args?.threatIntelWhitelist;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

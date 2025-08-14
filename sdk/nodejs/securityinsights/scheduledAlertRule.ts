@@ -160,69 +160,69 @@ export class ScheduledAlertRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.query === undefined) && !opts.urn) {
+            if (args?.query === undefined && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
-            if ((!args || args.queryFrequency === undefined) && !opts.urn) {
+            if (args?.queryFrequency === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queryFrequency'");
             }
-            if ((!args || args.queryPeriod === undefined) && !opts.urn) {
+            if (args?.queryPeriod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queryPeriod'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.severity === undefined) && !opts.urn) {
+            if (args?.severity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'severity'");
             }
-            if ((!args || args.suppressionDuration === undefined) && !opts.urn) {
+            if (args?.suppressionDuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'suppressionDuration'");
             }
-            if ((!args || args.suppressionEnabled === undefined) && !opts.urn) {
+            if (args?.suppressionEnabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'suppressionEnabled'");
             }
-            if ((!args || args.triggerOperator === undefined) && !opts.urn) {
+            if (args?.triggerOperator === undefined && !opts.urn) {
                 throw new Error("Missing required property 'triggerOperator'");
             }
-            if ((!args || args.triggerThreshold === undefined) && !opts.urn) {
+            if (args?.triggerThreshold === undefined && !opts.urn) {
                 throw new Error("Missing required property 'triggerThreshold'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["alertDetailsOverride"] = args ? args.alertDetailsOverride : undefined;
-            resourceInputs["alertRuleTemplateName"] = args ? args.alertRuleTemplateName : undefined;
-            resourceInputs["customDetails"] = args ? args.customDetails : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["entityMappings"] = args ? args.entityMappings : undefined;
-            resourceInputs["eventGroupingSettings"] = args ? args.eventGroupingSettings : undefined;
-            resourceInputs["incidentConfiguration"] = args ? args.incidentConfiguration : undefined;
+            resourceInputs["alertDetailsOverride"] = args?.alertDetailsOverride;
+            resourceInputs["alertRuleTemplateName"] = args?.alertRuleTemplateName;
+            resourceInputs["customDetails"] = args?.customDetails;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["entityMappings"] = args?.entityMappings;
+            resourceInputs["eventGroupingSettings"] = args?.eventGroupingSettings;
+            resourceInputs["incidentConfiguration"] = args?.incidentConfiguration;
             resourceInputs["kind"] = "Scheduled";
-            resourceInputs["query"] = args ? args.query : undefined;
-            resourceInputs["queryFrequency"] = args ? args.queryFrequency : undefined;
-            resourceInputs["queryPeriod"] = args ? args.queryPeriod : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ruleId"] = args ? args.ruleId : undefined;
-            resourceInputs["severity"] = args ? args.severity : undefined;
-            resourceInputs["suppressionDuration"] = args ? args.suppressionDuration : undefined;
-            resourceInputs["suppressionEnabled"] = args ? args.suppressionEnabled : undefined;
-            resourceInputs["tactics"] = args ? args.tactics : undefined;
-            resourceInputs["techniques"] = args ? args.techniques : undefined;
-            resourceInputs["templateVersion"] = args ? args.templateVersion : undefined;
-            resourceInputs["triggerOperator"] = args ? args.triggerOperator : undefined;
-            resourceInputs["triggerThreshold"] = args ? args.triggerThreshold : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["query"] = args?.query;
+            resourceInputs["queryFrequency"] = args?.queryFrequency;
+            resourceInputs["queryPeriod"] = args?.queryPeriod;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["ruleId"] = args?.ruleId;
+            resourceInputs["severity"] = args?.severity;
+            resourceInputs["suppressionDuration"] = args?.suppressionDuration;
+            resourceInputs["suppressionEnabled"] = args?.suppressionEnabled;
+            resourceInputs["tactics"] = args?.tactics;
+            resourceInputs["techniques"] = args?.techniques;
+            resourceInputs["templateVersion"] = args?.templateVersion;
+            resourceInputs["triggerOperator"] = args?.triggerOperator;
+            resourceInputs["triggerThreshold"] = args?.triggerThreshold;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedUtc"] = undefined /*out*/;

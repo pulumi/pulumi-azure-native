@@ -92,39 +92,39 @@ export class SqlDBTableDataSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.schemaName === undefined) && !opts.urn) {
+            if (args?.schemaName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaName'");
             }
-            if ((!args || args.shareName === undefined) && !opts.urn) {
+            if (args?.shareName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shareName'");
             }
-            if ((!args || args.sqlServerResourceId === undefined) && !opts.urn) {
+            if (args?.sqlServerResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sqlServerResourceId'");
             }
-            if ((!args || args.tableName === undefined) && !opts.urn) {
+            if (args?.tableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["dataSetName"] = args ? args.dataSetName : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["dataSetName"] = args?.dataSetName;
+            resourceInputs["databaseName"] = args?.databaseName;
             resourceInputs["kind"] = "SqlDBTable";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
-            resourceInputs["shareName"] = args ? args.shareName : undefined;
-            resourceInputs["sqlServerResourceId"] = args ? args.sqlServerResourceId : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["schemaName"] = args?.schemaName;
+            resourceInputs["shareName"] = args?.shareName;
+            resourceInputs["sqlServerResourceId"] = args?.sqlServerResourceId;
+            resourceInputs["tableName"] = args?.tableName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataSetId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

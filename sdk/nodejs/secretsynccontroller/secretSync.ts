@@ -107,31 +107,31 @@ export class SecretSync extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kubernetesSecretType === undefined) && !opts.urn) {
+            if (args?.kubernetesSecretType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kubernetesSecretType'");
             }
-            if ((!args || args.objectSecretMapping === undefined) && !opts.urn) {
+            if (args?.objectSecretMapping === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectSecretMapping'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.secretProviderClassName === undefined) && !opts.urn) {
+            if (args?.secretProviderClassName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'secretProviderClassName'");
             }
-            if ((!args || args.serviceAccountName === undefined) && !opts.urn) {
+            if (args?.serviceAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceAccountName'");
             }
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["forceSynchronization"] = args ? args.forceSynchronization : undefined;
-            resourceInputs["kubernetesSecretType"] = args ? args.kubernetesSecretType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["objectSecretMapping"] = args ? args.objectSecretMapping : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["secretProviderClassName"] = args ? args.secretProviderClassName : undefined;
-            resourceInputs["secretSyncName"] = args ? args.secretSyncName : undefined;
-            resourceInputs["serviceAccountName"] = args ? args.serviceAccountName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["forceSynchronization"] = args?.forceSynchronization;
+            resourceInputs["kubernetesSecretType"] = args?.kubernetesSecretType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["objectSecretMapping"] = args?.objectSecretMapping;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["secretProviderClassName"] = args?.secretProviderClassName;
+            resourceInputs["secretSyncName"] = args?.secretSyncName;
+            resourceInputs["serviceAccountName"] = args?.serviceAccountName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

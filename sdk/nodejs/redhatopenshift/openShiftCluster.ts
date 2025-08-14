@@ -117,21 +117,21 @@ export class OpenShiftCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["apiserverProfile"] = args ? args.apiserverProfile : undefined;
-            resourceInputs["clusterProfile"] = args ? args.clusterProfile : undefined;
-            resourceInputs["ingressProfiles"] = args ? args.ingressProfiles : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["masterProfile"] = args ? args.masterProfile : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["servicePrincipalProfile"] = args ? args.servicePrincipalProfile : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workerProfiles"] = args ? args.workerProfiles : undefined;
+            resourceInputs["apiserverProfile"] = args?.apiserverProfile;
+            resourceInputs["clusterProfile"] = args?.clusterProfile;
+            resourceInputs["ingressProfiles"] = args?.ingressProfiles;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["masterProfile"] = args?.masterProfile;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["servicePrincipalProfile"] = args?.servicePrincipalProfile;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workerProfiles"] = args?.workerProfiles;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["consoleProfile"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

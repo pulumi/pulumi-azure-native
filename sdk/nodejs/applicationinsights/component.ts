@@ -177,34 +177,34 @@ export class Component extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationType === undefined) && !opts.urn) {
+            if (args?.applicationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationType'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["applicationType"] = (args ? args.applicationType : undefined) ?? "web";
-            resourceInputs["disableIpMasking"] = args ? args.disableIpMasking : undefined;
-            resourceInputs["disableLocalAuth"] = args ? args.disableLocalAuth : undefined;
-            resourceInputs["flowType"] = (args ? args.flowType : undefined) ?? "Bluefield";
-            resourceInputs["forceCustomerStorageForProfiler"] = args ? args.forceCustomerStorageForProfiler : undefined;
-            resourceInputs["hockeyAppId"] = args ? args.hockeyAppId : undefined;
-            resourceInputs["immediatePurgeDataOn30Days"] = args ? args.immediatePurgeDataOn30Days : undefined;
-            resourceInputs["ingestionMode"] = (args ? args.ingestionMode : undefined) ?? "LogAnalytics";
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["publicNetworkAccessForIngestion"] = args ? args.publicNetworkAccessForIngestion : undefined;
-            resourceInputs["publicNetworkAccessForQuery"] = args ? args.publicNetworkAccessForQuery : undefined;
-            resourceInputs["requestSource"] = (args ? args.requestSource : undefined) ?? "rest";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
-            resourceInputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceResourceId"] = args ? args.workspaceResourceId : undefined;
+            resourceInputs["applicationType"] = (args?.applicationType) ?? "web";
+            resourceInputs["disableIpMasking"] = args?.disableIpMasking;
+            resourceInputs["disableLocalAuth"] = args?.disableLocalAuth;
+            resourceInputs["flowType"] = (args?.flowType) ?? "Bluefield";
+            resourceInputs["forceCustomerStorageForProfiler"] = args?.forceCustomerStorageForProfiler;
+            resourceInputs["hockeyAppId"] = args?.hockeyAppId;
+            resourceInputs["immediatePurgeDataOn30Days"] = args?.immediatePurgeDataOn30Days;
+            resourceInputs["ingestionMode"] = (args?.ingestionMode) ?? "LogAnalytics";
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["publicNetworkAccessForIngestion"] = args?.publicNetworkAccessForIngestion;
+            resourceInputs["publicNetworkAccessForQuery"] = args?.publicNetworkAccessForQuery;
+            resourceInputs["requestSource"] = (args?.requestSource) ?? "rest";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["retentionInDays"] = args?.retentionInDays;
+            resourceInputs["samplingPercentage"] = args?.samplingPercentage;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceResourceId"] = args?.workspaceResourceId;
             resourceInputs["appId"] = undefined /*out*/;
             resourceInputs["applicationId"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

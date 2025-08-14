@@ -161,31 +161,31 @@ export class ConnectedCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.agentPublicKeyCertificate === undefined) && !opts.urn) {
+            if (args?.agentPublicKeyCertificate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentPublicKeyCertificate'");
             }
-            if ((!args || args.identity === undefined) && !opts.urn) {
+            if (args?.identity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["aadProfile"] = args ? args.aadProfile : undefined;
-            resourceInputs["agentPublicKeyCertificate"] = args ? args.agentPublicKeyCertificate : undefined;
+            resourceInputs["aadProfile"] = args?.aadProfile;
+            resourceInputs["agentPublicKeyCertificate"] = args?.agentPublicKeyCertificate;
             resourceInputs["arcAgentProfile"] = args ? (args.arcAgentProfile ? pulumi.output(args.arcAgentProfile).apply(inputs.kubernetes.arcAgentProfileArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["azureHybridBenefit"] = (args ? args.azureHybridBenefit : undefined) ?? "NotApplicable";
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["distribution"] = args ? args.distribution : undefined;
-            resourceInputs["distributionVersion"] = args ? args.distributionVersion : undefined;
+            resourceInputs["azureHybridBenefit"] = (args?.azureHybridBenefit) ?? "NotApplicable";
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["distribution"] = args?.distribution;
+            resourceInputs["distributionVersion"] = args?.distributionVersion;
             resourceInputs["identity"] = args ? (args.identity ? pulumi.output(args.identity).apply(inputs.kubernetes.connectedClusterIdentityArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["infrastructure"] = args ? args.infrastructure : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["privateLinkScopeResourceId"] = args ? args.privateLinkScopeResourceId : undefined;
-            resourceInputs["privateLinkState"] = (args ? args.privateLinkState : undefined) ?? "Disabled";
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["infrastructure"] = args?.infrastructure;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["privateLinkScopeResourceId"] = args?.privateLinkScopeResourceId;
+            resourceInputs["privateLinkState"] = (args?.privateLinkState) ?? "Disabled";
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["agentVersion"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectivityStatus"] = undefined /*out*/;

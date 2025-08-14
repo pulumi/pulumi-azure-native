@@ -91,19 +91,19 @@ export class PermissionBinding extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clientGroupName"] = args ? args.clientGroupName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["permission"] = args ? args.permission : undefined;
-            resourceInputs["permissionBindingName"] = args ? args.permissionBindingName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["topicSpaceName"] = args ? args.topicSpaceName : undefined;
+            resourceInputs["clientGroupName"] = args?.clientGroupName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["permission"] = args?.permission;
+            resourceInputs["permissionBindingName"] = args?.permissionBindingName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["topicSpaceName"] = args?.topicSpaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -85,20 +85,20 @@ export class PrivateResolverVirtualNetworkLink extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dnsForwardingRulesetName === undefined) && !opts.urn) {
+            if (args?.dnsForwardingRulesetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsForwardingRulesetName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetwork === undefined) && !opts.urn) {
+            if (args?.virtualNetwork === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetwork'");
             }
-            resourceInputs["dnsForwardingRulesetName"] = args ? args.dnsForwardingRulesetName : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
-            resourceInputs["virtualNetworkLinkName"] = args ? args.virtualNetworkLinkName : undefined;
+            resourceInputs["dnsForwardingRulesetName"] = args?.dnsForwardingRulesetName;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["virtualNetwork"] = args?.virtualNetwork;
+            resourceInputs["virtualNetworkLinkName"] = args?.virtualNetworkLinkName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

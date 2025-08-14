@@ -121,22 +121,22 @@ export class RemediationAtManagementGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managementGroupId === undefined) && !opts.urn) {
+            if (args?.managementGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            if ((!args || args.managementGroupsNamespace === undefined) && !opts.urn) {
+            if (args?.managementGroupsNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupsNamespace'");
             }
-            resourceInputs["failureThreshold"] = args ? args.failureThreshold : undefined;
-            resourceInputs["filters"] = args ? args.filters : undefined;
-            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
-            resourceInputs["managementGroupsNamespace"] = args ? args.managementGroupsNamespace : undefined;
-            resourceInputs["parallelDeployments"] = args ? args.parallelDeployments : undefined;
-            resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
-            resourceInputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
-            resourceInputs["remediationName"] = args ? args.remediationName : undefined;
-            resourceInputs["resourceCount"] = args ? args.resourceCount : undefined;
-            resourceInputs["resourceDiscoveryMode"] = args ? args.resourceDiscoveryMode : undefined;
+            resourceInputs["failureThreshold"] = args?.failureThreshold;
+            resourceInputs["filters"] = args?.filters;
+            resourceInputs["managementGroupId"] = args?.managementGroupId;
+            resourceInputs["managementGroupsNamespace"] = args?.managementGroupsNamespace;
+            resourceInputs["parallelDeployments"] = args?.parallelDeployments;
+            resourceInputs["policyAssignmentId"] = args?.policyAssignmentId;
+            resourceInputs["policyDefinitionReferenceId"] = args?.policyDefinitionReferenceId;
+            resourceInputs["remediationName"] = args?.remediationName;
+            resourceInputs["resourceCount"] = args?.resourceCount;
+            resourceInputs["resourceDiscoveryMode"] = args?.resourceDiscoveryMode;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["correlationId"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;

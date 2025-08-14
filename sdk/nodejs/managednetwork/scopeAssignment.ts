@@ -76,13 +76,13 @@ export class ScopeAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["assignedManagedNetwork"] = args ? args.assignedManagedNetwork : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["scopeAssignmentName"] = args ? args.scopeAssignmentName : undefined;
+            resourceInputs["assignedManagedNetwork"] = args?.assignedManagedNetwork;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["scopeAssignmentName"] = args?.scopeAssignmentName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

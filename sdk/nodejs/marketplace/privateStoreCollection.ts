@@ -109,16 +109,16 @@ export class PrivateStoreCollection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.privateStoreId === undefined) && !opts.urn) {
+            if (args?.privateStoreId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateStoreId'");
             }
-            resourceInputs["allSubscriptions"] = args ? args.allSubscriptions : undefined;
-            resourceInputs["claim"] = args ? args.claim : undefined;
-            resourceInputs["collectionId"] = args ? args.collectionId : undefined;
-            resourceInputs["collectionName"] = args ? args.collectionName : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["privateStoreId"] = args ? args.privateStoreId : undefined;
-            resourceInputs["subscriptionsList"] = args ? args.subscriptionsList : undefined;
+            resourceInputs["allSubscriptions"] = args?.allSubscriptions;
+            resourceInputs["claim"] = args?.claim;
+            resourceInputs["collectionId"] = args?.collectionId;
+            resourceInputs["collectionName"] = args?.collectionName;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["privateStoreId"] = args?.privateStoreId;
+            resourceInputs["subscriptionsList"] = args?.subscriptionsList;
             resourceInputs["appliedRules"] = undefined /*out*/;
             resourceInputs["approveAllItems"] = undefined /*out*/;
             resourceInputs["approveAllItemsModifiedAt"] = undefined /*out*/;

@@ -91,27 +91,27 @@ export class ActivityLogAlert extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.condition === undefined) && !opts.urn) {
+            if (args?.condition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'condition'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scopes === undefined) && !opts.urn) {
+            if (args?.scopes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["activityLogAlertName"] = args ? args.activityLogAlertName : undefined;
-            resourceInputs["condition"] = args ? args.condition : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = (args ? args.enabled : undefined) ?? true;
-            resourceInputs["location"] = (args ? args.location : undefined) ?? "global";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["activityLogAlertName"] = args?.activityLogAlertName;
+            resourceInputs["condition"] = args?.condition;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = (args?.enabled) ?? true;
+            resourceInputs["location"] = (args?.location) ?? "global";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scopes"] = args?.scopes;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

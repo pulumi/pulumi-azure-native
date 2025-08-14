@@ -79,23 +79,23 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.parentName === undefined) && !opts.urn) {
+            if (args?.parentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentName'");
             }
-            if ((!args || args.parentType === undefined) && !opts.urn) {
+            if (args?.parentType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["groupIds"] = args ? args.groupIds : undefined;
-            resourceInputs["parentName"] = args ? args.parentName : undefined;
-            resourceInputs["parentType"] = args ? args.parentType : undefined;
-            resourceInputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
-            resourceInputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
-            resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["groupIds"] = args?.groupIds;
+            resourceInputs["parentName"] = args?.parentName;
+            resourceInputs["parentType"] = args?.parentType;
+            resourceInputs["privateEndpoint"] = args?.privateEndpoint;
+            resourceInputs["privateEndpointConnectionName"] = args?.privateEndpointConnectionName;
+            resourceInputs["privateLinkServiceConnectionState"] = args?.privateLinkServiceConnectionState;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

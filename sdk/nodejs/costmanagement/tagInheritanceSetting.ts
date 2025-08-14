@@ -72,16 +72,16 @@ export class TagInheritanceSetting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             resourceInputs["kind"] = "taginheritance";
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["type"] = args?.type;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {

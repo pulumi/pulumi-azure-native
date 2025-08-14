@@ -132,50 +132,50 @@ export class AnomalySecurityMLAnalyticsSettings extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.anomalyVersion === undefined) && !opts.urn) {
+            if (args?.anomalyVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'anomalyVersion'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.frequency === undefined) && !opts.urn) {
+            if (args?.frequency === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if ((!args || args.isDefaultSettings === undefined) && !opts.urn) {
+            if (args?.isDefaultSettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'isDefaultSettings'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.settingsStatus === undefined) && !opts.urn) {
+            if (args?.settingsStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'settingsStatus'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["anomalySettingsVersion"] = args ? args.anomalySettingsVersion : undefined;
-            resourceInputs["anomalyVersion"] = args ? args.anomalyVersion : undefined;
-            resourceInputs["customizableObservations"] = args ? args.customizableObservations : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["frequency"] = args ? args.frequency : undefined;
-            resourceInputs["isDefaultSettings"] = args ? args.isDefaultSettings : undefined;
+            resourceInputs["anomalySettingsVersion"] = args?.anomalySettingsVersion;
+            resourceInputs["anomalyVersion"] = args?.anomalyVersion;
+            resourceInputs["customizableObservations"] = args?.customizableObservations;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["frequency"] = args?.frequency;
+            resourceInputs["isDefaultSettings"] = args?.isDefaultSettings;
             resourceInputs["kind"] = "Anomaly";
-            resourceInputs["requiredDataConnectors"] = args ? args.requiredDataConnectors : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["settingsDefinitionId"] = args ? args.settingsDefinitionId : undefined;
-            resourceInputs["settingsResourceName"] = args ? args.settingsResourceName : undefined;
-            resourceInputs["settingsStatus"] = args ? args.settingsStatus : undefined;
-            resourceInputs["tactics"] = args ? args.tactics : undefined;
-            resourceInputs["techniques"] = args ? args.techniques : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["requiredDataConnectors"] = args?.requiredDataConnectors;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["settingsDefinitionId"] = args?.settingsDefinitionId;
+            resourceInputs["settingsResourceName"] = args?.settingsResourceName;
+            resourceInputs["settingsStatus"] = args?.settingsStatus;
+            resourceInputs["tactics"] = args?.tactics;
+            resourceInputs["techniques"] = args?.techniques;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedUtc"] = undefined /*out*/;

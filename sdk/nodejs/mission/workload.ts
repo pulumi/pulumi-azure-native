@@ -89,18 +89,18 @@ export class Workload extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualEnclaveName === undefined) && !opts.urn) {
+            if (args?.virtualEnclaveName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualEnclaveName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupCollection"] = args ? args.resourceGroupCollection : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualEnclaveName"] = args ? args.virtualEnclaveName : undefined;
-            resourceInputs["workloadName"] = args ? args.workloadName : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupCollection"] = args?.resourceGroupCollection;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualEnclaveName"] = args?.virtualEnclaveName;
+            resourceInputs["workloadName"] = args?.workloadName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["managedOnBehalfOfConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

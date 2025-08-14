@@ -211,58 +211,58 @@ export class BareMetalMachine extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.bmcConnectionString === undefined) && !opts.urn) {
+            if (args?.bmcConnectionString === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bmcConnectionString'");
             }
-            if ((!args || args.bmcCredentials === undefined) && !opts.urn) {
+            if (args?.bmcCredentials === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bmcCredentials'");
             }
-            if ((!args || args.bmcMacAddress === undefined) && !opts.urn) {
+            if (args?.bmcMacAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bmcMacAddress'");
             }
-            if ((!args || args.bootMacAddress === undefined) && !opts.urn) {
+            if (args?.bootMacAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bootMacAddress'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.machineDetails === undefined) && !opts.urn) {
+            if (args?.machineDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'machineDetails'");
             }
-            if ((!args || args.machineName === undefined) && !opts.urn) {
+            if (args?.machineName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'machineName'");
             }
-            if ((!args || args.machineSkuId === undefined) && !opts.urn) {
+            if (args?.machineSkuId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'machineSkuId'");
             }
-            if ((!args || args.rackId === undefined) && !opts.urn) {
+            if (args?.rackId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rackId'");
             }
-            if ((!args || args.rackSlot === undefined) && !opts.urn) {
+            if (args?.rackSlot === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rackSlot'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serialNumber === undefined) && !opts.urn) {
+            if (args?.serialNumber === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serialNumber'");
             }
-            resourceInputs["bareMetalMachineName"] = args ? args.bareMetalMachineName : undefined;
-            resourceInputs["bmcConnectionString"] = args ? args.bmcConnectionString : undefined;
-            resourceInputs["bmcCredentials"] = args ? args.bmcCredentials : undefined;
-            resourceInputs["bmcMacAddress"] = args ? args.bmcMacAddress : undefined;
-            resourceInputs["bootMacAddress"] = args ? args.bootMacAddress : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["machineClusterVersion"] = args ? args.machineClusterVersion : undefined;
-            resourceInputs["machineDetails"] = args ? args.machineDetails : undefined;
-            resourceInputs["machineName"] = args ? args.machineName : undefined;
-            resourceInputs["machineSkuId"] = args ? args.machineSkuId : undefined;
-            resourceInputs["rackId"] = args ? args.rackId : undefined;
-            resourceInputs["rackSlot"] = args ? args.rackSlot : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serialNumber"] = args ? args.serialNumber : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["bareMetalMachineName"] = args?.bareMetalMachineName;
+            resourceInputs["bmcConnectionString"] = args?.bmcConnectionString;
+            resourceInputs["bmcCredentials"] = args?.bmcCredentials;
+            resourceInputs["bmcMacAddress"] = args?.bmcMacAddress;
+            resourceInputs["bootMacAddress"] = args?.bootMacAddress;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["machineClusterVersion"] = args?.machineClusterVersion;
+            resourceInputs["machineDetails"] = args?.machineDetails;
+            resourceInputs["machineName"] = args?.machineName;
+            resourceInputs["machineSkuId"] = args?.machineSkuId;
+            resourceInputs["rackId"] = args?.rackId;
+            resourceInputs["rackSlot"] = args?.rackSlot;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serialNumber"] = args?.serialNumber;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["associatedResourceIds"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;

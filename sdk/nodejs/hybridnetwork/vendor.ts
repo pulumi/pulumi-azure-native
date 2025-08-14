@@ -75,7 +75,7 @@ export class Vendor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["vendorName"] = args ? args.vendorName : undefined;
+            resourceInputs["vendorName"] = args?.vendorName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

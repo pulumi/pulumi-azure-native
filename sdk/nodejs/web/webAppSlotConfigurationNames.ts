@@ -78,18 +78,18 @@ export class WebAppSlotConfigurationNames extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["appSettingNames"] = args ? args.appSettingNames : undefined;
-            resourceInputs["azureStorageConfigNames"] = args ? args.azureStorageConfigNames : undefined;
-            resourceInputs["connectionStringNames"] = args ? args.connectionStringNames : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["appSettingNames"] = args?.appSettingNames;
+            resourceInputs["azureStorageConfigNames"] = args?.azureStorageConfigNames;
+            resourceInputs["connectionStringNames"] = args?.connectionStringNames;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

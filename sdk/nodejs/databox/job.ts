@@ -153,25 +153,25 @@ export class Job extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            if ((!args || args.transferType === undefined) && !opts.urn) {
+            if (args?.transferType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transferType'");
             }
-            resourceInputs["deliveryInfo"] = args ? args.deliveryInfo : undefined;
-            resourceInputs["deliveryType"] = (args ? args.deliveryType : undefined) ?? "NonScheduled";
-            resourceInputs["details"] = args ? args.details : undefined;
+            resourceInputs["deliveryInfo"] = args?.deliveryInfo;
+            resourceInputs["deliveryType"] = (args?.deliveryType) ?? "NonScheduled";
+            resourceInputs["details"] = args?.details;
             resourceInputs["identity"] = args ? (args.identity ? pulumi.output(args.identity).apply(inputs.databox.resourceIdentityArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["jobName"] = args ? args.jobName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transferType"] = args ? args.transferType : undefined;
+            resourceInputs["jobName"] = args?.jobName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transferType"] = args?.transferType;
             resourceInputs["allDevicesLost"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cancellationReason"] = undefined /*out*/;

@@ -92,31 +92,31 @@ export class KustoTableDataSetMapping extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.dataSetId === undefined) && !opts.urn) {
+            if (args?.dataSetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSetId'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.kustoClusterResourceId === undefined) && !opts.urn) {
+            if (args?.kustoClusterResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kustoClusterResourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.shareSubscriptionName === undefined) && !opts.urn) {
+            if (args?.shareSubscriptionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shareSubscriptionName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["dataSetId"] = args ? args.dataSetId : undefined;
-            resourceInputs["dataSetMappingName"] = args ? args.dataSetMappingName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["dataSetId"] = args?.dataSetId;
+            resourceInputs["dataSetMappingName"] = args?.dataSetMappingName;
             resourceInputs["kind"] = "KustoTable";
-            resourceInputs["kustoClusterResourceId"] = args ? args.kustoClusterResourceId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
+            resourceInputs["kustoClusterResourceId"] = args?.kustoClusterResourceId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["shareSubscriptionName"] = args?.shareSubscriptionName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataSetMappingStatus"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

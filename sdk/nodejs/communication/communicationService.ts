@@ -109,19 +109,19 @@ export class CommunicationService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataLocation === undefined) && !opts.urn) {
+            if (args?.dataLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataLocation'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["communicationServiceName"] = args ? args.communicationServiceName : undefined;
-            resourceInputs["dataLocation"] = args ? args.dataLocation : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["linkedDomains"] = args ? args.linkedDomains : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["communicationServiceName"] = args?.communicationServiceName;
+            resourceInputs["dataLocation"] = args?.dataLocation;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["linkedDomains"] = args?.linkedDomains;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
             resourceInputs["immutableResourceId"] = undefined /*out*/;

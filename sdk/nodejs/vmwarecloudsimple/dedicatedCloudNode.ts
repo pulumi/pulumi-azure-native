@@ -79,38 +79,38 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.availabilityZoneId === undefined) && !opts.urn) {
+            if (args?.availabilityZoneId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZoneId'");
             }
-            if ((!args || args.id === undefined) && !opts.urn) {
+            if (args?.id === undefined && !opts.urn) {
                 throw new Error("Missing required property 'id'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.nodesCount === undefined) && !opts.urn) {
+            if (args?.nodesCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nodesCount'");
             }
-            if ((!args || args.placementGroupId === undefined) && !opts.urn) {
+            if (args?.placementGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'placementGroupId'");
             }
-            if ((!args || args.purchaseId === undefined) && !opts.urn) {
+            if (args?.purchaseId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'purchaseId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
-            resourceInputs["dedicatedCloudNodeName"] = args ? args.dedicatedCloudNodeName : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nodesCount"] = args ? args.nodesCount : undefined;
-            resourceInputs["placementGroupId"] = args ? args.placementGroupId : undefined;
-            resourceInputs["purchaseId"] = args ? args.purchaseId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["availabilityZoneId"] = args?.availabilityZoneId;
+            resourceInputs["dedicatedCloudNodeName"] = args?.dedicatedCloudNodeName;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nodesCount"] = args?.nodesCount;
+            resourceInputs["placementGroupId"] = args?.placementGroupId;
+            resourceInputs["purchaseId"] = args?.purchaseId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

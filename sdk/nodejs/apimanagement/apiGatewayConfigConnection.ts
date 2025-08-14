@@ -82,17 +82,17 @@ export class ApiGatewayConfigConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.gatewayName === undefined) && !opts.urn) {
+            if (args?.gatewayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["configConnectionName"] = args ? args.configConnectionName : undefined;
-            resourceInputs["gatewayName"] = args ? args.gatewayName : undefined;
-            resourceInputs["hostnames"] = args ? args.hostnames : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceId"] = args ? args.sourceId : undefined;
+            resourceInputs["configConnectionName"] = args?.configConnectionName;
+            resourceInputs["gatewayName"] = args?.gatewayName;
+            resourceInputs["hostnames"] = args?.hostnames;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceId"] = args?.sourceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["defaultHostname"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

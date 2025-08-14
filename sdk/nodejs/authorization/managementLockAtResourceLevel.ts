@@ -79,37 +79,37 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiVersion === undefined) && !opts.urn) {
+            if (args?.apiVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiVersion'");
             }
-            if ((!args || args.level === undefined) && !opts.urn) {
+            if (args?.level === undefined && !opts.urn) {
                 throw new Error("Missing required property 'level'");
             }
-            if ((!args || args.parentResourcePath === undefined) && !opts.urn) {
+            if (args?.parentResourcePath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentResourcePath'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !opts.urn) {
+            if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            if ((!args || args.resourceProviderNamespace === undefined) && !opts.urn) {
+            if (args?.resourceProviderNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceProviderNamespace'");
             }
-            if ((!args || args.resourceType === undefined) && !opts.urn) {
+            if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            resourceInputs["apiVersion"] = args ? args.apiVersion : undefined;
-            resourceInputs["level"] = args ? args.level : undefined;
-            resourceInputs["lockName"] = args ? args.lockName : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
-            resourceInputs["owners"] = args ? args.owners : undefined;
-            resourceInputs["parentResourcePath"] = args ? args.parentResourcePath : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["resourceProviderNamespace"] = args ? args.resourceProviderNamespace : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["apiVersion"] = args?.apiVersion;
+            resourceInputs["level"] = args?.level;
+            resourceInputs["lockName"] = args?.lockName;
+            resourceInputs["notes"] = args?.notes;
+            resourceInputs["owners"] = args?.owners;
+            resourceInputs["parentResourcePath"] = args?.parentResourcePath;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["resourceProviderNamespace"] = args?.resourceProviderNamespace;
+            resourceInputs["resourceType"] = args?.resourceType;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

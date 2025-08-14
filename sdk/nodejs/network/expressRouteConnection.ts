@@ -93,30 +93,30 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.expressRouteCircuitPeering === undefined) && !opts.urn) {
+            if (args?.expressRouteCircuitPeering === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expressRouteCircuitPeering'");
             }
-            if ((!args || args.expressRouteGatewayName === undefined) && !opts.urn) {
+            if (args?.expressRouteGatewayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expressRouteGatewayName'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
-            resourceInputs["connectionName"] = args ? args.connectionName : undefined;
-            resourceInputs["enableInternetSecurity"] = args ? args.enableInternetSecurity : undefined;
-            resourceInputs["enablePrivateLinkFastPath"] = args ? args.enablePrivateLinkFastPath : undefined;
-            resourceInputs["expressRouteCircuitPeering"] = args ? args.expressRouteCircuitPeering : undefined;
-            resourceInputs["expressRouteGatewayBypass"] = args ? args.expressRouteGatewayBypass : undefined;
-            resourceInputs["expressRouteGatewayName"] = args ? args.expressRouteGatewayName : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routingConfiguration"] = args ? args.routingConfiguration : undefined;
-            resourceInputs["routingWeight"] = args ? args.routingWeight : undefined;
+            resourceInputs["authorizationKey"] = args?.authorizationKey;
+            resourceInputs["connectionName"] = args?.connectionName;
+            resourceInputs["enableInternetSecurity"] = args?.enableInternetSecurity;
+            resourceInputs["enablePrivateLinkFastPath"] = args?.enablePrivateLinkFastPath;
+            resourceInputs["expressRouteCircuitPeering"] = args?.expressRouteCircuitPeering;
+            resourceInputs["expressRouteGatewayBypass"] = args?.expressRouteGatewayBypass;
+            resourceInputs["expressRouteGatewayName"] = args?.expressRouteGatewayName;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routingConfiguration"] = args?.routingConfiguration;
+            resourceInputs["routingWeight"] = args?.routingWeight;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
         } else {

@@ -86,23 +86,23 @@ export class Logger extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.loggerType === undefined) && !opts.urn) {
+            if (args?.loggerType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loggerType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["isBuffered"] = args ? args.isBuffered : undefined;
-            resourceInputs["loggerId"] = args ? args.loggerId : undefined;
-            resourceInputs["loggerType"] = args ? args.loggerType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["isBuffered"] = args?.isBuffered;
+            resourceInputs["loggerId"] = args?.loggerId;
+            resourceInputs["loggerType"] = args?.loggerType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["serviceName"] = args?.serviceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

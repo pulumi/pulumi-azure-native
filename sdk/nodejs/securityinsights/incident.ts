@@ -149,35 +149,35 @@ export class Incident extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.severity === undefined) && !opts.urn) {
+            if (args?.severity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'severity'");
             }
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            if ((!args || args.title === undefined) && !opts.urn) {
+            if (args?.title === undefined && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["classification"] = args ? args.classification : undefined;
-            resourceInputs["classificationComment"] = args ? args.classificationComment : undefined;
-            resourceInputs["classificationReason"] = args ? args.classificationReason : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["firstActivityTimeUtc"] = args ? args.firstActivityTimeUtc : undefined;
-            resourceInputs["incidentId"] = args ? args.incidentId : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["lastActivityTimeUtc"] = args ? args.lastActivityTimeUtc : undefined;
-            resourceInputs["owner"] = args ? args.owner : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["severity"] = args ? args.severity : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["classification"] = args?.classification;
+            resourceInputs["classificationComment"] = args?.classificationComment;
+            resourceInputs["classificationReason"] = args?.classificationReason;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["firstActivityTimeUtc"] = args?.firstActivityTimeUtc;
+            resourceInputs["incidentId"] = args?.incidentId;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["lastActivityTimeUtc"] = args?.lastActivityTimeUtc;
+            resourceInputs["owner"] = args?.owner;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["severity"] = args?.severity;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["title"] = args?.title;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["additionalData"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimeUtc"] = undefined /*out*/;

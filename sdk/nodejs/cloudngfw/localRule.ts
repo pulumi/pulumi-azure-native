@@ -146,35 +146,35 @@ export class LocalRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.localRulestackName === undefined) && !opts.urn) {
+            if (args?.localRulestackName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localRulestackName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.ruleName === undefined) && !opts.urn) {
+            if (args?.ruleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleName'");
             }
-            resourceInputs["actionType"] = args ? args.actionType : undefined;
-            resourceInputs["applications"] = args ? args.applications : undefined;
-            resourceInputs["auditComment"] = args ? args.auditComment : undefined;
-            resourceInputs["category"] = args ? args.category : undefined;
-            resourceInputs["decryptionRuleType"] = args ? args.decryptionRuleType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["enableLogging"] = args ? args.enableLogging : undefined;
-            resourceInputs["inboundInspectionCertificate"] = args ? args.inboundInspectionCertificate : undefined;
-            resourceInputs["localRulestackName"] = args ? args.localRulestackName : undefined;
-            resourceInputs["negateDestination"] = args ? args.negateDestination : undefined;
-            resourceInputs["negateSource"] = args ? args.negateSource : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["protocol"] = (args ? args.protocol : undefined) ?? "application-default";
-            resourceInputs["protocolPortList"] = args ? args.protocolPortList : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
-            resourceInputs["ruleState"] = args ? args.ruleState : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actionType"] = args?.actionType;
+            resourceInputs["applications"] = args?.applications;
+            resourceInputs["auditComment"] = args?.auditComment;
+            resourceInputs["category"] = args?.category;
+            resourceInputs["decryptionRuleType"] = args?.decryptionRuleType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["enableLogging"] = args?.enableLogging;
+            resourceInputs["inboundInspectionCertificate"] = args?.inboundInspectionCertificate;
+            resourceInputs["localRulestackName"] = args?.localRulestackName;
+            resourceInputs["negateDestination"] = args?.negateDestination;
+            resourceInputs["negateSource"] = args?.negateSource;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["protocol"] = (args?.protocol) ?? "application-default";
+            resourceInputs["protocolPortList"] = args?.protocolPortList;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["ruleName"] = args?.ruleName;
+            resourceInputs["ruleState"] = args?.ruleState;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

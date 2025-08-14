@@ -88,33 +88,33 @@ export class IoMAMPolicyByName extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.friendlyName === undefined) && !opts.urn) {
+            if (args?.friendlyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'friendlyName'");
             }
-            if ((!args || args.hostName === undefined) && !opts.urn) {
+            if (args?.hostName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostName'");
             }
-            resourceInputs["accessRecheckOfflineTimeout"] = args ? args.accessRecheckOfflineTimeout : undefined;
-            resourceInputs["accessRecheckOnlineTimeout"] = args ? args.accessRecheckOnlineTimeout : undefined;
-            resourceInputs["appSharingFromLevel"] = (args ? args.appSharingFromLevel : undefined) ?? "none";
-            resourceInputs["appSharingToLevel"] = (args ? args.appSharingToLevel : undefined) ?? "none";
-            resourceInputs["authentication"] = (args ? args.authentication : undefined) ?? "required";
-            resourceInputs["clipboardSharingLevel"] = (args ? args.clipboardSharingLevel : undefined) ?? "blocked";
-            resourceInputs["dataBackup"] = (args ? args.dataBackup : undefined) ?? "allow";
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["deviceCompliance"] = (args ? args.deviceCompliance : undefined) ?? "enable";
-            resourceInputs["fileEncryptionLevel"] = (args ? args.fileEncryptionLevel : undefined) ?? "deviceLocked";
-            resourceInputs["fileSharingSaveAs"] = (args ? args.fileSharingSaveAs : undefined) ?? "allow";
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["hostName"] = args ? args.hostName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedBrowser"] = (args ? args.managedBrowser : undefined) ?? "required";
-            resourceInputs["offlineWipeTimeout"] = args ? args.offlineWipeTimeout : undefined;
-            resourceInputs["pin"] = (args ? args.pin : undefined) ?? "required";
-            resourceInputs["pinNumRetry"] = args ? args.pinNumRetry : undefined;
-            resourceInputs["policyName"] = args ? args.policyName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["touchId"] = (args ? args.touchId : undefined) ?? "enable";
+            resourceInputs["accessRecheckOfflineTimeout"] = args?.accessRecheckOfflineTimeout;
+            resourceInputs["accessRecheckOnlineTimeout"] = args?.accessRecheckOnlineTimeout;
+            resourceInputs["appSharingFromLevel"] = (args?.appSharingFromLevel) ?? "none";
+            resourceInputs["appSharingToLevel"] = (args?.appSharingToLevel) ?? "none";
+            resourceInputs["authentication"] = (args?.authentication) ?? "required";
+            resourceInputs["clipboardSharingLevel"] = (args?.clipboardSharingLevel) ?? "blocked";
+            resourceInputs["dataBackup"] = (args?.dataBackup) ?? "allow";
+            resourceInputs["description"] = args?.description;
+            resourceInputs["deviceCompliance"] = (args?.deviceCompliance) ?? "enable";
+            resourceInputs["fileEncryptionLevel"] = (args?.fileEncryptionLevel) ?? "deviceLocked";
+            resourceInputs["fileSharingSaveAs"] = (args?.fileSharingSaveAs) ?? "allow";
+            resourceInputs["friendlyName"] = args?.friendlyName;
+            resourceInputs["hostName"] = args?.hostName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedBrowser"] = (args?.managedBrowser) ?? "required";
+            resourceInputs["offlineWipeTimeout"] = args?.offlineWipeTimeout;
+            resourceInputs["pin"] = (args?.pin) ?? "required";
+            resourceInputs["pinNumRetry"] = args?.pinNumRetry;
+            resourceInputs["policyName"] = args?.policyName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["touchId"] = (args?.touchId) ?? "enable";
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["groupStatus"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;

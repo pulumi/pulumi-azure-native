@@ -157,25 +157,25 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["applicationDefinitionId"] = args ? args.applicationDefinitionId : undefined;
-            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["jitAccessPolicy"] = args ? args.jitAccessPolicy : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["managedResourceGroupId"] = args ? args.managedResourceGroupId : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationDefinitionId"] = args?.applicationDefinitionId;
+            resourceInputs["applicationName"] = args?.applicationName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["jitAccessPolicy"] = args?.jitAccessPolicy;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedBy"] = args?.managedBy;
+            resourceInputs["managedResourceGroupId"] = args?.managedResourceGroupId;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["artifacts"] = undefined /*out*/;
             resourceInputs["authorizations"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

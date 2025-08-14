@@ -121,33 +121,33 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.clusterResourceName === undefined) && !opts.urn) {
+            if (args?.clusterResourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterResourceName'");
             }
-            if ((!args || args.clusterRp === undefined) && !opts.urn) {
+            if (args?.clusterRp === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterRp'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["clusterResourceName"] = args ? args.clusterResourceName : undefined;
-            resourceInputs["clusterRp"] = args ? args.clusterRp : undefined;
-            resourceInputs["configurationProtectedSettings"] = args ? args.configurationProtectedSettings : undefined;
-            resourceInputs["enableHelmOperator"] = args ? args.enableHelmOperator : undefined;
-            resourceInputs["helmOperatorProperties"] = args ? args.helmOperatorProperties : undefined;
-            resourceInputs["operatorInstanceName"] = args ? args.operatorInstanceName : undefined;
-            resourceInputs["operatorNamespace"] = (args ? args.operatorNamespace : undefined) ?? "default";
-            resourceInputs["operatorParams"] = args ? args.operatorParams : undefined;
-            resourceInputs["operatorScope"] = args ? args.operatorScope : undefined;
-            resourceInputs["operatorType"] = args ? args.operatorType : undefined;
-            resourceInputs["repositoryUrl"] = args ? args.repositoryUrl : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceControlConfigurationName"] = args ? args.sourceControlConfigurationName : undefined;
-            resourceInputs["sshKnownHostsContents"] = args ? args.sshKnownHostsContents : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["clusterResourceName"] = args?.clusterResourceName;
+            resourceInputs["clusterRp"] = args?.clusterRp;
+            resourceInputs["configurationProtectedSettings"] = args?.configurationProtectedSettings;
+            resourceInputs["enableHelmOperator"] = args?.enableHelmOperator;
+            resourceInputs["helmOperatorProperties"] = args?.helmOperatorProperties;
+            resourceInputs["operatorInstanceName"] = args?.operatorInstanceName;
+            resourceInputs["operatorNamespace"] = (args?.operatorNamespace) ?? "default";
+            resourceInputs["operatorParams"] = args?.operatorParams;
+            resourceInputs["operatorScope"] = args?.operatorScope;
+            resourceInputs["operatorType"] = args?.operatorType;
+            resourceInputs["repositoryUrl"] = args?.repositoryUrl;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceControlConfigurationName"] = args?.sourceControlConfigurationName;
+            resourceInputs["sshKnownHostsContents"] = args?.sshKnownHostsContents;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["complianceStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

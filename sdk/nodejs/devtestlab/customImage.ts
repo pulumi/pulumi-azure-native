@@ -119,26 +119,26 @@ export class CustomImage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.labName === undefined) && !opts.urn) {
+            if (args?.labName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["author"] = args ? args.author : undefined;
-            resourceInputs["customImagePlan"] = args ? args.customImagePlan : undefined;
-            resourceInputs["dataDiskStorageInfo"] = args ? args.dataDiskStorageInfo : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["isPlanAuthorized"] = args ? args.isPlanAuthorized : undefined;
-            resourceInputs["labName"] = args ? args.labName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedImageId"] = args ? args.managedImageId : undefined;
-            resourceInputs["managedSnapshotId"] = args ? args.managedSnapshotId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vhd"] = args ? args.vhd : undefined;
-            resourceInputs["vm"] = args ? args.vm : undefined;
+            resourceInputs["author"] = args?.author;
+            resourceInputs["customImagePlan"] = args?.customImagePlan;
+            resourceInputs["dataDiskStorageInfo"] = args?.dataDiskStorageInfo;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["isPlanAuthorized"] = args?.isPlanAuthorized;
+            resourceInputs["labName"] = args?.labName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedImageId"] = args?.managedImageId;
+            resourceInputs["managedSnapshotId"] = args?.managedSnapshotId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vhd"] = args?.vhd;
+            resourceInputs["vm"] = args?.vm;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

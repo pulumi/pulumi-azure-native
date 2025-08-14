@@ -65,12 +65,12 @@ export class PrivateLinkAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupId === undefined) && !opts.urn) {
+            if (args?.groupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["plaId"] = args ? args.plaId : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["plaId"] = args?.plaId;
+            resourceInputs["properties"] = args?.properties;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

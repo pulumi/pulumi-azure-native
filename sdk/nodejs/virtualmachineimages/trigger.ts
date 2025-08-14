@@ -81,19 +81,19 @@ export class Trigger extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.imageTemplateName === undefined) && !opts.urn) {
+            if (args?.imageTemplateName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'imageTemplateName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["imageTemplateName"] = args ? args.imageTemplateName : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["triggerName"] = args ? args.triggerName : undefined;
+            resourceInputs["imageTemplateName"] = args?.imageTemplateName;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["triggerName"] = args?.triggerName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

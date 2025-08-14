@@ -75,13 +75,13 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.sourceResourceType === undefined) && !opts.urn) {
+            if (args?.sourceResourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceResourceType'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["sourceResourceType"] = args ? args.sourceResourceType : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["sourceResourceType"] = args?.sourceResourceType;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

@@ -89,23 +89,23 @@ export class NamespaceTopicEventSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.topicName === undefined) && !opts.urn) {
+            if (args?.topicName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'topicName'");
             }
-            resourceInputs["deliveryConfiguration"] = args ? args.deliveryConfiguration : undefined;
-            resourceInputs["eventDeliverySchema"] = args ? args.eventDeliverySchema : undefined;
-            resourceInputs["eventSubscriptionName"] = args ? args.eventSubscriptionName : undefined;
-            resourceInputs["expirationTimeUtc"] = args ? args.expirationTimeUtc : undefined;
-            resourceInputs["filtersConfiguration"] = args ? args.filtersConfiguration : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["topicName"] = args ? args.topicName : undefined;
+            resourceInputs["deliveryConfiguration"] = args?.deliveryConfiguration;
+            resourceInputs["eventDeliverySchema"] = args?.eventDeliverySchema;
+            resourceInputs["eventSubscriptionName"] = args?.eventSubscriptionName;
+            resourceInputs["expirationTimeUtc"] = args?.expirationTimeUtc;
+            resourceInputs["filtersConfiguration"] = args?.filtersConfiguration;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["topicName"] = args?.topicName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

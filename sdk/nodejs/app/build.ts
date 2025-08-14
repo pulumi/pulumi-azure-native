@@ -97,17 +97,17 @@ export class Build extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.builderName === undefined) && !opts.urn) {
+            if (args?.builderName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'builderName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["buildName"] = args ? args.buildName : undefined;
-            resourceInputs["builderName"] = args ? args.builderName : undefined;
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["destinationContainerRegistry"] = args ? args.destinationContainerRegistry : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["buildName"] = args?.buildName;
+            resourceInputs["builderName"] = args?.builderName;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["destinationContainerRegistry"] = args?.destinationContainerRegistry;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["buildStatus"] = undefined /*out*/;
             resourceInputs["logStreamEndpoint"] = undefined /*out*/;

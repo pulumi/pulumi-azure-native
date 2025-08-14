@@ -93,26 +93,26 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.galleryApplicationName === undefined) && !opts.urn) {
+            if (args?.galleryApplicationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryApplicationName'");
             }
-            if ((!args || args.galleryName === undefined) && !opts.urn) {
+            if (args?.galleryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryName'");
             }
-            if ((!args || args.publishingProfile === undefined) && !opts.urn) {
+            if (args?.publishingProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publishingProfile'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["galleryApplicationName"] = args ? args.galleryApplicationName : undefined;
-            resourceInputs["galleryApplicationVersionName"] = args ? args.galleryApplicationVersionName : undefined;
-            resourceInputs["galleryName"] = args ? args.galleryName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["publishingProfile"] = args ? args.publishingProfile : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["safetyProfile"] = args ? args.safetyProfile : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["galleryApplicationName"] = args?.galleryApplicationName;
+            resourceInputs["galleryApplicationVersionName"] = args?.galleryApplicationVersionName;
+            resourceInputs["galleryName"] = args?.galleryName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["publishingProfile"] = args?.publishingProfile;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["safetyProfile"] = args?.safetyProfile;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

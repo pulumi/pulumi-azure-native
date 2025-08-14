@@ -79,17 +79,17 @@ export class ManagementLockByScope extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.level === undefined) && !opts.urn) {
+            if (args?.level === undefined && !opts.urn) {
                 throw new Error("Missing required property 'level'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["level"] = args ? args.level : undefined;
-            resourceInputs["lockName"] = args ? args.lockName : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
-            resourceInputs["owners"] = args ? args.owners : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["level"] = args?.level;
+            resourceInputs["lockName"] = args?.lockName;
+            resourceInputs["notes"] = args?.notes;
+            resourceInputs["owners"] = args?.owners;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

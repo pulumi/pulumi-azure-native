@@ -141,27 +141,27 @@ export class Budget extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.category === undefined) && !opts.urn) {
+            if (args?.category === undefined && !opts.urn) {
                 throw new Error("Missing required property 'category'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.timeGrain === undefined) && !opts.urn) {
+            if (args?.timeGrain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeGrain'");
             }
-            if ((!args || args.timePeriod === undefined) && !opts.urn) {
+            if (args?.timePeriod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timePeriod'");
             }
-            resourceInputs["amount"] = args ? args.amount : undefined;
-            resourceInputs["budgetName"] = args ? args.budgetName : undefined;
-            resourceInputs["category"] = args ? args.category : undefined;
-            resourceInputs["eTag"] = args ? args.eTag : undefined;
-            resourceInputs["filter"] = args ? args.filter : undefined;
-            resourceInputs["notifications"] = args ? args.notifications : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["timeGrain"] = args ? args.timeGrain : undefined;
-            resourceInputs["timePeriod"] = args ? args.timePeriod : undefined;
+            resourceInputs["amount"] = args?.amount;
+            resourceInputs["budgetName"] = args?.budgetName;
+            resourceInputs["category"] = args?.category;
+            resourceInputs["eTag"] = args?.eTag;
+            resourceInputs["filter"] = args?.filter;
+            resourceInputs["notifications"] = args?.notifications;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["timeGrain"] = args?.timeGrain;
+            resourceInputs["timePeriod"] = args?.timePeriod;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["currentSpend"] = undefined /*out*/;
             resourceInputs["forecastSpend"] = undefined /*out*/;

@@ -99,26 +99,26 @@ export class TenantActionGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.groupShortName === undefined) && !opts.urn) {
+            if (args?.groupShortName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupShortName'");
             }
-            if ((!args || args.managementGroupId === undefined) && !opts.urn) {
+            if (args?.managementGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            resourceInputs["azureAppPushReceivers"] = args ? args.azureAppPushReceivers : undefined;
-            resourceInputs["emailReceivers"] = args ? args.emailReceivers : undefined;
-            resourceInputs["enabled"] = (args ? args.enabled : undefined) ?? true;
-            resourceInputs["groupShortName"] = args ? args.groupShortName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
-            resourceInputs["smsReceivers"] = args ? args.smsReceivers : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tenantActionGroupName"] = args ? args.tenantActionGroupName : undefined;
-            resourceInputs["voiceReceivers"] = args ? args.voiceReceivers : undefined;
-            resourceInputs["webhookReceivers"] = args ? args.webhookReceivers : undefined;
+            resourceInputs["azureAppPushReceivers"] = args?.azureAppPushReceivers;
+            resourceInputs["emailReceivers"] = args?.emailReceivers;
+            resourceInputs["enabled"] = (args?.enabled) ?? true;
+            resourceInputs["groupShortName"] = args?.groupShortName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managementGroupId"] = args?.managementGroupId;
+            resourceInputs["smsReceivers"] = args?.smsReceivers;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tenantActionGroupName"] = args?.tenantActionGroupName;
+            resourceInputs["voiceReceivers"] = args?.voiceReceivers;
+            resourceInputs["webhookReceivers"] = args?.webhookReceivers;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

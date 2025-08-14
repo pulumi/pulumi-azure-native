@@ -85,16 +85,16 @@ export class ProviderInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.monitorName === undefined) && !opts.urn) {
+            if (args?.monitorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'monitorName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["monitorName"] = args ? args.monitorName : undefined;
-            resourceInputs["providerInstanceName"] = args ? args.providerInstanceName : undefined;
-            resourceInputs["providerSettings"] = args ? args.providerSettings : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["monitorName"] = args?.monitorName;
+            resourceInputs["providerInstanceName"] = args?.providerInstanceName;
+            resourceInputs["providerSettings"] = args?.providerSettings;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["health"] = undefined /*out*/;

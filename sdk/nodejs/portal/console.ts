@@ -59,11 +59,11 @@ export class Console extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.properties === undefined) && !opts.urn) {
+            if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            resourceInputs["consoleName"] = args ? args.consoleName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["consoleName"] = args?.consoleName;
+            resourceInputs["properties"] = args?.properties;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;

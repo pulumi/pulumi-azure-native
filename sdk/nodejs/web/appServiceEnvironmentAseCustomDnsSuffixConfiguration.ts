@@ -80,18 +80,18 @@ export class AppServiceEnvironmentAseCustomDnsSuffixConfiguration extends pulumi
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["certificateUrl"] = args ? args.certificateUrl : undefined;
-            resourceInputs["dnsSuffix"] = args ? args.dnsSuffix : undefined;
-            resourceInputs["keyVaultReferenceIdentity"] = args ? args.keyVaultReferenceIdentity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["certificateUrl"] = args?.certificateUrl;
+            resourceInputs["dnsSuffix"] = args?.dnsSuffix;
+            resourceInputs["keyVaultReferenceIdentity"] = args?.keyVaultReferenceIdentity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["provisioningDetails"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -90,31 +90,31 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clientId === undefined) && !opts.urn) {
+            if (args?.clientId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.metadataEndpoint === undefined) && !opts.urn) {
+            if (args?.metadataEndpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'metadataEndpoint'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["metadataEndpoint"] = args ? args.metadataEndpoint : undefined;
-            resourceInputs["opid"] = args ? args.opid : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["useInApiDocumentation"] = args ? args.useInApiDocumentation : undefined;
-            resourceInputs["useInTestConsole"] = args ? args.useInTestConsole : undefined;
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["clientSecret"] = args?.clientSecret;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["metadataEndpoint"] = args?.metadataEndpoint;
+            resourceInputs["opid"] = args?.opid;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["useInApiDocumentation"] = args?.useInApiDocumentation;
+            resourceInputs["useInTestConsole"] = args?.useInTestConsole;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

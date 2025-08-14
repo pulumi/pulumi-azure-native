@@ -109,31 +109,31 @@ export class ScheduledAction extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.notification === undefined) && !opts.urn) {
+            if (args?.notification === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notification'");
             }
-            if ((!args || args.schedule === undefined) && !opts.urn) {
+            if (args?.schedule === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            if ((!args || args.viewId === undefined) && !opts.urn) {
+            if (args?.viewId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'viewId'");
             }
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["fileDestination"] = args ? args.fileDestination : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notification"] = args ? args.notification : undefined;
-            resourceInputs["notificationEmail"] = args ? args.notificationEmail : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["viewId"] = args ? args.viewId : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["fileDestination"] = args?.fileDestination;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notification"] = args?.notification;
+            resourceInputs["notificationEmail"] = args?.notificationEmail;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["viewId"] = args?.viewId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

@@ -81,19 +81,19 @@ export class VirtualApplianceSite extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkVirtualApplianceName === undefined) && !opts.urn) {
+            if (args?.networkVirtualApplianceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkVirtualApplianceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkVirtualApplianceName"] = args ? args.networkVirtualApplianceName : undefined;
-            resourceInputs["o365Policy"] = args ? args.o365Policy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["siteName"] = args ? args.siteName : undefined;
+            resourceInputs["addressPrefix"] = args?.addressPrefix;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkVirtualApplianceName"] = args?.networkVirtualApplianceName;
+            resourceInputs["o365Policy"] = args?.o365Policy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["siteName"] = args?.siteName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

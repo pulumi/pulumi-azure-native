@@ -89,17 +89,17 @@ export class FqdnListGlobalRulestack extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fqdnList === undefined) && !opts.urn) {
+            if (args?.fqdnList === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fqdnList'");
             }
-            if ((!args || args.globalRulestackName === undefined) && !opts.urn) {
+            if (args?.globalRulestackName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'globalRulestackName'");
             }
-            resourceInputs["auditComment"] = args ? args.auditComment : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["fqdnList"] = args ? args.fqdnList : undefined;
-            resourceInputs["globalRulestackName"] = args ? args.globalRulestackName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["auditComment"] = args?.auditComment;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["fqdnList"] = args?.fqdnList;
+            resourceInputs["globalRulestackName"] = args?.globalRulestackName;
+            resourceInputs["name"] = args?.name;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

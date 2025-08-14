@@ -188,46 +188,46 @@ export class HostPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.hostPoolType === undefined) && !opts.urn) {
+            if (args?.hostPoolType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostPoolType'");
             }
-            if ((!args || args.loadBalancerType === undefined) && !opts.urn) {
+            if (args?.loadBalancerType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerType'");
             }
-            if ((!args || args.preferredAppGroupType === undefined) && !opts.urn) {
+            if (args?.preferredAppGroupType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'preferredAppGroupType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["agentUpdate"] = args ? args.agentUpdate : undefined;
-            resourceInputs["customRdpProperty"] = args ? args.customRdpProperty : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["hostPoolName"] = args ? args.hostPoolName : undefined;
-            resourceInputs["hostPoolType"] = args ? args.hostPoolType : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["loadBalancerType"] = args ? args.loadBalancerType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["maxSessionLimit"] = args ? args.maxSessionLimit : undefined;
-            resourceInputs["personalDesktopAssignmentType"] = args ? args.personalDesktopAssignmentType : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["preferredAppGroupType"] = args ? args.preferredAppGroupType : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["registrationInfo"] = args ? args.registrationInfo : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ring"] = args ? args.ring : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["ssoClientId"] = args ? args.ssoClientId : undefined;
-            resourceInputs["ssoClientSecretKeyVaultPath"] = args ? args.ssoClientSecretKeyVaultPath : undefined;
-            resourceInputs["ssoSecretType"] = args ? args.ssoSecretType : undefined;
-            resourceInputs["ssoadfsAuthority"] = args ? args.ssoadfsAuthority : undefined;
-            resourceInputs["startVMOnConnect"] = args ? args.startVMOnConnect : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["validationEnvironment"] = args ? args.validationEnvironment : undefined;
-            resourceInputs["vmTemplate"] = args ? args.vmTemplate : undefined;
+            resourceInputs["agentUpdate"] = args?.agentUpdate;
+            resourceInputs["customRdpProperty"] = args?.customRdpProperty;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["friendlyName"] = args?.friendlyName;
+            resourceInputs["hostPoolName"] = args?.hostPoolName;
+            resourceInputs["hostPoolType"] = args?.hostPoolType;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["loadBalancerType"] = args?.loadBalancerType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedBy"] = args?.managedBy;
+            resourceInputs["maxSessionLimit"] = args?.maxSessionLimit;
+            resourceInputs["personalDesktopAssignmentType"] = args?.personalDesktopAssignmentType;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["preferredAppGroupType"] = args?.preferredAppGroupType;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["registrationInfo"] = args?.registrationInfo;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["ring"] = args?.ring;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["ssoClientId"] = args?.ssoClientId;
+            resourceInputs["ssoClientSecretKeyVaultPath"] = args?.ssoClientSecretKeyVaultPath;
+            resourceInputs["ssoSecretType"] = args?.ssoSecretType;
+            resourceInputs["ssoadfsAuthority"] = args?.ssoadfsAuthority;
+            resourceInputs["startVMOnConnect"] = args?.startVMOnConnect;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["validationEnvironment"] = args?.validationEnvironment;
+            resourceInputs["vmTemplate"] = args?.vmTemplate;
             resourceInputs["appAttachPackageReferences"] = undefined /*out*/;
             resourceInputs["applicationGroupReferences"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

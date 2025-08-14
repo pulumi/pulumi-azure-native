@@ -113,23 +113,23 @@ export class MarketplaceGalleryImage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.osType === undefined) && !opts.urn) {
+            if (args?.osType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'osType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["cloudInitDataSource"] = args ? args.cloudInitDataSource : undefined;
-            resourceInputs["containerId"] = args ? args.containerId : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
-            resourceInputs["identifier"] = args ? args.identifier : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["marketplaceGalleryImageName"] = args ? args.marketplaceGalleryImageName : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["cloudInitDataSource"] = args?.cloudInitDataSource;
+            resourceInputs["containerId"] = args?.containerId;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["hyperVGeneration"] = args?.hyperVGeneration;
+            resourceInputs["identifier"] = args?.identifier;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["marketplaceGalleryImageName"] = args?.marketplaceGalleryImageName;
+            resourceInputs["osType"] = args?.osType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

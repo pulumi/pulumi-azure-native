@@ -95,31 +95,31 @@ export class ChangeDataCapture extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.factoryName === undefined) && !opts.urn) {
+            if (args?.factoryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'factoryName'");
             }
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceConnectionsInfo === undefined) && !opts.urn) {
+            if (args?.sourceConnectionsInfo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceConnectionsInfo'");
             }
-            if ((!args || args.targetConnectionsInfo === undefined) && !opts.urn) {
+            if (args?.targetConnectionsInfo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetConnectionsInfo'");
             }
-            resourceInputs["allowVNetOverride"] = args ? args.allowVNetOverride : undefined;
-            resourceInputs["changeDataCaptureName"] = args ? args.changeDataCaptureName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["factoryName"] = args ? args.factoryName : undefined;
-            resourceInputs["folder"] = args ? args.folder : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceConnectionsInfo"] = args ? args.sourceConnectionsInfo : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["targetConnectionsInfo"] = args ? args.targetConnectionsInfo : undefined;
+            resourceInputs["allowVNetOverride"] = args?.allowVNetOverride;
+            resourceInputs["changeDataCaptureName"] = args?.changeDataCaptureName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["factoryName"] = args?.factoryName;
+            resourceInputs["folder"] = args?.folder;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceConnectionsInfo"] = args?.sourceConnectionsInfo;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["targetConnectionsInfo"] = args?.targetConnectionsInfo;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -70,25 +70,25 @@ export class AuthorizationAccessPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authorizationId === undefined) && !opts.urn) {
+            if (args?.authorizationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizationId'");
             }
-            if ((!args || args.authorizationProviderId === undefined) && !opts.urn) {
+            if (args?.authorizationProviderId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizationProviderId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["authorizationAccessPolicyId"] = args ? args.authorizationAccessPolicyId : undefined;
-            resourceInputs["authorizationId"] = args ? args.authorizationId : undefined;
-            resourceInputs["authorizationProviderId"] = args ? args.authorizationProviderId : undefined;
-            resourceInputs["objectId"] = args ? args.objectId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["authorizationAccessPolicyId"] = args?.authorizationAccessPolicyId;
+            resourceInputs["authorizationId"] = args?.authorizationId;
+            resourceInputs["authorizationProviderId"] = args?.authorizationProviderId;
+            resourceInputs["objectId"] = args?.objectId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["tenantId"] = args?.tenantId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

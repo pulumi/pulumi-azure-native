@@ -85,25 +85,25 @@ export class ManagedClusterApplicationTypeVersion extends pulumi.CustomResource 
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.appPackageUrl === undefined) && !opts.urn) {
+            if (args?.appPackageUrl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appPackageUrl'");
             }
-            if ((!args || args.applicationTypeName === undefined) && !opts.urn) {
+            if (args?.applicationTypeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationTypeName'");
             }
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["appPackageUrl"] = args ? args.appPackageUrl : undefined;
-            resourceInputs["applicationTypeName"] = args ? args.applicationTypeName : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["appPackageUrl"] = args?.appPackageUrl;
+            resourceInputs["applicationTypeName"] = args?.applicationTypeName;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

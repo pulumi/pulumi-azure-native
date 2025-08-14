@@ -105,24 +105,24 @@ export class Package extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.contentLink === undefined) && !opts.urn) {
+            if (args?.contentLink === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentLink'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.runtimeEnvironmentName === undefined) && !opts.urn) {
+            if (args?.runtimeEnvironmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'runtimeEnvironmentName'");
             }
-            resourceInputs["allOf"] = args ? args.allOf : undefined;
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["contentLink"] = args ? args.contentLink : undefined;
-            resourceInputs["packageName"] = args ? args.packageName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["runtimeEnvironmentName"] = args ? args.runtimeEnvironmentName : undefined;
+            resourceInputs["allOf"] = args?.allOf;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["contentLink"] = args?.contentLink;
+            resourceInputs["packageName"] = args?.packageName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["runtimeEnvironmentName"] = args?.runtimeEnvironmentName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["default"] = undefined /*out*/;
             resourceInputs["error"] = undefined /*out*/;

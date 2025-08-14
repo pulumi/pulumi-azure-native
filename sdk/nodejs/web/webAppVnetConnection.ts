@@ -98,20 +98,20 @@ export class WebAppVnetConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["certBlob"] = args ? args.certBlob : undefined;
-            resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
-            resourceInputs["isSwift"] = args ? args.isSwift : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["vnetName"] = args ? args.vnetName : undefined;
-            resourceInputs["vnetResourceId"] = args ? args.vnetResourceId : undefined;
+            resourceInputs["certBlob"] = args?.certBlob;
+            resourceInputs["dnsServers"] = args?.dnsServers;
+            resourceInputs["isSwift"] = args?.isSwift;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["vnetName"] = args?.vnetName;
+            resourceInputs["vnetResourceId"] = args?.vnetResourceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["certThumbprint"] = undefined /*out*/;
             resourceInputs["resyncRequired"] = undefined /*out*/;

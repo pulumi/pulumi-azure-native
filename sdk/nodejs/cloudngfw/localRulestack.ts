@@ -117,22 +117,22 @@ export class LocalRulestack extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["associatedSubscriptions"] = args ? args.associatedSubscriptions : undefined;
-            resourceInputs["defaultMode"] = args ? args.defaultMode : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["localRulestackName"] = args ? args.localRulestackName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["minAppIdVersion"] = args ? args.minAppIdVersion : undefined;
-            resourceInputs["panEtag"] = args ? args.panEtag : undefined;
-            resourceInputs["panLocation"] = args ? args.panLocation : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["securityServices"] = args ? args.securityServices : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["associatedSubscriptions"] = args?.associatedSubscriptions;
+            resourceInputs["defaultMode"] = args?.defaultMode;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["localRulestackName"] = args?.localRulestackName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["minAppIdVersion"] = args?.minAppIdVersion;
+            resourceInputs["panEtag"] = args?.panEtag;
+            resourceInputs["panLocation"] = args?.panLocation;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["securityServices"] = args?.securityServices;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

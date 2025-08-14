@@ -85,19 +85,19 @@ export class RouteMap extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualHubName === undefined) && !opts.urn) {
+            if (args?.virtualHubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubName'");
             }
-            resourceInputs["associatedInboundConnections"] = args ? args.associatedInboundConnections : undefined;
-            resourceInputs["associatedOutboundConnections"] = args ? args.associatedOutboundConnections : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routeMapName"] = args ? args.routeMapName : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["virtualHubName"] = args ? args.virtualHubName : undefined;
+            resourceInputs["associatedInboundConnections"] = args?.associatedInboundConnections;
+            resourceInputs["associatedOutboundConnections"] = args?.associatedOutboundConnections;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routeMapName"] = args?.routeMapName;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["virtualHubName"] = args?.virtualHubName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

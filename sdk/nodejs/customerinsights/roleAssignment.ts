@@ -143,38 +143,38 @@ export class RoleAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.hubName === undefined) && !opts.urn) {
+            if (args?.hubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.principals === undefined) && !opts.urn) {
+            if (args?.principals === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principals'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.role === undefined) && !opts.urn) {
+            if (args?.role === undefined && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            resourceInputs["assignmentName"] = args ? args.assignmentName : undefined;
-            resourceInputs["conflationPolicies"] = args ? args.conflationPolicies : undefined;
-            resourceInputs["connectors"] = args ? args.connectors : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["hubName"] = args ? args.hubName : undefined;
-            resourceInputs["interactions"] = args ? args.interactions : undefined;
-            resourceInputs["kpis"] = args ? args.kpis : undefined;
-            resourceInputs["links"] = args ? args.links : undefined;
-            resourceInputs["principals"] = args ? args.principals : undefined;
-            resourceInputs["profiles"] = args ? args.profiles : undefined;
-            resourceInputs["relationshipLinks"] = args ? args.relationshipLinks : undefined;
-            resourceInputs["relationships"] = args ? args.relationships : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["roleAssignments"] = args ? args.roleAssignments : undefined;
-            resourceInputs["sasPolicies"] = args ? args.sasPolicies : undefined;
-            resourceInputs["segments"] = args ? args.segments : undefined;
-            resourceInputs["views"] = args ? args.views : undefined;
-            resourceInputs["widgetTypes"] = args ? args.widgetTypes : undefined;
+            resourceInputs["assignmentName"] = args?.assignmentName;
+            resourceInputs["conflationPolicies"] = args?.conflationPolicies;
+            resourceInputs["connectors"] = args?.connectors;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["hubName"] = args?.hubName;
+            resourceInputs["interactions"] = args?.interactions;
+            resourceInputs["kpis"] = args?.kpis;
+            resourceInputs["links"] = args?.links;
+            resourceInputs["principals"] = args?.principals;
+            resourceInputs["profiles"] = args?.profiles;
+            resourceInputs["relationshipLinks"] = args?.relationshipLinks;
+            resourceInputs["relationships"] = args?.relationships;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["roleAssignments"] = args?.roleAssignments;
+            resourceInputs["sasPolicies"] = args?.sasPolicies;
+            resourceInputs["segments"] = args?.segments;
+            resourceInputs["views"] = args?.views;
+            resourceInputs["widgetTypes"] = args?.widgetTypes;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

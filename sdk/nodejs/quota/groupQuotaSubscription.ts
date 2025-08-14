@@ -70,14 +70,14 @@ export class GroupQuotaSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupQuotaName === undefined) && !opts.urn) {
+            if (args?.groupQuotaName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupQuotaName'");
             }
-            if ((!args || args.managementGroupId === undefined) && !opts.urn) {
+            if (args?.managementGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            resourceInputs["groupQuotaName"] = args ? args.groupQuotaName : undefined;
-            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
+            resourceInputs["groupQuotaName"] = args?.groupQuotaName;
+            resourceInputs["managementGroupId"] = args?.managementGroupId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

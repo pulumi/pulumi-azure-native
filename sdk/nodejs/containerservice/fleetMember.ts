@@ -85,20 +85,20 @@ export class FleetMember extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterResourceId === undefined) && !opts.urn) {
+            if (args?.clusterResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterResourceId'");
             }
-            if ((!args || args.fleetName === undefined) && !opts.urn) {
+            if (args?.fleetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fleetName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clusterResourceId"] = args ? args.clusterResourceId : undefined;
-            resourceInputs["fleetMemberName"] = args ? args.fleetMemberName : undefined;
-            resourceInputs["fleetName"] = args ? args.fleetName : undefined;
-            resourceInputs["group"] = args ? args.group : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["clusterResourceId"] = args?.clusterResourceId;
+            resourceInputs["fleetMemberName"] = args?.fleetMemberName;
+            resourceInputs["fleetName"] = args?.fleetName;
+            resourceInputs["group"] = args?.group;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

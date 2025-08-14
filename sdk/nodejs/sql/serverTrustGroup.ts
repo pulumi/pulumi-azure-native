@@ -73,23 +73,23 @@ export class ServerTrustGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupMembers === undefined) && !opts.urn) {
+            if (args?.groupMembers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupMembers'");
             }
-            if ((!args || args.locationName === undefined) && !opts.urn) {
+            if (args?.locationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'locationName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.trustScopes === undefined) && !opts.urn) {
+            if (args?.trustScopes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trustScopes'");
             }
-            resourceInputs["groupMembers"] = args ? args.groupMembers : undefined;
-            resourceInputs["locationName"] = args ? args.locationName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverTrustGroupName"] = args ? args.serverTrustGroupName : undefined;
-            resourceInputs["trustScopes"] = args ? args.trustScopes : undefined;
+            resourceInputs["groupMembers"] = args?.groupMembers;
+            resourceInputs["locationName"] = args?.locationName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverTrustGroupName"] = args?.serverTrustGroupName;
+            resourceInputs["trustScopes"] = args?.trustScopes;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

@@ -145,34 +145,34 @@ export class FluxConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.clusterResourceName === undefined) && !opts.urn) {
+            if (args?.clusterResourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterResourceName'");
             }
-            if ((!args || args.clusterRp === undefined) && !opts.urn) {
+            if (args?.clusterRp === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterRp'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["azureBlob"] = args ? (args.azureBlob ? pulumi.output(args.azureBlob).apply(inputs.kubernetesconfiguration.azureBlobDefinitionArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["bucket"] = args ? (args.bucket ? pulumi.output(args.bucket).apply(inputs.kubernetesconfiguration.bucketDefinitionArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["clusterResourceName"] = args ? args.clusterResourceName : undefined;
-            resourceInputs["clusterRp"] = args ? args.clusterRp : undefined;
-            resourceInputs["configurationProtectedSettings"] = args ? args.configurationProtectedSettings : undefined;
-            resourceInputs["fluxConfigurationName"] = args ? args.fluxConfigurationName : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["clusterResourceName"] = args?.clusterResourceName;
+            resourceInputs["clusterRp"] = args?.clusterRp;
+            resourceInputs["configurationProtectedSettings"] = args?.configurationProtectedSettings;
+            resourceInputs["fluxConfigurationName"] = args?.fluxConfigurationName;
             resourceInputs["gitRepository"] = args ? (args.gitRepository ? pulumi.output(args.gitRepository).apply(inputs.kubernetesconfiguration.gitRepositoryDefinitionArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["kustomizations"] = args ? args.kustomizations : undefined;
-            resourceInputs["namespace"] = (args ? args.namespace : undefined) ?? "default";
-            resourceInputs["reconciliationWaitDuration"] = args ? args.reconciliationWaitDuration : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["sourceKind"] = (args ? args.sourceKind : undefined) ?? "GitRepository";
-            resourceInputs["suspend"] = (args ? args.suspend : undefined) ?? false;
-            resourceInputs["waitForReconciliation"] = args ? args.waitForReconciliation : undefined;
+            resourceInputs["kustomizations"] = args?.kustomizations;
+            resourceInputs["namespace"] = (args?.namespace) ?? "default";
+            resourceInputs["reconciliationWaitDuration"] = args?.reconciliationWaitDuration;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["sourceKind"] = (args?.sourceKind) ?? "GitRepository";
+            resourceInputs["suspend"] = (args?.suspend) ?? false;
+            resourceInputs["waitForReconciliation"] = args?.waitForReconciliation;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["complianceState"] = undefined /*out*/;
             resourceInputs["errorMessage"] = undefined /*out*/;

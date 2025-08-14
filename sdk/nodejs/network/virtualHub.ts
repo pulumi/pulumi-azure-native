@@ -169,31 +169,31 @@ export class VirtualHub extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
-            resourceInputs["allowBranchToBranchTraffic"] = args ? args.allowBranchToBranchTraffic : undefined;
-            resourceInputs["azureFirewall"] = args ? args.azureFirewall : undefined;
-            resourceInputs["expressRouteGateway"] = args ? args.expressRouteGateway : undefined;
-            resourceInputs["hubRoutingPreference"] = args ? args.hubRoutingPreference : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["p2SVpnGateway"] = args ? args.p2SVpnGateway : undefined;
-            resourceInputs["preferredRoutingGateway"] = args ? args.preferredRoutingGateway : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routeTable"] = args ? args.routeTable : undefined;
-            resourceInputs["securityPartnerProvider"] = args ? args.securityPartnerProvider : undefined;
-            resourceInputs["securityProviderName"] = args ? args.securityProviderName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualHubName"] = args ? args.virtualHubName : undefined;
-            resourceInputs["virtualHubRouteTableV2s"] = args ? args.virtualHubRouteTableV2s : undefined;
-            resourceInputs["virtualRouterAsn"] = args ? args.virtualRouterAsn : undefined;
-            resourceInputs["virtualRouterAutoScaleConfiguration"] = args ? args.virtualRouterAutoScaleConfiguration : undefined;
-            resourceInputs["virtualRouterIps"] = args ? args.virtualRouterIps : undefined;
-            resourceInputs["virtualWan"] = args ? args.virtualWan : undefined;
-            resourceInputs["vpnGateway"] = args ? args.vpnGateway : undefined;
+            resourceInputs["addressPrefix"] = args?.addressPrefix;
+            resourceInputs["allowBranchToBranchTraffic"] = args?.allowBranchToBranchTraffic;
+            resourceInputs["azureFirewall"] = args?.azureFirewall;
+            resourceInputs["expressRouteGateway"] = args?.expressRouteGateway;
+            resourceInputs["hubRoutingPreference"] = args?.hubRoutingPreference;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["p2SVpnGateway"] = args?.p2SVpnGateway;
+            resourceInputs["preferredRoutingGateway"] = args?.preferredRoutingGateway;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routeTable"] = args?.routeTable;
+            resourceInputs["securityPartnerProvider"] = args?.securityPartnerProvider;
+            resourceInputs["securityProviderName"] = args?.securityProviderName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualHubName"] = args?.virtualHubName;
+            resourceInputs["virtualHubRouteTableV2s"] = args?.virtualHubRouteTableV2s;
+            resourceInputs["virtualRouterAsn"] = args?.virtualRouterAsn;
+            resourceInputs["virtualRouterAutoScaleConfiguration"] = args?.virtualRouterAutoScaleConfiguration;
+            resourceInputs["virtualRouterIps"] = args?.virtualRouterIps;
+            resourceInputs["virtualWan"] = args?.virtualWan;
+            resourceInputs["vpnGateway"] = args?.vpnGateway;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["bgpConnections"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

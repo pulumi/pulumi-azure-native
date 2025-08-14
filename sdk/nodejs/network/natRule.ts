@@ -97,22 +97,22 @@ export class NatRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.gatewayName === undefined) && !opts.urn) {
+            if (args?.gatewayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["externalMappings"] = args ? args.externalMappings : undefined;
-            resourceInputs["gatewayName"] = args ? args.gatewayName : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["internalMappings"] = args ? args.internalMappings : undefined;
-            resourceInputs["ipConfigurationId"] = args ? args.ipConfigurationId : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["natRuleName"] = args ? args.natRuleName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["externalMappings"] = args?.externalMappings;
+            resourceInputs["gatewayName"] = args?.gatewayName;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["internalMappings"] = args?.internalMappings;
+            resourceInputs["ipConfigurationId"] = args?.ipConfigurationId;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["natRuleName"] = args?.natRuleName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["type"] = args?.type;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["egressVpnSiteLinkConnections"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

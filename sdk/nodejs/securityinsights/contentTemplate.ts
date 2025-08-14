@@ -181,64 +181,64 @@ export class ContentTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.contentId === undefined) && !opts.urn) {
+            if (args?.contentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentId'");
             }
-            if ((!args || args.contentKind === undefined) && !opts.urn) {
+            if (args?.contentKind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentKind'");
             }
-            if ((!args || args.contentProductId === undefined) && !opts.urn) {
+            if (args?.contentProductId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentProductId'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.packageId === undefined) && !opts.urn) {
+            if (args?.packageId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packageId'");
             }
-            if ((!args || args.packageVersion === undefined) && !opts.urn) {
+            if (args?.packageVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packageVersion'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["author"] = args ? args.author : undefined;
-            resourceInputs["categories"] = args ? args.categories : undefined;
-            resourceInputs["contentId"] = args ? args.contentId : undefined;
-            resourceInputs["contentKind"] = args ? args.contentKind : undefined;
-            resourceInputs["contentProductId"] = args ? args.contentProductId : undefined;
-            resourceInputs["contentSchemaVersion"] = args ? args.contentSchemaVersion : undefined;
-            resourceInputs["customVersion"] = args ? args.customVersion : undefined;
-            resourceInputs["dependencies"] = args ? args.dependencies : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["firstPublishDate"] = args ? args.firstPublishDate : undefined;
-            resourceInputs["icon"] = args ? args.icon : undefined;
-            resourceInputs["lastPublishDate"] = args ? args.lastPublishDate : undefined;
-            resourceInputs["mainTemplate"] = args ? args.mainTemplate : undefined;
-            resourceInputs["packageId"] = args ? args.packageId : undefined;
-            resourceInputs["packageKind"] = args ? args.packageKind : undefined;
-            resourceInputs["packageName"] = args ? args.packageName : undefined;
-            resourceInputs["packageVersion"] = args ? args.packageVersion : undefined;
-            resourceInputs["previewImages"] = args ? args.previewImages : undefined;
-            resourceInputs["previewImagesDark"] = args ? args.previewImagesDark : undefined;
-            resourceInputs["providers"] = args ? args.providers : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["support"] = args ? args.support : undefined;
-            resourceInputs["templateId"] = args ? args.templateId : undefined;
-            resourceInputs["threatAnalysisTactics"] = args ? args.threatAnalysisTactics : undefined;
-            resourceInputs["threatAnalysisTechniques"] = args ? args.threatAnalysisTechniques : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["author"] = args?.author;
+            resourceInputs["categories"] = args?.categories;
+            resourceInputs["contentId"] = args?.contentId;
+            resourceInputs["contentKind"] = args?.contentKind;
+            resourceInputs["contentProductId"] = args?.contentProductId;
+            resourceInputs["contentSchemaVersion"] = args?.contentSchemaVersion;
+            resourceInputs["customVersion"] = args?.customVersion;
+            resourceInputs["dependencies"] = args?.dependencies;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["firstPublishDate"] = args?.firstPublishDate;
+            resourceInputs["icon"] = args?.icon;
+            resourceInputs["lastPublishDate"] = args?.lastPublishDate;
+            resourceInputs["mainTemplate"] = args?.mainTemplate;
+            resourceInputs["packageId"] = args?.packageId;
+            resourceInputs["packageKind"] = args?.packageKind;
+            resourceInputs["packageName"] = args?.packageName;
+            resourceInputs["packageVersion"] = args?.packageVersion;
+            resourceInputs["previewImages"] = args?.previewImages;
+            resourceInputs["previewImagesDark"] = args?.previewImagesDark;
+            resourceInputs["providers"] = args?.providers;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["support"] = args?.support;
+            resourceInputs["templateId"] = args?.templateId;
+            resourceInputs["threatAnalysisTactics"] = args?.threatAnalysisTactics;
+            resourceInputs["threatAnalysisTechniques"] = args?.threatAnalysisTechniques;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dependantTemplates"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

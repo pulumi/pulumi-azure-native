@@ -112,30 +112,30 @@ export class Gen2Environment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            if ((!args || args.storageConfiguration === undefined) && !opts.urn) {
+            if (args?.storageConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageConfiguration'");
             }
-            if ((!args || args.timeSeriesIdProperties === undefined) && !opts.urn) {
+            if (args?.timeSeriesIdProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeSeriesIdProperties'");
             }
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
+            resourceInputs["environmentName"] = args?.environmentName;
             resourceInputs["kind"] = "Gen2";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["storageConfiguration"] = args ? args.storageConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeSeriesIdProperties"] = args ? args.timeSeriesIdProperties : undefined;
-            resourceInputs["warmStoreConfiguration"] = args ? args.warmStoreConfiguration : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["storageConfiguration"] = args?.storageConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeSeriesIdProperties"] = args?.timeSeriesIdProperties;
+            resourceInputs["warmStoreConfiguration"] = args?.warmStoreConfiguration;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["dataAccessFqdn"] = undefined /*out*/;

@@ -169,30 +169,30 @@ export class StreamingJob extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["cluster"] = args ? args.cluster : undefined;
-            resourceInputs["compatibilityLevel"] = args ? args.compatibilityLevel : undefined;
-            resourceInputs["contentStoragePolicy"] = args ? args.contentStoragePolicy : undefined;
-            resourceInputs["dataLocale"] = args ? args.dataLocale : undefined;
-            resourceInputs["eventsLateArrivalMaxDelayInSeconds"] = args ? args.eventsLateArrivalMaxDelayInSeconds : undefined;
-            resourceInputs["eventsOutOfOrderMaxDelayInSeconds"] = args ? args.eventsOutOfOrderMaxDelayInSeconds : undefined;
-            resourceInputs["eventsOutOfOrderPolicy"] = args ? args.eventsOutOfOrderPolicy : undefined;
-            resourceInputs["functions"] = args ? args.functions : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["inputs"] = args ? args.inputs : undefined;
-            resourceInputs["jobName"] = args ? args.jobName : undefined;
-            resourceInputs["jobStorageAccount"] = args ? args.jobStorageAccount : undefined;
-            resourceInputs["jobType"] = args ? args.jobType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["outputErrorPolicy"] = args ? args.outputErrorPolicy : undefined;
-            resourceInputs["outputStartMode"] = args ? args.outputStartMode : undefined;
-            resourceInputs["outputStartTime"] = args ? args.outputStartTime : undefined;
-            resourceInputs["outputs"] = args ? args.outputs : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cluster"] = args?.cluster;
+            resourceInputs["compatibilityLevel"] = args?.compatibilityLevel;
+            resourceInputs["contentStoragePolicy"] = args?.contentStoragePolicy;
+            resourceInputs["dataLocale"] = args?.dataLocale;
+            resourceInputs["eventsLateArrivalMaxDelayInSeconds"] = args?.eventsLateArrivalMaxDelayInSeconds;
+            resourceInputs["eventsOutOfOrderMaxDelayInSeconds"] = args?.eventsOutOfOrderMaxDelayInSeconds;
+            resourceInputs["eventsOutOfOrderPolicy"] = args?.eventsOutOfOrderPolicy;
+            resourceInputs["functions"] = args?.functions;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["inputs"] = args?.inputs;
+            resourceInputs["jobName"] = args?.jobName;
+            resourceInputs["jobStorageAccount"] = args?.jobStorageAccount;
+            resourceInputs["jobType"] = args?.jobType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["outputErrorPolicy"] = args?.outputErrorPolicy;
+            resourceInputs["outputStartMode"] = args?.outputStartMode;
+            resourceInputs["outputStartTime"] = args?.outputStartTime;
+            resourceInputs["outputs"] = args?.outputs;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["transformation"] = args ? (args.transformation ? pulumi.output(args.transformation).apply(inputs.streamanalytics.transformationArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;

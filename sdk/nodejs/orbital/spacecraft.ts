@@ -95,30 +95,30 @@ export class Spacecraft extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.links === undefined) && !opts.urn) {
+            if (args?.links === undefined && !opts.urn) {
                 throw new Error("Missing required property 'links'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.titleLine === undefined) && !opts.urn) {
+            if (args?.titleLine === undefined && !opts.urn) {
                 throw new Error("Missing required property 'titleLine'");
             }
-            if ((!args || args.tleLine1 === undefined) && !opts.urn) {
+            if (args?.tleLine1 === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tleLine1'");
             }
-            if ((!args || args.tleLine2 === undefined) && !opts.urn) {
+            if (args?.tleLine2 === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tleLine2'");
             }
-            resourceInputs["links"] = args ? args.links : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["noradId"] = args ? args.noradId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["spacecraftName"] = args ? args.spacecraftName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["titleLine"] = args ? args.titleLine : undefined;
-            resourceInputs["tleLine1"] = args ? args.tleLine1 : undefined;
-            resourceInputs["tleLine2"] = args ? args.tleLine2 : undefined;
+            resourceInputs["links"] = args?.links;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["noradId"] = args?.noradId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["spacecraftName"] = args?.spacecraftName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["titleLine"] = args?.titleLine;
+            resourceInputs["tleLine1"] = args?.tleLine1;
+            resourceInputs["tleLine2"] = args?.tleLine2;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

@@ -109,19 +109,19 @@ export class ProjectCatalog extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.projectName === undefined) && !opts.urn) {
+            if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["adoGit"] = args ? args.adoGit : undefined;
-            resourceInputs["catalogName"] = args ? args.catalogName : undefined;
-            resourceInputs["gitHub"] = args ? args.gitHub : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["syncType"] = args ? args.syncType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["adoGit"] = args?.adoGit;
+            resourceInputs["catalogName"] = args?.catalogName;
+            resourceInputs["gitHub"] = args?.gitHub;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["syncType"] = args?.syncType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionState"] = undefined /*out*/;
             resourceInputs["lastConnectionTime"] = undefined /*out*/;

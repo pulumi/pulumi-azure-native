@@ -99,34 +99,34 @@ export class Pipeline extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.input === undefined) && !opts.urn) {
+            if (args?.input === undefined && !opts.urn) {
                 throw new Error("Missing required property 'input'");
             }
-            if ((!args || args.instanceName === undefined) && !opts.urn) {
+            if (args?.instanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.stages === undefined) && !opts.urn) {
+            if (args?.stages === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stages'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["input"] = args ? args.input : undefined;
-            resourceInputs["instanceName"] = args ? args.instanceName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["stages"] = args ? args.stages : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["input"] = args?.input;
+            resourceInputs["instanceName"] = args?.instanceName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["pipelineName"] = args?.pipelineName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["stages"] = args?.stages;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

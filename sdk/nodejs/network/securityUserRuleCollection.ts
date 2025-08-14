@@ -89,24 +89,24 @@ export class SecurityUserRuleCollection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.appliesToGroups === undefined) && !opts.urn) {
+            if (args?.appliesToGroups === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appliesToGroups'");
             }
-            if ((!args || args.configurationName === undefined) && !opts.urn) {
+            if (args?.configurationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationName'");
             }
-            if ((!args || args.networkManagerName === undefined) && !opts.urn) {
+            if (args?.networkManagerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkManagerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["appliesToGroups"] = args ? args.appliesToGroups : undefined;
-            resourceInputs["configurationName"] = args ? args.configurationName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["networkManagerName"] = args ? args.networkManagerName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ruleCollectionName"] = args ? args.ruleCollectionName : undefined;
+            resourceInputs["appliesToGroups"] = args?.appliesToGroups;
+            resourceInputs["configurationName"] = args?.configurationName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["networkManagerName"] = args?.networkManagerName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["ruleCollectionName"] = args?.ruleCollectionName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

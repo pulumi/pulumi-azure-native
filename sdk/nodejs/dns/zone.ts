@@ -113,16 +113,16 @@ export class Zone extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["registrationVirtualNetworks"] = args ? args.registrationVirtualNetworks : undefined;
-            resourceInputs["resolutionVirtualNetworks"] = args ? args.resolutionVirtualNetworks : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zoneName"] = args ? args.zoneName : undefined;
-            resourceInputs["zoneType"] = (args ? args.zoneType : undefined) ?? "Public";
+            resourceInputs["location"] = args?.location;
+            resourceInputs["registrationVirtualNetworks"] = args?.registrationVirtualNetworks;
+            resourceInputs["resolutionVirtualNetworks"] = args?.resolutionVirtualNetworks;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zoneName"] = args?.zoneName;
+            resourceInputs["zoneType"] = (args?.zoneType) ?? "Public";
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["maxNumberOfRecordSets"] = undefined /*out*/;

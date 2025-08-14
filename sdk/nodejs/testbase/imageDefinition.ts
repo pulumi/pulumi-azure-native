@@ -80,27 +80,27 @@ export class ImageDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.architecture === undefined) && !opts.urn) {
+            if (args?.architecture === undefined && !opts.urn) {
                 throw new Error("Missing required property 'architecture'");
             }
-            if ((!args || args.osState === undefined) && !opts.urn) {
+            if (args?.osState === undefined && !opts.urn) {
                 throw new Error("Missing required property 'osState'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.securityType === undefined) && !opts.urn) {
+            if (args?.securityType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityType'");
             }
-            if ((!args || args.testBaseAccountName === undefined) && !opts.urn) {
+            if (args?.testBaseAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'testBaseAccountName'");
             }
-            resourceInputs["architecture"] = args ? args.architecture : undefined;
-            resourceInputs["imageDefinitionName"] = args ? args.imageDefinitionName : undefined;
-            resourceInputs["osState"] = args ? args.osState : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securityType"] = args ? args.securityType : undefined;
-            resourceInputs["testBaseAccountName"] = args ? args.testBaseAccountName : undefined;
+            resourceInputs["architecture"] = args?.architecture;
+            resourceInputs["imageDefinitionName"] = args?.imageDefinitionName;
+            resourceInputs["osState"] = args?.osState;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["securityType"] = args?.securityType;
+            resourceInputs["testBaseAccountName"] = args?.testBaseAccountName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

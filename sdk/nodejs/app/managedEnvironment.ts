@@ -185,31 +185,31 @@ export class ManagedEnvironment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["appInsightsConfiguration"] = args ? args.appInsightsConfiguration : undefined;
-            resourceInputs["appLogsConfiguration"] = args ? args.appLogsConfiguration : undefined;
-            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            resourceInputs["customDomainConfiguration"] = args ? args.customDomainConfiguration : undefined;
-            resourceInputs["daprAIConnectionString"] = args ? args.daprAIConnectionString : undefined;
-            resourceInputs["daprAIInstrumentationKey"] = args ? args.daprAIInstrumentationKey : undefined;
-            resourceInputs["diskEncryptionConfiguration"] = args ? args.diskEncryptionConfiguration : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["infrastructureResourceGroup"] = args ? args.infrastructureResourceGroup : undefined;
-            resourceInputs["ingressConfiguration"] = args ? args.ingressConfiguration : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["openTelemetryConfiguration"] = args ? args.openTelemetryConfiguration : undefined;
-            resourceInputs["peerAuthentication"] = args ? args.peerAuthentication : undefined;
-            resourceInputs["peerTrafficConfiguration"] = args ? args.peerTrafficConfiguration : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vnetConfiguration"] = args ? args.vnetConfiguration : undefined;
-            resourceInputs["workloadProfiles"] = args ? args.workloadProfiles : undefined;
-            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["appInsightsConfiguration"] = args?.appInsightsConfiguration;
+            resourceInputs["appLogsConfiguration"] = args?.appLogsConfiguration;
+            resourceInputs["availabilityZones"] = args?.availabilityZones;
+            resourceInputs["customDomainConfiguration"] = args?.customDomainConfiguration;
+            resourceInputs["daprAIConnectionString"] = args?.daprAIConnectionString;
+            resourceInputs["daprAIInstrumentationKey"] = args?.daprAIInstrumentationKey;
+            resourceInputs["diskEncryptionConfiguration"] = args?.diskEncryptionConfiguration;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["infrastructureResourceGroup"] = args?.infrastructureResourceGroup;
+            resourceInputs["ingressConfiguration"] = args?.ingressConfiguration;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["openTelemetryConfiguration"] = args?.openTelemetryConfiguration;
+            resourceInputs["peerAuthentication"] = args?.peerAuthentication;
+            resourceInputs["peerTrafficConfiguration"] = args?.peerTrafficConfiguration;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vnetConfiguration"] = args?.vnetConfiguration;
+            resourceInputs["workloadProfiles"] = args?.workloadProfiles;
+            resourceInputs["zoneRedundant"] = args?.zoneRedundant;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["daprConfiguration"] = undefined /*out*/;
             resourceInputs["defaultDomain"] = undefined /*out*/;

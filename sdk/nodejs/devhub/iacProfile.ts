@@ -127,23 +127,23 @@ export class IacProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["branchName"] = args ? args.branchName : undefined;
-            resourceInputs["iacProfileName"] = args ? args.iacProfileName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["repositoryMainBranch"] = args ? args.repositoryMainBranch : undefined;
-            resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
-            resourceInputs["repositoryOwner"] = args ? args.repositoryOwner : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["stages"] = args ? args.stages : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            resourceInputs["storageAccountResourceGroup"] = args ? args.storageAccountResourceGroup : undefined;
-            resourceInputs["storageAccountSubscription"] = args ? args.storageAccountSubscription : undefined;
-            resourceInputs["storageContainerName"] = args ? args.storageContainerName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templates"] = args ? args.templates : undefined;
+            resourceInputs["branchName"] = args?.branchName;
+            resourceInputs["iacProfileName"] = args?.iacProfileName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["repositoryMainBranch"] = args?.repositoryMainBranch;
+            resourceInputs["repositoryName"] = args?.repositoryName;
+            resourceInputs["repositoryOwner"] = args?.repositoryOwner;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["stages"] = args?.stages;
+            resourceInputs["storageAccountName"] = args?.storageAccountName;
+            resourceInputs["storageAccountResourceGroup"] = args?.storageAccountResourceGroup;
+            resourceInputs["storageAccountSubscription"] = args?.storageAccountSubscription;
+            resourceInputs["storageContainerName"] = args?.storageContainerName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templates"] = args?.templates;
             resourceInputs["authStatus"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

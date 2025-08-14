@@ -85,17 +85,17 @@ export class PipelineRun extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.registryName === undefined) && !opts.urn) {
+            if (args?.registryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
-            resourceInputs["pipelineRunName"] = args ? args.pipelineRunName : undefined;
-            resourceInputs["registryName"] = args ? args.registryName : undefined;
+            resourceInputs["forceUpdateTag"] = args?.forceUpdateTag;
+            resourceInputs["pipelineRunName"] = args?.pipelineRunName;
+            resourceInputs["registryName"] = args?.registryName;
             resourceInputs["request"] = args ? (args.request ? pulumi.output(args.request).apply(inputs.containerregistry.pipelineRunRequestArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -85,25 +85,25 @@ export class JobSchedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.runbook === undefined) && !opts.urn) {
+            if (args?.runbook === undefined && !opts.urn) {
                 throw new Error("Missing required property 'runbook'");
             }
-            if ((!args || args.schedule === undefined) && !opts.urn) {
+            if (args?.schedule === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["jobScheduleId"] = args ? args.jobScheduleId : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["runOn"] = args ? args.runOn : undefined;
-            resourceInputs["runbook"] = args ? args.runbook : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["jobScheduleId"] = args?.jobScheduleId;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["runOn"] = args?.runOn;
+            resourceInputs["runbook"] = args?.runbook;
+            resourceInputs["schedule"] = args?.schedule;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

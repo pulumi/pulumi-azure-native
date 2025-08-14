@@ -153,20 +153,20 @@ export class VirtualMachineTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["inventoryItemId"] = args ? args.inventoryItemId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["uuid"] = args ? args.uuid : undefined;
-            resourceInputs["virtualMachineTemplateName"] = args ? args.virtualMachineTemplateName : undefined;
-            resourceInputs["vmmServerId"] = args ? args.vmmServerId : undefined;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["inventoryItemId"] = args?.inventoryItemId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["uuid"] = args?.uuid;
+            resourceInputs["virtualMachineTemplateName"] = args?.virtualMachineTemplateName;
+            resourceInputs["vmmServerId"] = args?.vmmServerId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["computerName"] = undefined /*out*/;
             resourceInputs["cpuCount"] = undefined /*out*/;

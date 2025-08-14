@@ -105,17 +105,17 @@ export class ServiceEndpointPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["contextualServiceEndpointPolicies"] = args ? args.contextualServiceEndpointPolicies : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceAlias"] = args ? args.serviceAlias : undefined;
-            resourceInputs["serviceEndpointPolicyDefinitions"] = args ? args.serviceEndpointPolicyDefinitions : undefined;
-            resourceInputs["serviceEndpointPolicyName"] = args ? args.serviceEndpointPolicyName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["contextualServiceEndpointPolicies"] = args?.contextualServiceEndpointPolicies;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceAlias"] = args?.serviceAlias;
+            resourceInputs["serviceEndpointPolicyDefinitions"] = args?.serviceEndpointPolicyDefinitions;
+            resourceInputs["serviceEndpointPolicyName"] = args?.serviceEndpointPolicyName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;

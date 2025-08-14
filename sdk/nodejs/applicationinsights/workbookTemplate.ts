@@ -93,24 +93,24 @@ export class WorkbookTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.galleries === undefined) && !opts.urn) {
+            if (args?.galleries === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleries'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.templateData === undefined) && !opts.urn) {
+            if (args?.templateData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'templateData'");
             }
-            resourceInputs["author"] = args ? args.author : undefined;
-            resourceInputs["galleries"] = args ? args.galleries : undefined;
-            resourceInputs["localized"] = args ? args.localized : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateData"] = args ? args.templateData : undefined;
+            resourceInputs["author"] = args?.author;
+            resourceInputs["galleries"] = args?.galleries;
+            resourceInputs["localized"] = args?.localized;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateData"] = args?.templateData;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

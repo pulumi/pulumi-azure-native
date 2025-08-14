@@ -159,27 +159,27 @@ export class Namespace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["dataCenter"] = args ? args.dataCenter : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["namespaceType"] = args ? args.namespaceType : undefined;
-            resourceInputs["networkAcls"] = args ? args.networkAcls : undefined;
-            resourceInputs["pnsCredentials"] = args ? args.pnsCredentials : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
-            resourceInputs["replicationRegion"] = args ? args.replicationRegion : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scaleUnit"] = args ? args.scaleUnit : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zoneRedundancy"] = (args ? args.zoneRedundancy : undefined) ?? "Disabled";
+            resourceInputs["dataCenter"] = args?.dataCenter;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["namespaceType"] = args?.namespaceType;
+            resourceInputs["networkAcls"] = args?.networkAcls;
+            resourceInputs["pnsCredentials"] = args?.pnsCredentials;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["publicNetworkAccess"] = (args?.publicNetworkAccess) ?? "Enabled";
+            resourceInputs["replicationRegion"] = args?.replicationRegion;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scaleUnit"] = args?.scaleUnit;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zoneRedundancy"] = (args?.zoneRedundancy) ?? "Disabled";
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["critical"] = undefined /*out*/;

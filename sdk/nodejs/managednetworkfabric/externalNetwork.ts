@@ -117,27 +117,27 @@ export class ExternalNetwork extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.l3IsolationDomainName === undefined) && !opts.urn) {
+            if (args?.l3IsolationDomainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'l3IsolationDomainName'");
             }
-            if ((!args || args.peeringOption === undefined) && !opts.urn) {
+            if (args?.peeringOption === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peeringOption'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["annotation"] = args ? args.annotation : undefined;
-            resourceInputs["exportRoutePolicy"] = args ? args.exportRoutePolicy : undefined;
-            resourceInputs["exportRoutePolicyId"] = args ? args.exportRoutePolicyId : undefined;
-            resourceInputs["externalNetworkName"] = args ? args.externalNetworkName : undefined;
-            resourceInputs["importRoutePolicy"] = args ? args.importRoutePolicy : undefined;
-            resourceInputs["importRoutePolicyId"] = args ? args.importRoutePolicyId : undefined;
-            resourceInputs["l3IsolationDomainName"] = args ? args.l3IsolationDomainName : undefined;
-            resourceInputs["networkToNetworkInterconnectId"] = args ? args.networkToNetworkInterconnectId : undefined;
+            resourceInputs["annotation"] = args?.annotation;
+            resourceInputs["exportRoutePolicy"] = args?.exportRoutePolicy;
+            resourceInputs["exportRoutePolicyId"] = args?.exportRoutePolicyId;
+            resourceInputs["externalNetworkName"] = args?.externalNetworkName;
+            resourceInputs["importRoutePolicy"] = args?.importRoutePolicy;
+            resourceInputs["importRoutePolicyId"] = args?.importRoutePolicyId;
+            resourceInputs["l3IsolationDomainName"] = args?.l3IsolationDomainName;
+            resourceInputs["networkToNetworkInterconnectId"] = args?.networkToNetworkInterconnectId;
             resourceInputs["optionAProperties"] = args ? (args.optionAProperties ? pulumi.output(args.optionAProperties).apply(inputs.managednetworkfabric.externalNetworkPropertiesOptionAPropertiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["optionBProperties"] = args ? args.optionBProperties : undefined;
-            resourceInputs["peeringOption"] = args ? args.peeringOption : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["optionBProperties"] = args?.optionBProperties;
+            resourceInputs["peeringOption"] = args?.peeringOption;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationState"] = undefined /*out*/;

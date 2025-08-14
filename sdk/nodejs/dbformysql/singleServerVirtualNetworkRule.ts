@@ -72,20 +72,20 @@ export class SingleServerVirtualNetworkRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.virtualNetworkSubnetId === undefined) && !opts.urn) {
+            if (args?.virtualNetworkSubnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkSubnetId'");
             }
-            resourceInputs["ignoreMissingVnetServiceEndpoint"] = args ? args.ignoreMissingVnetServiceEndpoint : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["virtualNetworkRuleName"] = args ? args.virtualNetworkRuleName : undefined;
-            resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
+            resourceInputs["ignoreMissingVnetServiceEndpoint"] = args?.ignoreMissingVnetServiceEndpoint;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["virtualNetworkRuleName"] = args?.virtualNetworkRuleName;
+            resourceInputs["virtualNetworkSubnetId"] = args?.virtualNetworkSubnetId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;

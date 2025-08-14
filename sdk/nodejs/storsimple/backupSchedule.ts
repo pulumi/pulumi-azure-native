@@ -91,44 +91,44 @@ export class BackupSchedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.backupPolicyName === undefined) && !opts.urn) {
+            if (args?.backupPolicyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backupPolicyName'");
             }
-            if ((!args || args.backupType === undefined) && !opts.urn) {
+            if (args?.backupType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backupType'");
             }
-            if ((!args || args.deviceName === undefined) && !opts.urn) {
+            if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.managerName === undefined) && !opts.urn) {
+            if (args?.managerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.retentionCount === undefined) && !opts.urn) {
+            if (args?.retentionCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'retentionCount'");
             }
-            if ((!args || args.scheduleRecurrence === undefined) && !opts.urn) {
+            if (args?.scheduleRecurrence === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduleRecurrence'");
             }
-            if ((!args || args.scheduleStatus === undefined) && !opts.urn) {
+            if (args?.scheduleStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduleStatus'");
             }
-            if ((!args || args.startTime === undefined) && !opts.urn) {
+            if (args?.startTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'startTime'");
             }
-            resourceInputs["backupPolicyName"] = args ? args.backupPolicyName : undefined;
-            resourceInputs["backupScheduleName"] = args ? args.backupScheduleName : undefined;
-            resourceInputs["backupType"] = args ? args.backupType : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["managerName"] = args ? args.managerName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retentionCount"] = args ? args.retentionCount : undefined;
-            resourceInputs["scheduleRecurrence"] = args ? args.scheduleRecurrence : undefined;
-            resourceInputs["scheduleStatus"] = args ? args.scheduleStatus : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
+            resourceInputs["backupPolicyName"] = args?.backupPolicyName;
+            resourceInputs["backupScheduleName"] = args?.backupScheduleName;
+            resourceInputs["backupType"] = args?.backupType;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["managerName"] = args?.managerName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retentionCount"] = args?.retentionCount;
+            resourceInputs["scheduleRecurrence"] = args?.scheduleRecurrence;
+            resourceInputs["scheduleStatus"] = args?.scheduleStatus;
+            resourceInputs["startTime"] = args?.startTime;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastSuccessfulRun"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

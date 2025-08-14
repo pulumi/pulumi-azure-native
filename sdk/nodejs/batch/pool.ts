@@ -165,35 +165,35 @@ export class Pool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["applicationLicenses"] = args ? args.applicationLicenses : undefined;
-            resourceInputs["applicationPackages"] = args ? args.applicationPackages : undefined;
-            resourceInputs["certificates"] = args ? args.certificates : undefined;
-            resourceInputs["deploymentConfiguration"] = args ? args.deploymentConfiguration : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["interNodeCommunication"] = args ? args.interNodeCommunication : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["mountConfiguration"] = args ? args.mountConfiguration : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["applicationLicenses"] = args?.applicationLicenses;
+            resourceInputs["applicationPackages"] = args?.applicationPackages;
+            resourceInputs["certificates"] = args?.certificates;
+            resourceInputs["deploymentConfiguration"] = args?.deploymentConfiguration;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["interNodeCommunication"] = args?.interNodeCommunication;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["mountConfiguration"] = args?.mountConfiguration;
             resourceInputs["networkConfiguration"] = args ? (args.networkConfiguration ? pulumi.output(args.networkConfiguration).apply(inputs.batch.networkConfigurationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["poolName"] = args ? args.poolName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
+            resourceInputs["poolName"] = args?.poolName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceTags"] = args?.resourceTags;
             resourceInputs["scaleSettings"] = args ? (args.scaleSettings ? pulumi.output(args.scaleSettings).apply(inputs.batch.scaleSettingsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["startTask"] = args ? (args.startTask ? pulumi.output(args.startTask).apply(inputs.batch.startTaskArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetNodeCommunicationMode"] = args ? args.targetNodeCommunicationMode : undefined;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetNodeCommunicationMode"] = args?.targetNodeCommunicationMode;
             resourceInputs["taskSchedulingPolicy"] = args ? (args.taskSchedulingPolicy ? pulumi.output(args.taskSchedulingPolicy).apply(inputs.batch.taskSchedulingPolicyArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["taskSlotsPerNode"] = (args ? args.taskSlotsPerNode : undefined) ?? 1;
-            resourceInputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
-            resourceInputs["userAccounts"] = args ? args.userAccounts : undefined;
-            resourceInputs["vmSize"] = args ? args.vmSize : undefined;
+            resourceInputs["taskSlotsPerNode"] = (args?.taskSlotsPerNode) ?? 1;
+            resourceInputs["upgradePolicy"] = args?.upgradePolicy;
+            resourceInputs["userAccounts"] = args?.userAccounts;
+            resourceInputs["vmSize"] = args?.vmSize;
             resourceInputs["allocationState"] = undefined /*out*/;
             resourceInputs["allocationStateTransitionTime"] = undefined /*out*/;
             resourceInputs["autoScaleRun"] = undefined /*out*/;

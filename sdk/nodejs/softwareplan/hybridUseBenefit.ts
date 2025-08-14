@@ -83,15 +83,15 @@ export class HybridUseBenefit extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["planId"] = args ? args.planId : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["planId"] = args?.planId;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["sku"] = args?.sku;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

@@ -111,20 +111,20 @@ export class LinkedSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.linkedSubscriptionId === undefined) && !opts.urn) {
+            if (args?.linkedSubscriptionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'linkedSubscriptionId'");
             }
-            if ((!args || args.registrationResourceId === undefined) && !opts.urn) {
+            if (args?.registrationResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registrationResourceId'");
             }
-            if ((!args || args.resourceGroup === undefined) && !opts.urn) {
+            if (args?.resourceGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
-            resourceInputs["linkedSubscriptionId"] = args ? args.linkedSubscriptionId : undefined;
-            resourceInputs["linkedSubscriptionName"] = args ? args.linkedSubscriptionName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["registrationResourceId"] = args ? args.registrationResourceId : undefined;
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["linkedSubscriptionId"] = args?.linkedSubscriptionId;
+            resourceInputs["linkedSubscriptionName"] = args?.linkedSubscriptionName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["registrationResourceId"] = args?.registrationResourceId;
+            resourceInputs["resourceGroup"] = args?.resourceGroup;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deviceConnectionStatus"] = undefined /*out*/;
             resourceInputs["deviceId"] = undefined /*out*/;

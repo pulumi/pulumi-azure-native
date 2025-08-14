@@ -97,27 +97,27 @@ export class InstancePool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.licenseType === undefined) && !opts.urn) {
+            if (args?.licenseType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'licenseType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            if ((!args || args.vCores === undefined) && !opts.urn) {
+            if (args?.vCores === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vCores'");
             }
-            resourceInputs["instancePoolName"] = args ? args.instancePoolName : undefined;
-            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vCores"] = args ? args.vCores : undefined;
+            resourceInputs["instancePoolName"] = args?.instancePoolName;
+            resourceInputs["licenseType"] = args?.licenseType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maintenanceConfigurationId"] = args?.maintenanceConfigurationId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vCores"] = args?.vCores;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dnsZone"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

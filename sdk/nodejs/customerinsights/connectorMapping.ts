@@ -123,34 +123,34 @@ export class ConnectorMapping extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectorName === undefined) && !opts.urn) {
+            if (args?.connectorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectorName'");
             }
-            if ((!args || args.entityType === undefined) && !opts.urn) {
+            if (args?.entityType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityType'");
             }
-            if ((!args || args.entityTypeName === undefined) && !opts.urn) {
+            if (args?.entityTypeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityTypeName'");
             }
-            if ((!args || args.hubName === undefined) && !opts.urn) {
+            if (args?.hubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.mappingProperties === undefined) && !opts.urn) {
+            if (args?.mappingProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mappingProperties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["connectorName"] = args ? args.connectorName : undefined;
-            resourceInputs["connectorType"] = args ? args.connectorType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["entityType"] = args ? args.entityType : undefined;
-            resourceInputs["entityTypeName"] = args ? args.entityTypeName : undefined;
-            resourceInputs["hubName"] = args ? args.hubName : undefined;
-            resourceInputs["mappingName"] = args ? args.mappingName : undefined;
-            resourceInputs["mappingProperties"] = args ? args.mappingProperties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["connectorName"] = args?.connectorName;
+            resourceInputs["connectorType"] = args?.connectorType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["entityType"] = args?.entityType;
+            resourceInputs["entityTypeName"] = args?.entityTypeName;
+            resourceInputs["hubName"] = args?.hubName;
+            resourceInputs["mappingName"] = args?.mappingName;
+            resourceInputs["mappingProperties"] = args?.mappingProperties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectorMappingName"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;

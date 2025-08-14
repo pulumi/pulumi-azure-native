@@ -93,28 +93,28 @@ export class CapacityPoolVolumeQuotaRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.poolName === undefined) && !opts.urn) {
+            if (args?.poolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'poolName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.volumeName === undefined) && !opts.urn) {
+            if (args?.volumeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["poolName"] = args ? args.poolName : undefined;
-            resourceInputs["quotaSizeInKiBs"] = args ? args.quotaSizeInKiBs : undefined;
-            resourceInputs["quotaTarget"] = args ? args.quotaTarget : undefined;
-            resourceInputs["quotaType"] = args ? args.quotaType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["volumeName"] = args ? args.volumeName : undefined;
-            resourceInputs["volumeQuotaRuleName"] = args ? args.volumeQuotaRuleName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["poolName"] = args?.poolName;
+            resourceInputs["quotaSizeInKiBs"] = args?.quotaSizeInKiBs;
+            resourceInputs["quotaTarget"] = args?.quotaTarget;
+            resourceInputs["quotaType"] = args?.quotaType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["volumeName"] = args?.volumeName;
+            resourceInputs["volumeQuotaRuleName"] = args?.volumeQuotaRuleName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

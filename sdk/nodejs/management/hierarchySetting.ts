@@ -74,12 +74,12 @@ export class HierarchySetting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupId === undefined) && !opts.urn) {
+            if (args?.groupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            resourceInputs["defaultManagementGroup"] = args ? args.defaultManagementGroup : undefined;
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["requireAuthorizationForGroupCreation"] = args ? args.requireAuthorizationForGroupCreation : undefined;
+            resourceInputs["defaultManagementGroup"] = args?.defaultManagementGroup;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["requireAuthorizationForGroupCreation"] = args?.requireAuthorizationForGroupCreation;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;

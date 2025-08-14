@@ -113,27 +113,27 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.controllerDetails === undefined) && !opts.urn) {
+            if (args?.controllerDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'controllerDetails'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["apiServerEndpoint"] = args ? args.apiServerEndpoint : undefined;
-            resourceInputs["clusterRootCA"] = args ? args.clusterRootCA : undefined;
-            resourceInputs["controllerDetails"] = args ? args.controllerDetails : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["orchestratorAppId"] = args ? args.orchestratorAppId : undefined;
-            resourceInputs["orchestratorTenantId"] = args ? args.orchestratorTenantId : undefined;
-            resourceInputs["privateLinkResourceId"] = args ? args.privateLinkResourceId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["apiServerEndpoint"] = args?.apiServerEndpoint;
+            resourceInputs["clusterRootCA"] = args?.clusterRootCA;
+            resourceInputs["controllerDetails"] = args?.controllerDetails;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["orchestratorAppId"] = args?.orchestratorAppId;
+            resourceInputs["orchestratorTenantId"] = args?.orchestratorTenantId;
+            resourceInputs["privateLinkResourceId"] = args?.privateLinkResourceId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -101,15 +101,15 @@ export class RoleManagementPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["isOrganizationDefault"] = args ? args.isOrganizationDefault : undefined;
-            resourceInputs["roleManagementPolicyName"] = args ? args.roleManagementPolicyName : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["isOrganizationDefault"] = args?.isOrganizationDefault;
+            resourceInputs["roleManagementPolicyName"] = args?.roleManagementPolicyName;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["effectiveRules"] = undefined /*out*/;
             resourceInputs["lastModifiedBy"] = undefined /*out*/;

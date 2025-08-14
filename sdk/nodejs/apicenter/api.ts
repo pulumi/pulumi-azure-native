@@ -109,34 +109,34 @@ export class Api extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.title === undefined) && !opts.urn) {
+            if (args?.title === undefined && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["apiName"] = args ? args.apiName : undefined;
-            resourceInputs["contacts"] = args ? args.contacts : undefined;
-            resourceInputs["customProperties"] = args ? args.customProperties : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["externalDocumentation"] = args ? args.externalDocumentation : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["license"] = args ? args.license : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["summary"] = args ? args.summary : undefined;
-            resourceInputs["termsOfService"] = args ? args.termsOfService : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["apiName"] = args?.apiName;
+            resourceInputs["contacts"] = args?.contacts;
+            resourceInputs["customProperties"] = args?.customProperties;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["externalDocumentation"] = args?.externalDocumentation;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["license"] = args?.license;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["summary"] = args?.summary;
+            resourceInputs["termsOfService"] = args?.termsOfService;
+            resourceInputs["title"] = args?.title;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lifecycleStage"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

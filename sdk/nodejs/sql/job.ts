@@ -77,21 +77,21 @@ export class Job extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.jobAgentName === undefined) && !opts.urn) {
+            if (args?.jobAgentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobAgentName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            resourceInputs["description"] = (args ? args.description : undefined) ?? "";
-            resourceInputs["jobAgentName"] = args ? args.jobAgentName : undefined;
-            resourceInputs["jobName"] = args ? args.jobName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["description"] = (args?.description) ?? "";
+            resourceInputs["jobAgentName"] = args?.jobAgentName;
+            resourceInputs["jobName"] = args?.jobName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["schedule"] = args ? (args.schedule ? pulumi.output(args.schedule).apply(inputs.sql.jobScheduleArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["serverName"] = args?.serverName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

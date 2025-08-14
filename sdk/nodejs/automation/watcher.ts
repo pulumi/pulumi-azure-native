@@ -117,22 +117,22 @@ export class Watcher extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["executionFrequencyInSeconds"] = args ? args.executionFrequencyInSeconds : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scriptName"] = args ? args.scriptName : undefined;
-            resourceInputs["scriptParameters"] = args ? args.scriptParameters : undefined;
-            resourceInputs["scriptRunOn"] = args ? args.scriptRunOn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["watcherName"] = args ? args.watcherName : undefined;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["executionFrequencyInSeconds"] = args?.executionFrequencyInSeconds;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scriptName"] = args?.scriptName;
+            resourceInputs["scriptParameters"] = args?.scriptParameters;
+            resourceInputs["scriptRunOn"] = args?.scriptRunOn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["watcherName"] = args?.watcherName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

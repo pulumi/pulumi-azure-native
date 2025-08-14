@@ -115,38 +115,38 @@ export class BrokerListener extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.brokerName === undefined) && !opts.urn) {
+            if (args?.brokerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'brokerName'");
             }
-            if ((!args || args.brokerRef === undefined) && !opts.urn) {
+            if (args?.brokerRef === undefined && !opts.urn) {
                 throw new Error("Missing required property 'brokerRef'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.mqName === undefined) && !opts.urn) {
+            if (args?.mqName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mqName'");
             }
-            if ((!args || args.port === undefined) && !opts.urn) {
+            if (args?.port === undefined && !opts.urn) {
                 throw new Error("Missing required property 'port'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authenticationEnabled"] = (args ? args.authenticationEnabled : undefined) ?? false;
-            resourceInputs["authorizationEnabled"] = (args ? args.authorizationEnabled : undefined) ?? false;
-            resourceInputs["brokerName"] = args ? args.brokerName : undefined;
-            resourceInputs["brokerRef"] = args ? args.brokerRef : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["listenerName"] = args ? args.listenerName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mqName"] = args ? args.mqName : undefined;
-            resourceInputs["nodePort"] = args ? args.nodePort : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = (args ? args.serviceName : undefined) ?? "aio-mq-dmqtt-frontend";
-            resourceInputs["serviceType"] = (args ? args.serviceType : undefined) ?? "clusterIp";
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["authenticationEnabled"] = (args?.authenticationEnabled) ?? false;
+            resourceInputs["authorizationEnabled"] = (args?.authorizationEnabled) ?? false;
+            resourceInputs["brokerName"] = args?.brokerName;
+            resourceInputs["brokerRef"] = args?.brokerRef;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["listenerName"] = args?.listenerName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mqName"] = args?.mqName;
+            resourceInputs["nodePort"] = args?.nodePort;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = (args?.serviceName) ?? "aio-mq-dmqtt-frontend";
+            resourceInputs["serviceType"] = (args?.serviceType) ?? "clusterIp";
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["tls"] = args ? (args.tls ? pulumi.output(args.tls).apply(inputs.iotoperationsmq.tlsCertMethodArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

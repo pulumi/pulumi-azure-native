@@ -109,23 +109,23 @@ export class DistributedAvailabilityGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managedInstanceName === undefined) && !opts.urn) {
+            if (args?.managedInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["databases"] = args ? args.databases : undefined;
-            resourceInputs["distributedAvailabilityGroupName"] = args ? args.distributedAvailabilityGroupName : undefined;
-            resourceInputs["failoverMode"] = args ? args.failoverMode : undefined;
-            resourceInputs["instanceAvailabilityGroupName"] = args ? args.instanceAvailabilityGroupName : undefined;
-            resourceInputs["instanceLinkRole"] = args ? args.instanceLinkRole : undefined;
-            resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
-            resourceInputs["partnerAvailabilityGroupName"] = args ? args.partnerAvailabilityGroupName : undefined;
-            resourceInputs["partnerEndpoint"] = args ? args.partnerEndpoint : undefined;
-            resourceInputs["replicationMode"] = args ? args.replicationMode : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["seedingMode"] = args ? args.seedingMode : undefined;
+            resourceInputs["databases"] = args?.databases;
+            resourceInputs["distributedAvailabilityGroupName"] = args?.distributedAvailabilityGroupName;
+            resourceInputs["failoverMode"] = args?.failoverMode;
+            resourceInputs["instanceAvailabilityGroupName"] = args?.instanceAvailabilityGroupName;
+            resourceInputs["instanceLinkRole"] = args?.instanceLinkRole;
+            resourceInputs["managedInstanceName"] = args?.managedInstanceName;
+            resourceInputs["partnerAvailabilityGroupName"] = args?.partnerAvailabilityGroupName;
+            resourceInputs["partnerEndpoint"] = args?.partnerEndpoint;
+            resourceInputs["replicationMode"] = args?.replicationMode;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["seedingMode"] = args?.seedingMode;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["distributedAvailabilityGroupId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

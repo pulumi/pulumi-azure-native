@@ -117,27 +117,27 @@ export class InboundNatRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.loadBalancerName === undefined) && !opts.urn) {
+            if (args?.loadBalancerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["backendAddressPool"] = args ? args.backendAddressPool : undefined;
-            resourceInputs["backendPort"] = args ? args.backendPort : undefined;
-            resourceInputs["enableFloatingIP"] = args ? args.enableFloatingIP : undefined;
-            resourceInputs["enableTcpReset"] = args ? args.enableTcpReset : undefined;
-            resourceInputs["frontendIPConfiguration"] = args ? args.frontendIPConfiguration : undefined;
-            resourceInputs["frontendPort"] = args ? args.frontendPort : undefined;
-            resourceInputs["frontendPortRangeEnd"] = args ? args.frontendPortRangeEnd : undefined;
-            resourceInputs["frontendPortRangeStart"] = args ? args.frontendPortRangeStart : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
-            resourceInputs["inboundNatRuleName"] = args ? args.inboundNatRuleName : undefined;
-            resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["backendAddressPool"] = args?.backendAddressPool;
+            resourceInputs["backendPort"] = args?.backendPort;
+            resourceInputs["enableFloatingIP"] = args?.enableFloatingIP;
+            resourceInputs["enableTcpReset"] = args?.enableTcpReset;
+            resourceInputs["frontendIPConfiguration"] = args?.frontendIPConfiguration;
+            resourceInputs["frontendPort"] = args?.frontendPort;
+            resourceInputs["frontendPortRangeEnd"] = args?.frontendPortRangeEnd;
+            resourceInputs["frontendPortRangeStart"] = args?.frontendPortRangeStart;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["idleTimeoutInMinutes"] = args?.idleTimeoutInMinutes;
+            resourceInputs["inboundNatRuleName"] = args?.inboundNatRuleName;
+            resourceInputs["loadBalancerName"] = args?.loadBalancerName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["backendIPConfiguration"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

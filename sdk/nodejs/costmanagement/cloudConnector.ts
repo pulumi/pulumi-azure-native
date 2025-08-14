@@ -123,15 +123,15 @@ export class CloudConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["billingModel"] = args ? args.billingModel : undefined;
-            resourceInputs["connectorName"] = args ? args.connectorName : undefined;
-            resourceInputs["credentialsKey"] = args ? args.credentialsKey : undefined;
-            resourceInputs["credentialsSecret"] = args ? args.credentialsSecret : undefined;
-            resourceInputs["defaultManagementGroupId"] = args ? args.defaultManagementGroupId : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["reportId"] = args ? args.reportId : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["billingModel"] = args?.billingModel;
+            resourceInputs["connectorName"] = args?.connectorName;
+            resourceInputs["credentialsKey"] = args?.credentialsKey;
+            resourceInputs["credentialsSecret"] = args?.credentialsSecret;
+            resourceInputs["defaultManagementGroupId"] = args?.defaultManagementGroupId;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["reportId"] = args?.reportId;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["collectionInfo"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;

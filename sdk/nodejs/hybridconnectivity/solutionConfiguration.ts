@@ -91,16 +91,16 @@ export class SolutionConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            if ((!args || args.solutionType === undefined) && !opts.urn) {
+            if (args?.solutionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'solutionType'");
             }
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
-            resourceInputs["solutionConfiguration"] = args ? args.solutionConfiguration : undefined;
-            resourceInputs["solutionSettings"] = args ? args.solutionSettings : undefined;
-            resourceInputs["solutionType"] = args ? args.solutionType : undefined;
+            resourceInputs["resourceUri"] = args?.resourceUri;
+            resourceInputs["solutionConfiguration"] = args?.solutionConfiguration;
+            resourceInputs["solutionSettings"] = args?.solutionSettings;
+            resourceInputs["solutionType"] = args?.solutionType;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastSyncTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

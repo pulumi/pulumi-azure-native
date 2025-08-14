@@ -85,24 +85,24 @@ export class ConnectionType extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.fieldDefinitions === undefined) && !opts.urn) {
+            if (args?.fieldDefinitions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fieldDefinitions'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["connectionTypeName"] = args ? args.connectionTypeName : undefined;
-            resourceInputs["fieldDefinitions"] = args ? args.fieldDefinitions : undefined;
-            resourceInputs["isGlobal"] = args ? args.isGlobal : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["connectionTypeName"] = args?.connectionTypeName;
+            resourceInputs["fieldDefinitions"] = args?.fieldDefinitions;
+            resourceInputs["isGlobal"] = args?.isGlobal;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

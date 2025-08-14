@@ -125,27 +125,27 @@ export class ExpressRouteCrossConnectionPeering extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.crossConnectionName === undefined) && !opts.urn) {
+            if (args?.crossConnectionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'crossConnectionName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["crossConnectionName"] = args ? args.crossConnectionName : undefined;
-            resourceInputs["gatewayManagerEtag"] = args ? args.gatewayManagerEtag : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ipv6PeeringConfig"] = args ? args.ipv6PeeringConfig : undefined;
-            resourceInputs["microsoftPeeringConfig"] = args ? args.microsoftPeeringConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["peerASN"] = args ? args.peerASN : undefined;
-            resourceInputs["peeringName"] = args ? args.peeringName : undefined;
-            resourceInputs["peeringType"] = args ? args.peeringType : undefined;
-            resourceInputs["primaryPeerAddressPrefix"] = args ? args.primaryPeerAddressPrefix : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["secondaryPeerAddressPrefix"] = args ? args.secondaryPeerAddressPrefix : undefined;
-            resourceInputs["sharedKey"] = args ? args.sharedKey : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["vlanId"] = args ? args.vlanId : undefined;
+            resourceInputs["crossConnectionName"] = args?.crossConnectionName;
+            resourceInputs["gatewayManagerEtag"] = args?.gatewayManagerEtag;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["ipv6PeeringConfig"] = args?.ipv6PeeringConfig;
+            resourceInputs["microsoftPeeringConfig"] = args?.microsoftPeeringConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["peerASN"] = args?.peerASN;
+            resourceInputs["peeringName"] = args?.peeringName;
+            resourceInputs["peeringType"] = args?.peeringType;
+            resourceInputs["primaryPeerAddressPrefix"] = args?.primaryPeerAddressPrefix;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["secondaryPeerAddressPrefix"] = args?.secondaryPeerAddressPrefix;
+            resourceInputs["sharedKey"] = args?.sharedKey;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["vlanId"] = args?.vlanId;
             resourceInputs["azureASN"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

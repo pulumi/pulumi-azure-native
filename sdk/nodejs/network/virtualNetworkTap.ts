@@ -101,17 +101,17 @@ export class VirtualNetworkTap extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["destinationLoadBalancerFrontEndIPConfiguration"] = args ? (args.destinationLoadBalancerFrontEndIPConfiguration ? pulumi.output(args.destinationLoadBalancerFrontEndIPConfiguration).apply(inputs.network.frontendIPConfigurationArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["destinationNetworkInterfaceIPConfiguration"] = args ? (args.destinationNetworkInterfaceIPConfiguration ? pulumi.output(args.destinationNetworkInterfaceIPConfiguration).apply(inputs.network.networkInterfaceIPConfigurationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["destinationPort"] = args ? args.destinationPort : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tapName"] = args ? args.tapName : undefined;
+            resourceInputs["destinationPort"] = args?.destinationPort;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tapName"] = args?.tapName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

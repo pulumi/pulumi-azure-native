@@ -93,21 +93,21 @@ export class OutboundEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dnsResolverName === undefined) && !opts.urn) {
+            if (args?.dnsResolverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsResolverName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subnet === undefined) && !opts.urn) {
+            if (args?.subnet === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnet'");
             }
-            resourceInputs["dnsResolverName"] = args ? args.dnsResolverName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["outboundEndpointName"] = args ? args.outboundEndpointName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subnet"] = args ? args.subnet : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dnsResolverName"] = args?.dnsResolverName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["outboundEndpointName"] = args?.outboundEndpointName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["subnet"] = args?.subnet;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

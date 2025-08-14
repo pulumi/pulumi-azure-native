@@ -157,26 +157,26 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["additionalNics"] = args ? args.additionalNics : undefined;
-            resourceInputs["bootStrapConfigurationBlobs"] = args ? args.bootStrapConfigurationBlobs : undefined;
-            resourceInputs["cloudInitConfiguration"] = args ? args.cloudInitConfiguration : undefined;
-            resourceInputs["cloudInitConfigurationBlobs"] = args ? args.cloudInitConfigurationBlobs : undefined;
-            resourceInputs["delegation"] = args ? args.delegation : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["internetIngressPublicIps"] = args ? args.internetIngressPublicIps : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["networkVirtualApplianceName"] = args ? args.networkVirtualApplianceName : undefined;
-            resourceInputs["nvaSku"] = args ? args.nvaSku : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sshPublicKey"] = args ? args.sshPublicKey : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualApplianceAsn"] = args ? args.virtualApplianceAsn : undefined;
-            resourceInputs["virtualHub"] = args ? args.virtualHub : undefined;
+            resourceInputs["additionalNics"] = args?.additionalNics;
+            resourceInputs["bootStrapConfigurationBlobs"] = args?.bootStrapConfigurationBlobs;
+            resourceInputs["cloudInitConfiguration"] = args?.cloudInitConfiguration;
+            resourceInputs["cloudInitConfigurationBlobs"] = args?.cloudInitConfigurationBlobs;
+            resourceInputs["delegation"] = args?.delegation;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["internetIngressPublicIps"] = args?.internetIngressPublicIps;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["networkVirtualApplianceName"] = args?.networkVirtualApplianceName;
+            resourceInputs["nvaSku"] = args?.nvaSku;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sshPublicKey"] = args?.sshPublicKey;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualApplianceAsn"] = args?.virtualApplianceAsn;
+            resourceInputs["virtualHub"] = args?.virtualHub;
             resourceInputs["addressPrefix"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deploymentType"] = undefined /*out*/;

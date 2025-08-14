@@ -141,25 +141,25 @@ export class PolicyAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["assignmentType"] = args ? args.assignmentType : undefined;
-            resourceInputs["definitionVersion"] = args ? args.definitionVersion : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["enforcementMode"] = (args ? args.enforcementMode : undefined) ?? "Default";
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["nonComplianceMessages"] = args ? args.nonComplianceMessages : undefined;
-            resourceInputs["notScopes"] = args ? args.notScopes : undefined;
-            resourceInputs["overrides"] = args ? args.overrides : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["policyAssignmentName"] = args ? args.policyAssignmentName : undefined;
-            resourceInputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
-            resourceInputs["resourceSelectors"] = args ? args.resourceSelectors : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["assignmentType"] = args?.assignmentType;
+            resourceInputs["definitionVersion"] = args?.definitionVersion;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["enforcementMode"] = (args?.enforcementMode) ?? "Default";
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["nonComplianceMessages"] = args?.nonComplianceMessages;
+            resourceInputs["notScopes"] = args?.notScopes;
+            resourceInputs["overrides"] = args?.overrides;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["policyAssignmentName"] = args?.policyAssignmentName;
+            resourceInputs["policyDefinitionId"] = args?.policyDefinitionId;
+            resourceInputs["resourceSelectors"] = args?.resourceSelectors;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["effectiveDefinitionVersion"] = undefined /*out*/;
             resourceInputs["instanceId"] = undefined /*out*/;

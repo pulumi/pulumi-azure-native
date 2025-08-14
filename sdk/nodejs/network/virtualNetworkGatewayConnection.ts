@@ -185,41 +185,41 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectionType === undefined) && !opts.urn) {
+            if (args?.connectionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetworkGateway1 === undefined) && !opts.urn) {
+            if (args?.virtualNetworkGateway1 === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkGateway1'");
             }
-            resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
-            resourceInputs["connectionMode"] = args ? args.connectionMode : undefined;
-            resourceInputs["connectionProtocol"] = args ? args.connectionProtocol : undefined;
-            resourceInputs["connectionType"] = args ? args.connectionType : undefined;
-            resourceInputs["dpdTimeoutSeconds"] = args ? args.dpdTimeoutSeconds : undefined;
-            resourceInputs["egressNatRules"] = args ? args.egressNatRules : undefined;
-            resourceInputs["enableBgp"] = args ? args.enableBgp : undefined;
-            resourceInputs["enablePrivateLinkFastPath"] = args ? args.enablePrivateLinkFastPath : undefined;
-            resourceInputs["expressRouteGatewayBypass"] = args ? args.expressRouteGatewayBypass : undefined;
-            resourceInputs["gatewayCustomBgpIpAddresses"] = args ? args.gatewayCustomBgpIpAddresses : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ingressNatRules"] = args ? args.ingressNatRules : undefined;
-            resourceInputs["ipsecPolicies"] = args ? args.ipsecPolicies : undefined;
-            resourceInputs["localNetworkGateway2"] = args ? args.localNetworkGateway2 : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["peer"] = args ? args.peer : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routingWeight"] = args ? args.routingWeight : undefined;
-            resourceInputs["sharedKey"] = args ? args.sharedKey : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trafficSelectorPolicies"] = args ? args.trafficSelectorPolicies : undefined;
-            resourceInputs["useLocalAzureIpAddress"] = args ? args.useLocalAzureIpAddress : undefined;
-            resourceInputs["usePolicyBasedTrafficSelectors"] = args ? args.usePolicyBasedTrafficSelectors : undefined;
-            resourceInputs["virtualNetworkGateway1"] = args ? args.virtualNetworkGateway1 : undefined;
-            resourceInputs["virtualNetworkGateway2"] = args ? args.virtualNetworkGateway2 : undefined;
-            resourceInputs["virtualNetworkGatewayConnectionName"] = args ? args.virtualNetworkGatewayConnectionName : undefined;
+            resourceInputs["authorizationKey"] = args?.authorizationKey;
+            resourceInputs["connectionMode"] = args?.connectionMode;
+            resourceInputs["connectionProtocol"] = args?.connectionProtocol;
+            resourceInputs["connectionType"] = args?.connectionType;
+            resourceInputs["dpdTimeoutSeconds"] = args?.dpdTimeoutSeconds;
+            resourceInputs["egressNatRules"] = args?.egressNatRules;
+            resourceInputs["enableBgp"] = args?.enableBgp;
+            resourceInputs["enablePrivateLinkFastPath"] = args?.enablePrivateLinkFastPath;
+            resourceInputs["expressRouteGatewayBypass"] = args?.expressRouteGatewayBypass;
+            resourceInputs["gatewayCustomBgpIpAddresses"] = args?.gatewayCustomBgpIpAddresses;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["ingressNatRules"] = args?.ingressNatRules;
+            resourceInputs["ipsecPolicies"] = args?.ipsecPolicies;
+            resourceInputs["localNetworkGateway2"] = args?.localNetworkGateway2;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["peer"] = args?.peer;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routingWeight"] = args?.routingWeight;
+            resourceInputs["sharedKey"] = args?.sharedKey;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trafficSelectorPolicies"] = args?.trafficSelectorPolicies;
+            resourceInputs["useLocalAzureIpAddress"] = args?.useLocalAzureIpAddress;
+            resourceInputs["usePolicyBasedTrafficSelectors"] = args?.usePolicyBasedTrafficSelectors;
+            resourceInputs["virtualNetworkGateway1"] = args?.virtualNetworkGateway1;
+            resourceInputs["virtualNetworkGateway2"] = args?.virtualNetworkGateway2;
+            resourceInputs["virtualNetworkGatewayConnectionName"] = args?.virtualNetworkGatewayConnectionName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionStatus"] = undefined /*out*/;
             resourceInputs["egressBytesTransferred"] = undefined /*out*/;

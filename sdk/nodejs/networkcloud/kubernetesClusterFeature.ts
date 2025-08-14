@@ -107,18 +107,18 @@ export class KubernetesClusterFeature extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kubernetesClusterName === undefined) && !opts.urn) {
+            if (args?.kubernetesClusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kubernetesClusterName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["featureName"] = args ? args.featureName : undefined;
-            resourceInputs["kubernetesClusterName"] = args ? args.kubernetesClusterName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["featureName"] = args?.featureName;
+            resourceInputs["kubernetesClusterName"] = args?.kubernetesClusterName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["options"] = args?.options;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["availabilityLifecycle"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;

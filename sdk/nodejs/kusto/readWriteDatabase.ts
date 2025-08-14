@@ -100,24 +100,24 @@ export class ReadWriteDatabase extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["callerRole"] = args ? args.callerRole : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["hotCachePeriod"] = args ? args.hotCachePeriod : undefined;
-            resourceInputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
+            resourceInputs["callerRole"] = args?.callerRole;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["hotCachePeriod"] = args?.hotCachePeriod;
+            resourceInputs["keyVaultProperties"] = args?.keyVaultProperties;
             resourceInputs["kind"] = "ReadWrite";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["softDeletePeriod"] = args ? args.softDeletePeriod : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["softDeletePeriod"] = args?.softDeletePeriod;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["isFollowed"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

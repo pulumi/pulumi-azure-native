@@ -157,36 +157,36 @@ export class Endpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.origins === undefined) && !opts.urn) {
+            if (args?.origins === undefined && !opts.urn) {
                 throw new Error("Missing required property 'origins'");
             }
-            if ((!args || args.profileName === undefined) && !opts.urn) {
+            if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["contentTypesToCompress"] = args ? args.contentTypesToCompress : undefined;
-            resourceInputs["defaultOriginGroup"] = args ? args.defaultOriginGroup : undefined;
-            resourceInputs["deliveryPolicy"] = args ? args.deliveryPolicy : undefined;
-            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["geoFilters"] = args ? args.geoFilters : undefined;
-            resourceInputs["isCompressionEnabled"] = args ? args.isCompressionEnabled : undefined;
-            resourceInputs["isHttpAllowed"] = (args ? args.isHttpAllowed : undefined) ?? true;
-            resourceInputs["isHttpsAllowed"] = (args ? args.isHttpsAllowed : undefined) ?? true;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["optimizationType"] = args ? args.optimizationType : undefined;
-            resourceInputs["originGroups"] = args ? args.originGroups : undefined;
-            resourceInputs["originHostHeader"] = args ? args.originHostHeader : undefined;
-            resourceInputs["originPath"] = args ? args.originPath : undefined;
-            resourceInputs["origins"] = args ? args.origins : undefined;
-            resourceInputs["probePath"] = args ? args.probePath : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["queryStringCachingBehavior"] = (args ? args.queryStringCachingBehavior : undefined) ?? "NotSet";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["urlSigningKeys"] = args ? args.urlSigningKeys : undefined;
-            resourceInputs["webApplicationFirewallPolicyLink"] = args ? args.webApplicationFirewallPolicyLink : undefined;
+            resourceInputs["contentTypesToCompress"] = args?.contentTypesToCompress;
+            resourceInputs["defaultOriginGroup"] = args?.defaultOriginGroup;
+            resourceInputs["deliveryPolicy"] = args?.deliveryPolicy;
+            resourceInputs["endpointName"] = args?.endpointName;
+            resourceInputs["geoFilters"] = args?.geoFilters;
+            resourceInputs["isCompressionEnabled"] = args?.isCompressionEnabled;
+            resourceInputs["isHttpAllowed"] = (args?.isHttpAllowed) ?? true;
+            resourceInputs["isHttpsAllowed"] = (args?.isHttpsAllowed) ?? true;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["optimizationType"] = args?.optimizationType;
+            resourceInputs["originGroups"] = args?.originGroups;
+            resourceInputs["originHostHeader"] = args?.originHostHeader;
+            resourceInputs["originPath"] = args?.originPath;
+            resourceInputs["origins"] = args?.origins;
+            resourceInputs["probePath"] = args?.probePath;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["queryStringCachingBehavior"] = (args?.queryStringCachingBehavior) ?? "NotSet";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["urlSigningKeys"] = args?.urlSigningKeys;
+            resourceInputs["webApplicationFirewallPolicyLink"] = args?.webApplicationFirewallPolicyLink;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["customDomains"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;

@@ -113,27 +113,27 @@ export class IntegrationAccountSchema extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
+            if (args?.integrationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.schemaType === undefined) && !opts.urn) {
+            if (args?.schemaType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaType'");
             }
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["documentName"] = args ? args.documentName : undefined;
-            resourceInputs["fileName"] = args ? args.fileName : undefined;
-            resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
-            resourceInputs["schemaType"] = args ? args.schemaType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetNamespace"] = args ? args.targetNamespace : undefined;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["documentName"] = args?.documentName;
+            resourceInputs["fileName"] = args?.fileName;
+            resourceInputs["integrationAccountName"] = args?.integrationAccountName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["schemaName"] = args?.schemaName;
+            resourceInputs["schemaType"] = args?.schemaType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetNamespace"] = args?.targetNamespace;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["changedTime"] = undefined /*out*/;
             resourceInputs["contentLink"] = undefined /*out*/;

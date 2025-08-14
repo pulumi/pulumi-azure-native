@@ -109,22 +109,22 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["groupIds"] = args ? args.groupIds : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedPrivateEndpointName"] = args ? args.managedPrivateEndpointName : undefined;
-            resourceInputs["privateLinkResourceId"] = args ? args.privateLinkResourceId : undefined;
-            resourceInputs["privateLinkResourceRegion"] = args ? args.privateLinkResourceRegion : undefined;
-            resourceInputs["privateLinkServiceUrl"] = args ? args.privateLinkServiceUrl : undefined;
-            resourceInputs["requestMessage"] = args ? args.requestMessage : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["groupIds"] = args?.groupIds;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedPrivateEndpointName"] = args?.managedPrivateEndpointName;
+            resourceInputs["privateLinkResourceId"] = args?.privateLinkResourceId;
+            resourceInputs["privateLinkResourceRegion"] = args?.privateLinkResourceRegion;
+            resourceInputs["privateLinkServiceUrl"] = args?.privateLinkServiceUrl;
+            resourceInputs["requestMessage"] = args?.requestMessage;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

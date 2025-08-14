@@ -185,40 +185,40 @@ export class WebAppAssessmentV2Operation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupName === undefined) && !opts.urn) {
+            if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.projectName === undefined) && !opts.urn) {
+            if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["appSvcContainerSettings"] = args ? args.appSvcContainerSettings : undefined;
-            resourceInputs["appSvcNativeSettings"] = args ? args.appSvcNativeSettings : undefined;
-            resourceInputs["assessmentName"] = args ? args.assessmentName : undefined;
-            resourceInputs["assessmentType"] = args ? args.assessmentType : undefined;
-            resourceInputs["azureLocation"] = args ? args.azureLocation : undefined;
-            resourceInputs["azureOfferCode"] = args ? args.azureOfferCode : undefined;
-            resourceInputs["azureSecurityOfferingType"] = args ? args.azureSecurityOfferingType : undefined;
-            resourceInputs["confidenceRatingInPercentage"] = args ? args.confidenceRatingInPercentage : undefined;
-            resourceInputs["currency"] = args ? args.currency : undefined;
-            resourceInputs["discountPercentage"] = args ? args.discountPercentage : undefined;
-            resourceInputs["discoveredEntityLightSummary"] = args ? args.discoveredEntityLightSummary : undefined;
-            resourceInputs["eaSubscriptionId"] = args ? args.eaSubscriptionId : undefined;
-            resourceInputs["entityUptime"] = args ? args.entityUptime : undefined;
-            resourceInputs["environmentType"] = args ? args.environmentType : undefined;
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["groupType"] = args ? args.groupType : undefined;
-            resourceInputs["percentile"] = args ? args.percentile : undefined;
-            resourceInputs["perfDataEndTime"] = args ? args.perfDataEndTime : undefined;
-            resourceInputs["perfDataStartTime"] = args ? args.perfDataStartTime : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["reservedInstance"] = args ? args.reservedInstance : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scalingFactor"] = args ? args.scalingFactor : undefined;
-            resourceInputs["sizingCriterion"] = args ? args.sizingCriterion : undefined;
-            resourceInputs["timeRange"] = args ? args.timeRange : undefined;
+            resourceInputs["appSvcContainerSettings"] = args?.appSvcContainerSettings;
+            resourceInputs["appSvcNativeSettings"] = args?.appSvcNativeSettings;
+            resourceInputs["assessmentName"] = args?.assessmentName;
+            resourceInputs["assessmentType"] = args?.assessmentType;
+            resourceInputs["azureLocation"] = args?.azureLocation;
+            resourceInputs["azureOfferCode"] = args?.azureOfferCode;
+            resourceInputs["azureSecurityOfferingType"] = args?.azureSecurityOfferingType;
+            resourceInputs["confidenceRatingInPercentage"] = args?.confidenceRatingInPercentage;
+            resourceInputs["currency"] = args?.currency;
+            resourceInputs["discountPercentage"] = args?.discountPercentage;
+            resourceInputs["discoveredEntityLightSummary"] = args?.discoveredEntityLightSummary;
+            resourceInputs["eaSubscriptionId"] = args?.eaSubscriptionId;
+            resourceInputs["entityUptime"] = args?.entityUptime;
+            resourceInputs["environmentType"] = args?.environmentType;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["groupType"] = args?.groupType;
+            resourceInputs["percentile"] = args?.percentile;
+            resourceInputs["perfDataEndTime"] = args?.perfDataEndTime;
+            resourceInputs["perfDataStartTime"] = args?.perfDataStartTime;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["reservedInstance"] = args?.reservedInstance;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scalingFactor"] = args?.scalingFactor;
+            resourceInputs["sizingCriterion"] = args?.sizingCriterion;
+            resourceInputs["timeRange"] = args?.timeRange;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

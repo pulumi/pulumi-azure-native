@@ -88,27 +88,27 @@ export class KustoDatabaseDataSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.kustoDatabaseResourceId === undefined) && !opts.urn) {
+            if (args?.kustoDatabaseResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kustoDatabaseResourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.shareName === undefined) && !opts.urn) {
+            if (args?.shareName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shareName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["dataSetName"] = args ? args.dataSetName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["dataSetName"] = args?.dataSetName;
             resourceInputs["kind"] = "KustoDatabase";
-            resourceInputs["kustoDatabaseResourceId"] = args ? args.kustoDatabaseResourceId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["shareName"] = args ? args.shareName : undefined;
+            resourceInputs["kustoDatabaseResourceId"] = args?.kustoDatabaseResourceId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["shareName"] = args?.shareName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataSetId"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

@@ -93,20 +93,20 @@ export class InventoryItem extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.inventoryType === undefined) && !opts.urn) {
+            if (args?.inventoryType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inventoryType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vmmServerName === undefined) && !opts.urn) {
+            if (args?.vmmServerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vmmServerName'");
             }
-            resourceInputs["inventoryItemName"] = args ? args.inventoryItemName : undefined;
-            resourceInputs["inventoryType"] = args ? args.inventoryType : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["vmmServerName"] = args ? args.vmmServerName : undefined;
+            resourceInputs["inventoryItemName"] = args?.inventoryItemName;
+            resourceInputs["inventoryType"] = args?.inventoryType;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["vmmServerName"] = args?.vmmServerName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["managedResourceId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

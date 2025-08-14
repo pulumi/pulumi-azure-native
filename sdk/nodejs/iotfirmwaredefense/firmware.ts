@@ -105,23 +105,23 @@ export class Firmware extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["fileName"] = args ? args.fileName : undefined;
-            resourceInputs["fileSize"] = args ? args.fileSize : undefined;
-            resourceInputs["firmwareId"] = args ? args.firmwareId : undefined;
-            resourceInputs["model"] = args ? args.model : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["status"] = (args ? args.status : undefined) ?? "Pending";
-            resourceInputs["statusMessages"] = args ? args.statusMessages : undefined;
-            resourceInputs["vendor"] = args ? args.vendor : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["fileName"] = args?.fileName;
+            resourceInputs["fileSize"] = args?.fileSize;
+            resourceInputs["firmwareId"] = args?.firmwareId;
+            resourceInputs["model"] = args?.model;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["status"] = (args?.status) ?? "Pending";
+            resourceInputs["statusMessages"] = args?.statusMessages;
+            resourceInputs["vendor"] = args?.vendor;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

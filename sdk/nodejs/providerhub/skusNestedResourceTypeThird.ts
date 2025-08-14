@@ -68,28 +68,28 @@ export class SkusNestedResourceTypeThird extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.nestedResourceTypeFirst === undefined) && !opts.urn) {
+            if (args?.nestedResourceTypeFirst === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nestedResourceTypeFirst'");
             }
-            if ((!args || args.nestedResourceTypeSecond === undefined) && !opts.urn) {
+            if (args?.nestedResourceTypeSecond === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nestedResourceTypeSecond'");
             }
-            if ((!args || args.nestedResourceTypeThird === undefined) && !opts.urn) {
+            if (args?.nestedResourceTypeThird === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nestedResourceTypeThird'");
             }
-            if ((!args || args.providerNamespace === undefined) && !opts.urn) {
+            if (args?.providerNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'providerNamespace'");
             }
-            if ((!args || args.resourceType === undefined) && !opts.urn) {
+            if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            resourceInputs["nestedResourceTypeFirst"] = args ? args.nestedResourceTypeFirst : undefined;
-            resourceInputs["nestedResourceTypeSecond"] = args ? args.nestedResourceTypeSecond : undefined;
-            resourceInputs["nestedResourceTypeThird"] = args ? args.nestedResourceTypeThird : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["providerNamespace"] = args ? args.providerNamespace : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["nestedResourceTypeFirst"] = args?.nestedResourceTypeFirst;
+            resourceInputs["nestedResourceTypeSecond"] = args?.nestedResourceTypeSecond;
+            resourceInputs["nestedResourceTypeThird"] = args?.nestedResourceTypeThird;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["providerNamespace"] = args?.providerNamespace;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["sku"] = args?.sku;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

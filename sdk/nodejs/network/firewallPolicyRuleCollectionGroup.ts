@@ -85,19 +85,19 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.firewallPolicyName === undefined) && !opts.urn) {
+            if (args?.firewallPolicyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firewallPolicyName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["firewallPolicyName"] = args ? args.firewallPolicyName : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ruleCollectionGroupName"] = args ? args.ruleCollectionGroupName : undefined;
-            resourceInputs["ruleCollections"] = args ? args.ruleCollections : undefined;
+            resourceInputs["firewallPolicyName"] = args?.firewallPolicyName;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["ruleCollectionGroupName"] = args?.ruleCollectionGroupName;
+            resourceInputs["ruleCollections"] = args?.ruleCollections;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

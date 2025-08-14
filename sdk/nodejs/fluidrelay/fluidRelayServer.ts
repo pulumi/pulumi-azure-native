@@ -99,17 +99,17 @@ export class FluidRelayServer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroup === undefined) && !opts.urn) {
+            if (args?.resourceGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["fluidRelayServerName"] = args ? args.fluidRelayServerName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            resourceInputs["storagesku"] = args ? args.storagesku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["fluidRelayServerName"] = args?.fluidRelayServerName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["resourceGroup"] = args?.resourceGroup;
+            resourceInputs["storagesku"] = args?.storagesku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["fluidRelayEndpoints"] = undefined /*out*/;
             resourceInputs["frsTenantId"] = undefined /*out*/;

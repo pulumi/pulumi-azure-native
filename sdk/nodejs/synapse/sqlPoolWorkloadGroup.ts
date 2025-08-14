@@ -86,34 +86,34 @@ export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.maxResourcePercent === undefined) && !opts.urn) {
+            if (args?.maxResourcePercent === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maxResourcePercent'");
             }
-            if ((!args || args.minResourcePercent === undefined) && !opts.urn) {
+            if (args?.minResourcePercent === undefined && !opts.urn) {
                 throw new Error("Missing required property 'minResourcePercent'");
             }
-            if ((!args || args.minResourcePercentPerRequest === undefined) && !opts.urn) {
+            if (args?.minResourcePercentPerRequest === undefined && !opts.urn) {
                 throw new Error("Missing required property 'minResourcePercentPerRequest'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sqlPoolName === undefined) && !opts.urn) {
+            if (args?.sqlPoolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sqlPoolName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["importance"] = args ? args.importance : undefined;
-            resourceInputs["maxResourcePercent"] = args ? args.maxResourcePercent : undefined;
-            resourceInputs["maxResourcePercentPerRequest"] = args ? args.maxResourcePercentPerRequest : undefined;
-            resourceInputs["minResourcePercent"] = args ? args.minResourcePercent : undefined;
-            resourceInputs["minResourcePercentPerRequest"] = args ? args.minResourcePercentPerRequest : undefined;
-            resourceInputs["queryExecutionTimeout"] = args ? args.queryExecutionTimeout : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sqlPoolName"] = args ? args.sqlPoolName : undefined;
-            resourceInputs["workloadGroupName"] = args ? args.workloadGroupName : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["importance"] = args?.importance;
+            resourceInputs["maxResourcePercent"] = args?.maxResourcePercent;
+            resourceInputs["maxResourcePercentPerRequest"] = args?.maxResourcePercentPerRequest;
+            resourceInputs["minResourcePercent"] = args?.minResourcePercent;
+            resourceInputs["minResourcePercentPerRequest"] = args?.minResourcePercentPerRequest;
+            resourceInputs["queryExecutionTimeout"] = args?.queryExecutionTimeout;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sqlPoolName"] = args?.sqlPoolName;
+            resourceInputs["workloadGroupName"] = args?.workloadGroupName;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

@@ -89,21 +89,21 @@ export class StandbyContainerGroupPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.containerGroupProperties === undefined) && !opts.urn) {
+            if (args?.containerGroupProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerGroupProperties'");
             }
-            if ((!args || args.elasticityProfile === undefined) && !opts.urn) {
+            if (args?.elasticityProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'elasticityProfile'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["containerGroupProperties"] = args ? args.containerGroupProperties : undefined;
-            resourceInputs["elasticityProfile"] = args ? args.elasticityProfile : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["standbyContainerGroupPoolName"] = args ? args.standbyContainerGroupPoolName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["containerGroupProperties"] = args?.containerGroupProperties;
+            resourceInputs["elasticityProfile"] = args?.elasticityProfile;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["standbyContainerGroupPoolName"] = args?.standbyContainerGroupPoolName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

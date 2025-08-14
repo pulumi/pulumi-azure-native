@@ -79,25 +79,25 @@ export class Execution extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.contextName === undefined) && !opts.urn) {
+            if (args?.contextName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contextName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.versionName === undefined) && !opts.urn) {
+            if (args?.versionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'versionName'");
             }
-            if ((!args || args.workflowName === undefined) && !opts.urn) {
+            if (args?.workflowName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workflowName'");
             }
-            resourceInputs["contextName"] = args ? args.contextName : undefined;
-            resourceInputs["executionName"] = args ? args.executionName : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["versionName"] = args ? args.versionName : undefined;
-            resourceInputs["workflowName"] = args ? args.workflowName : undefined;
+            resourceInputs["contextName"] = args?.contextName;
+            resourceInputs["executionName"] = args?.executionName;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["versionName"] = args?.versionName;
+            resourceInputs["workflowName"] = args?.workflowName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

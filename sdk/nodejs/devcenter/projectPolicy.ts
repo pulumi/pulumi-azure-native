@@ -81,17 +81,17 @@ export class ProjectPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.devCenterName === undefined) && !opts.urn) {
+            if (args?.devCenterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devCenterName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["devCenterName"] = args ? args.devCenterName : undefined;
-            resourceInputs["projectPolicyName"] = args ? args.projectPolicyName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourcePolicies"] = args ? args.resourcePolicies : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
+            resourceInputs["devCenterName"] = args?.devCenterName;
+            resourceInputs["projectPolicyName"] = args?.projectPolicyName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourcePolicies"] = args?.resourcePolicies;
+            resourceInputs["scopes"] = args?.scopes;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

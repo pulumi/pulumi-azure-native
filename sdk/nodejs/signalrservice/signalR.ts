@@ -192,29 +192,29 @@ export class SignalR extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["cors"] = args ? args.cors : undefined;
-            resourceInputs["disableAadAuth"] = (args ? args.disableAadAuth : undefined) ?? false;
-            resourceInputs["disableLocalAuth"] = (args ? args.disableLocalAuth : undefined) ?? false;
-            resourceInputs["features"] = args ? args.features : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["cors"] = args?.cors;
+            resourceInputs["disableAadAuth"] = (args?.disableAadAuth) ?? false;
+            resourceInputs["disableLocalAuth"] = (args?.disableLocalAuth) ?? false;
+            resourceInputs["features"] = args?.features;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kind"] = args?.kind;
             resourceInputs["liveTraceConfiguration"] = args ? (args.liveTraceConfiguration ? pulumi.output(args.liveTraceConfiguration).apply(inputs.signalrservice.liveTraceConfigurationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkACLs"] = args ? args.networkACLs : undefined;
-            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
-            resourceInputs["regionEndpointEnabled"] = (args ? args.regionEndpointEnabled : undefined) ?? "Enabled";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceLogConfiguration"] = args ? args.resourceLogConfiguration : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["resourceStopped"] = (args ? args.resourceStopped : undefined) ?? "false";
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkACLs"] = args?.networkACLs;
+            resourceInputs["publicNetworkAccess"] = (args?.publicNetworkAccess) ?? "Enabled";
+            resourceInputs["regionEndpointEnabled"] = (args?.regionEndpointEnabled) ?? "Enabled";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceLogConfiguration"] = args?.resourceLogConfiguration;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["resourceStopped"] = (args?.resourceStopped) ?? "false";
             resourceInputs["serverless"] = args ? (args.serverless ? pulumi.output(args.serverless).apply(inputs.signalrservice.serverlessSettingsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["tls"] = args ? (args.tls ? pulumi.output(args.tls).apply(inputs.signalrservice.signalRTlsSettingsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["upstream"] = args ? args.upstream : undefined;
+            resourceInputs["upstream"] = args?.upstream;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["externalIP"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;

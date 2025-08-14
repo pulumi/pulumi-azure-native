@@ -85,23 +85,23 @@ export class VolumeSnapshot extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.creationData === undefined) && !opts.urn) {
+            if (args?.creationData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'creationData'");
             }
-            if ((!args || args.elasticSanName === undefined) && !opts.urn) {
+            if (args?.elasticSanName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'elasticSanName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.volumeGroupName === undefined) && !opts.urn) {
+            if (args?.volumeGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeGroupName'");
             }
-            resourceInputs["creationData"] = args ? args.creationData : undefined;
-            resourceInputs["elasticSanName"] = args ? args.elasticSanName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
-            resourceInputs["volumeGroupName"] = args ? args.volumeGroupName : undefined;
+            resourceInputs["creationData"] = args?.creationData;
+            resourceInputs["elasticSanName"] = args?.elasticSanName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["snapshotName"] = args?.snapshotName;
+            resourceInputs["volumeGroupName"] = args?.volumeGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

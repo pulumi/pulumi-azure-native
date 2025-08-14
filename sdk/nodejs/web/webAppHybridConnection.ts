@@ -99,27 +99,27 @@ export class WebAppHybridConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["hostname"] = args ? args.hostname : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["relayArmUri"] = args ? args.relayArmUri : undefined;
-            resourceInputs["relayName"] = args ? args.relayName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sendKeyName"] = args ? args.sendKeyName : undefined;
-            resourceInputs["sendKeyValue"] = args ? args.sendKeyValue : undefined;
-            resourceInputs["serviceBusNamespace"] = args ? args.serviceBusNamespace : undefined;
-            resourceInputs["serviceBusSuffix"] = args ? args.serviceBusSuffix : undefined;
+            resourceInputs["hostname"] = args?.hostname;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["relayArmUri"] = args?.relayArmUri;
+            resourceInputs["relayName"] = args?.relayName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sendKeyName"] = args?.sendKeyName;
+            resourceInputs["sendKeyValue"] = args?.sendKeyValue;
+            resourceInputs["serviceBusNamespace"] = args?.serviceBusNamespace;
+            resourceInputs["serviceBusSuffix"] = args?.serviceBusSuffix;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

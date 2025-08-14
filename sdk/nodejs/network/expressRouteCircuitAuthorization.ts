@@ -85,19 +85,19 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.circuitName === undefined) && !opts.urn) {
+            if (args?.circuitName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'circuitName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
-            resourceInputs["authorizationName"] = args ? args.authorizationName : undefined;
-            resourceInputs["authorizationUseStatus"] = args ? args.authorizationUseStatus : undefined;
-            resourceInputs["circuitName"] = args ? args.circuitName : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["authorizationKey"] = args?.authorizationKey;
+            resourceInputs["authorizationName"] = args?.authorizationName;
+            resourceInputs["authorizationUseStatus"] = args?.authorizationUseStatus;
+            resourceInputs["circuitName"] = args?.circuitName;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionResourceUri"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

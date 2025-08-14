@@ -104,25 +104,25 @@ export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.kustoPoolName === undefined) && !opts.urn) {
+            if (args?.kustoPoolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kustoPoolName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["hotCachePeriod"] = args ? args.hotCachePeriod : undefined;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["hotCachePeriod"] = args?.hotCachePeriod;
             resourceInputs["kind"] = "ReadOnlyFollowing";
-            resourceInputs["kustoPoolName"] = args ? args.kustoPoolName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["kustoPoolName"] = args?.kustoPoolName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["attachedDatabaseConfigurationName"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["leaderClusterResourceId"] = undefined /*out*/;

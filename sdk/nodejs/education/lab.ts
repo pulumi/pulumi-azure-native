@@ -111,36 +111,36 @@ export class Lab extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.billingAccountName === undefined) && !opts.urn) {
+            if (args?.billingAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'billingAccountName'");
             }
-            if ((!args || args.billingProfileName === undefined) && !opts.urn) {
+            if (args?.billingProfileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'billingProfileName'");
             }
-            if ((!args || args.budgetPerStudent === undefined) && !opts.urn) {
+            if (args?.budgetPerStudent === undefined && !opts.urn) {
                 throw new Error("Missing required property 'budgetPerStudent'");
             }
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.expirationDate === undefined) && !opts.urn) {
+            if (args?.expirationDate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expirationDate'");
             }
-            if ((!args || args.invoiceSectionName === undefined) && !opts.urn) {
+            if (args?.invoiceSectionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'invoiceSectionName'");
             }
-            resourceInputs["billingAccountName"] = args ? args.billingAccountName : undefined;
-            resourceInputs["billingProfileName"] = args ? args.billingProfileName : undefined;
-            resourceInputs["budgetPerStudent"] = args ? args.budgetPerStudent : undefined;
-            resourceInputs["currency"] = args ? args.currency : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["expirationDate"] = args ? args.expirationDate : undefined;
-            resourceInputs["invoiceSectionName"] = args ? args.invoiceSectionName : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["billingAccountName"] = args?.billingAccountName;
+            resourceInputs["billingProfileName"] = args?.billingProfileName;
+            resourceInputs["budgetPerStudent"] = args?.budgetPerStudent;
+            resourceInputs["currency"] = args?.currency;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["expirationDate"] = args?.expirationDate;
+            resourceInputs["invoiceSectionName"] = args?.invoiceSectionName;
+            resourceInputs["value"] = args?.value;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["effectiveDate"] = undefined /*out*/;
             resourceInputs["invitationCode"] = undefined /*out*/;

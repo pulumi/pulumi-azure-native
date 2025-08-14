@@ -111,17 +111,17 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["applicationResourceName"] = args ? args.applicationResourceName : undefined;
-            resourceInputs["debugParams"] = args ? args.debugParams : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["diagnostics"] = args ? args.diagnostics : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["services"] = args ? args.services : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationResourceName"] = args?.applicationResourceName;
+            resourceInputs["debugParams"] = args?.debugParams;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["diagnostics"] = args?.diagnostics;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["services"] = args?.services;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["healthState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

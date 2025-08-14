@@ -105,27 +105,27 @@ export class ConnectivityConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.appliesToGroups === undefined) && !opts.urn) {
+            if (args?.appliesToGroups === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appliesToGroups'");
             }
-            if ((!args || args.connectivityTopology === undefined) && !opts.urn) {
+            if (args?.connectivityTopology === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectivityTopology'");
             }
-            if ((!args || args.networkManagerName === undefined) && !opts.urn) {
+            if (args?.networkManagerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkManagerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["appliesToGroups"] = args ? args.appliesToGroups : undefined;
-            resourceInputs["configurationName"] = args ? args.configurationName : undefined;
-            resourceInputs["connectivityTopology"] = args ? args.connectivityTopology : undefined;
-            resourceInputs["deleteExistingPeering"] = args ? args.deleteExistingPeering : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["hubs"] = args ? args.hubs : undefined;
-            resourceInputs["isGlobal"] = args ? args.isGlobal : undefined;
-            resourceInputs["networkManagerName"] = args ? args.networkManagerName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["appliesToGroups"] = args?.appliesToGroups;
+            resourceInputs["configurationName"] = args?.configurationName;
+            resourceInputs["connectivityTopology"] = args?.connectivityTopology;
+            resourceInputs["deleteExistingPeering"] = args?.deleteExistingPeering;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["hubs"] = args?.hubs;
+            resourceInputs["isGlobal"] = args?.isGlobal;
+            resourceInputs["networkManagerName"] = args?.networkManagerName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -72,9 +72,9 @@ export class ProviderRegistration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["kind"] = (args ? args.kind : undefined) ?? "Managed";
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["providerNamespace"] = args ? args.providerNamespace : undefined;
+            resourceInputs["kind"] = (args?.kind) ?? "Managed";
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["providerNamespace"] = args?.providerNamespace;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

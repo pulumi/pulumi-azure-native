@@ -129,28 +129,28 @@ export class View extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.timeframe === undefined) && !opts.urn) {
+            if (args?.timeframe === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeframe'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["accumulated"] = args ? args.accumulated : undefined;
-            resourceInputs["chart"] = args ? args.chart : undefined;
-            resourceInputs["dataSet"] = args ? args.dataSet : undefined;
-            resourceInputs["dateRange"] = args ? args.dateRange : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["eTag"] = args ? args.eTag : undefined;
-            resourceInputs["includeMonetaryCommitment"] = args ? args.includeMonetaryCommitment : undefined;
-            resourceInputs["kpis"] = args ? args.kpis : undefined;
-            resourceInputs["metric"] = args ? args.metric : undefined;
-            resourceInputs["modifiedOn"] = args ? args.modifiedOn : undefined;
-            resourceInputs["pivots"] = args ? args.pivots : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["timePeriod"] = args ? args.timePeriod : undefined;
-            resourceInputs["timeframe"] = args ? args.timeframe : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["viewName"] = args ? args.viewName : undefined;
+            resourceInputs["accumulated"] = args?.accumulated;
+            resourceInputs["chart"] = args?.chart;
+            resourceInputs["dataSet"] = args?.dataSet;
+            resourceInputs["dateRange"] = args?.dateRange;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["eTag"] = args?.eTag;
+            resourceInputs["includeMonetaryCommitment"] = args?.includeMonetaryCommitment;
+            resourceInputs["kpis"] = args?.kpis;
+            resourceInputs["metric"] = args?.metric;
+            resourceInputs["modifiedOn"] = args?.modifiedOn;
+            resourceInputs["pivots"] = args?.pivots;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["timePeriod"] = args?.timePeriod;
+            resourceInputs["timeframe"] = args?.timeframe;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["viewName"] = args?.viewName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["currency"] = undefined /*out*/;

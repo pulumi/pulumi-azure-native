@@ -241,55 +241,55 @@ export class ManagedCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.adminUserName === undefined) && !opts.urn) {
+            if (args?.adminUserName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adminUserName'");
             }
-            if ((!args || args.dnsName === undefined) && !opts.urn) {
+            if (args?.dnsName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["addonFeatures"] = args ? args.addonFeatures : undefined;
-            resourceInputs["adminPassword"] = args ? args.adminPassword : undefined;
-            resourceInputs["adminUserName"] = args ? args.adminUserName : undefined;
-            resourceInputs["allowRdpAccess"] = args ? args.allowRdpAccess : undefined;
-            resourceInputs["applicationTypeVersionsCleanupPolicy"] = args ? args.applicationTypeVersionsCleanupPolicy : undefined;
-            resourceInputs["auxiliarySubnets"] = args ? args.auxiliarySubnets : undefined;
-            resourceInputs["azureActiveDirectory"] = args ? args.azureActiveDirectory : undefined;
-            resourceInputs["clientConnectionPort"] = (args ? args.clientConnectionPort : undefined) ?? 19000;
-            resourceInputs["clients"] = args ? args.clients : undefined;
-            resourceInputs["clusterCodeVersion"] = args ? args.clusterCodeVersion : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["clusterUpgradeCadence"] = args ? args.clusterUpgradeCadence : undefined;
-            resourceInputs["clusterUpgradeMode"] = args ? args.clusterUpgradeMode : undefined;
-            resourceInputs["ddosProtectionPlanId"] = args ? args.ddosProtectionPlanId : undefined;
-            resourceInputs["dnsName"] = args ? args.dnsName : undefined;
-            resourceInputs["enableAutoOSUpgrade"] = args ? args.enableAutoOSUpgrade : undefined;
-            resourceInputs["enableHttpGatewayExclusiveAuthMode"] = args ? args.enableHttpGatewayExclusiveAuthMode : undefined;
-            resourceInputs["enableIpv6"] = args ? args.enableIpv6 : undefined;
-            resourceInputs["enableServicePublicIP"] = args ? args.enableServicePublicIP : undefined;
-            resourceInputs["fabricSettings"] = args ? args.fabricSettings : undefined;
-            resourceInputs["httpGatewayConnectionPort"] = (args ? args.httpGatewayConnectionPort : undefined) ?? 19080;
-            resourceInputs["httpGatewayTokenAuthConnectionPort"] = args ? args.httpGatewayTokenAuthConnectionPort : undefined;
-            resourceInputs["ipTags"] = args ? args.ipTags : undefined;
-            resourceInputs["loadBalancingRules"] = args ? args.loadBalancingRules : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkSecurityRules"] = args ? args.networkSecurityRules : undefined;
-            resourceInputs["publicIPPrefixId"] = args ? args.publicIPPrefixId : undefined;
-            resourceInputs["publicIPv6PrefixId"] = args ? args.publicIPv6PrefixId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addonFeatures"] = args?.addonFeatures;
+            resourceInputs["adminPassword"] = args?.adminPassword;
+            resourceInputs["adminUserName"] = args?.adminUserName;
+            resourceInputs["allowRdpAccess"] = args?.allowRdpAccess;
+            resourceInputs["applicationTypeVersionsCleanupPolicy"] = args?.applicationTypeVersionsCleanupPolicy;
+            resourceInputs["auxiliarySubnets"] = args?.auxiliarySubnets;
+            resourceInputs["azureActiveDirectory"] = args?.azureActiveDirectory;
+            resourceInputs["clientConnectionPort"] = (args?.clientConnectionPort) ?? 19000;
+            resourceInputs["clients"] = args?.clients;
+            resourceInputs["clusterCodeVersion"] = args?.clusterCodeVersion;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["clusterUpgradeCadence"] = args?.clusterUpgradeCadence;
+            resourceInputs["clusterUpgradeMode"] = args?.clusterUpgradeMode;
+            resourceInputs["ddosProtectionPlanId"] = args?.ddosProtectionPlanId;
+            resourceInputs["dnsName"] = args?.dnsName;
+            resourceInputs["enableAutoOSUpgrade"] = args?.enableAutoOSUpgrade;
+            resourceInputs["enableHttpGatewayExclusiveAuthMode"] = args?.enableHttpGatewayExclusiveAuthMode;
+            resourceInputs["enableIpv6"] = args?.enableIpv6;
+            resourceInputs["enableServicePublicIP"] = args?.enableServicePublicIP;
+            resourceInputs["fabricSettings"] = args?.fabricSettings;
+            resourceInputs["httpGatewayConnectionPort"] = (args?.httpGatewayConnectionPort) ?? 19080;
+            resourceInputs["httpGatewayTokenAuthConnectionPort"] = args?.httpGatewayTokenAuthConnectionPort;
+            resourceInputs["ipTags"] = args?.ipTags;
+            resourceInputs["loadBalancingRules"] = args?.loadBalancingRules;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkSecurityRules"] = args?.networkSecurityRules;
+            resourceInputs["publicIPPrefixId"] = args?.publicIPPrefixId;
+            resourceInputs["publicIPv6PrefixId"] = args?.publicIPv6PrefixId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceEndpoints"] = args?.serviceEndpoints;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["upgradeDescription"] = args ? (args.upgradeDescription ? pulumi.output(args.upgradeDescription).apply(inputs.servicefabric.clusterUpgradePolicyArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["useCustomVnet"] = args ? args.useCustomVnet : undefined;
-            resourceInputs["zonalResiliency"] = (args ? args.zonalResiliency : undefined) ?? false;
-            resourceInputs["zonalUpdateMode"] = args ? args.zonalUpdateMode : undefined;
+            resourceInputs["useCustomVnet"] = args?.useCustomVnet;
+            resourceInputs["zonalResiliency"] = (args?.zonalResiliency) ?? false;
+            resourceInputs["zonalUpdateMode"] = args?.zonalUpdateMode;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterCertificateThumbprints"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;

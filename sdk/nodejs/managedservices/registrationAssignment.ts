@@ -71,12 +71,12 @@ export class RegistrationAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["registrationAssignmentId"] = args ? args.registrationAssignmentId : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["registrationAssignmentId"] = args?.registrationAssignmentId;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

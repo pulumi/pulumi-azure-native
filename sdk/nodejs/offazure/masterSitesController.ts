@@ -108,17 +108,17 @@ export class MasterSitesController extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allowMultipleSites"] = args ? args.allowMultipleSites : undefined;
-            resourceInputs["customerStorageAccountArmId"] = args ? args.customerStorageAccountArmId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["siteName"] = args ? args.siteName : undefined;
-            resourceInputs["sites"] = args ? args.sites : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowMultipleSites"] = args?.allowMultipleSites;
+            resourceInputs["customerStorageAccountArmId"] = args?.customerStorageAccountArmId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["siteName"] = args?.siteName;
+            resourceInputs["sites"] = args?.sites;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nestedSites"] = undefined /*out*/;

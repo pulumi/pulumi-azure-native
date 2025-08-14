@@ -151,24 +151,24 @@ export class Domain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoCreateTopicWithFirstSubscription"] = (args ? args.autoCreateTopicWithFirstSubscription : undefined) ?? true;
-            resourceInputs["autoDeleteTopicWithLastSubscription"] = (args ? args.autoDeleteTopicWithLastSubscription : undefined) ?? true;
-            resourceInputs["dataResidencyBoundary"] = args ? args.dataResidencyBoundary : undefined;
-            resourceInputs["disableLocalAuth"] = (args ? args.disableLocalAuth : undefined) ?? false;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["eventTypeInfo"] = args ? args.eventTypeInfo : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
-            resourceInputs["inputSchema"] = (args ? args.inputSchema : undefined) ?? "EventGridSchema";
-            resourceInputs["inputSchemaMapping"] = args ? args.inputSchemaMapping : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["minimumTlsVersionAllowed"] = args ? args.minimumTlsVersionAllowed : undefined;
-            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoCreateTopicWithFirstSubscription"] = (args?.autoCreateTopicWithFirstSubscription) ?? true;
+            resourceInputs["autoDeleteTopicWithLastSubscription"] = (args?.autoDeleteTopicWithLastSubscription) ?? true;
+            resourceInputs["dataResidencyBoundary"] = args?.dataResidencyBoundary;
+            resourceInputs["disableLocalAuth"] = (args?.disableLocalAuth) ?? false;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["eventTypeInfo"] = args?.eventTypeInfo;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["inboundIpRules"] = args?.inboundIpRules;
+            resourceInputs["inputSchema"] = (args?.inputSchema) ?? "EventGridSchema";
+            resourceInputs["inputSchemaMapping"] = args?.inputSchemaMapping;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["minimumTlsVersionAllowed"] = args?.minimumTlsVersionAllowed;
+            resourceInputs["publicNetworkAccess"] = (args?.publicNetworkAccess) ?? "Enabled";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["metricResourceId"] = undefined /*out*/;

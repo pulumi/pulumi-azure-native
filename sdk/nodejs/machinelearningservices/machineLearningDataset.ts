@@ -83,29 +83,29 @@ export class MachineLearningDataset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.datasetType === undefined) && !opts.urn) {
+            if (args?.datasetType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'datasetType'");
             }
-            if ((!args || args.parameters === undefined) && !opts.urn) {
+            if (args?.parameters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parameters'");
             }
-            if ((!args || args.registration === undefined) && !opts.urn) {
+            if (args?.registration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registration'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["datasetName"] = args ? args.datasetName : undefined;
-            resourceInputs["datasetType"] = args ? args.datasetType : undefined;
+            resourceInputs["datasetName"] = args?.datasetName;
+            resourceInputs["datasetType"] = args?.datasetType;
             resourceInputs["parameters"] = args ? (args.parameters ? pulumi.output(args.parameters).apply(inputs.machinelearningservices.datasetCreateRequestParametersArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["registration"] = args ? args.registration : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skipValidation"] = (args ? args.skipValidation : undefined) ?? false;
-            resourceInputs["timeSeries"] = args ? args.timeSeries : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["registration"] = args?.registration;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["skipValidation"] = (args?.skipValidation) ?? false;
+            resourceInputs["timeSeries"] = args?.timeSeries;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

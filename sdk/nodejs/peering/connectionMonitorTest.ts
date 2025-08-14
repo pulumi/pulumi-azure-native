@@ -90,19 +90,19 @@ export class ConnectionMonitorTest extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.peeringServiceName === undefined) && !opts.urn) {
+            if (args?.peeringServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peeringServiceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["connectionMonitorTestName"] = args ? args.connectionMonitorTestName : undefined;
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["destinationPort"] = args ? args.destinationPort : undefined;
-            resourceInputs["peeringServiceName"] = args ? args.peeringServiceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceAgent"] = args ? args.sourceAgent : undefined;
-            resourceInputs["testFrequencyInSec"] = args ? args.testFrequencyInSec : undefined;
+            resourceInputs["connectionMonitorTestName"] = args?.connectionMonitorTestName;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["destinationPort"] = args?.destinationPort;
+            resourceInputs["peeringServiceName"] = args?.peeringServiceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceAgent"] = args?.sourceAgent;
+            resourceInputs["testFrequencyInSec"] = args?.testFrequencyInSec;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["isTestSuccessful"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

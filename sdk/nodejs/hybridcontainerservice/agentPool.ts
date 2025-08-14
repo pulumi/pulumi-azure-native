@@ -129,31 +129,31 @@ export class AgentPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !opts.urn) {
+            if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            resourceInputs["agentPoolName"] = args ? args.agentPoolName : undefined;
-            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            resourceInputs["cloudProviderProfile"] = args ? args.cloudProviderProfile : undefined;
-            resourceInputs["count"] = (args ? args.count : undefined) ?? 1;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maxCount"] = args ? args.maxCount : undefined;
-            resourceInputs["maxPods"] = args ? args.maxPods : undefined;
-            resourceInputs["minCount"] = args ? args.minCount : undefined;
-            resourceInputs["mode"] = (args ? args.mode : undefined) ?? "User";
-            resourceInputs["nodeImageVersion"] = args ? args.nodeImageVersion : undefined;
-            resourceInputs["nodeLabels"] = args ? args.nodeLabels : undefined;
-            resourceInputs["nodeTaints"] = args ? args.nodeTaints : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vmSize"] = args ? args.vmSize : undefined;
+            resourceInputs["agentPoolName"] = args?.agentPoolName;
+            resourceInputs["availabilityZones"] = args?.availabilityZones;
+            resourceInputs["cloudProviderProfile"] = args?.cloudProviderProfile;
+            resourceInputs["count"] = (args?.count) ?? 1;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maxCount"] = args?.maxCount;
+            resourceInputs["maxPods"] = args?.maxPods;
+            resourceInputs["minCount"] = args?.minCount;
+            resourceInputs["mode"] = (args?.mode) ?? "User";
+            resourceInputs["nodeImageVersion"] = args?.nodeImageVersion;
+            resourceInputs["nodeLabels"] = args?.nodeLabels;
+            resourceInputs["nodeTaints"] = args?.nodeTaints;
+            resourceInputs["osType"] = args?.osType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vmSize"] = args?.vmSize;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

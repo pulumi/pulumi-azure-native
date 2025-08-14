@@ -105,23 +105,23 @@ export class PolicySetDefinitionAtManagementGroup extends pulumi.CustomResource 
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managementGroupId === undefined) && !opts.urn) {
+            if (args?.managementGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            if ((!args || args.policyDefinitions === undefined) && !opts.urn) {
+            if (args?.policyDefinitions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDefinitions'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["policyDefinitionGroups"] = args ? args.policyDefinitionGroups : undefined;
-            resourceInputs["policyDefinitions"] = args ? args.policyDefinitions : undefined;
-            resourceInputs["policySetDefinitionName"] = args ? args.policySetDefinitionName : undefined;
-            resourceInputs["policyType"] = args ? args.policyType : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["versions"] = args ? args.versions : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["managementGroupId"] = args?.managementGroupId;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["policyDefinitionGroups"] = args?.policyDefinitionGroups;
+            resourceInputs["policyDefinitions"] = args?.policyDefinitions;
+            resourceInputs["policySetDefinitionName"] = args?.policySetDefinitionName;
+            resourceInputs["policyType"] = args?.policyType;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["versions"] = args?.versions;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

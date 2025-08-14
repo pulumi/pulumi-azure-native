@@ -77,21 +77,21 @@ export class DaprComponentResiliencyPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.componentName === undefined) && !opts.urn) {
+            if (args?.componentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'componentName'");
             }
-            if ((!args || args.environmentName === undefined) && !opts.urn) {
+            if (args?.environmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["componentName"] = args ? args.componentName : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["inboundPolicy"] = args ? args.inboundPolicy : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outboundPolicy"] = args ? args.outboundPolicy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["componentName"] = args?.componentName;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["inboundPolicy"] = args?.inboundPolicy;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outboundPolicy"] = args?.outboundPolicy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

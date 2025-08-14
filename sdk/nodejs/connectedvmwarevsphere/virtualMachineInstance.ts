@@ -117,18 +117,18 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["hardwareProfile"] = args ? args.hardwareProfile : undefined;
-            resourceInputs["infrastructureProfile"] = args ? args.infrastructureProfile : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["osProfile"] = args ? args.osProfile : undefined;
-            resourceInputs["placementProfile"] = args ? args.placementProfile : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
-            resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
-            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["hardwareProfile"] = args?.hardwareProfile;
+            resourceInputs["infrastructureProfile"] = args?.infrastructureProfile;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["osProfile"] = args?.osProfile;
+            resourceInputs["placementProfile"] = args?.placementProfile;
+            resourceInputs["resourceUri"] = args?.resourceUri;
+            resourceInputs["securityProfile"] = args?.securityProfile;
+            resourceInputs["storageProfile"] = args?.storageProfile;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["powerState"] = undefined /*out*/;

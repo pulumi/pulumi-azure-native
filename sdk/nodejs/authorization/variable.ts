@@ -73,11 +73,11 @@ export class Variable extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.columns === undefined) && !opts.urn) {
+            if (args?.columns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'columns'");
             }
-            resourceInputs["columns"] = args ? args.columns : undefined;
-            resourceInputs["variableName"] = args ? args.variableName : undefined;
+            resourceInputs["columns"] = args?.columns;
+            resourceInputs["variableName"] = args?.variableName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

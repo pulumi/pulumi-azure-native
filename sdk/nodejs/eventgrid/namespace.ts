@@ -122,22 +122,22 @@ export class Namespace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
-            resourceInputs["isZoneRedundant"] = args ? args.isZoneRedundant : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["minimumTlsVersionAllowed"] = args ? args.minimumTlsVersionAllowed : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["inboundIpRules"] = args?.inboundIpRules;
+            resourceInputs["isZoneRedundant"] = args?.isZoneRedundant;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["minimumTlsVersionAllowed"] = args?.minimumTlsVersionAllowed;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["privateEndpointConnections"] = args?.privateEndpointConnections;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["topicSpacesConfiguration"] = args ? (args.topicSpacesConfiguration ? pulumi.output(args.topicSpacesConfiguration).apply(inputs.eventgrid.topicSpacesConfigurationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["topicsConfiguration"] = args ? args.topicsConfiguration : undefined;
+            resourceInputs["topicsConfiguration"] = args?.topicsConfiguration;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -97,16 +97,16 @@ export class SystemTopic extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["systemTopicName"] = args ? args.systemTopicName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["topicType"] = args ? args.topicType : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["systemTopicName"] = args?.systemTopicName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["topicType"] = args?.topicType;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["metricResourceId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

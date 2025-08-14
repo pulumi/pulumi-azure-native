@@ -173,33 +173,33 @@ export class Redis extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["disableAccessKeyAuthentication"] = (args ? args.disableAccessKeyAuthentication : undefined) ?? false;
-            resourceInputs["enableNonSslPort"] = (args ? args.enableNonSslPort : undefined) ?? false;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
-            resourceInputs["redisConfiguration"] = args ? args.redisConfiguration : undefined;
-            resourceInputs["redisVersion"] = args ? args.redisVersion : undefined;
-            resourceInputs["replicasPerMaster"] = args ? args.replicasPerMaster : undefined;
-            resourceInputs["replicasPerPrimary"] = args ? args.replicasPerPrimary : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["shardCount"] = args ? args.shardCount : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["staticIP"] = args ? args.staticIP : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tenantSettings"] = args ? args.tenantSettings : undefined;
-            resourceInputs["updateChannel"] = args ? args.updateChannel : undefined;
-            resourceInputs["zonalAllocationPolicy"] = args ? args.zonalAllocationPolicy : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["disableAccessKeyAuthentication"] = (args?.disableAccessKeyAuthentication) ?? false;
+            resourceInputs["enableNonSslPort"] = (args?.enableNonSslPort) ?? false;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["minimumTlsVersion"] = args?.minimumTlsVersion;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccess"] = (args?.publicNetworkAccess) ?? "Enabled";
+            resourceInputs["redisConfiguration"] = args?.redisConfiguration;
+            resourceInputs["redisVersion"] = args?.redisVersion;
+            resourceInputs["replicasPerMaster"] = args?.replicasPerMaster;
+            resourceInputs["replicasPerPrimary"] = args?.replicasPerPrimary;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["shardCount"] = args?.shardCount;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["staticIP"] = args?.staticIP;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tenantSettings"] = args?.tenantSettings;
+            resourceInputs["updateChannel"] = args?.updateChannel;
+            resourceInputs["zonalAllocationPolicy"] = args?.zonalAllocationPolicy;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["accessKeys"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;

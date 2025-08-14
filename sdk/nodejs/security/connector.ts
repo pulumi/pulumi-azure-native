@@ -71,9 +71,9 @@ export class Connector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["authenticationDetails"] = args ? args.authenticationDetails : undefined;
-            resourceInputs["connectorName"] = args ? args.connectorName : undefined;
-            resourceInputs["hybridComputeSettings"] = args ? args.hybridComputeSettings : undefined;
+            resourceInputs["authenticationDetails"] = args?.authenticationDetails;
+            resourceInputs["connectorName"] = args?.connectorName;
+            resourceInputs["hybridComputeSettings"] = args?.hybridComputeSettings;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

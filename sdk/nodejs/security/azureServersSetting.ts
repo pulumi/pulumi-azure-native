@@ -76,15 +76,15 @@ export class AzureServersSetting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.selectedProvider === undefined) && !opts.urn) {
+            if (args?.selectedProvider === undefined && !opts.urn) {
                 throw new Error("Missing required property 'selectedProvider'");
             }
             resourceInputs["kind"] = "AzureServersSetting";
-            resourceInputs["selectedProvider"] = args ? args.selectedProvider : undefined;
-            resourceInputs["settingKind"] = args ? args.settingKind : undefined;
+            resourceInputs["selectedProvider"] = args?.selectedProvider;
+            resourceInputs["settingKind"] = args?.settingKind;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

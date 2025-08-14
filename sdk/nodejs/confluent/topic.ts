@@ -105,32 +105,32 @@ export class Topic extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterId === undefined) && !opts.urn) {
+            if (args?.clusterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterId'");
             }
-            if ((!args || args.environmentId === undefined) && !opts.urn) {
+            if (args?.environmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
             }
-            if ((!args || args.organizationName === undefined) && !opts.urn) {
+            if (args?.organizationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'organizationName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
-            resourceInputs["configs"] = args ? args.configs : undefined;
-            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
-            resourceInputs["inputConfigs"] = args ? args.inputConfigs : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["organizationName"] = args ? args.organizationName : undefined;
-            resourceInputs["partitions"] = args ? args.partitions : undefined;
-            resourceInputs["partitionsCount"] = args ? args.partitionsCount : undefined;
-            resourceInputs["partitionsReassignments"] = args ? args.partitionsReassignments : undefined;
-            resourceInputs["replicationFactor"] = args ? args.replicationFactor : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["topicId"] = args ? args.topicId : undefined;
-            resourceInputs["topicName"] = args ? args.topicName : undefined;
+            resourceInputs["clusterId"] = args?.clusterId;
+            resourceInputs["configs"] = args?.configs;
+            resourceInputs["environmentId"] = args?.environmentId;
+            resourceInputs["inputConfigs"] = args?.inputConfigs;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["organizationName"] = args?.organizationName;
+            resourceInputs["partitions"] = args?.partitions;
+            resourceInputs["partitionsCount"] = args?.partitionsCount;
+            resourceInputs["partitionsReassignments"] = args?.partitionsReassignments;
+            resourceInputs["replicationFactor"] = args?.replicationFactor;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["topicId"] = args?.topicId;
+            resourceInputs["topicName"] = args?.topicName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

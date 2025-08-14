@@ -105,31 +105,31 @@ export class Backend extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.url === undefined) && !opts.urn) {
+            if (args?.url === undefined && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            resourceInputs["backendId"] = args ? args.backendId : undefined;
-            resourceInputs["circuitBreaker"] = args ? args.circuitBreaker : undefined;
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["proxy"] = args ? args.proxy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["backendId"] = args?.backendId;
+            resourceInputs["circuitBreaker"] = args?.circuitBreaker;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["proxy"] = args?.proxy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["title"] = args?.title;
             resourceInputs["tls"] = args ? (args.tls ? pulumi.output(args.tls).apply(inputs.apimanagement.backendTlsPropertiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["url"] = args?.url;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

@@ -113,20 +113,20 @@ export class VcenterController extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.siteName === undefined) && !opts.urn) {
+            if (args?.siteName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'siteName'");
             }
-            resourceInputs["fqdn"] = args ? args.fqdn : undefined;
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["runAsAccountId"] = args ? args.runAsAccountId : undefined;
-            resourceInputs["siteName"] = args ? args.siteName : undefined;
-            resourceInputs["vcenterName"] = args ? args.vcenterName : undefined;
+            resourceInputs["fqdn"] = args?.fqdn;
+            resourceInputs["friendlyName"] = args?.friendlyName;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["runAsAccountId"] = args?.runAsAccountId;
+            resourceInputs["siteName"] = args?.siteName;
+            resourceInputs["vcenterName"] = args?.vcenterName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;

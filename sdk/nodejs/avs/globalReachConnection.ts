@@ -97,18 +97,18 @@ export class GlobalReachConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.privateCloudName === undefined) && !opts.urn) {
+            if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
-            resourceInputs["expressRouteId"] = args ? args.expressRouteId : undefined;
-            resourceInputs["globalReachConnectionName"] = args ? args.globalReachConnectionName : undefined;
-            resourceInputs["peerExpressRouteCircuit"] = args ? args.peerExpressRouteCircuit : undefined;
-            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["authorizationKey"] = args?.authorizationKey;
+            resourceInputs["expressRouteId"] = args?.expressRouteId;
+            resourceInputs["globalReachConnectionName"] = args?.globalReachConnectionName;
+            resourceInputs["peerExpressRouteCircuit"] = args?.peerExpressRouteCircuit;
+            resourceInputs["privateCloudName"] = args?.privateCloudName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["addressPrefix"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["circuitConnectionStatus"] = undefined /*out*/;

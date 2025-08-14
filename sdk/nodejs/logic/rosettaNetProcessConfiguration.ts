@@ -111,43 +111,43 @@ export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.activitySettings === undefined) && !opts.urn) {
+            if (args?.activitySettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'activitySettings'");
             }
-            if ((!args || args.initiatorRoleSettings === undefined) && !opts.urn) {
+            if (args?.initiatorRoleSettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'initiatorRoleSettings'");
             }
-            if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
+            if (args?.integrationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if ((!args || args.processCode === undefined) && !opts.urn) {
+            if (args?.processCode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'processCode'");
             }
-            if ((!args || args.processName === undefined) && !opts.urn) {
+            if (args?.processName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'processName'");
             }
-            if ((!args || args.processVersion === undefined) && !opts.urn) {
+            if (args?.processVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'processVersion'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.responderRoleSettings === undefined) && !opts.urn) {
+            if (args?.responderRoleSettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'responderRoleSettings'");
             }
-            resourceInputs["activitySettings"] = args ? args.activitySettings : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["initiatorRoleSettings"] = args ? args.initiatorRoleSettings : undefined;
-            resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["processCode"] = args ? args.processCode : undefined;
-            resourceInputs["processName"] = args ? args.processName : undefined;
-            resourceInputs["processVersion"] = args ? args.processVersion : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["responderRoleSettings"] = args ? args.responderRoleSettings : undefined;
-            resourceInputs["rosettaNetProcessConfigurationName"] = args ? args.rosettaNetProcessConfigurationName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["activitySettings"] = args?.activitySettings;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["initiatorRoleSettings"] = args?.initiatorRoleSettings;
+            resourceInputs["integrationAccountName"] = args?.integrationAccountName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["processCode"] = args?.processCode;
+            resourceInputs["processName"] = args?.processName;
+            resourceInputs["processVersion"] = args?.processVersion;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["responderRoleSettings"] = args?.responderRoleSettings;
+            resourceInputs["rosettaNetProcessConfigurationName"] = args?.rosettaNetProcessConfigurationName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["changedTime"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;

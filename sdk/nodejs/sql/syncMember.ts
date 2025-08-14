@@ -109,31 +109,31 @@ export class SyncMember extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.syncGroupName === undefined) && !opts.urn) {
+            if (args?.syncGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'syncGroupName'");
             }
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["databaseType"] = args ? args.databaseType : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["sqlServerDatabaseId"] = args ? args.sqlServerDatabaseId : undefined;
-            resourceInputs["syncAgentId"] = args ? args.syncAgentId : undefined;
-            resourceInputs["syncDirection"] = args ? args.syncDirection : undefined;
-            resourceInputs["syncGroupName"] = args ? args.syncGroupName : undefined;
-            resourceInputs["syncMemberAzureDatabaseResourceId"] = args ? args.syncMemberAzureDatabaseResourceId : undefined;
-            resourceInputs["syncMemberName"] = args ? args.syncMemberName : undefined;
-            resourceInputs["usePrivateLinkConnection"] = args ? args.usePrivateLinkConnection : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["databaseType"] = args?.databaseType;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["sqlServerDatabaseId"] = args?.sqlServerDatabaseId;
+            resourceInputs["syncAgentId"] = args?.syncAgentId;
+            resourceInputs["syncDirection"] = args?.syncDirection;
+            resourceInputs["syncGroupName"] = args?.syncGroupName;
+            resourceInputs["syncMemberAzureDatabaseResourceId"] = args?.syncMemberAzureDatabaseResourceId;
+            resourceInputs["syncMemberName"] = args?.syncMemberName;
+            resourceInputs["usePrivateLinkConnection"] = args?.usePrivateLinkConnection;
+            resourceInputs["userName"] = args?.userName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointName"] = undefined /*out*/;

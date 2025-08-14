@@ -101,21 +101,21 @@ export class Approval extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.requestMetadata === undefined) && !opts.urn) {
+            if (args?.requestMetadata === undefined && !opts.urn) {
                 throw new Error("Missing required property 'requestMetadata'");
             }
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["approvalName"] = args ? args.approvalName : undefined;
-            resourceInputs["approvers"] = args ? args.approvers : undefined;
-            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
-            resourceInputs["grandparentResourceId"] = args ? args.grandparentResourceId : undefined;
-            resourceInputs["parentResourceId"] = args ? args.parentResourceId : undefined;
+            resourceInputs["approvalName"] = args?.approvalName;
+            resourceInputs["approvers"] = args?.approvers;
+            resourceInputs["createdAt"] = args?.createdAt;
+            resourceInputs["grandparentResourceId"] = args?.grandparentResourceId;
+            resourceInputs["parentResourceId"] = args?.parentResourceId;
             resourceInputs["requestMetadata"] = args ? (args.requestMetadata ? pulumi.output(args.requestMetadata).apply(inputs.mission.requestMetadataArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
-            resourceInputs["stateChangedAt"] = args ? args.stateChangedAt : undefined;
-            resourceInputs["ticketId"] = args ? args.ticketId : undefined;
+            resourceInputs["resourceUri"] = args?.resourceUri;
+            resourceInputs["stateChangedAt"] = args?.stateChangedAt;
+            resourceInputs["ticketId"] = args?.ticketId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

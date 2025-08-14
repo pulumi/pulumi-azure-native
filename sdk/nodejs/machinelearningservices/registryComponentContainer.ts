@@ -73,19 +73,19 @@ export class RegistryComponentContainer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.componentContainerProperties === undefined) && !opts.urn) {
+            if (args?.componentContainerProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'componentContainerProperties'");
             }
-            if ((!args || args.registryName === undefined) && !opts.urn) {
+            if (args?.registryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["componentContainerProperties"] = args ? (args.componentContainerProperties ? pulumi.output(args.componentContainerProperties).apply(inputs.machinelearningservices.componentContainerArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["componentName"] = args ? args.componentName : undefined;
-            resourceInputs["registryName"] = args ? args.registryName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["componentName"] = args?.componentName;
+            resourceInputs["registryName"] = args?.registryName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

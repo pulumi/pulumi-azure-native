@@ -85,26 +85,26 @@ export class WebAppSitePushSettingsSlot extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.isPushEnabled === undefined) && !opts.urn) {
+            if (args?.isPushEnabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'isPushEnabled'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.slot === undefined) && !opts.urn) {
+            if (args?.slot === undefined && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            resourceInputs["dynamicTagsJson"] = args ? args.dynamicTagsJson : undefined;
-            resourceInputs["isPushEnabled"] = args ? args.isPushEnabled : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["slot"] = args ? args.slot : undefined;
-            resourceInputs["tagWhitelistJson"] = args ? args.tagWhitelistJson : undefined;
-            resourceInputs["tagsRequiringAuth"] = args ? args.tagsRequiringAuth : undefined;
+            resourceInputs["dynamicTagsJson"] = args?.dynamicTagsJson;
+            resourceInputs["isPushEnabled"] = args?.isPushEnabled;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["slot"] = args?.slot;
+            resourceInputs["tagWhitelistJson"] = args?.tagWhitelistJson;
+            resourceInputs["tagsRequiringAuth"] = args?.tagsRequiringAuth;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

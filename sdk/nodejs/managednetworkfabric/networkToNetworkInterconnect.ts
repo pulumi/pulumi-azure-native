@@ -121,28 +121,28 @@ export class NetworkToNetworkInterconnect extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkFabricName === undefined) && !opts.urn) {
+            if (args?.networkFabricName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkFabricName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.useOptionB === undefined) && !opts.urn) {
+            if (args?.useOptionB === undefined && !opts.urn) {
                 throw new Error("Missing required property 'useOptionB'");
             }
-            resourceInputs["egressAclId"] = args ? args.egressAclId : undefined;
-            resourceInputs["exportRoutePolicy"] = args ? args.exportRoutePolicy : undefined;
-            resourceInputs["importRoutePolicy"] = args ? args.importRoutePolicy : undefined;
-            resourceInputs["ingressAclId"] = args ? args.ingressAclId : undefined;
-            resourceInputs["isManagementType"] = (args ? args.isManagementType : undefined) ?? "True";
+            resourceInputs["egressAclId"] = args?.egressAclId;
+            resourceInputs["exportRoutePolicy"] = args?.exportRoutePolicy;
+            resourceInputs["importRoutePolicy"] = args?.importRoutePolicy;
+            resourceInputs["ingressAclId"] = args?.ingressAclId;
+            resourceInputs["isManagementType"] = (args?.isManagementType) ?? "True";
             resourceInputs["layer2Configuration"] = args ? (args.layer2Configuration ? pulumi.output(args.layer2Configuration).apply(inputs.managednetworkfabric.layer2ConfigurationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["networkFabricName"] = args ? args.networkFabricName : undefined;
-            resourceInputs["networkToNetworkInterconnectName"] = args ? args.networkToNetworkInterconnectName : undefined;
-            resourceInputs["nniType"] = (args ? args.nniType : undefined) ?? "CE";
+            resourceInputs["networkFabricName"] = args?.networkFabricName;
+            resourceInputs["networkToNetworkInterconnectName"] = args?.networkToNetworkInterconnectName;
+            resourceInputs["nniType"] = (args?.nniType) ?? "CE";
             resourceInputs["npbStaticRouteConfiguration"] = args ? (args.npbStaticRouteConfiguration ? pulumi.output(args.npbStaticRouteConfiguration).apply(inputs.managednetworkfabric.npbStaticRouteConfigurationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["optionBLayer3Configuration"] = args ? args.optionBLayer3Configuration : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["useOptionB"] = args ? args.useOptionB : undefined;
+            resourceInputs["optionBLayer3Configuration"] = args?.optionBLayer3Configuration;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["useOptionB"] = args?.useOptionB;
             resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationState"] = undefined /*out*/;

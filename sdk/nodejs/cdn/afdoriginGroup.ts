@@ -94,19 +94,19 @@ export class AFDOriginGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.profileName === undefined) && !opts.urn) {
+            if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["healthProbeSettings"] = args ? args.healthProbeSettings : undefined;
-            resourceInputs["loadBalancingSettings"] = args ? args.loadBalancingSettings : undefined;
-            resourceInputs["originGroupName"] = args ? args.originGroupName : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sessionAffinityState"] = args ? args.sessionAffinityState : undefined;
-            resourceInputs["trafficRestorationTimeToHealedOrNewEndpointsInMinutes"] = args ? args.trafficRestorationTimeToHealedOrNewEndpointsInMinutes : undefined;
+            resourceInputs["healthProbeSettings"] = args?.healthProbeSettings;
+            resourceInputs["loadBalancingSettings"] = args?.loadBalancingSettings;
+            resourceInputs["originGroupName"] = args?.originGroupName;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sessionAffinityState"] = args?.sessionAffinityState;
+            resourceInputs["trafficRestorationTimeToHealedOrNewEndpointsInMinutes"] = args?.trafficRestorationTimeToHealedOrNewEndpointsInMinutes;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

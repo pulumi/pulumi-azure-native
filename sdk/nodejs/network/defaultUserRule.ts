@@ -112,28 +112,28 @@ export class DefaultUserRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configurationName === undefined) && !opts.urn) {
+            if (args?.configurationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.networkManagerName === undefined) && !opts.urn) {
+            if (args?.networkManagerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkManagerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.ruleCollectionName === undefined) && !opts.urn) {
+            if (args?.ruleCollectionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleCollectionName'");
             }
-            resourceInputs["configurationName"] = args ? args.configurationName : undefined;
-            resourceInputs["flag"] = args ? args.flag : undefined;
+            resourceInputs["configurationName"] = args?.configurationName;
+            resourceInputs["flag"] = args?.flag;
             resourceInputs["kind"] = "Default";
-            resourceInputs["networkManagerName"] = args ? args.networkManagerName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ruleCollectionName"] = args ? args.ruleCollectionName : undefined;
-            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["networkManagerName"] = args?.networkManagerName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["ruleCollectionName"] = args?.ruleCollectionName;
+            resourceInputs["ruleName"] = args?.ruleName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["destinationPortRanges"] = undefined /*out*/;

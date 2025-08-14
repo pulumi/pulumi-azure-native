@@ -85,17 +85,17 @@ export class ThroughputPoolAccount extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.throughputPoolName === undefined) && !opts.urn) {
+            if (args?.throughputPoolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'throughputPoolName'");
             }
-            resourceInputs["accountLocation"] = args ? args.accountLocation : undefined;
-            resourceInputs["accountResourceIdentifier"] = args ? args.accountResourceIdentifier : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["throughputPoolAccountName"] = args ? args.throughputPoolAccountName : undefined;
-            resourceInputs["throughputPoolName"] = args ? args.throughputPoolName : undefined;
+            resourceInputs["accountLocation"] = args?.accountLocation;
+            resourceInputs["accountResourceIdentifier"] = args?.accountResourceIdentifier;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["throughputPoolAccountName"] = args?.throughputPoolAccountName;
+            resourceInputs["throughputPoolName"] = args?.throughputPoolName;
             resourceInputs["accountInstanceId"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

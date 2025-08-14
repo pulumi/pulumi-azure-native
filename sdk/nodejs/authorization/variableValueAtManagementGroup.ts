@@ -73,19 +73,19 @@ export class VariableValueAtManagementGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managementGroupId === undefined) && !opts.urn) {
+            if (args?.managementGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            if ((!args || args.values === undefined) && !opts.urn) {
+            if (args?.values === undefined && !opts.urn) {
                 throw new Error("Missing required property 'values'");
             }
-            if ((!args || args.variableName === undefined) && !opts.urn) {
+            if (args?.variableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'variableName'");
             }
-            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
-            resourceInputs["values"] = args ? args.values : undefined;
-            resourceInputs["variableName"] = args ? args.variableName : undefined;
-            resourceInputs["variableValueName"] = args ? args.variableValueName : undefined;
+            resourceInputs["managementGroupId"] = args?.managementGroupId;
+            resourceInputs["values"] = args?.values;
+            resourceInputs["variableName"] = args?.variableName;
+            resourceInputs["variableValueName"] = args?.variableValueName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

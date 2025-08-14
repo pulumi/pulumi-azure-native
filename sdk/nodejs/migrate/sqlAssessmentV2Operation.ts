@@ -226,51 +226,51 @@ export class SqlAssessmentV2Operation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupName === undefined) && !opts.urn) {
+            if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.projectName === undefined) && !opts.urn) {
+            if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["assessmentName"] = args ? args.assessmentName : undefined;
-            resourceInputs["assessmentType"] = args ? args.assessmentType : undefined;
-            resourceInputs["asyncCommitModeIntent"] = args ? args.asyncCommitModeIntent : undefined;
-            resourceInputs["azureLocation"] = args ? args.azureLocation : undefined;
-            resourceInputs["azureOfferCode"] = args ? args.azureOfferCode : undefined;
-            resourceInputs["azureOfferCodeForVm"] = args ? args.azureOfferCodeForVm : undefined;
-            resourceInputs["azureSecurityOfferingType"] = args ? args.azureSecurityOfferingType : undefined;
-            resourceInputs["azureSqlDatabaseSettings"] = args ? args.azureSqlDatabaseSettings : undefined;
-            resourceInputs["azureSqlManagedInstanceSettings"] = args ? args.azureSqlManagedInstanceSettings : undefined;
-            resourceInputs["azureSqlVmSettings"] = args ? args.azureSqlVmSettings : undefined;
-            resourceInputs["confidenceRatingInPercentage"] = args ? args.confidenceRatingInPercentage : undefined;
-            resourceInputs["currency"] = args ? args.currency : undefined;
-            resourceInputs["disasterRecoveryLocation"] = args ? args.disasterRecoveryLocation : undefined;
-            resourceInputs["discountPercentage"] = args ? args.discountPercentage : undefined;
-            resourceInputs["eaSubscriptionId"] = args ? args.eaSubscriptionId : undefined;
-            resourceInputs["enableHadrAssessment"] = args ? args.enableHadrAssessment : undefined;
-            resourceInputs["entityUptime"] = args ? args.entityUptime : undefined;
-            resourceInputs["environmentType"] = args ? args.environmentType : undefined;
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["groupType"] = args ? args.groupType : undefined;
-            resourceInputs["isInternetAccessAvailable"] = args ? args.isInternetAccessAvailable : undefined;
-            resourceInputs["multiSubnetIntent"] = args ? args.multiSubnetIntent : undefined;
-            resourceInputs["optimizationLogic"] = args ? args.optimizationLogic : undefined;
-            resourceInputs["osLicense"] = args ? args.osLicense : undefined;
-            resourceInputs["percentile"] = args ? args.percentile : undefined;
-            resourceInputs["perfDataEndTime"] = args ? args.perfDataEndTime : undefined;
-            resourceInputs["perfDataStartTime"] = args ? args.perfDataStartTime : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["reservedInstance"] = args ? args.reservedInstance : undefined;
-            resourceInputs["reservedInstanceForVm"] = args ? args.reservedInstanceForVm : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scalingFactor"] = args ? args.scalingFactor : undefined;
-            resourceInputs["sizingCriterion"] = args ? args.sizingCriterion : undefined;
-            resourceInputs["sqlServerLicense"] = args ? args.sqlServerLicense : undefined;
-            resourceInputs["timeRange"] = args ? args.timeRange : undefined;
+            resourceInputs["assessmentName"] = args?.assessmentName;
+            resourceInputs["assessmentType"] = args?.assessmentType;
+            resourceInputs["asyncCommitModeIntent"] = args?.asyncCommitModeIntent;
+            resourceInputs["azureLocation"] = args?.azureLocation;
+            resourceInputs["azureOfferCode"] = args?.azureOfferCode;
+            resourceInputs["azureOfferCodeForVm"] = args?.azureOfferCodeForVm;
+            resourceInputs["azureSecurityOfferingType"] = args?.azureSecurityOfferingType;
+            resourceInputs["azureSqlDatabaseSettings"] = args?.azureSqlDatabaseSettings;
+            resourceInputs["azureSqlManagedInstanceSettings"] = args?.azureSqlManagedInstanceSettings;
+            resourceInputs["azureSqlVmSettings"] = args?.azureSqlVmSettings;
+            resourceInputs["confidenceRatingInPercentage"] = args?.confidenceRatingInPercentage;
+            resourceInputs["currency"] = args?.currency;
+            resourceInputs["disasterRecoveryLocation"] = args?.disasterRecoveryLocation;
+            resourceInputs["discountPercentage"] = args?.discountPercentage;
+            resourceInputs["eaSubscriptionId"] = args?.eaSubscriptionId;
+            resourceInputs["enableHadrAssessment"] = args?.enableHadrAssessment;
+            resourceInputs["entityUptime"] = args?.entityUptime;
+            resourceInputs["environmentType"] = args?.environmentType;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["groupType"] = args?.groupType;
+            resourceInputs["isInternetAccessAvailable"] = args?.isInternetAccessAvailable;
+            resourceInputs["multiSubnetIntent"] = args?.multiSubnetIntent;
+            resourceInputs["optimizationLogic"] = args?.optimizationLogic;
+            resourceInputs["osLicense"] = args?.osLicense;
+            resourceInputs["percentile"] = args?.percentile;
+            resourceInputs["perfDataEndTime"] = args?.perfDataEndTime;
+            resourceInputs["perfDataStartTime"] = args?.perfDataStartTime;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["reservedInstance"] = args?.reservedInstance;
+            resourceInputs["reservedInstanceForVm"] = args?.reservedInstanceForVm;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scalingFactor"] = args?.scalingFactor;
+            resourceInputs["sizingCriterion"] = args?.sizingCriterion;
+            resourceInputs["sqlServerLicense"] = args?.sqlServerLicense;
+            resourceInputs["timeRange"] = args?.timeRange;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

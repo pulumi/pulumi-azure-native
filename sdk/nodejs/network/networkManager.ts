@@ -101,20 +101,20 @@ export class NetworkManager extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkManagerScopes === undefined) && !opts.urn) {
+            if (args?.networkManagerScopes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkManagerScopes'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkManagerName"] = args ? args.networkManagerName : undefined;
-            resourceInputs["networkManagerScopeAccesses"] = args ? args.networkManagerScopeAccesses : undefined;
-            resourceInputs["networkManagerScopes"] = args ? args.networkManagerScopes : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkManagerName"] = args?.networkManagerName;
+            resourceInputs["networkManagerScopeAccesses"] = args?.networkManagerScopeAccesses;
+            resourceInputs["networkManagerScopes"] = args?.networkManagerScopes;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

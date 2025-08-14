@@ -105,10 +105,10 @@ export class Assessment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["assessmentName"] = args ? args.assessmentName : undefined;
-            resourceInputs["locale"] = args ? args.locale : undefined;
-            resourceInputs["typeId"] = args ? args.typeId : undefined;
-            resourceInputs["workloadId"] = args ? args.workloadId : undefined;
+            resourceInputs["assessmentName"] = args?.assessmentName;
+            resourceInputs["locale"] = args?.locale;
+            resourceInputs["typeId"] = args?.typeId;
+            resourceInputs["workloadId"] = args?.workloadId;
             resourceInputs["assessmentId"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

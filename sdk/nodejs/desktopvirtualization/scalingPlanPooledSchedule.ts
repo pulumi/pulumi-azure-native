@@ -137,32 +137,32 @@ export class ScalingPlanPooledSchedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scalingPlanName === undefined) && !opts.urn) {
+            if (args?.scalingPlanName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scalingPlanName'");
             }
-            resourceInputs["daysOfWeek"] = args ? args.daysOfWeek : undefined;
-            resourceInputs["offPeakLoadBalancingAlgorithm"] = args ? args.offPeakLoadBalancingAlgorithm : undefined;
-            resourceInputs["offPeakStartTime"] = args ? args.offPeakStartTime : undefined;
-            resourceInputs["peakLoadBalancingAlgorithm"] = args ? args.peakLoadBalancingAlgorithm : undefined;
-            resourceInputs["peakStartTime"] = args ? args.peakStartTime : undefined;
-            resourceInputs["rampDownCapacityThresholdPct"] = args ? args.rampDownCapacityThresholdPct : undefined;
-            resourceInputs["rampDownForceLogoffUsers"] = args ? args.rampDownForceLogoffUsers : undefined;
-            resourceInputs["rampDownLoadBalancingAlgorithm"] = args ? args.rampDownLoadBalancingAlgorithm : undefined;
-            resourceInputs["rampDownMinimumHostsPct"] = args ? args.rampDownMinimumHostsPct : undefined;
-            resourceInputs["rampDownNotificationMessage"] = args ? args.rampDownNotificationMessage : undefined;
-            resourceInputs["rampDownStartTime"] = args ? args.rampDownStartTime : undefined;
-            resourceInputs["rampDownStopHostsWhen"] = args ? args.rampDownStopHostsWhen : undefined;
-            resourceInputs["rampDownWaitTimeMinutes"] = args ? args.rampDownWaitTimeMinutes : undefined;
-            resourceInputs["rampUpCapacityThresholdPct"] = args ? args.rampUpCapacityThresholdPct : undefined;
-            resourceInputs["rampUpLoadBalancingAlgorithm"] = args ? args.rampUpLoadBalancingAlgorithm : undefined;
-            resourceInputs["rampUpMinimumHostsPct"] = args ? args.rampUpMinimumHostsPct : undefined;
-            resourceInputs["rampUpStartTime"] = args ? args.rampUpStartTime : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scalingPlanName"] = args ? args.scalingPlanName : undefined;
-            resourceInputs["scalingPlanScheduleName"] = args ? args.scalingPlanScheduleName : undefined;
+            resourceInputs["daysOfWeek"] = args?.daysOfWeek;
+            resourceInputs["offPeakLoadBalancingAlgorithm"] = args?.offPeakLoadBalancingAlgorithm;
+            resourceInputs["offPeakStartTime"] = args?.offPeakStartTime;
+            resourceInputs["peakLoadBalancingAlgorithm"] = args?.peakLoadBalancingAlgorithm;
+            resourceInputs["peakStartTime"] = args?.peakStartTime;
+            resourceInputs["rampDownCapacityThresholdPct"] = args?.rampDownCapacityThresholdPct;
+            resourceInputs["rampDownForceLogoffUsers"] = args?.rampDownForceLogoffUsers;
+            resourceInputs["rampDownLoadBalancingAlgorithm"] = args?.rampDownLoadBalancingAlgorithm;
+            resourceInputs["rampDownMinimumHostsPct"] = args?.rampDownMinimumHostsPct;
+            resourceInputs["rampDownNotificationMessage"] = args?.rampDownNotificationMessage;
+            resourceInputs["rampDownStartTime"] = args?.rampDownStartTime;
+            resourceInputs["rampDownStopHostsWhen"] = args?.rampDownStopHostsWhen;
+            resourceInputs["rampDownWaitTimeMinutes"] = args?.rampDownWaitTimeMinutes;
+            resourceInputs["rampUpCapacityThresholdPct"] = args?.rampUpCapacityThresholdPct;
+            resourceInputs["rampUpLoadBalancingAlgorithm"] = args?.rampUpLoadBalancingAlgorithm;
+            resourceInputs["rampUpMinimumHostsPct"] = args?.rampUpMinimumHostsPct;
+            resourceInputs["rampUpStartTime"] = args?.rampUpStartTime;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scalingPlanName"] = args?.scalingPlanName;
+            resourceInputs["scalingPlanScheduleName"] = args?.scalingPlanScheduleName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

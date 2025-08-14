@@ -180,35 +180,35 @@ export class PrivateCloud extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managementCluster === undefined) && !opts.urn) {
+            if (args?.managementCluster === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementCluster'");
             }
-            if ((!args || args.networkBlock === undefined) && !opts.urn) {
+            if (args?.networkBlock === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkBlock'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["availability"] = args ? args.availability : undefined;
-            resourceInputs["dnsZoneType"] = args ? args.dnsZoneType : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["extendedNetworkBlocks"] = args ? args.extendedNetworkBlocks : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["identitySources"] = args ? args.identitySources : undefined;
-            resourceInputs["internet"] = (args ? args.internet : undefined) ?? "Disabled";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managementCluster"] = args ? args.managementCluster : undefined;
-            resourceInputs["networkBlock"] = args ? args.networkBlock : undefined;
-            resourceInputs["nsxtPassword"] = args ? args.nsxtPassword : undefined;
-            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vcenterPassword"] = args ? args.vcenterPassword : undefined;
-            resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
+            resourceInputs["availability"] = args?.availability;
+            resourceInputs["dnsZoneType"] = args?.dnsZoneType;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["extendedNetworkBlocks"] = args?.extendedNetworkBlocks;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["identitySources"] = args?.identitySources;
+            resourceInputs["internet"] = (args?.internet) ?? "Disabled";
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managementCluster"] = args?.managementCluster;
+            resourceInputs["networkBlock"] = args?.networkBlock;
+            resourceInputs["nsxtPassword"] = args?.nsxtPassword;
+            resourceInputs["privateCloudName"] = args?.privateCloudName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vcenterPassword"] = args?.vcenterPassword;
+            resourceInputs["virtualNetworkId"] = args?.virtualNetworkId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["circuit"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;

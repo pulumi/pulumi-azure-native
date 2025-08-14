@@ -119,37 +119,37 @@ export class BmcKeySet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.azureGroupId === undefined) && !opts.urn) {
+            if (args?.azureGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'azureGroupId'");
             }
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.expiration === undefined) && !opts.urn) {
+            if (args?.expiration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expiration'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.privilegeLevel === undefined) && !opts.urn) {
+            if (args?.privilegeLevel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privilegeLevel'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.userList === undefined) && !opts.urn) {
+            if (args?.userList === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userList'");
             }
-            resourceInputs["azureGroupId"] = args ? args.azureGroupId : undefined;
-            resourceInputs["bmcKeySetName"] = args ? args.bmcKeySetName : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["expiration"] = args ? args.expiration : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["privilegeLevel"] = args ? args.privilegeLevel : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userList"] = args ? args.userList : undefined;
+            resourceInputs["azureGroupId"] = args?.azureGroupId;
+            resourceInputs["bmcKeySetName"] = args?.bmcKeySetName;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["expiration"] = args?.expiration;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["privilegeLevel"] = args?.privilegeLevel;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userList"] = args?.userList;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;

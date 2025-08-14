@@ -69,23 +69,23 @@ export class JobTargetGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.jobAgentName === undefined) && !opts.urn) {
+            if (args?.jobAgentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobAgentName'");
             }
-            if ((!args || args.members === undefined) && !opts.urn) {
+            if (args?.members === undefined && !opts.urn) {
                 throw new Error("Missing required property 'members'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            resourceInputs["jobAgentName"] = args ? args.jobAgentName : undefined;
-            resourceInputs["members"] = args ? args.members : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["targetGroupName"] = args ? args.targetGroupName : undefined;
+            resourceInputs["jobAgentName"] = args?.jobAgentName;
+            resourceInputs["members"] = args?.members;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["targetGroupName"] = args?.targetGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

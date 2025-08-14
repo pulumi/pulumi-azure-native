@@ -97,31 +97,31 @@ export class SavedSearch extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.category === undefined) && !opts.urn) {
+            if (args?.category === undefined && !opts.urn) {
                 throw new Error("Missing required property 'category'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.query === undefined) && !opts.urn) {
+            if (args?.query === undefined && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["category"] = args ? args.category : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["functionAlias"] = args ? args.functionAlias : undefined;
-            resourceInputs["functionParameters"] = args ? args.functionParameters : undefined;
-            resourceInputs["query"] = args ? args.query : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["savedSearchId"] = args ? args.savedSearchId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["category"] = args?.category;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["functionAlias"] = args?.functionAlias;
+            resourceInputs["functionParameters"] = args?.functionParameters;
+            resourceInputs["query"] = args?.query;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["savedSearchId"] = args?.savedSearchId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -103,37 +103,37 @@ export class ManagedDatabaseSensitivityLabel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.columnName === undefined) && !opts.urn) {
+            if (args?.columnName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'columnName'");
             }
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.managedInstanceName === undefined) && !opts.urn) {
+            if (args?.managedInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.schemaName === undefined) && !opts.urn) {
+            if (args?.schemaName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaName'");
             }
-            if ((!args || args.tableName === undefined) && !opts.urn) {
+            if (args?.tableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            resourceInputs["clientClassificationSource"] = args ? args.clientClassificationSource : undefined;
-            resourceInputs["columnName"] = args ? args.columnName : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["informationType"] = args ? args.informationType : undefined;
-            resourceInputs["informationTypeId"] = args ? args.informationTypeId : undefined;
-            resourceInputs["labelId"] = args ? args.labelId : undefined;
-            resourceInputs["labelName"] = args ? args.labelName : undefined;
-            resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
-            resourceInputs["rank"] = args ? args.rank : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
-            resourceInputs["sensitivityLabelSource"] = args ? args.sensitivityLabelSource : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["clientClassificationSource"] = args?.clientClassificationSource;
+            resourceInputs["columnName"] = args?.columnName;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["informationType"] = args?.informationType;
+            resourceInputs["informationTypeId"] = args?.informationTypeId;
+            resourceInputs["labelId"] = args?.labelId;
+            resourceInputs["labelName"] = args?.labelName;
+            resourceInputs["managedInstanceName"] = args?.managedInstanceName;
+            resourceInputs["rank"] = args?.rank;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["schemaName"] = args?.schemaName;
+            resourceInputs["sensitivityLabelSource"] = args?.sensitivityLabelSource;
+            resourceInputs["tableName"] = args?.tableName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["isDisabled"] = undefined /*out*/;
             resourceInputs["managedBy"] = undefined /*out*/;

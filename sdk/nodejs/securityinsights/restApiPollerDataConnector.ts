@@ -112,37 +112,37 @@ export class RestApiPollerDataConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.auth === undefined) && !opts.urn) {
+            if (args?.auth === undefined && !opts.urn) {
                 throw new Error("Missing required property 'auth'");
             }
-            if ((!args || args.connectorDefinitionName === undefined) && !opts.urn) {
+            if (args?.connectorDefinitionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectorDefinitionName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.request === undefined) && !opts.urn) {
+            if (args?.request === undefined && !opts.urn) {
                 throw new Error("Missing required property 'request'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["addOnAttributes"] = args ? args.addOnAttributes : undefined;
-            resourceInputs["auth"] = args ? args.auth : undefined;
-            resourceInputs["connectorDefinitionName"] = args ? args.connectorDefinitionName : undefined;
-            resourceInputs["dataConnectorId"] = args ? args.dataConnectorId : undefined;
-            resourceInputs["dataType"] = args ? args.dataType : undefined;
-            resourceInputs["dcrConfig"] = args ? args.dcrConfig : undefined;
-            resourceInputs["isActive"] = args ? args.isActive : undefined;
+            resourceInputs["addOnAttributes"] = args?.addOnAttributes;
+            resourceInputs["auth"] = args?.auth;
+            resourceInputs["connectorDefinitionName"] = args?.connectorDefinitionName;
+            resourceInputs["dataConnectorId"] = args?.dataConnectorId;
+            resourceInputs["dataType"] = args?.dataType;
+            resourceInputs["dcrConfig"] = args?.dcrConfig;
+            resourceInputs["isActive"] = args?.isActive;
             resourceInputs["kind"] = "RestApiPoller";
-            resourceInputs["paging"] = args ? args.paging : undefined;
-            resourceInputs["request"] = args ? args.request : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["paging"] = args?.paging;
+            resourceInputs["request"] = args?.request;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["response"] = args ? (args.response ? pulumi.output(args.response).apply(inputs.securityinsights.ccpResponseConfigArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

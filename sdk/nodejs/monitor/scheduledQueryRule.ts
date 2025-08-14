@@ -165,40 +165,40 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.criteria === undefined) && !opts.urn) {
+            if (args?.criteria === undefined && !opts.urn) {
                 throw new Error("Missing required property 'criteria'");
             }
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scopes === undefined) && !opts.urn) {
+            if (args?.scopes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["autoMitigate"] = args ? args.autoMitigate : undefined;
-            resourceInputs["checkWorkspaceAlertsStorageConfigured"] = args ? args.checkWorkspaceAlertsStorageConfigured : undefined;
-            resourceInputs["criteria"] = args ? args.criteria : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["evaluationFrequency"] = args ? args.evaluationFrequency : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["muteActionsDuration"] = args ? args.muteActionsDuration : undefined;
-            resourceInputs["overrideQueryTimeRange"] = args ? args.overrideQueryTimeRange : undefined;
-            resourceInputs["resolveConfiguration"] = args ? args.resolveConfiguration : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
-            resourceInputs["severity"] = args ? args.severity : undefined;
-            resourceInputs["skipQueryValidation"] = args ? args.skipQueryValidation : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetResourceTypes"] = args ? args.targetResourceTypes : undefined;
-            resourceInputs["windowSize"] = args ? args.windowSize : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["autoMitigate"] = args?.autoMitigate;
+            resourceInputs["checkWorkspaceAlertsStorageConfigured"] = args?.checkWorkspaceAlertsStorageConfigured;
+            resourceInputs["criteria"] = args?.criteria;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["evaluationFrequency"] = args?.evaluationFrequency;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["muteActionsDuration"] = args?.muteActionsDuration;
+            resourceInputs["overrideQueryTimeRange"] = args?.overrideQueryTimeRange;
+            resourceInputs["resolveConfiguration"] = args?.resolveConfiguration;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["ruleName"] = args?.ruleName;
+            resourceInputs["scopes"] = args?.scopes;
+            resourceInputs["severity"] = args?.severity;
+            resourceInputs["skipQueryValidation"] = args?.skipQueryValidation;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetResourceTypes"] = args?.targetResourceTypes;
+            resourceInputs["windowSize"] = args?.windowSize;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdWithApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

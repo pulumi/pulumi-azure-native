@@ -77,17 +77,17 @@ export class BillingRoleAssignmentByDepartment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.billingAccountName === undefined) && !opts.urn) {
+            if (args?.billingAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'billingAccountName'");
             }
-            if ((!args || args.departmentName === undefined) && !opts.urn) {
+            if (args?.departmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'departmentName'");
             }
-            resourceInputs["billingAccountName"] = args ? args.billingAccountName : undefined;
-            resourceInputs["billingRoleAssignmentName"] = args ? args.billingRoleAssignmentName : undefined;
-            resourceInputs["departmentName"] = args ? args.departmentName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["billingAccountName"] = args?.billingAccountName;
+            resourceInputs["billingRoleAssignmentName"] = args?.billingRoleAssignmentName;
+            resourceInputs["departmentName"] = args?.departmentName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

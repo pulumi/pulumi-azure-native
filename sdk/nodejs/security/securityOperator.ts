@@ -67,11 +67,11 @@ export class SecurityOperator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.pricingName === undefined) && !opts.urn) {
+            if (args?.pricingName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pricingName'");
             }
-            resourceInputs["pricingName"] = args ? args.pricingName : undefined;
-            resourceInputs["securityOperatorName"] = args ? args.securityOperatorName : undefined;
+            resourceInputs["pricingName"] = args?.pricingName;
+            resourceInputs["securityOperatorName"] = args?.securityOperatorName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

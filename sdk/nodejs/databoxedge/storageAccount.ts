@@ -93,22 +93,22 @@ export class StorageAccount extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataPolicy === undefined) && !opts.urn) {
+            if (args?.dataPolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataPolicy'");
             }
-            if ((!args || args.deviceName === undefined) && !opts.urn) {
+            if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dataPolicy"] = args ? args.dataPolicy : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageAccountCredentialId"] = args ? args.storageAccountCredentialId : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            resourceInputs["storageAccountStatus"] = args ? args.storageAccountStatus : undefined;
+            resourceInputs["dataPolicy"] = args?.dataPolicy;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageAccountCredentialId"] = args?.storageAccountCredentialId;
+            resourceInputs["storageAccountName"] = args?.storageAccountName;
+            resourceInputs["storageAccountStatus"] = args?.storageAccountStatus;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["blobEndpoint"] = undefined /*out*/;
             resourceInputs["containerCount"] = undefined /*out*/;

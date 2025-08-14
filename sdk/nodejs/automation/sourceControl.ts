@@ -101,23 +101,23 @@ export class SourceControl extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoSync"] = args ? args.autoSync : undefined;
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["branch"] = args ? args.branch : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["folderPath"] = args ? args.folderPath : undefined;
-            resourceInputs["publishRunbook"] = args ? args.publishRunbook : undefined;
-            resourceInputs["repoUrl"] = args ? args.repoUrl : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securityToken"] = args ? args.securityToken : undefined;
-            resourceInputs["sourceControlName"] = args ? args.sourceControlName : undefined;
-            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
+            resourceInputs["autoSync"] = args?.autoSync;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["branch"] = args?.branch;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["folderPath"] = args?.folderPath;
+            resourceInputs["publishRunbook"] = args?.publishRunbook;
+            resourceInputs["repoUrl"] = args?.repoUrl;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["securityToken"] = args?.securityToken;
+            resourceInputs["sourceControlName"] = args?.sourceControlName;
+            resourceInputs["sourceType"] = args?.sourceType;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;

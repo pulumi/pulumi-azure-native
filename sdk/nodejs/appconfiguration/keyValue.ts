@@ -98,18 +98,18 @@ export class KeyValue extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configStoreName === undefined) && !opts.urn) {
+            if (args?.configStoreName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configStoreName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["configStoreName"] = args ? args.configStoreName : undefined;
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["keyValueName"] = args ? args.keyValueName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["configStoreName"] = args?.configStoreName;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["keyValueName"] = args?.keyValueName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["value"] = args?.value;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["key"] = undefined /*out*/;

@@ -115,38 +115,38 @@ export class MqttBridgeConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.image === undefined) && !opts.urn) {
+            if (args?.image === undefined && !opts.urn) {
                 throw new Error("Missing required property 'image'");
             }
-            if ((!args || args.mqName === undefined) && !opts.urn) {
+            if (args?.mqName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mqName'");
             }
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.remoteBrokerConnection === undefined) && !opts.urn) {
+            if (args?.remoteBrokerConnection === undefined && !opts.urn) {
                 throw new Error("Missing required property 'remoteBrokerConnection'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["bridgeInstances"] = args ? args.bridgeInstances : undefined;
-            resourceInputs["clientIdPrefix"] = args ? args.clientIdPrefix : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["image"] = args ? args.image : undefined;
+            resourceInputs["bridgeInstances"] = args?.bridgeInstances;
+            resourceInputs["clientIdPrefix"] = args?.clientIdPrefix;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["image"] = args?.image;
             resourceInputs["localBrokerConnection"] = args ? (args.localBrokerConnection ? pulumi.output(args.localBrokerConnection).apply(inputs.iotoperationsmq.localBrokerConnectionSpecArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logLevel"] = args ? args.logLevel : undefined;
-            resourceInputs["mqName"] = args ? args.mqName : undefined;
-            resourceInputs["mqttBridgeConnectorName"] = args ? args.mqttBridgeConnectorName : undefined;
-            resourceInputs["nodeTolerations"] = args ? args.nodeTolerations : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logLevel"] = args?.logLevel;
+            resourceInputs["mqName"] = args?.mqName;
+            resourceInputs["mqttBridgeConnectorName"] = args?.mqttBridgeConnectorName;
+            resourceInputs["nodeTolerations"] = args?.nodeTolerations;
+            resourceInputs["protocol"] = args?.protocol;
             resourceInputs["remoteBrokerConnection"] = args ? (args.remoteBrokerConnection ? pulumi.output(args.remoteBrokerConnection).apply(inputs.iotoperationsmq.mqttBridgeRemoteBrokerConnectionSpecArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

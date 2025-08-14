@@ -149,33 +149,33 @@ export class Subscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.topicName === undefined) && !opts.urn) {
+            if (args?.topicName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'topicName'");
             }
-            resourceInputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
-            resourceInputs["clientAffineProperties"] = args ? args.clientAffineProperties : undefined;
-            resourceInputs["deadLetteringOnFilterEvaluationExceptions"] = args ? args.deadLetteringOnFilterEvaluationExceptions : undefined;
-            resourceInputs["deadLetteringOnMessageExpiration"] = args ? args.deadLetteringOnMessageExpiration : undefined;
-            resourceInputs["defaultMessageTimeToLive"] = args ? args.defaultMessageTimeToLive : undefined;
-            resourceInputs["duplicateDetectionHistoryTimeWindow"] = args ? args.duplicateDetectionHistoryTimeWindow : undefined;
-            resourceInputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
-            resourceInputs["forwardDeadLetteredMessagesTo"] = args ? args.forwardDeadLetteredMessagesTo : undefined;
-            resourceInputs["forwardTo"] = args ? args.forwardTo : undefined;
-            resourceInputs["isClientAffine"] = args ? args.isClientAffine : undefined;
-            resourceInputs["lockDuration"] = args ? args.lockDuration : undefined;
-            resourceInputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["requiresSession"] = args ? args.requiresSession : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["subscriptionName"] = args ? args.subscriptionName : undefined;
-            resourceInputs["topicName"] = args ? args.topicName : undefined;
+            resourceInputs["autoDeleteOnIdle"] = args?.autoDeleteOnIdle;
+            resourceInputs["clientAffineProperties"] = args?.clientAffineProperties;
+            resourceInputs["deadLetteringOnFilterEvaluationExceptions"] = args?.deadLetteringOnFilterEvaluationExceptions;
+            resourceInputs["deadLetteringOnMessageExpiration"] = args?.deadLetteringOnMessageExpiration;
+            resourceInputs["defaultMessageTimeToLive"] = args?.defaultMessageTimeToLive;
+            resourceInputs["duplicateDetectionHistoryTimeWindow"] = args?.duplicateDetectionHistoryTimeWindow;
+            resourceInputs["enableBatchedOperations"] = args?.enableBatchedOperations;
+            resourceInputs["forwardDeadLetteredMessagesTo"] = args?.forwardDeadLetteredMessagesTo;
+            resourceInputs["forwardTo"] = args?.forwardTo;
+            resourceInputs["isClientAffine"] = args?.isClientAffine;
+            resourceInputs["lockDuration"] = args?.lockDuration;
+            resourceInputs["maxDeliveryCount"] = args?.maxDeliveryCount;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["requiresSession"] = args?.requiresSession;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["subscriptionName"] = args?.subscriptionName;
+            resourceInputs["topicName"] = args?.topicName;
             resourceInputs["accessedAt"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["countDetails"] = undefined /*out*/;

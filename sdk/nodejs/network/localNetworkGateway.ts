@@ -101,18 +101,18 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["bgpSettings"] = args ? args.bgpSettings : undefined;
-            resourceInputs["fqdn"] = args ? args.fqdn : undefined;
-            resourceInputs["gatewayIpAddress"] = args ? args.gatewayIpAddress : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["localNetworkAddressSpace"] = args ? args.localNetworkAddressSpace : undefined;
-            resourceInputs["localNetworkGatewayName"] = args ? args.localNetworkGatewayName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["bgpSettings"] = args?.bgpSettings;
+            resourceInputs["fqdn"] = args?.fqdn;
+            resourceInputs["gatewayIpAddress"] = args?.gatewayIpAddress;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["localNetworkAddressSpace"] = args?.localNetworkAddressSpace;
+            resourceInputs["localNetworkGatewayName"] = args?.localNetworkGatewayName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

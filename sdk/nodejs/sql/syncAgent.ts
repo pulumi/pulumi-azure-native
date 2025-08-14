@@ -86,16 +86,16 @@ export class SyncAgent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["syncAgentName"] = args ? args.syncAgentName : undefined;
-            resourceInputs["syncDatabaseId"] = args ? args.syncDatabaseId : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["syncAgentName"] = args?.syncAgentName;
+            resourceInputs["syncDatabaseId"] = args?.syncDatabaseId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["expiryTime"] = undefined /*out*/;
             resourceInputs["isUpToDate"] = undefined /*out*/;

@@ -133,21 +133,21 @@ export class NetworkFabricController extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["annotation"] = args ? args.annotation : undefined;
-            resourceInputs["infrastructureExpressRouteConnections"] = args ? args.infrastructureExpressRouteConnections : undefined;
-            resourceInputs["ipv4AddressSpace"] = (args ? args.ipv4AddressSpace : undefined) ?? "10.0.0.0/19";
-            resourceInputs["ipv6AddressSpace"] = (args ? args.ipv6AddressSpace : undefined) ?? "FC00::/59";
-            resourceInputs["isWorkloadManagementNetworkEnabled"] = (args ? args.isWorkloadManagementNetworkEnabled : undefined) ?? "True";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedResourceGroupConfiguration"] = args ? args.managedResourceGroupConfiguration : undefined;
-            resourceInputs["networkFabricControllerName"] = args ? args.networkFabricControllerName : undefined;
-            resourceInputs["nfcSku"] = (args ? args.nfcSku : undefined) ?? "Standard";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workloadExpressRouteConnections"] = args ? args.workloadExpressRouteConnections : undefined;
+            resourceInputs["annotation"] = args?.annotation;
+            resourceInputs["infrastructureExpressRouteConnections"] = args?.infrastructureExpressRouteConnections;
+            resourceInputs["ipv4AddressSpace"] = (args?.ipv4AddressSpace) ?? "10.0.0.0/19";
+            resourceInputs["ipv6AddressSpace"] = (args?.ipv6AddressSpace) ?? "FC00::/59";
+            resourceInputs["isWorkloadManagementNetworkEnabled"] = (args?.isWorkloadManagementNetworkEnabled) ?? "True";
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedResourceGroupConfiguration"] = args?.managedResourceGroupConfiguration;
+            resourceInputs["networkFabricControllerName"] = args?.networkFabricControllerName;
+            resourceInputs["nfcSku"] = (args?.nfcSku) ?? "Standard";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workloadExpressRouteConnections"] = args?.workloadExpressRouteConnections;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["infrastructureServices"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -121,27 +121,27 @@ export class ConnectedRegistry extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.mode === undefined) && !opts.urn) {
+            if (args?.mode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mode'");
             }
-            if ((!args || args.parent === undefined) && !opts.urn) {
+            if (args?.parent === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parent'");
             }
-            if ((!args || args.registryName === undefined) && !opts.urn) {
+            if (args?.registryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clientTokenIds"] = args ? args.clientTokenIds : undefined;
-            resourceInputs["connectedRegistryName"] = args ? args.connectedRegistryName : undefined;
-            resourceInputs["garbageCollection"] = args ? args.garbageCollection : undefined;
+            resourceInputs["clientTokenIds"] = args?.clientTokenIds;
+            resourceInputs["connectedRegistryName"] = args?.connectedRegistryName;
+            resourceInputs["garbageCollection"] = args?.garbageCollection;
             resourceInputs["logging"] = args ? (args.logging ? pulumi.output(args.logging).apply(inputs.containerregistry.loggingPropertiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["notificationsList"] = args ? args.notificationsList : undefined;
-            resourceInputs["parent"] = args ? args.parent : undefined;
-            resourceInputs["registryName"] = args ? args.registryName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["notificationsList"] = args?.notificationsList;
+            resourceInputs["parent"] = args?.parent;
+            resourceInputs["registryName"] = args?.registryName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["activation"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionState"] = undefined /*out*/;

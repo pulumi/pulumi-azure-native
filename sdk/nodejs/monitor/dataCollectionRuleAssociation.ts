@@ -91,14 +91,14 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["associationName"] = args ? args.associationName : undefined;
-            resourceInputs["dataCollectionEndpointId"] = args ? args.dataCollectionEndpointId : undefined;
-            resourceInputs["dataCollectionRuleId"] = args ? args.dataCollectionRuleId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
+            resourceInputs["associationName"] = args?.associationName;
+            resourceInputs["dataCollectionEndpointId"] = args?.dataCollectionEndpointId;
+            resourceInputs["dataCollectionRuleId"] = args?.dataCollectionRuleId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["resourceUri"] = args?.resourceUri;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["metadata"] = undefined /*out*/;

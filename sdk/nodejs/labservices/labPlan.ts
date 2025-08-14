@@ -117,21 +117,21 @@ export class LabPlan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allowedRegions"] = args ? args.allowedRegions : undefined;
+            resourceInputs["allowedRegions"] = args?.allowedRegions;
             resourceInputs["defaultAutoShutdownProfile"] = args ? (args.defaultAutoShutdownProfile ? pulumi.output(args.defaultAutoShutdownProfile).apply(inputs.labservices.autoShutdownProfileArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["defaultConnectionProfile"] = args ? (args.defaultConnectionProfile ? pulumi.output(args.defaultConnectionProfile).apply(inputs.labservices.connectionProfileArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["defaultNetworkProfile"] = args ? args.defaultNetworkProfile : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["labPlanName"] = args ? args.labPlanName : undefined;
-            resourceInputs["linkedLmsInstance"] = args ? args.linkedLmsInstance : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sharedGalleryId"] = args ? args.sharedGalleryId : undefined;
-            resourceInputs["supportInfo"] = args ? args.supportInfo : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["defaultNetworkProfile"] = args?.defaultNetworkProfile;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["labPlanName"] = args?.labPlanName;
+            resourceInputs["linkedLmsInstance"] = args?.linkedLmsInstance;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sharedGalleryId"] = args?.sharedGalleryId;
+            resourceInputs["supportInfo"] = args?.supportInfo;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

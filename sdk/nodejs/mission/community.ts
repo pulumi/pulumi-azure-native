@@ -129,22 +129,22 @@ export class Community extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["addressSpace"] = args ? args.addressSpace : undefined;
-            resourceInputs["approvalSettings"] = args ? args.approvalSettings : undefined;
-            resourceInputs["communityName"] = args ? args.communityName : undefined;
-            resourceInputs["communityRoleAssignments"] = args ? args.communityRoleAssignments : undefined;
-            resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
-            resourceInputs["firewallSku"] = (args ? args.firewallSku : undefined) ?? "Standard";
-            resourceInputs["governedServiceList"] = args ? args.governedServiceList : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["addressSpace"] = args?.addressSpace;
+            resourceInputs["approvalSettings"] = args?.approvalSettings;
+            resourceInputs["communityName"] = args?.communityName;
+            resourceInputs["communityRoleAssignments"] = args?.communityRoleAssignments;
+            resourceInputs["dnsServers"] = args?.dnsServers;
+            resourceInputs["firewallSku"] = (args?.firewallSku) ?? "Standard";
+            resourceInputs["governedServiceList"] = args?.governedServiceList;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
             resourceInputs["maintenanceModeConfiguration"] = args ? (args.maintenanceModeConfiguration ? pulumi.output(args.maintenanceModeConfiguration).apply(inputs.mission.maintenanceModeConfigurationModelArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["policyOverride"] = args ? args.policyOverride : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["policyOverride"] = args?.policyOverride;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["managedOnBehalfOfConfiguration"] = undefined /*out*/;
             resourceInputs["managedResourceGroupName"] = undefined /*out*/;

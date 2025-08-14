@@ -83,23 +83,23 @@ export class BgpPeer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.myAsn === undefined) && !opts.urn) {
+            if (args?.myAsn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'myAsn'");
             }
-            if ((!args || args.peerAddress === undefined) && !opts.urn) {
+            if (args?.peerAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peerAddress'");
             }
-            if ((!args || args.peerAsn === undefined) && !opts.urn) {
+            if (args?.peerAsn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peerAsn'");
             }
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["bgpPeerName"] = args ? args.bgpPeerName : undefined;
-            resourceInputs["myAsn"] = args ? args.myAsn : undefined;
-            resourceInputs["peerAddress"] = args ? args.peerAddress : undefined;
-            resourceInputs["peerAsn"] = args ? args.peerAsn : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
+            resourceInputs["bgpPeerName"] = args?.bgpPeerName;
+            resourceInputs["myAsn"] = args?.myAsn;
+            resourceInputs["peerAddress"] = args?.peerAddress;
+            resourceInputs["peerAsn"] = args?.peerAsn;
+            resourceInputs["resourceUri"] = args?.resourceUri;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

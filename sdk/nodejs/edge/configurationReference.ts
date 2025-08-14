@@ -71,12 +71,12 @@ export class ConfigurationReference extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["configurationReferenceName"] = args ? args.configurationReferenceName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
+            resourceInputs["configurationReferenceName"] = args?.configurationReferenceName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceUri"] = args?.resourceUri;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

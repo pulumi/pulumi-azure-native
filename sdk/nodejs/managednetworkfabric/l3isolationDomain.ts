@@ -113,22 +113,22 @@ export class L3IsolationDomain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkFabricId === undefined) && !opts.urn) {
+            if (args?.networkFabricId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkFabricId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["aggregateRouteConfiguration"] = args ? args.aggregateRouteConfiguration : undefined;
-            resourceInputs["annotation"] = args ? args.annotation : undefined;
-            resourceInputs["connectedSubnetRoutePolicy"] = args ? args.connectedSubnetRoutePolicy : undefined;
-            resourceInputs["l3IsolationDomainName"] = args ? args.l3IsolationDomainName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkFabricId"] = args ? args.networkFabricId : undefined;
-            resourceInputs["redistributeConnectedSubnets"] = (args ? args.redistributeConnectedSubnets : undefined) ?? "True";
-            resourceInputs["redistributeStaticRoutes"] = (args ? args.redistributeStaticRoutes : undefined) ?? "False";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["aggregateRouteConfiguration"] = args?.aggregateRouteConfiguration;
+            resourceInputs["annotation"] = args?.annotation;
+            resourceInputs["connectedSubnetRoutePolicy"] = args?.connectedSubnetRoutePolicy;
+            resourceInputs["l3IsolationDomainName"] = args?.l3IsolationDomainName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkFabricId"] = args?.networkFabricId;
+            resourceInputs["redistributeConnectedSubnets"] = (args?.redistributeConnectedSubnets) ?? "True";
+            resourceInputs["redistributeStaticRoutes"] = (args?.redistributeStaticRoutes) ?? "False";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationState"] = undefined /*out*/;

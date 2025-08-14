@@ -113,29 +113,29 @@ export class SyncGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            resourceInputs["conflictLoggingRetentionInDays"] = args ? args.conflictLoggingRetentionInDays : undefined;
-            resourceInputs["conflictResolutionPolicy"] = args ? args.conflictResolutionPolicy : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["enableConflictLogging"] = args ? args.enableConflictLogging : undefined;
-            resourceInputs["hubDatabasePassword"] = args ? args.hubDatabasePassword : undefined;
-            resourceInputs["hubDatabaseUserName"] = args ? args.hubDatabaseUserName : undefined;
-            resourceInputs["interval"] = args ? args.interval : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["syncDatabaseId"] = args ? args.syncDatabaseId : undefined;
-            resourceInputs["syncGroupName"] = args ? args.syncGroupName : undefined;
-            resourceInputs["usePrivateLinkConnection"] = args ? args.usePrivateLinkConnection : undefined;
+            resourceInputs["conflictLoggingRetentionInDays"] = args?.conflictLoggingRetentionInDays;
+            resourceInputs["conflictResolutionPolicy"] = args?.conflictResolutionPolicy;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["enableConflictLogging"] = args?.enableConflictLogging;
+            resourceInputs["hubDatabasePassword"] = args?.hubDatabasePassword;
+            resourceInputs["hubDatabaseUserName"] = args?.hubDatabaseUserName;
+            resourceInputs["interval"] = args?.interval;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["syncDatabaseId"] = args?.syncDatabaseId;
+            resourceInputs["syncGroupName"] = args?.syncGroupName;
+            resourceInputs["usePrivateLinkConnection"] = args?.usePrivateLinkConnection;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastSyncTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

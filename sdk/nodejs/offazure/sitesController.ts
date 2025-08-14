@@ -111,17 +111,17 @@ export class SitesController extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["agentDetails"] = args ? args.agentDetails : undefined;
-            resourceInputs["applianceName"] = args ? args.applianceName : undefined;
-            resourceInputs["discoverySolutionId"] = args ? args.discoverySolutionId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["servicePrincipalIdentityDetails"] = args ? args.servicePrincipalIdentityDetails : undefined;
-            resourceInputs["siteName"] = args ? args.siteName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["agentDetails"] = args?.agentDetails;
+            resourceInputs["applianceName"] = args?.applianceName;
+            resourceInputs["discoverySolutionId"] = args?.discoverySolutionId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["servicePrincipalIdentityDetails"] = args?.servicePrincipalIdentityDetails;
+            resourceInputs["siteName"] = args?.siteName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["masterSiteId"] = undefined /*out*/;

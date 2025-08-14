@@ -121,19 +121,19 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["billingType"] = args ? args.billingType : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["isAvailabilityZonesEnabled"] = args ? args.isAvailabilityZonesEnabled : undefined;
-            resourceInputs["isDoubleEncryptionEnabled"] = args ? args.isDoubleEncryptionEnabled : undefined;
-            resourceInputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["billingType"] = args?.billingType;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["isAvailabilityZonesEnabled"] = args?.isAvailabilityZonesEnabled;
+            resourceInputs["isDoubleEncryptionEnabled"] = args?.isDoubleEncryptionEnabled;
+            resourceInputs["keyVaultProperties"] = args?.keyVaultProperties;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["associatedWorkspaces"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["capacityReservationProperties"] = undefined /*out*/;

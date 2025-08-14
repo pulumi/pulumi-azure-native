@@ -109,31 +109,31 @@ export class PacketCapture extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkWatcherName === undefined) && !opts.urn) {
+            if (args?.networkWatcherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkWatcherName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageLocation === undefined) && !opts.urn) {
+            if (args?.storageLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageLocation'");
             }
-            if ((!args || args.target === undefined) && !opts.urn) {
+            if (args?.target === undefined && !opts.urn) {
                 throw new Error("Missing required property 'target'");
             }
-            resourceInputs["bytesToCapturePerPacket"] = (args ? args.bytesToCapturePerPacket : undefined) ?? 0;
+            resourceInputs["bytesToCapturePerPacket"] = (args?.bytesToCapturePerPacket) ?? 0;
             resourceInputs["captureSettings"] = args ? (args.captureSettings ? pulumi.output(args.captureSettings).apply(inputs.network.packetCaptureSettingsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["continuousCapture"] = args ? args.continuousCapture : undefined;
-            resourceInputs["filters"] = args ? args.filters : undefined;
-            resourceInputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
-            resourceInputs["packetCaptureName"] = args ? args.packetCaptureName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["storageLocation"] = args ? args.storageLocation : undefined;
-            resourceInputs["target"] = args ? args.target : undefined;
-            resourceInputs["targetType"] = args ? args.targetType : undefined;
-            resourceInputs["timeLimitInSeconds"] = (args ? args.timeLimitInSeconds : undefined) ?? 18000;
-            resourceInputs["totalBytesPerSession"] = (args ? args.totalBytesPerSession : undefined) ?? 1073741824;
+            resourceInputs["continuousCapture"] = args?.continuousCapture;
+            resourceInputs["filters"] = args?.filters;
+            resourceInputs["networkWatcherName"] = args?.networkWatcherName;
+            resourceInputs["packetCaptureName"] = args?.packetCaptureName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["storageLocation"] = args?.storageLocation;
+            resourceInputs["target"] = args?.target;
+            resourceInputs["targetType"] = args?.targetType;
+            resourceInputs["timeLimitInSeconds"] = (args?.timeLimitInSeconds) ?? 18000;
+            resourceInputs["totalBytesPerSession"] = (args?.totalBytesPerSession) ?? 1073741824;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

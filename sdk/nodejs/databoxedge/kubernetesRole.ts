@@ -103,35 +103,35 @@ export class KubernetesRole extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deviceName === undefined) && !opts.urn) {
+            if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.hostPlatform === undefined) && !opts.urn) {
+            if (args?.hostPlatform === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostPlatform'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.kubernetesClusterInfo === undefined) && !opts.urn) {
+            if (args?.kubernetesClusterInfo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kubernetesClusterInfo'");
             }
-            if ((!args || args.kubernetesRoleResources === undefined) && !opts.urn) {
+            if (args?.kubernetesRoleResources === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kubernetesRoleResources'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.roleStatus === undefined) && !opts.urn) {
+            if (args?.roleStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleStatus'");
             }
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["hostPlatform"] = args ? args.hostPlatform : undefined;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["hostPlatform"] = args?.hostPlatform;
             resourceInputs["kind"] = "Kubernetes";
-            resourceInputs["kubernetesClusterInfo"] = args ? args.kubernetesClusterInfo : undefined;
-            resourceInputs["kubernetesRoleResources"] = args ? args.kubernetesRoleResources : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["roleStatus"] = args ? args.roleStatus : undefined;
+            resourceInputs["kubernetesClusterInfo"] = args?.kubernetesClusterInfo;
+            resourceInputs["kubernetesRoleResources"] = args?.kubernetesRoleResources;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["roleStatus"] = args?.roleStatus;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hostPlatformType"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

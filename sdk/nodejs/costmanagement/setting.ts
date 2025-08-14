@@ -79,13 +79,13 @@ export class Setting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["cache"] = args ? args.cache : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["settingName"] = args ? args.settingName : undefined;
-            resourceInputs["startOn"] = args ? args.startOn : undefined;
+            resourceInputs["cache"] = args?.cache;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["settingName"] = args?.settingName;
+            resourceInputs["startOn"] = args?.startOn;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

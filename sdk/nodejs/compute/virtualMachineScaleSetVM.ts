@@ -181,32 +181,32 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vmScaleSetName === undefined) && !opts.urn) {
+            if (args?.vmScaleSetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vmScaleSetName'");
             }
-            resourceInputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
-            resourceInputs["availabilitySet"] = args ? args.availabilitySet : undefined;
-            resourceInputs["diagnosticsProfile"] = args ? args.diagnosticsProfile : undefined;
-            resourceInputs["hardwareProfile"] = args ? args.hardwareProfile : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["networkProfileConfiguration"] = args ? args.networkProfileConfiguration : undefined;
-            resourceInputs["osProfile"] = args ? args.osProfile : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["protectionPolicy"] = args ? args.protectionPolicy : undefined;
-            resourceInputs["resilientVMDeletionStatus"] = args ? args.resilientVMDeletionStatus : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
-            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userData"] = args ? args.userData : undefined;
-            resourceInputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
+            resourceInputs["additionalCapabilities"] = args?.additionalCapabilities;
+            resourceInputs["availabilitySet"] = args?.availabilitySet;
+            resourceInputs["diagnosticsProfile"] = args?.diagnosticsProfile;
+            resourceInputs["hardwareProfile"] = args?.hardwareProfile;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["licenseType"] = args?.licenseType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["networkProfileConfiguration"] = args?.networkProfileConfiguration;
+            resourceInputs["osProfile"] = args?.osProfile;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["protectionPolicy"] = args?.protectionPolicy;
+            resourceInputs["resilientVMDeletionStatus"] = args?.resilientVMDeletionStatus;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["securityProfile"] = args?.securityProfile;
+            resourceInputs["storageProfile"] = args?.storageProfile;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userData"] = args?.userData;
+            resourceInputs["vmScaleSetName"] = args?.vmScaleSetName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;

@@ -141,27 +141,27 @@ export class VirtualNetwork extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["addressSpace"] = args ? args.addressSpace : undefined;
-            resourceInputs["bgpCommunities"] = args ? args.bgpCommunities : undefined;
-            resourceInputs["ddosProtectionPlan"] = args ? args.ddosProtectionPlan : undefined;
-            resourceInputs["dhcpOptions"] = args ? args.dhcpOptions : undefined;
-            resourceInputs["enableDdosProtection"] = (args ? args.enableDdosProtection : undefined) ?? false;
-            resourceInputs["enableVmProtection"] = (args ? args.enableVmProtection : undefined) ?? false;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["flowTimeoutInMinutes"] = args ? args.flowTimeoutInMinutes : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ipAllocations"] = args ? args.ipAllocations : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["privateEndpointVNetPolicies"] = args ? args.privateEndpointVNetPolicies : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subnets"] = args ? args.subnets : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
-            resourceInputs["virtualNetworkPeerings"] = args ? args.virtualNetworkPeerings : undefined;
+            resourceInputs["addressSpace"] = args?.addressSpace;
+            resourceInputs["bgpCommunities"] = args?.bgpCommunities;
+            resourceInputs["ddosProtectionPlan"] = args?.ddosProtectionPlan;
+            resourceInputs["dhcpOptions"] = args?.dhcpOptions;
+            resourceInputs["enableDdosProtection"] = (args?.enableDdosProtection) ?? false;
+            resourceInputs["enableVmProtection"] = (args?.enableVmProtection) ?? false;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["flowTimeoutInMinutes"] = args?.flowTimeoutInMinutes;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["ipAllocations"] = args?.ipAllocations;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["privateEndpointVNetPolicies"] = args?.privateEndpointVNetPolicies;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["subnets"] = args?.subnets;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualNetworkName"] = args?.virtualNetworkName;
+            resourceInputs["virtualNetworkPeerings"] = args?.virtualNetworkPeerings;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["flowLogs"] = undefined /*out*/;

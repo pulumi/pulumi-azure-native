@@ -89,32 +89,32 @@ export class IotConnectorFhirDestination extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fhirMapping === undefined) && !opts.urn) {
+            if (args?.fhirMapping === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fhirMapping'");
             }
-            if ((!args || args.fhirServiceResourceId === undefined) && !opts.urn) {
+            if (args?.fhirServiceResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fhirServiceResourceId'");
             }
-            if ((!args || args.iotConnectorName === undefined) && !opts.urn) {
+            if (args?.iotConnectorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iotConnectorName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceIdentityResolutionType === undefined) && !opts.urn) {
+            if (args?.resourceIdentityResolutionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceIdentityResolutionType'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["fhirDestinationName"] = args ? args.fhirDestinationName : undefined;
-            resourceInputs["fhirMapping"] = args ? args.fhirMapping : undefined;
-            resourceInputs["fhirServiceResourceId"] = args ? args.fhirServiceResourceId : undefined;
-            resourceInputs["iotConnectorName"] = args ? args.iotConnectorName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceIdentityResolutionType"] = args ? args.resourceIdentityResolutionType : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["fhirDestinationName"] = args?.fhirDestinationName;
+            resourceInputs["fhirMapping"] = args?.fhirMapping;
+            resourceInputs["fhirServiceResourceId"] = args?.fhirServiceResourceId;
+            resourceInputs["iotConnectorName"] = args?.iotConnectorName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceIdentityResolutionType"] = args?.resourceIdentityResolutionType;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

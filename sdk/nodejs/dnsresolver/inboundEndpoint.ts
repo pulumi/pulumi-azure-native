@@ -93,21 +93,21 @@ export class InboundEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dnsResolverName === undefined) && !opts.urn) {
+            if (args?.dnsResolverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsResolverName'");
             }
-            if ((!args || args.ipConfigurations === undefined) && !opts.urn) {
+            if (args?.ipConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipConfigurations'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dnsResolverName"] = args ? args.dnsResolverName : undefined;
-            resourceInputs["inboundEndpointName"] = args ? args.inboundEndpointName : undefined;
-            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dnsResolverName"] = args?.dnsResolverName;
+            resourceInputs["inboundEndpointName"] = args?.inboundEndpointName;
+            resourceInputs["ipConfigurations"] = args?.ipConfigurations;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

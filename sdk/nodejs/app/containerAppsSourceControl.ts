@@ -87,18 +87,18 @@ export class ContainerAppsSourceControl extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.containerAppName === undefined) && !opts.urn) {
+            if (args?.containerAppName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerAppName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["branch"] = args ? args.branch : undefined;
-            resourceInputs["containerAppName"] = args ? args.containerAppName : undefined;
-            resourceInputs["githubActionConfiguration"] = args ? args.githubActionConfiguration : undefined;
-            resourceInputs["repoUrl"] = args ? args.repoUrl : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceControlName"] = args ? args.sourceControlName : undefined;
+            resourceInputs["branch"] = args?.branch;
+            resourceInputs["containerAppName"] = args?.containerAppName;
+            resourceInputs["githubActionConfiguration"] = args?.githubActionConfiguration;
+            resourceInputs["repoUrl"] = args?.repoUrl;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceControlName"] = args?.sourceControlName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["operationState"] = undefined /*out*/;

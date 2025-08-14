@@ -93,22 +93,22 @@ export class Assessment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceDetails === undefined) && !opts.urn) {
+            if (args?.resourceDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceDetails'");
             }
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            resourceInputs["additionalData"] = args ? args.additionalData : undefined;
-            resourceInputs["assessmentName"] = args ? args.assessmentName : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["partnersData"] = args ? args.partnersData : undefined;
-            resourceInputs["resourceDetails"] = args ? args.resourceDetails : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["additionalData"] = args?.additionalData;
+            resourceInputs["assessmentName"] = args?.assessmentName;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["partnersData"] = args?.partnersData;
+            resourceInputs["resourceDetails"] = args?.resourceDetails;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["status"] = args?.status;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["links"] = undefined /*out*/;

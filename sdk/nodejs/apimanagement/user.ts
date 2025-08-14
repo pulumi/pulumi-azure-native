@@ -97,34 +97,34 @@ export class User extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            if ((!args || args.firstName === undefined) && !opts.urn) {
+            if (args?.firstName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firstName'");
             }
-            if ((!args || args.lastName === undefined) && !opts.urn) {
+            if (args?.lastName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lastName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["appType"] = args ? args.appType : undefined;
-            resourceInputs["confirmation"] = args ? args.confirmation : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["firstName"] = args ? args.firstName : undefined;
-            resourceInputs["identities"] = args ? args.identities : undefined;
-            resourceInputs["lastName"] = args ? args.lastName : undefined;
-            resourceInputs["note"] = args ? args.note : undefined;
-            resourceInputs["notify"] = args ? args.notify : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["state"] = (args ? args.state : undefined) ?? "active";
-            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["appType"] = args?.appType;
+            resourceInputs["confirmation"] = args?.confirmation;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["firstName"] = args?.firstName;
+            resourceInputs["identities"] = args?.identities;
+            resourceInputs["lastName"] = args?.lastName;
+            resourceInputs["note"] = args?.note;
+            resourceInputs["notify"] = args?.notify;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["state"] = (args?.state) ?? "active";
+            resourceInputs["userId"] = args?.userId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["groups"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

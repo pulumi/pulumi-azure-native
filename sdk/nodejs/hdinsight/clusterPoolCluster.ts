@@ -101,29 +101,29 @@ export class ClusterPoolCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterPoolName === undefined) && !opts.urn) {
+            if (args?.clusterPoolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterPoolName'");
             }
-            if ((!args || args.clusterProfile === undefined) && !opts.urn) {
+            if (args?.clusterProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterProfile'");
             }
-            if ((!args || args.clusterType === undefined) && !opts.urn) {
+            if (args?.clusterType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterType'");
             }
-            if ((!args || args.computeProfile === undefined) && !opts.urn) {
+            if (args?.computeProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'computeProfile'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["clusterPoolName"] = args ? args.clusterPoolName : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["clusterPoolName"] = args?.clusterPoolName;
             resourceInputs["clusterProfile"] = args ? (args.clusterProfile ? pulumi.output(args.clusterProfile).apply(inputs.hdinsight.clusterProfileArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["clusterType"] = args ? args.clusterType : undefined;
-            resourceInputs["computeProfile"] = args ? args.computeProfile : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clusterType"] = args?.clusterType;
+            resourceInputs["computeProfile"] = args?.computeProfile;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deploymentId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

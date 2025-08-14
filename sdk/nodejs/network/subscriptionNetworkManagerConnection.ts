@@ -81,9 +81,9 @@ export class SubscriptionNetworkManagerConnection extends pulumi.CustomResource 
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["networkManagerConnectionName"] = args ? args.networkManagerConnectionName : undefined;
-            resourceInputs["networkManagerId"] = args ? args.networkManagerId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["networkManagerConnectionName"] = args?.networkManagerConnectionName;
+            resourceInputs["networkManagerId"] = args?.networkManagerId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -77,17 +77,17 @@ export class PrivateEndpointConnectionControllerPrivateEndpointConnection extend
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.migrateProjectName === undefined) && !opts.urn) {
+            if (args?.migrateProjectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'migrateProjectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["eTag"] = args ? args.eTag : undefined;
-            resourceInputs["migrateProjectName"] = args ? args.migrateProjectName : undefined;
-            resourceInputs["peConnectionName"] = args ? args.peConnectionName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["eTag"] = args?.eTag;
+            resourceInputs["migrateProjectName"] = args?.migrateProjectName;
+            resourceInputs["peConnectionName"] = args?.peConnectionName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

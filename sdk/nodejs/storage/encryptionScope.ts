@@ -89,19 +89,19 @@ export class EncryptionScope extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["encryptionScopeName"] = args ? args.encryptionScopeName : undefined;
-            resourceInputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
-            resourceInputs["requireInfrastructureEncryption"] = args ? args.requireInfrastructureEncryption : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["encryptionScopeName"] = args?.encryptionScopeName;
+            resourceInputs["keyVaultProperties"] = args?.keyVaultProperties;
+            resourceInputs["requireInfrastructureEncryption"] = args?.requireInfrastructureEncryption;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["state"] = args?.state;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;

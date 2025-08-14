@@ -89,16 +89,16 @@ export class Registration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.registrationToken === undefined) && !opts.urn) {
+            if (args?.registrationToken === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registrationToken'");
             }
-            if ((!args || args.resourceGroup === undefined) && !opts.urn) {
+            if (args?.resourceGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["registrationName"] = args ? args.registrationName : undefined;
-            resourceInputs["registrationToken"] = args ? args.registrationToken : undefined;
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["registrationName"] = args?.registrationName;
+            resourceInputs["registrationToken"] = args?.registrationToken;
+            resourceInputs["resourceGroup"] = args?.resourceGroup;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["billingModel"] = undefined /*out*/;
             resourceInputs["cloudId"] = undefined /*out*/;

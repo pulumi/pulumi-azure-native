@@ -89,25 +89,25 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.destinationAccount === undefined) && !opts.urn) {
+            if (args?.destinationAccount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationAccount'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceAccount === undefined) && !opts.urn) {
+            if (args?.sourceAccount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceAccount'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["destinationAccount"] = args ? args.destinationAccount : undefined;
-            resourceInputs["metrics"] = args ? args.metrics : undefined;
-            resourceInputs["objectReplicationPolicyId"] = args ? args.objectReplicationPolicyId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["sourceAccount"] = args ? args.sourceAccount : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["destinationAccount"] = args?.destinationAccount;
+            resourceInputs["metrics"] = args?.metrics;
+            resourceInputs["objectReplicationPolicyId"] = args?.objectReplicationPolicyId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["sourceAccount"] = args?.sourceAccount;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["enabledTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

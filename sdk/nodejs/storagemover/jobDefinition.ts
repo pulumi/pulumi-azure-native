@@ -125,35 +125,35 @@ export class JobDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.copyMode === undefined) && !opts.urn) {
+            if (args?.copyMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'copyMode'");
             }
-            if ((!args || args.projectName === undefined) && !opts.urn) {
+            if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceName === undefined) && !opts.urn) {
+            if (args?.sourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceName'");
             }
-            if ((!args || args.storageMoverName === undefined) && !opts.urn) {
+            if (args?.storageMoverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageMoverName'");
             }
-            if ((!args || args.targetName === undefined) && !opts.urn) {
+            if (args?.targetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetName'");
             }
-            resourceInputs["agentName"] = args ? args.agentName : undefined;
-            resourceInputs["copyMode"] = args ? args.copyMode : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["jobDefinitionName"] = args ? args.jobDefinitionName : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceName"] = args ? args.sourceName : undefined;
-            resourceInputs["sourceSubpath"] = args ? args.sourceSubpath : undefined;
-            resourceInputs["storageMoverName"] = args ? args.storageMoverName : undefined;
-            resourceInputs["targetName"] = args ? args.targetName : undefined;
-            resourceInputs["targetSubpath"] = args ? args.targetSubpath : undefined;
+            resourceInputs["agentName"] = args?.agentName;
+            resourceInputs["copyMode"] = args?.copyMode;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["jobDefinitionName"] = args?.jobDefinitionName;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceName"] = args?.sourceName;
+            resourceInputs["sourceSubpath"] = args?.sourceSubpath;
+            resourceInputs["storageMoverName"] = args?.storageMoverName;
+            resourceInputs["targetName"] = args?.targetName;
+            resourceInputs["targetSubpath"] = args?.targetSubpath;
             resourceInputs["agentResourceId"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["latestJobRunName"] = undefined /*out*/;

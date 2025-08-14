@@ -81,22 +81,22 @@ export class ArtifactManifest extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.artifactStoreName === undefined) && !opts.urn) {
+            if (args?.artifactStoreName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'artifactStoreName'");
             }
-            if ((!args || args.publisherName === undefined) && !opts.urn) {
+            if (args?.publisherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publisherName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["artifactManifestName"] = args ? args.artifactManifestName : undefined;
-            resourceInputs["artifactStoreName"] = args ? args.artifactStoreName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["publisherName"] = args ? args.publisherName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["artifactManifestName"] = args?.artifactManifestName;
+            resourceInputs["artifactStoreName"] = args?.artifactStoreName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["publisherName"] = args?.publisherName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

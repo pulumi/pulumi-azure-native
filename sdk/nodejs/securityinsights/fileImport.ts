@@ -121,31 +121,31 @@ export class FileImport extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.contentType === undefined) && !opts.urn) {
+            if (args?.contentType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentType'");
             }
-            if ((!args || args.importFile === undefined) && !opts.urn) {
+            if (args?.importFile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'importFile'");
             }
-            if ((!args || args.ingestionMode === undefined) && !opts.urn) {
+            if (args?.ingestionMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ingestionMode'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["fileImportId"] = args ? args.fileImportId : undefined;
-            resourceInputs["importFile"] = args ? args.importFile : undefined;
-            resourceInputs["ingestionMode"] = args ? args.ingestionMode : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["fileImportId"] = args?.fileImportId;
+            resourceInputs["importFile"] = args?.importFile;
+            resourceInputs["ingestionMode"] = args?.ingestionMode;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimeUTC"] = undefined /*out*/;
             resourceInputs["errorFile"] = undefined /*out*/;

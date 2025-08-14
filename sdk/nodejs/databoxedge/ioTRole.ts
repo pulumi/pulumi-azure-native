@@ -104,38 +104,38 @@ export class IoTRole extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deviceName === undefined) && !opts.urn) {
+            if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.hostPlatform === undefined) && !opts.urn) {
+            if (args?.hostPlatform === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostPlatform'");
             }
-            if ((!args || args.ioTDeviceDetails === undefined) && !opts.urn) {
+            if (args?.ioTDeviceDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ioTDeviceDetails'");
             }
-            if ((!args || args.ioTEdgeDeviceDetails === undefined) && !opts.urn) {
+            if (args?.ioTEdgeDeviceDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ioTEdgeDeviceDetails'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.roleStatus === undefined) && !opts.urn) {
+            if (args?.roleStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleStatus'");
             }
-            resourceInputs["computeResource"] = args ? args.computeResource : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["hostPlatform"] = args ? args.hostPlatform : undefined;
-            resourceInputs["ioTDeviceDetails"] = args ? args.ioTDeviceDetails : undefined;
-            resourceInputs["ioTEdgeAgentInfo"] = args ? args.ioTEdgeAgentInfo : undefined;
-            resourceInputs["ioTEdgeDeviceDetails"] = args ? args.ioTEdgeDeviceDetails : undefined;
+            resourceInputs["computeResource"] = args?.computeResource;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["hostPlatform"] = args?.hostPlatform;
+            resourceInputs["ioTDeviceDetails"] = args?.ioTDeviceDetails;
+            resourceInputs["ioTEdgeAgentInfo"] = args?.ioTEdgeAgentInfo;
+            resourceInputs["ioTEdgeDeviceDetails"] = args?.ioTEdgeDeviceDetails;
             resourceInputs["kind"] = "IOT";
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["roleStatus"] = args ? args.roleStatus : undefined;
-            resourceInputs["shareMappings"] = args ? args.shareMappings : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["roleStatus"] = args?.roleStatus;
+            resourceInputs["shareMappings"] = args?.shareMappings;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hostPlatformType"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

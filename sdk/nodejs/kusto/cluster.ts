@@ -197,38 +197,38 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["acceptedAudiences"] = args ? args.acceptedAudiences : undefined;
-            resourceInputs["allowedFqdnList"] = args ? args.allowedFqdnList : undefined;
-            resourceInputs["allowedIpRangeList"] = args ? args.allowedIpRangeList : undefined;
-            resourceInputs["calloutPolicies"] = args ? args.calloutPolicies : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["enableAutoStop"] = (args ? args.enableAutoStop : undefined) ?? true;
-            resourceInputs["enableDiskEncryption"] = (args ? args.enableDiskEncryption : undefined) ?? false;
-            resourceInputs["enableDoubleEncryption"] = (args ? args.enableDoubleEncryption : undefined) ?? false;
-            resourceInputs["enablePurge"] = (args ? args.enablePurge : undefined) ?? false;
-            resourceInputs["enableStreamingIngest"] = (args ? args.enableStreamingIngest : undefined) ?? false;
-            resourceInputs["engineType"] = (args ? args.engineType : undefined) ?? "V3";
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
-            resourceInputs["languageExtensions"] = args ? args.languageExtensions : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["optimizedAutoscale"] = args ? args.optimizedAutoscale : undefined;
-            resourceInputs["publicIPType"] = (args ? args.publicIPType : undefined) ?? "IPv4";
-            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restrictOutboundNetworkAccess"] = (args ? args.restrictOutboundNetworkAccess : undefined) ?? "Disabled";
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trustedExternalTenants"] = args ? args.trustedExternalTenants : undefined;
-            resourceInputs["virtualClusterGraduationProperties"] = args ? args.virtualClusterGraduationProperties : undefined;
+            resourceInputs["acceptedAudiences"] = args?.acceptedAudiences;
+            resourceInputs["allowedFqdnList"] = args?.allowedFqdnList;
+            resourceInputs["allowedIpRangeList"] = args?.allowedIpRangeList;
+            resourceInputs["calloutPolicies"] = args?.calloutPolicies;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["enableAutoStop"] = (args?.enableAutoStop) ?? true;
+            resourceInputs["enableDiskEncryption"] = (args?.enableDiskEncryption) ?? false;
+            resourceInputs["enableDoubleEncryption"] = (args?.enableDoubleEncryption) ?? false;
+            resourceInputs["enablePurge"] = (args?.enablePurge) ?? false;
+            resourceInputs["enableStreamingIngest"] = (args?.enableStreamingIngest) ?? false;
+            resourceInputs["engineType"] = (args?.engineType) ?? "V3";
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["keyVaultProperties"] = args?.keyVaultProperties;
+            resourceInputs["languageExtensions"] = args?.languageExtensions;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["optimizedAutoscale"] = args?.optimizedAutoscale;
+            resourceInputs["publicIPType"] = (args?.publicIPType) ?? "IPv4";
+            resourceInputs["publicNetworkAccess"] = (args?.publicNetworkAccess) ?? "Enabled";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restrictOutboundNetworkAccess"] = (args?.restrictOutboundNetworkAccess) ?? "Disabled";
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trustedExternalTenants"] = args?.trustedExternalTenants;
+            resourceInputs["virtualClusterGraduationProperties"] = args?.virtualClusterGraduationProperties;
             resourceInputs["virtualNetworkConfiguration"] = args ? (args.virtualNetworkConfiguration ? pulumi.output(args.virtualNetworkConfiguration).apply(inputs.kusto.virtualNetworkConfigurationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataIngestionUri"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

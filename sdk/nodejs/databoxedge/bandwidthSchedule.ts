@@ -85,31 +85,31 @@ export class BandwidthSchedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.days === undefined) && !opts.urn) {
+            if (args?.days === undefined && !opts.urn) {
                 throw new Error("Missing required property 'days'");
             }
-            if ((!args || args.deviceName === undefined) && !opts.urn) {
+            if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.rateInMbps === undefined) && !opts.urn) {
+            if (args?.rateInMbps === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rateInMbps'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.start === undefined) && !opts.urn) {
+            if (args?.start === undefined && !opts.urn) {
                 throw new Error("Missing required property 'start'");
             }
-            if ((!args || args.stop === undefined) && !opts.urn) {
+            if (args?.stop === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stop'");
             }
-            resourceInputs["days"] = args ? args.days : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["rateInMbps"] = args ? args.rateInMbps : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["start"] = args ? args.start : undefined;
-            resourceInputs["stop"] = args ? args.stop : undefined;
+            resourceInputs["days"] = args?.days;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["rateInMbps"] = args?.rateInMbps;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["start"] = args?.start;
+            resourceInputs["stop"] = args?.stop;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

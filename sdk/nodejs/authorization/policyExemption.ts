@@ -105,26 +105,26 @@ export class PolicyExemption extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.exemptionCategory === undefined) && !opts.urn) {
+            if (args?.exemptionCategory === undefined && !opts.urn) {
                 throw new Error("Missing required property 'exemptionCategory'");
             }
-            if ((!args || args.policyAssignmentId === undefined) && !opts.urn) {
+            if (args?.policyAssignmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyAssignmentId'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["assignmentScopeValidation"] = (args ? args.assignmentScopeValidation : undefined) ?? "Default";
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["exemptionCategory"] = args ? args.exemptionCategory : undefined;
-            resourceInputs["expiresOn"] = args ? args.expiresOn : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
-            resourceInputs["policyDefinitionReferenceIds"] = args ? args.policyDefinitionReferenceIds : undefined;
-            resourceInputs["policyExemptionName"] = args ? args.policyExemptionName : undefined;
-            resourceInputs["resourceSelectors"] = args ? args.resourceSelectors : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["assignmentScopeValidation"] = (args?.assignmentScopeValidation) ?? "Default";
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["exemptionCategory"] = args?.exemptionCategory;
+            resourceInputs["expiresOn"] = args?.expiresOn;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["policyAssignmentId"] = args?.policyAssignmentId;
+            resourceInputs["policyDefinitionReferenceIds"] = args?.policyDefinitionReferenceIds;
+            resourceInputs["policyExemptionName"] = args?.policyExemptionName;
+            resourceInputs["resourceSelectors"] = args?.resourceSelectors;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

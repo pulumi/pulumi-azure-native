@@ -158,33 +158,33 @@ export class CGProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["confidentialComputeProperties"] = args ? args.confidentialComputeProperties : undefined;
-            resourceInputs["containerGroupProfileName"] = args ? args.containerGroupProfileName : undefined;
-            resourceInputs["containers"] = args ? args.containers : undefined;
-            resourceInputs["diagnostics"] = args ? args.diagnostics : undefined;
-            resourceInputs["encryptionProperties"] = args ? args.encryptionProperties : undefined;
-            resourceInputs["extensions"] = args ? args.extensions : undefined;
-            resourceInputs["imageRegistryCredentials"] = args ? args.imageRegistryCredentials : undefined;
-            resourceInputs["initContainers"] = args ? args.initContainers : undefined;
+            resourceInputs["confidentialComputeProperties"] = args?.confidentialComputeProperties;
+            resourceInputs["containerGroupProfileName"] = args?.containerGroupProfileName;
+            resourceInputs["containers"] = args?.containers;
+            resourceInputs["diagnostics"] = args?.diagnostics;
+            resourceInputs["encryptionProperties"] = args?.encryptionProperties;
+            resourceInputs["extensions"] = args?.extensions;
+            resourceInputs["imageRegistryCredentials"] = args?.imageRegistryCredentials;
+            resourceInputs["initContainers"] = args?.initContainers;
             resourceInputs["ipAddress"] = args ? (args.ipAddress ? pulumi.output(args.ipAddress).apply(inputs.containerinstance.ipAddressArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["registeredRevisions"] = args ? args.registeredRevisions : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restartPolicy"] = args ? args.restartPolicy : undefined;
-            resourceInputs["revision"] = args ? args.revision : undefined;
-            resourceInputs["securityContext"] = args ? args.securityContext : undefined;
-            resourceInputs["shutdownGracePeriod"] = args ? args.shutdownGracePeriod : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeToLive"] = args ? args.timeToLive : undefined;
-            resourceInputs["useKrypton"] = args ? args.useKrypton : undefined;
-            resourceInputs["volumes"] = args ? args.volumes : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["osType"] = args?.osType;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["registeredRevisions"] = args?.registeredRevisions;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restartPolicy"] = args?.restartPolicy;
+            resourceInputs["revision"] = args?.revision;
+            resourceInputs["securityContext"] = args?.securityContext;
+            resourceInputs["shutdownGracePeriod"] = args?.shutdownGracePeriod;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeToLive"] = args?.timeToLive;
+            resourceInputs["useKrypton"] = args?.useKrypton;
+            resourceInputs["volumes"] = args?.volumes;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

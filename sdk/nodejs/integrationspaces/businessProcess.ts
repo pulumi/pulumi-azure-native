@@ -99,25 +99,25 @@ export class BusinessProcess extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationName === undefined) && !opts.urn) {
+            if (args?.applicationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.spaceName === undefined) && !opts.urn) {
+            if (args?.spaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'spaceName'");
             }
-            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["businessProcessMapping"] = args ? args.businessProcessMapping : undefined;
-            resourceInputs["businessProcessName"] = args ? args.businessProcessName : undefined;
-            resourceInputs["businessProcessStages"] = args ? args.businessProcessStages : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["identifier"] = args ? args.identifier : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["spaceName"] = args ? args.spaceName : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
-            resourceInputs["trackingDataStoreReferenceName"] = args ? args.trackingDataStoreReferenceName : undefined;
+            resourceInputs["applicationName"] = args?.applicationName;
+            resourceInputs["businessProcessMapping"] = args?.businessProcessMapping;
+            resourceInputs["businessProcessName"] = args?.businessProcessName;
+            resourceInputs["businessProcessStages"] = args?.businessProcessStages;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["identifier"] = args?.identifier;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["spaceName"] = args?.spaceName;
+            resourceInputs["tableName"] = args?.tableName;
+            resourceInputs["trackingDataStoreReferenceName"] = args?.trackingDataStoreReferenceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

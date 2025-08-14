@@ -93,20 +93,20 @@ export class EncryptionSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.devCenterName === undefined) && !opts.urn) {
+            if (args?.devCenterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devCenterName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["devCenterName"] = args ? args.devCenterName : undefined;
-            resourceInputs["devboxDisksEncryptionEnableStatus"] = args ? args.devboxDisksEncryptionEnableStatus : undefined;
-            resourceInputs["encryptionSetName"] = args ? args.encryptionSetName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["keyEncryptionKeyUrl"] = args ? args.keyEncryptionKeyUrl : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["devCenterName"] = args?.devCenterName;
+            resourceInputs["devboxDisksEncryptionEnableStatus"] = args?.devboxDisksEncryptionEnableStatus;
+            resourceInputs["encryptionSetName"] = args?.encryptionSetName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["keyEncryptionKeyUrl"] = args?.keyEncryptionKeyUrl;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

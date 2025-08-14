@@ -112,21 +112,21 @@ export class AzureLargeInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["azureLargeInstanceId"] = args ? args.azureLargeInstanceId : undefined;
-            resourceInputs["azureLargeInstanceName"] = args ? args.azureLargeInstanceName : undefined;
-            resourceInputs["hardwareProfile"] = args ? args.hardwareProfile : undefined;
-            resourceInputs["hwRevision"] = args ? args.hwRevision : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["osProfile"] = args ? args.osProfile : undefined;
-            resourceInputs["powerState"] = args ? args.powerState : undefined;
-            resourceInputs["proximityPlacementGroup"] = args ? args.proximityPlacementGroup : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureLargeInstanceId"] = args?.azureLargeInstanceId;
+            resourceInputs["azureLargeInstanceName"] = args?.azureLargeInstanceName;
+            resourceInputs["hardwareProfile"] = args?.hardwareProfile;
+            resourceInputs["hwRevision"] = args?.hwRevision;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["osProfile"] = args?.osProfile;
+            resourceInputs["powerState"] = args?.powerState;
+            resourceInputs["proximityPlacementGroup"] = args?.proximityPlacementGroup;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageProfile"] = args?.storageProfile;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

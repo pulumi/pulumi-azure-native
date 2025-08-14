@@ -111,38 +111,38 @@ export class KafkaConnectorTopicMap extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.kafkaConnectorName === undefined) && !opts.urn) {
+            if (args?.kafkaConnectorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaConnectorName'");
             }
-            if ((!args || args.kafkaConnectorRef === undefined) && !opts.urn) {
+            if (args?.kafkaConnectorRef === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaConnectorRef'");
             }
-            if ((!args || args.mqName === undefined) && !opts.urn) {
+            if (args?.mqName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mqName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.routes === undefined) && !opts.urn) {
+            if (args?.routes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routes'");
             }
             resourceInputs["batching"] = args ? (args.batching ? pulumi.output(args.batching).apply(inputs.iotoperationsmq.kafkaTopicMapBatchingArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["compression"] = (args ? args.compression : undefined) ?? "none";
-            resourceInputs["copyMqttProperties"] = args ? args.copyMqttProperties : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["kafkaConnectorName"] = args ? args.kafkaConnectorName : undefined;
-            resourceInputs["kafkaConnectorRef"] = args ? args.kafkaConnectorRef : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mqName"] = args ? args.mqName : undefined;
-            resourceInputs["partitionKeyProperty"] = args ? args.partitionKeyProperty : undefined;
-            resourceInputs["partitionStrategy"] = (args ? args.partitionStrategy : undefined) ?? "default";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routes"] = args ? args.routes : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["topicMapName"] = args ? args.topicMapName : undefined;
+            resourceInputs["compression"] = (args?.compression) ?? "none";
+            resourceInputs["copyMqttProperties"] = args?.copyMqttProperties;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["kafkaConnectorName"] = args?.kafkaConnectorName;
+            resourceInputs["kafkaConnectorRef"] = args?.kafkaConnectorRef;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mqName"] = args?.mqName;
+            resourceInputs["partitionKeyProperty"] = args?.partitionKeyProperty;
+            resourceInputs["partitionStrategy"] = (args?.partitionStrategy) ?? "default";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routes"] = args?.routes;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["topicMapName"] = args?.topicMapName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

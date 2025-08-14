@@ -129,31 +129,31 @@ export class AmlFilesystem extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.filesystemSubnet === undefined) && !opts.urn) {
+            if (args?.filesystemSubnet === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filesystemSubnet'");
             }
-            if ((!args || args.maintenanceWindow === undefined) && !opts.urn) {
+            if (args?.maintenanceWindow === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maintenanceWindow'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageCapacityTiB === undefined) && !opts.urn) {
+            if (args?.storageCapacityTiB === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageCapacityTiB'");
             }
-            resourceInputs["amlFilesystemName"] = args ? args.amlFilesystemName : undefined;
-            resourceInputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
-            resourceInputs["filesystemSubnet"] = args ? args.filesystemSubnet : undefined;
+            resourceInputs["amlFilesystemName"] = args?.amlFilesystemName;
+            resourceInputs["encryptionSettings"] = args?.encryptionSettings;
+            resourceInputs["filesystemSubnet"] = args?.filesystemSubnet;
             resourceInputs["hsm"] = args ? (args.hsm ? pulumi.output(args.hsm).apply(inputs.storagecache.amlFilesystemHsmArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rootSquashSettings"] = args ? args.rootSquashSettings : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["storageCapacityTiB"] = args ? args.storageCapacityTiB : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maintenanceWindow"] = args?.maintenanceWindow;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["rootSquashSettings"] = args?.rootSquashSettings;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["storageCapacityTiB"] = args?.storageCapacityTiB;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clientInfo"] = undefined /*out*/;
             resourceInputs["health"] = undefined /*out*/;

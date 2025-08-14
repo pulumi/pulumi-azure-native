@@ -129,24 +129,24 @@ export class VirtualHardDisk extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["blockSizeBytes"] = args ? args.blockSizeBytes : undefined;
-            resourceInputs["containerId"] = args ? args.containerId : undefined;
-            resourceInputs["createFromLocal"] = (args ? args.createFromLocal : undefined) ?? false;
-            resourceInputs["diskFileFormat"] = args ? args.diskFileFormat : undefined;
-            resourceInputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
-            resourceInputs["downloadUrl"] = args ? args.downloadUrl : undefined;
-            resourceInputs["dynamic"] = args ? args.dynamic : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logicalSectorBytes"] = args ? args.logicalSectorBytes : undefined;
-            resourceInputs["physicalSectorBytes"] = args ? args.physicalSectorBytes : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualHardDiskName"] = args ? args.virtualHardDiskName : undefined;
+            resourceInputs["blockSizeBytes"] = args?.blockSizeBytes;
+            resourceInputs["containerId"] = args?.containerId;
+            resourceInputs["createFromLocal"] = (args?.createFromLocal) ?? false;
+            resourceInputs["diskFileFormat"] = args?.diskFileFormat;
+            resourceInputs["diskSizeGB"] = args?.diskSizeGB;
+            resourceInputs["downloadUrl"] = args?.downloadUrl;
+            resourceInputs["dynamic"] = args?.dynamic;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["hyperVGeneration"] = args?.hyperVGeneration;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logicalSectorBytes"] = args?.logicalSectorBytes;
+            resourceInputs["physicalSectorBytes"] = args?.physicalSectorBytes;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualHardDiskName"] = args?.virtualHardDiskName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

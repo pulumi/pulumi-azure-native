@@ -141,26 +141,26 @@ export class Topic extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
-            resourceInputs["defaultMessageTimeToLive"] = args ? args.defaultMessageTimeToLive : undefined;
-            resourceInputs["duplicateDetectionHistoryTimeWindow"] = args ? args.duplicateDetectionHistoryTimeWindow : undefined;
-            resourceInputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
-            resourceInputs["enableExpress"] = args ? args.enableExpress : undefined;
-            resourceInputs["enablePartitioning"] = args ? args.enablePartitioning : undefined;
-            resourceInputs["maxMessageSizeInKilobytes"] = args ? args.maxMessageSizeInKilobytes : undefined;
-            resourceInputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["requiresDuplicateDetection"] = args ? args.requiresDuplicateDetection : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["supportOrdering"] = args ? args.supportOrdering : undefined;
-            resourceInputs["topicName"] = args ? args.topicName : undefined;
+            resourceInputs["autoDeleteOnIdle"] = args?.autoDeleteOnIdle;
+            resourceInputs["defaultMessageTimeToLive"] = args?.defaultMessageTimeToLive;
+            resourceInputs["duplicateDetectionHistoryTimeWindow"] = args?.duplicateDetectionHistoryTimeWindow;
+            resourceInputs["enableBatchedOperations"] = args?.enableBatchedOperations;
+            resourceInputs["enableExpress"] = args?.enableExpress;
+            resourceInputs["enablePartitioning"] = args?.enablePartitioning;
+            resourceInputs["maxMessageSizeInKilobytes"] = args?.maxMessageSizeInKilobytes;
+            resourceInputs["maxSizeInMegabytes"] = args?.maxSizeInMegabytes;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["requiresDuplicateDetection"] = args?.requiresDuplicateDetection;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["supportOrdering"] = args?.supportOrdering;
+            resourceInputs["topicName"] = args?.topicName;
             resourceInputs["accessedAt"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["countDetails"] = undefined /*out*/;

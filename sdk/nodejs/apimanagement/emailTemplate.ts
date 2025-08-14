@@ -89,20 +89,20 @@ export class EmailTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["body"] = args ? args.body : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["subject"] = args ? args.subject : undefined;
-            resourceInputs["templateName"] = args ? args.templateName : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["body"] = args?.body;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["subject"] = args?.subject;
+            resourceInputs["templateName"] = args?.templateName;
+            resourceInputs["title"] = args?.title;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["isDefault"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

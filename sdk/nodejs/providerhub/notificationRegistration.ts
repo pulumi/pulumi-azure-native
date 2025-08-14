@@ -68,12 +68,12 @@ export class NotificationRegistration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.providerNamespace === undefined) && !opts.urn) {
+            if (args?.providerNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'providerNamespace'");
             }
-            resourceInputs["notificationRegistrationName"] = args ? args.notificationRegistrationName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["providerNamespace"] = args ? args.providerNamespace : undefined;
+            resourceInputs["notificationRegistrationName"] = args?.notificationRegistrationName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["providerNamespace"] = args?.providerNamespace;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

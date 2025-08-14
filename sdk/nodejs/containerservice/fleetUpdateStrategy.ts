@@ -81,19 +81,19 @@ export class FleetUpdateStrategy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fleetName === undefined) && !opts.urn) {
+            if (args?.fleetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fleetName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.strategy === undefined) && !opts.urn) {
+            if (args?.strategy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'strategy'");
             }
-            resourceInputs["fleetName"] = args ? args.fleetName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["strategy"] = args ? args.strategy : undefined;
-            resourceInputs["updateStrategyName"] = args ? args.updateStrategyName : undefined;
+            resourceInputs["fleetName"] = args?.fleetName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["strategy"] = args?.strategy;
+            resourceInputs["updateStrategyName"] = args?.updateStrategyName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

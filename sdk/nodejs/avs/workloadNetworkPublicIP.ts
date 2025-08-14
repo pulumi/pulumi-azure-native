@@ -85,17 +85,17 @@ export class WorkloadNetworkPublicIP extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.privateCloudName === undefined) && !opts.urn) {
+            if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["numberOfPublicIPs"] = args ? args.numberOfPublicIPs : undefined;
-            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            resourceInputs["publicIPId"] = args ? args.publicIPId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["numberOfPublicIPs"] = args?.numberOfPublicIPs;
+            resourceInputs["privateCloudName"] = args?.privateCloudName;
+            resourceInputs["publicIPId"] = args?.publicIPId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

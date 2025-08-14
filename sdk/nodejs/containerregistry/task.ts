@@ -130,27 +130,27 @@ export class Task extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.registryName === undefined) && !opts.urn) {
+            if (args?.registryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["agentConfiguration"] = args ? args.agentConfiguration : undefined;
-            resourceInputs["agentPoolName"] = args ? args.agentPoolName : undefined;
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["isSystemTask"] = (args ? args.isSystemTask : undefined) ?? false;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logTemplate"] = args ? args.logTemplate : undefined;
-            resourceInputs["platform"] = args ? args.platform : undefined;
-            resourceInputs["registryName"] = args ? args.registryName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["step"] = args ? args.step : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["taskName"] = args ? args.taskName : undefined;
-            resourceInputs["timeout"] = (args ? args.timeout : undefined) ?? 3600;
+            resourceInputs["agentConfiguration"] = args?.agentConfiguration;
+            resourceInputs["agentPoolName"] = args?.agentPoolName;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["isSystemTask"] = (args?.isSystemTask) ?? false;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logTemplate"] = args?.logTemplate;
+            resourceInputs["platform"] = args?.platform;
+            resourceInputs["registryName"] = args?.registryName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["step"] = args?.step;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["taskName"] = args?.taskName;
+            resourceInputs["timeout"] = (args?.timeout) ?? 3600;
             resourceInputs["trigger"] = args ? (args.trigger ? pulumi.output(args.trigger).apply(inputs.containerregistry.triggerPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;

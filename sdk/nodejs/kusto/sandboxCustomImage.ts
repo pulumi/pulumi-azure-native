@@ -85,22 +85,22 @@ export class SandboxCustomImage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.language === undefined) && !opts.urn) {
+            if (args?.language === undefined && !opts.urn) {
                 throw new Error("Missing required property 'language'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["baseImageName"] = args ? args.baseImageName : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["language"] = args ? args.language : undefined;
-            resourceInputs["languageVersion"] = args ? args.languageVersion : undefined;
-            resourceInputs["requirementsFileContent"] = args ? args.requirementsFileContent : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sandboxCustomImageName"] = args ? args.sandboxCustomImageName : undefined;
+            resourceInputs["baseImageName"] = args?.baseImageName;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["language"] = args?.language;
+            resourceInputs["languageVersion"] = args?.languageVersion;
+            resourceInputs["requirementsFileContent"] = args?.requirementsFileContent;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sandboxCustomImageName"] = args?.sandboxCustomImageName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

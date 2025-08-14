@@ -85,11 +85,11 @@ export class ConfigurationAssignmentsForSubscription extends pulumi.CustomResour
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["configurationAssignmentName"] = args ? args.configurationAssignmentName : undefined;
-            resourceInputs["filter"] = args ? args.filter : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["configurationAssignmentName"] = args?.configurationAssignmentName;
+            resourceInputs["filter"] = args?.filter;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maintenanceConfigurationId"] = args?.maintenanceConfigurationId;
+            resourceInputs["resourceId"] = args?.resourceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

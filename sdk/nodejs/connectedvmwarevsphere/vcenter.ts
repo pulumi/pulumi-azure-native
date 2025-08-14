@@ -125,21 +125,21 @@ export class VCenter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fqdn === undefined) && !opts.urn) {
+            if (args?.fqdn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fqdn'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["fqdn"] = args ? args.fqdn : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vcenterName"] = args ? args.vcenterName : undefined;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["fqdn"] = args?.fqdn;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vcenterName"] = args?.vcenterName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionStatus"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;

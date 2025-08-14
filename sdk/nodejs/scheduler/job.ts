@@ -65,16 +65,16 @@ export class Job extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.jobCollectionName === undefined) && !opts.urn) {
+            if (args?.jobCollectionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobCollectionName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["jobCollectionName"] = args ? args.jobCollectionName : undefined;
-            resourceInputs["jobName"] = args ? args.jobName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["jobCollectionName"] = args?.jobCollectionName;
+            resourceInputs["jobName"] = args?.jobName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

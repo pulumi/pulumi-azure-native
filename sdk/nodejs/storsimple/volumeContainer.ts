@@ -99,27 +99,27 @@ export class VolumeContainer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deviceName === undefined) && !opts.urn) {
+            if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.managerName === undefined) && !opts.urn) {
+            if (args?.managerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccountCredentialId === undefined) && !opts.urn) {
+            if (args?.storageAccountCredentialId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountCredentialId'");
             }
-            resourceInputs["bandWidthRateInMbps"] = args ? args.bandWidthRateInMbps : undefined;
-            resourceInputs["bandwidthSettingId"] = args ? args.bandwidthSettingId : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["managerName"] = args ? args.managerName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageAccountCredentialId"] = args ? args.storageAccountCredentialId : undefined;
-            resourceInputs["volumeContainerName"] = args ? args.volumeContainerName : undefined;
+            resourceInputs["bandWidthRateInMbps"] = args?.bandWidthRateInMbps;
+            resourceInputs["bandwidthSettingId"] = args?.bandwidthSettingId;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["encryptionKey"] = args?.encryptionKey;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["managerName"] = args?.managerName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageAccountCredentialId"] = args?.storageAccountCredentialId;
+            resourceInputs["volumeContainerName"] = args?.volumeContainerName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["encryptionStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

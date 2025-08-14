@@ -68,12 +68,12 @@ export class Association extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["associationName"] = args ? args.associationName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["associationName"] = args?.associationName;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

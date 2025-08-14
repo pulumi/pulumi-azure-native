@@ -125,33 +125,33 @@ export class UpdateRun extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.updateName === undefined) && !opts.urn) {
+            if (args?.updateName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'updateName'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["duration"] = args ? args.duration : undefined;
-            resourceInputs["endTimeUtc"] = args ? args.endTimeUtc : undefined;
-            resourceInputs["errorMessage"] = args ? args.errorMessage : undefined;
-            resourceInputs["expectedExecutionTime"] = args ? args.expectedExecutionTime : undefined;
-            resourceInputs["lastUpdatedTime"] = args ? args.lastUpdatedTime : undefined;
-            resourceInputs["lastUpdatedTimeUtc"] = args ? args.lastUpdatedTimeUtc : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["startTimeUtc"] = args ? args.startTimeUtc : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["steps"] = args ? args.steps : undefined;
-            resourceInputs["timeStarted"] = args ? args.timeStarted : undefined;
-            resourceInputs["updateName"] = args ? args.updateName : undefined;
-            resourceInputs["updateRunName"] = args ? args.updateRunName : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["duration"] = args?.duration;
+            resourceInputs["endTimeUtc"] = args?.endTimeUtc;
+            resourceInputs["errorMessage"] = args?.errorMessage;
+            resourceInputs["expectedExecutionTime"] = args?.expectedExecutionTime;
+            resourceInputs["lastUpdatedTime"] = args?.lastUpdatedTime;
+            resourceInputs["lastUpdatedTimeUtc"] = args?.lastUpdatedTimeUtc;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["startTimeUtc"] = args?.startTimeUtc;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["steps"] = args?.steps;
+            resourceInputs["timeStarted"] = args?.timeStarted;
+            resourceInputs["updateName"] = args?.updateName;
+            resourceInputs["updateRunName"] = args?.updateRunName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

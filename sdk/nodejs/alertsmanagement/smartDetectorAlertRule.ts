@@ -105,39 +105,39 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actionGroups === undefined) && !opts.urn) {
+            if (args?.actionGroups === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actionGroups'");
             }
-            if ((!args || args.detector === undefined) && !opts.urn) {
+            if (args?.detector === undefined && !opts.urn) {
                 throw new Error("Missing required property 'detector'");
             }
-            if ((!args || args.frequency === undefined) && !opts.urn) {
+            if (args?.frequency === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.severity === undefined) && !opts.urn) {
+            if (args?.severity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'severity'");
             }
-            if ((!args || args.state === undefined) && !opts.urn) {
+            if (args?.state === undefined && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            resourceInputs["actionGroups"] = args ? args.actionGroups : undefined;
-            resourceInputs["alertRuleName"] = args ? args.alertRuleName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["detector"] = args ? args.detector : undefined;
-            resourceInputs["frequency"] = args ? args.frequency : undefined;
-            resourceInputs["location"] = (args ? args.location : undefined) ?? "global";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["severity"] = args ? args.severity : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["throttling"] = args ? args.throttling : undefined;
+            resourceInputs["actionGroups"] = args?.actionGroups;
+            resourceInputs["alertRuleName"] = args?.alertRuleName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["detector"] = args?.detector;
+            resourceInputs["frequency"] = args?.frequency;
+            resourceInputs["location"] = (args?.location) ?? "global";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["severity"] = args?.severity;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["throttling"] = args?.throttling;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

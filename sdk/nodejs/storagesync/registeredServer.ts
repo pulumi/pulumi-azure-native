@@ -177,25 +177,25 @@ export class RegisteredServer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageSyncServiceName === undefined) && !opts.urn) {
+            if (args?.storageSyncServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
-            resourceInputs["agentVersion"] = args ? args.agentVersion : undefined;
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["lastHeartBeat"] = args ? args.lastHeartBeat : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverCertificate"] = args ? args.serverCertificate : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
-            resourceInputs["serverOSVersion"] = args ? args.serverOSVersion : undefined;
-            resourceInputs["serverRole"] = args ? args.serverRole : undefined;
-            resourceInputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
+            resourceInputs["agentVersion"] = args?.agentVersion;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["clusterId"] = args?.clusterId;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["friendlyName"] = args?.friendlyName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["lastHeartBeat"] = args?.lastHeartBeat;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverCertificate"] = args?.serverCertificate;
+            resourceInputs["serverId"] = args?.serverId;
+            resourceInputs["serverOSVersion"] = args?.serverOSVersion;
+            resourceInputs["serverRole"] = args?.serverRole;
+            resourceInputs["storageSyncServiceName"] = args?.storageSyncServiceName;
             resourceInputs["activeAuthType"] = undefined /*out*/;
             resourceInputs["agentVersionExpirationDate"] = undefined /*out*/;
             resourceInputs["agentVersionStatus"] = undefined /*out*/;

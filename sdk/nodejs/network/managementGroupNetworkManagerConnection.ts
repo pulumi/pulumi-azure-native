@@ -81,13 +81,13 @@ export class ManagementGroupNetworkManagerConnection extends pulumi.CustomResour
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managementGroupId === undefined) && !opts.urn) {
+            if (args?.managementGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
-            resourceInputs["networkManagerConnectionName"] = args ? args.networkManagerConnectionName : undefined;
-            resourceInputs["networkManagerId"] = args ? args.networkManagerId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["managementGroupId"] = args?.managementGroupId;
+            resourceInputs["networkManagerConnectionName"] = args?.networkManagerConnectionName;
+            resourceInputs["networkManagerId"] = args?.networkManagerId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

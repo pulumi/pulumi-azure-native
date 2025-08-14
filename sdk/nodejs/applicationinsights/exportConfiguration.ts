@@ -128,24 +128,24 @@ export class ExportConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !opts.urn) {
+            if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            resourceInputs["destinationAccountId"] = args ? args.destinationAccountId : undefined;
-            resourceInputs["destinationAddress"] = args ? args.destinationAddress : undefined;
-            resourceInputs["destinationStorageLocationId"] = args ? args.destinationStorageLocationId : undefined;
-            resourceInputs["destinationStorageSubscriptionId"] = args ? args.destinationStorageSubscriptionId : undefined;
-            resourceInputs["destinationType"] = args ? args.destinationType : undefined;
-            resourceInputs["exportId"] = args ? args.exportId : undefined;
-            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
-            resourceInputs["notificationQueueEnabled"] = args ? args.notificationQueueEnabled : undefined;
-            resourceInputs["notificationQueueUri"] = args ? args.notificationQueueUri : undefined;
-            resourceInputs["recordTypes"] = args ? args.recordTypes : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["destinationAccountId"] = args?.destinationAccountId;
+            resourceInputs["destinationAddress"] = args?.destinationAddress;
+            resourceInputs["destinationStorageLocationId"] = args?.destinationStorageLocationId;
+            resourceInputs["destinationStorageSubscriptionId"] = args?.destinationStorageSubscriptionId;
+            resourceInputs["destinationType"] = args?.destinationType;
+            resourceInputs["exportId"] = args?.exportId;
+            resourceInputs["isEnabled"] = args?.isEnabled;
+            resourceInputs["notificationQueueEnabled"] = args?.notificationQueueEnabled;
+            resourceInputs["notificationQueueUri"] = args?.notificationQueueUri;
+            resourceInputs["recordTypes"] = args?.recordTypes;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
             resourceInputs["applicationName"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["containerName"] = undefined /*out*/;

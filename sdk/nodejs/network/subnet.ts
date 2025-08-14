@@ -157,33 +157,33 @@ export class Subnet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetworkName === undefined) && !opts.urn) {
+            if (args?.virtualNetworkName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
-            resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
-            resourceInputs["addressPrefixes"] = args ? args.addressPrefixes : undefined;
-            resourceInputs["applicationGatewayIPConfigurations"] = args ? args.applicationGatewayIPConfigurations : undefined;
-            resourceInputs["defaultOutboundAccess"] = args ? args.defaultOutboundAccess : undefined;
-            resourceInputs["delegations"] = args ? args.delegations : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ipAllocations"] = args ? args.ipAllocations : undefined;
-            resourceInputs["ipamPoolPrefixAllocations"] = args ? args.ipamPoolPrefixAllocations : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["natGateway"] = args ? args.natGateway : undefined;
-            resourceInputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
-            resourceInputs["privateEndpointNetworkPolicies"] = (args ? args.privateEndpointNetworkPolicies : undefined) ?? "Disabled";
-            resourceInputs["privateLinkServiceNetworkPolicies"] = (args ? args.privateLinkServiceNetworkPolicies : undefined) ?? "Enabled";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routeTable"] = args ? args.routeTable : undefined;
-            resourceInputs["serviceEndpointPolicies"] = args ? args.serviceEndpointPolicies : undefined;
-            resourceInputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
-            resourceInputs["sharingScope"] = args ? args.sharingScope : undefined;
-            resourceInputs["subnetName"] = args ? args.subnetName : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
+            resourceInputs["addressPrefix"] = args?.addressPrefix;
+            resourceInputs["addressPrefixes"] = args?.addressPrefixes;
+            resourceInputs["applicationGatewayIPConfigurations"] = args?.applicationGatewayIPConfigurations;
+            resourceInputs["defaultOutboundAccess"] = args?.defaultOutboundAccess;
+            resourceInputs["delegations"] = args?.delegations;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["ipAllocations"] = args?.ipAllocations;
+            resourceInputs["ipamPoolPrefixAllocations"] = args?.ipamPoolPrefixAllocations;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["natGateway"] = args?.natGateway;
+            resourceInputs["networkSecurityGroup"] = args?.networkSecurityGroup;
+            resourceInputs["privateEndpointNetworkPolicies"] = (args?.privateEndpointNetworkPolicies) ?? "Disabled";
+            resourceInputs["privateLinkServiceNetworkPolicies"] = (args?.privateLinkServiceNetworkPolicies) ?? "Enabled";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routeTable"] = args?.routeTable;
+            resourceInputs["serviceEndpointPolicies"] = args?.serviceEndpointPolicies;
+            resourceInputs["serviceEndpoints"] = args?.serviceEndpoints;
+            resourceInputs["sharingScope"] = args?.sharingScope;
+            resourceInputs["subnetName"] = args?.subnetName;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["virtualNetworkName"] = args?.virtualNetworkName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["ipConfigurationProfiles"] = undefined /*out*/;

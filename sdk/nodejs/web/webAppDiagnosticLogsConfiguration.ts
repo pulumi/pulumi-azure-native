@@ -85,19 +85,19 @@ export class WebAppDiagnosticLogsConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["applicationLogs"] = args ? (args.applicationLogs ? pulumi.output(args.applicationLogs).apply(inputs.web.applicationLogsConfigArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["detailedErrorMessages"] = args ? args.detailedErrorMessages : undefined;
-            resourceInputs["failedRequestsTracing"] = args ? args.failedRequestsTracing : undefined;
-            resourceInputs["httpLogs"] = args ? args.httpLogs : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["detailedErrorMessages"] = args?.detailedErrorMessages;
+            resourceInputs["failedRequestsTracing"] = args?.failedRequestsTracing;
+            resourceInputs["httpLogs"] = args?.httpLogs;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

@@ -99,17 +99,17 @@ export class CloudConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["cloudConnectionName"] = args ? args.cloudConnectionName : undefined;
-            resourceInputs["cloudConnector"] = args ? args.cloudConnector : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["remoteResourceId"] = args ? args.remoteResourceId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sharedKey"] = args ? args.sharedKey : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualHub"] = args ? args.virtualHub : undefined;
+            resourceInputs["cloudConnectionName"] = args?.cloudConnectionName;
+            resourceInputs["cloudConnector"] = args?.cloudConnector;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["remoteResourceId"] = args?.remoteResourceId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sharedKey"] = args?.sharedKey;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualHub"] = args?.virtualHub;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

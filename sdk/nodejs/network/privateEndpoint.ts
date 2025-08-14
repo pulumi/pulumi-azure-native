@@ -117,22 +117,22 @@ export class PrivateEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["applicationSecurityGroups"] = args ? args.applicationSecurityGroups : undefined;
-            resourceInputs["customDnsConfigs"] = args ? args.customDnsConfigs : undefined;
-            resourceInputs["customNetworkInterfaceName"] = args ? args.customNetworkInterfaceName : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["manualPrivateLinkServiceConnections"] = args ? args.manualPrivateLinkServiceConnections : undefined;
-            resourceInputs["privateEndpointName"] = args ? args.privateEndpointName : undefined;
-            resourceInputs["privateLinkServiceConnections"] = args ? args.privateLinkServiceConnections : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["applicationSecurityGroups"] = args?.applicationSecurityGroups;
+            resourceInputs["customDnsConfigs"] = args?.customDnsConfigs;
+            resourceInputs["customNetworkInterfaceName"] = args?.customNetworkInterfaceName;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["ipConfigurations"] = args?.ipConfigurations;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["manualPrivateLinkServiceConnections"] = args?.manualPrivateLinkServiceConnections;
+            resourceInputs["privateEndpointName"] = args?.privateEndpointName;
+            resourceInputs["privateLinkServiceConnections"] = args?.privateLinkServiceConnections;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["subnet"] = args ? (args.subnet ? pulumi.output(args.subnet).apply(inputs.network.subnetArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

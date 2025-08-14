@@ -105,20 +105,20 @@ export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managementGroupId === undefined) && !opts.urn) {
+            if (args?.managementGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["mode"] = (args ? args.mode : undefined) ?? "Indexed";
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["policyDefinitionName"] = args ? args.policyDefinitionName : undefined;
-            resourceInputs["policyRule"] = args ? args.policyRule : undefined;
-            resourceInputs["policyType"] = args ? args.policyType : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["versions"] = args ? args.versions : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["managementGroupId"] = args?.managementGroupId;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["mode"] = (args?.mode) ?? "Indexed";
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["policyDefinitionName"] = args?.policyDefinitionName;
+            resourceInputs["policyRule"] = args?.policyRule;
+            resourceInputs["policyType"] = args?.policyType;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["versions"] = args?.versions;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

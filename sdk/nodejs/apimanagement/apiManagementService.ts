@@ -213,42 +213,42 @@ export class ApiManagementService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.publisherEmail === undefined) && !opts.urn) {
+            if (args?.publisherEmail === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publisherEmail'");
             }
-            if ((!args || args.publisherName === undefined) && !opts.urn) {
+            if (args?.publisherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publisherName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["additionalLocations"] = args ? args.additionalLocations : undefined;
-            resourceInputs["apiVersionConstraint"] = args ? args.apiVersionConstraint : undefined;
-            resourceInputs["certificates"] = args ? args.certificates : undefined;
-            resourceInputs["customProperties"] = args ? args.customProperties : undefined;
-            resourceInputs["disableGateway"] = (args ? args.disableGateway : undefined) ?? false;
-            resourceInputs["enableClientCertificate"] = (args ? args.enableClientCertificate : undefined) ?? false;
-            resourceInputs["hostnameConfigurations"] = args ? args.hostnameConfigurations : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["natGatewayState"] = (args ? args.natGatewayState : undefined) ?? "Disabled";
-            resourceInputs["notificationSenderEmail"] = args ? args.notificationSenderEmail : undefined;
-            resourceInputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
-            resourceInputs["publicIpAddressId"] = args ? args.publicIpAddressId : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["publisherEmail"] = args ? args.publisherEmail : undefined;
-            resourceInputs["publisherName"] = args ? args.publisherName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restore"] = (args ? args.restore : undefined) ?? false;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
-            resourceInputs["virtualNetworkType"] = (args ? args.virtualNetworkType : undefined) ?? "None";
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["additionalLocations"] = args?.additionalLocations;
+            resourceInputs["apiVersionConstraint"] = args?.apiVersionConstraint;
+            resourceInputs["certificates"] = args?.certificates;
+            resourceInputs["customProperties"] = args?.customProperties;
+            resourceInputs["disableGateway"] = (args?.disableGateway) ?? false;
+            resourceInputs["enableClientCertificate"] = (args?.enableClientCertificate) ?? false;
+            resourceInputs["hostnameConfigurations"] = args?.hostnameConfigurations;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["natGatewayState"] = (args?.natGatewayState) ?? "Disabled";
+            resourceInputs["notificationSenderEmail"] = args?.notificationSenderEmail;
+            resourceInputs["privateEndpointConnections"] = args?.privateEndpointConnections;
+            resourceInputs["publicIpAddressId"] = args?.publicIpAddressId;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["publisherEmail"] = args?.publisherEmail;
+            resourceInputs["publisherName"] = args?.publisherName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restore"] = (args?.restore) ?? false;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualNetworkConfiguration"] = args?.virtualNetworkConfiguration;
+            resourceInputs["virtualNetworkType"] = (args?.virtualNetworkType) ?? "None";
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAtUtc"] = undefined /*out*/;
             resourceInputs["developerPortalUrl"] = undefined /*out*/;

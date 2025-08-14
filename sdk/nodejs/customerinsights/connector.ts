@@ -107,26 +107,26 @@ export class Connector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectorProperties === undefined) && !opts.urn) {
+            if (args?.connectorProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectorProperties'");
             }
-            if ((!args || args.connectorType === undefined) && !opts.urn) {
+            if (args?.connectorType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectorType'");
             }
-            if ((!args || args.hubName === undefined) && !opts.urn) {
+            if (args?.hubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["connectorName"] = args ? args.connectorName : undefined;
-            resourceInputs["connectorProperties"] = args ? args.connectorProperties : undefined;
-            resourceInputs["connectorType"] = args ? args.connectorType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["hubName"] = args ? args.hubName : undefined;
-            resourceInputs["isInternal"] = args ? args.isInternal : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["connectorName"] = args?.connectorName;
+            resourceInputs["connectorProperties"] = args?.connectorProperties;
+            resourceInputs["connectorType"] = args?.connectorType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["hubName"] = args?.hubName;
+            resourceInputs["isInternal"] = args?.isInternal;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectorId"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;

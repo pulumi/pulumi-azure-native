@@ -147,20 +147,20 @@ export class AutoExportJob extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.amlFilesystemName === undefined) && !opts.urn) {
+            if (args?.amlFilesystemName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'amlFilesystemName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["adminStatus"] = (args ? args.adminStatus : undefined) ?? "Enable";
-            resourceInputs["amlFilesystemName"] = args ? args.amlFilesystemName : undefined;
-            resourceInputs["autoExportJobName"] = args ? args.autoExportJobName : undefined;
-            resourceInputs["autoExportPrefixes"] = args ? args.autoExportPrefixes : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["adminStatus"] = (args?.adminStatus) ?? "Enable";
+            resourceInputs["amlFilesystemName"] = args?.amlFilesystemName;
+            resourceInputs["autoExportJobName"] = args?.autoExportJobName;
+            resourceInputs["autoExportPrefixes"] = args?.autoExportPrefixes;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["currentIterationFilesDiscovered"] = undefined /*out*/;
             resourceInputs["currentIterationFilesExported"] = undefined /*out*/;

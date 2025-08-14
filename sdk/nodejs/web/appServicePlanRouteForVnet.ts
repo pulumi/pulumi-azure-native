@@ -86,23 +86,23 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vnetName === undefined) && !opts.urn) {
+            if (args?.vnetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vnetName'");
             }
-            resourceInputs["endAddress"] = args ? args.endAddress : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routeName"] = args ? args.routeName : undefined;
-            resourceInputs["routeType"] = args ? args.routeType : undefined;
-            resourceInputs["startAddress"] = args ? args.startAddress : undefined;
-            resourceInputs["vnetName"] = args ? args.vnetName : undefined;
+            resourceInputs["endAddress"] = args?.endAddress;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routeName"] = args?.routeName;
+            resourceInputs["routeType"] = args?.routeType;
+            resourceInputs["startAddress"] = args?.startAddress;
+            resourceInputs["vnetName"] = args?.vnetName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

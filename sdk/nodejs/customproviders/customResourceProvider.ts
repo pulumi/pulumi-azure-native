@@ -87,16 +87,16 @@ export class CustomResourceProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceProviderName"] = args ? args.resourceProviderName : undefined;
-            resourceInputs["resourceTypes"] = args ? args.resourceTypes : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["validations"] = args ? args.validations : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceProviderName"] = args?.resourceProviderName;
+            resourceInputs["resourceTypes"] = args?.resourceTypes;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["validations"] = args?.validations;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

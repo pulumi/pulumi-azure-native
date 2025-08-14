@@ -153,21 +153,21 @@ export class Lab extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["announcement"] = args ? args.announcement : undefined;
-            resourceInputs["environmentPermission"] = args ? args.environmentPermission : undefined;
-            resourceInputs["extendedProperties"] = args ? args.extendedProperties : undefined;
-            resourceInputs["labStorageType"] = (args ? args.labStorageType : undefined) ?? "Premium";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mandatoryArtifactsResourceIdsLinux"] = args ? args.mandatoryArtifactsResourceIdsLinux : undefined;
-            resourceInputs["mandatoryArtifactsResourceIdsWindows"] = args ? args.mandatoryArtifactsResourceIdsWindows : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["premiumDataDisks"] = args ? args.premiumDataDisks : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["support"] = args ? args.support : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["announcement"] = args?.announcement;
+            resourceInputs["environmentPermission"] = args?.environmentPermission;
+            resourceInputs["extendedProperties"] = args?.extendedProperties;
+            resourceInputs["labStorageType"] = (args?.labStorageType) ?? "Premium";
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mandatoryArtifactsResourceIdsLinux"] = args?.mandatoryArtifactsResourceIdsLinux;
+            resourceInputs["mandatoryArtifactsResourceIdsWindows"] = args?.mandatoryArtifactsResourceIdsWindows;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["premiumDataDisks"] = args?.premiumDataDisks;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["support"] = args?.support;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["artifactsStorageAccount"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;

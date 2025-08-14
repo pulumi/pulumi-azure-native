@@ -133,28 +133,28 @@ export class Runbook extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.runbookType === undefined) && !opts.urn) {
+            if (args?.runbookType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'runbookType'");
             }
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["draft"] = args ? args.draft : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logActivityTrace"] = args ? args.logActivityTrace : undefined;
-            resourceInputs["logProgress"] = args ? args.logProgress : undefined;
-            resourceInputs["logVerbose"] = args ? args.logVerbose : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publishContentLink"] = args ? args.publishContentLink : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["runbookName"] = args ? args.runbookName : undefined;
-            resourceInputs["runbookType"] = args ? args.runbookType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["draft"] = args?.draft;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logActivityTrace"] = args?.logActivityTrace;
+            resourceInputs["logProgress"] = args?.logProgress;
+            resourceInputs["logVerbose"] = args?.logVerbose;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publishContentLink"] = args?.publishContentLink;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["runbookName"] = args?.runbookName;
+            resourceInputs["runbookType"] = args?.runbookType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

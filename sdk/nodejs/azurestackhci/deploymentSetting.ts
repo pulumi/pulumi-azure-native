@@ -93,28 +93,28 @@ export class DeploymentSetting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.arcNodeResourceIds === undefined) && !opts.urn) {
+            if (args?.arcNodeResourceIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'arcNodeResourceIds'");
             }
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.deploymentConfiguration === undefined) && !opts.urn) {
+            if (args?.deploymentConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deploymentConfiguration'");
             }
-            if ((!args || args.deploymentMode === undefined) && !opts.urn) {
+            if (args?.deploymentMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deploymentMode'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["arcNodeResourceIds"] = args ? args.arcNodeResourceIds : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["deploymentConfiguration"] = args ? args.deploymentConfiguration : undefined;
-            resourceInputs["deploymentMode"] = args ? args.deploymentMode : undefined;
-            resourceInputs["deploymentSettingsName"] = args ? args.deploymentSettingsName : undefined;
-            resourceInputs["operationType"] = (args ? args.operationType : undefined) ?? "ClusterProvisioning";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["arcNodeResourceIds"] = args?.arcNodeResourceIds;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["deploymentConfiguration"] = args?.deploymentConfiguration;
+            resourceInputs["deploymentMode"] = args?.deploymentMode;
+            resourceInputs["deploymentSettingsName"] = args?.deploymentSettingsName;
+            resourceInputs["operationType"] = (args?.operationType) ?? "ClusterProvisioning";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

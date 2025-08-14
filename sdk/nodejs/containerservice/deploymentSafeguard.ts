@@ -89,15 +89,15 @@ export class DeploymentSafeguard extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.level === undefined) && !opts.urn) {
+            if (args?.level === undefined && !opts.urn) {
                 throw new Error("Missing required property 'level'");
             }
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["excludedNamespaces"] = args ? args.excludedNamespaces : undefined;
-            resourceInputs["level"] = args ? args.level : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
+            resourceInputs["excludedNamespaces"] = args?.excludedNamespaces;
+            resourceInputs["level"] = args?.level;
+            resourceInputs["resourceUri"] = args?.resourceUri;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

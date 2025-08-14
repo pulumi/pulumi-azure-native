@@ -115,22 +115,22 @@ export class AzureBareMetalInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["azureBareMetalInstanceId"] = args ? args.azureBareMetalInstanceId : undefined;
-            resourceInputs["azureBareMetalInstanceName"] = args ? args.azureBareMetalInstanceName : undefined;
-            resourceInputs["hardwareProfile"] = args ? args.hardwareProfile : undefined;
-            resourceInputs["hwRevision"] = args ? args.hwRevision : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["osProfile"] = args ? args.osProfile : undefined;
-            resourceInputs["partnerNodeId"] = args ? args.partnerNodeId : undefined;
-            resourceInputs["powerState"] = args ? args.powerState : undefined;
-            resourceInputs["proximityPlacementGroup"] = args ? args.proximityPlacementGroup : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureBareMetalInstanceId"] = args?.azureBareMetalInstanceId;
+            resourceInputs["azureBareMetalInstanceName"] = args?.azureBareMetalInstanceName;
+            resourceInputs["hardwareProfile"] = args?.hardwareProfile;
+            resourceInputs["hwRevision"] = args?.hwRevision;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["osProfile"] = args?.osProfile;
+            resourceInputs["partnerNodeId"] = args?.partnerNodeId;
+            resourceInputs["powerState"] = args?.powerState;
+            resourceInputs["proximityPlacementGroup"] = args?.proximityPlacementGroup;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageProfile"] = args?.storageProfile;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

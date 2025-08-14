@@ -73,27 +73,27 @@ export class Capability extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.parentProviderNamespace === undefined) && !opts.urn) {
+            if (args?.parentProviderNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentProviderNamespace'");
             }
-            if ((!args || args.parentResourceName === undefined) && !opts.urn) {
+            if (args?.parentResourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentResourceName'");
             }
-            if ((!args || args.parentResourceType === undefined) && !opts.urn) {
+            if (args?.parentResourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentResourceType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.targetName === undefined) && !opts.urn) {
+            if (args?.targetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetName'");
             }
-            resourceInputs["capabilityName"] = args ? args.capabilityName : undefined;
-            resourceInputs["parentProviderNamespace"] = args ? args.parentProviderNamespace : undefined;
-            resourceInputs["parentResourceName"] = args ? args.parentResourceName : undefined;
-            resourceInputs["parentResourceType"] = args ? args.parentResourceType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["targetName"] = args ? args.targetName : undefined;
+            resourceInputs["capabilityName"] = args?.capabilityName;
+            resourceInputs["parentProviderNamespace"] = args?.parentProviderNamespace;
+            resourceInputs["parentResourceName"] = args?.parentResourceName;
+            resourceInputs["parentResourceType"] = args?.parentResourceType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["targetName"] = args?.targetName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

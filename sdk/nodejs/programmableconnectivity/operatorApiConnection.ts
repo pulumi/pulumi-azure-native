@@ -117,29 +117,29 @@ export class OperatorApiConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountType === undefined) && !opts.urn) {
+            if (args?.accountType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountType'");
             }
-            if ((!args || args.gatewayId === undefined) && !opts.urn) {
+            if (args?.gatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayId'");
             }
-            if ((!args || args.operatorApiPlanId === undefined) && !opts.urn) {
+            if (args?.operatorApiPlanId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'operatorApiPlanId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountType"] = args ? args.accountType : undefined;
-            resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["appSecret"] = args ? args.appSecret : undefined;
-            resourceInputs["configuredApplication"] = args ? args.configuredApplication : undefined;
-            resourceInputs["gatewayId"] = args ? args.gatewayId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["operatorApiConnectionName"] = args ? args.operatorApiConnectionName : undefined;
-            resourceInputs["operatorApiPlanId"] = args ? args.operatorApiPlanId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["saasProperties"] = args ? args.saasProperties : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountType"] = args?.accountType;
+            resourceInputs["appId"] = args?.appId;
+            resourceInputs["appSecret"] = args?.appSecret;
+            resourceInputs["configuredApplication"] = args?.configuredApplication;
+            resourceInputs["gatewayId"] = args?.gatewayId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["operatorApiConnectionName"] = args?.operatorApiConnectionName;
+            resourceInputs["operatorApiPlanId"] = args?.operatorApiPlanId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["saasProperties"] = args?.saasProperties;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["camaraApiName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

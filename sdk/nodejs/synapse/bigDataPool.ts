@@ -149,35 +149,35 @@ export class BigDataPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["autoPause"] = args ? args.autoPause : undefined;
-            resourceInputs["autoScale"] = args ? args.autoScale : undefined;
-            resourceInputs["bigDataPoolName"] = args ? args.bigDataPoolName : undefined;
-            resourceInputs["cacheSize"] = args ? args.cacheSize : undefined;
-            resourceInputs["customLibraries"] = args ? args.customLibraries : undefined;
-            resourceInputs["defaultSparkLogFolder"] = args ? args.defaultSparkLogFolder : undefined;
-            resourceInputs["dynamicExecutorAllocation"] = args ? args.dynamicExecutorAllocation : undefined;
-            resourceInputs["force"] = args ? args.force : undefined;
-            resourceInputs["isAutotuneEnabled"] = args ? args.isAutotuneEnabled : undefined;
-            resourceInputs["isComputeIsolationEnabled"] = args ? args.isComputeIsolationEnabled : undefined;
-            resourceInputs["libraryRequirements"] = args ? args.libraryRequirements : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["nodeCount"] = args ? args.nodeCount : undefined;
-            resourceInputs["nodeSize"] = args ? args.nodeSize : undefined;
-            resourceInputs["nodeSizeFamily"] = args ? args.nodeSizeFamily : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sessionLevelPackagesEnabled"] = args ? args.sessionLevelPackagesEnabled : undefined;
-            resourceInputs["sparkConfigProperties"] = args ? args.sparkConfigProperties : undefined;
-            resourceInputs["sparkEventsFolder"] = args ? args.sparkEventsFolder : undefined;
-            resourceInputs["sparkVersion"] = args ? args.sparkVersion : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["autoPause"] = args?.autoPause;
+            resourceInputs["autoScale"] = args?.autoScale;
+            resourceInputs["bigDataPoolName"] = args?.bigDataPoolName;
+            resourceInputs["cacheSize"] = args?.cacheSize;
+            resourceInputs["customLibraries"] = args?.customLibraries;
+            resourceInputs["defaultSparkLogFolder"] = args?.defaultSparkLogFolder;
+            resourceInputs["dynamicExecutorAllocation"] = args?.dynamicExecutorAllocation;
+            resourceInputs["force"] = args?.force;
+            resourceInputs["isAutotuneEnabled"] = args?.isAutotuneEnabled;
+            resourceInputs["isComputeIsolationEnabled"] = args?.isComputeIsolationEnabled;
+            resourceInputs["libraryRequirements"] = args?.libraryRequirements;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["nodeCount"] = args?.nodeCount;
+            resourceInputs["nodeSize"] = args?.nodeSize;
+            resourceInputs["nodeSizeFamily"] = args?.nodeSizeFamily;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sessionLevelPackagesEnabled"] = args?.sessionLevelPackagesEnabled;
+            resourceInputs["sparkConfigProperties"] = args?.sparkConfigProperties;
+            resourceInputs["sparkEventsFolder"] = args?.sparkEventsFolder;
+            resourceInputs["sparkVersion"] = args?.sparkVersion;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["lastSucceededTimestamp"] = undefined /*out*/;

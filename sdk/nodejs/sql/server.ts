@@ -151,25 +151,25 @@ export class Server extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
-            resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
-            resourceInputs["administrators"] = args ? args.administrators : undefined;
-            resourceInputs["federatedClientId"] = args ? args.federatedClientId : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["isIPv6Enabled"] = args ? args.isIPv6Enabled : undefined;
-            resourceInputs["keyId"] = args ? args.keyId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["minimalTlsVersion"] = args ? args.minimalTlsVersion : undefined;
-            resourceInputs["primaryUserAssignedIdentityId"] = args ? args.primaryUserAssignedIdentityId : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restrictOutboundNetworkAccess"] = args ? args.restrictOutboundNetworkAccess : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["administratorLogin"] = args?.administratorLogin;
+            resourceInputs["administratorLoginPassword"] = args?.administratorLoginPassword;
+            resourceInputs["administrators"] = args?.administrators;
+            resourceInputs["federatedClientId"] = args?.federatedClientId;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["isIPv6Enabled"] = args?.isIPv6Enabled;
+            resourceInputs["keyId"] = args?.keyId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["minimalTlsVersion"] = args?.minimalTlsVersion;
+            resourceInputs["primaryUserAssignedIdentityId"] = args?.primaryUserAssignedIdentityId;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restrictOutboundNetworkAccess"] = args?.restrictOutboundNetworkAccess;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["externalGovernanceStatus"] = undefined /*out*/;
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;

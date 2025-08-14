@@ -111,19 +111,19 @@ export class Factory extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["factoryName"] = args ? args.factoryName : undefined;
-            resourceInputs["globalParameters"] = args ? args.globalParameters : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["purviewConfiguration"] = args ? args.purviewConfiguration : undefined;
-            resourceInputs["repoConfiguration"] = args ? args.repoConfiguration : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["factoryName"] = args?.factoryName;
+            resourceInputs["globalParameters"] = args?.globalParameters;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["purviewConfiguration"] = args?.purviewConfiguration;
+            resourceInputs["repoConfiguration"] = args?.repoConfiguration;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;

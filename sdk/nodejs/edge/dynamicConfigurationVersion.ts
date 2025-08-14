@@ -71,20 +71,20 @@ export class DynamicConfigurationVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configurationName === undefined) && !opts.urn) {
+            if (args?.configurationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationName'");
             }
-            if ((!args || args.dynamicConfigurationName === undefined) && !opts.urn) {
+            if (args?.dynamicConfigurationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dynamicConfigurationName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["configurationName"] = args ? args.configurationName : undefined;
-            resourceInputs["dynamicConfigurationName"] = args ? args.dynamicConfigurationName : undefined;
-            resourceInputs["dynamicConfigurationVersionName"] = args ? args.dynamicConfigurationVersionName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["configurationName"] = args?.configurationName;
+            resourceInputs["dynamicConfigurationName"] = args?.dynamicConfigurationName;
+            resourceInputs["dynamicConfigurationVersionName"] = args?.dynamicConfigurationVersionName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

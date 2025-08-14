@@ -115,21 +115,21 @@ export class PartnerTopic extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["activationState"] = args ? args.activationState : undefined;
-            resourceInputs["eventTypeInfo"] = args ? args.eventTypeInfo : undefined;
-            resourceInputs["expirationTimeIfNotActivatedUtc"] = args ? args.expirationTimeIfNotActivatedUtc : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["messageForActivation"] = args ? args.messageForActivation : undefined;
-            resourceInputs["partnerRegistrationImmutableId"] = args ? args.partnerRegistrationImmutableId : undefined;
-            resourceInputs["partnerTopicFriendlyDescription"] = args ? args.partnerTopicFriendlyDescription : undefined;
-            resourceInputs["partnerTopicName"] = args ? args.partnerTopicName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["activationState"] = args?.activationState;
+            resourceInputs["eventTypeInfo"] = args?.eventTypeInfo;
+            resourceInputs["expirationTimeIfNotActivatedUtc"] = args?.expirationTimeIfNotActivatedUtc;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["messageForActivation"] = args?.messageForActivation;
+            resourceInputs["partnerRegistrationImmutableId"] = args?.partnerRegistrationImmutableId;
+            resourceInputs["partnerTopicFriendlyDescription"] = args?.partnerTopicFriendlyDescription;
+            resourceInputs["partnerTopicName"] = args?.partnerTopicName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

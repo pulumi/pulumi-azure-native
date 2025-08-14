@@ -101,18 +101,18 @@ export class VirtualRouter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["hostedGateway"] = args ? args.hostedGateway : undefined;
-            resourceInputs["hostedSubnet"] = args ? args.hostedSubnet : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualRouterAsn"] = args ? args.virtualRouterAsn : undefined;
-            resourceInputs["virtualRouterIps"] = args ? args.virtualRouterIps : undefined;
-            resourceInputs["virtualRouterName"] = args ? args.virtualRouterName : undefined;
+            resourceInputs["hostedGateway"] = args?.hostedGateway;
+            resourceInputs["hostedSubnet"] = args?.hostedSubnet;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualRouterAsn"] = args?.virtualRouterAsn;
+            resourceInputs["virtualRouterIps"] = args?.virtualRouterIps;
+            resourceInputs["virtualRouterName"] = args?.virtualRouterName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

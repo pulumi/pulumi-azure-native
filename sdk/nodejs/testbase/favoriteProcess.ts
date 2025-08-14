@@ -73,23 +73,23 @@ export class FavoriteProcess extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actualProcessName === undefined) && !opts.urn) {
+            if (args?.actualProcessName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actualProcessName'");
             }
-            if ((!args || args.packageName === undefined) && !opts.urn) {
+            if (args?.packageName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packageName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.testBaseAccountName === undefined) && !opts.urn) {
+            if (args?.testBaseAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'testBaseAccountName'");
             }
-            resourceInputs["actualProcessName"] = args ? args.actualProcessName : undefined;
-            resourceInputs["favoriteProcessResourceName"] = args ? args.favoriteProcessResourceName : undefined;
-            resourceInputs["packageName"] = args ? args.packageName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["testBaseAccountName"] = args ? args.testBaseAccountName : undefined;
+            resourceInputs["actualProcessName"] = args?.actualProcessName;
+            resourceInputs["favoriteProcessResourceName"] = args?.favoriteProcessResourceName;
+            resourceInputs["packageName"] = args?.packageName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["testBaseAccountName"] = args?.testBaseAccountName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

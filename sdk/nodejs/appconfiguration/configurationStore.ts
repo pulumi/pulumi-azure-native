@@ -125,25 +125,25 @@ export class ConfigurationStore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["configStoreName"] = args ? args.configStoreName : undefined;
-            resourceInputs["createMode"] = args ? args.createMode : undefined;
-            resourceInputs["dataPlaneProxy"] = args ? args.dataPlaneProxy : undefined;
-            resourceInputs["disableLocalAuth"] = (args ? args.disableLocalAuth : undefined) ?? false;
-            resourceInputs["enablePurgeProtection"] = (args ? args.enablePurgeProtection : undefined) ?? false;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["softDeleteRetentionInDays"] = (args ? args.softDeleteRetentionInDays : undefined) ?? 7;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["configStoreName"] = args?.configStoreName;
+            resourceInputs["createMode"] = args?.createMode;
+            resourceInputs["dataPlaneProxy"] = args?.dataPlaneProxy;
+            resourceInputs["disableLocalAuth"] = (args?.disableLocalAuth) ?? false;
+            resourceInputs["enablePurgeProtection"] = (args?.enablePurgeProtection) ?? false;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["softDeleteRetentionInDays"] = (args?.softDeleteRetentionInDays) ?? 7;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;

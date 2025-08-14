@@ -129,20 +129,20 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["createFromLocal"] = (args ? args.createFromLocal : undefined) ?? false;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
+            resourceInputs["createFromLocal"] = (args?.createFromLocal) ?? false;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["hardwareProfile"] = args ? (args.hardwareProfile ? pulumi.output(args.hardwareProfile).apply(inputs.azurestackhci.virtualMachineInstancePropertiesHardwareProfileArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["httpProxyConfig"] = args ? args.httpProxyConfig : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
+            resourceInputs["httpProxyConfig"] = args?.httpProxyConfig;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["networkProfile"] = args?.networkProfile;
             resourceInputs["osProfile"] = args ? (args.osProfile ? pulumi.output(args.osProfile).apply(inputs.azurestackhci.virtualMachineInstancePropertiesOsProfileArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceUid"] = args ? args.resourceUid : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
+            resourceInputs["resourceUid"] = args?.resourceUid;
+            resourceInputs["resourceUri"] = args?.resourceUri;
             resourceInputs["securityProfile"] = args ? (args.securityProfile ? pulumi.output(args.securityProfile).apply(inputs.azurestackhci.virtualMachineInstancePropertiesSecurityProfileArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
+            resourceInputs["storageProfile"] = args?.storageProfile;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["guestAgentInstallStatus"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;

@@ -89,21 +89,21 @@ export class EnclaveEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.ruleCollection === undefined) && !opts.urn) {
+            if (args?.ruleCollection === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleCollection'");
             }
-            if ((!args || args.virtualEnclaveName === undefined) && !opts.urn) {
+            if (args?.virtualEnclaveName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualEnclaveName'");
             }
-            resourceInputs["enclaveEndpointName"] = args ? args.enclaveEndpointName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ruleCollection"] = args ? args.ruleCollection : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualEnclaveName"] = args ? args.virtualEnclaveName : undefined;
+            resourceInputs["enclaveEndpointName"] = args?.enclaveEndpointName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["ruleCollection"] = args?.ruleCollection;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualEnclaveName"] = args?.virtualEnclaveName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -169,28 +169,28 @@ export class Workspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managedResourceGroupId === undefined) && !opts.urn) {
+            if (args?.managedResourceGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedResourceGroupId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accessConnector"] = args ? args.accessConnector : undefined;
-            resourceInputs["authorizations"] = args ? args.authorizations : undefined;
+            resourceInputs["accessConnector"] = args?.accessConnector;
+            resourceInputs["authorizations"] = args?.authorizations;
             resourceInputs["defaultCatalog"] = args ? (args.defaultCatalog ? pulumi.output(args.defaultCatalog).apply(inputs.databricks.defaultCatalogPropertiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["defaultStorageFirewall"] = args ? args.defaultStorageFirewall : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["enhancedSecurityCompliance"] = args ? args.enhancedSecurityCompliance : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedResourceGroupId"] = args ? args.managedResourceGroupId : undefined;
+            resourceInputs["defaultStorageFirewall"] = args?.defaultStorageFirewall;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["enhancedSecurityCompliance"] = args?.enhancedSecurityCompliance;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedResourceGroupId"] = args?.managedResourceGroupId;
             resourceInputs["parameters"] = args ? (args.parameters ? pulumi.output(args.parameters).apply(inputs.databricks.workspaceCustomParametersArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["requiredNsgRules"] = args ? args.requiredNsgRules : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["uiDefinitionUri"] = args ? args.uiDefinitionUri : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["requiredNsgRules"] = args?.requiredNsgRules;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["uiDefinitionUri"] = args?.uiDefinitionUri;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdDateTime"] = undefined /*out*/;

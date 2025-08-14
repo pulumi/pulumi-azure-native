@@ -119,28 +119,28 @@ export class SapVirtualInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configuration === undefined) && !opts.urn) {
+            if (args?.configuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sapProduct === undefined) && !opts.urn) {
+            if (args?.sapProduct === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sapProduct'");
             }
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedResourceGroupConfiguration"] = args ? args.managedResourceGroupConfiguration : undefined;
-            resourceInputs["managedResourcesNetworkAccessType"] = args ? args.managedResourcesNetworkAccessType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sapProduct"] = args ? args.sapProduct : undefined;
-            resourceInputs["sapVirtualInstanceName"] = args ? args.sapVirtualInstanceName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedResourceGroupConfiguration"] = args?.managedResourceGroupConfiguration;
+            resourceInputs["managedResourcesNetworkAccessType"] = args?.managedResourcesNetworkAccessType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sapProduct"] = args?.sapProduct;
+            resourceInputs["sapVirtualInstanceName"] = args?.sapVirtualInstanceName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["health"] = undefined /*out*/;

@@ -175,38 +175,38 @@ export class DraftPackage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.testBaseAccountName === undefined) && !opts.urn) {
+            if (args?.testBaseAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'testBaseAccountName'");
             }
-            resourceInputs["appFileName"] = args ? args.appFileName : undefined;
-            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["comments"] = args ? args.comments : undefined;
-            resourceInputs["draftPackageName"] = args ? args.draftPackageName : undefined;
-            resourceInputs["editPackage"] = (args ? args.editPackage : undefined) ?? false;
-            resourceInputs["executableLaunchCommand"] = args ? args.executableLaunchCommand : undefined;
-            resourceInputs["firstPartyApps"] = args ? args.firstPartyApps : undefined;
-            resourceInputs["flightingRing"] = args ? args.flightingRing : undefined;
-            resourceInputs["galleryApps"] = args ? args.galleryApps : undefined;
-            resourceInputs["highlightedFiles"] = args ? args.highlightedFiles : undefined;
-            resourceInputs["inplaceUpgradeOSPair"] = args ? args.inplaceUpgradeOSPair : undefined;
-            resourceInputs["intuneEnrollmentMetadata"] = args ? args.intuneEnrollmentMetadata : undefined;
-            resourceInputs["intuneMetadata"] = args ? args.intuneMetadata : undefined;
-            resourceInputs["packageId"] = args ? args.packageId : undefined;
-            resourceInputs["packageTags"] = args ? args.packageTags : undefined;
-            resourceInputs["processName"] = args ? args.processName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceType"] = (args ? args.sourceType : undefined) ?? "Native";
-            resourceInputs["tabState"] = args ? args.tabState : undefined;
-            resourceInputs["targetOSList"] = args ? args.targetOSList : undefined;
-            resourceInputs["testBaseAccountName"] = args ? args.testBaseAccountName : undefined;
-            resourceInputs["testTypes"] = args ? args.testTypes : undefined;
-            resourceInputs["tests"] = args ? args.tests : undefined;
-            resourceInputs["useAutofill"] = args ? args.useAutofill : undefined;
-            resourceInputs["useSample"] = args ? args.useSample : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["appFileName"] = args?.appFileName;
+            resourceInputs["applicationName"] = args?.applicationName;
+            resourceInputs["comments"] = args?.comments;
+            resourceInputs["draftPackageName"] = args?.draftPackageName;
+            resourceInputs["editPackage"] = (args?.editPackage) ?? false;
+            resourceInputs["executableLaunchCommand"] = args?.executableLaunchCommand;
+            resourceInputs["firstPartyApps"] = args?.firstPartyApps;
+            resourceInputs["flightingRing"] = args?.flightingRing;
+            resourceInputs["galleryApps"] = args?.galleryApps;
+            resourceInputs["highlightedFiles"] = args?.highlightedFiles;
+            resourceInputs["inplaceUpgradeOSPair"] = args?.inplaceUpgradeOSPair;
+            resourceInputs["intuneEnrollmentMetadata"] = args?.intuneEnrollmentMetadata;
+            resourceInputs["intuneMetadata"] = args?.intuneMetadata;
+            resourceInputs["packageId"] = args?.packageId;
+            resourceInputs["packageTags"] = args?.packageTags;
+            resourceInputs["processName"] = args?.processName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceType"] = (args?.sourceType) ?? "Native";
+            resourceInputs["tabState"] = args?.tabState;
+            resourceInputs["targetOSList"] = args?.targetOSList;
+            resourceInputs["testBaseAccountName"] = args?.testBaseAccountName;
+            resourceInputs["testTypes"] = args?.testTypes;
+            resourceInputs["tests"] = args?.tests;
+            resourceInputs["useAutofill"] = args?.useAutofill;
+            resourceInputs["useSample"] = args?.useSample;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["draftPackagePath"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;

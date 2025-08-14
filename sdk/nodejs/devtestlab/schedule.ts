@@ -115,25 +115,25 @@ export class Schedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.labName === undefined) && !opts.urn) {
+            if (args?.labName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dailyRecurrence"] = args ? args.dailyRecurrence : undefined;
-            resourceInputs["hourlyRecurrence"] = args ? args.hourlyRecurrence : undefined;
-            resourceInputs["labName"] = args ? args.labName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["dailyRecurrence"] = args?.dailyRecurrence;
+            resourceInputs["hourlyRecurrence"] = args?.hourlyRecurrence;
+            resourceInputs["labName"] = args?.labName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
             resourceInputs["notificationSettings"] = args ? (args.notificationSettings ? pulumi.output(args.notificationSettings).apply(inputs.devtestlab.notificationSettingsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["status"] = (args ? args.status : undefined) ?? "Disabled";
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
-            resourceInputs["taskType"] = args ? args.taskType : undefined;
-            resourceInputs["timeZoneId"] = args ? args.timeZoneId : undefined;
-            resourceInputs["weeklyRecurrence"] = args ? args.weeklyRecurrence : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["status"] = (args?.status) ?? "Disabled";
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
+            resourceInputs["taskType"] = args?.taskType;
+            resourceInputs["timeZoneId"] = args?.timeZoneId;
+            resourceInputs["weeklyRecurrence"] = args?.weeklyRecurrence;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

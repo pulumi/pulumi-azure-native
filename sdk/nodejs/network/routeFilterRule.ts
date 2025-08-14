@@ -85,30 +85,30 @@ export class RouteFilterRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.access === undefined) && !opts.urn) {
+            if (args?.access === undefined && !opts.urn) {
                 throw new Error("Missing required property 'access'");
             }
-            if ((!args || args.communities === undefined) && !opts.urn) {
+            if (args?.communities === undefined && !opts.urn) {
                 throw new Error("Missing required property 'communities'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.routeFilterName === undefined) && !opts.urn) {
+            if (args?.routeFilterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeFilterName'");
             }
-            if ((!args || args.routeFilterRuleType === undefined) && !opts.urn) {
+            if (args?.routeFilterRuleType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeFilterRuleType'");
             }
-            resourceInputs["access"] = args ? args.access : undefined;
-            resourceInputs["communities"] = args ? args.communities : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routeFilterName"] = args ? args.routeFilterName : undefined;
-            resourceInputs["routeFilterRuleType"] = args ? args.routeFilterRuleType : undefined;
-            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["access"] = args?.access;
+            resourceInputs["communities"] = args?.communities;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routeFilterName"] = args?.routeFilterName;
+            resourceInputs["routeFilterRuleType"] = args?.routeFilterRuleType;
+            resourceInputs["ruleName"] = args?.ruleName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

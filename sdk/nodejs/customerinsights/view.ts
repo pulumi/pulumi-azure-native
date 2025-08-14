@@ -88,21 +88,21 @@ export class View extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.definition === undefined) && !opts.urn) {
+            if (args?.definition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            if ((!args || args.hubName === undefined) && !opts.urn) {
+            if (args?.hubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["hubName"] = args ? args.hubName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
-            resourceInputs["viewName"] = args ? args.viewName : undefined;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["hubName"] = args?.hubName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["userId"] = args?.userId;
+            resourceInputs["viewName"] = args?.viewName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["changed"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;

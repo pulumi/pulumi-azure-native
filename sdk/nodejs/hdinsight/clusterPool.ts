@@ -117,21 +117,21 @@ export class ClusterPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.computeProfile === undefined) && !opts.urn) {
+            if (args?.computeProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'computeProfile'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clusterPoolName"] = args ? args.clusterPoolName : undefined;
-            resourceInputs["clusterPoolProfile"] = args ? args.clusterPoolProfile : undefined;
-            resourceInputs["computeProfile"] = args ? args.computeProfile : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logAnalyticsProfile"] = args ? args.logAnalyticsProfile : undefined;
-            resourceInputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
+            resourceInputs["clusterPoolName"] = args?.clusterPoolName;
+            resourceInputs["clusterPoolProfile"] = args?.clusterPoolProfile;
+            resourceInputs["computeProfile"] = args?.computeProfile;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logAnalyticsProfile"] = args?.logAnalyticsProfile;
+            resourceInputs["managedResourceGroupName"] = args?.managedResourceGroupName;
             resourceInputs["networkProfile"] = args ? (args.networkProfile ? pulumi.output(args.networkProfile).apply(inputs.hdinsight.clusterPoolResourcePropertiesNetworkProfileArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["aksClusterProfile"] = undefined /*out*/;
             resourceInputs["aksManagedResourceGroupName"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

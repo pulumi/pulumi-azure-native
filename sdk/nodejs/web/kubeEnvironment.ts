@@ -122,22 +122,22 @@ export class KubeEnvironment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["aksResourceID"] = args ? args.aksResourceID : undefined;
-            resourceInputs["appLogsConfiguration"] = args ? args.appLogsConfiguration : undefined;
-            resourceInputs["arcConfiguration"] = args ? args.arcConfiguration : undefined;
-            resourceInputs["containerAppsConfiguration"] = args ? args.containerAppsConfiguration : undefined;
-            resourceInputs["environmentType"] = args ? args.environmentType : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["internalLoadBalancerEnabled"] = args ? args.internalLoadBalancerEnabled : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["staticIp"] = args ? args.staticIp : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["aksResourceID"] = args?.aksResourceID;
+            resourceInputs["appLogsConfiguration"] = args?.appLogsConfiguration;
+            resourceInputs["arcConfiguration"] = args?.arcConfiguration;
+            resourceInputs["containerAppsConfiguration"] = args?.containerAppsConfiguration;
+            resourceInputs["environmentType"] = args?.environmentType;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["internalLoadBalancerEnabled"] = args?.internalLoadBalancerEnabled;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["staticIp"] = args?.staticIp;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["defaultDomain"] = undefined /*out*/;
             resourceInputs["deploymentErrors"] = undefined /*out*/;

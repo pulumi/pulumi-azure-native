@@ -99,30 +99,30 @@ export class AnalyticsConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataDestinationConfiguration === undefined) && !opts.urn) {
+            if (args?.dataDestinationConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataDestinationConfiguration'");
             }
-            if ((!args || args.dataMappingConfiguration === undefined) && !opts.urn) {
+            if (args?.dataMappingConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataMappingConfiguration'");
             }
-            if ((!args || args.dataSourceConfiguration === undefined) && !opts.urn) {
+            if (args?.dataSourceConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSourceConfiguration'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["analyticsConnectorName"] = args ? args.analyticsConnectorName : undefined;
-            resourceInputs["dataDestinationConfiguration"] = args ? args.dataDestinationConfiguration : undefined;
-            resourceInputs["dataMappingConfiguration"] = args ? args.dataMappingConfiguration : undefined;
-            resourceInputs["dataSourceConfiguration"] = args ? args.dataSourceConfiguration : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["analyticsConnectorName"] = args?.analyticsConnectorName;
+            resourceInputs["dataDestinationConfiguration"] = args?.dataDestinationConfiguration;
+            resourceInputs["dataMappingConfiguration"] = args?.dataMappingConfiguration;
+            resourceInputs["dataSourceConfiguration"] = args?.dataSourceConfiguration;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

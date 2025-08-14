@@ -153,30 +153,30 @@ export class PublicIPAddress extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["ddosSettings"] = args ? args.ddosSettings : undefined;
-            resourceInputs["deleteOption"] = args ? args.deleteOption : undefined;
-            resourceInputs["dnsSettings"] = args ? args.dnsSettings : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
-            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
-            resourceInputs["ipTags"] = args ? args.ipTags : undefined;
-            resourceInputs["linkedPublicIPAddress"] = args ? args.linkedPublicIPAddress : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["migrationPhase"] = args ? args.migrationPhase : undefined;
-            resourceInputs["natGateway"] = args ? args.natGateway : undefined;
-            resourceInputs["publicIPAddressVersion"] = args ? args.publicIPAddressVersion : undefined;
-            resourceInputs["publicIPAllocationMethod"] = args ? args.publicIPAllocationMethod : undefined;
-            resourceInputs["publicIPPrefix"] = args ? args.publicIPPrefix : undefined;
-            resourceInputs["publicIpAddressName"] = args ? args.publicIpAddressName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["servicePublicIPAddress"] = args ? args.servicePublicIPAddress : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["ddosSettings"] = args?.ddosSettings;
+            resourceInputs["deleteOption"] = args?.deleteOption;
+            resourceInputs["dnsSettings"] = args?.dnsSettings;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["idleTimeoutInMinutes"] = args?.idleTimeoutInMinutes;
+            resourceInputs["ipAddress"] = args?.ipAddress;
+            resourceInputs["ipTags"] = args?.ipTags;
+            resourceInputs["linkedPublicIPAddress"] = args?.linkedPublicIPAddress;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["migrationPhase"] = args?.migrationPhase;
+            resourceInputs["natGateway"] = args?.natGateway;
+            resourceInputs["publicIPAddressVersion"] = args?.publicIPAddressVersion;
+            resourceInputs["publicIPAllocationMethod"] = args?.publicIPAllocationMethod;
+            resourceInputs["publicIPPrefix"] = args?.publicIPPrefix;
+            resourceInputs["publicIpAddressName"] = args?.publicIpAddressName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["servicePublicIPAddress"] = args?.servicePublicIPAddress;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["ipConfiguration"] = undefined /*out*/;

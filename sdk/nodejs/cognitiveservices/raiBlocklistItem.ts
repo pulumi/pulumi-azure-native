@@ -81,21 +81,21 @@ export class RaiBlocklistItem extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.raiBlocklistName === undefined) && !opts.urn) {
+            if (args?.raiBlocklistName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'raiBlocklistName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["raiBlocklistItemName"] = args ? args.raiBlocklistItemName : undefined;
-            resourceInputs["raiBlocklistName"] = args ? args.raiBlocklistName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["raiBlocklistItemName"] = args?.raiBlocklistItemName;
+            resourceInputs["raiBlocklistName"] = args?.raiBlocklistName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

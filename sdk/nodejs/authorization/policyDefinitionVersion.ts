@@ -101,19 +101,19 @@ export class PolicyDefinitionVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policyDefinitionName === undefined) && !opts.urn) {
+            if (args?.policyDefinitionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDefinitionName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["mode"] = (args ? args.mode : undefined) ?? "Indexed";
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["policyDefinitionName"] = args ? args.policyDefinitionName : undefined;
-            resourceInputs["policyDefinitionVersion"] = args ? args.policyDefinitionVersion : undefined;
-            resourceInputs["policyRule"] = args ? args.policyRule : undefined;
-            resourceInputs["policyType"] = args ? args.policyType : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["mode"] = (args?.mode) ?? "Indexed";
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["policyDefinitionName"] = args?.policyDefinitionName;
+            resourceInputs["policyDefinitionVersion"] = args?.policyDefinitionVersion;
+            resourceInputs["policyRule"] = args?.policyRule;
+            resourceInputs["policyType"] = args?.policyType;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

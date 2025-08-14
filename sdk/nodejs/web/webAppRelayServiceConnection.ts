@@ -73,22 +73,22 @@ export class WebAppRelayServiceConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["biztalkUri"] = args ? args.biztalkUri : undefined;
-            resourceInputs["entityConnectionString"] = args ? args.entityConnectionString : undefined;
-            resourceInputs["entityName"] = args ? args.entityName : undefined;
-            resourceInputs["hostname"] = args ? args.hostname : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["resourceConnectionString"] = args ? args.resourceConnectionString : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["biztalkUri"] = args?.biztalkUri;
+            resourceInputs["entityConnectionString"] = args?.entityConnectionString;
+            resourceInputs["entityName"] = args?.entityName;
+            resourceInputs["hostname"] = args?.hostname;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["resourceConnectionString"] = args?.resourceConnectionString;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceType"] = args?.resourceType;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

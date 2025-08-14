@@ -189,30 +189,30 @@ export class ExtendedServerBlobAuditingPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.state === undefined) && !opts.urn) {
+            if (args?.state === undefined && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            resourceInputs["auditActionsAndGroups"] = args ? args.auditActionsAndGroups : undefined;
-            resourceInputs["blobAuditingPolicyName"] = args ? args.blobAuditingPolicyName : undefined;
-            resourceInputs["isAzureMonitorTargetEnabled"] = args ? args.isAzureMonitorTargetEnabled : undefined;
-            resourceInputs["isDevopsAuditEnabled"] = args ? args.isDevopsAuditEnabled : undefined;
-            resourceInputs["isManagedIdentityInUse"] = args ? args.isManagedIdentityInUse : undefined;
-            resourceInputs["isStorageSecondaryKeyInUse"] = args ? args.isStorageSecondaryKeyInUse : undefined;
-            resourceInputs["predicateExpression"] = args ? args.predicateExpression : undefined;
-            resourceInputs["queueDelayMs"] = args ? args.queueDelayMs : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
-            resourceInputs["storageAccountSubscriptionId"] = args ? args.storageAccountSubscriptionId : undefined;
-            resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
+            resourceInputs["auditActionsAndGroups"] = args?.auditActionsAndGroups;
+            resourceInputs["blobAuditingPolicyName"] = args?.blobAuditingPolicyName;
+            resourceInputs["isAzureMonitorTargetEnabled"] = args?.isAzureMonitorTargetEnabled;
+            resourceInputs["isDevopsAuditEnabled"] = args?.isDevopsAuditEnabled;
+            resourceInputs["isManagedIdentityInUse"] = args?.isManagedIdentityInUse;
+            resourceInputs["isStorageSecondaryKeyInUse"] = args?.isStorageSecondaryKeyInUse;
+            resourceInputs["predicateExpression"] = args?.predicateExpression;
+            resourceInputs["queueDelayMs"] = args?.queueDelayMs;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retentionDays"] = args?.retentionDays;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey;
+            resourceInputs["storageAccountSubscriptionId"] = args?.storageAccountSubscriptionId;
+            resourceInputs["storageEndpoint"] = args?.storageEndpoint;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

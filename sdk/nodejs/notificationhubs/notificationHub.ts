@@ -126,29 +126,29 @@ export class NotificationHub extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["admCredential"] = args ? args.admCredential : undefined;
-            resourceInputs["apnsCredential"] = args ? args.apnsCredential : undefined;
-            resourceInputs["baiduCredential"] = args ? args.baiduCredential : undefined;
-            resourceInputs["browserCredential"] = args ? args.browserCredential : undefined;
-            resourceInputs["fcmV1Credential"] = args ? args.fcmV1Credential : undefined;
-            resourceInputs["gcmCredential"] = args ? args.gcmCredential : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mpnsCredential"] = args ? args.mpnsCredential : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["notificationHubName"] = args ? args.notificationHubName : undefined;
-            resourceInputs["registrationTtl"] = args ? args.registrationTtl : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["wnsCredential"] = args ? args.wnsCredential : undefined;
-            resourceInputs["xiaomiCredential"] = args ? args.xiaomiCredential : undefined;
+            resourceInputs["admCredential"] = args?.admCredential;
+            resourceInputs["apnsCredential"] = args?.apnsCredential;
+            resourceInputs["baiduCredential"] = args?.baiduCredential;
+            resourceInputs["browserCredential"] = args?.browserCredential;
+            resourceInputs["fcmV1Credential"] = args?.fcmV1Credential;
+            resourceInputs["gcmCredential"] = args?.gcmCredential;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mpnsCredential"] = args?.mpnsCredential;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["notificationHubName"] = args?.notificationHubName;
+            resourceInputs["registrationTtl"] = args?.registrationTtl;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["wnsCredential"] = args?.wnsCredential;
+            resourceInputs["xiaomiCredential"] = args?.xiaomiCredential;
             resourceInputs["authorizationRules"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dailyMaxActiveDevices"] = undefined /*out*/;

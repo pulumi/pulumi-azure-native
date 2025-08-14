@@ -73,8 +73,8 @@ export class TenantConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["configurationName"] = args ? args.configurationName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["configurationName"] = args?.configurationName;
+            resourceInputs["properties"] = args?.properties;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

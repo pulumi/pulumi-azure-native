@@ -132,19 +132,19 @@ export class CloudServicesNetwork extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["additionalEgressEndpoints"] = args ? args.additionalEgressEndpoints : undefined;
-            resourceInputs["cloudServicesNetworkName"] = args ? args.cloudServicesNetworkName : undefined;
-            resourceInputs["enableDefaultEgressEndpoints"] = (args ? args.enableDefaultEgressEndpoints : undefined) ?? "True";
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["additionalEgressEndpoints"] = args?.additionalEgressEndpoints;
+            resourceInputs["cloudServicesNetworkName"] = args?.cloudServicesNetworkName;
+            resourceInputs["enableDefaultEgressEndpoints"] = (args?.enableDefaultEgressEndpoints) ?? "True";
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["associatedResourceIds"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;

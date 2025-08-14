@@ -89,18 +89,18 @@ export class SecuritySetting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securedCoreComplianceAssignment"] = (args ? args.securedCoreComplianceAssignment : undefined) ?? "Audit";
-            resourceInputs["securitySettingsName"] = args ? args.securitySettingsName : undefined;
-            resourceInputs["smbEncryptionForIntraClusterTrafficComplianceAssignment"] = (args ? args.smbEncryptionForIntraClusterTrafficComplianceAssignment : undefined) ?? "Audit";
-            resourceInputs["wdacComplianceAssignment"] = (args ? args.wdacComplianceAssignment : undefined) ?? "Audit";
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["securedCoreComplianceAssignment"] = (args?.securedCoreComplianceAssignment) ?? "Audit";
+            resourceInputs["securitySettingsName"] = args?.securitySettingsName;
+            resourceInputs["smbEncryptionForIntraClusterTrafficComplianceAssignment"] = (args?.smbEncryptionForIntraClusterTrafficComplianceAssignment) ?? "Audit";
+            resourceInputs["wdacComplianceAssignment"] = (args?.wdacComplianceAssignment) ?? "Audit";
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

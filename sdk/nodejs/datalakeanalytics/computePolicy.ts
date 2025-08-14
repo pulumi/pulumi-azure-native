@@ -79,25 +79,25 @@ export class ComputePolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.objectId === undefined) && !opts.urn) {
+            if (args?.objectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectId'");
             }
-            if ((!args || args.objectType === undefined) && !opts.urn) {
+            if (args?.objectType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["computePolicyName"] = args ? args.computePolicyName : undefined;
-            resourceInputs["maxDegreeOfParallelismPerJob"] = args ? args.maxDegreeOfParallelismPerJob : undefined;
-            resourceInputs["minPriorityPerJob"] = args ? args.minPriorityPerJob : undefined;
-            resourceInputs["objectId"] = args ? args.objectId : undefined;
-            resourceInputs["objectType"] = args ? args.objectType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["computePolicyName"] = args?.computePolicyName;
+            resourceInputs["maxDegreeOfParallelismPerJob"] = args?.maxDegreeOfParallelismPerJob;
+            resourceInputs["minPriorityPerJob"] = args?.minPriorityPerJob;
+            resourceInputs["objectId"] = args?.objectId;
+            resourceInputs["objectType"] = args?.objectType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

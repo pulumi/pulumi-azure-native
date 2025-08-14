@@ -249,39 +249,39 @@ export class AssessmentsOperation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupName === undefined) && !opts.urn) {
+            if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.projectName === undefined) && !opts.urn) {
+            if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["assessmentName"] = args ? args.assessmentName : undefined;
-            resourceInputs["azureDiskTypes"] = args ? args.azureDiskTypes : undefined;
-            resourceInputs["azureHybridUseBenefit"] = args ? args.azureHybridUseBenefit : undefined;
-            resourceInputs["azureLocation"] = args ? args.azureLocation : undefined;
-            resourceInputs["azureOfferCode"] = args ? args.azureOfferCode : undefined;
-            resourceInputs["azurePricingTier"] = args ? args.azurePricingTier : undefined;
-            resourceInputs["azureStorageRedundancy"] = args ? args.azureStorageRedundancy : undefined;
-            resourceInputs["azureVmFamilies"] = args ? args.azureVmFamilies : undefined;
-            resourceInputs["currency"] = args ? args.currency : undefined;
-            resourceInputs["discountPercentage"] = args ? args.discountPercentage : undefined;
-            resourceInputs["eaSubscriptionId"] = args ? args.eaSubscriptionId : undefined;
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["linuxAzureHybridUseBenefit"] = args ? args.linuxAzureHybridUseBenefit : undefined;
-            resourceInputs["percentile"] = args ? args.percentile : undefined;
-            resourceInputs["perfDataEndTime"] = args ? args.perfDataEndTime : undefined;
-            resourceInputs["perfDataStartTime"] = args ? args.perfDataStartTime : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["reservedInstance"] = args ? args.reservedInstance : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scalingFactor"] = args ? args.scalingFactor : undefined;
-            resourceInputs["sizingCriterion"] = args ? args.sizingCriterion : undefined;
-            resourceInputs["timeRange"] = args ? args.timeRange : undefined;
-            resourceInputs["vmUptime"] = args ? args.vmUptime : undefined;
+            resourceInputs["assessmentName"] = args?.assessmentName;
+            resourceInputs["azureDiskTypes"] = args?.azureDiskTypes;
+            resourceInputs["azureHybridUseBenefit"] = args?.azureHybridUseBenefit;
+            resourceInputs["azureLocation"] = args?.azureLocation;
+            resourceInputs["azureOfferCode"] = args?.azureOfferCode;
+            resourceInputs["azurePricingTier"] = args?.azurePricingTier;
+            resourceInputs["azureStorageRedundancy"] = args?.azureStorageRedundancy;
+            resourceInputs["azureVmFamilies"] = args?.azureVmFamilies;
+            resourceInputs["currency"] = args?.currency;
+            resourceInputs["discountPercentage"] = args?.discountPercentage;
+            resourceInputs["eaSubscriptionId"] = args?.eaSubscriptionId;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["linuxAzureHybridUseBenefit"] = args?.linuxAzureHybridUseBenefit;
+            resourceInputs["percentile"] = args?.percentile;
+            resourceInputs["perfDataEndTime"] = args?.perfDataEndTime;
+            resourceInputs["perfDataStartTime"] = args?.perfDataStartTime;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["reservedInstance"] = args?.reservedInstance;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scalingFactor"] = args?.scalingFactor;
+            resourceInputs["sizingCriterion"] = args?.sizingCriterion;
+            resourceInputs["timeRange"] = args?.timeRange;
+            resourceInputs["vmUptime"] = args?.vmUptime;
             resourceInputs["assessmentErrorSummary"] = undefined /*out*/;
             resourceInputs["assessmentType"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

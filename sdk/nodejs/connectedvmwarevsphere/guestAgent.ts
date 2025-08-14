@@ -105,19 +105,19 @@ export class GuestAgent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualMachineName === undefined) && !opts.urn) {
+            if (args?.virtualMachineName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineName'");
             }
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["httpProxyConfig"] = args ? args.httpProxyConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privateLinkScopeResourceId"] = args ? args.privateLinkScopeResourceId : undefined;
-            resourceInputs["provisioningAction"] = args ? args.provisioningAction : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["httpProxyConfig"] = args?.httpProxyConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["privateLinkScopeResourceId"] = args?.privateLinkScopeResourceId;
+            resourceInputs["provisioningAction"] = args?.provisioningAction;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["virtualMachineName"] = args?.virtualMachineName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

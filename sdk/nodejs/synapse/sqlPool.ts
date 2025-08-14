@@ -113,27 +113,27 @@ export class SqlPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["collation"] = (args ? args.collation : undefined) ?? "";
-            resourceInputs["createMode"] = args ? args.createMode : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["recoverableDatabaseId"] = args ? args.recoverableDatabaseId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["sourceDatabaseDeletionDate"] = args ? args.sourceDatabaseDeletionDate : undefined;
-            resourceInputs["sourceDatabaseId"] = args ? args.sourceDatabaseId : undefined;
-            resourceInputs["sqlPoolName"] = args ? args.sqlPoolName : undefined;
-            resourceInputs["storageAccountType"] = (args ? args.storageAccountType : undefined) ?? "GRS";
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["collation"] = (args?.collation) ?? "";
+            resourceInputs["createMode"] = args?.createMode;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maxSizeBytes"] = args?.maxSizeBytes;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["recoverableDatabaseId"] = args?.recoverableDatabaseId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restorePointInTime"] = args?.restorePointInTime;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["sourceDatabaseDeletionDate"] = args?.sourceDatabaseDeletionDate;
+            resourceInputs["sourceDatabaseId"] = args?.sourceDatabaseId;
+            resourceInputs["sqlPoolName"] = args?.sqlPoolName;
+            resourceInputs["storageAccountType"] = (args?.storageAccountType) ?? "GRS";
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

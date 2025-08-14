@@ -105,18 +105,18 @@ export class SecurityConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["environmentData"] = args ? args.environmentData : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["hierarchyIdentifier"] = args ? args.hierarchyIdentifier : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["offerings"] = args ? args.offerings : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securityConnectorName"] = args ? args.securityConnectorName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["environmentData"] = args?.environmentData;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["hierarchyIdentifier"] = args?.hierarchyIdentifier;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["offerings"] = args?.offerings;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["securityConnectorName"] = args?.securityConnectorName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["hierarchyIdentifierTrialEndDate"] = undefined /*out*/;

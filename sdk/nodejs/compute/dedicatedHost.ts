@@ -117,24 +117,24 @@ export class DedicatedHost extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.hostGroupName === undefined) && !opts.urn) {
+            if (args?.hostGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostGroupName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["autoReplaceOnFailure"] = args ? args.autoReplaceOnFailure : undefined;
-            resourceInputs["hostGroupName"] = args ? args.hostGroupName : undefined;
-            resourceInputs["hostName"] = args ? args.hostName : undefined;
-            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["platformFaultDomain"] = args ? args.platformFaultDomain : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoReplaceOnFailure"] = args?.autoReplaceOnFailure;
+            resourceInputs["hostGroupName"] = args?.hostGroupName;
+            resourceInputs["hostName"] = args?.hostName;
+            resourceInputs["licenseType"] = args?.licenseType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["platformFaultDomain"] = args?.platformFaultDomain;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hostId"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;

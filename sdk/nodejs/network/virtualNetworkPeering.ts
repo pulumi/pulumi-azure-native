@@ -149,36 +149,36 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetworkName === undefined) && !opts.urn) {
+            if (args?.virtualNetworkName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
-            resourceInputs["allowForwardedTraffic"] = args ? args.allowForwardedTraffic : undefined;
-            resourceInputs["allowGatewayTransit"] = args ? args.allowGatewayTransit : undefined;
-            resourceInputs["allowVirtualNetworkAccess"] = args ? args.allowVirtualNetworkAccess : undefined;
-            resourceInputs["doNotVerifyRemoteGateways"] = args ? args.doNotVerifyRemoteGateways : undefined;
-            resourceInputs["enableOnlyIPv6Peering"] = args ? args.enableOnlyIPv6Peering : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["localAddressSpace"] = args ? args.localAddressSpace : undefined;
-            resourceInputs["localSubnetNames"] = args ? args.localSubnetNames : undefined;
-            resourceInputs["localVirtualNetworkAddressSpace"] = args ? args.localVirtualNetworkAddressSpace : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["peerCompleteVnets"] = args ? args.peerCompleteVnets : undefined;
-            resourceInputs["peeringState"] = args ? args.peeringState : undefined;
-            resourceInputs["peeringSyncLevel"] = args ? args.peeringSyncLevel : undefined;
-            resourceInputs["remoteAddressSpace"] = args ? args.remoteAddressSpace : undefined;
-            resourceInputs["remoteBgpCommunities"] = args ? args.remoteBgpCommunities : undefined;
-            resourceInputs["remoteSubnetNames"] = args ? args.remoteSubnetNames : undefined;
-            resourceInputs["remoteVirtualNetwork"] = args ? args.remoteVirtualNetwork : undefined;
-            resourceInputs["remoteVirtualNetworkAddressSpace"] = args ? args.remoteVirtualNetworkAddressSpace : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["syncRemoteAddressSpace"] = args ? args.syncRemoteAddressSpace : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["useRemoteGateways"] = args ? args.useRemoteGateways : undefined;
-            resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
-            resourceInputs["virtualNetworkPeeringName"] = args ? args.virtualNetworkPeeringName : undefined;
+            resourceInputs["allowForwardedTraffic"] = args?.allowForwardedTraffic;
+            resourceInputs["allowGatewayTransit"] = args?.allowGatewayTransit;
+            resourceInputs["allowVirtualNetworkAccess"] = args?.allowVirtualNetworkAccess;
+            resourceInputs["doNotVerifyRemoteGateways"] = args?.doNotVerifyRemoteGateways;
+            resourceInputs["enableOnlyIPv6Peering"] = args?.enableOnlyIPv6Peering;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["localAddressSpace"] = args?.localAddressSpace;
+            resourceInputs["localSubnetNames"] = args?.localSubnetNames;
+            resourceInputs["localVirtualNetworkAddressSpace"] = args?.localVirtualNetworkAddressSpace;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["peerCompleteVnets"] = args?.peerCompleteVnets;
+            resourceInputs["peeringState"] = args?.peeringState;
+            resourceInputs["peeringSyncLevel"] = args?.peeringSyncLevel;
+            resourceInputs["remoteAddressSpace"] = args?.remoteAddressSpace;
+            resourceInputs["remoteBgpCommunities"] = args?.remoteBgpCommunities;
+            resourceInputs["remoteSubnetNames"] = args?.remoteSubnetNames;
+            resourceInputs["remoteVirtualNetwork"] = args?.remoteVirtualNetwork;
+            resourceInputs["remoteVirtualNetworkAddressSpace"] = args?.remoteVirtualNetworkAddressSpace;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["syncRemoteAddressSpace"] = args?.syncRemoteAddressSpace;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["useRemoteGateways"] = args?.useRemoteGateways;
+            resourceInputs["virtualNetworkName"] = args?.virtualNetworkName;
+            resourceInputs["virtualNetworkPeeringName"] = args?.virtualNetworkPeeringName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

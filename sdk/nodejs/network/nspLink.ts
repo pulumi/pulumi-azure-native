@@ -106,19 +106,19 @@ export class NspLink extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkSecurityPerimeterName === undefined) && !opts.urn) {
+            if (args?.networkSecurityPerimeterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkSecurityPerimeterName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoApprovedRemotePerimeterResourceId"] = args ? args.autoApprovedRemotePerimeterResourceId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["linkName"] = args ? args.linkName : undefined;
-            resourceInputs["localInboundProfiles"] = args ? args.localInboundProfiles : undefined;
-            resourceInputs["networkSecurityPerimeterName"] = args ? args.networkSecurityPerimeterName : undefined;
-            resourceInputs["remoteInboundProfiles"] = args ? args.remoteInboundProfiles : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["autoApprovedRemotePerimeterResourceId"] = args?.autoApprovedRemotePerimeterResourceId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["linkName"] = args?.linkName;
+            resourceInputs["localInboundProfiles"] = args?.localInboundProfiles;
+            resourceInputs["networkSecurityPerimeterName"] = args?.networkSecurityPerimeterName;
+            resourceInputs["remoteInboundProfiles"] = args?.remoteInboundProfiles;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["localOutboundProfiles"] = undefined /*out*/;

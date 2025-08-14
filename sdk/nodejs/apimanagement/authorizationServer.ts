@@ -137,48 +137,48 @@ export class AuthorizationServer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authorizationEndpoint === undefined) && !opts.urn) {
+            if (args?.authorizationEndpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizationEndpoint'");
             }
-            if ((!args || args.clientId === undefined) && !opts.urn) {
+            if (args?.clientId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.clientRegistrationEndpoint === undefined) && !opts.urn) {
+            if (args?.clientRegistrationEndpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientRegistrationEndpoint'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.grantTypes === undefined) && !opts.urn) {
+            if (args?.grantTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'grantTypes'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["authorizationEndpoint"] = args ? args.authorizationEndpoint : undefined;
-            resourceInputs["authorizationMethods"] = args ? args.authorizationMethods : undefined;
-            resourceInputs["authsid"] = args ? args.authsid : undefined;
-            resourceInputs["bearerTokenSendingMethods"] = args ? args.bearerTokenSendingMethods : undefined;
-            resourceInputs["clientAuthenticationMethod"] = args ? args.clientAuthenticationMethod : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["clientRegistrationEndpoint"] = args ? args.clientRegistrationEndpoint : undefined;
-            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
-            resourceInputs["defaultScope"] = args ? args.defaultScope : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["grantTypes"] = args ? args.grantTypes : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceOwnerPassword"] = args ? args.resourceOwnerPassword : undefined;
-            resourceInputs["resourceOwnerUsername"] = args ? args.resourceOwnerUsername : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["supportState"] = args ? args.supportState : undefined;
-            resourceInputs["tokenBodyParameters"] = args ? args.tokenBodyParameters : undefined;
-            resourceInputs["tokenEndpoint"] = args ? args.tokenEndpoint : undefined;
-            resourceInputs["useInApiDocumentation"] = args ? args.useInApiDocumentation : undefined;
-            resourceInputs["useInTestConsole"] = args ? args.useInTestConsole : undefined;
+            resourceInputs["authorizationEndpoint"] = args?.authorizationEndpoint;
+            resourceInputs["authorizationMethods"] = args?.authorizationMethods;
+            resourceInputs["authsid"] = args?.authsid;
+            resourceInputs["bearerTokenSendingMethods"] = args?.bearerTokenSendingMethods;
+            resourceInputs["clientAuthenticationMethod"] = args?.clientAuthenticationMethod;
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["clientRegistrationEndpoint"] = args?.clientRegistrationEndpoint;
+            resourceInputs["clientSecret"] = args?.clientSecret;
+            resourceInputs["defaultScope"] = args?.defaultScope;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["grantTypes"] = args?.grantTypes;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceOwnerPassword"] = args?.resourceOwnerPassword;
+            resourceInputs["resourceOwnerUsername"] = args?.resourceOwnerUsername;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["supportState"] = args?.supportState;
+            resourceInputs["tokenBodyParameters"] = args?.tokenBodyParameters;
+            resourceInputs["tokenEndpoint"] = args?.tokenEndpoint;
+            resourceInputs["useInApiDocumentation"] = args?.useInApiDocumentation;
+            resourceInputs["useInTestConsole"] = args?.useInTestConsole;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

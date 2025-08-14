@@ -71,12 +71,12 @@ export class DefaultRollout extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.providerNamespace === undefined) && !opts.urn) {
+            if (args?.providerNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'providerNamespace'");
             }
             resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.providerhub.defaultRolloutPropertiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["providerNamespace"] = args ? args.providerNamespace : undefined;
-            resourceInputs["rolloutName"] = args ? args.rolloutName : undefined;
+            resourceInputs["providerNamespace"] = args?.providerNamespace;
+            resourceInputs["rolloutName"] = args?.rolloutName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

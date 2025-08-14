@@ -89,20 +89,20 @@ export class Output extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.jobName === undefined) && !opts.urn) {
+            if (args?.jobName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["datasource"] = args ? args.datasource : undefined;
-            resourceInputs["jobName"] = args ? args.jobName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outputName"] = args ? args.outputName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serialization"] = args ? args.serialization : undefined;
-            resourceInputs["sizeWindow"] = args ? args.sizeWindow : undefined;
-            resourceInputs["timeWindow"] = args ? args.timeWindow : undefined;
+            resourceInputs["datasource"] = args?.datasource;
+            resourceInputs["jobName"] = args?.jobName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outputName"] = args?.outputName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serialization"] = args?.serialization;
+            resourceInputs["sizeWindow"] = args?.sizeWindow;
+            resourceInputs["timeWindow"] = args?.timeWindow;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["diagnostics"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

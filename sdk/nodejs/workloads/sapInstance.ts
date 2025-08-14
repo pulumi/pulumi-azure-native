@@ -99,17 +99,17 @@ export class SapInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sapDiscoverySiteName === undefined) && !opts.urn) {
+            if (args?.sapDiscoverySiteName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sapDiscoverySiteName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sapDiscoverySiteName"] = args ? args.sapDiscoverySiteName : undefined;
-            resourceInputs["sapInstanceName"] = args ? args.sapInstanceName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sapDiscoverySiteName"] = args?.sapDiscoverySiteName;
+            resourceInputs["sapInstanceName"] = args?.sapInstanceName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["application"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["environment"] = undefined /*out*/;

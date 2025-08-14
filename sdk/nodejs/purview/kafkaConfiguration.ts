@@ -94,22 +94,22 @@ export class KafkaConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["consumerGroup"] = args ? args.consumerGroup : undefined;
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["eventHubPartitionId"] = args ? args.eventHubPartitionId : undefined;
-            resourceInputs["eventHubResourceId"] = args ? args.eventHubResourceId : undefined;
-            resourceInputs["eventHubType"] = args ? args.eventHubType : undefined;
-            resourceInputs["eventStreamingState"] = (args ? args.eventStreamingState : undefined) ?? "Enabled";
-            resourceInputs["eventStreamingType"] = (args ? args.eventStreamingType : undefined) ?? "None";
-            resourceInputs["kafkaConfigurationName"] = args ? args.kafkaConfigurationName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["consumerGroup"] = args?.consumerGroup;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["eventHubPartitionId"] = args?.eventHubPartitionId;
+            resourceInputs["eventHubResourceId"] = args?.eventHubResourceId;
+            resourceInputs["eventHubType"] = args?.eventHubType;
+            resourceInputs["eventStreamingState"] = (args?.eventStreamingState) ?? "Enabled";
+            resourceInputs["eventStreamingType"] = (args?.eventStreamingType) ?? "None";
+            resourceInputs["kafkaConfigurationName"] = args?.kafkaConfigurationName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

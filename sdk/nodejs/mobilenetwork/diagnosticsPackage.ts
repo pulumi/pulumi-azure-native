@@ -81,15 +81,15 @@ export class DiagnosticsPackage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.packetCoreControlPlaneName === undefined) && !opts.urn) {
+            if (args?.packetCoreControlPlaneName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packetCoreControlPlaneName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["diagnosticsPackageName"] = args ? args.diagnosticsPackageName : undefined;
-            resourceInputs["packetCoreControlPlaneName"] = args ? args.packetCoreControlPlaneName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["diagnosticsPackageName"] = args?.diagnosticsPackageName;
+            resourceInputs["packetCoreControlPlaneName"] = args?.packetCoreControlPlaneName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

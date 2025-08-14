@@ -149,30 +149,30 @@ export class Server extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
-            resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["administratorLogin"] = args?.administratorLogin;
+            resourceInputs["administratorLoginPassword"] = args?.administratorLoginPassword;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
             resourceInputs["backup"] = args ? (args.backup ? pulumi.output(args.backup).apply(inputs.dbformysql.backupArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["createMode"] = args ? args.createMode : undefined;
-            resourceInputs["dataEncryption"] = args ? args.dataEncryption : undefined;
-            resourceInputs["highAvailability"] = args ? args.highAvailability : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["importSourceProperties"] = args ? args.importSourceProperties : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
-            resourceInputs["network"] = args ? args.network : undefined;
-            resourceInputs["replicationRole"] = args ? args.replicationRole : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["sourceServerResourceId"] = args ? args.sourceServerResourceId : undefined;
+            resourceInputs["createMode"] = args?.createMode;
+            resourceInputs["dataEncryption"] = args?.dataEncryption;
+            resourceInputs["highAvailability"] = args?.highAvailability;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["importSourceProperties"] = args?.importSourceProperties;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maintenanceWindow"] = args?.maintenanceWindow;
+            resourceInputs["network"] = args?.network;
+            resourceInputs["replicationRole"] = args?.replicationRole;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restorePointInTime"] = args?.restorePointInTime;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["sourceServerResourceId"] = args?.sourceServerResourceId;
             resourceInputs["storage"] = args ? (args.storage ? pulumi.output(args.storage).apply(inputs.dbformysql.storageArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -71,15 +71,15 @@ export class VendorSkuPreview extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            if ((!args || args.vendorName === undefined) && !opts.urn) {
+            if (args?.vendorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vendorName'");
             }
-            resourceInputs["previewSubscription"] = args ? args.previewSubscription : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["vendorName"] = args ? args.vendorName : undefined;
+            resourceInputs["previewSubscription"] = args?.previewSubscription;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["vendorName"] = args?.vendorName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

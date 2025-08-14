@@ -93,23 +93,23 @@ export class InventoryItem extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.inventoryType === undefined) && !opts.urn) {
+            if (args?.inventoryType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inventoryType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vcenterName === undefined) && !opts.urn) {
+            if (args?.vcenterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vcenterName'");
             }
-            resourceInputs["inventoryItemName"] = args ? args.inventoryItemName : undefined;
-            resourceInputs["inventoryType"] = args ? args.inventoryType : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["managedResourceId"] = args ? args.managedResourceId : undefined;
-            resourceInputs["moName"] = args ? args.moName : undefined;
-            resourceInputs["moRefId"] = args ? args.moRefId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["vcenterName"] = args ? args.vcenterName : undefined;
+            resourceInputs["inventoryItemName"] = args?.inventoryItemName;
+            resourceInputs["inventoryType"] = args?.inventoryType;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["managedResourceId"] = args?.managedResourceId;
+            resourceInputs["moName"] = args?.moName;
+            resourceInputs["moRefId"] = args?.moRefId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["vcenterName"] = args?.vcenterName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

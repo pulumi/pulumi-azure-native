@@ -93,23 +93,23 @@ export class MigrationConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.postMigrationName === undefined) && !opts.urn) {
+            if (args?.postMigrationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'postMigrationName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.targetNamespace === undefined) && !opts.urn) {
+            if (args?.targetNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetNamespace'");
             }
-            resourceInputs["configName"] = args ? args.configName : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["postMigrationName"] = args ? args.postMigrationName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["targetNamespace"] = args ? args.targetNamespace : undefined;
+            resourceInputs["configName"] = args?.configName;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["postMigrationName"] = args?.postMigrationName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["targetNamespace"] = args?.targetNamespace;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["migrationState"] = undefined /*out*/;

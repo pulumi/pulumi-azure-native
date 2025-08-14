@@ -117,25 +117,25 @@ export class LocalUser extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["allowAclAuthorization"] = args ? args.allowAclAuthorization : undefined;
-            resourceInputs["extendedGroups"] = args ? args.extendedGroups : undefined;
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["hasSharedKey"] = args ? args.hasSharedKey : undefined;
-            resourceInputs["hasSshKey"] = args ? args.hasSshKey : undefined;
-            resourceInputs["hasSshPassword"] = args ? args.hasSshPassword : undefined;
-            resourceInputs["homeDirectory"] = args ? args.homeDirectory : undefined;
-            resourceInputs["isNFSv3Enabled"] = args ? args.isNFSv3Enabled : undefined;
-            resourceInputs["permissionScopes"] = args ? args.permissionScopes : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sshAuthorizedKeys"] = args ? args.sshAuthorizedKeys : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["allowAclAuthorization"] = args?.allowAclAuthorization;
+            resourceInputs["extendedGroups"] = args?.extendedGroups;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["hasSharedKey"] = args?.hasSharedKey;
+            resourceInputs["hasSshKey"] = args?.hasSshKey;
+            resourceInputs["hasSshPassword"] = args?.hasSshPassword;
+            resourceInputs["homeDirectory"] = args?.homeDirectory;
+            resourceInputs["isNFSv3Enabled"] = args?.isNFSv3Enabled;
+            resourceInputs["permissionScopes"] = args?.permissionScopes;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sshAuthorizedKeys"] = args?.sshAuthorizedKeys;
+            resourceInputs["username"] = args?.username;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["sid"] = undefined /*out*/;

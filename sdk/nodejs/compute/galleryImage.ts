@@ -141,41 +141,41 @@ export class GalleryImage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.galleryName === undefined) && !opts.urn) {
+            if (args?.galleryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryName'");
             }
-            if ((!args || args.identifier === undefined) && !opts.urn) {
+            if (args?.identifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identifier'");
             }
-            if ((!args || args.osState === undefined) && !opts.urn) {
+            if (args?.osState === undefined && !opts.urn) {
                 throw new Error("Missing required property 'osState'");
             }
-            if ((!args || args.osType === undefined) && !opts.urn) {
+            if (args?.osType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'osType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allowUpdateImage"] = args ? args.allowUpdateImage : undefined;
-            resourceInputs["architecture"] = args ? args.architecture : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["disallowed"] = args ? args.disallowed : undefined;
-            resourceInputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
-            resourceInputs["eula"] = args ? args.eula : undefined;
-            resourceInputs["features"] = args ? args.features : undefined;
-            resourceInputs["galleryImageName"] = args ? args.galleryImageName : undefined;
-            resourceInputs["galleryName"] = args ? args.galleryName : undefined;
-            resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
-            resourceInputs["identifier"] = args ? args.identifier : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["osState"] = args ? args.osState : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
-            resourceInputs["privacyStatementUri"] = args ? args.privacyStatementUri : undefined;
-            resourceInputs["purchasePlan"] = args ? args.purchasePlan : undefined;
-            resourceInputs["recommended"] = args ? args.recommended : undefined;
-            resourceInputs["releaseNoteUri"] = args ? args.releaseNoteUri : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowUpdateImage"] = args?.allowUpdateImage;
+            resourceInputs["architecture"] = args?.architecture;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["disallowed"] = args?.disallowed;
+            resourceInputs["endOfLifeDate"] = args?.endOfLifeDate;
+            resourceInputs["eula"] = args?.eula;
+            resourceInputs["features"] = args?.features;
+            resourceInputs["galleryImageName"] = args?.galleryImageName;
+            resourceInputs["galleryName"] = args?.galleryName;
+            resourceInputs["hyperVGeneration"] = args?.hyperVGeneration;
+            resourceInputs["identifier"] = args?.identifier;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["osState"] = args?.osState;
+            resourceInputs["osType"] = args?.osType;
+            resourceInputs["privacyStatementUri"] = args?.privacyStatementUri;
+            resourceInputs["purchasePlan"] = args?.purchasePlan;
+            resourceInputs["recommended"] = args?.recommended;
+            resourceInputs["releaseNoteUri"] = args?.releaseNoteUri;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

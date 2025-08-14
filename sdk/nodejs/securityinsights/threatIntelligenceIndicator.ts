@@ -77,47 +77,47 @@ export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["confidence"] = args ? args.confidence : undefined;
-            resourceInputs["created"] = args ? args.created : undefined;
-            resourceInputs["createdByRef"] = args ? args.createdByRef : undefined;
-            resourceInputs["defanged"] = args ? args.defanged : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["extensions"] = args ? args.extensions : undefined;
-            resourceInputs["externalId"] = args ? args.externalId : undefined;
-            resourceInputs["externalLastUpdatedTimeUtc"] = args ? args.externalLastUpdatedTimeUtc : undefined;
-            resourceInputs["externalReferences"] = args ? args.externalReferences : undefined;
-            resourceInputs["granularMarkings"] = args ? args.granularMarkings : undefined;
-            resourceInputs["indicatorTypes"] = args ? args.indicatorTypes : undefined;
-            resourceInputs["killChainPhases"] = args ? args.killChainPhases : undefined;
+            resourceInputs["confidence"] = args?.confidence;
+            resourceInputs["created"] = args?.created;
+            resourceInputs["createdByRef"] = args?.createdByRef;
+            resourceInputs["defanged"] = args?.defanged;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["extensions"] = args?.extensions;
+            resourceInputs["externalId"] = args?.externalId;
+            resourceInputs["externalLastUpdatedTimeUtc"] = args?.externalLastUpdatedTimeUtc;
+            resourceInputs["externalReferences"] = args?.externalReferences;
+            resourceInputs["granularMarkings"] = args?.granularMarkings;
+            resourceInputs["indicatorTypes"] = args?.indicatorTypes;
+            resourceInputs["killChainPhases"] = args?.killChainPhases;
             resourceInputs["kind"] = "indicator";
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["language"] = args ? args.language : undefined;
-            resourceInputs["lastUpdatedTimeUtc"] = args ? args.lastUpdatedTimeUtc : undefined;
-            resourceInputs["modified"] = args ? args.modified : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["objectMarkingRefs"] = args ? args.objectMarkingRefs : undefined;
-            resourceInputs["parsedPattern"] = args ? args.parsedPattern : undefined;
-            resourceInputs["pattern"] = args ? args.pattern : undefined;
-            resourceInputs["patternType"] = args ? args.patternType : undefined;
-            resourceInputs["patternVersion"] = args ? args.patternVersion : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["revoked"] = args ? args.revoked : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["threatIntelligenceTags"] = args ? args.threatIntelligenceTags : undefined;
-            resourceInputs["threatTypes"] = args ? args.threatTypes : undefined;
-            resourceInputs["validFrom"] = args ? args.validFrom : undefined;
-            resourceInputs["validUntil"] = args ? args.validUntil : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["language"] = args?.language;
+            resourceInputs["lastUpdatedTimeUtc"] = args?.lastUpdatedTimeUtc;
+            resourceInputs["modified"] = args?.modified;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["objectMarkingRefs"] = args?.objectMarkingRefs;
+            resourceInputs["parsedPattern"] = args?.parsedPattern;
+            resourceInputs["pattern"] = args?.pattern;
+            resourceInputs["patternType"] = args?.patternType;
+            resourceInputs["patternVersion"] = args?.patternVersion;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["revoked"] = args?.revoked;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["threatIntelligenceTags"] = args?.threatIntelligenceTags;
+            resourceInputs["threatTypes"] = args?.threatTypes;
+            resourceInputs["validFrom"] = args?.validFrom;
+            resourceInputs["validUntil"] = args?.validUntil;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

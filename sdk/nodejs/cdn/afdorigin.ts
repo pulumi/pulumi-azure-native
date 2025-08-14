@@ -118,32 +118,32 @@ export class AFDOrigin extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.hostName === undefined) && !opts.urn) {
+            if (args?.hostName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostName'");
             }
-            if ((!args || args.originGroupName === undefined) && !opts.urn) {
+            if (args?.originGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'originGroupName'");
             }
-            if ((!args || args.profileName === undefined) && !opts.urn) {
+            if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["azureOrigin"] = args ? args.azureOrigin : undefined;
-            resourceInputs["enabledState"] = args ? args.enabledState : undefined;
-            resourceInputs["enforceCertificateNameCheck"] = (args ? args.enforceCertificateNameCheck : undefined) ?? true;
-            resourceInputs["hostName"] = args ? args.hostName : undefined;
-            resourceInputs["httpPort"] = (args ? args.httpPort : undefined) ?? 80;
-            resourceInputs["httpsPort"] = (args ? args.httpsPort : undefined) ?? 443;
-            resourceInputs["originGroupName"] = args ? args.originGroupName : undefined;
-            resourceInputs["originHostHeader"] = args ? args.originHostHeader : undefined;
-            resourceInputs["originName"] = args ? args.originName : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sharedPrivateLinkResource"] = args ? args.sharedPrivateLinkResource : undefined;
-            resourceInputs["weight"] = args ? args.weight : undefined;
+            resourceInputs["azureOrigin"] = args?.azureOrigin;
+            resourceInputs["enabledState"] = args?.enabledState;
+            resourceInputs["enforceCertificateNameCheck"] = (args?.enforceCertificateNameCheck) ?? true;
+            resourceInputs["hostName"] = args?.hostName;
+            resourceInputs["httpPort"] = (args?.httpPort) ?? 80;
+            resourceInputs["httpsPort"] = (args?.httpsPort) ?? 443;
+            resourceInputs["originGroupName"] = args?.originGroupName;
+            resourceInputs["originHostHeader"] = args?.originHostHeader;
+            resourceInputs["originName"] = args?.originName;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sharedPrivateLinkResource"] = args?.sharedPrivateLinkResource;
+            resourceInputs["weight"] = args?.weight;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

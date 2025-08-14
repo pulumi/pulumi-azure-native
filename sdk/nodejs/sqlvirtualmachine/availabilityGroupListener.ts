@@ -97,21 +97,21 @@ export class AvailabilityGroupListener extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sqlVirtualMachineGroupName === undefined) && !opts.urn) {
+            if (args?.sqlVirtualMachineGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sqlVirtualMachineGroupName'");
             }
-            resourceInputs["availabilityGroupConfiguration"] = args ? args.availabilityGroupConfiguration : undefined;
-            resourceInputs["availabilityGroupListenerName"] = args ? args.availabilityGroupListenerName : undefined;
-            resourceInputs["availabilityGroupName"] = args ? args.availabilityGroupName : undefined;
-            resourceInputs["createDefaultAvailabilityGroupIfNotExist"] = args ? args.createDefaultAvailabilityGroupIfNotExist : undefined;
-            resourceInputs["loadBalancerConfigurations"] = args ? args.loadBalancerConfigurations : undefined;
-            resourceInputs["multiSubnetIpConfigurations"] = args ? args.multiSubnetIpConfigurations : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sqlVirtualMachineGroupName"] = args ? args.sqlVirtualMachineGroupName : undefined;
+            resourceInputs["availabilityGroupConfiguration"] = args?.availabilityGroupConfiguration;
+            resourceInputs["availabilityGroupListenerName"] = args?.availabilityGroupListenerName;
+            resourceInputs["availabilityGroupName"] = args?.availabilityGroupName;
+            resourceInputs["createDefaultAvailabilityGroupIfNotExist"] = args?.createDefaultAvailabilityGroupIfNotExist;
+            resourceInputs["loadBalancerConfigurations"] = args?.loadBalancerConfigurations;
+            resourceInputs["multiSubnetIpConfigurations"] = args?.multiSubnetIpConfigurations;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sqlVirtualMachineGroupName"] = args?.sqlVirtualMachineGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

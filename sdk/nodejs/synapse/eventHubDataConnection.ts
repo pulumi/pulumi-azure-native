@@ -112,42 +112,42 @@ export class EventHubDataConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.consumerGroup === undefined) && !opts.urn) {
+            if (args?.consumerGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'consumerGroup'");
             }
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.eventHubResourceId === undefined) && !opts.urn) {
+            if (args?.eventHubResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventHubResourceId'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.kustoPoolName === undefined) && !opts.urn) {
+            if (args?.kustoPoolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kustoPoolName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["compression"] = args ? args.compression : undefined;
-            resourceInputs["consumerGroup"] = args ? args.consumerGroup : undefined;
-            resourceInputs["dataConnectionName"] = args ? args.dataConnectionName : undefined;
-            resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["eventHubResourceId"] = args ? args.eventHubResourceId : undefined;
-            resourceInputs["eventSystemProperties"] = args ? args.eventSystemProperties : undefined;
+            resourceInputs["compression"] = args?.compression;
+            resourceInputs["consumerGroup"] = args?.consumerGroup;
+            resourceInputs["dataConnectionName"] = args?.dataConnectionName;
+            resourceInputs["dataFormat"] = args?.dataFormat;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["eventHubResourceId"] = args?.eventHubResourceId;
+            resourceInputs["eventSystemProperties"] = args?.eventSystemProperties;
             resourceInputs["kind"] = "EventHub";
-            resourceInputs["kustoPoolName"] = args ? args.kustoPoolName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedIdentityResourceId"] = args ? args.managedIdentityResourceId : undefined;
-            resourceInputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["kustoPoolName"] = args?.kustoPoolName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedIdentityResourceId"] = args?.managedIdentityResourceId;
+            resourceInputs["mappingRuleName"] = args?.mappingRuleName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tableName"] = args?.tableName;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

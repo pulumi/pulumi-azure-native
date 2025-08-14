@@ -113,20 +113,20 @@ export class PrivateStoreCollectionOffer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.collectionId === undefined) && !opts.urn) {
+            if (args?.collectionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'collectionId'");
             }
-            if ((!args || args.privateStoreId === undefined) && !opts.urn) {
+            if (args?.privateStoreId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateStoreId'");
             }
-            resourceInputs["collectionId"] = args ? args.collectionId : undefined;
-            resourceInputs["eTag"] = args ? args.eTag : undefined;
-            resourceInputs["iconFileUris"] = args ? args.iconFileUris : undefined;
-            resourceInputs["offerId"] = args ? args.offerId : undefined;
-            resourceInputs["plans"] = args ? args.plans : undefined;
-            resourceInputs["privateStoreId"] = args ? args.privateStoreId : undefined;
-            resourceInputs["specificPlanIdsLimitation"] = args ? args.specificPlanIdsLimitation : undefined;
-            resourceInputs["updateSuppressedDueIdempotence"] = args ? args.updateSuppressedDueIdempotence : undefined;
+            resourceInputs["collectionId"] = args?.collectionId;
+            resourceInputs["eTag"] = args?.eTag;
+            resourceInputs["iconFileUris"] = args?.iconFileUris;
+            resourceInputs["offerId"] = args?.offerId;
+            resourceInputs["plans"] = args?.plans;
+            resourceInputs["privateStoreId"] = args?.privateStoreId;
+            resourceInputs["specificPlanIdsLimitation"] = args?.specificPlanIdsLimitation;
+            resourceInputs["updateSuppressedDueIdempotence"] = args?.updateSuppressedDueIdempotence;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;

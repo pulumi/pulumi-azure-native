@@ -107,29 +107,29 @@ export class Assignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.identity === undefined) && !opts.urn) {
+            if (args?.identity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.parameters === undefined) && !opts.urn) {
+            if (args?.parameters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parameters'");
             }
-            if ((!args || args.resourceGroups === undefined) && !opts.urn) {
+            if (args?.resourceGroups === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroups'");
             }
-            if ((!args || args.resourceScope === undefined) && !opts.urn) {
+            if (args?.resourceScope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceScope'");
             }
-            resourceInputs["assignmentName"] = args ? args.assignmentName : undefined;
-            resourceInputs["blueprintId"] = args ? args.blueprintId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["locks"] = args ? args.locks : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroups"] = args ? args.resourceGroups : undefined;
-            resourceInputs["resourceScope"] = args ? args.resourceScope : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["assignmentName"] = args?.assignmentName;
+            resourceInputs["blueprintId"] = args?.blueprintId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["locks"] = args?.locks;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["resourceGroups"] = args?.resourceGroups;
+            resourceInputs["resourceScope"] = args?.resourceScope;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

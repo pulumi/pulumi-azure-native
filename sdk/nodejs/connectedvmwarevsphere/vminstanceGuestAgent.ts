@@ -105,14 +105,14 @@ export class VMInstanceGuestAgent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["httpProxyConfig"] = args ? args.httpProxyConfig : undefined;
-            resourceInputs["privateLinkScopeResourceId"] = args ? args.privateLinkScopeResourceId : undefined;
-            resourceInputs["provisioningAction"] = args ? args.provisioningAction : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["httpProxyConfig"] = args?.httpProxyConfig;
+            resourceInputs["privateLinkScopeResourceId"] = args?.privateLinkScopeResourceId;
+            resourceInputs["provisioningAction"] = args?.provisioningAction;
+            resourceInputs["resourceUri"] = args?.resourceUri;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

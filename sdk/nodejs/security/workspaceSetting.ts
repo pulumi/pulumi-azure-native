@@ -68,15 +68,15 @@ export class WorkspaceSetting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
-            resourceInputs["workspaceSettingName"] = args ? args.workspaceSettingName : undefined;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["workspaceId"] = args?.workspaceId;
+            resourceInputs["workspaceSettingName"] = args?.workspaceSettingName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

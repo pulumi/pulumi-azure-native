@@ -141,25 +141,25 @@ export class PimRoleEligibilitySchedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.principalId === undefined) && !opts.urn) {
+            if (args?.principalId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if ((!args || args.roleDefinitionId === undefined) && !opts.urn) {
+            if (args?.roleDefinitionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleDefinitionId'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["condition"] = args ? args.condition : undefined;
-            resourceInputs["conditionVersion"] = args ? args.conditionVersion : undefined;
-            resourceInputs["justification"] = args ? args.justification : undefined;
-            resourceInputs["principalId"] = args ? args.principalId : undefined;
-            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
-            resourceInputs["scheduleInfo"] = args ? args.scheduleInfo : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["targetRoleEligibilityScheduleId"] = args ? args.targetRoleEligibilityScheduleId : undefined;
-            resourceInputs["targetRoleEligibilityScheduleInstanceId"] = args ? args.targetRoleEligibilityScheduleInstanceId : undefined;
-            resourceInputs["ticketInfo"] = args ? args.ticketInfo : undefined;
+            resourceInputs["condition"] = args?.condition;
+            resourceInputs["conditionVersion"] = args?.conditionVersion;
+            resourceInputs["justification"] = args?.justification;
+            resourceInputs["principalId"] = args?.principalId;
+            resourceInputs["roleDefinitionId"] = args?.roleDefinitionId;
+            resourceInputs["scheduleInfo"] = args?.scheduleInfo;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["targetRoleEligibilityScheduleId"] = args?.targetRoleEligibilityScheduleId;
+            resourceInputs["targetRoleEligibilityScheduleInstanceId"] = args?.targetRoleEligibilityScheduleInstanceId;
+            resourceInputs["ticketInfo"] = args?.ticketInfo;
             resourceInputs["approvalId"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;

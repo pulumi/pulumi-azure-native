@@ -73,16 +73,16 @@ export class RulesEngine extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.frontDoorName === undefined) && !opts.urn) {
+            if (args?.frontDoorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frontDoorName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["frontDoorName"] = args ? args.frontDoorName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["rulesEngineName"] = args ? args.rulesEngineName : undefined;
+            resourceInputs["frontDoorName"] = args?.frontDoorName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["rulesEngineName"] = args?.rulesEngineName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["resourceState"] = undefined /*out*/;

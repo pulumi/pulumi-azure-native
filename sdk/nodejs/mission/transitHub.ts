@@ -93,19 +93,19 @@ export class TransitHub extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.communityName === undefined) && !opts.urn) {
+            if (args?.communityName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'communityName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["communityName"] = args ? args.communityName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitHubName"] = args ? args.transitHubName : undefined;
-            resourceInputs["transitOption"] = args ? args.transitOption : undefined;
+            resourceInputs["communityName"] = args?.communityName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitHubName"] = args?.transitHubName;
+            resourceInputs["transitOption"] = args?.transitOption;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

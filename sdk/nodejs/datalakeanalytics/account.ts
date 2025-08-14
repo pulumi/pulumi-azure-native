@@ -191,32 +191,32 @@ export class Account extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataLakeStoreAccounts === undefined) && !opts.urn) {
+            if (args?.dataLakeStoreAccounts === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataLakeStoreAccounts'");
             }
-            if ((!args || args.defaultDataLakeStoreAccount === undefined) && !opts.urn) {
+            if (args?.defaultDataLakeStoreAccount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultDataLakeStoreAccount'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["computePolicies"] = args ? args.computePolicies : undefined;
-            resourceInputs["dataLakeStoreAccounts"] = args ? args.dataLakeStoreAccounts : undefined;
-            resourceInputs["defaultDataLakeStoreAccount"] = args ? args.defaultDataLakeStoreAccount : undefined;
-            resourceInputs["firewallAllowAzureIps"] = (args ? args.firewallAllowAzureIps : undefined) ?? "Disabled";
-            resourceInputs["firewallRules"] = args ? args.firewallRules : undefined;
-            resourceInputs["firewallState"] = (args ? args.firewallState : undefined) ?? "Disabled";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maxDegreeOfParallelism"] = (args ? args.maxDegreeOfParallelism : undefined) ?? 30;
-            resourceInputs["maxDegreeOfParallelismPerJob"] = (args ? args.maxDegreeOfParallelismPerJob : undefined) ?? 32;
-            resourceInputs["maxJobCount"] = (args ? args.maxJobCount : undefined) ?? 3;
-            resourceInputs["minPriorityPerJob"] = args ? args.minPriorityPerJob : undefined;
-            resourceInputs["newTier"] = (args ? args.newTier : undefined) ?? "Consumption";
-            resourceInputs["queryStoreRetention"] = (args ? args.queryStoreRetention : undefined) ?? 30;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["computePolicies"] = args?.computePolicies;
+            resourceInputs["dataLakeStoreAccounts"] = args?.dataLakeStoreAccounts;
+            resourceInputs["defaultDataLakeStoreAccount"] = args?.defaultDataLakeStoreAccount;
+            resourceInputs["firewallAllowAzureIps"] = (args?.firewallAllowAzureIps) ?? "Disabled";
+            resourceInputs["firewallRules"] = args?.firewallRules;
+            resourceInputs["firewallState"] = (args?.firewallState) ?? "Disabled";
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maxDegreeOfParallelism"] = (args?.maxDegreeOfParallelism) ?? 30;
+            resourceInputs["maxDegreeOfParallelismPerJob"] = (args?.maxDegreeOfParallelismPerJob) ?? 32;
+            resourceInputs["maxJobCount"] = (args?.maxJobCount) ?? 3;
+            resourceInputs["minPriorityPerJob"] = args?.minPriorityPerJob;
+            resourceInputs["newTier"] = (args?.newTier) ?? "Consumption";
+            resourceInputs["queryStoreRetention"] = (args?.queryStoreRetention) ?? 30;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageAccounts"] = args?.storageAccounts;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;

@@ -64,12 +64,12 @@ export class SubscriptionFeatureRegistration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.providerNamespace === undefined) && !opts.urn) {
+            if (args?.providerNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'providerNamespace'");
             }
-            resourceInputs["featureName"] = args ? args.featureName : undefined;
+            resourceInputs["featureName"] = args?.featureName;
             resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.features.subscriptionFeatureRegistrationPropertiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["providerNamespace"] = args ? args.providerNamespace : undefined;
+            resourceInputs["providerNamespace"] = args?.providerNamespace;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

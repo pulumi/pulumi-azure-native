@@ -59,11 +59,11 @@ export class ConsoleWithLocation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.location === undefined) && !opts.urn) {
+            if (args?.location === undefined && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
-            resourceInputs["consoleName"] = args ? args.consoleName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["consoleName"] = args?.consoleName;
+            resourceInputs["location"] = args?.location;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
         } else {

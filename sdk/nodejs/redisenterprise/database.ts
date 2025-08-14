@@ -109,23 +109,23 @@ export class Database extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clientProtocol"] = args ? args.clientProtocol : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["clusteringPolicy"] = args ? args.clusteringPolicy : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["deferUpgrade"] = args ? args.deferUpgrade : undefined;
-            resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
-            resourceInputs["geoReplication"] = args ? args.geoReplication : undefined;
-            resourceInputs["modules"] = args ? args.modules : undefined;
-            resourceInputs["persistence"] = args ? args.persistence : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["clientProtocol"] = args?.clientProtocol;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["clusteringPolicy"] = args?.clusteringPolicy;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["deferUpgrade"] = args?.deferUpgrade;
+            resourceInputs["evictionPolicy"] = args?.evictionPolicy;
+            resourceInputs["geoReplication"] = args?.geoReplication;
+            resourceInputs["modules"] = args?.modules;
+            resourceInputs["persistence"] = args?.persistence;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

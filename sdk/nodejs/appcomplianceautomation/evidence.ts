@@ -91,21 +91,21 @@ export class Evidence extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.filePath === undefined) && !opts.urn) {
+            if (args?.filePath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filePath'");
             }
-            if ((!args || args.reportName === undefined) && !opts.urn) {
+            if (args?.reportName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reportName'");
             }
-            resourceInputs["controlId"] = args ? args.controlId : undefined;
-            resourceInputs["evidenceName"] = args ? args.evidenceName : undefined;
-            resourceInputs["evidenceType"] = args ? args.evidenceType : undefined;
-            resourceInputs["extraData"] = args ? args.extraData : undefined;
-            resourceInputs["filePath"] = args ? args.filePath : undefined;
-            resourceInputs["offerGuid"] = args ? args.offerGuid : undefined;
-            resourceInputs["reportCreatorTenantId"] = args ? args.reportCreatorTenantId : undefined;
-            resourceInputs["reportName"] = args ? args.reportName : undefined;
-            resourceInputs["responsibilityId"] = args ? args.responsibilityId : undefined;
+            resourceInputs["controlId"] = args?.controlId;
+            resourceInputs["evidenceName"] = args?.evidenceName;
+            resourceInputs["evidenceType"] = args?.evidenceType;
+            resourceInputs["extraData"] = args?.extraData;
+            resourceInputs["filePath"] = args?.filePath;
+            resourceInputs["offerGuid"] = args?.offerGuid;
+            resourceInputs["reportCreatorTenantId"] = args?.reportCreatorTenantId;
+            resourceInputs["reportName"] = args?.reportName;
+            resourceInputs["responsibilityId"] = args?.responsibilityId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

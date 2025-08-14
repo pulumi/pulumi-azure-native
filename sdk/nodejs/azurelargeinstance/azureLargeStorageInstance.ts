@@ -88,16 +88,16 @@ export class AzureLargeStorageInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["azureLargeStorageInstanceName"] = args ? args.azureLargeStorageInstanceName : undefined;
-            resourceInputs["azureLargeStorageInstanceUniqueIdentifier"] = args ? args.azureLargeStorageInstanceUniqueIdentifier : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageProperties"] = args ? args.storageProperties : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureLargeStorageInstanceName"] = args?.azureLargeStorageInstanceName;
+            resourceInputs["azureLargeStorageInstanceUniqueIdentifier"] = args?.azureLargeStorageInstanceUniqueIdentifier;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageProperties"] = args?.storageProperties;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

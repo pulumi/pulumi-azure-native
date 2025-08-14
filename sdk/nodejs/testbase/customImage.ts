@@ -119,28 +119,28 @@ export class CustomImage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.definitionName === undefined) && !opts.urn) {
+            if (args?.definitionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'definitionName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            if ((!args || args.testBaseAccountName === undefined) && !opts.urn) {
+            if (args?.testBaseAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'testBaseAccountName'");
             }
-            if ((!args || args.versionName === undefined) && !opts.urn) {
+            if (args?.versionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'versionName'");
             }
-            resourceInputs["customImageName"] = args ? args.customImageName : undefined;
-            resourceInputs["definitionName"] = args ? args.definitionName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["source"] = (args ? args.source : undefined) ?? "VHD";
-            resourceInputs["testBaseAccountName"] = args ? args.testBaseAccountName : undefined;
-            resourceInputs["versionName"] = args ? args.versionName : undefined;
-            resourceInputs["vhdId"] = args ? args.vhdId : undefined;
+            resourceInputs["customImageName"] = args?.customImageName;
+            resourceInputs["definitionName"] = args?.definitionName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["source"] = (args?.source) ?? "VHD";
+            resourceInputs["testBaseAccountName"] = args?.testBaseAccountName;
+            resourceInputs["versionName"] = args?.versionName;
+            resourceInputs["vhdId"] = args?.vhdId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

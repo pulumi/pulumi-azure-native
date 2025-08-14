@@ -126,21 +126,21 @@ export class Report extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resources === undefined) && !opts.urn) {
+            if (args?.resources === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resources'");
             }
-            if ((!args || args.timeZone === undefined) && !opts.urn) {
+            if (args?.timeZone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeZone'");
             }
-            if ((!args || args.triggerTime === undefined) && !opts.urn) {
+            if (args?.triggerTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'triggerTime'");
             }
-            resourceInputs["offerGuid"] = args ? args.offerGuid : undefined;
-            resourceInputs["reportName"] = args ? args.reportName : undefined;
-            resourceInputs["resources"] = args ? args.resources : undefined;
-            resourceInputs["storageInfo"] = args ? args.storageInfo : undefined;
-            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
-            resourceInputs["triggerTime"] = args ? args.triggerTime : undefined;
+            resourceInputs["offerGuid"] = args?.offerGuid;
+            resourceInputs["reportName"] = args?.reportName;
+            resourceInputs["resources"] = args?.resources;
+            resourceInputs["storageInfo"] = args?.storageInfo;
+            resourceInputs["timeZone"] = args?.timeZone;
+            resourceInputs["triggerTime"] = args?.triggerTime;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["certRecords"] = undefined /*out*/;
             resourceInputs["complianceStatus"] = undefined /*out*/;

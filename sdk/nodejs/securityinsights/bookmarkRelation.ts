@@ -89,23 +89,23 @@ export class BookmarkRelation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.bookmarkId === undefined) && !opts.urn) {
+            if (args?.bookmarkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bookmarkId'");
             }
-            if ((!args || args.relatedResourceId === undefined) && !opts.urn) {
+            if (args?.relatedResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'relatedResourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["bookmarkId"] = args ? args.bookmarkId : undefined;
-            resourceInputs["relatedResourceId"] = args ? args.relatedResourceId : undefined;
-            resourceInputs["relationName"] = args ? args.relationName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["bookmarkId"] = args?.bookmarkId;
+            resourceInputs["relatedResourceId"] = args?.relatedResourceId;
+            resourceInputs["relationName"] = args?.relationName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

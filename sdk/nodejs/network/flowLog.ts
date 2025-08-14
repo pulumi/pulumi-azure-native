@@ -117,32 +117,32 @@ export class FlowLog extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkWatcherName === undefined) && !opts.urn) {
+            if (args?.networkWatcherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkWatcherName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageId === undefined) && !opts.urn) {
+            if (args?.storageId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageId'");
             }
-            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
+            if (args?.targetResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["enabledFilteringCriteria"] = args ? args.enabledFilteringCriteria : undefined;
-            resourceInputs["flowAnalyticsConfiguration"] = args ? args.flowAnalyticsConfiguration : undefined;
-            resourceInputs["flowLogName"] = args ? args.flowLogName : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["enabledFilteringCriteria"] = args?.enabledFilteringCriteria;
+            resourceInputs["flowAnalyticsConfiguration"] = args?.flowAnalyticsConfiguration;
+            resourceInputs["flowLogName"] = args?.flowLogName;
             resourceInputs["format"] = args ? (args.format ? pulumi.output(args.format).apply(inputs.network.flowLogFormatParametersArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkWatcherName"] = args?.networkWatcherName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["retentionPolicy"] = args ? (args.retentionPolicy ? pulumi.output(args.retentionPolicy).apply(inputs.network.retentionPolicyParametersArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["storageId"] = args ? args.storageId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["storageId"] = args?.storageId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -138,29 +138,29 @@ export class BastionHost extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["bastionHostName"] = args ? args.bastionHostName : undefined;
-            resourceInputs["disableCopyPaste"] = (args ? args.disableCopyPaste : undefined) ?? false;
-            resourceInputs["dnsName"] = args ? args.dnsName : undefined;
-            resourceInputs["enableFileCopy"] = (args ? args.enableFileCopy : undefined) ?? false;
-            resourceInputs["enableIpConnect"] = (args ? args.enableIpConnect : undefined) ?? false;
-            resourceInputs["enableKerberos"] = (args ? args.enableKerberos : undefined) ?? false;
-            resourceInputs["enablePrivateOnlyBastion"] = (args ? args.enablePrivateOnlyBastion : undefined) ?? false;
-            resourceInputs["enableSessionRecording"] = (args ? args.enableSessionRecording : undefined) ?? false;
-            resourceInputs["enableShareableLink"] = (args ? args.enableShareableLink : undefined) ?? false;
-            resourceInputs["enableTunneling"] = (args ? args.enableTunneling : undefined) ?? false;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkAcls"] = args ? args.networkAcls : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scaleUnits"] = args ? args.scaleUnits : undefined;
+            resourceInputs["bastionHostName"] = args?.bastionHostName;
+            resourceInputs["disableCopyPaste"] = (args?.disableCopyPaste) ?? false;
+            resourceInputs["dnsName"] = args?.dnsName;
+            resourceInputs["enableFileCopy"] = (args?.enableFileCopy) ?? false;
+            resourceInputs["enableIpConnect"] = (args?.enableIpConnect) ?? false;
+            resourceInputs["enableKerberos"] = (args?.enableKerberos) ?? false;
+            resourceInputs["enablePrivateOnlyBastion"] = (args?.enablePrivateOnlyBastion) ?? false;
+            resourceInputs["enableSessionRecording"] = (args?.enableSessionRecording) ?? false;
+            resourceInputs["enableShareableLink"] = (args?.enableShareableLink) ?? false;
+            resourceInputs["enableTunneling"] = (args?.enableTunneling) ?? false;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["ipConfigurations"] = args?.ipConfigurations;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkAcls"] = args?.networkAcls;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scaleUnits"] = args?.scaleUnits;
             resourceInputs["sku"] = args ? (args.sku ? pulumi.output(args.sku).apply(inputs.network.skuArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualNetwork"] = args?.virtualNetwork;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

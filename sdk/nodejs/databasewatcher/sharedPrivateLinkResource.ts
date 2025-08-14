@@ -93,28 +93,28 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupId === undefined) && !opts.urn) {
+            if (args?.groupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            if ((!args || args.privateLinkResourceId === undefined) && !opts.urn) {
+            if (args?.privateLinkResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateLinkResourceId'");
             }
-            if ((!args || args.requestMessage === undefined) && !opts.urn) {
+            if (args?.requestMessage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'requestMessage'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.watcherName === undefined) && !opts.urn) {
+            if (args?.watcherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'watcherName'");
             }
-            resourceInputs["dnsZone"] = args ? args.dnsZone : undefined;
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["privateLinkResourceId"] = args ? args.privateLinkResourceId : undefined;
-            resourceInputs["requestMessage"] = args ? args.requestMessage : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sharedPrivateLinkResourceName"] = args ? args.sharedPrivateLinkResourceName : undefined;
-            resourceInputs["watcherName"] = args ? args.watcherName : undefined;
+            resourceInputs["dnsZone"] = args?.dnsZone;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["privateLinkResourceId"] = args?.privateLinkResourceId;
+            resourceInputs["requestMessage"] = args?.requestMessage;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sharedPrivateLinkResourceName"] = args?.sharedPrivateLinkResourceName;
+            resourceInputs["watcherName"] = args?.watcherName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

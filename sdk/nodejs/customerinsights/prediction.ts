@@ -131,49 +131,49 @@ export class Prediction extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.autoAnalyze === undefined) && !opts.urn) {
+            if (args?.autoAnalyze === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoAnalyze'");
             }
-            if ((!args || args.hubName === undefined) && !opts.urn) {
+            if (args?.hubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.mappings === undefined) && !opts.urn) {
+            if (args?.mappings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mappings'");
             }
-            if ((!args || args.negativeOutcomeExpression === undefined) && !opts.urn) {
+            if (args?.negativeOutcomeExpression === undefined && !opts.urn) {
                 throw new Error("Missing required property 'negativeOutcomeExpression'");
             }
-            if ((!args || args.positiveOutcomeExpression === undefined) && !opts.urn) {
+            if (args?.positiveOutcomeExpression === undefined && !opts.urn) {
                 throw new Error("Missing required property 'positiveOutcomeExpression'");
             }
-            if ((!args || args.primaryProfileType === undefined) && !opts.urn) {
+            if (args?.primaryProfileType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'primaryProfileType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scopeExpression === undefined) && !opts.urn) {
+            if (args?.scopeExpression === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopeExpression'");
             }
-            if ((!args || args.scoreLabel === undefined) && !opts.urn) {
+            if (args?.scoreLabel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scoreLabel'");
             }
-            resourceInputs["autoAnalyze"] = args ? args.autoAnalyze : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["grades"] = args ? args.grades : undefined;
-            resourceInputs["hubName"] = args ? args.hubName : undefined;
-            resourceInputs["involvedInteractionTypes"] = args ? args.involvedInteractionTypes : undefined;
-            resourceInputs["involvedKpiTypes"] = args ? args.involvedKpiTypes : undefined;
-            resourceInputs["involvedRelationships"] = args ? args.involvedRelationships : undefined;
-            resourceInputs["mappings"] = args ? args.mappings : undefined;
-            resourceInputs["negativeOutcomeExpression"] = args ? args.negativeOutcomeExpression : undefined;
-            resourceInputs["positiveOutcomeExpression"] = args ? args.positiveOutcomeExpression : undefined;
-            resourceInputs["predictionName"] = args ? args.predictionName : undefined;
-            resourceInputs["primaryProfileType"] = args ? args.primaryProfileType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scopeExpression"] = args ? args.scopeExpression : undefined;
-            resourceInputs["scoreLabel"] = args ? args.scoreLabel : undefined;
+            resourceInputs["autoAnalyze"] = args?.autoAnalyze;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["grades"] = args?.grades;
+            resourceInputs["hubName"] = args?.hubName;
+            resourceInputs["involvedInteractionTypes"] = args?.involvedInteractionTypes;
+            resourceInputs["involvedKpiTypes"] = args?.involvedKpiTypes;
+            resourceInputs["involvedRelationships"] = args?.involvedRelationships;
+            resourceInputs["mappings"] = args?.mappings;
+            resourceInputs["negativeOutcomeExpression"] = args?.negativeOutcomeExpression;
+            resourceInputs["positiveOutcomeExpression"] = args?.positiveOutcomeExpression;
+            resourceInputs["predictionName"] = args?.predictionName;
+            resourceInputs["primaryProfileType"] = args?.primaryProfileType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scopeExpression"] = args?.scopeExpression;
+            resourceInputs["scoreLabel"] = args?.scoreLabel;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

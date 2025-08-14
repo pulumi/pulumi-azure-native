@@ -77,10 +77,10 @@ export class CopilotSetting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accessControlEnabled === undefined) && !opts.urn) {
+            if (args?.accessControlEnabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessControlEnabled'");
             }
-            resourceInputs["accessControlEnabled"] = args ? args.accessControlEnabled : undefined;
+            resourceInputs["accessControlEnabled"] = args?.accessControlEnabled;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

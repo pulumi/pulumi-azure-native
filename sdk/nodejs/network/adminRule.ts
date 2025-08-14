@@ -122,48 +122,48 @@ export class AdminRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.access === undefined) && !opts.urn) {
+            if (args?.access === undefined && !opts.urn) {
                 throw new Error("Missing required property 'access'");
             }
-            if ((!args || args.configurationName === undefined) && !opts.urn) {
+            if (args?.configurationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationName'");
             }
-            if ((!args || args.direction === undefined) && !opts.urn) {
+            if (args?.direction === undefined && !opts.urn) {
                 throw new Error("Missing required property 'direction'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.networkManagerName === undefined) && !opts.urn) {
+            if (args?.networkManagerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkManagerName'");
             }
-            if ((!args || args.priority === undefined) && !opts.urn) {
+            if (args?.priority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.ruleCollectionName === undefined) && !opts.urn) {
+            if (args?.ruleCollectionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleCollectionName'");
             }
-            resourceInputs["access"] = args ? args.access : undefined;
-            resourceInputs["configurationName"] = args ? args.configurationName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destinationPortRanges"] = args ? args.destinationPortRanges : undefined;
-            resourceInputs["destinations"] = args ? args.destinations : undefined;
-            resourceInputs["direction"] = args ? args.direction : undefined;
+            resourceInputs["access"] = args?.access;
+            resourceInputs["configurationName"] = args?.configurationName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destinationPortRanges"] = args?.destinationPortRanges;
+            resourceInputs["destinations"] = args?.destinations;
+            resourceInputs["direction"] = args?.direction;
             resourceInputs["kind"] = "Custom";
-            resourceInputs["networkManagerName"] = args ? args.networkManagerName : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ruleCollectionName"] = args ? args.ruleCollectionName : undefined;
-            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
-            resourceInputs["sourcePortRanges"] = args ? args.sourcePortRanges : undefined;
-            resourceInputs["sources"] = args ? args.sources : undefined;
+            resourceInputs["networkManagerName"] = args?.networkManagerName;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["ruleCollectionName"] = args?.ruleCollectionName;
+            resourceInputs["ruleName"] = args?.ruleName;
+            resourceInputs["sourcePortRanges"] = args?.sourcePortRanges;
+            resourceInputs["sources"] = args?.sources;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

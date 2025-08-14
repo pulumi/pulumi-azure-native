@@ -89,21 +89,21 @@ export class MongoDBResourceMongoUserDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["customData"] = args ? args.customData : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["mechanisms"] = args ? args.mechanisms : undefined;
-            resourceInputs["mongoUserDefinitionId"] = args ? args.mongoUserDefinitionId : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["roles"] = args ? args.roles : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["customData"] = args?.customData;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["mechanisms"] = args?.mechanisms;
+            resourceInputs["mongoUserDefinitionId"] = args?.mongoUserDefinitionId;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["roles"] = args?.roles;
+            resourceInputs["userName"] = args?.userName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

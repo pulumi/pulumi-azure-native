@@ -109,19 +109,19 @@ export class NetworkInterface extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["createFromLocal"] = (args ? args.createFromLocal : undefined) ?? false;
-            resourceInputs["dnsSettings"] = args ? args.dnsSettings : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["macAddress"] = args ? args.macAddress : undefined;
-            resourceInputs["networkInterfaceName"] = args ? args.networkInterfaceName : undefined;
-            resourceInputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["createFromLocal"] = (args?.createFromLocal) ?? false;
+            resourceInputs["dnsSettings"] = args?.dnsSettings;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["ipConfigurations"] = args?.ipConfigurations;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["macAddress"] = args?.macAddress;
+            resourceInputs["networkInterfaceName"] = args?.networkInterfaceName;
+            resourceInputs["networkSecurityGroup"] = args?.networkSecurityGroup;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

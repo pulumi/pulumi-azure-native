@@ -153,24 +153,24 @@ export class DomainService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["configDiagnostics"] = args ? args.configDiagnostics : undefined;
-            resourceInputs["domainConfigurationType"] = args ? args.domainConfigurationType : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["configDiagnostics"] = args?.configDiagnostics;
+            resourceInputs["domainConfigurationType"] = args?.domainConfigurationType;
+            resourceInputs["domainName"] = args?.domainName;
             resourceInputs["domainSecuritySettings"] = args ? (args.domainSecuritySettings ? pulumi.output(args.domainSecuritySettings).apply(inputs.aad.domainSecuritySettingsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["domainServiceName"] = args ? args.domainServiceName : undefined;
-            resourceInputs["filteredSync"] = args ? args.filteredSync : undefined;
+            resourceInputs["domainServiceName"] = args?.domainServiceName;
+            resourceInputs["filteredSync"] = args?.filteredSync;
             resourceInputs["ldapsSettings"] = args ? (args.ldapsSettings ? pulumi.output(args.ldapsSettings).apply(inputs.aad.ldapsSettingsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["notificationSettings"] = args ? args.notificationSettings : undefined;
-            resourceInputs["replicaSets"] = args ? args.replicaSets : undefined;
-            resourceInputs["resourceForestSettings"] = args ? args.resourceForestSettings : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["syncScope"] = (args ? args.syncScope : undefined) ?? "All";
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["notificationSettings"] = args?.notificationSettings;
+            resourceInputs["replicaSets"] = args?.replicaSets;
+            resourceInputs["resourceForestSettings"] = args?.resourceForestSettings;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["syncScope"] = (args?.syncScope) ?? "All";
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deploymentId"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

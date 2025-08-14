@@ -105,16 +105,16 @@ export class SqlVirtualMachineGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sqlImageOffer"] = args ? args.sqlImageOffer : undefined;
-            resourceInputs["sqlImageSku"] = args ? args.sqlImageSku : undefined;
-            resourceInputs["sqlVirtualMachineGroupName"] = args ? args.sqlVirtualMachineGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["wsfcDomainProfile"] = args ? args.wsfcDomainProfile : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sqlImageOffer"] = args?.sqlImageOffer;
+            resourceInputs["sqlImageSku"] = args?.sqlImageSku;
+            resourceInputs["sqlVirtualMachineGroupName"] = args?.sqlVirtualMachineGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["wsfcDomainProfile"] = args?.wsfcDomainProfile;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterConfiguration"] = undefined /*out*/;
             resourceInputs["clusterManagerType"] = undefined /*out*/;

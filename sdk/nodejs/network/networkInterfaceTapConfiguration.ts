@@ -77,17 +77,17 @@ export class NetworkInterfaceTapConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkInterfaceName === undefined) && !opts.urn) {
+            if (args?.networkInterfaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkInterfaceName"] = args ? args.networkInterfaceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tapConfigurationName"] = args ? args.tapConfigurationName : undefined;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkInterfaceName"] = args?.networkInterfaceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tapConfigurationName"] = args?.tapConfigurationName;
             resourceInputs["virtualNetworkTap"] = args ? (args.virtualNetworkTap ? pulumi.output(args.virtualNetworkTap).apply(inputs.network.virtualNetworkTapArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

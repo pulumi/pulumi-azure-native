@@ -129,23 +129,23 @@ export class ContainerAppsSessionPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["containerType"] = args ? args.containerType : undefined;
-            resourceInputs["customContainerTemplate"] = args ? args.customContainerTemplate : undefined;
-            resourceInputs["dynamicPoolConfiguration"] = args ? args.dynamicPoolConfiguration : undefined;
-            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedIdentitySettings"] = args ? args.managedIdentitySettings : undefined;
-            resourceInputs["poolManagementType"] = args ? args.poolManagementType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scaleConfiguration"] = args ? args.scaleConfiguration : undefined;
-            resourceInputs["secrets"] = args ? args.secrets : undefined;
-            resourceInputs["sessionNetworkConfiguration"] = args ? args.sessionNetworkConfiguration : undefined;
-            resourceInputs["sessionPoolName"] = args ? args.sessionPoolName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["containerType"] = args?.containerType;
+            resourceInputs["customContainerTemplate"] = args?.customContainerTemplate;
+            resourceInputs["dynamicPoolConfiguration"] = args?.dynamicPoolConfiguration;
+            resourceInputs["environmentId"] = args?.environmentId;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedIdentitySettings"] = args?.managedIdentitySettings;
+            resourceInputs["poolManagementType"] = args?.poolManagementType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scaleConfiguration"] = args?.scaleConfiguration;
+            resourceInputs["secrets"] = args?.secrets;
+            resourceInputs["sessionNetworkConfiguration"] = args?.sessionNetworkConfiguration;
+            resourceInputs["sessionPoolName"] = args?.sessionPoolName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nodeCount"] = undefined /*out*/;

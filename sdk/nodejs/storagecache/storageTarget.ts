@@ -109,25 +109,25 @@ export class StorageTarget extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.cacheName === undefined) && !opts.urn) {
+            if (args?.cacheName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cacheName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.targetType === undefined) && !opts.urn) {
+            if (args?.targetType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetType'");
             }
-            resourceInputs["blobNfs"] = args ? args.blobNfs : undefined;
-            resourceInputs["cacheName"] = args ? args.cacheName : undefined;
-            resourceInputs["clfs"] = args ? args.clfs : undefined;
-            resourceInputs["junctions"] = args ? args.junctions : undefined;
-            resourceInputs["nfs3"] = args ? args.nfs3 : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["storageTargetName"] = args ? args.storageTargetName : undefined;
-            resourceInputs["targetType"] = args ? args.targetType : undefined;
-            resourceInputs["unknown"] = args ? args.unknown : undefined;
+            resourceInputs["blobNfs"] = args?.blobNfs;
+            resourceInputs["cacheName"] = args?.cacheName;
+            resourceInputs["clfs"] = args?.clfs;
+            resourceInputs["junctions"] = args?.junctions;
+            resourceInputs["nfs3"] = args?.nfs3;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["storageTargetName"] = args?.storageTargetName;
+            resourceInputs["targetType"] = args?.targetType;
+            resourceInputs["unknown"] = args?.unknown;
             resourceInputs["allocationPercentage"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

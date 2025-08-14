@@ -89,23 +89,23 @@ export class StorageInsightConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccount === undefined) && !opts.urn) {
+            if (args?.storageAccount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccount'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["containers"] = args ? args.containers : undefined;
-            resourceInputs["eTag"] = args ? args.eTag : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageAccount"] = args ? args.storageAccount : undefined;
-            resourceInputs["storageInsightName"] = args ? args.storageInsightName : undefined;
-            resourceInputs["tables"] = args ? args.tables : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["containers"] = args?.containers;
+            resourceInputs["eTag"] = args?.eTag;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageAccount"] = args?.storageAccount;
+            resourceInputs["storageInsightName"] = args?.storageInsightName;
+            resourceInputs["tables"] = args?.tables;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

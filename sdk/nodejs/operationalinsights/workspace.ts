@@ -137,22 +137,22 @@ export class Workspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["defaultDataCollectionRuleResourceId"] = args ? args.defaultDataCollectionRuleResourceId : undefined;
-            resourceInputs["features"] = args ? args.features : undefined;
-            resourceInputs["forceCmkForQuery"] = args ? args.forceCmkForQuery : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["publicNetworkAccessForIngestion"] = args ? args.publicNetworkAccessForIngestion : undefined;
-            resourceInputs["publicNetworkAccessForQuery"] = args ? args.publicNetworkAccessForQuery : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceCapping"] = args ? args.workspaceCapping : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["defaultDataCollectionRuleResourceId"] = args?.defaultDataCollectionRuleResourceId;
+            resourceInputs["features"] = args?.features;
+            resourceInputs["forceCmkForQuery"] = args?.forceCmkForQuery;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["publicNetworkAccessForIngestion"] = args?.publicNetworkAccessForIngestion;
+            resourceInputs["publicNetworkAccessForQuery"] = args?.publicNetworkAccessForQuery;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retentionInDays"] = args?.retentionInDays;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceCapping"] = args?.workspaceCapping;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["customerId"] = undefined /*out*/;

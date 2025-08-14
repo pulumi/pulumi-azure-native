@@ -111,29 +111,29 @@ export class Relationship extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.hubName === undefined) && !opts.urn) {
+            if (args?.hubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.profileType === undefined) && !opts.urn) {
+            if (args?.profileType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileType'");
             }
-            if ((!args || args.relatedProfileType === undefined) && !opts.urn) {
+            if (args?.relatedProfileType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'relatedProfileType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["cardinality"] = args ? args.cardinality : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["expiryDateTimeUtc"] = args ? args.expiryDateTimeUtc : undefined;
-            resourceInputs["fields"] = args ? args.fields : undefined;
-            resourceInputs["hubName"] = args ? args.hubName : undefined;
-            resourceInputs["lookupMappings"] = args ? args.lookupMappings : undefined;
-            resourceInputs["profileType"] = args ? args.profileType : undefined;
-            resourceInputs["relatedProfileType"] = args ? args.relatedProfileType : undefined;
-            resourceInputs["relationshipName"] = args ? args.relationshipName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["cardinality"] = args?.cardinality;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["expiryDateTimeUtc"] = args?.expiryDateTimeUtc;
+            resourceInputs["fields"] = args?.fields;
+            resourceInputs["hubName"] = args?.hubName;
+            resourceInputs["lookupMappings"] = args?.lookupMappings;
+            resourceInputs["profileType"] = args?.profileType;
+            resourceInputs["relatedProfileType"] = args?.relatedProfileType;
+            resourceInputs["relationshipName"] = args?.relationshipName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

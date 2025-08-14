@@ -101,21 +101,21 @@ export class VolumeGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.elasticSanName === undefined) && !opts.urn) {
+            if (args?.elasticSanName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'elasticSanName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["elasticSanName"] = args ? args.elasticSanName : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["encryptionProperties"] = args ? args.encryptionProperties : undefined;
-            resourceInputs["enforceDataIntegrityCheckForIscsi"] = args ? args.enforceDataIntegrityCheckForIscsi : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["networkAcls"] = args ? args.networkAcls : undefined;
-            resourceInputs["protocolType"] = args ? args.protocolType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["volumeGroupName"] = args ? args.volumeGroupName : undefined;
+            resourceInputs["elasticSanName"] = args?.elasticSanName;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["encryptionProperties"] = args?.encryptionProperties;
+            resourceInputs["enforceDataIntegrityCheckForIscsi"] = args?.enforceDataIntegrityCheckForIscsi;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["networkAcls"] = args?.networkAcls;
+            resourceInputs["protocolType"] = args?.protocolType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["volumeGroupName"] = args?.volumeGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;

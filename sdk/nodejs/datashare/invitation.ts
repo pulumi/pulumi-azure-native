@@ -109,23 +109,23 @@ export class Invitation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.shareName === undefined) && !opts.urn) {
+            if (args?.shareName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shareName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["expirationDate"] = args ? args.expirationDate : undefined;
-            resourceInputs["invitationName"] = args ? args.invitationName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["shareName"] = args ? args.shareName : undefined;
-            resourceInputs["targetActiveDirectoryId"] = args ? args.targetActiveDirectoryId : undefined;
-            resourceInputs["targetEmail"] = args ? args.targetEmail : undefined;
-            resourceInputs["targetObjectId"] = args ? args.targetObjectId : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["expirationDate"] = args?.expirationDate;
+            resourceInputs["invitationName"] = args?.invitationName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["shareName"] = args?.shareName;
+            resourceInputs["targetActiveDirectoryId"] = args?.targetActiveDirectoryId;
+            resourceInputs["targetEmail"] = args?.targetEmail;
+            resourceInputs["targetObjectId"] = args?.targetObjectId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["invitationId"] = undefined /*out*/;
             resourceInputs["invitationStatus"] = undefined /*out*/;

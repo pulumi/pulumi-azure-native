@@ -129,20 +129,20 @@ export class ExpressRoutePort extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["bandwidthInGbps"] = args ? args.bandwidthInGbps : undefined;
-            resourceInputs["billingType"] = args ? args.billingType : undefined;
-            resourceInputs["encapsulation"] = args ? args.encapsulation : undefined;
-            resourceInputs["expressRoutePortName"] = args ? args.expressRoutePortName : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["links"] = args ? args.links : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["peeringLocation"] = args ? args.peeringLocation : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["bandwidthInGbps"] = args?.bandwidthInGbps;
+            resourceInputs["billingType"] = args?.billingType;
+            resourceInputs["encapsulation"] = args?.encapsulation;
+            resourceInputs["expressRoutePortName"] = args?.expressRoutePortName;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["links"] = args?.links;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["peeringLocation"] = args?.peeringLocation;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["allocationDate"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["circuits"] = undefined /*out*/;

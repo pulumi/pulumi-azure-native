@@ -91,30 +91,30 @@ export class MqttBridgeTopicMap extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.mqName === undefined) && !opts.urn) {
+            if (args?.mqName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mqName'");
             }
-            if ((!args || args.mqttBridgeConnectorName === undefined) && !opts.urn) {
+            if (args?.mqttBridgeConnectorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mqttBridgeConnectorName'");
             }
-            if ((!args || args.mqttBridgeConnectorRef === undefined) && !opts.urn) {
+            if (args?.mqttBridgeConnectorRef === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mqttBridgeConnectorRef'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mqName"] = args ? args.mqName : undefined;
-            resourceInputs["mqttBridgeConnectorName"] = args ? args.mqttBridgeConnectorName : undefined;
-            resourceInputs["mqttBridgeConnectorRef"] = args ? args.mqttBridgeConnectorRef : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routes"] = args ? args.routes : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["topicMapName"] = args ? args.topicMapName : undefined;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mqName"] = args?.mqName;
+            resourceInputs["mqttBridgeConnectorName"] = args?.mqttBridgeConnectorName;
+            resourceInputs["mqttBridgeConnectorRef"] = args?.mqttBridgeConnectorRef;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routes"] = args?.routes;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["topicMapName"] = args?.topicMapName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

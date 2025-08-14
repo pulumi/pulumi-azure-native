@@ -177,25 +177,25 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["aadApplicationObjectId"] = args ? args.aadApplicationObjectId : undefined;
-            resourceInputs["aadClientId"] = args ? args.aadClientId : undefined;
-            resourceInputs["aadServicePrincipalObjectId"] = args ? args.aadServicePrincipalObjectId : undefined;
-            resourceInputs["aadTenantId"] = args ? args.aadTenantId : undefined;
-            resourceInputs["cloudManagementEndpoint"] = args ? args.cloudManagementEndpoint : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["desiredProperties"] = args ? args.desiredProperties : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["softwareAssuranceProperties"] = args ? args.softwareAssuranceProperties : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["userAssignedIdentities"] = args ? args.userAssignedIdentities : undefined;
+            resourceInputs["aadApplicationObjectId"] = args?.aadApplicationObjectId;
+            resourceInputs["aadClientId"] = args?.aadClientId;
+            resourceInputs["aadServicePrincipalObjectId"] = args?.aadServicePrincipalObjectId;
+            resourceInputs["aadTenantId"] = args?.aadTenantId;
+            resourceInputs["cloudManagementEndpoint"] = args?.cloudManagementEndpoint;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["desiredProperties"] = args?.desiredProperties;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["softwareAssuranceProperties"] = args?.softwareAssuranceProperties;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["userAssignedIdentities"] = args?.userAssignedIdentities;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["billingModel"] = undefined /*out*/;
             resourceInputs["cloudId"] = undefined /*out*/;

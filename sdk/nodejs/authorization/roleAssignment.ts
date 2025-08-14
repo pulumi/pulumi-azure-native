@@ -113,24 +113,24 @@ export class RoleAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.principalId === undefined) && !opts.urn) {
+            if (args?.principalId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if ((!args || args.roleDefinitionId === undefined) && !opts.urn) {
+            if (args?.roleDefinitionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleDefinitionId'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["condition"] = args ? args.condition : undefined;
-            resourceInputs["conditionVersion"] = args ? args.conditionVersion : undefined;
-            resourceInputs["delegatedManagedIdentityResourceId"] = args ? args.delegatedManagedIdentityResourceId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["principalId"] = args ? args.principalId : undefined;
-            resourceInputs["principalType"] = (args ? args.principalType : undefined) ?? "User";
-            resourceInputs["roleAssignmentName"] = args ? args.roleAssignmentName : undefined;
-            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["condition"] = args?.condition;
+            resourceInputs["conditionVersion"] = args?.conditionVersion;
+            resourceInputs["delegatedManagedIdentityResourceId"] = args?.delegatedManagedIdentityResourceId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["principalId"] = args?.principalId;
+            resourceInputs["principalType"] = (args?.principalType) ?? "User";
+            resourceInputs["roleAssignmentName"] = args?.roleAssignmentName;
+            resourceInputs["roleDefinitionId"] = args?.roleDefinitionId;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;

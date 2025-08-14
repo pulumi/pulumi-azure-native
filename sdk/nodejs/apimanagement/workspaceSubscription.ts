@@ -117,34 +117,34 @@ export class WorkspaceSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["allowTracing"] = args ? args.allowTracing : undefined;
-            resourceInputs["appType"] = args ? args.appType : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["notify"] = args ? args.notify : undefined;
-            resourceInputs["ownerId"] = args ? args.ownerId : undefined;
-            resourceInputs["primaryKey"] = args ? args.primaryKey : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["secondaryKey"] = args ? args.secondaryKey : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["sid"] = args ? args.sid : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["allowTracing"] = args?.allowTracing;
+            resourceInputs["appType"] = args?.appType;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["notify"] = args?.notify;
+            resourceInputs["ownerId"] = args?.ownerId;
+            resourceInputs["primaryKey"] = args?.primaryKey;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["secondaryKey"] = args?.secondaryKey;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["sid"] = args?.sid;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["endDate"] = undefined /*out*/;

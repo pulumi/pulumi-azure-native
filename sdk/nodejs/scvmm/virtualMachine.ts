@@ -157,33 +157,33 @@ export class VirtualMachine extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["availabilitySets"] = args ? args.availabilitySets : undefined;
-            resourceInputs["checkpointType"] = args ? args.checkpointType : undefined;
-            resourceInputs["checkpoints"] = args ? args.checkpoints : undefined;
-            resourceInputs["cloudId"] = args ? args.cloudId : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["generation"] = args ? args.generation : undefined;
-            resourceInputs["guestAgentProfile"] = args ? args.guestAgentProfile : undefined;
-            resourceInputs["hardwareProfile"] = args ? args.hardwareProfile : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["inventoryItemId"] = args ? args.inventoryItemId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["osProfile"] = args ? args.osProfile : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateId"] = args ? args.templateId : undefined;
-            resourceInputs["uuid"] = args ? args.uuid : undefined;
-            resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
-            resourceInputs["vmName"] = args ? args.vmName : undefined;
-            resourceInputs["vmmServerId"] = args ? args.vmmServerId : undefined;
+            resourceInputs["availabilitySets"] = args?.availabilitySets;
+            resourceInputs["checkpointType"] = args?.checkpointType;
+            resourceInputs["checkpoints"] = args?.checkpoints;
+            resourceInputs["cloudId"] = args?.cloudId;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["generation"] = args?.generation;
+            resourceInputs["guestAgentProfile"] = args?.guestAgentProfile;
+            resourceInputs["hardwareProfile"] = args?.hardwareProfile;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["inventoryItemId"] = args?.inventoryItemId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["osProfile"] = args?.osProfile;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageProfile"] = args?.storageProfile;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateId"] = args?.templateId;
+            resourceInputs["uuid"] = args?.uuid;
+            resourceInputs["virtualMachineName"] = args?.virtualMachineName;
+            resourceInputs["vmName"] = args?.vmName;
+            resourceInputs["vmmServerId"] = args?.vmmServerId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastRestoredVMCheckpoint"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

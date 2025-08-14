@@ -129,38 +129,38 @@ export class Pool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.devBoxDefinitionName === undefined) && !opts.urn) {
+            if (args?.devBoxDefinitionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devBoxDefinitionName'");
             }
-            if ((!args || args.licenseType === undefined) && !opts.urn) {
+            if (args?.licenseType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'licenseType'");
             }
-            if ((!args || args.localAdministrator === undefined) && !opts.urn) {
+            if (args?.localAdministrator === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localAdministrator'");
             }
-            if ((!args || args.networkConnectionName === undefined) && !opts.urn) {
+            if (args?.networkConnectionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkConnectionName'");
             }
-            if ((!args || args.projectName === undefined) && !opts.urn) {
+            if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["devBoxDefinitionName"] = args ? args.devBoxDefinitionName : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
-            resourceInputs["localAdministrator"] = args ? args.localAdministrator : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedVirtualNetworkRegions"] = args ? args.managedVirtualNetworkRegions : undefined;
-            resourceInputs["networkConnectionName"] = args ? args.networkConnectionName : undefined;
-            resourceInputs["poolName"] = args ? args.poolName : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["singleSignOnStatus"] = args ? args.singleSignOnStatus : undefined;
-            resourceInputs["stopOnDisconnect"] = args ? args.stopOnDisconnect : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualNetworkType"] = args ? args.virtualNetworkType : undefined;
+            resourceInputs["devBoxDefinitionName"] = args?.devBoxDefinitionName;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["licenseType"] = args?.licenseType;
+            resourceInputs["localAdministrator"] = args?.localAdministrator;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedVirtualNetworkRegions"] = args?.managedVirtualNetworkRegions;
+            resourceInputs["networkConnectionName"] = args?.networkConnectionName;
+            resourceInputs["poolName"] = args?.poolName;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["singleSignOnStatus"] = args?.singleSignOnStatus;
+            resourceInputs["stopOnDisconnect"] = args?.stopOnDisconnect;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualNetworkType"] = args?.virtualNetworkType;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["devBoxCount"] = undefined /*out*/;
             resourceInputs["healthStatus"] = undefined /*out*/;

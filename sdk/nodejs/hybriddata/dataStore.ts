@@ -83,26 +83,26 @@ export class DataStore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataManagerName === undefined) && !opts.urn) {
+            if (args?.dataManagerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataManagerName'");
             }
-            if ((!args || args.dataStoreTypeId === undefined) && !opts.urn) {
+            if (args?.dataStoreTypeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataStoreTypeId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.state === undefined) && !opts.urn) {
+            if (args?.state === undefined && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            resourceInputs["customerSecrets"] = args ? args.customerSecrets : undefined;
-            resourceInputs["dataManagerName"] = args ? args.dataManagerName : undefined;
-            resourceInputs["dataStoreName"] = args ? args.dataStoreName : undefined;
-            resourceInputs["dataStoreTypeId"] = args ? args.dataStoreTypeId : undefined;
-            resourceInputs["extendedProperties"] = args ? args.extendedProperties : undefined;
-            resourceInputs["repositoryId"] = args ? args.repositoryId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["customerSecrets"] = args?.customerSecrets;
+            resourceInputs["dataManagerName"] = args?.dataManagerName;
+            resourceInputs["dataStoreName"] = args?.dataStoreName;
+            resourceInputs["dataStoreTypeId"] = args?.dataStoreTypeId;
+            resourceInputs["extendedProperties"] = args?.extendedProperties;
+            resourceInputs["repositoryId"] = args?.repositoryId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["state"] = args?.state;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

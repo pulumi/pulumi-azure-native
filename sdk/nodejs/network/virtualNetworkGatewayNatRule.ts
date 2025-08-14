@@ -89,22 +89,22 @@ export class VirtualNetworkGatewayNatRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetworkGatewayName === undefined) && !opts.urn) {
+            if (args?.virtualNetworkGatewayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkGatewayName'");
             }
-            resourceInputs["externalMappings"] = args ? args.externalMappings : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["internalMappings"] = args ? args.internalMappings : undefined;
-            resourceInputs["ipConfigurationId"] = args ? args.ipConfigurationId : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["natRuleName"] = args ? args.natRuleName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["virtualNetworkGatewayName"] = args ? args.virtualNetworkGatewayName : undefined;
+            resourceInputs["externalMappings"] = args?.externalMappings;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["internalMappings"] = args?.internalMappings;
+            resourceInputs["ipConfigurationId"] = args?.ipConfigurationId;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["natRuleName"] = args?.natRuleName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["virtualNetworkGatewayName"] = args?.virtualNetworkGatewayName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

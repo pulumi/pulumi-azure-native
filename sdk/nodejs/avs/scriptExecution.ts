@@ -131,26 +131,26 @@ export class ScriptExecution extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.privateCloudName === undefined) && !opts.urn) {
+            if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.timeout === undefined) && !opts.urn) {
+            if (args?.timeout === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeout'");
             }
-            resourceInputs["failureReason"] = args ? args.failureReason : undefined;
-            resourceInputs["hiddenParameters"] = args ? args.hiddenParameters : undefined;
-            resourceInputs["namedOutputs"] = args ? args.namedOutputs : undefined;
-            resourceInputs["output"] = args ? args.output : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retention"] = args ? args.retention : undefined;
-            resourceInputs["scriptCmdletId"] = args ? args.scriptCmdletId : undefined;
-            resourceInputs["scriptExecutionName"] = args ? args.scriptExecutionName : undefined;
-            resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["failureReason"] = args?.failureReason;
+            resourceInputs["hiddenParameters"] = args?.hiddenParameters;
+            resourceInputs["namedOutputs"] = args?.namedOutputs;
+            resourceInputs["output"] = args?.output;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["privateCloudName"] = args?.privateCloudName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retention"] = args?.retention;
+            resourceInputs["scriptCmdletId"] = args?.scriptCmdletId;
+            resourceInputs["scriptExecutionName"] = args?.scriptExecutionName;
+            resourceInputs["timeout"] = args?.timeout;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["finishedAt"] = undefined /*out*/;

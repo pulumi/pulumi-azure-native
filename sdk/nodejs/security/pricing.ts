@@ -107,18 +107,18 @@ export class Pricing extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.pricingTier === undefined) && !opts.urn) {
+            if (args?.pricingTier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pricingTier'");
             }
-            if ((!args || args.scopeId === undefined) && !opts.urn) {
+            if (args?.scopeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopeId'");
             }
-            resourceInputs["enforce"] = args ? args.enforce : undefined;
-            resourceInputs["extensions"] = args ? args.extensions : undefined;
-            resourceInputs["pricingName"] = args ? args.pricingName : undefined;
-            resourceInputs["pricingTier"] = args ? args.pricingTier : undefined;
-            resourceInputs["scopeId"] = args ? args.scopeId : undefined;
-            resourceInputs["subPlan"] = args ? args.subPlan : undefined;
+            resourceInputs["enforce"] = args?.enforce;
+            resourceInputs["extensions"] = args?.extensions;
+            resourceInputs["pricingName"] = args?.pricingName;
+            resourceInputs["pricingTier"] = args?.pricingTier;
+            resourceInputs["scopeId"] = args?.scopeId;
+            resourceInputs["subPlan"] = args?.subPlan;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deprecated"] = undefined /*out*/;
             resourceInputs["enablementTime"] = undefined /*out*/;

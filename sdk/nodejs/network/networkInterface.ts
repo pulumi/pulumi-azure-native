@@ -173,27 +173,27 @@ export class NetworkInterface extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["auxiliaryMode"] = args ? args.auxiliaryMode : undefined;
-            resourceInputs["auxiliarySku"] = args ? args.auxiliarySku : undefined;
-            resourceInputs["disableTcpStateTracking"] = args ? args.disableTcpStateTracking : undefined;
-            resourceInputs["dnsSettings"] = args ? args.dnsSettings : undefined;
-            resourceInputs["enableAcceleratedNetworking"] = args ? args.enableAcceleratedNetworking : undefined;
-            resourceInputs["enableIPForwarding"] = args ? args.enableIPForwarding : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["migrationPhase"] = args ? args.migrationPhase : undefined;
-            resourceInputs["networkInterfaceName"] = args ? args.networkInterfaceName : undefined;
-            resourceInputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
-            resourceInputs["nicType"] = args ? args.nicType : undefined;
-            resourceInputs["privateLinkService"] = args ? args.privateLinkService : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workloadType"] = args ? args.workloadType : undefined;
+            resourceInputs["auxiliaryMode"] = args?.auxiliaryMode;
+            resourceInputs["auxiliarySku"] = args?.auxiliarySku;
+            resourceInputs["disableTcpStateTracking"] = args?.disableTcpStateTracking;
+            resourceInputs["dnsSettings"] = args?.dnsSettings;
+            resourceInputs["enableAcceleratedNetworking"] = args?.enableAcceleratedNetworking;
+            resourceInputs["enableIPForwarding"] = args?.enableIPForwarding;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["ipConfigurations"] = args?.ipConfigurations;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["migrationPhase"] = args?.migrationPhase;
+            resourceInputs["networkInterfaceName"] = args?.networkInterfaceName;
+            resourceInputs["networkSecurityGroup"] = args?.networkSecurityGroup;
+            resourceInputs["nicType"] = args?.nicType;
+            resourceInputs["privateLinkService"] = args?.privateLinkService;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workloadType"] = args?.workloadType;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["defaultOutboundConnectivityEnabled"] = undefined /*out*/;
             resourceInputs["dscpConfiguration"] = undefined /*out*/;

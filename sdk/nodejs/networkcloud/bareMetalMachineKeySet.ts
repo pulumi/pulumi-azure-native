@@ -127,42 +127,42 @@ export class BareMetalMachineKeySet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.azureGroupId === undefined) && !opts.urn) {
+            if (args?.azureGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'azureGroupId'");
             }
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.expiration === undefined) && !opts.urn) {
+            if (args?.expiration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expiration'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.jumpHostsAllowed === undefined) && !opts.urn) {
+            if (args?.jumpHostsAllowed === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jumpHostsAllowed'");
             }
-            if ((!args || args.privilegeLevel === undefined) && !opts.urn) {
+            if (args?.privilegeLevel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privilegeLevel'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.userList === undefined) && !opts.urn) {
+            if (args?.userList === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userList'");
             }
-            resourceInputs["azureGroupId"] = args ? args.azureGroupId : undefined;
-            resourceInputs["bareMetalMachineKeySetName"] = args ? args.bareMetalMachineKeySetName : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["expiration"] = args ? args.expiration : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["jumpHostsAllowed"] = args ? args.jumpHostsAllowed : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["osGroupName"] = args ? args.osGroupName : undefined;
-            resourceInputs["privilegeLevel"] = args ? args.privilegeLevel : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userList"] = args ? args.userList : undefined;
+            resourceInputs["azureGroupId"] = args?.azureGroupId;
+            resourceInputs["bareMetalMachineKeySetName"] = args?.bareMetalMachineKeySetName;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["expiration"] = args?.expiration;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["jumpHostsAllowed"] = args?.jumpHostsAllowed;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["osGroupName"] = args?.osGroupName;
+            resourceInputs["privilegeLevel"] = args?.privilegeLevel;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userList"] = args?.userList;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;

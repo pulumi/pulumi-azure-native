@@ -86,25 +86,25 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.gatewayId === undefined) && !opts.urn) {
+            if (args?.gatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["certificateId"] = args ? args.certificateId : undefined;
-            resourceInputs["gatewayId"] = args ? args.gatewayId : undefined;
-            resourceInputs["hcId"] = args ? args.hcId : undefined;
-            resourceInputs["hostname"] = args ? args.hostname : undefined;
-            resourceInputs["http2Enabled"] = args ? args.http2Enabled : undefined;
-            resourceInputs["negotiateClientCertificate"] = args ? args.negotiateClientCertificate : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["tls10Enabled"] = args ? args.tls10Enabled : undefined;
-            resourceInputs["tls11Enabled"] = args ? args.tls11Enabled : undefined;
+            resourceInputs["certificateId"] = args?.certificateId;
+            resourceInputs["gatewayId"] = args?.gatewayId;
+            resourceInputs["hcId"] = args?.hcId;
+            resourceInputs["hostname"] = args?.hostname;
+            resourceInputs["http2Enabled"] = args?.http2Enabled;
+            resourceInputs["negotiateClientCertificate"] = args?.negotiateClientCertificate;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["tls10Enabled"] = args?.tls10Enabled;
+            resourceInputs["tls11Enabled"] = args?.tls11Enabled;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

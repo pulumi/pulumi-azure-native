@@ -105,28 +105,28 @@ export class CertificateProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.identityValidationId === undefined) && !opts.urn) {
+            if (args?.identityValidationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityValidationId'");
             }
-            if ((!args || args.profileType === undefined) && !opts.urn) {
+            if (args?.profileType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["identityValidationId"] = args ? args.identityValidationId : undefined;
-            resourceInputs["includeCity"] = (args ? args.includeCity : undefined) ?? false;
-            resourceInputs["includeCountry"] = (args ? args.includeCountry : undefined) ?? false;
-            resourceInputs["includePostalCode"] = (args ? args.includePostalCode : undefined) ?? false;
-            resourceInputs["includeState"] = (args ? args.includeState : undefined) ?? false;
-            resourceInputs["includeStreetAddress"] = (args ? args.includeStreetAddress : undefined) ?? false;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["profileType"] = args ? args.profileType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["identityValidationId"] = args?.identityValidationId;
+            resourceInputs["includeCity"] = (args?.includeCity) ?? false;
+            resourceInputs["includeCountry"] = (args?.includeCountry) ?? false;
+            resourceInputs["includePostalCode"] = (args?.includePostalCode) ?? false;
+            resourceInputs["includeState"] = (args?.includeState) ?? false;
+            resourceInputs["includeStreetAddress"] = (args?.includeStreetAddress) ?? false;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["profileType"] = args?.profileType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

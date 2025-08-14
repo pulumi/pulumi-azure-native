@@ -112,45 +112,45 @@ export class IoTHubEventSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.consumerGroupName === undefined) && !opts.urn) {
+            if (args?.consumerGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'consumerGroupName'");
             }
-            if ((!args || args.environmentName === undefined) && !opts.urn) {
+            if (args?.environmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if ((!args || args.eventSourceResourceId === undefined) && !opts.urn) {
+            if (args?.eventSourceResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventSourceResourceId'");
             }
-            if ((!args || args.iotHubName === undefined) && !opts.urn) {
+            if (args?.iotHubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iotHubName'");
             }
-            if ((!args || args.keyName === undefined) && !opts.urn) {
+            if (args?.keyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sharedAccessKey === undefined) && !opts.urn) {
+            if (args?.sharedAccessKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sharedAccessKey'");
             }
-            resourceInputs["consumerGroupName"] = args ? args.consumerGroupName : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["eventSourceName"] = args ? args.eventSourceName : undefined;
-            resourceInputs["eventSourceResourceId"] = args ? args.eventSourceResourceId : undefined;
-            resourceInputs["iotHubName"] = args ? args.iotHubName : undefined;
-            resourceInputs["keyName"] = args ? args.keyName : undefined;
+            resourceInputs["consumerGroupName"] = args?.consumerGroupName;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["eventSourceName"] = args?.eventSourceName;
+            resourceInputs["eventSourceResourceId"] = args?.eventSourceResourceId;
+            resourceInputs["iotHubName"] = args?.iotHubName;
+            resourceInputs["keyName"] = args?.keyName;
             resourceInputs["kind"] = "Microsoft.IoTHub";
-            resourceInputs["localTimestamp"] = args ? args.localTimestamp : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sharedAccessKey"] = args ? args.sharedAccessKey : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["time"] = args ? args.time : undefined;
-            resourceInputs["timestampPropertyName"] = args ? args.timestampPropertyName : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["localTimestamp"] = args?.localTimestamp;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sharedAccessKey"] = args?.sharedAccessKey;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["time"] = args?.time;
+            resourceInputs["timestampPropertyName"] = args?.timestampPropertyName;
+            resourceInputs["type"] = args?.type;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

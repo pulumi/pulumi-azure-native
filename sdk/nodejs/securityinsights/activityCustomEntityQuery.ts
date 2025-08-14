@@ -120,28 +120,28 @@ export class ActivityCustomEntityQuery extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["entitiesFilter"] = args ? args.entitiesFilter : undefined;
-            resourceInputs["entityQueryId"] = args ? args.entityQueryId : undefined;
-            resourceInputs["inputEntityType"] = args ? args.inputEntityType : undefined;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["entitiesFilter"] = args?.entitiesFilter;
+            resourceInputs["entityQueryId"] = args?.entityQueryId;
+            resourceInputs["inputEntityType"] = args?.inputEntityType;
             resourceInputs["kind"] = "Activity";
-            resourceInputs["queryDefinitions"] = args ? args.queryDefinitions : undefined;
-            resourceInputs["requiredInputFieldsSets"] = args ? args.requiredInputFieldsSets : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["templateName"] = args ? args.templateName : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["queryDefinitions"] = args?.queryDefinitions;
+            resourceInputs["requiredInputFieldsSets"] = args?.requiredInputFieldsSets;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["templateName"] = args?.templateName;
+            resourceInputs["title"] = args?.title;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimeUtc"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

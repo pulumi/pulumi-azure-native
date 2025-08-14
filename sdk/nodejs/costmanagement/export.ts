@@ -105,25 +105,25 @@ export class Export extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.definition === undefined) && !opts.urn) {
+            if (args?.definition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            if ((!args || args.deliveryInfo === undefined) && !opts.urn) {
+            if (args?.deliveryInfo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deliveryInfo'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["deliveryInfo"] = args ? args.deliveryInfo : undefined;
-            resourceInputs["eTag"] = args ? args.eTag : undefined;
-            resourceInputs["exportName"] = args ? args.exportName : undefined;
-            resourceInputs["format"] = args ? args.format : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["partitionData"] = args ? args.partitionData : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["deliveryInfo"] = args?.deliveryInfo;
+            resourceInputs["eTag"] = args?.eTag;
+            resourceInputs["exportName"] = args?.exportName;
+            resourceInputs["format"] = args?.format;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["partitionData"] = args?.partitionData;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nextRunTimeEstimate"] = undefined /*out*/;

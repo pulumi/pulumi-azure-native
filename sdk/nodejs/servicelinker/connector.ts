@@ -105,24 +105,24 @@ export class Connector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.location === undefined) && !opts.urn) {
+            if (args?.location === undefined && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authInfo"] = args ? args.authInfo : undefined;
-            resourceInputs["clientType"] = args ? args.clientType : undefined;
-            resourceInputs["configurationInfo"] = args ? args.configurationInfo : undefined;
-            resourceInputs["connectorName"] = args ? args.connectorName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["publicNetworkSolution"] = args ? args.publicNetworkSolution : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["secretStore"] = args ? args.secretStore : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            resourceInputs["targetService"] = args ? args.targetService : undefined;
-            resourceInputs["vNetSolution"] = args ? args.vNetSolution : undefined;
+            resourceInputs["authInfo"] = args?.authInfo;
+            resourceInputs["clientType"] = args?.clientType;
+            resourceInputs["configurationInfo"] = args?.configurationInfo;
+            resourceInputs["connectorName"] = args?.connectorName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["publicNetworkSolution"] = args?.publicNetworkSolution;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["secretStore"] = args?.secretStore;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
+            resourceInputs["targetService"] = args?.targetService;
+            resourceInputs["vNetSolution"] = args?.vNetSolution;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

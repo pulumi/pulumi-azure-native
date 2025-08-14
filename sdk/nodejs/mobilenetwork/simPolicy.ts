@@ -105,31 +105,31 @@ export class SimPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.defaultSlice === undefined) && !opts.urn) {
+            if (args?.defaultSlice === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultSlice'");
             }
-            if ((!args || args.mobileNetworkName === undefined) && !opts.urn) {
+            if (args?.mobileNetworkName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mobileNetworkName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sliceConfigurations === undefined) && !opts.urn) {
+            if (args?.sliceConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sliceConfigurations'");
             }
-            if ((!args || args.ueAmbr === undefined) && !opts.urn) {
+            if (args?.ueAmbr === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ueAmbr'");
             }
-            resourceInputs["defaultSlice"] = args ? args.defaultSlice : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mobileNetworkName"] = args ? args.mobileNetworkName : undefined;
-            resourceInputs["registrationTimer"] = (args ? args.registrationTimer : undefined) ?? 3240;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rfspIndex"] = args ? args.rfspIndex : undefined;
-            resourceInputs["simPolicyName"] = args ? args.simPolicyName : undefined;
-            resourceInputs["sliceConfigurations"] = args ? args.sliceConfigurations : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["ueAmbr"] = args ? args.ueAmbr : undefined;
+            resourceInputs["defaultSlice"] = args?.defaultSlice;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mobileNetworkName"] = args?.mobileNetworkName;
+            resourceInputs["registrationTimer"] = (args?.registrationTimer) ?? 3240;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["rfspIndex"] = args?.rfspIndex;
+            resourceInputs["simPolicyName"] = args?.simPolicyName;
+            resourceInputs["sliceConfigurations"] = args?.sliceConfigurations;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["ueAmbr"] = args?.ueAmbr;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

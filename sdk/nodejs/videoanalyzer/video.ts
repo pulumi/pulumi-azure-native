@@ -91,19 +91,19 @@ export class Video extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["archival"] = args ? args.archival : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["mediaInfo"] = args ? args.mediaInfo : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
-            resourceInputs["videoName"] = args ? args.videoName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["archival"] = args?.archival;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["mediaInfo"] = args?.mediaInfo;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["title"] = args?.title;
+            resourceInputs["videoName"] = args?.videoName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["contentUrls"] = undefined /*out*/;
             resourceInputs["flags"] = undefined /*out*/;

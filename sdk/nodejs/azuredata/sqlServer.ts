@@ -80,20 +80,20 @@ export class SqlServer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sqlServerRegistrationName === undefined) && !opts.urn) {
+            if (args?.sqlServerRegistrationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sqlServerRegistrationName'");
             }
-            resourceInputs["cores"] = args ? args.cores : undefined;
-            resourceInputs["edition"] = args ? args.edition : undefined;
-            resourceInputs["propertyBag"] = args ? args.propertyBag : undefined;
-            resourceInputs["registrationID"] = args ? args.registrationID : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sqlServerName"] = args ? args.sqlServerName : undefined;
-            resourceInputs["sqlServerRegistrationName"] = args ? args.sqlServerRegistrationName : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["cores"] = args?.cores;
+            resourceInputs["edition"] = args?.edition;
+            resourceInputs["propertyBag"] = args?.propertyBag;
+            resourceInputs["registrationID"] = args?.registrationID;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sqlServerName"] = args?.sqlServerName;
+            resourceInputs["sqlServerRegistrationName"] = args?.sqlServerRegistrationName;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

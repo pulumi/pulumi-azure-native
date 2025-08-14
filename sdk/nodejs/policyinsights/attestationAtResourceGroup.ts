@@ -113,23 +113,23 @@ export class AttestationAtResourceGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policyAssignmentId === undefined) && !opts.urn) {
+            if (args?.policyAssignmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyAssignmentId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["assessmentDate"] = args ? args.assessmentDate : undefined;
-            resourceInputs["attestationName"] = args ? args.attestationName : undefined;
-            resourceInputs["comments"] = args ? args.comments : undefined;
-            resourceInputs["complianceState"] = args ? args.complianceState : undefined;
-            resourceInputs["evidence"] = args ? args.evidence : undefined;
-            resourceInputs["expiresOn"] = args ? args.expiresOn : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["owner"] = args ? args.owner : undefined;
-            resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
-            resourceInputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["assessmentDate"] = args?.assessmentDate;
+            resourceInputs["attestationName"] = args?.attestationName;
+            resourceInputs["comments"] = args?.comments;
+            resourceInputs["complianceState"] = args?.complianceState;
+            resourceInputs["evidence"] = args?.evidence;
+            resourceInputs["expiresOn"] = args?.expiresOn;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["owner"] = args?.owner;
+            resourceInputs["policyAssignmentId"] = args?.policyAssignmentId;
+            resourceInputs["policyDefinitionReferenceId"] = args?.policyDefinitionReferenceId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastComplianceStateChangeAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -95,17 +95,17 @@ export class CustomAssessmentAutomation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["compressedQuery"] = args ? args.compressedQuery : undefined;
-            resourceInputs["customAssessmentAutomationName"] = args ? args.customAssessmentAutomationName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["remediationDescription"] = args ? args.remediationDescription : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["severity"] = args ? args.severity : undefined;
-            resourceInputs["supportedCloud"] = args ? args.supportedCloud : undefined;
+            resourceInputs["compressedQuery"] = args?.compressedQuery;
+            resourceInputs["customAssessmentAutomationName"] = args?.customAssessmentAutomationName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["remediationDescription"] = args?.remediationDescription;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["severity"] = args?.severity;
+            resourceInputs["supportedCloud"] = args?.supportedCloud;
             resourceInputs["assessmentKey"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

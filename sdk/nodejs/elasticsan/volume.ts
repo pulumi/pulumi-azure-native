@@ -93,25 +93,25 @@ export class Volume extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.elasticSanName === undefined) && !opts.urn) {
+            if (args?.elasticSanName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'elasticSanName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sizeGiB === undefined) && !opts.urn) {
+            if (args?.sizeGiB === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sizeGiB'");
             }
-            if ((!args || args.volumeGroupName === undefined) && !opts.urn) {
+            if (args?.volumeGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeGroupName'");
             }
-            resourceInputs["creationData"] = args ? args.creationData : undefined;
-            resourceInputs["elasticSanName"] = args ? args.elasticSanName : undefined;
-            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sizeGiB"] = args ? args.sizeGiB : undefined;
-            resourceInputs["volumeGroupName"] = args ? args.volumeGroupName : undefined;
-            resourceInputs["volumeName"] = args ? args.volumeName : undefined;
+            resourceInputs["creationData"] = args?.creationData;
+            resourceInputs["elasticSanName"] = args?.elasticSanName;
+            resourceInputs["managedBy"] = args?.managedBy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sizeGiB"] = args?.sizeGiB;
+            resourceInputs["volumeGroupName"] = args?.volumeGroupName;
+            resourceInputs["volumeName"] = args?.volumeName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -87,25 +87,25 @@ export class LivePipeline extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.bitrateKbps === undefined) && !opts.urn) {
+            if (args?.bitrateKbps === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bitrateKbps'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.topologyName === undefined) && !opts.urn) {
+            if (args?.topologyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'topologyName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["bitrateKbps"] = args ? args.bitrateKbps : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["livePipelineName"] = args ? args.livePipelineName : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["topologyName"] = args ? args.topologyName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["bitrateKbps"] = args?.bitrateKbps;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["livePipelineName"] = args?.livePipelineName;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["topologyName"] = args?.topologyName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;

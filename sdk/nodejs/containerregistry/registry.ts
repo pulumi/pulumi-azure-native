@@ -145,27 +145,27 @@ export class Registry extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["adminUserEnabled"] = (args ? args.adminUserEnabled : undefined) ?? false;
-            resourceInputs["anonymousPullEnabled"] = (args ? args.anonymousPullEnabled : undefined) ?? false;
-            resourceInputs["dataEndpointEnabled"] = args ? args.dataEndpointEnabled : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkRuleBypassOptions"] = (args ? args.networkRuleBypassOptions : undefined) ?? "AzureServices";
+            resourceInputs["adminUserEnabled"] = (args?.adminUserEnabled) ?? false;
+            resourceInputs["anonymousPullEnabled"] = (args?.anonymousPullEnabled) ?? false;
+            resourceInputs["dataEndpointEnabled"] = args?.dataEndpointEnabled;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkRuleBypassOptions"] = (args?.networkRuleBypassOptions) ?? "AzureServices";
             resourceInputs["networkRuleSet"] = args ? (args.networkRuleSet ? pulumi.output(args.networkRuleSet).apply(inputs.containerregistry.networkRuleSetArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["policies"] = args ? (args.policies ? pulumi.output(args.policies).apply(inputs.containerregistry.policiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
-            resourceInputs["registryName"] = args ? args.registryName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zoneRedundancy"] = (args ? args.zoneRedundancy : undefined) ?? "Disabled";
+            resourceInputs["publicNetworkAccess"] = (args?.publicNetworkAccess) ?? "Enabled";
+            resourceInputs["registryName"] = args?.registryName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zoneRedundancy"] = (args?.zoneRedundancy) ?? "Disabled";
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["dataEndpointHostNames"] = undefined /*out*/;

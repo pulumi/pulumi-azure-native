@@ -93,21 +93,21 @@ export class AppResiliency extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.appName === undefined) && !opts.urn) {
+            if (args?.appName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["appName"] = args ? args.appName : undefined;
-            resourceInputs["circuitBreakerPolicy"] = args ? args.circuitBreakerPolicy : undefined;
-            resourceInputs["httpConnectionPool"] = args ? args.httpConnectionPool : undefined;
-            resourceInputs["httpRetryPolicy"] = args ? args.httpRetryPolicy : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tcpConnectionPool"] = args ? args.tcpConnectionPool : undefined;
-            resourceInputs["tcpRetryPolicy"] = args ? args.tcpRetryPolicy : undefined;
-            resourceInputs["timeoutPolicy"] = args ? args.timeoutPolicy : undefined;
+            resourceInputs["appName"] = args?.appName;
+            resourceInputs["circuitBreakerPolicy"] = args?.circuitBreakerPolicy;
+            resourceInputs["httpConnectionPool"] = args?.httpConnectionPool;
+            resourceInputs["httpRetryPolicy"] = args?.httpRetryPolicy;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tcpConnectionPool"] = args?.tcpConnectionPool;
+            resourceInputs["tcpRetryPolicy"] = args?.tcpRetryPolicy;
+            resourceInputs["timeoutPolicy"] = args?.timeoutPolicy;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

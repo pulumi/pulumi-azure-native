@@ -106,19 +106,19 @@ export class PartnerDestination extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["activationState"] = args ? args.activationState : undefined;
-            resourceInputs["endpointBaseUrl"] = args ? args.endpointBaseUrl : undefined;
-            resourceInputs["endpointServiceContext"] = args ? args.endpointServiceContext : undefined;
-            resourceInputs["expirationTimeIfNotActivatedUtc"] = args ? args.expirationTimeIfNotActivatedUtc : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["messageForActivation"] = args ? args.messageForActivation : undefined;
-            resourceInputs["partnerDestinationName"] = args ? args.partnerDestinationName : undefined;
-            resourceInputs["partnerRegistrationImmutableId"] = args ? args.partnerRegistrationImmutableId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["activationState"] = args?.activationState;
+            resourceInputs["endpointBaseUrl"] = args?.endpointBaseUrl;
+            resourceInputs["endpointServiceContext"] = args?.endpointServiceContext;
+            resourceInputs["expirationTimeIfNotActivatedUtc"] = args?.expirationTimeIfNotActivatedUtc;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["messageForActivation"] = args?.messageForActivation;
+            resourceInputs["partnerDestinationName"] = args?.partnerDestinationName;
+            resourceInputs["partnerRegistrationImmutableId"] = args?.partnerRegistrationImmutableId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

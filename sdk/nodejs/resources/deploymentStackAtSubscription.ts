@@ -145,25 +145,25 @@ export class DeploymentStackAtSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actionOnUnmanage === undefined) && !opts.urn) {
+            if (args?.actionOnUnmanage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actionOnUnmanage'");
             }
-            if ((!args || args.denySettings === undefined) && !opts.urn) {
+            if (args?.denySettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'denySettings'");
             }
-            resourceInputs["actionOnUnmanage"] = args ? args.actionOnUnmanage : undefined;
-            resourceInputs["bypassStackOutOfSyncError"] = args ? args.bypassStackOutOfSyncError : undefined;
-            resourceInputs["debugSetting"] = args ? args.debugSetting : undefined;
-            resourceInputs["denySettings"] = args ? args.denySettings : undefined;
-            resourceInputs["deploymentScope"] = args ? args.deploymentScope : undefined;
-            resourceInputs["deploymentStackName"] = args ? args.deploymentStackName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["parametersLink"] = args ? args.parametersLink : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["template"] = args ? args.template : undefined;
-            resourceInputs["templateLink"] = args ? args.templateLink : undefined;
+            resourceInputs["actionOnUnmanage"] = args?.actionOnUnmanage;
+            resourceInputs["bypassStackOutOfSyncError"] = args?.bypassStackOutOfSyncError;
+            resourceInputs["debugSetting"] = args?.debugSetting;
+            resourceInputs["denySettings"] = args?.denySettings;
+            resourceInputs["deploymentScope"] = args?.deploymentScope;
+            resourceInputs["deploymentStackName"] = args?.deploymentStackName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["parametersLink"] = args?.parametersLink;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["template"] = args?.template;
+            resourceInputs["templateLink"] = args?.templateLink;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["correlationId"] = undefined /*out*/;
             resourceInputs["deletedResources"] = undefined /*out*/;

@@ -94,29 +94,29 @@ export class Rule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.order === undefined) && !opts.urn) {
+            if (args?.order === undefined && !opts.urn) {
                 throw new Error("Missing required property 'order'");
             }
-            if ((!args || args.profileName === undefined) && !opts.urn) {
+            if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.ruleSetName === undefined) && !opts.urn) {
+            if (args?.ruleSetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleSetName'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["conditions"] = args ? args.conditions : undefined;
-            resourceInputs["matchProcessingBehavior"] = (args ? args.matchProcessingBehavior : undefined) ?? "Continue";
-            resourceInputs["order"] = args ? args.order : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
-            resourceInputs["ruleSetName"] = args ? args.ruleSetName : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["conditions"] = args?.conditions;
+            resourceInputs["matchProcessingBehavior"] = (args?.matchProcessingBehavior) ?? "Continue";
+            resourceInputs["order"] = args?.order;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["ruleName"] = args?.ruleName;
+            resourceInputs["ruleSetName"] = args?.ruleSetName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

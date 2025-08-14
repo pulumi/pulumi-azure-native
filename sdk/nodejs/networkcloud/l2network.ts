@@ -123,23 +123,23 @@ export class L2Network extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.l2IsolationDomainId === undefined) && !opts.urn) {
+            if (args?.l2IsolationDomainId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'l2IsolationDomainId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["hybridAksPluginType"] = (args ? args.hybridAksPluginType : undefined) ?? "SRIOV";
-            resourceInputs["interfaceName"] = args ? args.interfaceName : undefined;
-            resourceInputs["l2IsolationDomainId"] = args ? args.l2IsolationDomainId : undefined;
-            resourceInputs["l2NetworkName"] = args ? args.l2NetworkName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["hybridAksPluginType"] = (args?.hybridAksPluginType) ?? "SRIOV";
+            resourceInputs["interfaceName"] = args?.interfaceName;
+            resourceInputs["l2IsolationDomainId"] = args?.l2IsolationDomainId;
+            resourceInputs["l2NetworkName"] = args?.l2NetworkName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["associatedResourceIds"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;

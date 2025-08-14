@@ -83,22 +83,22 @@ export class Archife extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.packageType === undefined) && !opts.urn) {
+            if (args?.packageType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packageType'");
             }
-            if ((!args || args.registryName === undefined) && !opts.urn) {
+            if (args?.registryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["archiveName"] = args ? args.archiveName : undefined;
-            resourceInputs["packageSource"] = args ? args.packageSource : undefined;
-            resourceInputs["packageType"] = args ? args.packageType : undefined;
-            resourceInputs["publishedVersion"] = args ? args.publishedVersion : undefined;
-            resourceInputs["registryName"] = args ? args.registryName : undefined;
-            resourceInputs["repositoryEndpointPrefix"] = args ? args.repositoryEndpointPrefix : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["archiveName"] = args?.archiveName;
+            resourceInputs["packageSource"] = args?.packageSource;
+            resourceInputs["packageType"] = args?.packageType;
+            resourceInputs["publishedVersion"] = args?.publishedVersion;
+            resourceInputs["registryName"] = args?.registryName;
+            resourceInputs["repositoryEndpointPrefix"] = args?.repositoryEndpointPrefix;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

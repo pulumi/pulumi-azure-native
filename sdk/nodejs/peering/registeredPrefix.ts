@@ -82,16 +82,16 @@ export class RegisteredPrefix extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.peeringName === undefined) && !opts.urn) {
+            if (args?.peeringName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peeringName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["peeringName"] = args ? args.peeringName : undefined;
-            resourceInputs["prefix"] = args ? args.prefix : undefined;
-            resourceInputs["registeredPrefixName"] = args ? args.registeredPrefixName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["peeringName"] = args?.peeringName;
+            resourceInputs["prefix"] = args?.prefix;
+            resourceInputs["registeredPrefixName"] = args?.registeredPrefixName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errorMessage"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

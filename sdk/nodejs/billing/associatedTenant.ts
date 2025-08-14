@@ -75,13 +75,13 @@ export class AssociatedTenant extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.billingAccountName === undefined) && !opts.urn) {
+            if (args?.billingAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'billingAccountName'");
             }
-            resourceInputs["associatedTenantName"] = args ? args.associatedTenantName : undefined;
-            resourceInputs["billingAccountName"] = args ? args.billingAccountName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["associatedTenantName"] = args?.associatedTenantName;
+            resourceInputs["billingAccountName"] = args?.billingAccountName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

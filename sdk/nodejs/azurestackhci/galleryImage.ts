@@ -125,26 +125,26 @@ export class GalleryImage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.osType === undefined) && !opts.urn) {
+            if (args?.osType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'osType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["cloudInitDataSource"] = args ? args.cloudInitDataSource : undefined;
-            resourceInputs["containerId"] = args ? args.containerId : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["galleryImageName"] = args ? args.galleryImageName : undefined;
-            resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
-            resourceInputs["identifier"] = args ? args.identifier : undefined;
-            resourceInputs["imagePath"] = args ? args.imagePath : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceVirtualMachineId"] = args ? args.sourceVirtualMachineId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["vmImageRepositoryCredentials"] = args ? args.vmImageRepositoryCredentials : undefined;
+            resourceInputs["cloudInitDataSource"] = args?.cloudInitDataSource;
+            resourceInputs["containerId"] = args?.containerId;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["galleryImageName"] = args?.galleryImageName;
+            resourceInputs["hyperVGeneration"] = args?.hyperVGeneration;
+            resourceInputs["identifier"] = args?.identifier;
+            resourceInputs["imagePath"] = args?.imagePath;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["osType"] = args?.osType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceVirtualMachineId"] = args?.sourceVirtualMachineId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["vmImageRepositoryCredentials"] = args?.vmImageRepositoryCredentials;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

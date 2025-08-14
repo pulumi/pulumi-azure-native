@@ -173,38 +173,38 @@ export class Migration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.targetDbServerName === undefined) && !opts.urn) {
+            if (args?.targetDbServerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetDbServerName'");
             }
-            resourceInputs["cancel"] = args ? args.cancel : undefined;
-            resourceInputs["dbsToCancelMigrationOn"] = args ? args.dbsToCancelMigrationOn : undefined;
-            resourceInputs["dbsToMigrate"] = args ? args.dbsToMigrate : undefined;
-            resourceInputs["dbsToTriggerCutoverOn"] = args ? args.dbsToTriggerCutoverOn : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["migrateRoles"] = args ? args.migrateRoles : undefined;
-            resourceInputs["migrationInstanceResourceId"] = args ? args.migrationInstanceResourceId : undefined;
-            resourceInputs["migrationMode"] = args ? args.migrationMode : undefined;
-            resourceInputs["migrationName"] = args ? args.migrationName : undefined;
-            resourceInputs["migrationOption"] = args ? args.migrationOption : undefined;
-            resourceInputs["migrationWindowEndTimeInUtc"] = args ? args.migrationWindowEndTimeInUtc : undefined;
-            resourceInputs["migrationWindowStartTimeInUtc"] = args ? args.migrationWindowStartTimeInUtc : undefined;
-            resourceInputs["overwriteDbsInTarget"] = args ? args.overwriteDbsInTarget : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["secretParameters"] = args ? args.secretParameters : undefined;
-            resourceInputs["setupLogicalReplicationOnSourceDbIfNeeded"] = args ? args.setupLogicalReplicationOnSourceDbIfNeeded : undefined;
-            resourceInputs["sourceDbServerFullyQualifiedDomainName"] = args ? args.sourceDbServerFullyQualifiedDomainName : undefined;
-            resourceInputs["sourceDbServerResourceId"] = args ? args.sourceDbServerResourceId : undefined;
-            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
-            resourceInputs["sslMode"] = args ? args.sslMode : undefined;
-            resourceInputs["startDataMigration"] = args ? args.startDataMigration : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetDbServerFullyQualifiedDomainName"] = args ? args.targetDbServerFullyQualifiedDomainName : undefined;
-            resourceInputs["targetDbServerName"] = args ? args.targetDbServerName : undefined;
-            resourceInputs["triggerCutover"] = args ? args.triggerCutover : undefined;
+            resourceInputs["cancel"] = args?.cancel;
+            resourceInputs["dbsToCancelMigrationOn"] = args?.dbsToCancelMigrationOn;
+            resourceInputs["dbsToMigrate"] = args?.dbsToMigrate;
+            resourceInputs["dbsToTriggerCutoverOn"] = args?.dbsToTriggerCutoverOn;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["migrateRoles"] = args?.migrateRoles;
+            resourceInputs["migrationInstanceResourceId"] = args?.migrationInstanceResourceId;
+            resourceInputs["migrationMode"] = args?.migrationMode;
+            resourceInputs["migrationName"] = args?.migrationName;
+            resourceInputs["migrationOption"] = args?.migrationOption;
+            resourceInputs["migrationWindowEndTimeInUtc"] = args?.migrationWindowEndTimeInUtc;
+            resourceInputs["migrationWindowStartTimeInUtc"] = args?.migrationWindowStartTimeInUtc;
+            resourceInputs["overwriteDbsInTarget"] = args?.overwriteDbsInTarget;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["secretParameters"] = args?.secretParameters;
+            resourceInputs["setupLogicalReplicationOnSourceDbIfNeeded"] = args?.setupLogicalReplicationOnSourceDbIfNeeded;
+            resourceInputs["sourceDbServerFullyQualifiedDomainName"] = args?.sourceDbServerFullyQualifiedDomainName;
+            resourceInputs["sourceDbServerResourceId"] = args?.sourceDbServerResourceId;
+            resourceInputs["sourceType"] = args?.sourceType;
+            resourceInputs["sslMode"] = args?.sslMode;
+            resourceInputs["startDataMigration"] = args?.startDataMigration;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetDbServerFullyQualifiedDomainName"] = args?.targetDbServerFullyQualifiedDomainName;
+            resourceInputs["targetDbServerName"] = args?.targetDbServerName;
+            resourceInputs["triggerCutover"] = args?.triggerCutover;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["currentStatus"] = undefined /*out*/;
             resourceInputs["migrationId"] = undefined /*out*/;

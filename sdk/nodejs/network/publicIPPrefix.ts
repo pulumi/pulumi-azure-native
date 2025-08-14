@@ -129,22 +129,22 @@ export class PublicIPPrefix extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["customIPPrefix"] = args ? args.customIPPrefix : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ipTags"] = args ? args.ipTags : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["natGateway"] = args ? args.natGateway : undefined;
-            resourceInputs["prefixLength"] = args ? args.prefixLength : undefined;
-            resourceInputs["publicIPAddressVersion"] = args ? args.publicIPAddressVersion : undefined;
-            resourceInputs["publicIpPrefixName"] = args ? args.publicIpPrefixName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["customIPPrefix"] = args?.customIPPrefix;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["ipTags"] = args?.ipTags;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["natGateway"] = args?.natGateway;
+            resourceInputs["prefixLength"] = args?.prefixLength;
+            resourceInputs["publicIPAddressVersion"] = args?.publicIPAddressVersion;
+            resourceInputs["publicIpPrefixName"] = args?.publicIpPrefixName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["ipPrefix"] = undefined /*out*/;

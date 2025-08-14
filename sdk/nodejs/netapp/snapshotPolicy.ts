@@ -105,22 +105,22 @@ export class SnapshotPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["dailySchedule"] = args ? args.dailySchedule : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["hourlySchedule"] = args ? args.hourlySchedule : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["monthlySchedule"] = args ? args.monthlySchedule : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["snapshotPolicyName"] = args ? args.snapshotPolicyName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["weeklySchedule"] = args ? args.weeklySchedule : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["dailySchedule"] = args?.dailySchedule;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["hourlySchedule"] = args?.hourlySchedule;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["monthlySchedule"] = args?.monthlySchedule;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["snapshotPolicyName"] = args?.snapshotPolicyName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["weeklySchedule"] = args?.weeklySchedule;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

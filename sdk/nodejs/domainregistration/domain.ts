@@ -135,40 +135,40 @@ export class Domain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.consent === undefined) && !opts.urn) {
+            if (args?.consent === undefined && !opts.urn) {
                 throw new Error("Missing required property 'consent'");
             }
-            if ((!args || args.contactAdmin === undefined) && !opts.urn) {
+            if (args?.contactAdmin === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contactAdmin'");
             }
-            if ((!args || args.contactBilling === undefined) && !opts.urn) {
+            if (args?.contactBilling === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contactBilling'");
             }
-            if ((!args || args.contactRegistrant === undefined) && !opts.urn) {
+            if (args?.contactRegistrant === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contactRegistrant'");
             }
-            if ((!args || args.contactTech === undefined) && !opts.urn) {
+            if (args?.contactTech === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contactTech'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authCode"] = args ? args.authCode : undefined;
-            resourceInputs["autoRenew"] = (args ? args.autoRenew : undefined) ?? true;
-            resourceInputs["consent"] = args ? args.consent : undefined;
-            resourceInputs["contactAdmin"] = args ? args.contactAdmin : undefined;
-            resourceInputs["contactBilling"] = args ? args.contactBilling : undefined;
-            resourceInputs["contactRegistrant"] = args ? args.contactRegistrant : undefined;
-            resourceInputs["contactTech"] = args ? args.contactTech : undefined;
-            resourceInputs["dnsType"] = args ? args.dnsType : undefined;
-            resourceInputs["dnsZoneId"] = args ? args.dnsZoneId : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["privacy"] = args ? args.privacy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetDnsType"] = args ? args.targetDnsType : undefined;
+            resourceInputs["authCode"] = args?.authCode;
+            resourceInputs["autoRenew"] = (args?.autoRenew) ?? true;
+            resourceInputs["consent"] = args?.consent;
+            resourceInputs["contactAdmin"] = args?.contactAdmin;
+            resourceInputs["contactBilling"] = args?.contactBilling;
+            resourceInputs["contactRegistrant"] = args?.contactRegistrant;
+            resourceInputs["contactTech"] = args?.contactTech;
+            resourceInputs["dnsType"] = args?.dnsType;
+            resourceInputs["dnsZoneId"] = args?.dnsZoneId;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["privacy"] = args?.privacy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetDnsType"] = args?.targetDnsType;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["domainNotRenewableReasons"] = undefined /*out*/;

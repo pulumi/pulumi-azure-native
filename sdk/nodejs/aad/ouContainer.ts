@@ -113,18 +113,18 @@ export class OuContainer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainServiceName === undefined) && !opts.urn) {
+            if (args?.domainServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainServiceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["domainServiceName"] = args ? args.domainServiceName : undefined;
-            resourceInputs["ouContainerName"] = args ? args.ouContainerName : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["spn"] = args ? args.spn : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["domainServiceName"] = args?.domainServiceName;
+            resourceInputs["ouContainerName"] = args?.ouContainerName;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["spn"] = args?.spn;
             resourceInputs["accounts"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["containerId"] = undefined /*out*/;

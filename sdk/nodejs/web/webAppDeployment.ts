@@ -102,25 +102,25 @@ export class WebAppDeployment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["active"] = args ? args.active : undefined;
-            resourceInputs["author"] = args ? args.author : undefined;
-            resourceInputs["authorEmail"] = args ? args.authorEmail : undefined;
-            resourceInputs["deployer"] = args ? args.deployer : undefined;
-            resourceInputs["details"] = args ? args.details : undefined;
-            resourceInputs["endTime"] = args ? args.endTime : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["message"] = args ? args.message : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["active"] = args?.active;
+            resourceInputs["author"] = args?.author;
+            resourceInputs["authorEmail"] = args?.authorEmail;
+            resourceInputs["deployer"] = args?.deployer;
+            resourceInputs["details"] = args?.details;
+            resourceInputs["endTime"] = args?.endTime;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["message"] = args?.message;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["startTime"] = args?.startTime;
+            resourceInputs["status"] = args?.status;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

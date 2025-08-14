@@ -121,21 +121,21 @@ export class DscpConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["destinationIpRanges"] = args ? args.destinationIpRanges : undefined;
-            resourceInputs["destinationPortRanges"] = args ? args.destinationPortRanges : undefined;
-            resourceInputs["dscpConfigurationName"] = args ? args.dscpConfigurationName : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["markings"] = args ? args.markings : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["qosDefinitionCollection"] = args ? args.qosDefinitionCollection : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceIpRanges"] = args ? args.sourceIpRanges : undefined;
-            resourceInputs["sourcePortRanges"] = args ? args.sourcePortRanges : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["destinationIpRanges"] = args?.destinationIpRanges;
+            resourceInputs["destinationPortRanges"] = args?.destinationPortRanges;
+            resourceInputs["dscpConfigurationName"] = args?.dscpConfigurationName;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["markings"] = args?.markings;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["qosDefinitionCollection"] = args?.qosDefinitionCollection;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceIpRanges"] = args?.sourceIpRanges;
+            resourceInputs["sourcePortRanges"] = args?.sourcePortRanges;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["associatedNetworkInterfaces"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

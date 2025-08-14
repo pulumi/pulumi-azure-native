@@ -97,26 +97,26 @@ export class WebAppSourceControlSlot extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.slot === undefined) && !opts.urn) {
+            if (args?.slot === undefined && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            resourceInputs["branch"] = args ? args.branch : undefined;
-            resourceInputs["deploymentRollbackEnabled"] = args ? args.deploymentRollbackEnabled : undefined;
-            resourceInputs["gitHubActionConfiguration"] = args ? args.gitHubActionConfiguration : undefined;
-            resourceInputs["isGitHubAction"] = args ? args.isGitHubAction : undefined;
-            resourceInputs["isManualIntegration"] = args ? args.isManualIntegration : undefined;
-            resourceInputs["isMercurial"] = args ? args.isMercurial : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["repoUrl"] = args ? args.repoUrl : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["slot"] = args ? args.slot : undefined;
+            resourceInputs["branch"] = args?.branch;
+            resourceInputs["deploymentRollbackEnabled"] = args?.deploymentRollbackEnabled;
+            resourceInputs["gitHubActionConfiguration"] = args?.gitHubActionConfiguration;
+            resourceInputs["isGitHubAction"] = args?.isGitHubAction;
+            resourceInputs["isManualIntegration"] = args?.isManualIntegration;
+            resourceInputs["isMercurial"] = args?.isMercurial;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["repoUrl"] = args?.repoUrl;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["slot"] = args?.slot;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

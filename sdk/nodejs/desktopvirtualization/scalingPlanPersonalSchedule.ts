@@ -173,41 +173,41 @@ export class ScalingPlanPersonalSchedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scalingPlanName === undefined) && !opts.urn) {
+            if (args?.scalingPlanName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scalingPlanName'");
             }
-            resourceInputs["daysOfWeek"] = args ? args.daysOfWeek : undefined;
-            resourceInputs["offPeakActionOnDisconnect"] = args ? args.offPeakActionOnDisconnect : undefined;
-            resourceInputs["offPeakActionOnLogoff"] = args ? args.offPeakActionOnLogoff : undefined;
-            resourceInputs["offPeakMinutesToWaitOnDisconnect"] = args ? args.offPeakMinutesToWaitOnDisconnect : undefined;
-            resourceInputs["offPeakMinutesToWaitOnLogoff"] = args ? args.offPeakMinutesToWaitOnLogoff : undefined;
-            resourceInputs["offPeakStartTime"] = args ? args.offPeakStartTime : undefined;
-            resourceInputs["offPeakStartVMOnConnect"] = (args ? args.offPeakStartVMOnConnect : undefined) ?? "Enable";
-            resourceInputs["peakActionOnDisconnect"] = args ? args.peakActionOnDisconnect : undefined;
-            resourceInputs["peakActionOnLogoff"] = args ? args.peakActionOnLogoff : undefined;
-            resourceInputs["peakMinutesToWaitOnDisconnect"] = args ? args.peakMinutesToWaitOnDisconnect : undefined;
-            resourceInputs["peakMinutesToWaitOnLogoff"] = args ? args.peakMinutesToWaitOnLogoff : undefined;
-            resourceInputs["peakStartTime"] = args ? args.peakStartTime : undefined;
-            resourceInputs["peakStartVMOnConnect"] = (args ? args.peakStartVMOnConnect : undefined) ?? "Enable";
-            resourceInputs["rampDownActionOnDisconnect"] = args ? args.rampDownActionOnDisconnect : undefined;
-            resourceInputs["rampDownActionOnLogoff"] = args ? args.rampDownActionOnLogoff : undefined;
-            resourceInputs["rampDownMinutesToWaitOnDisconnect"] = args ? args.rampDownMinutesToWaitOnDisconnect : undefined;
-            resourceInputs["rampDownMinutesToWaitOnLogoff"] = args ? args.rampDownMinutesToWaitOnLogoff : undefined;
-            resourceInputs["rampDownStartTime"] = args ? args.rampDownStartTime : undefined;
-            resourceInputs["rampDownStartVMOnConnect"] = (args ? args.rampDownStartVMOnConnect : undefined) ?? "Enable";
-            resourceInputs["rampUpActionOnDisconnect"] = args ? args.rampUpActionOnDisconnect : undefined;
-            resourceInputs["rampUpActionOnLogoff"] = args ? args.rampUpActionOnLogoff : undefined;
-            resourceInputs["rampUpAutoStartHosts"] = args ? args.rampUpAutoStartHosts : undefined;
-            resourceInputs["rampUpMinutesToWaitOnDisconnect"] = args ? args.rampUpMinutesToWaitOnDisconnect : undefined;
-            resourceInputs["rampUpMinutesToWaitOnLogoff"] = args ? args.rampUpMinutesToWaitOnLogoff : undefined;
-            resourceInputs["rampUpStartTime"] = args ? args.rampUpStartTime : undefined;
-            resourceInputs["rampUpStartVMOnConnect"] = (args ? args.rampUpStartVMOnConnect : undefined) ?? "Enable";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scalingPlanName"] = args ? args.scalingPlanName : undefined;
-            resourceInputs["scalingPlanScheduleName"] = args ? args.scalingPlanScheduleName : undefined;
+            resourceInputs["daysOfWeek"] = args?.daysOfWeek;
+            resourceInputs["offPeakActionOnDisconnect"] = args?.offPeakActionOnDisconnect;
+            resourceInputs["offPeakActionOnLogoff"] = args?.offPeakActionOnLogoff;
+            resourceInputs["offPeakMinutesToWaitOnDisconnect"] = args?.offPeakMinutesToWaitOnDisconnect;
+            resourceInputs["offPeakMinutesToWaitOnLogoff"] = args?.offPeakMinutesToWaitOnLogoff;
+            resourceInputs["offPeakStartTime"] = args?.offPeakStartTime;
+            resourceInputs["offPeakStartVMOnConnect"] = (args?.offPeakStartVMOnConnect) ?? "Enable";
+            resourceInputs["peakActionOnDisconnect"] = args?.peakActionOnDisconnect;
+            resourceInputs["peakActionOnLogoff"] = args?.peakActionOnLogoff;
+            resourceInputs["peakMinutesToWaitOnDisconnect"] = args?.peakMinutesToWaitOnDisconnect;
+            resourceInputs["peakMinutesToWaitOnLogoff"] = args?.peakMinutesToWaitOnLogoff;
+            resourceInputs["peakStartTime"] = args?.peakStartTime;
+            resourceInputs["peakStartVMOnConnect"] = (args?.peakStartVMOnConnect) ?? "Enable";
+            resourceInputs["rampDownActionOnDisconnect"] = args?.rampDownActionOnDisconnect;
+            resourceInputs["rampDownActionOnLogoff"] = args?.rampDownActionOnLogoff;
+            resourceInputs["rampDownMinutesToWaitOnDisconnect"] = args?.rampDownMinutesToWaitOnDisconnect;
+            resourceInputs["rampDownMinutesToWaitOnLogoff"] = args?.rampDownMinutesToWaitOnLogoff;
+            resourceInputs["rampDownStartTime"] = args?.rampDownStartTime;
+            resourceInputs["rampDownStartVMOnConnect"] = (args?.rampDownStartVMOnConnect) ?? "Enable";
+            resourceInputs["rampUpActionOnDisconnect"] = args?.rampUpActionOnDisconnect;
+            resourceInputs["rampUpActionOnLogoff"] = args?.rampUpActionOnLogoff;
+            resourceInputs["rampUpAutoStartHosts"] = args?.rampUpAutoStartHosts;
+            resourceInputs["rampUpMinutesToWaitOnDisconnect"] = args?.rampUpMinutesToWaitOnDisconnect;
+            resourceInputs["rampUpMinutesToWaitOnLogoff"] = args?.rampUpMinutesToWaitOnLogoff;
+            resourceInputs["rampUpStartTime"] = args?.rampUpStartTime;
+            resourceInputs["rampUpStartVMOnConnect"] = (args?.rampUpStartVMOnConnect) ?? "Enable";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scalingPlanName"] = args?.scalingPlanName;
+            resourceInputs["scalingPlanScheduleName"] = args?.scalingPlanScheduleName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

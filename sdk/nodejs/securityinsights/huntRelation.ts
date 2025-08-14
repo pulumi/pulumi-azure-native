@@ -93,24 +93,24 @@ export class HuntRelation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.huntId === undefined) && !opts.urn) {
+            if (args?.huntId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'huntId'");
             }
-            if ((!args || args.relatedResourceId === undefined) && !opts.urn) {
+            if (args?.relatedResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'relatedResourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["huntId"] = args ? args.huntId : undefined;
-            resourceInputs["huntRelationId"] = args ? args.huntRelationId : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["relatedResourceId"] = args ? args.relatedResourceId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["huntId"] = args?.huntId;
+            resourceInputs["huntRelationId"] = args?.huntRelationId;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["relatedResourceId"] = args?.relatedResourceId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

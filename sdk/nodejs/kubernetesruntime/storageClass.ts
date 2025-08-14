@@ -115,25 +115,25 @@ export class StorageClass extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            if ((!args || args.typeProperties === undefined) && !opts.urn) {
+            if (args?.typeProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'typeProperties'");
             }
-            resourceInputs["accessModes"] = args ? args.accessModes : undefined;
-            resourceInputs["allowVolumeExpansion"] = args ? args.allowVolumeExpansion : undefined;
-            resourceInputs["dataResilience"] = args ? args.dataResilience : undefined;
-            resourceInputs["failoverSpeed"] = args ? args.failoverSpeed : undefined;
-            resourceInputs["limitations"] = args ? args.limitations : undefined;
-            resourceInputs["mountOptions"] = args ? args.mountOptions : undefined;
-            resourceInputs["performance"] = args ? args.performance : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["provisioner"] = args ? args.provisioner : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
-            resourceInputs["storageClassName"] = args ? args.storageClassName : undefined;
-            resourceInputs["typeProperties"] = args ? args.typeProperties : undefined;
-            resourceInputs["volumeBindingMode"] = args ? args.volumeBindingMode : undefined;
+            resourceInputs["accessModes"] = args?.accessModes;
+            resourceInputs["allowVolumeExpansion"] = args?.allowVolumeExpansion;
+            resourceInputs["dataResilience"] = args?.dataResilience;
+            resourceInputs["failoverSpeed"] = args?.failoverSpeed;
+            resourceInputs["limitations"] = args?.limitations;
+            resourceInputs["mountOptions"] = args?.mountOptions;
+            resourceInputs["performance"] = args?.performance;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["provisioner"] = args?.provisioner;
+            resourceInputs["resourceUri"] = args?.resourceUri;
+            resourceInputs["storageClassName"] = args?.storageClassName;
+            resourceInputs["typeProperties"] = args?.typeProperties;
+            resourceInputs["volumeBindingMode"] = args?.volumeBindingMode;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

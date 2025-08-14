@@ -133,27 +133,27 @@ export class Workflow extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["appName"] = args ? args.appName : undefined;
-            resourceInputs["builderVersion"] = args ? args.builderVersion : undefined;
-            resourceInputs["dockerfileGenerationMode"] = args ? args.dockerfileGenerationMode : undefined;
-            resourceInputs["dockerfileOutputDirectory"] = args ? args.dockerfileOutputDirectory : undefined;
-            resourceInputs["generationLanguage"] = args ? args.generationLanguage : undefined;
-            resourceInputs["githubWorkflowProfile"] = args ? args.githubWorkflowProfile : undefined;
-            resourceInputs["imageName"] = args ? args.imageName : undefined;
-            resourceInputs["imageTag"] = args ? args.imageTag : undefined;
-            resourceInputs["languageVersion"] = args ? args.languageVersion : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["manifestGenerationMode"] = args ? args.manifestGenerationMode : undefined;
-            resourceInputs["manifestOutputDirectory"] = args ? args.manifestOutputDirectory : undefined;
-            resourceInputs["manifestType"] = args ? args.manifestType : undefined;
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workflowName"] = args ? args.workflowName : undefined;
+            resourceInputs["appName"] = args?.appName;
+            resourceInputs["builderVersion"] = args?.builderVersion;
+            resourceInputs["dockerfileGenerationMode"] = args?.dockerfileGenerationMode;
+            resourceInputs["dockerfileOutputDirectory"] = args?.dockerfileOutputDirectory;
+            resourceInputs["generationLanguage"] = args?.generationLanguage;
+            resourceInputs["githubWorkflowProfile"] = args?.githubWorkflowProfile;
+            resourceInputs["imageName"] = args?.imageName;
+            resourceInputs["imageTag"] = args?.imageTag;
+            resourceInputs["languageVersion"] = args?.languageVersion;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["manifestGenerationMode"] = args?.manifestGenerationMode;
+            resourceInputs["manifestOutputDirectory"] = args?.manifestOutputDirectory;
+            resourceInputs["manifestType"] = args?.manifestType;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workflowName"] = args?.workflowName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

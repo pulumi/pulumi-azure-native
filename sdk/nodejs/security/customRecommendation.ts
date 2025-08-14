@@ -99,18 +99,18 @@ export class CustomRecommendation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["cloudProviders"] = args ? args.cloudProviders : undefined;
-            resourceInputs["customRecommendationName"] = args ? args.customRecommendationName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["query"] = args ? args.query : undefined;
-            resourceInputs["remediationDescription"] = args ? args.remediationDescription : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["securityIssue"] = args ? args.securityIssue : undefined;
-            resourceInputs["severity"] = args ? args.severity : undefined;
+            resourceInputs["cloudProviders"] = args?.cloudProviders;
+            resourceInputs["customRecommendationName"] = args?.customRecommendationName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["query"] = args?.query;
+            resourceInputs["remediationDescription"] = args?.remediationDescription;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["securityIssue"] = args?.securityIssue;
+            resourceInputs["severity"] = args?.severity;
             resourceInputs["assessmentKey"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

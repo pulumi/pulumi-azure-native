@@ -105,23 +105,23 @@ export class L2IsolationDomain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkFabricId === undefined) && !opts.urn) {
+            if (args?.networkFabricId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkFabricId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vlanId === undefined) && !opts.urn) {
+            if (args?.vlanId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vlanId'");
             }
-            resourceInputs["annotation"] = args ? args.annotation : undefined;
-            resourceInputs["l2IsolationDomainName"] = args ? args.l2IsolationDomainName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mtu"] = (args ? args.mtu : undefined) ?? 1500;
-            resourceInputs["networkFabricId"] = args ? args.networkFabricId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vlanId"] = args ? args.vlanId : undefined;
+            resourceInputs["annotation"] = args?.annotation;
+            resourceInputs["l2IsolationDomainName"] = args?.l2IsolationDomainName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mtu"] = (args?.mtu) ?? 1500;
+            resourceInputs["networkFabricId"] = args?.networkFabricId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vlanId"] = args?.vlanId;
             resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationState"] = undefined /*out*/;

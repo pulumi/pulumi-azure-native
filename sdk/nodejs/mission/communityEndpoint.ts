@@ -89,21 +89,21 @@ export class CommunityEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.communityName === undefined) && !opts.urn) {
+            if (args?.communityName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'communityName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.ruleCollection === undefined) && !opts.urn) {
+            if (args?.ruleCollection === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleCollection'");
             }
-            resourceInputs["communityEndpointName"] = args ? args.communityEndpointName : undefined;
-            resourceInputs["communityName"] = args ? args.communityName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ruleCollection"] = args ? args.ruleCollection : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["communityEndpointName"] = args?.communityEndpointName;
+            resourceInputs["communityName"] = args?.communityName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["ruleCollection"] = args?.ruleCollection;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

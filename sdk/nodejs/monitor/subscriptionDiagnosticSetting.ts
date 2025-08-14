@@ -95,14 +95,14 @@ export class SubscriptionDiagnosticSetting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["eventHubAuthorizationRuleId"] = args ? args.eventHubAuthorizationRuleId : undefined;
-            resourceInputs["eventHubName"] = args ? args.eventHubName : undefined;
-            resourceInputs["logs"] = args ? args.logs : undefined;
-            resourceInputs["marketplacePartnerId"] = args ? args.marketplacePartnerId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serviceBusRuleId"] = args ? args.serviceBusRuleId : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["eventHubAuthorizationRuleId"] = args?.eventHubAuthorizationRuleId;
+            resourceInputs["eventHubName"] = args?.eventHubName;
+            resourceInputs["logs"] = args?.logs;
+            resourceInputs["marketplacePartnerId"] = args?.marketplacePartnerId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serviceBusRuleId"] = args?.serviceBusRuleId;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

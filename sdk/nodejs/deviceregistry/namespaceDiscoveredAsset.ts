@@ -179,54 +179,54 @@ export class NamespaceDiscoveredAsset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deviceRef === undefined) && !opts.urn) {
+            if (args?.deviceRef === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceRef'");
             }
-            if ((!args || args.discoveryId === undefined) && !opts.urn) {
+            if (args?.discoveryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'discoveryId'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["assetTypeRefs"] = args ? args.assetTypeRefs : undefined;
-            resourceInputs["attributes"] = args ? args.attributes : undefined;
-            resourceInputs["datasets"] = args ? args.datasets : undefined;
-            resourceInputs["defaultDatasetsConfiguration"] = args ? args.defaultDatasetsConfiguration : undefined;
-            resourceInputs["defaultDatasetsDestinations"] = args ? args.defaultDatasetsDestinations : undefined;
-            resourceInputs["defaultEventsConfiguration"] = args ? args.defaultEventsConfiguration : undefined;
-            resourceInputs["defaultEventsDestinations"] = args ? args.defaultEventsDestinations : undefined;
-            resourceInputs["defaultManagementGroupsConfiguration"] = args ? args.defaultManagementGroupsConfiguration : undefined;
-            resourceInputs["defaultStreamsConfiguration"] = args ? args.defaultStreamsConfiguration : undefined;
-            resourceInputs["defaultStreamsDestinations"] = args ? args.defaultStreamsDestinations : undefined;
-            resourceInputs["deviceRef"] = args ? args.deviceRef : undefined;
-            resourceInputs["discoveredAssetName"] = args ? args.discoveredAssetName : undefined;
-            resourceInputs["discoveryId"] = args ? args.discoveryId : undefined;
-            resourceInputs["documentationUri"] = args ? args.documentationUri : undefined;
-            resourceInputs["events"] = args ? args.events : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["hardwareRevision"] = args ? args.hardwareRevision : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managementGroups"] = args ? args.managementGroups : undefined;
-            resourceInputs["manufacturer"] = args ? args.manufacturer : undefined;
-            resourceInputs["manufacturerUri"] = args ? args.manufacturerUri : undefined;
-            resourceInputs["model"] = args ? args.model : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["productCode"] = args ? args.productCode : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serialNumber"] = args ? args.serialNumber : undefined;
-            resourceInputs["softwareRevision"] = args ? args.softwareRevision : undefined;
-            resourceInputs["streams"] = args ? args.streams : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["assetTypeRefs"] = args?.assetTypeRefs;
+            resourceInputs["attributes"] = args?.attributes;
+            resourceInputs["datasets"] = args?.datasets;
+            resourceInputs["defaultDatasetsConfiguration"] = args?.defaultDatasetsConfiguration;
+            resourceInputs["defaultDatasetsDestinations"] = args?.defaultDatasetsDestinations;
+            resourceInputs["defaultEventsConfiguration"] = args?.defaultEventsConfiguration;
+            resourceInputs["defaultEventsDestinations"] = args?.defaultEventsDestinations;
+            resourceInputs["defaultManagementGroupsConfiguration"] = args?.defaultManagementGroupsConfiguration;
+            resourceInputs["defaultStreamsConfiguration"] = args?.defaultStreamsConfiguration;
+            resourceInputs["defaultStreamsDestinations"] = args?.defaultStreamsDestinations;
+            resourceInputs["deviceRef"] = args?.deviceRef;
+            resourceInputs["discoveredAssetName"] = args?.discoveredAssetName;
+            resourceInputs["discoveryId"] = args?.discoveryId;
+            resourceInputs["documentationUri"] = args?.documentationUri;
+            resourceInputs["events"] = args?.events;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["hardwareRevision"] = args?.hardwareRevision;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managementGroups"] = args?.managementGroups;
+            resourceInputs["manufacturer"] = args?.manufacturer;
+            resourceInputs["manufacturerUri"] = args?.manufacturerUri;
+            resourceInputs["model"] = args?.model;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["productCode"] = args?.productCode;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serialNumber"] = args?.serialNumber;
+            resourceInputs["softwareRevision"] = args?.softwareRevision;
+            resourceInputs["streams"] = args?.streams;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

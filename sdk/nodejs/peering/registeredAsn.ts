@@ -74,16 +74,16 @@ export class RegisteredAsn extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.peeringName === undefined) && !opts.urn) {
+            if (args?.peeringName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peeringName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["asn"] = args ? args.asn : undefined;
-            resourceInputs["peeringName"] = args ? args.peeringName : undefined;
-            resourceInputs["registeredAsnName"] = args ? args.registeredAsnName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["asn"] = args?.asn;
+            resourceInputs["peeringName"] = args?.peeringName;
+            resourceInputs["registeredAsnName"] = args?.registeredAsnName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["peeringServicePrefixKey"] = undefined /*out*/;

@@ -82,17 +82,17 @@ export class ExpressRoutePortAuthorization extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.expressRoutePortName === undefined) && !opts.urn) {
+            if (args?.expressRoutePortName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expressRoutePortName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authorizationName"] = args ? args.authorizationName : undefined;
-            resourceInputs["expressRoutePortName"] = args ? args.expressRoutePortName : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["authorizationName"] = args?.authorizationName;
+            resourceInputs["expressRoutePortName"] = args?.expressRoutePortName;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["authorizationKey"] = undefined /*out*/;
             resourceInputs["authorizationUseStatus"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

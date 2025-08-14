@@ -107,32 +107,32 @@ export class GalleryInVMAccessControlProfileVersion extends pulumi.CustomResourc
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.defaultAccess === undefined) && !opts.urn) {
+            if (args?.defaultAccess === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultAccess'");
             }
-            if ((!args || args.galleryName === undefined) && !opts.urn) {
+            if (args?.galleryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryName'");
             }
-            if ((!args || args.inVMAccessControlProfileName === undefined) && !opts.urn) {
+            if (args?.inVMAccessControlProfileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inVMAccessControlProfileName'");
             }
-            if ((!args || args.mode === undefined) && !opts.urn) {
+            if (args?.mode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mode'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["defaultAccess"] = args ? args.defaultAccess : undefined;
-            resourceInputs["excludeFromLatest"] = args ? args.excludeFromLatest : undefined;
-            resourceInputs["galleryName"] = args ? args.galleryName : undefined;
-            resourceInputs["inVMAccessControlProfileName"] = args ? args.inVMAccessControlProfileName : undefined;
-            resourceInputs["inVMAccessControlProfileVersionName"] = args ? args.inVMAccessControlProfileVersionName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetLocations"] = args ? args.targetLocations : undefined;
+            resourceInputs["defaultAccess"] = args?.defaultAccess;
+            resourceInputs["excludeFromLatest"] = args?.excludeFromLatest;
+            resourceInputs["galleryName"] = args?.galleryName;
+            resourceInputs["inVMAccessControlProfileName"] = args?.inVMAccessControlProfileName;
+            resourceInputs["inVMAccessControlProfileVersionName"] = args?.inVMAccessControlProfileVersionName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetLocations"] = args?.targetLocations;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

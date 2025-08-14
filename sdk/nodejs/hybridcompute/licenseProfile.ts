@@ -141,22 +141,22 @@ export class LicenseProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.machineName === undefined) && !opts.urn) {
+            if (args?.machineName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'machineName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["assignedLicense"] = args ? args.assignedLicense : undefined;
-            resourceInputs["licenseProfileName"] = args ? args.licenseProfileName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["machineName"] = args ? args.machineName : undefined;
-            resourceInputs["productFeatures"] = args ? args.productFeatures : undefined;
-            resourceInputs["productType"] = args ? args.productType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["softwareAssuranceCustomer"] = args ? args.softwareAssuranceCustomer : undefined;
-            resourceInputs["subscriptionStatus"] = args ? args.subscriptionStatus : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["assignedLicense"] = args?.assignedLicense;
+            resourceInputs["licenseProfileName"] = args?.licenseProfileName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["machineName"] = args?.machineName;
+            resourceInputs["productFeatures"] = args?.productFeatures;
+            resourceInputs["productType"] = args?.productType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["softwareAssuranceCustomer"] = args?.softwareAssuranceCustomer;
+            resourceInputs["subscriptionStatus"] = args?.subscriptionStatus;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["assignedLicenseImmutableId"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["billingEndDate"] = undefined /*out*/;

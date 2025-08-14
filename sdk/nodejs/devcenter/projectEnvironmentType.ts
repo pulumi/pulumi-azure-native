@@ -109,23 +109,23 @@ export class ProjectEnvironmentType extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.projectName === undefined) && !opts.urn) {
+            if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["creatorRoleAssignment"] = args ? args.creatorRoleAssignment : undefined;
-            resourceInputs["deploymentTargetId"] = args ? args.deploymentTargetId : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["environmentTypeName"] = args ? args.environmentTypeName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userRoleAssignments"] = args ? args.userRoleAssignments : undefined;
+            resourceInputs["creatorRoleAssignment"] = args?.creatorRoleAssignment;
+            resourceInputs["deploymentTargetId"] = args?.deploymentTargetId;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["environmentTypeName"] = args?.environmentTypeName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userRoleAssignments"] = args?.userRoleAssignments;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["environmentCount"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -97,21 +97,21 @@ export class EncryptionProtector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverKeyType === undefined) && !opts.urn) {
+            if (args?.serverKeyType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverKeyType'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            resourceInputs["autoRotationEnabled"] = args ? args.autoRotationEnabled : undefined;
-            resourceInputs["encryptionProtectorName"] = args ? args.encryptionProtectorName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverKeyName"] = args ? args.serverKeyName : undefined;
-            resourceInputs["serverKeyType"] = args ? args.serverKeyType : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["autoRotationEnabled"] = args?.autoRotationEnabled;
+            resourceInputs["encryptionProtectorName"] = args?.encryptionProtectorName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverKeyName"] = args?.serverKeyName;
+            resourceInputs["serverKeyType"] = args?.serverKeyType;
+            resourceInputs["serverName"] = args?.serverName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

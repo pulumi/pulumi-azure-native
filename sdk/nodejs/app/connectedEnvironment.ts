@@ -105,17 +105,17 @@ export class ConnectedEnvironment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["connectedEnvironmentName"] = args ? args.connectedEnvironmentName : undefined;
-            resourceInputs["customDomainConfiguration"] = args ? args.customDomainConfiguration : undefined;
-            resourceInputs["daprAIConnectionString"] = args ? args.daprAIConnectionString : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["staticIp"] = args ? args.staticIp : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["connectedEnvironmentName"] = args?.connectedEnvironmentName;
+            resourceInputs["customDomainConfiguration"] = args?.customDomainConfiguration;
+            resourceInputs["daprAIConnectionString"] = args?.daprAIConnectionString;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["staticIp"] = args?.staticIp;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["defaultDomain"] = undefined /*out*/;
             resourceInputs["deploymentErrors"] = undefined /*out*/;

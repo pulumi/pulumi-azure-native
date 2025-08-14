@@ -90,18 +90,18 @@ export class CredentialSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.registryName === undefined) && !opts.urn) {
+            if (args?.registryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authCredentials"] = args ? args.authCredentials : undefined;
-            resourceInputs["credentialSetName"] = args ? args.credentialSetName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["loginServer"] = args ? args.loginServer : undefined;
-            resourceInputs["registryName"] = args ? args.registryName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["authCredentials"] = args?.authCredentials;
+            resourceInputs["credentialSetName"] = args?.credentialSetName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["loginServer"] = args?.loginServer;
+            resourceInputs["registryName"] = args?.registryName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

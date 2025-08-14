@@ -99,18 +99,18 @@ export class VendorSkus extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.vendorName === undefined) && !opts.urn) {
+            if (args?.vendorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vendorName'");
             }
-            resourceInputs["deploymentMode"] = args ? args.deploymentMode : undefined;
-            resourceInputs["managedApplicationParameters"] = args ? args.managedApplicationParameters : undefined;
-            resourceInputs["managedApplicationTemplate"] = args ? args.managedApplicationTemplate : undefined;
-            resourceInputs["networkFunctionTemplate"] = args ? args.networkFunctionTemplate : undefined;
-            resourceInputs["networkFunctionType"] = args ? args.networkFunctionType : undefined;
-            resourceInputs["preview"] = args ? args.preview : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["skuType"] = args ? args.skuType : undefined;
-            resourceInputs["vendorName"] = args ? args.vendorName : undefined;
+            resourceInputs["deploymentMode"] = args?.deploymentMode;
+            resourceInputs["managedApplicationParameters"] = args?.managedApplicationParameters;
+            resourceInputs["managedApplicationTemplate"] = args?.managedApplicationTemplate;
+            resourceInputs["networkFunctionTemplate"] = args?.networkFunctionTemplate;
+            resourceInputs["networkFunctionType"] = args?.networkFunctionType;
+            resourceInputs["preview"] = args?.preview;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["skuType"] = args?.skuType;
+            resourceInputs["vendorName"] = args?.vendorName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

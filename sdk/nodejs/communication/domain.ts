@@ -111,22 +111,22 @@ export class Domain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainManagement === undefined) && !opts.urn) {
+            if (args?.domainManagement === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainManagement'");
             }
-            if ((!args || args.emailServiceName === undefined) && !opts.urn) {
+            if (args?.emailServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'emailServiceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["domainManagement"] = args ? args.domainManagement : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["emailServiceName"] = args ? args.emailServiceName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userEngagementTracking"] = args ? args.userEngagementTracking : undefined;
+            resourceInputs["domainManagement"] = args?.domainManagement;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["emailServiceName"] = args?.emailServiceName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userEngagementTracking"] = args?.userEngagementTracking;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataLocation"] = undefined /*out*/;
             resourceInputs["fromSenderDomain"] = undefined /*out*/;

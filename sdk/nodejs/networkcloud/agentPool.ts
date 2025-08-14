@@ -139,37 +139,37 @@ export class AgentPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.count === undefined) && !opts.urn) {
+            if (args?.count === undefined && !opts.urn) {
                 throw new Error("Missing required property 'count'");
             }
-            if ((!args || args.kubernetesClusterName === undefined) && !opts.urn) {
+            if (args?.kubernetesClusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kubernetesClusterName'");
             }
-            if ((!args || args.mode === undefined) && !opts.urn) {
+            if (args?.mode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mode'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vmSkuName === undefined) && !opts.urn) {
+            if (args?.vmSkuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vmSkuName'");
             }
-            resourceInputs["administratorConfiguration"] = args ? args.administratorConfiguration : undefined;
+            resourceInputs["administratorConfiguration"] = args?.administratorConfiguration;
             resourceInputs["agentOptions"] = args ? (args.agentOptions ? pulumi.output(args.agentOptions).apply(inputs.networkcloud.agentOptionsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["agentPoolName"] = args ? args.agentPoolName : undefined;
-            resourceInputs["attachedNetworkConfiguration"] = args ? args.attachedNetworkConfiguration : undefined;
-            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            resourceInputs["count"] = args ? args.count : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["kubernetesClusterName"] = args ? args.kubernetesClusterName : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["taints"] = args ? args.taints : undefined;
-            resourceInputs["upgradeSettings"] = args ? args.upgradeSettings : undefined;
-            resourceInputs["vmSkuName"] = args ? args.vmSkuName : undefined;
+            resourceInputs["agentPoolName"] = args?.agentPoolName;
+            resourceInputs["attachedNetworkConfiguration"] = args?.attachedNetworkConfiguration;
+            resourceInputs["availabilityZones"] = args?.availabilityZones;
+            resourceInputs["count"] = args?.count;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["kubernetesClusterName"] = args?.kubernetesClusterName;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["taints"] = args?.taints;
+            resourceInputs["upgradeSettings"] = args?.upgradeSettings;
+            resourceInputs["vmSkuName"] = args?.vmSkuName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;

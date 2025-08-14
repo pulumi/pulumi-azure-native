@@ -115,41 +115,41 @@ export class DataLakeConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.databaseFormat === undefined) && !opts.urn) {
+            if (args?.databaseFormat === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseFormat'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.image === undefined) && !opts.urn) {
+            if (args?.image === undefined && !opts.urn) {
                 throw new Error("Missing required property 'image'");
             }
-            if ((!args || args.mqName === undefined) && !opts.urn) {
+            if (args?.mqName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mqName'");
             }
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.target === undefined) && !opts.urn) {
+            if (args?.target === undefined && !opts.urn) {
                 throw new Error("Missing required property 'target'");
             }
-            resourceInputs["dataLakeConnectorName"] = args ? args.dataLakeConnectorName : undefined;
-            resourceInputs["databaseFormat"] = args ? args.databaseFormat : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["image"] = args ? args.image : undefined;
-            resourceInputs["instances"] = args ? args.instances : undefined;
+            resourceInputs["dataLakeConnectorName"] = args?.dataLakeConnectorName;
+            resourceInputs["databaseFormat"] = args?.databaseFormat;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["image"] = args?.image;
+            resourceInputs["instances"] = args?.instances;
             resourceInputs["localBrokerConnection"] = args ? (args.localBrokerConnection ? pulumi.output(args.localBrokerConnection).apply(inputs.iotoperationsmq.localBrokerConnectionSpecArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logLevel"] = args ? args.logLevel : undefined;
-            resourceInputs["mqName"] = args ? args.mqName : undefined;
-            resourceInputs["nodeTolerations"] = args ? args.nodeTolerations : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["target"] = args ? args.target : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logLevel"] = args?.logLevel;
+            resourceInputs["mqName"] = args?.mqName;
+            resourceInputs["nodeTolerations"] = args?.nodeTolerations;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["target"] = args?.target;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

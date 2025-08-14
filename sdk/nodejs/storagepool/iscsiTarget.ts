@@ -111,24 +111,24 @@ export class IscsiTarget extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.aclMode === undefined) && !opts.urn) {
+            if (args?.aclMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'aclMode'");
             }
-            if ((!args || args.diskPoolName === undefined) && !opts.urn) {
+            if (args?.diskPoolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'diskPoolName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["aclMode"] = args ? args.aclMode : undefined;
-            resourceInputs["diskPoolName"] = args ? args.diskPoolName : undefined;
-            resourceInputs["iscsiTargetName"] = args ? args.iscsiTargetName : undefined;
-            resourceInputs["luns"] = args ? args.luns : undefined;
-            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["managedByExtended"] = args ? args.managedByExtended : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["staticAcls"] = args ? args.staticAcls : undefined;
-            resourceInputs["targetIqn"] = args ? args.targetIqn : undefined;
+            resourceInputs["aclMode"] = args?.aclMode;
+            resourceInputs["diskPoolName"] = args?.diskPoolName;
+            resourceInputs["iscsiTargetName"] = args?.iscsiTargetName;
+            resourceInputs["luns"] = args?.luns;
+            resourceInputs["managedBy"] = args?.managedBy;
+            resourceInputs["managedByExtended"] = args?.managedByExtended;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["staticAcls"] = args?.staticAcls;
+            resourceInputs["targetIqn"] = args?.targetIqn;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -121,18 +121,18 @@ export class RemediationAtResource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            resourceInputs["failureThreshold"] = args ? args.failureThreshold : undefined;
-            resourceInputs["filters"] = args ? args.filters : undefined;
-            resourceInputs["parallelDeployments"] = args ? args.parallelDeployments : undefined;
-            resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
-            resourceInputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
-            resourceInputs["remediationName"] = args ? args.remediationName : undefined;
-            resourceInputs["resourceCount"] = args ? args.resourceCount : undefined;
-            resourceInputs["resourceDiscoveryMode"] = args ? args.resourceDiscoveryMode : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["failureThreshold"] = args?.failureThreshold;
+            resourceInputs["filters"] = args?.filters;
+            resourceInputs["parallelDeployments"] = args?.parallelDeployments;
+            resourceInputs["policyAssignmentId"] = args?.policyAssignmentId;
+            resourceInputs["policyDefinitionReferenceId"] = args?.policyDefinitionReferenceId;
+            resourceInputs["remediationName"] = args?.remediationName;
+            resourceInputs["resourceCount"] = args?.resourceCount;
+            resourceInputs["resourceDiscoveryMode"] = args?.resourceDiscoveryMode;
+            resourceInputs["resourceId"] = args?.resourceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["correlationId"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;

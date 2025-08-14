@@ -70,23 +70,23 @@ export class JobPrivateEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.jobAgentName === undefined) && !opts.urn) {
+            if (args?.jobAgentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobAgentName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.targetServerAzureResourceId === undefined) && !opts.urn) {
+            if (args?.targetServerAzureResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetServerAzureResourceId'");
             }
-            resourceInputs["jobAgentName"] = args ? args.jobAgentName : undefined;
-            resourceInputs["privateEndpointName"] = args ? args.privateEndpointName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["targetServerAzureResourceId"] = args ? args.targetServerAzureResourceId : undefined;
+            resourceInputs["jobAgentName"] = args?.jobAgentName;
+            resourceInputs["privateEndpointName"] = args?.privateEndpointName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["targetServerAzureResourceId"] = args?.targetServerAzureResourceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointId"] = undefined /*out*/;

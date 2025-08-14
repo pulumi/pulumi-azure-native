@@ -133,29 +133,29 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vmName === undefined) && !opts.urn) {
+            if (args?.vmName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vmName'");
             }
-            resourceInputs["asyncExecution"] = args ? args.asyncExecution : undefined;
-            resourceInputs["errorBlobManagedIdentity"] = args ? args.errorBlobManagedIdentity : undefined;
-            resourceInputs["errorBlobUri"] = args ? args.errorBlobUri : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["outputBlobManagedIdentity"] = args ? args.outputBlobManagedIdentity : undefined;
-            resourceInputs["outputBlobUri"] = args ? args.outputBlobUri : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["protectedParameters"] = args ? args.protectedParameters : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["runAsPassword"] = args ? args.runAsPassword : undefined;
-            resourceInputs["runAsUser"] = args ? args.runAsUser : undefined;
-            resourceInputs["runCommandName"] = args ? args.runCommandName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
-            resourceInputs["treatFailureAsDeploymentFailure"] = args ? args.treatFailureAsDeploymentFailure : undefined;
-            resourceInputs["vmName"] = args ? args.vmName : undefined;
+            resourceInputs["asyncExecution"] = args?.asyncExecution;
+            resourceInputs["errorBlobManagedIdentity"] = args?.errorBlobManagedIdentity;
+            resourceInputs["errorBlobUri"] = args?.errorBlobUri;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["outputBlobManagedIdentity"] = args?.outputBlobManagedIdentity;
+            resourceInputs["outputBlobUri"] = args?.outputBlobUri;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["protectedParameters"] = args?.protectedParameters;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["runAsPassword"] = args?.runAsPassword;
+            resourceInputs["runAsUser"] = args?.runAsUser;
+            resourceInputs["runCommandName"] = args?.runCommandName;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeoutInSeconds"] = args?.timeoutInSeconds;
+            resourceInputs["treatFailureAsDeploymentFailure"] = args?.treatFailureAsDeploymentFailure;
+            resourceInputs["vmName"] = args?.vmName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

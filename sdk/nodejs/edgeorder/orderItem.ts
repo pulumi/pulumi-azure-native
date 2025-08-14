@@ -101,23 +101,23 @@ export class OrderItem extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.orderId === undefined) && !opts.urn) {
+            if (args?.orderId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'orderId'");
             }
-            if ((!args || args.orderItemDetails === undefined) && !opts.urn) {
+            if (args?.orderItemDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'orderItemDetails'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["addressDetails"] = args ? args.addressDetails : undefined;
+            resourceInputs["addressDetails"] = args?.addressDetails;
             resourceInputs["identity"] = args ? (args.identity ? pulumi.output(args.identity).apply(inputs.edgeorder.resourceIdentityArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["orderId"] = args ? args.orderId : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["orderId"] = args?.orderId;
             resourceInputs["orderItemDetails"] = args ? (args.orderItemDetails ? pulumi.output(args.orderItemDetails).apply(inputs.edgeorder.orderItemDetailsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["orderItemName"] = args ? args.orderItemName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["orderItemName"] = args?.orderItemName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

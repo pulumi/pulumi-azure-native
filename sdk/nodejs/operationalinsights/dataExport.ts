@@ -90,28 +90,28 @@ export class DataExport extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.tableNames === undefined) && !opts.urn) {
+            if (args?.tableNames === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableNames'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["createdDate"] = args ? args.createdDate : undefined;
-            resourceInputs["dataExportId"] = args ? args.dataExportId : undefined;
-            resourceInputs["dataExportName"] = args ? args.dataExportName : undefined;
-            resourceInputs["enable"] = args ? args.enable : undefined;
-            resourceInputs["eventHubName"] = args ? args.eventHubName : undefined;
-            resourceInputs["lastModifiedDate"] = args ? args.lastModifiedDate : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["tableNames"] = args ? args.tableNames : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["createdDate"] = args?.createdDate;
+            resourceInputs["dataExportId"] = args?.dataExportId;
+            resourceInputs["dataExportName"] = args?.dataExportName;
+            resourceInputs["enable"] = args?.enable;
+            resourceInputs["eventHubName"] = args?.eventHubName;
+            resourceInputs["lastModifiedDate"] = args?.lastModifiedDate;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["tableNames"] = args?.tableNames;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

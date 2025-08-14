@@ -177,40 +177,40 @@ export class Asset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.assetEndpointProfileRef === undefined) && !opts.urn) {
+            if (args?.assetEndpointProfileRef === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assetEndpointProfileRef'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["assetEndpointProfileRef"] = args ? args.assetEndpointProfileRef : undefined;
-            resourceInputs["assetName"] = args ? args.assetName : undefined;
-            resourceInputs["attributes"] = args ? args.attributes : undefined;
-            resourceInputs["datasets"] = args ? args.datasets : undefined;
-            resourceInputs["defaultDatasetsConfiguration"] = args ? args.defaultDatasetsConfiguration : undefined;
-            resourceInputs["defaultEventsConfiguration"] = args ? args.defaultEventsConfiguration : undefined;
+            resourceInputs["assetEndpointProfileRef"] = args?.assetEndpointProfileRef;
+            resourceInputs["assetName"] = args?.assetName;
+            resourceInputs["attributes"] = args?.attributes;
+            resourceInputs["datasets"] = args?.datasets;
+            resourceInputs["defaultDatasetsConfiguration"] = args?.defaultDatasetsConfiguration;
+            resourceInputs["defaultEventsConfiguration"] = args?.defaultEventsConfiguration;
             resourceInputs["defaultTopic"] = args ? (args.defaultTopic ? pulumi.output(args.defaultTopic).apply(inputs.deviceregistry.topicArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["discoveredAssetRefs"] = args ? args.discoveredAssetRefs : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["documentationUri"] = args ? args.documentationUri : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["events"] = args ? args.events : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["externalAssetId"] = args ? args.externalAssetId : undefined;
-            resourceInputs["hardwareRevision"] = args ? args.hardwareRevision : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["manufacturer"] = args ? args.manufacturer : undefined;
-            resourceInputs["manufacturerUri"] = args ? args.manufacturerUri : undefined;
-            resourceInputs["model"] = args ? args.model : undefined;
-            resourceInputs["productCode"] = args ? args.productCode : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serialNumber"] = args ? args.serialNumber : undefined;
-            resourceInputs["softwareRevision"] = args ? args.softwareRevision : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["discoveredAssetRefs"] = args?.discoveredAssetRefs;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["documentationUri"] = args?.documentationUri;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["events"] = args?.events;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["externalAssetId"] = args?.externalAssetId;
+            resourceInputs["hardwareRevision"] = args?.hardwareRevision;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["manufacturer"] = args?.manufacturer;
+            resourceInputs["manufacturerUri"] = args?.manufacturerUri;
+            resourceInputs["model"] = args?.model;
+            resourceInputs["productCode"] = args?.productCode;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serialNumber"] = args?.serialNumber;
+            resourceInputs["softwareRevision"] = args?.softwareRevision;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

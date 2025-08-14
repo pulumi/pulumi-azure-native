@@ -157,21 +157,21 @@ export class Account extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["ingestionStorage"] = args ? args.ingestionStorage : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedEventHubState"] = (args ? args.managedEventHubState : undefined) ?? "NotSpecified";
-            resourceInputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
-            resourceInputs["managedResourcesPublicNetworkAccess"] = (args ? args.managedResourcesPublicNetworkAccess : undefined) ?? "NotSpecified";
-            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tenantEndpointState"] = args ? args.tenantEndpointState : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["ingestionStorage"] = args?.ingestionStorage;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedEventHubState"] = (args?.managedEventHubState) ?? "NotSpecified";
+            resourceInputs["managedResourceGroupName"] = args?.managedResourceGroupName;
+            resourceInputs["managedResourcesPublicNetworkAccess"] = (args?.managedResourcesPublicNetworkAccess) ?? "NotSpecified";
+            resourceInputs["publicNetworkAccess"] = (args?.publicNetworkAccess) ?? "Enabled";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tenantEndpointState"] = args?.tenantEndpointState;
             resourceInputs["accountStatus"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cloudConnectors"] = undefined /*out*/;

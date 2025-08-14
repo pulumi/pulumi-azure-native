@@ -87,30 +87,30 @@ export class MarkupRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.billingAccountId === undefined) && !opts.urn) {
+            if (args?.billingAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'billingAccountId'");
             }
-            if ((!args || args.billingProfileId === undefined) && !opts.urn) {
+            if (args?.billingProfileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'billingProfileId'");
             }
-            if ((!args || args.customerDetails === undefined) && !opts.urn) {
+            if (args?.customerDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customerDetails'");
             }
-            if ((!args || args.percentage === undefined) && !opts.urn) {
+            if (args?.percentage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'percentage'");
             }
-            if ((!args || args.startDate === undefined) && !opts.urn) {
+            if (args?.startDate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'startDate'");
             }
-            resourceInputs["billingAccountId"] = args ? args.billingAccountId : undefined;
-            resourceInputs["billingProfileId"] = args ? args.billingProfileId : undefined;
-            resourceInputs["customerDetails"] = args ? args.customerDetails : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eTag"] = args ? args.eTag : undefined;
-            resourceInputs["endDate"] = args ? args.endDate : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["percentage"] = args ? args.percentage : undefined;
-            resourceInputs["startDate"] = args ? args.startDate : undefined;
+            resourceInputs["billingAccountId"] = args?.billingAccountId;
+            resourceInputs["billingProfileId"] = args?.billingProfileId;
+            resourceInputs["customerDetails"] = args?.customerDetails;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eTag"] = args?.eTag;
+            resourceInputs["endDate"] = args?.endDate;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["percentage"] = args?.percentage;
+            resourceInputs["startDate"] = args?.startDate;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

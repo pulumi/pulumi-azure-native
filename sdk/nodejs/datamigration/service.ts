@@ -98,20 +98,20 @@ export class Service extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupName === undefined) && !opts.urn) {
+            if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            resourceInputs["autoStopDelay"] = args ? args.autoStopDelay : undefined;
-            resourceInputs["deleteResourcesOnStop"] = args ? args.deleteResourcesOnStop : undefined;
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["publicKey"] = args ? args.publicKey : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualNicId"] = args ? args.virtualNicId : undefined;
-            resourceInputs["virtualSubnetId"] = args ? args.virtualSubnetId : undefined;
+            resourceInputs["autoStopDelay"] = args?.autoStopDelay;
+            resourceInputs["deleteResourcesOnStop"] = args?.deleteResourcesOnStop;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["publicKey"] = args?.publicKey;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualNicId"] = args?.virtualNicId;
+            resourceInputs["virtualSubnetId"] = args?.virtualSubnetId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

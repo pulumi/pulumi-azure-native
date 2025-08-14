@@ -109,21 +109,21 @@ export class ArcSetting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["arcApplicationClientId"] = args ? args.arcApplicationClientId : undefined;
-            resourceInputs["arcApplicationObjectId"] = args ? args.arcApplicationObjectId : undefined;
-            resourceInputs["arcApplicationTenantId"] = args ? args.arcApplicationTenantId : undefined;
-            resourceInputs["arcInstanceResourceGroup"] = args ? args.arcInstanceResourceGroup : undefined;
-            resourceInputs["arcServicePrincipalObjectId"] = args ? args.arcServicePrincipalObjectId : undefined;
-            resourceInputs["arcSettingName"] = args ? args.arcSettingName : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["connectivityProperties"] = args ? args.connectivityProperties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["arcApplicationClientId"] = args?.arcApplicationClientId;
+            resourceInputs["arcApplicationObjectId"] = args?.arcApplicationObjectId;
+            resourceInputs["arcApplicationTenantId"] = args?.arcApplicationTenantId;
+            resourceInputs["arcInstanceResourceGroup"] = args?.arcInstanceResourceGroup;
+            resourceInputs["arcServicePrincipalObjectId"] = args?.arcServicePrincipalObjectId;
+            resourceInputs["arcSettingName"] = args?.arcSettingName;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["connectivityProperties"] = args?.connectivityProperties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["aggregateState"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["defaultExtensions"] = undefined /*out*/;

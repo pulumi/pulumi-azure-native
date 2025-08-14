@@ -85,12 +85,12 @@ export class SecurityContact extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["emails"] = args ? args.emails : undefined;
-            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
-            resourceInputs["notificationsByRole"] = args ? args.notificationsByRole : undefined;
-            resourceInputs["notificationsSources"] = args ? args.notificationsSources : undefined;
-            resourceInputs["phone"] = args ? args.phone : undefined;
-            resourceInputs["securityContactName"] = args ? args.securityContactName : undefined;
+            resourceInputs["emails"] = args?.emails;
+            resourceInputs["isEnabled"] = args?.isEnabled;
+            resourceInputs["notificationsByRole"] = args?.notificationsByRole;
+            resourceInputs["notificationsSources"] = args?.notificationsSources;
+            resourceInputs["phone"] = args?.phone;
+            resourceInputs["securityContactName"] = args?.securityContactName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

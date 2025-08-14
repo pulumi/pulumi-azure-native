@@ -103,26 +103,26 @@ export class Dataset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.instanceName === undefined) && !opts.urn) {
+            if (args?.instanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["datasetName"] = args ? args.datasetName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["instanceName"] = args ? args.instanceName : undefined;
-            resourceInputs["keys"] = args ? args.keys : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["payload"] = args ? args.payload : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timestamp"] = args ? args.timestamp : undefined;
-            resourceInputs["ttl"] = args ? args.ttl : undefined;
+            resourceInputs["datasetName"] = args?.datasetName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["instanceName"] = args?.instanceName;
+            resourceInputs["keys"] = args?.keys;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["payload"] = args?.payload;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timestamp"] = args?.timestamp;
+            resourceInputs["ttl"] = args?.ttl;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

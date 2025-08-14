@@ -99,19 +99,19 @@ export class ADCCatalog extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["admins"] = args ? args.admins : undefined;
-            resourceInputs["catalogName"] = args ? args.catalogName : undefined;
-            resourceInputs["enableAutomaticUnitAdjustment"] = args ? args.enableAutomaticUnitAdjustment : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["successfullyProvisioned"] = args ? args.successfullyProvisioned : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["units"] = args ? args.units : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
+            resourceInputs["admins"] = args?.admins;
+            resourceInputs["catalogName"] = args?.catalogName;
+            resourceInputs["enableAutomaticUnitAdjustment"] = args?.enableAutomaticUnitAdjustment;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["successfullyProvisioned"] = args?.successfullyProvisioned;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["units"] = args?.units;
+            resourceInputs["users"] = args?.users;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

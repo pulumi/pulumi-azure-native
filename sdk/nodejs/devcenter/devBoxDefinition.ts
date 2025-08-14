@@ -113,27 +113,27 @@ export class DevBoxDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.devCenterName === undefined) && !opts.urn) {
+            if (args?.devCenterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devCenterName'");
             }
-            if ((!args || args.imageReference === undefined) && !opts.urn) {
+            if (args?.imageReference === undefined && !opts.urn) {
                 throw new Error("Missing required property 'imageReference'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["devBoxDefinitionName"] = args ? args.devBoxDefinitionName : undefined;
-            resourceInputs["devCenterName"] = args ? args.devCenterName : undefined;
-            resourceInputs["hibernateSupport"] = args ? args.hibernateSupport : undefined;
-            resourceInputs["imageReference"] = args ? args.imageReference : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["osStorageType"] = args ? args.osStorageType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["devBoxDefinitionName"] = args?.devBoxDefinitionName;
+            resourceInputs["devCenterName"] = args?.devCenterName;
+            resourceInputs["hibernateSupport"] = args?.hibernateSupport;
+            resourceInputs["imageReference"] = args?.imageReference;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["osStorageType"] = args?.osStorageType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["activeImageReference"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["imageValidationErrorDetails"] = undefined /*out*/;

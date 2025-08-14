@@ -113,27 +113,27 @@ export class Extension extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.arcSettingName === undefined) && !opts.urn) {
+            if (args?.arcSettingName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'arcSettingName'");
             }
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["arcSettingName"] = args ? args.arcSettingName : undefined;
-            resourceInputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["enableAutomaticUpgrade"] = args ? args.enableAutomaticUpgrade : undefined;
-            resourceInputs["extensionName"] = args ? args.extensionName : undefined;
-            resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
-            resourceInputs["protectedSettings"] = args ? args.protectedSettings : undefined;
-            resourceInputs["publisher"] = args ? args.publisher : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["settings"] = args ? args.settings : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
+            resourceInputs["arcSettingName"] = args?.arcSettingName;
+            resourceInputs["autoUpgradeMinorVersion"] = args?.autoUpgradeMinorVersion;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["enableAutomaticUpgrade"] = args?.enableAutomaticUpgrade;
+            resourceInputs["extensionName"] = args?.extensionName;
+            resourceInputs["forceUpdateTag"] = args?.forceUpdateTag;
+            resourceInputs["protectedSettings"] = args?.protectedSettings;
+            resourceInputs["publisher"] = args?.publisher;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["settings"] = args?.settings;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["typeHandlerVersion"] = args?.typeHandlerVersion;
             resourceInputs["aggregateState"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["managedBy"] = undefined /*out*/;

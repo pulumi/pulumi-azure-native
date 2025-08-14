@@ -81,17 +81,17 @@ export class Suppression extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.recommendationId === undefined) && !opts.urn) {
+            if (args?.recommendationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recommendationId'");
             }
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recommendationId"] = args ? args.recommendationId : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
-            resourceInputs["suppressionId"] = args ? args.suppressionId : undefined;
-            resourceInputs["ttl"] = args ? args.ttl : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recommendationId"] = args?.recommendationId;
+            resourceInputs["resourceUri"] = args?.resourceUri;
+            resourceInputs["suppressionId"] = args?.suppressionId;
+            resourceInputs["ttl"] = args?.ttl;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["expirationTimeStamp"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

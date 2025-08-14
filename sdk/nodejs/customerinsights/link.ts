@@ -115,40 +115,40 @@ export class Link extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.hubName === undefined) && !opts.urn) {
+            if (args?.hubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.participantPropertyReferences === undefined) && !opts.urn) {
+            if (args?.participantPropertyReferences === undefined && !opts.urn) {
                 throw new Error("Missing required property 'participantPropertyReferences'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceEntityType === undefined) && !opts.urn) {
+            if (args?.sourceEntityType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceEntityType'");
             }
-            if ((!args || args.sourceEntityTypeName === undefined) && !opts.urn) {
+            if (args?.sourceEntityTypeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceEntityTypeName'");
             }
-            if ((!args || args.targetEntityType === undefined) && !opts.urn) {
+            if (args?.targetEntityType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetEntityType'");
             }
-            if ((!args || args.targetEntityTypeName === undefined) && !opts.urn) {
+            if (args?.targetEntityTypeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetEntityTypeName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["hubName"] = args ? args.hubName : undefined;
-            resourceInputs["linkName"] = args ? args.linkName : undefined;
-            resourceInputs["mappings"] = args ? args.mappings : undefined;
-            resourceInputs["operationType"] = args ? args.operationType : undefined;
-            resourceInputs["participantPropertyReferences"] = args ? args.participantPropertyReferences : undefined;
-            resourceInputs["referenceOnly"] = args ? args.referenceOnly : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceEntityType"] = args ? args.sourceEntityType : undefined;
-            resourceInputs["sourceEntityTypeName"] = args ? args.sourceEntityTypeName : undefined;
-            resourceInputs["targetEntityType"] = args ? args.targetEntityType : undefined;
-            resourceInputs["targetEntityTypeName"] = args ? args.targetEntityTypeName : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["hubName"] = args?.hubName;
+            resourceInputs["linkName"] = args?.linkName;
+            resourceInputs["mappings"] = args?.mappings;
+            resourceInputs["operationType"] = args?.operationType;
+            resourceInputs["participantPropertyReferences"] = args?.participantPropertyReferences;
+            resourceInputs["referenceOnly"] = args?.referenceOnly;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceEntityType"] = args?.sourceEntityType;
+            resourceInputs["sourceEntityTypeName"] = args?.sourceEntityTypeName;
+            resourceInputs["targetEntityType"] = args?.targetEntityType;
+            resourceInputs["targetEntityTypeName"] = args?.targetEntityTypeName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

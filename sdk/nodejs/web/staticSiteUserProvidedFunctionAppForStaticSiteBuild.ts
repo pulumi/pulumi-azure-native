@@ -78,23 +78,23 @@ export class StaticSiteUserProvidedFunctionAppForStaticSiteBuild extends pulumi.
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.environmentName === undefined) && !opts.urn) {
+            if (args?.environmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["functionAppName"] = args ? args.functionAppName : undefined;
-            resourceInputs["functionAppRegion"] = args ? args.functionAppRegion : undefined;
-            resourceInputs["functionAppResourceId"] = args ? args.functionAppResourceId : undefined;
-            resourceInputs["isForced"] = args ? args.isForced : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["functionAppName"] = args?.functionAppName;
+            resourceInputs["functionAppRegion"] = args?.functionAppRegion;
+            resourceInputs["functionAppResourceId"] = args?.functionAppResourceId;
+            resourceInputs["isForced"] = args?.isForced;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

@@ -139,44 +139,44 @@ export class Kpi extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.calculationWindow === undefined) && !opts.urn) {
+            if (args?.calculationWindow === undefined && !opts.urn) {
                 throw new Error("Missing required property 'calculationWindow'");
             }
-            if ((!args || args.entityType === undefined) && !opts.urn) {
+            if (args?.entityType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityType'");
             }
-            if ((!args || args.entityTypeName === undefined) && !opts.urn) {
+            if (args?.entityTypeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityTypeName'");
             }
-            if ((!args || args.expression === undefined) && !opts.urn) {
+            if (args?.expression === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expression'");
             }
-            if ((!args || args.function === undefined) && !opts.urn) {
+            if (args?.function === undefined && !opts.urn) {
                 throw new Error("Missing required property 'function'");
             }
-            if ((!args || args.hubName === undefined) && !opts.urn) {
+            if (args?.hubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["aliases"] = args ? args.aliases : undefined;
-            resourceInputs["calculationWindow"] = args ? args.calculationWindow : undefined;
-            resourceInputs["calculationWindowFieldName"] = args ? args.calculationWindowFieldName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["entityType"] = args ? args.entityType : undefined;
-            resourceInputs["entityTypeName"] = args ? args.entityTypeName : undefined;
-            resourceInputs["expression"] = args ? args.expression : undefined;
-            resourceInputs["extracts"] = args ? args.extracts : undefined;
-            resourceInputs["filter"] = args ? args.filter : undefined;
-            resourceInputs["function"] = args ? args.function : undefined;
-            resourceInputs["groupBy"] = args ? args.groupBy : undefined;
-            resourceInputs["hubName"] = args ? args.hubName : undefined;
-            resourceInputs["kpiName"] = args ? args.kpiName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["thresHolds"] = args ? args.thresHolds : undefined;
-            resourceInputs["unit"] = args ? args.unit : undefined;
+            resourceInputs["aliases"] = args?.aliases;
+            resourceInputs["calculationWindow"] = args?.calculationWindow;
+            resourceInputs["calculationWindowFieldName"] = args?.calculationWindowFieldName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["entityType"] = args?.entityType;
+            resourceInputs["entityTypeName"] = args?.entityTypeName;
+            resourceInputs["expression"] = args?.expression;
+            resourceInputs["extracts"] = args?.extracts;
+            resourceInputs["filter"] = args?.filter;
+            resourceInputs["function"] = args?.function;
+            resourceInputs["groupBy"] = args?.groupBy;
+            resourceInputs["hubName"] = args?.hubName;
+            resourceInputs["kpiName"] = args?.kpiName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["thresHolds"] = args?.thresHolds;
+            resourceInputs["unit"] = args?.unit;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["groupByMetadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

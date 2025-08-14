@@ -81,12 +81,12 @@ export class ClusterInstanceHybridIdentityMetadatum extends pulumi.CustomResourc
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectedClusterResourceUri === undefined) && !opts.urn) {
+            if (args?.connectedClusterResourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectedClusterResourceUri'");
             }
-            resourceInputs["connectedClusterResourceUri"] = args ? args.connectedClusterResourceUri : undefined;
-            resourceInputs["publicKey"] = args ? args.publicKey : undefined;
-            resourceInputs["resourceUid"] = args ? args.resourceUid : undefined;
+            resourceInputs["connectedClusterResourceUri"] = args?.connectedClusterResourceUri;
+            resourceInputs["publicKey"] = args?.publicKey;
+            resourceInputs["resourceUid"] = args?.resourceUid;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

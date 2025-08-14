@@ -117,22 +117,22 @@ export class AccessControlList extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configurationType === undefined) && !opts.urn) {
+            if (args?.configurationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accessControlListName"] = args ? args.accessControlListName : undefined;
-            resourceInputs["aclsUrl"] = args ? args.aclsUrl : undefined;
-            resourceInputs["annotation"] = args ? args.annotation : undefined;
-            resourceInputs["configurationType"] = args ? args.configurationType : undefined;
-            resourceInputs["defaultAction"] = (args ? args.defaultAction : undefined) ?? "Permit";
-            resourceInputs["dynamicMatchConfigurations"] = args ? args.dynamicMatchConfigurations : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["matchConfigurations"] = args ? args.matchConfigurations : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessControlListName"] = args?.accessControlListName;
+            resourceInputs["aclsUrl"] = args?.aclsUrl;
+            resourceInputs["annotation"] = args?.annotation;
+            resourceInputs["configurationType"] = args?.configurationType;
+            resourceInputs["defaultAction"] = (args?.defaultAction) ?? "Permit";
+            resourceInputs["dynamicMatchConfigurations"] = args?.dynamicMatchConfigurations;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["matchConfigurations"] = args?.matchConfigurations;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationState"] = undefined /*out*/;

@@ -119,22 +119,22 @@ export class NetworkTapRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configurationType === undefined) && !opts.urn) {
+            if (args?.configurationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["annotation"] = args ? args.annotation : undefined;
-            resourceInputs["configurationType"] = args ? args.configurationType : undefined;
-            resourceInputs["dynamicMatchConfigurations"] = args ? args.dynamicMatchConfigurations : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["matchConfigurations"] = args ? args.matchConfigurations : undefined;
-            resourceInputs["networkTapRuleName"] = args ? args.networkTapRuleName : undefined;
-            resourceInputs["pollingIntervalInSeconds"] = (args ? args.pollingIntervalInSeconds : undefined) ?? 30;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tapRulesUrl"] = args ? args.tapRulesUrl : undefined;
+            resourceInputs["annotation"] = args?.annotation;
+            resourceInputs["configurationType"] = args?.configurationType;
+            resourceInputs["dynamicMatchConfigurations"] = args?.dynamicMatchConfigurations;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["matchConfigurations"] = args?.matchConfigurations;
+            resourceInputs["networkTapRuleName"] = args?.networkTapRuleName;
+            resourceInputs["pollingIntervalInSeconds"] = (args?.pollingIntervalInSeconds) ?? 30;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tapRulesUrl"] = args?.tapRulesUrl;
             resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationState"] = undefined /*out*/;

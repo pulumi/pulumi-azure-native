@@ -105,36 +105,36 @@ export class SourceControl extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.contentTypes === undefined) && !opts.urn) {
+            if (args?.contentTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentTypes'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.repoType === undefined) && !opts.urn) {
+            if (args?.repoType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repoType'");
             }
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["contentTypes"] = args ? args.contentTypes : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["lastDeploymentInfo"] = args ? args.lastDeploymentInfo : undefined;
-            resourceInputs["repoType"] = args ? args.repoType : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
-            resourceInputs["repositoryResourceInfo"] = args ? args.repositoryResourceInfo : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceControlId"] = args ? args.sourceControlId : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["contentTypes"] = args?.contentTypes;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["lastDeploymentInfo"] = args?.lastDeploymentInfo;
+            resourceInputs["repoType"] = args?.repoType;
+            resourceInputs["repository"] = args?.repository;
+            resourceInputs["repositoryResourceInfo"] = args?.repositoryResourceInfo;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceControlId"] = args?.sourceControlId;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

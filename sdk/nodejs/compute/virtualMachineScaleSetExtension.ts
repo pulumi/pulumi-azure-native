@@ -109,27 +109,27 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vmScaleSetName === undefined) && !opts.urn) {
+            if (args?.vmScaleSetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vmScaleSetName'");
             }
-            resourceInputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
-            resourceInputs["enableAutomaticUpgrade"] = args ? args.enableAutomaticUpgrade : undefined;
-            resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["protectedSettings"] = args ? args.protectedSettings : undefined;
-            resourceInputs["protectedSettingsFromKeyVault"] = args ? args.protectedSettingsFromKeyVault : undefined;
-            resourceInputs["provisionAfterExtensions"] = args ? args.provisionAfterExtensions : undefined;
-            resourceInputs["publisher"] = args ? args.publisher : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["settings"] = args ? args.settings : undefined;
-            resourceInputs["suppressFailures"] = args ? args.suppressFailures : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
-            resourceInputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
-            resourceInputs["vmssExtensionName"] = args ? args.vmssExtensionName : undefined;
+            resourceInputs["autoUpgradeMinorVersion"] = args?.autoUpgradeMinorVersion;
+            resourceInputs["enableAutomaticUpgrade"] = args?.enableAutomaticUpgrade;
+            resourceInputs["forceUpdateTag"] = args?.forceUpdateTag;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["protectedSettings"] = args?.protectedSettings;
+            resourceInputs["protectedSettingsFromKeyVault"] = args?.protectedSettingsFromKeyVault;
+            resourceInputs["provisionAfterExtensions"] = args?.provisionAfterExtensions;
+            resourceInputs["publisher"] = args?.publisher;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["settings"] = args?.settings;
+            resourceInputs["suppressFailures"] = args?.suppressFailures;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["typeHandlerVersion"] = args?.typeHandlerVersion;
+            resourceInputs["vmScaleSetName"] = args?.vmScaleSetName;
+            resourceInputs["vmssExtensionName"] = args?.vmssExtensionName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
         } else {

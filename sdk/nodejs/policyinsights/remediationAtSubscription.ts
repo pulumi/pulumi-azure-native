@@ -121,14 +121,14 @@ export class RemediationAtSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["failureThreshold"] = args ? args.failureThreshold : undefined;
-            resourceInputs["filters"] = args ? args.filters : undefined;
-            resourceInputs["parallelDeployments"] = args ? args.parallelDeployments : undefined;
-            resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
-            resourceInputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
-            resourceInputs["remediationName"] = args ? args.remediationName : undefined;
-            resourceInputs["resourceCount"] = args ? args.resourceCount : undefined;
-            resourceInputs["resourceDiscoveryMode"] = args ? args.resourceDiscoveryMode : undefined;
+            resourceInputs["failureThreshold"] = args?.failureThreshold;
+            resourceInputs["filters"] = args?.filters;
+            resourceInputs["parallelDeployments"] = args?.parallelDeployments;
+            resourceInputs["policyAssignmentId"] = args?.policyAssignmentId;
+            resourceInputs["policyDefinitionReferenceId"] = args?.policyDefinitionReferenceId;
+            resourceInputs["remediationName"] = args?.remediationName;
+            resourceInputs["resourceCount"] = args?.resourceCount;
+            resourceInputs["resourceDiscoveryMode"] = args?.resourceDiscoveryMode;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["correlationId"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;

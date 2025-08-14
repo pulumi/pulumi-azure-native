@@ -112,27 +112,27 @@ export class Gen1Environment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataRetentionTime === undefined) && !opts.urn) {
+            if (args?.dataRetentionTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataRetentionTime'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["dataRetentionTime"] = args ? args.dataRetentionTime : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
+            resourceInputs["dataRetentionTime"] = args?.dataRetentionTime;
+            resourceInputs["environmentName"] = args?.environmentName;
             resourceInputs["kind"] = "Gen1";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["partitionKeyProperties"] = args ? args.partitionKeyProperties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["storageLimitExceededBehavior"] = args ? args.storageLimitExceededBehavior : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["partitionKeyProperties"] = args?.partitionKeyProperties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["storageLimitExceededBehavior"] = args?.storageLimitExceededBehavior;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["dataAccessFqdn"] = undefined /*out*/;

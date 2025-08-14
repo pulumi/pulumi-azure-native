@@ -245,53 +245,53 @@ export class DatabaseAccount extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.databaseAccountOfferType === undefined) && !opts.urn) {
+            if (args?.databaseAccountOfferType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseAccountOfferType'");
             }
-            if ((!args || args.locations === undefined) && !opts.urn) {
+            if (args?.locations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'locations'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["analyticalStorageConfiguration"] = args ? args.analyticalStorageConfiguration : undefined;
-            resourceInputs["apiProperties"] = args ? args.apiProperties : undefined;
-            resourceInputs["backupPolicy"] = args ? args.backupPolicy : undefined;
-            resourceInputs["capabilities"] = args ? args.capabilities : undefined;
-            resourceInputs["capacity"] = args ? args.capacity : undefined;
-            resourceInputs["connectorOffer"] = args ? args.connectorOffer : undefined;
-            resourceInputs["consistencyPolicy"] = args ? args.consistencyPolicy : undefined;
-            resourceInputs["cors"] = args ? args.cors : undefined;
-            resourceInputs["createMode"] = (args ? args.createMode : undefined) ?? "Default";
-            resourceInputs["customerManagedKeyStatus"] = args ? args.customerManagedKeyStatus : undefined;
-            resourceInputs["databaseAccountOfferType"] = args ? args.databaseAccountOfferType : undefined;
-            resourceInputs["defaultIdentity"] = args ? args.defaultIdentity : undefined;
-            resourceInputs["disableKeyBasedMetadataWriteAccess"] = args ? args.disableKeyBasedMetadataWriteAccess : undefined;
-            resourceInputs["disableLocalAuth"] = args ? args.disableLocalAuth : undefined;
-            resourceInputs["enableAnalyticalStorage"] = args ? args.enableAnalyticalStorage : undefined;
-            resourceInputs["enableAutomaticFailover"] = args ? args.enableAutomaticFailover : undefined;
-            resourceInputs["enableBurstCapacity"] = args ? args.enableBurstCapacity : undefined;
-            resourceInputs["enableCassandraConnector"] = args ? args.enableCassandraConnector : undefined;
-            resourceInputs["enableFreeTier"] = args ? args.enableFreeTier : undefined;
-            resourceInputs["enableMultipleWriteLocations"] = args ? args.enableMultipleWriteLocations : undefined;
-            resourceInputs["enablePartitionMerge"] = args ? args.enablePartitionMerge : undefined;
-            resourceInputs["enablePerRegionPerPartitionAutoscale"] = args ? args.enablePerRegionPerPartitionAutoscale : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["ipRules"] = args ? args.ipRules : undefined;
-            resourceInputs["isVirtualNetworkFilterEnabled"] = args ? args.isVirtualNetworkFilterEnabled : undefined;
-            resourceInputs["keyVaultKeyUri"] = args ? args.keyVaultKeyUri : undefined;
-            resourceInputs["kind"] = (args ? args.kind : undefined) ?? "GlobalDocumentDB";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["locations"] = args ? args.locations : undefined;
-            resourceInputs["minimalTlsVersion"] = args ? args.minimalTlsVersion : undefined;
-            resourceInputs["networkAclBypass"] = args ? args.networkAclBypass : undefined;
-            resourceInputs["networkAclBypassResourceIds"] = args ? args.networkAclBypassResourceIds : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restoreParameters"] = args ? args.restoreParameters : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["analyticalStorageConfiguration"] = args?.analyticalStorageConfiguration;
+            resourceInputs["apiProperties"] = args?.apiProperties;
+            resourceInputs["backupPolicy"] = args?.backupPolicy;
+            resourceInputs["capabilities"] = args?.capabilities;
+            resourceInputs["capacity"] = args?.capacity;
+            resourceInputs["connectorOffer"] = args?.connectorOffer;
+            resourceInputs["consistencyPolicy"] = args?.consistencyPolicy;
+            resourceInputs["cors"] = args?.cors;
+            resourceInputs["createMode"] = (args?.createMode) ?? "Default";
+            resourceInputs["customerManagedKeyStatus"] = args?.customerManagedKeyStatus;
+            resourceInputs["databaseAccountOfferType"] = args?.databaseAccountOfferType;
+            resourceInputs["defaultIdentity"] = args?.defaultIdentity;
+            resourceInputs["disableKeyBasedMetadataWriteAccess"] = args?.disableKeyBasedMetadataWriteAccess;
+            resourceInputs["disableLocalAuth"] = args?.disableLocalAuth;
+            resourceInputs["enableAnalyticalStorage"] = args?.enableAnalyticalStorage;
+            resourceInputs["enableAutomaticFailover"] = args?.enableAutomaticFailover;
+            resourceInputs["enableBurstCapacity"] = args?.enableBurstCapacity;
+            resourceInputs["enableCassandraConnector"] = args?.enableCassandraConnector;
+            resourceInputs["enableFreeTier"] = args?.enableFreeTier;
+            resourceInputs["enableMultipleWriteLocations"] = args?.enableMultipleWriteLocations;
+            resourceInputs["enablePartitionMerge"] = args?.enablePartitionMerge;
+            resourceInputs["enablePerRegionPerPartitionAutoscale"] = args?.enablePerRegionPerPartitionAutoscale;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["ipRules"] = args?.ipRules;
+            resourceInputs["isVirtualNetworkFilterEnabled"] = args?.isVirtualNetworkFilterEnabled;
+            resourceInputs["keyVaultKeyUri"] = args?.keyVaultKeyUri;
+            resourceInputs["kind"] = (args?.kind) ?? "GlobalDocumentDB";
+            resourceInputs["location"] = args?.location;
+            resourceInputs["locations"] = args?.locations;
+            resourceInputs["minimalTlsVersion"] = args?.minimalTlsVersion;
+            resourceInputs["networkAclBypass"] = args?.networkAclBypass;
+            resourceInputs["networkAclBypassResourceIds"] = args?.networkAclBypassResourceIds;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restoreParameters"] = args?.restoreParameters;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualNetworkRules"] = args?.virtualNetworkRules;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["documentEndpoint"] = undefined /*out*/;
             resourceInputs["failoverPolicies"] = undefined /*out*/;

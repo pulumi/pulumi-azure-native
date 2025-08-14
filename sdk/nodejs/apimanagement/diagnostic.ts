@@ -105,28 +105,28 @@ export class Diagnostic extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.loggerId === undefined) && !opts.urn) {
+            if (args?.loggerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loggerId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["alwaysLog"] = args ? args.alwaysLog : undefined;
-            resourceInputs["backend"] = args ? args.backend : undefined;
-            resourceInputs["diagnosticId"] = args ? args.diagnosticId : undefined;
-            resourceInputs["frontend"] = args ? args.frontend : undefined;
-            resourceInputs["httpCorrelationProtocol"] = args ? args.httpCorrelationProtocol : undefined;
-            resourceInputs["logClientIp"] = args ? args.logClientIp : undefined;
-            resourceInputs["loggerId"] = args ? args.loggerId : undefined;
-            resourceInputs["metrics"] = args ? args.metrics : undefined;
-            resourceInputs["operationNameFormat"] = args ? args.operationNameFormat : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sampling"] = args ? args.sampling : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["verbosity"] = args ? args.verbosity : undefined;
+            resourceInputs["alwaysLog"] = args?.alwaysLog;
+            resourceInputs["backend"] = args?.backend;
+            resourceInputs["diagnosticId"] = args?.diagnosticId;
+            resourceInputs["frontend"] = args?.frontend;
+            resourceInputs["httpCorrelationProtocol"] = args?.httpCorrelationProtocol;
+            resourceInputs["logClientIp"] = args?.logClientIp;
+            resourceInputs["loggerId"] = args?.loggerId;
+            resourceInputs["metrics"] = args?.metrics;
+            resourceInputs["operationNameFormat"] = args?.operationNameFormat;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sampling"] = args?.sampling;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["verbosity"] = args?.verbosity;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

@@ -149,36 +149,36 @@ export class RecordSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.recordType === undefined) && !opts.urn) {
+            if (args?.recordType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recordType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.zoneName === undefined) && !opts.urn) {
+            if (args?.zoneName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'zoneName'");
             }
-            resourceInputs["aRecords"] = args ? args.aRecords : undefined;
-            resourceInputs["aaaaRecords"] = args ? args.aaaaRecords : undefined;
-            resourceInputs["caaRecords"] = args ? args.caaRecords : undefined;
-            resourceInputs["cnameRecord"] = args ? args.cnameRecord : undefined;
-            resourceInputs["dsRecords"] = args ? args.dsRecords : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["mxRecords"] = args ? args.mxRecords : undefined;
-            resourceInputs["naptrRecords"] = args ? args.naptrRecords : undefined;
-            resourceInputs["nsRecords"] = args ? args.nsRecords : undefined;
-            resourceInputs["ptrRecords"] = args ? args.ptrRecords : undefined;
-            resourceInputs["recordType"] = args ? args.recordType : undefined;
-            resourceInputs["relativeRecordSetName"] = args ? args.relativeRecordSetName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["soaRecord"] = args ? args.soaRecord : undefined;
-            resourceInputs["srvRecords"] = args ? args.srvRecords : undefined;
-            resourceInputs["targetResource"] = args ? args.targetResource : undefined;
-            resourceInputs["tlsaRecords"] = args ? args.tlsaRecords : undefined;
-            resourceInputs["trafficManagementProfile"] = args ? args.trafficManagementProfile : undefined;
-            resourceInputs["ttl"] = args ? args.ttl : undefined;
-            resourceInputs["txtRecords"] = args ? args.txtRecords : undefined;
-            resourceInputs["zoneName"] = args ? args.zoneName : undefined;
+            resourceInputs["aRecords"] = args?.aRecords;
+            resourceInputs["aaaaRecords"] = args?.aaaaRecords;
+            resourceInputs["caaRecords"] = args?.caaRecords;
+            resourceInputs["cnameRecord"] = args?.cnameRecord;
+            resourceInputs["dsRecords"] = args?.dsRecords;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["mxRecords"] = args?.mxRecords;
+            resourceInputs["naptrRecords"] = args?.naptrRecords;
+            resourceInputs["nsRecords"] = args?.nsRecords;
+            resourceInputs["ptrRecords"] = args?.ptrRecords;
+            resourceInputs["recordType"] = args?.recordType;
+            resourceInputs["relativeRecordSetName"] = args?.relativeRecordSetName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["soaRecord"] = args?.soaRecord;
+            resourceInputs["srvRecords"] = args?.srvRecords;
+            resourceInputs["targetResource"] = args?.targetResource;
+            resourceInputs["tlsaRecords"] = args?.tlsaRecords;
+            resourceInputs["trafficManagementProfile"] = args?.trafficManagementProfile;
+            resourceInputs["ttl"] = args?.ttl;
+            resourceInputs["txtRecords"] = args?.txtRecords;
+            resourceInputs["zoneName"] = args?.zoneName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["fqdn"] = undefined /*out*/;

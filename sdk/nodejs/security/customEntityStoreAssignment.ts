@@ -75,12 +75,12 @@ export class CustomEntityStoreAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["customEntityStoreAssignmentName"] = args ? args.customEntityStoreAssignmentName : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["customEntityStoreAssignmentName"] = args?.customEntityStoreAssignmentName;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["entityStoreDatabaseLink"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

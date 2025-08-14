@@ -109,25 +109,25 @@ export class JitRequest extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationResourceId === undefined) && !opts.urn) {
+            if (args?.applicationResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationResourceId'");
             }
-            if ((!args || args.jitAuthorizationPolicies === undefined) && !opts.urn) {
+            if (args?.jitAuthorizationPolicies === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jitAuthorizationPolicies'");
             }
-            if ((!args || args.jitSchedulingPolicy === undefined) && !opts.urn) {
+            if (args?.jitSchedulingPolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jitSchedulingPolicy'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["applicationResourceId"] = args ? args.applicationResourceId : undefined;
-            resourceInputs["jitAuthorizationPolicies"] = args ? args.jitAuthorizationPolicies : undefined;
-            resourceInputs["jitRequestName"] = args ? args.jitRequestName : undefined;
-            resourceInputs["jitSchedulingPolicy"] = args ? args.jitSchedulingPolicy : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationResourceId"] = args?.applicationResourceId;
+            resourceInputs["jitAuthorizationPolicies"] = args?.jitAuthorizationPolicies;
+            resourceInputs["jitRequestName"] = args?.jitRequestName;
+            resourceInputs["jitSchedulingPolicy"] = args?.jitSchedulingPolicy;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["jitRequestState"] = undefined /*out*/;

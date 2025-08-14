@@ -115,29 +115,29 @@ export class Disk extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.labName === undefined) && !opts.urn) {
+            if (args?.labName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.userName === undefined) && !opts.urn) {
+            if (args?.userName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            resourceInputs["diskBlobName"] = args ? args.diskBlobName : undefined;
-            resourceInputs["diskSizeGiB"] = args ? args.diskSizeGiB : undefined;
-            resourceInputs["diskType"] = args ? args.diskType : undefined;
-            resourceInputs["diskUri"] = args ? args.diskUri : undefined;
-            resourceInputs["hostCaching"] = args ? args.hostCaching : undefined;
-            resourceInputs["labName"] = args ? args.labName : undefined;
-            resourceInputs["leasedByLabVmId"] = args ? args.leasedByLabVmId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedDiskId"] = args ? args.managedDiskId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["diskBlobName"] = args?.diskBlobName;
+            resourceInputs["diskSizeGiB"] = args?.diskSizeGiB;
+            resourceInputs["diskType"] = args?.diskType;
+            resourceInputs["diskUri"] = args?.diskUri;
+            resourceInputs["hostCaching"] = args?.hostCaching;
+            resourceInputs["labName"] = args?.labName;
+            resourceInputs["leasedByLabVmId"] = args?.leasedByLabVmId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedDiskId"] = args?.managedDiskId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userName"] = args?.userName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -97,27 +97,27 @@ export class FailoverGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.partnerServers === undefined) && !opts.urn) {
+            if (args?.partnerServers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partnerServers'");
             }
-            if ((!args || args.readWriteEndpoint === undefined) && !opts.urn) {
+            if (args?.readWriteEndpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'readWriteEndpoint'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            resourceInputs["databases"] = args ? args.databases : undefined;
-            resourceInputs["failoverGroupName"] = args ? args.failoverGroupName : undefined;
-            resourceInputs["partnerServers"] = args ? args.partnerServers : undefined;
-            resourceInputs["readOnlyEndpoint"] = args ? args.readOnlyEndpoint : undefined;
-            resourceInputs["readWriteEndpoint"] = args ? args.readWriteEndpoint : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["secondaryType"] = args ? args.secondaryType : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["databases"] = args?.databases;
+            resourceInputs["failoverGroupName"] = args?.failoverGroupName;
+            resourceInputs["partnerServers"] = args?.partnerServers;
+            resourceInputs["readOnlyEndpoint"] = args?.readOnlyEndpoint;
+            resourceInputs["readWriteEndpoint"] = args?.readWriteEndpoint;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["secondaryType"] = args?.secondaryType;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

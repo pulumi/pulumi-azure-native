@@ -153,30 +153,30 @@ export class ServerEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageSyncServiceName === undefined) && !opts.urn) {
+            if (args?.storageSyncServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
-            if ((!args || args.syncGroupName === undefined) && !opts.urn) {
+            if (args?.syncGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'syncGroupName'");
             }
-            resourceInputs["cloudTiering"] = args ? args.cloudTiering : undefined;
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["initialDownloadPolicy"] = args ? args.initialDownloadPolicy : undefined;
-            resourceInputs["initialUploadPolicy"] = args ? args.initialUploadPolicy : undefined;
-            resourceInputs["localCacheMode"] = args ? args.localCacheMode : undefined;
-            resourceInputs["offlineDataTransfer"] = args ? args.offlineDataTransfer : undefined;
-            resourceInputs["offlineDataTransferShareName"] = args ? args.offlineDataTransferShareName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverEndpointName"] = args ? args.serverEndpointName : undefined;
-            resourceInputs["serverLocalPath"] = args ? args.serverLocalPath : undefined;
-            resourceInputs["serverResourceId"] = args ? args.serverResourceId : undefined;
-            resourceInputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
-            resourceInputs["syncGroupName"] = args ? args.syncGroupName : undefined;
-            resourceInputs["tierFilesOlderThanDays"] = (args ? args.tierFilesOlderThanDays : undefined) ?? 0;
-            resourceInputs["volumeFreeSpacePercent"] = (args ? args.volumeFreeSpacePercent : undefined) ?? 20;
+            resourceInputs["cloudTiering"] = args?.cloudTiering;
+            resourceInputs["friendlyName"] = args?.friendlyName;
+            resourceInputs["initialDownloadPolicy"] = args?.initialDownloadPolicy;
+            resourceInputs["initialUploadPolicy"] = args?.initialUploadPolicy;
+            resourceInputs["localCacheMode"] = args?.localCacheMode;
+            resourceInputs["offlineDataTransfer"] = args?.offlineDataTransfer;
+            resourceInputs["offlineDataTransferShareName"] = args?.offlineDataTransferShareName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverEndpointName"] = args?.serverEndpointName;
+            resourceInputs["serverLocalPath"] = args?.serverLocalPath;
+            resourceInputs["serverResourceId"] = args?.serverResourceId;
+            resourceInputs["storageSyncServiceName"] = args?.storageSyncServiceName;
+            resourceInputs["syncGroupName"] = args?.syncGroupName;
+            resourceInputs["tierFilesOlderThanDays"] = (args?.tierFilesOlderThanDays) ?? 0;
+            resourceInputs["volumeFreeSpacePercent"] = (args?.volumeFreeSpacePercent) ?? 20;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cloudTieringStatus"] = undefined /*out*/;
             resourceInputs["lastOperationName"] = undefined /*out*/;

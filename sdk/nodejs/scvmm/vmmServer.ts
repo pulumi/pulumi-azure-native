@@ -113,23 +113,23 @@ export class VmmServer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.fqdn === undefined) && !opts.urn) {
+            if (args?.fqdn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fqdn'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["fqdn"] = args ? args.fqdn : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vmmServerName"] = args ? args.vmmServerName : undefined;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["fqdn"] = args?.fqdn;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vmmServerName"] = args?.vmmServerName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionStatus"] = undefined /*out*/;
             resourceInputs["errorMessage"] = undefined /*out*/;

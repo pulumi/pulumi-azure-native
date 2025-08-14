@@ -117,23 +117,23 @@ export class DomainEventSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["deadLetterDestination"] = args ? args.deadLetterDestination : undefined;
-            resourceInputs["deadLetterWithResourceIdentity"] = args ? args.deadLetterWithResourceIdentity : undefined;
-            resourceInputs["deliveryWithResourceIdentity"] = args ? args.deliveryWithResourceIdentity : undefined;
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["eventDeliverySchema"] = (args ? args.eventDeliverySchema : undefined) ?? "EventGridSchema";
-            resourceInputs["eventSubscriptionName"] = args ? args.eventSubscriptionName : undefined;
-            resourceInputs["expirationTimeUtc"] = args ? args.expirationTimeUtc : undefined;
+            resourceInputs["deadLetterDestination"] = args?.deadLetterDestination;
+            resourceInputs["deadLetterWithResourceIdentity"] = args?.deadLetterWithResourceIdentity;
+            resourceInputs["deliveryWithResourceIdentity"] = args?.deliveryWithResourceIdentity;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["eventDeliverySchema"] = (args?.eventDeliverySchema) ?? "EventGridSchema";
+            resourceInputs["eventSubscriptionName"] = args?.eventSubscriptionName;
+            resourceInputs["expirationTimeUtc"] = args?.expirationTimeUtc;
             resourceInputs["filter"] = args ? (args.filter ? pulumi.output(args.filter).apply(inputs.eventgrid.eventSubscriptionFilterArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["retryPolicy"] = args ? (args.retryPolicy ? pulumi.output(args.retryPolicy).apply(inputs.eventgrid.retryPolicyArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

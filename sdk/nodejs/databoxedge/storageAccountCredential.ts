@@ -101,32 +101,32 @@ export class StorageAccountCredential extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountType === undefined) && !opts.urn) {
+            if (args?.accountType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountType'");
             }
-            if ((!args || args.alias === undefined) && !opts.urn) {
+            if (args?.alias === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alias'");
             }
-            if ((!args || args.deviceName === undefined) && !opts.urn) {
+            if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sslStatus === undefined) && !opts.urn) {
+            if (args?.sslStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sslStatus'");
             }
-            resourceInputs["accountKey"] = args ? args.accountKey : undefined;
-            resourceInputs["accountType"] = args ? args.accountType : undefined;
-            resourceInputs["alias"] = args ? args.alias : undefined;
-            resourceInputs["blobDomainName"] = args ? args.blobDomainName : undefined;
-            resourceInputs["connectionString"] = args ? args.connectionString : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sslStatus"] = args ? args.sslStatus : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["accountKey"] = args?.accountKey;
+            resourceInputs["accountType"] = args?.accountType;
+            resourceInputs["alias"] = args?.alias;
+            resourceInputs["blobDomainName"] = args?.blobDomainName;
+            resourceInputs["connectionString"] = args?.connectionString;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sslStatus"] = args?.sslStatus;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["userName"] = args?.userName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

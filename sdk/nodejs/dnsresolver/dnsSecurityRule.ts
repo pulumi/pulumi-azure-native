@@ -101,30 +101,30 @@ export class DnsSecurityRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.action === undefined) && !opts.urn) {
+            if (args?.action === undefined && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.dnsResolverDomainLists === undefined) && !opts.urn) {
+            if (args?.dnsResolverDomainLists === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsResolverDomainLists'");
             }
-            if ((!args || args.dnsResolverPolicyName === undefined) && !opts.urn) {
+            if (args?.dnsResolverPolicyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsResolverPolicyName'");
             }
-            if ((!args || args.priority === undefined) && !opts.urn) {
+            if (args?.priority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["dnsResolverDomainLists"] = args ? args.dnsResolverDomainLists : undefined;
-            resourceInputs["dnsResolverPolicyName"] = args ? args.dnsResolverPolicyName : undefined;
-            resourceInputs["dnsSecurityRuleName"] = args ? args.dnsSecurityRuleName : undefined;
-            resourceInputs["dnsSecurityRuleState"] = args ? args.dnsSecurityRuleState : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["dnsResolverDomainLists"] = args?.dnsResolverDomainLists;
+            resourceInputs["dnsResolverPolicyName"] = args?.dnsResolverPolicyName;
+            resourceInputs["dnsSecurityRuleName"] = args?.dnsSecurityRuleName;
+            resourceInputs["dnsSecurityRuleState"] = args?.dnsSecurityRuleState;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

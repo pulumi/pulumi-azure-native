@@ -105,18 +105,18 @@ export class Appliance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["distro"] = (args ? args.distro : undefined) ?? "AKSEdge";
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["infrastructureConfig"] = args ? args.infrastructureConfig : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["publicKey"] = args ? args.publicKey : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["distro"] = (args?.distro) ?? "AKSEdge";
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["infrastructureConfig"] = args?.infrastructureConfig;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["publicKey"] = args?.publicKey;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

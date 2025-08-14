@@ -105,46 +105,46 @@ export class CosmosDbDataConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.cosmosDbAccountResourceId === undefined) && !opts.urn) {
+            if (args?.cosmosDbAccountResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cosmosDbAccountResourceId'");
             }
-            if ((!args || args.cosmosDbContainer === undefined) && !opts.urn) {
+            if (args?.cosmosDbContainer === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cosmosDbContainer'");
             }
-            if ((!args || args.cosmosDbDatabase === undefined) && !opts.urn) {
+            if (args?.cosmosDbDatabase === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cosmosDbDatabase'");
             }
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.managedIdentityResourceId === undefined) && !opts.urn) {
+            if (args?.managedIdentityResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedIdentityResourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.tableName === undefined) && !opts.urn) {
+            if (args?.tableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["cosmosDbAccountResourceId"] = args ? args.cosmosDbAccountResourceId : undefined;
-            resourceInputs["cosmosDbContainer"] = args ? args.cosmosDbContainer : undefined;
-            resourceInputs["cosmosDbDatabase"] = args ? args.cosmosDbDatabase : undefined;
-            resourceInputs["dataConnectionName"] = args ? args.dataConnectionName : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["cosmosDbAccountResourceId"] = args?.cosmosDbAccountResourceId;
+            resourceInputs["cosmosDbContainer"] = args?.cosmosDbContainer;
+            resourceInputs["cosmosDbDatabase"] = args?.cosmosDbDatabase;
+            resourceInputs["dataConnectionName"] = args?.dataConnectionName;
+            resourceInputs["databaseName"] = args?.databaseName;
             resourceInputs["kind"] = "CosmosDb";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedIdentityResourceId"] = args ? args.managedIdentityResourceId : undefined;
-            resourceInputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retrievalStartDate"] = args ? args.retrievalStartDate : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedIdentityResourceId"] = args?.managedIdentityResourceId;
+            resourceInputs["mappingRuleName"] = args?.mappingRuleName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retrievalStartDate"] = args?.retrievalStartDate;
+            resourceInputs["tableName"] = args?.tableName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["managedIdentityObjectId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

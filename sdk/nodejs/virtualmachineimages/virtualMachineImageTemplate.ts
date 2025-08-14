@@ -141,32 +141,32 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.distribute === undefined) && !opts.urn) {
+            if (args?.distribute === undefined && !opts.urn) {
                 throw new Error("Missing required property 'distribute'");
             }
-            if ((!args || args.identity === undefined) && !opts.urn) {
+            if (args?.identity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            resourceInputs["autoRun"] = args ? args.autoRun : undefined;
-            resourceInputs["buildTimeoutInMinutes"] = (args ? args.buildTimeoutInMinutes : undefined) ?? 0;
-            resourceInputs["customize"] = args ? args.customize : undefined;
-            resourceInputs["distribute"] = args ? args.distribute : undefined;
+            resourceInputs["autoRun"] = args?.autoRun;
+            resourceInputs["buildTimeoutInMinutes"] = (args?.buildTimeoutInMinutes) ?? 0;
+            resourceInputs["customize"] = args?.customize;
+            resourceInputs["distribute"] = args?.distribute;
             resourceInputs["errorHandling"] = args ? (args.errorHandling ? pulumi.output(args.errorHandling).apply(inputs.virtualmachineimages.imageTemplatePropertiesErrorHandlingArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["imageTemplateName"] = args ? args.imageTemplateName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedResourceTags"] = args ? args.managedResourceTags : undefined;
-            resourceInputs["optimize"] = args ? args.optimize : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["stagingResourceGroup"] = args ? args.stagingResourceGroup : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["imageTemplateName"] = args?.imageTemplateName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedResourceTags"] = args?.managedResourceTags;
+            resourceInputs["optimize"] = args?.optimize;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["stagingResourceGroup"] = args?.stagingResourceGroup;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["validate"] = args ? (args.validate ? pulumi.output(args.validate).apply(inputs.virtualmachineimages.imageTemplatePropertiesValidateArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["vmProfile"] = args ? (args.vmProfile ? pulumi.output(args.vmProfile).apply(inputs.virtualmachineimages.imageTemplateVmProfileArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

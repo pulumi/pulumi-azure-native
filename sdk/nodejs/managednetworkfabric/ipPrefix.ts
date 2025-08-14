@@ -97,18 +97,18 @@ export class IpPrefix extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ipPrefixRules === undefined) && !opts.urn) {
+            if (args?.ipPrefixRules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipPrefixRules'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["annotation"] = args ? args.annotation : undefined;
-            resourceInputs["ipPrefixName"] = args ? args.ipPrefixName : undefined;
-            resourceInputs["ipPrefixRules"] = args ? args.ipPrefixRules : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["annotation"] = args?.annotation;
+            resourceInputs["ipPrefixName"] = args?.ipPrefixName;
+            resourceInputs["ipPrefixRules"] = args?.ipPrefixRules;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationState"] = undefined /*out*/;

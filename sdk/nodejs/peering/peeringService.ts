@@ -101,18 +101,18 @@ export class PeeringService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["peeringServiceLocation"] = args ? args.peeringServiceLocation : undefined;
-            resourceInputs["peeringServiceName"] = args ? args.peeringServiceName : undefined;
-            resourceInputs["peeringServiceProvider"] = args ? args.peeringServiceProvider : undefined;
-            resourceInputs["providerBackupPeeringLocation"] = args ? args.providerBackupPeeringLocation : undefined;
-            resourceInputs["providerPrimaryPeeringLocation"] = args ? args.providerPrimaryPeeringLocation : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["peeringServiceLocation"] = args?.peeringServiceLocation;
+            resourceInputs["peeringServiceName"] = args?.peeringServiceName;
+            resourceInputs["peeringServiceProvider"] = args?.peeringServiceProvider;
+            resourceInputs["providerBackupPeeringLocation"] = args?.providerBackupPeeringLocation;
+            resourceInputs["providerPrimaryPeeringLocation"] = args?.providerPrimaryPeeringLocation;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["logAnalyticsWorkspaceProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

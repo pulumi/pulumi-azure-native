@@ -113,20 +113,20 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managedRules === undefined) && !opts.urn) {
+            if (args?.managedRules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedRules'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["customRules"] = args ? args.customRules : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedRules"] = args ? args.managedRules : undefined;
-            resourceInputs["policyName"] = args ? args.policyName : undefined;
+            resourceInputs["customRules"] = args?.customRules;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedRules"] = args?.managedRules;
+            resourceInputs["policyName"] = args?.policyName;
             resourceInputs["policySettings"] = args ? (args.policySettings ? pulumi.output(args.policySettings).apply(inputs.network.policySettingsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["applicationGatewayForContainers"] = undefined /*out*/;
             resourceInputs["applicationGateways"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

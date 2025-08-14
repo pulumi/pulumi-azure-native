@@ -101,25 +101,25 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scheduleInfo === undefined) && !opts.urn) {
+            if (args?.scheduleInfo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduleInfo'");
             }
-            if ((!args || args.updateConfiguration === undefined) && !opts.urn) {
+            if (args?.updateConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'updateConfiguration'");
             }
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["error"] = args ? args.error : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["error"] = args?.error;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["scheduleInfo"] = args ? (args.scheduleInfo ? pulumi.output(args.scheduleInfo).apply(inputs.automation.sucschedulePropertiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["softwareUpdateConfigurationName"] = args ? args.softwareUpdateConfigurationName : undefined;
-            resourceInputs["tasks"] = args ? args.tasks : undefined;
-            resourceInputs["updateConfiguration"] = args ? args.updateConfiguration : undefined;
+            resourceInputs["softwareUpdateConfigurationName"] = args?.softwareUpdateConfigurationName;
+            resourceInputs["tasks"] = args?.tasks;
+            resourceInputs["updateConfiguration"] = args?.updateConfiguration;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;

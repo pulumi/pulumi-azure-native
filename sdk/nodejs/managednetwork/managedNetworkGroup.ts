@@ -95,21 +95,21 @@ export class ManagedNetworkGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managedNetworkName === undefined) && !opts.urn) {
+            if (args?.managedNetworkName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedNetworkName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedNetworkGroupName"] = args ? args.managedNetworkGroupName : undefined;
-            resourceInputs["managedNetworkName"] = args ? args.managedNetworkName : undefined;
-            resourceInputs["managementGroups"] = args ? args.managementGroups : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subnets"] = args ? args.subnets : undefined;
-            resourceInputs["subscriptions"] = args ? args.subscriptions : undefined;
-            resourceInputs["virtualNetworks"] = args ? args.virtualNetworks : undefined;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedNetworkGroupName"] = args?.managedNetworkGroupName;
+            resourceInputs["managedNetworkName"] = args?.managedNetworkName;
+            resourceInputs["managementGroups"] = args?.managementGroups;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["subnets"] = args?.subnets;
+            resourceInputs["subscriptions"] = args?.subscriptions;
+            resourceInputs["virtualNetworks"] = args?.virtualNetworks;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

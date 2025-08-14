@@ -83,49 +83,49 @@ export class MachineLearningDatastore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataStoreType === undefined) && !opts.urn) {
+            if (args?.dataStoreType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataStoreType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["accountKey"] = args ? args.accountKey : undefined;
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["adlsResourceGroup"] = args ? args.adlsResourceGroup : undefined;
-            resourceInputs["adlsSubscriptionId"] = args ? args.adlsSubscriptionId : undefined;
-            resourceInputs["authorityUrl"] = args ? args.authorityUrl : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
-            resourceInputs["containerName"] = args ? args.containerName : undefined;
-            resourceInputs["dataStoreType"] = args ? args.dataStoreType : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["datastoreName"] = args ? args.datastoreName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
-            resourceInputs["enforceSSL"] = (args ? args.enforceSSL : undefined) ?? true;
-            resourceInputs["fileSystem"] = args ? args.fileSystem : undefined;
-            resourceInputs["includeSecret"] = (args ? args.includeSecret : undefined) ?? true;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceUrl"] = args ? args.resourceUrl : undefined;
-            resourceInputs["sasToken"] = args ? args.sasToken : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["shareName"] = args ? args.shareName : undefined;
-            resourceInputs["skipValidation"] = args ? args.skipValidation : undefined;
-            resourceInputs["storageAccountResourceGroup"] = args ? args.storageAccountResourceGroup : undefined;
-            resourceInputs["storageAccountSubscriptionId"] = args ? args.storageAccountSubscriptionId : undefined;
-            resourceInputs["storeName"] = args ? args.storeName : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
-            resourceInputs["workspaceSystemAssignedIdentity"] = args ? args.workspaceSystemAssignedIdentity : undefined;
+            resourceInputs["accountKey"] = args?.accountKey;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["adlsResourceGroup"] = args?.adlsResourceGroup;
+            resourceInputs["adlsSubscriptionId"] = args?.adlsSubscriptionId;
+            resourceInputs["authorityUrl"] = args?.authorityUrl;
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["clientSecret"] = args?.clientSecret;
+            resourceInputs["containerName"] = args?.containerName;
+            resourceInputs["dataStoreType"] = args?.dataStoreType;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["datastoreName"] = args?.datastoreName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["endpoint"] = args?.endpoint;
+            resourceInputs["enforceSSL"] = (args?.enforceSSL) ?? true;
+            resourceInputs["fileSystem"] = args?.fileSystem;
+            resourceInputs["includeSecret"] = (args?.includeSecret) ?? true;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceUrl"] = args?.resourceUrl;
+            resourceInputs["sasToken"] = args?.sasToken;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["shareName"] = args?.shareName;
+            resourceInputs["skipValidation"] = args?.skipValidation;
+            resourceInputs["storageAccountResourceGroup"] = args?.storageAccountResourceGroup;
+            resourceInputs["storageAccountSubscriptionId"] = args?.storageAccountSubscriptionId;
+            resourceInputs["storeName"] = args?.storeName;
+            resourceInputs["tenantId"] = args?.tenantId;
+            resourceInputs["userId"] = args?.userId;
+            resourceInputs["userName"] = args?.userName;
+            resourceInputs["workspaceName"] = args?.workspaceName;
+            resourceInputs["workspaceSystemAssignedIdentity"] = args?.workspaceSystemAssignedIdentity;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

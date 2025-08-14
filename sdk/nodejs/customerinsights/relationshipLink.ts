@@ -107,34 +107,34 @@ export class RelationshipLink extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.hubName === undefined) && !opts.urn) {
+            if (args?.hubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.interactionType === undefined) && !opts.urn) {
+            if (args?.interactionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'interactionType'");
             }
-            if ((!args || args.profilePropertyReferences === undefined) && !opts.urn) {
+            if (args?.profilePropertyReferences === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profilePropertyReferences'");
             }
-            if ((!args || args.relatedProfilePropertyReferences === undefined) && !opts.urn) {
+            if (args?.relatedProfilePropertyReferences === undefined && !opts.urn) {
                 throw new Error("Missing required property 'relatedProfilePropertyReferences'");
             }
-            if ((!args || args.relationshipName === undefined) && !opts.urn) {
+            if (args?.relationshipName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'relationshipName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["hubName"] = args ? args.hubName : undefined;
-            resourceInputs["interactionType"] = args ? args.interactionType : undefined;
-            resourceInputs["mappings"] = args ? args.mappings : undefined;
-            resourceInputs["profilePropertyReferences"] = args ? args.profilePropertyReferences : undefined;
-            resourceInputs["relatedProfilePropertyReferences"] = args ? args.relatedProfilePropertyReferences : undefined;
-            resourceInputs["relationshipLinkName"] = args ? args.relationshipLinkName : undefined;
-            resourceInputs["relationshipName"] = args ? args.relationshipName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["hubName"] = args?.hubName;
+            resourceInputs["interactionType"] = args?.interactionType;
+            resourceInputs["mappings"] = args?.mappings;
+            resourceInputs["profilePropertyReferences"] = args?.profilePropertyReferences;
+            resourceInputs["relatedProfilePropertyReferences"] = args?.relatedProfilePropertyReferences;
+            resourceInputs["relationshipLinkName"] = args?.relationshipLinkName;
+            resourceInputs["relationshipName"] = args?.relationshipName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["linkName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

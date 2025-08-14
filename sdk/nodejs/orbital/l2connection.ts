@@ -97,33 +97,33 @@ export class L2Connection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.edgeSite === undefined) && !opts.urn) {
+            if (args?.edgeSite === undefined && !opts.urn) {
                 throw new Error("Missing required property 'edgeSite'");
             }
-            if ((!args || args.groundStation === undefined) && !opts.urn) {
+            if (args?.groundStation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groundStation'");
             }
-            if ((!args || args.groundStationPartnerRouter === undefined) && !opts.urn) {
+            if (args?.groundStationPartnerRouter === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groundStationPartnerRouter'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vlanId === undefined) && !opts.urn) {
+            if (args?.vlanId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vlanId'");
             }
-            resourceInputs["edgeSite"] = args ? args.edgeSite : undefined;
-            resourceInputs["groundStation"] = args ? args.groundStation : undefined;
-            resourceInputs["groundStationPartnerRouter"] = args ? args.groundStationPartnerRouter : undefined;
-            resourceInputs["l2ConnectionName"] = args ? args.l2ConnectionName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vlanId"] = args ? args.vlanId : undefined;
+            resourceInputs["edgeSite"] = args?.edgeSite;
+            resourceInputs["groundStation"] = args?.groundStation;
+            resourceInputs["groundStationPartnerRouter"] = args?.groundStationPartnerRouter;
+            resourceInputs["l2ConnectionName"] = args?.l2ConnectionName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vlanId"] = args?.vlanId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["circuitId"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

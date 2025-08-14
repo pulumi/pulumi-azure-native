@@ -89,35 +89,35 @@ export class JobStep extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.action === undefined) && !opts.urn) {
+            if (args?.action === undefined && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.jobAgentName === undefined) && !opts.urn) {
+            if (args?.jobAgentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobAgentName'");
             }
-            if ((!args || args.jobName === undefined) && !opts.urn) {
+            if (args?.jobName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.targetGroup === undefined) && !opts.urn) {
+            if (args?.targetGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetGroup'");
             }
             resourceInputs["action"] = args ? (args.action ? pulumi.output(args.action).apply(inputs.sql.jobStepActionArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["credential"] = args ? args.credential : undefined;
+            resourceInputs["credential"] = args?.credential;
             resourceInputs["executionOptions"] = args ? (args.executionOptions ? pulumi.output(args.executionOptions).apply(inputs.sql.jobStepExecutionOptionsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["jobAgentName"] = args ? args.jobAgentName : undefined;
-            resourceInputs["jobName"] = args ? args.jobName : undefined;
+            resourceInputs["jobAgentName"] = args?.jobAgentName;
+            resourceInputs["jobName"] = args?.jobName;
             resourceInputs["output"] = args ? (args.output ? pulumi.output(args.output).apply(inputs.sql.jobStepOutputArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["stepId"] = args ? args.stepId : undefined;
-            resourceInputs["stepName"] = args ? args.stepName : undefined;
-            resourceInputs["targetGroup"] = args ? args.targetGroup : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["stepId"] = args?.stepId;
+            resourceInputs["stepName"] = args?.stepName;
+            resourceInputs["targetGroup"] = args?.targetGroup;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

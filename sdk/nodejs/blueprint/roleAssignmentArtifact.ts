@@ -89,31 +89,31 @@ export class RoleAssignmentArtifact extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.blueprintName === undefined) && !opts.urn) {
+            if (args?.blueprintName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'blueprintName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.principalIds === undefined) && !opts.urn) {
+            if (args?.principalIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principalIds'");
             }
-            if ((!args || args.resourceScope === undefined) && !opts.urn) {
+            if (args?.resourceScope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceScope'");
             }
-            if ((!args || args.roleDefinitionId === undefined) && !opts.urn) {
+            if (args?.roleDefinitionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleDefinitionId'");
             }
-            resourceInputs["artifactName"] = args ? args.artifactName : undefined;
-            resourceInputs["blueprintName"] = args ? args.blueprintName : undefined;
-            resourceInputs["dependsOn"] = args ? args.dependsOn : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["artifactName"] = args?.artifactName;
+            resourceInputs["blueprintName"] = args?.blueprintName;
+            resourceInputs["dependsOn"] = args?.dependsOn;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
             resourceInputs["kind"] = "roleAssignment";
-            resourceInputs["principalIds"] = args ? args.principalIds : undefined;
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            resourceInputs["resourceScope"] = args ? args.resourceScope : undefined;
-            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
+            resourceInputs["principalIds"] = args?.principalIds;
+            resourceInputs["resourceGroup"] = args?.resourceGroup;
+            resourceInputs["resourceScope"] = args?.resourceScope;
+            resourceInputs["roleDefinitionId"] = args?.roleDefinitionId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

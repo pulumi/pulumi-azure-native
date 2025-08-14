@@ -91,19 +91,19 @@ export class CollectorPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.azureTrafficCollectorName === undefined) && !opts.urn) {
+            if (args?.azureTrafficCollectorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'azureTrafficCollectorName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["azureTrafficCollectorName"] = args ? args.azureTrafficCollectorName : undefined;
-            resourceInputs["collectorPolicyName"] = args ? args.collectorPolicyName : undefined;
-            resourceInputs["emissionPolicies"] = args ? args.emissionPolicies : undefined;
-            resourceInputs["ingestionPolicy"] = args ? args.ingestionPolicy : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureTrafficCollectorName"] = args?.azureTrafficCollectorName;
+            resourceInputs["collectorPolicyName"] = args?.collectorPolicyName;
+            resourceInputs["emissionPolicies"] = args?.emissionPolicies;
+            resourceInputs["ingestionPolicy"] = args?.ingestionPolicy;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -77,16 +77,16 @@ export class ServiceTask extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupName === undefined) && !opts.urn) {
+            if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["taskName"] = args ? args.taskName : undefined;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["taskName"] = args?.taskName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

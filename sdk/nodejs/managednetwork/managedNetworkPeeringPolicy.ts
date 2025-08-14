@@ -71,17 +71,17 @@ export class ManagedNetworkPeeringPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managedNetworkName === undefined) && !opts.urn) {
+            if (args?.managedNetworkName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedNetworkName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedNetworkName"] = args ? args.managedNetworkName : undefined;
-            resourceInputs["managedNetworkPeeringPolicyName"] = args ? args.managedNetworkPeeringPolicyName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedNetworkName"] = args?.managedNetworkName;
+            resourceInputs["managedNetworkPeeringPolicyName"] = args?.managedNetworkPeeringPolicyName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

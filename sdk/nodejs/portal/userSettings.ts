@@ -59,11 +59,11 @@ export class UserSettings extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.properties === undefined) && !opts.urn) {
+            if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["userSettingsName"] = args ? args.userSettingsName : undefined;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["userSettingsName"] = args?.userSettingsName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;

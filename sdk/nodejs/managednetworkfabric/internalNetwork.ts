@@ -141,33 +141,33 @@ export class InternalNetwork extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.l3IsolationDomainName === undefined) && !opts.urn) {
+            if (args?.l3IsolationDomainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'l3IsolationDomainName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vlanId === undefined) && !opts.urn) {
+            if (args?.vlanId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vlanId'");
             }
-            resourceInputs["annotation"] = args ? args.annotation : undefined;
+            resourceInputs["annotation"] = args?.annotation;
             resourceInputs["bgpConfiguration"] = args ? (args.bgpConfiguration ? pulumi.output(args.bgpConfiguration).apply(inputs.managednetworkfabric.internalNetworkPropertiesBgpConfigurationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["connectedIPv4Subnets"] = args ? args.connectedIPv4Subnets : undefined;
-            resourceInputs["connectedIPv6Subnets"] = args ? args.connectedIPv6Subnets : undefined;
-            resourceInputs["egressAclId"] = args ? args.egressAclId : undefined;
-            resourceInputs["exportRoutePolicy"] = args ? args.exportRoutePolicy : undefined;
-            resourceInputs["exportRoutePolicyId"] = args ? args.exportRoutePolicyId : undefined;
-            resourceInputs["extension"] = (args ? args.extension : undefined) ?? "NoExtension";
-            resourceInputs["importRoutePolicy"] = args ? args.importRoutePolicy : undefined;
-            resourceInputs["importRoutePolicyId"] = args ? args.importRoutePolicyId : undefined;
-            resourceInputs["ingressAclId"] = args ? args.ingressAclId : undefined;
-            resourceInputs["internalNetworkName"] = args ? args.internalNetworkName : undefined;
-            resourceInputs["isMonitoringEnabled"] = (args ? args.isMonitoringEnabled : undefined) ?? "False";
-            resourceInputs["l3IsolationDomainName"] = args ? args.l3IsolationDomainName : undefined;
-            resourceInputs["mtu"] = (args ? args.mtu : undefined) ?? 1500;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["connectedIPv4Subnets"] = args?.connectedIPv4Subnets;
+            resourceInputs["connectedIPv6Subnets"] = args?.connectedIPv6Subnets;
+            resourceInputs["egressAclId"] = args?.egressAclId;
+            resourceInputs["exportRoutePolicy"] = args?.exportRoutePolicy;
+            resourceInputs["exportRoutePolicyId"] = args?.exportRoutePolicyId;
+            resourceInputs["extension"] = (args?.extension) ?? "NoExtension";
+            resourceInputs["importRoutePolicy"] = args?.importRoutePolicy;
+            resourceInputs["importRoutePolicyId"] = args?.importRoutePolicyId;
+            resourceInputs["ingressAclId"] = args?.ingressAclId;
+            resourceInputs["internalNetworkName"] = args?.internalNetworkName;
+            resourceInputs["isMonitoringEnabled"] = (args?.isMonitoringEnabled) ?? "False";
+            resourceInputs["l3IsolationDomainName"] = args?.l3IsolationDomainName;
+            resourceInputs["mtu"] = (args?.mtu) ?? 1500;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["staticRouteConfiguration"] = args ? (args.staticRouteConfiguration ? pulumi.output(args.staticRouteConfiguration).apply(inputs.managednetworkfabric.internalNetworkPropertiesStaticRouteConfigurationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["vlanId"] = args ? args.vlanId : undefined;
+            resourceInputs["vlanId"] = args?.vlanId;
             resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationState"] = undefined /*out*/;

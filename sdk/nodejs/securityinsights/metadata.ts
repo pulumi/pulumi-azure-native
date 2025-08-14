@@ -149,40 +149,40 @@ export class Metadata extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.parentId === undefined) && !opts.urn) {
+            if (args?.parentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["author"] = args ? args.author : undefined;
-            resourceInputs["categories"] = args ? args.categories : undefined;
-            resourceInputs["contentId"] = args ? args.contentId : undefined;
-            resourceInputs["contentSchemaVersion"] = args ? args.contentSchemaVersion : undefined;
-            resourceInputs["customVersion"] = args ? args.customVersion : undefined;
-            resourceInputs["dependencies"] = args ? args.dependencies : undefined;
-            resourceInputs["firstPublishDate"] = args ? args.firstPublishDate : undefined;
-            resourceInputs["icon"] = args ? args.icon : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["lastPublishDate"] = args ? args.lastPublishDate : undefined;
-            resourceInputs["metadataName"] = args ? args.metadataName : undefined;
-            resourceInputs["parentId"] = args ? args.parentId : undefined;
-            resourceInputs["previewImages"] = args ? args.previewImages : undefined;
-            resourceInputs["previewImagesDark"] = args ? args.previewImagesDark : undefined;
-            resourceInputs["providers"] = args ? args.providers : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["support"] = args ? args.support : undefined;
-            resourceInputs["threatAnalysisTactics"] = args ? args.threatAnalysisTactics : undefined;
-            resourceInputs["threatAnalysisTechniques"] = args ? args.threatAnalysisTechniques : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["author"] = args?.author;
+            resourceInputs["categories"] = args?.categories;
+            resourceInputs["contentId"] = args?.contentId;
+            resourceInputs["contentSchemaVersion"] = args?.contentSchemaVersion;
+            resourceInputs["customVersion"] = args?.customVersion;
+            resourceInputs["dependencies"] = args?.dependencies;
+            resourceInputs["firstPublishDate"] = args?.firstPublishDate;
+            resourceInputs["icon"] = args?.icon;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["lastPublishDate"] = args?.lastPublishDate;
+            resourceInputs["metadataName"] = args?.metadataName;
+            resourceInputs["parentId"] = args?.parentId;
+            resourceInputs["previewImages"] = args?.previewImages;
+            resourceInputs["previewImagesDark"] = args?.previewImagesDark;
+            resourceInputs["providers"] = args?.providers;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["support"] = args?.support;
+            resourceInputs["threatAnalysisTactics"] = args?.threatAnalysisTactics;
+            resourceInputs["threatAnalysisTechniques"] = args?.threatAnalysisTechniques;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

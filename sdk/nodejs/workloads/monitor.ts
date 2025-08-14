@@ -125,21 +125,21 @@ export class Monitor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["appLocation"] = args ? args.appLocation : undefined;
-            resourceInputs["appServicePlanConfiguration"] = args ? args.appServicePlanConfiguration : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logAnalyticsWorkspaceArmId"] = args ? args.logAnalyticsWorkspaceArmId : undefined;
-            resourceInputs["managedResourceGroupConfiguration"] = args ? args.managedResourceGroupConfiguration : undefined;
-            resourceInputs["monitorName"] = args ? args.monitorName : undefined;
-            resourceInputs["monitorSubnet"] = args ? args.monitorSubnet : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routingPreference"] = args ? args.routingPreference : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zoneRedundancyPreference"] = args ? args.zoneRedundancyPreference : undefined;
+            resourceInputs["appLocation"] = args?.appLocation;
+            resourceInputs["appServicePlanConfiguration"] = args?.appServicePlanConfiguration;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logAnalyticsWorkspaceArmId"] = args?.logAnalyticsWorkspaceArmId;
+            resourceInputs["managedResourceGroupConfiguration"] = args?.managedResourceGroupConfiguration;
+            resourceInputs["monitorName"] = args?.monitorName;
+            resourceInputs["monitorSubnet"] = args?.monitorSubnet;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routingPreference"] = args?.routingPreference;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zoneRedundancyPreference"] = args?.zoneRedundancyPreference;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["msiArmId"] = undefined /*out*/;

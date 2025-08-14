@@ -135,30 +135,30 @@ export class Profile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.hubName === undefined) && !opts.urn) {
+            if (args?.hubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["apiEntitySetName"] = args ? args.apiEntitySetName : undefined;
-            resourceInputs["attributes"] = args ? args.attributes : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["entityType"] = args ? args.entityType : undefined;
-            resourceInputs["fields"] = args ? args.fields : undefined;
-            resourceInputs["hubName"] = args ? args.hubName : undefined;
-            resourceInputs["instancesCount"] = args ? args.instancesCount : undefined;
-            resourceInputs["largeImage"] = args ? args.largeImage : undefined;
-            resourceInputs["localizedAttributes"] = args ? args.localizedAttributes : undefined;
-            resourceInputs["mediumImage"] = args ? args.mediumImage : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schemaItemTypeLink"] = args ? args.schemaItemTypeLink : undefined;
-            resourceInputs["smallImage"] = args ? args.smallImage : undefined;
-            resourceInputs["strongIds"] = args ? args.strongIds : undefined;
-            resourceInputs["timestampFieldName"] = args ? args.timestampFieldName : undefined;
-            resourceInputs["typeName"] = args ? args.typeName : undefined;
+            resourceInputs["apiEntitySetName"] = args?.apiEntitySetName;
+            resourceInputs["attributes"] = args?.attributes;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["entityType"] = args?.entityType;
+            resourceInputs["fields"] = args?.fields;
+            resourceInputs["hubName"] = args?.hubName;
+            resourceInputs["instancesCount"] = args?.instancesCount;
+            resourceInputs["largeImage"] = args?.largeImage;
+            resourceInputs["localizedAttributes"] = args?.localizedAttributes;
+            resourceInputs["mediumImage"] = args?.mediumImage;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["schemaItemTypeLink"] = args?.schemaItemTypeLink;
+            resourceInputs["smallImage"] = args?.smallImage;
+            resourceInputs["strongIds"] = args?.strongIds;
+            resourceInputs["timestampFieldName"] = args?.timestampFieldName;
+            resourceInputs["typeName"] = args?.typeName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastChangedUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

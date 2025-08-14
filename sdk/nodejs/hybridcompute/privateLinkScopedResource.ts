@@ -68,16 +68,16 @@ export class PrivateLinkScopedResource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scopeName === undefined) && !opts.urn) {
+            if (args?.scopeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopeName'");
             }
-            resourceInputs["linkedResourceId"] = args ? args.linkedResourceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scopeName"] = args ? args.scopeName : undefined;
+            resourceInputs["linkedResourceId"] = args?.linkedResourceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scopeName"] = args?.scopeName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

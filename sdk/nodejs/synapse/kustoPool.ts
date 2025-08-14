@@ -125,25 +125,25 @@ export class KustoPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["enablePurge"] = (args ? args.enablePurge : undefined) ?? false;
-            resourceInputs["enableStreamingIngest"] = (args ? args.enableStreamingIngest : undefined) ?? false;
-            resourceInputs["kustoPoolName"] = args ? args.kustoPoolName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["optimizedAutoscale"] = args ? args.optimizedAutoscale : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
-            resourceInputs["workspaceUID"] = args ? args.workspaceUID : undefined;
+            resourceInputs["enablePurge"] = (args?.enablePurge) ?? false;
+            resourceInputs["enableStreamingIngest"] = (args?.enableStreamingIngest) ?? false;
+            resourceInputs["kustoPoolName"] = args?.kustoPoolName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["optimizedAutoscale"] = args?.optimizedAutoscale;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceName"] = args?.workspaceName;
+            resourceInputs["workspaceUID"] = args?.workspaceUID;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataIngestionUri"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

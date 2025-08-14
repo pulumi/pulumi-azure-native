@@ -75,20 +75,20 @@ export class AkriConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.akriConnectorTemplateName === undefined) && !opts.urn) {
+            if (args?.akriConnectorTemplateName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'akriConnectorTemplateName'");
             }
-            if ((!args || args.instanceName === undefined) && !opts.urn) {
+            if (args?.instanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["akriConnectorTemplateName"] = args ? args.akriConnectorTemplateName : undefined;
-            resourceInputs["connectorName"] = args ? args.connectorName : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["instanceName"] = args ? args.instanceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["akriConnectorTemplateName"] = args?.akriConnectorTemplateName;
+            resourceInputs["connectorName"] = args?.connectorName;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["instanceName"] = args?.instanceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

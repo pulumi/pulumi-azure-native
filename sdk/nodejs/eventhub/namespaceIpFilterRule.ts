@@ -75,18 +75,18 @@ export class NamespaceIpFilterRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["filterName"] = args ? args.filterName : undefined;
-            resourceInputs["ipFilterRuleName"] = args ? args.ipFilterRuleName : undefined;
-            resourceInputs["ipMask"] = args ? args.ipMask : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["filterName"] = args?.filterName;
+            resourceInputs["ipFilterRuleName"] = args?.ipFilterRuleName;
+            resourceInputs["ipMask"] = args?.ipMask;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

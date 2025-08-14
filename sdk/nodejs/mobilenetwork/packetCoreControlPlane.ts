@@ -157,44 +157,44 @@ export class PacketCoreControlPlane extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.controlPlaneAccessInterface === undefined) && !opts.urn) {
+            if (args?.controlPlaneAccessInterface === undefined && !opts.urn) {
                 throw new Error("Missing required property 'controlPlaneAccessInterface'");
             }
-            if ((!args || args.localDiagnosticsAccess === undefined) && !opts.urn) {
+            if (args?.localDiagnosticsAccess === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localDiagnosticsAccess'");
             }
-            if ((!args || args.platform === undefined) && !opts.urn) {
+            if (args?.platform === undefined && !opts.urn) {
                 throw new Error("Missing required property 'platform'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sites === undefined) && !opts.urn) {
+            if (args?.sites === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sites'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["controlPlaneAccessInterface"] = args ? args.controlPlaneAccessInterface : undefined;
-            resourceInputs["controlPlaneAccessVirtualIpv4Addresses"] = args ? args.controlPlaneAccessVirtualIpv4Addresses : undefined;
-            resourceInputs["coreNetworkTechnology"] = args ? args.coreNetworkTechnology : undefined;
-            resourceInputs["diagnosticsUpload"] = args ? args.diagnosticsUpload : undefined;
+            resourceInputs["controlPlaneAccessInterface"] = args?.controlPlaneAccessInterface;
+            resourceInputs["controlPlaneAccessVirtualIpv4Addresses"] = args?.controlPlaneAccessVirtualIpv4Addresses;
+            resourceInputs["coreNetworkTechnology"] = args?.coreNetworkTechnology;
+            resourceInputs["diagnosticsUpload"] = args?.diagnosticsUpload;
             resourceInputs["eventHub"] = args ? (args.eventHub ? pulumi.output(args.eventHub).apply(inputs.mobilenetwork.eventHubConfigurationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["identity"] = args?.identity;
             resourceInputs["installation"] = args ? (args.installation ? pulumi.output(args.installation).apply(inputs.mobilenetwork.installationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["interopSettings"] = args ? args.interopSettings : undefined;
-            resourceInputs["localDiagnosticsAccess"] = args ? args.localDiagnosticsAccess : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["packetCoreControlPlaneName"] = args ? args.packetCoreControlPlaneName : undefined;
-            resourceInputs["platform"] = args ? args.platform : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["signaling"] = args ? args.signaling : undefined;
-            resourceInputs["sites"] = args ? args.sites : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["ueMtu"] = (args ? args.ueMtu : undefined) ?? 1440;
-            resourceInputs["userConsent"] = args ? args.userConsent : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["interopSettings"] = args?.interopSettings;
+            resourceInputs["localDiagnosticsAccess"] = args?.localDiagnosticsAccess;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["packetCoreControlPlaneName"] = args?.packetCoreControlPlaneName;
+            resourceInputs["platform"] = args?.platform;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["signaling"] = args?.signaling;
+            resourceInputs["sites"] = args?.sites;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["ueMtu"] = (args?.ueMtu) ?? 1440;
+            resourceInputs["userConsent"] = args?.userConsent;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["homeNetworkPrivateKeysProvisioning"] = undefined /*out*/;
             resourceInputs["installedVersion"] = undefined /*out*/;

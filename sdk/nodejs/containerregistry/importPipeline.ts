@@ -93,21 +93,21 @@ export class ImportPipeline extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.registryName === undefined) && !opts.urn) {
+            if (args?.registryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["importPipelineName"] = args ? args.importPipelineName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["registryName"] = args ? args.registryName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["importPipelineName"] = args?.importPipelineName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["options"] = args?.options;
+            resourceInputs["registryName"] = args?.registryName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["source"] = args ? (args.source ? pulumi.output(args.source).apply(inputs.containerregistry.importPipelineSourcePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["trigger"] = args ? (args.trigger ? pulumi.output(args.trigger).apply(inputs.containerregistry.pipelineTriggerPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

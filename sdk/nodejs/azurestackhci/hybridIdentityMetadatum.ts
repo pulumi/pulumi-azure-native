@@ -83,17 +83,17 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualMachineName === undefined) && !opts.urn) {
+            if (args?.virtualMachineName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineName'");
             }
-            resourceInputs["metadataName"] = args ? args.metadataName : undefined;
-            resourceInputs["publicKey"] = args ? args.publicKey : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceUid"] = args ? args.resourceUid : undefined;
-            resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
+            resourceInputs["metadataName"] = args?.metadataName;
+            resourceInputs["publicKey"] = args?.publicKey;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceUid"] = args?.resourceUid;
+            resourceInputs["virtualMachineName"] = args?.virtualMachineName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

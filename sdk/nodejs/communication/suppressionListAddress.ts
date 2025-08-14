@@ -93,30 +93,30 @@ export class SuppressionListAddress extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            if ((!args || args.emailServiceName === undefined) && !opts.urn) {
+            if (args?.emailServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'emailServiceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.suppressionListName === undefined) && !opts.urn) {
+            if (args?.suppressionListName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'suppressionListName'");
             }
-            resourceInputs["addressId"] = args ? args.addressId : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["emailServiceName"] = args ? args.emailServiceName : undefined;
-            resourceInputs["firstName"] = args ? args.firstName : undefined;
-            resourceInputs["lastName"] = args ? args.lastName : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["suppressionListName"] = args ? args.suppressionListName : undefined;
+            resourceInputs["addressId"] = args?.addressId;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["emailServiceName"] = args?.emailServiceName;
+            resourceInputs["firstName"] = args?.firstName;
+            resourceInputs["lastName"] = args?.lastName;
+            resourceInputs["notes"] = args?.notes;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["suppressionListName"] = args?.suppressionListName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataLocation"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;

@@ -91,22 +91,22 @@ export class AlertsSuppressionRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.alertType === undefined) && !opts.urn) {
+            if (args?.alertType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alertType'");
             }
-            if ((!args || args.reason === undefined) && !opts.urn) {
+            if (args?.reason === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reason'");
             }
-            if ((!args || args.state === undefined) && !opts.urn) {
+            if (args?.state === undefined && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            resourceInputs["alertType"] = args ? args.alertType : undefined;
-            resourceInputs["alertsSuppressionRuleName"] = args ? args.alertsSuppressionRuleName : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["expirationDateUtc"] = args ? args.expirationDateUtc : undefined;
-            resourceInputs["reason"] = args ? args.reason : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["suppressionAlertsScope"] = args ? args.suppressionAlertsScope : undefined;
+            resourceInputs["alertType"] = args?.alertType;
+            resourceInputs["alertsSuppressionRuleName"] = args?.alertsSuppressionRuleName;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["expirationDateUtc"] = args?.expirationDateUtc;
+            resourceInputs["reason"] = args?.reason;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["suppressionAlertsScope"] = args?.suppressionAlertsScope;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastModifiedUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

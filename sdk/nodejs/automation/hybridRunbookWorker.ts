@@ -93,21 +93,21 @@ export class HybridRunbookWorker extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.hybridRunbookWorkerGroupName === undefined) && !opts.urn) {
+            if (args?.hybridRunbookWorkerGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hybridRunbookWorkerGroupName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["hybridRunbookWorkerGroupName"] = args ? args.hybridRunbookWorkerGroupName : undefined;
-            resourceInputs["hybridRunbookWorkerId"] = args ? args.hybridRunbookWorkerId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["vmResourceId"] = args ? args.vmResourceId : undefined;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["hybridRunbookWorkerGroupName"] = args?.hybridRunbookWorkerGroupName;
+            resourceInputs["hybridRunbookWorkerId"] = args?.hybridRunbookWorkerId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["vmResourceId"] = args?.vmResourceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["ip"] = undefined /*out*/;
             resourceInputs["lastSeenDateTime"] = undefined /*out*/;

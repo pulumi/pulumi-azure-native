@@ -115,33 +115,33 @@ export class Rack extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.availabilityZone === undefined) && !opts.urn) {
+            if (args?.availabilityZone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.rackLocation === undefined) && !opts.urn) {
+            if (args?.rackLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rackLocation'");
             }
-            if ((!args || args.rackSerialNumber === undefined) && !opts.urn) {
+            if (args?.rackSerialNumber === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rackSerialNumber'");
             }
-            if ((!args || args.rackSkuId === undefined) && !opts.urn) {
+            if (args?.rackSkuId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rackSkuId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["rackLocation"] = args ? args.rackLocation : undefined;
-            resourceInputs["rackName"] = args ? args.rackName : undefined;
-            resourceInputs["rackSerialNumber"] = args ? args.rackSerialNumber : undefined;
-            resourceInputs["rackSkuId"] = args ? args.rackSkuId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["rackLocation"] = args?.rackLocation;
+            resourceInputs["rackName"] = args?.rackName;
+            resourceInputs["rackSerialNumber"] = args?.rackSerialNumber;
+            resourceInputs["rackSkuId"] = args?.rackSkuId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;

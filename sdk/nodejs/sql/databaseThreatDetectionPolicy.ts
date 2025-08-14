@@ -99,31 +99,31 @@ export class DatabaseThreatDetectionPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.state === undefined) && !opts.urn) {
+            if (args?.state === undefined && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["disabledAlerts"] = args ? args.disabledAlerts : undefined;
-            resourceInputs["emailAccountAdmins"] = args ? args.emailAccountAdmins : undefined;
-            resourceInputs["emailAddresses"] = args ? args.emailAddresses : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
-            resourceInputs["securityAlertPolicyName"] = args ? args.securityAlertPolicyName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
-            resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
-            resourceInputs["useServerDefault"] = args ? args.useServerDefault : undefined;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["disabledAlerts"] = args?.disabledAlerts;
+            resourceInputs["emailAccountAdmins"] = args?.emailAccountAdmins;
+            resourceInputs["emailAddresses"] = args?.emailAddresses;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retentionDays"] = args?.retentionDays;
+            resourceInputs["securityAlertPolicyName"] = args?.securityAlertPolicyName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey;
+            resourceInputs["storageEndpoint"] = args?.storageEndpoint;
+            resourceInputs["useServerDefault"] = args?.useServerDefault;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

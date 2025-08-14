@@ -105,25 +105,25 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
+            if (args?.integrationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if ((!args || args.mapType === undefined) && !opts.urn) {
+            if (args?.mapType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mapType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mapName"] = args ? args.mapName : undefined;
-            resourceInputs["mapType"] = args ? args.mapType : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["parametersSchema"] = args ? args.parametersSchema : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["integrationAccountName"] = args?.integrationAccountName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mapName"] = args?.mapName;
+            resourceInputs["mapType"] = args?.mapType;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["parametersSchema"] = args?.parametersSchema;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["changedTime"] = undefined /*out*/;
             resourceInputs["contentLink"] = undefined /*out*/;

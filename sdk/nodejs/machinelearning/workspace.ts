@@ -107,23 +107,23 @@ export class Workspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ownerEmail === undefined) && !opts.urn) {
+            if (args?.ownerEmail === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ownerEmail'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.userStorageAccountId === undefined) && !opts.urn) {
+            if (args?.userStorageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userStorageAccountId'");
             }
-            resourceInputs["keyVaultIdentifierId"] = args ? args.keyVaultIdentifierId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["ownerEmail"] = args ? args.ownerEmail : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userStorageAccountId"] = args ? args.userStorageAccountId : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["keyVaultIdentifierId"] = args?.keyVaultIdentifierId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["ownerEmail"] = args?.ownerEmail;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userStorageAccountId"] = args?.userStorageAccountId;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

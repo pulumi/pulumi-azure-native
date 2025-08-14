@@ -101,36 +101,36 @@ export class Resource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiVersion === undefined) && !opts.urn) {
+            if (args?.apiVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiVersion'");
             }
-            if ((!args || args.parentResourcePath === undefined) && !opts.urn) {
+            if (args?.parentResourcePath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentResourcePath'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceProviderNamespace === undefined) && !opts.urn) {
+            if (args?.resourceProviderNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceProviderNamespace'");
             }
-            if ((!args || args.resourceType === undefined) && !opts.urn) {
+            if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            resourceInputs["apiVersion"] = args ? args.apiVersion : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["parentResourcePath"] = args ? args.parentResourcePath : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["resourceProviderNamespace"] = args ? args.resourceProviderNamespace : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["apiVersion"] = args?.apiVersion;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedBy"] = args?.managedBy;
+            resourceInputs["parentResourcePath"] = args?.parentResourcePath;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["resourceProviderNamespace"] = args?.resourceProviderNamespace;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

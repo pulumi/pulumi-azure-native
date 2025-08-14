@@ -100,18 +100,18 @@ export class MultipleActivationKey extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["agreementNumber"] = args ? args.agreementNumber : undefined;
-            resourceInputs["installedServerNumber"] = args ? args.installedServerNumber : undefined;
-            resourceInputs["isEligible"] = args ? args.isEligible : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["multipleActivationKeyName"] = args ? args.multipleActivationKeyName : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["supportType"] = (args ? args.supportType : undefined) ?? "SupplementalServicing";
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["agreementNumber"] = args?.agreementNumber;
+            resourceInputs["installedServerNumber"] = args?.installedServerNumber;
+            resourceInputs["isEligible"] = args?.isEligible;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["multipleActivationKeyName"] = args?.multipleActivationKeyName;
+            resourceInputs["osType"] = args?.osType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["supportType"] = (args?.supportType) ?? "SupplementalServicing";
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["expirationDate"] = undefined /*out*/;
             resourceInputs["multipleActivationKey"] = undefined /*out*/;

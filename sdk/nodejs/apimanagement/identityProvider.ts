@@ -105,32 +105,32 @@ export class IdentityProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clientId === undefined) && !opts.urn) {
+            if (args?.clientId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.clientSecret === undefined) && !opts.urn) {
+            if (args?.clientSecret === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientSecret'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["allowedTenants"] = args ? args.allowedTenants : undefined;
-            resourceInputs["authority"] = args ? args.authority : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["clientLibrary"] = args ? args.clientLibrary : undefined;
-            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
-            resourceInputs["identityProviderName"] = args ? args.identityProviderName : undefined;
-            resourceInputs["passwordResetPolicyName"] = args ? args.passwordResetPolicyName : undefined;
-            resourceInputs["profileEditingPolicyName"] = args ? args.profileEditingPolicyName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["signinPolicyName"] = args ? args.signinPolicyName : undefined;
-            resourceInputs["signinTenant"] = args ? args.signinTenant : undefined;
-            resourceInputs["signupPolicyName"] = args ? args.signupPolicyName : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["allowedTenants"] = args?.allowedTenants;
+            resourceInputs["authority"] = args?.authority;
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["clientLibrary"] = args?.clientLibrary;
+            resourceInputs["clientSecret"] = args?.clientSecret;
+            resourceInputs["identityProviderName"] = args?.identityProviderName;
+            resourceInputs["passwordResetPolicyName"] = args?.passwordResetPolicyName;
+            resourceInputs["profileEditingPolicyName"] = args?.profileEditingPolicyName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["signinPolicyName"] = args?.signinPolicyName;
+            resourceInputs["signinTenant"] = args?.signinTenant;
+            resourceInputs["signupPolicyName"] = args?.signupPolicyName;
+            resourceInputs["type"] = args?.type;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {

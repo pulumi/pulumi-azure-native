@@ -121,23 +121,23 @@ export class LoadBalancer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["backendAddressPools"] = args ? args.backendAddressPools : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["frontendIPConfigurations"] = args ? args.frontendIPConfigurations : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["inboundNatPools"] = args ? args.inboundNatPools : undefined;
-            resourceInputs["inboundNatRules"] = args ? args.inboundNatRules : undefined;
-            resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
-            resourceInputs["loadBalancingRules"] = args ? args.loadBalancingRules : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["outboundRules"] = args ? args.outboundRules : undefined;
-            resourceInputs["probes"] = args ? args.probes : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["backendAddressPools"] = args?.backendAddressPools;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["frontendIPConfigurations"] = args?.frontendIPConfigurations;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["inboundNatPools"] = args?.inboundNatPools;
+            resourceInputs["inboundNatRules"] = args?.inboundNatRules;
+            resourceInputs["loadBalancerName"] = args?.loadBalancerName;
+            resourceInputs["loadBalancingRules"] = args?.loadBalancingRules;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["outboundRules"] = args?.outboundRules;
+            resourceInputs["probes"] = args?.probes;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

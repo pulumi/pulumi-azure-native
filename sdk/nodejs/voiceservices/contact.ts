@@ -95,29 +95,29 @@ export class Contact extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.communicationsGatewayName === undefined) && !opts.urn) {
+            if (args?.communicationsGatewayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'communicationsGatewayName'");
             }
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            if ((!args || args.phoneNumber === undefined) && !opts.urn) {
+            if (args?.phoneNumber === undefined && !opts.urn) {
                 throw new Error("Missing required property 'phoneNumber'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.role === undefined) && !opts.urn) {
+            if (args?.role === undefined && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            resourceInputs["communicationsGatewayName"] = args ? args.communicationsGatewayName : undefined;
-            resourceInputs["contactName"] = args ? args.contactName : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["phoneNumber"] = args ? args.phoneNumber : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["communicationsGatewayName"] = args?.communicationsGatewayName;
+            resourceInputs["contactName"] = args?.contactName;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["phoneNumber"] = args?.phoneNumber;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

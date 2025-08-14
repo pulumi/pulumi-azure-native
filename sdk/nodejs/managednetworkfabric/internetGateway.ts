@@ -99,23 +99,23 @@ export class InternetGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkFabricControllerId === undefined) && !opts.urn) {
+            if (args?.networkFabricControllerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkFabricControllerId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["annotation"] = args ? args.annotation : undefined;
-            resourceInputs["internetGatewayName"] = args ? args.internetGatewayName : undefined;
-            resourceInputs["internetGatewayRuleId"] = args ? args.internetGatewayRuleId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkFabricControllerId"] = args ? args.networkFabricControllerId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["annotation"] = args?.annotation;
+            resourceInputs["internetGatewayName"] = args?.internetGatewayName;
+            resourceInputs["internetGatewayRuleId"] = args?.internetGatewayRuleId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkFabricControllerId"] = args?.networkFabricControllerId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["ipv4Address"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -125,22 +125,22 @@ export class PrivateLinkService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoApproval"] = args ? args.autoApproval : undefined;
-            resourceInputs["destinationIPAddress"] = args ? args.destinationIPAddress : undefined;
-            resourceInputs["enableProxyProtocol"] = args ? args.enableProxyProtocol : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["fqdns"] = args ? args.fqdns : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
-            resourceInputs["loadBalancerFrontendIpConfigurations"] = args ? args.loadBalancerFrontendIpConfigurations : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["visibility"] = args ? args.visibility : undefined;
+            resourceInputs["autoApproval"] = args?.autoApproval;
+            resourceInputs["destinationIPAddress"] = args?.destinationIPAddress;
+            resourceInputs["enableProxyProtocol"] = args?.enableProxyProtocol;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["fqdns"] = args?.fqdns;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["ipConfigurations"] = args?.ipConfigurations;
+            resourceInputs["loadBalancerFrontendIpConfigurations"] = args?.loadBalancerFrontendIpConfigurations;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["visibility"] = args?.visibility;
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

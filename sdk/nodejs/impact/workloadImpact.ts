@@ -71,8 +71,8 @@ export class WorkloadImpact extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["workloadImpactName"] = args ? args.workloadImpactName : undefined;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["workloadImpactName"] = args?.workloadImpactName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

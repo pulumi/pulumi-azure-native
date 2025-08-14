@@ -93,19 +93,19 @@ export class PlanMember extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.planName === undefined) && !opts.urn) {
+            if (args?.planName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'planName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["memberId"] = args ? args.memberId : undefined;
-            resourceInputs["memberName"] = args ? args.memberName : undefined;
-            resourceInputs["memberType"] = args ? args.memberType : undefined;
-            resourceInputs["planName"] = args ? args.planName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tier"] = args ? args.tier : undefined;
+            resourceInputs["memberId"] = args?.memberId;
+            resourceInputs["memberName"] = args?.memberName;
+            resourceInputs["memberType"] = args?.memberType;
+            resourceInputs["planName"] = args?.planName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tier"] = args?.tier;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

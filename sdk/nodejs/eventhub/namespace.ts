@@ -153,26 +153,26 @@ export class Namespace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["alternateName"] = args ? args.alternateName : undefined;
-            resourceInputs["clusterArmId"] = args ? args.clusterArmId : undefined;
-            resourceInputs["disableLocalAuth"] = args ? args.disableLocalAuth : undefined;
+            resourceInputs["alternateName"] = args?.alternateName;
+            resourceInputs["clusterArmId"] = args?.clusterArmId;
+            resourceInputs["disableLocalAuth"] = args?.disableLocalAuth;
             resourceInputs["encryption"] = args ? (args.encryption ? pulumi.output(args.encryption).apply(inputs.eventhub.encryptionArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["isAutoInflateEnabled"] = args ? args.isAutoInflateEnabled : undefined;
-            resourceInputs["kafkaEnabled"] = args ? args.kafkaEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maximumThroughputUnits"] = args ? args.maximumThroughputUnits : undefined;
-            resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
-            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["isAutoInflateEnabled"] = args?.isAutoInflateEnabled;
+            resourceInputs["kafkaEnabled"] = args?.kafkaEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maximumThroughputUnits"] = args?.maximumThroughputUnits;
+            resourceInputs["minimumTlsVersion"] = args?.minimumTlsVersion;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["privateEndpointConnections"] = args?.privateEndpointConnections;
+            resourceInputs["publicNetworkAccess"] = (args?.publicNetworkAccess) ?? "Enabled";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zoneRedundant"] = args?.zoneRedundant;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["metricId"] = undefined /*out*/;

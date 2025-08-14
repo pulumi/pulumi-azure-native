@@ -109,23 +109,23 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.rights === undefined) && !opts.urn) {
+            if (args?.rights === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rights'");
             }
-            resourceInputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["primaryKey"] = args ? args.primaryKey : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rights"] = args ? args.rights : undefined;
-            resourceInputs["secondaryKey"] = args ? args.secondaryKey : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["authorizationRuleName"] = args?.authorizationRuleName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["primaryKey"] = args?.primaryKey;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["rights"] = args?.rights;
+            resourceInputs["secondaryKey"] = args?.secondaryKey;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["claimType"] = undefined /*out*/;
             resourceInputs["claimValue"] = undefined /*out*/;

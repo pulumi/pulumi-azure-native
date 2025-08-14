@@ -73,22 +73,22 @@ export class MonitoringConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deviceName === undefined) && !opts.urn) {
+            if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.metricConfigurations === undefined) && !opts.urn) {
+            if (args?.metricConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'metricConfigurations'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.roleName === undefined) && !opts.urn) {
+            if (args?.roleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleName'");
             }
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["metricConfigurations"] = args ? args.metricConfigurations : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["roleName"] = args ? args.roleName : undefined;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["metricConfigurations"] = args?.metricConfigurations;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["roleName"] = args?.roleName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

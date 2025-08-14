@@ -97,20 +97,20 @@ export class WorkloadNetworkPortMirroring extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.privateCloudName === undefined) && !opts.urn) {
+            if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["direction"] = args ? args.direction : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["portMirroringId"] = args ? args.portMirroringId : undefined;
-            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["revision"] = args ? args.revision : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["direction"] = args?.direction;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["portMirroringId"] = args?.portMirroringId;
+            resourceInputs["privateCloudName"] = args?.privateCloudName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["revision"] = args?.revision;
+            resourceInputs["source"] = args?.source;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

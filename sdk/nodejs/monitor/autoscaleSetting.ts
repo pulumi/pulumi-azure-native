@@ -79,23 +79,23 @@ export class AutoscaleSetting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.profiles === undefined) && !opts.urn) {
+            if (args?.profiles === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profiles'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoscaleSettingName"] = args ? args.autoscaleSettingName : undefined;
-            resourceInputs["enabled"] = (args ? args.enabled : undefined) ?? false;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notifications"] = args ? args.notifications : undefined;
-            resourceInputs["predictiveAutoscalePolicy"] = args ? args.predictiveAutoscalePolicy : undefined;
-            resourceInputs["profiles"] = args ? args.profiles : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetResourceLocation"] = args ? args.targetResourceLocation : undefined;
-            resourceInputs["targetResourceUri"] = args ? args.targetResourceUri : undefined;
+            resourceInputs["autoscaleSettingName"] = args?.autoscaleSettingName;
+            resourceInputs["enabled"] = (args?.enabled) ?? false;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notifications"] = args?.notifications;
+            resourceInputs["predictiveAutoscalePolicy"] = args?.predictiveAutoscalePolicy;
+            resourceInputs["profiles"] = args?.profiles;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetResourceLocation"] = args?.targetResourceLocation;
+            resourceInputs["targetResourceUri"] = args?.targetResourceUri;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

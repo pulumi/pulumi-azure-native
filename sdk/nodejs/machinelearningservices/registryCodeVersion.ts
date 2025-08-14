@@ -73,23 +73,23 @@ export class RegistryCodeVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.codeName === undefined) && !opts.urn) {
+            if (args?.codeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'codeName'");
             }
-            if ((!args || args.codeVersionProperties === undefined) && !opts.urn) {
+            if (args?.codeVersionProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'codeVersionProperties'");
             }
-            if ((!args || args.registryName === undefined) && !opts.urn) {
+            if (args?.registryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["codeName"] = args ? args.codeName : undefined;
+            resourceInputs["codeName"] = args?.codeName;
             resourceInputs["codeVersionProperties"] = args ? (args.codeVersionProperties ? pulumi.output(args.codeVersionProperties).apply(inputs.machinelearningservices.codeVersionArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["registryName"] = args ? args.registryName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["registryName"] = args?.registryName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

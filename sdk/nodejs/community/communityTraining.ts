@@ -111,42 +111,42 @@ export class CommunityTraining extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.disasterRecoveryEnabled === undefined) && !opts.urn) {
+            if (args?.disasterRecoveryEnabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'disasterRecoveryEnabled'");
             }
-            if ((!args || args.identityConfiguration === undefined) && !opts.urn) {
+            if (args?.identityConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityConfiguration'");
             }
-            if ((!args || args.portalAdminEmailAddress === undefined) && !opts.urn) {
+            if (args?.portalAdminEmailAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'portalAdminEmailAddress'");
             }
-            if ((!args || args.portalName === undefined) && !opts.urn) {
+            if (args?.portalName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'portalName'");
             }
-            if ((!args || args.portalOwnerEmailAddress === undefined) && !opts.urn) {
+            if (args?.portalOwnerEmailAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'portalOwnerEmailAddress'");
             }
-            if ((!args || args.portalOwnerOrganizationName === undefined) && !opts.urn) {
+            if (args?.portalOwnerOrganizationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'portalOwnerOrganizationName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.zoneRedundancyEnabled === undefined) && !opts.urn) {
+            if (args?.zoneRedundancyEnabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'zoneRedundancyEnabled'");
             }
-            resourceInputs["communityTrainingName"] = args ? args.communityTrainingName : undefined;
-            resourceInputs["disasterRecoveryEnabled"] = args ? args.disasterRecoveryEnabled : undefined;
+            resourceInputs["communityTrainingName"] = args?.communityTrainingName;
+            resourceInputs["disasterRecoveryEnabled"] = args?.disasterRecoveryEnabled;
             resourceInputs["identityConfiguration"] = args ? (args.identityConfiguration ? pulumi.output(args.identityConfiguration).apply(inputs.community.identityConfigurationPropertiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["portalAdminEmailAddress"] = args ? args.portalAdminEmailAddress : undefined;
-            resourceInputs["portalName"] = args ? args.portalName : undefined;
-            resourceInputs["portalOwnerEmailAddress"] = args ? args.portalOwnerEmailAddress : undefined;
-            resourceInputs["portalOwnerOrganizationName"] = args ? args.portalOwnerOrganizationName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zoneRedundancyEnabled"] = args ? args.zoneRedundancyEnabled : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["portalAdminEmailAddress"] = args?.portalAdminEmailAddress;
+            resourceInputs["portalName"] = args?.portalName;
+            resourceInputs["portalOwnerEmailAddress"] = args?.portalOwnerEmailAddress;
+            resourceInputs["portalOwnerOrganizationName"] = args?.portalOwnerOrganizationName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zoneRedundancyEnabled"] = args?.zoneRedundancyEnabled;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -101,21 +101,21 @@ export class WorkloadNetworkDnsService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.privateCloudName === undefined) && !opts.urn) {
+            if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["defaultDnsZone"] = args ? args.defaultDnsZone : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["dnsServiceId"] = args ? args.dnsServiceId : undefined;
-            resourceInputs["dnsServiceIp"] = args ? args.dnsServiceIp : undefined;
-            resourceInputs["fqdnZones"] = args ? args.fqdnZones : undefined;
-            resourceInputs["logLevel"] = args ? args.logLevel : undefined;
-            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["revision"] = args ? args.revision : undefined;
+            resourceInputs["defaultDnsZone"] = args?.defaultDnsZone;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["dnsServiceId"] = args?.dnsServiceId;
+            resourceInputs["dnsServiceIp"] = args?.dnsServiceIp;
+            resourceInputs["fqdnZones"] = args?.fqdnZones;
+            resourceInputs["logLevel"] = args?.logLevel;
+            resourceInputs["privateCloudName"] = args?.privateCloudName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["revision"] = args?.revision;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

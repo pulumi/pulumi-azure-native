@@ -105,19 +105,19 @@ export class WCFRelay extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["relayName"] = args ? args.relayName : undefined;
-            resourceInputs["relayType"] = args ? args.relayType : undefined;
-            resourceInputs["requiresClientAuthorization"] = args ? args.requiresClientAuthorization : undefined;
-            resourceInputs["requiresTransportSecurity"] = args ? args.requiresTransportSecurity : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["userMetadata"] = args ? args.userMetadata : undefined;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["relayName"] = args?.relayName;
+            resourceInputs["relayType"] = args?.relayType;
+            resourceInputs["requiresClientAuthorization"] = args?.requiresClientAuthorization;
+            resourceInputs["requiresTransportSecurity"] = args?.requiresTransportSecurity;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["userMetadata"] = args?.userMetadata;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["isDynamic"] = undefined /*out*/;

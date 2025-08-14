@@ -95,24 +95,24 @@ export class BackupPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deviceName === undefined) && !opts.urn) {
+            if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.managerName === undefined) && !opts.urn) {
+            if (args?.managerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.volumeIds === undefined) && !opts.urn) {
+            if (args?.volumeIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeIds'");
             }
-            resourceInputs["backupPolicyName"] = args ? args.backupPolicyName : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["managerName"] = args ? args.managerName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["volumeIds"] = args ? args.volumeIds : undefined;
+            resourceInputs["backupPolicyName"] = args?.backupPolicyName;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["managerName"] = args?.managerName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["volumeIds"] = args?.volumeIds;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["backupPolicyCreationType"] = undefined /*out*/;
             resourceInputs["lastBackupTime"] = undefined /*out*/;

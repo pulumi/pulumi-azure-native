@@ -159,34 +159,34 @@ export class VirtualMachine extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.amountOfRam === undefined) && !opts.urn) {
+            if (args?.amountOfRam === undefined && !opts.urn) {
                 throw new Error("Missing required property 'amountOfRam'");
             }
-            if ((!args || args.numberOfCores === undefined) && !opts.urn) {
+            if (args?.numberOfCores === undefined && !opts.urn) {
                 throw new Error("Missing required property 'numberOfCores'");
             }
-            if ((!args || args.privateCloudId === undefined) && !opts.urn) {
+            if (args?.privateCloudId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["amountOfRam"] = args ? args.amountOfRam : undefined;
-            resourceInputs["customization"] = args ? args.customization : undefined;
-            resourceInputs["disks"] = args ? args.disks : undefined;
-            resourceInputs["exposeToGuestVM"] = args ? args.exposeToGuestVM : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["nics"] = args ? args.nics : undefined;
-            resourceInputs["numberOfCores"] = args ? args.numberOfCores : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["privateCloudId"] = args ? args.privateCloudId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourcePool"] = args ? args.resourcePool : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateId"] = args ? args.templateId : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
-            resourceInputs["vSphereNetworks"] = args ? args.vSphereNetworks : undefined;
-            resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
+            resourceInputs["amountOfRam"] = args?.amountOfRam;
+            resourceInputs["customization"] = args?.customization;
+            resourceInputs["disks"] = args?.disks;
+            resourceInputs["exposeToGuestVM"] = args?.exposeToGuestVM;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["nics"] = args?.nics;
+            resourceInputs["numberOfCores"] = args?.numberOfCores;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["privateCloudId"] = args?.privateCloudId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourcePool"] = args?.resourcePool;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateId"] = args?.templateId;
+            resourceInputs["username"] = args?.username;
+            resourceInputs["vSphereNetworks"] = args?.vSphereNetworks;
+            resourceInputs["virtualMachineName"] = args?.virtualMachineName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["controllers"] = undefined /*out*/;
             resourceInputs["dnsname"] = undefined /*out*/;

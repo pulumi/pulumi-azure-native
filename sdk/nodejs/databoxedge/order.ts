@@ -109,20 +109,20 @@ export class Order extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.contactInformation === undefined) && !opts.urn) {
+            if (args?.contactInformation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contactInformation'");
             }
-            if ((!args || args.deviceName === undefined) && !opts.urn) {
+            if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["contactInformation"] = args ? args.contactInformation : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["shipmentType"] = args ? args.shipmentType : undefined;
-            resourceInputs["shippingAddress"] = args ? args.shippingAddress : undefined;
+            resourceInputs["contactInformation"] = args?.contactInformation;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["shipmentType"] = args?.shipmentType;
+            resourceInputs["shippingAddress"] = args?.shippingAddress;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["currentStatus"] = undefined /*out*/;
             resourceInputs["deliveryTrackingInfo"] = undefined /*out*/;

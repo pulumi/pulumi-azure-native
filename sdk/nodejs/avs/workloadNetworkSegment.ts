@@ -97,19 +97,19 @@ export class WorkloadNetworkSegment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.privateCloudName === undefined) && !opts.urn) {
+            if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["connectedGateway"] = args ? args.connectedGateway : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["revision"] = args ? args.revision : undefined;
-            resourceInputs["segmentId"] = args ? args.segmentId : undefined;
-            resourceInputs["subnet"] = args ? args.subnet : undefined;
+            resourceInputs["connectedGateway"] = args?.connectedGateway;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["privateCloudName"] = args?.privateCloudName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["revision"] = args?.revision;
+            resourceInputs["segmentId"] = args?.segmentId;
+            resourceInputs["subnet"] = args?.subnet;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["portVif"] = undefined /*out*/;

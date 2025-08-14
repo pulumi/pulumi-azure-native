@@ -155,37 +155,37 @@ export class StorageAppliance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.administratorCredentials === undefined) && !opts.urn) {
+            if (args?.administratorCredentials === undefined && !opts.urn) {
                 throw new Error("Missing required property 'administratorCredentials'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.rackId === undefined) && !opts.urn) {
+            if (args?.rackId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rackId'");
             }
-            if ((!args || args.rackSlot === undefined) && !opts.urn) {
+            if (args?.rackSlot === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rackSlot'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serialNumber === undefined) && !opts.urn) {
+            if (args?.serialNumber === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serialNumber'");
             }
-            if ((!args || args.storageApplianceSkuId === undefined) && !opts.urn) {
+            if (args?.storageApplianceSkuId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageApplianceSkuId'");
             }
-            resourceInputs["administratorCredentials"] = args ? args.administratorCredentials : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["rackId"] = args ? args.rackId : undefined;
-            resourceInputs["rackSlot"] = args ? args.rackSlot : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serialNumber"] = args ? args.serialNumber : undefined;
-            resourceInputs["storageApplianceName"] = args ? args.storageApplianceName : undefined;
-            resourceInputs["storageApplianceSkuId"] = args ? args.storageApplianceSkuId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["administratorCredentials"] = args?.administratorCredentials;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["rackId"] = args?.rackId;
+            resourceInputs["rackSlot"] = args?.rackSlot;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serialNumber"] = args?.serialNumber;
+            resourceInputs["storageApplianceName"] = args?.storageApplianceName;
+            resourceInputs["storageApplianceSkuId"] = args?.storageApplianceSkuId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["capacity"] = undefined /*out*/;
             resourceInputs["capacityUsed"] = undefined /*out*/;

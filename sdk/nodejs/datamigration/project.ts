@@ -98,29 +98,29 @@ export class Project extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupName === undefined) && !opts.urn) {
+            if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.sourcePlatform === undefined) && !opts.urn) {
+            if (args?.sourcePlatform === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourcePlatform'");
             }
-            if ((!args || args.targetPlatform === undefined) && !opts.urn) {
+            if (args?.targetPlatform === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetPlatform'");
             }
-            resourceInputs["azureAuthenticationInfo"] = args ? args.azureAuthenticationInfo : undefined;
-            resourceInputs["databasesInfo"] = args ? args.databasesInfo : undefined;
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["sourceConnectionInfo"] = args ? args.sourceConnectionInfo : undefined;
-            resourceInputs["sourcePlatform"] = args ? args.sourcePlatform : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetConnectionInfo"] = args ? args.targetConnectionInfo : undefined;
-            resourceInputs["targetPlatform"] = args ? args.targetPlatform : undefined;
+            resourceInputs["azureAuthenticationInfo"] = args?.azureAuthenticationInfo;
+            resourceInputs["databasesInfo"] = args?.databasesInfo;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["sourceConnectionInfo"] = args?.sourceConnectionInfo;
+            resourceInputs["sourcePlatform"] = args?.sourcePlatform;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetConnectionInfo"] = args?.targetConnectionInfo;
+            resourceInputs["targetPlatform"] = args?.targetPlatform;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

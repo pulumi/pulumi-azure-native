@@ -101,14 +101,14 @@ export class TrafficControllerInterface extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securityPolicyConfigurations"] = args ? args.securityPolicyConfigurations : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trafficControllerName"] = args ? args.trafficControllerName : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["securityPolicyConfigurations"] = args?.securityPolicyConfigurations;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trafficControllerName"] = args?.trafficControllerName;
             resourceInputs["associations"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationEndpoints"] = undefined /*out*/;

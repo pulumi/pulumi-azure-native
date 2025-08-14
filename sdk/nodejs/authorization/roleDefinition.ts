@@ -101,16 +101,16 @@ export class RoleDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["assignableScopes"] = args ? args.assignableScopes : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
-            resourceInputs["roleName"] = args ? args.roleName : undefined;
-            resourceInputs["roleType"] = args ? args.roleType : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["assignableScopes"] = args?.assignableScopes;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["roleDefinitionId"] = args?.roleDefinitionId;
+            resourceInputs["roleName"] = args?.roleName;
+            resourceInputs["roleType"] = args?.roleType;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;

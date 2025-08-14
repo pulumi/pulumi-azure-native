@@ -87,25 +87,25 @@ export class AnalyticsItem extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !opts.urn) {
+            if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            if ((!args || args.scopePath === undefined) && !opts.urn) {
+            if (args?.scopePath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopePath'");
             }
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["overrideItem"] = args ? args.overrideItem : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["scopePath"] = args ? args.scopePath : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["overrideItem"] = args?.overrideItem;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["scopePath"] = args?.scopePath;
+            resourceInputs["type"] = args?.type;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["timeModified"] = undefined /*out*/;

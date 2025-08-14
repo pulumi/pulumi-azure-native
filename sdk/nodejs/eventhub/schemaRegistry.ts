@@ -91,18 +91,18 @@ export class SchemaRegistry extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["groupProperties"] = args ? args.groupProperties : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schemaCompatibility"] = args ? args.schemaCompatibility : undefined;
-            resourceInputs["schemaGroupName"] = args ? args.schemaGroupName : undefined;
-            resourceInputs["schemaType"] = args ? args.schemaType : undefined;
+            resourceInputs["groupProperties"] = args?.groupProperties;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["schemaCompatibility"] = args?.schemaCompatibility;
+            resourceInputs["schemaGroupName"] = args?.schemaGroupName;
+            resourceInputs["schemaType"] = args?.schemaType;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAtUtc"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;

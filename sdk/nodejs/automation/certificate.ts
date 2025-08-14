@@ -86,26 +86,26 @@ export class Certificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.base64Value === undefined) && !opts.urn) {
+            if (args?.base64Value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'base64Value'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["base64Value"] = args ? args.base64Value : undefined;
-            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["isExportable"] = args ? args.isExportable : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["thumbprint"] = args ? args.thumbprint : undefined;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["base64Value"] = args?.base64Value;
+            resourceInputs["certificateName"] = args?.certificateName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["isExportable"] = args?.isExportable;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["thumbprint"] = args?.thumbprint;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["expiryTime"] = undefined /*out*/;

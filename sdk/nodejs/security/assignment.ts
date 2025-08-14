@@ -119,23 +119,23 @@ export class Assignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["additionalData"] = args ? args.additionalData : undefined;
-            resourceInputs["assignedComponent"] = args ? args.assignedComponent : undefined;
-            resourceInputs["assignedStandard"] = args ? args.assignedStandard : undefined;
-            resourceInputs["assignmentId"] = args ? args.assignmentId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["effect"] = args ? args.effect : undefined;
-            resourceInputs["expiresOn"] = args ? args.expiresOn : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["additionalData"] = args?.additionalData;
+            resourceInputs["assignedComponent"] = args?.assignedComponent;
+            resourceInputs["assignedStandard"] = args?.assignedStandard;
+            resourceInputs["assignmentId"] = args?.assignmentId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["effect"] = args?.effect;
+            resourceInputs["expiresOn"] = args?.expiresOn;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -157,31 +157,31 @@ export class Server extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
-            resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
+            resourceInputs["administratorLogin"] = args?.administratorLogin;
+            resourceInputs["administratorLoginPassword"] = args?.administratorLoginPassword;
             resourceInputs["authConfig"] = args ? (args.authConfig ? pulumi.output(args.authConfig).apply(inputs.dbforpostgresql.authConfigArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["availabilityZone"] = (args ? args.availabilityZone : undefined) ?? "";
+            resourceInputs["availabilityZone"] = (args?.availabilityZone) ?? "";
             resourceInputs["backup"] = args ? (args.backup ? pulumi.output(args.backup).apply(inputs.dbforpostgresql.backupArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["createMode"] = args ? args.createMode : undefined;
-            resourceInputs["dataEncryption"] = args ? args.dataEncryption : undefined;
+            resourceInputs["createMode"] = args?.createMode;
+            resourceInputs["dataEncryption"] = args?.dataEncryption;
             resourceInputs["highAvailability"] = args ? (args.highAvailability ? pulumi.output(args.highAvailability).apply(inputs.dbforpostgresql.highAvailabilityArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
             resourceInputs["maintenanceWindow"] = args ? (args.maintenanceWindow ? pulumi.output(args.maintenanceWindow).apply(inputs.dbforpostgresql.maintenanceWindowArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["network"] = args ? args.network : undefined;
-            resourceInputs["pointInTimeUTC"] = args ? args.pointInTimeUTC : undefined;
-            resourceInputs["replica"] = args ? args.replica : undefined;
-            resourceInputs["replicationRole"] = args ? args.replicationRole : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["sourceServerResourceId"] = args ? args.sourceServerResourceId : undefined;
-            resourceInputs["storage"] = args ? args.storage : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["network"] = args?.network;
+            resourceInputs["pointInTimeUTC"] = args?.pointInTimeUTC;
+            resourceInputs["replica"] = args?.replica;
+            resourceInputs["replicationRole"] = args?.replicationRole;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["sourceServerResourceId"] = args?.sourceServerResourceId;
+            resourceInputs["storage"] = args?.storage;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
             resourceInputs["minorVersion"] = undefined /*out*/;

@@ -79,10 +79,10 @@ export class ServiceGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["serviceGroupName"] = args ? args.serviceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["serviceGroupName"] = args?.serviceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

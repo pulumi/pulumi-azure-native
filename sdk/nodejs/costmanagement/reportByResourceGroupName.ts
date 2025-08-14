@@ -83,21 +83,21 @@ export class ReportByResourceGroupName extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.definition === undefined) && !opts.urn) {
+            if (args?.definition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            if ((!args || args.deliveryInfo === undefined) && !opts.urn) {
+            if (args?.deliveryInfo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deliveryInfo'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["deliveryInfo"] = args ? args.deliveryInfo : undefined;
-            resourceInputs["format"] = args ? args.format : undefined;
-            resourceInputs["reportName"] = args ? args.reportName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["deliveryInfo"] = args?.deliveryInfo;
+            resourceInputs["format"] = args?.format;
+            resourceInputs["reportName"] = args?.reportName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["schedule"] = args?.schedule;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

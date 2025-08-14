@@ -103,20 +103,20 @@ export class DiagnosticSetting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["eventHubAuthorizationRuleId"] = args ? args.eventHubAuthorizationRuleId : undefined;
-            resourceInputs["eventHubName"] = args ? args.eventHubName : undefined;
-            resourceInputs["logAnalyticsDestinationType"] = args ? args.logAnalyticsDestinationType : undefined;
-            resourceInputs["logs"] = args ? args.logs : undefined;
-            resourceInputs["marketplacePartnerId"] = args ? args.marketplacePartnerId : undefined;
-            resourceInputs["metrics"] = args ? args.metrics : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
-            resourceInputs["serviceBusRuleId"] = args ? args.serviceBusRuleId : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["eventHubAuthorizationRuleId"] = args?.eventHubAuthorizationRuleId;
+            resourceInputs["eventHubName"] = args?.eventHubName;
+            resourceInputs["logAnalyticsDestinationType"] = args?.logAnalyticsDestinationType;
+            resourceInputs["logs"] = args?.logs;
+            resourceInputs["marketplacePartnerId"] = args?.marketplacePartnerId;
+            resourceInputs["metrics"] = args?.metrics;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceUri"] = args?.resourceUri;
+            resourceInputs["serviceBusRuleId"] = args?.serviceBusRuleId;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

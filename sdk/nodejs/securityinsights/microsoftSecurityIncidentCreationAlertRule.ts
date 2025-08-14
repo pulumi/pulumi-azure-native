@@ -112,36 +112,36 @@ export class MicrosoftSecurityIncidentCreationAlertRule extends pulumi.CustomRes
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.productFilter === undefined) && !opts.urn) {
+            if (args?.productFilter === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productFilter'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["alertRuleTemplateName"] = args ? args.alertRuleTemplateName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["displayNamesExcludeFilter"] = args ? args.displayNamesExcludeFilter : undefined;
-            resourceInputs["displayNamesFilter"] = args ? args.displayNamesFilter : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["alertRuleTemplateName"] = args?.alertRuleTemplateName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["displayNamesExcludeFilter"] = args?.displayNamesExcludeFilter;
+            resourceInputs["displayNamesFilter"] = args?.displayNamesFilter;
+            resourceInputs["enabled"] = args?.enabled;
             resourceInputs["kind"] = "MicrosoftSecurityIncidentCreation";
-            resourceInputs["productFilter"] = args ? args.productFilter : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ruleId"] = args ? args.ruleId : undefined;
-            resourceInputs["severitiesFilter"] = args ? args.severitiesFilter : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["productFilter"] = args?.productFilter;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["ruleId"] = args?.ruleId;
+            resourceInputs["severitiesFilter"] = args?.severitiesFilter;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedUtc"] = undefined /*out*/;

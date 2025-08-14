@@ -85,25 +85,25 @@ export class Deployment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.catalogName === undefined) && !opts.urn) {
+            if (args?.catalogName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'catalogName'");
             }
-            if ((!args || args.deviceGroupName === undefined) && !opts.urn) {
+            if (args?.deviceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceGroupName'");
             }
-            if ((!args || args.productName === undefined) && !opts.urn) {
+            if (args?.productName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["catalogName"] = args ? args.catalogName : undefined;
-            resourceInputs["deployedImages"] = args ? args.deployedImages : undefined;
-            resourceInputs["deploymentId"] = args ? args.deploymentId : undefined;
-            resourceInputs["deploymentName"] = args ? args.deploymentName : undefined;
-            resourceInputs["deviceGroupName"] = args ? args.deviceGroupName : undefined;
-            resourceInputs["productName"] = args ? args.productName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["catalogName"] = args?.catalogName;
+            resourceInputs["deployedImages"] = args?.deployedImages;
+            resourceInputs["deploymentId"] = args?.deploymentId;
+            resourceInputs["deploymentName"] = args?.deploymentName;
+            resourceInputs["deviceGroupName"] = args?.deviceGroupName;
+            resourceInputs["productName"] = args?.productName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deploymentDateUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

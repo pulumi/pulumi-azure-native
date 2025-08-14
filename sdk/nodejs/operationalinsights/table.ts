@@ -117,21 +117,21 @@ export class Table extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restoredLogs"] = args ? args.restoredLogs : undefined;
-            resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["searchResults"] = args ? args.searchResults : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
-            resourceInputs["totalRetentionInDays"] = args ? args.totalRetentionInDays : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restoredLogs"] = args?.restoredLogs;
+            resourceInputs["retentionInDays"] = args?.retentionInDays;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["searchResults"] = args?.searchResults;
+            resourceInputs["tableName"] = args?.tableName;
+            resourceInputs["totalRetentionInDays"] = args?.totalRetentionInDays;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["archiveRetentionInDays"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastPlanModifiedDate"] = undefined /*out*/;

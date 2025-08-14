@@ -92,7 +92,7 @@ export class Partner extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["partnerId"] = args ? args.partnerId : undefined;
+            resourceInputs["partnerId"] = args?.partnerId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

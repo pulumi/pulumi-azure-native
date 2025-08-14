@@ -125,28 +125,28 @@ export class Fleet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.computeProfile === undefined) && !opts.urn) {
+            if (args?.computeProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'computeProfile'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vmSizesProfile === undefined) && !opts.urn) {
+            if (args?.vmSizesProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vmSizesProfile'");
             }
-            resourceInputs["additionalLocationsProfile"] = args ? args.additionalLocationsProfile : undefined;
-            resourceInputs["computeProfile"] = args ? args.computeProfile : undefined;
-            resourceInputs["fleetName"] = args ? args.fleetName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["regularPriorityProfile"] = args ? args.regularPriorityProfile : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["spotPriorityProfile"] = args ? args.spotPriorityProfile : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vmAttributes"] = args ? args.vmAttributes : undefined;
-            resourceInputs["vmSizesProfile"] = args ? args.vmSizesProfile : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["additionalLocationsProfile"] = args?.additionalLocationsProfile;
+            resourceInputs["computeProfile"] = args?.computeProfile;
+            resourceInputs["fleetName"] = args?.fleetName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["regularPriorityProfile"] = args?.regularPriorityProfile;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["spotPriorityProfile"] = args?.spotPriorityProfile;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vmAttributes"] = args?.vmAttributes;
+            resourceInputs["vmSizesProfile"] = args?.vmSizesProfile;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

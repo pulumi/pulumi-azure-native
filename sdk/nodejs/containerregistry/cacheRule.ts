@@ -90,18 +90,18 @@ export class CacheRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.registryName === undefined) && !opts.urn) {
+            if (args?.registryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["cacheRuleName"] = args ? args.cacheRuleName : undefined;
-            resourceInputs["credentialSetResourceId"] = args ? args.credentialSetResourceId : undefined;
-            resourceInputs["registryName"] = args ? args.registryName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceRepository"] = args ? args.sourceRepository : undefined;
-            resourceInputs["targetRepository"] = args ? args.targetRepository : undefined;
+            resourceInputs["cacheRuleName"] = args?.cacheRuleName;
+            resourceInputs["credentialSetResourceId"] = args?.credentialSetResourceId;
+            resourceInputs["registryName"] = args?.registryName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceRepository"] = args?.sourceRepository;
+            resourceInputs["targetRepository"] = args?.targetRepository;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

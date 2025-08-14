@@ -106,32 +106,32 @@ export class AttachedDataNetwork extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dnsAddresses === undefined) && !opts.urn) {
+            if (args?.dnsAddresses === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsAddresses'");
             }
-            if ((!args || args.packetCoreControlPlaneName === undefined) && !opts.urn) {
+            if (args?.packetCoreControlPlaneName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packetCoreControlPlaneName'");
             }
-            if ((!args || args.packetCoreDataPlaneName === undefined) && !opts.urn) {
+            if (args?.packetCoreDataPlaneName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packetCoreDataPlaneName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.userPlaneDataInterface === undefined) && !opts.urn) {
+            if (args?.userPlaneDataInterface === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPlaneDataInterface'");
             }
-            resourceInputs["attachedDataNetworkName"] = args ? args.attachedDataNetworkName : undefined;
-            resourceInputs["dnsAddresses"] = args ? args.dnsAddresses : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["attachedDataNetworkName"] = args?.attachedDataNetworkName;
+            resourceInputs["dnsAddresses"] = args?.dnsAddresses;
+            resourceInputs["location"] = args?.location;
             resourceInputs["naptConfiguration"] = args ? (args.naptConfiguration ? pulumi.output(args.naptConfiguration).apply(inputs.mobilenetwork.naptConfigurationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["packetCoreControlPlaneName"] = args ? args.packetCoreControlPlaneName : undefined;
-            resourceInputs["packetCoreDataPlaneName"] = args ? args.packetCoreDataPlaneName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userEquipmentAddressPoolPrefix"] = args ? args.userEquipmentAddressPoolPrefix : undefined;
-            resourceInputs["userEquipmentStaticAddressPoolPrefix"] = args ? args.userEquipmentStaticAddressPoolPrefix : undefined;
-            resourceInputs["userPlaneDataInterface"] = args ? args.userPlaneDataInterface : undefined;
+            resourceInputs["packetCoreControlPlaneName"] = args?.packetCoreControlPlaneName;
+            resourceInputs["packetCoreDataPlaneName"] = args?.packetCoreDataPlaneName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userEquipmentAddressPoolPrefix"] = args?.userEquipmentAddressPoolPrefix;
+            resourceInputs["userEquipmentStaticAddressPoolPrefix"] = args?.userEquipmentStaticAddressPoolPrefix;
+            resourceInputs["userPlaneDataInterface"] = args?.userPlaneDataInterface;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

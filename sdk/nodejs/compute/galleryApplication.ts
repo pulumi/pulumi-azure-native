@@ -105,27 +105,27 @@ export class GalleryApplication extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.galleryName === undefined) && !opts.urn) {
+            if (args?.galleryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.supportedOSType === undefined) && !opts.urn) {
+            if (args?.supportedOSType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'supportedOSType'");
             }
-            resourceInputs["customActions"] = args ? args.customActions : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
-            resourceInputs["eula"] = args ? args.eula : undefined;
-            resourceInputs["galleryApplicationName"] = args ? args.galleryApplicationName : undefined;
-            resourceInputs["galleryName"] = args ? args.galleryName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["privacyStatementUri"] = args ? args.privacyStatementUri : undefined;
-            resourceInputs["releaseNoteUri"] = args ? args.releaseNoteUri : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["supportedOSType"] = args ? args.supportedOSType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["customActions"] = args?.customActions;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["endOfLifeDate"] = args?.endOfLifeDate;
+            resourceInputs["eula"] = args?.eula;
+            resourceInputs["galleryApplicationName"] = args?.galleryApplicationName;
+            resourceInputs["galleryName"] = args?.galleryName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["privacyStatementUri"] = args?.privacyStatementUri;
+            resourceInputs["releaseNoteUri"] = args?.releaseNoteUri;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["supportedOSType"] = args?.supportedOSType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

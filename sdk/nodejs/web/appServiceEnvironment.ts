@@ -158,30 +158,30 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetwork === undefined) && !opts.urn) {
+            if (args?.virtualNetwork === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetwork'");
             }
-            resourceInputs["clusterSettings"] = args ? args.clusterSettings : undefined;
-            resourceInputs["customDnsSuffixConfiguration"] = args ? args.customDnsSuffixConfiguration : undefined;
-            resourceInputs["dedicatedHostCount"] = args ? args.dedicatedHostCount : undefined;
-            resourceInputs["dnsSuffix"] = args ? args.dnsSuffix : undefined;
-            resourceInputs["frontEndScaleFactor"] = args ? args.frontEndScaleFactor : undefined;
-            resourceInputs["internalLoadBalancingMode"] = args ? args.internalLoadBalancingMode : undefined;
-            resourceInputs["ipsslAddressCount"] = args ? args.ipsslAddressCount : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["multiSize"] = args ? args.multiSize : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkingConfiguration"] = args ? args.networkingConfiguration : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["upgradePreference"] = (args ? args.upgradePreference : undefined) ?? "None";
-            resourceInputs["userWhitelistedIpRanges"] = args ? args.userWhitelistedIpRanges : undefined;
-            resourceInputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
-            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["clusterSettings"] = args?.clusterSettings;
+            resourceInputs["customDnsSuffixConfiguration"] = args?.customDnsSuffixConfiguration;
+            resourceInputs["dedicatedHostCount"] = args?.dedicatedHostCount;
+            resourceInputs["dnsSuffix"] = args?.dnsSuffix;
+            resourceInputs["frontEndScaleFactor"] = args?.frontEndScaleFactor;
+            resourceInputs["internalLoadBalancingMode"] = args?.internalLoadBalancingMode;
+            resourceInputs["ipsslAddressCount"] = args?.ipsslAddressCount;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["multiSize"] = args?.multiSize;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkingConfiguration"] = args?.networkingConfiguration;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["upgradePreference"] = (args?.upgradePreference) ?? "None";
+            resourceInputs["userWhitelistedIpRanges"] = args?.userWhitelistedIpRanges;
+            resourceInputs["virtualNetwork"] = args?.virtualNetwork;
+            resourceInputs["zoneRedundant"] = args?.zoneRedundant;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hasLinuxWorkers"] = undefined /*out*/;
             resourceInputs["maximumNumberOfMachines"] = undefined /*out*/;

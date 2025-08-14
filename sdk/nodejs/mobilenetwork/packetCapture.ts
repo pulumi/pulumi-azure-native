@@ -105,19 +105,19 @@ export class PacketCapture extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.packetCoreControlPlaneName === undefined) && !opts.urn) {
+            if (args?.packetCoreControlPlaneName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packetCoreControlPlaneName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["bytesToCapturePerPacket"] = (args ? args.bytesToCapturePerPacket : undefined) ?? 0;
-            resourceInputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
-            resourceInputs["packetCaptureName"] = args ? args.packetCaptureName : undefined;
-            resourceInputs["packetCoreControlPlaneName"] = args ? args.packetCoreControlPlaneName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["timeLimitInSeconds"] = (args ? args.timeLimitInSeconds : undefined) ?? 18000;
-            resourceInputs["totalBytesPerSession"] = (args ? args.totalBytesPerSession : undefined) ?? 67108864;
+            resourceInputs["bytesToCapturePerPacket"] = (args?.bytesToCapturePerPacket) ?? 0;
+            resourceInputs["networkInterfaces"] = args?.networkInterfaces;
+            resourceInputs["packetCaptureName"] = args?.packetCaptureName;
+            resourceInputs["packetCoreControlPlaneName"] = args?.packetCoreControlPlaneName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["timeLimitInSeconds"] = (args?.timeLimitInSeconds) ?? 18000;
+            resourceInputs["totalBytesPerSession"] = (args?.totalBytesPerSession) ?? 67108864;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["captureStartTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

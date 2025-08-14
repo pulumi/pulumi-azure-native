@@ -161,44 +161,44 @@ export class Watchlist extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.itemsSearchKey === undefined) && !opts.urn) {
+            if (args?.itemsSearchKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'itemsSearchKey'");
             }
-            if ((!args || args.provider === undefined) && !opts.urn) {
+            if (args?.provider === undefined && !opts.urn) {
                 throw new Error("Missing required property 'provider'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["created"] = args ? args.created : undefined;
-            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
-            resourceInputs["defaultDuration"] = args ? args.defaultDuration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["isDeleted"] = args ? args.isDeleted : undefined;
-            resourceInputs["itemsSearchKey"] = args ? args.itemsSearchKey : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["numberOfLinesToSkip"] = args ? args.numberOfLinesToSkip : undefined;
-            resourceInputs["provider"] = args ? args.provider : undefined;
-            resourceInputs["rawContent"] = args ? args.rawContent : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
-            resourceInputs["updated"] = args ? args.updated : undefined;
-            resourceInputs["updatedBy"] = args ? args.updatedBy : undefined;
-            resourceInputs["uploadStatus"] = args ? args.uploadStatus : undefined;
-            resourceInputs["watchlistAlias"] = args ? args.watchlistAlias : undefined;
-            resourceInputs["watchlistId"] = args ? args.watchlistId : undefined;
-            resourceInputs["watchlistType"] = args ? args.watchlistType : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["created"] = args?.created;
+            resourceInputs["createdBy"] = args?.createdBy;
+            resourceInputs["defaultDuration"] = args?.defaultDuration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["isDeleted"] = args?.isDeleted;
+            resourceInputs["itemsSearchKey"] = args?.itemsSearchKey;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["numberOfLinesToSkip"] = args?.numberOfLinesToSkip;
+            resourceInputs["provider"] = args?.provider;
+            resourceInputs["rawContent"] = args?.rawContent;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["sourceType"] = args?.sourceType;
+            resourceInputs["tenantId"] = args?.tenantId;
+            resourceInputs["updated"] = args?.updated;
+            resourceInputs["updatedBy"] = args?.updatedBy;
+            resourceInputs["uploadStatus"] = args?.uploadStatus;
+            resourceInputs["watchlistAlias"] = args?.watchlistAlias;
+            resourceInputs["watchlistId"] = args?.watchlistId;
+            resourceInputs["watchlistType"] = args?.watchlistType;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

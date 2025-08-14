@@ -165,53 +165,53 @@ export class ContentPackage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.contentId === undefined) && !opts.urn) {
+            if (args?.contentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentId'");
             }
-            if ((!args || args.contentKind === undefined) && !opts.urn) {
+            if (args?.contentKind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentKind'");
             }
-            if ((!args || args.contentProductId === undefined) && !opts.urn) {
+            if (args?.contentProductId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentProductId'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["author"] = args ? args.author : undefined;
-            resourceInputs["categories"] = args ? args.categories : undefined;
-            resourceInputs["contentId"] = args ? args.contentId : undefined;
-            resourceInputs["contentKind"] = args ? args.contentKind : undefined;
-            resourceInputs["contentProductId"] = args ? args.contentProductId : undefined;
-            resourceInputs["contentSchemaVersion"] = args ? args.contentSchemaVersion : undefined;
-            resourceInputs["dependencies"] = args ? args.dependencies : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["firstPublishDate"] = args ? args.firstPublishDate : undefined;
-            resourceInputs["icon"] = args ? args.icon : undefined;
-            resourceInputs["isDeprecated"] = args ? args.isDeprecated : undefined;
-            resourceInputs["isFeatured"] = args ? args.isFeatured : undefined;
-            resourceInputs["isNew"] = args ? args.isNew : undefined;
-            resourceInputs["isPreview"] = args ? args.isPreview : undefined;
-            resourceInputs["lastPublishDate"] = args ? args.lastPublishDate : undefined;
-            resourceInputs["packageId"] = args ? args.packageId : undefined;
-            resourceInputs["providers"] = args ? args.providers : undefined;
-            resourceInputs["publisherDisplayName"] = args ? args.publisherDisplayName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["support"] = args ? args.support : undefined;
-            resourceInputs["threatAnalysisTactics"] = args ? args.threatAnalysisTactics : undefined;
-            resourceInputs["threatAnalysisTechniques"] = args ? args.threatAnalysisTechniques : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["author"] = args?.author;
+            resourceInputs["categories"] = args?.categories;
+            resourceInputs["contentId"] = args?.contentId;
+            resourceInputs["contentKind"] = args?.contentKind;
+            resourceInputs["contentProductId"] = args?.contentProductId;
+            resourceInputs["contentSchemaVersion"] = args?.contentSchemaVersion;
+            resourceInputs["dependencies"] = args?.dependencies;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["firstPublishDate"] = args?.firstPublishDate;
+            resourceInputs["icon"] = args?.icon;
+            resourceInputs["isDeprecated"] = args?.isDeprecated;
+            resourceInputs["isFeatured"] = args?.isFeatured;
+            resourceInputs["isNew"] = args?.isNew;
+            resourceInputs["isPreview"] = args?.isPreview;
+            resourceInputs["lastPublishDate"] = args?.lastPublishDate;
+            resourceInputs["packageId"] = args?.packageId;
+            resourceInputs["providers"] = args?.providers;
+            resourceInputs["publisherDisplayName"] = args?.publisherDisplayName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["support"] = args?.support;
+            resourceInputs["threatAnalysisTactics"] = args?.threatAnalysisTactics;
+            resourceInputs["threatAnalysisTechniques"] = args?.threatAnalysisTechniques;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

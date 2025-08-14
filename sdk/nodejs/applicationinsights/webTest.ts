@@ -129,34 +129,34 @@ export class WebTest extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.locations === undefined) && !opts.urn) {
+            if (args?.locations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'locations'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.syntheticMonitorId === undefined) && !opts.urn) {
+            if (args?.syntheticMonitorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'syntheticMonitorId'");
             }
-            if ((!args || args.webTestKind === undefined) && !opts.urn) {
+            if (args?.webTestKind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'webTestKind'");
             }
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["frequency"] = (args ? args.frequency : undefined) ?? 300;
-            resourceInputs["kind"] = (args ? args.kind : undefined) ?? "ping";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["locations"] = args ? args.locations : undefined;
-            resourceInputs["request"] = args ? args.request : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retryEnabled"] = args ? args.retryEnabled : undefined;
-            resourceInputs["syntheticMonitorId"] = args ? args.syntheticMonitorId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeout"] = (args ? args.timeout : undefined) ?? 30;
-            resourceInputs["validationRules"] = args ? args.validationRules : undefined;
-            resourceInputs["webTestKind"] = (args ? args.webTestKind : undefined) ?? "ping";
-            resourceInputs["webTestName"] = args ? args.webTestName : undefined;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["frequency"] = (args?.frequency) ?? 300;
+            resourceInputs["kind"] = (args?.kind) ?? "ping";
+            resourceInputs["location"] = args?.location;
+            resourceInputs["locations"] = args?.locations;
+            resourceInputs["request"] = args?.request;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retryEnabled"] = args?.retryEnabled;
+            resourceInputs["syntheticMonitorId"] = args?.syntheticMonitorId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeout"] = (args?.timeout) ?? 30;
+            resourceInputs["validationRules"] = args?.validationRules;
+            resourceInputs["webTestKind"] = (args?.webTestKind) ?? "ping";
+            resourceInputs["webTestName"] = args?.webTestName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

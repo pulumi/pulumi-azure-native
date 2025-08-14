@@ -131,31 +131,31 @@ export class Contact extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.contactProfile === undefined) && !opts.urn) {
+            if (args?.contactProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contactProfile'");
             }
-            if ((!args || args.groundStationName === undefined) && !opts.urn) {
+            if (args?.groundStationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groundStationName'");
             }
-            if ((!args || args.reservationEndTime === undefined) && !opts.urn) {
+            if (args?.reservationEndTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reservationEndTime'");
             }
-            if ((!args || args.reservationStartTime === undefined) && !opts.urn) {
+            if (args?.reservationStartTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reservationStartTime'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.spacecraftName === undefined) && !opts.urn) {
+            if (args?.spacecraftName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'spacecraftName'");
             }
-            resourceInputs["contactName"] = args ? args.contactName : undefined;
-            resourceInputs["contactProfile"] = args ? args.contactProfile : undefined;
-            resourceInputs["groundStationName"] = args ? args.groundStationName : undefined;
-            resourceInputs["reservationEndTime"] = args ? args.reservationEndTime : undefined;
-            resourceInputs["reservationStartTime"] = args ? args.reservationStartTime : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["spacecraftName"] = args ? args.spacecraftName : undefined;
+            resourceInputs["contactName"] = args?.contactName;
+            resourceInputs["contactProfile"] = args?.contactProfile;
+            resourceInputs["groundStationName"] = args?.groundStationName;
+            resourceInputs["reservationEndTime"] = args?.reservationEndTime;
+            resourceInputs["reservationStartTime"] = args?.reservationStartTime;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["spacecraftName"] = args?.spacecraftName;
             resourceInputs["antennaConfiguration"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["endAzimuthDegrees"] = undefined /*out*/;

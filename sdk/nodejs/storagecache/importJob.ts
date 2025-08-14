@@ -133,20 +133,20 @@ export class ImportJob extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.amlFilesystemName === undefined) && !opts.urn) {
+            if (args?.amlFilesystemName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'amlFilesystemName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["amlFilesystemName"] = args ? args.amlFilesystemName : undefined;
-            resourceInputs["conflictResolutionMode"] = (args ? args.conflictResolutionMode : undefined) ?? "Fail";
-            resourceInputs["importJobName"] = args ? args.importJobName : undefined;
-            resourceInputs["importPrefixes"] = args ? args.importPrefixes : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maximumErrors"] = (args ? args.maximumErrors : undefined) ?? 0;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["amlFilesystemName"] = args?.amlFilesystemName;
+            resourceInputs["conflictResolutionMode"] = (args?.conflictResolutionMode) ?? "Fail";
+            resourceInputs["importJobName"] = args?.importJobName;
+            resourceInputs["importPrefixes"] = args?.importPrefixes;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maximumErrors"] = (args?.maximumErrors) ?? 0;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["blobsImportedPerSecond"] = undefined /*out*/;
             resourceInputs["blobsWalkedPerSecond"] = undefined /*out*/;

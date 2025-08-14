@@ -77,23 +77,23 @@ export class ArchiveVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.archiveName === undefined) && !opts.urn) {
+            if (args?.archiveName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'archiveName'");
             }
-            if ((!args || args.packageType === undefined) && !opts.urn) {
+            if (args?.packageType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packageType'");
             }
-            if ((!args || args.registryName === undefined) && !opts.urn) {
+            if (args?.registryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["archiveName"] = args ? args.archiveName : undefined;
-            resourceInputs["archiveVersionName"] = args ? args.archiveVersionName : undefined;
-            resourceInputs["packageType"] = args ? args.packageType : undefined;
-            resourceInputs["registryName"] = args ? args.registryName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["archiveName"] = args?.archiveName;
+            resourceInputs["archiveVersionName"] = args?.archiveVersionName;
+            resourceInputs["packageType"] = args?.packageType;
+            resourceInputs["registryName"] = args?.registryName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["archiveVersionErrorMessage"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

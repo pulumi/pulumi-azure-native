@@ -121,36 +121,36 @@ export class Endpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.endpointType === undefined) && !opts.urn) {
+            if (args?.endpointType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointType'");
             }
-            if ((!args || args.profileName === undefined) && !opts.urn) {
+            if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["alwaysServe"] = args ? args.alwaysServe : undefined;
-            resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
-            resourceInputs["endpointLocation"] = args ? args.endpointLocation : undefined;
-            resourceInputs["endpointMonitorStatus"] = args ? args.endpointMonitorStatus : undefined;
-            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["endpointStatus"] = args ? args.endpointStatus : undefined;
-            resourceInputs["endpointType"] = args ? args.endpointType : undefined;
-            resourceInputs["geoMapping"] = args ? args.geoMapping : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["minChildEndpoints"] = args ? args.minChildEndpoints : undefined;
-            resourceInputs["minChildEndpointsIPv4"] = args ? args.minChildEndpointsIPv4 : undefined;
-            resourceInputs["minChildEndpointsIPv6"] = args ? args.minChildEndpointsIPv6 : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subnets"] = args ? args.subnets : undefined;
-            resourceInputs["target"] = args ? args.target : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["weight"] = args ? args.weight : undefined;
+            resourceInputs["alwaysServe"] = args?.alwaysServe;
+            resourceInputs["customHeaders"] = args?.customHeaders;
+            resourceInputs["endpointLocation"] = args?.endpointLocation;
+            resourceInputs["endpointMonitorStatus"] = args?.endpointMonitorStatus;
+            resourceInputs["endpointName"] = args?.endpointName;
+            resourceInputs["endpointStatus"] = args?.endpointStatus;
+            resourceInputs["endpointType"] = args?.endpointType;
+            resourceInputs["geoMapping"] = args?.geoMapping;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["minChildEndpoints"] = args?.minChildEndpoints;
+            resourceInputs["minChildEndpointsIPv4"] = args?.minChildEndpointsIPv4;
+            resourceInputs["minChildEndpointsIPv6"] = args?.minChildEndpointsIPv6;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["subnets"] = args?.subnets;
+            resourceInputs["target"] = args?.target;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["weight"] = args?.weight;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
         } else {
             resourceInputs["alwaysServe"] = undefined /*out*/;

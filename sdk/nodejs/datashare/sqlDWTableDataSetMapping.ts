@@ -100,43 +100,43 @@ export class SqlDWTableDataSetMapping extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.dataSetId === undefined) && !opts.urn) {
+            if (args?.dataSetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSetId'");
             }
-            if ((!args || args.dataWarehouseName === undefined) && !opts.urn) {
+            if (args?.dataWarehouseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataWarehouseName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.schemaName === undefined) && !opts.urn) {
+            if (args?.schemaName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaName'");
             }
-            if ((!args || args.shareSubscriptionName === undefined) && !opts.urn) {
+            if (args?.shareSubscriptionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shareSubscriptionName'");
             }
-            if ((!args || args.sqlServerResourceId === undefined) && !opts.urn) {
+            if (args?.sqlServerResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sqlServerResourceId'");
             }
-            if ((!args || args.tableName === undefined) && !opts.urn) {
+            if (args?.tableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["dataSetId"] = args ? args.dataSetId : undefined;
-            resourceInputs["dataSetMappingName"] = args ? args.dataSetMappingName : undefined;
-            resourceInputs["dataWarehouseName"] = args ? args.dataWarehouseName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["dataSetId"] = args?.dataSetId;
+            resourceInputs["dataSetMappingName"] = args?.dataSetMappingName;
+            resourceInputs["dataWarehouseName"] = args?.dataWarehouseName;
             resourceInputs["kind"] = "SqlDWTable";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
-            resourceInputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
-            resourceInputs["sqlServerResourceId"] = args ? args.sqlServerResourceId : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["schemaName"] = args?.schemaName;
+            resourceInputs["shareSubscriptionName"] = args?.shareSubscriptionName;
+            resourceInputs["sqlServerResourceId"] = args?.sqlServerResourceId;
+            resourceInputs["tableName"] = args?.tableName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataSetMappingStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

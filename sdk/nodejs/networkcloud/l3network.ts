@@ -145,31 +145,31 @@ export class L3Network extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.l3IsolationDomainId === undefined) && !opts.urn) {
+            if (args?.l3IsolationDomainId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'l3IsolationDomainId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vlan === undefined) && !opts.urn) {
+            if (args?.vlan === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vlan'");
             }
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["hybridAksIpamEnabled"] = (args ? args.hybridAksIpamEnabled : undefined) ?? "True";
-            resourceInputs["hybridAksPluginType"] = (args ? args.hybridAksPluginType : undefined) ?? "SRIOV";
-            resourceInputs["interfaceName"] = args ? args.interfaceName : undefined;
-            resourceInputs["ipAllocationType"] = (args ? args.ipAllocationType : undefined) ?? "DualStack";
-            resourceInputs["ipv4ConnectedPrefix"] = args ? args.ipv4ConnectedPrefix : undefined;
-            resourceInputs["ipv6ConnectedPrefix"] = args ? args.ipv6ConnectedPrefix : undefined;
-            resourceInputs["l3IsolationDomainId"] = args ? args.l3IsolationDomainId : undefined;
-            resourceInputs["l3NetworkName"] = args ? args.l3NetworkName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vlan"] = args ? args.vlan : undefined;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["hybridAksIpamEnabled"] = (args?.hybridAksIpamEnabled) ?? "True";
+            resourceInputs["hybridAksPluginType"] = (args?.hybridAksPluginType) ?? "SRIOV";
+            resourceInputs["interfaceName"] = args?.interfaceName;
+            resourceInputs["ipAllocationType"] = (args?.ipAllocationType) ?? "DualStack";
+            resourceInputs["ipv4ConnectedPrefix"] = args?.ipv4ConnectedPrefix;
+            resourceInputs["ipv6ConnectedPrefix"] = args?.ipv6ConnectedPrefix;
+            resourceInputs["l3IsolationDomainId"] = args?.l3IsolationDomainId;
+            resourceInputs["l3NetworkName"] = args?.l3NetworkName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vlan"] = args?.vlan;
             resourceInputs["associatedResourceIds"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;

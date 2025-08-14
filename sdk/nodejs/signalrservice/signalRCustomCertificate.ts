@@ -85,24 +85,24 @@ export class SignalRCustomCertificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.keyVaultBaseUri === undefined) && !opts.urn) {
+            if (args?.keyVaultBaseUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultBaseUri'");
             }
-            if ((!args || args.keyVaultSecretName === undefined) && !opts.urn) {
+            if (args?.keyVaultSecretName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultSecretName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !opts.urn) {
+            if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
-            resourceInputs["keyVaultBaseUri"] = args ? args.keyVaultBaseUri : undefined;
-            resourceInputs["keyVaultSecretName"] = args ? args.keyVaultSecretName : undefined;
-            resourceInputs["keyVaultSecretVersion"] = args ? args.keyVaultSecretVersion : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["certificateName"] = args?.certificateName;
+            resourceInputs["keyVaultBaseUri"] = args?.keyVaultBaseUri;
+            resourceInputs["keyVaultSecretName"] = args?.keyVaultSecretName;
+            resourceInputs["keyVaultSecretVersion"] = args?.keyVaultSecretVersion;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

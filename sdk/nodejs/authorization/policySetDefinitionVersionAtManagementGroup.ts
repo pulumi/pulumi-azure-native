@@ -101,26 +101,26 @@ export class PolicySetDefinitionVersionAtManagementGroup extends pulumi.CustomRe
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managementGroupName === undefined) && !opts.urn) {
+            if (args?.managementGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupName'");
             }
-            if ((!args || args.policyDefinitions === undefined) && !opts.urn) {
+            if (args?.policyDefinitions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDefinitions'");
             }
-            if ((!args || args.policySetDefinitionName === undefined) && !opts.urn) {
+            if (args?.policySetDefinitionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policySetDefinitionName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["managementGroupName"] = args ? args.managementGroupName : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["policyDefinitionGroups"] = args ? args.policyDefinitionGroups : undefined;
-            resourceInputs["policyDefinitionVersion"] = args ? args.policyDefinitionVersion : undefined;
-            resourceInputs["policyDefinitions"] = args ? args.policyDefinitions : undefined;
-            resourceInputs["policySetDefinitionName"] = args ? args.policySetDefinitionName : undefined;
-            resourceInputs["policyType"] = args ? args.policyType : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["managementGroupName"] = args?.managementGroupName;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["policyDefinitionGroups"] = args?.policyDefinitionGroups;
+            resourceInputs["policyDefinitionVersion"] = args?.policyDefinitionVersion;
+            resourceInputs["policyDefinitions"] = args?.policyDefinitions;
+            resourceInputs["policySetDefinitionName"] = args?.policySetDefinitionName;
+            resourceInputs["policyType"] = args?.policyType;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

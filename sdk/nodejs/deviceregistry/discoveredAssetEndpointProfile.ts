@@ -107,35 +107,35 @@ export class DiscoveredAssetEndpointProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.discoveryId === undefined) && !opts.urn) {
+            if (args?.discoveryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'discoveryId'");
             }
-            if ((!args || args.endpointProfileType === undefined) && !opts.urn) {
+            if (args?.endpointProfileType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointProfileType'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.targetAddress === undefined) && !opts.urn) {
+            if (args?.targetAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetAddress'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["additionalConfiguration"] = args ? args.additionalConfiguration : undefined;
-            resourceInputs["discoveredAssetEndpointProfileName"] = args ? args.discoveredAssetEndpointProfileName : undefined;
-            resourceInputs["discoveryId"] = args ? args.discoveryId : undefined;
-            resourceInputs["endpointProfileType"] = args ? args.endpointProfileType : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["supportedAuthenticationMethods"] = args ? args.supportedAuthenticationMethods : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetAddress"] = args ? args.targetAddress : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["additionalConfiguration"] = args?.additionalConfiguration;
+            resourceInputs["discoveredAssetEndpointProfileName"] = args?.discoveredAssetEndpointProfileName;
+            resourceInputs["discoveryId"] = args?.discoveryId;
+            resourceInputs["endpointProfileType"] = args?.endpointProfileType;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["supportedAuthenticationMethods"] = args?.supportedAuthenticationMethods;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetAddress"] = args?.targetAddress;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

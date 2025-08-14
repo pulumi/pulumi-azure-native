@@ -91,16 +91,16 @@ export class SecurityStandard extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["assessments"] = args ? args.assessments : undefined;
-            resourceInputs["cloudProviders"] = args ? args.cloudProviders : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["policySetDefinitionId"] = args ? args.policySetDefinitionId : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["standardId"] = args ? args.standardId : undefined;
+            resourceInputs["assessments"] = args?.assessments;
+            resourceInputs["cloudProviders"] = args?.cloudProviders;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["policySetDefinitionId"] = args?.policySetDefinitionId;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["standardId"] = args?.standardId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

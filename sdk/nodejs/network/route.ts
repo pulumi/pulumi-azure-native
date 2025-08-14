@@ -89,24 +89,24 @@ export class Route extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.nextHopType === undefined) && !opts.urn) {
+            if (args?.nextHopType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nextHopType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.routeTableName === undefined) && !opts.urn) {
+            if (args?.routeTableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeTableName'");
             }
-            resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nextHopIpAddress"] = args ? args.nextHopIpAddress : undefined;
-            resourceInputs["nextHopType"] = args ? args.nextHopType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routeName"] = args ? args.routeName : undefined;
-            resourceInputs["routeTableName"] = args ? args.routeTableName : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["addressPrefix"] = args?.addressPrefix;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nextHopIpAddress"] = args?.nextHopIpAddress;
+            resourceInputs["nextHopType"] = args?.nextHopType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routeName"] = args?.routeName;
+            resourceInputs["routeTableName"] = args?.routeTableName;
+            resourceInputs["type"] = args?.type;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["hasBgpOverride"] = undefined /*out*/;

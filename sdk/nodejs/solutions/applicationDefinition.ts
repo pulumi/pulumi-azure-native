@@ -145,33 +145,33 @@ export class ApplicationDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.lockLevel === undefined) && !opts.urn) {
+            if (args?.lockLevel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lockLevel'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["applicationDefinitionName"] = args ? args.applicationDefinitionName : undefined;
-            resourceInputs["artifacts"] = args ? args.artifacts : undefined;
-            resourceInputs["authorizations"] = args ? args.authorizations : undefined;
-            resourceInputs["createUiDefinition"] = args ? args.createUiDefinition : undefined;
-            resourceInputs["deploymentPolicy"] = args ? args.deploymentPolicy : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["lockLevel"] = args ? args.lockLevel : undefined;
-            resourceInputs["lockingPolicy"] = args ? args.lockingPolicy : undefined;
-            resourceInputs["mainTemplate"] = args ? args.mainTemplate : undefined;
-            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["managementPolicy"] = args ? args.managementPolicy : undefined;
-            resourceInputs["notificationPolicy"] = args ? args.notificationPolicy : undefined;
-            resourceInputs["packageFileUri"] = args ? args.packageFileUri : undefined;
-            resourceInputs["policies"] = args ? args.policies : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationDefinitionName"] = args?.applicationDefinitionName;
+            resourceInputs["artifacts"] = args?.artifacts;
+            resourceInputs["authorizations"] = args?.authorizations;
+            resourceInputs["createUiDefinition"] = args?.createUiDefinition;
+            resourceInputs["deploymentPolicy"] = args?.deploymentPolicy;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["isEnabled"] = args?.isEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["lockLevel"] = args?.lockLevel;
+            resourceInputs["lockingPolicy"] = args?.lockingPolicy;
+            resourceInputs["mainTemplate"] = args?.mainTemplate;
+            resourceInputs["managedBy"] = args?.managedBy;
+            resourceInputs["managementPolicy"] = args?.managementPolicy;
+            resourceInputs["notificationPolicy"] = args?.notificationPolicy;
+            resourceInputs["packageFileUri"] = args?.packageFileUri;
+            resourceInputs["policies"] = args?.policies;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

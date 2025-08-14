@@ -93,17 +93,17 @@ export class DnsForwardingRuleset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dnsResolverOutboundEndpoints === undefined) && !opts.urn) {
+            if (args?.dnsResolverOutboundEndpoints === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsResolverOutboundEndpoints'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dnsForwardingRulesetName"] = args ? args.dnsForwardingRulesetName : undefined;
-            resourceInputs["dnsResolverOutboundEndpoints"] = args ? args.dnsResolverOutboundEndpoints : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dnsForwardingRulesetName"] = args?.dnsForwardingRulesetName;
+            resourceInputs["dnsResolverOutboundEndpoints"] = args?.dnsResolverOutboundEndpoints;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -145,33 +145,33 @@ export class Update extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            resourceInputs["availabilityType"] = args ? args.availabilityType : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["healthCheckDate"] = args ? args.healthCheckDate : undefined;
-            resourceInputs["installedDate"] = args ? args.installedDate : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["minSbeVersionRequired"] = args ? args.minSbeVersionRequired : undefined;
-            resourceInputs["notifyMessage"] = args ? args.notifyMessage : undefined;
-            resourceInputs["packagePath"] = args ? args.packagePath : undefined;
-            resourceInputs["packageSizeInMb"] = args ? args.packageSizeInMb : undefined;
-            resourceInputs["packageType"] = args ? args.packageType : undefined;
-            resourceInputs["prerequisites"] = args ? args.prerequisites : undefined;
-            resourceInputs["progressPercentage"] = args ? args.progressPercentage : undefined;
-            resourceInputs["publisher"] = args ? args.publisher : undefined;
-            resourceInputs["releaseLink"] = args ? args.releaseLink : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["updateName"] = args ? args.updateName : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["additionalProperties"] = args?.additionalProperties;
+            resourceInputs["availabilityType"] = args?.availabilityType;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["healthCheckDate"] = args?.healthCheckDate;
+            resourceInputs["installedDate"] = args?.installedDate;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["minSbeVersionRequired"] = args?.minSbeVersionRequired;
+            resourceInputs["notifyMessage"] = args?.notifyMessage;
+            resourceInputs["packagePath"] = args?.packagePath;
+            resourceInputs["packageSizeInMb"] = args?.packageSizeInMb;
+            resourceInputs["packageType"] = args?.packageType;
+            resourceInputs["prerequisites"] = args?.prerequisites;
+            resourceInputs["progressPercentage"] = args?.progressPercentage;
+            resourceInputs["publisher"] = args?.publisher;
+            resourceInputs["releaseLink"] = args?.releaseLink;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["updateName"] = args?.updateName;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

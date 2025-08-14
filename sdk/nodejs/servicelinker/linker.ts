@@ -105,19 +105,19 @@ export class Linker extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["authInfo"] = args ? args.authInfo : undefined;
-            resourceInputs["clientType"] = args ? args.clientType : undefined;
-            resourceInputs["configurationInfo"] = args ? args.configurationInfo : undefined;
-            resourceInputs["linkerName"] = args ? args.linkerName : undefined;
-            resourceInputs["publicNetworkSolution"] = args ? args.publicNetworkSolution : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["secretStore"] = args ? args.secretStore : undefined;
-            resourceInputs["targetService"] = args ? args.targetService : undefined;
-            resourceInputs["vNetSolution"] = args ? args.vNetSolution : undefined;
+            resourceInputs["authInfo"] = args?.authInfo;
+            resourceInputs["clientType"] = args?.clientType;
+            resourceInputs["configurationInfo"] = args?.configurationInfo;
+            resourceInputs["linkerName"] = args?.linkerName;
+            resourceInputs["publicNetworkSolution"] = args?.publicNetworkSolution;
+            resourceInputs["resourceUri"] = args?.resourceUri;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["secretStore"] = args?.secretStore;
+            resourceInputs["targetService"] = args?.targetService;
+            resourceInputs["vNetSolution"] = args?.vNetSolution;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

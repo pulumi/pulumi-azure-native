@@ -82,22 +82,22 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.containerName === undefined) && !opts.urn) {
+            if (args?.containerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["allowProtectedAppendWrites"] = args ? args.allowProtectedAppendWrites : undefined;
-            resourceInputs["allowProtectedAppendWritesAll"] = args ? args.allowProtectedAppendWritesAll : undefined;
-            resourceInputs["containerName"] = args ? args.containerName : undefined;
-            resourceInputs["immutabilityPeriodSinceCreationInDays"] = args ? args.immutabilityPeriodSinceCreationInDays : undefined;
-            resourceInputs["immutabilityPolicyName"] = args ? args.immutabilityPolicyName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["allowProtectedAppendWrites"] = args?.allowProtectedAppendWrites;
+            resourceInputs["allowProtectedAppendWritesAll"] = args?.allowProtectedAppendWritesAll;
+            resourceInputs["containerName"] = args?.containerName;
+            resourceInputs["immutabilityPeriodSinceCreationInDays"] = args?.immutabilityPeriodSinceCreationInDays;
+            resourceInputs["immutabilityPolicyName"] = args?.immutabilityPolicyName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

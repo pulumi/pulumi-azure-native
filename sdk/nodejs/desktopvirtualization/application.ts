@@ -125,29 +125,29 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationGroupName === undefined) && !opts.urn) {
+            if (args?.applicationGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationGroupName'");
             }
-            if ((!args || args.commandLineSetting === undefined) && !opts.urn) {
+            if (args?.commandLineSetting === undefined && !opts.urn) {
                 throw new Error("Missing required property 'commandLineSetting'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["applicationGroupName"] = args ? args.applicationGroupName : undefined;
-            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["applicationType"] = args ? args.applicationType : undefined;
-            resourceInputs["commandLineArguments"] = args ? args.commandLineArguments : undefined;
-            resourceInputs["commandLineSetting"] = args ? args.commandLineSetting : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["filePath"] = args ? args.filePath : undefined;
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["iconIndex"] = args ? args.iconIndex : undefined;
-            resourceInputs["iconPath"] = args ? args.iconPath : undefined;
-            resourceInputs["msixPackageApplicationId"] = args ? args.msixPackageApplicationId : undefined;
-            resourceInputs["msixPackageFamilyName"] = args ? args.msixPackageFamilyName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["showInPortal"] = args ? args.showInPortal : undefined;
+            resourceInputs["applicationGroupName"] = args?.applicationGroupName;
+            resourceInputs["applicationName"] = args?.applicationName;
+            resourceInputs["applicationType"] = args?.applicationType;
+            resourceInputs["commandLineArguments"] = args?.commandLineArguments;
+            resourceInputs["commandLineSetting"] = args?.commandLineSetting;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["filePath"] = args?.filePath;
+            resourceInputs["friendlyName"] = args?.friendlyName;
+            resourceInputs["iconIndex"] = args?.iconIndex;
+            resourceInputs["iconPath"] = args?.iconPath;
+            resourceInputs["msixPackageApplicationId"] = args?.msixPackageApplicationId;
+            resourceInputs["msixPackageFamilyName"] = args?.msixPackageFamilyName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["showInPortal"] = args?.showInPortal;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["iconContent"] = undefined /*out*/;
             resourceInputs["iconHash"] = undefined /*out*/;

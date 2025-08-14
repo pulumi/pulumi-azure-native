@@ -109,25 +109,25 @@ export class Sim extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.internationalMobileSubscriberIdentity === undefined) && !opts.urn) {
+            if (args?.internationalMobileSubscriberIdentity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'internationalMobileSubscriberIdentity'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.simGroupName === undefined) && !opts.urn) {
+            if (args?.simGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'simGroupName'");
             }
-            resourceInputs["authenticationKey"] = args ? args.authenticationKey : undefined;
-            resourceInputs["deviceType"] = args ? args.deviceType : undefined;
-            resourceInputs["integratedCircuitCardIdentifier"] = args ? args.integratedCircuitCardIdentifier : undefined;
-            resourceInputs["internationalMobileSubscriberIdentity"] = args ? args.internationalMobileSubscriberIdentity : undefined;
-            resourceInputs["operatorKeyCode"] = args ? args.operatorKeyCode : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["simGroupName"] = args ? args.simGroupName : undefined;
-            resourceInputs["simName"] = args ? args.simName : undefined;
-            resourceInputs["simPolicy"] = args ? args.simPolicy : undefined;
-            resourceInputs["staticIpConfiguration"] = args ? args.staticIpConfiguration : undefined;
+            resourceInputs["authenticationKey"] = args?.authenticationKey;
+            resourceInputs["deviceType"] = args?.deviceType;
+            resourceInputs["integratedCircuitCardIdentifier"] = args?.integratedCircuitCardIdentifier;
+            resourceInputs["internationalMobileSubscriberIdentity"] = args?.internationalMobileSubscriberIdentity;
+            resourceInputs["operatorKeyCode"] = args?.operatorKeyCode;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["simGroupName"] = args?.simGroupName;
+            resourceInputs["simName"] = args?.simName;
+            resourceInputs["simPolicy"] = args?.simPolicy;
+            resourceInputs["staticIpConfiguration"] = args?.staticIpConfiguration;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

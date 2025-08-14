@@ -121,29 +121,29 @@ export class PrivateRecordSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.privateZoneName === undefined) && !opts.urn) {
+            if (args?.privateZoneName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateZoneName'");
             }
-            if ((!args || args.recordType === undefined) && !opts.urn) {
+            if (args?.recordType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recordType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["aRecords"] = args ? args.aRecords : undefined;
-            resourceInputs["aaaaRecords"] = args ? args.aaaaRecords : undefined;
-            resourceInputs["cnameRecord"] = args ? args.cnameRecord : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["mxRecords"] = args ? args.mxRecords : undefined;
-            resourceInputs["privateZoneName"] = args ? args.privateZoneName : undefined;
-            resourceInputs["ptrRecords"] = args ? args.ptrRecords : undefined;
-            resourceInputs["recordType"] = args ? args.recordType : undefined;
-            resourceInputs["relativeRecordSetName"] = args ? args.relativeRecordSetName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["soaRecord"] = args ? args.soaRecord : undefined;
-            resourceInputs["srvRecords"] = args ? args.srvRecords : undefined;
-            resourceInputs["ttl"] = args ? args.ttl : undefined;
-            resourceInputs["txtRecords"] = args ? args.txtRecords : undefined;
+            resourceInputs["aRecords"] = args?.aRecords;
+            resourceInputs["aaaaRecords"] = args?.aaaaRecords;
+            resourceInputs["cnameRecord"] = args?.cnameRecord;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["mxRecords"] = args?.mxRecords;
+            resourceInputs["privateZoneName"] = args?.privateZoneName;
+            resourceInputs["ptrRecords"] = args?.ptrRecords;
+            resourceInputs["recordType"] = args?.recordType;
+            resourceInputs["relativeRecordSetName"] = args?.relativeRecordSetName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["soaRecord"] = args?.soaRecord;
+            resourceInputs["srvRecords"] = args?.srvRecords;
+            resourceInputs["ttl"] = args?.ttl;
+            resourceInputs["txtRecords"] = args?.txtRecords;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["fqdn"] = undefined /*out*/;

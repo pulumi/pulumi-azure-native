@@ -97,18 +97,18 @@ export class IpCommunity extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ipCommunityRules === undefined) && !opts.urn) {
+            if (args?.ipCommunityRules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipCommunityRules'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["annotation"] = args ? args.annotation : undefined;
-            resourceInputs["ipCommunityName"] = args ? args.ipCommunityName : undefined;
-            resourceInputs["ipCommunityRules"] = args ? args.ipCommunityRules : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["annotation"] = args?.annotation;
+            resourceInputs["ipCommunityName"] = args?.ipCommunityName;
+            resourceInputs["ipCommunityRules"] = args?.ipCommunityRules;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationState"] = undefined /*out*/;

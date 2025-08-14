@@ -111,31 +111,31 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.assessmentType === undefined) && !opts.urn) {
+            if (args?.assessmentType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assessmentType'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.severity === undefined) && !opts.urn) {
+            if (args?.severity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'severity'");
             }
-            resourceInputs["assessmentMetadataName"] = args ? args.assessmentMetadataName : undefined;
-            resourceInputs["assessmentType"] = args ? args.assessmentType : undefined;
-            resourceInputs["categories"] = args ? args.categories : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["implementationEffort"] = args ? args.implementationEffort : undefined;
-            resourceInputs["partnerData"] = args ? args.partnerData : undefined;
-            resourceInputs["plannedDeprecationDate"] = args ? args.plannedDeprecationDate : undefined;
-            resourceInputs["preview"] = args ? args.preview : undefined;
-            resourceInputs["publishDates"] = args ? args.publishDates : undefined;
-            resourceInputs["remediationDescription"] = args ? args.remediationDescription : undefined;
-            resourceInputs["severity"] = args ? args.severity : undefined;
-            resourceInputs["tactics"] = args ? args.tactics : undefined;
-            resourceInputs["techniques"] = args ? args.techniques : undefined;
-            resourceInputs["threats"] = args ? args.threats : undefined;
-            resourceInputs["userImpact"] = args ? args.userImpact : undefined;
+            resourceInputs["assessmentMetadataName"] = args?.assessmentMetadataName;
+            resourceInputs["assessmentType"] = args?.assessmentType;
+            resourceInputs["categories"] = args?.categories;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["implementationEffort"] = args?.implementationEffort;
+            resourceInputs["partnerData"] = args?.partnerData;
+            resourceInputs["plannedDeprecationDate"] = args?.plannedDeprecationDate;
+            resourceInputs["preview"] = args?.preview;
+            resourceInputs["publishDates"] = args?.publishDates;
+            resourceInputs["remediationDescription"] = args?.remediationDescription;
+            resourceInputs["severity"] = args?.severity;
+            resourceInputs["tactics"] = args?.tactics;
+            resourceInputs["techniques"] = args?.techniques;
+            resourceInputs["threats"] = args?.threats;
+            resourceInputs["userImpact"] = args?.userImpact;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policyDefinitionId"] = undefined /*out*/;

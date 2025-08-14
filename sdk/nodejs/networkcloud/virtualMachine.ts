@@ -183,52 +183,52 @@ export class VirtualMachine extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.adminUsername === undefined) && !opts.urn) {
+            if (args?.adminUsername === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adminUsername'");
             }
-            if ((!args || args.cloudServicesNetworkAttachment === undefined) && !opts.urn) {
+            if (args?.cloudServicesNetworkAttachment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cloudServicesNetworkAttachment'");
             }
-            if ((!args || args.cpuCores === undefined) && !opts.urn) {
+            if (args?.cpuCores === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cpuCores'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.memorySizeGB === undefined) && !opts.urn) {
+            if (args?.memorySizeGB === undefined && !opts.urn) {
                 throw new Error("Missing required property 'memorySizeGB'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageProfile === undefined) && !opts.urn) {
+            if (args?.storageProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageProfile'");
             }
-            if ((!args || args.vmImage === undefined) && !opts.urn) {
+            if (args?.vmImage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vmImage'");
             }
-            resourceInputs["adminUsername"] = args ? args.adminUsername : undefined;
-            resourceInputs["bootMethod"] = (args ? args.bootMethod : undefined) ?? "UEFI";
-            resourceInputs["cloudServicesNetworkAttachment"] = args ? args.cloudServicesNetworkAttachment : undefined;
-            resourceInputs["consoleExtendedLocation"] = args ? args.consoleExtendedLocation : undefined;
-            resourceInputs["cpuCores"] = args ? args.cpuCores : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["isolateEmulatorThread"] = (args ? args.isolateEmulatorThread : undefined) ?? "True";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["memorySizeGB"] = args ? args.memorySizeGB : undefined;
-            resourceInputs["networkAttachments"] = args ? args.networkAttachments : undefined;
-            resourceInputs["networkData"] = args ? args.networkData : undefined;
-            resourceInputs["placementHints"] = args ? args.placementHints : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sshPublicKeys"] = args ? args.sshPublicKeys : undefined;
+            resourceInputs["adminUsername"] = args?.adminUsername;
+            resourceInputs["bootMethod"] = (args?.bootMethod) ?? "UEFI";
+            resourceInputs["cloudServicesNetworkAttachment"] = args?.cloudServicesNetworkAttachment;
+            resourceInputs["consoleExtendedLocation"] = args?.consoleExtendedLocation;
+            resourceInputs["cpuCores"] = args?.cpuCores;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["isolateEmulatorThread"] = (args?.isolateEmulatorThread) ?? "True";
+            resourceInputs["location"] = args?.location;
+            resourceInputs["memorySizeGB"] = args?.memorySizeGB;
+            resourceInputs["networkAttachments"] = args?.networkAttachments;
+            resourceInputs["networkData"] = args?.networkData;
+            resourceInputs["placementHints"] = args?.placementHints;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sshPublicKeys"] = args?.sshPublicKeys;
             resourceInputs["storageProfile"] = args ? (args.storageProfile ? pulumi.output(args.storageProfile).apply(inputs.networkcloud.storageProfileArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userData"] = args ? args.userData : undefined;
-            resourceInputs["virtioInterface"] = (args ? args.virtioInterface : undefined) ?? "Modern";
-            resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
-            resourceInputs["vmDeviceModel"] = (args ? args.vmDeviceModel : undefined) ?? "T2";
-            resourceInputs["vmImage"] = args ? args.vmImage : undefined;
-            resourceInputs["vmImageRepositoryCredentials"] = args ? args.vmImageRepositoryCredentials : undefined;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userData"] = args?.userData;
+            resourceInputs["virtioInterface"] = (args?.virtioInterface) ?? "Modern";
+            resourceInputs["virtualMachineName"] = args?.virtualMachineName;
+            resourceInputs["vmDeviceModel"] = (args?.vmDeviceModel) ?? "T2";
+            resourceInputs["vmImage"] = args?.vmImage;
+            resourceInputs["vmImageRepositoryCredentials"] = args?.vmImageRepositoryCredentials;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["bareMetalMachineId"] = undefined /*out*/;

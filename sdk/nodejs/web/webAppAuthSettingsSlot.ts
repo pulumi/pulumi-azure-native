@@ -273,57 +273,57 @@ export class WebAppAuthSettingsSlot extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.slot === undefined) && !opts.urn) {
+            if (args?.slot === undefined && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            resourceInputs["aadClaimsAuthorization"] = args ? args.aadClaimsAuthorization : undefined;
-            resourceInputs["additionalLoginParams"] = args ? args.additionalLoginParams : undefined;
-            resourceInputs["allowedAudiences"] = args ? args.allowedAudiences : undefined;
-            resourceInputs["allowedExternalRedirectUrls"] = args ? args.allowedExternalRedirectUrls : undefined;
-            resourceInputs["authFilePath"] = args ? args.authFilePath : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
-            resourceInputs["clientSecretCertificateThumbprint"] = args ? args.clientSecretCertificateThumbprint : undefined;
-            resourceInputs["clientSecretSettingName"] = args ? args.clientSecretSettingName : undefined;
-            resourceInputs["configVersion"] = args ? args.configVersion : undefined;
-            resourceInputs["defaultProvider"] = args ? args.defaultProvider : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["facebookAppId"] = args ? args.facebookAppId : undefined;
-            resourceInputs["facebookAppSecret"] = args ? args.facebookAppSecret : undefined;
-            resourceInputs["facebookAppSecretSettingName"] = args ? args.facebookAppSecretSettingName : undefined;
-            resourceInputs["facebookOAuthScopes"] = args ? args.facebookOAuthScopes : undefined;
-            resourceInputs["gitHubClientId"] = args ? args.gitHubClientId : undefined;
-            resourceInputs["gitHubClientSecret"] = args ? args.gitHubClientSecret : undefined;
-            resourceInputs["gitHubClientSecretSettingName"] = args ? args.gitHubClientSecretSettingName : undefined;
-            resourceInputs["gitHubOAuthScopes"] = args ? args.gitHubOAuthScopes : undefined;
-            resourceInputs["googleClientId"] = args ? args.googleClientId : undefined;
-            resourceInputs["googleClientSecret"] = args ? args.googleClientSecret : undefined;
-            resourceInputs["googleClientSecretSettingName"] = args ? args.googleClientSecretSettingName : undefined;
-            resourceInputs["googleOAuthScopes"] = args ? args.googleOAuthScopes : undefined;
-            resourceInputs["isAuthFromFile"] = args ? args.isAuthFromFile : undefined;
-            resourceInputs["issuer"] = args ? args.issuer : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["microsoftAccountClientId"] = args ? args.microsoftAccountClientId : undefined;
-            resourceInputs["microsoftAccountClientSecret"] = args ? args.microsoftAccountClientSecret : undefined;
-            resourceInputs["microsoftAccountClientSecretSettingName"] = args ? args.microsoftAccountClientSecretSettingName : undefined;
-            resourceInputs["microsoftAccountOAuthScopes"] = args ? args.microsoftAccountOAuthScopes : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["runtimeVersion"] = args ? args.runtimeVersion : undefined;
-            resourceInputs["slot"] = args ? args.slot : undefined;
-            resourceInputs["tokenRefreshExtensionHours"] = args ? args.tokenRefreshExtensionHours : undefined;
-            resourceInputs["tokenStoreEnabled"] = args ? args.tokenStoreEnabled : undefined;
-            resourceInputs["twitterConsumerKey"] = args ? args.twitterConsumerKey : undefined;
-            resourceInputs["twitterConsumerSecret"] = args ? args.twitterConsumerSecret : undefined;
-            resourceInputs["twitterConsumerSecretSettingName"] = args ? args.twitterConsumerSecretSettingName : undefined;
-            resourceInputs["unauthenticatedClientAction"] = args ? args.unauthenticatedClientAction : undefined;
-            resourceInputs["validateIssuer"] = args ? args.validateIssuer : undefined;
+            resourceInputs["aadClaimsAuthorization"] = args?.aadClaimsAuthorization;
+            resourceInputs["additionalLoginParams"] = args?.additionalLoginParams;
+            resourceInputs["allowedAudiences"] = args?.allowedAudiences;
+            resourceInputs["allowedExternalRedirectUrls"] = args?.allowedExternalRedirectUrls;
+            resourceInputs["authFilePath"] = args?.authFilePath;
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["clientSecret"] = args?.clientSecret;
+            resourceInputs["clientSecretCertificateThumbprint"] = args?.clientSecretCertificateThumbprint;
+            resourceInputs["clientSecretSettingName"] = args?.clientSecretSettingName;
+            resourceInputs["configVersion"] = args?.configVersion;
+            resourceInputs["defaultProvider"] = args?.defaultProvider;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["facebookAppId"] = args?.facebookAppId;
+            resourceInputs["facebookAppSecret"] = args?.facebookAppSecret;
+            resourceInputs["facebookAppSecretSettingName"] = args?.facebookAppSecretSettingName;
+            resourceInputs["facebookOAuthScopes"] = args?.facebookOAuthScopes;
+            resourceInputs["gitHubClientId"] = args?.gitHubClientId;
+            resourceInputs["gitHubClientSecret"] = args?.gitHubClientSecret;
+            resourceInputs["gitHubClientSecretSettingName"] = args?.gitHubClientSecretSettingName;
+            resourceInputs["gitHubOAuthScopes"] = args?.gitHubOAuthScopes;
+            resourceInputs["googleClientId"] = args?.googleClientId;
+            resourceInputs["googleClientSecret"] = args?.googleClientSecret;
+            resourceInputs["googleClientSecretSettingName"] = args?.googleClientSecretSettingName;
+            resourceInputs["googleOAuthScopes"] = args?.googleOAuthScopes;
+            resourceInputs["isAuthFromFile"] = args?.isAuthFromFile;
+            resourceInputs["issuer"] = args?.issuer;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["microsoftAccountClientId"] = args?.microsoftAccountClientId;
+            resourceInputs["microsoftAccountClientSecret"] = args?.microsoftAccountClientSecret;
+            resourceInputs["microsoftAccountClientSecretSettingName"] = args?.microsoftAccountClientSecretSettingName;
+            resourceInputs["microsoftAccountOAuthScopes"] = args?.microsoftAccountOAuthScopes;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["runtimeVersion"] = args?.runtimeVersion;
+            resourceInputs["slot"] = args?.slot;
+            resourceInputs["tokenRefreshExtensionHours"] = args?.tokenRefreshExtensionHours;
+            resourceInputs["tokenStoreEnabled"] = args?.tokenStoreEnabled;
+            resourceInputs["twitterConsumerKey"] = args?.twitterConsumerKey;
+            resourceInputs["twitterConsumerSecret"] = args?.twitterConsumerSecret;
+            resourceInputs["twitterConsumerSecretSettingName"] = args?.twitterConsumerSecretSettingName;
+            resourceInputs["unauthenticatedClientAction"] = args?.unauthenticatedClientAction;
+            resourceInputs["validateIssuer"] = args?.validateIssuer;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

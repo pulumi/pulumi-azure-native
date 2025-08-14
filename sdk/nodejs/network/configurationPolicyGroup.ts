@@ -89,20 +89,20 @@ export class ConfigurationPolicyGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vpnServerConfigurationName === undefined) && !opts.urn) {
+            if (args?.vpnServerConfigurationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpnServerConfigurationName'");
             }
-            resourceInputs["configurationPolicyGroupName"] = args ? args.configurationPolicyGroupName : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["isDefault"] = args ? args.isDefault : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policyMembers"] = args ? args.policyMembers : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["vpnServerConfigurationName"] = args ? args.vpnServerConfigurationName : undefined;
+            resourceInputs["configurationPolicyGroupName"] = args?.configurationPolicyGroupName;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["isDefault"] = args?.isDefault;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policyMembers"] = args?.policyMembers;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["vpnServerConfigurationName"] = args?.vpnServerConfigurationName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["p2SConnectionConfigurations"] = undefined /*out*/;

@@ -145,33 +145,33 @@ export class Package extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationName === undefined) && !opts.urn) {
+            if (args?.applicationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.testBaseAccountName === undefined) && !opts.urn) {
+            if (args?.testBaseAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'testBaseAccountName'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["blobPath"] = args ? args.blobPath : undefined;
-            resourceInputs["draftPackageId"] = args ? args.draftPackageId : undefined;
-            resourceInputs["firstPartyApps"] = args ? args.firstPartyApps : undefined;
-            resourceInputs["flightingRing"] = args ? args.flightingRing : undefined;
-            resourceInputs["inplaceUpgradeOSPair"] = args ? args.inplaceUpgradeOSPair : undefined;
-            resourceInputs["intuneEnrollmentMetadata"] = args ? args.intuneEnrollmentMetadata : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["packageName"] = args ? args.packageName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetOSList"] = args ? args.targetOSList : undefined;
-            resourceInputs["testBaseAccountName"] = args ? args.testBaseAccountName : undefined;
-            resourceInputs["tests"] = args ? args.tests : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["applicationName"] = args?.applicationName;
+            resourceInputs["blobPath"] = args?.blobPath;
+            resourceInputs["draftPackageId"] = args?.draftPackageId;
+            resourceInputs["firstPartyApps"] = args?.firstPartyApps;
+            resourceInputs["flightingRing"] = args?.flightingRing;
+            resourceInputs["inplaceUpgradeOSPair"] = args?.inplaceUpgradeOSPair;
+            resourceInputs["intuneEnrollmentMetadata"] = args?.intuneEnrollmentMetadata;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["packageName"] = args?.packageName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetOSList"] = args?.targetOSList;
+            resourceInputs["testBaseAccountName"] = args?.testBaseAccountName;
+            resourceInputs["tests"] = args?.tests;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["galleryApps"] = undefined /*out*/;
             resourceInputs["isEnabled"] = undefined /*out*/;

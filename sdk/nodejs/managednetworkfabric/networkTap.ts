@@ -107,23 +107,23 @@ export class NetworkTap extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destinations === undefined) && !opts.urn) {
+            if (args?.destinations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinations'");
             }
-            if ((!args || args.networkPacketBrokerId === undefined) && !opts.urn) {
+            if (args?.networkPacketBrokerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkPacketBrokerId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["annotation"] = args ? args.annotation : undefined;
-            resourceInputs["destinations"] = args ? args.destinations : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkPacketBrokerId"] = args ? args.networkPacketBrokerId : undefined;
-            resourceInputs["networkTapName"] = args ? args.networkTapName : undefined;
-            resourceInputs["pollingType"] = (args ? args.pollingType : undefined) ?? "Pull";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["annotation"] = args?.annotation;
+            resourceInputs["destinations"] = args?.destinations;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkPacketBrokerId"] = args?.networkPacketBrokerId;
+            resourceInputs["networkTapName"] = args?.networkTapName;
+            resourceInputs["pollingType"] = (args?.pollingType) ?? "Pull";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationState"] = undefined /*out*/;

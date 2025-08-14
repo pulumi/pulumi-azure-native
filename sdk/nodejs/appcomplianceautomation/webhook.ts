@@ -119,19 +119,19 @@ export class Webhook extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.reportName === undefined) && !opts.urn) {
+            if (args?.reportName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reportName'");
             }
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["enableSslVerification"] = args ? args.enableSslVerification : undefined;
-            resourceInputs["events"] = args ? args.events : undefined;
-            resourceInputs["payloadUrl"] = args ? args.payloadUrl : undefined;
-            resourceInputs["reportName"] = args ? args.reportName : undefined;
-            resourceInputs["sendAllEvents"] = args ? args.sendAllEvents : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["updateWebhookKey"] = args ? args.updateWebhookKey : undefined;
-            resourceInputs["webhookKey"] = args ? args.webhookKey : undefined;
-            resourceInputs["webhookName"] = args ? args.webhookName : undefined;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["enableSslVerification"] = args?.enableSslVerification;
+            resourceInputs["events"] = args?.events;
+            resourceInputs["payloadUrl"] = args?.payloadUrl;
+            resourceInputs["reportName"] = args?.reportName;
+            resourceInputs["sendAllEvents"] = args?.sendAllEvents;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["updateWebhookKey"] = args?.updateWebhookKey;
+            resourceInputs["webhookKey"] = args?.webhookKey;
+            resourceInputs["webhookName"] = args?.webhookName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deliveryStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

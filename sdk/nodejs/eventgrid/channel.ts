@@ -94,21 +94,21 @@ export class Channel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.partnerNamespaceName === undefined) && !opts.urn) {
+            if (args?.partnerNamespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partnerNamespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["channelName"] = args ? args.channelName : undefined;
-            resourceInputs["channelType"] = args ? args.channelType : undefined;
-            resourceInputs["expirationTimeIfNotActivatedUtc"] = args ? args.expirationTimeIfNotActivatedUtc : undefined;
-            resourceInputs["messageForActivation"] = args ? args.messageForActivation : undefined;
-            resourceInputs["partnerNamespaceName"] = args ? args.partnerNamespaceName : undefined;
-            resourceInputs["partnerTopicInfo"] = args ? args.partnerTopicInfo : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["readinessState"] = args ? args.readinessState : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["channelName"] = args?.channelName;
+            resourceInputs["channelType"] = args?.channelType;
+            resourceInputs["expirationTimeIfNotActivatedUtc"] = args?.expirationTimeIfNotActivatedUtc;
+            resourceInputs["messageForActivation"] = args?.messageForActivation;
+            resourceInputs["partnerNamespaceName"] = args?.partnerNamespaceName;
+            resourceInputs["partnerTopicInfo"] = args?.partnerTopicInfo;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["readinessState"] = args?.readinessState;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

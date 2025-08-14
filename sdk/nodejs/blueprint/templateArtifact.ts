@@ -92,31 +92,31 @@ export class TemplateArtifact extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.blueprintName === undefined) && !opts.urn) {
+            if (args?.blueprintName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'blueprintName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.parameters === undefined) && !opts.urn) {
+            if (args?.parameters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parameters'");
             }
-            if ((!args || args.resourceScope === undefined) && !opts.urn) {
+            if (args?.resourceScope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceScope'");
             }
-            if ((!args || args.template === undefined) && !opts.urn) {
+            if (args?.template === undefined && !opts.urn) {
                 throw new Error("Missing required property 'template'");
             }
-            resourceInputs["artifactName"] = args ? args.artifactName : undefined;
-            resourceInputs["blueprintName"] = args ? args.blueprintName : undefined;
-            resourceInputs["dependsOn"] = args ? args.dependsOn : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["artifactName"] = args?.artifactName;
+            resourceInputs["blueprintName"] = args?.blueprintName;
+            resourceInputs["dependsOn"] = args?.dependsOn;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
             resourceInputs["kind"] = "template";
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            resourceInputs["resourceScope"] = args ? args.resourceScope : undefined;
-            resourceInputs["template"] = args ? args.template : undefined;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["resourceGroup"] = args?.resourceGroup;
+            resourceInputs["resourceScope"] = args?.resourceScope;
+            resourceInputs["template"] = args?.template;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

@@ -139,27 +139,27 @@ export class NamespaceDevice extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["attributes"] = args ? args.attributes : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["discoveredDeviceRef"] = args ? args.discoveredDeviceRef : undefined;
-            resourceInputs["enabled"] = (args ? args.enabled : undefined) ?? true;
-            resourceInputs["endpoints"] = args ? args.endpoints : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["externalDeviceId"] = args ? args.externalDeviceId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["manufacturer"] = args ? args.manufacturer : undefined;
-            resourceInputs["model"] = args ? args.model : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["operatingSystem"] = args ? args.operatingSystem : undefined;
-            resourceInputs["operatingSystemVersion"] = args ? args.operatingSystemVersion : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["attributes"] = args?.attributes;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["discoveredDeviceRef"] = args?.discoveredDeviceRef;
+            resourceInputs["enabled"] = (args?.enabled) ?? true;
+            resourceInputs["endpoints"] = args?.endpoints;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["externalDeviceId"] = args?.externalDeviceId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["manufacturer"] = args?.manufacturer;
+            resourceInputs["model"] = args?.model;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["operatingSystem"] = args?.operatingSystem;
+            resourceInputs["operatingSystemVersion"] = args?.operatingSystemVersion;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastTransitionTime"] = undefined /*out*/;

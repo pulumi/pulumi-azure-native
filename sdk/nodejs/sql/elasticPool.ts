@@ -135,28 +135,28 @@ export class ElasticPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            resourceInputs["autoPauseDelay"] = args ? args.autoPauseDelay : undefined;
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["elasticPoolName"] = args ? args.elasticPoolName : undefined;
-            resourceInputs["highAvailabilityReplicaCount"] = args ? args.highAvailabilityReplicaCount : undefined;
-            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
-            resourceInputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
-            resourceInputs["minCapacity"] = args ? args.minCapacity : undefined;
-            resourceInputs["perDatabaseSettings"] = args ? args.perDatabaseSettings : undefined;
-            resourceInputs["preferredEnclaveType"] = args ? args.preferredEnclaveType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["autoPauseDelay"] = args?.autoPauseDelay;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["elasticPoolName"] = args?.elasticPoolName;
+            resourceInputs["highAvailabilityReplicaCount"] = args?.highAvailabilityReplicaCount;
+            resourceInputs["licenseType"] = args?.licenseType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maintenanceConfigurationId"] = args?.maintenanceConfigurationId;
+            resourceInputs["maxSizeBytes"] = args?.maxSizeBytes;
+            resourceInputs["minCapacity"] = args?.minCapacity;
+            resourceInputs["perDatabaseSettings"] = args?.perDatabaseSettings;
+            resourceInputs["preferredEnclaveType"] = args?.preferredEnclaveType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zoneRedundant"] = args?.zoneRedundant;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;

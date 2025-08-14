@@ -86,32 +86,32 @@ export class SqlPoolWorkloadClassifier extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.memberName === undefined) && !opts.urn) {
+            if (args?.memberName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'memberName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sqlPoolName === undefined) && !opts.urn) {
+            if (args?.sqlPoolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sqlPoolName'");
             }
-            if ((!args || args.workloadGroupName === undefined) && !opts.urn) {
+            if (args?.workloadGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workloadGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["context"] = args ? args.context : undefined;
-            resourceInputs["endTime"] = args ? args.endTime : undefined;
-            resourceInputs["importance"] = args ? args.importance : undefined;
-            resourceInputs["label"] = args ? args.label : undefined;
-            resourceInputs["memberName"] = args ? args.memberName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sqlPoolName"] = args ? args.sqlPoolName : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
-            resourceInputs["workloadClassifierName"] = args ? args.workloadClassifierName : undefined;
-            resourceInputs["workloadGroupName"] = args ? args.workloadGroupName : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["context"] = args?.context;
+            resourceInputs["endTime"] = args?.endTime;
+            resourceInputs["importance"] = args?.importance;
+            resourceInputs["label"] = args?.label;
+            resourceInputs["memberName"] = args?.memberName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sqlPoolName"] = args?.sqlPoolName;
+            resourceInputs["startTime"] = args?.startTime;
+            resourceInputs["workloadClassifierName"] = args?.workloadClassifierName;
+            resourceInputs["workloadGroupName"] = args?.workloadGroupName;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

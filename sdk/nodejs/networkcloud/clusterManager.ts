@@ -123,22 +123,22 @@ export class ClusterManager extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fabricControllerId === undefined) && !opts.urn) {
+            if (args?.fabricControllerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fabricControllerId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["analyticsWorkspaceId"] = args ? args.analyticsWorkspaceId : undefined;
-            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            resourceInputs["clusterManagerName"] = args ? args.clusterManagerName : undefined;
-            resourceInputs["fabricControllerId"] = args ? args.fabricControllerId : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedResourceGroupConfiguration"] = args ? args.managedResourceGroupConfiguration : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vmSize"] = args ? args.vmSize : undefined;
+            resourceInputs["analyticsWorkspaceId"] = args?.analyticsWorkspaceId;
+            resourceInputs["availabilityZones"] = args?.availabilityZones;
+            resourceInputs["clusterManagerName"] = args?.clusterManagerName;
+            resourceInputs["fabricControllerId"] = args?.fabricControllerId;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedResourceGroupConfiguration"] = args?.managedResourceGroupConfiguration;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vmSize"] = args?.vmSize;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterVersions"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;

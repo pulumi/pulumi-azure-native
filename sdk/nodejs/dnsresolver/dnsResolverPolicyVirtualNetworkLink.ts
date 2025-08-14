@@ -89,21 +89,21 @@ export class DnsResolverPolicyVirtualNetworkLink extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dnsResolverPolicyName === undefined) && !opts.urn) {
+            if (args?.dnsResolverPolicyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsResolverPolicyName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetwork === undefined) && !opts.urn) {
+            if (args?.virtualNetwork === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetwork'");
             }
-            resourceInputs["dnsResolverPolicyName"] = args ? args.dnsResolverPolicyName : undefined;
-            resourceInputs["dnsResolverPolicyVirtualNetworkLinkName"] = args ? args.dnsResolverPolicyVirtualNetworkLinkName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
+            resourceInputs["dnsResolverPolicyName"] = args?.dnsResolverPolicyName;
+            resourceInputs["dnsResolverPolicyVirtualNetworkLinkName"] = args?.dnsResolverPolicyVirtualNetworkLinkName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualNetwork"] = args?.virtualNetwork;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

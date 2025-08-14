@@ -85,24 +85,24 @@ export class SenderUsername extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.emailServiceName === undefined) && !opts.urn) {
+            if (args?.emailServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'emailServiceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["emailServiceName"] = args ? args.emailServiceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["senderUsername"] = args ? args.senderUsername : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["emailServiceName"] = args?.emailServiceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["senderUsername"] = args?.senderUsername;
+            resourceInputs["username"] = args?.username;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataLocation"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

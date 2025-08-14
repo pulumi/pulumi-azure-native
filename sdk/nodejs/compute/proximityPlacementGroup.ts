@@ -105,17 +105,17 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["colocationStatus"] = args ? args.colocationStatus : undefined;
-            resourceInputs["intent"] = args ? args.intent : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["proximityPlacementGroupName"] = args ? args.proximityPlacementGroupName : undefined;
-            resourceInputs["proximityPlacementGroupType"] = args ? args.proximityPlacementGroupType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["colocationStatus"] = args?.colocationStatus;
+            resourceInputs["intent"] = args?.intent;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["proximityPlacementGroupName"] = args?.proximityPlacementGroupName;
+            resourceInputs["proximityPlacementGroupType"] = args?.proximityPlacementGroupType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["availabilitySets"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

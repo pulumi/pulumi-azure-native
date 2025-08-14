@@ -79,16 +79,16 @@ export class Workflow extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.contextName === undefined) && !opts.urn) {
+            if (args?.contextName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contextName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["contextName"] = args ? args.contextName : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["workflowName"] = args ? args.workflowName : undefined;
+            resourceInputs["contextName"] = args?.contextName;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["workflowName"] = args?.workflowName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

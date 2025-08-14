@@ -157,24 +157,24 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.productType === undefined) && !opts.urn) {
+            if (args?.productType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoRenew"] = (args ? args.autoRenew : undefined) ?? true;
-            resourceInputs["certificateOrderName"] = args ? args.certificateOrderName : undefined;
-            resourceInputs["certificates"] = args ? args.certificates : undefined;
-            resourceInputs["csr"] = args ? args.csr : undefined;
-            resourceInputs["distinguishedName"] = args ? args.distinguishedName : undefined;
-            resourceInputs["keySize"] = (args ? args.keySize : undefined) ?? 2048;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["productType"] = args ? args.productType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["validityInYears"] = (args ? args.validityInYears : undefined) ?? 1;
+            resourceInputs["autoRenew"] = (args?.autoRenew) ?? true;
+            resourceInputs["certificateOrderName"] = args?.certificateOrderName;
+            resourceInputs["certificates"] = args?.certificates;
+            resourceInputs["csr"] = args?.csr;
+            resourceInputs["distinguishedName"] = args?.distinguishedName;
+            resourceInputs["keySize"] = (args?.keySize) ?? 2048;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["productType"] = args?.productType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["validityInYears"] = (args?.validityInYears) ?? 1;
             resourceInputs["appServiceCertificateNotRenewableReasons"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["contact"] = undefined /*out*/;

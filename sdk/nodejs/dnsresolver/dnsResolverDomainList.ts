@@ -93,17 +93,17 @@ export class DnsResolverDomainList extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domains === undefined) && !opts.urn) {
+            if (args?.domains === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domains'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dnsResolverDomainListName"] = args ? args.dnsResolverDomainListName : undefined;
-            resourceInputs["domains"] = args ? args.domains : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dnsResolverDomainListName"] = args?.dnsResolverDomainListName;
+            resourceInputs["domains"] = args?.domains;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

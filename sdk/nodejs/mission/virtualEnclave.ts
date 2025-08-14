@@ -133,28 +133,28 @@ export class VirtualEnclave extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.communityResourceId === undefined) && !opts.urn) {
+            if (args?.communityResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'communityResourceId'");
             }
-            if ((!args || args.enclaveVirtualNetwork === undefined) && !opts.urn) {
+            if (args?.enclaveVirtualNetwork === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enclaveVirtualNetwork'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["bastionEnabled"] = (args ? args.bastionEnabled : undefined) ?? false;
-            resourceInputs["communityResourceId"] = args ? args.communityResourceId : undefined;
+            resourceInputs["bastionEnabled"] = (args?.bastionEnabled) ?? false;
+            resourceInputs["communityResourceId"] = args?.communityResourceId;
             resourceInputs["enclaveDefaultSettings"] = args ? (args.enclaveDefaultSettings ? pulumi.output(args.enclaveDefaultSettings).apply(inputs.mission.enclaveDefaultSettingsModelArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["enclaveRoleAssignments"] = args ? args.enclaveRoleAssignments : undefined;
+            resourceInputs["enclaveRoleAssignments"] = args?.enclaveRoleAssignments;
             resourceInputs["enclaveVirtualNetwork"] = args ? (args.enclaveVirtualNetwork ? pulumi.output(args.enclaveVirtualNetwork).apply(inputs.mission.enclaveVirtualNetworkModelArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["governedServiceList"] = args ? args.governedServiceList : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["governedServiceList"] = args?.governedServiceList;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
             resourceInputs["maintenanceModeConfiguration"] = args ? (args.maintenanceModeConfiguration ? pulumi.output(args.maintenanceModeConfiguration).apply(inputs.mission.maintenanceModeConfigurationModelArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualEnclaveName"] = args ? args.virtualEnclaveName : undefined;
-            resourceInputs["workloadRoleAssignments"] = args ? args.workloadRoleAssignments : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualEnclaveName"] = args?.virtualEnclaveName;
+            resourceInputs["workloadRoleAssignments"] = args?.workloadRoleAssignments;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["enclaveAddressSpaces"] = undefined /*out*/;
             resourceInputs["managedOnBehalfOfConfiguration"] = undefined /*out*/;

@@ -71,16 +71,16 @@ export class Solution extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.migrateProjectName === undefined) && !opts.urn) {
+            if (args?.migrateProjectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'migrateProjectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["migrateProjectName"] = args ? args.migrateProjectName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["solutionName"] = args ? args.solutionName : undefined;
+            resourceInputs["migrateProjectName"] = args?.migrateProjectName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["solutionName"] = args?.solutionName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

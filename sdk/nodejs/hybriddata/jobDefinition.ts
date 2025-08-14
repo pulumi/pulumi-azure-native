@@ -99,37 +99,37 @@ export class JobDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataManagerName === undefined) && !opts.urn) {
+            if (args?.dataManagerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataManagerName'");
             }
-            if ((!args || args.dataServiceName === undefined) && !opts.urn) {
+            if (args?.dataServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataServiceName'");
             }
-            if ((!args || args.dataSinkId === undefined) && !opts.urn) {
+            if (args?.dataSinkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSinkId'");
             }
-            if ((!args || args.dataSourceId === undefined) && !opts.urn) {
+            if (args?.dataSourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.state === undefined) && !opts.urn) {
+            if (args?.state === undefined && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            resourceInputs["customerSecrets"] = args ? args.customerSecrets : undefined;
-            resourceInputs["dataManagerName"] = args ? args.dataManagerName : undefined;
-            resourceInputs["dataServiceInput"] = args ? args.dataServiceInput : undefined;
-            resourceInputs["dataServiceName"] = args ? args.dataServiceName : undefined;
-            resourceInputs["dataSinkId"] = args ? args.dataSinkId : undefined;
-            resourceInputs["dataSourceId"] = args ? args.dataSourceId : undefined;
-            resourceInputs["jobDefinitionName"] = args ? args.jobDefinitionName : undefined;
-            resourceInputs["lastModifiedTime"] = args ? args.lastModifiedTime : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["runLocation"] = args ? args.runLocation : undefined;
-            resourceInputs["schedules"] = args ? args.schedules : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["userConfirmation"] = (args ? args.userConfirmation : undefined) ?? "NotRequired";
+            resourceInputs["customerSecrets"] = args?.customerSecrets;
+            resourceInputs["dataManagerName"] = args?.dataManagerName;
+            resourceInputs["dataServiceInput"] = args?.dataServiceInput;
+            resourceInputs["dataServiceName"] = args?.dataServiceName;
+            resourceInputs["dataSinkId"] = args?.dataSinkId;
+            resourceInputs["dataSourceId"] = args?.dataSourceId;
+            resourceInputs["jobDefinitionName"] = args?.jobDefinitionName;
+            resourceInputs["lastModifiedTime"] = args?.lastModifiedTime;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["runLocation"] = args?.runLocation;
+            resourceInputs["schedules"] = args?.schedules;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["userConfirmation"] = (args?.userConfirmation) ?? "NotRequired";
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

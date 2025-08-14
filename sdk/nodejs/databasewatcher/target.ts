@@ -89,28 +89,28 @@ export class Target extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectionServerName === undefined) && !opts.urn) {
+            if (args?.connectionServerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionServerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.targetAuthenticationType === undefined) && !opts.urn) {
+            if (args?.targetAuthenticationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetAuthenticationType'");
             }
-            if ((!args || args.targetType === undefined) && !opts.urn) {
+            if (args?.targetType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetType'");
             }
-            if ((!args || args.watcherName === undefined) && !opts.urn) {
+            if (args?.watcherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'watcherName'");
             }
-            resourceInputs["connectionServerName"] = args ? args.connectionServerName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["targetAuthenticationType"] = args ? args.targetAuthenticationType : undefined;
-            resourceInputs["targetName"] = args ? args.targetName : undefined;
-            resourceInputs["targetType"] = args ? args.targetType : undefined;
-            resourceInputs["targetVault"] = args ? args.targetVault : undefined;
-            resourceInputs["watcherName"] = args ? args.watcherName : undefined;
+            resourceInputs["connectionServerName"] = args?.connectionServerName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["targetAuthenticationType"] = args?.targetAuthenticationType;
+            resourceInputs["targetName"] = args?.targetName;
+            resourceInputs["targetType"] = args?.targetType;
+            resourceInputs["targetVault"] = args?.targetVault;
+            resourceInputs["watcherName"] = args?.watcherName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

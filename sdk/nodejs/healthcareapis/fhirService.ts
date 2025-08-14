@@ -137,27 +137,27 @@ export class FhirService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["acrConfiguration"] = args ? args.acrConfiguration : undefined;
-            resourceInputs["authenticationConfiguration"] = args ? args.authenticationConfiguration : undefined;
-            resourceInputs["corsConfiguration"] = args ? args.corsConfiguration : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["exportConfiguration"] = args ? args.exportConfiguration : undefined;
-            resourceInputs["fhirServiceName"] = args ? args.fhirServiceName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["implementationGuidesConfiguration"] = args ? args.implementationGuidesConfiguration : undefined;
-            resourceInputs["importConfiguration"] = args ? args.importConfiguration : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceVersionPolicyConfiguration"] = args ? args.resourceVersionPolicyConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["acrConfiguration"] = args?.acrConfiguration;
+            resourceInputs["authenticationConfiguration"] = args?.authenticationConfiguration;
+            resourceInputs["corsConfiguration"] = args?.corsConfiguration;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["exportConfiguration"] = args?.exportConfiguration;
+            resourceInputs["fhirServiceName"] = args?.fhirServiceName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["implementationGuidesConfiguration"] = args?.implementationGuidesConfiguration;
+            resourceInputs["importConfiguration"] = args?.importConfiguration;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceVersionPolicyConfiguration"] = args?.resourceVersionPolicyConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["eventState"] = undefined /*out*/;

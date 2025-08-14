@@ -119,18 +119,18 @@ export class ScopeAccessReviewHistoryDefinitionById extends pulumi.CustomResourc
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["decisions"] = args ? args.decisions : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["historyDefinitionId"] = args ? args.historyDefinitionId : undefined;
-            resourceInputs["instances"] = args ? args.instances : undefined;
-            resourceInputs["interval"] = args ? args.interval : undefined;
-            resourceInputs["range"] = args ? args.range : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["decisions"] = args?.decisions;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["historyDefinitionId"] = args?.historyDefinitionId;
+            resourceInputs["instances"] = args?.instances;
+            resourceInputs["interval"] = args?.interval;
+            resourceInputs["range"] = args?.range;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["scopes"] = args?.scopes;
+            resourceInputs["type"] = args?.type;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDateTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -96,22 +96,22 @@ export class AutoUpgradeProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.channel === undefined) && !opts.urn) {
+            if (args?.channel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channel'");
             }
-            if ((!args || args.fleetName === undefined) && !opts.urn) {
+            if (args?.fleetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fleetName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoUpgradeProfileName"] = args ? args.autoUpgradeProfileName : undefined;
-            resourceInputs["channel"] = args ? args.channel : undefined;
-            resourceInputs["disabled"] = args ? args.disabled : undefined;
-            resourceInputs["fleetName"] = args ? args.fleetName : undefined;
-            resourceInputs["nodeImageSelection"] = args ? args.nodeImageSelection : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["updateStrategyId"] = args ? args.updateStrategyId : undefined;
+            resourceInputs["autoUpgradeProfileName"] = args?.autoUpgradeProfileName;
+            resourceInputs["channel"] = args?.channel;
+            resourceInputs["disabled"] = args?.disabled;
+            resourceInputs["fleetName"] = args?.fleetName;
+            resourceInputs["nodeImageSelection"] = args?.nodeImageSelection;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["updateStrategyId"] = args?.updateStrategyId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

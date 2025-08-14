@@ -79,17 +79,17 @@ export class FleetAnalytic extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fleetName === undefined) && !opts.urn) {
+            if (args?.fleetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fleetName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["fleetAnalyticsName"] = args ? args.fleetAnalyticsName : undefined;
-            resourceInputs["fleetName"] = args ? args.fleetName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageLocationType"] = args ? args.storageLocationType : undefined;
-            resourceInputs["storageLocationUri"] = args ? args.storageLocationUri : undefined;
+            resourceInputs["fleetAnalyticsName"] = args?.fleetAnalyticsName;
+            resourceInputs["fleetName"] = args?.fleetName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageLocationType"] = args?.storageLocationType;
+            resourceInputs["storageLocationUri"] = args?.storageLocationUri;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

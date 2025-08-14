@@ -119,34 +119,34 @@ export class MySQLServer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.hostName === undefined) && !opts.urn) {
+            if (args?.hostName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostName'");
             }
-            if ((!args || args.portNumber === undefined) && !opts.urn) {
+            if (args?.portNumber === undefined && !opts.urn) {
                 throw new Error("Missing required property 'portNumber'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.siteName === undefined) && !opts.urn) {
+            if (args?.siteName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'siteName'");
             }
-            resourceInputs["edition"] = args ? args.edition : undefined;
-            resourceInputs["errors"] = args ? args.errors : undefined;
-            resourceInputs["hostIp"] = args ? args.hostIp : undefined;
-            resourceInputs["hostName"] = args ? args.hostName : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["machineId"] = args ? args.machineId : undefined;
-            resourceInputs["mysqlVersion"] = args ? args.mysqlVersion : undefined;
-            resourceInputs["numberOfDatabase"] = args ? args.numberOfDatabase : undefined;
-            resourceInputs["portNumber"] = args ? args.portNumber : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["siteName"] = args ? args.siteName : undefined;
-            resourceInputs["supportEndIn"] = args ? args.supportEndIn : undefined;
-            resourceInputs["supportStatus"] = args ? args.supportStatus : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["edition"] = args?.edition;
+            resourceInputs["errors"] = args?.errors;
+            resourceInputs["hostIp"] = args?.hostIp;
+            resourceInputs["hostName"] = args?.hostName;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["machineId"] = args?.machineId;
+            resourceInputs["mysqlVersion"] = args?.mysqlVersion;
+            resourceInputs["numberOfDatabase"] = args?.numberOfDatabase;
+            resourceInputs["portNumber"] = args?.portNumber;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["siteName"] = args?.siteName;
+            resourceInputs["supportEndIn"] = args?.supportEndIn;
+            resourceInputs["supportStatus"] = args?.supportStatus;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

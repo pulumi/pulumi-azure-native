@@ -157,26 +157,26 @@ export class StaticSite extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allowConfigFileUpdates"] = args ? args.allowConfigFileUpdates : undefined;
-            resourceInputs["branch"] = args ? args.branch : undefined;
-            resourceInputs["buildProperties"] = args ? args.buildProperties : undefined;
-            resourceInputs["enterpriseGradeCdnStatus"] = args ? args.enterpriseGradeCdnStatus : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["provider"] = args ? args.provider : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["repositoryToken"] = args ? args.repositoryToken : undefined;
-            resourceInputs["repositoryUrl"] = args ? args.repositoryUrl : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["stagingEnvironmentPolicy"] = args ? args.stagingEnvironmentPolicy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateProperties"] = args ? args.templateProperties : undefined;
+            resourceInputs["allowConfigFileUpdates"] = args?.allowConfigFileUpdates;
+            resourceInputs["branch"] = args?.branch;
+            resourceInputs["buildProperties"] = args?.buildProperties;
+            resourceInputs["enterpriseGradeCdnStatus"] = args?.enterpriseGradeCdnStatus;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["provider"] = args?.provider;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["repositoryToken"] = args?.repositoryToken;
+            resourceInputs["repositoryUrl"] = args?.repositoryUrl;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["stagingEnvironmentPolicy"] = args?.stagingEnvironmentPolicy;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateProperties"] = args?.templateProperties;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["contentDistributionEndpoint"] = undefined /*out*/;
             resourceInputs["customDomains"] = undefined /*out*/;

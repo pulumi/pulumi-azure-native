@@ -133,34 +133,34 @@ export class ActionGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.groupShortName === undefined) && !opts.urn) {
+            if (args?.groupShortName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupShortName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["actionGroupName"] = args ? args.actionGroupName : undefined;
-            resourceInputs["armRoleReceivers"] = args ? args.armRoleReceivers : undefined;
-            resourceInputs["automationRunbookReceivers"] = args ? args.automationRunbookReceivers : undefined;
-            resourceInputs["azureAppPushReceivers"] = args ? args.azureAppPushReceivers : undefined;
-            resourceInputs["azureFunctionReceivers"] = args ? args.azureFunctionReceivers : undefined;
-            resourceInputs["emailReceivers"] = args ? args.emailReceivers : undefined;
-            resourceInputs["enabled"] = (args ? args.enabled : undefined) ?? true;
-            resourceInputs["eventHubReceivers"] = args ? args.eventHubReceivers : undefined;
-            resourceInputs["groupShortName"] = args ? args.groupShortName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["incidentReceivers"] = args ? args.incidentReceivers : undefined;
-            resourceInputs["itsmReceivers"] = args ? args.itsmReceivers : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logicAppReceivers"] = args ? args.logicAppReceivers : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["smsReceivers"] = args ? args.smsReceivers : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["voiceReceivers"] = args ? args.voiceReceivers : undefined;
-            resourceInputs["webhookReceivers"] = args ? args.webhookReceivers : undefined;
+            resourceInputs["actionGroupName"] = args?.actionGroupName;
+            resourceInputs["armRoleReceivers"] = args?.armRoleReceivers;
+            resourceInputs["automationRunbookReceivers"] = args?.automationRunbookReceivers;
+            resourceInputs["azureAppPushReceivers"] = args?.azureAppPushReceivers;
+            resourceInputs["azureFunctionReceivers"] = args?.azureFunctionReceivers;
+            resourceInputs["emailReceivers"] = args?.emailReceivers;
+            resourceInputs["enabled"] = (args?.enabled) ?? true;
+            resourceInputs["eventHubReceivers"] = args?.eventHubReceivers;
+            resourceInputs["groupShortName"] = args?.groupShortName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["incidentReceivers"] = args?.incidentReceivers;
+            resourceInputs["itsmReceivers"] = args?.itsmReceivers;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logicAppReceivers"] = args?.logicAppReceivers;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["smsReceivers"] = args?.smsReceivers;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["voiceReceivers"] = args?.voiceReceivers;
+            resourceInputs["webhookReceivers"] = args?.webhookReceivers;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

@@ -129,21 +129,21 @@ export class FrontDoor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["backendPools"] = args ? args.backendPools : undefined;
+            resourceInputs["backendPools"] = args?.backendPools;
             resourceInputs["backendPoolsSettings"] = args ? (args.backendPoolsSettings ? pulumi.output(args.backendPoolsSettings).apply(inputs.frontdoor.backendPoolsSettingsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["enabledState"] = args ? args.enabledState : undefined;
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["frontDoorName"] = args ? args.frontDoorName : undefined;
-            resourceInputs["frontendEndpoints"] = args ? args.frontendEndpoints : undefined;
-            resourceInputs["healthProbeSettings"] = args ? args.healthProbeSettings : undefined;
-            resourceInputs["loadBalancingSettings"] = args ? args.loadBalancingSettings : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routingRules"] = args ? args.routingRules : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["enabledState"] = args?.enabledState;
+            resourceInputs["friendlyName"] = args?.friendlyName;
+            resourceInputs["frontDoorName"] = args?.frontDoorName;
+            resourceInputs["frontendEndpoints"] = args?.frontendEndpoints;
+            resourceInputs["healthProbeSettings"] = args?.healthProbeSettings;
+            resourceInputs["loadBalancingSettings"] = args?.loadBalancingSettings;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routingRules"] = args?.routingRules;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cname"] = undefined /*out*/;
             resourceInputs["extendedProperties"] = undefined /*out*/;

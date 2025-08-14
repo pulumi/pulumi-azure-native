@@ -99,23 +99,23 @@ export class Favorite extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !opts.urn) {
+            if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            resourceInputs["category"] = args ? args.category : undefined;
-            resourceInputs["config"] = args ? args.config : undefined;
-            resourceInputs["favoriteId"] = args ? args.favoriteId : undefined;
-            resourceInputs["favoriteType"] = args ? args.favoriteType : undefined;
-            resourceInputs["isGeneratedFromTemplate"] = args ? args.isGeneratedFromTemplate : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["category"] = args?.category;
+            resourceInputs["config"] = args?.config;
+            resourceInputs["favoriteId"] = args?.favoriteId;
+            resourceInputs["favoriteType"] = args?.favoriteType;
+            resourceInputs["isGeneratedFromTemplate"] = args?.isGeneratedFromTemplate;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["sourceType"] = args?.sourceType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["timeModified"] = undefined /*out*/;
             resourceInputs["userId"] = undefined /*out*/;

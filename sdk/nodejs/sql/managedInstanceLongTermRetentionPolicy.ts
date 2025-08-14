@@ -85,24 +85,24 @@ export class ManagedInstanceLongTermRetentionPolicy extends pulumi.CustomResourc
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.managedInstanceName === undefined) && !opts.urn) {
+            if (args?.managedInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["backupStorageAccessTier"] = args ? args.backupStorageAccessTier : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
-            resourceInputs["monthlyRetention"] = args ? args.monthlyRetention : undefined;
-            resourceInputs["policyName"] = args ? args.policyName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["weekOfYear"] = args ? args.weekOfYear : undefined;
-            resourceInputs["weeklyRetention"] = args ? args.weeklyRetention : undefined;
-            resourceInputs["yearlyRetention"] = args ? args.yearlyRetention : undefined;
+            resourceInputs["backupStorageAccessTier"] = args?.backupStorageAccessTier;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["managedInstanceName"] = args?.managedInstanceName;
+            resourceInputs["monthlyRetention"] = args?.monthlyRetention;
+            resourceInputs["policyName"] = args?.policyName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["weekOfYear"] = args?.weekOfYear;
+            resourceInputs["weeklyRetention"] = args?.weeklyRetention;
+            resourceInputs["yearlyRetention"] = args?.yearlyRetention;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

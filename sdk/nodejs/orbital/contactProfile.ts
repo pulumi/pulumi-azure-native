@@ -103,26 +103,26 @@ export class ContactProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.links === undefined) && !opts.urn) {
+            if (args?.links === undefined && !opts.urn) {
                 throw new Error("Missing required property 'links'");
             }
-            if ((!args || args.networkConfiguration === undefined) && !opts.urn) {
+            if (args?.networkConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkConfiguration'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoTrackingConfiguration"] = args ? args.autoTrackingConfiguration : undefined;
-            resourceInputs["contactProfileName"] = args ? args.contactProfileName : undefined;
-            resourceInputs["eventHubUri"] = args ? args.eventHubUri : undefined;
-            resourceInputs["links"] = args ? args.links : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["minimumElevationDegrees"] = args ? args.minimumElevationDegrees : undefined;
-            resourceInputs["minimumViableContactDuration"] = args ? args.minimumViableContactDuration : undefined;
-            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["thirdPartyConfigurations"] = args ? args.thirdPartyConfigurations : undefined;
+            resourceInputs["autoTrackingConfiguration"] = args?.autoTrackingConfiguration;
+            resourceInputs["contactProfileName"] = args?.contactProfileName;
+            resourceInputs["eventHubUri"] = args?.eventHubUri;
+            resourceInputs["links"] = args?.links;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["minimumElevationDegrees"] = args?.minimumElevationDegrees;
+            resourceInputs["minimumViableContactDuration"] = args?.minimumViableContactDuration;
+            resourceInputs["networkConfiguration"] = args?.networkConfiguration;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["thirdPartyConfigurations"] = args?.thirdPartyConfigurations;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

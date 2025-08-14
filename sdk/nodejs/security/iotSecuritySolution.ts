@@ -121,29 +121,29 @@ export class IotSecuritySolution extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.iotHubs === undefined) && !opts.urn) {
+            if (args?.iotHubs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iotHubs'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["additionalWorkspaces"] = args ? args.additionalWorkspaces : undefined;
-            resourceInputs["disabledDataSources"] = args ? args.disabledDataSources : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["export"] = args ? args.export : undefined;
-            resourceInputs["iotHubs"] = args ? args.iotHubs : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["recommendationsConfiguration"] = args ? args.recommendationsConfiguration : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["solutionName"] = args ? args.solutionName : undefined;
-            resourceInputs["status"] = (args ? args.status : undefined) ?? "Enabled";
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["unmaskedIpLoggingStatus"] = (args ? args.unmaskedIpLoggingStatus : undefined) ?? "Disabled";
-            resourceInputs["userDefinedResources"] = args ? args.userDefinedResources : undefined;
-            resourceInputs["workspace"] = args ? args.workspace : undefined;
+            resourceInputs["additionalWorkspaces"] = args?.additionalWorkspaces;
+            resourceInputs["disabledDataSources"] = args?.disabledDataSources;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["export"] = args?.export;
+            resourceInputs["iotHubs"] = args?.iotHubs;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["recommendationsConfiguration"] = args?.recommendationsConfiguration;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["solutionName"] = args?.solutionName;
+            resourceInputs["status"] = (args?.status) ?? "Enabled";
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["unmaskedIpLoggingStatus"] = (args?.unmaskedIpLoggingStatus) ?? "Disabled";
+            resourceInputs["userDefinedResources"] = args?.userDefinedResources;
+            resourceInputs["workspace"] = args?.workspace;
             resourceInputs["autoDiscoveredResources"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

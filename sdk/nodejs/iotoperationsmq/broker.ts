@@ -131,45 +131,45 @@ export class Broker extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authImage === undefined) && !opts.urn) {
+            if (args?.authImage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authImage'");
             }
-            if ((!args || args.brokerImage === undefined) && !opts.urn) {
+            if (args?.brokerImage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'brokerImage'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.healthManagerImage === undefined) && !opts.urn) {
+            if (args?.healthManagerImage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'healthManagerImage'");
             }
-            if ((!args || args.mode === undefined) && !opts.urn) {
+            if (args?.mode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mode'");
             }
-            if ((!args || args.mqName === undefined) && !opts.urn) {
+            if (args?.mqName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mqName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authImage"] = args ? args.authImage : undefined;
-            resourceInputs["brokerImage"] = args ? args.brokerImage : undefined;
-            resourceInputs["brokerName"] = args ? args.brokerName : undefined;
-            resourceInputs["brokerNodeTolerations"] = args ? args.brokerNodeTolerations : undefined;
+            resourceInputs["authImage"] = args?.authImage;
+            resourceInputs["brokerImage"] = args?.brokerImage;
+            resourceInputs["brokerName"] = args?.brokerName;
+            resourceInputs["brokerNodeTolerations"] = args?.brokerNodeTolerations;
             resourceInputs["cardinality"] = args ? (args.cardinality ? pulumi.output(args.cardinality).apply(inputs.iotoperationsmq.cardinalityArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["diagnostics"] = args ? (args.diagnostics ? pulumi.output(args.diagnostics).apply(inputs.iotoperationsmq.brokerDiagnosticsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["diskBackedMessageBufferSettings"] = args ? args.diskBackedMessageBufferSettings : undefined;
-            resourceInputs["encryptInternalTraffic"] = (args ? args.encryptInternalTraffic : undefined) ?? true;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["healthManagerImage"] = args ? args.healthManagerImage : undefined;
-            resourceInputs["healthManagerNodeTolerations"] = args ? args.healthManagerNodeTolerations : undefined;
+            resourceInputs["diskBackedMessageBufferSettings"] = args?.diskBackedMessageBufferSettings;
+            resourceInputs["encryptInternalTraffic"] = (args?.encryptInternalTraffic) ?? true;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["healthManagerImage"] = args?.healthManagerImage;
+            resourceInputs["healthManagerNodeTolerations"] = args?.healthManagerNodeTolerations;
             resourceInputs["internalCerts"] = args ? (args.internalCerts ? pulumi.output(args.internalCerts).apply(inputs.iotoperationsmq.certManagerCertOptionsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["memoryProfile"] = (args ? args.memoryProfile : undefined) ?? "medium";
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["mqName"] = args ? args.mqName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["memoryProfile"] = (args?.memoryProfile) ?? "medium";
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["mqName"] = args?.mqName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -95,18 +95,18 @@ export class ManagementGroupDiagnosticSetting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managementGroupId === undefined) && !opts.urn) {
+            if (args?.managementGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            resourceInputs["eventHubAuthorizationRuleId"] = args ? args.eventHubAuthorizationRuleId : undefined;
-            resourceInputs["eventHubName"] = args ? args.eventHubName : undefined;
-            resourceInputs["logs"] = args ? args.logs : undefined;
-            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
-            resourceInputs["marketplacePartnerId"] = args ? args.marketplacePartnerId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serviceBusRuleId"] = args ? args.serviceBusRuleId : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["eventHubAuthorizationRuleId"] = args?.eventHubAuthorizationRuleId;
+            resourceInputs["eventHubName"] = args?.eventHubName;
+            resourceInputs["logs"] = args?.logs;
+            resourceInputs["managementGroupId"] = args?.managementGroupId;
+            resourceInputs["marketplacePartnerId"] = args?.marketplacePartnerId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serviceBusRuleId"] = args?.serviceBusRuleId;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

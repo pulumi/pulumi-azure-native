@@ -81,14 +81,14 @@ export class LoadTestMapping extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["azureLoadTestingResourceId"] = args ? args.azureLoadTestingResourceId : undefined;
-            resourceInputs["loadTestMappingName"] = args ? args.loadTestMappingName : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
-            resourceInputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
-            resourceInputs["testId"] = args ? args.testId : undefined;
+            resourceInputs["azureLoadTestingResourceId"] = args?.azureLoadTestingResourceId;
+            resourceInputs["loadTestMappingName"] = args?.loadTestMappingName;
+            resourceInputs["resourceUri"] = args?.resourceUri;
+            resourceInputs["sourceResourceId"] = args?.sourceResourceId;
+            resourceInputs["testId"] = args?.testId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

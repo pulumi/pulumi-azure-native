@@ -122,33 +122,33 @@ export class Route extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.endpointName === undefined) && !opts.urn) {
+            if (args?.endpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if ((!args || args.originGroup === undefined) && !opts.urn) {
+            if (args?.originGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'originGroup'");
             }
-            if ((!args || args.profileName === undefined) && !opts.urn) {
+            if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["cacheConfiguration"] = args ? args.cacheConfiguration : undefined;
-            resourceInputs["customDomains"] = args ? args.customDomains : undefined;
-            resourceInputs["enabledState"] = args ? args.enabledState : undefined;
-            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["forwardingProtocol"] = (args ? args.forwardingProtocol : undefined) ?? "MatchRequest";
-            resourceInputs["httpsRedirect"] = (args ? args.httpsRedirect : undefined) ?? "Disabled";
-            resourceInputs["linkToDefaultDomain"] = (args ? args.linkToDefaultDomain : undefined) ?? "Disabled";
-            resourceInputs["originGroup"] = args ? args.originGroup : undefined;
-            resourceInputs["originPath"] = args ? args.originPath : undefined;
-            resourceInputs["patternsToMatch"] = args ? args.patternsToMatch : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routeName"] = args ? args.routeName : undefined;
-            resourceInputs["ruleSets"] = args ? args.ruleSets : undefined;
-            resourceInputs["supportedProtocols"] = args ? args.supportedProtocols : undefined;
+            resourceInputs["cacheConfiguration"] = args?.cacheConfiguration;
+            resourceInputs["customDomains"] = args?.customDomains;
+            resourceInputs["enabledState"] = args?.enabledState;
+            resourceInputs["endpointName"] = args?.endpointName;
+            resourceInputs["forwardingProtocol"] = (args?.forwardingProtocol) ?? "MatchRequest";
+            resourceInputs["httpsRedirect"] = (args?.httpsRedirect) ?? "Disabled";
+            resourceInputs["linkToDefaultDomain"] = (args?.linkToDefaultDomain) ?? "Disabled";
+            resourceInputs["originGroup"] = args?.originGroup;
+            resourceInputs["originPath"] = args?.originPath;
+            resourceInputs["patternsToMatch"] = args?.patternsToMatch;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routeName"] = args?.routeName;
+            resourceInputs["ruleSets"] = args?.ruleSets;
+            resourceInputs["supportedProtocols"] = args?.supportedProtocols;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

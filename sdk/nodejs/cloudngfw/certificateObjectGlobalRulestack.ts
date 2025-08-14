@@ -93,18 +93,18 @@ export class CertificateObjectGlobalRulestack extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.certificateSelfSigned === undefined) && !opts.urn) {
+            if (args?.certificateSelfSigned === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateSelfSigned'");
             }
-            if ((!args || args.globalRulestackName === undefined) && !opts.urn) {
+            if (args?.globalRulestackName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'globalRulestackName'");
             }
-            resourceInputs["auditComment"] = args ? args.auditComment : undefined;
-            resourceInputs["certificateSelfSigned"] = args ? args.certificateSelfSigned : undefined;
-            resourceInputs["certificateSignerResourceId"] = args ? args.certificateSignerResourceId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["globalRulestackName"] = args ? args.globalRulestackName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["auditComment"] = args?.auditComment;
+            resourceInputs["certificateSelfSigned"] = args?.certificateSelfSigned;
+            resourceInputs["certificateSignerResourceId"] = args?.certificateSignerResourceId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["globalRulestackName"] = args?.globalRulestackName;
+            resourceInputs["name"] = args?.name;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

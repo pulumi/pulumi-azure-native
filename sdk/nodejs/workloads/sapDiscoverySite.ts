@@ -95,16 +95,16 @@ export class SapDiscoverySite extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["masterSiteId"] = args ? args.masterSiteId : undefined;
-            resourceInputs["migrateProjectId"] = args ? args.migrateProjectId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sapDiscoverySiteName"] = args ? args.sapDiscoverySiteName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["masterSiteId"] = args?.masterSiteId;
+            resourceInputs["migrateProjectId"] = args?.migrateProjectId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sapDiscoverySiteName"] = args?.sapDiscoverySiteName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

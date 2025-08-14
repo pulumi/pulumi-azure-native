@@ -117,23 +117,23 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["duration"] = args ? args.duration : undefined;
-            resourceInputs["expirationDateTime"] = args ? args.expirationDateTime : undefined;
-            resourceInputs["extensionProperties"] = args ? args.extensionProperties : undefined;
+            resourceInputs["duration"] = args?.duration;
+            resourceInputs["expirationDateTime"] = args?.expirationDateTime;
+            resourceInputs["extensionProperties"] = args?.extensionProperties;
             resourceInputs["installPatches"] = args ? (args.installPatches ? pulumi.output(args.installPatches).apply(inputs.maintenance.inputPatchConfigurationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maintenanceScope"] = args ? args.maintenanceScope : undefined;
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["recurEvery"] = args ? args.recurEvery : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["startDateTime"] = args ? args.startDateTime : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
-            resourceInputs["visibility"] = args ? args.visibility : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maintenanceScope"] = args?.maintenanceScope;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["recurEvery"] = args?.recurEvery;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["startDateTime"] = args?.startDateTime;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeZone"] = args?.timeZone;
+            resourceInputs["visibility"] = args?.visibility;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

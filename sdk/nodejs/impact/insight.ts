@@ -71,12 +71,12 @@ export class Insight extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.workloadImpactName === undefined) && !opts.urn) {
+            if (args?.workloadImpactName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workloadImpactName'");
             }
-            resourceInputs["insightName"] = args ? args.insightName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["workloadImpactName"] = args ? args.workloadImpactName : undefined;
+            resourceInputs["insightName"] = args?.insightName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["workloadImpactName"] = args?.workloadImpactName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

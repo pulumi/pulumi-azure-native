@@ -79,23 +79,23 @@ export class PureStoragePolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.privateCloudName === undefined) && !opts.urn) {
+            if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storagePolicyDefinition === undefined) && !opts.urn) {
+            if (args?.storagePolicyDefinition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storagePolicyDefinition'");
             }
-            if ((!args || args.storagePoolId === undefined) && !opts.urn) {
+            if (args?.storagePoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storagePoolId'");
             }
-            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storagePolicyDefinition"] = args ? args.storagePolicyDefinition : undefined;
-            resourceInputs["storagePolicyName"] = args ? args.storagePolicyName : undefined;
-            resourceInputs["storagePoolId"] = args ? args.storagePoolId : undefined;
+            resourceInputs["privateCloudName"] = args?.privateCloudName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storagePolicyDefinition"] = args?.storagePolicyDefinition;
+            resourceInputs["storagePolicyName"] = args?.storagePolicyName;
+            resourceInputs["storagePoolId"] = args?.storagePoolId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

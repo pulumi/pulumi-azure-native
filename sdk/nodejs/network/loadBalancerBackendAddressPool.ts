@@ -117,23 +117,23 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.loadBalancerName === undefined) && !opts.urn) {
+            if (args?.loadBalancerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["backendAddressPoolName"] = args ? args.backendAddressPoolName : undefined;
-            resourceInputs["drainPeriodInSeconds"] = args ? args.drainPeriodInSeconds : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["loadBalancerBackendAddresses"] = args ? args.loadBalancerBackendAddresses : undefined;
-            resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["syncMode"] = args ? args.syncMode : undefined;
-            resourceInputs["tunnelInterfaces"] = args ? args.tunnelInterfaces : undefined;
-            resourceInputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
+            resourceInputs["backendAddressPoolName"] = args?.backendAddressPoolName;
+            resourceInputs["drainPeriodInSeconds"] = args?.drainPeriodInSeconds;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["loadBalancerBackendAddresses"] = args?.loadBalancerBackendAddresses;
+            resourceInputs["loadBalancerName"] = args?.loadBalancerName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["syncMode"] = args?.syncMode;
+            resourceInputs["tunnelInterfaces"] = args?.tunnelInterfaces;
+            resourceInputs["virtualNetwork"] = args?.virtualNetwork;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["backendIPConfigurations"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

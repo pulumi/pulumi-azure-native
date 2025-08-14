@@ -122,25 +122,25 @@ export class Agent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.arcResourceId === undefined) && !opts.urn) {
+            if (args?.arcResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'arcResourceId'");
             }
-            if ((!args || args.arcVmUuid === undefined) && !opts.urn) {
+            if (args?.arcVmUuid === undefined && !opts.urn) {
                 throw new Error("Missing required property 'arcVmUuid'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageMoverName === undefined) && !opts.urn) {
+            if (args?.storageMoverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageMoverName'");
             }
-            resourceInputs["agentName"] = args ? args.agentName : undefined;
-            resourceInputs["arcResourceId"] = args ? args.arcResourceId : undefined;
-            resourceInputs["arcVmUuid"] = args ? args.arcVmUuid : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageMoverName"] = args ? args.storageMoverName : undefined;
-            resourceInputs["uploadLimitSchedule"] = args ? args.uploadLimitSchedule : undefined;
+            resourceInputs["agentName"] = args?.agentName;
+            resourceInputs["arcResourceId"] = args?.arcResourceId;
+            resourceInputs["arcVmUuid"] = args?.arcVmUuid;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageMoverName"] = args?.storageMoverName;
+            resourceInputs["uploadLimitSchedule"] = args?.uploadLimitSchedule;
             resourceInputs["agentStatus"] = undefined /*out*/;
             resourceInputs["agentVersion"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

@@ -99,19 +99,19 @@ export class StandardAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            resourceInputs["assignedStandard"] = args ? args.assignedStandard : undefined;
-            resourceInputs["attestationData"] = args ? args.attestationData : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["effect"] = args ? args.effect : undefined;
-            resourceInputs["excludedScopes"] = args ? args.excludedScopes : undefined;
-            resourceInputs["exemptionData"] = args ? args.exemptionData : undefined;
-            resourceInputs["expiresOn"] = args ? args.expiresOn : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["standardAssignmentName"] = args ? args.standardAssignmentName : undefined;
+            resourceInputs["assignedStandard"] = args?.assignedStandard;
+            resourceInputs["attestationData"] = args?.attestationData;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["effect"] = args?.effect;
+            resourceInputs["excludedScopes"] = args?.excludedScopes;
+            resourceInputs["exemptionData"] = args?.exemptionData;
+            resourceInputs["expiresOn"] = args?.expiresOn;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["standardAssignmentName"] = args?.standardAssignmentName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

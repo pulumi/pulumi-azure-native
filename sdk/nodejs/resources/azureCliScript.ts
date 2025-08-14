@@ -144,36 +144,36 @@ export class AzureCliScript extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.azCliVersion === undefined) && !opts.urn) {
+            if (args?.azCliVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'azCliVersion'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.retentionInterval === undefined) && !opts.urn) {
+            if (args?.retentionInterval === undefined && !opts.urn) {
                 throw new Error("Missing required property 'retentionInterval'");
             }
-            resourceInputs["arguments"] = args ? args.arguments : undefined;
-            resourceInputs["azCliVersion"] = args ? args.azCliVersion : undefined;
-            resourceInputs["cleanupPreference"] = (args ? args.cleanupPreference : undefined) ?? "Always";
-            resourceInputs["containerSettings"] = args ? args.containerSettings : undefined;
-            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
-            resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["arguments"] = args?.arguments;
+            resourceInputs["azCliVersion"] = args?.azCliVersion;
+            resourceInputs["cleanupPreference"] = (args?.cleanupPreference) ?? "Always";
+            resourceInputs["containerSettings"] = args?.containerSettings;
+            resourceInputs["environmentVariables"] = args?.environmentVariables;
+            resourceInputs["forceUpdateTag"] = args?.forceUpdateTag;
+            resourceInputs["identity"] = args?.identity;
             resourceInputs["kind"] = "AzureCLI";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["primaryScriptUri"] = args ? args.primaryScriptUri : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retentionInterval"] = args ? args.retentionInterval : undefined;
-            resourceInputs["scriptContent"] = args ? args.scriptContent : undefined;
-            resourceInputs["scriptName"] = args ? args.scriptName : undefined;
-            resourceInputs["storageAccountSettings"] = args ? args.storageAccountSettings : undefined;
-            resourceInputs["supportingScriptUris"] = args ? args.supportingScriptUris : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeout"] = (args ? args.timeout : undefined) ?? "P1D";
+            resourceInputs["location"] = args?.location;
+            resourceInputs["primaryScriptUri"] = args?.primaryScriptUri;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retentionInterval"] = args?.retentionInterval;
+            resourceInputs["scriptContent"] = args?.scriptContent;
+            resourceInputs["scriptName"] = args?.scriptName;
+            resourceInputs["storageAccountSettings"] = args?.storageAccountSettings;
+            resourceInputs["supportingScriptUris"] = args?.supportingScriptUris;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeout"] = (args?.timeout) ?? "P1D";
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["outputs"] = undefined /*out*/;

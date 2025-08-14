@@ -113,26 +113,26 @@ export class NetworkConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainJoinType === undefined) && !opts.urn) {
+            if (args?.domainJoinType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainJoinType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["domainJoinType"] = args ? args.domainJoinType : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["domainPassword"] = args ? args.domainPassword : undefined;
-            resourceInputs["domainUsername"] = args ? args.domainUsername : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkConnectionName"] = args ? args.networkConnectionName : undefined;
-            resourceInputs["networkingResourceGroupName"] = args ? args.networkingResourceGroupName : undefined;
-            resourceInputs["organizationUnit"] = args ? args.organizationUnit : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["domainJoinType"] = args?.domainJoinType;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["domainPassword"] = args?.domainPassword;
+            resourceInputs["domainUsername"] = args?.domainUsername;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkConnectionName"] = args?.networkConnectionName;
+            resourceInputs["networkingResourceGroupName"] = args?.networkingResourceGroupName;
+            resourceInputs["organizationUnit"] = args?.organizationUnit;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["healthCheckStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

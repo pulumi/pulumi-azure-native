@@ -157,22 +157,22 @@ export class Certificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["canonicalName"] = args ? args.canonicalName : undefined;
-            resourceInputs["domainValidationMethod"] = args ? args.domainValidationMethod : undefined;
-            resourceInputs["hostNames"] = args ? args.hostNames : undefined;
-            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
-            resourceInputs["keyVaultSecretName"] = args ? args.keyVaultSecretName : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["pfxBlob"] = args ? args.pfxBlob : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverFarmId"] = args ? args.serverFarmId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["canonicalName"] = args?.canonicalName;
+            resourceInputs["domainValidationMethod"] = args?.domainValidationMethod;
+            resourceInputs["hostNames"] = args?.hostNames;
+            resourceInputs["keyVaultId"] = args?.keyVaultId;
+            resourceInputs["keyVaultSecretName"] = args?.keyVaultSecretName;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["pfxBlob"] = args?.pfxBlob;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverFarmId"] = args?.serverFarmId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cerBlob"] = undefined /*out*/;
             resourceInputs["expirationDate"] = undefined /*out*/;

@@ -79,17 +79,17 @@ export class ManagementLockAtResourceGroupLevel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.level === undefined) && !opts.urn) {
+            if (args?.level === undefined && !opts.urn) {
                 throw new Error("Missing required property 'level'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["level"] = args ? args.level : undefined;
-            resourceInputs["lockName"] = args ? args.lockName : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
-            resourceInputs["owners"] = args ? args.owners : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["level"] = args?.level;
+            resourceInputs["lockName"] = args?.lockName;
+            resourceInputs["notes"] = args?.notes;
+            resourceInputs["owners"] = args?.owners;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

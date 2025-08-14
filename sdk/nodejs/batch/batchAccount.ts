@@ -139,21 +139,21 @@ export class BatchAccount extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["allowedAuthenticationModes"] = args ? args.allowedAuthenticationModes : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["allowedAuthenticationModes"] = args?.allowedAuthenticationModes;
             resourceInputs["autoStorage"] = args ? (args.autoStorage ? pulumi.output(args.autoStorage).apply(inputs.batch.autoStorageBasePropertiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["keyVaultReference"] = args ? args.keyVaultReference : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["poolAllocationMode"] = args ? args.poolAllocationMode : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["keyVaultReference"] = args?.keyVaultReference;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["poolAllocationMode"] = args?.poolAllocationMode;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["accountEndpoint"] = undefined /*out*/;
             resourceInputs["activeJobAndJobScheduleQuota"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

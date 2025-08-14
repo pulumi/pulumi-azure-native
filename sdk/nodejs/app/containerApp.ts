@@ -153,23 +153,23 @@ export class ContainerApp extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["configuration"] = args ? (args.configuration ? pulumi.output(args.configuration).apply(inputs.app.configurationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["containerAppName"] = args ? args.containerAppName : undefined;
-            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["managedEnvironmentId"] = args ? args.managedEnvironmentId : undefined;
-            resourceInputs["patchingConfiguration"] = args ? args.patchingConfiguration : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["containerAppName"] = args?.containerAppName;
+            resourceInputs["environmentId"] = args?.environmentId;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedBy"] = args?.managedBy;
+            resourceInputs["managedEnvironmentId"] = args?.managedEnvironmentId;
+            resourceInputs["patchingConfiguration"] = args?.patchingConfiguration;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["template"] = args ? (args.template ? pulumi.output(args.template).apply(inputs.app.templateArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["workloadProfileName"] = args ? args.workloadProfileName : undefined;
+            resourceInputs["workloadProfileName"] = args?.workloadProfileName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["deploymentErrors"] = undefined /*out*/;

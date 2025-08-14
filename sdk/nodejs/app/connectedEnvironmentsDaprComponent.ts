@@ -113,24 +113,24 @@ export class ConnectedEnvironmentsDaprComponent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectedEnvironmentName === undefined) && !opts.urn) {
+            if (args?.connectedEnvironmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectedEnvironmentName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["componentName"] = args ? args.componentName : undefined;
-            resourceInputs["componentType"] = args ? args.componentType : undefined;
-            resourceInputs["connectedEnvironmentName"] = args ? args.connectedEnvironmentName : undefined;
-            resourceInputs["ignoreErrors"] = (args ? args.ignoreErrors : undefined) ?? false;
-            resourceInputs["initTimeout"] = args ? args.initTimeout : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
-            resourceInputs["secretStoreComponent"] = args ? args.secretStoreComponent : undefined;
-            resourceInputs["secrets"] = args ? args.secrets : undefined;
-            resourceInputs["serviceComponentBind"] = args ? args.serviceComponentBind : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["componentName"] = args?.componentName;
+            resourceInputs["componentType"] = args?.componentType;
+            resourceInputs["connectedEnvironmentName"] = args?.connectedEnvironmentName;
+            resourceInputs["ignoreErrors"] = (args?.ignoreErrors) ?? false;
+            resourceInputs["initTimeout"] = args?.initTimeout;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scopes"] = args?.scopes;
+            resourceInputs["secretStoreComponent"] = args?.secretStoreComponent;
+            resourceInputs["secrets"] = args?.secrets;
+            resourceInputs["serviceComponentBind"] = args?.serviceComponentBind;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deploymentErrors"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

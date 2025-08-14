@@ -93,29 +93,29 @@ export class InstanceFailoverGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.locationName === undefined) && !opts.urn) {
+            if (args?.locationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'locationName'");
             }
-            if ((!args || args.managedInstancePairs === undefined) && !opts.urn) {
+            if (args?.managedInstancePairs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstancePairs'");
             }
-            if ((!args || args.partnerRegions === undefined) && !opts.urn) {
+            if (args?.partnerRegions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partnerRegions'");
             }
-            if ((!args || args.readWriteEndpoint === undefined) && !opts.urn) {
+            if (args?.readWriteEndpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'readWriteEndpoint'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["failoverGroupName"] = args ? args.failoverGroupName : undefined;
-            resourceInputs["locationName"] = args ? args.locationName : undefined;
-            resourceInputs["managedInstancePairs"] = args ? args.managedInstancePairs : undefined;
-            resourceInputs["partnerRegions"] = args ? args.partnerRegions : undefined;
-            resourceInputs["readOnlyEndpoint"] = args ? args.readOnlyEndpoint : undefined;
-            resourceInputs["readWriteEndpoint"] = args ? args.readWriteEndpoint : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["secondaryType"] = args ? args.secondaryType : undefined;
+            resourceInputs["failoverGroupName"] = args?.failoverGroupName;
+            resourceInputs["locationName"] = args?.locationName;
+            resourceInputs["managedInstancePairs"] = args?.managedInstancePairs;
+            resourceInputs["partnerRegions"] = args?.partnerRegions;
+            resourceInputs["readOnlyEndpoint"] = args?.readOnlyEndpoint;
+            resourceInputs["readWriteEndpoint"] = args?.readWriteEndpoint;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["secondaryType"] = args?.secondaryType;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["replicationRole"] = undefined /*out*/;

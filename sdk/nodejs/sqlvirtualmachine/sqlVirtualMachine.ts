@@ -165,31 +165,31 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["assessmentSettings"] = args ? args.assessmentSettings : undefined;
-            resourceInputs["autoBackupSettings"] = args ? args.autoBackupSettings : undefined;
+            resourceInputs["assessmentSettings"] = args?.assessmentSettings;
+            resourceInputs["autoBackupSettings"] = args?.autoBackupSettings;
             resourceInputs["autoPatchingSettings"] = args ? (args.autoPatchingSettings ? pulumi.output(args.autoPatchingSettings).apply(inputs.sqlvirtualmachine.autoPatchingSettingsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["enableAutomaticUpgrade"] = (args ? args.enableAutomaticUpgrade : undefined) ?? false;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["keyVaultCredentialSettings"] = args ? args.keyVaultCredentialSettings : undefined;
-            resourceInputs["leastPrivilegeMode"] = (args ? args.leastPrivilegeMode : undefined) ?? "NotSet";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverConfigurationsManagementSettings"] = args ? args.serverConfigurationsManagementSettings : undefined;
-            resourceInputs["sqlImageOffer"] = args ? args.sqlImageOffer : undefined;
-            resourceInputs["sqlImageSku"] = args ? args.sqlImageSku : undefined;
-            resourceInputs["sqlManagement"] = args ? args.sqlManagement : undefined;
-            resourceInputs["sqlServerLicenseType"] = args ? args.sqlServerLicenseType : undefined;
-            resourceInputs["sqlVirtualMachineGroupResourceId"] = args ? args.sqlVirtualMachineGroupResourceId : undefined;
-            resourceInputs["sqlVirtualMachineName"] = args ? args.sqlVirtualMachineName : undefined;
+            resourceInputs["enableAutomaticUpgrade"] = (args?.enableAutomaticUpgrade) ?? false;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["keyVaultCredentialSettings"] = args?.keyVaultCredentialSettings;
+            resourceInputs["leastPrivilegeMode"] = (args?.leastPrivilegeMode) ?? "NotSet";
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverConfigurationsManagementSettings"] = args?.serverConfigurationsManagementSettings;
+            resourceInputs["sqlImageOffer"] = args?.sqlImageOffer;
+            resourceInputs["sqlImageSku"] = args?.sqlImageSku;
+            resourceInputs["sqlManagement"] = args?.sqlManagement;
+            resourceInputs["sqlServerLicenseType"] = args?.sqlServerLicenseType;
+            resourceInputs["sqlVirtualMachineGroupResourceId"] = args?.sqlVirtualMachineGroupResourceId;
+            resourceInputs["sqlVirtualMachineName"] = args?.sqlVirtualMachineName;
             resourceInputs["storageConfigurationSettings"] = args ? (args.storageConfigurationSettings ? pulumi.output(args.storageConfigurationSettings).apply(inputs.sqlvirtualmachine.storageConfigurationSettingsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualMachineIdentitySettings"] = args ? args.virtualMachineIdentitySettings : undefined;
-            resourceInputs["virtualMachineResourceId"] = args ? args.virtualMachineResourceId : undefined;
-            resourceInputs["wsfcDomainCredentials"] = args ? args.wsfcDomainCredentials : undefined;
-            resourceInputs["wsfcStaticIp"] = args ? args.wsfcStaticIp : undefined;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualMachineIdentitySettings"] = args?.virtualMachineIdentitySettings;
+            resourceInputs["virtualMachineResourceId"] = args?.virtualMachineResourceId;
+            resourceInputs["wsfcDomainCredentials"] = args?.wsfcDomainCredentials;
+            resourceInputs["wsfcStaticIp"] = args?.wsfcStaticIp;
             resourceInputs["additionalVmPatch"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

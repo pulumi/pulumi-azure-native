@@ -103,24 +103,24 @@ export class Pipeline extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.factoryName === undefined) && !opts.urn) {
+            if (args?.factoryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'factoryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["activities"] = args ? args.activities : undefined;
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["concurrency"] = args ? args.concurrency : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["factoryName"] = args ? args.factoryName : undefined;
-            resourceInputs["folder"] = args ? args.folder : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["runDimensions"] = args ? args.runDimensions : undefined;
-            resourceInputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["activities"] = args?.activities;
+            resourceInputs["annotations"] = args?.annotations;
+            resourceInputs["concurrency"] = args?.concurrency;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["factoryName"] = args?.factoryName;
+            resourceInputs["folder"] = args?.folder;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["pipelineName"] = args?.pipelineName;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["runDimensions"] = args?.runDimensions;
+            resourceInputs["variables"] = args?.variables;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

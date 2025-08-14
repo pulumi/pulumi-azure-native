@@ -66,12 +66,12 @@ export class AdvancedThreatProtection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["settingName"] = args ? args.settingName : undefined;
+            resourceInputs["isEnabled"] = args?.isEnabled;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["settingName"] = args?.settingName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

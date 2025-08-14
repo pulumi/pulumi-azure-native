@@ -77,15 +77,15 @@ export class SyncGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageSyncServiceName === undefined) && !opts.urn) {
+            if (args?.storageSyncServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
-            resourceInputs["syncGroupName"] = args ? args.syncGroupName : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageSyncServiceName"] = args?.storageSyncServiceName;
+            resourceInputs["syncGroupName"] = args?.syncGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["syncGroupStatus"] = undefined /*out*/;

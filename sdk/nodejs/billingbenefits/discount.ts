@@ -147,33 +147,33 @@ export class Discount extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.entityType === undefined) && !opts.urn) {
+            if (args?.entityType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityType'");
             }
-            if ((!args || args.productCode === undefined) && !opts.urn) {
+            if (args?.productCode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productCode'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.startAt === undefined) && !opts.urn) {
+            if (args?.startAt === undefined && !opts.urn) {
                 throw new Error("Missing required property 'startAt'");
             }
-            resourceInputs["appliedScopeType"] = args ? args.appliedScopeType : undefined;
-            resourceInputs["discountName"] = args ? args.discountName : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["entityType"] = args ? args.entityType : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["productCode"] = args ? args.productCode : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["startAt"] = args ? args.startAt : undefined;
-            resourceInputs["systemId"] = args ? args.systemId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appliedScopeType"] = args?.appliedScopeType;
+            resourceInputs["discountName"] = args?.discountName;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["entityType"] = args?.entityType;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedBy"] = args?.managedBy;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["productCode"] = args?.productCode;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["startAt"] = args?.startAt;
+            resourceInputs["systemId"] = args?.systemId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["benefitResourceId"] = undefined /*out*/;
             resourceInputs["billingAccountResourceId"] = undefined /*out*/;

@@ -101,22 +101,22 @@ export class Organization extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.offerDetail === undefined) && !opts.urn) {
+            if (args?.offerDetail === undefined && !opts.urn) {
                 throw new Error("Missing required property 'offerDetail'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.userDetail === undefined) && !opts.urn) {
+            if (args?.userDetail === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userDetail'");
             }
-            resourceInputs["linkOrganization"] = args ? args.linkOrganization : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["offerDetail"] = args ? args.offerDetail : undefined;
-            resourceInputs["organizationName"] = args ? args.organizationName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userDetail"] = args ? args.userDetail : undefined;
+            resourceInputs["linkOrganization"] = args?.linkOrganization;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["offerDetail"] = args?.offerDetail;
+            resourceInputs["organizationName"] = args?.organizationName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userDetail"] = args?.userDetail;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

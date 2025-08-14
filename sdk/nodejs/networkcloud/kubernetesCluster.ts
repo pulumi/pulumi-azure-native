@@ -151,36 +151,36 @@ export class KubernetesCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.controlPlaneNodeConfiguration === undefined) && !opts.urn) {
+            if (args?.controlPlaneNodeConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'controlPlaneNodeConfiguration'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.initialAgentPoolConfigurations === undefined) && !opts.urn) {
+            if (args?.initialAgentPoolConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'initialAgentPoolConfigurations'");
             }
-            if ((!args || args.kubernetesVersion === undefined) && !opts.urn) {
+            if (args?.kubernetesVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kubernetesVersion'");
             }
-            if ((!args || args.networkConfiguration === undefined) && !opts.urn) {
+            if (args?.networkConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkConfiguration'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["aadConfiguration"] = args ? args.aadConfiguration : undefined;
-            resourceInputs["administratorConfiguration"] = args ? args.administratorConfiguration : undefined;
-            resourceInputs["controlPlaneNodeConfiguration"] = args ? args.controlPlaneNodeConfiguration : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["initialAgentPoolConfigurations"] = args ? args.initialAgentPoolConfigurations : undefined;
-            resourceInputs["kubernetesClusterName"] = args ? args.kubernetesClusterName : undefined;
-            resourceInputs["kubernetesVersion"] = args ? args.kubernetesVersion : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedResourceGroupConfiguration"] = args ? args.managedResourceGroupConfiguration : undefined;
+            resourceInputs["aadConfiguration"] = args?.aadConfiguration;
+            resourceInputs["administratorConfiguration"] = args?.administratorConfiguration;
+            resourceInputs["controlPlaneNodeConfiguration"] = args?.controlPlaneNodeConfiguration;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["initialAgentPoolConfigurations"] = args?.initialAgentPoolConfigurations;
+            resourceInputs["kubernetesClusterName"] = args?.kubernetesClusterName;
+            resourceInputs["kubernetesVersion"] = args?.kubernetesVersion;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedResourceGroupConfiguration"] = args?.managedResourceGroupConfiguration;
             resourceInputs["networkConfiguration"] = args ? (args.networkConfiguration ? pulumi.output(args.networkConfiguration).apply(inputs.networkcloud.networkConfigurationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["attachedNetworkIds"] = undefined /*out*/;
             resourceInputs["availableUpgrades"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

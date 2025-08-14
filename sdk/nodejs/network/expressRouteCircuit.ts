@@ -149,29 +149,29 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allowClassicOperations"] = args ? args.allowClassicOperations : undefined;
-            resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
-            resourceInputs["authorizations"] = args ? args.authorizations : undefined;
-            resourceInputs["bandwidthInGbps"] = args ? args.bandwidthInGbps : undefined;
-            resourceInputs["circuitName"] = args ? args.circuitName : undefined;
-            resourceInputs["circuitProvisioningState"] = args ? args.circuitProvisioningState : undefined;
-            resourceInputs["enableDirectPortRateLimit"] = args ? args.enableDirectPortRateLimit : undefined;
-            resourceInputs["expressRoutePort"] = args ? args.expressRoutePort : undefined;
-            resourceInputs["gatewayManagerEtag"] = args ? args.gatewayManagerEtag : undefined;
-            resourceInputs["globalReachEnabled"] = args ? args.globalReachEnabled : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["peerings"] = args ? args.peerings : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceKey"] = args ? args.serviceKey : undefined;
-            resourceInputs["serviceProviderNotes"] = args ? args.serviceProviderNotes : undefined;
-            resourceInputs["serviceProviderProperties"] = args ? args.serviceProviderProperties : undefined;
-            resourceInputs["serviceProviderProvisioningState"] = args ? args.serviceProviderProvisioningState : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowClassicOperations"] = args?.allowClassicOperations;
+            resourceInputs["authorizationKey"] = args?.authorizationKey;
+            resourceInputs["authorizations"] = args?.authorizations;
+            resourceInputs["bandwidthInGbps"] = args?.bandwidthInGbps;
+            resourceInputs["circuitName"] = args?.circuitName;
+            resourceInputs["circuitProvisioningState"] = args?.circuitProvisioningState;
+            resourceInputs["enableDirectPortRateLimit"] = args?.enableDirectPortRateLimit;
+            resourceInputs["expressRoutePort"] = args?.expressRoutePort;
+            resourceInputs["gatewayManagerEtag"] = args?.gatewayManagerEtag;
+            resourceInputs["globalReachEnabled"] = args?.globalReachEnabled;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["peerings"] = args?.peerings;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceKey"] = args?.serviceKey;
+            resourceInputs["serviceProviderNotes"] = args?.serviceProviderNotes;
+            resourceInputs["serviceProviderProperties"] = args?.serviceProviderProperties;
+            resourceInputs["serviceProviderProvisioningState"] = args?.serviceProviderProvisioningState;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["authorizationStatus"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

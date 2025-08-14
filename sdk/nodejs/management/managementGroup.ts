@@ -81,10 +81,10 @@ export class ManagementGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["details"] = args ? args.details : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["details"] = args?.details;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["name"] = args?.name;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["children"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;

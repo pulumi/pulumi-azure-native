@@ -129,27 +129,27 @@ export class ConnectionMonitor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkWatcherName === undefined) && !opts.urn) {
+            if (args?.networkWatcherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkWatcherName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoStart"] = (args ? args.autoStart : undefined) ?? true;
-            resourceInputs["connectionMonitorName"] = args ? args.connectionMonitorName : undefined;
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["endpoints"] = args ? args.endpoints : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["migrate"] = args ? args.migrate : undefined;
-            resourceInputs["monitoringIntervalInSeconds"] = (args ? args.monitoringIntervalInSeconds : undefined) ?? 60;
-            resourceInputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
-            resourceInputs["outputs"] = args ? args.outputs : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["testConfigurations"] = args ? args.testConfigurations : undefined;
-            resourceInputs["testGroups"] = args ? args.testGroups : undefined;
+            resourceInputs["autoStart"] = (args?.autoStart) ?? true;
+            resourceInputs["connectionMonitorName"] = args?.connectionMonitorName;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["endpoints"] = args?.endpoints;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["migrate"] = args?.migrate;
+            resourceInputs["monitoringIntervalInSeconds"] = (args?.monitoringIntervalInSeconds) ?? 60;
+            resourceInputs["networkWatcherName"] = args?.networkWatcherName;
+            resourceInputs["notes"] = args?.notes;
+            resourceInputs["outputs"] = args?.outputs;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["testConfigurations"] = args?.testConfigurations;
+            resourceInputs["testGroups"] = args?.testGroups;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionMonitorType"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

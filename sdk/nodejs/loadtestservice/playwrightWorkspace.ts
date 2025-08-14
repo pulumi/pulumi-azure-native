@@ -91,15 +91,15 @@ export class PlaywrightWorkspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["localAuth"] = (args ? args.localAuth : undefined) ?? "Disabled";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["playwrightWorkspaceName"] = args ? args.playwrightWorkspaceName : undefined;
-            resourceInputs["regionalAffinity"] = (args ? args.regionalAffinity : undefined) ?? "Enabled";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["localAuth"] = (args?.localAuth) ?? "Disabled";
+            resourceInputs["location"] = args?.location;
+            resourceInputs["playwrightWorkspaceName"] = args?.playwrightWorkspaceName;
+            resourceInputs["regionalAffinity"] = (args?.regionalAffinity) ?? "Enabled";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataplaneUri"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

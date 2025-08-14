@@ -105,26 +105,26 @@ export class EnclaveConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.communityResourceId === undefined) && !opts.urn) {
+            if (args?.communityResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'communityResourceId'");
             }
-            if ((!args || args.destinationEndpointId === undefined) && !opts.urn) {
+            if (args?.destinationEndpointId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationEndpointId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceResourceId === undefined) && !opts.urn) {
+            if (args?.sourceResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceResourceId'");
             }
-            resourceInputs["communityResourceId"] = args ? args.communityResourceId : undefined;
-            resourceInputs["destinationEndpointId"] = args ? args.destinationEndpointId : undefined;
-            resourceInputs["enclaveConnectionName"] = args ? args.enclaveConnectionName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceCidr"] = args ? args.sourceCidr : undefined;
-            resourceInputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["communityResourceId"] = args?.communityResourceId;
+            resourceInputs["destinationEndpointId"] = args?.destinationEndpointId;
+            resourceInputs["enclaveConnectionName"] = args?.enclaveConnectionName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceCidr"] = args?.sourceCidr;
+            resourceInputs["sourceResourceId"] = args?.sourceResourceId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

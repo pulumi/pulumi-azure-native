@@ -73,8 +73,8 @@ export class SitesBySubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["siteName"] = args ? args.siteName : undefined;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["siteName"] = args?.siteName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

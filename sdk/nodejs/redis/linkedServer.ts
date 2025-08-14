@@ -89,27 +89,27 @@ export class LinkedServer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.linkedRedisCacheId === undefined) && !opts.urn) {
+            if (args?.linkedRedisCacheId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'linkedRedisCacheId'");
             }
-            if ((!args || args.linkedRedisCacheLocation === undefined) && !opts.urn) {
+            if (args?.linkedRedisCacheLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'linkedRedisCacheLocation'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverRole === undefined) && !opts.urn) {
+            if (args?.serverRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverRole'");
             }
-            resourceInputs["linkedRedisCacheId"] = args ? args.linkedRedisCacheId : undefined;
-            resourceInputs["linkedRedisCacheLocation"] = args ? args.linkedRedisCacheLocation : undefined;
-            resourceInputs["linkedServerName"] = args ? args.linkedServerName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverRole"] = args ? args.serverRole : undefined;
+            resourceInputs["linkedRedisCacheId"] = args?.linkedRedisCacheId;
+            resourceInputs["linkedRedisCacheLocation"] = args?.linkedRedisCacheLocation;
+            resourceInputs["linkedServerName"] = args?.linkedServerName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverRole"] = args?.serverRole;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["geoReplicatedPrimaryHostName"] = undefined /*out*/;
             resourceInputs["primaryHostName"] = undefined /*out*/;

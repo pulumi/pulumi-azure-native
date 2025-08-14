@@ -89,17 +89,17 @@ export class PrefixListGlobalRulestack extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.globalRulestackName === undefined) && !opts.urn) {
+            if (args?.globalRulestackName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'globalRulestackName'");
             }
-            if ((!args || args.prefixList === undefined) && !opts.urn) {
+            if (args?.prefixList === undefined && !opts.urn) {
                 throw new Error("Missing required property 'prefixList'");
             }
-            resourceInputs["auditComment"] = args ? args.auditComment : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["globalRulestackName"] = args ? args.globalRulestackName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["prefixList"] = args ? args.prefixList : undefined;
+            resourceInputs["auditComment"] = args?.auditComment;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["globalRulestackName"] = args?.globalRulestackName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["prefixList"] = args?.prefixList;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

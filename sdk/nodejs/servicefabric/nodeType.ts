@@ -273,71 +273,71 @@ export class NodeType extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.isPrimary === undefined) && !opts.urn) {
+            if (args?.isPrimary === undefined && !opts.urn) {
                 throw new Error("Missing required property 'isPrimary'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vmInstanceCount === undefined) && !opts.urn) {
+            if (args?.vmInstanceCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vmInstanceCount'");
             }
-            resourceInputs["additionalDataDisks"] = args ? args.additionalDataDisks : undefined;
-            resourceInputs["additionalNetworkInterfaceConfigurations"] = args ? args.additionalNetworkInterfaceConfigurations : undefined;
-            resourceInputs["applicationPorts"] = args ? args.applicationPorts : undefined;
-            resourceInputs["capacities"] = args ? args.capacities : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["computerNamePrefix"] = args ? args.computerNamePrefix : undefined;
-            resourceInputs["dataDiskLetter"] = args ? args.dataDiskLetter : undefined;
-            resourceInputs["dataDiskSizeGB"] = args ? args.dataDiskSizeGB : undefined;
-            resourceInputs["dataDiskType"] = args ? args.dataDiskType : undefined;
-            resourceInputs["dscpConfigurationId"] = args ? args.dscpConfigurationId : undefined;
-            resourceInputs["enableAcceleratedNetworking"] = args ? args.enableAcceleratedNetworking : undefined;
-            resourceInputs["enableEncryptionAtHost"] = (args ? args.enableEncryptionAtHost : undefined) ?? false;
-            resourceInputs["enableNodePublicIP"] = args ? args.enableNodePublicIP : undefined;
-            resourceInputs["enableNodePublicIPv6"] = args ? args.enableNodePublicIPv6 : undefined;
-            resourceInputs["enableOverProvisioning"] = args ? args.enableOverProvisioning : undefined;
-            resourceInputs["ephemeralPorts"] = args ? args.ephemeralPorts : undefined;
-            resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
-            resourceInputs["frontendConfigurations"] = args ? args.frontendConfigurations : undefined;
-            resourceInputs["hostGroupId"] = args ? args.hostGroupId : undefined;
-            resourceInputs["isPrimary"] = args ? args.isPrimary : undefined;
-            resourceInputs["isSpotVM"] = args ? args.isSpotVM : undefined;
-            resourceInputs["isStateless"] = (args ? args.isStateless : undefined) ?? false;
-            resourceInputs["multiplePlacementGroups"] = (args ? args.multiplePlacementGroups : undefined) ?? false;
-            resourceInputs["natConfigurations"] = args ? args.natConfigurations : undefined;
-            resourceInputs["natGatewayId"] = args ? args.natGatewayId : undefined;
-            resourceInputs["networkSecurityRules"] = args ? args.networkSecurityRules : undefined;
-            resourceInputs["nodeTypeName"] = args ? args.nodeTypeName : undefined;
-            resourceInputs["placementProperties"] = args ? args.placementProperties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["secureBootEnabled"] = args ? args.secureBootEnabled : undefined;
-            resourceInputs["securityType"] = args ? args.securityType : undefined;
-            resourceInputs["serviceArtifactReferenceId"] = args ? args.serviceArtifactReferenceId : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["spotRestoreTimeout"] = args ? args.spotRestoreTimeout : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["useDefaultPublicLoadBalancer"] = args ? args.useDefaultPublicLoadBalancer : undefined;
-            resourceInputs["useEphemeralOSDisk"] = args ? args.useEphemeralOSDisk : undefined;
-            resourceInputs["useTempDataDisk"] = args ? args.useTempDataDisk : undefined;
-            resourceInputs["vmExtensions"] = args ? args.vmExtensions : undefined;
-            resourceInputs["vmImageOffer"] = args ? args.vmImageOffer : undefined;
-            resourceInputs["vmImagePlan"] = args ? args.vmImagePlan : undefined;
-            resourceInputs["vmImagePublisher"] = args ? args.vmImagePublisher : undefined;
-            resourceInputs["vmImageResourceId"] = args ? args.vmImageResourceId : undefined;
-            resourceInputs["vmImageSku"] = args ? args.vmImageSku : undefined;
-            resourceInputs["vmImageVersion"] = args ? args.vmImageVersion : undefined;
-            resourceInputs["vmInstanceCount"] = args ? args.vmInstanceCount : undefined;
-            resourceInputs["vmManagedIdentity"] = args ? args.vmManagedIdentity : undefined;
-            resourceInputs["vmSecrets"] = args ? args.vmSecrets : undefined;
-            resourceInputs["vmSetupActions"] = args ? args.vmSetupActions : undefined;
-            resourceInputs["vmSharedGalleryImageId"] = args ? args.vmSharedGalleryImageId : undefined;
-            resourceInputs["vmSize"] = args ? args.vmSize : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["additionalDataDisks"] = args?.additionalDataDisks;
+            resourceInputs["additionalNetworkInterfaceConfigurations"] = args?.additionalNetworkInterfaceConfigurations;
+            resourceInputs["applicationPorts"] = args?.applicationPorts;
+            resourceInputs["capacities"] = args?.capacities;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["computerNamePrefix"] = args?.computerNamePrefix;
+            resourceInputs["dataDiskLetter"] = args?.dataDiskLetter;
+            resourceInputs["dataDiskSizeGB"] = args?.dataDiskSizeGB;
+            resourceInputs["dataDiskType"] = args?.dataDiskType;
+            resourceInputs["dscpConfigurationId"] = args?.dscpConfigurationId;
+            resourceInputs["enableAcceleratedNetworking"] = args?.enableAcceleratedNetworking;
+            resourceInputs["enableEncryptionAtHost"] = (args?.enableEncryptionAtHost) ?? false;
+            resourceInputs["enableNodePublicIP"] = args?.enableNodePublicIP;
+            resourceInputs["enableNodePublicIPv6"] = args?.enableNodePublicIPv6;
+            resourceInputs["enableOverProvisioning"] = args?.enableOverProvisioning;
+            resourceInputs["ephemeralPorts"] = args?.ephemeralPorts;
+            resourceInputs["evictionPolicy"] = args?.evictionPolicy;
+            resourceInputs["frontendConfigurations"] = args?.frontendConfigurations;
+            resourceInputs["hostGroupId"] = args?.hostGroupId;
+            resourceInputs["isPrimary"] = args?.isPrimary;
+            resourceInputs["isSpotVM"] = args?.isSpotVM;
+            resourceInputs["isStateless"] = (args?.isStateless) ?? false;
+            resourceInputs["multiplePlacementGroups"] = (args?.multiplePlacementGroups) ?? false;
+            resourceInputs["natConfigurations"] = args?.natConfigurations;
+            resourceInputs["natGatewayId"] = args?.natGatewayId;
+            resourceInputs["networkSecurityRules"] = args?.networkSecurityRules;
+            resourceInputs["nodeTypeName"] = args?.nodeTypeName;
+            resourceInputs["placementProperties"] = args?.placementProperties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["secureBootEnabled"] = args?.secureBootEnabled;
+            resourceInputs["securityType"] = args?.securityType;
+            resourceInputs["serviceArtifactReferenceId"] = args?.serviceArtifactReferenceId;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["spotRestoreTimeout"] = args?.spotRestoreTimeout;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["useDefaultPublicLoadBalancer"] = args?.useDefaultPublicLoadBalancer;
+            resourceInputs["useEphemeralOSDisk"] = args?.useEphemeralOSDisk;
+            resourceInputs["useTempDataDisk"] = args?.useTempDataDisk;
+            resourceInputs["vmExtensions"] = args?.vmExtensions;
+            resourceInputs["vmImageOffer"] = args?.vmImageOffer;
+            resourceInputs["vmImagePlan"] = args?.vmImagePlan;
+            resourceInputs["vmImagePublisher"] = args?.vmImagePublisher;
+            resourceInputs["vmImageResourceId"] = args?.vmImageResourceId;
+            resourceInputs["vmImageSku"] = args?.vmImageSku;
+            resourceInputs["vmImageVersion"] = args?.vmImageVersion;
+            resourceInputs["vmInstanceCount"] = args?.vmInstanceCount;
+            resourceInputs["vmManagedIdentity"] = args?.vmManagedIdentity;
+            resourceInputs["vmSecrets"] = args?.vmSecrets;
+            resourceInputs["vmSetupActions"] = args?.vmSetupActions;
+            resourceInputs["vmSharedGalleryImageId"] = args?.vmSharedGalleryImageId;
+            resourceInputs["vmSize"] = args?.vmSize;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
