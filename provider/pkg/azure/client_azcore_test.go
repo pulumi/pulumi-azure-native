@@ -163,7 +163,7 @@ func TestInitRequestQueryParams(t *testing.T) {
 }
 
 func TestInitRequestHeaders(t *testing.T) {
-	c, err := NewAzCoreClient(&fake.TokenCredential{}, "", cloud.AzurePublic, nil)
+	c, err := NewAzCoreClient(&fake.TokenCredential{}, "extra", cloud.AzurePublic, nil)
 	require.NoError(t, err)
 	client := c.(*azCoreClient)
 
@@ -180,7 +180,7 @@ func TestInitRequestHeaders(t *testing.T) {
 		require.NoError(t, err)
 
 		headers := req.Raw().Header
-		assert.Equal(t, "pulumi-agent", headers.Get("User-Agent"))
+		assert.Equal(t, "extra", headers.Get("User-Agent"))
 		assert.Equal(t, "application/json", headers.Get("Accept"))
 		assert.Equal(t, contentType, headers.Get("Content-Type"))
 	}

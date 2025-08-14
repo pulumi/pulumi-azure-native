@@ -46,6 +46,10 @@ func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
 }
 
 func getCwd(t *testing.T) string {
+	if _, err := os.Stat(pulumiExamplesPath); os.IsNotExist(err) {
+		t.Skipf("skipping: pulumi examples not found at %q", pulumiExamplesPath)
+	}
+
 	cwd, err := os.Getwd()
 	if err != nil {
 		t.FailNow()

@@ -167,7 +167,7 @@ func TestNewCredential(t *testing.T) {
 		}
 		_, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.Error(t, err)
-		require.Contains(t, err.Error(), "subscription")
+		require.Contains(t, err.Error(), "Subscription")
 	})
 
 	t.Run("Incomplete SP with client secret conf missing tenant id", func(t *testing.T) {
@@ -178,7 +178,7 @@ func TestNewCredential(t *testing.T) {
 		}
 		_, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.Error(t, err)
-		require.Contains(t, err.Error(), "tenant")
+		require.Contains(t, err.Error(), "Tenant")
 	})
 
 	t.Run("SP with client cert", func(t *testing.T) {
@@ -274,6 +274,7 @@ func TestNewCredential(t *testing.T) {
 		}
 		_, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.Error(t, err)
+		require.ErrorIs(t, err, os.ErrNotExist)
 	})
 
 	t.Run("OIDC with token exchange URL", func(t *testing.T) {

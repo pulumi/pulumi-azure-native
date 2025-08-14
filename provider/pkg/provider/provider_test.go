@@ -478,7 +478,9 @@ func TestReadAfterWrite(t *testing.T) {
 func TestUsesCorrectAzureClient(t *testing.T) {
 	t.Run("default", func(t *testing.T) {
 		_, ok := os.LookupEnv("PULUMI_ENABLE_AZCORE_BACKEND")
-		assert.False(t, ok)
+		if ok {
+			t.Skip("PULUMI_ENABLE_AZCORE_BACKEND is set, cannot test default behavior")
+		}
 		assert.True(t, util.EnableAzcoreBackend(), "azcore backend should be enabled by default")
 	})
 
