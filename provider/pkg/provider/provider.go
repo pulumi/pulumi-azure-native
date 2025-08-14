@@ -397,6 +397,31 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 }
 
 func (k *azureNativeProvider) getClientConfig(ctx context.Context) (*ClientConfig, error) {
+	if !util.EnableAzcoreBackend() {
+		auth, err := k.getAuthConfig()
+		if err != nil {
+			return nil, fmt.Errorf("getting auth config: %w", err)
+		}
+		objectId := ""
+		if auth.GetAuthenticatedObjectID != nil {
+			objectIdPtr, err := auth.GetAuthenticatedObjectID(ctx)
+			if err != nil {
+				return nil, fmt.Errorf("getting authenticated object ID: %w", err)
+			}
+			if objectIdPtr == nil {
+				return nil, fmt.Errorf("getting authenticated object ID")
+			}
+			objectId = *objectIdPtr
+		}
+
+		return &ClientConfig{
+			ClientID:       auth.ClientID,
+			ObjectID:       objectId,
+			SubscriptionID: auth.SubscriptionID,
+			TenantID:       auth.TenantID,
+		}, nil
+	}
+
 	return GetClientConfig(ctx, &k.authConfig, k.credential)
 }
 
