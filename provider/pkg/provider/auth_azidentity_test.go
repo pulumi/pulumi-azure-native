@@ -11,6 +11,7 @@ import (
 	"path/filepath"
 	"testing"
 
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 	"github.com/stretchr/testify/assert"
@@ -19,6 +20,18 @@ import (
 
 //go:embed test.pfx
 var testPfxCert []byte
+
+type testProvider struct {
+	config map[string]string
+	cloud  cloud.Configuration
+}
+
+func (k *testProvider) getConfig(configName, envName string) string {
+	if val, ok := k.config[configName]; ok {
+		return val
+	}
+	return os.Getenv(envName)
+}
 
 func TestGetAuthConfig(t *testing.T) {
 	setAuthEnvVariables := func(value, boolValue string) {
@@ -41,8 +54,9 @@ func TestGetAuthConfig(t *testing.T) {
 
 	t.Run("empty", func(t *testing.T) {
 		setAuthEnvVariables("", "")
-		p := azureNativeProvider{}
-		c, err := p.readAuthConfig()
+		p := &testProvider{}
+		c, err := readAuthConfig(p.getConfig)
+
 		require.NoError(t, err)
 		require.NotNil(t, c)
 		require.Empty(t, c.auxTenants)
@@ -63,7 +77,7 @@ func TestGetAuthConfig(t *testing.T) {
 	t.Run("values from config take precedence", func(t *testing.T) {
 		setAuthEnvVariables("env", "false")
 
-		p := azureNativeProvider{
+		p := &testProvider{
 			config: map[string]string{
 				"auxiliaryTenantIds":        `["conf"]`,
 				"clientCertificatePassword": "conf",
@@ -83,7 +97,7 @@ func TestGetAuthConfig(t *testing.T) {
 			cloud: cloud.AzureGovernment,
 		}
 
-		c, err := p.readAuthConfig()
+		c, err := readAuthConfig(p.getConfig)
 		require.NoError(t, err)
 		require.NotNil(t, c)
 		require.Equal(t, []string{"conf"}, c.auxTenants)
@@ -97,17 +111,18 @@ func TestGetAuthConfig(t *testing.T) {
 		require.Equal(t, "conf", c.oidcTokenRequestToken)
 		require.Equal(t, "conf", c.oidcTokenRequestUrl)
 		require.Equal(t, "conf", c.tenantId)
+		require.Equal(t, "usgov", c.cloud)
 		require.True(t, c.useOidc)
 		require.True(t, c.useMsi)
 	})
 
 	t.Run("values from env", func(t *testing.T) {
-		p := azureNativeProvider{
+		p := &testProvider{
 			cloud: cloud.AzureChina,
 		}
 		setAuthEnvVariables("env", "true")
 
-		c, err := p.readAuthConfig()
+		c, err := readAuthConfig(p.getConfig)
 		require.NoError(t, err)
 		require.NotNil(t, c)
 		require.Equal(t, []string{"env"}, c.auxTenants)
@@ -133,7 +148,7 @@ func TestNewCredential(t *testing.T) {
 			clientSecret: "client-secret",
 			tenantId:     "tenant-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ClientSecretCredential{}, cred)
 	})
@@ -143,7 +158,7 @@ func TestNewCredential(t *testing.T) {
 			clientId:     "client-id",
 			clientSecret: "client-secret",
 		}
-		_, err := newSingleMethodAuthCredential(conf)
+		_, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.Error(t, err)
 		require.Contains(t, err.Error(), "tenant")
 	})
@@ -158,7 +173,7 @@ func TestNewCredential(t *testing.T) {
 			clientCertPassword: "pulumi",
 			tenantId:           "tenant-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ClientCertificateCredential{}, cred)
 	})
@@ -172,7 +187,7 @@ func TestNewCredential(t *testing.T) {
 			clientCertPath: certPath,
 			tenantId:       "tenant-id",
 		}
-		_, err := newSingleMethodAuthCredential(conf)
+		_, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.Error(t, err)
 		require.Contains(t, err.Error(), "failed to parse certificate")
 	})
@@ -187,7 +202,7 @@ func TestNewCredential(t *testing.T) {
 			clientCertPassword: "wrong",
 			tenantId:           "tenant-id",
 		}
-		_, err := newSingleMethodAuthCredential(conf)
+		_, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.Error(t, err)
 		require.Contains(t, err.Error(), "failed to parse certificate")
 		require.Contains(t, err.Error(), "password incorrect")
@@ -200,7 +215,7 @@ func TestNewCredential(t *testing.T) {
 			clientId:  "client-id",
 			tenantId:  "tenant-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ClientAssertionCredential{}, cred)
 	})
@@ -215,7 +230,7 @@ func TestNewCredential(t *testing.T) {
 			clientId:          "client-id",
 			tenantId:          "tenant-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ClientAssertionCredential{}, cred)
 	})
@@ -227,7 +242,7 @@ func TestNewCredential(t *testing.T) {
 			clientId:          "client-id",
 			tenantId:          "tenant-id",
 		}
-		_, err := newSingleMethodAuthCredential(conf)
+		_, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.Error(t, err)
 	})
 
@@ -239,7 +254,7 @@ func TestNewCredential(t *testing.T) {
 			clientId:              "client-id",
 			tenantId:              "tenant-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ClientAssertionCredential{}, cred)
 	})
@@ -253,7 +268,7 @@ func TestNewCredential(t *testing.T) {
 			clientId:              "client-id",
 			tenantId:              "tenant-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ClientAssertionCredential{}, cred)
 	})
@@ -272,7 +287,7 @@ func TestNewCredential(t *testing.T) {
 				tenantId:            "tenant-id",
 			},
 		} {
-			_, err := newSingleMethodAuthCredential(conf)
+			_, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 			require.Error(t, err)
 		}
 	})
@@ -281,7 +296,7 @@ func TestNewCredential(t *testing.T) {
 		conf := &authConfiguration{
 			useMsi: true,
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ManagedIdentityCredential{}, cred)
 	})
@@ -292,14 +307,14 @@ func TestNewCredential(t *testing.T) {
 			clientId: "123",
 			useMsi:   true,
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ManagedIdentityCredential{}, cred)
 	})
 
 	t.Run("CLI", func(t *testing.T) {
 		conf := &authConfiguration{}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.AzureCLICredential{}, cred)
 	})
@@ -309,7 +324,7 @@ func TestNewCredential(t *testing.T) {
 			tenantId:   "tenant-id",
 			auxTenants: []string{"123", "456"},
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.AzureCLICredential{}, cred)
 	})
