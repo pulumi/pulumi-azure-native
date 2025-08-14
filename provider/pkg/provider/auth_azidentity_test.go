@@ -12,7 +12,6 @@ import (
 	"testing"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
-	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -23,7 +22,6 @@ var testPfxCert []byte
 
 type testProvider struct {
 	config map[string]string
-	cloud  cloud.Configuration
 }
 
 func (k *testProvider) getConfig(configName, envName string) string {
@@ -72,10 +70,12 @@ func TestGetAuthConfig(t *testing.T) {
 		require.Empty(t, c.tenantId)
 		require.False(t, c.useOidc)
 		require.False(t, c.useMsi)
+		require.Nil(t, c.cloud)
 	})
 
 	t.Run("values from config take precedence", func(t *testing.T) {
 		setAuthEnvVariables("env", "false")
+		t.Setenv("ARM_ENVIRONMENT", "public")
 
 		p := &testProvider{
 			config: map[string]string{
@@ -94,7 +94,6 @@ func TestGetAuthConfig(t *testing.T) {
 				"useMsi":                    "true",
 				"useOidc":                   "true",
 			},
-			cloud: cloud.AzureGovernment,
 		}
 
 		c, err := readAuthConfig(p.getConfig)
@@ -111,16 +110,16 @@ func TestGetAuthConfig(t *testing.T) {
 		require.Equal(t, "conf", c.oidcTokenRequestToken)
 		require.Equal(t, "conf", c.oidcTokenRequestUrl)
 		require.Equal(t, "conf", c.tenantId)
-		require.Equal(t, "usgov", c.cloud)
+		require.NotNil(t, c.cloud)
+		require.Equal(t, "https://login.microsoftonline.us/", c.cloud.ActiveDirectoryAuthorityHost)
 		require.True(t, c.useOidc)
 		require.True(t, c.useMsi)
 	})
 
 	t.Run("values from env", func(t *testing.T) {
-		p := &testProvider{
-			cloud: cloud.AzureChina,
-		}
+		p := &testProvider{}
 		setAuthEnvVariables("env", "true")
+		t.Setenv("ARM_ENVIRONMENT", "usgovernment")
 
 		c, err := readAuthConfig(p.getConfig)
 		require.NoError(t, err)
@@ -136,6 +135,8 @@ func TestGetAuthConfig(t *testing.T) {
 		require.Equal(t, "env", c.oidcTokenRequestToken)
 		require.Equal(t, "env", c.oidcTokenRequestUrl)
 		require.Equal(t, "env", c.tenantId)
+		require.NotNil(t, c.cloud)
+		require.Equal(t, "https://login.microsoftonline.us/", c.cloud.ActiveDirectoryAuthorityHost)
 		require.True(t, c.useOidc)
 		require.True(t, c.useMsi)
 	})
