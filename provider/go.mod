@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-azure-native/v2/provider
 
-go 1.23.1
+go 1.23.11
 
 toolchain go1.24.1
 
@@ -35,8 +35,8 @@ require (
 	github.com/pulumi/providertest v0.1.5
 	github.com/pulumi/pulumi-java/pkg v1.16.0
 	github.com/pulumi/pulumi-yaml v1.21.2
-	github.com/pulumi/pulumi/pkg/v3 v3.183.0
-	github.com/pulumi/pulumi/sdk/v3 v3.183.0
+	github.com/pulumi/pulumi/pkg/v3 v3.189.0
+	github.com/pulumi/pulumi/sdk/v3 v3.189.0
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/segmentio/encoding v0.3.5
 	github.com/stretchr/testify v1.10.0
@@ -131,7 +131,7 @@ require (
 	github.com/pjbgf/sha1cd v0.3.2 // indirect
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
-	github.com/pulumi/esc v0.14.3 // indirect
+	github.com/pulumi/esc v0.17.0 // indirect
 	github.com/pulumi/inflector v0.1.1 // indirect
 	github.com/ryanuber/go-glob v1.0.0 // indirect
 	github.com/skeema/knownhosts v1.3.1 // indirect
@@ -233,7 +233,7 @@ require (
 	golang.org/x/crypto v0.39.0 // indirect
 	golang.org/x/mod v0.25.0 // indirect
 	golang.org/x/net v0.40.0 // indirect
-	golang.org/x/oauth2 v0.27.0 // indirect
+	golang.org/x/oauth2 v0.30.0 // indirect
 	golang.org/x/sync v0.15.0 // indirect
 	golang.org/x/sys v0.33.0 // indirect
 	golang.org/x/term v0.32.0 // indirect

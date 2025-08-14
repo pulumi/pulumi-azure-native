@@ -588,8 +588,8 @@ github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZN
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
 github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 h1:vkHw5I/plNdTr435cARxCW6q9gc0S/Yxz7Mkd38pOb0=
 github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231/go.mod h1:murToZ2N9hNJzewjHBgfFdXhZKjY3z5cYC1VXk+lbFE=
-github.com/pulumi/esc v0.14.3 h1:Zli+9LiSDT/W+Fsfr8tITxCo+5wn969tLrE4KLv44G8=
-github.com/pulumi/esc v0.14.3/go.mod h1:XnSxlt5NkmuAj304l/gK4pRErFbtqq6XpfX1tYT9Jbc=
+github.com/pulumi/esc v0.17.0 h1:oaVOIyFTENlYDuqc3pW75lQT9jb2cd6ie/4/Twxn66w=
+github.com/pulumi/esc v0.17.0/go.mod h1:XnSxlt5NkmuAj304l/gK4pRErFbtqq6XpfX1tYT9Jbc=
 github.com/pulumi/inflector v0.1.1 h1:dvlxlWtXwOJTUUtcYDvwnl6Mpg33prhK+7mzeF+SobA=
 github.com/pulumi/inflector v0.1.1/go.mod h1:HUFCjcPTz96YtTuUlwG3i3EZG4WlniBvR9bd+iJxCUY=
 github.com/pulumi/providertest v0.1.5 h1:35PH+SBNzWjkfO/rP5mSjrfuTUJZ5nxeo2Cb845EoYU=
@@ -598,10 +598,10 @@ github.com/pulumi/pulumi-java/pkg v1.16.0 h1:8KCiIXWv2uxfIks0SdgOezyXg4HZIoPfHID
 github.com/pulumi/pulumi-java/pkg v1.16.0/go.mod h1:VeMZ1s9LfXBypao4A1tRF3EB7fYnYZ1LwImyg6FBX0c=
 github.com/pulumi/pulumi-yaml v1.21.2 h1:czqC5AazinfX6Bj0nqAAQ6x/Cr8/3oUz3HUjJg6tJ4o=
 github.com/pulumi/pulumi-yaml v1.21.2/go.mod h1:KOqDnuJksfIq8belFVFN3IEI4r0NgW69M0QPSj54On4=
-github.com/pulumi/pulumi/pkg/v3 v3.183.0 h1:nvUs2oko5peIdrDYmLn1RRDW+sO38/PfHo78Peu5lFk=
-github.com/pulumi/pulumi/pkg/v3 v3.183.0/go.mod h1:Jd6IpgYooIih0IzADV9mZ03eOE4yWxSVB5H58toP/Rw=
-github.com/pulumi/pulumi/sdk/v3 v3.183.0 h1:6yIEg4Gpv7wLlaIxZrVGzOPLQz5b0EZPLbUU2thhrlU=
-github.com/pulumi/pulumi/sdk/v3 v3.183.0/go.mod h1:YS7uQ+eoIV/Fco804Upv3jmz5pwo/MkLYmbGH3VgA9c=
+github.com/pulumi/pulumi/pkg/v3 v3.189.0 h1:GLxK1jekCLluN/S6S7iAX/MoKdhDC/9N4t/B1rBDsWk=
+github.com/pulumi/pulumi/pkg/v3 v3.189.0/go.mod h1:kQaEvMnFPrVT7+WVRmRgFP0NdZbjK+QglM/C0WSC2HE=
+github.com/pulumi/pulumi/sdk/v3 v3.189.0 h1:BZJFi1xlCvgxZXBSkCKZICcDfCg9jS7cYi9zPvGeI2s=
+github.com/pulumi/pulumi/sdk/v3 v3.189.0/go.mod h1:MjNoJsbSld/fwoQfIKJy9UT+PkEtyXDjBoiDNJHcGA0=
 github.com/redis/go-redis/v9 v9.7.0 h1:HhLSs+B6O021gwzl+locl0zEDnyNkxMtf/Z3NNBMa9E=
 github.com/redis/go-redis/v9 v9.7.0/go.mod h1:f6zhXITC7JUJIlPEiBOTXxJgPLdZcA93GewI7inzyWw=
 github.com/rivo/uniseg v0.2.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
@@ -831,8 +831,8 @@ golang.org/x/oauth2 v0.0.0-20201109201403-9fd604954f58/go.mod h1:KelEdhl1UZF7XfJ
 golang.org/x/oauth2 v0.0.0-20201208152858-08078c50e5b5/go.mod h1:KelEdhl1UZF7XfJ4dDtk6s++YSgaE7mD/BuKKDLBl4A=
 golang.org/x/oauth2 v0.0.0-20210218202405-ba52d332ba99/go.mod h1:KelEdhl1UZF7XfJ4dDtk6s++YSgaE7mD/BuKKDLBl4A=
 golang.org/x/oauth2 v0.0.0-20210514164344-f6687ab2804c/go.mod h1:KelEdhl1UZF7XfJ4dDtk6s++YSgaE7mD/BuKKDLBl4A=
-golang.org/x/oauth2 v0.27.0 h1:da9Vo7/tDv5RH/7nZDz1eMGS/q1Vv1N/7FCrBhI9I3M=
-golang.org/x/oauth2 v0.27.0/go.mod h1:onh5ek6nERTohokkhCD/y2cV4Do3fxFHFuAejCkRWT8=
+golang.org/x/oauth2 v0.30.0 h1:dnDm7JmhM45NNpd8FDDeLhK6FwqbOf4MLCM9zb1BOHI=
+golang.org/x/oauth2 v0.30.0/go.mod h1:B++QgG3ZKulg6sRPGD/mqlHQs5rB3Ml9erfeDY7xKlU=
 golang.org/x/sync v0.0.0-20180314180146-1d60e4601c6f/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
 golang.org/x/sync v0.0.0-20181108010431-42b317875d0f/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
 golang.org/x/sync v0.0.0-20181221193216-37e7f081c4d4/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
