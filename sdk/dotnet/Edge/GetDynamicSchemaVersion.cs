@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Edge
         /// Get a Dynamic Schema Version Resource
         /// 
         /// Uses Azure REST API version 2025-06-01.
+        /// 
+        /// Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDynamicSchemaVersionResult> InvokeAsync(GetDynamicSchemaVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDynamicSchemaVersionResult>("azure-native:edge:getDynamicSchemaVersion", args ?? new GetDynamicSchemaVersionArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Edge
         /// Get a Dynamic Schema Version Resource
         /// 
         /// Uses Azure REST API version 2025-06-01.
+        /// 
+        /// Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDynamicSchemaVersionResult> Invoke(GetDynamicSchemaVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDynamicSchemaVersionResult>("azure-native:edge:getDynamicSchemaVersion", args ?? new GetDynamicSchemaVersionInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Edge
         /// Get a Dynamic Schema Version Resource
         /// 
         /// Uses Azure REST API version 2025-06-01.
+        /// 
+        /// Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDynamicSchemaVersionResult> Invoke(GetDynamicSchemaVersionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDynamicSchemaVersionResult>("azure-native:edge:getDynamicSchemaVersion", args ?? new GetDynamicSchemaVersionInvokeArgs(), options.WithDefaults());
@@ -46,6 +52,12 @@ namespace Pulumi.AzureNative.Edge
         public string DynamicSchemaName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the DynamicSchemaVersion
+        /// </summary>
+        [Input("dynamicSchemaVersionName", required: true)]
+        public string DynamicSchemaVersionName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -56,12 +68,6 @@ namespace Pulumi.AzureNative.Edge
         /// </summary>
         [Input("schemaName", required: true)]
         public string SchemaName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the SchemaVersion
-        /// </summary>
-        [Input("schemaVersionName", required: true)]
-        public string SchemaVersionName { get; set; } = null!;
 
         public GetDynamicSchemaVersionArgs()
         {
@@ -78,6 +84,12 @@ namespace Pulumi.AzureNative.Edge
         public Input<string> DynamicSchemaName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the DynamicSchemaVersion
+        /// </summary>
+        [Input("dynamicSchemaVersionName", required: true)]
+        public Input<string> DynamicSchemaVersionName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -88,12 +100,6 @@ namespace Pulumi.AzureNative.Edge
         /// </summary>
         [Input("schemaName", required: true)]
         public Input<string> SchemaName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the SchemaVersion
-        /// </summary>
-        [Input("schemaVersionName", required: true)]
-        public Input<string> SchemaVersionName { get; set; } = null!;
 
         public GetDynamicSchemaVersionInvokeArgs()
         {

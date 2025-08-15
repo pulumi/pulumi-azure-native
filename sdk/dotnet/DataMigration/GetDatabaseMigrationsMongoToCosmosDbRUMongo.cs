@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DataMigration
         /// 
         /// Uses Azure REST API version 2023-07-15-preview.
         /// 
-        /// Other available API versions: 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-03-15-preview, 2025-06-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDatabaseMigrationsMongoToCosmosDbRUMongoResult> InvokeAsync(GetDatabaseMigrationsMongoToCosmosDbRUMongoArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseMigrationsMongoToCosmosDbRUMongoResult>("azure-native:datamigration:getDatabaseMigrationsMongoToCosmosDbRUMongo", args ?? new GetDatabaseMigrationsMongoToCosmosDbRUMongoArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DataMigration
         /// 
         /// Uses Azure REST API version 2023-07-15-preview.
         /// 
-        /// Other available API versions: 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-03-15-preview, 2025-06-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDatabaseMigrationsMongoToCosmosDbRUMongoResult> Invoke(GetDatabaseMigrationsMongoToCosmosDbRUMongoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseMigrationsMongoToCosmosDbRUMongoResult>("azure-native:datamigration:getDatabaseMigrationsMongoToCosmosDbRUMongo", args ?? new GetDatabaseMigrationsMongoToCosmosDbRUMongoInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.DataMigration
         /// 
         /// Uses Azure REST API version 2023-07-15-preview.
         /// 
-        /// Other available API versions: 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-03-15-preview, 2025-06-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDatabaseMigrationsMongoToCosmosDbRUMongoResult> Invoke(GetDatabaseMigrationsMongoToCosmosDbRUMongoInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseMigrationsMongoToCosmosDbRUMongoResult>("azure-native:datamigration:getDatabaseMigrationsMongoToCosmosDbRUMongo", args ?? new GetDatabaseMigrationsMongoToCosmosDbRUMongoInvokeArgs(), options.WithDefaults());

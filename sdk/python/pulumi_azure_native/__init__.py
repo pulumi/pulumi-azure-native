@@ -898,6 +898,8 @@ _utilities.register(
    "azure-native:apimanagement:Backend": "Backend",
    "azure-native:apimanagement:Cache": "Cache",
    "azure-native:apimanagement:Certificate": "Certificate",
+   "azure-native:apimanagement:ClientApplication": "ClientApplication",
+   "azure-native:apimanagement:ClientApplicationProductLink": "ClientApplicationProductLink",
    "azure-native:apimanagement:ContentItem": "ContentItem",
    "azure-native:apimanagement:ContentType": "ContentType",
    "azure-native:apimanagement:Diagnostic": "Diagnostic",

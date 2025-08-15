@@ -16,15 +16,15 @@ __all__ = [
 @pulumi.type_token("azure-native:loadtestservice:EnablementStatus")
 class EnablementStatus(builtins.str, Enum):
     """
-    This property sets the connection region for client workers to cloud-hosted browsers. If enabled, workers connect to browsers in the closest Azure region, ensuring lower latency. If disabled, workers connect to browsers in the Azure region in which the workspace was initially created.
+    Controls the connection region for client workers to cloud-hosted browsers. When enabled, workers connect to browsers in the closest Azure region for lower latency. When disabled, workers connect to browsers in the Azure region where the workspace was created.
     """
     ENABLED = "Enabled"
     """
-    The feature is Enabled.
+    The feature is enabled.
     """
     DISABLED = "Disabled"
     """
-    The feature is Disabled.
+    The feature is disabled.
     """
 
 

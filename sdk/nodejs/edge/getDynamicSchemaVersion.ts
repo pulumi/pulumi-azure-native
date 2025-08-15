@@ -11,14 +11,16 @@ import * as utilities from "../utilities";
  * Get a Dynamic Schema Version Resource
  *
  * Uses Azure REST API version 2025-06-01.
+ *
+ * Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDynamicSchemaVersion(args: GetDynamicSchemaVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetDynamicSchemaVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:edge:getDynamicSchemaVersion", {
         "dynamicSchemaName": args.dynamicSchemaName,
+        "dynamicSchemaVersionName": args.dynamicSchemaVersionName,
         "resourceGroupName": args.resourceGroupName,
         "schemaName": args.schemaName,
-        "schemaVersionName": args.schemaVersionName,
     }, opts);
 }
 
@@ -28,6 +30,10 @@ export interface GetDynamicSchemaVersionArgs {
      */
     dynamicSchemaName: string;
     /**
+     * The name of the DynamicSchemaVersion
+     */
+    dynamicSchemaVersionName: string;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
@@ -35,10 +41,6 @@ export interface GetDynamicSchemaVersionArgs {
      * The name of the Schema
      */
     schemaName: string;
-    /**
-     * The name of the SchemaVersion
-     */
-    schemaVersionName: string;
 }
 
 /**
@@ -78,14 +80,16 @@ export interface GetDynamicSchemaVersionResult {
  * Get a Dynamic Schema Version Resource
  *
  * Uses Azure REST API version 2025-06-01.
+ *
+ * Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDynamicSchemaVersionOutput(args: GetDynamicSchemaVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDynamicSchemaVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:edge:getDynamicSchemaVersion", {
         "dynamicSchemaName": args.dynamicSchemaName,
+        "dynamicSchemaVersionName": args.dynamicSchemaVersionName,
         "resourceGroupName": args.resourceGroupName,
         "schemaName": args.schemaName,
-        "schemaVersionName": args.schemaVersionName,
     }, opts);
 }
 
@@ -95,6 +99,10 @@ export interface GetDynamicSchemaVersionOutputArgs {
      */
     dynamicSchemaName: pulumi.Input<string>;
     /**
+     * The name of the DynamicSchemaVersion
+     */
+    dynamicSchemaVersionName: pulumi.Input<string>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -102,8 +110,4 @@ export interface GetDynamicSchemaVersionOutputArgs {
      * The name of the Schema
      */
     schemaName: pulumi.Input<string>;
-    /**
-     * The name of the SchemaVersion
-     */
-    schemaVersionName: pulumi.Input<string>;
 }

@@ -56,14 +56,14 @@ def list_list_flows_by_pipeline(pipeline_name: Optional[builtins.str] = None,
                                 value: Optional[Sequence[builtins.str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListListFlowsByPipelineResult:
     """
-    Lists the flows in a pipeline.
+    Lists all Flows associated with the specified Pipeline.
 
     Uses Azure REST API version 2025-05-21.
 
-    Other available API versions: 2025-04-11-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-04-11-preview, 2025-05-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str pipeline_name: The name for the pipeline to perform the operation on.
+    :param builtins.str pipeline_name: The name of the pipeline on which to operate.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param Sequence[builtins.str] value: Connection ID to target
     """
@@ -81,14 +81,14 @@ def list_list_flows_by_pipeline_output(pipeline_name: Optional[pulumi.Input[buil
                                        value: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListListFlowsByPipelineResult]:
     """
-    Lists the flows in a pipeline.
+    Lists all Flows associated with the specified Pipeline.
 
     Uses Azure REST API version 2025-05-21.
 
-    Other available API versions: 2025-04-11-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-04-11-preview, 2025-05-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str pipeline_name: The name for the pipeline to perform the operation on.
+    :param builtins.str pipeline_name: The name of the pipeline on which to operate.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param Sequence[builtins.str] value: Connection ID to target
     """

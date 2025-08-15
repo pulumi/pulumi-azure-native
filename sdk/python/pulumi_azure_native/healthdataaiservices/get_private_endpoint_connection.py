@@ -120,8 +120,6 @@ def get_private_endpoint_connection(deid_service_name: Optional[builtins.str] = 
 
     Uses Azure REST API version 2024-09-20.
 
-    Other available API versions: 2024-02-28-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthdataaiservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param builtins.str deid_service_name: The name of the deid service
     :param builtins.str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
@@ -149,8 +147,6 @@ def get_private_endpoint_connection_output(deid_service_name: Optional[pulumi.In
     Get a specific private connection
 
     Uses Azure REST API version 2024-09-20.
-
-    Other available API versions: 2024-02-28-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthdataaiservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str deid_service_name: The name of the deid service

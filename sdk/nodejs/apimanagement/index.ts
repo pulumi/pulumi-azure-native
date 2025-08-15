@@ -120,6 +120,16 @@ export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
 utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
 
+export { ClientApplicationArgs } from "./clientApplication";
+export type ClientApplication = import("./clientApplication").ClientApplication;
+export const ClientApplication: typeof import("./clientApplication").ClientApplication = null as any;
+utilities.lazyLoad(exports, ["ClientApplication"], () => require("./clientApplication"));
+
+export { ClientApplicationProductLinkArgs } from "./clientApplicationProductLink";
+export type ClientApplicationProductLink = import("./clientApplicationProductLink").ClientApplicationProductLink;
+export const ClientApplicationProductLink: typeof import("./clientApplicationProductLink").ClientApplicationProductLink = null as any;
+utilities.lazyLoad(exports, ["ClientApplicationProductLink"], () => require("./clientApplicationProductLink"));
+
 export { ContentItemArgs } from "./contentItem";
 export type ContentItem = import("./contentItem").ContentItem;
 export const ContentItem: typeof import("./contentItem").ContentItem = null as any;
@@ -294,6 +304,16 @@ export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } fr
 export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
 export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
 utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+
+export { GetClientApplicationArgs, GetClientApplicationResult, GetClientApplicationOutputArgs } from "./getClientApplication";
+export const getClientApplication: typeof import("./getClientApplication").getClientApplication = null as any;
+export const getClientApplicationOutput: typeof import("./getClientApplication").getClientApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getClientApplication","getClientApplicationOutput"], () => require("./getClientApplication"));
+
+export { GetClientApplicationProductLinkArgs, GetClientApplicationProductLinkResult, GetClientApplicationProductLinkOutputArgs } from "./getClientApplicationProductLink";
+export const getClientApplicationProductLink: typeof import("./getClientApplicationProductLink").getClientApplicationProductLink = null as any;
+export const getClientApplicationProductLinkOutput: typeof import("./getClientApplicationProductLink").getClientApplicationProductLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getClientApplicationProductLink","getClientApplicationProductLinkOutput"], () => require("./getClientApplicationProductLink"));
 
 export { GetContentItemArgs, GetContentItemResult, GetContentItemOutputArgs } from "./getContentItem";
 export const getContentItem: typeof import("./getContentItem").getContentItem = null as any;
@@ -644,6 +664,11 @@ export { ListAuthorizationServerSecretsArgs, ListAuthorizationServerSecretsResul
 export const listAuthorizationServerSecrets: typeof import("./listAuthorizationServerSecrets").listAuthorizationServerSecrets = null as any;
 export const listAuthorizationServerSecretsOutput: typeof import("./listAuthorizationServerSecrets").listAuthorizationServerSecretsOutput = null as any;
 utilities.lazyLoad(exports, ["listAuthorizationServerSecrets","listAuthorizationServerSecretsOutput"], () => require("./listAuthorizationServerSecrets"));
+
+export { ListClientApplicationSecretsArgs, ListClientApplicationSecretsResult, ListClientApplicationSecretsOutputArgs } from "./listClientApplicationSecrets";
+export const listClientApplicationSecrets: typeof import("./listClientApplicationSecrets").listClientApplicationSecrets = null as any;
+export const listClientApplicationSecretsOutput: typeof import("./listClientApplicationSecrets").listClientApplicationSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["listClientApplicationSecrets","listClientApplicationSecretsOutput"], () => require("./listClientApplicationSecrets"));
 
 export { ListDelegationSettingSecretsArgs, ListDelegationSettingSecretsResult, ListDelegationSettingSecretsOutputArgs } from "./listDelegationSettingSecrets";
 export const listDelegationSettingSecrets: typeof import("./listDelegationSettingSecrets").listDelegationSettingSecrets = null as any;
@@ -1039,6 +1064,10 @@ const _module = {
                 return new Cache(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:ClientApplication":
+                return new ClientApplication(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:ClientApplicationProductLink":
+                return new ClientApplicationProductLink(name, <any>undefined, { urn })
             case "azure-native:apimanagement:ContentItem":
                 return new ContentItem(name, <any>undefined, { urn })
             case "azure-native:apimanagement:ContentType":

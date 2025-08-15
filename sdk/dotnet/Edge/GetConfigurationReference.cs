@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Edge
         /// Get a ConfigurationReference
         /// 
         /// Uses Azure REST API version 2025-06-01.
+        /// 
+        /// Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetConfigurationReferenceResult> InvokeAsync(GetConfigurationReferenceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationReferenceResult>("azure-native:edge:getConfigurationReference", args ?? new GetConfigurationReferenceArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Edge
         /// Get a ConfigurationReference
         /// 
         /// Uses Azure REST API version 2025-06-01.
+        /// 
+        /// Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetConfigurationReferenceResult> Invoke(GetConfigurationReferenceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationReferenceResult>("azure-native:edge:getConfigurationReference", args ?? new GetConfigurationReferenceInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Edge
         /// Get a ConfigurationReference
         /// 
         /// Uses Azure REST API version 2025-06-01.
+        /// 
+        /// Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetConfigurationReferenceResult> Invoke(GetConfigurationReferenceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationReferenceResult>("azure-native:edge:getConfigurationReference", args ?? new GetConfigurationReferenceInvokeArgs(), options.WithDefaults());

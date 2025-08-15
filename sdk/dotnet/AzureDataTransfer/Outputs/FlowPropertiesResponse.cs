@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
         /// </summary>
         public readonly string? CustomerManagedKeyVaultUri;
         /// <summary>
-        /// Type of data to transfer via the flow.
+        /// Type of data to transfer via the flow. The property has reached end of life support starting version 2025-05-30-preview. Please create and use a FlowProfile resource instead.
         /// </summary>
         public readonly string? DataType;
         /// <summary>
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
         /// </summary>
         public readonly string FlowId;
         /// <summary>
-        /// The flow type for this flow
+        /// The flow type for this flow. The property has reached end of life support starting version 2025-05-30-preview. Please create and use a FlowProfile resource instead.
         /// </summary>
         public readonly string? FlowType;
         /// <summary>
@@ -81,7 +81,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
         /// </summary>
         public readonly string? Passphrase;
         /// <summary>
-        /// The policies for this flow
+        /// The policies for this flow. The property has reached end of life support starting version 2025-05-30-preview. Please create and use a FlowProfile resource instead.
         /// </summary>
         public readonly ImmutableArray<string> Policies;
         /// <summary>
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The selected schema for this flow
+        /// The selected schema for this flow. The property has reached end of life support starting version 2025-05-30-preview. Please create and use a FlowProfile resource instead.
         /// </summary>
         public readonly Outputs.SchemaResponse? Schema;
         /// <summary>

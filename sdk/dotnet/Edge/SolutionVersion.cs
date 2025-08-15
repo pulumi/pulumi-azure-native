@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Edge
     /// Solution Version Resource. It has the resolved configuration along with edge specification.
     /// 
     /// Uses Azure REST API version 2025-06-01.
+    /// 
+    /// Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:edge:SolutionVersion")]
     public partial class SolutionVersion : global::Pulumi.CustomResource
@@ -85,6 +87,7 @@ namespace Pulumi.AzureNative.Edge
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:edge/v20250601:SolutionVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:edge/v20250801:SolutionVersion" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

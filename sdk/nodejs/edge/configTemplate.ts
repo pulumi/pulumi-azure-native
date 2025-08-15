@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Config Template Resource. Contains configuration expressions using the predefined expression language.
  *
  * Uses Azure REST API version 2025-06-01.
+ *
+ * Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ConfigTemplate extends pulumi.CustomResource {
     /**
@@ -107,7 +109,7 @@ export class ConfigTemplate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:edge/v20250601:ConfigTemplate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:edge/v20250601:ConfigTemplate" }, { type: "azure-native:edge/v20250801:ConfigTemplate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigTemplate.__pulumiType, name, resourceInputs, opts);
     }

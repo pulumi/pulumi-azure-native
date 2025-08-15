@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Edge
     /// Dynamic Schema Version Resource
     /// 
     /// Uses Azure REST API version 2025-06-01.
+    /// 
+    /// Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:edge:DynamicSchemaVersion")]
     public partial class DynamicSchemaVersion : global::Pulumi.CustomResource
@@ -79,6 +81,7 @@ namespace Pulumi.AzureNative.Edge
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:edge/v20250601:DynamicSchemaVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:edge/v20250801:DynamicSchemaVersion" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -109,6 +112,12 @@ namespace Pulumi.AzureNative.Edge
         public Input<string> DynamicSchemaName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the DynamicSchemaVersion
+        /// </summary>
+        [Input("dynamicSchemaVersionName")]
+        public Input<string>? DynamicSchemaVersionName { get; set; }
+
+        /// <summary>
         /// The resource-specific properties for this resource.
         /// </summary>
         [Input("properties")]
@@ -125,12 +134,6 @@ namespace Pulumi.AzureNative.Edge
         /// </summary>
         [Input("schemaName", required: true)]
         public Input<string> SchemaName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the SchemaVersion
-        /// </summary>
-        [Input("schemaVersionName")]
-        public Input<string>? SchemaVersionName { get; set; }
 
         public DynamicSchemaVersionArgs()
         {

@@ -31,10 +31,10 @@ class PlaywrightWorkspaceArgs:
         """
         The set of arguments for constructing a PlaywrightWorkspace resource.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union[builtins.str, 'EnablementStatus']] local_auth: When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
+        :param pulumi.Input[Union[builtins.str, 'EnablementStatus']] local_auth: Enables the workspace to use local authentication through service access tokens for operations.
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.str] playwright_workspace_name: The name of the PlaywrightWorkspace
-        :param pulumi.Input[Union[builtins.str, 'EnablementStatus']] regional_affinity: This property sets the connection region for client workers to cloud-hosted browsers. If enabled, workers connect to browsers in the closest Azure region, ensuring lower latency. If disabled, workers connect to browsers in the Azure region in which the workspace was initially created.
+        :param pulumi.Input[Union[builtins.str, 'EnablementStatus']] regional_affinity: Controls the connection region for client workers to cloud-hosted browsers. When enabled, workers connect to browsers in the closest Azure region for lower latency. When disabled, workers connect to browsers in the Azure region where the workspace was created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -69,7 +69,7 @@ class PlaywrightWorkspaceArgs:
     @pulumi.getter(name="localAuth")
     def local_auth(self) -> Optional[pulumi.Input[Union[builtins.str, 'EnablementStatus']]]:
         """
-        When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
+        Enables the workspace to use local authentication through service access tokens for operations.
         """
         return pulumi.get(self, "local_auth")
 
@@ -105,7 +105,7 @@ class PlaywrightWorkspaceArgs:
     @pulumi.getter(name="regionalAffinity")
     def regional_affinity(self) -> Optional[pulumi.Input[Union[builtins.str, 'EnablementStatus']]]:
         """
-        This property sets the connection region for client workers to cloud-hosted browsers. If enabled, workers connect to browsers in the closest Azure region, ensuring lower latency. If disabled, workers connect to browsers in the Azure region in which the workspace was initially created.
+        Controls the connection region for client workers to cloud-hosted browsers. When enabled, workers connect to browsers in the closest Azure region for lower latency. When disabled, workers connect to browsers in the Azure region where the workspace was created.
         """
         return pulumi.get(self, "regional_affinity")
 
@@ -144,12 +144,14 @@ class PlaywrightWorkspace(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-07-01-preview.
 
+        Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[builtins.str, 'EnablementStatus']] local_auth: When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
+        :param pulumi.Input[Union[builtins.str, 'EnablementStatus']] local_auth: Enables the workspace to use local authentication through service access tokens for operations.
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.str] playwright_workspace_name: The name of the PlaywrightWorkspace
-        :param pulumi.Input[Union[builtins.str, 'EnablementStatus']] regional_affinity: This property sets the connection region for client workers to cloud-hosted browsers. If enabled, workers connect to browsers in the closest Azure region, ensuring lower latency. If disabled, workers connect to browsers in the Azure region in which the workspace was initially created.
+        :param pulumi.Input[Union[builtins.str, 'EnablementStatus']] regional_affinity: Controls the connection region for client workers to cloud-hosted browsers. When enabled, workers connect to browsers in the closest Azure region for lower latency. When disabled, workers connect to browsers in the Azure region where the workspace was created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         """
@@ -163,6 +165,8 @@ class PlaywrightWorkspace(pulumi.CustomResource):
         Playwright workspace resource.
 
         Uses Azure REST API version 2025-07-01-preview.
+
+        Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param PlaywrightWorkspaceArgs args: The arguments to use to populate this resource's properties.
@@ -212,7 +216,8 @@ class PlaywrightWorkspace(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:loadtestservice/v20250701preview:PlaywrightWorkspace")])
+            __props__.__dict__["workspace_id"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:loadtestservice/v20250701preview:PlaywrightWorkspace"), pulumi.Alias(type_="azure-native:loadtestservice/v20250901:PlaywrightWorkspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PlaywrightWorkspace, __self__).__init__(
             'azure-native:loadtestservice:PlaywrightWorkspace',
@@ -246,6 +251,7 @@ class PlaywrightWorkspace(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["workspace_id"] = None
         return PlaywrightWorkspace(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -260,7 +266,7 @@ class PlaywrightWorkspace(pulumi.CustomResource):
     @pulumi.getter(name="dataplaneUri")
     def dataplane_uri(self) -> pulumi.Output[builtins.str]:
         """
-        The workspace data plane URI.
+        The workspace data plane service API URI.
         """
         return pulumi.get(self, "dataplane_uri")
 
@@ -268,7 +274,7 @@ class PlaywrightWorkspace(pulumi.CustomResource):
     @pulumi.getter(name="localAuth")
     def local_auth(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
+        Enables the workspace to use local authentication through service access tokens for operations.
         """
         return pulumi.get(self, "local_auth")
 
@@ -300,7 +306,7 @@ class PlaywrightWorkspace(pulumi.CustomResource):
     @pulumi.getter(name="regionalAffinity")
     def regional_affinity(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        This property sets the connection region for client workers to cloud-hosted browsers. If enabled, workers connect to browsers in the closest Azure region, ensuring lower latency. If disabled, workers connect to browsers in the Azure region in which the workspace was initially created.
+        Controls the connection region for client workers to cloud-hosted browsers. When enabled, workers connect to browsers in the closest Azure region for lower latency. When disabled, workers connect to browsers in the Azure region where the workspace was created.
         """
         return pulumi.get(self, "regional_affinity")
 
@@ -327,4 +333,12 @@ class PlaywrightWorkspace(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> pulumi.Output[builtins.str]:
+        """
+        The workspace ID in GUID format.
+        """
+        return pulumi.get(self, "workspace_id")
 

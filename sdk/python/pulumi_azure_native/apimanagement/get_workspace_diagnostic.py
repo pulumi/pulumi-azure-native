@@ -229,7 +229,7 @@ def get_workspace_diagnostic(diagnostic_id: Optional[builtins.str] = None,
 
     Uses Azure REST API version 2024-06-01-preview.
 
-    Other available API versions: 2023-09-01-preview, 2024-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str diagnostic_id: Diagnostic identifier. Must be unique in the current API Management service instance.
@@ -271,7 +271,7 @@ def get_workspace_diagnostic_output(diagnostic_id: Optional[pulumi.Input[builtin
 
     Uses Azure REST API version 2024-06-01-preview.
 
-    Other available API versions: 2023-09-01-preview, 2024-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str diagnostic_id: Diagnostic identifier. Must be unique in the current API Management service instance.

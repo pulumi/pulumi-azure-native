@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
         /// </summary>
         public readonly string? ApiMode;
         /// <summary>
-        /// Optional field to override the audience of the remote endpoint
+        /// Optional field to override the audience of the remote endpoint. The property has reached end of life support starting version 2025-05-30-preview. Please create and use the authentication property instead.
         /// </summary>
         public readonly string? AudienceOverride;
         /// <summary>
@@ -29,19 +29,19 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
         /// </summary>
         public readonly string? Cname;
         /// <summary>
-        /// Flag for if Azure Data Transfer API Flow should extract the user token
+        /// Determines which identity to use for extracting the user token for Azure Data Transfer API Flow. The property has reached end of life support starting version 2025-05-30-preview. Please create and use the authentication property instead.
         /// </summary>
         public readonly string? IdentityTranslation;
         /// <summary>
-        /// Remote stub app registration Client ID
+        /// Remote stub app registration Client ID. The property has reached end of life support starting version 2025-05-30-preview. Please create and use the authentication property instead.
         /// </summary>
         public readonly string? RemoteCallingModeClientId;
         /// <summary>
-        /// Remote host to which communication needs to be made
+        /// Remote host to which communication needs to be made. The property has reached end of life support starting version 2025-05-30-preview. Please create and use the remoteEndpointSettings.endpoint property instead.
         /// </summary>
         public readonly string? RemoteEndpoint;
         /// <summary>
-        /// Sender's app user assigned Manage Identity client ID
+        /// Sender's app user assigned Manage Identity client ID. The property has reached end of life support starting version 2025-05-30-preview. Please create and use the authentication property instead.
         /// </summary>
         public readonly string? SenderClientId;
 

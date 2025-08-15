@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
  *
- * Other available API versions: 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurefleet [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-05-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurefleet [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Fleet extends pulumi.CustomResource {
     /**
@@ -175,7 +175,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurefleet/v20231101preview:Fleet" }, { type: "azure-native:azurefleet/v20240501preview:Fleet" }, { type: "azure-native:azurefleet/v20241101:Fleet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurefleet/v20231101preview:Fleet" }, { type: "azure-native:azurefleet/v20240501preview:Fleet" }, { type: "azure-native:azurefleet/v20241101:Fleet" }, { type: "azure-native:azurefleet/v20250701preview:Fleet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Fleet.__pulumiType, name, resourceInputs, opts);
     }

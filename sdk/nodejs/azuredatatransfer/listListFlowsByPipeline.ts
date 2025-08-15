@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Lists the flows in a pipeline.
+ * Lists all Flows associated with the specified Pipeline.
  *
  * Uses Azure REST API version 2025-05-21.
  *
- * Other available API versions: 2025-04-11-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-04-11-preview, 2025-05-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listListFlowsByPipeline(args: ListListFlowsByPipelineArgs, opts?: pulumi.InvokeOptions): Promise<ListListFlowsByPipelineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -25,7 +25,7 @@ export function listListFlowsByPipeline(args: ListListFlowsByPipelineArgs, opts?
 
 export interface ListListFlowsByPipelineArgs {
     /**
-     * The name for the pipeline to perform the operation on.
+     * The name of the pipeline on which to operate.
      */
     pipelineName: string;
     /**
@@ -48,11 +48,11 @@ export interface ListListFlowsByPipelineResult {
     readonly value?: outputs.azuredatatransfer.ListFlowsByPipelineConnectionResponse[];
 }
 /**
- * Lists the flows in a pipeline.
+ * Lists all Flows associated with the specified Pipeline.
  *
  * Uses Azure REST API version 2025-05-21.
  *
- * Other available API versions: 2025-04-11-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-04-11-preview, 2025-05-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listListFlowsByPipelineOutput(args: ListListFlowsByPipelineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListListFlowsByPipelineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +65,7 @@ export function listListFlowsByPipelineOutput(args: ListListFlowsByPipelineOutpu
 
 export interface ListListFlowsByPipelineOutputArgs {
     /**
-     * The name for the pipeline to perform the operation on.
+     * The name of the pipeline on which to operate.
      */
     pipelineName: pulumi.Input<string>;
     /**

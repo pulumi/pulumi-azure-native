@@ -265,7 +265,7 @@ def get_database_migrations_mongo_to_cosmos_dbv_core_mongo(migration_name: Optio
 
     Uses Azure REST API version 2023-07-15-preview.
 
-    Other available API versions: 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-03-15-preview, 2025-06-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str migration_name: Name of the migration.
@@ -307,7 +307,7 @@ def get_database_migrations_mongo_to_cosmos_dbv_core_mongo_output(migration_name
 
     Uses Azure REST API version 2023-07-15-preview.
 
-    Other available API versions: 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-03-15-preview, 2025-06-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str migration_name: Name of the migration.
