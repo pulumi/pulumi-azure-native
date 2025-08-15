@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2021-12-01.
  *
- * Other available API versions: 2021-12-01, 2023-08-22, 2024-02-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2021-12-01, 2023-08-22, 2024-02-13, 2025-07-17-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Organization extends pulumi.CustomResource {
     /**
@@ -140,7 +140,7 @@ export class Organization extends pulumi.CustomResource {
             resourceInputs["userDetail"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:confluent/v20200301:Organization" }, { type: "azure-native:confluent/v20200301preview:Organization" }, { type: "azure-native:confluent/v20210301preview:Organization" }, { type: "azure-native:confluent/v20210901preview:Organization" }, { type: "azure-native:confluent/v20211201:Organization" }, { type: "azure-native:confluent/v20230822:Organization" }, { type: "azure-native:confluent/v20240213:Organization" }, { type: "azure-native:confluent/v20240701:Organization" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:confluent/v20200301:Organization" }, { type: "azure-native:confluent/v20200301preview:Organization" }, { type: "azure-native:confluent/v20210301preview:Organization" }, { type: "azure-native:confluent/v20210901preview:Organization" }, { type: "azure-native:confluent/v20211201:Organization" }, { type: "azure-native:confluent/v20230822:Organization" }, { type: "azure-native:confluent/v20240213:Organization" }, { type: "azure-native:confluent/v20240701:Organization" }, { type: "azure-native:confluent/v20250717preview:Organization" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Organization.__pulumiType, name, resourceInputs, opts);
     }

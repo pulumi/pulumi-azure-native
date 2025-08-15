@@ -47,6 +47,7 @@ __all__ = [
     'CertificateInformationResponse',
     'CircuitBreakerFailureConditionResponse',
     'CircuitBreakerRuleResponse',
+    'ClientApplicationSecretsContractResponseEntra',
     'DataMaskingEntityResponse',
     'DataMaskingResponse',
     'EmailTemplateParametersContractPropertiesResponse',
@@ -1708,6 +1709,40 @@ class CircuitBreakerRuleResponse(dict):
         The duration for which the circuit will be tripped.
         """
         return pulumi.get(self, "trip_duration")
+
+
+@pulumi.output_type
+class ClientApplicationSecretsContractResponseEntra(dict):
+    """
+    Microsoft EntraID client application secrets
+    """
+    def __init__(__self__, *,
+                 expires_at: builtins.str,
+                 client_secret: Optional[builtins.str] = None):
+        """
+        Microsoft EntraID client application secrets
+        :param builtins.str expires_at: EntraID client application secret expiration date.
+        :param builtins.str client_secret: EntraID client application secret
+        """
+        pulumi.set(__self__, "expires_at", expires_at)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+
+    @property
+    @pulumi.getter(name="expiresAt")
+    def expires_at(self) -> builtins.str:
+        """
+        EntraID client application secret expiration date.
+        """
+        return pulumi.get(self, "expires_at")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[builtins.str]:
+        """
+        EntraID client application secret
+        """
+        return pulumi.get(self, "client_secret")
 
 
 @pulumi.output_type

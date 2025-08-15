@@ -119,6 +119,8 @@ def get_configuration_reference(configuration_reference_name: Optional[builtins.
 
     Uses Azure REST API version 2025-06-01.
 
+    Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str configuration_reference_name: The name of the ConfigurationReference
     :param builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
@@ -143,6 +145,8 @@ def get_configuration_reference_output(configuration_reference_name: Optional[pu
     Get a ConfigurationReference
 
     Uses Azure REST API version 2025-06-01.
+
+    Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str configuration_reference_name: The name of the ConfigurationReference

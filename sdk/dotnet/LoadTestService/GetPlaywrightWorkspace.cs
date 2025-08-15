@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.LoadTestService
         /// Get a PlaywrightWorkspace
         /// 
         /// Uses Azure REST API version 2025-07-01-preview.
+        /// 
+        /// Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPlaywrightWorkspaceResult> InvokeAsync(GetPlaywrightWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlaywrightWorkspaceResult>("azure-native:loadtestservice:getPlaywrightWorkspace", args ?? new GetPlaywrightWorkspaceArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.LoadTestService
         /// Get a PlaywrightWorkspace
         /// 
         /// Uses Azure REST API version 2025-07-01-preview.
+        /// 
+        /// Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPlaywrightWorkspaceResult> Invoke(GetPlaywrightWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlaywrightWorkspaceResult>("azure-native:loadtestservice:getPlaywrightWorkspace", args ?? new GetPlaywrightWorkspaceInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.LoadTestService
         /// Get a PlaywrightWorkspace
         /// 
         /// Uses Azure REST API version 2025-07-01-preview.
+        /// 
+        /// Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPlaywrightWorkspaceResult> Invoke(GetPlaywrightWorkspaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlaywrightWorkspaceResult>("azure-native:loadtestservice:getPlaywrightWorkspace", args ?? new GetPlaywrightWorkspaceInvokeArgs(), options.WithDefaults());
@@ -86,7 +92,7 @@ namespace Pulumi.AzureNative.LoadTestService
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// The workspace data plane URI.
+        /// The workspace data plane service API URI.
         /// </summary>
         public readonly string DataplaneUri;
         /// <summary>
@@ -94,7 +100,7 @@ namespace Pulumi.AzureNative.LoadTestService
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
+        /// Enables the workspace to use local authentication through service access tokens for operations.
         /// </summary>
         public readonly string? LocalAuth;
         /// <summary>
@@ -110,7 +116,7 @@ namespace Pulumi.AzureNative.LoadTestService
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// This property sets the connection region for client workers to cloud-hosted browsers. If enabled, workers connect to browsers in the closest Azure region, ensuring lower latency. If disabled, workers connect to browsers in the Azure region in which the workspace was initially created.
+        /// Controls the connection region for client workers to cloud-hosted browsers. When enabled, workers connect to browsers in the closest Azure region for lower latency. When disabled, workers connect to browsers in the Azure region where the workspace was created.
         /// </summary>
         public readonly string? RegionalAffinity;
         /// <summary>
@@ -125,6 +131,10 @@ namespace Pulumi.AzureNative.LoadTestService
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The workspace ID in GUID format.
+        /// </summary>
+        public readonly string WorkspaceId;
 
         [OutputConstructor]
         private GetPlaywrightWorkspaceResult(
@@ -148,7 +158,9 @@ namespace Pulumi.AzureNative.LoadTestService
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string workspaceId)
         {
             AzureApiVersion = azureApiVersion;
             DataplaneUri = dataplaneUri;
@@ -161,6 +173,7 @@ namespace Pulumi.AzureNative.LoadTestService
             SystemData = systemData;
             Tags = tags;
             Type = type;
+            WorkspaceId = workspaceId;
         }
     }
 }

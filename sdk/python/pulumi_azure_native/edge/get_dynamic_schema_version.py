@@ -124,26 +124,28 @@ class AwaitableGetDynamicSchemaVersionResult(GetDynamicSchemaVersionResult):
 
 
 def get_dynamic_schema_version(dynamic_schema_name: Optional[builtins.str] = None,
+                               dynamic_schema_version_name: Optional[builtins.str] = None,
                                resource_group_name: Optional[builtins.str] = None,
                                schema_name: Optional[builtins.str] = None,
-                               schema_version_name: Optional[builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDynamicSchemaVersionResult:
     """
     Get a Dynamic Schema Version Resource
 
     Uses Azure REST API version 2025-06-01.
 
+    Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str dynamic_schema_name: The name of the DynamicSchema
+    :param builtins.str dynamic_schema_version_name: The name of the DynamicSchemaVersion
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str schema_name: The name of the Schema
-    :param builtins.str schema_version_name: The name of the SchemaVersion
     """
     __args__ = dict()
     __args__['dynamicSchemaName'] = dynamic_schema_name
+    __args__['dynamicSchemaVersionName'] = dynamic_schema_version_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['schemaName'] = schema_name
-    __args__['schemaVersionName'] = schema_version_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:edge:getDynamicSchemaVersion', __args__, opts=opts, typ=GetDynamicSchemaVersionResult).value
 
@@ -156,26 +158,28 @@ def get_dynamic_schema_version(dynamic_schema_name: Optional[builtins.str] = Non
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_dynamic_schema_version_output(dynamic_schema_name: Optional[pulumi.Input[builtins.str]] = None,
+                                      dynamic_schema_version_name: Optional[pulumi.Input[builtins.str]] = None,
                                       resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                                       schema_name: Optional[pulumi.Input[builtins.str]] = None,
-                                      schema_version_name: Optional[pulumi.Input[builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDynamicSchemaVersionResult]:
     """
     Get a Dynamic Schema Version Resource
 
     Uses Azure REST API version 2025-06-01.
 
+    Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str dynamic_schema_name: The name of the DynamicSchema
+    :param builtins.str dynamic_schema_version_name: The name of the DynamicSchemaVersion
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str schema_name: The name of the Schema
-    :param builtins.str schema_version_name: The name of the SchemaVersion
     """
     __args__ = dict()
     __args__['dynamicSchemaName'] = dynamic_schema_name
+    __args__['dynamicSchemaVersionName'] = dynamic_schema_version_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['schemaName'] = schema_name
-    __args__['schemaVersionName'] = schema_version_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:edge:getDynamicSchemaVersion', __args__, opts=opts, typ=GetDynamicSchemaVersionResult)
     return __ret__.apply(lambda __response__: GetDynamicSchemaVersionResult(

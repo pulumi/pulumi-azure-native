@@ -120,9 +120,9 @@ class ListChannelWithKeysResult:
 
     @property
     @pulumi.getter
-    def location(self) -> builtins.str:
+    def location(self) -> Optional[builtins.str]:
         """
-        The geo-location where the resource lives
+        Specifies the location of the resource.
         """
         return pulumi.get(self, "location")
 
@@ -186,7 +186,7 @@ class ListChannelWithKeysResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Resource tags.
+        Contains resource tags defined as key/value pairs.
         """
         return pulumi.get(self, "tags")
 

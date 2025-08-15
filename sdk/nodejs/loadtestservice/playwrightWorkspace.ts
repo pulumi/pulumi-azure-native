@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Playwright workspace resource.
  *
  * Uses Azure REST API version 2025-07-01-preview.
+ *
+ * Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class PlaywrightWorkspace extends pulumi.CustomResource {
     /**
@@ -44,11 +46,11 @@ export class PlaywrightWorkspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
-     * The workspace data plane URI.
+     * The workspace data plane service API URI.
      */
     public /*out*/ readonly dataplaneUri!: pulumi.Output<string>;
     /**
-     * When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
+     * Enables the workspace to use local authentication through service access tokens for operations.
      */
     public readonly localAuth!: pulumi.Output<string | undefined>;
     /**
@@ -64,7 +66,7 @@ export class PlaywrightWorkspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * This property sets the connection region for client workers to cloud-hosted browsers. If enabled, workers connect to browsers in the closest Azure region, ensuring lower latency. If disabled, workers connect to browsers in the Azure region in which the workspace was initially created.
+     * Controls the connection region for client workers to cloud-hosted browsers. When enabled, workers connect to browsers in the closest Azure region for lower latency. When disabled, workers connect to browsers in the Azure region where the workspace was created.
      */
     public readonly regionalAffinity!: pulumi.Output<string | undefined>;
     /**
@@ -79,6 +81,10 @@ export class PlaywrightWorkspace extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The workspace ID in GUID format.
+     */
+    public /*out*/ readonly workspaceId!: pulumi.Output<string>;
 
     /**
      * Create a PlaywrightWorkspace resource with the given unique name, arguments, and options.
@@ -106,6 +112,7 @@ export class PlaywrightWorkspace extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["workspaceId"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataplaneUri"] = undefined /*out*/;
@@ -117,9 +124,10 @@ export class PlaywrightWorkspace extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["workspaceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:loadtestservice/v20250701preview:PlaywrightWorkspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:loadtestservice/v20250701preview:PlaywrightWorkspace" }, { type: "azure-native:loadtestservice/v20250901:PlaywrightWorkspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PlaywrightWorkspace.__pulumiType, name, resourceInputs, opts);
     }
@@ -130,7 +138,7 @@ export class PlaywrightWorkspace extends pulumi.CustomResource {
  */
 export interface PlaywrightWorkspaceArgs {
     /**
-     * When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
+     * Enables the workspace to use local authentication through service access tokens for operations.
      */
     localAuth?: pulumi.Input<string | enums.loadtestservice.EnablementStatus>;
     /**
@@ -142,7 +150,7 @@ export interface PlaywrightWorkspaceArgs {
      */
     playwrightWorkspaceName?: pulumi.Input<string>;
     /**
-     * This property sets the connection region for client workers to cloud-hosted browsers. If enabled, workers connect to browsers in the closest Azure region, ensuring lower latency. If disabled, workers connect to browsers in the Azure region in which the workspace was initially created.
+     * Controls the connection region for client workers to cloud-hosted browsers. When enabled, workers connect to browsers in the closest Azure region for lower latency. When disabled, workers connect to browsers in the Azure region where the workspace was created.
      */
     regionalAffinity?: pulumi.Input<string | enums.loadtestservice.EnablementStatus>;
     /**

@@ -210,6 +210,16 @@ export const getPricing: typeof import("./getPricing").getPricing = null as any;
 export const getPricingOutput: typeof import("./getPricing").getPricingOutput = null as any;
 utilities.lazyLoad(exports, ["getPricing","getPricingOutput"], () => require("./getPricing"));
 
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
+export { GetPrivateLinkArgs, GetPrivateLinkResult, GetPrivateLinkOutputArgs } from "./getPrivateLink";
+export const getPrivateLink: typeof import("./getPrivateLink").getPrivateLink = null as any;
+export const getPrivateLinkOutput: typeof import("./getPrivateLink").getPrivateLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateLink","getPrivateLinkOutput"], () => require("./getPrivateLink"));
+
 export { GetSecurityConnectorArgs, GetSecurityConnectorResult, GetSecurityConnectorOutputArgs } from "./getSecurityConnector";
 export const getSecurityConnector: typeof import("./getSecurityConnector").getSecurityConnector = null as any;
 export const getSecurityConnectorOutput: typeof import("./getSecurityConnector").getSecurityConnectorOutput = null as any;
@@ -304,6 +314,16 @@ export { PricingArgs } from "./pricing";
 export type Pricing = import("./pricing").Pricing;
 export const Pricing: typeof import("./pricing").Pricing = null as any;
 utilities.lazyLoad(exports, ["Pricing"], () => require("./pricing"));
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+
+export { PrivateLinkArgs } from "./privateLink";
+export type PrivateLink = import("./privateLink").PrivateLink;
+export const PrivateLink: typeof import("./privateLink").PrivateLink = null as any;
+utilities.lazyLoad(exports, ["PrivateLink"], () => require("./privateLink"));
 
 export { SecurityConnectorArgs } from "./securityConnector";
 export type SecurityConnector = import("./securityConnector").SecurityConnector;
@@ -409,6 +429,10 @@ const _module = {
                 return new JitNetworkAccessPolicy(name, <any>undefined, { urn })
             case "azure-native:security:Pricing":
                 return new Pricing(name, <any>undefined, { urn })
+            case "azure-native:security:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:security:PrivateLink":
+                return new PrivateLink(name, <any>undefined, { urn })
             case "azure-native:security:SecurityConnector":
                 return new SecurityConnector(name, <any>undefined, { urn })
             case "azure-native:security:SecurityConnectorApplication":

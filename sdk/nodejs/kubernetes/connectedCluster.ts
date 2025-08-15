@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
  *
- * Other available API versions: 2021-04-01-preview, 2021-10-01, 2022-05-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-06-01-preview, 2024-07-01-preview, 2024-07-15-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetes [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2021-04-01-preview, 2021-10-01, 2022-05-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-06-01-preview, 2024-07-01-preview, 2024-07-15-preview, 2024-12-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetes [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ConnectedCluster extends pulumi.CustomResource {
     /**
@@ -229,7 +229,7 @@ export class ConnectedCluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kubernetes/v20200101preview:ConnectedCluster" }, { type: "azure-native:kubernetes/v20210301:ConnectedCluster" }, { type: "azure-native:kubernetes/v20210401preview:ConnectedCluster" }, { type: "azure-native:kubernetes/v20211001:ConnectedCluster" }, { type: "azure-native:kubernetes/v20220501preview:ConnectedCluster" }, { type: "azure-native:kubernetes/v20221001preview:ConnectedCluster" }, { type: "azure-native:kubernetes/v20231101preview:ConnectedCluster" }, { type: "azure-native:kubernetes/v20240101:ConnectedCluster" }, { type: "azure-native:kubernetes/v20240201preview:ConnectedCluster" }, { type: "azure-native:kubernetes/v20240601preview:ConnectedCluster" }, { type: "azure-native:kubernetes/v20240701preview:ConnectedCluster" }, { type: "azure-native:kubernetes/v20240715preview:ConnectedCluster" }, { type: "azure-native:kubernetes/v20241201preview:ConnectedCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kubernetes/v20200101preview:ConnectedCluster" }, { type: "azure-native:kubernetes/v20210301:ConnectedCluster" }, { type: "azure-native:kubernetes/v20210401preview:ConnectedCluster" }, { type: "azure-native:kubernetes/v20211001:ConnectedCluster" }, { type: "azure-native:kubernetes/v20220501preview:ConnectedCluster" }, { type: "azure-native:kubernetes/v20221001preview:ConnectedCluster" }, { type: "azure-native:kubernetes/v20231101preview:ConnectedCluster" }, { type: "azure-native:kubernetes/v20240101:ConnectedCluster" }, { type: "azure-native:kubernetes/v20240201preview:ConnectedCluster" }, { type: "azure-native:kubernetes/v20240601preview:ConnectedCluster" }, { type: "azure-native:kubernetes/v20240701preview:ConnectedCluster" }, { type: "azure-native:kubernetes/v20240715preview:ConnectedCluster" }, { type: "azure-native:kubernetes/v20241201preview:ConnectedCluster" }, { type: "azure-native:kubernetes/v20250801preview:ConnectedCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectedCluster.__pulumiType, name, resourceInputs, opts);
     }

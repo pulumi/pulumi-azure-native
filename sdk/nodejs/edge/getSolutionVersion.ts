@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get a Solution Version Resource
  *
  * Uses Azure REST API version 2025-06-01.
+ *
+ * Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSolutionVersion(args: GetSolutionVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -82,6 +84,8 @@ export interface GetSolutionVersionResult {
  * Get a Solution Version Resource
  *
  * Uses Azure REST API version 2025-06-01.
+ *
+ * Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSolutionVersionOutput(args: GetSolutionVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSolutionVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

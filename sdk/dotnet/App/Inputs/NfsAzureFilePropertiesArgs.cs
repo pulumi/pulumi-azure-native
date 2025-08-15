@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.App.Inputs
         public InputUnion<string, Pulumi.AzureNative.App.AccessMode>? AccessMode { get; set; }
 
         /// <summary>
-        /// Server for NFS azure file. Specify the Azure storage account server address.
+        /// Server for NFS azure file.
         /// </summary>
         [Input("server")]
         public Input<string>? Server { get; set; }

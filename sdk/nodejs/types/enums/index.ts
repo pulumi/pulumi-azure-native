@@ -105,6 +105,7 @@ import * as eventhub from "./eventhub";
 import * as extendedlocation from "./extendedlocation";
 import * as fabric from "./fabric";
 import * as features from "./features";
+import * as fileshares from "./fileshares";
 import * as fluidrelay from "./fluidrelay";
 import * as frontdoor from "./frontdoor";
 import * as guestconfiguration from "./guestconfiguration";
@@ -145,6 +146,7 @@ import * as manufacturingplatform from "./manufacturingplatform";
 import * as maps from "./maps";
 import * as marketplace from "./marketplace";
 import * as migrate from "./migrate";
+import * as mission from "./mission";
 import * as mixedreality from "./mixedreality";
 import * as mobilenetwork from "./mobilenetwork";
 import * as mongocluster from "./mongocluster";
@@ -329,6 +331,7 @@ export {
     extendedlocation,
     fabric,
     features,
+    fileshares,
     fluidrelay,
     frontdoor,
     guestconfiguration,
@@ -369,6 +372,7 @@ export {
     maps,
     marketplace,
     migrate,
+    mission,
     mixedreality,
     mobilenetwork,
     mongocluster,

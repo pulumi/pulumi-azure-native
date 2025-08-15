@@ -28,7 +28,7 @@ class GetDaprComponentResult:
     """
     Dapr Component.
     """
-    def __init__(__self__, azure_api_version=None, component_type=None, id=None, ignore_errors=None, init_timeout=None, metadata=None, name=None, scopes=None, secret_store_component=None, secrets=None, system_data=None, type=None, version=None):
+    def __init__(__self__, azure_api_version=None, component_type=None, id=None, ignore_errors=None, init_timeout=None, metadata=None, name=None, scopes=None, secret_store_component=None, secrets=None, service_component_bind=None, system_data=None, type=None, version=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -59,6 +59,9 @@ class GetDaprComponentResult:
         if secrets and not isinstance(secrets, list):
             raise TypeError("Expected argument 'secrets' to be a list")
         pulumi.set(__self__, "secrets", secrets)
+        if service_component_bind and not isinstance(service_component_bind, list):
+            raise TypeError("Expected argument 'service_component_bind' to be a list")
+        pulumi.set(__self__, "service_component_bind", service_component_bind)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -150,6 +153,14 @@ class GetDaprComponentResult:
         return pulumi.get(self, "secrets")
 
     @property
+    @pulumi.getter(name="serviceComponentBind")
+    def service_component_bind(self) -> Optional[Sequence['outputs.DaprComponentServiceBindingResponse']]:
+        """
+        List of container app services that are bound to the Dapr component
+        """
+        return pulumi.get(self, "service_component_bind")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -190,6 +201,7 @@ class AwaitableGetDaprComponentResult(GetDaprComponentResult):
             scopes=self.scopes,
             secret_store_component=self.secret_store_component,
             secrets=self.secrets,
+            service_component_bind=self.service_component_bind,
             system_data=self.system_data,
             type=self.type,
             version=self.version)
@@ -202,9 +214,9 @@ def get_dapr_component(component_name: Optional[builtins.str] = None,
     """
     Dapr Component.
 
-    Uses Azure REST API version 2025-01-01.
+    Uses Azure REST API version 2025-02-02-preview.
 
-    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str component_name: Name of the Dapr Component.
@@ -229,6 +241,7 @@ def get_dapr_component(component_name: Optional[builtins.str] = None,
         scopes=pulumi.get(__ret__, 'scopes'),
         secret_store_component=pulumi.get(__ret__, 'secret_store_component'),
         secrets=pulumi.get(__ret__, 'secrets'),
+        service_component_bind=pulumi.get(__ret__, 'service_component_bind'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
@@ -239,9 +252,9 @@ def get_dapr_component_output(component_name: Optional[pulumi.Input[builtins.str
     """
     Dapr Component.
 
-    Uses Azure REST API version 2025-01-01.
+    Uses Azure REST API version 2025-02-02-preview.
 
-    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str component_name: Name of the Dapr Component.
@@ -265,6 +278,7 @@ def get_dapr_component_output(component_name: Optional[pulumi.Input[builtins.str
         scopes=pulumi.get(__response__, 'scopes'),
         secret_store_component=pulumi.get(__response__, 'secret_store_component'),
         secrets=pulumi.get(__response__, 'secrets'),
+        service_component_bind=pulumi.get(__response__, 'service_component_bind'),
         system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type'),
         version=pulumi.get(__response__, 'version')))

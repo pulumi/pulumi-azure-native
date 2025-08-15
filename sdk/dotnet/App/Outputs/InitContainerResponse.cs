@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly string? Image;
         /// <summary>
+        /// The type of the image. Set to CloudBuild to let the system manages the image, where user will not be able to update image through image field. Set to ContainerImage for user provided image.
+        /// </summary>
+        public readonly string? ImageType;
+        /// <summary>
         /// Custom container name.
         /// </summary>
         public readonly string? Name;
@@ -55,6 +59,8 @@ namespace Pulumi.AzureNative.App.Outputs
 
             string? image,
 
+            string? imageType,
+
             string? name,
 
             Outputs.ContainerResourcesResponse? resources,
@@ -65,6 +71,7 @@ namespace Pulumi.AzureNative.App.Outputs
             Command = command;
             Env = env;
             Image = image;
+            ImageType = imageType;
             Name = name;
             Resources = resources;
             VolumeMounts = volumeMounts;

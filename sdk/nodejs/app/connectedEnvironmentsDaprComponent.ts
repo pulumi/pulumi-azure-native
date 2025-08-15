@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Dapr Component.
  *
- * Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+ * Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
  *
- * Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ConnectedEnvironmentsDaprComponent extends pulumi.CustomResource {
     /**
@@ -50,6 +50,10 @@ export class ConnectedEnvironmentsDaprComponent extends pulumi.CustomResource {
      */
     public readonly componentType!: pulumi.Output<string | undefined>;
     /**
+     * Any errors that occurred during deployment or deployment validation
+     */
+    public /*out*/ readonly deploymentErrors!: pulumi.Output<string>;
+    /**
      * Boolean describing if the component errors are ignores
      */
     public readonly ignoreErrors!: pulumi.Output<boolean | undefined>;
@@ -66,6 +70,10 @@ export class ConnectedEnvironmentsDaprComponent extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Provisioning state of the Connected Environment Dapr Component.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
      * Names of container apps that can use this Dapr component
      */
     public readonly scopes!: pulumi.Output<string[] | undefined>;
@@ -77,6 +85,10 @@ export class ConnectedEnvironmentsDaprComponent extends pulumi.CustomResource {
      * Collection of secrets used by a Dapr component
      */
     public readonly secrets!: pulumi.Output<outputs.app.SecretResponse[] | undefined>;
+    /**
+     * List of container app services that are bound to the Dapr component
+     */
+    public readonly serviceComponentBind!: pulumi.Output<outputs.app.DaprComponentServiceBindingResponse[] | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -117,21 +129,27 @@ export class ConnectedEnvironmentsDaprComponent extends pulumi.CustomResource {
             resourceInputs["scopes"] = args ? args.scopes : undefined;
             resourceInputs["secretStoreComponent"] = args ? args.secretStoreComponent : undefined;
             resourceInputs["secrets"] = args ? args.secrets : undefined;
+            resourceInputs["serviceComponentBind"] = args ? args.serviceComponentBind : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["deploymentErrors"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["componentType"] = undefined /*out*/;
+            resourceInputs["deploymentErrors"] = undefined /*out*/;
             resourceInputs["ignoreErrors"] = undefined /*out*/;
             resourceInputs["initTimeout"] = undefined /*out*/;
             resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["scopes"] = undefined /*out*/;
             resourceInputs["secretStoreComponent"] = undefined /*out*/;
             resourceInputs["secrets"] = undefined /*out*/;
+            resourceInputs["serviceComponentBind"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
@@ -187,6 +205,10 @@ export interface ConnectedEnvironmentsDaprComponentArgs {
      * Collection of secrets used by a Dapr component
      */
     secrets?: pulumi.Input<pulumi.Input<inputs.app.SecretArgs>[]>;
+    /**
+     * List of container app services that are bound to the Dapr component
+     */
+    serviceComponentBind?: pulumi.Input<pulumi.Input<inputs.app.DaprComponentServiceBindingArgs>[]>;
     /**
      * Component version
      */

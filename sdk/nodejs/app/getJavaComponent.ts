@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Java Component.
  *
- * Uses Azure REST API version 2025-01-01.
+ * Uses Azure REST API version 2025-02-02-preview.
  *
- * Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getJavaComponent(args: GetJavaComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetJavaComponentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -57,7 +57,7 @@ export interface GetJavaComponentResult {
     /**
      * Java Component resource specific properties
      */
-    readonly properties: outputs.app.SpringBootAdminComponentResponse | outputs.app.SpringCloudConfigComponentResponse | outputs.app.SpringCloudEurekaComponentResponse;
+    readonly properties: outputs.app.NacosComponentResponse | outputs.app.SpringBootAdminComponentResponse | outputs.app.SpringCloudConfigComponentResponse | outputs.app.SpringCloudEurekaComponentResponse | outputs.app.SpringCloudGatewayComponentResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -70,9 +70,9 @@ export interface GetJavaComponentResult {
 /**
  * Java Component.
  *
- * Uses Azure REST API version 2025-01-01.
+ * Uses Azure REST API version 2025-02-02-preview.
  *
- * Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getJavaComponentOutput(args: GetJavaComponentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJavaComponentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

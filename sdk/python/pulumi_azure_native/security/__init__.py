@@ -48,6 +48,8 @@ from .get_governance_rule import *
 from .get_iot_security_solution import *
 from .get_jit_network_access_policy import *
 from .get_pricing import *
+from .get_private_endpoint_connection import *
+from .get_private_link import *
 from .get_security_connector import *
 from .get_security_connector_application import *
 from .get_security_contact import *
@@ -67,6 +69,8 @@ from .list_git_hub_owner_available import *
 from .list_git_lab_group_available import *
 from .list_git_lab_subgroup import *
 from .pricing import *
+from .private_endpoint_connection import *
+from .private_link import *
 from .security_connector import *
 from .security_connector_application import *
 from .security_contact import *

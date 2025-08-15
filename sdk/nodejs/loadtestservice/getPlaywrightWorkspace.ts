@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get a PlaywrightWorkspace
  *
  * Uses Azure REST API version 2025-07-01-preview.
+ *
+ * Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPlaywrightWorkspace(args: GetPlaywrightWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetPlaywrightWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,7 +42,7 @@ export interface GetPlaywrightWorkspaceResult {
      */
     readonly azureApiVersion: string;
     /**
-     * The workspace data plane URI.
+     * The workspace data plane service API URI.
      */
     readonly dataplaneUri: string;
     /**
@@ -48,7 +50,7 @@ export interface GetPlaywrightWorkspaceResult {
      */
     readonly id: string;
     /**
-     * When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
+     * Enables the workspace to use local authentication through service access tokens for operations.
      */
     readonly localAuth?: string;
     /**
@@ -64,7 +66,7 @@ export interface GetPlaywrightWorkspaceResult {
      */
     readonly provisioningState: string;
     /**
-     * This property sets the connection region for client workers to cloud-hosted browsers. If enabled, workers connect to browsers in the closest Azure region, ensuring lower latency. If disabled, workers connect to browsers in the Azure region in which the workspace was initially created.
+     * Controls the connection region for client workers to cloud-hosted browsers. When enabled, workers connect to browsers in the closest Azure region for lower latency. When disabled, workers connect to browsers in the Azure region where the workspace was created.
      */
     readonly regionalAffinity?: string;
     /**
@@ -79,11 +81,17 @@ export interface GetPlaywrightWorkspaceResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * The workspace ID in GUID format.
+     */
+    readonly workspaceId: string;
 }
 /**
  * Get a PlaywrightWorkspace
  *
  * Uses Azure REST API version 2025-07-01-preview.
+ *
+ * Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPlaywrightWorkspaceOutput(args: GetPlaywrightWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPlaywrightWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

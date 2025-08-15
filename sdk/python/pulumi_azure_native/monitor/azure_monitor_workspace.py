@@ -123,7 +123,7 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-04-03. In version 2.x of the Azure Native provider, it used API version 2023-04-03.
 
-        Other available API versions: 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-10-01-preview, 2025-05-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,7 +144,7 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-04-03. In version 2.x of the Azure Native provider, it used API version 2023-04-03.
 
-        Other available API versions: 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-10-01-preview, 2025-05-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param AzureMonitorWorkspaceArgs args: The arguments to use to populate this resource's properties.
@@ -192,7 +192,7 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:monitor/v20210603preview:AzureMonitorWorkspace"), pulumi.Alias(type_="azure-native:monitor/v20230403:AzureMonitorWorkspace"), pulumi.Alias(type_="azure-native:monitor/v20231001preview:AzureMonitorWorkspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:monitor/v20210603preview:AzureMonitorWorkspace"), pulumi.Alias(type_="azure-native:monitor/v20230403:AzureMonitorWorkspace"), pulumi.Alias(type_="azure-native:monitor/v20231001preview:AzureMonitorWorkspace"), pulumi.Alias(type_="azure-native:monitor/v20250503preview:AzureMonitorWorkspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AzureMonitorWorkspace, __self__).__init__(
             'azure-native:monitor:AzureMonitorWorkspace',

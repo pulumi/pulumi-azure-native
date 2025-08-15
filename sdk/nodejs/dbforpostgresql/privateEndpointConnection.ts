@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2022-11-08.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -116,7 +116,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20221108:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20230302preview:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20230601preview:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20231201preview:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20240301preview:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20240801:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20241101preview:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20250101preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20221108:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20230302preview:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20230601preview:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20231201preview:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20240301preview:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20240801:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20241101preview:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20250101preview:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20250601preview:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

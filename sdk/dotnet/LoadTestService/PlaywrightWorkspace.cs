@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.LoadTestService
     /// Playwright workspace resource.
     /// 
     /// Uses Azure REST API version 2025-07-01-preview.
+    /// 
+    /// Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:loadtestservice:PlaywrightWorkspace")]
     public partial class PlaywrightWorkspace : global::Pulumi.CustomResource
@@ -24,13 +26,13 @@ namespace Pulumi.AzureNative.LoadTestService
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The workspace data plane URI.
+        /// The workspace data plane service API URI.
         /// </summary>
         [Output("dataplaneUri")]
         public Output<string> DataplaneUri { get; private set; } = null!;
 
         /// <summary>
-        /// When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
+        /// Enables the workspace to use local authentication through service access tokens for operations.
         /// </summary>
         [Output("localAuth")]
         public Output<string?> LocalAuth { get; private set; } = null!;
@@ -54,7 +56,7 @@ namespace Pulumi.AzureNative.LoadTestService
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// This property sets the connection region for client workers to cloud-hosted browsers. If enabled, workers connect to browsers in the closest Azure region, ensuring lower latency. If disabled, workers connect to browsers in the Azure region in which the workspace was initially created.
+        /// Controls the connection region for client workers to cloud-hosted browsers. When enabled, workers connect to browsers in the closest Azure region for lower latency. When disabled, workers connect to browsers in the Azure region where the workspace was created.
         /// </summary>
         [Output("regionalAffinity")]
         public Output<string?> RegionalAffinity { get; private set; } = null!;
@@ -76,6 +78,12 @@ namespace Pulumi.AzureNative.LoadTestService
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The workspace ID in GUID format.
+        /// </summary>
+        [Output("workspaceId")]
+        public Output<string> WorkspaceId { get; private set; } = null!;
 
 
         /// <summary>
@@ -103,6 +111,7 @@ namespace Pulumi.AzureNative.LoadTestService
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:loadtestservice/v20250701preview:PlaywrightWorkspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:loadtestservice/v20250901:PlaywrightWorkspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -127,7 +136,7 @@ namespace Pulumi.AzureNative.LoadTestService
     public sealed class PlaywrightWorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
+        /// Enables the workspace to use local authentication through service access tokens for operations.
         /// </summary>
         [Input("localAuth")]
         public InputUnion<string, Pulumi.AzureNative.LoadTestService.EnablementStatus>? LocalAuth { get; set; }
@@ -145,7 +154,7 @@ namespace Pulumi.AzureNative.LoadTestService
         public Input<string>? PlaywrightWorkspaceName { get; set; }
 
         /// <summary>
-        /// This property sets the connection region for client workers to cloud-hosted browsers. If enabled, workers connect to browsers in the closest Azure region, ensuring lower latency. If disabled, workers connect to browsers in the Azure region in which the workspace was initially created.
+        /// Controls the connection region for client workers to cloud-hosted browsers. When enabled, workers connect to browsers in the closest Azure region for lower latency. When disabled, workers connect to browsers in the Azure region where the workspace was created.
         /// </summary>
         [Input("regionalAffinity")]
         public InputUnion<string, Pulumi.AzureNative.LoadTestService.EnablementStatus>? RegionalAffinity { get; set; }

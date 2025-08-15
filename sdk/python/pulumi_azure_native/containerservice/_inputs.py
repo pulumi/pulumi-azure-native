@@ -65,6 +65,10 @@ __all__ = [
     'FleetHubProfileArgsDict',
     'IPTagArgs',
     'IPTagArgsDict',
+    'IdentityBindingManagedIdentityProfileArgs',
+    'IdentityBindingManagedIdentityProfileArgsDict',
+    'IdentityBindingPropertiesArgs',
+    'IdentityBindingPropertiesArgsDict',
     'IstioCertificateAuthorityArgs',
     'IstioCertificateAuthorityArgsDict',
     'IstioComponentsArgs',
@@ -1849,6 +1853,76 @@ class IPTagArgs:
     @tag.setter
     def tag(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "tag", value)
+
+
+if not MYPY:
+    class IdentityBindingManagedIdentityProfileArgsDict(TypedDict):
+        """
+        Managed identity profile for the identity binding.
+        """
+        resource_id: pulumi.Input[builtins.str]
+        """
+        The resource ID of the managed identity.
+        """
+elif False:
+    IdentityBindingManagedIdentityProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IdentityBindingManagedIdentityProfileArgs:
+    def __init__(__self__, *,
+                 resource_id: pulumi.Input[builtins.str]):
+        """
+        Managed identity profile for the identity binding.
+        :param pulumi.Input[builtins.str] resource_id: The resource ID of the managed identity.
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The resource ID of the managed identity.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "resource_id", value)
+
+
+if not MYPY:
+    class IdentityBindingPropertiesArgsDict(TypedDict):
+        """
+        IdentityBinding properties.
+        """
+        managed_identity: pulumi.Input['IdentityBindingManagedIdentityProfileArgsDict']
+        """
+        Managed identity profile for the identity binding.
+        """
+elif False:
+    IdentityBindingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IdentityBindingPropertiesArgs:
+    def __init__(__self__, *,
+                 managed_identity: pulumi.Input['IdentityBindingManagedIdentityProfileArgs']):
+        """
+        IdentityBinding properties.
+        :param pulumi.Input['IdentityBindingManagedIdentityProfileArgs'] managed_identity: Managed identity profile for the identity binding.
+        """
+        pulumi.set(__self__, "managed_identity", managed_identity)
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> pulumi.Input['IdentityBindingManagedIdentityProfileArgs']:
+        """
+        Managed identity profile for the identity binding.
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @managed_identity.setter
+    def managed_identity(self, value: pulumi.Input['IdentityBindingManagedIdentityProfileArgs']):
+        pulumi.set(self, "managed_identity", value)
 
 
 if not MYPY:

@@ -58,6 +58,12 @@ namespace Pulumi.AzureNative.App.Inputs
         public Input<string>? Image { get; set; }
 
         /// <summary>
+        /// The type of the image. Set to CloudBuild to let the system manages the image, where user will not be able to update image through image field. Set to ContainerImage for user provided image.
+        /// </summary>
+        [Input("imageType")]
+        public InputUnion<string, Pulumi.AzureNative.App.ImageType>? ImageType { get; set; }
+
+        /// <summary>
         /// Custom container name.
         /// </summary>
         [Input("name")]

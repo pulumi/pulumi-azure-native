@@ -236,6 +236,8 @@ if typing.TYPE_CHECKING:
     fabric = __fabric
     import pulumi_azure_native.features as __features
     features = __features
+    import pulumi_azure_native.fileshares as __fileshares
+    fileshares = __fileshares
     import pulumi_azure_native.fluidrelay as __fluidrelay
     fluidrelay = __fluidrelay
     import pulumi_azure_native.frontdoor as __frontdoor
@@ -332,6 +334,8 @@ if typing.TYPE_CHECKING:
     marketplace = __marketplace
     import pulumi_azure_native.migrate as __migrate
     migrate = __migrate
+    import pulumi_azure_native.mission as __mission
+    mission = __mission
     import pulumi_azure_native.mixedreality as __mixedreality
     mixedreality = __mixedreality
     import pulumi_azure_native.mobilenetwork as __mobilenetwork
@@ -630,6 +634,7 @@ else:
     extendedlocation = _utilities.lazy_import('pulumi_azure_native.extendedlocation')
     fabric = _utilities.lazy_import('pulumi_azure_native.fabric')
     features = _utilities.lazy_import('pulumi_azure_native.features')
+    fileshares = _utilities.lazy_import('pulumi_azure_native.fileshares')
     fluidrelay = _utilities.lazy_import('pulumi_azure_native.fluidrelay')
     frontdoor = _utilities.lazy_import('pulumi_azure_native.frontdoor')
     graphservices = _utilities.lazy_import('pulumi_azure_native.graphservices')
@@ -678,6 +683,7 @@ else:
     maps = _utilities.lazy_import('pulumi_azure_native.maps')
     marketplace = _utilities.lazy_import('pulumi_azure_native.marketplace')
     migrate = _utilities.lazy_import('pulumi_azure_native.migrate')
+    mission = _utilities.lazy_import('pulumi_azure_native.mission')
     mixedreality = _utilities.lazy_import('pulumi_azure_native.mixedreality')
     mobilenetwork = _utilities.lazy_import('pulumi_azure_native.mobilenetwork')
     mongocluster = _utilities.lazy_import('pulumi_azure_native.mongocluster')
@@ -892,6 +898,8 @@ _utilities.register(
    "azure-native:apimanagement:Backend": "Backend",
    "azure-native:apimanagement:Cache": "Cache",
    "azure-native:apimanagement:Certificate": "Certificate",
+   "azure-native:apimanagement:ClientApplication": "ClientApplication",
+   "azure-native:apimanagement:ClientApplicationProductLink": "ClientApplicationProductLink",
    "azure-native:apimanagement:ContentItem": "ContentItem",
    "azure-native:apimanagement:ContentType": "ContentType",
    "azure-native:apimanagement:Diagnostic": "Diagnostic",
@@ -1786,6 +1794,7 @@ _utilities.register(
    "azure-native:containerservice:Fleet": "Fleet",
    "azure-native:containerservice:FleetMember": "FleetMember",
    "azure-native:containerservice:FleetUpdateStrategy": "FleetUpdateStrategy",
+   "azure-native:containerservice:IdentityBinding": "IdentityBinding",
    "azure-native:containerservice:LoadBalancer": "LoadBalancer",
    "azure-native:containerservice:MaintenanceConfiguration": "MaintenanceConfiguration",
    "azure-native:containerservice:ManagedCluster": "ManagedCluster",
@@ -2592,6 +2601,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "fileshares",
+  "fqn": "pulumi_azure_native.fileshares",
+  "classes": {
+   "azure-native:fileshares:FileShare": "FileShare"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "fluidrelay",
   "fqn": "pulumi_azure_native.fluidrelay",
   "classes": {
@@ -3254,6 +3271,21 @@ _utilities.register(
    "azure-native:migrate:WebAppCollectorOperation": "WebAppCollectorOperation",
    "azure-native:migrate:WorkloadDeployment": "WorkloadDeployment",
    "azure-native:migrate:WorkloadInstance": "WorkloadInstance"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "mission",
+  "fqn": "pulumi_azure_native.mission",
+  "classes": {
+   "azure-native:mission:Approval": "Approval",
+   "azure-native:mission:Community": "Community",
+   "azure-native:mission:CommunityEndpoint": "CommunityEndpoint",
+   "azure-native:mission:EnclaveConnection": "EnclaveConnection",
+   "azure-native:mission:EnclaveEndpoint": "EnclaveEndpoint",
+   "azure-native:mission:TransitHub": "TransitHub",
+   "azure-native:mission:VirtualEnclave": "VirtualEnclave",
+   "azure-native:mission:Workload": "Workload"
   }
  },
  {
@@ -3993,6 +4025,8 @@ _utilities.register(
    "azure-native:security:IotSecuritySolution": "IotSecuritySolution",
    "azure-native:security:JitNetworkAccessPolicy": "JitNetworkAccessPolicy",
    "azure-native:security:Pricing": "Pricing",
+   "azure-native:security:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:security:PrivateLink": "PrivateLink",
    "azure-native:security:SecurityConnector": "SecurityConnector",
    "azure-native:security:SecurityConnectorApplication": "SecurityConnectorApplication",
    "azure-native:security:SecurityContact": "SecurityContact",

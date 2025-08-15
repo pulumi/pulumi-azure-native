@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-04-02-preview.
  *
- * Other available API versions: 2025-03-02-preview, 2025-05-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-03-02-preview, 2025-05-02-preview, 2025-06-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getManagedNamespace(args: GetManagedNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -84,7 +84,7 @@ export interface GetManagedNamespaceResult {
  *
  * Uses Azure REST API version 2025-04-02-preview.
  *
- * Other available API versions: 2025-03-02-preview, 2025-05-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-03-02-preview, 2025-05-02-preview, 2025-06-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getManagedNamespaceOutput(args: GetManagedNamespaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

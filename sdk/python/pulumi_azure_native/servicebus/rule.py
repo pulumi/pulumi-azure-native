@@ -189,7 +189,7 @@ class Rule(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
-        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -214,7 +214,7 @@ class Rule(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
-        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param RuleArgs args: The arguments to use to populate this resource's properties.
@@ -271,7 +271,7 @@ class Rule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20170401:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20211101:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20221001preview:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20230101preview:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20240101:Rule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20170401:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20211101:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20221001preview:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20230101preview:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20240101:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20250501preview:Rule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Rule, __self__).__init__(
             'azure-native:servicebus:Rule',

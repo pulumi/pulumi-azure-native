@@ -37,6 +37,8 @@ ApiManagement:
     additions:
         ApiGateway: 2024-06-01-preview
         ApiGatewayConfigConnection: 2024-06-01-preview
+        ClientApplication: 2024-10-01-preview
+        ClientApplicationProductLink: 2024-10-01-preview
         PolicyRestriction: 2024-06-01-preview
         Schema: 2021-04-01-preview
         WorkspaceApiDiagnostic: 2024-06-01-preview
@@ -44,24 +46,12 @@ ApiManagement:
         WorkspaceCertificate: 2024-06-01-preview
         WorkspaceDiagnostic: 2024-06-01-preview
         WorkspaceLogger: 2024-06-01-preview
+        listClientApplicationSecrets: 2024-10-01-preview
         listDelegationSettingSecrets: "2021-08-01"
         listGatewayDebugCredentials: 2024-06-01-preview
         listGatewayTrace: 2024-06-01-preview
 App:
-    tracking: "2025-01-01"
-    additions:
-        AppResiliency: 2024-10-02-preview
-        Build: 2024-10-02-preview
-        Builder: 2024-10-02-preview
-        DaprComponentResiliencyPolicy: 2024-10-02-preview
-        DaprSubscription: 2024-10-02-preview
-        DotNetComponent: 2024-10-02-preview
-        HttpRouteConfig: 2024-10-02-preview
-        LogicApp: 2024-10-02-preview
-        MaintenanceConfiguration: 2024-10-02-preview
-        ManagedEnvironmentPrivateEndpointConnection: 2024-10-02-preview
-        listBuildAuthToken: 2024-10-02-preview
-        listLogicAppWorkflowsConnections: 2024-10-02-preview
+    tracking: 2025-02-02-preview
 AppComplianceAutomation:
     tracking: "2024-06-27"
 AppConfiguration:
@@ -316,6 +306,7 @@ ContainerService:
         Fleet: 2024-05-02-preview
         FleetMember: 2024-05-02-preview
         FleetUpdateStrategy: 2024-05-02-preview
+        IdentityBinding: 2025-06-02-preview
         LoadBalancer: 2024-10-02-preview
         ManagedClusterSnapshot: 2024-10-02-preview
         ManagedNamespace: 2025-04-02-preview
@@ -592,6 +583,21 @@ DBforPostgreSQL:
         - modulename: DBforPostgreSQL
           resourcename: Server
           detail: version 2025-01-01-preview is greater than 2017-12-01
+        - modulename: DBforPostgreSQL
+          resourcename: Configuration
+          detail: version 2025-06-01-preview is greater than 2017-12-01
+        - modulename: DBforPostgreSQL
+          resourcename: Database
+          detail: version 2025-06-01-preview is greater than 2017-12-01
+        - modulename: DBforPostgreSQL
+          resourcename: FirewallRule
+          detail: version 2025-06-01-preview is greater than 2017-12-01
+        - modulename: DBforPostgreSQL
+          resourcename: PrivateEndpointConnection
+          detail: version 2025-06-01-preview is greater than 2018-06-01
+        - modulename: DBforPostgreSQL
+          resourcename: Server
+          detail: version 2025-06-01-preview is greater than 2017-12-01
 Dashboard:
     tracking: "2024-10-01"
     additions:
@@ -753,6 +759,8 @@ Fabric:
     tracking: "2023-11-01"
 Features:
     tracking: "2021-07-01"
+FileShares:
+    tracking: 2025-06-01-preview
 FluidRelay:
     tracking: "2022-06-01"
 FrontDoor:
@@ -1025,6 +1033,8 @@ Migrate:
         - modulename: Migrate
           resourcename: AssessmentsOperation
           detail: version 2024-01-15 is greater than 2023-03-15
+Mission:
+    tracking: 2025-05-01-preview
 MixedReality:
     tracking: 2021-03-01-preview
 MobileNetwork:
@@ -1430,6 +1440,8 @@ Security:
         IotSecuritySolution: "2019-08-01"
         JitNetworkAccessPolicy: "2020-01-01"
         Pricing: "2024-01-01"
+        PrivateEndpointConnection: 2025-09-01-preview
+        PrivateLink: 2025-09-01-preview
         SecurityConnector: 2024-08-01-preview
         SecurityConnectorApplication: 2022-07-01-preview
         SecurityContact: 2023-12-01-preview
@@ -1513,6 +1525,18 @@ ServiceFabric:
         - modulename: ServiceFabric
           resourcename: Service
           detail: version 2025-03-01-preview is greater than 2023-11-01-preview
+        - modulename: ServiceFabric
+          resourcename: Application
+          detail: version 2025-06-01-preview is greater than 2023-11-01-preview
+        - modulename: ServiceFabric
+          resourcename: ApplicationType
+          detail: version 2025-06-01-preview is greater than 2023-11-01-preview
+        - modulename: ServiceFabric
+          resourcename: ApplicationTypeVersion
+          detail: version 2025-06-01-preview is greater than 2023-11-01-preview
+        - modulename: ServiceFabric
+          resourcename: Service
+          detail: version 2025-06-01-preview is greater than 2023-11-01-preview
 ServiceFabricMesh:
     tracking: 2018-09-01-preview
 ServiceLinker:

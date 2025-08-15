@@ -30,6 +30,8 @@ from .authorization_server import *
 from .backend import *
 from .cache import *
 from .certificate import *
+from .client_application import *
+from .client_application_product_link import *
 from .content_item import *
 from .content_type import *
 from .diagnostic import *
@@ -65,6 +67,8 @@ from .get_authorization_server import *
 from .get_backend import *
 from .get_cache import *
 from .get_certificate import *
+from .get_client_application import *
+from .get_client_application_product_link import *
 from .get_content_item import *
 from .get_content_type import *
 from .get_diagnostic import *
@@ -135,6 +139,7 @@ from .group import *
 from .group_user import *
 from .identity_provider import *
 from .list_authorization_server_secrets import *
+from .list_client_application_secrets import *
 from .list_delegation_setting_secrets import *
 from .list_gateway_debug_credentials import *
 from .list_gateway_keys import *

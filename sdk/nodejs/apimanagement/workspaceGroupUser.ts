@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class WorkspaceGroupUser extends pulumi.CustomResource {
     /**
@@ -139,7 +139,7 @@ export class WorkspaceGroupUser extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:WorkspaceGroupUser" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceGroupUser" }, { type: "azure-native:apimanagement/v20230501preview:WorkspaceGroupUser" }, { type: "azure-native:apimanagement/v20230901preview:WorkspaceGroupUser" }, { type: "azure-native:apimanagement/v20240501:WorkspaceGroupUser" }, { type: "azure-native:apimanagement/v20240601preview:WorkspaceGroupUser" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:WorkspaceGroupUser" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceGroupUser" }, { type: "azure-native:apimanagement/v20230501preview:WorkspaceGroupUser" }, { type: "azure-native:apimanagement/v20230901preview:WorkspaceGroupUser" }, { type: "azure-native:apimanagement/v20240501:WorkspaceGroupUser" }, { type: "azure-native:apimanagement/v20240601preview:WorkspaceGroupUser" }, { type: "azure-native:apimanagement/v20241001preview:WorkspaceGroupUser" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceGroupUser.__pulumiType, name, resourceInputs, opts);
     }

@@ -32,6 +32,7 @@ class ConnectedEnvironmentsDaprComponentArgs:
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  secret_store_component: Optional[pulumi.Input[builtins.str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['SecretArgs']]]] = None,
+                 service_component_bind: Optional[pulumi.Input[Sequence[pulumi.Input['DaprComponentServiceBindingArgs']]]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectedEnvironmentsDaprComponent resource.
@@ -45,6 +46,7 @@ class ConnectedEnvironmentsDaprComponentArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] scopes: Names of container apps that can use this Dapr component
         :param pulumi.Input[builtins.str] secret_store_component: Name of a Dapr component to retrieve component secrets from
         :param pulumi.Input[Sequence[pulumi.Input['SecretArgs']]] secrets: Collection of secrets used by a Dapr component
+        :param pulumi.Input[Sequence[pulumi.Input['DaprComponentServiceBindingArgs']]] service_component_bind: List of container app services that are bound to the Dapr component
         :param pulumi.Input[builtins.str] version: Component version
         """
         pulumi.set(__self__, "connected_environment_name", connected_environment_name)
@@ -67,6 +69,8 @@ class ConnectedEnvironmentsDaprComponentArgs:
             pulumi.set(__self__, "secret_store_component", secret_store_component)
         if secrets is not None:
             pulumi.set(__self__, "secrets", secrets)
+        if service_component_bind is not None:
+            pulumi.set(__self__, "service_component_bind", service_component_bind)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -191,6 +195,18 @@ class ConnectedEnvironmentsDaprComponentArgs:
         pulumi.set(self, "secrets", value)
 
     @property
+    @pulumi.getter(name="serviceComponentBind")
+    def service_component_bind(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaprComponentServiceBindingArgs']]]]:
+        """
+        List of container app services that are bound to the Dapr component
+        """
+        return pulumi.get(self, "service_component_bind")
+
+    @service_component_bind.setter
+    def service_component_bind(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DaprComponentServiceBindingArgs']]]]):
+        pulumi.set(self, "service_component_bind", value)
+
+    @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -219,14 +235,15 @@ class ConnectedEnvironmentsDaprComponent(pulumi.CustomResource):
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  secret_store_component: Optional[pulumi.Input[builtins.str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecretArgs', 'SecretArgsDict']]]]] = None,
+                 service_component_bind: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DaprComponentServiceBindingArgs', 'DaprComponentServiceBindingArgsDict']]]]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Dapr Component.
 
-        Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+        Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
-        Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -240,6 +257,7 @@ class ConnectedEnvironmentsDaprComponent(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] scopes: Names of container apps that can use this Dapr component
         :param pulumi.Input[builtins.str] secret_store_component: Name of a Dapr component to retrieve component secrets from
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecretArgs', 'SecretArgsDict']]]] secrets: Collection of secrets used by a Dapr component
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DaprComponentServiceBindingArgs', 'DaprComponentServiceBindingArgsDict']]]] service_component_bind: List of container app services that are bound to the Dapr component
         :param pulumi.Input[builtins.str] version: Component version
         """
         ...
@@ -251,9 +269,9 @@ class ConnectedEnvironmentsDaprComponent(pulumi.CustomResource):
         """
         Dapr Component.
 
-        Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+        Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
-        Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ConnectedEnvironmentsDaprComponentArgs args: The arguments to use to populate this resource's properties.
@@ -280,6 +298,7 @@ class ConnectedEnvironmentsDaprComponent(pulumi.CustomResource):
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  secret_store_component: Optional[pulumi.Input[builtins.str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecretArgs', 'SecretArgsDict']]]]] = None,
+                 service_component_bind: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DaprComponentServiceBindingArgs', 'DaprComponentServiceBindingArgsDict']]]]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -306,9 +325,12 @@ class ConnectedEnvironmentsDaprComponent(pulumi.CustomResource):
             __props__.__dict__["scopes"] = scopes
             __props__.__dict__["secret_store_component"] = secret_store_component
             __props__.__dict__["secrets"] = secrets
+            __props__.__dict__["service_component_bind"] = service_component_bind
             __props__.__dict__["version"] = version
             __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["deployment_errors"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20220601preview:ConnectedEnvironmentsDaprComponent"), pulumi.Alias(type_="azure-native:app/v20221001:ConnectedEnvironmentsDaprComponent"), pulumi.Alias(type_="azure-native:app/v20221101preview:ConnectedEnvironmentsDaprComponent"), pulumi.Alias(type_="azure-native:app/v20230401preview:ConnectedEnvironmentsDaprComponent"), pulumi.Alias(type_="azure-native:app/v20230501:ConnectedEnvironmentsDaprComponent"), pulumi.Alias(type_="azure-native:app/v20230502preview:ConnectedEnvironmentsDaprComponent"), pulumi.Alias(type_="azure-native:app/v20230801preview:ConnectedEnvironmentsDaprComponent"), pulumi.Alias(type_="azure-native:app/v20231102preview:ConnectedEnvironmentsDaprComponent"), pulumi.Alias(type_="azure-native:app/v20240202preview:ConnectedEnvironmentsDaprComponent"), pulumi.Alias(type_="azure-native:app/v20240301:ConnectedEnvironmentsDaprComponent"), pulumi.Alias(type_="azure-native:app/v20240802preview:ConnectedEnvironmentsDaprComponent"), pulumi.Alias(type_="azure-native:app/v20241002preview:ConnectedEnvironmentsDaprComponent"), pulumi.Alias(type_="azure-native:app/v20250101:ConnectedEnvironmentsDaprComponent"), pulumi.Alias(type_="azure-native:app/v20250202preview:ConnectedEnvironmentsDaprComponent")])
@@ -337,13 +359,16 @@ class ConnectedEnvironmentsDaprComponent(pulumi.CustomResource):
 
         __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["component_type"] = None
+        __props__.__dict__["deployment_errors"] = None
         __props__.__dict__["ignore_errors"] = None
         __props__.__dict__["init_timeout"] = None
         __props__.__dict__["metadata"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["scopes"] = None
         __props__.__dict__["secret_store_component"] = None
         __props__.__dict__["secrets"] = None
+        __props__.__dict__["service_component_bind"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["version"] = None
@@ -364,6 +389,14 @@ class ConnectedEnvironmentsDaprComponent(pulumi.CustomResource):
         Component type
         """
         return pulumi.get(self, "component_type")
+
+    @property
+    @pulumi.getter(name="deploymentErrors")
+    def deployment_errors(self) -> pulumi.Output[builtins.str]:
+        """
+        Any errors that occurred during deployment or deployment validation
+        """
+        return pulumi.get(self, "deployment_errors")
 
     @property
     @pulumi.getter(name="ignoreErrors")
@@ -398,6 +431,14 @@ class ConnectedEnvironmentsDaprComponent(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> pulumi.Output[builtins.str]:
+        """
+        Provisioning state of the Connected Environment Dapr Component.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
     @pulumi.getter
     def scopes(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
@@ -420,6 +461,14 @@ class ConnectedEnvironmentsDaprComponent(pulumi.CustomResource):
         Collection of secrets used by a Dapr component
         """
         return pulumi.get(self, "secrets")
+
+    @property
+    @pulumi.getter(name="serviceComponentBind")
+    def service_component_bind(self) -> pulumi.Output[Optional[Sequence['outputs.DaprComponentServiceBindingResponse']]]:
+        """
+        List of container app services that are bound to the Dapr component
+        """
+        return pulumi.get(self, "service_component_bind")
 
     @property
     @pulumi.getter(name="systemData")

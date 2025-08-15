@@ -84,12 +84,12 @@ class ApiFlowOptionsResponse(dict):
         """
         Properties specific to API Flow Type
         :param builtins.str api_mode: Remote Calling Mode in the Azure Data Transfer API Flow, which describes how the API Flow will be invoked
-        :param builtins.str audience_override: Optional field to override the audience of the remote endpoint
+        :param builtins.str audience_override: Optional field to override the audience of the remote endpoint. The property has reached end of life support starting version 2025-05-30-preview. Please create and use the authentication property instead.
         :param builtins.str cname: Unique CNAME to represent the Azure Data Transfer API Flow instance
-        :param builtins.str identity_translation: Flag for if Azure Data Transfer API Flow should extract the user token
-        :param builtins.str remote_calling_mode_client_id: Remote stub app registration Client ID
-        :param builtins.str remote_endpoint: Remote host to which communication needs to be made
-        :param builtins.str sender_client_id: Sender's app user assigned Manage Identity client ID
+        :param builtins.str identity_translation: Determines which identity to use for extracting the user token for Azure Data Transfer API Flow. The property has reached end of life support starting version 2025-05-30-preview. Please create and use the authentication property instead.
+        :param builtins.str remote_calling_mode_client_id: Remote stub app registration Client ID. The property has reached end of life support starting version 2025-05-30-preview. Please create and use the authentication property instead.
+        :param builtins.str remote_endpoint: Remote host to which communication needs to be made. The property has reached end of life support starting version 2025-05-30-preview. Please create and use the remoteEndpointSettings.endpoint property instead.
+        :param builtins.str sender_client_id: Sender's app user assigned Manage Identity client ID. The property has reached end of life support starting version 2025-05-30-preview. Please create and use the authentication property instead.
         """
         if api_mode is not None:
             pulumi.set(__self__, "api_mode", api_mode)
@@ -118,7 +118,7 @@ class ApiFlowOptionsResponse(dict):
     @pulumi.getter(name="audienceOverride")
     def audience_override(self) -> Optional[builtins.str]:
         """
-        Optional field to override the audience of the remote endpoint
+        Optional field to override the audience of the remote endpoint. The property has reached end of life support starting version 2025-05-30-preview. Please create and use the authentication property instead.
         """
         return pulumi.get(self, "audience_override")
 
@@ -134,7 +134,7 @@ class ApiFlowOptionsResponse(dict):
     @pulumi.getter(name="identityTranslation")
     def identity_translation(self) -> Optional[builtins.str]:
         """
-        Flag for if Azure Data Transfer API Flow should extract the user token
+        Determines which identity to use for extracting the user token for Azure Data Transfer API Flow. The property has reached end of life support starting version 2025-05-30-preview. Please create and use the authentication property instead.
         """
         return pulumi.get(self, "identity_translation")
 
@@ -142,7 +142,7 @@ class ApiFlowOptionsResponse(dict):
     @pulumi.getter(name="remoteCallingModeClientId")
     def remote_calling_mode_client_id(self) -> Optional[builtins.str]:
         """
-        Remote stub app registration Client ID
+        Remote stub app registration Client ID. The property has reached end of life support starting version 2025-05-30-preview. Please create and use the authentication property instead.
         """
         return pulumi.get(self, "remote_calling_mode_client_id")
 
@@ -150,7 +150,7 @@ class ApiFlowOptionsResponse(dict):
     @pulumi.getter(name="remoteEndpoint")
     def remote_endpoint(self) -> Optional[builtins.str]:
         """
-        Remote host to which communication needs to be made
+        Remote host to which communication needs to be made. The property has reached end of life support starting version 2025-05-30-preview. Please create and use the remoteEndpointSettings.endpoint property instead.
         """
         return pulumi.get(self, "remote_endpoint")
 
@@ -158,7 +158,7 @@ class ApiFlowOptionsResponse(dict):
     @pulumi.getter(name="senderClientId")
     def sender_client_id(self) -> Optional[builtins.str]:
         """
-        Sender's app user assigned Manage Identity client ID
+        Sender's app user assigned Manage Identity client ID. The property has reached end of life support starting version 2025-05-30-preview. Please create and use the authentication property instead.
         """
         return pulumi.get(self, "sender_client_id")
 
@@ -540,16 +540,16 @@ class FlowPropertiesResponse(dict):
         :param 'SelectedResourceResponse' connection: The connection associated with this flow
         :param builtins.str consumer_group: Event Hub Consumer Group
         :param builtins.str customer_managed_key_vault_uri: The URI to the customer managed key for this flow
-        :param builtins.str data_type: Type of data to transfer via the flow.
+        :param builtins.str data_type: Type of data to transfer via the flow. The property has reached end of life support starting version 2025-05-30-preview. Please create and use a FlowProfile resource instead.
         :param Sequence[builtins.float] destination_endpoint_ports: The destination endpoint ports of the stream
         :param Sequence[builtins.str] destination_endpoints: The destination endpoints of the stream
         :param builtins.str event_hub_id: Event Hub ID
-        :param builtins.str flow_type: The flow type for this flow
+        :param builtins.str flow_type: The flow type for this flow. The property has reached end of life support starting version 2025-05-30-preview. Please create and use a FlowProfile resource instead.
         :param builtins.str key_vault_uri: URI to a Key Vault Secret containing a SAS token.
         :param 'MessagingOptionsResponse' messaging_options: The messaging options for this flow
         :param builtins.str passphrase: The passphrase used for SRT streams
-        :param Sequence[builtins.str] policies: The policies for this flow
-        :param 'SchemaResponse' schema: The selected schema for this flow
+        :param Sequence[builtins.str] policies: The policies for this flow. The property has reached end of life support starting version 2025-05-30-preview. Please create and use a FlowProfile resource instead.
+        :param 'SchemaResponse' schema: The selected schema for this flow. The property has reached end of life support starting version 2025-05-30-preview. Please create and use a FlowProfile resource instead.
         :param builtins.str service_bus_queue_id: Service Bus Queue ID
         :param 'StreamSourceAddressesResponse' source_addresses: The source IP address and CIDR ranges of the stream
         :param builtins.str status: Status of the current flow
@@ -691,7 +691,7 @@ class FlowPropertiesResponse(dict):
     @pulumi.getter(name="dataType")
     def data_type(self) -> Optional[builtins.str]:
         """
-        Type of data to transfer via the flow.
+        Type of data to transfer via the flow. The property has reached end of life support starting version 2025-05-30-preview. Please create and use a FlowProfile resource instead.
         """
         return pulumi.get(self, "data_type")
 
@@ -723,7 +723,7 @@ class FlowPropertiesResponse(dict):
     @pulumi.getter(name="flowType")
     def flow_type(self) -> Optional[builtins.str]:
         """
-        The flow type for this flow
+        The flow type for this flow. The property has reached end of life support starting version 2025-05-30-preview. Please create and use a FlowProfile resource instead.
         """
         return pulumi.get(self, "flow_type")
 
@@ -755,7 +755,7 @@ class FlowPropertiesResponse(dict):
     @pulumi.getter
     def policies(self) -> Optional[Sequence[builtins.str]]:
         """
-        The policies for this flow
+        The policies for this flow. The property has reached end of life support starting version 2025-05-30-preview. Please create and use a FlowProfile resource instead.
         """
         return pulumi.get(self, "policies")
 
@@ -763,7 +763,7 @@ class FlowPropertiesResponse(dict):
     @pulumi.getter
     def schema(self) -> Optional['outputs.SchemaResponse']:
         """
-        The selected schema for this flow
+        The selected schema for this flow. The property has reached end of life support starting version 2025-05-30-preview. Please create and use a FlowProfile resource instead.
         """
         return pulumi.get(self, "schema")
 

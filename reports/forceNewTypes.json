@@ -1995,6 +1995,13 @@
     "Property": "location"
   },
   {
+    "VersionedModule": "azuredatatransfer/v20250530preview",
+    "Module": "AzureDataTransfer",
+    "ResourceName": "Flow",
+    "ReferenceName": "SelectedResource",
+    "Property": "location"
+  },
+  {
     "VersionedModule": "azuresphere",
     "Module": "AzureSphere",
     "ResourceName": "Deployment",
@@ -3066,6 +3073,13 @@
     "Property": "token"
   },
   {
+    "VersionedModule": "confluent/v20250717preview",
+    "Module": "Confluent",
+    "ResourceName": "Organization",
+    "ReferenceName": "LinkOrganization",
+    "Property": "token"
+  },
+  {
     "VersionedModule": "containerservice",
     "Module": "ContainerService",
     "ResourceName": "AutoUpgradeProfile",
@@ -3127,6 +3141,20 @@
     "ResourceName": "Fleet",
     "ReferenceName": "FleetHubProfile",
     "Property": "dnsPrefix"
+  },
+  {
+    "VersionedModule": "containerservice",
+    "Module": "ContainerService",
+    "ResourceName": "IdentityBinding",
+    "ReferenceName": "IdentityBindingManagedIdentityProfile",
+    "Property": "resourceId"
+  },
+  {
+    "VersionedModule": "containerservice",
+    "Module": "ContainerService",
+    "ResourceName": "IdentityBinding",
+    "ReferenceName": "IdentityBindingManagedIdentityProfile",
+    "Property": "managedIdentity"
   },
   {
     "VersionedModule": "containerservice",
@@ -3596,6 +3624,97 @@
     "ResourceName": "UpdateRun",
     "ReferenceName": "NodeImageSelection",
     "Property": "nodeImageSelection"
+  },
+  {
+    "VersionedModule": "containerservice/v20250401preview",
+    "Module": "ContainerService",
+    "ResourceName": "AutoUpgradeProfile",
+    "ReferenceName": "AutoUpgradeNodeImageSelectionType",
+    "Property": "type"
+  },
+  {
+    "VersionedModule": "containerservice/v20250401preview",
+    "Module": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "SubnetResourceId",
+    "Property": "subnetId"
+  },
+  {
+    "VersionedModule": "containerservice/v20250401preview",
+    "Module": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "AgentProfile",
+    "Property": "vmSize"
+  },
+  {
+    "VersionedModule": "containerservice/v20250401preview",
+    "Module": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "AgentProfile",
+    "Property": "agentProfile"
+  },
+  {
+    "VersionedModule": "containerservice/v20250401preview",
+    "Module": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "APIServerAccessProfile",
+    "Property": "enablePrivateCluster"
+  },
+  {
+    "VersionedModule": "containerservice/v20250401preview",
+    "Module": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "APIServerAccessProfile",
+    "Property": "enableVnetIntegration"
+  },
+  {
+    "VersionedModule": "containerservice/v20250401preview",
+    "Module": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "SubnetResourceId",
+    "Property": "subnetId"
+  },
+  {
+    "VersionedModule": "containerservice/v20250401preview",
+    "Module": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "APIServerAccessProfile",
+    "Property": "apiServerAccessProfile"
+  },
+  {
+    "VersionedModule": "containerservice/v20250401preview",
+    "Module": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "FleetHubProfile",
+    "Property": "dnsPrefix"
+  },
+  {
+    "VersionedModule": "containerservice/v20250401preview",
+    "Module": "ContainerService",
+    "ResourceName": "UpdateRun",
+    "ReferenceName": "NodeImageSelectionType",
+    "Property": "type"
+  },
+  {
+    "VersionedModule": "containerservice/v20250401preview",
+    "Module": "ContainerService",
+    "ResourceName": "UpdateRun",
+    "ReferenceName": "NodeImageSelection",
+    "Property": "nodeImageSelection"
+  },
+  {
+    "VersionedModule": "containerservice/v20250602preview",
+    "Module": "ContainerService",
+    "ResourceName": "IdentityBinding",
+    "ReferenceName": "IdentityBindingManagedIdentityProfile",
+    "Property": "resourceId"
+  },
+  {
+    "VersionedModule": "containerservice/v20250602preview",
+    "Module": "ContainerService",
+    "ResourceName": "IdentityBinding",
+    "ReferenceName": "IdentityBindingManagedIdentityProfile",
+    "Property": "managedIdentity"
   },
   {
     "VersionedModule": "containerstorage",
@@ -6328,6 +6447,20 @@
     "Property": "sharePassword"
   },
   {
+    "VersionedModule": "databox/v20250701",
+    "Module": "DataBox",
+    "ResourceName": "Job",
+    "ReferenceName": "DataAccountDetails",
+    "Property": "sharePassword"
+  },
+  {
+    "VersionedModule": "databox/v20250701",
+    "Module": "DataBox",
+    "ResourceName": "Job",
+    "ReferenceName": "DataAccountDetails",
+    "Property": "sharePassword"
+  },
+  {
     "VersionedModule": "datamigration",
     "Module": "DataMigration",
     "ResourceName": "DatabaseMigrationsSqlDb",
@@ -6352,6 +6485,27 @@
     "VersionedModule": "datamigration/v20250315preview",
     "Module": "DataMigration",
     "ResourceName": "DatabaseMigrationsSqlDb",
+    "ReferenceName": "DatabaseMigrationBaseProperties",
+    "Property": "scope"
+  },
+  {
+    "VersionedModule": "datamigration/v20250630",
+    "Module": "DataMigration",
+    "ResourceName": "DatabaseMigrationsSqlDb",
+    "ReferenceName": "DatabaseMigrationBaseProperties",
+    "Property": "scope"
+  },
+  {
+    "VersionedModule": "datamigration/v20250630",
+    "Module": "DataMigration",
+    "ResourceName": "DatabaseMigrationsSqlMi",
+    "ReferenceName": "DatabaseMigrationBaseProperties",
+    "Property": "scope"
+  },
+  {
+    "VersionedModule": "datamigration/v20250630",
+    "Module": "DataMigration",
+    "ResourceName": "DatabaseMigrationsSqlVm",
     "ReferenceName": "DatabaseMigrationBaseProperties",
     "Property": "scope"
   },
@@ -7250,6 +7404,62 @@
     "ResourceName": "Monitor",
     "ReferenceName": "UserInfo",
     "Property": "userInfo"
+  },
+  {
+    "VersionedModule": "fileshares",
+    "Module": "FileShares",
+    "ResourceName": "FileShare",
+    "ReferenceName": "MediaTier",
+    "Property": "mediaTier"
+  },
+  {
+    "VersionedModule": "fileshares",
+    "Module": "FileShares",
+    "ResourceName": "FileShare",
+    "ReferenceName": "FileShareProperties",
+    "Property": "mountName"
+  },
+  {
+    "VersionedModule": "fileshares",
+    "Module": "FileShares",
+    "ResourceName": "FileShare",
+    "ReferenceName": "Protocol",
+    "Property": "protocol"
+  },
+  {
+    "VersionedModule": "fileshares",
+    "Module": "FileShares",
+    "ResourceName": "FileShare",
+    "ReferenceName": "Redundancy",
+    "Property": "redundancy"
+  },
+  {
+    "VersionedModule": "fileshares/v20250601preview",
+    "Module": "FileShares",
+    "ResourceName": "FileShare",
+    "ReferenceName": "MediaTier",
+    "Property": "mediaTier"
+  },
+  {
+    "VersionedModule": "fileshares/v20250601preview",
+    "Module": "FileShares",
+    "ResourceName": "FileShare",
+    "ReferenceName": "FileShareProperties",
+    "Property": "mountName"
+  },
+  {
+    "VersionedModule": "fileshares/v20250601preview",
+    "Module": "FileShares",
+    "ResourceName": "FileShare",
+    "ReferenceName": "Protocol",
+    "Property": "protocol"
+  },
+  {
+    "VersionedModule": "fileshares/v20250601preview",
+    "Module": "FileShares",
+    "ResourceName": "FileShare",
+    "ReferenceName": "Redundancy",
+    "Property": "redundancy"
   },
   {
     "VersionedModule": "graphservices",
@@ -93422,6 +93632,398 @@
     "Property": "resourceType"
   },
   {
+    "VersionedModule": "mission",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "connectionCreation"
+  },
+  {
+    "VersionedModule": "mission",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "connectionDeletion"
+  },
+  {
+    "VersionedModule": "mission",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "connectionUpdate"
+  },
+  {
+    "VersionedModule": "mission",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "enclaveCreation"
+  },
+  {
+    "VersionedModule": "mission",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "enclaveDeletion"
+  },
+  {
+    "VersionedModule": "mission",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "endpointCreation"
+  },
+  {
+    "VersionedModule": "mission",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "endpointDeletion"
+  },
+  {
+    "VersionedModule": "mission",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "endpointUpdate"
+  },
+  {
+    "VersionedModule": "mission",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "maintenanceMode"
+  },
+  {
+    "VersionedModule": "mission",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalSettings",
+    "Property": "minimumApproversRequired"
+  },
+  {
+    "VersionedModule": "mission",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "notificationOnApprovalAction"
+  },
+  {
+    "VersionedModule": "mission",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "notificationOnApprovalCreation"
+  },
+  {
+    "VersionedModule": "mission",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "notificationOnApprovalDeletion"
+  },
+  {
+    "VersionedModule": "mission",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "serviceCatalogDeployment"
+  },
+  {
+    "VersionedModule": "mission",
+    "Module": "Mission",
+    "ResourceName": "VirtualEnclave",
+    "ReferenceName": "EnclaveVirtualNetworkModel",
+    "Property": "allowSubnetCommunication"
+  },
+  {
+    "VersionedModule": "mission",
+    "Module": "Mission",
+    "ResourceName": "VirtualEnclave",
+    "ReferenceName": "EnclaveVirtualNetworkModel",
+    "Property": "customCidrRange"
+  },
+  {
+    "VersionedModule": "mission",
+    "Module": "Mission",
+    "ResourceName": "VirtualEnclave",
+    "ReferenceName": "EnclaveVirtualNetworkModel",
+    "Property": "networkSize"
+  },
+  {
+    "VersionedModule": "mission/v20240601preview",
+    "Module": "Mission",
+    "ResourceName": "VirtualEnclave",
+    "ReferenceName": "EnclaveVirtualNetworkModel",
+    "Property": "allowSubnetCommunication"
+  },
+  {
+    "VersionedModule": "mission/v20240601preview",
+    "Module": "Mission",
+    "ResourceName": "VirtualEnclave",
+    "ReferenceName": "EnclaveVirtualNetworkModel",
+    "Property": "connectToAzureServices"
+  },
+  {
+    "VersionedModule": "mission/v20240601preview",
+    "Module": "Mission",
+    "ResourceName": "VirtualEnclave",
+    "ReferenceName": "EnclaveVirtualNetworkModel",
+    "Property": "customCidrRange"
+  },
+  {
+    "VersionedModule": "mission/v20240601preview",
+    "Module": "Mission",
+    "ResourceName": "VirtualEnclave",
+    "ReferenceName": "EnclaveVirtualNetworkModel",
+    "Property": "networkSize"
+  },
+  {
+    "VersionedModule": "mission/v20241201preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "connectionCreation"
+  },
+  {
+    "VersionedModule": "mission/v20241201preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "connectionDeletion"
+  },
+  {
+    "VersionedModule": "mission/v20241201preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "connectionUpdate"
+  },
+  {
+    "VersionedModule": "mission/v20241201preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "enclaveCreation"
+  },
+  {
+    "VersionedModule": "mission/v20241201preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "enclaveDeletion"
+  },
+  {
+    "VersionedModule": "mission/v20241201preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "endpointCreation"
+  },
+  {
+    "VersionedModule": "mission/v20241201preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "endpointDeletion"
+  },
+  {
+    "VersionedModule": "mission/v20241201preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "endpointUpdate"
+  },
+  {
+    "VersionedModule": "mission/v20241201preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "maintenanceMode"
+  },
+  {
+    "VersionedModule": "mission/v20241201preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalSettings",
+    "Property": "minimumApproversRequired"
+  },
+  {
+    "VersionedModule": "mission/v20241201preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "notificationOnApprovalAction"
+  },
+  {
+    "VersionedModule": "mission/v20241201preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "notificationOnApprovalCreation"
+  },
+  {
+    "VersionedModule": "mission/v20241201preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "notificationOnApprovalDeletion"
+  },
+  {
+    "VersionedModule": "mission/v20241201preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "serviceCatalogDeployment"
+  },
+  {
+    "VersionedModule": "mission/v20241201preview",
+    "Module": "Mission",
+    "ResourceName": "VirtualEnclave",
+    "ReferenceName": "EnclaveVirtualNetworkModel",
+    "Property": "allowSubnetCommunication"
+  },
+  {
+    "VersionedModule": "mission/v20241201preview",
+    "Module": "Mission",
+    "ResourceName": "VirtualEnclave",
+    "ReferenceName": "EnclaveVirtualNetworkModel",
+    "Property": "connectToAzureServices"
+  },
+  {
+    "VersionedModule": "mission/v20241201preview",
+    "Module": "Mission",
+    "ResourceName": "VirtualEnclave",
+    "ReferenceName": "EnclaveVirtualNetworkModel",
+    "Property": "customCidrRange"
+  },
+  {
+    "VersionedModule": "mission/v20241201preview",
+    "Module": "Mission",
+    "ResourceName": "VirtualEnclave",
+    "ReferenceName": "EnclaveVirtualNetworkModel",
+    "Property": "networkSize"
+  },
+  {
+    "VersionedModule": "mission/v20250501preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "connectionCreation"
+  },
+  {
+    "VersionedModule": "mission/v20250501preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "connectionDeletion"
+  },
+  {
+    "VersionedModule": "mission/v20250501preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "connectionUpdate"
+  },
+  {
+    "VersionedModule": "mission/v20250501preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "enclaveCreation"
+  },
+  {
+    "VersionedModule": "mission/v20250501preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "enclaveDeletion"
+  },
+  {
+    "VersionedModule": "mission/v20250501preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "endpointCreation"
+  },
+  {
+    "VersionedModule": "mission/v20250501preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "endpointDeletion"
+  },
+  {
+    "VersionedModule": "mission/v20250501preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "endpointUpdate"
+  },
+  {
+    "VersionedModule": "mission/v20250501preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "maintenanceMode"
+  },
+  {
+    "VersionedModule": "mission/v20250501preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalSettings",
+    "Property": "minimumApproversRequired"
+  },
+  {
+    "VersionedModule": "mission/v20250501preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "notificationOnApprovalAction"
+  },
+  {
+    "VersionedModule": "mission/v20250501preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "notificationOnApprovalCreation"
+  },
+  {
+    "VersionedModule": "mission/v20250501preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "notificationOnApprovalDeletion"
+  },
+  {
+    "VersionedModule": "mission/v20250501preview",
+    "Module": "Mission",
+    "ResourceName": "Community",
+    "ReferenceName": "ApprovalPolicy",
+    "Property": "serviceCatalogDeployment"
+  },
+  {
+    "VersionedModule": "mission/v20250501preview",
+    "Module": "Mission",
+    "ResourceName": "VirtualEnclave",
+    "ReferenceName": "EnclaveVirtualNetworkModel",
+    "Property": "allowSubnetCommunication"
+  },
+  {
+    "VersionedModule": "mission/v20250501preview",
+    "Module": "Mission",
+    "ResourceName": "VirtualEnclave",
+    "ReferenceName": "EnclaveVirtualNetworkModel",
+    "Property": "customCidrRange"
+  },
+  {
+    "VersionedModule": "mission/v20250501preview",
+    "Module": "Mission",
+    "ResourceName": "VirtualEnclave",
+    "ReferenceName": "EnclaveVirtualNetworkModel",
+    "Property": "networkSize"
+  },
+  {
     "VersionedModule": "mongocluster",
     "Module": "MongoCluster",
     "ResourceName": "MongoCluster",
@@ -93535,6 +94137,34 @@
   },
   {
     "VersionedModule": "mongocluster/v20250401preview",
+    "Module": "MongoCluster",
+    "ResourceName": "MongoCluster",
+    "ReferenceName": "MongoClusterRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "VersionedModule": "mongocluster/v20250701preview",
+    "Module": "MongoCluster",
+    "ResourceName": "MongoCluster",
+    "ReferenceName": "CreateMode",
+    "Property": "createMode"
+  },
+  {
+    "VersionedModule": "mongocluster/v20250701preview",
+    "Module": "MongoCluster",
+    "ResourceName": "MongoCluster",
+    "ReferenceName": "EncryptionProperties",
+    "Property": "encryption"
+  },
+  {
+    "VersionedModule": "mongocluster/v20250701preview",
+    "Module": "MongoCluster",
+    "ResourceName": "MongoCluster",
+    "ReferenceName": "MongoClusterReplicaParameters",
+    "Property": "replicaParameters"
+  },
+  {
+    "VersionedModule": "mongocluster/v20250701preview",
     "Module": "MongoCluster",
     "ResourceName": "MongoCluster",
     "ReferenceName": "MongoClusterRestoreParameters",
@@ -94718,6 +95348,104 @@
   },
   {
     "VersionedModule": "netapp/v20250301preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeGroupVolumeProperties",
+    "Property": "zones"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "CapacityPoolVolume",
+    "ReferenceName": "remotePath",
+    "Property": "remotePath"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "acceptGrowCapacityPoolForShortTermCloneSplit"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "avsDataStore"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "backupId"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "creationToken"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "remotePath",
+    "Property": "remotePath"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "isLargeVolume"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "kerberosEnabled"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "ldapEnabled"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "networkFeatures",
+    "Property": "networkFeatures"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "securityStyle"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "snapshotId"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "volumeType"
+  },
+  {
+    "VersionedModule": "netapp/v20250601",
     "Module": "NetApp",
     "ResourceName": "VolumeGroup",
     "ReferenceName": "volumeGroupVolumeProperties",

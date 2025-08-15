@@ -38,6 +38,9 @@
   "EnterpriseKnowledgeGraph": [
     "2018-12-03"
   ],
+  "FileShares": [
+    "2025-06-01-preview"
+  ],
   "HybridData": [
     "2019-06-01"
   ],
@@ -82,9 +85,6 @@
   ],
   "StorSimple": [
     "2017-06-01"
-  ],
-  "StorageDiscovery": [
-    "2025-06-01-preview"
   ],
   "StoragePool": [
     "2021-08-01"

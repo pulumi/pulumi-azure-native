@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.App.Inputs
         [Input("enableMetrics")]
         public Input<bool>? EnableMetrics { get; set; }
 
+        /// <summary>
+        /// Diagnostic capabilities achieved by java agent
+        /// </summary>
+        [Input("javaAgent")]
+        public Input<Inputs.RuntimeJavaAgentArgs>? JavaAgent { get; set; }
+
         public RuntimeJavaArgs()
         {
         }

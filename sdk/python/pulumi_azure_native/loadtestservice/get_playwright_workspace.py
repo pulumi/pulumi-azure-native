@@ -28,7 +28,7 @@ class GetPlaywrightWorkspaceResult:
     """
     Playwright workspace resource.
     """
-    def __init__(__self__, azure_api_version=None, dataplane_uri=None, id=None, local_auth=None, location=None, name=None, provisioning_state=None, regional_affinity=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, dataplane_uri=None, id=None, local_auth=None, location=None, name=None, provisioning_state=None, regional_affinity=None, system_data=None, tags=None, type=None, workspace_id=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -62,6 +62,9 @@ class GetPlaywrightWorkspaceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if workspace_id and not isinstance(workspace_id, str):
+            raise TypeError("Expected argument 'workspace_id' to be a str")
+        pulumi.set(__self__, "workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="azureApiVersion")
@@ -75,7 +78,7 @@ class GetPlaywrightWorkspaceResult:
     @pulumi.getter(name="dataplaneUri")
     def dataplane_uri(self) -> builtins.str:
         """
-        The workspace data plane URI.
+        The workspace data plane service API URI.
         """
         return pulumi.get(self, "dataplane_uri")
 
@@ -91,7 +94,7 @@ class GetPlaywrightWorkspaceResult:
     @pulumi.getter(name="localAuth")
     def local_auth(self) -> Optional[builtins.str]:
         """
-        When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
+        Enables the workspace to use local authentication through service access tokens for operations.
         """
         return pulumi.get(self, "local_auth")
 
@@ -123,7 +126,7 @@ class GetPlaywrightWorkspaceResult:
     @pulumi.getter(name="regionalAffinity")
     def regional_affinity(self) -> Optional[builtins.str]:
         """
-        This property sets the connection region for client workers to cloud-hosted browsers. If enabled, workers connect to browsers in the closest Azure region, ensuring lower latency. If disabled, workers connect to browsers in the Azure region in which the workspace was initially created.
+        Controls the connection region for client workers to cloud-hosted browsers. When enabled, workers connect to browsers in the closest Azure region for lower latency. When disabled, workers connect to browsers in the Azure region where the workspace was created.
         """
         return pulumi.get(self, "regional_affinity")
 
@@ -151,6 +154,14 @@ class GetPlaywrightWorkspaceResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> builtins.str:
+        """
+        The workspace ID in GUID format.
+        """
+        return pulumi.get(self, "workspace_id")
+
 
 class AwaitableGetPlaywrightWorkspaceResult(GetPlaywrightWorkspaceResult):
     # pylint: disable=using-constant-test
@@ -168,7 +179,8 @@ class AwaitableGetPlaywrightWorkspaceResult(GetPlaywrightWorkspaceResult):
             regional_affinity=self.regional_affinity,
             system_data=self.system_data,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            workspace_id=self.workspace_id)
 
 
 def get_playwright_workspace(playwright_workspace_name: Optional[builtins.str] = None,
@@ -178,6 +190,8 @@ def get_playwright_workspace(playwright_workspace_name: Optional[builtins.str] =
     Get a PlaywrightWorkspace
 
     Uses Azure REST API version 2025-07-01-preview.
+
+    Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str playwright_workspace_name: The name of the PlaywrightWorkspace
@@ -200,7 +214,8 @@ def get_playwright_workspace(playwright_workspace_name: Optional[builtins.str] =
         regional_affinity=pulumi.get(__ret__, 'regional_affinity'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
-        type=pulumi.get(__ret__, 'type'))
+        type=pulumi.get(__ret__, 'type'),
+        workspace_id=pulumi.get(__ret__, 'workspace_id'))
 def get_playwright_workspace_output(playwright_workspace_name: Optional[pulumi.Input[builtins.str]] = None,
                                     resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlaywrightWorkspaceResult]:
@@ -208,6 +223,8 @@ def get_playwright_workspace_output(playwright_workspace_name: Optional[pulumi.I
     Get a PlaywrightWorkspace
 
     Uses Azure REST API version 2025-07-01-preview.
+
+    Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str playwright_workspace_name: The name of the PlaywrightWorkspace
@@ -229,4 +246,5 @@ def get_playwright_workspace_output(playwright_workspace_name: Optional[pulumi.I
         regional_affinity=pulumi.get(__response__, 'regional_affinity'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+        type=pulumi.get(__response__, 'type'),
+        workspace_id=pulumi.get(__response__, 'workspace_id')))

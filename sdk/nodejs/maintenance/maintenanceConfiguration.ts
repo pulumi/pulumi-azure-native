@@ -62,9 +62,9 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
      */
     public readonly installPatches!: pulumi.Output<outputs.maintenance.InputPatchConfigurationResponse | undefined>;
     /**
-     * The geo-location where the resource lives
+     * Gets or sets location of the resource
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Gets or sets maintenanceScope of the configuration
      */
@@ -90,7 +90,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.maintenance.SystemDataResponse>;
     /**
-     * Resource tags.
+     * Gets or sets tags of the resource
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -184,7 +184,7 @@ export interface MaintenanceConfigurationArgs {
      */
     installPatches?: pulumi.Input<inputs.maintenance.InputPatchConfigurationArgs>;
     /**
-     * The geo-location where the resource lives
+     * Gets or sets location of the resource
      */
     location?: pulumi.Input<string>;
     /**
@@ -212,7 +212,7 @@ export interface MaintenanceConfigurationArgs {
      */
     startDateTime?: pulumi.Input<string>;
     /**
-     * Resource tags.
+     * Gets or sets tags of the resource
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

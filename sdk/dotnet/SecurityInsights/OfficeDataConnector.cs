@@ -373,6 +373,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250301:OfficeDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250401preview:OfficeDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250601:OfficeDataConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250701preview:OfficeDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:AADDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:AATPDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:ASCDataConnector" },

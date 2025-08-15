@@ -167,6 +167,8 @@ def get_target(resource_group_name: Optional[builtins.str] = None,
 
     Uses Azure REST API version 2025-06-01.
 
+    Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str target_name: Name of the target
@@ -195,6 +197,8 @@ def get_target_output(resource_group_name: Optional[pulumi.Input[builtins.str]] 
     Get a Target Resource
 
     Uses Azure REST API version 2025-06-01.
+
+    Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

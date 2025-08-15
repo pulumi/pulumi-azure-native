@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-04-02-preview.
  *
- * Other available API versions: 2025-04-01, 2025-05-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-04-01, 2025-05-02-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class DeploymentSafeguard extends pulumi.CustomResource {
     /**
@@ -117,7 +117,7 @@ export class DeploymentSafeguard extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20250401:DeploymentSafeguard" }, { type: "azure-native:containerservice/v20250402preview:DeploymentSafeguard" }, { type: "azure-native:containerservice/v20250502preview:DeploymentSafeguard" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20250401:DeploymentSafeguard" }, { type: "azure-native:containerservice/v20250402preview:DeploymentSafeguard" }, { type: "azure-native:containerservice/v20250502preview:DeploymentSafeguard" }, { type: "azure-native:containerservice/v20250701:DeploymentSafeguard" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DeploymentSafeguard.__pulumiType, name, resourceInputs, opts);
     }

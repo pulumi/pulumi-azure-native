@@ -155,7 +155,7 @@ class WorkspacePolicyFragment(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
 
-        Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,7 +178,7 @@ class WorkspacePolicyFragment(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
 
-        Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param WorkspacePolicyFragmentArgs args: The arguments to use to populate this resource's properties.
@@ -231,7 +231,7 @@ class WorkspacePolicyFragment(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:WorkspacePolicyFragment"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:WorkspacePolicyFragment"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:WorkspacePolicyFragment"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspacePolicyFragment"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspacePolicyFragment"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:WorkspacePolicyFragment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:WorkspacePolicyFragment"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:WorkspacePolicyFragment"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:WorkspacePolicyFragment"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspacePolicyFragment"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspacePolicyFragment"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:WorkspacePolicyFragment"), pulumi.Alias(type_="azure-native:apimanagement/v20241001preview:WorkspacePolicyFragment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspacePolicyFragment, __self__).__init__(
             'azure-native:apimanagement:WorkspacePolicyFragment',

@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Dynamic Schema Version Resource
  *
  * Uses Azure REST API version 2025-06-01.
+ *
+ * Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class DynamicSchemaVersion extends pulumi.CustomResource {
     /**
@@ -85,10 +87,10 @@ export class DynamicSchemaVersion extends pulumi.CustomResource {
                 throw new Error("Missing required property 'schemaName'");
             }
             resourceInputs["dynamicSchemaName"] = args ? args.dynamicSchemaName : undefined;
+            resourceInputs["dynamicSchemaVersionName"] = args ? args.dynamicSchemaVersionName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["schemaName"] = args ? args.schemaName : undefined;
-            resourceInputs["schemaVersionName"] = args ? args.schemaVersionName : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -103,7 +105,7 @@ export class DynamicSchemaVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:edge/v20250601:DynamicSchemaVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:edge/v20250601:DynamicSchemaVersion" }, { type: "azure-native:edge/v20250801:DynamicSchemaVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DynamicSchemaVersion.__pulumiType, name, resourceInputs, opts);
     }
@@ -118,6 +120,10 @@ export interface DynamicSchemaVersionArgs {
      */
     dynamicSchemaName: pulumi.Input<string>;
     /**
+     * The name of the DynamicSchemaVersion
+     */
+    dynamicSchemaVersionName?: pulumi.Input<string>;
+    /**
      * The resource-specific properties for this resource.
      */
     properties?: pulumi.Input<inputs.edge.SchemaVersionPropertiesArgs>;
@@ -129,8 +135,4 @@ export interface DynamicSchemaVersionArgs {
      * The name of the Schema
      */
     schemaName: pulumi.Input<string>;
-    /**
-     * The name of the SchemaVersion
-     */
-    schemaVersionName?: pulumi.Input<string>;
 }

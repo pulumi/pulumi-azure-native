@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Solution Version Resource. It has the resolved configuration along with edge specification.
  *
  * Uses Azure REST API version 2025-06-01.
+ *
+ * Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class SolutionVersion extends pulumi.CustomResource {
     /**
@@ -109,7 +111,7 @@ export class SolutionVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:edge/v20250601:SolutionVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:edge/v20250601:SolutionVersion" }, { type: "azure-native:edge/v20250801:SolutionVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SolutionVersion.__pulumiType, name, resourceInputs, opts);
     }

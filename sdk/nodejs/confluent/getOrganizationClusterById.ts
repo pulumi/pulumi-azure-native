@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get cluster by Id
  *
  * Uses Azure REST API version 2024-07-01.
+ *
+ * Other available API versions: 2025-07-17-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getOrganizationClusterById(args: GetOrganizationClusterByIdArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationClusterByIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -86,6 +88,8 @@ export interface GetOrganizationClusterByIdResult {
  * Get cluster by Id
  *
  * Uses Azure REST API version 2024-07-01.
+ *
+ * Other available API versions: 2025-07-17-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getOrganizationClusterByIdOutput(args: GetOrganizationClusterByIdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationClusterByIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

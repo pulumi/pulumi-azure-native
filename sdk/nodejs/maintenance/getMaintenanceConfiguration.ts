@@ -62,9 +62,9 @@ export interface GetMaintenanceConfigurationResult {
      */
     readonly installPatches?: outputs.maintenance.InputPatchConfigurationResponse;
     /**
-     * The geo-location where the resource lives
+     * Gets or sets location of the resource
      */
-    readonly location: string;
+    readonly location?: string;
     /**
      * Gets or sets maintenanceScope of the configuration
      */
@@ -90,7 +90,7 @@ export interface GetMaintenanceConfigurationResult {
      */
     readonly systemData: outputs.maintenance.SystemDataResponse;
     /**
-     * Resource tags.
+     * Gets or sets tags of the resource
      */
     readonly tags?: {[key: string]: string};
     /**

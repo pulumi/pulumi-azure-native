@@ -104,9 +104,9 @@ namespace Pulumi.AzureNative.BotService
         /// </summary>
         public readonly string? Kind;
         /// <summary>
-        /// The geo-location where the resource lives
+        /// Specifies the location of the resource.
         /// </summary>
-        public readonly string Location;
+        public readonly string? Location;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.BotService
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Resource tags.
+        /// Contains resource tags defined as key/value pairs.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.BotService
 
             string? kind,
 
-            string location,
+            string? location,
 
             string name,
 

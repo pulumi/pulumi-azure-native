@@ -63,6 +63,18 @@ namespace Pulumi.AzureNative.App.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("probes")]
+        private InputList<Inputs.SessionProbeArgs>? _probes;
+
+        /// <summary>
+        /// List of probes for the container.
+        /// </summary>
+        public InputList<Inputs.SessionProbeArgs> Probes
+        {
+            get => _probes ?? (_probes = new InputList<Inputs.SessionProbeArgs>());
+            set => _probes = value;
+        }
+
         /// <summary>
         /// Container resource requirements.
         /// </summary>

@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Represents a Mongo cluster user.
  *
  * Uses Azure REST API version 2025-04-01-preview.
+ *
+ * Other available API versions: 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mongocluster [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class User extends pulumi.CustomResource {
     /**
@@ -93,7 +95,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mongocluster/v20250401preview:User" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mongocluster/v20250401preview:User" }, { type: "azure-native:mongocluster/v20250701preview:User" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(User.__pulumiType, name, resourceInputs, opts);
     }

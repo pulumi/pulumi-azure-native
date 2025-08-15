@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.App.Inputs
         public Input<string>? AccountKey { get; set; }
 
         /// <summary>
+        /// Storage account key stored as an Azure Key Vault secret.
+        /// </summary>
+        [Input("accountKeyVaultProperties")]
+        public Input<Inputs.SecretKeyVaultPropertiesArgs>? AccountKeyVaultProperties { get; set; }
+
+        /// <summary>
         /// Storage account name for azure file.
         /// </summary>
         [Input("accountName")]

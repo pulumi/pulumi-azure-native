@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get Context Resource
  *
  * Uses Azure REST API version 2025-06-01.
+ *
+ * Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getContext(args: GetContextArgs, opts?: pulumi.InvokeOptions): Promise<GetContextResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,6 +74,8 @@ export interface GetContextResult {
  * Get Context Resource
  *
  * Uses Azure REST API version 2025-06-01.
+ *
+ * Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getContextOutput(args: GetContextOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContextResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

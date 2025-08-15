@@ -54,9 +54,9 @@ export interface GetBotResult {
      */
     readonly kind?: string;
     /**
-     * The geo-location where the resource lives
+     * Specifies the location of the resource.
      */
-    readonly location: string;
+    readonly location?: string;
     /**
      * The name of the resource
      */
@@ -74,7 +74,7 @@ export interface GetBotResult {
      */
     readonly systemData: outputs.botservice.SystemDataResponse;
     /**
-     * Resource tags.
+     * Contains resource tags defined as key/value pairs.
      */
     readonly tags?: {[key: string]: string};
     /**

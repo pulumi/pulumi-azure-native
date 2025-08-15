@@ -54,9 +54,9 @@ export class Bot extends pulumi.CustomResource {
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
-     * The geo-location where the resource lives
+     * Specifies the location of the resource.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
@@ -74,7 +74,7 @@ export class Bot extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.botservice.SystemDataResponse>;
     /**
-     * Resource tags.
+     * Contains resource tags defined as key/value pairs.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -142,7 +142,7 @@ export interface BotArgs {
      */
     kind?: pulumi.Input<string | enums.botservice.Kind>;
     /**
-     * The geo-location where the resource lives
+     * Specifies the location of the resource.
      */
     location?: pulumi.Input<string>;
     /**
@@ -162,7 +162,7 @@ export interface BotArgs {
      */
     sku?: pulumi.Input<inputs.botservice.SkuArgs>;
     /**
-     * Resource tags.
+     * Contains resource tags defined as key/value pairs.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
  *
- * Other available API versions: 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ApiWiki extends pulumi.CustomResource {
     /**
@@ -92,7 +92,7 @@ export class ApiWiki extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220801:ApiWiki" }, { type: "azure-native:apimanagement/v20220901preview:ApiWiki" }, { type: "azure-native:apimanagement/v20230301preview:ApiWiki" }, { type: "azure-native:apimanagement/v20230501preview:ApiWiki" }, { type: "azure-native:apimanagement/v20230901preview:ApiWiki" }, { type: "azure-native:apimanagement/v20240501:ApiWiki" }, { type: "azure-native:apimanagement/v20240601preview:ApiWiki" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220801:ApiWiki" }, { type: "azure-native:apimanagement/v20220901preview:ApiWiki" }, { type: "azure-native:apimanagement/v20230301preview:ApiWiki" }, { type: "azure-native:apimanagement/v20230501preview:ApiWiki" }, { type: "azure-native:apimanagement/v20230901preview:ApiWiki" }, { type: "azure-native:apimanagement/v20240501:ApiWiki" }, { type: "azure-native:apimanagement/v20240601preview:ApiWiki" }, { type: "azure-native:apimanagement/v20241001preview:ApiWiki" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiWiki.__pulumiType, name, resourceInputs, opts);
     }

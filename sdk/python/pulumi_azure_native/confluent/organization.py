@@ -156,7 +156,7 @@ class Organization(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2021-12-01.
 
-        Other available API versions: 2021-12-01, 2023-08-22, 2024-02-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-12-01, 2023-08-22, 2024-02-13, 2025-07-17-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,7 +179,7 @@ class Organization(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2021-12-01.
 
-        Other available API versions: 2021-12-01, 2023-08-22, 2024-02-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-12-01, 2023-08-22, 2024-02-13, 2025-07-17-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param OrganizationArgs args: The arguments to use to populate this resource's properties.
@@ -233,7 +233,7 @@ class Organization(pulumi.CustomResource):
             __props__.__dict__["sso_url"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:confluent/v20200301:Organization"), pulumi.Alias(type_="azure-native:confluent/v20200301preview:Organization"), pulumi.Alias(type_="azure-native:confluent/v20210301preview:Organization"), pulumi.Alias(type_="azure-native:confluent/v20210901preview:Organization"), pulumi.Alias(type_="azure-native:confluent/v20211201:Organization"), pulumi.Alias(type_="azure-native:confluent/v20230822:Organization"), pulumi.Alias(type_="azure-native:confluent/v20240213:Organization"), pulumi.Alias(type_="azure-native:confluent/v20240701:Organization")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:confluent/v20200301:Organization"), pulumi.Alias(type_="azure-native:confluent/v20200301preview:Organization"), pulumi.Alias(type_="azure-native:confluent/v20210301preview:Organization"), pulumi.Alias(type_="azure-native:confluent/v20210901preview:Organization"), pulumi.Alias(type_="azure-native:confluent/v20211201:Organization"), pulumi.Alias(type_="azure-native:confluent/v20230822:Organization"), pulumi.Alias(type_="azure-native:confluent/v20240213:Organization"), pulumi.Alias(type_="azure-native:confluent/v20240701:Organization"), pulumi.Alias(type_="azure-native:confluent/v20250717preview:Organization")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Organization, __self__).__init__(
             'azure-native:confluent:Organization',

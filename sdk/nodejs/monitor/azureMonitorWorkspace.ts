@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-04-03. In version 2.x of the Azure Native provider, it used API version 2023-04-03.
  *
- * Other available API versions: 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-10-01-preview, 2025-05-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class AzureMonitorWorkspace extends pulumi.CustomResource {
     /**
@@ -139,7 +139,7 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:monitor/v20210603preview:AzureMonitorWorkspace" }, { type: "azure-native:monitor/v20230403:AzureMonitorWorkspace" }, { type: "azure-native:monitor/v20231001preview:AzureMonitorWorkspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:monitor/v20210603preview:AzureMonitorWorkspace" }, { type: "azure-native:monitor/v20230403:AzureMonitorWorkspace" }, { type: "azure-native:monitor/v20231001preview:AzureMonitorWorkspace" }, { type: "azure-native:monitor/v20250503preview:AzureMonitorWorkspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AzureMonitorWorkspace.__pulumiType, name, resourceInputs, opts);
     }

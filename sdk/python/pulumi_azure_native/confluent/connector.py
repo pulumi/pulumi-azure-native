@@ -172,6 +172,8 @@ class Connector(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01.
 
+        Other available API versions: 2025-07-17-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] cluster_id: Confluent kafka or schema registry cluster id
@@ -193,6 +195,8 @@ class Connector(pulumi.CustomResource):
         Details of connector record
 
         Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01.
+
+        Other available API versions: 2025-07-17-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.
@@ -246,7 +250,7 @@ class Connector(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:confluent/v20240701:Connector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:confluent/v20240701:Connector"), pulumi.Alias(type_="azure-native:confluent/v20250717preview:Connector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Connector, __self__).__init__(
             'azure-native:confluent:Connector',

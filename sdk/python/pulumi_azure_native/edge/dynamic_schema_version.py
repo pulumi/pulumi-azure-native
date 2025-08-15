@@ -25,23 +25,23 @@ class DynamicSchemaVersionArgs:
                  dynamic_schema_name: pulumi.Input[builtins.str],
                  resource_group_name: pulumi.Input[builtins.str],
                  schema_name: pulumi.Input[builtins.str],
-                 properties: Optional[pulumi.Input['SchemaVersionPropertiesArgs']] = None,
-                 schema_version_name: Optional[pulumi.Input[builtins.str]] = None):
+                 dynamic_schema_version_name: Optional[pulumi.Input[builtins.str]] = None,
+                 properties: Optional[pulumi.Input['SchemaVersionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DynamicSchemaVersion resource.
         :param pulumi.Input[builtins.str] dynamic_schema_name: The name of the DynamicSchema
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] schema_name: The name of the Schema
+        :param pulumi.Input[builtins.str] dynamic_schema_version_name: The name of the DynamicSchemaVersion
         :param pulumi.Input['SchemaVersionPropertiesArgs'] properties: The resource-specific properties for this resource.
-        :param pulumi.Input[builtins.str] schema_version_name: The name of the SchemaVersion
         """
         pulumi.set(__self__, "dynamic_schema_name", dynamic_schema_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "schema_name", schema_name)
+        if dynamic_schema_version_name is not None:
+            pulumi.set(__self__, "dynamic_schema_version_name", dynamic_schema_version_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if schema_version_name is not None:
-            pulumi.set(__self__, "schema_version_name", schema_version_name)
 
     @property
     @pulumi.getter(name="dynamicSchemaName")
@@ -80,6 +80,18 @@ class DynamicSchemaVersionArgs:
         pulumi.set(self, "schema_name", value)
 
     @property
+    @pulumi.getter(name="dynamicSchemaVersionName")
+    def dynamic_schema_version_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name of the DynamicSchemaVersion
+        """
+        return pulumi.get(self, "dynamic_schema_version_name")
+
+    @dynamic_schema_version_name.setter
+    def dynamic_schema_version_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "dynamic_schema_version_name", value)
+
+    @property
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input['SchemaVersionPropertiesArgs']]:
         """
@@ -91,18 +103,6 @@ class DynamicSchemaVersionArgs:
     def properties(self, value: Optional[pulumi.Input['SchemaVersionPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
-    @property
-    @pulumi.getter(name="schemaVersionName")
-    def schema_version_name(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The name of the SchemaVersion
-        """
-        return pulumi.get(self, "schema_version_name")
-
-    @schema_version_name.setter
-    def schema_version_name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "schema_version_name", value)
-
 
 @pulumi.type_token("azure-native:edge:DynamicSchemaVersion")
 class DynamicSchemaVersion(pulumi.CustomResource):
@@ -111,23 +111,25 @@ class DynamicSchemaVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dynamic_schema_name: Optional[pulumi.Input[builtins.str]] = None,
+                 dynamic_schema_version_name: Optional[pulumi.Input[builtins.str]] = None,
                  properties: Optional[pulumi.Input[Union['SchemaVersionPropertiesArgs', 'SchemaVersionPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  schema_name: Optional[pulumi.Input[builtins.str]] = None,
-                 schema_version_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Dynamic Schema Version Resource
 
         Uses Azure REST API version 2025-06-01.
 
+        Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] dynamic_schema_name: The name of the DynamicSchema
+        :param pulumi.Input[builtins.str] dynamic_schema_version_name: The name of the DynamicSchemaVersion
         :param pulumi.Input[Union['SchemaVersionPropertiesArgs', 'SchemaVersionPropertiesArgsDict']] properties: The resource-specific properties for this resource.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] schema_name: The name of the Schema
-        :param pulumi.Input[builtins.str] schema_version_name: The name of the SchemaVersion
         """
         ...
     @overload
@@ -139,6 +141,8 @@ class DynamicSchemaVersion(pulumi.CustomResource):
         Dynamic Schema Version Resource
 
         Uses Azure REST API version 2025-06-01.
+
+        Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param DynamicSchemaVersionArgs args: The arguments to use to populate this resource's properties.
@@ -156,10 +160,10 @@ class DynamicSchemaVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dynamic_schema_name: Optional[pulumi.Input[builtins.str]] = None,
+                 dynamic_schema_version_name: Optional[pulumi.Input[builtins.str]] = None,
                  properties: Optional[pulumi.Input[Union['SchemaVersionPropertiesArgs', 'SchemaVersionPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  schema_name: Optional[pulumi.Input[builtins.str]] = None,
-                 schema_version_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -172,6 +176,7 @@ class DynamicSchemaVersion(pulumi.CustomResource):
             if dynamic_schema_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dynamic_schema_name'")
             __props__.__dict__["dynamic_schema_name"] = dynamic_schema_name
+            __props__.__dict__["dynamic_schema_version_name"] = dynamic_schema_version_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -179,13 +184,12 @@ class DynamicSchemaVersion(pulumi.CustomResource):
             if schema_name is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_name'")
             __props__.__dict__["schema_name"] = schema_name
-            __props__.__dict__["schema_version_name"] = schema_version_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["e_tag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:edge/v20250601:DynamicSchemaVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:edge/v20250601:DynamicSchemaVersion"), pulumi.Alias(type_="azure-native:edge/v20250801:DynamicSchemaVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DynamicSchemaVersion, __self__).__init__(
             'azure-native:edge:DynamicSchemaVersion',

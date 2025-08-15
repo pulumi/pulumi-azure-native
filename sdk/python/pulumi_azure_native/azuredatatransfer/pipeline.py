@@ -124,7 +124,7 @@ class Pipeline(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-27. In version 2.x of the Azure Native provider, it used API version 2023-10-11-preview.
 
-        Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview, 2025-04-11-preview, 2025-05-21. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview, 2025-04-11-preview, 2025-05-21, 2025-05-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,7 +145,7 @@ class Pipeline(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-27. In version 2.x of the Azure Native provider, it used API version 2023-10-11-preview.
 
-        Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview, 2025-04-11-preview, 2025-05-21. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview, 2025-04-11-preview, 2025-05-21, 2025-05-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param PipelineArgs args: The arguments to use to populate this resource's properties.
@@ -187,7 +187,7 @@ class Pipeline(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuredatatransfer/v20231011preview:Pipeline"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20240125:Pipeline"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20240507:Pipeline"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20240911:Pipeline"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20240927:Pipeline"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20250301preview:Pipeline"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20250411preview:Pipeline"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20250521:Pipeline")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuredatatransfer/v20231011preview:Pipeline"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20240125:Pipeline"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20240507:Pipeline"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20240911:Pipeline"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20240927:Pipeline"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20250301preview:Pipeline"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20250411preview:Pipeline"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20250521:Pipeline"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20250530preview:Pipeline")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Pipeline, __self__).__init__(
             'azure-native:azuredatatransfer:Pipeline',
