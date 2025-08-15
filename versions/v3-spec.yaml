@@ -37,6 +37,8 @@ ApiManagement:
     additions:
         ApiGateway: 2024-06-01-preview
         ApiGatewayConfigConnection: 2024-06-01-preview
+        ClientApplication: 2024-10-01-preview
+        ClientApplicationProductLink: 2024-10-01-preview
         PolicyRestriction: 2024-06-01-preview
         Schema: 2021-04-01-preview
         WorkspaceApiDiagnostic: 2024-06-01-preview
@@ -44,6 +46,7 @@ ApiManagement:
         WorkspaceCertificate: 2024-06-01-preview
         WorkspaceDiagnostic: 2024-06-01-preview
         WorkspaceLogger: 2024-06-01-preview
+        listClientApplicationSecrets: 2024-10-01-preview
         listDelegationSettingSecrets: "2021-08-01"
         listGatewayDebugCredentials: 2024-06-01-preview
         listGatewayTrace: 2024-06-01-preview
@@ -1522,6 +1525,18 @@ ServiceFabric:
         - modulename: ServiceFabric
           resourcename: Service
           detail: version 2025-03-01-preview is greater than 2023-11-01-preview
+        - modulename: ServiceFabric
+          resourcename: Application
+          detail: version 2025-06-01-preview is greater than 2023-11-01-preview
+        - modulename: ServiceFabric
+          resourcename: ApplicationType
+          detail: version 2025-06-01-preview is greater than 2023-11-01-preview
+        - modulename: ServiceFabric
+          resourcename: ApplicationTypeVersion
+          detail: version 2025-06-01-preview is greater than 2023-11-01-preview
+        - modulename: ServiceFabric
+          resourcename: Service
+          detail: version 2025-06-01-preview is greater than 2023-11-01-preview
 ServiceFabricMesh:
     tracking: 2018-09-01-preview
 ServiceLinker:

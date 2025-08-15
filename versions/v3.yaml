@@ -397,6 +397,16 @@ ApiManagement:
         SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/preview/2022-09-01-preview/apimcertificates.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates/{certificateId}
         RpNamespace: Microsoft.ApiManagement
+    ClientApplication:
+        ApiVersion: 2024-10-01-preview
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/preview/2024-10-01-preview/apimclientApplications.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/clientApplications/{clientApplicationId}
+        RpNamespace: Microsoft.ApiManagement
+    ClientApplicationProductLink:
+        ApiVersion: 2024-10-01-preview
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/preview/2024-10-01-preview/apimclientApplications.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/clientApplications/{clientApplicationId}/productLinks/{clientApplicationProductLinkId}
+        RpNamespace: Microsoft.ApiManagement
     ContentItem:
         ApiVersion: 2022-09-01-preview
         SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/preview/2022-09-01-preview/apimcontenttypes.json
@@ -776,6 +786,11 @@ ApiManagement:
         ApiVersion: 2022-09-01-preview
         SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/preview/2022-09-01-preview/apimauthorizationservers.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/authorizationServers/{authsid}/listSecrets
+        RpNamespace: Microsoft.ApiManagement
+    listClientApplicationSecrets:
+        ApiVersion: 2024-10-01-preview
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/preview/2024-10-01-preview/apimclientApplications.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/clientApplications/{clientApplicationId}/listSecrets
         RpNamespace: Microsoft.ApiManagement
     listDelegationSettingSecrets:
         ApiVersion: "2021-08-01"
@@ -5916,7 +5931,7 @@ Edge:
     DynamicSchemaVersion:
         ApiVersion: "2025-06-01"
         SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/stable/2025-06-01/configurationmanager.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/schemas/{schemaName}/dynamicSchemas/{dynamicSchemaName}/versions/{schemaVersionName}
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/schemas/{schemaName}/dynamicSchemas/{dynamicSchemaName}/versions/{dynamicSchemaVersionName}
         RpNamespace: Microsoft.Edge
     Execution:
         ApiVersion: "2025-06-01"
