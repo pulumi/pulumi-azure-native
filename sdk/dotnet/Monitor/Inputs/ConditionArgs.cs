@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Monitor.Inputs
     public sealed class ConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant and required only for dynamic threshold rules of the kind LogAlert.
+        /// The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant only for dynamic threshold rules of the kind LogAlert.
         /// </summary>
         [Input("alertSensitivity")]
         public Input<string>? AlertSensitivity { get; set; }
@@ -62,6 +62,12 @@ namespace Pulumi.AzureNative.Monitor.Inputs
         /// </summary>
         [Input("metricName")]
         public Input<string>? MetricName { get; set; }
+
+        /// <summary>
+        /// The minimum results count that should be found for triggering an alert. Relevant only for rules of the kind SimpleLogAlert.
+        /// </summary>
+        [Input("minRecurrenceCount")]
+        public Input<double>? MinRecurrenceCount { get; set; }
 
         /// <summary>
         /// The criteria operator. Relevant and required only for rules of the kind LogAlert.

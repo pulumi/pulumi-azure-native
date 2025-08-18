@@ -488,7 +488,7 @@ namespace Pulumi.AzureNative.Monitor
         }
 
         public static Kind LogAlert { get; } = new Kind("LogAlert");
-        public static Kind EventLogAlert { get; } = new Kind("EventLogAlert");
+        public static Kind SimpleLogAlert { get; } = new Kind("SimpleLogAlert");
         public static Kind LogToMetric { get; } = new Kind("LogToMetric");
 
         public static bool operator ==(Kind left, Kind right) => left.Equals(right);

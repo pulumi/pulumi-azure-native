@@ -1727,6 +1727,8 @@ class ConditionResponse(dict):
             suggest = "metric_measure_column"
         elif key == "metricName":
             suggest = "metric_name"
+        elif key == "minRecurrenceCount":
+            suggest = "min_recurrence_count"
         elif key == "resourceIdColumn":
             suggest = "resource_id_column"
         elif key == "timeAggregation":
@@ -1751,6 +1753,7 @@ class ConditionResponse(dict):
                  ignore_data_before: Optional[builtins.str] = None,
                  metric_measure_column: Optional[builtins.str] = None,
                  metric_name: Optional[builtins.str] = None,
+                 min_recurrence_count: Optional[builtins.float] = None,
                  operator: Optional[builtins.str] = None,
                  query: Optional[builtins.str] = None,
                  resource_id_column: Optional[builtins.str] = None,
@@ -1758,13 +1761,14 @@ class ConditionResponse(dict):
                  time_aggregation: Optional[builtins.str] = None):
         """
         A condition of the scheduled query rule.
-        :param builtins.str alert_sensitivity: The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant and required only for dynamic threshold rules of the kind LogAlert.
+        :param builtins.str alert_sensitivity: The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant only for dynamic threshold rules of the kind LogAlert.
         :param builtins.str criterion_type: Specifies the type of threshold criteria
         :param Sequence['DimensionResponse'] dimensions: List of Dimensions conditions
         :param 'ConditionResponseFailingPeriods' failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
         :param builtins.str ignore_data_before: Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format). Relevant only for dynamic threshold rules of the kind LogAlert.
         :param builtins.str metric_measure_column: The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
         :param builtins.str metric_name: The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
+        :param builtins.float min_recurrence_count: The minimum results count that should be found for triggering an alert. Relevant only for rules of the kind SimpleLogAlert.
         :param builtins.str operator: The criteria operator. Relevant and required only for rules of the kind LogAlert.
         :param builtins.str query: Log query alert
         :param builtins.str resource_id_column: The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
@@ -1785,6 +1789,8 @@ class ConditionResponse(dict):
             pulumi.set(__self__, "metric_measure_column", metric_measure_column)
         if metric_name is not None:
             pulumi.set(__self__, "metric_name", metric_name)
+        if min_recurrence_count is not None:
+            pulumi.set(__self__, "min_recurrence_count", min_recurrence_count)
         if operator is not None:
             pulumi.set(__self__, "operator", operator)
         if query is not None:
@@ -1800,7 +1806,7 @@ class ConditionResponse(dict):
     @pulumi.getter(name="alertSensitivity")
     def alert_sensitivity(self) -> Optional[builtins.str]:
         """
-        The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant and required only for dynamic threshold rules of the kind LogAlert.
+        The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant only for dynamic threshold rules of the kind LogAlert.
         """
         return pulumi.get(self, "alert_sensitivity")
 
@@ -1851,6 +1857,14 @@ class ConditionResponse(dict):
         The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
         """
         return pulumi.get(self, "metric_name")
+
+    @property
+    @pulumi.getter(name="minRecurrenceCount")
+    def min_recurrence_count(self) -> Optional[builtins.float]:
+        """
+        The minimum results count that should be found for triggering an alert. Relevant only for rules of the kind SimpleLogAlert.
+        """
+        return pulumi.get(self, "min_recurrence_count")
 
     @property
     @pulumi.getter

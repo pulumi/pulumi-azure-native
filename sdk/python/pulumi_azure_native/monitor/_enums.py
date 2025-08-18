@@ -224,7 +224,7 @@ class Kind(builtins.str, Enum):
     Indicates the type of scheduled query rule. The default is LogAlert.
     """
     LOG_ALERT = "LogAlert"
-    EVENT_LOG_ALERT = "EventLogAlert"
+    SIMPLE_LOG_ALERT = "SimpleLogAlert"
     LOG_TO_METRIC = "LogToMetric"
 
 

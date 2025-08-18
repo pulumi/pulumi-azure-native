@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Monitor.Outputs
     public sealed class ConditionResponse
     {
         /// <summary>
-        /// The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant and required only for dynamic threshold rules of the kind LogAlert.
+        /// The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant only for dynamic threshold rules of the kind LogAlert.
         /// </summary>
         public readonly string? AlertSensitivity;
         /// <summary>
@@ -44,6 +44,10 @@ namespace Pulumi.AzureNative.Monitor.Outputs
         /// The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
         /// </summary>
         public readonly string? MetricName;
+        /// <summary>
+        /// The minimum results count that should be found for triggering an alert. Relevant only for rules of the kind SimpleLogAlert.
+        /// </summary>
+        public readonly double? MinRecurrenceCount;
         /// <summary>
         /// The criteria operator. Relevant and required only for rules of the kind LogAlert.
         /// </summary>
@@ -81,6 +85,8 @@ namespace Pulumi.AzureNative.Monitor.Outputs
 
             string? metricName,
 
+            double? minRecurrenceCount,
+
             string? @operator,
 
             string? query,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNative.Monitor.Outputs
             IgnoreDataBefore = ignoreDataBefore;
             MetricMeasureColumn = metricMeasureColumn;
             MetricName = metricName;
+            MinRecurrenceCount = minRecurrenceCount;
             Operator = @operator;
             Query = query;
             ResourceIdColumn = resourceIdColumn;
