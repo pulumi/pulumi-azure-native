@@ -68,7 +68,7 @@ func NewAzCoreIdentity(ctx context.Context, authConf *authConfiguration, baseCli
 		// get the given (or default if id is empty) account from the Azure CLI
 		activeSubscription, err := authConf.showSubscription(ctx, authConf.subscriptionId)
 		if err != nil {
-			return nil, fmt.Errorf("failed to get account from Azure CLI: %w", err)
+			return nil, err
 		}
 		logging.V(6).Infof("Using Az account %q", activeSubscription.Name)
 
