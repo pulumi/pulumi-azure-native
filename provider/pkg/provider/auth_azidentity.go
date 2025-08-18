@@ -359,7 +359,7 @@ type configGetter func(configName, envName string) string
 
 // readAuthConfig collects auth-related configuration from Pulumi config and environment variables
 func readAuthConfig(getConfig configGetter) (*authConfiguration, error) {
-	cloud := readAzureCloudFromConfig(getConfig)
+	cloud := getCloud(getConfig)
 
 	auxTenantsString := getConfig("auxiliaryTenantIds", "ARM_AUXILIARY_TENANT_IDS")
 	var auxTenants []string
@@ -395,17 +395,18 @@ func readAuthConfig(getConfig configGetter) (*authConfiguration, error) {
 	}, nil
 }
 
-func readAzureCloudFromConfig(getConfig configGetter) *azcloud.Configuration {
+// getCloud returns the configured Azure cloud (environment).
+// Returns nil if not configured, to allow for other detection methods before defaulting to the public cloud.
+func getCloud(getConfig configGetter) *azcloud.Configuration {
 	envName := getConfig("environment", "ARM_ENVIRONMENT")
 	if envName == "" {
 		envName = getConfig("environment", "AZURE_ENVIRONMENT")
 	}
-	if envName == "" {
-		// Leave the environment unset at this stage, to be resolved later in NewAzCoreIdentity.
-		return nil
+	if envName != "" {
+		cloud := azure.GetCloudByName(envName)
+		return &cloud
 	}
-	cloud := azure.GetCloudByName(envName)
-	return &cloud
+	return nil
 }
 
 type ClientConfig struct {
