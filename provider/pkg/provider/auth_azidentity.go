@@ -63,9 +63,8 @@ func NewAzCoreIdentity(ctx context.Context, authConf *authConfiguration, baseCli
 	account.TokenCredential = cred
 
 	// Based on the credential type, we may be able to resolve the Azure cloud and subscription ID.
-	switch cred.(type) {
-	case *azidentity.AzureCLICredential:
-		// get the given (or default if id is empty) account from the Azure CLI
+	if _, ok := cred.(*azidentity.AzureCLICredential); ok {
+		// get the given (or default) account from the Azure CLI
 		activeSubscription, err := authConf.showSubscription(ctx, authConf.subscriptionId)
 		if err != nil {
 			return nil, err
@@ -79,10 +78,10 @@ func NewAzCoreIdentity(ctx context.Context, authConf *authConfiguration, baseCli
 		}
 		account.Cloud = sc
 		account.SubscriptionId = activeSubscription.ID
-
-	default:
+	} else {
+		// use the configured values and/or defaults
 		if authConf.cloud == nil {
-			// if the cloud is not set, use the default Azure cloud
+			// if the cloud is not set, use the default Azure cloud as does newSingleMethodAuthCredential.
 			account.Cloud = azcloud.AzurePublic
 		} else {
 			account.Cloud = *authConf.cloud
