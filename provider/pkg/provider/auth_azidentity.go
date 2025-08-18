@@ -402,7 +402,7 @@ func readAzureCloudFromConfig(getConfig configGetter) *azcloud.Configuration {
 		envName = getConfig("environment", "AZURE_ENVIRONMENT")
 	}
 	if envName == "" {
-		// Leave the environment unset at this stage, to be resolved later in initAccount.
+		// Leave the environment unset at this stage, to be resolved later in NewAzCoreIdentity.
 		return nil
 	}
 	cloud := azure.GetCloudByName(envName)
