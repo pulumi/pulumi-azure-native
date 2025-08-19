@@ -78,8 +78,6 @@ func TestAzidentity(t *testing.T) {
 	})
 
 	t.Run("SP_clientsecret", func(t *testing.T) {
-		skipIfShort(t)
-
 		clientSecret := os.Getenv("ARM_CLIENT_SECRET")
 		if clientSecret == "" {
 			t.Skip("Skipping SP test without ARM_CLIENT_SECRET")
@@ -111,8 +109,6 @@ func TestAzidentity(t *testing.T) {
 	})
 
 	t.Run("SP_clientcert", func(t *testing.T) {
-		skipIfShort(t)
-
 		certPath := os.Getenv("ARM_CLIENT_CERTIFICATE_PATH_FOR_TEST")
 		if certPath == "" {
 			t.Skip("Skipping SP test without ARM_CLIENT_CERTIFICATE_PATH_FOR_TEST")
@@ -144,8 +140,6 @@ func TestAzidentity(t *testing.T) {
 	})
 
 	t.Run("CLI", func(t *testing.T) {
-		skipIfShort(t)
-
 		// AZURE_CONFIG_DIR_FOR_TEST is set by the GH workflow build-test.yml
 		// to provide an isolated configuration directory for the Azure CLI.
 		configDir := os.Getenv("AZURE_CONFIG_DIR_FOR_TEST")
