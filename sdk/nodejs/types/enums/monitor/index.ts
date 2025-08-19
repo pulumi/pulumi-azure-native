@@ -177,7 +177,7 @@ export type JsonMapperElement = (typeof JsonMapperElement)[keyof typeof JsonMapp
 
 export const Kind = {
     LogAlert: "LogAlert",
-    EventLogAlert: "EventLogAlert",
+    SimpleLogAlert: "SimpleLogAlert",
     LogToMetric: "LogToMetric",
 } as const;
 

@@ -8891,8 +8891,8 @@ Monitor:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/privateLinkScopes/{scopeName}/scopedResources/{name}
         RpNamespace: Microsoft.Insights
     ScheduledQueryRule:
-        ApiVersion: 2024-01-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2024-01-01-preview/scheduledQueryRule_API.json
+        ApiVersion: 2025-01-01-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2025-01-01-preview/scheduledQueryRule_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/scheduledQueryRules/{ruleName}
         RpNamespace: Microsoft.Insights
     SubscriptionDiagnosticSetting:

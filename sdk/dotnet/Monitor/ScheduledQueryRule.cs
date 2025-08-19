@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Monitor
     /// <summary>
     /// The scheduled query rule resource.
     /// 
-    /// Uses Azure REST API version 2024-01-01-preview.
+    /// Uses Azure REST API version 2025-01-01-preview.
     /// 
-    /// Other available API versions: 2023-12-01, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-12-01, 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor:ScheduledQueryRule")]
     public partial class ScheduledQueryRule : global::Pulumi.CustomResource
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Monitor
         public Output<Outputs.ActionsResponse?> Actions { get; private set; } = null!;
 
         /// <summary>
-        /// The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
+        /// The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of kinds LogAlert and SimpleLogAlert.
         /// </summary>
         [Output("autoMitigate")]
         public Output<bool?> AutoMitigate { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.Monitor
         public Output<string?> OverrideQueryTimeRange { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
+        /// Defines the configuration for resolving fired alerts. Relevant only for rules of kinds LogAlert and SimpleLogAlert.
         /// </summary>
         [Output("resolveConfiguration")]
         public Output<Outputs.RuleResolveConfigurationResponse?> ResolveConfiguration { get; private set; } = null!;
@@ -259,7 +259,7 @@ namespace Pulumi.AzureNative.Monitor
         public Input<Inputs.ActionsArgs>? Actions { get; set; }
 
         /// <summary>
-        /// The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
+        /// The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of kinds LogAlert and SimpleLogAlert.
         /// </summary>
         [Input("autoMitigate")]
         public Input<bool>? AutoMitigate { get; set; }
@@ -331,7 +331,7 @@ namespace Pulumi.AzureNative.Monitor
         public Input<string>? OverrideQueryTimeRange { get; set; }
 
         /// <summary>
-        /// Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
+        /// Defines the configuration for resolving fired alerts. Relevant only for rules of kinds LogAlert and SimpleLogAlert.
         /// </summary>
         [Input("resolveConfiguration")]
         public Input<Inputs.RuleResolveConfigurationArgs>? ResolveConfiguration { get; set; }

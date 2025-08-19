@@ -1060,7 +1060,7 @@ Monitor:
         PrivateEndpointConnection: 2023-06-01-preview
         PrivateLinkScope: 2023-06-01-preview
         PrivateLinkScopedResource: 2023-06-01-preview
-        ScheduledQueryRule: 2024-01-01-preview
+        ScheduledQueryRule: 2025-01-01-preview
         SubscriptionDiagnosticSetting: 2021-05-01-preview
         TenantActionGroup: 2023-05-01-preview
         listDiagnosticSettingsCategory: 2021-05-01-preview

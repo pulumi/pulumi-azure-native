@@ -129,7 +129,7 @@ class GetScheduledQueryRuleResult:
     @pulumi.getter(name="autoMitigate")
     def auto_mitigate(self) -> Optional[builtins.bool]:
         """
-        The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
+        The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of kinds LogAlert and SimpleLogAlert.
         """
         return pulumi.get(self, "auto_mitigate")
 
@@ -281,7 +281,7 @@ class GetScheduledQueryRuleResult:
     @pulumi.getter(name="resolveConfiguration")
     def resolve_configuration(self) -> Optional['outputs.RuleResolveConfigurationResponse']:
         """
-        Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
+        Defines the configuration for resolving fired alerts. Relevant only for rules of kinds LogAlert and SimpleLogAlert.
         """
         return pulumi.get(self, "resolve_configuration")
 
@@ -393,9 +393,9 @@ def get_scheduled_query_rule(resource_group_name: Optional[builtins.str] = None,
     """
     Retrieve an scheduled query rule definition.
 
-    Uses Azure REST API version 2024-01-01-preview.
+    Uses Azure REST API version 2025-01-01-preview.
 
-    Other available API versions: 2023-12-01, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-12-01, 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -443,9 +443,9 @@ def get_scheduled_query_rule_output(resource_group_name: Optional[pulumi.Input[b
     """
     Retrieve an scheduled query rule definition.
 
-    Uses Azure REST API version 2024-01-01-preview.
+    Uses Azure REST API version 2025-01-01-preview.
 
-    Other available API versions: 2023-12-01, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-12-01, 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

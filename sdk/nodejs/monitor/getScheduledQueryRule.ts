@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Retrieve an scheduled query rule definition.
  *
- * Uses Azure REST API version 2024-01-01-preview.
+ * Uses Azure REST API version 2025-01-01-preview.
  *
- * Other available API versions: 2023-12-01, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-12-01, 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getScheduledQueryRule(args: GetScheduledQueryRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,7 +42,7 @@ export interface GetScheduledQueryRuleResult {
      */
     readonly actions?: outputs.monitor.ActionsResponse;
     /**
-     * The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
+     * The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of kinds LogAlert and SimpleLogAlert.
      */
     readonly autoMitigate?: boolean;
     /**
@@ -118,7 +118,7 @@ export interface GetScheduledQueryRuleResult {
      */
     readonly overrideQueryTimeRange?: string;
     /**
-     * Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
+     * Defines the configuration for resolving fired alerts. Relevant only for rules of kinds LogAlert and SimpleLogAlert.
      */
     readonly resolveConfiguration?: outputs.monitor.RuleResolveConfigurationResponse;
     /**
@@ -157,9 +157,9 @@ export interface GetScheduledQueryRuleResult {
 /**
  * Retrieve an scheduled query rule definition.
  *
- * Uses Azure REST API version 2024-01-01-preview.
+ * Uses Azure REST API version 2025-01-01-preview.
  *
- * Other available API versions: 2023-12-01, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-12-01, 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getScheduledQueryRuleOutput(args: GetScheduledQueryRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduledQueryRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

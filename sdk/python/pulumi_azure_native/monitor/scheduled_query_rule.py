@@ -52,7 +52,7 @@ class ScheduledQueryRuleArgs:
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] scopes: The list of resource id's that this scheduled query rule is scoped to.
         :param pulumi.Input['ActionsArgs'] actions: Actions to invoke when the alert fires.
-        :param pulumi.Input[builtins.bool] auto_mitigate: The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
+        :param pulumi.Input[builtins.bool] auto_mitigate: The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of kinds LogAlert and SimpleLogAlert.
         :param pulumi.Input[builtins.bool] check_workspace_alerts_storage_configured: The flag which indicates whether this scheduled query rule should be stored in the customer's storage. The default is false. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[builtins.str] description: The description of the scheduled query rule.
         :param pulumi.Input[builtins.str] display_name: The display name of the alert rule
@@ -62,7 +62,7 @@ class ScheduledQueryRuleArgs:
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.str] mute_actions_duration: Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[builtins.str] override_query_time_range: If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods). Relevant only for rules of the kind LogAlert.
-        :param pulumi.Input['RuleResolveConfigurationArgs'] resolve_configuration: Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
+        :param pulumi.Input['RuleResolveConfigurationArgs'] resolve_configuration: Defines the configuration for resolving fired alerts. Relevant only for rules of kinds LogAlert and SimpleLogAlert.
         :param pulumi.Input[builtins.str] rule_name: The name of the rule.
         :param pulumi.Input[builtins.float] severity: Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest. Relevant and required only for rules of the kind LogAlert.
         :param pulumi.Input[builtins.bool] skip_query_validation: The flag which indicates whether the provided query should be validated or not. The default is false. Relevant only for rules of the kind LogAlert.
@@ -175,7 +175,7 @@ class ScheduledQueryRuleArgs:
     @pulumi.getter(name="autoMitigate")
     def auto_mitigate(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
+        The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of kinds LogAlert and SimpleLogAlert.
         """
         return pulumi.get(self, "auto_mitigate")
 
@@ -295,7 +295,7 @@ class ScheduledQueryRuleArgs:
     @pulumi.getter(name="resolveConfiguration")
     def resolve_configuration(self) -> Optional[pulumi.Input['RuleResolveConfigurationArgs']]:
         """
-        Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
+        Defines the configuration for resolving fired alerts. Relevant only for rules of kinds LogAlert and SimpleLogAlert.
         """
         return pulumi.get(self, "resolve_configuration")
 
@@ -408,14 +408,14 @@ class ScheduledQueryRule(pulumi.CustomResource):
         """
         The scheduled query rule resource.
 
-        Uses Azure REST API version 2024-01-01-preview.
+        Uses Azure REST API version 2025-01-01-preview.
 
-        Other available API versions: 2023-12-01, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-12-01, 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ActionsArgs', 'ActionsArgsDict']] actions: Actions to invoke when the alert fires.
-        :param pulumi.Input[builtins.bool] auto_mitigate: The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
+        :param pulumi.Input[builtins.bool] auto_mitigate: The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of kinds LogAlert and SimpleLogAlert.
         :param pulumi.Input[builtins.bool] check_workspace_alerts_storage_configured: The flag which indicates whether this scheduled query rule should be stored in the customer's storage. The default is false. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[Union['ScheduledQueryRuleCriteriaArgs', 'ScheduledQueryRuleCriteriaArgsDict']] criteria: The rule criteria that defines the conditions of the scheduled query rule.
         :param pulumi.Input[builtins.str] description: The description of the scheduled query rule.
@@ -427,7 +427,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.str] mute_actions_duration: Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[builtins.str] override_query_time_range: If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods). Relevant only for rules of the kind LogAlert.
-        :param pulumi.Input[Union['RuleResolveConfigurationArgs', 'RuleResolveConfigurationArgsDict']] resolve_configuration: Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
+        :param pulumi.Input[Union['RuleResolveConfigurationArgs', 'RuleResolveConfigurationArgsDict']] resolve_configuration: Defines the configuration for resolving fired alerts. Relevant only for rules of kinds LogAlert and SimpleLogAlert.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] rule_name: The name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] scopes: The list of resource id's that this scheduled query rule is scoped to.
@@ -446,9 +446,9 @@ class ScheduledQueryRule(pulumi.CustomResource):
         """
         The scheduled query rule resource.
 
-        Uses Azure REST API version 2024-01-01-preview.
+        Uses Azure REST API version 2025-01-01-preview.
 
-        Other available API versions: 2023-12-01, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-12-01, 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ScheduledQueryRuleArgs args: The arguments to use to populate this resource's properties.
@@ -600,7 +600,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
     @pulumi.getter(name="autoMitigate")
     def auto_mitigate(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
+        The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of kinds LogAlert and SimpleLogAlert.
         """
         return pulumi.get(self, "auto_mitigate")
 
@@ -744,7 +744,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
     @pulumi.getter(name="resolveConfiguration")
     def resolve_configuration(self) -> pulumi.Output[Optional['outputs.RuleResolveConfigurationResponse']]:
         """
-        Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
+        Defines the configuration for resolving fired alerts. Relevant only for rules of kinds LogAlert and SimpleLogAlert.
         """
         return pulumi.get(self, "resolve_configuration")
 

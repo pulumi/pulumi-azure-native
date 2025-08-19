@@ -1930,7 +1930,7 @@ if not MYPY:
         """
         alert_sensitivity: NotRequired[pulumi.Input[builtins.str]]
         """
-        The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant and required only for dynamic threshold rules of the kind LogAlert.
+        The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant only for dynamic threshold rules of the kind LogAlert.
         """
         criterion_type: NotRequired[pulumi.Input[Union[builtins.str, 'CriterionType']]]
         """
@@ -1955,6 +1955,10 @@ if not MYPY:
         metric_name: NotRequired[pulumi.Input[builtins.str]]
         """
         The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
+        """
+        min_recurrence_count: NotRequired[pulumi.Input[builtins.float]]
+        """
+        The minimum results count that should be found for triggering an alert. Relevant only for rules of the kind SimpleLogAlert.
         """
         operator: NotRequired[pulumi.Input[Union[builtins.str, 'ConditionOperator']]]
         """
@@ -1989,6 +1993,7 @@ class ConditionArgs:
                  ignore_data_before: Optional[pulumi.Input[builtins.str]] = None,
                  metric_measure_column: Optional[pulumi.Input[builtins.str]] = None,
                  metric_name: Optional[pulumi.Input[builtins.str]] = None,
+                 min_recurrence_count: Optional[pulumi.Input[builtins.float]] = None,
                  operator: Optional[pulumi.Input[Union[builtins.str, 'ConditionOperator']]] = None,
                  query: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id_column: Optional[pulumi.Input[builtins.str]] = None,
@@ -1996,13 +2001,14 @@ class ConditionArgs:
                  time_aggregation: Optional[pulumi.Input[Union[builtins.str, 'TimeAggregation']]] = None):
         """
         A condition of the scheduled query rule.
-        :param pulumi.Input[builtins.str] alert_sensitivity: The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant and required only for dynamic threshold rules of the kind LogAlert.
+        :param pulumi.Input[builtins.str] alert_sensitivity: The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant only for dynamic threshold rules of the kind LogAlert.
         :param pulumi.Input[Union[builtins.str, 'CriterionType']] criterion_type: Specifies the type of threshold criteria
         :param pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]] dimensions: List of Dimensions conditions
         :param pulumi.Input['ConditionFailingPeriodsArgs'] failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[builtins.str] ignore_data_before: Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format). Relevant only for dynamic threshold rules of the kind LogAlert.
         :param pulumi.Input[builtins.str] metric_measure_column: The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[builtins.str] metric_name: The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
+        :param pulumi.Input[builtins.float] min_recurrence_count: The minimum results count that should be found for triggering an alert. Relevant only for rules of the kind SimpleLogAlert.
         :param pulumi.Input[Union[builtins.str, 'ConditionOperator']] operator: The criteria operator. Relevant and required only for rules of the kind LogAlert.
         :param pulumi.Input[builtins.str] query: Log query alert
         :param pulumi.Input[builtins.str] resource_id_column: The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
@@ -2023,6 +2029,8 @@ class ConditionArgs:
             pulumi.set(__self__, "metric_measure_column", metric_measure_column)
         if metric_name is not None:
             pulumi.set(__self__, "metric_name", metric_name)
+        if min_recurrence_count is not None:
+            pulumi.set(__self__, "min_recurrence_count", min_recurrence_count)
         if operator is not None:
             pulumi.set(__self__, "operator", operator)
         if query is not None:
@@ -2038,7 +2046,7 @@ class ConditionArgs:
     @pulumi.getter(name="alertSensitivity")
     def alert_sensitivity(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant and required only for dynamic threshold rules of the kind LogAlert.
+        The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant only for dynamic threshold rules of the kind LogAlert.
         """
         return pulumi.get(self, "alert_sensitivity")
 
@@ -2117,6 +2125,18 @@ class ConditionArgs:
     @metric_name.setter
     def metric_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "metric_name", value)
+
+    @property
+    @pulumi.getter(name="minRecurrenceCount")
+    def min_recurrence_count(self) -> Optional[pulumi.Input[builtins.float]]:
+        """
+        The minimum results count that should be found for triggering an alert. Relevant only for rules of the kind SimpleLogAlert.
+        """
+        return pulumi.get(self, "min_recurrence_count")
+
+    @min_recurrence_count.setter
+    def min_recurrence_count(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "min_recurrence_count", value)
 
     @property
     @pulumi.getter
