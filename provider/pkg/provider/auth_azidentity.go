@@ -12,14 +12,11 @@ import (
 	"net/http"
 	"net/url"
 	"os"
-	"strings"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-	msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
-	"github.com/microsoftgraph/msgraph-sdk-go/serviceprincipals"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
@@ -407,128 +404,4 @@ func getCloud(getConfig configGetter) *azcloud.Configuration {
 		return &cloud
 	}
 	return nil
-}
-
-type ClientConfig struct {
-	Cloud azcloud.Configuration
-
-	ClientID       string
-	ObjectID       string
-	SubscriptionID string
-	TenantID       string
-
-	AuthenticatedAsAServicePrincipal bool
-}
-
-// GetClientConfig resolves the provider's identity given the auth configuration and a TokenCredential.
-// It returns a ClientConfig which contains the client ID, object ID, subscription ID, tenant.
-func GetClientConfig(ctx context.Context, config *authConfiguration, cred *azAccount) (*ClientConfig, error) {
-
-	// https://github.com/hashicorp/terraform-provider-azurerm/blob/572bb4f37d73f4f0d914737eaca4e5a1fd084c86/internal/clients/auth.go#L33
-
-	// Acquire an access token so we can inspect the claims
-	// TODO: support other locations
-	scope := "https://graph.microsoft.com/.default"
-	token, err := cred.GetToken(ctx, policy.TokenRequestOptions{
-		Scopes: []string{scope},
-	})
-	if err != nil {
-		return nil, fmt.Errorf("could not acquire access token to parse claims: %+v", err)
-	}
-
-	tokenClaims, err := azure.ParseClaims(token)
-	if err != nil {
-		return nil, fmt.Errorf("parsing claims from access token: %+v", err)
-	}
-
-	authenticatedAsServicePrincipal := true
-	if strings.Contains(strings.ToLower(tokenClaims.Scopes), "openid") {
-		authenticatedAsServicePrincipal = false
-	}
-
-	clientId := tokenClaims.AppId
-	if clientId == "" {
-		logging.V(9).Infof("Using user-supplied ClientID because the `appid` claim was missing from the access token")
-		clientId = config.clientId
-	}
-
-	objectId := tokenClaims.ObjectId
-	if objectId == "" {
-		graphClient, err := msgraphsdk.NewGraphServiceClientWithCredentials(cred, []string{scope})
-		if err != nil {
-			return nil, fmt.Errorf("failed to create Microsoft Graph client: %w", err)
-		}
-		if authenticatedAsServicePrincipal {
-			logging.V(9).Infof("Querying Microsoft Graph to discover authenticated service principal object ID because the `oid` claim was missing from the access token")
-			id, err := servicePrincipalObjectID(ctx, graphClient, clientId)
-			if err != nil {
-				return nil, fmt.Errorf("attempting to discover object ID for authenticated service principal with client ID %q: %w", clientId, err)
-			}
-
-			objectId = *id
-		} else {
-			logging.V(9).Infof("Querying Microsoft Graph to discover authenticated user principal object ID because the `oid` claim was missing from the access token")
-			id, err := userPrincipalObjectID(ctx, graphClient)
-			if err != nil {
-				return nil, fmt.Errorf("attempting to discover object ID for authenticated user principal: %w", err)
-			}
-			objectId = *id
-		}
-	}
-
-	tenantId := tokenClaims.TenantId
-	if tenantId == "" {
-		logging.V(9).Infof("Using user-supplied TenantID because the `tid` claim was missing from the access token")
-		tenantId = config.tenantId
-	}
-
-	account := &ClientConfig{
-		Cloud: cred.Cloud,
-
-		ClientID:       clientId,
-		ObjectID:       objectId,
-		SubscriptionID: cred.SubscriptionId,
-		TenantID:       tenantId,
-
-		AuthenticatedAsAServicePrincipal: authenticatedAsServicePrincipal,
-	}
-
-	return account, nil
-}
-
-func servicePrincipalObjectID(ctx context.Context, client *msgraphsdk.GraphServiceClient, clientId string) (*string, error) {
-	filter := fmt.Sprintf("appId eq '%s'", clientId)
-	response, err := client.ServicePrincipals().Get(ctx, &serviceprincipals.ServicePrincipalsRequestBuilderGetRequestConfiguration{
-		QueryParameters: &serviceprincipals.ServicePrincipalsRequestBuilderGetQueryParameters{
-			Filter: &filter,
-		},
-	})
-	if err != nil {
-		return nil, fmt.Errorf("executing request: %w", err)
-	}
-
-	principals := response.GetValue()
-	if len(principals) != 1 {
-		return nil, fmt.Errorf("unexpected number of results, expected 1, received %d", len(principals))
-	}
-
-	id := principals[0].GetId()
-	if id == nil {
-		return nil, errors.New("returned object ID was nil")
-	}
-
-	return id, nil
-}
-
-func userPrincipalObjectID(ctx context.Context, client *msgraphsdk.GraphServiceClient) (*string, error) {
-	me, err := client.Me().Get(ctx, nil)
-	if err != nil {
-		return nil, fmt.Errorf("executing request: %w", err)
-	}
-
-	if me.GetId() == nil {
-		return nil, fmt.Errorf("returned object ID was nil")
-	}
-
-	return me.GetId(), nil
 }
