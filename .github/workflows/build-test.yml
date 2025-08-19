@@ -217,7 +217,7 @@ jobs:
         # We store the base64-encoded cert as a secret, decode it here, and write it out to a file.
         run: |
           echo "${{ secrets.ARM_CLIENT_CERTIFICATE }}" | base64 -d > "${{ runner.temp }}/azure-client-certificate.pfx"
-          echo "ARM_CLIENT_CERTIFICATE_PATH_FOR_TEST=${{ runner.temp }}/azure-client-certificate.pfx" >> $GITHUB_ENV
+          echo "ARM_CLIENT_CERTIFICATE_PATH_FOR_TEST=${{ runner.temp }}/azure-client-certificate.pfx" >> "$GITHUB_ENV"
 
       - name: Write .azure.tmp folder
         # We write to .azure.tmp, not directly to .azure, because we want only one test to use
@@ -230,7 +230,7 @@ jobs:
           # We only want one specific test to use it.
           unzip -d "$HOME/.azure.tmp" "${{ runner.temp }}/azure-cli-folder.zip"
           rm "${{ runner.temp }}/azure-cli-folder.zip"
-          echo "AZURE_CONFIG_DIR_FOR_TEST=$HOME/.azure.tmp" >> $GITHUB_ENV
+          echo "AZURE_CONFIG_DIR_FOR_TEST=$HOME/.azure.tmp" >> "$GITHUB_ENV"
 
       - name: Run tests
         if: ${{ ! inputs.short_test }}
