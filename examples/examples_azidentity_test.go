@@ -140,6 +140,8 @@ func TestAzidentity(t *testing.T) {
 	})
 
 	t.Run("CLI", func(t *testing.T) {
+		skipIfShort(t)
+
 		// AZURE_CONFIG_DIR_FOR_TEST is set by the GH workflow build-test.yml
 		// to provide an isolated configuration directory for the Azure CLI.
 		configDir := os.Getenv("AZURE_CONFIG_DIR_FOR_TEST")
