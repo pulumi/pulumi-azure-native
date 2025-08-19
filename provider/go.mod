@@ -24,6 +24,7 @@ require (
 	github.com/go-openapi/jsonreference v0.19.6
 	github.com/go-openapi/spec v0.20.4
 	github.com/go-openapi/swag v0.21.1
+	github.com/golang-jwt/jwt v3.2.1+incompatible
 	github.com/golang/protobuf v1.5.4
 	github.com/google/uuid v1.6.0
 	github.com/hashicorp/go-azure-helpers v0.51.0
@@ -32,6 +33,7 @@ require (
 	github.com/manicminer/hamilton v0.57.1
 	github.com/manicminer/hamilton-autorest v0.3.0
 	github.com/microsoftgraph/msgraph-sdk-go v1.81.0
+	github.com/microsoftgraph/msgraph-sdk-go-core v1.3.2
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/providertest v0.1.5
 	github.com/pulumi/pulumi-java/pkg v1.16.0
@@ -128,7 +130,6 @@ require (
 	github.com/microsoft/kiota-serialization-json-go v1.1.2 // indirect
 	github.com/microsoft/kiota-serialization-multipart-go v1.1.2 // indirect
 	github.com/microsoft/kiota-serialization-text-go v1.1.2 // indirect
-	github.com/microsoftgraph/msgraph-sdk-go-core v1.3.2 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/mitchellh/reflectwalk v1.0.2 // indirect

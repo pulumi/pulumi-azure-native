@@ -7,14 +7,17 @@
 package provider
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 	"path/filepath"
 	"testing"
 
+	"github.com/golang-jwt/jwt"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 
 	"github.com/pulumi/providertest"
 	"github.com/pulumi/providertest/optproviderupgrade"
@@ -25,6 +28,7 @@ import (
 	"github.com/pulumi/providertest/pulumitest/changesummary"
 	"github.com/pulumi/providertest/pulumitest/opttest"
 
+	"github.com/pulumi/pulumi/sdk/v3/go/auto"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optup"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
@@ -134,6 +138,127 @@ func TestTagging(t *testing.T) {
 	assert.Equal(t, map[string]any{"owner": "tag_2"}, rg2Tags)
 }
 
+func TestAzidentity(t *testing.T) {
+
+	validate := func(t *testing.T, up auto.UpResult) (map[string]interface{}, jwt.MapClaims) {
+		// validate clientConfig
+		require.Contains(t, up.Outputs, "clientConfig", "expected clientConfig output")
+		clientConfig, _ := up.Outputs["clientConfig"].Value.(map[string]interface{})
+		clientConfigJSON, _ := json.Marshal(clientConfig)
+		t.Logf("clientConfig: %s", clientConfigJSON)
+
+		assert.Contains(t, clientConfig, "clientId")
+		assert.Contains(t, clientConfig, "objectId")
+		assert.Contains(t, clientConfig, "subscriptionId")
+		assert.Contains(t, clientConfig, "tenantId")
+
+		// validate clientToken
+		require.Contains(t, up.Outputs, "clientToken", "expected clientToken output")
+		clientToken, _ := up.Outputs["clientToken"].Value.(map[string]interface{})
+		claims, err := parseJwtUnverified(clientToken["token"].(string))
+		require.NoError(t, err)
+		claimsJSON, _ := json.Marshal(claims)
+		t.Logf("clientToken: %s", claimsJSON)
+
+		return clientConfig, claims
+	}
+
+	t.Run("OIDC", func(t *testing.T) {
+		oidcClientId := os.Getenv("OIDC_ARM_CLIENT_ID")
+		if oidcClientId == "" {
+			t.Skip("Skipping OIDC test without OIDC_ARM_CLIENT_ID")
+		}
+
+		pt := newPulumiTest(t, "azidentity",
+			opttest.Env("ARM_USE_OIDC", "true"),
+			opttest.Env("ARM_CLIENT_ID", oidcClientId),
+			// Make sure we test the OIDC method
+			opttest.Env("ARM_CLIENT_SECRET", ""),
+			opttest.Env("ARM_CLIENT_CERTIFICATE_PATH", ""),
+			opttest.Env("ARM_CLIENT_CERTIFICATE_PASSWORD", ""),
+		)
+
+		up := pt.Up(t)
+		clientConfig, clientToken := validate(t, up)
+		assert.Equal(t, os.Getenv("ARM_CLIENT_ID"), clientConfig["clientId"])
+		assert.Equal(t, os.Getenv("ARM_CLIENT_ID"), clientToken["appid"])
+		assert.Equal(t, "app", clientToken["idtyp"])
+	})
+
+	t.Run("SP_clientsecret", func(t *testing.T) {
+		clientSecret := os.Getenv("ARM_CLIENT_SECRET")
+		if clientSecret == "" {
+			t.Skip("Skipping SP test without ARM_CLIENT_SECRET")
+		}
+
+		pt := newPulumiTest(t, "azidentity",
+			opttest.Env("ARM_CLIENT_ID", os.Getenv("ARM_CLIENT_ID")),
+			opttest.Env("ARM_CLIENT_SECRET", clientSecret),
+			// Make sure we test the client secret method
+			opttest.Env("ARM_CLIENT_CERTIFICATE_PASSWORD", ""),
+			opttest.Env("ACTIONS_ID_TOKEN_REQUEST_TOKEN", ""),
+			opttest.Env("ACTIONS_ID_TOKEN_REQUEST_URL", ""),
+		)
+
+		up := pt.Up(t)
+		clientConfig, clientToken := validate(t, up)
+		assert.Equal(t, os.Getenv("ARM_CLIENT_ID"), clientConfig["clientId"])
+		assert.Equal(t, os.Getenv("ARM_CLIENT_ID"), clientToken["appid"])
+		assert.Equal(t, "app", clientToken["idtyp"])
+	})
+
+	t.Run("SP_clientcert", func(t *testing.T) {
+		certPath := os.Getenv("ARM_CLIENT_CERTIFICATE_PATH_FOR_TEST")
+		if certPath == "" {
+			t.Skip("Skipping SP test without ARM_CLIENT_CERTIFICATE_PATH_FOR_TEST")
+		}
+
+		pt := newPulumiTest(t, "azidentity",
+			opttest.Env("ARM_CLIENT_ID", os.Getenv("ARM_CLIENT_ID")),
+			opttest.Env("ARM_CLIENT_CERTIFICATE_PATH", certPath),
+			opttest.Env("ARM_CLIENT_CERTIFICATE_PASSWORD", os.Getenv("ARM_CLIENT_CERTIFICATE_PASSWORD_FOR_TEST")),
+			// Make sure we test the client certificate method
+			opttest.Env("ARM_CLIENT_SECRET", ""),
+			opttest.Env("ACTIONS_ID_TOKEN_REQUEST_TOKEN", ""),
+			opttest.Env("ACTIONS_ID_TOKEN_REQUEST_URL", ""),
+		)
+
+		up := pt.Up(t)
+		clientConfig, clientToken := validate(t, up)
+		assert.Equal(t, os.Getenv("ARM_CLIENT_ID"), clientConfig["clientId"])
+		assert.Equal(t, os.Getenv("ARM_CLIENT_ID"), clientToken["appid"])
+		assert.Equal(t, "app", clientToken["idtyp"])
+	})
+
+	t.Run("CLI", func(t *testing.T) {
+		// AZURE_CONFIG_DIR_FOR_TEST is set by the GH workflow build-test.yml
+		// to provide an isolated configuration directory for the Azure CLI.
+		configDir := os.Getenv("AZURE_CONFIG_DIR_FOR_TEST")
+		if configDir == "" {
+			t.Skip("Skipping CLI test without AZURE_CONFIG_DIR_FOR_TEST")
+		}
+		t.Setenv("AZURE_CONFIG_DIR", configDir)
+
+		pt := newPulumiTest(t, "azidentity",
+			// Make sure we test the CLI method
+			opttest.Env("ARM_USE_MSI", "false"),
+			opttest.Env("ARM_USE_OIDC", "false"),
+			opttest.Env("ARM_CLIENT_ID", ""),
+			opttest.Env("ARM_CLIENT_SECRET", ""),
+			opttest.Env("ARM_CLIENT_CERTIFICATE_PATH", ""),
+			opttest.Env("ARM_CLIENT_CERTIFICATE_PASSWORD", ""),
+			opttest.Env("ACTIONS_ID_TOKEN_REQUEST_TOKEN", ""),
+			opttest.Env("ACTIONS_ID_TOKEN_REQUEST_URL", ""),
+		)
+
+		up := pt.Up(t)
+		clientConfig, clientToken := validate(t, up)
+		assert.Equal(t, "04b07795-8ddb-461a-bbee-02f9e1bf7b46", clientConfig["clientId"])
+		assert.Equal(t, "04b07795-8ddb-461a-bbee-02f9e1bf7b46", clientToken["appid"])
+		assert.Equal(t, "user", clientToken["idtyp"])
+	})
+}
+
 func TestUpgradeKeyVault_2_76_0(t *testing.T) {
 	upgradeTest(t, "upgrade-keyvault", "2.76.0")
 }
@@ -226,4 +351,13 @@ func getLocation() string {
 	}
 
 	return azureLocation
+}
+
+func parseJwtUnverified(tokenString string) (jwt.MapClaims, error) {
+	token, _, err := new(jwt.Parser).ParseUnverified(tokenString, jwt.MapClaims{})
+	if err != nil {
+		return nil, err
+	}
+	claims, _ := token.Claims.(jwt.MapClaims)
+	return claims, nil
 }
