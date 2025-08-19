@@ -16,7 +16,6 @@ import (
 )
 
 // Subscription represents a Subscription from the Azure CLI
-// https://github.com/Azure/go-autorest/blob/33e12ab7683c1c236a863ccfbfdd78c626f7fe28/autorest/azure/cli/profile.go#L35
 type Subscription struct {
 	EnvironmentName string `json:"environmentName"`
 	ID              string `json:"id"`
@@ -52,6 +51,8 @@ const cliTimeout = 10 * time.Second
 
 // defaultAzSubscriptionProvider invokes the Azure CLI to acquire a subscription. It assumes
 // callers have verified that all string arguments are safe to pass to the CLI.
+// this code is derived from "CLI token provider" code in the Azure SDK for Go:
+// https://github.com/Azure/azure-sdk-for-go/blob/519e8ab1a0e433b755c31ebaa6b177dfc83cb838/sdk/azidentity/azure_cli_credential.go#L117-L172
 var defaultAzSubscriptionProvider = func(ctx context.Context, subscriptionID string) (*Subscription, error) {
 	// set a default timeout for this authentication iff the application hasn't done so already
 	var cancel context.CancelFunc
