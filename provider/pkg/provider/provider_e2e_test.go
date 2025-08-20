@@ -169,14 +169,14 @@ func TestAzidentity(t *testing.T) {
 			t.Skip("Skipping OIDC test without OIDC_ARM_CLIENT_ID")
 		}
 
-		pt := newPulumiTest(t, "azidentity",
-			opttest.Env("ARM_USE_OIDC", "true"),
-			opttest.Env("ARM_CLIENT_ID", oidcClientId),
-			// Make sure we test the OIDC method
-			opttest.Env("ARM_CLIENT_SECRET", ""),
-			opttest.Env("ARM_CLIENT_CERTIFICATE_PATH", ""),
-			opttest.Env("ARM_CLIENT_CERTIFICATE_PASSWORD", ""),
-		)
+		t.Setenv("ARM_USE_OIDC", "true")
+		t.Setenv("ARM_CLIENT_ID", oidcClientId)
+		// Make sure we test the OIDC method
+		t.Setenv("ARM_CLIENT_SECRET", "")
+		t.Setenv("ARM_CLIENT_CERTIFICATE_PATH", "")
+		t.Setenv("ARM_CLIENT_CERTIFICATE_PASSWORD", "")
+
+		pt := newPulumiTest(t, "azidentity")
 
 		up := pt.Up(t)
 		clientConfig, clientToken := validate(t, up)
@@ -191,14 +191,14 @@ func TestAzidentity(t *testing.T) {
 			t.Skip("Skipping SP test without ARM_CLIENT_SECRET")
 		}
 
-		pt := newPulumiTest(t, "azidentity",
-			opttest.Env("ARM_CLIENT_ID", os.Getenv("ARM_CLIENT_ID")),
-			opttest.Env("ARM_CLIENT_SECRET", clientSecret),
-			// Make sure we test the client secret method
-			opttest.Env("ARM_CLIENT_CERTIFICATE_PASSWORD", ""),
-			opttest.Env("ACTIONS_ID_TOKEN_REQUEST_TOKEN", ""),
-			opttest.Env("ACTIONS_ID_TOKEN_REQUEST_URL", ""),
-		)
+		t.Setenv("ARM_CLIENT_ID", os.Getenv("ARM_CLIENT_ID"))
+		t.Setenv("ARM_CLIENT_SECRET", clientSecret)
+		// Make sure we test the client secret method
+		t.Setenv("ARM_CLIENT_CERTIFICATE_PASSWORD", "")
+		t.Setenv("ACTIONS_ID_TOKEN_REQUEST_TOKEN", "")
+		t.Setenv("ACTIONS_ID_TOKEN_REQUEST_URL", "")
+
+		pt := newPulumiTest(t, "azidentity")
 
 		up := pt.Up(t)
 		clientConfig, clientToken := validate(t, up)
@@ -213,15 +213,15 @@ func TestAzidentity(t *testing.T) {
 			t.Skip("Skipping SP test without ARM_CLIENT_CERTIFICATE_PATH_FOR_TEST")
 		}
 
-		pt := newPulumiTest(t, "azidentity",
-			opttest.Env("ARM_CLIENT_ID", os.Getenv("ARM_CLIENT_ID")),
-			opttest.Env("ARM_CLIENT_CERTIFICATE_PATH", certPath),
-			opttest.Env("ARM_CLIENT_CERTIFICATE_PASSWORD", os.Getenv("ARM_CLIENT_CERTIFICATE_PASSWORD_FOR_TEST")),
-			// Make sure we test the client certificate method
-			opttest.Env("ARM_CLIENT_SECRET", ""),
-			opttest.Env("ACTIONS_ID_TOKEN_REQUEST_TOKEN", ""),
-			opttest.Env("ACTIONS_ID_TOKEN_REQUEST_URL", ""),
-		)
+		t.Setenv("ARM_CLIENT_ID", os.Getenv("ARM_CLIENT_ID"))
+		t.Setenv("ARM_CLIENT_CERTIFICATE_PATH", certPath)
+		t.Setenv("ARM_CLIENT_CERTIFICATE_PASSWORD", os.Getenv("ARM_CLIENT_CERTIFICATE_PASSWORD_FOR_TEST"))
+		// Make sure we test the client certificate method
+		t.Setenv("ARM_CLIENT_SECRET", "")
+		t.Setenv("ACTIONS_ID_TOKEN_REQUEST_TOKEN", "")
+		t.Setenv("ACTIONS_ID_TOKEN_REQUEST_URL", "")
+
+		pt := newPulumiTest(t, "azidentity")
 
 		up := pt.Up(t)
 		clientConfig, clientToken := validate(t, up)
@@ -239,18 +239,17 @@ func TestAzidentity(t *testing.T) {
 		}
 		t.Setenv("AZURE_CONFIG_DIR", configDir)
 
-		pt := newPulumiTest(t, "azidentity",
-			// Make sure we test the CLI method
-			opttest.Env("ARM_USE_MSI", "false"),
-			opttest.Env("ARM_USE_OIDC", "false"),
-			opttest.Env("ARM_CLIENT_ID", ""),
-			opttest.Env("ARM_CLIENT_SECRET", ""),
-			opttest.Env("ARM_CLIENT_CERTIFICATE_PATH", ""),
-			opttest.Env("ARM_CLIENT_CERTIFICATE_PASSWORD", ""),
-			opttest.Env("ACTIONS_ID_TOKEN_REQUEST_TOKEN", ""),
-			opttest.Env("ACTIONS_ID_TOKEN_REQUEST_URL", ""),
-		)
+		// Make sure we test the CLI method
+		t.Setenv("ARM_USE_MSI", "false")
+		t.Setenv("ARM_USE_OIDC", "false")
+		t.Setenv("ARM_CLIENT_ID", "")
+		t.Setenv("ARM_CLIENT_SECRET", "")
+		t.Setenv("ARM_CLIENT_CERTIFICATE_PATH", "")
+		t.Setenv("ARM_CLIENT_CERTIFICATE_PASSWORD", "")
+		t.Setenv("ACTIONS_ID_TOKEN_REQUEST_TOKEN", "")
+		t.Setenv("ACTIONS_ID_TOKEN_REQUEST_URL", "")
 
+		pt := newPulumiTest(t, "azidentity")
 		up := pt.Up(t)
 		clientConfig, clientToken := validate(t, up)
 		assert.Equal(t, "04b07795-8ddb-461a-bbee-02f9e1bf7b46", clientConfig["clientId"])
