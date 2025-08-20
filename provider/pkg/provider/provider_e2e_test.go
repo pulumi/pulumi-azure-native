@@ -10,6 +10,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"os/user"
 	"path/filepath"
 	"testing"
 
@@ -29,6 +30,7 @@ import (
 	"github.com/pulumi/providertest/pulumitest/opttest"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/auto"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto/debug"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optup"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
@@ -231,13 +233,26 @@ func TestAzidentity(t *testing.T) {
 	})
 
 	t.Run("CLI", func(t *testing.T) {
-		// AZURE_CONFIG_DIR_FOR_TEST is set by the GH workflow build-test.yml
-		// to provide an isolated configuration directory for the Azure CLI.
-		configDir := os.Getenv("AZURE_CONFIG_DIR_FOR_TEST")
-		if configDir == "" {
-			t.Skip("Skipping CLI test without AZURE_CONFIG_DIR_FOR_TEST")
-		}
-		t.Setenv("AZURE_CONFIG_DIR", configDir)
+		// // AZURE_CONFIG_DIR_FOR_TEST is set by the GH workflow build-test.yml
+		// // to provide an isolated configuration directory for the Azure CLI.
+		// configDir := os.Getenv("AZURE_CONFIG_DIR_FOR_TEST")
+		// if configDir == "" {
+		// 	t.Skip("Skipping CLI test without AZURE_CONFIG_DIR_FOR_TEST")
+		// }
+		// t.Setenv("AZURE_CONFIG_DIR", configDir)
+
+		usr, err := user.Current()
+		require.NoError(t, err)
+		// .azure.tmp is created by the GH workflow build-test.yml, from the GH secret AZURE_CLI_FOLDER
+		// which is also documented in the workflow. We rename it to .azure so the `az` CLI can find it.
+		err = os.Rename(filepath.Join(usr.HomeDir, ".azure.tmp"), filepath.Join(usr.HomeDir, ".azure"))
+		require.NoError(t, err)
+
+		// Prevent later tests from accidentally picking up the .azure folder because authentication
+		// falls back to CLI when other methods are misconfigured.
+		defer func() {
+			_ = os.Rename(filepath.Join(usr.HomeDir, ".azure"), filepath.Join(usr.HomeDir, ".azure.tmp"))
+		}()
 
 		// Make sure we test the CLI method
 		t.Setenv("ARM_USE_MSI", "false")
@@ -250,7 +265,7 @@ func TestAzidentity(t *testing.T) {
 		t.Setenv("ACTIONS_ID_TOKEN_REQUEST_URL", "")
 
 		pt := newPulumiTest(t, "azidentity")
-		up := pt.Up(t)
+		up := pt.Up(t, optup.DebugLogging(debugLogging()))
 		clientConfig, clientToken := validate(t, up)
 		assert.Equal(t, "04b07795-8ddb-461a-bbee-02f9e1bf7b46", clientConfig["clientId"])
 		assert.Equal(t, "04b07795-8ddb-461a-bbee-02f9e1bf7b46", clientToken["appid"])
@@ -359,4 +374,14 @@ func parseJwtUnverified(tokenString string) (jwt.MapClaims, error) {
 	}
 	claims, _ := token.Claims.(jwt.MapClaims)
 	return claims, nil
+}
+
+func debugLogging() debug.LoggingOptions {
+	var level uint = 9
+	return debug.LoggingOptions{
+		LogLevel:      &level,
+		Debug:         true,
+		FlowToPlugins: true,
+		LogToStdErr:   true,
+	}
 }
