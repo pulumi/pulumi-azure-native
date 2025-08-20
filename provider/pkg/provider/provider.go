@@ -396,7 +396,14 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 	return &rpc.InvokeResponse{Return: result}, nil
 }
 
-func (k *azureNativeProvider) getClientConfig(ctx context.Context) (*ClientConfig, error) {
+func (k *azureNativeProvider) getClientConfig(ctx context.Context) (config *ClientConfig, err error) {
+	defer func() {
+		if r := recover(); r != nil {
+			config = nil
+			err = fmt.Errorf("panic recovered in getClientConfig: %v", r)
+		}
+	}()
+
 	if !util.EnableAzcoreBackend() {
 		auth, err := k.getAuthConfig()
 		if err != nil {
@@ -425,7 +432,14 @@ func (k *azureNativeProvider) getClientConfig(ctx context.Context) (*ClientConfi
 	return GetClientConfig(ctx, &k.authConfig, k.credential)
 }
 
-func (k *azureNativeProvider) getClientToken(ctx context.Context, endpointArg resource.PropertyValue) (string, error) {
+func (k *azureNativeProvider) getClientToken(ctx context.Context, endpointArg resource.PropertyValue) (token string, err error) {
+	defer func() {
+		if r := recover(); r != nil {
+			token = ""
+			err = fmt.Errorf("panic recovered in getClientToken: %v", r)
+		}
+	}()
+
 	endpoint := k.tokenEndpoint(endpointArg)
 	logging.V(9).Infof("getting a token credential for %s", endpoint)
 
