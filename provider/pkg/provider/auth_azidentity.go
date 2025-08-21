@@ -98,11 +98,11 @@ func NewAzCoreIdentity(ctx context.Context, authConf *authConfiguration, baseCli
 // "github.com/hashicorp/go-azure-helpers/authentication".Builder.Build() in some ways, to minimize changes in provider
 // behavior when upgrading authentication dependencies from go-azure-helpers to azidentity. Namely:
 //   - The order in which the the different authentication methods are attempted is the same:
-//     1. Service Principal with client certificate
-//     2. Service Principal with client secret
-//     3. OIDC
-//     4. Managed Identity
-//     5. Default Credential
+//.    1. Default Credential
+//     2. Service Principal with client certificate
+//     3. Service Principal with client secret
+//     4. OIDC
+//     5. Managed Identity
 //     6. Azure CLI
 //   - When a method is configured but instantiating the credential fails, we return an error and do not fall through to
 //     the next method.
